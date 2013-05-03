@@ -1,11 +1,15 @@
+# CVS $Revision: $ $Author: $ -- Fri May  3 14:36:53 2013 -- reformated by prettylst.pl v1.50 (build 19967)
 
 
-CLASS:Barbarian	HD:12		TYPE:PC	CLASSTYPE:PC	ABB:Brb	MAXLEVEL:20	EXCLASS:Ex-Barbarian	SOURCEPAGE:p.24	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	ROLE:Combat
+# Class Name	Hit Dice	Type		Class Type		Abbreviation	Max Level	Ex Class			Source Page		Save checks bonus											Combat bonus					Monster Role
+CLASS:Barbarian	HD:12		TYPE:PC	CLASSTYPE:PC	ABB:Brb		MAXLEVEL:20	EXCLASS:Ex-Barbarian	SOURCEPAGE:p.24	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	ROLE:Combat
+# Class Name	Restricted AL
 CLASS:Barbarian	!PREALIGN:LG,LN,LE
+# Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Barbarian	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate|Jump|Listen|Ride|Survival|Swim
 ###Block:
 1	BONUS:VAR|BarbRageTimesLVL,BarbRagePowerLVL|CL|!PREABILITY:1,CATEGORY=ACF,TYPE.BarbarianRage
-1	BONUS:VAR|IlliteracyLVL|CL													
+1	BONUS:VAR|IlliteracyLVL|CL
 2	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE
 2	BONUS:VAR|UncannyDodgeLevel|(CL+1)/3
 3	BONUS:VAR|TrapSenseBonus|CL/3
@@ -24,12 +28,12 @@ CLASS:Barbarian	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate
 17	ABILITY:Barbarian Ability|AUTOMATIC|Tireless Rage ~ Barbarian|!PREABILITY:1,CATEGORY=ACF,TYPE.BarbarianTirelessRage
 20	ABILITY:Barbarian Ability|AUTOMATIC|Mighty Rage ~ Barbarian|!PREABILITY:1,CATEGORY=ACF,TYPE.BarbarianMightyRage
 
-# Class Name		Hit Dice	Type			Class Type		Abbreviation	Source Page			Visible	Save checks bonus											Combat bonus					Monster Role
+# Class Name		Hit Dice	Type			Class Type		Abbreviation	Source Page		Visible	Save checks bonus											Combat bonus					Monster Role
 CLASS:Ex-Barbarian	HD:12		TYPE:Base.PC	CLASSTYPE:PC	ABB:XBrb		SOURCEPAGE:p.26	VISIBLE:NO	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	ROLE:Combat
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Ex-Barbarian	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate|Jump|Listen|Ride|Survival|Swim
 ###Block:
-1	BONUS:VAR|IlliteracyLVL|CL														
+1	BONUS:VAR|IlliteracyLVL|CL
 2	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE
 2	BONUS:VAR|UncannyDodgeLevel|(CL+1)/3
 3	BONUS:VAR|TrapSense|CL/3
@@ -42,10 +46,13 @@ CLASS:Ex-Barbarian	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimid
 3	ABILITY:Barbarian Ability|AUTOMATIC|Trap Sense ~ Barbarian|!PREABILITY:1,CATEGORY=ACF,TYPE.BarbarianTrapSense
 7	ABILITY:Barbarian Ability|AUTOMATIC|Damage Reduction ~ Barbarian|!PREABILITY:1,CATEGORY=ACF,TYPE.BarbarianDamageReduction
 
-# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page			Save checks bonus											Combat bonus					Monster Role
+# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus					Monster Role
 CLASS:Bard		HD:6		TYPE:Base.PC	CLASSTYPE:PC	ABB:Brd		MAXLEVEL:20	SOURCEPAGE:p.26	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	ROLE:Bard
+# Class Name	Restricted AL
 CLASS:Bard		!PREALIGN:LG,LN,LE
+# Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Bard		STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Climb|Concentration|TYPE=Craft|Decipher Script|Diplomacy|Disguise|Escape Artist|Gather Information|Hide|Jump|TYPE=Knowledge|Listen|Move Silently|TYPE=Perform|TYPE=Profession|Sense Motive|Sleight of Hand|Speak Language|Spellcraft|Swim|Tumble|Use Magic Device
+# Class Name	Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Bard		SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Bard|CL
 ###Block: Bardic abilities level definitions.
 1	BONUS:VAR|BardicKnowledgeLvl|CL
@@ -91,7 +98,7 @@ CLASS:Bard		SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Bard|CL
 
 # Ex Bard	SOURCEPAGE:p.30	Doesn't do anything except prevent leveling in the class.
 
-# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page			Bonus Languages					Save checks bonus											Combat bonus					Add domain number		Monster Role
+# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Bonus Languages					Save checks bonus											Combat bonus					Add domain number		Monster Role
 CLASS:Cleric	HD:8		TYPE:Base.PC	CLASSTYPE:PC	ABB:Clr		MAXLEVEL:20	SOURCEPAGE:p.30	LANGBONUS:Abyssal,Celestial,Infernal	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:DOMAIN|NUMBER|2	ROLE:Cleric
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Cleric	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (History)|Knowledge (Religion)|Knowledge (The Planes)|TYPE=Profession|Spellcraft
@@ -141,10 +148,13 @@ CLASS:Cleric	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 19	CAST:6,5,5,5,5,5,4,4,3,3
 20	CAST:6,5,5,5,5,5,4,4,4,4
 
-# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Ex Class		Source Page			Bonus Languages	Automatically Gained Language	Save checks bonus											Combat bonus					Monster Role
+# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Ex Class		Source Page		Bonus Languages	Automatically Gained Language	Save checks bonus											Combat bonus					Monster Role
 CLASS:Druid		HD:8		TYPE:Base.PC	CLASSTYPE:PC	ABB:Drd		MAXLEVEL:20	EXCLASS:Ex Druid	SOURCEPAGE:p.33	LANGBONUS:Sylvan	AUTO:LANG|Druidic			BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	ROLE:Druid
+# Class Name	Restricted AL
 CLASS:Druid		!PREALIGN:LG,LE,CG,CE
+# Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Druid		STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nature)|Listen|TYPE=Profession|Ride|Spellcraft|Spot|Survival|Swim
+# Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels											Caster level
 CLASS:Druid		SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Druid|CL
 ###Block:
 1	TEMPLATE:Timeless Body
@@ -174,7 +184,7 @@ CLASS:Druid		SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 5	ABILITY:Druid Ability|AUTOMATIC|Wild Shape ~ Druid|!PREABILITY:1,CATEGORY=ACF,TYPE.DruidWildShape
 9	ABILITY:Druid Ability|AUTOMATIC|Venom Immunity ~ Druid|!PREABILITY:1,CATEGORY=ACF,TYPE.DruidVenomImmunity
 13	ABILITY:Druid Ability|AUTOMATIC|A Thousand Faces ~ Druid|!PREABILITY:1,CATEGORY=ACF,TYPE.DruidAThousandFaces
-15	ABILITY:Druid Ability|AUTOMATIC|Timeless Body ~ Druid|!PREABILITY:1,CATEGORY=ACF,TYPE.DruidTimelessBody	
+15	ABILITY:Druid Ability|AUTOMATIC|Timeless Body ~ Druid|!PREABILITY:1,CATEGORY=ACF,TYPE.DruidTimelessBody
 ###Block: Normal Progression
 1	CAST:3,1
 2	CAST:4,2
@@ -197,14 +207,16 @@ CLASS:Druid		SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 19	CAST:6,5,5,5,5,5,4,4,3,3
 20	CAST:6,5,5,5,5,5,4,4,4,4
 
-# Class Name	Hit Dice	Type			Class Type		Abbreviation	Source Page			Bonus Languages	Visible	Automatically Gained Language	Save checks bonus											Combat bonus					Monster Role
-CLASS:Ex Druid	HD:8		TYPE:Base.PC	CLASSTYPE:PC	ABB:XDrd	MAXLEVEL:20	SOURCEPAGE:p.37	LANGBONUS:Sylvan	VISIBLE:NO	AUTO:LANG|Druidic			BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	ROLE:Druid
+# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Bonus Languages	Visible	Automatically Gained Language	Save checks bonus											Combat bonus					Monster Role
+CLASS:Ex Druid	HD:8		TYPE:Base.PC	CLASSTYPE:PC	ABB:XDrd		MAXLEVEL:20	SOURCEPAGE:p.37	LANGBONUS:Sylvan	VISIBLE:NO	AUTO:LANG|Druidic			BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	ROLE:Druid
+# Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Ex Druid	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nature)|Listen|TYPE=Profession|Ride|Spellcraft|Spot|Survival|Swim
 ###Block:
 1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Druid|!PREABILITY:1,CATEGORY=ACF,TYPE.DruidProficiencies
 
-# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page			Define			Save checks bonus											Combat bonus					Monster Role
+# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Define			Save checks bonus											Combat bonus					Monster Role
 CLASS:Fighter	HD:10		TYPE:Base.PC	CLASSTYPE:PC	ABB:Ftr		MAXLEVEL:20	SOURCEPAGE:p.37	DEFINE:FighterLVL|CL	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	ROLE:Combat
+# Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Fighter	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate|Jump|Ride|Swim
 ###Block:
 1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Fighter|!PREABILITY:1,CATEGORY=ACF,TYPE.FighterProficiencies
@@ -216,17 +228,19 @@ CLASS:Fighter	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate|J
 1	ABILITY:Fighter Ability|AUTOMATIC|Greater Weapon Specialization Qualify|!PREABILITY:1,CATEGORY=ACF,TYPE.FighterGreaterWeaponSpecialization
 
 
-# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page			Define			Save checks bonus								Combat bonus
-CLASS:Monk		HD:8		TYPE:Base.PC	CLASSTYPE:PC	ABB:Mnk		MAXLEVEL:20	SOURCEPAGE:p.39	DEFINE:FlurryOfBlows|1	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	DEFINE:MonkLVL|CL
+# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Define						Save checks bonus								Combat bonus
+CLASS:Monk		HD:8		TYPE:Base.PC	CLASSTYPE:PC	ABB:Mnk		MAXLEVEL:20	SOURCEPAGE:p.39	DEFINE:FlurryOfBlows|1	DEFINE:MonkLVL|CL	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Required AL
 CLASS:Monk		PREALIGN:LG,LN,LE
+# Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Monk		STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Diplomacy|Escape Artist|Hide|Jump|Knowledge (Arcana)|Knowledge (Religion)|Listen|Move Silently|TYPE=Perform|TYPE=Profession|Sense Motive|Spot|Swim|Tumble
 ###Block:
 1	KIT:1|Monk Flurry of Blows
 ###Block:
 1	BONUS:VAR|MonkACLVL|CL
 1	BONUS:VAR|MonkMoveLVL|CL
-1	BONUS:VAR|FlurryLVL,StunningFistMonkLVL|MonkLVL			
-1	BONUS:VAR|MonkBonusFeatLVL|CL							
+1	BONUS:VAR|FlurryLVL,StunningFistMonkLVL|MonkLVL
+1	BONUS:VAR|MonkBonusFeatLVL|CL
 4	BONUS:VAR|KiStrikeLVL|CL
 1	BONUS:VAR|MonkFeatCount|1
 2	BONUS:VAR|MonkFeatCount|1
@@ -265,7 +279,7 @@ CLASS:Monk		STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Diplom
 19	ABILITY:Monk Ability|AUTOMATIC|Empty Body ~ Monk|!PREABILITY:1,CATEGORY=ACF,TYPE.MonkEmptyBody
 20	ABILITY:Monk Ability|AUTOMATIC|Perfect Self ~ Monk|!PREABILITY:1,CATEGORY=ACF,TYPE.MonkPerfectSelf
 ###Block: Unarmed Block
-1		UMULT:2
+1	UMULT:2
 ###Block:
 1	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6
 2	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6
@@ -289,7 +303,7 @@ CLASS:Monk		STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Diplom
 20	UDAM:1d8,1d10,2d6,2d8,2d10,4d8,6d8,8d8,12d8
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Ex Class			Source Page				Define			Save checks bonus											Combat bonus					Monster Role
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Ex Class			Source Page		Define			Save checks bonus											Combat bonus					Monster Role
 CLASS:Paladin	HD:10		TYPE:Base.PC	ABB:Pld		MAXLEVEL:20	EXCLASS:Ex Paladin	SOURCEPAGE:p.42	DEFINE:PaladinLvl|CL	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	ROLE:Combat
 # Class Name	Required AL
 CLASS:Paladin	PREALIGN:LG
@@ -336,14 +350,14 @@ CLASS:Paladin	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2
 19	CAST:0,3,3,3,2
 20	CAST:0,3,3,3,3
 
-# Class Name	Hit Dice	Type			Class Type		Abbreviation	Source Page				Visible	Save checks bonus											Combat bonus					Monster Role
-CLASS:Ex Paladin	HD:10		TYPE:Base.PC	CLASSTYPE:PC	ABB:XPal	MAXLEVEL:20	SOURCEPAGE:p.44	VISIBLE:NO	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	ROLE:Combat
+# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Visible	Save checks bonus											Combat bonus					Monster Role
+CLASS:Ex Paladin	HD:10		TYPE:Base.PC	CLASSTYPE:PC	ABB:XPal		MAXLEVEL:20	SOURCEPAGE:p.44	VISIBLE:NO	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	ROLE:Combat
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Ex Paladin	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nobility and Royalty)|Knowledge (Religion)|TYPE=Profession|Ride|Sense Motive
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Paladin|!PREABILITY:1,CATEGORY=ACF,TYPE.PaladinProficiencies
 
-# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page				Save checks bonus											Combat bonus					Monster Role
+# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus					Monster Role
 CLASS:Ranger	HD:8		TYPE:Base.PC	CLASSTYPE:PC	ABB:Rgr		MAXLEVEL:20	SOURCEPAGE:p.46	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	ROLE:Combat.Skill
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Ranger	STARTSKILLPTS:6	CSKILL:Climb|Concentration|TYPE=Craft|Handle Animal|Heal|Hide|Jump|Knowledge (Dungeoneering)|Knowledge (Geography)|Knowledge (Nature)|Listen|Move Silently|TYPE=Profession|Ride|Search|Spot|Survival|Swim|Use Rope
@@ -389,15 +403,16 @@ CLASS:Ranger	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 19	CAST:0,3,3,3,2
 20	CAST:0,3,3,3,3
 
-# Class Name	Hit Dice	Type		Class Type		Abbreviation	Max Level	Source Page				Save checks bonus												Combat bonus					Monster Role
-CLASS:Rogue		HD:6		TYPE:PC	CLASSTYPE:PC	ABB:Rog		MAXLEVEL:20	SOURCEPAGE:p.49	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	ROLE:Skill	DEFINE:RogueLVL|CL
+# Class Name	Hit Dice	Type		Class Type		Abbreviation	Max Level	Source Page		Define			Save checks bonus												Combat bonus					Monster Role
+CLASS:Rogue		HD:6		TYPE:PC	CLASSTYPE:PC	ABB:Rog		MAXLEVEL:20	SOURCEPAGE:p.49	DEFINE:RogueLVL|CL	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	ROLE:Skill
+# Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Rogue		STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE=Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Intimidate|Jump|Knowledge (Local)|Listen|Move Silently|Open Lock|TYPE=Perform|TYPE=Profession|Search|Sense Motive|Sleight of Hand|Spot|Swim|Tumble|Use Magic Device|Use Rope
 ###Block: Level progression
-1	BONUS:VAR|RogueSneakAttackLVL|CL												
+1	BONUS:VAR|RogueSneakAttackLVL|CL
 2	BONUS:VAR|EvasionUsable,ImprovedEvasionUsable|1|TYPE=Prerequisite|PREEQUIP:1,TYPE=Medium,TYPE=Heavy
-3	BONUS:VAR|RogueTrapSenseLVL|CL											
+3	BONUS:VAR|RogueTrapSenseLVL|CL
 4	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE
-4	BONUS:VAR|UncannyDodgeLevel|CL/4	
+4	BONUS:VAR|UncannyDodgeLevel|CL/4
 ###Block: Ability Pool
 10	BONUS:ABILITYPOOL|Rogue Special Ability|min(4,(CL-7)/3)
 ###Block:
@@ -410,8 +425,11 @@ CLASS:Rogue		STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE=Craft|Deci
 8	ABILITY:Rogue Ability|AUTOMATIC|Improved Uncanny Dodge ~ Rogue|!PREABILITY:1,CATEGORY=ACF,TYPE.RogueImprovedUncannyDodge
 10	ABILITY:Rogue Ability|AUTOMATIC|Special Abilities ~ Rogue|!PREABILITY:1,CATEGORY=ACF,TYPE.RogueSpecialAbilities
 
-CLASS:Sorcerer	HD:4		TYPE:PC	CLASSTYPE:PC	ABB:Sor	MAXLEVEL:20	SOURCEPAGE:p.51	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	ROLE:Sorcerer	DEFINE:SorcererLVL|CL
+# Class Name	Hit Dice	Type		Class Type		Abbreviation	Max Level	Source Page		Define			Save checks bonus											Combat bonus					Monster Role
+CLASS:Sorcerer	HD:4		TYPE:PC	CLASSTYPE:PC	ABB:Sor		MAXLEVEL:20	SOURCEPAGE:p.51	DEFINE:SorcererLVL|CL	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	ROLE:Sorcerer
+# Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Sorcerer	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Knowledge (Arcana)|TYPE=Profession|Spellcraft
+# Class Name	Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Sorcerer	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Sorcerer|CL
 ###Block:
 1	ABILITY:Sorcerer Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Sorcerer|!PREABILITY:1,CATEGORY=ACF,TYPE.SorcererProficiencies
@@ -441,9 +459,11 @@ CLASS:Sorcerer	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Sorc
 19	CAST:6,6,6,6,6,6,6,6,6,4	KNOWN:9,5,5,4,4,4,3,3,3,2
 20	CAST:6,6,6,6,6,6,6,6,6,6	KNOWN:9,5,5,4,4,4,3,3,3,3
 
-# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page				Bonus Languages		Save checks bonus											Combat bonus					Monster Role
-CLASS:Wizard	HD:4		TYPE:PC	CLASSTYPE:PC	ABB:Wiz		MAXLEVEL:20	SOURCEPAGE:p.55	LANGBONUS:Draconic	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	ROLE:Wizard	DEFINE:WizardLVL|CL
+# Class Name	Hit Dice	Type		Class Type		Abbreviation	Max Level	Source Page		Bonus Languages		Define			Save checks bonus											Combat bonus					Monster Role
+CLASS:Wizard	HD:4		TYPE:PC	CLASSTYPE:PC	ABB:Wiz		MAXLEVEL:20	SOURCEPAGE:p.55	LANGBONUS:Draconic	DEFINE:WizardLVL|CL	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL/2|TYPE=Base.REPLACE	ROLE:Wizard
+# Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Wizard	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher Script|TYPE=Knowledge|TYPE=Profession|Spellcraft
+# Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels	Spellbook		Caster level
 CLASS:Wizard	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			SPELLBOOK:YES	BONUS:CASTERLEVEL|Wizard|CL
 #
 SUBCLASS:Abjurer		COST:2	PROHIBITCOST:1	CHOICE:SCHOOL|Abjuration	KNOWNSPELLSFROMSPECIALTY:1
