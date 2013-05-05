@@ -147,7 +147,16 @@ CATEGORY=Internal|Racial Traits ~ Halfling.MOD	ABILITY:Halfling Racial Trait|AUT
 # NOTES: TYPEs ClassAbility.xxxClassAbility is just a placeholder; ClassNameAbility will display in the UI; SpecialQuality is default for showing on the Sheet
 
 #Base Shared Abilities
-Uncanny Dodge									KEY:Uncanny Dodge ~ Base
+Uncanny Dodge Tracker		CATEGORY:Special Ability							KEY:Uncanny Dodge ~ Base
+
+Sneak Attack	CATEGORY:Special Ability	DEFINE:SneakAttackDice|0	DEFINE:SneakAttackDieSize|6
+
+CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Defines	
+
+Defines	CATEGORY:Internal		DEFINE:SneakAttackDice|0	DEFINE:SneakAttackDieSize|6
+
+
+
 
 Aura of Chaos															CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.Extraordinary.Aura	VISIBLE:YES	DEFINE:AuraChaos|0									DESC:Faint|PREVAREQ:AuraChaos,1	DESC:Moderate|PREVARGTEQ:AuraChaos,2|PREVARLTEQ:AuraChaos,4	DESC:Strong|PREVARGTEQ:AuraChaos,5|PREVARLTEQ:AuraChaos,10	DESC:Overwhelming|PREVARGTEQ:AuraChaos,11																				BONUS:VAR|AuraChaos|AlignmentAuraBase|!PREDOMAIN:1,Chaos
 Aura of Evil															CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.Extraordinary.Aura	VISIBLE:YES	DEFINE:AuraEvil|0										DESC:Faint|PREVAREQ:AuraEvil,1	DESC:Moderate|PREVARGTEQ:AuraEvil,2|PREVARLTEQ:AuraEvil,4	DESC:Strong|PREVARGTEQ:AuraEvil,5|PREVARLTEQ:AuraEvil,10	DESC:Overwhelming|PREVARGTEQ:AuraEvil,11																				BONUS:VAR|AuraEvil|AlignmentAuraBase|!PREDOMAIN:1,Evil
