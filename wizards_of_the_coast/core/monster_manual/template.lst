@@ -1,7 +1,6 @@
 # CVS $Revision: $ $Author: $ -- Fri May  3 14:36:53 2013 -- reformated by prettylst.pl v1.50 (build 19967)
 
 
-
 # Non-Abilities
 # Template Name			Visible	Define
 Non-Ability ~ Strength		VISIBLE:NO	DEFINE:LOCK.STR|10
@@ -11,6 +10,7 @@ Non-Ability ~ Intelligence	VISIBLE:NO	DEFINE:LOCK.INT|10
 Non-Ability ~ Wisdom		VISIBLE:NO	DEFINE:LOCK.WIS|10
 Non-Ability ~ Charisma		VISIBLE:NO	DEFINE:LOCK.CHA|10
 
+#COMMENT: RSRD Version
 
 ###Block: From the RSRD Template
 Half Hitdie		HITDIE:%/2|CLASS.TYPE=Monster	VISIBLE:NO
@@ -102,7 +102,7 @@ Half Dragon Wings ~ Fast	OUTPUTNAME:Half Dragon Wings	VISIBLE:NO	PREMOVE:1,Walk=
 # Template Name					Challenge Rating	Size							Nb Legs	Nb Hands	Visible		Damage Reduction														Level Adjustment	Template																													Define																									Required Race						Required Size	Required Template			Prohibited Template				Combat bonus						Bonus to HP																		Add to base move										Bonus to skill																					Bonus to skill point for a level																																																																								Bonus to nb of slots					Stat bonus														Modify VAR				Weapon prof. bonus			Class Skill								Ability																									Virtual Feat		Race Subtype			Add Levels				Natural Attacks
 Lycanthrope																				VISIBLE:YES																					TEMPLATE:CHOOSE:Werebear|Wereboar|Wererat|Weretiger|Werewolf|Dire Werewolf|Dire Wereboar	TEMPLATE:CHOOSE:Natural Lycanthrope|Afflicted Lycanthrope						DEFINE:NoTypeTraits|1																							PRERACE:1,RACETYPE=Humanoid,RACETYPE=Giant									!PRETEMPLATE:1,Lycanthrope			BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK		BONUS:HP|CURRENTMAX|(AnimalCon/2)*AnimalHD|!PRETEMPLATE:1,Lycanthrope (Animal Form),Lycanthrope (Hybrid Form)																																																																																																																									BONUS:STAT|WIS|2													BONUS:VAR|HasLowLightVision|1																ABILITY:Special Ability|AUTOMATIC|Scent																	VFEAT:Iron Will		RACESUBTYPE:Shapechanger
 Natural Lycanthrope																		VISIBLE:NO																		LEVELADJUSTMENT:3																																																																				PRETEMPLATE:1,Lycanthrope	!PRETEMPLATE:1,Afflicted Lycanthrope
-Afflicted Lycanthrope																		VISIBLE:NO																		LEVELADJUSTMENT:2																																																																				PRETEMPLATE:1,Lycanthrope	!PRETEMPLATE:1,Natural Lycanthrope
+Afflicted Lycanthrope																		VISIBLE:NO																		LEVELADJUSTMENT:2																																																																				PRETEMPLATE:1,Lycanthrope	!PRETEMPLATE:1,Natural Lycanthrope	CSKILL:Control Shape
 
 Lycanthrope (Animal Form)						SIZE:AnimalSize					LEGS:4	HANDS:0	VISIBLE:YES		DR:10/silver|PRETEMPLATE:1,Natural Lycanthrope	DR:5/silver|PRETEMPLATE:1,Afflicted Lycanthrope				TEMPLATE:CHOOSE:Werebear Attacks|Wereboar Attacks|Wererat Attacks|Weretiger Attacks|Werewolf Attacks|Dire Werewolf Attacks|Dire Wereboar Attacks																																											PRETEMPLATE:1,Lycanthrope	!PRETEMPLATE:1,Lycanthrope (Hybrid Form)	BONUS:COMBAT|AC|AnimalAC|TYPE=NaturalArmor	BONUS:HP|CURRENTMAX|-((AnimalCon/2)*(TL-AnimalHD))											BONUS:MOVEADD|TYPE.Walk|AnimalMove-MOVEBASE																																																																																																									BONUS:SLOTS|WEAPON|-2	BONUS:SLOTS|ARMOR|-1	BONUS:STAT|STR|AnimalStr	BONUS:STAT|DEX|AnimalDex	BONUS:STAT|CON|AnimalCon																					
 
