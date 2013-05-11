@@ -6,12 +6,10 @@ CLASS:Barbarian	HD:12		TYPE:PC	CLASSTYPE:PC	ABB:Brb		MAXLEVEL:20	EXCLASS:Ex-Barb
 # Class Name	Restricted AL
 CLASS:Barbarian	!PREALIGN:LG,LN,LE
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Barbarian	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate|Jump|Listen|Ride|Survival|Swim
+CLASS:Barbarian	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate|Jump|Listen|Ride|Survival|Swim	DEFINE:IlliteracyLVL|CL
 ###Block:
 1	BONUS:VAR|BarbRageTimesLVL,BarbRagePowerLVL|CL|!PREABILITY:1,CATEGORY=ACF,TYPE.BarbarianRage
-1	BONUS:VAR|IlliteracyLVL|CL
 2	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE
-2	BONUS:VAR|UncannyDodgeLevel|(CL+1)/3
 3	BONUS:VAR|TrapSenseBonus|CL/3
 7	BONUS:VAR|BarbarianDRLVL|CL
 ###Block: Level Progression
@@ -29,13 +27,11 @@ CLASS:Barbarian	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate
 20	ABILITY:Barbarian Ability|AUTOMATIC|Mighty Rage ~ Barbarian|!PREABILITY:1,CATEGORY=ACF,TYPE.BarbarianMightyRage
 
 # Class Name		Hit Dice	Type			Class Type		Abbreviation	Source Page		Visible	Save checks bonus											Combat bonus					Monster Role
-CLASS:Ex-Barbarian	HD:12		TYPE:Base.PC	CLASSTYPE:PC	ABB:XBrb		SOURCEPAGE:p.26	VISIBLE:NO	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	ROLE:Combat
+CLASS:Ex-Barbarian	HD:12		TYPE:Base.PC	CLASSTYPE:PC	ABB:XBrb		SOURCEPAGE:p.26	VISIBLE:NO	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	ROLE:Combat	DEFINE:IlliteracyLVL|CL
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Ex-Barbarian	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate|Jump|Listen|Ride|Survival|Swim
 ###Block:
-1	BONUS:VAR|IlliteracyLVL|CL
 2	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE
-2	BONUS:VAR|UncannyDodgeLevel|(CL+1)/3
 3	BONUS:VAR|TrapSense|CL/3
 7	BONUS:VAR|BarbarianDRLVL|CL
 ###Block: Level progression
