@@ -110,9 +110,9 @@ Undead Type			CATEGORY:Special Ability	TYPE:RaceType													TEMPLATE:Non-Ab
 Vermin Type			CATEGORY:Special Ability	TYPE:RaceType																																																																																									BONUS:VAR|DarkvisionRange|60|TYPE=Base																								
 # Creature Subtype Traits
 Air Subtype			CATEGORY:Special Ability	TYPE:SubRaceType
-Angel Subtype		CATEGORY:Special Ability	TYPE:SubRaceType																	ABILITY:Special Ability|AUTOMATIC|Immunity to Acid|Immunity to Cold|Immunity to Petrification|Protective Aura ~ Angel|Tongues ~ Angel	ABILITY:Special Ability|AUTOMATIC|Low-Light Vision																																												BONUS:VAR|DarkvisionRange|60|TYPE=Base
+Angel Subtype		CATEGORY:Special Ability	TYPE:SubRaceType	SOURCEPAGE:p.10																ABILITY:Special Ability|AUTOMATIC|Immunity to Acid|Immunity to Cold|Immunity to Petrification|Protective Aura ~ Angel|Tongues ~ Angel	ABILITY:Special Ability|AUTOMATIC|Low-Light Vision																																												BONUS:VAR|DarkvisionRange|60|TYPE=Base
 Aquatic Subtype		CATEGORY:Special Ability	TYPE:SubRaceType
-Archon Subtype		CATEGORY:Special Ability	TYPE:SubRaceType																	ABILITY:Special Ability|AUTOMATIC|Aura of Menace ~ Archon|Magic Circle against Evil ~ Archon|Teleport ~ Archon|Tongues ~ Archon|Immunity to Electricity|Immunity to Petrification	ABILITY:Special Ability|AUTOMATIC|Low-Light Vision																																		BONUS:VAR|DarkvisionRange|60|TYPE=Base
+Archon Subtype		CATEGORY:Special Ability	TYPE:SubRaceType	SOURCEPAGE:p.16																ABILITY:Special Ability|AUTOMATIC|Aura of Menace ~ Archon|Magic Circle against Evil ~ Archon|Teleport ~ Archon|Tongues ~ Archon|Immunity to Electricity|Immunity to Petrification	ABILITY:Special Ability|AUTOMATIC|Low-Light Vision																																		BONUS:VAR|DarkvisionRange|60|TYPE=Base
 Augmented Subtype		CATEGORY:Special Ability	TYPE:SubRaceType
 Chaotic Subtype		CATEGORY:Special Ability	TYPE:SubRaceType
 Cold Subtype		CATEGORY:Special Ability	TYPE:SubRaceType																	ABILITY:Special Ability|AUTOMATIC|Immunity to Cold|Vulnerability to Fire
@@ -278,6 +278,9 @@ Spell-Like Abilities		KEY:Spell-Like Abilities ~ Hound Archon	CATEGORY:Special A
 Aura of Menace			KEY:Aura of Menace ~ Hound Archon		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:YES	DESC:Will DC 16 negates.
 Change Shape			KEY:Change Shape ~ Hound Archon		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural				VISIBLE:YES	DESC:A hound archon can assume any canine form of Small to Large size. While in canine form, the hound archon loses its bite, slam, and greatsword attacks, but gains the bite attack of the form it chooses. For the purposes of this ability, canines include any doglike or wolflike animal of the animal type.
 Skills				KEY:Skills ~ Hound Archon			CATEGORY:Special Ability	TYPE:SpecialQuality						VISIBLE:YES	DESC:While in canine form, a hound archon gains a +4 circumstance bonus on Hide and Survival checks.
+
+# Hound Archon Hero
+CATEGORY=Internal|Standard Choices ~ Special Mount.MOD	COMPANIONLIST:Special Mount|Dragon (Bronze Juvenile)|PRERACE:1,Archon (Hound)
 
 # Trumpet Archon
 Spell-Like Abilities		KEY:Spell-Like Abilities ~ Trumpet Archon	CATEGORY:Special Ability	TYPE:SpecialAttack						VISIBLE:YES	DESC:At will-detect evil, continual flame, message. Caster level 12th.
@@ -736,42 +739,25 @@ Detect Thoughts						KEY:Detect Thoughts ~ Doppelganger			CATEGORY:Special Abili
 Change Shape						KEY:Change Shape ~ Doppelganger			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES																																																													DESC:A doppelganger can assume the shape of any Small or Medium humanoid. In humanoid form, the doppelganger loses its natural attacks. A doppelganger can remain in its humanoid form until it chooses to assume a new one. A change in form cannot be dispelled, but a doppelganger reverts to its natural form when killed. A true seeing spell or ability reveals its natural form.
 Skills							KEY:Skills ~ Doppelganger				CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES																																																													DESC:A doppelganger has a +4 racial bonus on Bluff and Disguise checks. *When using its change shape ability, a doppelganger gets an additional +10 circumstance bonus on Disguise checks. If it can read an opponent's mind, it gets a further +4 circumstance bonus on Bluff and Disguise checks.
 
-# DRAGONS
+# DRAGONS - 
 
-# Age
-Wyrmling		CATEGORY:Internal	TYPE:DragonAge	DEFINE:DragonAge|1	SORTKEY:DragonAge_01
-Very Young		CATEGORY:Internal	TYPE:DragonAge	DEFINE:DragonAge|2	SORTKEY:DragonAge_02
-Young			CATEGORY:Internal	TYPE:DragonAge	DEFINE:DragonAge|3	SORTKEY:DragonAge_03
-Juvenile		CATEGORY:Internal	TYPE:DragonAge	DEFINE:DragonAge|4	SORTKEY:DragonAge_04
-Young Adult		CATEGORY:Internal	TYPE:DragonAge	DEFINE:DragonAge|5	SORTKEY:DragonAge_05
-Adult			CATEGORY:Internal	TYPE:DragonAge	DEFINE:DragonAge|6	SORTKEY:DragonAge_06
-Mature Adult	CATEGORY:Internal	TYPE:DragonAge	DEFINE:DragonAge|7	SORTKEY:DragonAge_07
-Old			CATEGORY:Internal	TYPE:DragonAge	DEFINE:DragonAge|8	SORTKEY:DragonAge_08
-Very Old		CATEGORY:Internal	TYPE:DragonAge	DEFINE:DragonAge|9	SORTKEY:DragonAge_09
-Ancient		CATEGORY:Internal	TYPE:DragonAge	DEFINE:DragonAge|10	SORTKEY:DragonAge_10
-Wyrm			CATEGORY:Internal	TYPE:DragonAge	DEFINE:DragonAge|12	SORTKEY:DragonAge_11
-Great Wyrm		CATEGORY:Internal	TYPE:DragonAge	DEFINE:DragonAge|13	SORTKEY:DragonAge_12
-
-# Default Abilities by Age
-Crush (Ex)			KEY:Crush ~ Dragon						SOURCEPAGE:p.68	CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality	DESC:This special attack allows a flying or jumping dragon of at least Huge size to land on opponents as a standard action, using its whole body to crush them. Crush attacks are effective only against opponents three or more size categories smaller than the dragon (though it can attempt normal overrun or grapple attacks against larger opponents). A crush attack affects as many creatures as can fit under the dragon's body. Creatures in the affected area must succeed on a Reflex save (DC equal to that of the dragon's breath weapon) or be pinned, automatically taking bludgeoning damage during the next round unless the dragon moves off them. If the dragon chooses to maintain the pin, treat it as a normal grapple attack. Pinned opponents take damage from the crush each round if they don't escape. A crush attack deals the indicated damage plus 1-1/2 times the dragon's Strength bonus (round down). Grappling: Dragons do not favor grapple attacks, though their crush attack (and Snatch feat, if they know it) use normal grapple rules. A dragon can always use its breath weapon while grappling, as well as its spells and spell-like or supernatural abilities, provided it succeeds on Concentration checks.
-Tail Sweep (Ex)		KEY:Tail Sweep ~ Dragon						SOURCEPAGE:p.68	CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality	DESC:This special attack allows a dragon of at least Gargantuan size to sweep with its tail as a standard action. The sweep affects a half-circle with a radius of 30 feet (or 40 feet for a Colossal dragon), extending from an intersection on the edge of the dragon's space in any direction. Creatures within the swept area are affected if they are four or more size categories smaller than the dragon. A tail sweep automatically deals the indicated damage plus 1-1/2 times the dragon's Strength bonus (round down). Affected creatures can attempt Reflex saves to take half damage (DC equal to that of the dragon's breath weapon).
-Breath Weapon (Su)	KEY:Breath Weapon ~ Dragon					SOURCEPAGE:p.69	CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality	DESC:Using a breath weapon is a standard action. Once a dragon breathes, it can't breathe again until 1d4 rounds later. If a dragon has more than one type of breath weapon, it still can breathe only once every 1d4 rounds. A blast from a breath weapon always starts at any intersection adjacent to the dragon and extends in a direction of the dragon's choice, with an area as noted on the table below. If the breath weapon deals damage, creatures caught in the area can attempt Reflex saves to take half damage; the DC depends on the dragon's age and variety, and is given in each individual entry. Saves against nondamaging breath weapons use the same DC; the kind of saving throw is noted in the variety descriptions. The save DC against a breath weapon is 10 + 1/2 dragon's HD + dragon's Con modifier. Breath weapons come in two basic shapes, line and cone, whose areas vary with the dragon's size.
-Frightful Presence (Ex)	KEY:Frightful Presence ~ Dragon				SOURCEPAGE:p.69	CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality	DESC:A young adult or older dragon can unsettle foes with its mere presence. The ability takes effect automatically whenever the dragon attacks, charges, or flies overhead. Creatures within a radius of 30 feet ? the dragon's age category are subject to the effect if they have fewer HD than the dragon. A potentially affected creature that succeeds on a Will save (DC 10 + 1/2 dragon's HD + dragon's Cha modifier) remains immune to that dragon's frightful presence for 24 hours. On a failure, creatures with 4 or less HD become panicked for 4d6 rounds and those with 5 or more HD become shaken for 4d6 rounds. Dragons ignore the frightful presence of other dragons.
-Spells			KEY:Spells ~ Dragon						SOURCEPAGE:p.69	CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality	DESC:A dragon knows and casts arcane spells as a sorcerer of the level indicated in its variety description, gaining bonus spells for a high Charisma score. Some dragons can also cast spells from the cleric list or cleric domain lists as arcane spells.
-Spell-Like Abilities	KEY:Spell-Like Abilities ~ Dragon				SOURCEPAGE:p.69	CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality	DESC:A dragon's spelllike abilities depend on its age and variety. It gains the abilities indicated for its age plus all previous ones. Its age category or its sorcerer caster level, whichever is higher, is the caster level for these abilities. The save DC is 10 + dragon's Cha modifier + spell level. All spell-like abilities are usable once per day unless otherwise noted.
-Damage Reduction		KEY:Damage Reduction ~ Dragon					SOURCEPAGE:p.69	CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality	DESC:Young adult and older dragons have damage reduction. Their natural weapons are treated as magic weapons for the purpose of overcoming damage reduction.
-Immunities (Ex)		KEY:Immunities ~ Dragon						SOURCEPAGE:p.69	CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality	DESC:All dragons have immunity to sleep and paralysis effects. Each variety of dragon has immunity to one or two additional forms of attack no matter what its age, as given in its description.
-Spell Resistance (Ex)	KEY:Spell Resistance ~ Dragon					SOURCEPAGE:p.69	CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality	DESC:As dragons age, they become more resistant to spells and spell-like abilities, as indicated in the variety descriptions.
-Blindsense (Ex)		KEY:Blindsense ~ Dragon						SOURCEPAGE:p.69	CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality	DESC:Dragons can pinpoint creatures within a distance of 60 feet. Opponents the dragon can't actually see still have total concealment against the dragon.
-Keen Senses (Ex)		KEY:Keen Senses ~ Dragon					SOURCEPAGE:p.69	CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality	DESC:A dragon sees four times as well a human in shadowy illumination and twice as well in normal light. It also has darkvision out to 120 feet.
-Skills			KEY:Skills ~ Dragon						SOURCEPAGE:p.69	CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality	DESC:All dragons have skill points equal to (6 + Int modifier, minimum 1) ? (Hit Dice + 3). Most dragons purchase the following skills at the maximum ranks possible: Listen, Search, and Spot. The remaining skill points are generally spent on Concentration, Diplomacy, Escape Artist, Intimidate, Knowledge (any), Sense Motive, and Use Magic Device at a cost of 1 skill point per rank. All these skills are considered class skills for dragons. (Each dragon has other class skills as well, as noted in the variety descriptions.)
-Feats				KEY:Feats ~ Dragon						SOURCEPAGE:p.69	CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality	DESC:All dragons have one feat, plus an additional feat per 3 Hit Dice, just like any other creature. Dragons favor Alertness, Blind-Fight, Cleave, Flyby Attack, Hover, Improved Initiative, Improved Sunder, Power Attack, Snatch, Weapon Focus (claw or bite), Wingover, and any metamagic feat that is available and useful to sorcerers.
-
-
+Crush (Ex)			KEY:Crush ~ Dragon			SOURCEPAGE:p.68	CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality	DESC:This special attack allows a flying or jumping dragon of at least Huge size to land on opponents as a standard action, using its whole body to crush them. Crush attacks are effective only against opponents three or more size categories smaller than the dragon (though it can attempt normal overrun or grapple attacks against larger opponents). A crush attack affects as many creatures as can fit under the dragon's body. Creatures in the affected area must succeed on a Reflex save (DC equal to that of the dragon's breath weapon) or be pinned, automatically taking bludgeoning damage during the next round unless the dragon moves off them. If the dragon chooses to maintain the pin, treat it as a normal grapple attack. Pinned opponents take damage from the crush each round if they don't escape. A crush attack deals the indicated damage plus 1-1/2 times the dragon's Strength bonus (round down). Grappling: Dragons do not favor grapple attacks, though their crush attack (and Snatch feat, if they know it) use normal grapple rules. A dragon can always use its breath weapon while grappling, as well as its spells and spell-like or supernatural abilities, provided it succeeds on Concentration checks.
+Tail Sweep (Ex)		KEY:Tail Sweep ~ Dragon			SOURCEPAGE:p.68	CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality	DESC:This special attack allows a dragon of at least Gargantuan size to sweep with its tail as a standard action. The sweep affects a half-circle with a radius of 30 feet (or 40 feet for a Colossal dragon), extending from an intersection on the edge of the dragon's space in any direction. Creatures within the swept area are affected if they are four or more size categories smaller than the dragon. A tail sweep automatically deals the indicated damage plus 1-1/2 times the dragon's Strength bonus (round down). Affected creatures can attempt Reflex saves to take half damage (DC equal to that of the dragon's breath weapon).
+Breath Weapon (Su)	KEY:Breath Weapon ~ Dragon		SOURCEPAGE:p.69	CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality	DESC:Using a breath weapon is a standard action. Once a dragon breathes, it can't breathe again until 1d4 rounds later. If a dragon has more than one type of breath weapon, it still can breathe only once every 1d4 rounds. A blast from a breath weapon always starts at any intersection adjacent to the dragon and extends in a direction of the dragon's choice, with an area as noted on the table below. If the breath weapon deals damage, creatures caught in the area can attempt Reflex saves to take half damage; the DC depends on the dragon's age and variety, and is given in each individual entry. Saves against nondamaging breath weapons use the same DC; the kind of saving throw is noted in the variety descriptions. The save DC against a breath weapon is 10 + 1/2 dragon's HD + dragon's Con modifier. Breath weapons come in two basic shapes, line and cone, whose areas vary with the dragon's size.
+Frightful Presence (Ex)	KEY:Frightful Presence ~ Dragon	SOURCEPAGE:p.69	CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality	DESC:A young adult or older dragon can unsettle foes with its mere presence. The ability takes effect automatically whenever the dragon attacks, charges, or flies overhead. Creatures within a radius of 30 feet ? the dragon's age category are subject to the effect if they have fewer HD than the dragon. A potentially affected creature that succeeds on a Will save (DC 10 + 1/2 dragon's HD + dragon's Cha modifier) remains immune to that dragon's frightful presence for 24 hours. On a failure, creatures with 4 or less HD become panicked for 4d6 rounds and those with 5 or more HD become shaken for 4d6 rounds. Dragons ignore the frightful presence of other dragons.
+Spells			KEY:Spells ~ Dragon			SOURCEPAGE:p.69	CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality	DESC:A dragon knows and casts arcane spells as a sorcerer of the level indicated in its variety description, gaining bonus spells for a high Charisma score. Some dragons can also cast spells from the cleric list or cleric domain lists as arcane spells.
+Spell-Like Abilities	KEY:Spell-Like Abilities ~ Dragon	SOURCEPAGE:p.69	CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality	DESC:A dragon's spelllike abilities depend on its age and variety. It gains the abilities indicated for its age plus all previous ones. Its age category or its sorcerer caster level, whichever is higher, is the caster level for these abilities. The save DC is 10 + dragon's Cha modifier + spell level. All spell-like abilities are usable once per day unless otherwise noted.
+Damage Reduction		KEY:Damage Reduction ~ Dragon		SOURCEPAGE:p.69	CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality	DESC:Young adult and older dragons have damage reduction. Their natural weapons are treated as magic weapons for the purpose of overcoming damage reduction.
+Immunities (Ex)		KEY:Immunities ~ Dragon			SOURCEPAGE:p.69	CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality	DESC:All dragons have immunity to sleep and paralysis effects. Each variety of dragon has immunity to one or two additional forms of attack no matter what its age, as given in its description.
+Spell Resistance (Ex)	KEY:Spell Resistance ~ Dragon		SOURCEPAGE:p.69	CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality	DESC:As dragons age, they become more resistant to spells and spell-like abilities, as indicated in the variety descriptions.
+Blindsense (Ex)		KEY:Blindsense ~ Dragon			SOURCEPAGE:p.69	CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality	DESC:Dragons can pinpoint creatures within a distance of 60 feet. Opponents the dragon can't actually see still have total concealment against the dragon.
+Keen Senses (Ex)		KEY:Keen Senses ~ Dragon		SOURCEPAGE:p.69	CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality	DESC:A dragon sees four times as well a human in shadowy illumination and twice as well in normal light. It also has darkvision out to 120 feet.
+Skills			KEY:Skills ~ Dragon			SOURCEPAGE:p.69	CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality	DESC:All dragons have skill points equal to (6 + Int modifier, minimum 1) ? (Hit Dice + 3). Most dragons purchase the following skills at the maximum ranks possible: Listen, Search, and Spot. The remaining skill points are generally spent on Concentration, Diplomacy, Escape Artist, Intimidate, Knowledge (any), Sense Motive, and Use Magic Device at a cost of 1 skill point per rank. All these skills are considered class skills for dragons. (Each dragon has other class skills as well, as noted in the variety descriptions.)
+Feats				KEY:Feats ~ Dragon			SOURCEPAGE:p.69	CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality	DESC:All dragons have one feat, plus an additional feat per 3 Hit Dice, just like any other creature. Dragons favor Alertness, Blind-Fight, Cleave, Flyby Attack, Hover, Improved Initiative, Improved Sunder, Power Attack, Snatch, Weapon Focus (claw or bite), Wingover, and any metamagic feat that is available and useful to sorcerers.
 
 
 # Black Dragon
-Racial Traits ~ Black Dragon	CATEGORY:Internal	
+#Racial Traits ~ Black Dragon	CATEGORY:Internal	
 Breath Weapon (Su)		KEY:Breath Weapon ~ Black Dragon			SOURCEPAGE:p.71	CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality	DESC:A black dragon has one type of breath weapon, a line of acid.
 Water Breathing (Ex)		KEY:Water Breathing ~ Black Dragon			SOURCEPAGE:p.71	CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality	DESC:A black dragon can breathe underwater indefinitely and can freely use its breath weapon, spells, and other abilities while submerged.
 Corrupt Water (Sp)		KEY:Corrupt Water ~ Black Dragon			SOURCEPAGE:p.71	CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality	DESC:Once per day an adult or older black dragon can stagnate 10 cubic feet of water, making it become still, foul, and unable to support animal life. The ability spoils liquids containing water. Magic items (such as potions) and items in a creature's possession must succeed on a Will save (DC equal to that of the dragon's frightful presence) or become fouled. This ability is the equivalent of a 1st-level spell. Its range is equal to that of the dragon's frightful presence.
@@ -1450,6 +1436,13 @@ Crush						KEY:Crush ~ Mimic							CATEGORY:Special Ability	TYPE:SpecialAttack.E
 Mimic Shape					KEY:Mimic Shape ~ Mimic						CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES																								DESC:A mimic can assume the general shape of any object that fills roughly 150 cubic feet (5 feet by 5 feet by 6 feet), such as a massive chest, a stout bed, or a wide door frame. The creature cannot substantially alter its size, though. A mimic's body is hard and has a rough texture, no matter what appearance it might present. Anyone who examines the mimic can detect the ruse with a successful Spot check opposed by the mimic's Disguise check. Of course, by this time it is generally far too late.
 Skills					KEY:Skills ~ Mimic						CATEGORY:Special Ability	TYPE:SpecialQuality					VISIBLE:YES																								DESC:A mimic has a +8 racial bonus on Disguise checks.
 
+# Mind Flayer
+Racial Traits ~ Mind Flayer	CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE.MindFlayerRaceAbility
+Mind Blast (Sp)		KEY:Mind Blast ~ Mind Flayer	SOURCEPAGE:p.187	CATEGORY:Special Ability	TYPE:MindFlayerRaceAbility.RaceAbility.SpecialQuality	DESC:This psionic attack is a cone 60 feet long. Anyone caught in this cone must succeed on a DC 17 Will save or be stunned for 3d4 rounds. Mind flayers often hunt using this power and then drag off one or two of their stunned victims to feed upon. The save DC is Charisma-based. This ability is the equivalent of a 4th level spell.
+Psionics (Sp)		KEY:Psionics ~ Mind Flayer	SOURCEPAGE:p.187	CATEGORY:Special Ability	TYPE:MindFlayerRaceAbility.RaceAbility.SpecialQuality	DESC:At will-charm monster (DC 17), detect thoughts (DC 15), levitate, plane shift, suggestion (DC 16). Effective caster level 8th. The save DCs are Charisma-based.
+Improved Grab (Ex)	KEY:Improved Grab ~ Mind Flayer	SOURCEPAGE:p.187	CATEGORY:Special Ability	TYPE:MindFlayerRaceAbility.RaceAbility.SpecialQuality	DESC:To use this ability, a mind flayer must hit a Small, Medium, or Large creature with its tentacle attack. It can then attempt to start a grapple as a free action without provoking an attack of opportunity. If it wins the grapple check, it establishes a hold and attaches the tentacle to the opponent's head. A mind flayer can grab a Huge or larger creature, but only if it can somehow reach the foe's head. If a mind flayer begins its turn with at least one tentacle attached, it can try to attach its remaining tentacles with a single grapple check. The opponent can escape with a single successful grapple check or an Escape Artist check, but the mind flayer gets a +2 circumstance bonus for every tentacle that was attached at the beginning of the opponent's turn.
+Extract (Ex)		KEY:Extract ~ Mind Flayer	SOURCEPAGE:p.187	CATEGORY:Special Ability	TYPE:MindFlayerRaceAbility.RaceAbility.SpecialQuality	DESC:A mind flayer that begins its turn with all four tentacles attached and that makes a successful grapple check automatically extracts the opponent's brain, instantly killing that creature. This power is useless against constructs, elementals, oozes, plants, and undead. It is not instantly fatal to foes with multiple heads, such as ettins and hydras.
+
 # Minotaur
 Powerful Charge				KEY:Powerful Charge ~ Minotaur				CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES																								DESC:A minotaur typically begins a battle by charging at an opponent, lowering its head to bring its mighty horns into play. In addition to the normal benefits and hazards of a charge, this allows the beast to make a single gore attack with a +9 attack bonus that deals 4d6+6 points of damage.
 Natural Cunning				KEY:Natural Cunning ~ Minotaur				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary			VISIBLE:YES																								DESC:Although minotaurs are not especially intelligent, they possess innate cunning and logical ability. This gives them immunity to maze spells, prevents them from ever becoming lost, and enables them to track enemies. Further, they are never caught flat-footed.
@@ -1739,28 +1732,28 @@ Summon Slaad (Sp)		KEY:Summon Slaad ~ Red Slaad		SOURCEPAGE:p.229	CATEGORY:Speci
 
 # Blue Slaad
 Racial Traits ~ Blue Slaad	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|TYPE=BlueSlaadRaceAbility
-Spell-Like Abilities	KEY:Spell-Like Abilities ~ Blue Slaad	SOURCEPAGE:p.230	CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality	DESC:At will-hold person (DC 13), passwall, telekinesis (DC 15); 1/day-chaos hammer (DC 14). Caster level 8th. The save DCs are Charisma-based.
-Slaad Fever (Su)		KEY:Slaad Fever ~ Blue Slaad			SOURCEPAGE:p.230	CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality	DESC:Supernatural disease-bite, Fortitude DC 18, incubation period 1 day, damage 1d3 Dex and 1d3 Cha. The save DC is Constitution-based. An afflicted humanoid reduced to Charisma 0 by slaad fever immediately transforms into a red slaad. It retains none of the features, traits, memories, or abilities of its former self, and is a normal red slaad in all respects. If the infected being is an arcane spellcaster, the disease instead produces a green slaad.
-Summon Slaad (Sp)		KEY:Summon Slaad ~ Blue Slaad			SOURCEPAGE:p.230	CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality	DESC:Once per day a blue slaad can attempt to summon another blue slaad with a 40%% chance of success. This ability is the equivalent of a 4th-level spell.
+Spell-Like Abilities	KEY:Spell-Like Abilities ~ Blue Slaad	SOURCEPAGE:p.230	CATEGORY:Special Ability	TYPE:BlueSlaadRaceAbility.RaceAbility.SpecialQuality	DESC:At will-hold person (DC 13), passwall, telekinesis (DC 15); 1/day-chaos hammer (DC 14). Caster level 8th. The save DCs are Charisma-based.
+Slaad Fever (Su)		KEY:Slaad Fever ~ Blue Slaad			SOURCEPAGE:p.230	CATEGORY:Special Ability	TYPE:BlueSlaadRaceAbility.RaceAbility.SpecialQuality	DESC:Supernatural disease-bite, Fortitude DC 18, incubation period 1 day, damage 1d3 Dex and 1d3 Cha. The save DC is Constitution-based. An afflicted humanoid reduced to Charisma 0 by slaad fever immediately transforms into a red slaad. It retains none of the features, traits, memories, or abilities of its former self, and is a normal red slaad in all respects. If the infected being is an arcane spellcaster, the disease instead produces a green slaad.
+Summon Slaad (Sp)		KEY:Summon Slaad ~ Blue Slaad			SOURCEPAGE:p.230	CATEGORY:Special Ability	TYPE:BlueSlaadRaceAbility.RaceAbility.SpecialQuality	DESC:Once per day a blue slaad can attempt to summon another blue slaad with a 40%% chance of success. This ability is the equivalent of a 4th-level spell.
 
 # Green Slaad
 Racial Traits ~ Green Slaad	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|TYPE=GreenSlaadRaceAbility
-Spell-Like Abilities	KEY:Spell-Like Abilities ~ Green Slaad	SOURCEPAGE:p.230	CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality	DESC:At will-chaos hammer (DC 15), detect magic, detect thoughts (DC 13), fear (DC 15), protection from law, see invisibility, shatter (DC 13); 3/day- dispel law (DC 16), deeper darkness, fireball (DC 14). Caster level 9th. The save DCs are Charisma-based.
-Change Shape (Su)		KEY:Change Shape ~ Green Slaad		SOURCEPAGE:p.230	CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality	DESC:A green can assume any Medium or Large humanoid form as a standard action. In humanoid form, a green slaad cannot use its natural weapons (although a slaad can equip itself with weapons and armor appropriate to its appearance). A green slaad remains in one form until it chooses to assume a new one. A change in form cannot be dispelled, but the slaad reverts to its natural form when killed. A true seeing spell reveals its natural form.
-Summon Slaad (Sp)		KEY:Summon Slaad ~ Green Slaad		SOURCEPAGE:p.230	CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality	DESC:Twice per day a green slaad can attempt to summon another green slaad with a 40%% chance of success. This ability is the equivalent of a 5th-level spell.
+Spell-Like Abilities	KEY:Spell-Like Abilities ~ Green Slaad	SOURCEPAGE:p.230	CATEGORY:Special Ability	TYPE:GreenSlaadRaceAbility.RaceAbility.SpecialQuality	DESC:At will-chaos hammer (DC 15), detect magic, detect thoughts (DC 13), fear (DC 15), protection from law, see invisibility, shatter (DC 13); 3/day- dispel law (DC 16), deeper darkness, fireball (DC 14). Caster level 9th. The save DCs are Charisma-based.
+Change Shape (Su)		KEY:Change Shape ~ Green Slaad		SOURCEPAGE:p.230	CATEGORY:Special Ability	TYPE:GreenSlaadRaceAbility.RaceAbility.SpecialQuality	DESC:A green can assume any Medium or Large humanoid form as a standard action. In humanoid form, a green slaad cannot use its natural weapons (although a slaad can equip itself with weapons and armor appropriate to its appearance). A green slaad remains in one form until it chooses to assume a new one. A change in form cannot be dispelled, but the slaad reverts to its natural form when killed. A true seeing spell reveals its natural form.
+Summon Slaad (Sp)		KEY:Summon Slaad ~ Green Slaad		SOURCEPAGE:p.230	CATEGORY:Special Ability	TYPE:GreenSlaadRaceAbility.RaceAbility.SpecialQuality	DESC:Twice per day a green slaad can attempt to summon another green slaad with a 40%% chance of success. This ability is the equivalent of a 5th-level spell.
 
 # Gray Slaad
 Racial Traits ~ Gray Slaad	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|TYPE=GraySlaadRaceAbility
-Spell-Like Abilities	KEY:Spell-Like Abilities ~ Gray Slaad	SOURCEPAGE:p.231	CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality	DESC:At will-chaos hammer (DC 16), deeper darkness, detect magic, identify, invisibility, lightning bolt (DC 15), magic circle against law, see invisibility, shatter (DC 14); 3/day-animate objects, dispel law (DC 17), fly; 1/day-power word stun. Caster level 10th. The save DCs are Charisma-based.
-Change Shape (Su)		KEY:Change Shape ~ Gray Slaad			SOURCEPAGE:p.231	CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality	DESC:A gray slaad can assume any humanoid form as a standard action. In humanoid form, a gray slaad cannot use its natural weapons (although a slaad can equip itself with weapons and armor appropriate to its appearance). A gray slaad remains in one form until it chooses to assume a new one. A change in form cannot be dispelled, but the slaad reverts to its natural form when killed. A true seeing spell reveals its natural form.
-Summon Slaad (Sp)		KEY:Summon Slaad ~ Gray Slaad			SOURCEPAGE:p.231	CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality	DESC:Twice per day a gray slaad can attempt to summon 1-2 red slaadi or 1 blue slaad with a 60%% chance of success, or 1 green slaad with a 40%% chance of success. This ability is the equivalent of a 5th-level spell.
+Spell-Like Abilities	KEY:Spell-Like Abilities ~ Gray Slaad	SOURCEPAGE:p.231	CATEGORY:Special Ability	TYPE:GraySlaadRaceAbility.RaceAbility.SpecialQuality	DESC:At will-chaos hammer (DC 16), deeper darkness, detect magic, identify, invisibility, lightning bolt (DC 15), magic circle against law, see invisibility, shatter (DC 14); 3/day-animate objects, dispel law (DC 17), fly; 1/day-power word stun. Caster level 10th. The save DCs are Charisma-based.
+Change Shape (Su)		KEY:Change Shape ~ Gray Slaad			SOURCEPAGE:p.231	CATEGORY:Special Ability	TYPE:GraySlaadRaceAbility.RaceAbility.SpecialQuality	DESC:A gray slaad can assume any humanoid form as a standard action. In humanoid form, a gray slaad cannot use its natural weapons (although a slaad can equip itself with weapons and armor appropriate to its appearance). A gray slaad remains in one form until it chooses to assume a new one. A change in form cannot be dispelled, but the slaad reverts to its natural form when killed. A true seeing spell reveals its natural form.
+Summon Slaad (Sp)		KEY:Summon Slaad ~ Gray Slaad			SOURCEPAGE:p.231	CATEGORY:Special Ability	TYPE:GraySlaadRaceAbility.RaceAbility.SpecialQuality	DESC:Twice per day a gray slaad can attempt to summon 1-2 red slaadi or 1 blue slaad with a 60%% chance of success, or 1 green slaad with a 40%% chance of success. This ability is the equivalent of a 5th-level spell.
 
 # Death Slaad
 Racial Traits ~ Death Slaad	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|TYPE=DeathSlaadRaceAbility
-Stun (Ex)			KEY:Stun ~ Death Slaad				SOURCEPAGE:p.231	CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality	DESC:Three times per day, a death slaad can attempt to stun its opponent on an attack with one of its natural weapons. If the opponent fails a DC 21 Fortitude save, it is stunned for 1 round in addition to taking normal damage from the attack. The save DC is Wisdom-based.
-Spell-Like Abilities	KEY:Spell-Like Abilities ~ Death Slaad	SOURCEPAGE:p.231	CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality	DESC:At will-animate objects, chaos hammer (DC 18), deeper darkness, detect magic, dispel law (DC 19), fear (DC 18), finger of death (DC 21), fireball (DC 17), fly, identify, invisibility, magic circle against law, see invisibility, shatter (DC 16); 3/day-circle of death (DC 20), cloak of chaos (DC 22), word of chaos (DC 21); 1/day-implosion (DC 23), power word blind. Caster level 15th. The save DCs are Charisma-based.
-Change Shape (Su)		KEY:Change Shape ~ Death Slaad		SOURCEPAGE:p.231	CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality	DESC:A death slaad can assume any humanoid form as a standard action. In humanoid form, a death slaad cannot use its natural weapons (although a slaad can equip itself with weapons and armor appropriate to its appearance). A death slaad remains in one form until it chooses to assume a new one. A change in form cannot be dispelled, but the slaad reverts to its natural form when killed. A true seeing spell reveals its natural form.
-Summon Slaad (Sp)		KEY:Summon Slaad ~ Death Slaad		SOURCEPAGE:p.231	CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality	DESC:Twice per day a death slaad can attempt to summon 1-2 red or blue slaadi with a 60%% chance of success, or 1-2 green slaadi with a 40%% chance of success. This ability is the equivalent of a 6th-level spell.
+Stun (Ex)			KEY:Stun ~ Death Slaad				SOURCEPAGE:p.231	CATEGORY:Special Ability	TYPE:DeathSlaadRaceAbility.RaceAbility.SpecialQuality	DESC:Three times per day, a death slaad can attempt to stun its opponent on an attack with one of its natural weapons. If the opponent fails a DC 21 Fortitude save, it is stunned for 1 round in addition to taking normal damage from the attack. The save DC is Wisdom-based.
+Spell-Like Abilities	KEY:Spell-Like Abilities ~ Death Slaad	SOURCEPAGE:p.231	CATEGORY:Special Ability	TYPE:DeathSlaadRaceAbility.RaceAbility.SpecialQuality	DESC:At will-animate objects, chaos hammer (DC 18), deeper darkness, detect magic, dispel law (DC 19), fear (DC 18), finger of death (DC 21), fireball (DC 17), fly, identify, invisibility, magic circle against law, see invisibility, shatter (DC 16); 3/day-circle of death (DC 20), cloak of chaos (DC 22), word of chaos (DC 21); 1/day-implosion (DC 23), power word blind. Caster level 15th. The save DCs are Charisma-based.
+Change Shape (Su)		KEY:Change Shape ~ Death Slaad		SOURCEPAGE:p.231	CATEGORY:Special Ability	TYPE:DeathSlaadRaceAbility.RaceAbility.SpecialQuality	DESC:A death slaad can assume any humanoid form as a standard action. In humanoid form, a death slaad cannot use its natural weapons (although a slaad can equip itself with weapons and armor appropriate to its appearance). A death slaad remains in one form until it chooses to assume a new one. A change in form cannot be dispelled, but the slaad reverts to its natural form when killed. A true seeing spell reveals its natural form.
+Summon Slaad (Sp)		KEY:Summon Slaad ~ Death Slaad		SOURCEPAGE:p.231	CATEGORY:Special Ability	TYPE:DeathSlaadRaceAbility.RaceAbility.SpecialQuality	DESC:Twice per day a death slaad can attempt to summon 1-2 red or blue slaadi with a 60%% chance of success, or 1-2 green slaadi with a 40%% chance of success. This ability is the equivalent of a 6th-level spell.
 
 # Spectre
 Energy Drain				KEY:Energy Drain ~ Spectre					CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural			VISIBLE:YES																								DESC:Living creatures hit by a spectre's incorporeal touch attack gain two negative levels. The DC is 15 for the Fortitude save to remove a negative level. The save DC is Charisma-based. For each such negative level bestowed, the spectre gains 5 temporary hit points.
@@ -2004,9 +1997,9 @@ Blindsight					KEY:Blindsight ~ Yrthak						CATEGORY:Special Ability	TYPE:Specia
 Immunities					KEY:Immunities ~ Yrthak						CATEGORY:Special Ability	TYPE:SpecialQuality					VISIBLE:YES																								DESC:Yrthaks have immunity to gaze attacks, visual effects, illusions, and other attack forms that rely on sight.
 Skills					KEY:Skills ~ Yrthak						CATEGORY:Special Ability	TYPE:SpecialQuality					VISIBLE:YES																								DESC:Yrthaks have a +4 racial bonus on Listen checks.
 
-# Yuan-Ti
-Alternate Form (Sp)	KEY:Alternate Form ~ Yuan-Ti	SOURCEPAGE:p.263	CATEGORY:Special Ability	TYPE:PurebloodYuantiRaceAbility.RaceAbility.SpecialQuality	DESC:All yuan-ti can assume the form of a Tiny to Large viper (see the Snake entry, page 280) as a psionic ability. This ability is similar to a polymorph spell (caster level 19th), but a yuanti does not regain any hit points for changing form, and it can only assume viper forms. The yuan-ti loses its natural weapons (if any) and gains the natural weapon of the viper form it assumes. If the yuan-ti has a poisonous bite of its own, it uses its own or the viper's poison, whichever is more potent.
-Detect Poison (Sp)	KEY:Detect Poison ~ Yuan-Ti	SOURCEPAGE:p.263	CATEGORY:Special Ability	TYPE:PurebloodYuantiRaceAbility.RaceAbility.SpecialQuality	DESC:All yuan-ti have the psionic ability to detect poison as the spell (caster level 6th).
+# Yuan-Ti (This is shared by all Yuan-Ti)
+Alternate Form (Sp)	KEY:Alternate Form ~ Yuan-Ti	SOURCEPAGE:p.263	CATEGORY:Special Ability	TYPE:PurebloodYuantiRaceAbility.HalfbloodYuantiRaceAbility.AbominationYuantiRaceAbility.RaceAbility.SpecialQuality	DESC:All yuan-ti can assume the form of a Tiny to Large viper (see the Snake entry, page 280) as a psionic ability. This ability is similar to a polymorph spell (caster level 19th), but a yuanti does not regain any hit points for changing form, and it can only assume viper forms. The yuan-ti loses its natural weapons (if any) and gains the natural weapon of the viper form it assumes. If the yuan-ti has a poisonous bite of its own, it uses its own or the viper's poison, whichever is more potent.
+Detect Poison (Sp)	KEY:Detect Poison ~ Yuan-Ti	SOURCEPAGE:p.263	CATEGORY:Special Ability	TYPE:PurebloodYuantiRaceAbility.HalfbloodYuantiRaceAbility.AbominationYuantiRaceAbility.RaceAbility.SpecialQuality	DESC:All yuan-ti have the psionic ability to detect poison as the spell (caster level 6th).
 
 # Yuan-Ti Pureblood
 Racial Traits ~ Pureblood Yuan-Ti	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|TYPE=PurebloodYuantiRaceAbility
@@ -2014,7 +2007,7 @@ Spell-Like Abilities	KEY:Spell-Like Abilities ~ Pureblood Yuan-Ti	SOURCEPAGE:p.2
 Skills			KEY:Skills ~ Pureblood Yuan-Ti			SOURCEPAGE:p.263	CATEGORY:Special Ability	TYPE:PurebloodYuantiRaceAbility.RaceAbility.SpecialQuality	DESC:*A pureblood gains a +5 racial bonus on Disguise checks when impersonating a human.
 
 # Yuan-Ti Halfblood	
-Racial Traits ~ Pureblood Yuan-Ti	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|TYPE=HalfbloodYuantiRaceAbility
+Racial Traits ~ Halfblood Yuan-Ti	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|TYPE=HalfbloodYuantiRaceAbility
 Poison (Ex)			KEY:Poison ~ Halfblood Yuan-Ti			SOURCEPAGE:p.264	CATEGORY:Special Ability	TYPE:HalfbloodYuantiRaceAbility.RaceAbility.SpecialQuality	DESC:Injury, Fortitude DC 14, initial and secondary damage 1d6 Con. The save DC is Constitution-based.
 Produce Acid (Sp)		KEY:Produce Acid ~ Halfblood Yuan-Ti		SOURCEPAGE:p.264	CATEGORY:Special Ability	TYPE:HalfbloodYuantiRaceAbility.RaceAbility.SpecialQuality	DESC:A yuan-ti halfblood has the psionic power to exude acid from its body, dealing 3d6 points of acid damage to the next creature it touches, including a creature hit by its bite attack. If the yuan-ti is grappling or pinning a foe when it uses this power, its grasp deals 5d6 points of acid damage. The acid becomes inert when it leaves the yuan-ti's body, and the yuan-ti is immune to its effects.
 Spell-Like Abilities	KEY:Spell-Like Abilities ~ Halfblood Yuan-Ti	SOURCEPAGE:p.264	CATEGORY:Special Ability	TYPE:HalfbloodYuantiRaceAbility.RaceAbility.SpecialQuality	DESC:3/day-animal trance (DC 15), cause fear (DC 14), entangle (DC 14); 1/day-deeper darkness, neutralize poison (DC 17), suggestion (DC 16). Caster level 8th. The save DCs are Charisma-based.
@@ -2022,7 +2015,7 @@ Chameleon Power (Sp)	KEY:Chameleon Power ~ Halfblood Yuan-Ti		SOURCEPAGE:p.264	C
 Skills			KEY:Skills ~ Halfblood Yuan-Ti			SOURCEPAGE:p.264	CATEGORY:Special Ability	TYPE:HalfbloodYuantiRaceAbility.RaceAbility.SpecialQuality	DESC:*Yuan-ti halfbloods using chameleon power gain a +10 circumstance bonus on Hide checks.
 
 # Yuan-Ti Abomination 
-Racial Traits ~ Pureblood Yuan-Ti	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|TYPE=AbominationYuantiRaceAbility
+Racial Traits ~ Abomination Yuan-Ti	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|TYPE=AbominationYuantiRaceAbility
 Aversion (Sp)		KEY:Aversion ~ Abomination Yuan-Ti			SOURCEPAGE:p.265	CATEGORY:Special Ability	TYPE:AbominationYuantiRaceAbility.RaceAbility.SpecialQuality	DESC:A yuan-ti abomination can psionically create a compulsion effect targeting one creature within 30 feet. The target must succeed on a DC 22 Will save or gain an aversion to snakes for 10 minutes. Affected creatures must stay at least 20 feet away from any snake or yuanti, alive or dead; if already within 20 feet, they move away. A subject unable to move away, or one attacked by snakes or yuan-ti, is overcome with revulsion. This revulsion reduces the creature's Dexterity score by 4 points until the effect wears off or the subject is no longer within 20 feet of a snake or yuan-ti. This ability is otherwise similar to antipathy as the spell (caster level 16th). The save DC is Charisma-based.
 Constrict (Ex)		KEY:Constrict ~ Abomination Yuan-Ti			SOURCEPAGE:p.265	CATEGORY:Special Ability	TYPE:AbominationYuantiRaceAbility.RaceAbility.SpecialQuality	DESC:An abomination deals 1d6+6 points of damage with a successful grapple check.
 Improved Grab (Ex)	KEY:Improved Grab ~ Abomination Yuan-Ti		SOURCEPAGE:p.265	CATEGORY:Special Ability	TYPE:AbominationYuantiRaceAbility.RaceAbility.SpecialQuality	DESC:To use this ability, an abomination must hit a Large or smaller creature with its bite attack. It can then attempt to start a grapple as a free action without provoking an attack of opportunity. If it wins the grapple check, it establishes a hold and can constrict.
@@ -2036,51 +2029,9 @@ Skills			KEY:Skills ~ Abomination Yuan-Ti			SOURCEPAGE:p.265	CATEGORY:Special Ab
 # Zombie
 Single Actions Only			KEY:Single Actions Only ~ Zombie			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary			VISIBLE:YES																								DESC:Zombies have poor reflexes and can perform only a single move action or attack action each round. A zombie can move up to its speed and attack in the same round, but only if it attempts a charge.
 
-
-
-###Block: Vermin
-
-# Giant Ant
-# Ability Name	Unique Key						Category of Ability		Type						Visible	Define																		Description
-Acid Sting		KEY:Acid Sting ~ Giant Ant			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES																				DESC:A giant soldier ant has a stinger and an acid-producing gland in its abdomen. If it successfully grabs an opponent, it can attempt to sting each round (+3 attack bonus). A hit with the sting attack deals 1d4+1 points of piercing damage and 1d4 points of acid damage.
-Improved Grab	KEY:Improved Grab ~ Giant Ant			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES																				DESC:To use this ability, a giant ant must hit with its bite attack. A giant soldier ant that wins the ensuing grapple check establishes a hold and can sting.
-Skills		KEY:Skills ~ Giant Ant				CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES																				DESC:Giant ants have a +4 racial bonus on Survival checks when tracking by scent and a +8 racial bonus on Climb checks. A giant ant can always choose to take 10 on Climb checks, even if rushed or threatened.
-
-# Giant Bee
-Poison		KEY:Poison ~ Giant Bee				CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES																				DESC:Injury, Fortitude DC 11, initial and secondary damage 1d4 Con. The save DC is Constitution-based. A giant bee that successfully stings another creature pulls away, leaving its stinger in the creature. The bee then dies.
-Skills		KEY:Skills ~ Giant Bee				CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES																				DESC:Giant bees have a +4 racial bonus on Spot checks. *They also have a +4 racial bonus on Survival checks to orient themselves.
-
-# Giant Bombardier Beetle
-Acid Spray		KEY:Acid Spray ~ Giant Bombardier Beetle	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES																				DESC:When attacked or disturbed, the creature can release a 10-foot cone of acidic vapor once per round. Those within the cone must succeed on a DC 13 Fortitude save or take 1d4+2 points of acid damage. The save DC is Constitution-based.
-
-# Giant Stag Beetle
-Trample		KEY:Trample ~ Giant Stag Beetle		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES																				DESC:Reflex half DC 19. The save DC is Strength-based.
-
-# Giant Praying Mantis
-Improved Grab	KEY:Improved Grab ~ Giant Praying Mantis	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES																				DESC:To use this ability, a giant praying mantis must hit with its claws attack. If it wins the ensuing grapple check, it establishes a hold and makes a bite attack as a primary attack (at its full +6 attack bonus).
-Skills		KEY:Skills ~ Giant Praying Mantis		CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES																				DESC:A giant praying mantis has a +4 racial bonus on Hide and Spot checks. *Because of its camouflage, the Hide bonus increases to +12 when a mantis is surrounded by foliage.
-
-# Giant Wasp
-Poison		KEY:Poison ~ Giant Wasp				CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES																				DESC:Injury, Fortitude DC 14, initial and secondary damage 1d6 Dex. The save DC is Constitution-based.
-Skills		KEY:Skills ~ Giant Wasp				CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES																				DESC:Giant wasps have a +8 racial bonus on Spot checks. *They also have a +4 racial bonus on Survival checks to orient themselves.
-
-# Monstrous Centipede
-Poison		KEY:Poison ~ Monstrous Centipede		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES																				DESC:A monstrous centipede has a poisonous bite. The details vary by the centipede's size, as shown on the table above. The save DCs are Constitution-based. The indicated damage is both initial and secondary damage.
-Skills		KEY:Skills ~ Monstrous Centipede		CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES																				DESC:Monstrous centipedes have a +4 racial bonus on Spot checks, and a +8 racial bonus on Climb and Hide checks. They can use either their Strength or Dexterity modifier for Climb checks, whichever is higher. Monstrous scorpions can take 10 on Climb checks, even if threatened or distracted.
-
-# Monstrous Scorpion
-Constrict		KEY:Constrict ~ Monstrous Scorpion		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES																				DESC:A monstrous scorpion deals automatic claw damage on a successful grapple check.
-Improved Grab	KEY:Improved Grab ~ Monstrous Scorpion	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES																				DESC:To use this ability, a monstrous scorpion must hit with a claw attack. A monstrous scorpion can use either its Strength modifier or Dexterity modifier for grapple checks, whichever is better.
-Poison		KEY:Poison ~ Monstrous Scorpion		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES																				DESC:A monstrous scorpion has a poisonous sting. The details vary by the scorpion's size, as follows. The save DCs are Constitution- based. The indicated damage is initial and secondary damage.
-Skills		KEY:Skills ~ Monstrous Scorpion		CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES																				DESC:A monstrous scorpion has a +4 racial bonus on Climb, Hide, and Spot checks.
-
-# Monstrous Spider
-Poison		KEY:Poison ~ Monstrous Spider			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES																				DESC:A monstrous spider has a poisonous bite. The details vary by the spider's size, as shown on the table below. The save DCs are Constitution-based. The indicated damage is initial and secondary damage. DC %1|PoisonDC
-Web			KEY:Web ~ Monstrous Spider			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	DEFINE:MonstrousSpiderWebEscapeDC|10+CON	DEFINE:MonstrousSpiderWebBreakDC|10+CON	DEFINE:MonstrousSpiderWebHp|0	DESC:8/day maximum range 50' (Escape DC %1 Break DC %2 Web Hp %3)|MonstrousSpiderWebEscapeDC|MonstrousSpiderWebBreakDC|MonstrousSpiderWebHp
-Tremorsense		KEY:Tremorsense ~ Monstrous Spider		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES																				DESC:A monstrous spider can detect and pinpoint any creature or object within 60 feet in contact with the ground, or within any range in contact with the spider's webs.
-Skills		KEY:Skills ~ Monstrous Spider			CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES																				DESC:Monstrous spiders have a +4 racial bonus on Hide and Spot checks and a +8 racial bonus on Climb checks. A monstrous spider can always choose to take 10 on Climb checks, even if rushed or threatened. Monstrous spiders use either their Strength or Dexterity modifier for Climb checks, whichever is higher. *Hunting spiders have a +10 racial bonus on Jump checks and a +8 racial bonus on Spot checks. Web-spinning spiders have a +8 racial bonus on Hide and Move Silently checks when using their webs.
-
-
+#-#-#-#-#-#-##-#-#-#-#-#-#
+#	@ANIMALS
+#-#-#-#-#-#-##-#-#-#-#-#-#
 ###Block: Animals
 
 # Ape
@@ -2226,7 +2177,6 @@ Skills		KEY:Skills ~ Porpoise				CATEGORY:Special Ability	TYPE:SpecialQuality			
 # Rat
 Skills		KEY:Skills ~ Rat					CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DESC:Rats have a +4 racial bonus on Hide and Move Silently checks, and a +8 racial bonus on Balance, Climb, and Swim checks. A rat can always choose to take 10 on Climb checks, even if rushed or threatened. A rat uses its Dexterity modifier instead of its Strength modifier for Climb and Swim checks. A rat has a +8 racial bonus on any Swim check to perform some special action or avoid a hazard. It can always choose to take 10 on a Swim check, even if distracted or endangered. It can use the run action while swimming, provided it swims in a straight line.
 
-
 # Rhinoceros
 Powerful Charge	KEY:Powerful Charge ~ Rhinoceros		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES	DESC:A rhinoceros deals 4d6+24 points of damage when it makes a charge.
 
@@ -2284,6 +2234,52 @@ Skills		KEY:Skills ~ Wolf					CATEGORY:Special Ability	TYPE:SpecialQuality			VIS
 # Wolverine
 Rage			KEY:Rage ~ Wolverine				CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES	DESC:A wolverine that takes damage in combat flies into a berserk rage on its next turn, clawing and biting madly until either it or its opponent is dead. It gains +4 to Strength, +4 to Constitution, and -2 to Armor Class. The creature cannot end its rage voluntarily.
 Skills		KEY:Skills ~ Wolverine				CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES	DESC:Wolverines have a +8 racial bonus on Climb checks and can always choose to take 10 on Climb checks, even if rushed or threatened.
+
+#-#-#-#-#-##-#-#-#-#-#
+#	@VERMIN
+#-#-#-#-#-##-#-#-#-#-#
+###Block: Vermin
+
+# Giant Ant
+# Ability Name	Unique Key						Category of Ability		Type						Visible	Define																		Description
+Acid Sting		KEY:Acid Sting ~ Giant Ant			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES																				DESC:A giant soldier ant has a stinger and an acid-producing gland in its abdomen. If it successfully grabs an opponent, it can attempt to sting each round (+3 attack bonus). A hit with the sting attack deals 1d4+1 points of piercing damage and 1d4 points of acid damage.
+Improved Grab	KEY:Improved Grab ~ Giant Ant			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES																				DESC:To use this ability, a giant ant must hit with its bite attack. A giant soldier ant that wins the ensuing grapple check establishes a hold and can sting.
+Skills		KEY:Skills ~ Giant Ant				CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES																				DESC:Giant ants have a +4 racial bonus on Survival checks when tracking by scent and a +8 racial bonus on Climb checks. A giant ant can always choose to take 10 on Climb checks, even if rushed or threatened.
+
+# Giant Bee
+Poison		KEY:Poison ~ Giant Bee				CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES																				DESC:Injury, Fortitude DC 11, initial and secondary damage 1d4 Con. The save DC is Constitution-based. A giant bee that successfully stings another creature pulls away, leaving its stinger in the creature. The bee then dies.
+Skills		KEY:Skills ~ Giant Bee				CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES																				DESC:Giant bees have a +4 racial bonus on Spot checks. *They also have a +4 racial bonus on Survival checks to orient themselves.
+
+# Giant Bombardier Beetle
+Acid Spray		KEY:Acid Spray ~ Giant Bombardier Beetle	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES																				DESC:When attacked or disturbed, the creature can release a 10-foot cone of acidic vapor once per round. Those within the cone must succeed on a DC 13 Fortitude save or take 1d4+2 points of acid damage. The save DC is Constitution-based.
+
+# Giant Stag Beetle
+Trample		KEY:Trample ~ Giant Stag Beetle		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES																				DESC:Reflex half DC 19. The save DC is Strength-based.
+
+# Giant Praying Mantis
+Improved Grab	KEY:Improved Grab ~ Giant Praying Mantis	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES																				DESC:To use this ability, a giant praying mantis must hit with its claws attack. If it wins the ensuing grapple check, it establishes a hold and makes a bite attack as a primary attack (at its full +6 attack bonus).
+Skills		KEY:Skills ~ Giant Praying Mantis		CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES																				DESC:A giant praying mantis has a +4 racial bonus on Hide and Spot checks. *Because of its camouflage, the Hide bonus increases to +12 when a mantis is surrounded by foliage.
+
+# Giant Wasp
+Poison		KEY:Poison ~ Giant Wasp				CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES																				DESC:Injury, Fortitude DC 14, initial and secondary damage 1d6 Dex. The save DC is Constitution-based.
+Skills		KEY:Skills ~ Giant Wasp				CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES																				DESC:Giant wasps have a +8 racial bonus on Spot checks. *They also have a +4 racial bonus on Survival checks to orient themselves.
+
+# Monstrous Centipede
+Poison		KEY:Poison ~ Monstrous Centipede		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES																				DESC:A monstrous centipede has a poisonous bite. The details vary by the centipede's size, as shown on the table above. The save DCs are Constitution-based. The indicated damage is both initial and secondary damage.
+Skills		KEY:Skills ~ Monstrous Centipede		CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES																				DESC:Monstrous centipedes have a +4 racial bonus on Spot checks, and a +8 racial bonus on Climb and Hide checks. They can use either their Strength or Dexterity modifier for Climb checks, whichever is higher. Monstrous scorpions can take 10 on Climb checks, even if threatened or distracted.
+
+# Monstrous Scorpion
+Constrict		KEY:Constrict ~ Monstrous Scorpion		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES																				DESC:A monstrous scorpion deals automatic claw damage on a successful grapple check.
+Improved Grab	KEY:Improved Grab ~ Monstrous Scorpion	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES																				DESC:To use this ability, a monstrous scorpion must hit with a claw attack. A monstrous scorpion can use either its Strength modifier or Dexterity modifier for grapple checks, whichever is better.
+Poison		KEY:Poison ~ Monstrous Scorpion		CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES																				DESC:A monstrous scorpion has a poisonous sting. The details vary by the scorpion's size, as follows. The save DCs are Constitution- based. The indicated damage is initial and secondary damage.
+Skills		KEY:Skills ~ Monstrous Scorpion		CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES																				DESC:A monstrous scorpion has a +4 racial bonus on Climb, Hide, and Spot checks.
+
+# Monstrous Spider
+Poison		KEY:Poison ~ Monstrous Spider			CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	VISIBLE:YES																				DESC:A monstrous spider has a poisonous bite. The details vary by the spider's size, as shown on the table below. The save DCs are Constitution-based. The indicated damage is initial and secondary damage. DC %1|PoisonDC
+Web			KEY:Web ~ Monstrous Spider			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	DEFINE:MonstrousSpiderWebEscapeDC|10+CON	DEFINE:MonstrousSpiderWebBreakDC|10+CON	DEFINE:MonstrousSpiderWebHp|0	DESC:8/day maximum range 50' (Escape DC %1 Break DC %2 Web Hp %3)|MonstrousSpiderWebEscapeDC|MonstrousSpiderWebBreakDC|MonstrousSpiderWebHp
+Tremorsense		KEY:Tremorsense ~ Monstrous Spider		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES																				DESC:A monstrous spider can detect and pinpoint any creature or object within 60 feet in contact with the ground, or within any range in contact with the spider's webs.
+Skills		KEY:Skills ~ Monstrous Spider			CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES																				DESC:Monstrous spiders have a +4 racial bonus on Hide and Spot checks and a +8 racial bonus on Climb checks. A monstrous spider can always choose to take 10 on Climb checks, even if rushed or threatened. Monstrous spiders use either their Strength or Dexterity modifier for Climb checks, whichever is higher. *Hunting spiders have a +10 racial bonus on Jump checks and a +8 racial bonus on Spot checks. Web-spinning spiders have a +8 racial bonus on Hide and Move Silently checks when using their webs.
+
 
 
 
@@ -2476,4 +2472,119 @@ Vulnerability to Electricity			CATEGORY:Special Ability	TYPE:SpecialQuality.Extr
 Vulnerability to Sonic				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Weakness	VISIBLE:YES	DESC:You take half again as much (+50%%) damage as normal from Sonic, regardless of whether a saving throw is allowed, or if the save is a success or failure
 Vulnerability to Sunlight			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Weakness	VISIBLE:YES
 Vulnerability to Protection from Evil	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Weakness	VISIBLE:YES
+
+
+###Block: Dragons Redone Proposal
+True Dragon Defaults	CATEGORY:Internal
+	DEFINE:DragonSizeTracker|1
+	ABILITY:Internal|AUTOMATIC|SIZE_T|PREVAREQ:DragonSizeTracker,1
+	ABILITY:Internal|AUTOMATIC|SIZE_S|PREVAREQ:DragonSizeTracker,2
+	ABILITY:Internal|AUTOMATIC|SIZE_M|PREVAREQ:DragonSizeTracker,3
+	ABILITY:Internal|AUTOMATIC|SIZE_L|PREVAREQ:DragonSizeTracker,4
+	ABILITY:Internal|AUTOMATIC|SIZE_H|PREVAREQ:DragonSizeTracker,5
+	ABILITY:Internal|AUTOMATIC|SIZE_G|PREVAREQ:DragonSizeTracker,6
+	ABILITY:Internal|AUTOMATIC|SIZE_C|PREVAREQ:DragonSizeTracker,7
+	DEFINE:DragonLevelAdjustment|0
+	ABILITY:Internal|AUTOMATIC|LEVEL_ADJUSTMENT_1|PREVAREQ:DragonLevelAdjustment,1
+	ABILITY:Internal|AUTOMATIC|LEVEL_ADJUSTMENT_2|PREVAREQ:DragonLevelAdjustment,2
+	ABILITY:Internal|AUTOMATIC|LEVEL_ADJUSTMENT_3|PREVAREQ:DragonLevelAdjustment,3
+	ABILITY:Internal|AUTOMATIC|LEVEL_ADJUSTMENT_4|PREVAREQ:DragonLevelAdjustment,4
+	ABILITY:Internal|AUTOMATIC|LEVEL_ADJUSTMENT_5|PREVAREQ:DragonLevelAdjustment,5
+	ABILITY:Internal|AUTOMATIC|LEVEL_ADJUSTMENT_6|PREVAREQ:DragonLevelAdjustment,6
+	ABILITY:Internal|AUTOMATIC|DRAGON_FLY_SPEED_100|PRESIZELTEQ:S
+	ABILITY:Internal|AUTOMATIC|DRAGON_FLY_SPEED_150|PRESIZEGTEQ:M|PRESIZELTEQ:H
+	ABILITY:Internal|AUTOMATIC|DRAGON_FLY_SPEED_200|PRESIZEGTEQ:G
+	ABILITY:Internal|AUTOMATIC|DRAGON_ATTACKS_T|PRESIZEEQ:T
+	ABILITY:Internal|AUTOMATIC|DRAGON_ATTACKS_S|PRESIZEEQ:S
+	ABILITY:Internal|AUTOMATIC|DRAGON_ATTACKS_M|PRESIZEEQ:M
+	ABILITY:Internal|AUTOMATIC|DRAGON_ATTACKS_L|PRESIZEEQ:L
+	ABILITY:Internal|AUTOMATIC|DRAGON_ATTACKS_H|PRESIZEEQ:H
+	ABILITY:Internal|AUTOMATIC|DRAGON_ATTACKS_G|PRESIZEEQ:G
+	ABILITY:Internal|AUTOMATIC|DRAGON_ATTACKS_C|PRESIZEEQ:C
+	ABILITY:Internal|AUTOMATIC|Wyrmling|PREVARLTEQ:DragonAge,1
+	ABILITY:Internal|AUTOMATIC|Very Young|PREVAREQ:DragonAge,2
+	ABILITY:Internal|AUTOMATIC|Young|PREVAREQ:DragonAge,3
+	ABILITY:Internal|AUTOMATIC|Juvenile|PREVAREQ:DragonAge,4
+	ABILITY:Internal|AUTOMATIC|Young Adult|PREVAREQ:DragonAge,5
+	ABILITY:Internal|AUTOMATIC|Adult|PREVAREQ:DragonAge,6
+	ABILITY:Internal|AUTOMATIC|Mature Adult|PREVAREQ:DragonAge,7
+	ABILITY:Internal|AUTOMATIC|Old|PREVAREQ:DragonAge,8
+	ABILITY:Internal|AUTOMATIC|Very Old|PREVAREQ:DragonAge,9
+	ABILITY:Internal|AUTOMATIC|Ancient|PREVAREQ:DragonAge,10
+	ABILITY:Internal|AUTOMATIC|Wyrm|PREVAREQ:DragonAge,11
+	ABILITY:Internal|AUTOMATIC|Great Wyrm|PREVARGTEQ:DragonAge,12
+	DEFINE:DragonBreathWeaponLine|30	BONUS:VAR|DragonBreathWeaponLine|10|PRESIZEGTEQ:S	BONUS:VAR|DragonBreathWeaponLine|20|PRESIZEGTEQ:M	BONUS:VAR|DragonBreathWeaponLine|20|PRESIZEGTEQ:L	BONUS:VAR|DragonBreathWeaponLine|20|PRESIZEGTEQ:H	BONUS:VAR|DragonBreathWeaponLine|20|PRESIZEGTEQ:G	BONUS:VAR|DragonBreathWeaponLine|20|PRESIZEGTEQ:C	DEFINE:DragonBreathWeaponCone|15	BONUS:VAR|DragonBreathWeaponCone|5|PRESIZEGTEQ:S	BONUS:VAR|DragonBreathWeaponCone|10|PRESIZEGTEQ:M	BONUS:VAR|DragonBreathWeaponCone|10|PRESIZEGTEQ:L	BONUS:VAR|DragonBreathWeaponCone|10|PRESIZEGTEQ:H	BONUS:VAR|DragonBreathWeaponCone|10|PRESIZEGTEQ:G	BONUS:VAR|DragonBreathWeaponCone|10|PRESIZEGTEQ:C
+	ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability
+	ABILITY:Special Ability|AUTOMATIC|Bite ~ Dragon
+	ABILITY:Special Ability|AUTOMATIC|Claw ~ Dragon
+	ABILITY:Special Ability|AUTOMATIC|Wing ~ Dragon
+	ABILITY:Special Ability|AUTOMATIC|Tail Slap ~ Dragon|PRESIZEGTEQ:L
+	ABILITY:Special Ability|AUTOMATIC|Crush ~ Dragon|PRESIZEGTEQ:H
+	ABILITY:Special Ability|AUTOMATIC|Tail Sweep ~ Dragon|PRESIZEGTEQ:G
+	ABILITY:Special Ability|AUTOMATIC|Grappling ~ Dragon
+	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Dragon
+	ABILITY:Special Ability|AUTOMATIC|Frightful Presence ~ Dragon|PREVARGTEQ:DragonAge,5
+	ABILITY:Special Ability|AUTOMATIC|Spells ~ Dragon
+	ABILITY:Special Ability|AUTOMATIC|Spell-Like Abilities ~ Dragon
+	ABILITY:Special Ability|AUTOMATIC|Damage Reduction ~ Dragon|PREVARGTEQ:DragonAge,5
+	ABILITY:Special Ability|AUTOMATIC|Immunities ~ Dragon
+	ABILITY:Special Ability|AUTOMATIC|Spell Resistance ~ Dragon|PREVARGTEQ:DragonAge,5
+	ABILITY:Special Ability|AUTOMATIC|Blindsense ~ Dragon
+	ABILITY:Special Ability|AUTOMATIC|Keen Senses ~ Dragon
+	ABILITY:Special Ability|AUTOMATIC|Skills ~ Dragon
+	ABILITY:Special Ability|AUTOMATIC|Feats ~ Dragon
+
+Bite				KEY:Bite ~ Dragon							SOURCEPAGE:p.68	CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality	DESC:Bite attacks deal the indicated damage plus the dragon's Strength bonus. A dragon also can use its bite to snatch opponents if it has the Snatch feat (see page 304).
+Claw				KEY:Claw ~ Dragon							SOURCEPAGE:p.68	CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality	DESC:Claw attacks deal the indicated damage plus 1/2 the dragon's Strength bonus (round down). The dragon also can use its claws to snatch opponents if it has the Snatch feat (see page 304). Claw attacks are secondary attacks, requiring a -5 penalrty on the attack roll. (Many dragons choose the Multiattack feat to lessen this penalty to -2).
+Wing				KEY:Wing ~ Dragon							SOURCEPAGE:p.68	CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality	DESC:The dragon can slam opponents with its wings, even when flying. Wing attacks deal the indicated damage plus 1/2 the dragon's Strength bonus (round down) and are treated as secondary attacks.
+Tail Slap			KEY:Tail Slap ~ Dragon						SOURCEPAGE:p.68	CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality	DESC:The dragon can slap one opponent each round with its tail. A tail slap deals the indicated damage plus 1-1/2 times the dragon's Strength bonus (round down) and is treated as a secondary attack.
+Grappling			KEY:Grappling ~ Dragon						SOURCEPAGE:p.69	CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality	DESC:Dragons do not favor grapple attacks, though their crush attack (and Snatch feat, if they know it) use normal grapple rules. A dragon can always use its breath weapon while grappling, as well as its spells and spell-like or supernatural abilities, provided it succeeds on Concentration checks.
+
+DRAGON_FLY_SPEED_100	CATEGORY:Internal	VISIBLE:NO	MOVE:Fly,100	DEFINE:Maneuverability|3
+DRAGON_FLY_SPEED_150	CATEGORY:Internal	VISIBLE:NO	MOVE:Fly,150	DEFINE:Maneuverability|2
+DRAGON_FLY_SPEED_200	CATEGORY:Internal	VISIBLE:NO	MOVE:Fly,200	DEFINE:Maneuverability|1
+
+DRAGON_ATTACKS_T	CATEGORY:Internal	VISIBLE:NO	NATURALATTACKS:Bite (5' reach),Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d4|Claws,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d3
+DRAGON_ATTACKS_S	CATEGORY:Internal	VISIBLE:NO	NATURALATTACKS:Bite (5' reach),Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d6|Claws,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d4
+DRAGON_ATTACKS_M	CATEGORY:Internal	VISIBLE:NO	NATURALATTACKS:Bite (5' reach),Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d8|Claws,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d6|Wings,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,1d4
+DRAGON_ATTACKS_L	CATEGORY:Internal	VISIBLE:NO	NATURALATTACKS:Bite (10' reach),Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,2d6|Claws,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d8|Wings,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,1d6|Tail Slap,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,1d8
+DRAGON_ATTACKS_H	CATEGORY:Internal	VISIBLE:NO	NATURALATTACKS:Bite (15' reach),Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,2d8|Claws,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,2d6|Wings,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,1d8|Tail Slap,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,2d6|Crush,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,2d8
+DRAGON_ATTACKS_G	CATEGORY:Internal	VISIBLE:NO	NATURALATTACKS:Bite (20' reach),Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,4d6|Claws,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,2d8|Wings,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,2d6|Tail Slap,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,2d8|Crush,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,4d6|Tail Sweep,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,2d6
+DRAGON_ATTACKS_C	CATEGORY:Internal	VISIBLE:NO	NATURALATTACKS:Bite (30' reach),Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,4d8|Claws,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,4d6|Wings,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,2d8|Tail Slap,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,4d6|Crush,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,4d8|Tail Sweep,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,2d8
+
+Wyrmling		CATEGORY:Internal	VISIBLE:NO	TEMPLATE:Wyrmling
+Very Young		CATEGORY:Internal	VISIBLE:NO	TEMPLATE:Very Young
+Young			CATEGORY:Internal	VISIBLE:NO	TEMPLATE:Young
+Juvenile		CATEGORY:Internal	VISIBLE:NO	TEMPLATE:Juvenile
+Young Adult		CATEGORY:Internal	VISIBLE:NO	TEMPLATE:Young Adult
+Adult			CATEGORY:Internal	VISIBLE:NO	TEMPLATE:Adult
+Mature Adult	CATEGORY:Internal	VISIBLE:NO	TEMPLATE:Mature Adult
+Old			CATEGORY:Internal	VISIBLE:NO	TEMPLATE:Old
+Very Old		CATEGORY:Internal	VISIBLE:NO	TEMPLATE:Very Old
+Ancient		CATEGORY:Internal	VISIBLE:NO	TEMPLATE:Ancient
+Wyrm			CATEGORY:Internal	VISIBLE:NO	TEMPLATE:Wyrm
+Great Wyrm		CATEGORY:Internal	VISIBLE:NO	TEMPLATE:Great Wyrm
+
+
+Racial Traits ~ Black Dragon	CATEGORY:Internal
+	BONUS:STAT|STR|max(2*(DragonAge-1),0)
+	BONUS:STAT|CON|(2*(ceil(DragonAge/2)))
+	BONUS:STAT|INT,CHA|-2|PREVARLTEQ:DragonAge,2
+	BONUS:STAT|INT,CHA|max(2*(DragonAge/2-2),0)
+	BONUS:STAT|WIS|max(2*(DragonAge/2-4),0)
+	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Black Dragon
+	BONUS:VAR|DragonSizeTracker|1|PREVARGTEQ:DragonAge,2
+	BONUS:VAR|DragonSizeTracker|1|PREVARGTEQ:DragonAge,3
+	BONUS:VAR|DragonSizeTracker|1|PREVARGTEQ:DragonAge,5
+	BONUS:VAR|DragonSizeTracker|1|PREVARGTEQ:DragonAge,7
+	BONUS:VAR|DragonSizeTracker|1|PREVARGTEQ:DragonAge,11
+	BONUS:VAR|DragonLevelAdjustment|3|PREVARGTEQ:DragonAge,1|PREVARLTEQ:DragonAge,3
+	BONUS:VAR|DragonLevelAdjustment|4|PREVAREQ:DragonAge,4
+	DEFINE:DragonAge|(DragonLVL-1)/3
+	MOVE:Walk,60,Swim,60
+	ABILITY:Internal|AUTOMATIC|True Dragon Defaults
+
+#Breath Weapon (Su)	KEY:Breath Weapon ~ Black Dragon	SOURCEPAGE:p.71	CATEGORY:Special Ability	TYPE:RaceAbility.SpecialQuality	DESC:A black dragon has one type of breath weapon, a line of acid. Damage %1d%2, DC %3, Length %4|BlackDragonBWDice|BlackDragonBWDieSize|BreathWeaponDC|DragonBreathWeaponLength	DEFINE:BlackDragonBWDice|DragonAge*2	DEFINE:BlackDragonBWDieSize|4	DEFINE:BreathWeaponDC|10+(HD/2)+CON	DEFINE:DragonBreathWeaponLength|DragonBreathWeaponLine
+
+Dragon Age Selected	CATEGORY:Internal	VISIBLE:NO
 
