@@ -12,24 +12,52 @@ CLASS:Cavalier	STARTSKILLPTS:2	CSKILL:Diplomacy|Intimidate|Knowledge (Nobility a
 3	ABILITY:Cavalier Ability|AUTOMATIC|Burst of Speed ~ Cavalier
 6	ABILITY:Cavalier Ability|AUTOMATIC|Full Mounted Attack ~ Cavalier
 
-
 # Devoted Defender
 CLASS:Devoted Defender		HD:10		MAXLEVEL:10		TYPE:Prestige		BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE		BONUS:CHECKS|BASE.Will|CL/3		BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	SOURCEPAGE:p.13
 CLASS:Devoted Defender		PREATT:5	PREFEAT:2,Weapon Focus (TYPE=Melee),Alertness	PRESKILL:3,Search=4,Sense Motive=4,Spot=4
 CLASS:Devoted Defender		STARTSKILLPTS:2	CSKILL:Climb|Innuendo|Jump|Listen|TYPE=Profession|Sense Motive|Search|Spot
-
+1	ABILITY:Devoted Defender Ability|AUTOMATIC|Harm's Way ~ Devoted Defender
+2	ABILITY:Devoted Defender Ability|AUTOMATIC|Defensive Strike ~ Devoted Defender
+3	ABILITY:Devoted Defender Ability|AUTOMATIC|Deflect Attack ~ Devoted Defender
+###Block: Vars
+3	BONUS:VAR|DevotedDefenderDefensiveStrikeBonus|(CL-2)/2	DEFINE:DevotedDefenderDefensiveStrikeBonus|0
+4	BONUS:VAR|DevotedDefenderDeflectAttackBonus|(CL-1)/2	DEFINE:DevotedDefenderDeflectAttackBonus|0
 
 # Drunken Master
-
-
-Base Attack Bonus: +4.
-Base Unarmed Attack Bonus: +4.
-Feats: Great Fortitude, Dodge.
-Tumble: 6 ranks.
-Other: Evasion ability, must be chosen by existing
-drunken masters and survive night of revelry among
-them without being incarcerated, poisoned, or
-extraordinarily embarrassed.
-
-4	CSKILL:Balance (Dex), Bluff (Cha), Climb (Str), TYPE=Craft (Int), Escape Artist (Dex), Hide (Dex), Jump (Str), Listen (Wis), Move Silently (Dex), TYPE=Perform (Cha), TYPE=Profession (Wis), Swim (Str), and Tumble
+CLASS:Drunken Master	HD:8		MAXLEVEL:10	ATTACKCYCLE:UAB|3	TYPE:Prestige	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+CLASS:Drunken Master	PREATT:4	PREUATT:4	PREFEAT:2,Great Fortitude,Dodge	PRESKILL:1,Tumble=6	PREABILITY:1,CATEGORY=Special Ability,TYPE.ClassEvasion	PRETEXT:must be chosen by existing drunken masters and survive night of revelry among them without being incarcerated, poisoned, or extraordinarily embarrassed.
+CLASS:Drunken Master	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Escape Artist|Hide|Jump|Listen|Move Silently|TYPE=Perform|TYPE=Profession|Swim|Tumble
+###Block: Class Abilities
+1	ABILITY:Drunken Master Ability|AUTOMATIC|Drink like a Demon ~ Drunken Master|Bottle Proficiency ~ Drunken Master
+2	ABILITY:Drunken Master Ability|AUTOMATIC|Stagger ~ Drunken Master
+3	ABILITY:Drunken Master Ability|AUTOMATIC|Swaying Waist ~ Drunken Master
+4	ABILITY:Drunken Master Ability|AUTOMATIC|Improvised Weapons ~ Drunken Master
+5	ABILITY:Drunken Master Ability|AUTOMATIC|Drunken Rage ~ Drunken Master
+6	ABILITY:Drunken Master Ability|AUTOMATIC|Lurch ~ Drunken Master
+7	ABILITY:Drunken Master Ability|AUTOMATIC|Drunken Embrace ~ Drunken Master
+8	ABILITY:Drunken Master Ability|AUTOMATIC|For Medicinal Purposes ~ Drunken Master
+9	ABILITY:Drunken Master Ability|AUTOMATIC|Corkscrew Rush ~ Drunken Master
+10	ABILITY:Drunken Master Ability|AUTOMATIC|Breath of Flame ~ Drunken Master
+###Block: Unarmed Attack Table
+#           F   D   T   S   M   L    H    G   C
+1	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10	UMULT:2
+2	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10
+3	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10
+4	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10
+5	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12
+6	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12
+7	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12
+8	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12
+9	UDAM:1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12,4d8
+10	UDAM:1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12,4d8
+###Block: AC Bonus
+4	BONUS:COMBAT|AC|DrunkenMasterACBonus|TYPE=Class
+###Block: Vars
+4	BONUS:VAR|DrunkenMasterACBonus|1		DEFINE:DrunkenMasterACBonus|1
+9	BONUS:VAR|DrunkenMasterACBonus|1
+###Block: Movement Increase - due to the Static Movement, and unknown race, figured this was a safer method.
+1	MOVE:Walk,50
+3	MOVE:Walk,60
+6	MOVE:Walk,70
+9	MOVE:Walk,80
 
