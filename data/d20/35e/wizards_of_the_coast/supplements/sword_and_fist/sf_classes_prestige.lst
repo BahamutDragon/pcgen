@@ -24,7 +24,7 @@ CLASS:Devoted Defender		STARTSKILLPTS:2	CSKILL:Climb|Innuendo|Jump|Listen|TYPE=P
 4	BONUS:VAR|DevotedDefenderDeflectAttackBonus|(CL-1)/2	DEFINE:DevotedDefenderDeflectAttackBonus|0
 
 # Drunken Master
-CLASS:Drunken Master	HD:8		MAXLEVEL:10	ATTACKCYCLE:UAB|3	TYPE:Prestige	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+CLASS:Drunken Master	HD:8	SOURCEPAGE:p.14	MAXLEVEL:10	ATTACKCYCLE:UAB|3	TYPE:Prestige	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 CLASS:Drunken Master	PREATT:4	PREUATT:4	PREFEAT:2,Great Fortitude,Dodge	PRESKILL:1,Tumble=6	PREABILITY:1,CATEGORY=Special Ability,TYPE.ClassEvasion	PRETEXT:must be chosen by existing drunken masters and survive night of revelry among them without being incarcerated, poisoned, or extraordinarily embarrassed.
 CLASS:Drunken Master	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Escape Artist|Hide|Jump|Listen|Move Silently|TYPE=Perform|TYPE=Profession|Swim|Tumble
 ###Block: Class Abilities
@@ -60,4 +60,21 @@ CLASS:Drunken Master	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Escap
 3	MOVE:Walk,60
 6	MOVE:Walk,70
 9	MOVE:Walk,80
+
+# Duelist, p.17 - this is a duplicate of DMG 3.5 (This original source is a 3e book. Leaving out as this class is outdated)
+
+# FIST OF HEXTOR, p.18
+CLASS:Fist of Hextor	HD:10	SOURCEPAGE:p.18	MAXLEVEL:10	TYPE:Prestige	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+CLASS:Fist of Hextor	PREALIGN:LE,NE,LN	PREATT:5	PREFEAT:2,Power Attack,Cleave	PREWEAPONPROF:1,Spiked Gauntlet,Guantlet (Spiked)	PRESKILL:3,Intimidate=4,Spot=4,Knowledge (Religion)=4	PRETEXT:Must worship Hextor, and must survive the ritual ceremony of induction into the Fists of Hextor (see Organizations on page 44 of this book).
+CLASS:Fist of Hextor	STARTSKILLPTS:2	CSKILL:Climb|Intimidate|Knowledge (Religion)|TYPE=Profession|Ride|Sense Motive|Spot
+###Block: Abilities
+1	ABILITY:Fist of Hextor Ability|AUTOMATIC|Brutal Strike ~ Fist of Hextor		DEFINE:FistOfHextorBrutalStrikeBonus|0
+2	ABILITY:Fist of Hextor Ability|AUTOMATIC|Strength Boost ~ Fist of Hextor	DEFINE:FistOfHextorStrengthBoostTimes|0	
+3	ABILITY:Fist of Hextor Ability|AUTOMATIC|Frightful Presence ~ Fist of Hextor	DEFINE:FistOfHextorFrightfulPresenceTimes|0
+###Block: Vars
+1	BONUS:VAR|FistOfHextorBrutalStrikeBonus|(CL+2)/3
+2	BONUS:VAR|FistOfHextorStrengthBoostTimes|(CL+1)/3
+3	BONUS:VAR|FistOfHextorFrightfulPresenceTimes|CL/3
+
+
 
