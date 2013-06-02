@@ -102,14 +102,20 @@ CLASS:Gladiator	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE=Craft|Handle Animal|Inti
 9	ABILITY:Gladiator Ability|AUTOMATIC|Make Them Bleed ~ Gladiator
 10	ABILITY:Gladiator Ability|AUTOMATIC|The Crowd Goes Wild ~ Gladiator
 
-# Halfling Outrider
-CLASS:Halfling Outrider	HD:	SOURCEPAGE:p.22	MAXLEVEL:10	TYPE:Prestige	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
-
-CLASS:Halfling Outrider
-
-CLASS:Halfling Outrider	STARTSKILLPTS:0	CSKILL:xxx
-#ABILITY:Cavalier Ability|AUTOMATIC|
-#ABILITY:Cavalier Ability|AUTOMATIC|
+# Halfling Outrider	3e SKILLS!
+CLASS:Halfling Outrider	HD:10	SOURCEPAGE:p.22	MAXLEVEL:10	TYPE:Prestige	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+CLASS:Halfling Outrider	PREATT:5	PRERACE:1,Halfling,RACESUBTYPE=Halfling	PRESKILL:3,Listen=4,Ride=6,Spot=4	PREFEAT:2,Mounted Combat,Mounted Archery
+CLASS:Halfling Outrider	STARTSKILLPTS:0	CSKILL:Animal Empathy|Handle Animal|Listen|Ride|Search|Spot
+###Block:
+1	ABILITY:Halfling Outrider Ability|AUTOMATIC|Alertness ~ Halfling Outrider|Ride Bonus ~ Halfling Outrider
+2	ABILITY:Halfling Outrider Ability|AUTOMATIC|Defensive Ride ~ Halfling Outrider	DEFINE:HalflingOutriderDefensiveRideTimes|0
+3	ABILITY:Halfling Outrider Ability|AUTOMATIC|Deflect Attack ~ Halfling Outrider	DEFINE:HalflingOutriderDeflectAttackBonus|0
+5	ABILITY:Halfling Outrider Ability|AUTOMATIC|Leap from the Saddle ~ Halfling Outrider
+###Block:
+2	BONUS:VAR|HalflingOutriderDefensiveRideTimes|CL/2
+3	BONUS:VAR|HalflingOutriderDeflectAttackBonus|1
+7	BONUS:VAR|HalflingOutriderDeflectAttackBonus|1
+9	BONUS:VAR|HalflingOutriderDeflectAttackBonus|1
 
 # Knight Protector of the Great Kingdom
 CLASS:Knight Protector of the Great Kingdom	HD:	SOURCEPAGE:p.	MAXLEVEL:10	TYPE:Prestige	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
