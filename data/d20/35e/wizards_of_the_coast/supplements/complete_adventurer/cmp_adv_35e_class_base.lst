@@ -1,0 +1,76 @@
+SOURCELONG:Complete Adventurer	SOURCESHORT:cadv
+
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source, Long Desc.			Source, Short Desc.	Source Page		Automatic Languages	Save checks bonus												Combat bonus
+CLASS:Ninja		HD:6		TYPE:Base.PC	ABB:Nja		MAXLEVEL:20		SOURCEPAGE:p.5		BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	DEFINE:NinjaLVL|CL
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Ninja		STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Concentration|TYPE=Craft|Disable Device|Disguise|Escape Artist|Gather Information|Hide|Jump|Listen|Move Silently|Open Lock|Search|Sense Motive|Sleight of Hand|Spot|Swim|Tumble
+###Block:
+	AUTO:WEAPONPROF|Crossbow (Hand)|Kama|Kukri|Nunchaku|Sai|Shortbow|Sword (Short)|Shuriken|Siangham	AUTO:FEAT|Simple Weapon Proficiency
+###Block:
+1	BONUS:VAR|SuddenStrikeDice|CL+1/2	BONUS:VAR|KiPowerTimes|max(NinjaLVL/2,1)+WIS
+10	BONUS:VAR|GhostStepProgressionNja|1
+12	BONUS:VAR|AcrobaticsProgression|1
+18	BONUS:VAR|KiDodgeProgression|1	BONUS:VAR|AcrobaticsProgression|1
+###Block:
+1		
+1																														ABILITY:Class Ability|Ki Power|Ninja AC|Sudden Strike|Trapfinding
+2																																																					ABILITY:Class Ability|Ghost Step ~ Ninja
+3																																																					ABILITY:Class Ability|Poison Use
+4																																																					ABILITY:Class Ability|Great Leap
+6																																																					ABILITY:Class Ability|Acrobatics|Ki Dodge
+7																																																					ABILITY:Class Ability|Speed Climb
+8																																																					ABILITY:Class Ability|Ghost Strike
+9																																																					ABILITY:Class Ability|Improved Poison Use
+12																			VFEAT:Evasion|PREVAREQ:ENCUMBERANCE,0,COUNT[EQTYPE.ARMOR.EQUIPPED],0
+14																																																ABILITY:Class Ability|Ghost Mind
+16																																																					ABILITY:Class Ability|Ghost Sight
+20																																																					ABILITY:Class Ability|Ghost Walk
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source, Long Desc.			Source, Short Desc.	Source Page		Automatic Languages	Save checks bonus												Combat bonus
+CLASS:Scout		HD:8		TYPE:Base.PC	ABB:Sct		MAXLEVEL:20		SOURCEPAGE:p.10		BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Scout		STARTSKILLPTS:8	CSKILL:Balance|Climb|TYPE=Craft|Disable Device|Escape Artist|Hide|Jump|Knowledge (Dungeoneering)|Knowledge (Geography)|Knowledge (Nature)|Listen|Move Silently|Ride|Search|Sense Motive|Speak Language|Spot|Survival|Swim|Tumble|Use Rope
+1																				AUTO:WEAPONPROF|Axe (Throwing)|Handaxe|Shortbow|Sword (Short)	AUTO:FEAT|Armor Proficiency (Light)|Simple Weapon Proficiency
+1	BONUS:VAR|SkirmishDice|(CL=Scout+3)/4																								ABILITY:Class Ability|Skirmish|Trapfinding
+2	BONUS:VAR|BattleFortitudeBonus|(CL=Scout+7)/9	BONUS:VAR|UncannyDodgeFlankLevel|CL=Scout|TYPE=Class.REPLACE												ABILITY:Class Ability|Battle Fortitude|Uncanny Dodge
+3	BONUS:VAR|SkirmishAC|(CL=Scout+1)/4	BONUS:VAR|ScoutFastMovement|10																			ABILITY:Class Ability|Fast Movement~Scout|Trackless Step
+4																																										ADD:FEAT|TYPE=Scout
+5																															ABILITY:Class Ability|Evasion
+6																															ABILITY:Class Ability|Flawless Stride
+8																															ABILITY:Class Ability|Camouflage								ADD:FEAT|TYPE=Scout
+10	BONUS:VAR|BlindsenseRange|30																										ABILITY:Class Ability|Blindsense
+11	BONUS:VAR|ScoutFastMovement|10
+12																																										ADD:FEAT|TYPE=Scout
+14																															ABILITY:Class Ability|Hide in Plain Sight~Scout
+16																																										ADD:FEAT|TYPE=Scout
+18																															ABILITY:Class Ability|Free Movement
+20																															ABILITY:Class Ability|Blindsight								ADD:FEAT|TYPE=Scout
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source, Long Desc.			Source, Short Desc.	Source Page		Automatic Languages	Save checks bonus											Combat bonus
+CLASS:Spellthief	HD:6		TYPE:Base.PC	ABB:Stf		MAXLEVEL:20	SOURCELONG:Complete Adventurer	SOURCESHORT:cmpadv	SOURCEPAGE:p.13		BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Spellthief	STARTSKILLPTS:6	CSKILL:Appraise|Bluff|Concentration|TYPE=Craft|Decipher Script|Disable Device|Escape Artist|Gather Information|Hide|Jump|Knowledge (Arcana)|Knowledge (Local)|Listen|Move Silently|Open Lock|Search|Speak Language|Spellcraft|Spot|Swim|Tumble|Use Magic Device
+# Class Name	Spell Stat		Spell Type		Memorize	Spell Scoll Prohibited					Caster level						Use Spell List
+CLASS:Spellthief	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	PROHIBITED:Conjuration,Evocation,Necromancy	BONUS:CASTERLEVEL|Spellthief|CL=Spellthief/2	SPELLLIST:1|Wizard
+1																																			AUTO:FEAT|Armor Proficiency (Light)	AUTO:FEAT|Simple Weapon Proficiency
+1							BONUS:VAR|StealSpellMaxStored|CL=Spellthief	BONUS:VAR|StealSpellMaxLvl|min((max((var("CL=Spellthief")/2),1)),9)	BONUS:VAR|SneakAttackDice|(CL=Spellthief+3)/4	ABILITY:Class Ability|Sneak Attack|Steal Spell|Trapfinding
+2							BONUS:VAR|Spellgrace|(CL=Spellthief+7)/9	BONUS:VAR|StealSpellEffectMaxLvl|CL+CHA	BONUS:VAR|StealSpellEffectDuration|CL								ABILITY:Class Ability|Detect Magic|Spellgrace|Steal Spell Effect
+3							BONUS:VAR|StealEnergyResistance|((CL=Spellthief+5)/8)*10																			ABILITY:Class Ability|Steal Energy Resistance
+4	CAST:0,0		KNOWN:0,2
+5	CAST:0,0		KNOWN:0,2																														ABILITY:Class Ability|Steal Spell Like Ability
+6	CAST:0,1		KNOWN:0,3
+7	CAST:0,1		KNOWN:0,3																														ABILITY:Class Ability|Absorb Spell
+8	CAST:0,1,0		KNOWN:0,4,2
+9	CAST:0,1,0		KNOWN:0,4,2																														ABILITY:Class Ability|Arcane Sight
+10	CAST:0,1,1		KNOWN:0,4,3
+11	CAST:0,1,1,0	KNOWN:0,4,3,2
+12	CAST:0,1,1,1	KNOWN:0,4,4,3
+13	CAST:0,1,1,1	KNOWN:0,4,4,3																													ABILITY:Class Ability|Discover Spells
+14	CAST:0,2,1,1,0	KNOWN:0,4,4,4,2
+15	CAST:0,2,1,1,1	KNOWN:0,4,4,4,3	BONUS:VAR|StealSpellResistance|5+CL	BONUS:VAR|StealSpellResistanceDuration|max(1,CHA)														ABILITY:Class Ability|Steal Spell Resistance
+16	CAST:0,2,2,1,1	KNOWN:0,4,4,4,3
+17	CAST:0,2,2,2,1	KNOWN:0,5,4,4,4
+18	CAST:0,3,2,2,1	KNOWN:0,5,5,4,4
+19	CAST:0,3,3,3,2	KNOWN:0,5,5,5,4
+20	CAST:0,3,3,3,3	KNOWN:0,5,5,5,5	BONUS:VAR|AbsorbSpellProgression|1
