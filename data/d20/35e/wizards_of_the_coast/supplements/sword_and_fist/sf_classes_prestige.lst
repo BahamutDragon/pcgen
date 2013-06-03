@@ -40,15 +40,17 @@ CLASS:Drunken Master	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Escap
 9	ABILITY:Drunken Master Ability|AUTOMATIC|Corkscrew Rush ~ Drunken Master
 10	ABILITY:Drunken Master Ability|AUTOMATIC|Breath of Flame ~ Drunken Master
 ###Block: Unarmed Attack Table
-#           F   D   T   S   M   L    H    G   C
+#		F   D   T   S   M   L    H    G   C
 1	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10	UMULT:2
 2	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10
 3	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10
 4	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10
+#		F   D   T   S   M    L    H    G   C
 5	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12
 6	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12
 7	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12
 8	UDAM:1d3,1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12
+#		F   D   T   S    M    L   H    G    C
 9	UDAM:1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12,4d8
 10	UDAM:1d4,1d6,1d8,1d10,1d12,2d8,2d10,2d12,4d8
 ###Block: AC Bonus
@@ -77,17 +79,16 @@ CLASS:Fist of Hextor	STARTSKILLPTS:2	CSKILL:Climb|Intimidate|Knowledge (Religion
 2	BONUS:VAR|FistOfHextorStrengthBoostTimes|(CL+1)/3
 3	BONUS:VAR|FistOfHextorFrightfulPresenceTimes|CL/3
 
-
 # Ghostwalker 20 - 3e skills present, move to the 3e folder when finished.
 CLASS:Ghostwalker	HD:10	SOURCEPAGE:p.20	MAXLEVEL:10	TYPE:Prestige	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 CLASS:Ghostwalker	PREALIGN:LG,LE,CG,CE,TN	PREATT:6	PREFEAT:2,Endurance,Iron Will,Toughness	PRESKILL:2,Intimidate=4,Move Silently=4
-CLASS:Ghostwalker	STARTSKILLPTS:4	CSKILL:Bluff|Diplomacy|Gather Information|Intuit Direction|Knowledge (Law)|TYPE=Profession|Spot|Listen|Move Silently|Sense Motive
+CLASS:Ghostwalker	STARTSKILLPTS:4	CSKILL:Bluff|Diplomacy|Gather Information|TYPE=Intuit Direction|Knowledge (Law)|TYPE=Profession|Spot|Listen|Move Silently|Sense Motive
 ###Block:
-1	ABILITY:Cavalier Ability|AUTOMATIC|Painful Reckoning ~ Ghostwalker|Resolute Auras ~ Ghostwalker|Anonymity ~ Ghostwalker	DEFINE:GhostwalkerPainfulReckoningBonus|0	BONUS:VAR|GhostwalkerPainfulReckoningBonus|CL
-2	ABILITY:Cavalier Ability|AUTOMATIC|Feign Death ~ Ghostwalker
-3	ABILITY:Cavalier Ability|AUTOMATIC|Superior Iron Will ~ Ghostwalker
-4	ABILITY:Cavalier Ability|AUTOMATIC|Etherealness ~ Ghostwalker		DEFINE:GhostwalkerEtherealnessTimes|0	BONUS:VAR|GhostwalkerEtherealnessTimes|(CL-1)/3
-5	ABILITY:Cavalier Ability|AUTOMATIC|Shadow Walk ~ Ghostwalker
+1	ABILITY:Ghostwalker Ability|AUTOMATIC|Painful Reckoning ~ Ghostwalker|Resolute Auras ~ Ghostwalker|Anonymity ~ Ghostwalker	DEFINE:GhostwalkerPainfulReckoningBonus|0	BONUS:VAR|GhostwalkerPainfulReckoningBonus|CL
+2	ABILITY:Ghostwalker Ability|AUTOMATIC|Feign Death ~ Ghostwalker
+3	ABILITY:Ghostwalker Ability|AUTOMATIC|Superior Iron Will ~ Ghostwalker
+4	ABILITY:Ghostwalker Ability|AUTOMATIC|Etherealness ~ Ghostwalker		DEFINE:GhostwalkerEtherealnessTimes|0	BONUS:VAR|GhostwalkerEtherealnessTimes|(CL-1)/3
+5	ABILITY:Ghostwalker Ability|AUTOMATIC|Shadow Walk ~ Ghostwalker
 
 # GLADIATOR
 CLASS:Gladiator	HD:10	SOURCEPAGE:p.21	MAXLEVEL:10	TYPE:Prestige	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
@@ -106,7 +107,7 @@ CLASS:Gladiator	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE=Craft|Handle Animal|Inti
 # Halfling Outrider	3e SKILLS!
 CLASS:Halfling Outrider	HD:10	SOURCEPAGE:p.22	MAXLEVEL:10	TYPE:Prestige	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
 CLASS:Halfling Outrider	PREATT:5	PRERACE:1,Halfling,RACESUBTYPE=Halfling	PRESKILL:3,Listen=4,Ride=6,Spot=4	PREFEAT:2,Mounted Combat,Mounted Archery
-CLASS:Halfling Outrider	STARTSKILLPTS:0	CSKILL:Animal Empathy|Handle Animal|Listen|Ride|Search|Spot
+CLASS:Halfling Outrider	STARTSKILLPTS:0	CSKILL:TYPE=Animal Empathy|Handle Animal|Listen|Ride|Search|Spot
 ###Block:
 1	ABILITY:Halfling Outrider Ability|AUTOMATIC|Alertness ~ Halfling Outrider|Ride Bonus ~ Halfling Outrider|AC Bonus ~ Halfling Outrider
 2	ABILITY:Halfling Outrider Ability|AUTOMATIC|Defensive Ride ~ Halfling Outrider	DEFINE:HalflingOutriderDefensiveRideTimes|0
@@ -156,83 +157,144 @@ CLASS:Lasher	STARTSKILLPTS:2	CSKILL:Balance|TYPE=Craft|Escape Artist|Intimidate|
 1	DEFINE:SneakAttackDice|0	BONUS:VAR|SneakAttackDice|(CL+3)/4
 
 # Master of Chains
-CLASS:Master of Chains	HD:	SOURCEPAGE:p.27	MAXLEVEL:10	TYPE:Prestige	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
-
-CLASS:Master of Chains
-
-CLASS:Master of Chains	STARTSKILLPTS:0	CSKILL:xxx
-#ABILITY:Cavalier Ability|AUTOMATIC|
-#ABILITY:Cavalier Ability|AUTOMATIC|
+CLASS:Master of Chains	HD:10	SOURCEPAGE:p.27	MAXLEVEL:10	TYPE:Prestige	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+CLASS:Master of Chains	!PREALIGN:LG,NG,CG	PRESKILL:3,Escape Artist=6,Open Lock=4,Intimidate=4	PREFEAT:6,Exotic Weapon Proficiency (Chain (Spiked)),Expertise,Improved Trip,Improved Disarm,Weapon Focus (Chain (Spiked)),Weapon Specialization (Chain (Spiked))	PRESTAT:1,INT=13
+CLASS:Master of Chains	STARTSKILLPTS:4	CSKILL:Balance|Climb|Craft (Metalworking)|Escape Artist|Hide|Intimidate|Open Lock
+###Block
+1	ABILITY:Master of Chains Ability|AUTOMATIC|Scare ~ Master of Chains
+2	ABILITY:Master of Chains Ability|AUTOMATIC|Climb Fighting ~ Master of Chains
+3	ABILITY:Master of Chains Ability|AUTOMATIC|Superior Weapon Focus ~ Master of Chains
+4	ABILITY:Master of Chains Ability|AUTOMATIC|Chain Bind ~ Master of Chains
+5	ABILITY:Master of Chains Ability|AUTOMATIC|Chain Armor ~ Master of Chains|Double Chain ~ Master of Chains
+6	ABILITY:Master of Chains Ability|AUTOMATIC|Deflect Attacks ~ Master of Chains
+7	ABILITY:Master of Chains Ability|AUTOMATIC|Superior Weapon Specialization ~ Master of Chains
+8	ABILITY:Master of Chains Ability|AUTOMATIC|Superior Barbed Chain ~ Master of Chains
+9	ABILITY:Master of Chains Ability|AUTOMATIC|Swinging Attack ~ Master of Chains
+10	ABILITY:Master of Chains Ability|AUTOMATIC|Chain Mastery ~ Master of Chains
 
 # Master Samurai
-CLASS:Master Samurai	HD:	SOURCEPAGE:p.29	MAXLEVEL:10	TYPE:Prestige	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
-
-CLASS:Master Samurai
-
-CLASS:Master Samurai	STARTSKILLPTS:0	CSKILL:xxx
-#ABILITY:Cavalier Ability|AUTOMATIC|
-#ABILITY:Cavalier Ability|AUTOMATIC|
+CLASS:Master Samurai	HD:	SOURCEPAGE:p.29	MAXLEVEL:10	TYPE:Prestige	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+CLASS:Master Samurai	PREATT:5	PRESKILL:3,Knowledge (nobility and royalty)=4,Ride=4,Intimidate=4	PREFEAT:6,Cleave,Improved Initiative,Mounted Archery,Mounted Combat,Power Attack,Weapon Focus (Sword (Bastard))
+CLASS:Master Samurai	STARTSKILLPTS:2	CSKILL:Intimidate|Jump|Knowledge (Code of Martial Honor)|Knowledge (Nobility and Royalty)|Ride|Tumble
+###Block:
+1	ABILITY:Master Samurai Ability|AUTOMATIC|Tumble Bonus ~ Master Samurai|Great Cleave ~ Master Samurai
+2	ABILITY:Master Samurai Ability|AUTOMATIC|Blades of Fury ~ Master Samurai|Supreme Cleave ~ Master Samurai
+3	ABILITY:Master Samurai Ability|AUTOMATIC|Supreme Mobility ~ Master Samurai
+4	ABILITY:Master Samurai Ability|AUTOMATIC|Blades of Death ~ Master Samurai
+5	ABILITY:Master Samurai Ability|AUTOMATIC|Ki Strength ~ Master Samurai		DEFINE:MasterSamuraiKiStrengthTimes|0	BONUS:VAR|MasterSamuraiKiStrengthTimes|(CL-3)/2
+6	ABILITY:Master Samurai Ability|AUTOMATIC|Ki Attack ~ Master Samurai		DEFINE:MasterSamuraiKiAttackTimes|0		BONUS:VAR|MasterSamuraiKiAttackTimes|(CL-4)/2
 
 # Ninja of the Crescent Moon
-CLASS:Ninja of the Crescent Moon	HD:	SOURCEPAGE:p.30	MAXLEVEL:10	TYPE:Prestige	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
-
-CLASS:Ninja of the Crescent Moon
-
-CLASS:Ninja of the Crescent Moon	STARTSKILLPTS:0	CSKILL:xxx
-#ABILITY:Cavalier Ability|AUTOMATIC|
-#ABILITY:Cavalier Ability|AUTOMATIC|
+CLASS:Ninja of the Crescent Moon	HD:8	SOURCEPAGE:p.30	MAXLEVEL:10	TYPE:Prestige	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+CLASS:Ninja of the Crescent Moon	PREATT:6	PREFEAT:3,Improved Unarmed Strike,Deflect Arrows,Quick-Draw	PRESKILL:2,Move Silently=10,Hide=10	PREABILITY:1,CATEGORY=Special Ability,TYPE.Evasion	PRETEXT:Evasion class feature, must contact Crescent Moon leadership.
+CLASS:Ninja of the Crescent Moon	STARTSKILLPTS:4	CSKILL:TYPE=Alchemy|Balance|Climb|TYPE=Craft|Escape Artist|Hide|Jump|Listen|Move Silently|Swim|Tumble
+###Block:
+1	ABILITY:Ninja of the Crescent Moon Ability|AUTOMATIC|Monk-Like Armor Bonuses ~ Ninja of the Crescent Moon|Sneak Attack ~ Ninja of the Crescent Moon
+2	ABILITY:Ninja of the Crescent Moon Ability|AUTOMATIC|Improved Evasion ~ Ninja of the Crescent Moon|Kuji-Kiri ~ Ninja of the Crescent Moon
+3	ABILITY:Ninja of the Crescent Moon Ability|AUTOMATIC|Poison Use ~ Ninja of the Crescent Moon
+4	ABILITY:Ninja of the Crescent Moon Ability|AUTOMATIC|AC Bonus ~ Ninja of the Crescent Moon|Fast Climbing ~ Ninja of the Crescent Moon|Silencing Attack ~ Ninja of the Crescent Moon
+5	ABILITY:Ninja of the Crescent Moon Ability|AUTOMATIC|Fast Sneak ~ Ninja of the Crescent Moon
+6	ABILITY:Ninja of the Crescent Moon Ability|AUTOMATIC|Invisibility ~ Ninja of the Crescent Moon|Opportunist ~ Ninja of the Crescent Moon
+7	ABILITY:Ninja of the Crescent Moon Ability|AUTOMATIC|Gaseous Form ~ Ninja of the Crescent Moon
+8	ABILITY:Ninja of the Crescent Moon Ability|AUTOMATIC|Improved Kuji-Kiri ~ Ninja of the Crescent Moon
+9	ABILITY:Ninja of the Crescent Moon Ability|AUTOMATIC|Blindsight ~ Ninja of the Crescent Moon
+10	ABILITY:Ninja of the Crescent Moon Ability|AUTOMATIC|Always Sneaky ~ Ninja of the Crescent Moon|Ethereal Jaunt ~ Ninja of the Crescent Moon
+###Block:
+1	BONUS:VAR|SneakAttackDice|(CL+1)/2
+4	BONUS:VAR|NotCMACBonus|1	DEFINE:NotCMACBonus|0
+9	BONUS:VAR|NotCMACBonus|1
 
 # Order of the Bow Initiate
-CLASS:Order of the Bow Initiate	HD:	SOURCEPAGE:p.32	MAXLEVEL:10	TYPE:Prestige	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
-
-CLASS:Order of the Bow Initiate
-
-CLASS:Order of the Bow Initiate	STARTSKILLPTS:0	CSKILL:xxx
-#ABILITY:Cavalier Ability|AUTOMATIC|
-#ABILITY:Cavalier Ability|AUTOMATIC|
+CLASS:Order of the Bow Initiate	HD:10	SOURCEPAGE:p.32	MAXLEVEL:10	TYPE:Prestige	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+CLASS:Order of the Bow Initiate	PREATT:5	PRESKILL:1,Knowledge (Religion)=2	PREWEAPONPROF:1,TYPE.Bow	PREFEAT:5,Point Blank Shot, Precise Shot, Rapid Shot,Weapon Focus (TYPE=Bow),Weapon Specialization (TYPE=Bow)
+CLASS:Order of the Bow Initiate	STARTSKILLPTS:2	CSKILL:Knowledge (Religion)|Craft (Bowmaking)|Spot|Swim|Ride
+###Block:
+1	ABILITY:Order of the Bow Initiate Ability|AUTOMATIC|Ranged Sneak Attack ~ Order of the Bow Initiate		DEFINE:OotBIRangedSneakAttackDice|0
+2	ABILITY:Order of the Bow Initiate Ability|AUTOMATIC|Close Combat Shot ~ Order of the Bow Initiate
+4	ABILITY:Order of the Bow Initiate Ability|AUTOMATIC|Superior Weapon Focus ~ Order of the Bow Initiate
+6	ABILITY:Order of the Bow Initiate Ability|AUTOMATIC|Free Attack ~ Order of the Bow Initiate|Zen Archery ~ Order of the Bow Initiate
+7	ABILITY:Order of the Bow Initiate Ability|AUTOMATIC|Superior Weapon Specialization ~ Order of the Bow Initiate
+9	ABILITY:Order of the Bow Initiate Ability|AUTOMATIC|Banked Shot ~ Order of the Bow Initiate
+###Block:
+1	BONUS:VAR|OotBIRangedSneakAttackDice|1
+3	BONUS:VAR|OotBIRangedSneakAttackDice|1
+5	BONUS:VAR|OotBIRangedSneakAttackDice|1
+8	BONUS:VAR|OotBIRangedSneakAttackDice|1
+10	BONUS:VAR|OotBIRangedSneakAttackDice|1
 
 # Ravager
-CLASS:Ravager	HD:	SOURCEPAGE:p.33	MAXLEVEL:10	TYPE:Prestige	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
-
-CLASS:Ravager
-
-CLASS:Ravager	STARTSKILLPTS:0	CSKILL:xxx
-#ABILITY:Cavalier Ability|AUTOMATIC|
-#ABILITY:Cavalier Ability|AUTOMATIC|
+CLASS:Ravager	HD:10	SOURCEPAGE:p.33	MAXLEVEL:10	TYPE:Prestige	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+CLASS:Ravager	PREALIGN:CE,CN,NE	PREATT:5	PREFEAT:3,Dirty Fighting,Power Attack,Sunder	PRESKILL:1,Intimidate=3,Knowledge (Religion)=3,TYPE=Wilderness Lore=4	PRETEXT:Must survive the Ravager initiation rites (See the Ravager organization description on page 50 of this book.)
+CLASS:Ravager	STARTSKILLPTS:2	CSKILL:Intimidate|Knowledge (Religion)|Move Silently|TYPE=Profession|Ride
+###Block:
+1	ABILITY:Ravager Ability|AUTOMATIC|Pain Touch ~ Ravager		DEFINE:RavagerPainTouchTimes|(CL+2)/3
+2	ABILITY:Ravager Ability|AUTOMATIC|Aura Of Fear ~ Ravager	DEFINE:RavagerAuraOfFearTimes|(CL+1)/3	DEFINE:RavagerAuraOfFearRange|((CL+1)/3)*10
+3	ABILITY:Ravager Ability|AUTOMATIC|Cruelest Cut ~ Ravager	DEFINE:RavagerCruelestCutTimes|CL/3
+10	ABILITY:Ravager Ability|AUTOMATIC|Visage Of Terror ~ Ravager
 
 # Red Avengers
-CLASS:Red Avengers	HD:	SOURCEPAGE:p.34	MAXLEVEL:10	TYPE:Prestige	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+CLASS:Red Avengers	HD:8	SOURCEPAGE:p.34	MAXLEVEL:10	TYPE:Prestige	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|1+(CL*3/4)|TYPE=Base.REPLACE
+CLASS:Red Avengers	PREATT:5	PREFEAT:2,Improved Unarmed Strike,Stunning Fist	PRESKILL:2,Listen=8,Tumble=8
+CLASS:Red Avengers	STARTSKILLPTS:4	CSKILL:Balance|Gather Information|Hide|Listen|Move Silently|Spot|Tumble
+###Block:
+1	ABILITY:Red Avengers Ability|AUTOMATIC|Stunning Shout ~ Red Avengers	DEFINE:RedAvengersStunningShoutTimes|0
+2	ABILITY:Red Avengers Ability|AUTOMATIC|Ki Save ~ Red Avengers			DEFINE:RedAvengersKiSaveTimes|0
+3	ABILITY:Red Avengers Ability|AUTOMATIC|Ki Skill ~ Red Avengers		DEFINE:RedAvengersKiSkillTimes|0
+4	ABILITY:Red Avengers Ability|AUTOMATIC|Ki Healing ~ Red Avengers
+5	ABILITY:Red Avengers Ability|AUTOMATIC|Deadly Shout ~ Red Avengers			DEFINE:RedAvengersDeadlyShoutTimes|0
+8	ABILITY:Red Avengers Ability|AUTOMATIC|Greater Ki Healing ~ Red Avengers
+10	ABILITY:Red Avengers Ability|AUTOMATIC|Free Ki ~ Red Avengers
+###Block:
+1	BONUS:VAR|RedAvengersStunningShoutTimes|1
+5	BONUS:VAR|RedAvengersStunningShoutTimes|1
+9	BONUS:VAR|RedAvengersStunningShoutTimes|1
+5	BONUS:VAR|RedAvengersDeadlyShoutTimes|1
+9	BONUS:VAR|RedAvengersDeadlyShoutTimes|1
+2	BONUS:VAR|RedAvengersKiSaveTimes|1
+6	BONUS:VAR|RedAvengersKiSaveTimes|1
+3	BONUS:VAR|RedAvengersKiSkillTimes|1
+7	BONUS:VAR|RedAvengersKiSkillTimes|1
 
-CLASS:Red Avengers
-
-CLASS:Red Avengers	STARTSKILLPTS:0	CSKILL:xxx
-#ABILITY:Cavalier Ability|AUTOMATIC|
-#ABILITY:Cavalier Ability|AUTOMATIC|
-
-# Tribal Protector
-CLASS:Tribal Protector	HD:	SOURCEPAGE:p.35	MAXLEVEL:10	TYPE:Prestige	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
-
-CLASS:Tribal Protector
-
-CLASS:Tribal Protector	STARTSKILLPTS:0	CSKILL:xxx
-#ABILITY:Cavalier Ability|AUTOMATIC|
-#ABILITY:Cavalier Ability|AUTOMATIC|
+# Tribal Protector	3e Skills and PRESKILL using it
+CLASS:Tribal Protector	HD:10	SOURCEPAGE:p.35	MAXLEVEL:10	TYPE:Prestige	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+CLASS:Tribal Protector	PRETEXT:Alignment: The same alignment as the majority of the character's tribe.	PREMULT:2,[PRERACE:1,RACETYPE=Humanoid,RACETYPE=Monstrous Humanoid],[!PRERACE:1,RACESUBTYPE=Human,RACESUBTYPE=Dwarf,RACESUBTYPE=Elf,RACESUBTYPE=Gnome,RACESUBTYPE=Halfling,Half-Elf]	PREATT:5	PREFEAT:3,Power Attack,Cleave,Great Cleave	PRESKILL:1,Wilderness Lore=4
+CLASS:Tribal Protector	STARTSKILLPTS:2	CSKILL:Bluff|Climb|TYPE=Craft|Hide|Intimidate|Intuit Direction|Jump|Move Silently|Sense Motive|Wilderness Lore
+###Block:
+1	ABILITY:Tribal Protector Ability|AUTOMATIC|Bonus Feat ~ Tribal Protector|Tribal Enemy|Homeland ~ Tribal Protector	DEFINE:TribalProtectorBonusFeatCount|0
+2	ABILITY:Tribal Protector Ability|AUTOMATIC|Wild Fighting ~ Tribal Protector
+3	ABILITY:Tribal Protector Ability|AUTOMATIC|Terrain AC Bonus ~ Tribal Protector	DEFINE:TribalProtectorTerrainACBonus|0	BONUS:VAR|TribalProtectorTerrainACBonus|2
+4	ABILITY:Tribal Protector Ability|AUTOMATIC|Smite ~ Tribal Protector			DEFINE:TribalProtectorSmiteTimes|(CL-1)/3
+###Block:
+1	BONUS:VAR|TribalProtectorBonusFeatCount|1
+5	BONUS:VAR|TribalProtectorBonusFeatCount|1
+6	BONUS:VAR|TribalProtectorTerrainACBonus|1
+8	BONUS:VAR|TribalProtectorTerrainACBonus|1
+9	BONUS:VAR|TribalProtectorBonusFeatCount|1
 
 # Warmaster
-CLASS:Warmaster	HD:	SOURCEPAGE:p.37	MAXLEVEL:10	TYPE:Prestige	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
-
-CLASS:Warmaster
-
-CLASS:Warmaster	STARTSKILLPTS:0	CSKILL:xxx
-#ABILITY:Cavalier Ability|AUTOMATIC|
-#ABILITY:Cavalier Ability|AUTOMATIC|
+CLASS:Warmaster	HD:10	SOURCEPAGE:p.37	MAXLEVEL:10	TYPE:Prestige	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+CLASS:Warmaster	PREATT:7	PRESKILL:1,Diplomacy=5	!PREALIGN:CG,CN,CE,NE,LE	PREFEAT:2,Leadership,Weapon Specialization	PREMULT:1,[PREWEAPONPROF:1,TYPE.Martial],[PREFEAT:1,Martial Weapon Proficiency]
+CLASS:Warmaster	STARTSKILLPTS:4	CSKILL:Bluff|type=Craft|Diplomacy|Intimidate|TYPE=Knowledge|TYPE=Profession|Ride|Sense Motive
+###Block:
+1	ABILITY:Warmaster Ability|AUTOMATIC|Brotherhood ~ Warmaster|Leadership Bonus ~ Warmaster		DEFINE:WarmasterLeadershipBonus|(CL+1)/2
+2	ABILITY:Warmaster Ability|AUTOMATIC|Battle Cry ~ Warmaster
+3	ABILITY:Warmaster Ability|AUTOMATIC|Direct Troops ~ Warmaster
+4	ABILITY:Warmaster Ability|AUTOMATIC|Tower ~ Warmaster|Rally Troops ~ Warmaster
+5	ABILITY:Warmaster Ability|AUTOMATIC|Hard March ~ Warmaster
+6	ABILITY:Warmaster Ability|AUTOMATIC|Keep ~ Warmaster
+7	ABILITY:Warmaster Ability|AUTOMATIC|Battle Standard ~ Warmaster
+8	ABILITY:Warmaster Ability|AUTOMATIC|Castle ~ Warmaster
+9	ABILITY:Warmaster Ability|AUTOMATIC|Die for your Country ~ Warmaster
+10	ABILITY:Warmaster Ability|AUTOMATIC|Huge Castle ~ Warmaster
 
 # Weapon Master
-CLASS:Weapon Master	HD:	SOURCEPAGE:p.38	MAXLEVEL:10	TYPE:Prestige	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
-
-CLASS:Weapon Master
-
-CLASS:Weapon Master	STARTSKILLPTS:0	CSKILL:xxx
-#ABILITY:Cavalier Ability|AUTOMATIC|
-#ABILITY:Cavalier Ability|AUTOMATIC|
-
+CLASS:Weapon Master	HD:10	SOURCEPAGE:p.38	MAXLEVEL:10	TYPE:Prestige	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+CLASS:Weapon Master	PREATT:5	PRESKILL:1,Intimidate=4	PRETEXT:Proficiency: With your weapon of choice.	PRETEXT:Weapon: Masterwork weapon (unless unarmed).	PREFEAT:6,Dodge,Mobility,Combat Reflexes,Expertise,Weapon Focus,Whirlwind Attack	PRESTAT:1,DEX=13
+CLASS:Weapon Master	STARTSKILLPTS:2	CSKILL:Intimidate|Knowledge (Weaponry)|Listen|Sense Motive|Spot
+###Block:
+1	ABILITY:Weapon Master Ability|AUTOMATIC|Ki Damage ~ Weapon Master			DEFINE:WeaponMasterKiDamageTimes|CL
+2	ABILITY:Weapon Master Ability|AUTOMATIC|Increased Multiplier ~ Weapon Master	DEFINE:WeaponMasterIncreasedMultiplierTimes|0	BONUS:VAR|WeaponMasterIncreasedMultiplierTimes|CL/2
+3	ABILITY:Weapon Master Ability|AUTOMATIC|Superior Weapon Focus ~ Weapon Master
+5	ABILITY:Weapon Master Ability|AUTOMATIC|Superior Combat Reflexes ~ Weapon Master
+7	ABILITY:Weapon Master Ability|AUTOMATIC|Ki Critical ~ Weapon Master
+9	ABILITY:Weapon Master Ability|AUTOMATIC|Ki Whirlwind Attack ~ Weapon Master
