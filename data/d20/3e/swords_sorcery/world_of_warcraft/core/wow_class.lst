@@ -1,0 +1,249 @@
+# CVS $Revision: $ $Author: $ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
+SOURCELONG:World of Warcraft	SOURCESHORT:WoW	SOURCEDATE:2006-11
+
+# Class Name	Hit Dice	Type			Abbreviation	Automatically Gained Language	Save checks bonus											Combat bonus
+CLASS:Arcanist	HD:4		TYPE:Base.PC	ABB:Arc		AUTO:LANG|Literacy		BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*1/2|TYPE=Base.REPLACE
+# Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels	Caster level
+CLASS:Arcanist	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			BONUS:CASTERLEVEL|Arcanist|CL
+1	CAST:3,1
+2	CAST:4,2
+3	CAST:4,2,1
+4	CAST:4,3,2
+5	CAST:4,3,2,1
+6	CAST:4,3,3,2
+7	CAST:4,4,3,2,1
+8	CAST:4,4,3,3,2
+9	CAST:4,4,4,3,2,1
+10	CAST:4,4,4,3,3,2
+11	CAST:4,4,4,4,3,2,1
+12	CAST:4,4,4,4,3,3,2
+13	CAST:4,4,4,4,4,3,2,1
+14	CAST:4,4,4,4,4,3,3,2
+15	CAST:4,4,4,4,4,4,3,2,1
+16	CAST:4,4,4,4,4,4,3,3,2
+17	CAST:4,4,4,4,4,4,4,3,2,1
+18	CAST:4,4,4,4,4,4,4,3,3,2
+19	CAST:4,4,4,4,4,4,4,4,3,3
+20	CAST:4,4,4,4,4,4,4,4,4,4
+
+# Class Name	Hit Dice	Type			Abbreviation	Automatically Gained Language	Save checks bonus											Combat bonus
+CLASS:Mage Path	HD:4		TYPE:Base.PC	ABB:Arc		AUTO:LANG|Literacy		BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*1/2|TYPE=Base.REPLACE
+# Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels	Caster level
+CLASS:Mage Path	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			BONUS:CASTERLEVEL|Mage Path|CL
+1	CAST:3,1
+2	CAST:4,2
+3	CAST:4,2,1
+4	CAST:4,3,2
+5	CAST:4,3,2,1
+6	CAST:4,3,3,2
+7	CAST:4,4,3,2,1
+8	CAST:4,4,3,3,2
+9	CAST:4,4,4,3,2,1
+10	CAST:4,4,4,3,3,2
+11	CAST:4,4,4,4,3,2,1
+12	CAST:4,4,4,4,3,3,2
+13	CAST:4,4,4,4,4,3,2,1
+14	CAST:4,4,4,4,4,3,3,2
+15	CAST:4,4,4,4,4,4,3,2,1
+16	CAST:4,4,4,4,4,4,3,3,2
+17	CAST:4,4,4,4,4,4,4,3,2,1
+18	CAST:4,4,4,4,4,4,4,3,3,2
+19	CAST:4,4,4,4,4,4,4,4,3,3
+20	CAST:4,4,4,4,4,4,4,4,4,4
+
+#Arcanist in WOW get d6 but this is for a Wizard norm campaign.
+
+# Class Name		Hit Dice	Type			Abbreviation	Automatically Gained Language	Save checks bonus											Combat bonus
+CLASS:Warlock Path	HD:4		TYPE:Base.PC	ABB:WarPth		AUTO:LANG|Literacy		BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*1/2|TYPE=Base.REPLACE
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Warlock Path	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Craft (Trade Skill)|Decipher Script|Knowledge (Arcana)|TYPE=Knowledge|TYPE=Profession|Speak Languages|Spellcraft|Diplomacy|Intimidate
+# Class Name		Spell Stat		Spell Type		Automatically Known Spell Levels	Caster level
+CLASS:Warlock Path	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			BONUS:CASTERLEVEL|Warlock Path|CL
+#SPELLLIST:2|Arcanist|Warlock Path
+###Block:Proficiencies
+1																																		ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|Wizard Weapon Proficiencies
+###Arcanist Generalizations:
+1																																																	AUTO:FEAT|Scribe Scroll
+5																											ADD:FEAT|TYPE=ItemCreation,TYPE=Metamagic
+10																											ADD:FEAT|TYPE=ItemCreation,TYPE=Metamagic
+15																											ADD:FEAT|TYPE=ItemCreation,TYPE=Metamagic
+20																											ADD:FEAT|TYPE=ItemCreation,TYPE=Metamagic
+1:REPEATLEVEL:1|SKIP=0|MAX=20																							ADD:SPELLCASTER|Arcanist
+
+
+
+###Warlock Benefits
+1										SAB:Fel Companion	SAB:+1 DC to Warlock Path Spells
+4										SAB:Summoner (Ex)																																					AUTO:FEAT|Augment Summoning
+6										SAB:Summoning Spells Duration Doubled
+8										SAB:Enslave Outsider (Su)
+12										SAB:Demonologist (Ex): +1 caster level to Summoning Spells	BONUS:CASTERLEVEL|SUBSCHOOL.Summoning|1
+16										SAB:Demon Mastery (Su)
+
+###Spells gained:
+###Arcanist Path Covert
+1																																																						SPELLLEVEL:CLASS|Arcanist=0|Arcane Mark,Detect Magic,Ghost Sound,Prestidigitation,Read Magic,Resistance
+1																																																						SPELLLEVEL:CLASS|Arcanist=1|Alarm,Charm Person,Comprehend Languages,Disguise Self,Identify,Protection from Evil,Silent Image
+1																																																						SPELLLEVEL:CLASS|Arcanist=2|Detect Thoughts,Invisibility,Minor Image,Mirror Image,Resist Energy,See Invisibility,Touch of Idiocy
+1																																																						SPELLLEVEL:CLASS|Arcanist=3|Clairaudience/Clairvoyance,Dispel Magic,Gaseous Form,Hold Person,Major Image,Nondetection,Suggestion,Tongues
+1																																																						SPELLLEVEL:CLASS|Arcanist=4|Charm Monster,Confusion,Detect Scrying,Dimensional Anchor,Dimension Door,Geas (Lesser),Globe of Invulnerability (Lesser),Invisibility (Greater),Locate Creature,Phantasmal Killer,Resilient Sphere,Scrying,Solid Fog,Stoneskin
+1																																																						SPELLLEVEL:CLASS|Arcanist=5|Break Enchantment,Dismissal,Dominate Person,Hold Monster,Passwall,Permanency,Persistent Image,Sending,Telepathic Bond,Wall of Force
+1																																																						SPELLLEVEL:CLASS|Arcanist=6|Antimagic Field,Contingency,Dispel Magic (Greater),Geas/Quest,Lengend Lore,Permanent Image,Suggestion (Mass),True Seeing
+1																																																						SPELLLEVEL:CLASS|Arcanist=7|Banishment,Hold Person (Mass),Invisibility (Mass),Limited Wish,Plane Shift,Scrying (Greater),Spell Turning
+1																																																						SPELLLEVEL:CLASS|Arcanist=8|Demand,Discern Location,Mind Blank,Protection from Spells,Telekinetic Sphere
+1																																																						SPELLLEVEL:CLASS|Arcanist=9|Dominate Monster,Hold Monster (Mass),Wish
+###Warlock Path Convert
+1																																																						SPELLLEVEL:CLASS|Warlock Path=0|Acid Splash
+1																																																						SPELLLEVEL:CLASS|Warlock Path=1|Cause Fear,Mount,Summon Monster I,Unseen Servant
+1																																																						SPELLLEVEL:CLASS|Warlock Path=2|Summon Monster II,Summon Swarm
+1																																																						SPELLLEVEL:CLASS|Warlock Path=3|Summon Monster III,Water Breathing
+1																																																						SPELLLEVEL:CLASS|Warlock Path=4|Summon Monster IV
+1																																																						SPELLLEVEL:CLASS|Warlock Path=5|Planar Binding (Lesser),Summon Monster V
+1																																																						SPELLLEVEL:CLASS|Warlock Path=6|Acid Fog,Planar Binding,Summon Monster VI
+1																																																						SPELLLEVEL:CLASS|Warlock Path=7|Phase Door,Summon Monster VII
+1																																																						SPELLLEVEL:CLASS|Warlock Path=8|Planar Binding (Greater),Summon Monster VIII
+1																																																						SPELLLEVEL:CLASS|Warlock Path=9|Gate,Summon Monster IX
+#
+1					CAST:3,1
+2					CAST:4,2
+3					CAST:4,2,1
+4					CAST:4,3,2
+5					CAST:4,3,2,1
+6					CAST:4,3,3,2
+7					CAST:4,4,3,2,1
+8					CAST:4,4,3,3,2
+9					CAST:4,4,4,3,2,1
+10					CAST:4,4,4,3,3,2
+11					CAST:4,4,4,4,3,2,1
+12					CAST:4,4,4,4,3,3,2
+13					CAST:4,4,4,4,4,3,2,1
+14					CAST:4,4,4,4,4,3,3,2
+15					CAST:4,4,4,4,4,4,3,2,1
+16					CAST:4,4,4,4,4,4,3,3,2
+17					CAST:4,4,4,4,4,4,4,3,2,1
+18					CAST:4,4,4,4,4,4,4,3,3,2
+19					CAST:4,4,4,4,4,4,4,4,3,3
+20					CAST:4,4,4,4,4,4,4,4,4,4
+
+
+#Mage's Disjunction|Spiritual Projection
+#Mana Shield|Moonglaive|Shadow Meld|
+#Storm Hammer
+#Mnemonic Enhancer
+#Carrion Swarm|Drain Life|Drain Soul|Hooks of Binding (Greater)
+#Eye of Kilrogg|Ner'zhul's Black Tentacles (Black Tentacles)|Rain of Fire
+#Orb of Annihilation
+#Demon Skin (Lesser)
+#Demon Skin|Hooks of Binding
+#Demon Skin (Greater)|Hooks of Binding (Greater)|Soul Stone
+#Dark Metmorphosis
+
+# Class Name	Hit Dice	Type			Abbreviation	Ex Class		Source Page			Bonus Languages	Define				Automatically Gained Language	Save checks bonus											Combat bonus					Add domain number		Modify VAR
+CLASS:Druid Path	HD:8		TYPE:Base.PC	ABB:DotW		EXCLASS:Ex Druid	SOURCEPAGE:ClassesI.rtf	LANGBONUS:Sylvan	DEFINE:AnimalCompanionLVL|0	AUTO:LANG|Druidic|Literacy	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:DOMAIN|NUMBER|1	BONUS:VAR|AnimalCompanionLVL|CL
+# Class Name	Required AL
+CLASS:Druid Path	PREALIGN:LN,NG,TN,NE,CN
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Druid Path	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|TYPE=Craft|Craft (Trade Skill)|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (Religion)|Knowledge (The Planes)|Listen|TYPE=Profession|Speak Languages|Spellcraft|Handle Animal|Knowledge (Nature)|Stealth|Survival
+# Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels											Caster level				Use Spell List
+CLASS:Druid Path	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Druid Path|CL	SPELLLIST:2|Druid Path|Healer
+###Healer Spells convert
+1	SPELLLEVEL:CLASS|Druid Path=0|Cure Minor Wounds,Detect Magic,Detect Poison,Inflict Minor Wounds,Light,Mending,Purify Food and Drink,Read Magic
+1	SPELLLEVEL:CLASS|Druid Path=1|Bane,Bless,Comprehend Languages,Cure Light Wounds,Detect Chaos,Detect Evil,Detect Good,Detect Law,Detect Undead,Doom,Endure Elements,Identify,Inflict Light Wounds,Protection from Chaos,Protection from Evil,Protection from Good,Protection from Law,Remove Fear
+1	SPELLLEVEL:CLASS|Druid Path=2|Bear's Endurance,Blindness/Deafness,Bull's Strength,Cure Moderate Wounds,Delay Poison,Eagle's Splendor,Fog Cloud,Inflict Moderate Wounds,Owl's Wisdom,Resist Energy,Restoration (Lesser),Silence
+1	SPELLLEVEL:CLASS|Druid Path=3|Bestow Curse,Contagion,Cure Serious Wounds,Dispel Magic,Inflict Serious Wounds,Locate Object,Magic Circle against Evil,Magic Circle against Good,Protection from Energy,Remove Curse,Remove Disease
+1	SPELLLEVEL:CLASS|Druid Path=4|Cure Critical Wounds,Divination,Inflict Critical Wounds,Neutralize Poison,Restoration,Sending,Spell Immunity,Tongues
+1	SPELLLEVEL:CLASS|Druid Path=5|Atonement,Cure Light Wounds (Mass),Inflict Light Wounds (Mass),Rejuvenation,Scrying,Spell Resistance,True Seeing
+1	SPELLLEVEL:CLASS|Druid Path=6|Banishment,Bear's Endurance (Mass),Bull's Strength (Mass),Cure Moderate Wounds (Mass),Dispel Magic (Greater),Eagle's Splendor (Mass),Geas/Quest,Inflict Moderate Wounds (Mass),Owl's Wisdom (Mass)
+1	SPELLLEVEL:CLASS|Druid Path=7|Cure Serious Wounds (Mass),Inflict Serious Wounds (Mass),Plane Shift,Regenerate,Repulsion,Restoration (Greater),Scrying (Greater)
+1	SPELLLEVEL:CLASS|Druid Path=8|Cure Critical Wounds (Mass),Discern Location,Inflict Critical Wounds (Mass),Spell Immunity (Greater)
+1	SPELLLEVEL:CLASS|Druid Path=9|Energy Drain,Implosion,Miracle,True Resurrection
+###Druid Spells convert
+1	SPELLLEVEL:CLASS|Druid Path=0|Know Direction
+1	SPELLLEVEL:CLASS|Druid Path=1|Charm Animal,Magic Fang,Speak with Animals,Summon Nature's Ally I
+1	SPELLLEVEL:CLASS|Druid Path=2|Hold Animal,Summon Nature's Ally II,Summon Swarm,Thunderclap
+1	SPELLLEVEL:CLASS|Druid Path=3|Dominate Animal,Magic Fang (Greater),Speak with Plants,Summon Nature's Ally III
+1	SPELLLEVEL:CLASS|Druid Path=4|Control Water,Summon Nature's Ally IV
+1	SPELLLEVEL:CLASS|Druid Path=5|Animal Growth,Commune with Nature,Summon Nature's Ally V
+1	SPELLLEVEL:CLASS|Druid Path=6|Find the Path,Summon Nature's Ally VI,Transport via Plants
+1	SPELLLEVEL:CLASS|Druid Path=7|Animate Plants,Control Weather,Summon Nature's Ally VII
+1	SPELLLEVEL:CLASS|Druid Path=8|Animal Shapes,Control Plants,Summon Nature's Ally VIII
+1	SPELLLEVEL:CLASS|Druid Path=9|Elemental Swarm,Shambler,Shapechange,Summon Nature's Ally IX
+
+###Block:Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|Druid Weapon Proficiencies
+1																AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1																AUTO:FEAT|Shield Proficiency
+###Block: Wildshape Abilities Block
+#
+# To add effective Druid levels to this ability use BONUS:VAR|DruidWildShape|CL
+#
+1	BONUS:VAR|DruidWildShape|CL																																																																									DEFINE:DruidWildShape|0	ABILITY:Special Ability|AUTOMATIC|Wild Shape
+1	BONUS:VAR|WildShapeDuration|DruidWildShape
+1	BONUS:VAR|WildShapeElementalTimes|1|PREVARGTEQ:DruidWildShape,16	BONUS:VAR|WildShapeElementalTimes|1|PREVARGTEQ:DruidWildShape,18	BONUS:VAR|WildShapeElementalTimes|1|PREVARGTEQ:DruidWildShape,20
+1	BONUS:VAR|WildShapeTimes|1|PREVARGTEQ:DruidWildShape,5	BONUS:VAR|WildShapeTimes|1|PREVARGTEQ:DruidWildShape,6	BONUS:VAR|WildShapeTimes|1|PREVARGTEQ:DruidWildShape,7	BONUS:VAR|WildShapeTimes|1|PREVARGTEQ:DruidWildShape,10	BONUS:VAR|WildShapeTimes|1|PREVARGTEQ:DruidWildShape,14	BONUS:VAR|WildShapeTimes|1|PREVARGTEQ:DruidWildShape,18
+1	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,5	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,8	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,11	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,12	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,15	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,16	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShape,20
+###Block: Spell Alignment Restrictions
+1	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE	PROHIBITSPELL:ALIGNMENT.Good|PREDEITYALIGN:LE,NE,CE	PROHIBITSPELL:ALIGNMENT.Good|PREDEITYALIGN:LE,NE,CE
+1	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG	PROHIBITSPELL:ALIGNMENT.Evil|PREDEITYALIGN:LG,NG,CG	PROHIBITSPELL:ALIGNMENT.Evil|PREDEITYALIGN:LG,NG,CG
+1	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE	PROHIBITSPELL:ALIGNMENT.Lawful|PREDEITYALIGN:CG,CN,CE	PROHIBITSPELL:ALIGNMENT.Lawful|PREDEITYALIGN:CG,CN,CE
+1	PROHIBITSPELL:ALIGNMENT.Chaotic|PREALIGN:LG,LN,LE	PROHIBITSPELL:ALIGNMENT.Chaotic|PREALIGN:LG,LN,LE	PROHIBITSPELL:ALIGNMENT.Chaotic|PREDEITYALIGN:LG,LN,LE	PROHIBITSPELL:ALIGNMENT.Chaotic|PREDEITYALIGN:LG,LN,LE
+###Block: Turn Plant & Animal stuff
+1	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base			DEFINE:AllowImprovedTurning|1	ADD:FEAT|TYPE=TurnAnimal,TYPE=TurnPlant	ABILITY:Special Ability|AUTOMATIC|Basic Turning
+1	BONUS:VAR|TurnLevelBase|CL|TYPE=Level.REPLACE		DEFINE:AllowExtraTurning|1
+1	BONUS:VAR|TurnDamagePlusBase|CL|TYPE=Level.REPLACE
+1	BONUS:VAR|TurnCheckBase|CHA|TYPE=Base
+###Block: Domain Stuff
+1					CHOOSE:DOMAIN|WoW-Animal (Lesser)|WoW-Wild (Lesser)
+10	BONUS:DOMAIN|NUMBER|2	CHOOSE:NUMCHOICES=2|DOMAIN|WoW-Animal (Greater)|WoW-Animal (Lesser)|WoW-Wild (Greater)|WoW-Wild (Lesser)
+20	BONUS:DOMAIN|NUMBER|1	CHOOSE:DOMAIN|WoW-Animal (Greater)|WoW-Wild (Greater)
+###Block: Normal Progression
+1	CAST:3,1				SAB:Animal Companion (Ex)	BONUS:SKILL|Knowledge (Nature),Survival|2										ABILITY:Special Ability|AUTOMATIC|Wild Empathy	AUTO:FEAT|Brew Potion
+2	CAST:4,2				SAB:Woodland Stride (Ex)
+3	CAST:4,2,1				SAB:Trackless Step (Ex)
+4	CAST:5,3,2				SAB:Resist Nature's Lure (Ex)
+5	CAST:5,3,2,1															ADD:FEAT|Spell Focus,TYPE=ItemCreation,TYPE=Metamagic
+6	CAST:5,3,3,2
+7	CAST:6,4,3,2,1
+8	CAST:6,4,3,3,2
+9	CAST:6,4,4,3,2,1			SAB:Venom Immunity (Ex)
+10	CAST:6,4,4,3,3,2															ADD:FEAT|Spell Focus,TYPE=ItemCreation,TYPE=Metamagic
+11	CAST:6,5,4,4,3,2,1
+12	CAST:6,5,4,4,3,3,2
+13	CAST:6,5,5,4,4,3,2,1		SAB:A Thousand Faces (Su)
+14	CAST:6,5,5,4,4,3,3,2
+15	CAST:6,5,5,5,4,4,3,2,1		SAB:Timeless Body (Ex)									ADD:FEAT|Spell Focus,TYPE=ItemCreation,TYPE=Metamagic
+16	CAST:6,5,5,5,4,4,3,3,2
+17	CAST:6,5,5,5,5,4,4,3,2,1
+18	CAST:6,5,5,5,5,4,4,3,3,2
+19	CAST:6,5,5,5,5,5,4,4,3,3
+20	CAST:6,5,5,5,5,5,4,4,4,4													ADD:FEAT|Spell Focus,TYPE=ItemCreation,TYPE=Metamagic
+
+
+#SPELLLEVEL:CLASS|Healer=0|Cure Minor Wounds|Detect Magic|Detect Poison|Inflict Minor Wounds|Light|Mending|Purify Food and Drink|Read Magic|
+#SPELLLEVEL:CLASS|Healer=1|Bane|Bless|Comprehend Languages|Cure Light Wounds|Detect Chaos|Detect Evil|Detect Good|Detect Law|Detect Undead|Doom|Endure Elements|Identify|Inflict Light Wounds|Protection from Chaos|Protection from Evil|Protection from Good|Protection from Law|Remove Fear
+#SPELLLEVEL:CLASS|Healer=2|Bear's Endurance|Blindness/Deafness|Bull's Strength|Cure Moderate Wounds|Delay Poison|Eagle's Splendor|Fog Cloud|Inflict Moderate Wounds|Owl's Wisdom|Resist Energy|Restoration (Lesser)|Silence
+#SPELLLEVEL:CLASS|Healer=3|Bestow Curse|Contagion|Cure Serious Wounds|Dispel Magic|Inflict Serious Wounds|Locate Object|Magic Circle against Evil|Magic Circle against Good|Protection from Energy|Remove Curse|Remove Disease
+#SPELLLEVEL:CLASS|Healer=4|Cure Critical Wounds|Divination|Inflict Critical Wounds|Neutralize Poison|Restoration|Sending|Spell Immunity|Tongues
+#SPELLLEVEL:CLASS|Healer=5|Atonement|Cure Light Wounds (Mass)|Inflict Light Wounds (Mass)|Rejuvenation|Scrying|Spell Resistance|True Seeing
+#SPELLLEVEL:CLASS|Healer=6|Banishment|Bear's Endurance (Mass)|Bull's Strength (Mass)|Cure Moderate Wounds (Mass)|Dispel Magic (Greater)|Eagle's Splendor (Mass)|Geas/Quest|Inflict Moderate Wounds (Mass)|Owl's Wisdom (Mass)
+#SPELLLEVEL:CLASS|Healer=7|Cure Serious Wounds (Mass)|Inflict Serious Wounds (Mass)|Plane Shift|Regenerate|Repulsion|Restoration (Greater)|Scrying (Greater)
+#SPELLLEVEL:CLASS|Healer=8|Cure Critical Wounds (Mass)|Discern Location|Inflict Critical Wounds (Mass)|Spell Immunity (Greater)
+#SPELLLEVEL:CLASS|Healer=9|Energy Drain|Implosion|Miracle|True Resurrection
+
+
+
+##Druid Path Spells
+#SPELLLEVEL:CLASS|Druid Path=0|Know Direction
+#SPELLLEVEL:CLASS|Druid Path=1|Charm Animal|Magic Fang|Speak with Animals|Summon Nature's Ally I
+#SPELLLEVEL:CLASS|Druid Path=2|Hold Animal|Summon Nature's Ally II|Summon Swarm|Thunderclap
+#SPELLLEVEL:CLASS|Druid Path=3|Dominate Animal|Magic Fang (Greater)|Speak with Plants|Summon Nature's Ally III
+#SPELLLEVEL:CLASS|Druid Path=4|Control Water|Summon Nature's Ally IV
+#SPELLLEVEL:CLASS|Druid Path=5|Animal Growth|Commune with Nature|Summon Nature's Ally V
+#SPELLLEVEL:CLASS|Druid Path=6|Find the Path|Summon Nature's Ally VI|Transport via Plants
+#SPELLLEVEL:CLASS|Druid Path=7|Animate Plants|Control Weather|Summon Nature's Ally VII
+#SPELLLEVEL:CLASS|Druid Path=8|Animal Shapes|Control Plants|Summon Nature's Ally VIII
+#SPELLLEVEL:CLASS|Druid Path=9|Elemental Swarm|Shambler|Shapechange|Summon Nature's Ally IX
+
+
+# Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels											Caster level
+CLASS:Healer	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Healer|CL

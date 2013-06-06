@@ -1,0 +1,28 @@
+SOURCELONG:Monte Cook's World of Darkness d20	SOURCESHORT:mc_wod	SOURCEDATE:2009-01
+
+
+# Template Name			Visible	Combat bonus																					Modify VAR																																							Choose									Temporary effect description
+Fighting Defensively		VISIBLE:NO	BONUS:COMBAT|TOHIT|-4|PREAPPLY:ANYPC																	BONUS:VAR|TwoWeaponShield|1|TYPE=Temporary|PREAPPLY:ANYPC	BONUS:VAR|FightingDefensivelyAC|2+FightingDefensivelyACBonus|TYPE=Temp1|PREAPPLY:ANYPC	BONUS:VAR|FightingDefensivelyACBonus|1|TYPE=Temp2|PRESKILL:1,Tumble=5|PREAPPLY:ANYPC											TEMPDESC:You are fighting defensively when attacking
+Total Defense			VISIBLE:NO																								BONUS:VAR|TwoWeaponShield|1|TYPE=Temporary|PREAPPLY:ANYPC	BONUS:VAR|TotalDefenseAC|4+TotalDefenseACBonus|TYPE=Temp1|PREAPPLY:ANYPC	BONUS:VAR|TotalDefenseACBonus|2|TYPE=Temp2|PRESKILL:1,Tumble=5|PREAPPLY:ANYPC															TEMPDESC:You are defending yourself as a standard action
+Combat Expertise trade off	VISIBLE:NO	BONUS:COMBAT|AC|min(%CHOICE,BAB)|TYPE=Temporary|PREAPPLY:PC	BONUS:COMBAT|TOHIT|max((-1*%CHOICE),(-1*BAB))|TYPE=Temporary|PREAPPLY:PC																																									CHOOSE:NUMBER|MIN=1|MAX=5|TITLE=Combat Expertise trade off	TEMPDESC:When you use the attack action or the full attack action in melee, you can take a penalty of as much as -5 on your attack roll and add the same number (+5 or less) as a dodge bonus to your Armor Class.
+
+#Werewolf Hybrid Attacks																																																																													NATURALATTACKS:Wolf Bite,Weapon.Natural.Melee.Piercing,*1,1d8
+#Werewolf Wolf Attacks																																																																													NATURALATTACKS:Hybrid Bite,Weapon.Natural.Melee.Piercing,*1,1d6|Hybrid Claws,Weapon.Natural.Melee,*2,1d6
+
+###Werewolf Tribes
+Rahu					VISIBLE:NO
+Elodoth				VISIBLE:NO
+Ithaeur				VISIBLE:NO
+Irraka				VISIBLE:NO
+Cahalith				VISIBLE:NO
+
+###Block: Minion Templates
+# Template Name
+Minion (Air Elemental)
+Demon
+Earth Elemental
+Fire Elemental
+Harmless
+Skeleton
+Water Elemental
+Zombie
