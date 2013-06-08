@@ -4,88 +4,207 @@ CLASS:Avenging Executioner	HD:8		TYPE:Prestige	MAXLEVEL:5	SOURCEPAGE:p.24	BONUS:
 CLASS:Avenging Executioner	!PREALIGN:LG,NG,CG	PREATT:5	PRESKILL:3,Hide=4,Intimidate=6,Move Silently=4	PRETEXT:Must have been tragically wronged in some manner.
 CLASS:Avenging Executioner	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Disguise|Escape Artist|Hide|Intimidate|Jump|Listen|Move Silently|Open Lock|TYPE=Profession|Spot|Use Rope
 ###Block:
-1	ABILITY:Avenging Executioner Class Ability|AUTOMATIC|Bloody Blade ~ Avenging Executioner|Sudden Strike ~ Avenging Executioner	DEFINE:SuddenStrikeDice|0	BONUS:VAR|SuddenStrikeDice|(CL+1)/2
+1	ABILITY:Avenging Executioner Class Ability|AUTOMATIC|Bloody Blade ~ Avenging Executioner|Sudden Strike ~ Avenging Executioner
 2	ABILITY:Avenging Executioner Class Ability|AUTOMATIC|Rapid Intimidation ~ Avenging Executioner
 4	ABILITY:Avenging Executioner Class Ability|AUTOMATIC|Dread Blade ~ Avenging Executioner
 5	ABILITY:Avenging Executioner Class Ability|AUTOMATIC|Bloody Murder ~ Avenging Executioner
-
+###Block:
+1	BONUS:VAR|SuddenStrikeDice|(CL+1)/2	DEFINE:SuddenStrikeDice|0
 
 CLASS:Battle Trickster	HD:10		TYPE:Prestige	MAXLEVEL:3	SOURCEPAGE:p.28	BONUS:CHECKS|BASE.Fortitude|(CL/2)+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
-CLASS:Battle Trickster	PREATT:5	PRESKILL:3,TYPE.Standard=6	PRETEXT:Any three skills 6 ranks each. Skill Tricks: Any two.		PREABILITY:2,CATEGORY=ST,TYPE.ST
+CLASS:Battle Trickster	PREATT:5	PRESKILL:3,TYPE.Standard=6	PRETEXT:Any three skills 6 ranks each. Skill Tricks: Any two.		PREABILITY:2,CATEGORY=Skill Trick,TYPE.SkillTrick
 CLASS:Battle Trickster	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Handle Animal|Jump|TYPE=Profession|Ride|Swim|Tumble|Use Rope
 ###Block:
-1	ABILITY:Battle Trickster Class Ability|AUTOMATIC|Bonus Trick ~ Battle Trickster	DEFINE:BonusSkillTrickCount|0	BONUS:VAR|BonusSkillTrickCount|1
+1	ABILITY:Battle Trickster Class Ability|AUTOMATIC|Bonus Trick ~ Battle Trickster
 2	ABILITY:Battle Trickster Class Ability|AUTOMATIC|Bonus Feat ~ Battle Trickster
-3	ABILITY:Battle Trickster Class Ability|AUTOMATIC|Tricky Fighting ~ Battle Trickster		BONUS:VAR|BonusSkillTrickCount|1
-
+3	ABILITY:Battle Trickster Class Ability|AUTOMATIC|Tricky Fighting ~ Battle Trickster	
+###Block:
+1	BONUS:VAR|BonusSkillTrickCount|1	DEFINE:BonusSkillTrickCount|0
+3	BONUS:VAR|BonusSkillTrickCount|1
 
 CLASS:Cloaked Dancer	HD:6		TYPE:Prestige	MAXLEVEL:5	SOURCEPAGE:p.31	BONUS:CHECKS|BASE.Reflex|(CL/2)+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
-CLASS:Cloaked Dancer	
+CLASS:Cloaked Dancer	PRESKILL:3,Hide=5,Perform (Dance)=10,Sleight of Hand=5
 CLASS:Cloaked Dancer	STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Climb|Concentration|TYPE=Craft|Diplomacy|Disguise|Escape Artist|Gather Information|Jump|TYPE=Perform|TYPE=Profession|Sense Motive|Sleight of Hand|Speak Language|Swim|Tumble|Use Magic Device|Use Rope.
 ###Block:
 1	ABILITY:Cloaked Dancer Class Ability|AUTOMATIC|Enchanting Dance ~ Cloaked Dancer
-2	ABILITY:Cloaked Dancer Class Ability|AUTOMATIC|Surprise Strike ~ Cloaked Dancer	DEFINE:SurpriseStrikeDice|0	BONUS:VAR|SurpriseStrikeDice|1	ADD:SPELLCASTER|Arcane
-4	BONUS:VAR|SurpriseStrikeDice|1	ADD:SPELLCASTER|Arcane
-
-CLASS:Combat Trapsmith	HD:		TYPE:Prestige	MAXLEVEL:	SOURCEPAGE:p.	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL/2)+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
-CLASS:Combat Trapsmith	
-CLASS:Combat Trapsmith	STARTSKILLPTS:	CSKILL:
+2	ABILITY:Cloaked Dancer Class Ability|AUTOMATIC|Surprise Strike ~ Cloaked Dancer
 ###Block:
-1	ABILITY:Combat Trapsmith Class Ability|AUTOMATIC|
-
-CLASS:Fortune's Friend	HD:		TYPE:Prestige	MAXLEVEL:	SOURCEPAGE:p.	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL/2)+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
-CLASS:Fortune's Friend	
-CLASS:Fortune's Friend	STARTSKILLPTS:	CSKILL:
+2	BONUS:VAR|SurpriseStrikeDice|1	DEFINE:SurpriseStrikeDice|0
+4	BONUS:VAR|SurpriseStrikeDice|1
 ###Block:
-1	ABILITY:Fortune's Friend Class Ability|AUTOMATIC|
+2	ADD:SPELLCASTER|Arcane
+4	ADD:SPELLCASTER|Arcane
 
-CLASS:Gray Guard	HD:		TYPE:Prestige	MAXLEVEL:	SOURCEPAGE:p.	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL/2)+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
-CLASS:Gray Guard	
-CLASS:Gray Guard	STARTSKILLPTS:	CSKILL:
+CLASS:Combat Trapsmith	HD:6		TYPE:Prestige	MAXLEVEL:5	SOURCEPAGE:p.34	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|(CL/2)+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+CLASS:Combat Trapsmith	PRESKILL:3,Craft (Trapmaking)=8,Disable Device=6,Search=6	PRETEXT:Trapfinding.
+CLASS:Combat Trapsmith	STARTSKILLPTS:6	CSKILL:Appraise|Balance|Climb|Concentration|TYPE=Craft|Disable Device|Escape Artist|Hide|Jump|Knowledge (architecture and engineering)|Listen|Move Silently|Open Lock|TYPE=Profession|Search|Spot|Tumble|Use Rope
 ###Block:
-1	ABILITY:Gray Guard Class Ability|AUTOMATIC|
-
-CLASS:Magical Trickster	HD:		TYPE:Prestige	MAXLEVEL:	SOURCEPAGE:p.	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL/2)+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
-CLASS:Magical Trickster	
-CLASS:Magical Trickster	STARTSKILLPTS:	CSKILL:
+1	ABILITY:Combat Trapsmith Class Ability|AUTOMATIC|Combat Trapping|Trap Sense
+2	ABILITY:Combat Trapsmith Class Ability|AUTOMATIC|Skill Focus
+4	ABILITY:Combat Trapsmith Class Ability|AUTOMATIC|Improvised Materials
+5	ABILITY:Combat Trapsmith Class Ability|AUTOMATIC|Expert Trapsetter
 ###Block:
-1	ABILITY:Magical Trickster Class Ability|AUTOMATIC|
+1	BONUS:VAR|CombatTraps|CL+1	DEFINE:CombatTraps|0	DEFINE:TrapSense|0
+1	BONUS:VAR|TrapSenseBonus|(CL+1)/2
 
-CLASS:Malconvoker	HD:		TYPE:Prestige	MAXLEVEL:	SOURCEPAGE:p.	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL/2)+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
-CLASS:Malconvoker	
-CLASS:Malconvoker	STARTSKILLPTS:	CSKILL:
+CLASS:Fortune's Friend	HD:6		TYPE:Prestige	MAXLEVEL:	SOURCEPAGE:p.38	BONUS:CHECKS|BASE.Reflex|(CL/2)+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+CLASS:Fortune's Friend	PREATT:3	PRESKILL:1,TYPE.Standard=8	PREFEAT:1,TYPE=Luck
+CLASS:Fortune's Friend	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Gather Information|Hide|Jump|Listen|Move Silently|Open Lock|TYPE=Perform|TYPE=Profession|Search|Sleight of Hand|Spot|Swim|Tumble|Use Magic Device|Use Rope
 ###Block:
-1	ABILITY:Malconvoker Class Ability|AUTOMATIC|
-
-CLASS:Master of Masks	HD:		TYPE:Prestige	MAXLEVEL:	SOURCEPAGE:p.	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL/2)+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
-CLASS:Master of Masks	
-CLASS:Master of Masks	STARTSKILLPTS:	CSKILL:
+1	ABILITY:Fortune's Friend Class Ability|AUTOMATIC|Easy Luck ~ Fortune's Friend|Extra Fortune ~ Fortune's Friend|More Luck Than Skill ~ Fortune's Friend
+2	ABILITY:Fortune's Friend Class Ability|AUTOMATIC|Bonus Luck Feat ~ Fortune's Friend
+3	ABILITY:Fortune's Friend Class Ability|AUTOMATIC|Fortune's Favorite ~ Fortune's Friend
+5	ABILITY:Fortune's Friend Class Ability|AUTOMATIC|Lucky Strike ~ Fortune's Friend
 ###Block:
-1	ABILITY:Master of Masks Class Ability|AUTOMATIC|
-
-CLASS:Mountebank	HD:		TYPE:Prestige	MAXLEVEL:	SOURCEPAGE:p.	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL/2)+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
-CLASS:Mountebank	
-CLASS:Mountebank	STARTSKILLPTS:	CSKILL:
+2	ADD:SPELLCASTER|ANY
+4	ADD:SPELLCASTER|ANY
 ###Block:
-1	ABILITY:Mountebank Class Ability|AUTOMATIC|
+1	BONUS:FortunesFriendExtraFortuneCount|1	DEFINE:FortunesFriendExtraFortuneCount|0
+3	BONUS:FortunesFriendExtraFortuneCount|1
 
-CLASS:Psibond Agent	HD:		TYPE:Prestige	MAXLEVEL:	SOURCEPAGE:p.	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL/2)+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
-CLASS:Psibond Agent	
+CLASS:Gray Guard	HD:10		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.40	BONUS:CHECKS|BASE.Fortitude,BASE.Will|(CL/2)+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+CLASS:Gray Guard	PREALIGN:LG	PRESKILL:2,Knowledge (Religion)=8,Sense Motive=4	PREABILITY:1,CATEGORY=Special Ability,TYPE.LayOnHands,Lay on Hands ~ Paladin	PRETEXT: Must adhere to a code of conduct that prevents the character from performing evil acts.
+CLASS:Gray Guard	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|Disguise|Forgery|Handle Animal|Heal|Intimidate|Knowledge (local)|Knowledge (nobility and royalty)|Knowledge (religion)|Ride|Sense Motive
+###Block:
+1	ABILITY:Gray Guard Class Ability|AUTOMATIC|Sacrament Of Trust ~ Gray Guard|Lay On Hands ~ Gray Guard
+2	ABILITY:Gray Guard Class Ability|AUTOMATIC|Debilitating Touch ~ Gray Guard
+3	ABILITY:Gray Guard Class Ability|AUTOMATIC|Smite Evil ~ Gray Guard
+4	ABILITY:Gray Guard Class Ability|AUTOMATIC|Justice Blade ~ Gray Guard
+5	ABILITY:Gray Guard Class Ability|AUTOMATIC|Devastating Touch ~ Gray Guard
+7	ABILITY:Gray Guard Class Ability|AUTOMATIC|Unbound Justice ~ Gray Guard
+10	ABILITY:Gray Guard Class Ability|AUTOMATIC|Sacrament Of The True Faith ~ Gray Guard
+###Block:
+2	ADD:SPELLCASTER|Divine
+4	ADD:SPELLCASTER|Divine
+6	ADD:SPELLCASTER|Divine
+8	ADD:SPELLCASTER|Divine
+10	ADD:SPELLCASTER|Divine
+###Block:
+3	BONUS:VAR|SmiteEvilTimes|1
+8	BONUS:VAR|SmiteEvilTimes|1
+4	BONUS:VAR|GrayGuardJusticeBladeTier|1
+9	BONUS:VAR|GrayGuardJusticeBladeTier|1
+
+CLASS:Magical Trickster	HD:6		TYPE:Prestige	MAXLEVEL:3	SOURCEPAGE:p.45	BONUS:CHECKS|BASE.Will|(CL/2)+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*1/2|TYPE=Base.REPLACE
+CLASS:Magical Trickster	PREFEAT:1,TYPE=Metamagic	PRESPELLTYPE:1,ANY=3		PREABILITY:2,CATEGORY=Skill Trick,TYPE.SkillTrick
+CLASS:Magical Trickster	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Concentration|TYPE=Craft|Diplomacy|Jump|Knowledge (Arcana)|Knowledge (Religion)|TYPE=Profession|Spellcraft|Tumble|Use Rope
+###Block:
+1	ABILITY:Magical Trickster Class Ability|AUTOMATIC|Bonus Trick ~ Magical Trickster|Spontaneous Trickster ~ Magical Trickster
+2	ABILITY:Magical Trickster Class Ability|AUTOMATIC|Bonus Metamagic Feat ~ Magical Trickster				
+3	ABILITY:Magical Trickster Class Ability|AUTOMATIC|Metamagic Trick ~ Magical Trickster|Tricky Magic ~ Magical Trickster
+###Block:
+1	BONUS:VAR|MagicalTricksterBonusTrickCount|1
+3	BONUS:VAR|MagicalTricksterBonusTrickCount|1
+###Block:
+2	ADD:SPELLCASTER|ANY
+3	ADD:SPELLCASTER|ANY
+
+CLASS:Malconvoker	HD:4		TYPE:Prestige	MAXLEVEL:9	SOURCEPAGE:p.48	BONUS:CHECKS|BASE.Will|(CL/2)+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*1/2|TYPE=Base.REPLACE
+CLASS:Malconvoker		!PREALIGN:LE,NE,CE	PRESKILL:2,Bluff=4,Knowledge (The Planes)=4	PRELANG:2,Celestial,Infernal	PREFEAT:2,Augment Summoning,Spell Focus (Conjuration)	PRESPELL:1,Summon Monster III
+CLASS:Malconvoker	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Disguise|Knowledge (Arcana)|Knowledge (Religion)|Knowledge (The Planes)|TYPE=Profession|Spellcraft
+###Block:
+1	ABILITY:Malconvoker Class Ability|AUTOMATIC|Deceptive Summons ~ Malconvoker|Unrestricted Conjuration ~ Malconvoker
+2	ABILITY:Malconvoker Class Ability|AUTOMATIC|Planar Binding ~ Malconvoker
+3	ABILITY:Malconvoker Class Ability|AUTOMATIC|Skill Focus ~ Malconvoker
+5	ABILITY:Malconvoker Class Ability|AUTOMATIC|Fiendish Legion ~ Malconvoker
+6	ABILITY:Malconvoker Class Ability|AUTOMATIC|Deceitful Bargaining ~ Malconvoker
+8	ABILITY:Malconvoker Class Ability|AUTOMATIC|Improved Calling ~ Malconvoker
+9	ABILITY:Malconvoker Class Ability|AUTOMATIC|Safe Summoning ~ Malconvoker
+###Block:
+2	ADD:SPELLCASTER|ANY
+3	ADD:SPELLCASTER|ANY
+4	ADD:SPELLCASTER|ANY
+5	ADD:SPELLCASTER|ANY
+6	ADD:SPELLCASTER|ANY
+7	ADD:SPELLCASTER|ANY
+8	ADD:SPELLCASTER|ANY
+9	ADD:SPELLCASTER|ANY
+###Block:
+1	BONUS:VAR|MalconvokerDeceptiveSummonsLVL|1	DEFINE:MalconvokerDeceptiveSummonsLVL|0
+4	BONUS:VAR|MalconvokerDeceptiveSummonsLVL|1
+7	BONUS:VAR|MalconvokerDeceptiveSummonsLVL|1
+
+CLASS:Master of Masks	HD:6		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.52	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL/2)+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*1/2|TYPE=Base.REPLACE
+CLASS:Master of Masks	PRESKILL:3,Bluff=8,Disguise=8,Perform (Act)=8	PRELANG:4,ANY	PRETEXT:Must have successfully impersonated an individual, fooling even that person's friends and associates
+CLASS:Master of Masks	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|TYPE=Craft|Disguise|Forgery|TYPE=Perform|Sleight of Hand|Speak Language
+###Block:
+1	ABILITY:Master of Masks Class Ability|AUTOMATIC|Persona Masks ~ Master of Masks
+3	ABILITY:Master of Masks Class Ability|AUTOMATIC|Mask Specialist ~ Master of Masks
+5	ABILITY:Master of Masks Class Ability|AUTOMATIC|Many Faces ~ Master of Masks
+6	ABILITY:Master of Masks Class Ability|AUTOMATIC|Hidden Mask ~ Master of Masks
+###Block:
+2	ADD:SPELLCASTER|ANY
+4	ADD:SPELLCASTER|ANY
+7	ADD:SPELLCASTER|ANY
+9	ADD:SPELLCASTER|ANY
+###Block:
+1	BONUS:VAR|MasterOfMasksKnown|2	DEFINE:MasterOfMasksKnown|0
+2	BONUS:VAR|MasterOfMasksKnown|1
+3	BONUS:VAR|MasterOfMasksKnown|1
+5	BONUS:VAR|MasterOfMasksKnown|1
+7	BONUS:VAR|MasterOfMasksKnown|1
+9	BONUS:VAR|MasterOfMasksKnown|1
+
+CLASS:Mountebank	HD:6		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.57	BONUS:CHECKS|BASE.Reflex|(CL/2)+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+CLASS:Mountebank	!PREALIGN:LG,LN,LE	PREMULT:2,[PRESKILL:2,Bluff=8,Spellcraft=4],[PRESKILL:1,Knowledge (Arcana)=4,Knowledge (Local)=4,Knowledge (Psionics)=4]	PREFEAT:1,Deceitful
+CLASS:Mountebank	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Concentration|Diplomacy|Disguise|Escape Artist|Forgery|Intimidate|Jump|Knowledge (Arcana)|Knowledge (Local)|Knowledge (Psionics)|Listen|Sense Motive|Sleight of Hand|Spellcraft|Spot|Tumble
+###Block:
+1	ABILITY:Mountebank Class Ability|AUTOMATIC|Tongue of the Devil ~ Mountebank
+2	ABILITY:Mountebank Class Ability|AUTOMATIC|Sneak Attack ~ Mountebank
+3	ABILITY:Mountebank Class Ability|AUTOMATIC|Alter Ego ~ Mountebank
+4	ABILITY:Mountebank Class Ability|AUTOMATIC|Sideslip ~ Mountebank
+7	ABILITY:Mountebank Class Ability|AUTOMATIC|Slippery Mind ~ Mountebank
+10	ABILITY:Mountebank Class Ability|AUTOMATIC|Sudden Escape ~ Mountebank
+###Block:
+2	BONUS:VAR|SneakAttackDice|1	DEFINE:SneakAttackDice|0
+5	BONUS:VAR|SneakAttackDice|1
+8	BONUS:VAR|SneakAttackDice|1
+4	BONUS:VAR|SlideSlipTimes|1	DEFINE:SlideSlipTimes|0
+6	BONUS:VAR|SlideSlipTimes|1
+8	BONUS:VAR|SlideSlipTimes|1
+3	BONUS:VAR|MountebankAlterEgoCount|CL/3	DEFINE:MountebankAlterEgoCount|0
+
+CLASS:Psibond Agent	HD:6		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.60	BONUS:CHECKS|BASE.Reflex|(CL/2)+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+CLASS:Psibond Agent	PRESKILL:2,Gather Information=8,Sense Motive=4	PRELANG:3,ANY	PRETEXT:Psionics: Power point reserve of at least 1.	PRETEXT:Special: Sneak attack +1d6.	PREVARGTEQ:SneakAttackDice,1
 CLASS:Psibond Agent	STARTSKILLPTS:	CSKILL:
 ###Block:
-1	ABILITY:Psibond Agent Class Ability|AUTOMATIC|
-
-CLASS:Ssellwarp Sniper	HD:		TYPE:Prestige	MAXLEVEL:	SOURCEPAGE:p.	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL/2)+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
-CLASS:Ssellwarp Sniper	
-CLASS:Ssellwarp Sniper	STARTSKILLPTS:	CSKILL:
+1	ABILITY:Psibond Agent Class Ability|AUTOMATIC|Psibond
+3	ABILITY:Psibond Agent Class Ability|AUTOMATIC|Sneak Attack
+5	ABILITY:Psibond Agent Class Ability|AUTOMATIC|Lingering Psibond
+7	ABILITY:Psibond Agent Class Ability|AUTOMATIC|Double Psibond
 ###Block:
-1	ABILITY:Ssellwarp Sniper Class Ability|AUTOMATIC|
+3	BONUS:VAR|SneakAttackDice|CL/3	DEFINE:SneakAttackDice|0
 
-CLASS:Uncanny Trickster	HD:		TYPE:Prestige	MAXLEVEL:	SOURCEPAGE:p.	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL/2)+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
-CLASS:Uncanny Trickster	
-CLASS:Uncanny Trickster	STARTSKILLPTS:	CSKILL:
+CLASS:Spellwarp Sniper	HD:6		TYPE:Prestige	MAXLEVEL:5	SOURCEPAGE:p.64	BONUS:CHECKS|BASE.Will|(CL/2)+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+CLASS:Spellwarp Sniper	PRESKILL:2,Concentration=8,Spellcraft=8	PREFEAT:1,Point Blank Shot	PRESPELLTYPE:1,ANY=3	PRETEXT:Special: Sneak attack or sudden strike +1d6.	PREMULT:1,[PREVARGTEQ:SneakAttackDice,1],[PREVARGTEQ:SuddenStrikeDice,1]
+CLASS:Spellwarp Sniper	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Hide|Intimidate|Knowledge (arcana)|Move Silently|TYPE=Profession|Spellcraft|Spot
 ###Block:
-1	ABILITY:Uncanny Trickster Class Ability|AUTOMATIC|
+1	ABILITY:Spellwarp Sniper Class Ability|AUTOMATIC|Spellwarp ~ Spellwarp Sniper
+2	ABILITY:Spellwarp Sniper Class Ability|AUTOMATIC|Sudden Raystrike ~ Spellwarp Sniper
+3	ABILITY:Spellwarp Sniper Class Ability|AUTOMATIC|Precise Shot ~ Spellwarp Sniper
+5	ABILITY:Spellwarp Sniper Class Ability|AUTOMATIC|Ray Mastery ~ Spellwarp Sniper
+###Block:
+2	BONUS:VAR|SuddenRayStrikeDice|CL/2	DEFINE:SuddenRayStrikeDice|0
+###Block:
+1	ADD:SPELLCASTER|ANY
+2	ADD:SPELLCASTER|ANY
+3	ADD:SPELLCASTER|ANY
+4	ADD:SPELLCASTER|ANY
+5	ADD:SPELLCASTER|ANY
+
+
+CLASS:Uncanny Trickster	HD:6		TYPE:Prestige	MAXLEVEL:3	SOURCEPAGE:p.67	BONUS:CHECKS|BASE.Will|(CL/2)+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+CLASS:Uncanny Trickster	PRESKILL:4,TYPE=Standard=8	PREABILITY:4,CATEGORY=Skill Trick,TYPE.SkillTrick
+CLASS:Uncanny Trickster	STARTSKILLPTS:	CSKILL:Appraise|Balance|Bluff|Climb|TYPE=Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Intimidate|Jump|Listen|Move Silently|Open Lock|TYPE=Perform|TYPE=Profession|Search|Sense Motive|Sleight of Hand|Spot|Swim|Tumble|Use Magic Device|Use Rope
+###Block:
+1	ABILITY:Uncanny Trickster Class Ability|AUTOMATIC|Bonus Trick ~ Uncanny Trickster|Favorite Trick ~ Uncanny Trickster
+3	ABILITY:Uncanny Trickster Class Ability|AUTOMATIC|Tricky Defense ~ Uncanny Trickster
+###Block:
+1	BONUS:VAR|BonusTrickCount,FavoriteTrickCount|CL
+
+# COMMENT: Unable to Implement '+1 level of existing class Features' which grants you a level of another class you already have.
+#2	+1 level of existing class features
+#	+1 level of existing class features
 
 CLASS:xxx	HD:		TYPE:Prestige	MAXLEVEL:	SOURCEPAGE:p.	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL/2)+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 CLASS:xxx	
