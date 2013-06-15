@@ -1,0 +1,94 @@
+SOURCELONG:4e Player's Handbook
+SOURCESHORT:PHB
+SOURCEWEB:http://www.wizards.com
+
+# Class Features
+
+Holy Symbol Implement		TYPE:Class			VISIBLE:YES	DEFINE:ImplementBonus|0	DEFINE:ImplementCritDice|0	DEFINE:ImplementCritDieSize|0
+Orb Implement			TYPE:Class			VISIBLE:YES	DEFINE:ImplementBonus|0	DEFINE:ImplementCritDice|0	DEFINE:ImplementCritDieSize|0
+Rod Implement			TYPE:Class			VISIBLE:YES	DEFINE:ImplementBonus|0	DEFINE:ImplementCritDice|0	DEFINE:ImplementCritDieSize|0
+Staff Implement			TYPE:Class			VISIBLE:YES	DEFINE:ImplementBonus|0	DEFINE:ImplementCritDice|0	DEFINE:ImplementCritDieSize|0
+Wand Implement			TYPE:Class			VISIBLE:YES	DEFINE:ImplementBonus|0	DEFINE:ImplementCritDice|0	DEFINE:ImplementCritDieSize|0
+
+# Cleric
+Channel Divinity		TYPE:Class.Cleric.Paladin	MULT:NO
+Healer's Lore			TYPE:Class.Cleric		VISIBLE:NO	SAB:Healer's Lore; add +% to the number of hit points regained whenever you use healing power.|max(WIS,0)
+
+# Fighter
+Combat Challenge		TYPE:Class.Fighter		VISIBLE:YES
+Combat Superiority		TYPE:Class.Fighter		VISIBLE:YES
+One-Handed Weapon Talent	TYPE:Class.Fighter.FtrWpnTalent	VISIBLE:YES	BONUS:COMBAT|TOHIT.OneHanded|1
+Two-Handed Weapon Talent	TYPE:Class.Fighter.FtrWpnTalent	VISIBLE:YES	BONUS:COMBAT|TOHIT.TwoHanded|1
+
+# Paladin
+Divine Challenge		TYPE:Class.Paladin		VISIBLE:YES	ABILITY:At-Will|AUTOMATIC|Divine Challenge	SAB:Divine Challenge: The challenge of a paladin is filled with divine menace. You can use the divine challenge power to mark an enemy of your choice.
+Lay on Hands			TYPE:Class.Paladin		VISIBLE:YES	ABILITY:At-Will|AUTOMATIC|Lay on Hands		SAB:Lay on Hands: Using the lay on hands power, paladins can grant their comrades additional resilience with a touch of their hands and a short prayer, though they must give of their own strength to do so.
+
+
+# Ranger
+Archer Fighting Style		TYPE:Class.Ranger.RngrStyle	VISIBLE:YES	AUTO:FEAT|Defensive Mobility
+Hunter's Quarry			TYPE:Class.Ranger		VISIBLE:YES	ABILITY:At-Will|AUTOMATIC|Hunter's Quarry
+Two-Blade Fighting Style	TYPE:Class.Ranger.RngrStyle	VISIBLE:YES	AUTO:FEAT|Toughness
+
+
+# Rogue
+Artful Dodger			TYPE:Class.Rogue.RogueTactics	VISIBLE:YES
+Brutal Scoundrel		TYPE:Class.Rogue.RogueTactics	VISIBLE:YES
+Rogue Weapon Talent		TYPE:Class.Rogue		VISIBLE:YES	BONUS:COMBAT|TOHIT.Dagger|1					SAB:Rogue Weapon Talent: When you wield a shuriken, your weapon damage die increases by one size. When you wield a dagger, you gain a +1 bonus to attack rolls.
+Sneak Attack			TYPE:Class.Rogue		VISIBLE:YES	DEFINE:SneakAttackDice|0	DEFINE:SneakAttackDieSize|0	SAB:Sneak Attack: Once per round, when you have combat advantage against an enemy and are using a weapon from the light blade, the crossbow, or the sling weapon group, and attack you make against that enemy deals an extra +%d% damage if the attack hits.  You decide whether to apply the extra damage after making the damage roll.|SneakAttackDice|SneakAttackDieSize
+
+
+# Warlock
+Eldritch Pact			TYPE:Class.Warlock		VISIBLE:YES	SELECT:1	MULT:YES	CHOOSE:FEATADD|TYPE=EldritchPact
+Fey Pact			TYPE:Class.Warlock.EldritchPact	VISIBLE:YES	ABILITY:At-Will|AUTOMATIC|Eyebite		ABILITY:At-Will|AUTOMATIC|Misty Step
+Infernal Pact			TYPE:Class.Warlock.EldritchPact	VISIBLE:YES	ABILITY:At-Will|AUTOMATIC|Hellish Rebuke	ABILITY:At-Will|AUTOMATIC|Dark One's Blessing	SAB:Infernal Pact: Long ago a forgotten race of devils created a secret path to power and taught it to the tieflings of old to weaken their fealty to Asmodeus. In his wrath, Asmodeus destroyed the scheming devils and struck their very names from the memory of all beings -- but you dare to study their perilous secrets anyway.
+Pact Blade Implement		TYPE:Class.Warlock		VISIBLE:YES
+Prime Shot			TYPE:Class.Warlock.Ranger	VISIBLE:YES
+Shadow Walk			TYPE:Class.Warlock		VISIBLE:YES
+Star Pact			TYPE:Class.Warlock.EldritchPact	VISIBLE:YES	ABILITY:At-Will|AUTOMATIC|Dire Radiance		ABILITY:At-Will|AUTOMATIC|Fate of the Void
+Warlock's Curse			TYPE:Class.Warlock		VISIBLE:YES
+
+
+# Warlord
+Combat Leader			TYPE:Class.Warlord		VISIBLE:YES	BONUS:COMBAT|INITIATIVE|2|TYPE=Power	SAB:Combat Leader: You and each ally within 10 squares who can see and hear you gain a +2 power bonus to initiative.
+Inspiring Presence		TYPE:Class.Warlord.WarlordStyle	VISIBLE:YES
+Inspiring Word			TYPE:Class.Warlord		VISIBLE:YES	ABILITY:Encounter|AUTOMATIC|Inspiring Word	SAB:Inspiring Word: Using the inspiring word power, warlords can grant their comrades additional resilience with nothing more than a shout of encouragement.
+Tactical Presence		TYPE:Class.Warlord.WarlordStyle	VISIBLE:YES
+
+
+# Wizard
+Orb of Imposition		TYPE:Class.Wizard.ArcImpMastery	VISIBLE:YES
+Staff of Defense		TYPE:Class.Wizard.ArcImpMastery	VISIBLE:YES
+Wand of Accuracy		TYPE:Class.Wizard.ArcImpMastery	VISIBLE:YES
+
+
+###Block: Descriptions
+
+Archer Fighting Style.MOD		SOURCEPAGE:p.104	DESC:.CLEAR	DESC:Because of your focus on ranged attacks, you gain Defensive Mobility as a bonus feat.
+Artful Dodger.MOD			SOURCEPAGE:p.117	DESC:.CLEAR	DESC:You gain a +%1 bonus to AC against opportunity attacks.|max(CHA,0)
+Brutal Scoundrel.MOD			SOURCEPAGE:p.117	DESC:.CLEAR	DESC:You gain a +%1 bonus to Sneak Attack damage.|max(STR,0)
+Channel Divinity.MOD			SOURCEPAGE:p.61		DESC:.CLEAR	DESC:Once per encounter you can invoke divine power, filling yourself with the might of your patron deity. With the divine might you invoke you can wield special powers, such as turn undead and divine fortune. Some clerics learn other uses for this feature; for instance, the divinity feats in Chapter 6 grant characters with access to the Channel Divinity class feature the ability to use additional special powers. Regardless of how many different uses for Channel Divinity you know, you can use only one such ability per encounter. The special ability or power you invoke works just like your other powers.
+Combat Challenge.MOD			SOURCEPAGE:p.76		DESC:.CLEAR	DESC:Every time you attack an enemy, whether the attack hits or misses, you can choose to mark that target. The mark lasts until the end of your next turn. While a target is marked, it takes a -2 penalty to attack rolls for any attack that doesn't include you as a target. A creature can be subject to only one mark at a time. A new mark supersedes a mark that was already in place.  In addition, whenever a marked enemy that is adjacent to you shifts or makes an attack that does not include you, you can make a melee basic attack against that enemy as an immediate interrupt.
+Combat Superiority.MOD			SOURCEPAGE:p.76		DESC:.CLEAR	DESC:You gain a +%1 bonus to your opportunity attacks.  An enemy struck by your opportunity attack stops moving, if a move provoked the attack. If it still has actions remaining, it can use them to resume moving.|WIS
+Fey Pact.MOD				SOURCEPAGE:p.130	DESC:.CLEAR	DESC:You have forged a bargain with ancient, amoral powers of the Feywild. Some are primitive earth spirits, grim and menacing; some are capricious wood, sky, or water spirits; and others are incarnations of seasons or natural forces who roam the faerie realm like wild gods. They bestow magic that ranges from feral and savage to wondrous and enchanting.
+Healer's Lore.MOD			SOURCEPAGE:p.61		DESC:.CLEAR	DESC:Healer's Lore; add +%1 to the number of hit points regained whenever you use healing power.|WIS
+Holy Symbol Implement.MOD		SOURCEPAGE:p.56		DESC:.CLEAR	DESC:You can use Holy Symbol Implements.
+Infernal Pact.MOD			SOURCEPAGE:p.130	DESC:.CLEAR	DESC:Long ago a forgotten race of devils created a secret path to power and taught it to the tieflings of old to weaken their fealty to Asmodeus. In his wrath, Asmodeus destroyed the scheming devils and struck their very names from the memory of all beings -- but you dare to study their perilous secrets anyway.
+Inspiring Presence.MOD			SOURCEPAGE:p.144	DESC:.CLEAR	DESC:When an ally who can see you spends an action point to take an extra action, that ally also regains %1 lost hit points.|floor(TL/2)+max(CHA,0)
+One-Handed Weapon Talent.MOD		SOURCEPAGE:p.76		DESC:.CLEAR	DESC:+1 bonus to all attack rolls using one-handed weapons.
+Orb Implement.MOD			SOURCEPAGE:p.56		DESC:.CLEAR	DESC:You can use Orb Implements.
+Orb of Imposition.MOD			SOURCEPAGE:p.157	DESC:.CLEAR	DESC:Once per encounter as a free action, you can use your orb to gain one of the following two effects.  You can designate one creature you have cast a wizard spell upon that has an effect that lasts until the subject succeeds on a saving throw.  That creature takes a penalty to its saving throws against that effect equal to your Wisdom modifier.  Alternatively, you can choose to extend the duration of an effect created by a wizard at-will spell (such as cloud of daggers or ray of frost) that would otherwise end at the end of your current turn. The effect instead ends at the end of your next turn.  You must wield an orb to use this ability. Control wizards select this form of mastery because it helps extend the duration of their control effects.
+Pact Blade Implement.MOD		SOURCEPAGE:p.56		DESC:.CLEAR	DESC:You can use Pact Blade Implements.
+Prime Shot.MOD				SOURCEPAGE:p.131	DESC:.CLEAR	DESC:If none of your allies are nearer to your target than you are, you receive a +1 bonus to ranged attack rolls against that target.
+Shadow Walk.MOD				SOURCEPAGE:p.131	DESC:.CLEAR	DESC:On your turn, if you move at least 3 squares away from where you started your turn, you gain concealment until the end of your next turn.
+Rod Implement.MOD			SOURCEPAGE:p.56		DESC:.CLEAR	DESC:You can use Rod Implements.
+Sneak Attack.MOD			SOURCEPAGE:p.117	DESC:.CLEAR	DESC:Sneak Attack; Once per round, when you have combat advantage against an enemy and are using a weapon from the light blade, the crossbow, or the sling weapon group, and attack you make against that enemy deals an extra +%1d6 damage if the attack hits.  You decide whether to apply the extra damage after making the damage roll.|(2+if(TL<11,0,if(TL<21,1,3)))
+Staff Implement.MOD			SOURCEPAGE:p.56		DESC:.CLEAR	DESC:You can use Staff Implements.
+Staff of Defense.MOD			SOURCEPAGE:p.157	DESC:.CLEAR	DESC:A staff of defense grants you a +1 bonus to AC. In addition, once per encounter as an immediate interrupt, you gain a +%1 bonus to defense against one attack. You can declare the bonus after the Dungeon Master has already told you the damage total. You must wield your staff to benefit from these features. This form of mastery is useful for all wizards, particularly if you dabble in both control and damage-dealing spells.|max(CON,0)
+Star Pact.MOD				SOURCEPAGE:p.131	DESC:.CLEAR	DESC:You have mastered the astrologer's art, learning the secret names of the stars and gazing into the Far Realm beyond, gaining great power thereby. You can call upon powers that madden or terrify your enemies, manipulate chance and fate, or scour your foes with icy banes and curses drawn from beyond the night sky.
+Tactical Presence.MOD			SOURCEPAGE:p.144	DESC:.CLEAR	DESC:When an ally you can see spends an action point to make an extra attack, the ally gains a +%1 bonus to the attack roll.|max(INT,0)
+Two-Blade Fighting Style.MOD		SOURCEPAGE:p.104	DESC:.CLEAR	DESC:Because of your focus on two-weapon melee attacks, you can wield a one-handed weapon in your off hand as if it were an off-hand weapon. (Make sure to designate on your character sheet which weapon is main and which is offhand.) In addition, you gain Toughness as a bonus feat.
+Two-Handed Weapon Talent.MOD		SOURCEPAGE:p.76		DESC:.CLEAR	DESC:+1 bonus to all attack rolls using two-handed weapons.
+Wand Implement.MOD			SOURCEPAGE:p.56		DESC:.CLEAR	DESC:You can use Wand Implements.
+Wand of Accuracy.MOD			SOURCEPAGE:p.158	DESC:.CLEAR	DESC:Once per encounter as a free action, you gain a +%1 bonus to a single attack roll.  You must wield your wand to benefit from this feature.  This form of mastery is good for war wizards because it helps increase their accuracy with damaging powers.|max(DEX,0)
+Warlock's Curse.MOD			SOURCEPAGE:p.131	DESC:.CLEAR	DESC:Once per turn as a minor action, you can place a Warlock's Curse on the enemy nearest to you that you can see. A cursed enemy is more vulnerable to your attacks. If you damage a cursed enemy, you deal extra damage. You decide whether to apply the extra damage after making the damage roll.  You can deal this extra damage once per round.  A Warlock's Curse remains in effect until the end of the encounter or until the cursed enemy drops to 0 hit points or fewer.  You can place a Warlock's Curse on multiple targets over the course of an encounter; each curse requires the use of a minor action. You can't place a Warlock's Curse on a creature that is already affected by your or another character's Warlock's Curse.
