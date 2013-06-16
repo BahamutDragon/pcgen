@@ -10,48 +10,156 @@ CLASS:Barbarian	HD:12	BONUS:COMBAT|BAB|(CL+3)/4	MAXLEVEL:20
 1	BONUS:VAR|RageTimes|((CL+3)/4)+1				DEFINE:RageTimes|0
 1	BONUS:VAR|RageDamageBonus|2*(max((CL-1)/3),0)		DEFINE:RageDamageBonus|0
 ###Block: Abilities
-1	ABILITY:Barbarian Ability|AUTOMATIC|Combat Expertise ~ Barbarian|Iron Hide ~ Barbarian|Rage ~ Barbarian|Reckless Attack ~ Barbarian
-2	ABILITY:Barbarian Ability|AUTOMATIC|Fast Movement ~ Barbarian
-4	ABILITY:Barbarian Ability|AUTOMATIC|Feral Instinct ~ Barbarian
-5	ABILITY:Barbarian Ability|AUTOMATIC|Relentless Rage ~ Barbarian
-7	ABILITY:Barbarian Ability|AUTOMATIC|Feral Reflexes ~ Barbarian
-8	ABILITY:Barbarian Ability|AUTOMATIC|Fearless Rage ~ Barbarian
-10	ABILITY:Barbarian Ability|AUTOMATIC|Regenerative Rage ~ Barbarian
-11	ABILITY:Barbarian Ability|AUTOMATIC|Channel Fury ~ Barbarian
-14	ABILITY:Barbarian Ability|AUTOMATIC|Feral Senses ~ Barbarian
-15	ABILITY:Barbarian Ability|AUTOMATIC|Incite Rage ~ Barbarian
-18	ABILITY:Barbarian Ability|AUTOMATIC|Unchecked Fury ~ Barbarian
-19	ABILITY:Barbarian Ability|AUTOMATIC|Primal Might ~ Barbarian
-20	ABILITY:Barbarian Ability|AUTOMATIC|Endless Rage ~ Barbarian
+1	ABILITY:Barbarian Class Feature|AUTOMATIC|Combat Expertise ~ Barbarian|Iron Hide ~ Barbarian|Rage ~ Barbarian|Reckless Attack ~ Barbarian
+2	ABILITY:Barbarian Class Feature|AUTOMATIC|Fast Movement ~ Barbarian
+4	ABILITY:Barbarian Class Feature|AUTOMATIC|Feral Instinct ~ Barbarian
+5	ABILITY:Barbarian Class Feature|AUTOMATIC|Relentless Rage ~ Barbarian
+7	ABILITY:Barbarian Class Feature|AUTOMATIC|Feral Reflexes ~ Barbarian
+8	ABILITY:Barbarian Class Feature|AUTOMATIC|Fearless Rage ~ Barbarian
+10	ABILITY:Barbarian Class Feature|AUTOMATIC|Regenerative Rage ~ Barbarian
+11	ABILITY:Barbarian Class Feature|AUTOMATIC|Channel Fury ~ Barbarian
+14	ABILITY:Barbarian Class Feature|AUTOMATIC|Feral Senses ~ Barbarian
+15	ABILITY:Barbarian Class Feature|AUTOMATIC|Incite Rage ~ Barbarian
+18	ABILITY:Barbarian Class Feature|AUTOMATIC|Unchecked Fury ~ Barbarian
+19	ABILITY:Barbarian Class Feature|AUTOMATIC|Primal Might ~ Barbarian
+20	ABILITY:Barbarian Class Feature|AUTOMATIC|Endless Rage ~ Barbarian
 
 
-CLASS:Cleric	HD:8
-#
+CLASS:Cleric	HD:8	BONUS:DC|CLASS.Cleric|ClericSpellcastingBonus	MAXLEVEL:20
+CLASS:Cleric	MEMORIZE:NO	SPELLTYPE:Divine	SPELLSTAT:WIS	BONUS:CASTERLEVEL|Cleric|CL	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9
+###Block:
 1	BONUS:COMBAT|BAB|1
 5	BONUS:COMBAT|BAB|1
 15	BONUS:COMBAT|BAB|1
-#
+###Block:
 1	BONUS:ABILITYPOOL|Cleric Stat Increase|1
 1	AUTO:WEAPONPROF|TYPE=Simple
-#
-1	ABILITY:Cleric Class Feature|AUTOMATIC|Channel Divinity|Deity|Religious Knowledge|Spellcasting
-9	ABILITY:Cleric Class Feature|AUTOMATIC|Deadly Strike (roll twice)
-#
+###Block:
+1	ABILITY:Cleric Class Feature|AUTOMATIC|Channel Divinity ~ Cleric|Deity ~ Cleric|Religious Knowledge ~ Cleric|Spellcasting ~ Cleric|Attack Bonus ~ Cleric
+9	ABILITY:Cleric Class Feature|AUTOMATIC|Deadly Strike ~ Cleric
+###Block:
 9	BONUS:VAR|DeadlyStrikeTimes|2
 19	BONUS:VAR|DeadlyStrikeTimes|1
-#
+###Block:
 1	BONUS:VAR|ClericSpellcastingBonus|1+((CL-2)/5)	DEFINE:ClericSpellcastingBonus|0
+###Block:
+1	CAST:0,2
+2	CAST:0,3
+3	CAST:0,3,1
+4	CAST:0,3,2
+5	CAST:0,3,2,1
+6	CAST:0,3,2,2
+7	CAST:0,3,2,2,1
+8	CAST:0,3,2,2,2
+9	CAST:0,3,2,2,2,1
+10	CAST:0,3,2,2,2,2
+11	CAST:0,3,2,2,2,2,1
+12	CAST:0,3,2,2,2,2,1
+13	CAST:0,3,2,2,2,2,1,1
+14	CAST:0,3,2,2,2,2,1,1
+15	CAST:0,3,2,2,2,2,1,1,1
+16	CAST:0,3,2,2,2,2,1,1,1
+17	CAST:0,3,2,2,2,2,1,1,1,1
+18	CAST:0,3,2,2,2,2,1,1,1,1
+19	CAST:0,3,2,2,2,2,1,1,1,1
+20	CAST:0,3,2,2,2,2,1,1,1,1
+
+
+CLASS:Druid		HD:8	MAXLEVEL:20
+CLASS:Druid	SPELLTYPE:Divine	SPELLSTAT:WIS	MEMORIZE:NO	BONUS:CASTERLEVEL|Druid|CL	KNOWNSPELLS:LEVEL=0||LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9
+###Block:
+6	BONUS:COMBAT|BAB|1
+12	BONUS:COMBAT|BAB|1
+###Block:
+1	AUTO:ARMORPROF|Padded Armor|Leather Armor|Dragon Leather|Hide Armor
+1	AUTO:SHIELDPROF|SHIELDTYPE=Wooden
+1	AUTO:WEAPONPROF|Club|Dagger|Dart|Greatclub|Javelin|Mace|Scimitar|Sickle|Sling|Spear|Quarterstaff 
+###Block:
+1	ABILITY:Druid Class Feature|AUTOMATIC|Circle Initiate ~ Druid|Druid Lore ~ Druid|Spellcasting ~ Druid|Wild Shape ~ Druid
+3	ABILITY:Druid Class Feature|AUTOMATIC|Woodland Stride ~ Druid
+6	ABILITY:Druid Class Feature|AUTOMATIC|Weapon Attack Bonus ~ Druid
+7	ABILITY:Druid Class Feature|AUTOMATIC|Nature's Endurance ~ Druid
+9	ABILITY:Druid Class Feature|AUTOMATIC|Nature's Ward ~ Druid
+10	ABILITY:Druid Class Feature|AUTOMATIC|Healing Trance ~ Druid
+11	ABILITY:Druid Class Feature|AUTOMATIC|Thousand Faces ~ Druid
+13	ABILITY:Druid Class Feature|AUTOMATIC|Evergreen ~ Druid
+###Block:
+1	BONUS:VAR|DruidWildshapeTier|1	DEFINE:DruidWildshapeTier|0
+2	BONUS:VAR|DruidWildshapeTier|1
+4	BONUS:VAR|DruidWildshapeTier|1
+6	BONUS:VAR|DruidWildshapeTier|1
+1	BONUS:VAR|DruidWildShapeTimes|1
+2	BONUS:VAR|DruidWildShapeTimes|1
+5	BONUS:VAR|DruidWildShapeTimes|1
+8	BONUS:VAR|DruidWildShapeTimes|1
+14	BONUS:VAR|DruidWildShapeTimes|1
+1	BONUS:VAR|DruidSpellCastingBonus|1
+4	BONUS:VAR|DruidSpellCastingBonus|1
+9	BONUS:VAR|DruidSpellCastingBonus|1
+14	BONUS:VAR|DruidSpellCastingBonus|1
+19	BONUS:VAR|DruidSpellCastingBonus|1
+###Block:
+1	CAST:0,2
+2	CAST:0,3
+3	CAST:0,4,2
+4	CAST:0,4,3
+5	CAST:0,4,3,2
+6	CAST:0,4,3,3
+7	CAST:0,4,3,3,1
+8	CAST:0,4,3,3,2
+9	CAST:0,4,3,3,3,1
+10	CAST:0,4,3,3,3,2
+11	CAST:0,4,3,3,3,2,1
+12	CAST:0,4,3,3,3,2,1
+13	CAST:0,4,3,3,3,2,1,1
+14	CAST:0,4,3,3,3,2,1,1
+15	CAST:0,4,3,3,3,2,1,1,1
+16	CAST:0,4,3,3,3,2,1,1,1
+17	CAST:0,4,3,3,3,2,1,1,1,1
+18	CAST:0,4,3,3,3,2,1,1,1,1
+19	CAST:0,4,3,3,3,2,1,1,1,1
+20	CAST:0,4,3,3,3,2,1,1,1,1
 
 CLASS:Fighter	HD:10
-
+###Block:
 1	BONUS:ABILITYPOOL|Fighter Stat Increase|1
-
+###Block:
 1	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial|TYPE=Special
-1	AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium
+1	AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium|ARMORTYPE=Heavy
 1	AUTO:SHIELDPROF|SHIELDTYPE=Shield
+###Block:
+1	BONUS:COMBAT|BAB|1+(max(CL+2)/5,0)
+###Block:
+1	BONUS:ABILITYPOOL|Martial Feat|1
+2	BONUS:ABILITYPOOL|Martial Feat|1
+8	BONUS:ABILITYPOOL|Martial Feat|1
+###Block:
+1	ABILITY:Fighter Class Feature|AUTOMATIC|Death Dealer ~ Fighter
+
+
 
 
 CLASS:Monk	HD:8
+###Block:
 1	BONUS:ABILITYPOOL|Monk Stat Increase|1
+###Block:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
