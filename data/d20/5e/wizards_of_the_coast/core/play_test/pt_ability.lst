@@ -3,6 +3,85 @@ Default	CATEGORY:Internal
 CATEGORY=Internal|Default.MOD		BONUS:WEAPONPROF=WEAPONPROFS|TOHIT|ClassToHitBonus	DEFINE:ClassToHitBonus|0
 
 
+# Race Traits
+
+Traits ~ Dwarf											CATEGORY:Internal	BONUS:ABILITYPOOL|Dwarf Subrace|1	ABILITY:Dwarf Trait|AUTOMATIC|TYPE=DwarfRaceTraitDefault
+#
+Darkvision			KEY:Darkvision ~ Dwarf			SOURCEPAGE:p.	CATEGORY:Special Ability	TYPE:RaceTrait.DwarfRaceTrait.DwarfRaceTraitDefault.SpecialQuality	DESC:You treat darkness within 60 feet of you as dim light. When you do so, your vision is in black and white.
+Dwarven Resilience	KEY:Dwarven Resilience ~ Dwarf	SOURCEPAGE:p.	CATEGORY:Special Ability	TYPE:RaceTrait.DwarfRaceTrait.DwarfRaceTraitDefault.SpecialQuality	DESC:You have advantage on saving throws against poison, and you have resistance against poison damage.
+Dwarven Weapon Training	KEY:Dwarven Weapon Training ~ Dwarf	SOURCEPAGE:p.	CATEGORY:Special Ability	TYPE:RaceTrait.DwarfRaceTrait.DwarfRaceTraitDefault.SpecialQuality	DESC:You are proficient with the battleaxe, handaxe, throwing hammer, and warhammer.
+Stonecunning		KEY:Stonecunning ~ Dwarf		SOURCEPAGE:p.	CATEGORY:Special Ability	TYPE:RaceTrait.DwarfRaceTrait.DwarfRaceTraitDefault.SpecialQuality	DESC:While you are underground, you have advantage on all Wisdom checks to listen and spot, and you roughly know your depth beneath the surface. You also know the approximate age and origin of worked stone you inspect.
+# Subrace
+Hill				KEY:Hill ~ Dwarf		TYPE:DwarfSubrace	CATEGORY:Internal		TEMPLATE:Hill		BONUS:STAT|STR|1|TYPE=Racial	ABILITY:Dwarf Trait|AUTOMATIC|Dwarven Toughness ~ Dwarf
+Mountain			KEY:Mountain ~ Dwarf	TYPE:DwarfSubrace	CATEGORY:Internal		TEMPLATE:Mountain		BONUS:STAT|WIS|1|TYPE=Racial	ABILITY:Dwarf Trait|AUTOMATIC|Armor Mastery ~ Dwarf
+#
+Dwarven Toughness		KEY:Dwarven Toughness ~ Dwarf	SOURCEPAGE:p.	CATEGORY:Special Ability	TYPE:RaceTrait.DwarfRaceTrait.SpecialQuality	DESC:Your hit point maximum increases by 1, and it increases by 1 every time you gain a level. Additionally, whenever you roll Hit Dice during a rest, you regain 1 extra hit point for each Hit Die you roll.	BONUS:HP|CURRENTMAX|TL
+#
+Armor Mastery		KEY:Armor Mastery ~ Dwarf	SOURCEPAGE:p.	CATEGORY:Special Ability	TYPE:RaceTrait.DwarfRaceTrait.SpecialQuality	DESC:You are proficient with light and medium armor. While wearing medium or heavy armor, you gain a +1 bonus to Armor Class.
+
+###Block: Elf
+Traits ~ Elf										CATEGORY:Internal	BONUS:ABILITYPOOL|Elf Subrace|1	ABILITY:Elf Trait|AUTOMATIC|TYPE=ElfRaceTraitDefault
+#
+Low-Light Vision		KEY:Low-Light Vision ~ Elf	SOURCEPAGE:p.	CATEGORY:Special Ability	TYPE:RaceTrait.ElfRaceTrait.ElfRaceTraitDefault.SpecialQuality	DESC:You can see in dim light as well as you do in bright light.
+Elf Weapon Training	KEY:Elf Weapon Training ~ Elf	SOURCEPAGE:p.	CATEGORY:Special Ability	TYPE:RaceTrait.ElfRaceTrait.ElfRaceTraitDefault.SpecialQuality	DESC:You are proficient with the long sword, short sword, shortbow, and longbow.
+Keen Senses			KEY:Keen Senses ~ Elf		SOURCEPAGE:p.	CATEGORY:Special Ability	TYPE:RaceTrait.ElfRaceTrait.ElfRaceTraitDefault.SpecialQuality	DESC:You have advantage on all Wisdom checks to listen and spot.
+Free Spirit			KEY:Free Spirit ~ Elf		SOURCEPAGE:p.	CATEGORY:Special Ability	TYPE:RaceTrait.ElfRaceTrait.ElfRaceTraitDefault.SpecialQuality	DESC:You are immune to the charmed condition and to any effect that would put you to sleep.
+Trance		 	KEY:Trance ~ Elf			SOURCEPAGE:p.	CATEGORY:Special Ability	TYPE:RaceTrait.ElfRaceTrait.ElfRaceTraitDefault.SpecialQuality	DESC:Elves do not need to sleep. Instead, they meditate deeply for 4 hours a day. (The Common word for such meditation is "trance.") While meditating, you can dream after a fashion; such dreams are actually mental exercises that have become reflexive through years of practice. After resting in this way, you gain the same benefit that a human does from 8 hours of sleep.
+# Subrace
+High				KEY:High ~ Elf	TYPE:ElfSubrace	CATEGORY:Internal	TEMPLATE:High	BONUS:STAT|INT|1|TYPE=Racial	ABILITY:Elf Trait|AUTOMATIC|TYPE=HighElfRaceTrait
+Wood				KEY:Wood ~ Elf	TYPE:ElfSubrace	CATEGORY:Internal	TEMPLATE:Wood	BONUS:STAT|WIS|1|TYPE=Racial	ABILITY:Elf Trait|AUTOMATIC|TYPE=WoodElfRaceTrait
+# High
+Cantrip			KEY:Cantrip ~ Elf			SOURCEPAGE:p.	CATEGORY:Special Ability	TYPE:RaceTrait.HighElfRaceTrait.ElfRaceTrait.SpecialQuality	DESC:You know one cantrip of your choice from the wizard's cantrip list. Intelligence is your magic ability for it.
+Extra Language		KEY:Extra Language ~ Elf	SOURCEPAGE:p.	CATEGORY:Special Ability	TYPE:RaceTrait.HighElfRaceTrait.ElfRaceTrait.SpecialQuality	DESC:You can speak, read, and write one extra language of your choice.	BONUS:LANG|NUMBER|1
+# Wood
+Fleet of Foot		KEY:Fleet of Foot ~ Elf		SOURCEPAGE:p.	CATEGORY:Special Ability	TYPE:RaceTrait.WoodElfRaceTrait.ElfRaceTrait.SpecialQuality	DESC:Your speed increases by 5 feet.	BONUS:MOVEADD|TYPE.Speed|5
+Mask of the Wild		KEY:Mask of the Wild ~ Elf	SOURCEPAGE:p.	CATEGORY:Special Ability	TYPE:RaceTrait.WoodElfRaceTrait.ElfRaceTrait.SpecialQuality	DESC:You can attempt to hide even when you are only lightly obscured by foliage, heavy rain, falling snow, mist, and other natural phenomena.
+
+###Block: Halfling
+Traits ~ Halfling		CATEGORY:Internal	BONUS:ABILITYPOOL|Halfling Subrace|1	ABILITY:Elf Trait|AUTOMATIC|TYPE=HalflingRaceTraitDefault
+Lucky				KEY:Lucky ~ Halfling	SOURCEPAGE:p.	CATEGORY:Special Ability	TYPE:RaceTrait.HalflingRaceTrait.HalflingRaceTraitDefault.SpecialQuality	DESC:When you roll a natural 1 on an attack roll, ability check, or saving throw, you can reroll the die and must use the new roll.
+Fearless			KEY:Fearless ~ Halfling	SOURCEPAGE:p.	CATEGORY:Special Ability	TYPE:RaceTrait.HalflingRaceTrait.HalflingRaceTraitDefault.SpecialQuality	DESC:You have advantage on saving throws against being frightened.
+Halfling Nimbleness	KEY:Halfling Nimbleness ~ Halfling	SOURCEPAGE:p.	CATEGORY:Special Ability	TYPE:RaceTrait.HalflingRaceTrait.HalflingRaceTraitDefault.SpecialQuality	DESC:You can move through the space of any creature that is of a size larger than yours.
+# Subrace
+Lightfoot			KEY:Lightfoot ~ Halfling	TYPE:HalflingSubrace	CATEGORY:Internal	TEMPLATE:Lightfoot	BONUS:STAT|INT|1|TYPE=Racial	ABILITY:Halfling Trait|AUTOMATIC|TYPE=LightfootHalflingRaceTrait
+Stout				KEY:Stout ~ Halfling		TYPE:HalflingSubrace	CATEGORY:Internal	TEMPLATE:Stout		BONUS:STAT|INT|1|TYPE=Racial	ABILITY:Halfling Trait|AUTOMATIC|TYPE=StoutHalflingRaceTrait
+#
+Naturally Stealthy	KEY:Naturally Stealthy ~ Halfling	SOURCEPAGE:p.	CATEGORY:Special Ability	TYPE:RaceTrait.HalflingRaceTrait.LightfootHalflingRaceTraitDefault.SpecialQuality	DESC:You can attempt to hide even when you are obscured only by a creature that is one size larger than you.
+#
+Stout Resilience		KEY:Stout Resilience ~ Halfling	SOURCEPAGE:p.	CATEGORY:Special Ability	TYPE:RaceTrait.HalflingRaceTrait.StoutHalflingRaceTraitDefault.SpecialQuality	DESC:You have advantage on saving throws against poison, and you have resistance against poison damage.
+
+###Block: Human - Placeholder
+Traits ~ Human		CATEGORY:Internal
+
+###Block: Gnome
+Traits ~ Gnome		CATEGORY:Internal	BONUS:ABILITYPOOL|Gnome Subrace|1	ABILITY:Gnome Trait|AUTOMATIC|TYPE=GnomeRaceTraitDefault
+#
+Gnome Cunning		KEY:Gnome Cunning ~ Gnome	SOURCEPAGE:p.	CATEGORY:Special Ability	TYPE:RaceTrait.GnomeRaceTrait.GnomeRaceTraitDefault.SpecialQuality	DESC:You have advantage on all Intelligence, Wisdom, and Charisma saving throws against magic.
+# Subrace
+Forest			KEY:Forest ~ Gnome	TYPE:GnomeSubrace	CATEGORY:Internal	TEMPLATE:Forest	BONUS:STAT|DEX|1|TYPE=Racial	ABILITY:Gnome Trait|AUTOMATIC|TYPE=ForestGnomeRaceTrait
+Rock				KEY:Rock ~ Gnome		TYPE:GnomeSubrace	CATEGORY:Internal	TEMPLATE:Rock	BONUS:STAT|CON|1|TYPE=Racial	ABILITY:Gnome Trait|AUTOMATIC|TYPE=RockGnomeRaceTrait
+# Forest
+Natural Illusionist	KEY:Natural Illusionist ~ Gnome	SOURCEPAGE:p.	CATEGORY:Special Ability	TYPE:RaceTrait.GnomeRaceTrait.ForestGnomeRaceTraitDefault.SpecialQuality	DESC:You know the minor illusion cantrip. Intelligence is your magic ability for it.
+Speak with Small Beasts	KEY:Speak with Small Beasts ~ Gnome	SOURCEPAGE:p.	CATEGORY:Special Ability	TYPE:RaceTrait.GnomeRaceTrait.ForestGnomeRaceTraitDefault.SpecialQuality	DESC:Through sounds and gestures, you can communicate simple ideas with Small or smaller beasts.
+# Rock
+Artificer's Lore		KEY:Artificer's Lore ~ Gnome	SOURCEPAGE:p.	CATEGORY:Special Ability	TYPE:RaceTrait.GnomeRaceTrait.RockGnomeRaceTraitDefault.SpecialQuality	DESC:You have advantage on Intelligence checks to recall lore about alchemy, magic items, and technological devices.
+Tinker			KEY:Tinker ~ Gnome	SOURCEPAGE:p.	CATEGORY:Special Ability	TYPE:RaceTrait.GnomeRaceTrait.RockGnomeRaceTraitDefault.SpecialQuality	DESC:You have artisan's tools. Using those tools, you can spend 10 minutes to construct a Tiny clockwork device (AC 5, 1 hp). The device ceases to function after 24 hours. You can have up to three such devices active at a time. When you create a device, choose one of the following options. Clockwork Toy: This toy is a clockwork animal or person, such as a frog, mouse, bird, or soldier. When placed on the ground, the toy moves 5 feet across the ground on each of your turns in a random direction. It makes noises as appropriate to the creature it represents. Fire Starter: The device produces a miniature flame, which you can use to light something like a candle, torch, or campfire. Using the device requires your action. Music Box: When opened, this music box plays a single song at a moderate volume. The box stops playing when it reaches the song's end or when it is closed.
+
+###Block: Half-Elf
+Traits ~  Half-Elf		CATEGORY:Internal	BONUS:ABILITYPOOL|Half-Elf Subrace|1	ABILITY:Half-Elf Trait|AUTOMATIC|TYPE=HalfElfRaceTraitDefault
+#
+Fey Ancestry	KEY:Fey Ancestry ~  Half-Elf	SOURCEPAGE:p.	CATEGORY:Special Ability	TYPE:RaceTrait.HalfElfRaceTrait.HalfElfRaceTraitDefault.SpecialQuality	DESC:You have advantage on all saving throws against being charmed or put to sleep.
+Keen Senses		KEY:Keen Senses ~  Half-Elf	SOURCEPAGE:p.	CATEGORY:Special Ability	TYPE:RaceTrait.HalfElfRaceTrait.HalfElfRaceTraitDefault.SpecialQuality	DESC:You have advantage on all Wisdom checks to listen and spot.
+#
+Half-Elf Stat Choice	CATEGORY:Internal	BONUS:STAT|LIST|1	MULT:YES	CHOOSE:PCSTAT|STR|DEX|CON|INT|WIS
+
+###Block: Half-Orc
+Traits ~  Half-Orc		CATEGORY:Internal	BONUS:ABILITYPOOL|Half-Orc Subrace|1	ABILITY:Half-Orc Trait|AUTOMATIC|TYPE=HalfOrcRaceTraitDefault
+#
+Menacing	KEY:Menacing ~  Half-Orc	SOURCEPAGE:p.	CATEGORY:Special Ability	TYPE:RaceTrait.HalfOrcRaceTrait.HalfOrcRaceTraitDefault.SpecialQuality	DESC:You have advantage on all Charisma checks to intimidate.
+
+###Block: Class Common
+
 +1 Strength				CATEGORY:Internal	BONUS:STAT|STR|1
 +1 Dexterity			CATEGORY:Internal	BONUS:STAT|DEX|1
 +1 Constitution			CATEGORY:Internal	BONUS:STAT|CON|1
