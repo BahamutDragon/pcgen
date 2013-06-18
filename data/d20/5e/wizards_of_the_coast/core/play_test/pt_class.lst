@@ -3,6 +3,7 @@
 CLASS:Barbarian	HD:12	BONUS:COMBAT|BAB|(CL+3)/4	MAXLEVEL:20
 ###Block:
 1	BONUS:ABILITYPOOL|Barbarian Stat Increase|1
+###Block:
 1	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
 1	AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium
 1	AUTO:SHIELDPROF|SHIELDTYPE=Shield
@@ -65,7 +66,7 @@ CLASS:Cleric	MEMORIZE:NO	SPELLTYPE:Divine	SPELLSTAT:WIS	BONUS:CASTERLEVEL|Cleric
 20	CAST:0,3,2,2,2,2,1,1,1,1
 
 
-CLASS:Druid		HD:8	MAXLEVEL:20
+CLASS:Druid		HD:8	BONUS:DC|CLASS.Druid|DruidSpellcastingBonus	MAXLEVEL:20
 CLASS:Druid	SPELLTYPE:Divine	SPELLSTAT:WIS	MEMORIZE:NO	BONUS:CASTERLEVEL|Druid|CL	KNOWNSPELLS:LEVEL=0||LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9
 ###Block:
 6	BONUS:COMBAT|BAB|1
@@ -159,7 +160,7 @@ CLASS:Monk	HD:8
 ###Block:
 1	BONUS:ABILITYPOOL|Monk Stat Increase|1
 ###Block:
-1	AUTO:WEAPONPROF|Club|Dagger|Handaxe|Light Crossbow|Pike|Quarterstaff|Sling|Spear
+1	AUTO:WEAPONPROF|Club|Dagger|Handaxe|Crossbow (Light)|Pike|Quarterstaff|Sling|Spear
 ###Block:
 1	BONUS:VAR|MonkKiTimes|1	DEFINE:MonkKiTimes|0
 3	BONUS:VAR|MonkKiTimes|1
@@ -198,7 +199,7 @@ CLASS:Monk	HD:8
 19	ABILITY:Monk Class Feature|AUTOMATIC|Empty Body ~ Monk
 20	ABILITY:Monk Class Feature|AUTOMATIC|Perfect Self ~ Monk
 
-CLASS:Paladin	HD:10
+CLASS:Paladin	HD:10		BONUS:DC|CLASS.Paladin|PaladinSpellcastingBonus	MAXLEVEL:20
 CLASS:Paladin	PREALIGN:LG,LN,LE
 CLASS:Paladin	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Paladin|CL
 ###Block:
@@ -250,7 +251,7 @@ CLASS:Paladin	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Paladin|CL
 19	CAST:0,3,2,2,2,2
 20	CAST:0,3,2,2,2,2
 
-CLASS:Ranger	HD:10	MAXLEVEL:20
+CLASS:Ranger	HD:10	BONUS:DC|CLASS.Ranger|RangerSpellcastingBonus	MAXLEVEL:20
 CLASS:Ranger	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Ranger|CL
 ###Block:
 1	BONUS:ABILITYPOOL|Ranger Stat Increase|1
@@ -297,19 +298,28 @@ CLASS:Ranger	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Ranger|CL
 19	CAST:0,4,3,3,3,2
 20	CAST:0,4,3,3,3,2
 
-CLASS:Rogue
+CLASS:Rogue	HD:6	MAXLEVEL:20
 ###Block:
 1	BONUS:ABILITYPOOL|Rogue Stat Increase|1
 ###Block:
-ABILITY:Rogue Class Feature|AUTOMATIC|
+1	AUTO:WEAPONPROF|TYPE=Simple|Crossbow (Hand)|Crossbow (Light)|Longsword|Rapier|Sword (Short)
+1	AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium
+###Block:
+1	ABILITY:Rogue Class Feature|AUTOMATIC|Attack Bonus ~ Rogue|Rogue Scheme ~ Rogue|Sneak Attack ~ Rogue
+2	ABILITY:Rogue Class Feature|AUTOMATIC|Distract ~ Rogue
+4	ABILITY:Rogue Class Feature|AUTOMATIC|Uncanny Dodge ~ Rogue
+8	ABILITY:Rogue Class Feature|AUTOMATIC|Evasion ~ Rogue
+9	ABILITY:Rogue Class Feature|AUTOMATIC|Multiattack ~ Rogue|Deadly Strike ~ Rogue
+10	ABILITY:Rogue Class Feature|AUTOMATIC|Blindsense ~ Rogue|Defensive Roll ~ Rogue
+11	ABILITY:Rogue Class Feature|AUTOMATIC|Ace in the Hole ~ Rogue
 
 
-CLASS:Wizard	HD:6	MAXLEVEL:20
+CLASS:Wizard	HD:6	BONUS:DC|CLASS.Wizard|WizardSpellcastingBonus	MAXLEVEL:20
 CLASS:Wizard	SPELLSTAT:INT	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Wizard|CL
 ###Block:
 1	BONUS:ABILITYPOOL|Wizard Stat Increase|1
 ###Block:
-1	AUTO:WEAPONPROF|Dagger|Dart|Sling|Quarterstaff|Light Crossbow
+1	AUTO:WEAPONPROF|Dagger|Dart|Sling|Quarterstaff|Crossbow (Light)
 ###Block:
 1	ABILITY:Wizard Class Feature|AUTOMATIC|Arcane Recovery ~ Wizard|Spellcasting ~ Wizard|Tradition of Wizardry ~ Wizard|Wizardly Knowledge ~ Wizard
 ###Block:
