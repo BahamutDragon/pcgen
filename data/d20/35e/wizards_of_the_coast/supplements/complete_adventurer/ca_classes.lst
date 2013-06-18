@@ -48,3 +48,71 @@ CLASS:Scout	STARTSKILLPTS:8	CSKILL:Balance|Climb|TYPE=Craft|Escape Artist|Hide|J
 18	BONUS:VAR|FastMovementBonus|10
 4	BONUS:VAR|ScoutFeatCount|CL/4		DEFINE:ScoutFeatCount|0
 2	BONUS:VAR|BattleFortitudeBonus|(CL+7)/9	DEFINE:BattleFortitudeBonus|0
+
+CLASS:Spellthief	HD:6	TYPE:Base.PC	SOURCEPAGE:p.13	MAXLEVEL:20	BONUS:CHECKS|BASE.Will|(CL/2)+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4		DEFINE:ScoutLVL|CL
+CLASS:Spellthief	STARTSKILLPTS:6	CSKILL:Appraise|Bluff|Concentration|TYPE=Craft|Decipher Script|Disable Device|Escape Artist|Gather Information|Hide|Jump|Knowledge (arcana)|Knowledge (local)|Listen|Move Silently|Open Lock|Search|Speak Language|Spellcraft|Spot|Swim|Tumble|Use Magic Device
+CLASS:Spellthief	SPELLTYPE:Arcane	SPELLSTAT|CHA	MEMORIZE:NO	BONUS:CASTERLEVEL|Spellthief|CL/2|PRECLASS:1,Spellthief=4	SPELLLIST:1|Wizard
+###Block: Can only learn from the following Schools - abjuration, divination, enchantment, illusion, and transmutation.
+# List of Schools: Abjuration, Conjuration, Divination, Enchantment, Evocation, Illusion, Necromancy, Transmutation
+1	PROHIBITSPELL:SCHOOL.Conjuration
+1	PROHIBITSPELL:SCHOOL.Evocation
+1	PROHIBITSPELL:SCHOOL.Necromancy
+###Block:
+1	ABILITY:Spellthief Class Feature|AUTOMATIC|Weapon and Armor Proficiency ~ Spellthief
+4	ABILITY:Spellthief Class Feature|AUTOMATIC|Spells ~ Spellthief
+###Block:
+1	ABILITY:Spellthief Class Feature|AUTOMATIC|Sneak Attack ~ Spellthief|Steal Spell ~ Spellthief|Trapfinding ~ Spellthief
+2	ABILITY:Spellthief Class Feature|AUTOMATIC|Detect Magic ~ Spellthief|Spellgrace ~ Spellthief|Steal Spell Effect ~ Spellthief
+3	ABILITY:Spellthief Class Feature|AUTOMATIC|Steal Energy Resistance ~ Spellthief
+5	ABILITY:Spellthief Class Feature|AUTOMATIC|Steal Spell-Like Ability ~ Spellthief
+7	ABILITY:Spellthief Class Feature|AUTOMATIC|Absorb Spell ~ Spellthief
+9	ABILITY:Spellthief Class Feature|AUTOMATIC|Arcane Sight ~ Spellthief
+13	ABILITY:Spellthief Class Feature|AUTOMATIC|Discover Spells ~ Spellthief
+15	ABILITY:Spellthief Class Feature|AUTOMATIC|Steal Spell Resistance ~ Spellthief
+###Block:
+4	CAST:0,0
+5	CAST:0,0
+6	CAST:0,1
+7	CAST:0,1
+8	CAST:0,1,0
+9	CAST:0,1,0
+10	CAST:0,1,1
+11	CAST:0,1,1,0
+12	CAST:0,1,1,1
+13	CAST:0,1,1,1
+14	CAST:0,2,1,1,0
+15	CAST:0,2,1,1,1
+16	CAST:0,2,2,1,1
+17	CAST:0,2,2,2,1
+18	CAST:0,3,2,2,1
+19	CAST:0,3,3,3,2
+20	CAST:0,3,3,3,3
+###Block:
+4	KNOWN:0,2
+5	KNOWN:0,2
+6	KNOWN:0,3
+7	KNOWN:0,3
+8	KNOWN:0,4,2
+9	KNOWN:0,4,2
+10	KNOWN:0,4,3
+11	KNOWN:0,4,3,2
+12	KNOWN:0,4,4,3
+13	KNOWN:0,4,4,3
+14	KNOWN:0,4,4,4,2
+15	KNOWN:0,4,4,4,3
+16	KNOWN:0,4,4,4,3
+17	KNOWN:0,5,4,4,4
+18	KNOWN:0,5,5,4,4
+19	KNOWN:0,5,5,5,4
+20	KNOWN:0,5,5,5,5
+###Block:
+2	BONUS:VAR|StealSpellLevel|min(CL/2,9)	DEFINE:StealSpellLevel|0
+1	BONUS:VAR|SneakAttackDice|1	DEFINE:SneakAttackDice|0
+5	BONUS:VAR|SneakAttackDice|1
+9	BONUS:VAR|SneakAttackDice|1
+14	BONUS:VAR|SneakAttackDice|1
+17	BONUS:VAR|SneakAttackDice|1
+3	BONUS:VAR|StealEnergyResistanceBonus|((CL+5)/8)*10	DEFINE:StealEnergyResistanceBonus|0
+2	BONUS:VAR|SpellgraceBonus|(CL+7)/9				DEFINE:SpellgraceBonus|0
+
+20	BONUS:AbsorbSpellTier|1	DEFINE:AbsorbSpellTier|0
