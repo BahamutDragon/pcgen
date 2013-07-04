@@ -1,0 +1,19 @@
+# CVS $Revision: $ $Author: $ -- Thu Jul  4 11:45:43 2013 -- reformated by prettylst.pl v1.50 (build 20400)
+
+###Block: Need to get better EQMODs than RSRD base ones. Steel doesn't fit well...
+# Modifier Name	Unique Key	Naming Option	Type														Cost		Visible		Type granted	Prohibited Type						Apply to both heads
+Wood			KEY:WOOD	NAMEOPT:NORMAL	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:QUALIFY	ITYPE:Wooden	!PRETYPE:1,EQMODTYPE=Mundane	!PRETYPE:1,Metal	ASSIGNTOALL:YES
+Steel			KEY:STEEL	NAMEOPT:NORMAL	TYPE:BaseMaterial.Mundane.Ammunition.Armor.Shield.Weapon.Instruments.Tools.Goods	COST:0	VISIBLE:QUALIFY	ITYPE:Metal		!PRETYPE:1,EQMODTYPE=Mundane	!PRETYPE:1,Wooden
+
+
+###Block: Droid mods
+# Modifier Name			Unique Key			Naming Option		Type								Cost						Visible		Source Page		Required Type				Modify VAR					Bonus Equipment Modifiers			Modify the item cost					Special Property																							Special ABility																			Choose						Bonus
+Druid ~ Base Cost			KEY:BASEDCOST_DRD		NAMEOPT:NOTHING		TYPE:DroidMod						COST:BASECOST*(DroidCostFactor-1)
+Droid ~ Base Weight		KEY:BASEDWEIGHT_DRD	NAMEOPT:NORMAL		TYPE:DroidMod																														BONUS:EQM|WEIGHTMULT|DroidCostFactor
+
+# Droid locomotion mods
+Jump Servos				KEY:JUMPSERVOS_DRD	NAMEOPT:NORMAL		TYPE:DroidLocomotion					COST:0					VISIBLE:QUALIFY	SOURCEPAGE:p189	PRETYPE:2,DroidLocomotion,Walking														BONUS:ITEMCOST|TYPE.DroidLocomotion|BASECOST*2																										SAB:Treat all jumps as running jumps. Reroll a failed jump check (keep better roll). Always able to take 10 on a jump check.								BONUS:ITEMWEIGHT|TYPE.DroidLocomotion|2*DroidCostFactor
+Extra Legs				KEY:EXTRALEGS_DRD		NAMEOPT:NORMAL		TYPE:DroidLocomotion					COST:BASECOST				VISIBLE:QUALIFY	SOURCEPAGE:p189	PRETYPE:1,DroidLocomotion		BONUS:VAR|EquipLoadBonusMult|5																SPROP:(%CHOICE+2) legs																																											CHOOSE:NUMBER|MIN=1|MAX=10|TITLE=NUMBER
+
+Exclusive Locomotion System	KEY:EXCLUSIVE_LS_DRD	NAMEOPT:TEXT=Exclusive	TYPE:DroidLocomotion.RestrictedLocomotionSystem	COST:(BASECOST/10)-BASECOST		VISIBLE:QUALIFY	SOURCEPAGE:p189	PRETYPE:1,DroidLocomotion																							SPROP:Move action to engage/disengage. Can only move or run while engaged.
+Limited Locomotion System	KEY:LIMITED_LS_DRD	NAMEOPT:TEXT=Limited	TYPE:DroidLocomotion.RestrictedLocomotionSystem	COST:(BASECOST/10)-BASECOST		VISIBLE:QUALIFY	SOURCEPAGE:p189	PRETYPE:1,DroidLocomotion																							SPROP:Can only be used for a limited time. Endurance check each round after using DC 10 +1 per previous round in use, or cannot be used for 1 minute.
