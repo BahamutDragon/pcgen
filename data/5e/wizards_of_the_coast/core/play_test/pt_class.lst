@@ -1,8 +1,10 @@
+# COMMENT: Multiclasses don't appear to be allowed during the play test
 
-
-CLASS:Barbarian	HD:12	BONUS:COMBAT|BAB|(CL+3)/4	MAXLEVEL:20
+CLASS:Barbarian	HD:12	BONUS:COMBAT|BAB|(CL+3)/4	MAXLEVEL:20	TYPE:PC.BASE
+CLASS:Barbarian	PREMULT:1,[!PRECLASS:1,TYPE.Base=1],[PRECLASS:1,Barbarian=1]
 ###Block:
 1	BONUS:ABILITYPOOL|Barbarian Stat Increase|1
+###Block:
 1	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
 1	AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium
 1	AUTO:SHIELDPROF|SHIELDTYPE=Shield
@@ -10,48 +12,351 @@ CLASS:Barbarian	HD:12	BONUS:COMBAT|BAB|(CL+3)/4	MAXLEVEL:20
 1	BONUS:VAR|RageTimes|((CL+3)/4)+1				DEFINE:RageTimes|0
 1	BONUS:VAR|RageDamageBonus|2*(max((CL-1)/3),0)		DEFINE:RageDamageBonus|0
 ###Block: Abilities
-1	ABILITY:Barbarian Ability|AUTOMATIC|Combat Expertise ~ Barbarian|Iron Hide ~ Barbarian|Rage ~ Barbarian|Reckless Attack ~ Barbarian
-2	ABILITY:Barbarian Ability|AUTOMATIC|Fast Movement ~ Barbarian
-4	ABILITY:Barbarian Ability|AUTOMATIC|Feral Instinct ~ Barbarian
-5	ABILITY:Barbarian Ability|AUTOMATIC|Relentless Rage ~ Barbarian
-7	ABILITY:Barbarian Ability|AUTOMATIC|Feral Reflexes ~ Barbarian
-8	ABILITY:Barbarian Ability|AUTOMATIC|Fearless Rage ~ Barbarian
-10	ABILITY:Barbarian Ability|AUTOMATIC|Regenerative Rage ~ Barbarian
-11	ABILITY:Barbarian Ability|AUTOMATIC|Channel Fury ~ Barbarian
-14	ABILITY:Barbarian Ability|AUTOMATIC|Feral Senses ~ Barbarian
-15	ABILITY:Barbarian Ability|AUTOMATIC|Incite Rage ~ Barbarian
-18	ABILITY:Barbarian Ability|AUTOMATIC|Unchecked Fury ~ Barbarian
-19	ABILITY:Barbarian Ability|AUTOMATIC|Primal Might ~ Barbarian
-20	ABILITY:Barbarian Ability|AUTOMATIC|Endless Rage ~ Barbarian
+1	ABILITY:Barbarian Class Feature|AUTOMATIC|Combat Expertise ~ Barbarian|Iron Hide ~ Barbarian|Rage ~ Barbarian|Reckless Attack ~ Barbarian
+2	ABILITY:Barbarian Class Feature|AUTOMATIC|Fast Movement ~ Barbarian
+4	ABILITY:Barbarian Class Feature|AUTOMATIC|Feral Instinct ~ Barbarian
+5	ABILITY:Barbarian Class Feature|AUTOMATIC|Relentless Rage ~ Barbarian
+7	ABILITY:Barbarian Class Feature|AUTOMATIC|Feral Reflexes ~ Barbarian
+8	ABILITY:Barbarian Class Feature|AUTOMATIC|Fearless Rage ~ Barbarian
+10	ABILITY:Barbarian Class Feature|AUTOMATIC|Regenerative Rage ~ Barbarian
+11	ABILITY:Barbarian Class Feature|AUTOMATIC|Channel Fury ~ Barbarian
+14	ABILITY:Barbarian Class Feature|AUTOMATIC|Feral Senses ~ Barbarian
+15	ABILITY:Barbarian Class Feature|AUTOMATIC|Incite Rage ~ Barbarian
+18	ABILITY:Barbarian Class Feature|AUTOMATIC|Unchecked Fury ~ Barbarian
+19	ABILITY:Barbarian Class Feature|AUTOMATIC|Primal Might ~ Barbarian
+20	ABILITY:Barbarian Class Feature|AUTOMATIC|Endless Rage ~ Barbarian
 
 
-CLASS:Cleric	HD:8
-#
+CLASS:Cleric	HD:8	BONUS:DC|CLASS.Cleric|ClericSpellcastingBonus	MAXLEVEL:20	TYPE:PC.BASE
+CLASS:Cleric	PREMULT:1,[!PRECLASS:1,TYPE.Base=1],[PRECLASS:1,Cleric=1]
+CLASS:Cleric	MEMORIZE:NO	SPELLTYPE:Divine	SPELLSTAT:WIS	BONUS:CASTERLEVEL|Cleric|CL	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9
+###Block:
 1	BONUS:COMBAT|BAB|1
 5	BONUS:COMBAT|BAB|1
 15	BONUS:COMBAT|BAB|1
-#
+###Block:
 1	BONUS:ABILITYPOOL|Cleric Stat Increase|1
 1	AUTO:WEAPONPROF|TYPE=Simple
-#
-1	ABILITY:Cleric Class Feature|AUTOMATIC|Channel Divinity|Deity|Religious Knowledge|Spellcasting
-9	ABILITY:Cleric Class Feature|AUTOMATIC|Deadly Strike (roll twice)
-#
-9	BONUS:VAR|DeadlyStrikeTimes|2
+###Block:
+1	ABILITY:Cleric Class Feature|AUTOMATIC|Channel Divinity ~ Cleric|Deity ~ Cleric|Religious Knowledge ~ Cleric|Spellcasting ~ Cleric|Attack Bonus ~ Cleric
+9	ABILITY:Cleric Class Feature|AUTOMATIC|Deadly Strike ~ Cleric
+###Block:
+9	BONUS:VAR|DeadlyStrikeTimes|2	DEFINE:DeadlyStrikeTimes|0
 19	BONUS:VAR|DeadlyStrikeTimes|1
-#
+###Block:
 1	BONUS:VAR|ClericSpellcastingBonus|1+((CL-2)/5)	DEFINE:ClericSpellcastingBonus|0
+###Block:
+1	CAST:0,2
+2	CAST:0,3
+3	CAST:0,3,1
+4	CAST:0,3,2
+5	CAST:0,3,2,1
+6	CAST:0,3,2,2
+7	CAST:0,3,2,2,1
+8	CAST:0,3,2,2,2
+9	CAST:0,3,2,2,2,1
+10	CAST:0,3,2,2,2,2
+11	CAST:0,3,2,2,2,2,1
+12	CAST:0,3,2,2,2,2,1
+13	CAST:0,3,2,2,2,2,1,1
+14	CAST:0,3,2,2,2,2,1,1
+15	CAST:0,3,2,2,2,2,1,1,1
+16	CAST:0,3,2,2,2,2,1,1,1
+17	CAST:0,3,2,2,2,2,1,1,1,1
+18	CAST:0,3,2,2,2,2,1,1,1,1
+19	CAST:0,3,2,2,2,2,1,1,1,1
+20	CAST:0,3,2,2,2,2,1,1,1,1
 
-CLASS:Fighter	HD:10
 
+CLASS:Druid		HD:8	BONUS:DC|CLASS.Druid|DruidSpellcastingBonus	MAXLEVEL:20	TYPE:PC.BASE
+CLASS:Druid	PREMULT:1,[!PRECLASS:1,TYPE.Base=1],[PRECLASS:1,Druid=1]
+CLASS:Druid	SPELLTYPE:Divine	SPELLSTAT:WIS	MEMORIZE:NO	BONUS:CASTERLEVEL|Druid|CL	KNOWNSPELLS:LEVEL=0||LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9
+###Block:
+6	BONUS:COMBAT|BAB|1
+12	BONUS:COMBAT|BAB|1
+###Block:
+1	AUTO:ARMORPROF|Padded Armor|Leather Armor|Dragon Leather|Hide Armor
+1	AUTO:SHIELDPROF|SHIELDTYPE=Wooden
+1	AUTO:WEAPONPROF|Club|Dagger|Dart|Greatclub|Javelin|Mace|Scimitar|Sickle|Sling|Spear|Quarterstaff 
+###Block:
+1	ABILITY:Druid Class Feature|AUTOMATIC|Circle Initiate ~ Druid|Druid Lore ~ Druid|Spellcasting ~ Druid|Wild Shape ~ Druid
+3	ABILITY:Druid Class Feature|AUTOMATIC|Woodland Stride ~ Druid
+6	ABILITY:Druid Class Feature|AUTOMATIC|Weapon Attack Bonus ~ Druid
+7	ABILITY:Druid Class Feature|AUTOMATIC|Nature's Endurance ~ Druid
+9	ABILITY:Druid Class Feature|AUTOMATIC|Nature's Ward ~ Druid
+10	ABILITY:Druid Class Feature|AUTOMATIC|Healing Trance ~ Druid
+11	ABILITY:Druid Class Feature|AUTOMATIC|Thousand Faces ~ Druid
+13	ABILITY:Druid Class Feature|AUTOMATIC|Evergreen ~ Druid
+###Block:
+1	BONUS:VAR|DruidWildshapeTier|1	DEFINE:DruidWildshapeTier|0
+2	BONUS:VAR|DruidWildshapeTier|1
+4	BONUS:VAR|DruidWildshapeTier|1
+6	BONUS:VAR|DruidWildshapeTier|1
+1	BONUS:VAR|DruidWildShapeTimes|1	DEFINE:DruidWildShapeTimes|0
+2	BONUS:VAR|DruidWildShapeTimes|1
+5	BONUS:VAR|DruidWildShapeTimes|1
+8	BONUS:VAR|DruidWildShapeTimes|1
+14	BONUS:VAR|DruidWildShapeTimes|1
+1	BONUS:VAR|DruidSpellCastingBonus|1	DEFINE:DruidSpellCastingBonus|0
+4	BONUS:VAR|DruidSpellCastingBonus|1
+9	BONUS:VAR|DruidSpellCastingBonus|1
+14	BONUS:VAR|DruidSpellCastingBonus|1
+19	BONUS:VAR|DruidSpellCastingBonus|1
+###Block:
+1	CAST:0,2
+2	CAST:0,3
+3	CAST:0,4,2
+4	CAST:0,4,3
+5	CAST:0,4,3,2
+6	CAST:0,4,3,3
+7	CAST:0,4,3,3,1
+8	CAST:0,4,3,3,2
+9	CAST:0,4,3,3,3,1
+10	CAST:0,4,3,3,3,2
+11	CAST:0,4,3,3,3,2,1
+12	CAST:0,4,3,3,3,2,1
+13	CAST:0,4,3,3,3,2,1,1
+14	CAST:0,4,3,3,3,2,1,1
+15	CAST:0,4,3,3,3,2,1,1,1
+16	CAST:0,4,3,3,3,2,1,1,1
+17	CAST:0,4,3,3,3,2,1,1,1,1
+18	CAST:0,4,3,3,3,2,1,1,1,1
+19	CAST:0,4,3,3,3,2,1,1,1,1
+20	CAST:0,4,3,3,3,2,1,1,1,1
+
+CLASS:Fighter	HD:10	MAXLEVEL:20	TYPE:PC.BASE
+CLASS:Fighter	PREMULT:1,[!PRECLASS:1,TYPE.Base=1],[PRECLASS:1,Fighter=1]
+###Block:
 1	BONUS:ABILITYPOOL|Fighter Stat Increase|1
-
+###Block:
 1	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial|TYPE=Special
-1	AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium
+1	AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium|ARMORTYPE=Heavy
 1	AUTO:SHIELDPROF|SHIELDTYPE=Shield
+###Block:
+1	BONUS:COMBAT|BAB|1+(max(CL+2)/5,0)
+###Block:
+1	BONUS:ABILITYPOOL|Martial Feat|1
+2	BONUS:ABILITYPOOL|Martial Feat|1
+8	BONUS:ABILITYPOOL|Martial Feat|1
+###Block:
+1	BONUS:VAR|FighterExpertiseDice|2		DEFINE:FighterExpertiseDice|0
+5	BONUS:VAR|FighterExpertiseDice|1
+9	BONUS:VAR|FighterExpertiseDice|1
+13	BONUS:VAR|FighterExpertiseDice|1
+17	BONUS:VAR|FighterExpertiseDice|1
+1	BONUS:VAR|FighterDeadlyStrikeTimes|2	DEFINE:FighterDeadlyStrikeTimes|0
+5	BONUS:VAR|FighterDeadlyStrikeTimes|1
+10	BONUS:VAR|FighterDeadlyStrikeTimes|1
+15	BONUS:VAR|FighterDeadlyStrikeTimes|1
+20	BONUS:VAR|FighterDeadlyStrikeTimes|1
+11	BONUS:VAR|FighterCombatSurgeTimes|1		DEFINE:FighterCombatSurgeTimes|0
+14	BONUS:VAR|FighterCombatSurgeTimes|1
+17	BONUS:VAR|FighterCombatSurgeTimes|1
+20	BONUS:VAR|FighterCombatSurgeTimes|1
+###Block:
+1	ABILITY:Fighter Class Feature|AUTOMATIC|Martial Feat ~ Fighter|Expertise ~ Fighter|Death Dealer ~ Fighter|Superior Defense ~ Fighter
+4	ABILITY:Fighter Class Feature|AUTOMATIC|Unerring Attacker ~ Fighter
+5	ABILITY:Fighter Class Feature|AUTOMATIC|Deadly Strike ~ Fighter|Multiattack ~ Fighter
+7	ABILITY:Fighter Class Feature|AUTOMATIC|Unstoppable ~ Fighter
+11	ABILITY:Fighter Class Feature|AUTOMATIC|Combat Surge ~ Fighter
 
-
-CLASS:Monk	HD:8
+CLASS:Monk	HD:8	TYPE:PC.BASE
+CLASS:Monk	PREMULT:1,[!PRECLASS:1,TYPE.Base=1],[PRECLASS:1,Monk=1]
+###Block:
 1	BONUS:ABILITYPOOL|Monk Stat Increase|1
+###Block:
+1	AUTO:WEAPONPROF|Club|Dagger|Handaxe|Crossbow (Light)|Pike|Quarterstaff|Sling|Spear
+###Block:
+1	BONUS:VAR|MonkKiTimes|1	DEFINE:MonkKiTimes|0
+3	BONUS:VAR|MonkKiTimes|1
+6	BONUS:VAR|MonkKiTimes|1
+9	BONUS:VAR|MonkKiTimes|1
+14	BONUS:VAR|MonkKiTimes|1
+18	BONUS:VAR|MonkKiTimes|1
+5	BONUS:VAR|MonkKiAbility|1	DEFINE:MonkKiAbility|0
+8	BONUS:VAR|MonkKiAbility|1
+5	BONUS:VAR|DeadlyStrikeTimes|2	DEFINE:DeadlyStrikeTimes|0
+10	BONUS:VAR|DeadlyStrikeTimes|1
+15	BONUS:VAR|DeadlyStrikeTimes|1
+20	BONUS:VAR|DeadlyStrikeTimes|1
+###Block:
+4	BONUS:ABILITYPOOL|Martial Feat|1
+7	BONUS:ABILITYPOOL|Martial Feat|1
+10	BONUS:ABILITYPOOL|Martial Feat|1
+###Block:
+1	BONUS:COMBAT|BAB|1
+4	BONUS:COMBAT|BAB|1
+9	BONUS:COMBAT|BAB|1
+14	BONUS:COMBAT|BAB|1
+19	BONUS:COMBAT|BAB|1
+###Block:
+1	ABILITY:Monk Class Feature|AUTOMATIC|Martial Arts ~ Monk|Mindful Defense ~ Monk|Monastic Tradition ~ Monk
+2	ABILITY:Monk Class Feature|AUTOMATIC|Undaunted Strike ~ Monk
+4	ABILITY:Monk Class Feature|AUTOMATIC|Martial Feat ~ Monk
+5	ABILITY:Monk Class Feature|AUTOMATIC|Deadly Strike ~ Monk|Ki Ability ~ Monk|Purity of Body ~ Monk
+7	ABILITY:Monk Class Feature|AUTOMATIC|Clear Mind ~ Monk
+11	ABILITY:Monk Class Feature|AUTOMATIC|Diamond Body ~ Monk
+12	ABILITY:Monk Class Feature|AUTOMATIC|Abundant Step ~ Monk
+13	ABILITY:Monk Class Feature|AUTOMATIC|Diamond Soul ~ Monk
+15	ABILITY:Monk Class Feature|AUTOMATIC|Quivering Palm ~ Monk
+16	ABILITY:Monk Class Feature|AUTOMATIC|Timeless Body ~ Monk
+17	ABILITY:Monk Class Feature|AUTOMATIC|Tongue of Sun and Moon ~ Monk
+19	ABILITY:Monk Class Feature|AUTOMATIC|Empty Body ~ Monk
+20	ABILITY:Monk Class Feature|AUTOMATIC|Perfect Self ~ Monk
+
+CLASS:Paladin	HD:10		BONUS:DC|CLASS.Paladin|PaladinSpellcastingBonus	MAXLEVEL:20	TYPE:PC.BASE
+CLASS:Paladin	PREALIGN:LG,LN,LE	PREMULT:1,[!PRECLASS:1,TYPE.Base=1],[PRECLASS:1,Paladin=1]
+CLASS:Paladin	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Paladin|CL
+###Block:
+1	BONUS:ABILITYPOOL|Paladin Stat Increase|1
+###Block:
+1	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
+1	AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium|ARMORTYPE=Heavy
+1	AUTO:SHIELDPROF|SHIELDTYPE=Shield
+###Block:
+1	BONUS:VAR|PaladinSpellCastingBonus|1	DEFINE:PaladinSpellCastingBonus|0
+5	BONUS:VAR|PaladinSpellCastingBonus|1
+15	BONUS:VAR|PaladinSpellCastingBonus|1
+5	BONUS:VAR|PaladinDeadlyStrikeTimes|2	DEFINE:PaladinDeadlyStrikeTimes|0
+10	BONUS:VAR|PaladinDeadlyStrikeTimes|1
+15	BONUS:VAR|PaladinDeadlyStrikeTimes|1
+20	BONUS:VAR|PaladinDeadlyStrikeTimes|1
+###Block:
+1	BONUS:COMBAT|BAB|1
+3	BONUS:COMBAT|BAB|1
+8	BONUS:COMBAT|BAB|1
+13	BONUS:COMBAT|BAB|1
+18	BONUS:COMBAT|BAB|1
+###Block:
+1	ABILITY:Paladin Class Feature|AUTOMATIC|Channel Divinity ~ Paladin|Divine Grace ~ Paladin|Divine Sense ~ Paladin|Oath ~ Paladin|Spellcasting ~ Paladin
+2	ABILITY:Paladin Class Feature|AUTOMATIC|Aura of Protection ~ Paladin
+4	ABILITY:Paladin Class Feature|AUTOMATIC|Aura of Courage ~ Paladin
+5	ABILITY:Paladin Class Feature|AUTOMATIC|Deadly Strike ~ Paladin
+7	ABILITY:Paladin Class Feature|AUTOMATIC|Divine Health ~ Paladin
+8	ABILITY:Paladin Class Feature|AUTOMATIC|Mount ~ Paladin
+###Block:
+1	CAST:0,2
+2	CAST:0,2
+3	CAST:0,3
+4	CAST:0,3
+5	CAST:0,3,1
+6	CAST:0,3,1
+7	CAST:0,3,2
+8	CAST:0,3,2
+9	CAST:0,3,2,1
+10	CAST:0,3,2,1
+11	CAST:0,3,2,2
+12	CAST:0,3,2,2
+13	CAST:0,3,2,2,1
+14	CAST:0,3,2,2,1
+15	CAST:0,3,2,2,2
+16	CAST:0,3,2,2,2
+17	CAST:0,3,2,2,2,1
+18	CAST:0,3,2,2,2,1
+19	CAST:0,3,2,2,2,2
+20	CAST:0,3,2,2,2,2
+
+CLASS:Ranger	HD:10	BONUS:DC|CLASS.Ranger|RangerSpellcastingBonus	MAXLEVEL:20	TYPE:PC.BASE
+CLASS:Ranger	PREMULT:1,[!PRECLASS:1,TYPE.Base=1],[PRECLASS:1,Ranger=1]
+CLASS:Ranger	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Ranger|CL
+###Block:
+1	BONUS:ABILITYPOOL|Ranger Stat Increase|1
+###Block:
+1	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
+1	AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium
+1	AUTO:SHIELDPROF|SHIELDPROF=Shield
+###Block:
+1	BONUS:VAR|RangerSpellCastingBonus|1		DEFINE:RangerSpellCastingBonus|0
+5	BONUS:VAR|RangerSpellCastingBonus|1
+15	BONUS:VAR|RangerSpellCastingBonus|1
+2	BONUS:VAR|FavoredEnemyBenefitCount|1	DEFINE:FavoredEnemyBenefitCount|0
+8	BONUS:VAR|FavoredEnemyBenefitCount|1
+5	BONUS:VAR|RangerDeadlyStrikeTimes|2		DEFINE:RangerDeadlyStrikeTimes|0
+10	BONUS:VAR|RangerDeadlyStrikeTimes|1
+15	BONUS:VAR|RangerDeadlyStrikeTimes|1
+20	BONUS:VAR|RangerDeadlyStrikeTimes|1
+###Block:
+1	ABILITY:Ranger Class Feature|AUTOMATIC|Favored Enemy ~ Ranger|Spellcasting ~ Ranger|Track ~ Ranger
+2	ABILITY:Ranger Class Feature|AUTOMATIC|Favored Enemy Benefit ~ Ranger
+4	ABILITY:Ranger Class Feature|AUTOMATIC|Wary ~ Ranger
+5	ABILITY:Ranger Class Feature|AUTOMATIC|Camouflage ~ Ranger|Deadly Strike ~ Ranger
+7	ABILITY:Ranger Class Feature|AUTOMATIC|Woodland Stride ~ Ranger
+10	ABILITY:Ranger Class Feature|AUTOMATIC|Feral Senses ~ Ranger
+###Block:
+1	CAST:0,2
+2	CAST:0,2
+3	CAST:0,3
+4	CAST:0,3
+5	CAST:0,4,2
+6	CAST:0,4,2
+7	CAST:0,4,3
+8	CAST:0,4,3
+9	CAST:0,4,3,2
+10	CAST:0,4,3,2
+11	CAST:0,4,3,3
+12	CAST:0,4,3,3
+13	CAST:0,4,3,3,1
+14	CAST:0,4,3,3,1
+15	CAST:0,4,3,3,2
+16	CAST:0,4,3,3,2
+17	CAST:0,4,3,3,3,1
+18	CAST:0,4,3,3,3,1
+19	CAST:0,4,3,3,3,2
+20	CAST:0,4,3,3,3,2
+
+CLASS:Rogue	HD:6	MAXLEVEL:20	TYPE:PC.BASE
+CLASS:Rogue	PREMULT:1,[!PRECLASS:1,TYPE.Base=1],[PRECLASS:1,Rogue=1]
+###Block:
+1	BONUS:ABILITYPOOL|Rogue Stat Increase|1
+###Block:
+1	AUTO:WEAPONPROF|TYPE=Simple|Crossbow (Hand)|Crossbow (Light)|Longsword|Rapier|Sword (Short)
+1	AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium
+###Block:
+1	ABILITY:Rogue Class Feature|AUTOMATIC|Attack Bonus ~ Rogue|Rogue Scheme ~ Rogue|Sneak Attack ~ Rogue
+2	ABILITY:Rogue Class Feature|AUTOMATIC|Distract ~ Rogue
+4	ABILITY:Rogue Class Feature|AUTOMATIC|Uncanny Dodge ~ Rogue
+8	ABILITY:Rogue Class Feature|AUTOMATIC|Evasion ~ Rogue
+9	ABILITY:Rogue Class Feature|AUTOMATIC|Multiattack ~ Rogue|Deadly Strike ~ Rogue
+10	ABILITY:Rogue Class Feature|AUTOMATIC|Blindsense ~ Rogue|Defensive Roll ~ Rogue
+11	ABILITY:Rogue Class Feature|AUTOMATIC|Ace in the Hole ~ Rogue
 
 
+CLASS:Wizard	HD:6	BONUS:DC|CLASS.Wizard|WizardSpellcastingBonus	MAXLEVEL:20	TYPE:PC.BASE
+CLASS:Wizard	PREMULT:1,[!PRECLASS:1,TYPE.Base=1],[PRECLASS:1,Wizard=1]
+CLASS:Wizard	SPELLSTAT:INT	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Wizard|CL
+###Block:
+1	BONUS:ABILITYPOOL|Wizard Stat Increase|1
+###Block:
+1	AUTO:WEAPONPROF|Dagger|Dart|Sling|Quarterstaff|Crossbow (Light)
+###Block:
+1	ABILITY:Wizard Class Feature|AUTOMATIC|Arcane Recovery ~ Wizard|Spellcasting ~ Wizard|Tradition of Wizardry ~ Wizard|Wizardly Knowledge ~ Wizard
+###Block:
+1	BONUS:VAR|ArcaneRecoveryLVL|1
+3	BONUS:VAR|ArcaneRecoveryLVL|1
+5	BONUS:VAR|ArcaneRecoveryLVL|1
+1	BONUS:VAR|WizardSpellCastingBonus|1
+3	BONUS:VAR|WizardSpellCastingBonus|1
+9	BONUS:VAR|WizardSpellCastingBonus|1
+14	BONUS:VAR|WizardSpellCastingBonus|1
+19	BONUS:VAR|WizardSpellCastingBonus|1
+###Block:
+1	CAST:0,2
+2	CAST:0,3
+3	CAST:0,4,2
+4	CAST:0,4,3
+5	CAST:0,4,3,2
+6	CAST:0,4,3,3
+7	CAST:0,4,3,3,1
+8	CAST:0,4,3,3,2
+9	CAST:0,4,3,3,3,1
+10	CAST:0,4,3,3,3,2
+11	CAST:0,4,3,3,3,2,1
+12	CAST:0,4,3,3,3,2,1
+13	CAST:0,4,3,3,3,2,1,1
+14	CAST:0,4,3,3,3,2,1,1
+15	CAST:0,4,3,3,3,2,1,1,1
+16	CAST:0,4,3,3,3,2,1,1,1
+17	CAST:0,4,3,3,3,2,1,1,1,1
+18	CAST:0,4,3,3,3,2,1,1,1,1
+19	CAST:0,4,3,3,3,2,1,1,1,1
+20	CAST:0,4,3,3,3,2,1,1,1,1
