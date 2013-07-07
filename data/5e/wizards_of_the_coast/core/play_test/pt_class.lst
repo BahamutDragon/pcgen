@@ -6,8 +6,8 @@ CLASS:Barbarian	PREMULT:1,[!PRECLASS:1,TYPE.Base=1],[PRECLASS:1,Barbarian=1]
 1	BONUS:ABILITYPOOL|Barbarian Stat Increase|1
 ###Block:
 1	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
-1	AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium
-1	AUTO:SHIELDPROF|SHIELDTYPE=Shield
+1	AUTO:ARMORPROF|ARMORTYPE=LightArmor|ARMORTYPE=MediumArmor
+1	AUTO:SHIELDPROF|SHIELDTYPE=Shields
 ###Block:
 1	BONUS:VAR|RageTimes|((CL+3)/4)+1				DEFINE:RageTimes|0
 1	BONUS:VAR|RageDamageBonus|2*(max((CL-1)/3),0)		DEFINE:RageDamageBonus|0
@@ -70,18 +70,19 @@ CLASS:Cleric	MEMORIZE:NO	SPELLTYPE:Divine	SPELLSTAT:WIS	BONUS:CASTERLEVEL|Cleric
 
 CLASS:Druid		HD:8	BONUS:DC|CLASS.Druid|DruidSpellcastingBonus	MAXLEVEL:20	TYPE:PC.BASE
 CLASS:Druid	PREMULT:1,[!PRECLASS:1,TYPE.Base=1],[PRECLASS:1,Druid=1]
-CLASS:Druid	SPELLTYPE:Divine	SPELLSTAT:WIS	MEMORIZE:NO	BONUS:CASTERLEVEL|Druid|CL	KNOWNSPELLS:LEVEL=0||LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9
+CLASS:Druid	SPELLTYPE:Divine	SPELLSTAT:WIS	MEMORIZE:NO	BONUS:CASTERLEVEL|Druid|CL	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9
 ###Block:
 6	BONUS:COMBAT|BAB|1
 12	BONUS:COMBAT|BAB|1
 ###Block:
 1	AUTO:ARMORPROF|Padded Armor|Leather Armor|Dragon Leather|Hide Armor
-1	AUTO:SHIELDPROF|SHIELDTYPE=Wooden
-1	AUTO:WEAPONPROF|Club|Dagger|Dart|Greatclub|Javelin|Mace|Scimitar|Sickle|Sling|Spear|Quarterstaff 
+1	AUTO:SHIELDPROF|SHIELDTYPE=Shields
+1	AUTO:WEAPONPROF|Club|Dagger|Dart|Greatclub|Javelin|Mace|Scimitar|Sling|Spear|Quarterstaff 
+# Sickle - doesn't exist
 ###Block:
 1	ABILITY:Druid Class Feature|AUTOMATIC|Circle Initiate ~ Druid|Druid Lore ~ Druid|Spellcasting ~ Druid|Wild Shape ~ Druid
 3	ABILITY:Druid Class Feature|AUTOMATIC|Woodland Stride ~ Druid
-6	ABILITY:Druid Class Feature|AUTOMATIC|Weapon Attack Bonus ~ Druid
+6	ABILITY:Druid Class Feature|AUTOMATIC|Attack Bonus ~ Druid
 7	ABILITY:Druid Class Feature|AUTOMATIC|Nature's Endurance ~ Druid
 9	ABILITY:Druid Class Feature|AUTOMATIC|Nature's Ward ~ Druid
 10	ABILITY:Druid Class Feature|AUTOMATIC|Healing Trance ~ Druid
@@ -129,9 +130,9 @@ CLASS:Fighter	PREMULT:1,[!PRECLASS:1,TYPE.Base=1],[PRECLASS:1,Fighter=1]
 ###Block:
 1	BONUS:ABILITYPOOL|Fighter Stat Increase|1
 ###Block:
-1	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial|TYPE=Special
-1	AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium|ARMORTYPE=Heavy
-1	AUTO:SHIELDPROF|SHIELDTYPE=Shield
+1	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
+1	AUTO:ARMORPROF|ARMORTYPE=LightArmor|ARMORTYPE=MediumArmor|ARMORTYPE=HeavyArmor
+1	AUTO:SHIELDPROF|SHIELDTYPE=Shields
 ###Block:
 1	BONUS:COMBAT|BAB|1+(max(CL+2)/5,0)
 ###Block:
@@ -211,8 +212,8 @@ CLASS:Paladin	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Paladin|CL
 1	BONUS:ABILITYPOOL|Paladin Stat Increase|1
 ###Block:
 1	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
-1	AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium|ARMORTYPE=Heavy
-1	AUTO:SHIELDPROF|SHIELDTYPE=Shield
+1	AUTO:ARMORPROF|ARMORTYPE=LightArmor|ARMORTYPE=MediumArmor|ARMORTYPE=HeavyArmor
+1	AUTO:SHIELDPROF|SHIELDTYPE=Shields
 ###Block:
 1	BONUS:VAR|PaladinSpellCastingBonus|1	DEFINE:PaladinSpellCastingBonus|0
 5	BONUS:VAR|PaladinSpellCastingBonus|1
@@ -263,8 +264,8 @@ CLASS:Ranger	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Ranger|CL
 1	BONUS:ABILITYPOOL|Ranger Stat Increase|1
 ###Block:
 1	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
-1	AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium
-1	AUTO:SHIELDPROF|SHIELDPROF=Shield
+1	AUTO:ARMORPROF|ARMORTYPE=LightArmor|ARMORTYPE=MediumArmor
+1	AUTO:SHIELDPROF|SHIELDTYPE=Shields
 ###Block:
 1	BONUS:VAR|RangerSpellCastingBonus|1		DEFINE:RangerSpellCastingBonus|0
 5	BONUS:VAR|RangerSpellCastingBonus|1
@@ -277,7 +278,6 @@ CLASS:Ranger	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Ranger|CL
 20	BONUS:VAR|RangerDeadlyStrikeTimes|1
 ###Block:
 1	ABILITY:Ranger Class Feature|AUTOMATIC|Favored Enemy ~ Ranger|Spellcasting ~ Ranger|Track ~ Ranger
-2	ABILITY:Ranger Class Feature|AUTOMATIC|Favored Enemy Benefit ~ Ranger
 4	ABILITY:Ranger Class Feature|AUTOMATIC|Wary ~ Ranger
 5	ABILITY:Ranger Class Feature|AUTOMATIC|Camouflage ~ Ranger|Deadly Strike ~ Ranger
 7	ABILITY:Ranger Class Feature|AUTOMATIC|Woodland Stride ~ Ranger
@@ -309,8 +309,8 @@ CLASS:Rogue	PREMULT:1,[!PRECLASS:1,TYPE.Base=1],[PRECLASS:1,Rogue=1]
 ###Block:
 1	BONUS:ABILITYPOOL|Rogue Stat Increase|1
 ###Block:
-1	AUTO:WEAPONPROF|TYPE=Simple|Crossbow (Hand)|Crossbow (Light)|Longsword|Rapier|Sword (Short)
-1	AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium
+1	AUTO:WEAPONPROF|TYPE=Simple|Crossbow (Hand)|Crossbow (Light)|Long Sword|Rapier|Short Sword
+1	AUTO:ARMORPROF|ARMORTYPE=LightArmor|ARMORTYPE=MediumArmor
 ###Block:
 1	ABILITY:Rogue Class Feature|AUTOMATIC|Attack Bonus ~ Rogue|Rogue Scheme ~ Rogue|Sneak Attack ~ Rogue
 2	ABILITY:Rogue Class Feature|AUTOMATIC|Distract ~ Rogue
