@@ -75,112 +75,92 @@ CLASS:Celestial Mystic	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy
 9	ADD:SPELLCASTER|ANY
 10	ADD:SPELLCASTER|ANY
 
-
-CLASS:Champion of Gwynharwyf	HD:12		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.56	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL/2)+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
-CLASS:Champion of Gwynharwyf	PREALIGN:CG
-PREATT:6.
-Skills: Intimidate 9 ranks.
-Feats: Knight of Stars, Righteous Wrath.
-CLASS:Champion of Gwynharwyf	STARTSKILLPTS:4	CSKILL:Climb (Str), Craft (Int), Handle Animal (Cha),
-Intimidate (Cha), Jump (Str), Listen (Wis), Ride (Dex), Survival
-(Wis), and Swim
+CLASS:Champion of Gwynharwyf	HD:12		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.56	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:CHECKS|BASE.Fortitude|(CL/2)+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+CLASS:Champion of Gwynharwyf	PREALIGN:CG	PREATT:6	PRESKILL:1,Intimidate=9	PREFEAT:2,Knight of Stars,Righteous Wrath
+CLASS:Champion of Gwynharwyf	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate|Jump|Listen|Ride|Survival|Swim
 ###Block:
-1	ABILITY:xxx Class Feature|AUTOMATIC|
-1st +1 +2 +0 +0 Detect evil, rage, smite evil 1/day 0 - - -
-2nd +2 +3 +0 +0 Divine grace, furious casting 1 - - -
-3rd +3 +3 +1 +1 Damage reduction 2/-, resist enchantment 1 0 - -
-4th +4 +4 +1 +1 Fearsome fury 1 1 - -
-5th +5 +4 +1 +1 Energy resistance 5, smite evil 2/day 1 1 0 -
-6th +6 +5 +2 +2 Damage reduction 3/- 1 1 1 -
-7th +7 +5 +2 +2 Immune to charm and compulsion 2 1 1 0
-8th +8 +6 +2 +2 Damage reduction 4/- 2 1 1 1
-9th +9 +6 +3 +3 Smite evil 3/day 2 2 1 1
-10th +10 +7 +3 +3 Damage reduction 5/-, energy resistance 10 2 2 2 1
-
-CLASS:Defender of Sealtiel	HD:12		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.58	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL/2)+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
-CLASS:Defender of Sealtiel	PREALIGN:Lawful good.
-PREATT:7.
-Skills: Listen 5 ranks.
-Feats: Diehard, Endurance, Servant of the Heavens.
-CLASS:Defender of Sealtiel	STARTSKILLPTS:2	CSKILL:Craft (Int), Listen (Wis), Sense
-Motive (Wis), and Spot
+1	ABILITY:Champion of Gwynharwyf Class Feature|AUTOMATIC|Detect Evil ~ Champion of Gwynharwyf|Rage ~ Champion of Gwynharwyf|Smite Evil ~ Champion of Gwynharwyf
+2	ABILITY:Champion of Gwynharwyf Class Feature|AUTOMATIC|Divine Grace ~ Champion of Gwynharwyf|Furious Casting ~ Champion of Gwynharwyf
+3	ABILITY:Champion of Gwynharwyf Class Feature|AUTOMATIC|Damage Reduction ~ Champion of Gwynharwyf|Resist Enchantment ~ Champion of Gwynharwyf
+4	ABILITY:Champion of Gwynharwyf Class Feature|AUTOMATIC|Fearsome Fury ~ Champion of Gwynharwyf
+5	ABILITY:Champion of Gwynharwyf Class Feature|AUTOMATIC|Energy Resistance ~ Champion of Gwynharwyf
+7	ABILITY:Champion of Gwynharwyf Class Feature|AUTOMATIC|Immune to Charm and Compulsion ~ Champion of Gwynharwyf
 ###Block:
-1	ABILITY:Defender of Sealtiel Class Feature|AUTOMATIC|
-1st +1 +2 +0 +2 Defensive stance 1/day, shield of faith
-2nd +2 +3 +0 +3 Magic circle, shield other
-3rd +3 +3 +1 +3 Defensive stance 2/day
-4th +4 +4 +1 +4 Blood of the martyr
-5th +5 +4 +1 +4 Defensive stance 3/day
-6th +6 +5 +2 +5 Protective aura 1/day
-7th +7 +5 +2 +5 Defensive stance 4/day
-8th +8 +6 +2 +6 Glory of the martyr
-9th +9 +6 +3 +6 Defensive stance 5/day
-10th +10 +7 +3 +7 Protective aura 3/day
-
-CLASS:Emissary of Barachiel	HD:6		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.59	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL/2)+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
-CLASS:Emissary of Barachiel	PREALIGN:Lawful good.
-Skills: Diplomacy 8 ranks,
-Knowledge (the planes) 4 ranks.
-Feats: Servant of the Heavens,
-Words of Creation.
-CLASS:Emissary of Barachiel	STARTSKILLPTS:4	CSKILL:Concentration
-(Con), Craft (Int), Decipher Script (Int), Diplomacy (Cha),
-Gather Information (Cha), Knowledge (all skills, taken individually)
-(Int), Listen (Wis), Perform (Cha), Profession (Wis),
-Sense Motive (Wis), Speak Language, Spellcraft (Int), and Use
-Magic Device
+1	BONUS:VAR|SmiteEvilTimes|1
+5	BONUS:VAR|SmiteEvilTimes|1
+9	BONUS:VAR|SmiteEvilTimes|1
+3	BONUS:VAR|DamageReductionBonus|2
+6	BONUS:VAR|DamageReductionBonus|1
+8	BONUS:VAR|DamageReductionBonus|1
+10	BONUS:VAR|DamageReductionBonus|1
+5	BONUS:VAR|EnergyResistanceBonus|5
+10	BONUS:VAR|EnergyResistanceBonus|5
 ###Block:
-1	ABILITY:Emissary of Barachiel Class Feature|AUTOMATIC|
-1st +0 +0 +0 +2 Calling 0 - - -
-2nd +1 +0 +0 +3 1 - - -
-3rd +2 +1 +1 +3 Conversion 2 0 - -
-4th +3 +1 +1 +4 3 1 - -
-5th +3 +1 +1 +4 Sustenance 3 2 0 -
-6th +4 +2 +2 +5 3 3 1 -
-7th +5 +2 +2 +5 3 3 2 0
-8th +6 +2 +2 +6 3 3 3 1
-9th +6 +3 +3 +6 3 3 3 2
-10th +7 +3 +3 +7 3 3 3 3
+1	CAST:0,0
+2	CAST:0,1
+3	CAST:0,1,0
+4	CAST:0,1,1
+5	CAST:0,1,1,0
+6	CAST:0,1,1,1
+7	CAST:0,2,1,1,0
+8	CAST:0,2,1,1,1
+9	CAST:0,2,2,1,1
+10	CAST:0,2,2,2,1
 
+CLASS:Defender of Sealtiel	HD:12		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.58	BONUS:CHECKS|BASE.Fortitude,BASE.Will|(CL/2)+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+CLASS:Defender of Sealtiel	PREALIGN:LG	PREATT:7	PRESKILL:1,Listen=5	PREFEAT:3,Diehard,Endurance,Servant of the Heavens
+CLASS:Defender of Sealtiel	STARTSKILLPTS:2	CSKILL:TYPE=Craft|Listen|Sense Motive|Spot
+###Block:
+1	ABILITY:Defender of Sealtiel Class Feature|AUTOMATIC|Defensive Stance ~ Defender of Sealtiel|Shield of Faith ~ Defender of Sealtiel
+2	ABILITY:Defender of Sealtiel Class Feature|AUTOMATIC|Magic Circle ~ Defender of Sealtiel|Shield Other ~ Defender of Sealtiel
+4	ABILITY:Defender of Sealtiel Class Feature|AUTOMATIC|Blood of The Martyr ~ Defender of Sealtiel
+6	ABILITY:Defender of Sealtiel Class Feature|AUTOMATIC|Protective Aura ~ Defender of Sealtiel
+8	ABILITY:Defender of Sealtiel Class Feature|AUTOMATIC|Glory of The Martyr ~ Defender of Sealtiel
+###Block:
+1	BONUS:VAR|DefensiveStanceTimes|(CL+1)/2
+6	BONUS:VAR|ProtectiveAura|1
+10	BONUS:VAR|ProtectiveAura|2
+
+CLASS:Emissary of Barachiel	HD:6		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.59	BONUS:CHECKS|BASE.Will|(CL/2)+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+CLASS:Emissary of Barachiel	PREALIGN:LG	PRESKILL:2,Diplomacy=8,Knowledge (The Planes)=4	PREFEAT:2,Servant of the Heavens,Words of Creation
+CLASS:Emissary of Barachiel	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Decipher Script|Diplomacy|Gather Information|TYPE=Knowledge|Listen|TYPE=Perform|TYPE=Profession|Sense Motive|Speak Language|Spellcraft|Use Magic Device
+###Block:
+1	ABILITY:Emissary of Barachiel Class Feature|AUTOMATIC|Calling ~ Emissary of Barachiel
+3	ABILITY:Emissary of Barachiel Class Feature|AUTOMATIC|Conversion ~ Emissary of Barachiel
+5	ABILITY:Emissary of Barachiel Class Feature|AUTOMATIC|Sustenance ~ Emissary of Barachiel
+###Block: 
+1	CAST:0,0
+2	CAST:0,1
+3	CAST:0,2,0
+4	CAST:0,3,1
+5	CAST:0,3,2,0
+6	CAST:0,3,3,1
+7	CAST:0,3,3,2,0
+8	CAST:0,3,3,3,1
+9	CAST:0,3,3,3,2
+10	CAST:0,3,3,3,3
 ###Block: Known
-# 1/;2/3/4
-1st 2 - - -
-2nd 3 - - -
-3rd 3 2 - -
-4th 4 3 - -
-5th 4 3 2 -
-6th 4 4 3 -
-7th 4 4 3 2
-8th 4 4 4 3
-9th 4 4 4 3
-10th 4 4 4 4
+1	KNOWN:0,2
+2	KNOWN:0,3
+3	KNOWN:0,3,2
+4	KNOWN:0,4,3
+5	KNOWN:0,4,3,2
+6	KNOWN:0,4,4,3
+7	KNOWN:0,4,4,3,2
+8	KNOWN:0,4,4,4,3
+9	KNOWN:0,4,4,4,3
+10	KNOWN:0,4,4,4,4
 
 
 CLASS:Exalted Arcanist	HD:4		TYPE:Prestige	MAXLEVEL:5	SOURCEPAGE:p.61	BONUS:CHECKS|BASE.Will|(CL/2)+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*1/2|TYPE=Base.REPLACE
-CLASS:Exalted Arcanist	PREALIGN:Any good.
-Base Save Bonuses: Will +5.
-Skills: Knowledge (arcana) 9
-ranks, Knowledge (religion) 4
-ranks.
-Feats: Consecrate Spell,
-Purify Spell.
-Spells: Able to spontaneously
-cast 3rd-level arcane
-spells.
-CLASS:Exalted Arcanist	STARTSKILLPTS:4	CSKILL:Concentration
-(Con), Craft (Int), Decipher
-Script (Int), Diplomacy (Cha),
-Knowledge (arcana) (Int), Knowledge
-(religion) (Int), Perform
-(Cha), Profession (Wis), Sense
-Motive (Wis), Spellcraft (Int),
-and Use Magic Device
+CLASS:Exalted Arcanist	PREALIGN:LG,NG,CG	PRECHECKBASE:1,Will=5	PRESKILL:2,Knowledge (Arcana)=9Knowledge (Religion)=4	PREFEAT:2,Consecrate Spell,Purify Spell	PRETEXT:Spells: Able to spontaneously cast 3rd-level arcane spells.
+CLASS:Exalted Arcanist	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Decipher Script|Diplomacy|Knowledge (Arcana)|Knowledge (Religion)|TYPE=Perform|TYPE=Profession|Sense Motive|Spellcraft|Use Magic Device
 ###Block:
-1	ABILITY:Exalted Arcanist Class Feature|AUTOMATIC|Exalted Spell List|Spell Knowledge
-2	ABILITY:Exalted Arcanist Class Feature|AUTOMATIC|faster Consecrate
-3	ABILITY:Exalted Arcanist Class Feature|AUTOMATIC|Bonus Exalted Feat
-4	ABILITY:Exalted Arcanist Class Feature|AUTOMATIC|Faster Purify
-5	ABILITY:Exalted Arcanist Class Feature|AUTOMATIC|Sanctified Spells
+1	ABILITY:Exalted Arcanist Class Feature|AUTOMATIC|Exalted Spell List ~ Exalted Arcanist|Spell Knowledge ~ Exalted Arcanist
+2	ABILITY:Exalted Arcanist Class Feature|AUTOMATIC|Faster Consecrate ~ Exalted Arcanist
+3	ABILITY:Exalted Arcanist Class Feature|AUTOMATIC|Bonus Exalted Feat ~ Exalted Arcanist
+4	ABILITY:Exalted Arcanist Class Feature|AUTOMATIC|Faster Purify ~ Exalted Arcanist
+5	ABILITY:Exalted Arcanist Class Feature|AUTOMATIC|Sanctified Spells ~ Exalted Arcanist
 ###Block:
 2	BONUS:VAR|BonusExaltedFeatCount|1	DEFINE:BonusExaltedFeatCount|0
 5	BONUS:VAR|BonusExaltedFeatCount|1
@@ -195,27 +175,17 @@ and Use Magic Device
 3	SPELLLEVEL:CLASS|SPELLCASTER.Arcane=6|Aspect of the Deity,Bolt of Glory,Planar Ally|SPELLCASTER.Arcane=7|Heavenly Lightning Storm,Holy Word,Righteous Smite
 4	SPELLLEVEL:CLASS|SPELLCASTER.Arcane=8|Planar Ally (Greater),Holy Aura|SPELLCASTER.Arcane=9|Aspect of the Deity (Greater)
 
-CLASS:Fist of Raziel	HD:10		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.62	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL/2)+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
-CLASS:Fist of Raziel	PREALIGN:Lawful good.
-Base Save Bonuses: Fort +5, Ref
-+5, Will +5.
-Skills: Concentration 9 ranks.
-Feats: Sacred Vow, Sanctify Ki Strike, Servant of the Heavens.
-CLASS:Fist of Raziel	STARTSKILLPTS:2	CSKILL:Concentration (Con), Craft (Int), Diplomacy (Cha), Heal
-(Wis), Knowledge (the planes) (Int), Knowledge (religion) (Int),
-Profession (Wis), and Sense Motive
+CLASS:Fist of Raziel	HD:10		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.62	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:CHECKS|BASE.Fortitude|(CL/2)+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+CLASS:Fist of Raziel	PREALIGN:LG	PRECHECKBASE:3,Fortitude=5,Reflex=5,Will=5	PRESKILL:1,Concentration=9	PREFEAT:3,Sacred Vow,Sanctify Ki Strike,Servant of the Heavens
+CLASS:Fist of Raziel	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Knowledge (The Planes)|Knowledge (Religion)|TYPE=Profession|Sense Motive
 ###Block:
-1	ABILITY:Fist of Raziel Class Feature|AUTOMATIC|
-1st +1 +2 +0 +0 Magic circle, smite evil 1/day (good-aligned) -
-2nd +2 +3 +0 +0
-3rd +3 +3 +1 +1 Smite evil 2/day (confirming)
-4th +4 +4 +1 +1 Sanctify Martial Strike
-5th +5 +4 +1 +1 Smite evil 3/day (holy)
-6th +6 +5 +2 +2 Sunder evil item
-7th +7 +5 +2 +2 Smite evil 4/day (fiendsmite)
-8th +8 +6 +2 +2
-9th +9 +6 +3 +3 Smite evil 5/day (chain)
-10th +10 +7 +3 +3 Holy martial strike
+1	ABILITY:Fist of Raziel Class Feature|AUTOMATIC|Magic Circle ~ Fist of Raziel|Smite Evil ~ Fist of Raziel
+4	ABILITY:Fist of Raziel Class Feature|AUTOMATIC|Sanctify Martial Strike ~ Fist of Raziel
+6	ABILITY:Fist of Raziel Class Feature|AUTOMATIC|Sunder Evil Item ~ Fist of Raziel
+10	ABILITY:Fist of Raziel Class Feature|AUTOMATIC|Holy Martial Strike ~ Fist of Raziel
+###Block:
+1	BONUS:VAR|SmiteEvilTimes|(CL+1)/2
+1	BONUS:VAR|FistOfRazielSmiteProgression|(CL+1)/2
 ###Block:
 2	ADD:SPELLCASTER|ANY
 3	ADD:SPELLCASTER|ANY
@@ -227,139 +197,119 @@ Profession (Wis), and Sense Motive
 9	ADD:SPELLCASTER|ANY
 10	ADD:SPELLCASTER|ANY
 
-CLASS:Initiate of Pistis Sophia	HD:8		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.64	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL/2)+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
-CLASS:Initiate of Pistis Sophia	
-CLASS:Initiate of Pistis Sophia	STARTSKILLPTS:4	CSKILL:Balance (Dex), Climb (Str), Concentration (Con),
-Craft (Int), Diplomacy (Cha), Escape Artist (Dex), Hide (Dex),
-Jump (Str), Knowledge (the planes) (Int), Knowledge (religion)
-(Int), Listen (Wis), Move Silently (Dex), Perform (Cha), Profession
-(Wis), Sense Motive (Wis), Spot (Wis), Swim (Str), and
-Tumble
+CLASS:Initiate of Pistis Sophia	HD:8		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.64	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|(CL/2)+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+CLASS:Initiate of Pistis Sophia	PREALIGN:LG	PRECHECKBASE:3,Fortitude=5,Reflex=5,Will=5	PRESKILL: Concentration 9 ranks.	PREFEAT:3,Sacred Vow,Sanctify Ki Strike,Servant of the Heavens
+CLASS:Initiate of Pistis Sophia	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Diplomacy|Escape Artist|Hide|Jump|Knowledge (The Planes)|Knowledge (Religion)|Listen|Move Silently|TYPE=Perform|TYPE=Profession|Sense Motive|Spot|Swim|Tumble
 ###Block:
-1	ABILITY:Initiate of Pistis Sophia Class Feature|AUTOMATIC|
-1st +0 +2 +2 +2 Fist of the Heavens, monk abilities
-2nd +1 +3 +3 +3 Detect evil, smite evil 1/day
-3rd +2 +3 +3 +3 Uncanny dodge
-4th +3 +4 +4 +4 Electricity resistance 5, sacred vow
-5th +3 +4 +4 +4 Smite evil 2/day
-6th +4 +5 +5 +5 Improved uncanny dodge
-7th +5 +5 +5 +5 Electricity resistance 10, sacred vow
-8th +6 +6 +6 +6 Smite evil 3/day
-9th +6 +6 +6 +6 Improved evasion
-10th +7 +7 +7 +7 Celestial transformation, sacred vow
+1
+1	ABILITY:Initiate of Pistis Sophia Class Feature|AUTOMATIC|Fist of the Heavens ~ Initiate of Pistis Sophia|Monk Abilities ~ Initiate of Pistis Sophia
+2	ABILITY:Initiate of Pistis Sophia Class Feature|AUTOMATIC|Detect Evil ~ Initiate of Pistis Sophia|Smite Evil ~ Initiate of Pistis Sophia
+3	ABILITY:Initiate of Pistis Sophia Class Feature|AUTOMATIC|Uncanny Dodge ~ Initiate of Pistis Sophia
+4	ABILITY:Initiate of Pistis Sophia Class Feature|AUTOMATIC|Electricity Resistance|Sacred Vow ~ Initiate of Pistis Sophia
+6	ABILITY:Initiate of Pistis Sophia Class Feature|AUTOMATIC|Improved Uncanny Dodge ~ Initiate of Pistis Sophia
+9	ABILITY:Initiate of Pistis Sophia Class Feature|AUTOMATIC|Improved Evasion ~ Initiate of Pistis Sophia
+10	ABILITY:Initiate of Pistis Sophia Class Feature|AUTOMATIC|Celestial Transformation ~ Initiate of Pistis Sophia
+###Block:
+2	BONUS:VAR|SmiteEvilTimes|1
+5	BONUS:VAR|SmiteEvilTimes|1
+8	BONUS:VAR|SmiteEvilTimes|1
+4	BONUS:VAR|SacredVowCount|1
+7	BONUS:VAR|SacredVowCount|1
+10	BONUS:VAR|SacredVowCount|1
+4	BONUS:VAR|InitiateofPistisSophiaElecricityResistanceBonus|5
+7	BONUS:VAR|InitiateofPistisSophiaElecricityResistanceBonus|5
 
-CLASS:Lion of Talisid	HD:8		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.65	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL/2)+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
-CLASS:Lion of Talisid	PREALIGN:Neutral good.
-PREATT:4.
-Skills: Knowledge (nature) 9 ranks, Survival 9 ranks.
-Feats: Favored of the Companions.
-Spells: Able to cast summon nature's ally II.
-Special: The character must have an animal companion as a
-class feature.
-CLASS:Lion of Talisid	STARTSKILLPTS:4	CSKILL:Concentration (Con), Craft (Int), Diplomacy (Cha), Handle
-Animal (Cha), Heal (Wis), Listen (Wis), Knowledge (nature)
-(Int), Ride (Dex), Spellcraft (Int), Spot (Wis), Survival (Wis), and
-Swim
+CLASS:Lion of Talisid	HD:8		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.65	BONUS:CHECKS|BASE.Fortitude,BASE.Will|(CL/2)+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+CLASS:Lion of Talisid	PREALIGN:NG	PREATT:4	PRESKILL:2,Knowledge (Nature)=9,Survival=9	PREFEAT:1,Favored of the Companions	PRETEXT:Special: The character must have an animal companion as a class feature. Spells: Able to cast summon nature's ally II.
+CLASS:Lion of Talisid	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Listen|Knowledge (Nature)|Ride|Spellcraft|Spot|Survival|Swim
 ###Block:
-1	ABILITY:Lion of Talisid Class Feature|AUTOMATIC|
-1st +0 +2 +0 +2 Animal companion, lion's courage
-2nd +1 +3 +0 +3 Scent
-3rd +2 +3 +1 +3 Wild shape (1/day)
-4th +3 +4 +1 +4 Exalted Companion, wild shape (2/day)
-5th +3 +4 +1 +4 Lion's pounce, wild shape (3/day)
-6th +4 +5 +2 +5 Wild shape (Large)
-7th +5 +5 +2 +5 Lion's swiftness
-8th +6 +6 +2 +6 Wild shape (4/day)
-9th +6 +6 +3 +6 Wild shape (Tiny)
-10th +7 +7 +3 +7 Leonal's roar
+1	ABILITY:Lion of Talisid Class Feature|AUTOMATIC|Animal Companion ~ Lion of Talisid|Lion's Courage ~ Lion of Talisid
+2	ABILITY:Lion of Talisid Class Feature|AUTOMATIC|Scent ~ Lion of Talisid
+3	ABILITY:Lion of Talisid Class Feature|AUTOMATIC|Wild Shape ~ Lion of Talisid
+4	ABILITY:Lion of Talisid Class Feature|AUTOMATIC|Exalted Companion ~ Lion of Talisid
+5	ABILITY:Lion of Talisid Class Feature|AUTOMATIC|Lion's Pounce ~ Lion of Talisid
+7	ABILITY:Lion of Talisid Class Feature|AUTOMATIC|Lion's Swiftness ~ Lion of Talisid
+10	ABILITY:Lion of Talisid Class Feature|AUTOMATIC|Leonal's Roar ~ Lion of Talisid
+###Block:
+3	BONUS:VAR|LionOfTalisidWildShapeTimes|1
+4	BONUS:VAR|LionOfTalisidWildShapeTimes|1
+5	BONUS:VAR|LionOfTalisidWildShapeTimes|1
+8	BONUS:VAR|LionOfTalisidWildShapeTimes|1
+6	BONUS:VAR|LionOfTalisidWildShapeLarge|1
+9	BONUS:VAR|LionOfTalisidWildShapeTiny|1
 ###Block:
 1:REPEATLEVEL:1	ADD:SPELLCASTER|ANY
 
-CLASS:Prophet of Erathaol	HD:6		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.66	
-BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL/2)+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
-CLASS:Prophet of Erathaol	PREALIGN:LG	PRESKILL:2,Knowledge (arcana)=5,Spellcraft=10	PREFEAT:4,Sacred Vow,Servant of the Heavens,Spell Focus (Divination),Vow of Chastity	PRESPELLTYPE:1,Arcane=4,Divine=4
+CLASS:Prophet of Erathaol	HD:6		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.66	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|(CL/2)+2	BONUS:COMBAT|BAB|CL*1/2|TYPE=Base.REPLACE
+CLASS:Prophet of Erathaol	PREALIGN:LG	PRESKILL:2,Knowledge (Arcana)=5,Spellcraft=10	PREFEAT:4,Sacred Vow,Servant of the Heavens,Spell Focus (Divination),Vow of Chastity	PRESPELLTYPE:1,Arcane=4,Divine=4
 CLASS:Prophet of Erathaol	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Heal|Intimidate|Knowledge (arcana)|Knowledge (the planes)|Knowledge (religion)|TYPE=Profession|Spellcraft
 ###Block:
 1	ABILITY:Prophet of Erathaol Class Feature|AUTOMATIC|Ecstasy ~ Prophet of Erathaol
 ###Block:
 2:REPEATLEVEL:1	ADD:SPELLCASTER|ANY
 
-CLASS:Risen Martyr	HD:12		TYPE:Prestige	MAXLEVEL:	SOURCEPAGE:p.68	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL/2)+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
-CLASS:Risen Martyr	PREALIGN:Any good.
-Base Save Bonuses:
-Fort +2, Ref +2, Will +2.
-Skills: Any one skill 9
-ranks, Speak Language
-(Celestial).
-Feats: Nimbus
-of Light, any one
-other exalted feat.
-Special: The character must have suffered martyrdom (see
-Chapter 2) and must not have been returned to life. As a special
-feature of this prestige class, the character rises with the abilities
-of a 0-level risen martyr added to the character's previous abilities.
-When the character earns enough experience points to
-advance another level, he must become a 1st-level risen martyr.
-CLASS:Risen Martyr	STARTSKILLPTS:2	CSKILL:Concentration (Con), Diplomacy (Cha), Gather Information
-(Cha), Heal (Wis), Knowledge (the planes) (Int), Knowledge
-(religion) (Int), Listen (Wis), Sense Motive (Wis), and
-Spot
+CLASS:Risen Martyr	HD:12		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.68	BONUS:CHECKS|BASE.Will|(CL/2)+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*1/2|TYPE=Base.REPLACE
+CLASS:Risen Martyr	PREALIGN:LG,NG,CG	PRECHECKBASE:3,Fortitude=2,Reflex=2,Will=2	PRESKILL:1,RANK=9	PREMULT:1,[PRESKILL:1,Speak Language (Celestial)],[PRELANG:1,Celestial]	PREMULT:2,[PREFEAT:1,Nimbus of Light],[PREFEAT:2,TYPE=Exalted]	PRETEXT:Special: The character must have suffered martyrdom (see Chapter 2) and must not have been returned to life. As a special feature of this prestige class, the character rises with the abilities of a 0-level risen martyr added to the character's previous abilities. When the character earns enough experience points to advance another level, he must become a 1st-level risen martyr.
+CLASS:Risen Martyr	STARTSKILLPTS:2	CSKILL:Concentration|Diplomacy|Gather Information|Heal|Knowledge (The Planes)|Knowledge (Religion)|Listen|Sense Motive|Spot
 ###Block:
-1	ABILITY:Risen Martyr Class Feature|AUTOMATIC|
-0 +0 +0 +0 +2 Spiritual body
-1st +0 +0 +0 +2 Charisma score increase, deflection, holy purpose +1
-2nd +1 +0 +0 +3 Bless, magic circle against evil
-3rd +1 +1 +1 +3 Daylight, holy purpose +2
-4th +2 +1 +1 +4 Acid immunity, detect evil
-5th +2 +1 +1 +4 Charisma score increase, protective aura
-6th +3 +2 +2 +5 Holy purpose +3, shield other
-7th +3 +2 +2 +5 Celestial brilliance, cold immunity
-8th +4 +2 +2 +6 Holy aura
-9th +4 +3 +3 +6 Electricity immunity, holy purpose +4
-10th +5 +3 +3 +7 Perfection, final ascension
+1	ABILITY:Risen Martyr Class Feature|AUTOMATIC|Spiritual Body ~ Risen Martyr
+1	ABILITY:Risen Martyr Class Feature|AUTOMATIC|Charisma Score Increase ~ Risen Martyr|Deflection ~ Risen Martyr|Holy Purpose ~ Risen Martyr
+2	ABILITY:Risen Martyr Class Feature|AUTOMATIC|Bless ~ Risen Martyr|Magic Circle Against Evil ~ Risen Martyr
+3	ABILITY:Risen Martyr Class Feature|AUTOMATIC|Daylight ~ Risen Martyr
+4	ABILITY:Risen Martyr Class Feature|AUTOMATIC|Acid Immunity|Detect Evil ~ Risen Martyr
+5	ABILITY:Risen Martyr Class Feature|AUTOMATIC|Protective Aura ~ Risen Martyr
+6	ABILITY:Risen Martyr Class Feature|AUTOMATIC|Shield Other ~ Risen Martyr
+7	ABILITY:Risen Martyr Class Feature|AUTOMATIC|Celestial Brilliance ~ Risen Martyr|Cold Immunity ~ Risen Martyr
+8	ABILITY:Risen Martyr Class Feature|AUTOMATIC|Holy Aura ~ Risen Martyr
+9	ABILITY:Risen Martyr Class Feature|AUTOMATIC|Electricity Immunity ~ Risen Martyr
+10	ABILITY:Risen Martyr Class Feature|AUTOMATIC|Perfection ~ Risen Martyr|Final Ascension ~ Risen Martyr
+###Block:
+1	BONUS:VAR|HolyPurposeBonus|1
+3	BONUS:VAR|HolyPurposeBonus|1
+6	BONUS:VAR|HolyPurposeBonus|1
+9	BONUS:VAR|HolyPurposeBonus|1
+1	BONUS:VAR|CharismaScoreIncreaseCount|1
+5	BONUS:VAR|CharismaScoreIncreaseCount|1
 
-CLASS:SENTINEL OF BHARRAI	HD:4		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.69	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL/2)+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
-CLASS:xxx	PREALIGN:Any good.
-Skills: Knowledge (arcana) 8 ranks, Knowledge (nature) 8
-ranks, Spellcraft 8 ranks.
-Feats: Sacred Vow, Vow of Obedience.
-CLASS:xxx	STARTSKILLPTS:4	CSKILL:Alchemy (Int), Concentration (Con), Decipher Script (Int, exclusive skill), Gather Information (Cha), Handle Animal (Cha), Heal (Wis), Knowledge (all skills taken individually) (Int), Profession (Wis), Read/Write Language, Speak Language, Spellcraft (Int), Survival (Wis), and Use Magic Device
+CLASS:Sentinel of Bharrai	HD:4		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.69	BONUS:CHECKS|BASE.Will|(CL/2)+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*1/2|TYPE=Base.REPLACE
+CLASS:Sentinel of Bharrai	PREALIGN:LG,NG,CG	PRESKILL:3,Knowledge (Arcana)=8,Knowledge (Nature)=8,Spellcraft=8	PREFEAT:2,Sacred Vow,Vow of Obedience
+CLASS:Sentinel of Bharrai	STARTSKILLPTS:4	CSKILL:Craft (Alchemy)|Concentration|Decipher Script|Gather Information|Handle Animal|Heal|TYPE=Knowledge|TYPE=Profession|Speak Language|Spellcraft|Survival|Use Magic Device
+# Invalid Skill - Read/Write Language & Alchemy
 ###Block:
-1	ABILITY:xxx Class Feature|AUTOMATIC|
-1st +0 +0 +0 +2 Nature-friendly spells, Track +1 level of existing class
-2nd +1 +0 +0 +3 Energy resistance 10 (choose type) +1 level of existing class
-3rd +1 +1 +1 +3 Bear shape, quickened call lightning 1/day +1 level of existing class
-4th +2 +1 +1 +4 Energy resistance 10 (choose type) +1 level of existing class
-5th +2 +1 +1 +4 Nature's veil +1 level of existing class
-6th +3 +2 +2 +5 Energy resistance 10 (choose type) +1 level of existing class
-7th +3 +2 +2 +5 Dire bear shape, ursinal's touch +1 level of existing class
-8th +4 +2 +2 +6 Energy resistance 10 (choose type) +1 level of existing class
-9th +4 +3 +3 +6 Cavalry of dire bears 1/week +1 level of existing class
-10th +5 +3 +3 +7 Quickened lightning storm 1/day +1 level of existing class
+1	ABILITY:Sentinel of Bharrai Class Feature|AUTOMATIC|Nature-Friendly Spells ~ Sentinel of Bharrai|Track ~ Sentinel of Bharrai
+2	ABILITY:Sentinel of Bharrai Class Feature|AUTOMATIC|Energy Resistance ~ Sentinel of Bharrai
+3	ABILITY:Sentinel of Bharrai Class Feature|AUTOMATIC|Bear Shape ~ Sentinel of Bharrai|Quickened Call Lightning ~ Sentinel of Bharrai
+5	ABILITY:Sentinel of Bharrai Class Feature|AUTOMATIC|Nature's Veil ~ Sentinel of Bharrai
+7	ABILITY:Sentinel of Bharrai Class Feature|AUTOMATIC|Dire Bear Shape ~ Sentinel of Bharrai|Ursinal's Touch ~ Sentinel of Bharrai
+9	ABILITY:Sentinel of Bharrai Class Feature|AUTOMATIC|Cavalry of Dire Bears ~ Sentinel of Bharrai
+10	ABILITY:Sentinel of Bharrai Class Feature|AUTOMATIC|Quickened Lightning Storm ~ Sentinel of Bharrai
+###Block:
+1	DEFINE:SentinalOfBharraiResistanceBonus|10
+###Block:
+2	BONUS:VAR|SentinalOfBharraiResistanceCount|1
+4	BONUS:VAR|SentinalOfBharraiResistanceCount|1
+6	BONUS:VAR|SentinalOfBharraiResistanceCount|1
+8	BONUS:VAR|SentinalOfBharraiResistanceCount|1
+3	BONUS:VAR|QuickenCallLightningTimes|1
+9	BONUS:VAR|CavalryOfDireBearsTimes|1
+10	BONUS:VAR|QuickenedLightningStormTimes|1
 ###Block:
 1:REPEATLEVEL:1	ADD:SPELLCASTER|ANY
 
-CLASS:Skylord	HD:10		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.71	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL/2)+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
-CLASS:xxx	PREALIGN:Any good.
-Race: Elf or half-elf.
-PREATT:7.
-Skills: Handle Animal 10 ranks, Ride 10 ranks.
-Feats: Mounted Combat, either Mounted Archery or Ride-By Attack, one exalted feat.
-Special: The character must spend 1 week living and meditating atop a mountain.
-CLASS:xxx	STARTSKILLPTS:2	CSKILL:Balance|Handle Animal|Heal|TYPE=Knowledge|Listen|Ride|Spot|Survival
-
+CLASS:Skylord	HD:10		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.71	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|(CL/2)+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+CLASS:Skylord	PREALIGN:LG,NG,CG	PRERACE:1,RACESUBTYPE=Elf,Half-Elf	PREATT:7	PRESKILL:2,Handle Animal=10,Ride=10	PREMULT:3,[PREFEAT:1,Mounted Combat],[PREFEAT:1,Mounted Archery,Ride-By Attack],[PREFEAT:1,TYPE.Exalted]	PRETEXT:Special: The character must spend 1 week living and meditating atop a mountain.
+CLASS:Skylord	STARTSKILLPTS:2	CSKILL:Balance|Handle Animal|Heal|TYPE=Knowledge|Listen|Ride|Spot|Survival
 ###Block:
-1	ABILITY:xxx Class Feature|AUTOMATIC|
-1st +1 +2 +2 +0 Call Flying Mount, Eyes Of The Eagle -
-2nd +2 +3 +3 +0 Ride The Wind
-3rd +3 +3 +3 +1 Improved Mounted Combat +2 -
-4th +4 +4 +4 +1 Deadly Charge
-5th +5 +4 +4 +1 Improved Mounted Combat +4 -
-6th +6 +5 +5 +2 Storm Kinship
-7th +7 +5 +5 +2 Improved Mounted Combat +6 -
-8th +8 +6 +6 +2
-9th +9 +6 +6 +3 Improved Mounted Combat +8 -
-10th +10 +7 +7 +3 Summon Tempest
+1	ABILITY:Skylord Class Feature|AUTOMATIC|Call Flying Mount ~ Skylord|Eyes Of The Eagle ~ Skylord
+2	ABILITY:Skylord Class Feature|AUTOMATIC|Ride The Wind ~ Skylord
+4	ABILITY:Skylord Class Feature|AUTOMATIC|Deadly Charge ~ Skylord
+6	ABILITY:Skylord Class Feature|AUTOMATIC|Storm Kinship ~ Skylord
+10	ABILITY:Skylord Class Feature|AUTOMATIC|Summon Tempest ~ Skylord
+###Block:
+3	BONUS:VAR|ImprovedMountedCombatBonus|2
+5	BONUS:VAR|ImprovedMountedCombatBonus|2
+7	BONUS:VAR|ImprovedMountedCombatBonus|2
+9	BONUS:VAR|ImprovedMountedCombatBonus|2
 ###Block:
 2	ADD:SPELLCASTER|ANY
 4	ADD:SPELLCASTER|ANY
@@ -367,30 +317,31 @@ CLASS:xxx	STARTSKILLPTS:2	CSKILL:Balance|Handle Animal|Heal|TYPE=Knowledge|Liste
 8	ADD:SPELLCASTER|ANY
 10	ADD:SPELLCASTER|ANY
 
-CLASS:SLAYER OF DOMIEL	HD:6		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.73	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL/2)+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
-CLASS:xxx	PREALIGN:Lawful good.
-Skills:1,Hide=8,Move Silently=8
-Feats: Sanctify Martial Strike, Servant of the Heavens.
-Special: Sneak attack +3d6, evasion Class Feature.
-CLASS:xxx	STARTSKILLPTS:4	CSKILL:Balance (Dex), Bluff (Cha), Climb (Str), Craft (Int),
-Diplomacy (Cha), Disguise (Cha), Gather Information (Cha),
-Hide (Dex), Intimidate (Cha), Jump (Str), Listen (Wis), Move
-Silently (Dex), Open Lock (Dex), Search (Int), Sense Motive
-(Wis), Spot (Wis), Tumble (Dex), Use Magic Device (Cha), and
-Use Rope
+CLASS:Slayer of Domiel	HD:6		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.73	BONUS:CHECKS|BASE.Reflex|(CL/2)+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+CLASS:Slayer of Domiel	PREALIGN:LG	PRESKILL:2,Hide=8,Move Silently=8	PREFEAT:2,Sanctify Martial Strike,Servant of the Heavens	PRETEXT:Sneak attack +3d6, evasion Class Feature.	PREVARGTEQ:SneakAttackQualify,3	PREABILITY:1,CATEGORY=Special Ability,TYPE.Evasion
+CLASS:Slayer of Domiel	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Diplomacy|Disguise|Gather Information|Hide|Intimidate|Jump|Listen|Move Silently|Open Lock|Search|Sense Motive|Spot|Tumble|Use Magic Device|Use Rope
 ###Block:
-1	ABILITY:xxx Class Feature|AUTOMATIC|
-1st +0 +0 +2 +0 Death touch 1/day, detect evil 0 - - -
-sneak attack +1d6
-2nd +1 +0 +3 +0 Divine grace 1 - - -
-3rd +2 +1 +3 +1 Sneak attack +2d6 1 0 - -
-4th +3 +1 +4 +1 Death touch 2/day 1 1 - -
-5th +3 +1 +4 +1 Sneak attack +3d6 1 1 0 -
-6th +4 +2 +5 +2 Improved evasion 1 1 1 -
-7th +5 +2 +5 +2 Sneak attack +4d6 2 1 1 0
-8th +6 +2 +6 +2 Death touch 3/day 2 1 1 1
-9th +6 +3 +6 +3 Sneak attack +5d6 2 2 1 1
-10th +7 +3 +7 +3 Death touch 4/day 2 2 2 1
+1	ABILITY:Slayer of Domiel Class Feature|AUTOMATIC|Death Touch ~ Slayer of Domiel|Detect Evil ~ Slayer of Domiel|Sneak Attack ~ Slayer of Domiel
+2	ABILITY:Slayer of Domiel Class Feature|AUTOMATIC|Divine Grace ~ Slayer of Domiel
+6	ABILITY:Slayer of Domiel Class Feature|AUTOMATIC|Improved Evasion ~ Slayer of Domiel
+###Block:
+1	CAST:0,0
+2	CAST:0,1
+3	CAST:0,1,0
+4	CAST:0,1,1
+5	CAST:0,1,1,0
+6	CAST:0,1,1,1
+7	CAST:0,2,1,1,0
+8	CAST:0,2,1,1,1
+9	CAST:0,2,2,1,1
+10	CAST:0,2,2,2,1
+
+###Block:
+1	BONUS:VAR|SneakAttackDice|(CL+1)/2
+1	BONUS:VAR|DeathTouchTimes|1
+4	BONUS:VAR|DeathTouchTimes|1
+8	BONUS:VAR|DeathTouchTimes|1
+10	BONUS:VAR|DeathTouchTimes|1
 
 CLASS:Stalker of Kharash	HD:		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.75	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL/2)+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
 CLASS:Stalker of Kharash	
@@ -443,9 +394,9 @@ CLASS:Sword of Righteousness	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Diplomacy|H
 ###Block:
 1	BONUS:VAR|ExaltedFeatCount|CL
 
-CLASS:Troubadour of Stars	HD:		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.78	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL/2)+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
-CLASS:Troubadour of Stars	
-CLASS:Troubadour of Stars	STARTSKILLPTS:	CSKILL:
+CLASS:Troubadour of Stars	HD:6		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.78	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL/2)+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+CLASS:Troubadour of Stars	PREALIGN:CG	PRESKILL:1,TYPE.Perform=6	PREFEAT:1,Knight of Stars	PRETEXT:Spells: Able to spontaneously cast 4th level arcane spells.
+CLASS:Troubadour of Stars	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Concentration|TYPE=Craft|Decipher Script|Diplomacy|Disguise|Escape Artist|Gather Information|Hide|Jump|TYPE=Knowledge|Listen|Move Silently|TYPE=Perform|TYPE=Profession|Sense Motive|Sleight of Hand|Speak Language|Spellcraft|Swim|Tumble|Use Magic Device
 ###Block:
 1	ABILITY:Troubadour of Stars Class Feature|AUTOMATIC|Bardic Music ~ Troubadour of Stars|Detect Evil ~ Troubadour of Stars
 2	ABILITY:Troubadour of Stars Class Feature|AUTOMATIC|Holy Cacophony ~ Troubadour of Stars|Celestial Spells ~ Troubadour of Stars
@@ -489,11 +440,10 @@ CLASS:Vassal of Bahamut	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Concentration
 
 
 
-CLASS:Wonderworker	HD:		TYPE:Prestige	MAXLEVEL:3	SOURCEPAGE:p.82	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL/2)+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
-CLASS:Wonderworker	
-CLASS:Wonderworker	STARTSKILLPTS:	CSKILL:
+CLASS:Wonderworker	HD:6		TYPE:Prestige	MAXLEVEL:3	SOURCEPAGE:p.82	BONUS:CHECKS|BASE.Will|(CL/2)+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*1/2|TYPE=Base.REPLACE
+CLASS:Wonderworker	PREALIGN:LG,NG,CG	PRECHECKBASE:1,Will=5	PREMULT:2,[PREFEAT:2,TYPE.Exalted],[PREFEAT:1,Favored of the Companions,Knight of Stars,Servant of the Heavens]	PRESPELLTYPE:1,Arcane=3,Divine=3,Psionic=3
+CLASS:Wonderworker	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (Nature)|Knowledge (Religion)|TYPE=Profession|Sense Motive|Spellcraft
 ###Block:
-1	ABILITY:Wonderworker Class Feature|AUTOMATIC|
-1st +0 +0 +0 +2 Bonus exalted feat
-2nd +1 +0 +0 +3 Bonus exalted feat
-3rd +1 +1 +1 +3 Bonus exalted feat
+1	ABILITY:Wonderworker Class Feature|AUTOMATIC|Bonus Exalted Feat ~ Wonderworker
+###Block:
+1	BONUS:VAR|ExaltedFeatCount|CL
