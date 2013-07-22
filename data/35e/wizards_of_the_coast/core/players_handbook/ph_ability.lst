@@ -188,7 +188,7 @@ CATEGORY=Internal|Race Traits ~ Halfling.MOD	ABILITY:Halfling Race Trait|AUTOMAT
 #############################################
 ###	CLASS ABILITIES	@ClassAbility	###
 #############################################
-# NOTES: TYPEs ClassAbility.xxxClassAbility is just a placeholder; ClassNameAbility will display in the UI; SpecialQuality is default for showing on the Sheet
+# NOTES: TYPEs ClassFeature.xxxClassFeature is just a placeholder; ClassNameClassFeature will display in the UI; SpecialQuality is default for showing on the Sheet
 
 #Base Shared Abilities
 Uncanny Dodge Tracker		CATEGORY:Special Ability		DEFINE:UncannyDodgeTracker|0	ABILITY:Special Ability|AUTOMATIC|Improved Uncanny Dodge|PREVARGTEQ:UncannyDodgeTracker,2		BONUS:VAR|UncannyDodgeTracker|count("ABILITY","CATEGORY=Special Ability","TYPE=UncannyDodge")
@@ -201,6 +201,9 @@ Retain Dex to AC ~ Flat-footed	CATEGORY:Special Ability	TYPE:Internal.ClassFeatu
 ###Block: Share Uncanny Dodge Tier
 Uncanny Dodge				CATEGORY:Special Ability	TYPE:ClassFeature.SpecialQuality.Extraordinary.UncannyDodge														DESC:Character retains their Dexterity bonus to AC (if any) even if caught flat-footed or struck by an invisible attacker. However, they still loses his Dexterity bonus to AC if immobilized.																																																											
 Improved Uncanny Dodge			CATEGORY:Special Ability	TYPE:Extraordinary.ImprovedUncannyDodge.ClassFeature.SpecialQuality	DESC:Character can no longer be flanked; you can react to opponents on opposite sides of you as easily as you can react to a single attacker. This defense denies a rogue the ability to sneak attack the character by flanking him, unless the attacker has at least four more rogue levels than the target has uncanny dodge levels [Rogue Level %1]. If a character already has uncanny dodge from a second class, the character automatically gains improved uncanny dodge instead, and the levels from the classes that grant uncanny dodge stack to determine the minimum level a rogue must be to flank the character.|UncannyDodgeFlankingLevel	BONUS:VAR|UncannyDodgeFlankingLevel|4|TYPE=OnceOnly
+
+Evasion		CATEGORY:Special Ability	TYPE:ClassFeature.Evasion
+Improved Evasion	CATEGORY:Special Ability	TYPE:ClassFeature.ImprovedEvasion
 #
 
 Sneak Attack	CATEGORY:Special Ability	DESC:%1d%2|SneakAttackDice|SneakAttackDieSize	DEFINE:SneakAttackDice|0	DEFINE:SneakAttackDieSize|6	DEFINE:SneakAttackQualify|SneakAttackDice
