@@ -1,5 +1,11 @@
 # CVS $Revision: $ $Author: $ -- Fri May  3 14:36:53 2013 -- reformated by prettylst.pl v1.50 (build 19967)
 
+# Sub Races
+Hill		SUBRACE:YES	VISIBLE:NO	KEY:Hill Dwarf
+High		SUBRACE:YES	VISIBLE:NO	KEY:High Elf
+Rock		SUBRACE:YES	VISIBLE:NO	KEY:Rock Gnome
+Lightfoot	SUBRACE:YES	VISIBLE:NO	KEY:Lightfoot Halfling
+
 # Wizard Support
 Spellbook		VISIBLE:NO	KIT:1|Wizard Spell Book
 
@@ -80,6 +86,12 @@ Awakened Animal					TEMPLATE:CHOOSE:Awakened Animal_Standard|Awakened Animal_Wil
 Awakened Animal_Standard	VISIBLE:NO															PRECLASS:1,Animal=1																																		ADDLEVEL:Animal|2
 Awakened Animal_Will		VISIBLE:NO															PRECLASS:1,Animal (Will)=1																																	ADDLEVEL:Animal (Will)|2
 Awakened Tree																DEFINE:UNLOCK.INT						PRERACE:1,Animated Object%			ADD:LANGUAGE|TYPE=Spoken	KIT:1|Awakened Tree								RACETYPE:Plant
+
+###Block: Familiar Race Type Change if Animal
+Familiar ~ Change Race		VISIBLE:NO	TEMPLATE:CHOOSE:Familiar ~ Animal Base|Familiar ~ Non-Animal Base
+#
+Familiar ~ Animal Base		VISIBLE:NO	PRERACE:1,RACETYPE=Animal	RACETYPE:Magical Beast
+Familiar ~ Non-Animal Base	VISIBLE:NO	!PRERACE:1,RACETYPE=Animal
 
 ###Block: Temporary Bonus Templates
 # Template Name				Visible	Source Page						Save checks bonus									Combat bonus															Bonus to HP							Bonus to skill																				Stat bonus							Choose								Temporary effect description
