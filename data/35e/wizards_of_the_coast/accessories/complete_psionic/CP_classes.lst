@@ -1,14 +1,17 @@
 
 
 
-CLASS:Erudite	HD:4	MAXLEVEL:20	SOURCEPAGE:p.154	BONUS:COMBAT|BAB|CL*1/2	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3
-CLASS:Erudite	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher Script|Gather Information|Knowledge (Psionics)|TYPE=Knowledge|TYPE=Profession|Psicraft
+CLASS:Erudite  HD:4	Type:Base.Psionic.PC	MAXLEVEL:20	SOURCEPAGE:p.154	BONUS:COMBAT|BAB|CL*1/2	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3
+CLASS:Erudite	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher Script|Gather Information|TYPE=Knowledge|TYPE=Profession|Psicraft
 CLASS:Erudite	SPELLSTAT:INT	SPELLTYPE:Psionic	MEMORIZE:YES	BONUS:CASTERLEVEL|Erudite|CL	SPELLLIST:9|Psion|Egoist|Kineticist|Nomad|Seer|Shaper|Telepath|Wilder|Psychic Warrior
-###Block:
-1	ABILITY:Erudite Class Feature|AUTOMATIC|Psicrystal Affinity ~ Erudite|Bonus Feat ~ Erudite|Weapon and Armor Proficiency ~ Erudite|Power Points/Day ~ Erudite|Unique Powers per Day ~ Erudite|Powers Discovered (Repertoire) ~ Erudite
-###Block:
+###Block:Special Abilities
+1	ABILITY:Erudite Class Feature|AUTOMATIC|Bonus Feat ~ Erudite|Weapon and Armor Proficiency ~ Erudite|Power Points/Day ~ Erudite|Unique Powers per Day ~ Erudite|Powers Discovered (Repertoire) ~ Erudite
+1	AUTO:FEAT|Psicrystal Affinity
+1	ABILITY:Special Ability|AUTOMATIC|Psion Weapon Proficiencies
+###Block:Bonus Feats
+1	BONUS:VAR|EruditeBonusFeatCount|1
 5	BONUS:VAR|EruditeBonusFeatCount|CL/5
-###Block:
+###Block:Unique Powers per Day
 1	CAST:0,2
 2	CAST:0,4
 3	CAST:0,4,2
@@ -29,6 +32,13 @@ CLASS:Erudite	SPELLSTAT:INT	SPELLTYPE:Psionic	MEMORIZE:YES	BONUS:CASTERLEVEL|Eru
 18	CAST:0,4,4,4,4,4,4,4,4,4
 19	CAST:0,4,4,4,4,4,4,4,4,6
 20	CAST:0,4,4,4,4,4,4,4,4,8
-
+###Block:Power Points
+1	BONUS:VAR|EruditeML|CL	BONUS:VAR|EruditeML|var("BL=Erudite")																											DEFINE:EruditeML|0	TEMPLATE:Psionic
+1	BONUS:VAR|BasePowerPoints|2	BONUS:VAR|BasePowerPoints|4|PREVARGTEQ:EruditeML,2	BONUS:VAR|BasePowerPoints|5|PREVARGTEQ:EruditeML,3	BONUS:VAR|BasePowerPoints|6|PREVARGTEQ:EruditeML,4
+1	BONUS:VAR|BasePowerPoints|8|PREVARGTEQ:EruditeML,5	BONUS:VAR|BasePowerPoints|10|PREVARGTEQ:EruditeML,6	BONUS:VAR|BasePowerPoints|11|PREVARGTEQ:EruditeML,7	BONUS:VAR|BasePowerPoints|12|PREVARGTEQ:EruditeML,8
+1	BONUS:VAR|BasePowerPoints|14|PREVARGTEQ:EruditeML,9	BONUS:VAR|BasePowerPoints|16|PREVARGTEQ:EruditeML,10	BONUS:VAR|BasePowerPoints|18|PREVARGTEQ:EruditeML,11	BONUS:VAR|BasePowerPoints|20|PREVARGTEQ:EruditeML,12
+1	BONUS:VAR|BasePowerPoints|21|PREVARGTEQ:EruditeML,13	BONUS:VAR|BasePowerPoints|23|PREVARGTEQ:EruditeML,14	BONUS:VAR|BasePowerPoints|25|PREVARGTEQ:EruditeML,15	BONUS:VAR|BasePowerPoints|26|PREVARGTEQ:EruditeML,16
+1	BONUS:VAR|BasePowerPoints|29|PREVARGTEQ:EruditeML,17	BONUS:VAR|BasePowerPoints|30|PREVARGTEQ:EruditeML,18	BONUS:VAR|BasePowerPoints|31|PREVARGTEQ:EruditeML,19	BONUS:VAR|BasePowerPoints|32|PREVARGTEQ:EruditeML,20
+1	BONUS:VAR|BonusPowerPoints|(INT*EruditeML)/2|TYPE=PsionBonusPP
 
 
