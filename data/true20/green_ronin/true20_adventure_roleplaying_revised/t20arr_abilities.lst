@@ -1,0 +1,61 @@
+
+# Background / Traits
+# Human 
+Traits ~ Human	CATEGORY:Internal
+	DESC:&nl; Ability Adjustments: None.
+	DESC:&nl; Bonus Feat: The hero gains one bonus feat at 1st level out of the list of feats available for the hero's role.
+	DESC:&nl; Bonus Skill: The hero gains one bonus known skill at 1st level, in addition to those gained for the hero's role and Intelligence score.
+	DESC:&nl; Favored Feats: Choose any two feats as the character's favored feats. These feats are available to the hero regardless of role. Favored feats for humans often vary by region and culture, and the Narrator may wish to come up with an appropriate list of favored feats for the human cultures in the setting.
+	BONUS:ABILITYPOOL|Starting Skills|1
+# Dwarf
+Traits ~ Dwarf	CATEGORY:Internal
+	DESC:&nl; Ability Adjustments: +1 Constitution, -1 Charisma
+	DESC:&nl; Bonus Feats: Great Fortitude, Night Vision, Talented (Craft and Search, only involving stonework)
+	DESC:&nl; Favored Feats: Diehard, Favored Opponent (goblins or giants)
+# Elf
+Traits ~ Elf	CATEGORY:Internal
+	DESC:&nl; Ability Adjustments: +1 Dexterity, -1 Constitution
+	DESC:&nl; Bonus Feats: Night Vision, Talented (Notice and Search), Weapon Training
+	DESC:&nl; Favored Feats: Choose one supernatural power (elves treat their total level as their adept level for this power).
+# Gnome
+Traits ~ Gnome	CATEGORY:Internal
+	DESC:&nl; Ability Adjustments: +1 Constitution, -1 Strength
+	DESC:&nl; Bonus Feats: Iron Will, Night Vision, Talented (Craft [chemical] and Notice)
+	DESC:&nl; Favored Feats: Choose Fascinate and Favored Opponent (goblins), or a supernatural power.
+
+# Half-Elf
+Traits ~ Half-Elf	CATEGORY:Internal
+	DESC:&nl;  Ability Adjustments: None
+	DESC:&nl; Bonus Feats: Night Vision, Talented (Diplomacy and Gather Information), Talented (Notice and Search)
+	DESC:&nl; Favored Feats: Choose two (based on the half-elf's home culture).
+
+# Half-Orc
+Traits ~ Half-Orc	CATEGORY:Internal
+	DESC:&nl; Ability Adjustments: +1 Strength, -1 Intelligence
+	DESC:&nl; Bonus Feats: Night Vision, Weapon Training
+	DESC:&nl; Bonus Skill: Half-orcs have one bonus known skill (this balances out the one that they lose due to their lower natural Intelligence score).
+	DESC:&nl; Favored Feats: Choose two of Cleave, Favored Opponent, Tough, or Rage.
+
+# Halfling
+Traits ~ Halfling	CATEGORY:Internal
+	DESC:&nl; Ability Adjustments: +1 Dexterity, -1 Strength
+	DESC:&nl;  Bonus Feats: Lucky, Talented (Climb and Jump), Talented (Notice and Stealth)
+	DESC:&nl; Favored Feats: Evasion, Attack Specialization (thrown weapon or sling)
+
+# Role Core Abilities
+CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Core Ability|PRECLASS:1,TYPE.Role=1
+Core Ability	CATEGORY:Internal	TEMPLATE:Core Ability
+
+# Core Abilities
+The Talent (Core Ability)	KEY:Adept Core Ability		TYPE:CoreAbility.SpecialQuality	CATEGORY:Special Ability	DESC:The adept can spend a Conviction point to make one use of a supernatural power they do not possess. This works much like spending a Conviction point to emulate a feat. An adept with the Talent can also spend a Conviction point to eliminate any accumulated modifiers to fatigue saving throws for using powers. See Chapter Four for more information on supernatural powers and later in this chapter for more on Conviction.
+Expertise (Core Ability)	KEY:Expert Core Ability		TYPE:CoreAbility.SpecialQuality	CATEGORY:Special Ability	DESC:An expert can spend a point of Conviction to gain 4 temporary ranks in any skill, including skills in which the expert is not currently trained or that cannot be used untrained. These temporary skill ranks last for the duration of the scene and grant their normal benefits.
+Determination (Core Ability)	KEY:Warrior Core Ability	TYPE:CoreAbility.SpecialQuality	CATEGORY:Special Ability	DESC:A warrior can spend a point of Conviction to immediately erase all bruised and hurt damage conditions (and their associated penalties).
+
+# Expert
+Fortitude Good Save	KEY:Fortitude Good Save ~ Expert	TYPE:ExpertSave	CATEGORY:Special Ability	BONUS:CHECKS|BASE.Fortitude|ExpertLVL/2	BONUS:CHECKS|BASE.Reflex,BASE.Will|ExpertLVL/3
+Reflex Good Save		KEY:Reflex Good Save ~ Expert		TYPE:ExpertSave	CATEGORY:Special Ability	BONUS:CHECKS|BASE.Reflex|ExpertLVL/2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|ExpertLVL/3
+Will Good Save		KEY:Will Good Save ~ Expert		TYPE:ExpertSave	CATEGORY:Special Ability	BONUS:CHECKS|BASE.Will|ExpertLVL/2		BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|ExpertLVL/3
+
+
+# Bonus Skill
+#	CHOOSE:SKILL|TYPE=Standard	BONUS:SKILLRANK|%LIST|4|TYPE=Trained
