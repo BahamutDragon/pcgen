@@ -2,6 +2,52 @@
 SOURCELONG:Player's Handbook II	SOURCESHORT:phb2	SOURCEDATE:2006-05
 
 #Beguiler
+# Class Name	Hit Dice	Type			Save checks bonus											Combat bonus
+CLASS:Beguiler	HD:6		TYPE:Base.PC	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*1/2
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Beguiler	STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Climb|Concentration|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Jump|Knowledge (Arcana)|Knowledge (Local)|Listen|Move Silently|Open Lock|TYPE=Profession|Search|Sense Motive|Sleight of Hand|Speak Language|Spellcraft|Spot|Swim|Tumble|Use Magic Device
+# Class Name	Spell Stat		Spell Type		Memorize	Automatically Known Spell Levels							Caster level			Use Spell List
+CLASS:Beguiler	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:NO	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6	BONUS:CASTERLEVEL|Beguiler|CL	SPELLLIST:1|Beguiler
+#Block: Proficiencies
+1																AUTO:FEAT|Simple Weapon Proficiency
+1																AUTO:FEAT|Armor Proficiency (Light)
+1	ABILITY:Special Ability|AUTOMATIC|Armored Mage ~ Beguiler|Beguiler Weapon Proficiencies|Trapfinding ~ Beguiler
+###Block: Level
+2													BONUS:VAR|CloakedCastingProgression|1	BONUS:VAR|SurpriseCastingProgression|1	ABILITY:Special Ability|AUTOMATIC|Cloaked Casting|Surprise Casting
+3						BONUS:ABILITYPOOL|Advanced Learning|1
+5																																							AUTO:FEAT|Silent Spell
+6													BONUS:VAR|SurpriseCastingProgression|1
+7						BONUS:ABILITYPOOL|Advanced Learning|1
+8													BONUS:VAR|CloakedCastingProgression|1
+10																																							AUTO:FEAT|Still Spell
+11						BONUS:ABILITYPOOL|Advanced Learning|1
+14													BONUS:VAR|CloakedCastingProgression|1
+15						BONUS:ABILITYPOOL|Advanced Learning|1
+19						BONUS:ABILITYPOOL|Advanced Learning|1
+20													BONUS:VAR|CloakedCastingProgression|1
+#Block: Spellcasting Section
+1	CAST:5,3
+2	CAST:6,4
+3	CAST:6,5
+4	CAST:6,6,3
+5	CAST:6,6,4
+6	CAST:6,6,5,3
+7	CAST:6,6,6,4
+8	CAST:6,6,6,5,3
+9	CAST:6,6,6,6,4
+10	CAST:6,6,6,6,5,3
+11	CAST:6,6,6,6,6,4
+12	CAST:6,6,6,6,6,5,3
+13	CAST:6,6,6,6,6,6,4
+14	CAST:6,6,6,6,6,6,5,3
+15	CAST:6,6,6,6,6,6,6,4
+16	CAST:6,6,6,6,6,6,6,5,3
+17	CAST:6,6,6,6,6,6,6,6,4
+18	CAST:6,6,6,6,6,6,6,6,5,3
+19	CAST:6,6,6,6,6,6,6,6,6,4
+20	CAST:6,6,6,6,6,6,6,6,6,5
+###EOF
+
 #Dragon Shaman
 
 #DUSKBLADE
@@ -96,3 +142,5 @@ CLASS:Knight	STARTSKILLPTS:2	CSKILL:Climb|Handle Animal|Intimidate|Jump|Knowledg
 13	BONUS:VAR|FightingChallengeLvl|1
 19	BONUS:VAR|FightingChallengeLvl|1
 20	BONUS:VAR|ShieldBlockLvl|1
+
+

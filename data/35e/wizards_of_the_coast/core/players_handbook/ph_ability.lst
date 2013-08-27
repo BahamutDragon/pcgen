@@ -239,6 +239,29 @@ Aura of Good															CATEGORY:Special Ability	TYPE:ClassFeature.ClericClas
 Aura of Law																CATEGORY:Special Ability	TYPE:ClassFeature.ClericClassFeature.SpecialQuality.Extraordinary.Aura	VISIBLE:YES	DEFINE:AuraLaw|0										DESC:Faint|PREVAREQ:AuraLaw,1	DESC:Moderate|PREVARGTEQ:AuraLaw,2|PREVARLTEQ:AuraLaw,4	DESC:Strong|PREVARGTEQ:AuraLaw,5|PREVARLTEQ:AuraLaw,10	DESC:Overwhelming|PREVARGTEQ:AuraLaw,11																					BONUS:VAR|AuraLaw|AlignmentAuraBase|!PREDOMAIN:1,Law
 
 ###Block: Class Abilities
+
+
+###Block: Weapon Proficiencies
+# Ability Name				Category of Ability		Type					Visible	Serves As						Automatically Gained Weapon Prof.																									Ability
+All Automatic Proficiencies		CATEGORY:Special Ability	TYPE:Special.ClassAbility	VISIBLE:NO								AUTO:WEAPONPROF|Unarmed Strike|Spells (Ray)|Spells (Touch)																				
+#ABILITY:Natural Attack|AUTOMATIC|Natural Attack ~ Shield Bash|PREEQUIP:1,TYPE=Shield
+All Martial Weapon Proficiencies	CATEGORY:Special Ability	TYPE:Special.ClassAbility	VISIBLE:NO	SERVESAS:FEAT|Martial Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Martial
+Bard Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special.ClassAbility	VISIBLE:NO								AUTO:WEAPONPROF|Longsword|Rapier|Sap|Sword (Short)|Shortbow|Whip|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardWeaponProficiencies
+
+###Block: Proficiency Master Groups - Cut Down on Cross Referencing
+Weapon Prof ~ Auto	CATEGORY:Internal	TYPE:WeaponProfAuto				AUTO:WEAPONPROF|Unarmed Strike|Spells (Ray)|Spells (Touch)
+Weapon Prof ~ Simple	CATEGORY:Internal	TYPE:WeaponProfSimple.WeaponProfMartial	AUTO:WEAPONPROF|TYPE=Simple	SERVESAS:FEAT|Simple Weapon Proficiency
+Weapon Prof ~ Martial	CATEGORY:Internal	TYPE:WeaponProfMartial				AUTO:WEAPONPROF|TYPE=Martial	SERVESAS:FEAT|Martial Weapon Proficiency
+###Block: Armor Types
+Armor Prof ~ Light	CATEGORY:Internal	TYPE:ArmorProfLight.ArmorProfMedium.ArmorProfHeavy	AUTO:ARMORPROF|ARMORTYPE=Light	SERVESAS:FEAT|Armor Proficiency (Light)
+Armor Prof ~ Medium	CATEGORY:Internal	TYPE:ArmorProfMedium.ArmorProfHeavy				AUTO:ARMORPROF|ARMORTYPE=Medium	SERVESAS:FEAT|Armor Proficiency (Medium)
+Armor Prof ~ Heavy	CATEGORY:Internal	TYPE:ArmorProfHeavy						AUTO:ARMORPROF|ARMORTYPE=Heavy	SERVESAS:FEAT|Armor Proficiency (Heavy)
+###Block: Shield Types
+Shield Prof ~ Tower	CATEGORY:Internal	TYPE:ShieldProfTower			AUTO:SHIELDPROF|SHIELDTYPE=Tower							SERVESAS:FEAT|Tower Shield Proficiency
+Shield Prof			CATEGORY:Internal	TYPE:ShieldProfTower.ShieldProf	AUTO:SHIELDPROF|SHIELDTYPE=Buckler|SHIELDTYPE=Heavy|SHIELDTYPE=Light	SERVESAS:FEAT|Shield Proficiency
+
+
+
 # Barbarian
 # Ability Name			Unique Key							Category of Ability		Type															Visible	Restricted Ability						Required AL				Prohibited Var. Value			Define																																												Description																																																																																																																																																																																																																																																																																																																																																																																																																																									Template			Automatically Gained Armor Prof.	Automatically Gained Feat																																Automatically Gained Shield Prof.							Automatically Gained Weapon Prof.	Ability																																																																																						Bonus to Ability Pool						Source Page		Aspects
 Weapon and Armor Proficiency	KEY:Weapon and Armor Proficiency ~ Barbarian	CATEGORY:Special Ability	TYPE:ClassFeature.BarbarianClassFeature.SpecialQuality																																																																									DESC:A barbarian is proficient with all simple and martial weapons, light armor, medium armor, and shields (except tower shields).																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																					SOURCEPAGE:p.25	AUTO:WEAPONPROF|TYPE=Auto|TYPE=Simple|TYPE=Martial	AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium		AUTO:SHIELDPROF|SHIELDTYPE=ShieldProf		AUTO:FEAT|Armor Proficiency (Medium)|Armor Proficiency (Light)

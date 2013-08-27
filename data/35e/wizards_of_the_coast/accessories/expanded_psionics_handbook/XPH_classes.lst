@@ -18,7 +18,7 @@ SUBCLASS:Shaper		COST:0	PROHIBITCOST:0	SPELLLIST:2|Psion|Shaper	CSKILL:Concentra
 SUBCLASS:Telepath		COST:0	PROHIBITCOST:0	SPELLLIST:2|Psion|Telepath	CSKILL:Concentration|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Psicraft|Bluff|Diplomacy|Gather Information|Sense Motive
 #SUBCLASS:Telepath	CHOICE:SCHOOL|Telepathy
 ###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|Psion Weapon Proficiencies
+1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Psion
 ###Block: Psionic subtype, BasePowerPoints, BonusPowerPoints
 # TEMPLATE:Psionic qualifies the character for Psionic only items and feats and DEFINES base and bonus power points.
 # due to the use of "BL=Psion" (which provides the bonus caster levels applied to Psion) there are no
@@ -65,12 +65,8 @@ CLASS:Psychic Warrior	HD:8		TYPE:Base.Psionic.PC	CLASSTYPE:PC	MAXLEVEL:20	SOURCE
 CLASS:Psychic Warrior	STARTSKILLPTS:2	CSKILL:Autohypnosis|Climb|Concentration|TYPE=Craft|Jump|Knowledge (Psionics)|TYPE=Profession|Ride|Search|Swim
 # Class Name		Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Psychic Warrior	SPELLSTAT:WIS	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Psychic Warrior|CL
-
 ###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
-1																	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1																	AUTO:FEAT|Shield Proficiency
-
+1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Psychic Warrior
 ###Block: Psionic subtype, BasePowerPoints, BonusPowerPoints
 1	BONUS:VAR|PsychicWarriorML|CL	BONUS:VAR|PsychicWarriorML|var("BL=Psychic Warrior")																											DEFINE:PsychicWarriorML|0	TEMPLATE:Psionic
 1	BONUS:VAR|BasePowerPoints|0	BONUS:VAR|BasePowerPoints|1|PREVARGTEQ:PsychicWarriorML,2	BONUS:VAR|BasePowerPoints|2|PREVARGTEQ:PsychicWarriorML,3	BONUS:VAR|BasePowerPoints|2|PREVARGTEQ:PsychicWarriorML,4
@@ -107,14 +103,10 @@ CLASS:Psychic Warrior	SPELLSTAT:WIS	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLE
 CLASS:Soulknife	HD:10		TYPE:Base.Psionic.PC	CLASSTYPE:PC	MAXLEVEL:20	SOURCEPAGE:PsionicClasses.rtf	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|PsiCrystalLVL|CL|PREFEAT:1,Psicrystal Affinity
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Soulknife	STARTSKILLPTS:4	CSKILL:Autohypnosis|Climb|Concentration|TYPE=Craft|Hide|Jump|Knowledge (Psionics)|Listen|Move Silently|TYPE=Profession|Spot|Tumble
-###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
-1												AUTO:FEAT|Armor Proficiency (Light)
-1												AUTO:FEAT|Shield Proficiency
-
+###Block:Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Soulknife
 ###Block: Mind Blade abilities by effective level; to add a PrC's class level to SK for
 #  mind blade powers, use BONUS:VAR|MndBladeECL|x in the PrC's class level line setup
-
 1	BONUS:VAR|MndBladeECL|CL	ABILITY:Special Ability|AUTOMATIC|MindBlade Standard|PREVARLTEQ:MndBladeECL,3	ABILITY:Special Ability|AUTOMATIC|MindBlade Wielder
 1						ABILITY:Special Ability|AUTOMATIC|MindBlade Throw|PREMULT:2,[PREVARGTEQ:MndBladeECL,2],[PREVARLT:MndBladeECL,17]
 1						ABILITY:Special Ability|AUTOMATIC|MindBlade Psychic Strike|PREVARGTEQ:MndBladeECL,3
@@ -138,10 +130,7 @@ CLASS:Wilder	STARTSKILLPTS:4	CSKILL:Autohypnosis|Balance|Bluff|Climb|Concentrati
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Wilder	SPELLSTAT:CHA	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Wilder|CL
 ###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	AUTO:FEAT|Simple Weapon Proficiency
-1												AUTO:FEAT|Armor Proficiency (Light)
-1												AUTO:FEAT|Shield Proficiency
-
+1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Wilder
 ###Block: Psionic subtype, BasePowerPoints, BonusPowerPoints
 1	BONUS:VAR|WilderML|CL	BONUS:VAR|WilderML|var("BL=Wilder")																											DEFINE:WilderML|0	TEMPLATE:Psionic
 1	BONUS:VAR|BasePowerPoints|2	BONUS:VAR|BasePowerPoints|4|PREVARGTEQ:WilderML,2	BONUS:VAR|BasePowerPoints|5|PREVARGTEQ:WilderML,3	BONUS:VAR|BasePowerPoints|6|PREVARGTEQ:WilderML,4
@@ -236,8 +225,8 @@ CLASS:Psionic Fist	SPELLSTAT:WIS	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL
 1	BONUS:VAR|BonusPowerPoints|(WIS*PsionicFistML)/2|TYPE=PsionicFistBonusPP
 
 ###Block:Monk Abilities
-1						BONUS:VAR|MonkACLVL|CL		ABILITY:Special Ability|AUTOMATIC|Monk AC
-1						BONUS:VAR|MonkMoveLVL|CL	ABILITY:Special Ability|AUTOMATIC|Monk Movement
+1						BONUS:VAR|MonkACLVL|CL		ABILITY:Special Ability|AUTOMATIC|AC Bonus ~ Monk
+1						BONUS:VAR|MonkMoveLVL|CL	ABILITY:Special Ability|AUTOMATIC|Fast Movement ~ Monk
 1	BONUS:UDAM|CLASS.Monk|CL
 ###Block: Class Info
 1	KNOWN:0,1
@@ -259,8 +248,7 @@ CLASS:Slayer	PREATT:4	PREFEAT:1,Track	PRESKILL:1,Knowledge (Dungeoneering)=4	PRE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Slayer	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Knowledge (Dungeoneering)|Listen|Psicraft|Sense Motive|Spot|Survival
 ###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Martial Weapon Proficiencies	AUTO:FEAT|Martial Weapon Proficiency Output|Simple Weapon Proficiency
-1													AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Slayer
 ###Block: Class Info
 1											ABILITY:Special Ability|AUTOMATIC|Sense Favored Enemy|Slayer Favored Enemy
 2	BONUS:VAR|BrainNausea|15+CL		ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Brain Nausea
@@ -303,7 +291,7 @@ CLASS:Psion Uncarnate	STARTSKILLPTS:2	CSKILL:Autohypnosis|Bluff|Concentration|TY
 7	BONUS:VAR|TelekineticForceDC|14+max(INT,WIS,CHA)					ABILITY:Special Ability|AUTOMATIC|Telekinetic Force
 8										ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Uncarnate Bridge
 9	BONUS:VAR|UncarnateIncorporealTouch|1			ADD:SPELLCASTER|Psionic
-10														ABILITY:Special Ability|AUTOMATIC|Uncarnate						TEMPLATE:Incorporeal
+10														ABILITY:Special Ability|AUTOMATIC|Uncarnate						
 
 # Class Name		Hit Dice	Type					Class Type			Abbreviation	Max Level	Source Page				Save checks bonus											Combat bonus					Modify VAR
 CLASS:Pyrokineticist	HD:8		TYPE:PC.Prestige.Psionic	CLASSTYPE:Prestige	ABB:Pyr		MAXLEVEL:10	SOURCEPAGE:PsionicClasses.rtf	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE	BONUS:VAR|PsiCrystalLVL|CL|PREFEAT:1,Psicrystal Affinity

@@ -14,7 +14,7 @@ Psion Telepath Class	CATEGORY:Internal	SPELLLEVEL:CLASS|Psion=1|Charm (Psionic),
 ###Block:
 
 # Ability Name				Category of Ability		Type						Visible	Define														Description																				Ability											Modify VAR
-CATEGORY=Internal|Master Traits.MOD																																																		ABILITY:Special Ability|AUTOMATIC|Psionic|PRERACE:1,RACESUBTYPE=Psionic
+#CATEGORY=Internal|Master Traits.MOD																																																		ABILITY:Special Ability|AUTOMATIC|Psionic|PRERACE:1,RACESUBTYPE=Psionic
 
 # Ability Name				Category of Ability		Type						Visible	Define														Description																				Ability											Modify VAR
 Psionic					CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality	VISIBLE:YES	DEFINE:BasePowerPoints|0	DEFINE:BonusPowerPoints|0	DEFINE:TotalPowerPoints|0	DESC:Total Power Points %1; Base Power Points %2; Bonus Power Points %3|TotalPowerPoints|BasePowerPoints|BonusPowerPoints													BONUS:VAR|TotalPowerPoints|BasePowerPoints	BONUS:VAR|TotalPowerPoints|BonusPowerPoints
@@ -160,9 +160,11 @@ Improved Grab			KEY:Astral_Improved Grab			CATEGORY:Special Ability	TYPE:ClassAb
 Improved Swim			KEY:Astral_Improved Swim			CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuB	VISIBLE:YES									MOVE:Swim,60
 Muscle				KEY:Astral_Muscle					CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuB	VISIBLE:YES																																																						BONUS:STAT|STR|4
 Poison Touch			KEY:Astral_Poison Touch				CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuB	VISIBLE:YES
-Pounce				KEY:Astral_Pounce					CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuB	VISIBLE:DISPLAY																ABILITY:Special Ability|AUTOMATIC|Pounce
+Pounce				KEY:Astral_Pounce					CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuB	VISIBLE:DISPLAY																
+#ABILITY:Special Ability|AUTOMATIC|Pounce
 Smite					KEY:Astral_Smite					CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuB	VISIBLE:YES
-Trample				KEY:Astral_Trample				CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuB	VISIBLE:DISPLAY																ABILITY:Special Ability|AUTOMATIC|Trample
+Trample				KEY:Astral_Trample				CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuB	VISIBLE:DISPLAY																
+#ABILITY:Special Ability|AUTOMATIC|Trample
 Energy Touch ~ Acid									CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuB	VISIBLE:YES
 Energy Touch ~ Cold									CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuB	VISIBLE:YES
 Energy Touch ~ Electricity								CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.AstralConstructMenuB	VISIBLE:YES
@@ -206,3 +208,128 @@ Psicrystal (Sympathetic)	CATEGORY:Special Ability	TYPE:ClassAbility.PsicrystalPe
 #
 # End
 #
+
+#Xeph Power Resistance										OUTPUTNAME:+1 saves vs. powers, spells, and spell-like effects				CATEGORY:Special Ability	TYPE:SpecialQuality						VISIBLE:YES																													ASPECT:SaveBonus|+1 saves vs. powers, spells, and spell-like effects
+
+
+###Block: Updated Racial Items
+
+# Dromite
+Race Traits ~ Dromite	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|TYPE=DromiteRaceTrait
+#
+Naturally Psionic	KEY:Naturally Psionic ~ Dromite	SOURCEPAGE:p.	CATEGORY:Special Ability	TYPE:RaceTrait.DromiteRaceTrait.SpecialQuality	DESC:Dromites gain 1 bonus power point at 1st level. This benefi t does not grant them the ability to manifest powers unless they gain that ability through another source, such as levels in a psionic class.
+Psi-Like Ability	KEY:Psi-Like Ability ~ Dromite	SOURCEPAGE:p.	CATEGORY:Special Ability	TYPE:RaceTrait.DromiteRaceTrait.SpecialQuality	DESC:1/day-energy ray. A dromite always deals the kind of energy damage that its chitin has resistance to (for example, a dromite who has resistance to cold 5 deals cold damage with its energy ray). Manifester level is equal to 1/2 Hit Dice (minimum 1st). The save DC is Charisma-based.
+Scent			KEY:Scent ~ Dromite			SOURCEPAGE:p.	CATEGORY:Special Ability	TYPE:RaceTrait.DromiteRaceTrait.SpecialQuality	DESC:Its antennae give a dromite the scent ability. A dromite can detect opponents by scent within 30 feet. If the opponent is upwind, the range increases to 60 feet; if downwind, it drops to 15 feet. Strong scents, such as smoke or rotting garbage, can be detected at twice the ranges noted above. Overpowering scents, such as skunk musk or troglodyte stench, can be detected at triple normal range. When a dromite detects a scent, the exact location of the source is not re vealed-only its presence somewhere within range. The dromite can take a move action to note the direction of the scent. Whenever the dromite comes within 5 feet of the source, the dromite pinpoints the source's location.
+Compound Eyes	KEY:Compound Eyes ~ Dromite		SOURCEPAGE:p.	CATEGORY:Special Ability	TYPE:RaceTrait.DromiteRaceTrait.SpecialQuality	DESC:This feature of its anatomy gives a dromite a +2 racial bonus on Spot checks.
+
+# DUERGAR- Make a sub race
+#. Darkvision out to 120 feet.
+#. Immunity to paralysis, phantasms, and poison.
+#. +2 racial bonus on saves against spells and spell-like effects.
+#. Stability: Duergar are exceptionally stable on their feet. A duergar receives a +4 bonus on ability checks made to resist being bull rushed or tripped when standing on the ground (but not when climbing, fl ying, riding or otherwise not standing fi rmly on the ground).
+#. Stonecunning: This ability grants a duergar a +2 racial bonus on Search checks to notice unusual stonework, such as sliding walls, stonework, traps, new construction (even when built to match the old), unsafe stone surfaces, shaky stone ceilings, and the like. Something that isn't stone but that is disguised as stone also counts as unusual stonework. A gray dwarf who merely comes within 10 feet of unusual stonework can make a Search check as if he were actively searching, and a duergar can use the Search skill to fi nd stonework traps as a rogue can. A duergar can also intuit depth, sensing his approximate depth underground as naturally as a human can sense which way is up. Duergar have a sixth sense about stonework, an innate ability that they get plenty of opportunity to practice and hone in their underground homes.
+#. Psi-Like Abilities: 1/day-expansion, invisibility. These abilities affect only the duergar and whatever he carries. Manifester level is equal to Hit Dice (minimum 3rd).
+#. Naturally Psionic: Duergar gain 3 bonus power points at 1st level. This benefi t does not grant them the ability to manifest powers unless they gain that ability through another source, such as levels in a psionic class.
+#. +1 racial bonus on attack rolls against orcs (including half-orcs) and goblinoids (including goblins, hobgoblins, and bugbears).
+#. +4 dodge bonus to Armor Class against creatures of the giant type (such as ogres, trolls, and hill giants).
+#. Light Sensitivity (Ex): Duergar are dazzled in sunlight or within the radius of a daylight spell.
+#. Duergar have a +4 racial bonus on Move Silently checks and a +1 racial bonus on Listen and Spot checks. They have a +2 racial bonus on Appraise and Craft checks that are related to stone or metal.
+
+Race Traits ~ Half-Giant	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|TYPE=HalfGiantRaceTrait
+Race Traits ~ Maenad		CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|TYPE=MaenadRaceTrait
+Race Traits ~ Xeph		CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|TYPE=XephRaceTrait
+
+# Elan
+Race Traits ~ Elan		CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|TYPE=ElanRaceTrait
+Naturally Psionic	KEY:Naturally Psionic ~ Elan	SOURCEPAGE:p.10	CATEGORY:Special Ability	TYPE:RaceTrait.ElanRaceTrait.SpecialQuality	DESC:Elans gain 2 bonus power points at 1st level. This benefi t does not grant them the ability to manifest powers unless they gain that ability through another source, such as levels in a psionic class.
+Resistance (Su)	KEY:Resistance ~ Elan		SOURCEPAGE:p.10	CATEGORY:Special Ability	TYPE:RaceTrait.ElanRaceTrait.SpecialQuality	DESC:Elans can use psionic energy to increase their resistance to various forms of attack. As an immediate action, an elan can spend 1 power point to gain a +4 racial bonus on saving throws until the beginning of her next action. (For a definition of immediate action, see page 59.)
+Resilience (Su)	KEY:Resilience ~ Elan		SOURCEPAGE:p.10	CATEGORY:Special Ability	TYPE:RaceTrait.ElanRaceTrait.SpecialQuality	DESC:When an elan takes damage, she can spend power points to reduce its severity. As an immediate action, she can reduce the damage she is about to take by 2 hit points for every 1 power point she spends. (For a defi nition of immediate action, see page 59.)
+Repletion (Su)	KEY:Repletion ~ Elan		SOURCEPAGE:p.10	CATEGORY:Special Ability	TYPE:RaceTrait.ElanRaceTrait.SpecialQuality	DESC:An elan can sustain her body without need of food or water. If she spends 1 power point, an elan does not need to eat or drink for 24 hours.
+
+# Githyanki p.11
+#Naturally Psionic: Githyanki gain 3 bonus power points at 1st level. This benefi t does not grant them the ability to manifest powers unless they gain that ability through another source, such as levels in a psionic class.
+#. Psi-Like Abilities: As a githyanki advances in level, he gains psi-like abilities as indicated on the table below. The benefi ts are cumulative. Manifester level is equal to 1/2 Hit Dice (minimum 1st). The save DCs are Charisma-based.
+#Level Psi-Like Abilities
+#1st 3/day-far hand, psionic daze
+#3rd 3/day-concealing amorpha
+#6th 3/day-psionic dimension door
+#9th 3/day-telekinetic thrust; 1/day-psionic plane shift
+#. Power Resistance (Ex): A githyanki has power resistance equal to his Hit Dice +5.
+
+# GITHZERAI p.12
+
+# Half-Giant
+Fire Acclimated	KEY:Fire Acclimated ~ Half-Giant	SOURCEPAGE:p.12	CATEGORY:Special Ability	TYPE:RaceTrait.HalfGiantRaceTrait.SpecialQuality	DESC:Half-giants have a +2 racial bonus on saving throws against all fi re spells and effects. Half-giants are accustomed to enduring high temperatures.
+Powerful Build	KEY:Powerful Build ~ Half-Giant	SOURCEPAGE:p.12	CATEGORY:Special Ability	TYPE:RaceTrait.HalfGiantRaceTrait.SpecialQuality	DESC:The physical stature of half-giants lets them function in many ways as if they were one size category larger. Whenever a half-giant is subject to a size modifi er or special size modifi er for an opposed check (such as during grapple checks, bull rush attempts, and trip attempts), the half-giant is treated as one size larger if doing so is advantageous to him. A half-giant is also considered to be one size larger when determining whether a creature's special attacks based on size (such as improved grab or swallow whole) can affect him. A half-giant can use weapons designed for a creature one size larger without penalty. However, his space and reach remai those of a creature of his actual size. The benefi ts of this racial trait stack with the effects of powers, abilities, and spells that change the subject's size category.
+Naturally Psionic	KEY:Naturally Psionic ~ Half-Giant	SOURCEPAGE:p.13	CATEGORY:Special Ability	TYPE:RaceTrait.HalfGiantRaceTrait.SpecialQuality	DESC:Half-giants gain 2 bonus power points at 1st level. This benefi t does not grant them the ability to manifest powers unless they gain that ability through another source, such as levels in a psionic class.
+Psi-Like Ability	KEY:Psi-Like Ability ~ Half-Giant	SOURCEPAGE:p.13	CATEGORY:Special Ability	TYPE:RaceTrait.HalfGiantRaceTrait.SpecialQuality	DESC:1/day-stomp. Manifester level is equal to 1/2 Hit Dice (minimum 1st). The save DC is Charisma-based.
+
+# Maenad 14
+Naturally Psionic	KEY:Naturally Psionic ~ Maenad	SOURCEPAGE:p.14	CATEGORY:Special Ability	TYPE:RaceTrait.MaenadRaceTrait.SpecialQuality	DESC:Maenads gain 2 bonus power points at 1st level. This benefi t does not grant them the ability to manifest powers unless they gain that ability through another source, such as levels in a psionic class.
+Psi-Like Ability	KEY:Psi-Like Ability ~ Maenad	SOURCEPAGE:p.14	CATEGORY:Special Ability	TYPE:RaceTrait.MaenadRaceTrait.SpecialQuality	DESC:1/day-energy ray. A maenad can deal only sonic damage with this ability. It is accompanied by a tremendous scream of rage. Manifester level is equal to 1/2 Hit Dice (minimum 1st). The save DC is Charisma-based.
+Outburst (Ex)	KEY:Outburst ~ Maenad	SOURCEPAGE:p.14	CATEGORY:Special Ability	TYPE:RaceTrait.MaenadRaceTrait.SpecialQuality	DESC:Once per day, for up to 4 rounds, a maenad can subjugate her mentality to gain a boost of raw physical power. When she does so, she takes a -2 penalty to Intelligence and Wisdom but gains a +2 bonus to Strength.
+
+# THRI-KREEN 15
+
+# Xeph 16
+Racial Saves	KEY:Racial Saves ~ Xeph		SOURCEPAGE:p.16	CATEGORY:Special Ability	TYPE:RaceTrait.XephRaceTrait.SpecialQuality	DESC:+1 racial bonus on saving throws against powers, spells, and spell-like effects. Xephs have an innate resistance to psionics and magic.
+Naturally Psionic	KEY:Naturally Psionic ~ Xeph	SOURCEPAGE:p.16	CATEGORY:Special Ability	TYPE:RaceTrait.XephRaceTrait.SpecialQuality	DESC:Xephs gain 1 bonus power point at 1st level. This benefi t does not grant them the ability to manifest powers unless they gain that ability through another source, such as levels in a psionic class.
+Burst (Su)		KEY:Burst ~ Xeph			SOURCEPAGE:p.16	CATEGORY:Special Ability	TYPE:RaceTrait.XephRaceTrait.SpecialQuality	DESC:Three times per day, a xeph can put on a burst of speed to increase her speed by 10 feet, plus 10 feet per four character levels beyond 1st, to a maximum increase of 30 feet at 9th character level and higher. These bursts of speed are considered a competence bonus to the xeph's base speed. A burst of speed lasts 3 rounds.
+
+
+# RACES - Monsters
+Race Traits ~ Temporal Filcher	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|TYPE=TemporalFilcherRaceTrait
+
+Improved Grab (Ex)	KEY:Improved Grab ~ Temporal Filcher	SOURCEPAGE:p.	CATEGORY:Special Ability	TYPE:RaceTrait.TemporalFilcherRaceTrait.SpecialQuality	DESC:To use this ability, a temporal filcher must hit a creature of Large size or smaller with two claw attacks. It can then attempt to start a grapple as a free action without provoking attacks of opportunity. If it wins the grapple check, it establishes a hold and uses its time fi lch ability.
+Psi-Like Abilities	KEY:Psi-Like Abilities ~ Temporal Filcher	SOURCEPAGE:p.	CATEGORY:Special Ability	TYPE:RaceTrait.TemporalFilcherRaceTrait.SpecialQuality	DESC:At will-chameleon, distract (DC 13), psionic dimension door, psionic levitate, wall walker; 3/ day-mental barrier. Manifester level 8th. The save DC is Charisma-based.
+Time Filch (Su)		KEY:Time Filch ~ Temporal Filcher		SOURCEPAGE:p.	CATEGORY:Special Ability	TYPE:RaceTrait.TemporalFilcherRaceTrait.SpecialQuality	DESC:If a temporal fi lcher successfully grapples a Large or smaller creature, it latches onto the opponent's body and shifts 7 minutes forward in time as a free action. Observers (if any) see the temporal fi lcher and its prey disappear in a shimmer, then reappear 7 minutes later in exactly the orientation and condition they left. For the fi lcher and its prey, no time passes at all. The victim must succeed on a Will save (DC 16) or be dazed for 1 round from temporal disorientation. The ability is otherwise identical to time hop manifested by an 8th-level manifester.
+
+
+
+Race Traits ~ Thought Eater	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|TYPE=ThoughtEaterRaceTrait
+
+Eat Thoughts (Su)		KEY:Eat Thoughts ~ Thought Eater		SOURCEPAGE:p.	CATEGORY:Special Ability	TYPE:RaceTrait.ThoughtEaterRaceTrait.SpecialQuality	DESC:A thought eater can drain psionic power points with a successful melee touch attack. Each touch drains 6 power points from the opponent (or fewer, if the opponent has fewer than 6 points remaining). Against a nonpsionic creature or a psionic creature that currently has no power points, this touch attack instead deals 1 point of Intelligence damage, which provides nourishment equivalent to 6 power points. A thought eater requires 12 power points per day to survive but will gorge itself on weak prey.
+Psi-Like Abilities	KEY:Psi-Like Abilities ~ Thought Eater	SOURCEPAGE:p.	CATEGORY:Special Ability	TYPE:RaceTrait.ThoughtEaterRaceTrait.SpecialQuality	DESC:At will-detect psionics, distract (DC 13), precognition, psionic daze (DC 13*); 3/day-thought shield. Manifester level 3rd. The save DCs are Charisma-based. *Includes augmentation for the thought eater's manifester level.
+Ethereal Jaunt (Su)	KEY:Ethereal Jaunt ~ Thought Eater		SOURCEPAGE:p.	CATEGORY:Special Ability	TYPE:RaceTrait.ThoughtEaterRaceTrait.SpecialQuality	DESC:A thought eater can shift from the Ethereal Plane to the Material Plane as part of any move action, and then shift back again as a free action. The ability is otherwise identical to the psionic ethereal jaunt power.
+
+# Thought Slayer
+Race Traits ~ Thought Slayer	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|TYPE=ThoughtSlayerRaceTrait
+
+Mind-Consuming Gaze (Su)	KEY:Mind-Consuming Gaze ~ Thought Slayer	SOURCEPAGE:p.	CATEGORY:Special Ability	TYPE:RaceTrait.ThoughtSlayerRaceTrait.SpecialQuality	DESC:Instantly kill (by draining the mind away), range 30 feet, Fortitude DC 19 negates. The save DC is Charisma-based. This is considered a mind-affecting death effect. If a thought slayer's gaze is met indirectly (such as through a mirror or a reflection in water), the opponent does not die on a failed save but instead is dazed for 14 rounds. This otherwise is a gaze effect as described on page 309 of the Monster Manual. The gaze cannot affect creatures on the Material Plane while the thought slayer remains ethereal, but it can affect ethereal creatures while the thought slayer is on the Material Plane.
+Psi-Like Abilities		KEY:Psi-Like Abilities ~ Thought Slayer	SOURCEPAGE:p.	CATEGORY:Special Ability	TYPE:RaceTrait.ThoughtSlayerRaceTrait.SpecialQuality	DESC:At will-brain lock (any nonmindless, DC 14*), chameleon, detect psionics, distract (DC 13); 3/day-body adjustment (5d12*), mental barrier (+6 AC, 2 rounds*), mind trap (10 rounds*), precognition, wall walker; 1/day-escape detection. Manifester level 14th. The save DCs are Charisma-based. *Includes augmentation for the thought slayer's manifester level.
+Ethereal Jaunt (Su)		KEY:Ethereal Jaunt ~ Thought Slayer		SOURCEPAGE:p.	CATEGORY:Special Ability	TYPE:RaceTrait.ThoughtSlayerRaceTrait.SpecialQuality	DESC:A thought slayer can shift from the Ethereal Plane to the Material Plane as part of any move action, and then shift back again as a free action. The ability is otherwise identical to the psionic ethereal jaunt power.
+
+Naturally Psionic (Ex)	KEY:Naturally Psionic ~ Phrenic	SOURCEPAGE:p.206	CATEGORY:Special Ability	TYPE:RaceTrait.PhrenicRaceTrait.SpecialQuality	DESC:A phrenic creature gains 1 bonus power point.
+
+###Block: New Class
+
+Weapon and Armor Proficiency	KEY:Weapon and Armor Proficiency ~ Psion		CATEGORY:Special Ability	DESC:Psions are proficient with the club, dagger, heavy crossbow, light crossbow, quarter staff, and shortspear. They are not proficient with any type of armor or shield. Armor does not, however, interfere with the manifestation of powers.	ABILITY:Internal|AUTOMATIC|Weapon Prof ~ Auto	AUTO:WEAPONPROF|Club|Dagger|Crossbow (Heavy)|Crossbow (Light)|Quarterstaff|Shortspear
+
+Weapon and Armor Proficiency	KEY:Weapon and Armor Proficiency ~ Psychic Warrior	CATEGORY:Special Ability		ABILITY:Internal|AUTOMATIC|Weapon Prof ~ Auto|Weapon Prof ~ Simple|TYPE=ArmorProfHeavy|Shield Prof	
+
+Weapon and Armor Proficiency	KEY:Weapon and Armor Proficiency ~ Soulknife	CATEGORY:Special Ability	ABILITY:Internal|AUTOMATIC|Weapon Prof ~ Auto|Weapon Prof ~ Simple|TYPE=ArmorProfLight|Shield Prof
+
+Weapon and Armor Proficiency	KEY:Weapon and Armor Proficiency ~ Wilder		CATEGORY:Special Ability		ABILITY:Internal|AUTOMATIC|Weapon Prof ~ Auto|Weapon Prof ~ Simple|TYPE=ArmorProfLight|Shield Prof
+
+Weapon and Armor Proficiency	KEY:Weapon and Armor Proficiency ~ Slayer	CATEGORY:Special Ability	ABILITY:Internal|AUTOMATIC|Weapon Prof ~ Auto|Weapon Prof ~ Simple|TYPE=ArmorProfHeavy|Shield Prof	
+
+
+
+
+
+###Block: Psionic Companion Modifier Abilities
+# Ability Name		Unique Key			Category of Ability		Type						Visible	Description
+Channel Power						CATEGORY:Special Ability	TYPE:SpecialAttack.SpellLike		VISIBLE:YES	DESC:The owner can manifest powers through the psicrystal to a distance of up to 1 mile. The psicrystal is treated as the power's originator, and all ranges are calculated from its location. When channeling a power through his psicrystal, the owner manifests the power by paying its power point cost. He is still subject to attacks of opportunity and other hazards of manifesting a power, if applicable (for instance, he becomes visible when manifesting an offensive power if invisible, as does the psicrystal).
+Deliver Touch Powers					CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural	VISIBLE:YES	DESC:The owner can have his psicrystal can deliver touch powers for him. If the owner and psicrystal are in contact at the time the owner manifests a touch power, he can designate his psicrystal as the "toucher." The psicrystal can then deliver the touch power just as the owner could. As usual, if the owner manifests another power before the touch is delivered, the touch power dissipates.
+Hardness 8							CATEGORY:Special Ability	TYPE:SpecialQuality			VISIBLE:YES
+Power Resistance						CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	DESC:The psicrystal gains power resistance equal to the owner's level + 5. To affect the psicrystal with a power, another manifester must get a result on a manifester level check that equals or exceeds the psicrystal's power resistance.
+Self-Propulsion		KEY:Self Propulsion	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES	DESC:As a standard action, its owner can will a psicrystal to form spidery, ectoplasmic legs that grant the psicrystal a land speed of 30 feet and a climb speed of 20 feet. The legs fade into nothingness after one day (or sooner, if the owner desires).
+Flight			KEY:Flight ~ Psicrystal	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES	DESC:The owner can, as a standard action, will his psicrystal to fly at a speed of 50 feet (poor). The psicrystal drifts gently to the ground after one day (or sooner, if the owner desires).
+Share Powers						CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES	DESC:At the owner's option, he can have any power (but not any psi-like ability) he manifests on himself also affect his psicrystal. The psicrystal must be within 5 feet of him at the time of the manifestation to receive the benefit. If the power has a duration other than instantaneous, it stops affecting the psicrystal if it moves farther than 5 feet away, and will not affect the psicrystal again, even if it returns to its owner before the duration expires. Additionally, the owner can manifest a power with a target of "You" on his psicrystal (as a touch range power) instead of on himself. The owner and psicrystal cannot share powers if the powers normally do not affect creatures of the psicrystal's type (construct).
+Sight Link							CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike		VISIBLE:YES	DESC:The character can remote view the psicrystal (as if manifesting the remote view power) once per day.
+Telepathic Link						CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES	DESC:The owner has a telepathic link with his psicrystal out to a distance of up to 1 mile. The owner cannot see through the psicrystal's senses, but the two of them can communicate telepathically as if the psicrystal were the target of a mindlink power manifested by the owner. For instance, a psicrystal placed in a distant room could relay the activities occurring in that room. Because of the telepathic link between a psicrystal and its owner, the owner has the same connection to an item or place that the psicrystal does. For instance, if his psicrystal has seen a room, the owner can teleport into that room as if he has seen it too.
+Telepathic Speech						CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	DESC:The psicrystal can communicate telepathically with any creature that has a language and is within 30 feet of the psicrystal, while the psicrystal is also within 1 mile of the owner.
+
+# Psicrystal
+Sighted							CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:YES	DESC:Although it has no physical sensory organs, a psicrystal can telepathically sense its environment as well as a creature with normal vision and hearing. Darkness (even supernatural darkness) is irrelevant, as are areas of supernatural silence, though a psicrystal still can't discern invisible or ethereal beings. A psicrystal's sighted range is 40 feet.
+
