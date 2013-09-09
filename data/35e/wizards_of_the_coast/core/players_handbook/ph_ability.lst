@@ -6,7 +6,6 @@
 
 # RSRD uses an internal ability 'Default' - for backwards consistency, we'll need to use that as well.
 # Ability Name	Category of Ability
-Default		CATEGORY:Internal
 
 ###Block: Size Mods for Automatic Changes
 REACH_0	VISIBLE:NO	CATEGORY:Internal	TEMPLATE:REACH_0
@@ -47,31 +46,26 @@ LEVEL_ADJUSTMENT_6	VISIBLE:NO	CATEGORY:Internal	TEMPLATE:LEVEL_ADJUSTMENT_6
 
 Uncanny Dodge Tracker	CATEGORY:Internal
 
+Default			CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|Low-Light Vision|PREVARGTEQ:HasLowlightVision,1	ABILITY:Special Ability|AUTOMATIC|Darkvision|PREVARGTEQ:DarkvisionRange,1	ABILITY:Internal|AUTOMATIC|Defines			ABILITY:Special Ability|AUTOMATIC|Aerial Maneuverability|PREMOVE:1,Fly=1
 
 ###Block: Vision Modes
 # Ability Name	Category of Ability		Type							Define				Description																																																																																												Vision					Source Page		Aspects
 Low-Light Vision	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Vision	DEFINE:LowLightDistance|2	DESC:You can see %1x as far as humans in low illumination. Characters with low-light vision have eyes that are so sensitive to light that they can see twice as far as normal in dim light. Low-light vision is color vision. A spellcaster with low-light vision can read a scroll as long as even the tiniest candle flame is next to her as a source of light. Characters with low-light vision can see outdoors on a moonlit night as well as they can during the day.|LowLightDistance														VISION:Low-Light (LowlightRange)	SOURCEPAGE:p.	ASPECT:Vision|Low-Light
 Darkvision		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Vision	DEFINE:DarkvisionRange|0	DESC:Range %1;|DarkvisionRange|PREVARGTEQ:DarkvisionRange,1	DESC:Darkvision is the extraordinary ability to see with no light source at all, out to a range specified for the creature. Darkvision is black and white only (colors cannot be discerned). It does not allow characters to see anything that they could not see otherwise-invisible objects are still invisible, and illusions are still visible as what they seem to be. Likewise, darkvision subjects a creature to gaze attacks normally. The presence of light does not spoil darkvision.|DarkvisionRange	VISION:Darkvision (DarkvisionRange)	SOURCEPAGE:p.	ASPECT:Vision|Darkvision %1'|DarkvisionRange
 
-###Block: Mods
-# Ability Name			Ability
-CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Low-Light Vision|PREVARGTEQ:HasLowlightVision,1
-CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Darkvision|PREVARGTEQ:DarkvisionRange,1
 
 ###Block:
 # Ability Name			Category of Ability
-Race Traits ~ Human		CATEGORY:Internal
-Race Traits ~ Dwarf		CATEGORY:Internal
-Race Traits ~ Elf		CATEGORY:Internal
-Race Traits ~ Gnome		CATEGORY:Internal
-Race Traits ~ Half-Elf	CATEGORY:Internal
-Race Traits ~ Half-Orc	CATEGORY:Internal
-Race Traits ~ Halfling	CATEGORY:Internal
+Race Traits ~ Human		CATEGORY:Internal	ABILITY:Human Race Trait|AUTOMATIC|Skill Bonus ~ Human|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HumanSkillBonus	ABILITY:Human Race Trait|AUTOMATIC|Bonus Feat ~ Human|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HumanBonusFeat
+Race Traits ~ Dwarf		CATEGORY:Internal	ABILITY:Dwarf Race Trait|AUTOMATIC|Darkvision ~ Dwarf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfRacialVision	ABILITY:Dwarf Race Trait|AUTOMATIC|Weapon Familiarity ~ Dwarf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfWeaponFamiliarity	ABILITY:Dwarf Race Trait|AUTOMATIC|Stonecunning ~ Dwarf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfStonecunning	ABILITY:Dwarf Race Trait|AUTOMATIC|Stability ~ Dwarf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfStability	ABILITY:Dwarf Race Trait|AUTOMATIC|Poison Save Bonus ~ Dwarf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfPoisonSaveBonus	ABILITY:Dwarf Race Trait|AUTOMATIC|Spell Save Bonus ~ Dwarf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfSpellSaveBonus	ABILITY:Dwarf Race Trait|AUTOMATIC|Attack Bonus ~ Dwarf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfAttackBonus	ABILITY:Dwarf Race Trait|AUTOMATIC|Dodge Bonus ~ Dwarf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfDodgeBonus	ABILITY:Dwarf Race Trait|AUTOMATIC|Appraise Bonus ~ Dwarf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfAppraiseBonus	ABILITY:Dwarf Race Trait|AUTOMATIC|Craft Bonus ~ Dwarf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfCraftBonus
+Race Traits ~ Elf			CATEGORY:Internal	ABILITY:Elf Race Trait|AUTOMATIC|Trance ~ Elf	ABILITY:Elf Race Trait|AUTOMATIC|Racial Immunity ~ Elf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfRacialImmunity	ABILITY:Elf Race Trait|AUTOMATIC|Low-Light Vision ~ Elf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfLowLightVision	ABILITY:Elf Race Trait|AUTOMATIC|Weapon Proficiency ~ Elf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfWeaponProficiency	ABILITY:Elf Race Trait|AUTOMATIC|Skill Bonus ~ Elf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfSkillBonus
+Race Traits ~ Gnome		CATEGORY:Internal	ABILITY:Gnome Race Trait|AUTOMATIC|Low-Light Vision ~ Gnome|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeRacialVision	ABILITY:Gnome Race Trait|AUTOMATIC|Weapon Familiarity ~ Gnome|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeWeaponFamiliarity	ABILITY:Gnome Race Trait|AUTOMATIC|Racial Save Bonus ~ Gnome|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeSaveBonus	ABILITY:Gnome Race Trait|AUTOMATIC|Racial School DC Bonus ~ Gnome|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeIllusionDC	ABILITY:Gnome Race Trait|AUTOMATIC|Racial Attack Bonus ~ Gnome|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeAttacksBonus	ABILITY:Gnome Race Trait|AUTOMATIC|Racial Dodge Bonus ~ Gnome|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeDodgeBonus	ABILITY:Gnome Race Trait|AUTOMATIC|Racial Listen Skill ~ Gnome|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeRacialListenSkill	ABILITY:Gnome Race Trait|AUTOMATIC|Racial Alchemy Skill ~ Gnome|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeRacialAlchemySkill	ABILITY:Gnome Race Trait|AUTOMATIC|Spell-Like Abilities ~ Gnome|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeSpellLikeAbilities
+Race Traits ~ Half-Elf		CATEGORY:Internal	ABILITY:Half-Elf Race Trait|AUTOMATIC|Elven Blood ~ Half-Elf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfElfBlood	ABILITY:Half-Elf Race Trait|AUTOMATIC|Low-Light Vision ~ Half-Elf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfElfRacialVision	ABILITY:Half-Elf Race Trait|AUTOMATIC|Racial +1 Skill Bonus ~ Half-Elf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfElfPerception	ABILITY:Half-Elf Race Trait|AUTOMATIC|Racial +2 Skill Bonus ~ Half-Elf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfElfPersuasion	ABILITY:Half-Elf Race Trait|AUTOMATIC|Racial Immunity ~ Half-Elf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfElfImunity
+Race Traits ~ Half-Orc		CATEGORY:Internal	ABILITY:Half-Orc Race Trait|AUTOMATIC|Darkvision ~ Half-Orc|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalofOrcRacialVision	ABILITY:Half-Orc Race Trait|AUTOMATIC|Orc Blood ~ Half-Orc|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfOrcBlood
+Race Traits ~ Halfling		CATEGORY:Internal	ABILITY:Halfling Race Trait|AUTOMATIC|Racial +2 Save Bonus ~ Halfling|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalflingMoraleSaveBonus	ABILITY:Halfling Race Trait|AUTOMATIC|Racial +1 Save Bonus ~ Halfling|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalflingSaveBonus	ABILITY:Halfling Race Trait|AUTOMATIC|Racial Attack Bonus ~ Halfling|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalflingAttackBonus	ABILITY:Halfling Race Trait|AUTOMATIC|Racial Skill Bonus ~ Halfling|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalflingSkillBonus
 
 ###Block: Human - Assigned
 # Ability Name						Ability
-CATEGORY=Internal|Race Traits ~ Human.MOD	ABILITY:Human Race Trait|AUTOMATIC|Skill Bonus ~ Human|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HumanSkillBonus
-CATEGORY=Internal|Race Traits ~ Human.MOD	ABILITY:Human Race Trait|AUTOMATIC|Bonus Feat ~ Human|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HumanBonusFeat
 
 ###Block: Human - Abilities
 # Ability Name	Unique Key			Category of Ability		Type							Description														Bonus to skill point/L		Source Page
@@ -80,16 +74,6 @@ Feat Bonus		KEY:Bonus Feat ~ Human	CATEGORY:Special Ability	TYPE:SpecialQuality.
 
 ###Block: Dwarf - Assigned
 # Ability Name						Ability
-CATEGORY=Internal|Race Traits ~ Dwarf.MOD	ABILITY:Dwarf Race Trait|AUTOMATIC|Darkvision ~ Dwarf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfRacialVision
-CATEGORY=Internal|Race Traits ~ Dwarf.MOD	ABILITY:Dwarf Race Trait|AUTOMATIC|Weapon Familiarity ~ Dwarf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfWeaponFamiliarity
-CATEGORY=Internal|Race Traits ~ Dwarf.MOD	ABILITY:Dwarf Race Trait|AUTOMATIC|Stonecunning ~ Dwarf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfStonecunning
-CATEGORY=Internal|Race Traits ~ Dwarf.MOD	ABILITY:Dwarf Race Trait|AUTOMATIC|Stability ~ Dwarf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfStability
-CATEGORY=Internal|Race Traits ~ Dwarf.MOD	ABILITY:Dwarf Race Trait|AUTOMATIC|Poison Save Bonus ~ Dwarf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfPoisonSaveBonus
-CATEGORY=Internal|Race Traits ~ Dwarf.MOD	ABILITY:Dwarf Race Trait|AUTOMATIC|Spell Save Bonus ~ Dwarf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfSpellSaveBonus
-CATEGORY=Internal|Race Traits ~ Dwarf.MOD	ABILITY:Dwarf Race Trait|AUTOMATIC|Attack Bonus ~ Dwarf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfAttackBonus
-CATEGORY=Internal|Race Traits ~ Dwarf.MOD	ABILITY:Dwarf Race Trait|AUTOMATIC|Dodge Bonus ~ Dwarf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfDodgeBonus
-CATEGORY=Internal|Race Traits ~ Dwarf.MOD	ABILITY:Dwarf Race Trait|AUTOMATIC|Appraise Bonus ~ Dwarf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfAppraiseBonus
-CATEGORY=Internal|Race Traits ~ Dwarf.MOD	ABILITY:Dwarf Race Trait|AUTOMATIC|Craft Bonus ~ Dwarf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfCraftBonus
 
 ###Block: Dwarf - Abilities
 # Ability Name		Unique Key					Category of Ability		Type												Define					Description																																																																																																														Bonus to skill																																				Modify VAR											Weapon prof. bonus						Change Weapon Prof. Category					Source Page		Aspects
@@ -106,11 +90,6 @@ Craft Bonus			KEY:Craft Bonus ~ Dwarf			CATEGORY:Special Ability	TYPE:RaceTrait.
 
 ###Block: Elf - Assigned
 # Ability Name					Ability
-CATEGORY=Internal|Race Traits ~ Elf.MOD	ABILITY:Elf Race Trait|AUTOMATIC|Trance ~ Elf
-CATEGORY=Internal|Race Traits ~ Elf.MOD	ABILITY:Elf Race Trait|AUTOMATIC|Racial Immunity ~ Elf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfRacialImmunity
-CATEGORY=Internal|Race Traits ~ Elf.MOD	ABILITY:Elf Race Trait|AUTOMATIC|Low-Light Vision ~ Elf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfLowLightVision
-CATEGORY=Internal|Race Traits ~ Elf.MOD	ABILITY:Elf Race Trait|AUTOMATIC|Weapon Proficiency ~ Elf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfWeaponProficiency
-CATEGORY=Internal|Race Traits ~ Elf.MOD	ABILITY:Elf Race Trait|AUTOMATIC|Skill Bonus ~ Elf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfSkillBonus
 
 ###Block: Elf - Abilities
 # Ability Name		Unique Key				Category of Ability		Type												Visible		Description																																																																									Automatically Gained Feat																							Bonus to skill						Modify VAR				Source Page		Aspects
@@ -122,15 +101,6 @@ Skill Bonus			KEY:Skill Bonus ~ Elf		CATEGORY:Special Ability	TYPE:ElfRaceTrait.
 
 ###Block: Gnome - Assigned
 # Ability Name						Ability
-CATEGORY=Internal|Race Traits ~ Gnome.MOD	ABILITY:Gnome Race Trait|AUTOMATIC|Low-Light Vision ~ Gnome|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeRacialVision
-CATEGORY=Internal|Race Traits ~ Gnome.MOD	ABILITY:Gnome Race Trait|AUTOMATIC|Weapon Familiarity ~ Gnome|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeWeaponFamiliarity
-CATEGORY=Internal|Race Traits ~ Gnome.MOD	ABILITY:Gnome Race Trait|AUTOMATIC|Racial Save Bonus ~ Gnome|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeSaveBonus
-CATEGORY=Internal|Race Traits ~ Gnome.MOD	ABILITY:Gnome Race Trait|AUTOMATIC|Racial School DC Bonus ~ Gnome|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeIllusionDC
-CATEGORY=Internal|Race Traits ~ Gnome.MOD	ABILITY:Gnome Race Trait|AUTOMATIC|Racial Attack Bonus ~ Gnome|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeAttacksBonus
-CATEGORY=Internal|Race Traits ~ Gnome.MOD	ABILITY:Gnome Race Trait|AUTOMATIC|Racial Dodge Bonus ~ Gnome|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeDodgeBonus
-CATEGORY=Internal|Race Traits ~ Gnome.MOD	ABILITY:Gnome Race Trait|AUTOMATIC|Racial Listen Skill ~ Gnome|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeRacialListenSkill
-CATEGORY=Internal|Race Traits ~ Gnome.MOD	ABILITY:Gnome Race Trait|AUTOMATIC|Racial Alchemy Skill ~ Gnome|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeRacialAlchemySkill
-CATEGORY=Internal|Race Traits ~ Gnome.MOD	ABILITY:Gnome Race Trait|AUTOMATIC|Spell-Like Abilities ~ Gnome|!PREABILITY:1,CATEGORY=Special Ability,TYPE.GnomeSpellLikeAbilities
 
 ###Block: Gnome - Abilities
 # Ability Name		Unique Key					Category of Ability		Type									Visible		Innate Spells																		Description																																																																																Bonus to DC				Bonus to skill					Modify VAR				Change Weapon Prof. Category			Source Page		Aspects
@@ -146,11 +116,6 @@ Spell-Like Abilities	KEY:Spell-Like Abilities ~ Gnome	CATEGORY:Special Ability	T
 
 ###Block: Half-Elf
 # Ability Name						Ability
-CATEGORY=Internal|Race Traits ~ Half-Elf.MOD	ABILITY:Half-Elf Race Trait|AUTOMATIC|Elven Blood ~ Half-Elf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfElfBlood
-CATEGORY=Internal|Race Traits ~ Half-Elf.MOD	ABILITY:Half-Elf Race Trait|AUTOMATIC|Low-Light Vision ~ Half-Elf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfElfRacialVision
-CATEGORY=Internal|Race Traits ~ Half-Elf.MOD	ABILITY:Half-Elf Race Trait|AUTOMATIC|Racial +1 Skill Bonus ~ Half-Elf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfElfPerception
-CATEGORY=Internal|Race Traits ~ Half-Elf.MOD	ABILITY:Half-Elf Race Trait|AUTOMATIC|Racial +2 Skill Bonus ~ Half-Elf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfElfPersuasion
-CATEGORY=Internal|Race Traits ~ Half-Elf.MOD	ABILITY:Half-Elf Race Trait|AUTOMATIC|Racial Immunity ~ Half-Elf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfElfImunity
 
 ###Block: Half-Elf
 # Ability Name								Unique Key						Category of Ability		Type													Visible		Description																																																											Bonus to skill								Modify VAR				Source Page		Aspects
@@ -162,8 +127,6 @@ Racial Immunity								KEY:Racial Immunity ~ Half-Elf		CATEGORY:Special Ability	
 
 ###Block: Half-Orc - Assigned
 # Ability Name						Ability
-CATEGORY=Internal|Race Traits ~ Half-Orc.MOD	ABILITY:Half-Orc Race Trait|AUTOMATIC|Darkvision ~ Half-Orc|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalofOrcRacialVision
-CATEGORY=Internal|Race Traits ~ Half-Orc.MOD	ABILITY:Half-Orc Race Trait|AUTOMATIC|Orc Blood ~ Half-Orc|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfOrcBlood
 
 ###Block: Half-Orc - Abilities
 # Ability Name	Unique Key				Category of Ability		Type							Visible		Description																																																											Modify VAR											Source Page
@@ -172,10 +135,6 @@ Orc Blood		KEY:Orc Blood ~ Half-Orc	CATEGORY:Special Ability	TYPE:HalfOrcRaceTra
 
 ###Block: Halfling - Assigned
 # Ability Name						Ability
-CATEGORY=Internal|Race Traits ~ Halfling.MOD	ABILITY:Halfling Race Trait|AUTOMATIC|Racial +2 Save Bonus ~ Halfling|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalflingMoraleSaveBonus
-CATEGORY=Internal|Race Traits ~ Halfling.MOD	ABILITY:Halfling Race Trait|AUTOMATIC|Racial +1 Save Bonus ~ Halfling|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalflingSaveBonus
-CATEGORY=Internal|Race Traits ~ Halfling.MOD	ABILITY:Halfling Race Trait|AUTOMATIC|Racial Attack Bonus ~ Halfling|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalflingAttackBonus
-CATEGORY=Internal|Race Traits ~ Halfling.MOD	ABILITY:Halfling Race Trait|AUTOMATIC|Racial Skill Bonus ~ Halfling|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalflingSkillBonus
 
 ###Block: Halfling - Abilities
 # Ability Name									Unique Key					Category of Ability		Type									Visible	Define											Description																																Combat bonus							Bonus to skill								Modify VAR															Source Page		Aspects
@@ -217,10 +176,9 @@ Improved Evasion	CATEGORY:Special Ability	TYPE:ClassFeature.ImprovedEvasion
 
 Sneak Attack	CATEGORY:Special Ability	DESC:%1d%2|SneakAttackDice|SneakAttackDieSize	DEFINE:SneakAttackDice|0	DEFINE:SneakAttackDieSize|6	DEFINE:SneakAttackQualify|SneakAttackDice
 
-CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Defines	
 
 # Temp Bonus Defines
-Defines	CATEGORY:Internal			DEFINE:RighteousMightDR|0	DEFINE:UncannyDodgeCount|0
+Defines	CATEGORY:Internal			DEFINE:RighteousMightDR|0	DEFINE:UncannyDodgeCount|0	BONUS:HP|CURRENTMAX|-TL*((WildShapeConsititution)/2)
 
 
 Spontaneous casting - Cure spells			CATEGORY:Special Ability	TYPE:ClericClassFeature.ClassFeature.SpecialQuality	VISIBLE:YES	SOURCEPAGE:ClassesI.rtf	BENEFIT:A good cleric (or a neutral cleric of a good deity) can channel stored spell energy into healing spells that the cleric did not prepare ahead of time. The cleric can "lose" any prepared spell that is not a domain spell in order to cast any cure spell of the same spell level or lower (a cure spell is any spell with "cure" in its name).
@@ -259,8 +217,6 @@ Armor Prof ~ Heavy	CATEGORY:Internal	TYPE:ArmorProfHeavy						AUTO:ARMORPROF|ARM
 ###Block: Shield Types
 Shield Prof ~ Tower	CATEGORY:Internal	TYPE:ShieldProfTower			AUTO:SHIELDPROF|SHIELDTYPE=Tower							SERVESAS:FEAT|Tower Shield Proficiency
 Shield Prof			CATEGORY:Internal	TYPE:ShieldProfTower.ShieldProf	AUTO:SHIELDPROF|SHIELDTYPE=Buckler|SHIELDTYPE=Heavy|SHIELDTYPE=Light	SERVESAS:FEAT|Shield Proficiency
-
-
 
 # Barbarian
 # Ability Name			Unique Key							Category of Ability		Type															Visible	Restricted Ability						Required AL				Prohibited Var. Value			Define																																												Description																																																																																																																																																																																																																																																																																																																																																																																																																																									Template			Automatically Gained Armor Prof.	Automatically Gained Feat																																Automatically Gained Shield Prof.							Automatically Gained Weapon Prof.	Ability																																																																																						Bonus to Ability Pool						Source Page		Aspects
@@ -343,7 +299,6 @@ Improved Evasion			KEY:Animal Companion ~ Improved Evasion		CATEGORY:Special Abi
 ###Block:
 Wild Shape ~ Defines	CATEGORY:Internal	VISIBLE:NO	DEFINE:DruidWildShapeLVL|0	BONUS:VAR|WildShapeDuration|DruidWildShapeLVL	BONUS:VAR|WildShapeTimes|1|PREVARGTEQ:DruidWildShapeLVL,5	BONUS:VAR|WildShapeTimes|1|PREVARGTEQ:DruidWildShapeLVL,6	BONUS:VAR|WildShapeTimes|1|PREVARGTEQ:DruidWildShapeLVL,7	BONUS:VAR|WildShapeTimes|1|PREVARGTEQ:DruidWildShapeLVL,10	BONUS:VAR|WildShapeTimes|1|PREVARGTEQ:DruidWildShapeLVL,14	BONUS:VAR|WildShapeTimes|1|PREVARGTEQ:DruidWildShapeLVL,18	BONUS:VAR|WildShapeElementalTimes|1|PREVARGTEQ:DruidWildShapeLVL,16	BONUS:VAR|WildShapeElementalTimes|1|PREVARGTEQ:DruidWildShapeLVL,18	BONUS:VAR|WildShapeElementalTimes|1|PREVARGTEQ:DruidWildShapeLVL,20	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShapeLVL,5	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShapeLVL,8	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShapeLVL,11	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShapeLVL,12	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShapeLVL,15	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShapeLVL,16	BONUS:VAR|WildShapeProgression|1|PREVARGTEQ:DruidWildShapeLVL,20
 ###Block: HP fix
-CATEGORY=Internal|Default.MOD	BONUS:HP|CURRENTMAX|-TL*((WildShapeConsititution)/2)
 
 ###Block: Fighter
 Weapon and Armor Proficiency	KEY:Weapon and Armor Proficiency ~ Fighter	CATEGORY:Special Ability	TYPE:ClassFeature.FighterClassFeature.SpecialQuality																																																																										DESC:A fighter is proficient with all simple and martial weapons and with all armor (heavy, medium, and light) and shields (including tower shields).																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																		SOURCEPAGE:p.38	AUTO:WEAPONPROF|TYPE=Auto|TYPE=Simple|TYPE=Martial	AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium|ARMORTYPE=Heavy	AUTO:SHIELDPROF|SHIELDTYPE=ShieldProf|SHIELDTYPE=Tower	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Medium)|Armor Proficiency (Light)
@@ -548,7 +503,7 @@ Transmuter Learning Bonus	OUTPUTNAME:+2 bonus to Spellcraft when learning Transm
 ###Block: Companion support
 # Ability Name			Unique Key						Category of Ability		Type									Visible	Define				Ability																														Allow Follower			Allowed Companions																																																																																																																																							Cost		Source Page					Description of the Benefits
 Animal Companion										CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	DEFINE:AnimalCompanionLVL|0																																FOLLOWERS:Animal Companion|1	COMPANIONLIST:Animal Companion|Badger,Camel,Dire Animal (Dire Rat),Dog,Dog (Riding),Eagle,Hawk,Horse (Heavy),Horse (Light),Owl,Pony,Porpoise,Shark (Medium),Snake (Viper/Medium),Snake (Viper/Small),Squid,RACESUBTYPE=AnimalCompanion	COMPANIONLIST:Animal Companion|Ape,Bear (Black),Bison,Boar,Cheetah,Crocodile,Leopard,Lizard (Monitor),Shark (Large),Snake (Constrictor),Snake (Viper/Large),Wolverine|FOLLOWERADJUSTMENT:-3	COMPANIONLIST:Animal Companion|Bear (Brown),Crocodile (Giant),Lion,Rhinoceros,Snake (Viper/Huge),Tiger|FOLLOWERADJUSTMENT:-6	COMPANIONLIST:Animal Companion|Bear (Polar),Shark (Huge),Snake (Constrictor/Giant),Whale (Orca)|FOLLOWERADJUSTMENT:-9	COMPANIONLIST:Animal Companion|Elephant,Octopus (Giant)|FOLLOWERADJUSTMENT:-12	COMPANIONLIST:Animal Companion|Squid (Giant)|FOLLOWERADJUSTMENT:-15				BENEFIT:A druid may begin play with an animal companion selected from the following list: badger, camel, dire rat, dog, riding dog, eagle, hawk, horse (light or heavy), owl, pony, snake (Small or Medium viper), or wolf. If the campaign takes place wholly or partly in an aquatic environment, the following creatures are also available: porpoise, Medium shark, and squid. This animal is a loyal companion that accompanies the druid on her adventures as appropriate for its kind. A 1st-level druid's companion is completely typical for its kind except as noted below. As a druid advances in level, the animal's power increases as shown on the table. If a druid releases her companion from service, she may gain a new one by performing a ceremony requiring 24 uninterrupted hours of prayer. This ceremony can also replace an animal companion that has perished. A druid of 4th level or higher may select from alternative lists of animals. Should she select an animal companion from one of these alternative lists, the creature gains abilities as if the character's druid level were lower than it actually is. Subtract the value indicated in the appropriate list header from the character's druid level and compare the result with the druid level entry on the table to determine the animal companion's powers. (If this adjustment would reduce the druid's effective level to 0 or lower, she can't have that animal as a companion.)|PREMULT:1,[PRECLASS:1,Druid=1],[PREVARGTEQ:AllowDruidDesc,1]	BENEFIT:At 4th level, a ranger gains an animal companion selected from the following list: badger, camel, dire rat, dog, riding dog, eagle, hawk, horse (light or heavy), owl, pony, snake (Small or Medium viper), or wolf. If the campaign takes place wholly or partly in an aquatic environment, the following creatures may be added to the ranger's list of options: manta ray, porpoise, Medium shark, and squid. This animal is a loyal companion that accompanies the ranger on his adventures as appropriate for its kind. This ability functions like the druid ability of the same name, except that the ranger's effective druid level is one-half his ranger level. A ranger may select from the alternative lists of animal companions just as a druid can, though again his effective druid level is half his ranger level. Like a druid, a ranger cannot select an alternative animal if the choice would reduce his effective druid level below 1st.|PREMULT:1,[PRECLASS:1,Ranger=1],[PREVARGTEQ:AllowRangerDesc,1]
-Special Mount										CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	DEFINE:SpecialMountLVL|0																																FOLLOWERS:Special Mount|1																																																																																																																																														BENEFIT:Upon reaching 5th level, a paladin gains the service of an unusually intelligent, strong, and loyal steed to serve her in her crusade against evil. This mount is usually a heavy warhorse (for a Medium paladin) or a warpony (for a Small paladin). Once per day, as a full-round action, a paladin may magically call her mount from the celestial realms in which it resides. This ability is the equivalent of a spell of a level equal to one-third the paladin's level. The mount immediately appears adjacent to the paladin and remains for 2 hours per paladin level; it may be dismissed at any time as a free action. The mount is the same creature each time it is summoned, though the paladin may release a particular mount from service. Each time the mount is called, it appears in full health, regardless of any damage it may have taken previously. The mount also appears wearing or carrying any gear it had when it was last dismissed. Calling a mount is a conjuration (calling) effect. Should the paladin's mount die, it immediately disappears, leaving behind any equipment it was carrying. The paladin may not summon another mount for thirty days or until she gains a paladin level, whichever comes first, even if the mount is somehow returned from the dead. During this thirty-day period, the paladin takes a -1 penalty on attack and weapon damage rolls.
+Special Mount										CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	DEFINE:SpecialMountLVL|0																																FOLLOWERS:Special Mount|1																																																																																																																																														BENEFIT:Upon reaching 5th level, a paladin gains the service of an unusually intelligent, strong, and loyal steed to serve her in her crusade against evil. This mount is usually a heavy warhorse (for a Medium paladin) or a warpony (for a Small paladin). Once per day, as a full-round action, a paladin may magically call her mount from the celestial realms in which it resides. This ability is the equivalent of a spell of a level equal to one-third the paladin's level. The mount immediately appears adjacent to the paladin and remains for 2 hours per paladin level; it may be dismissed at any time as a free action. The mount is the same creature each time it is summoned, though the paladin may release a particular mount from service. Each time the mount is called, it appears in full health, regardless of any damage it may have taken previously. The mount also appears wearing or carrying any gear it had when it was last dismissed. Calling a mount is a conjuration (calling) effect. Should the paladin's mount die, it immediately disappears, leaving behind any equipment it was carrying. The paladin may not summon another mount for thirty days or until she gains a paladin level, whichever comes first, even if the mount is somehow returned from the dead. During this thirty-day period, the paladin takes a -1 penalty on attack and weapon damage rolls.			ABILITY:Special Mount Choice|AUTOMATIC|Standard Choices ~ Special Mount|PREABILITY:1,CATEGORY=Special Ability,TYPE.SpecialMount|!PREABILITY:1,CATEGORY=Internal,TYPE.SpecialMountAlternate
 Familiar											CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	DEFINE:FamiliarLVL|0																																	FOLLOWERS:Familiar|1		COMPANIONLIST:Familiar|Bat,Cat,Hawk,Lizard,Owl,Rat,Raven,Snake (Viper/Tiny),Toad,Weasel																																																																																																																															BENEFIT:The character can obtain a familiar. Doing so takes 24 hours and uses up magical materials that cost 100 gp. A familiar is a magical beast that resembles a small animal and is unusually tough and intelligent. The creature serves as a companion and servant. The character chooses the kind of familiar he gets. As the sorcerer advances in level, his familiar also increases in power. If the familiar dies or is dismissed by the sorcerer, the sorcerer must attempt a DC 15 Fortitude saving throw. Failure means he loses 200 experience points per sorcerer level; success reduces the loss to one-half that amount. However, a sorcerer's experience point total can never go below 0 as the result of a familiar's demise or dismissal. A slain or dismissed familiar cannot be replaced for a year and day. A slain familiar can be raised from the dead just as a character can be, and it does not lose a level or a Constitution point when this happy event occurs. A character with more than one class that grants a familiar may have only one familiar at a time.
 Fiendish Servant										CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	DEFINE:FiendishServantLVL|0																																FOLLOWERS:Fiendish Servant|1	COMPANIONLIST:Fiendish Servant|Bat,Cat,Horse (Heavy),Horse (Light),Horse (Warhorse Heavy),Horse (Warhorse Light),Pony,Raven,Toad																																																																																																																								BENEFIT:Upon or after reaching 5th level, a blackguard can call a fiendish bat, cat, dire rat, horse, pony, raven, or toad to serve him. The blackguard's servant further gains HD and special abilities based on the blackguard's character level (see the table below). A blackguard may have only one fiendish servant at a time. Should the blackguard's servant die, he may call for another one after a year and a day. The new fiendish servant has all the accumulated abilities due a servant of the blackguard's current level.
 Undead Companion										CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	DEFINE:UndeadCompanionLVL|0																																FOLLOWERS:Undead Companion|1																																																																																																																																														BENEFIT:In addition to the fiendish servant, the blackguard gains (at 5th level) a Medium-size skeleton or zombie as a companion. This companion cannot be turned or rebuked and gains all special bonuses as a fiendish servant when the blackguard gains levels. Smite good 3/day.
@@ -557,13 +512,10 @@ Summon Shadow										CATEGORY:Special Ability	TYPE:ClassFeature	VISIBLE:NO	DEF
 
 Familiar ~ Change Race	CATEGORY:Internal	TEMPLATE:Familiar ~ Change Race
 
-CATEGORY=Special Ability|Special Mount.MOD		ABILITY:Special Mount Choice|AUTOMATIC|Standard Choices ~ Special Mount|PREABILITY:1,CATEGORY=Special Ability,TYPE.SpecialMount|!PREABILITY:1,CATEGORY=Internal,TYPE.SpecialMountAlternate
+
 Standard Choices			KEY:Standard Choices ~ Special Mount	CATEGORY:Internal			TYPE:SpecialMountSelection																																																COMPANIONLIST:Special Mount|Horse (Warhorse Heavy),Shark (Large)|PRESIZELTEQ:M	COMPANIONLIST:Special Mount|Pony (War),Dog (Riding)|PRESIZELTEQ:S
 # COMMENT: Expanded Choices is in place for Homebrew Users
 Expanded Choices			KEY:Expanded Choices ~ Special Mount	CATEGORY:Internal			TYPE:SpecialMountSelection.SpecialMountAlternate																																												COMPANIONLIST:Special Mount|Horse (Warhorse Heavy),Shark (Large)|PRESIZELTEQ:M	COMPANIONLIST:Special Mount|Pony (War),Dog (Riding)|PRESIZELTEQ:S																																																																																																																		COST:0
-
-
-
 
 ###Block: Misc
 ###Block: Animal Tricks & Training Section ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -629,7 +581,7 @@ Lock Int ~ 28			CATEGORY:Internal		DEFINESTAT:LOCK|INT|28
 Lock Int ~ 29			CATEGORY:Internal		DEFINESTAT:LOCK|INT|29
 Lock Int ~ 30			CATEGORY:Internal		DEFINESTAT:LOCK|INT|30
 
-
+# COMMENT: CHOOSE only fires if you have one point in the pool!
 ###Block: Permanency
 # Ability Name							SORTKEY	Category of Ability		Type						Define						Innate Spells																Description																																																																																																																																																																																																																																																																																																																																																																		Multiple?	Choose										Selections	Bonus to Ability Pool					Save checks bonus				Combat bonus																		Adjust PC Size									Stat bonus																						Modify VAR													Wield Category bonus						Cost		Weapon prop. bonus
 PERMANENCY SPELL / ADD THIS FIRST to ADD NEW EFFECTS	SORTKEY:1	CATEGORY:Special Ability	TYPE:PermanencySpell																												DESC:REMOVE this when you are done to remove the reminder on the TODO.																																																																																																																																																																																																																																																																																																																																																																							BONUS:ABILITYPOOL|Permanency Applied Effects|1																																																																																				COST:0
@@ -676,7 +628,6 @@ Smite Good		CATEGORY:Special Ability	TYPE:ClassFeature.SpecialAttack.Smite.Super
 
 
 
-CATEGORY=Internal|Default.MOD		ABILITY:Special Ability|AUTOMATIC|Aerial Maneuverability|PREMOVE:1,Fly=1
 # Move to Aerial M.
 Flight Maneuverability	CATEGORY:Special Ability	VISIBLE:NO	DEFINE:Maneuverability|0	CHOOSE:NUMBER|MIN=-4|MAX=4|TITLE=Flight Maneuverability Adjustment	ABILITY:Special Ability|AUTOMATIC|Maneuverability(Clumsy)|PREVARLTEQ:Maneuverability,1	ABILITY:Special Ability|AUTOMATIC|Maneuverability(Poor)|PREVAREQ:Maneuverability,2	ABILITY:Special Ability|AUTOMATIC|Maneuverability(Average)|PREVAREQ:Maneuverability,3	ABILITY:Special Ability|AUTOMATIC|Maneuverability(Good)|PREVAREQ:Maneuverability,4	ABILITY:Special Ability|AUTOMATIC|Maneuverability(Perfect)|PREVARGTEQ:Maneuverability,5	BONUS:VAR|Maneuverability|%CHOICE|PREAPPLY:PC	TEMPDESC:Adjust Flight Maneuverability up or down by assigning a possitive or negative number
 Aerial Maneuverability	CATEGORY:Special Ability	VISIBLE:NO	DEFINE:Maneuverability|0	CHOOSE:NUMBER|MIN=-4|MAX=4|TITLE=Flight Maneuverability Adjustment	ABILITY:Special Ability|AUTOMATIC|Maneuverability(Clumsy)|PREVARLTEQ:Maneuverability,1	ABILITY:Special Ability|AUTOMATIC|Maneuverability(Poor)|PREVAREQ:Maneuverability,2	ABILITY:Special Ability|AUTOMATIC|Maneuverability(Average)|PREVAREQ:Maneuverability,3	ABILITY:Special Ability|AUTOMATIC|Maneuverability(Good)|PREVAREQ:Maneuverability,4	ABILITY:Special Ability|AUTOMATIC|Maneuverability(Perfect)|PREVARGTEQ:Maneuverability,5	BONUS:VAR|Maneuverability|%CHOICE|PREAPPLY:PC	TEMPDESC:Adjust Flight Maneuverability up or down by assigning a possitive or negative number
