@@ -44,9 +44,8 @@ LEVEL_ADJUSTMENT_5	VISIBLE:NO	CATEGORY:Internal	TEMPLATE:LEVEL_ADJUSTMENT_5
 LEVEL_ADJUSTMENT_6	VISIBLE:NO	CATEGORY:Internal	TEMPLATE:LEVEL_ADJUSTMENT_6
 
 
-Uncanny Dodge Tracker	CATEGORY:Internal
 
-Default			CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|Low-Light Vision|PREVARGTEQ:HasLowlightVision,1	ABILITY:Special Ability|AUTOMATIC|Darkvision|PREVARGTEQ:DarkvisionRange,1	ABILITY:Internal|AUTOMATIC|Defines			ABILITY:Special Ability|AUTOMATIC|Aerial Maneuverability|PREMOVE:1,Fly=1
+Default			CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|Low-Light Vision|PREVARGTEQ:HasLowlightVision,1	ABILITY:Special Ability|AUTOMATIC|Darkvision|PREVARGTEQ:DarkvisionRange,1	ABILITY:Internal|AUTOMATIC|Defines			ABILITY:Special Ability|AUTOMATIC|Aerial Maneuverability|PREMOVE:1,Fly=1	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base
 
 ###Block: Vision Modes
 # Ability Name	Category of Ability		Type							Define				Description																																																																																												Vision					Source Page		Aspects
@@ -159,8 +158,8 @@ Lightfoot	CATEGORY:Internal	TYPE:HalflingSubrace	TEMPLATE:Lightfoot Halfling
 # NOTES: TYPEs ClassFeature.xxxClassFeature is just a placeholder; ClassNameClassFeature will display in the UI; SpecialQuality is default for showing on the Sheet
 
 #Base Shared Abilities
-Uncanny Dodge Tracker		CATEGORY:Special Ability		DEFINE:UncannyDodgeTracker|0		ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge|PREVARGTEQ:UncannyDodgeTracker,1	ABILITY:Special Ability|AUTOMATIC|Improved Uncanny Dodge|PREVARGTEQ:UncannyDodgeTracker,2		BONUS:VAR|UncannyDodgeTracker|count("ABILITY","CATEGORY=Special Ability","TYPE=UncannyDodge")
-Uncanny Dodge ~ Base			CATEGORY:Special Ability	TYPE:Internal.ClassFeature						DEFINE:UncannyDodgeFlankingLevel|0	DEFINE:UncannyDodgeLevel|0														ABILITY:Special Ability|AUTOMATIC|Retain Dex to AC ~ Flat-footed	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge|PREVARGTEQ:UncannyDodgeTracker,1	ABILITY:Special Ability|AUTOMATIC|Improved Uncanny Dodge|PREVARGTEQ:UncannyDodgeTracker,2	DEFINE:UncannyDodgeTracker|0	ABILITY:Special Ability|AUTOMATIC|Improved Uncanny Dodge|PREVARGTEQ:UncannyDodgeTracker,2		BONUS:VAR|UncannyDodgeTracker|count("ABILITY","CATEGORY=Special Ability","TYPE=UncannyDodge")
+#Uncanny Dodge Tracker			CATEGORY:Internal		DEFINE:UncannyDodgeTracker|0		ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge|PREVARGTEQ:UncannyDodgeTracker,1	ABILITY:Special Ability|AUTOMATIC|Improved Uncanny Dodge|PREVARGTEQ:UncannyDodgeTracker,2		BONUS:VAR|UncannyDodgeTracker|count("ABILITY","CATEGORY=Special Ability","TYPE=UncannyDodge")
+Uncanny Dodge ~ Base			CATEGORY:Special Ability	TYPE:Internal.ClassFeature						DEFINE:UncannyDodgeFlankingLevel|0	DEFINE:UncannyDodgeLevel|0	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge|PREVARGTEQ:UncannyDodgeTracker,1	ABILITY:Special Ability|AUTOMATIC|Improved Uncanny Dodge|PREVARGTEQ:UncannyDodgeTracker,2	DEFINE:UncannyDodgeTracker|0	ABILITY:Special Ability|AUTOMATIC|Improved Uncanny Dodge|PREVARGTEQ:UncannyDodgeTracker,2		BONUS:VAR|UncannyDodgeTracker|count("ABILITY","CATEGORY=Special Ability","TYPE=UncannyDodge")
 Retain Dex to AC ~ Flat-footed	CATEGORY:Special Ability	TYPE:Internal.ClassFeature				VISIBLE:NO												DESC:You retain your Dexterity bonus to AC even when flat-footed
 #COMMENT: This is granted to a character that would get Uncanny Dodge a second time
 #Improved Uncanny Dodge			CATEGORY:Special Ability	TYPE:ClassFeature.SpecialQuality.Extraordinary														DESC:Can't be flanked except by a level %1 rogue|UncannyDodgeFlankingLevel																																									BONUS:VAR|UncannyDodgeFlankingLevel|4|TYPE=OnceOnly	SOURCEPAGE:ClassesII.rtf
