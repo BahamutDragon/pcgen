@@ -1,0 +1,111 @@
+# CVS $Revision: $ $Author: $ -- Thu Oct 10 15:48:27 2013 -- reformated by prettylst.pl v1.50 (build 20400)
+SOURCELONG:Draconomicon	SOURCESHORT:Dr	SOURCEDATE:2004-11
+
+# Ability Name								Clear Description	Description																																																																																					Source Page
+CATEGORY=Special Ability|Vulnerability to Acid.MOD		DESC:.CLEAR		DESC:You take half again as much (+50%%) damage as normal from Acid, regardless of whether a saving throw is allowed, or if the save is a success or failure|PREVAREQ:VulnerabilityAcidLvl,0	DESC:You take quarter again as much (+25%%) damage as normal from Acid, regardless of whether a saving throw is allowed, or if the save is a success or failure|PREVAREQ:VulnerabilityAcidLvl,1	DESC:You have suppressed your vulnerability to Acid|PREVAREQ:VulnerabilityAcidLvl,2									SOURCEPAGE:p.305
+CATEGORY=Special Ability|Vulnerability to Cold.MOD		DESC:.CLEAR		DESC:You take half again as much (+50%%) damage as normal from Cold, regardless of whether a saving throw is allowed, or if the save is a success or failure|PREVAREQ:VulnerabilityColdLvl,0	DESC:You take quarter again as much (+25%%) damage as normal from Cold, regardless of whether a saving throw is allowed, or if the save is a success or failure|PREVAREQ:VulnerabilityColdLvl,1	DESC:You have suppressed your vulnerability to Cold|PREVAREQ:VulnerabilityColdLvl,2									SOURCEPAGE:p.305
+CATEGORY=Special Ability|Vulnerability to Fire.MOD		DESC:.CLEAR		DESC:You take half again as much (+50%%) damage as normal from Fire, regardless of whether a saving throw is allowed, or if the save is a success or failure|PREVAREQ:VulnerabilityFireLvl,0	DESC:You take quarter again as much (+25%%) damage as normal from Fire, regardless of whether a saving throw is allowed, or if the save is a success or failure|PREVAREQ:VulnerabilityFireLvl,1	DESC:You have suppressed your vulnerability to Fire|PREVAREQ:VulnerabilityFireLvl,2									SOURCEPAGE:p.305
+CATEGORY=Special Ability|Vulnerability to Electricity.MOD	DESC:.CLEAR		DESC:You take half again as much (+50%%) damage as normal from Electricity, regardless of whether a saving throw is allowed, or if the save is a success or failure|PREVAREQ:VulnerabilityElectricityLvl,0	DESC:You take quarter again as much (+25%%) damage as normal from Electricity, regardless of whether a saving throw is allowed, or if the save is a success or failure|PREVAREQ:VulnerabilityElectricityLvl,1	DESC:You have suppressed your vulnerability to Electricity|PREVAREQ:VulnerabilityElectricityLvl,2	SOURCEPAGE:p.305
+CATEGORY=Special Ability|Vulnerability to Sonic.MOD		DESC:.CLEAR		DESC:You take half again as much (+50%%) damage as normal from Sonic, regardless of whether a saving throw is allowed, or if the save is a success or failure|PREVAREQ:VulnerabilitySonicLvl,0	DESC:You take quarter again as much (+25%%) damage as normal from Sonic, regardless of whether a saving throw is allowed, or if the save is a success or failure|PREVAREQ:VulnerabilitySonicLvl,1	DESC:You have suppressed your vulnerability to Sonic|PREVAREQ:VulnerabilitySonicLvl,2							SOURCEPAGE:p.305
+
+###Block: Proficiencies
+
+###Block:
+# Ability Name	Unique Key						Category of Ability		Type			Visible	Define						Modify VAR																										Source Page
+Draconic Fury	KEY:Draconic Fury ~ Blood Scaled Fury	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	DEFINE:BloodscaledFuryDraconicFuryLVL|0	BONUS:VAR|DraconicFuryPower|((BloodscaledFuryDraconicFuryLVL+2)/4)	BONUS:VAR|TirelessRage|1|PREVARGTEQ:BloodscaledFuryDraconicFuryLVL,9				SOURCEPAGE:Drac
+Scales Of Blood	KEY:Scales Of Blood ~ Blood Scaled Fury	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	DEFINE:BloodScaledFuryScalesOfBloodLVL|0	BONUS:VAR|ScalesOfBloodDR|5	BONUS:VAR|ScalesOfBloodPower|((BloodScaledFuryScalesOfBloodLVL-4)/3)	BONUS:VAR|ScalesOfBloodSR|BloodScaledFuryScalesOfBloodLVL	SOURCEPAGE:Drac
+
+###Block:
+# Ability Name	Unique Key				Category of Ability		Type			Visible	Define					Modify VAR																					Source Page
+Resistance		KEY:Resistance ~ Ashardalon	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	DEFINE:AshardalonResistanceLVL|0	BONUS:VAR|AcidResistanceBonus,ColdResistanceBonus,ElectricityResistanceBonus,FireResistanceBonus|5+((AshardalonResistanceLVL/4)*5)	SOURCEPAGE:Drac
+
+###Block:
+# Ability Name	Unique Key							Category of Ability		Type			Visible	Define							Modify VAR																Source Page
+Stunning Rebuke	KEY:Stunning Rebuke ~ Dispassionate Watcher	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	DEFINE:DispassionateWatcherStunningRebukeLVL|0	BONUS:VAR|StunningRebukeDC|DispassionateWatcherStunningRebukeLVL	BONUS:VAR|StunningRebukePerDay|1	SOURCEPAGE:Drac
+###Block:
+# Ability Name	Unique Key					Category of Ability		Type			Visible	Define						Modify VAR																Source Page
+Awesome Aura	KEY:Awesome Aura ~ Dragon Ascendant	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	DEFINE:DragonAscendantAwesomeAuraLVL|0	BONUS:VAR|AwesomeAuraRange|30*DragonAge	BONUS:VAR|AwesomeAuraDC|DragonAscendantAwesomeAuraLVL/2	SOURCEPAGE:Drac
+###Block:
+# Ability Name	Unique Key						Category of Ability		Type			Visible	Define									Modify VAR																																		Source Page
+Turning		KEY:Turning ~ Elemental Master		CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	DEFINE:AllowImprovedTurning|1	DEFINE:AllowExtraTurning|1	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base	BONUS:VAR|TurnCheckBase|CHA|TYPE=Base																						SOURCEPAGE:Drac
+Summon Elemental	KEY:Summon Elemental ~ Elemental Master	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO											BONUS:VAR|SummonElementalPerDay|3																														SOURCEPAGE:Drac
+Energy Focus	KEY:Energy Focus ~ Elemental Master		CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	DEFINE:ElementalMasterEnergyFocusLVL|0				BONUS:VAR|EnergyFocusBonus|ElementalMasterEnergyFocusLVL/3																										SOURCEPAGE:Drac
+Energy Burst	KEY:Energy Burst ~ Elemental Master		CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	DEFINE:ElementalMasterEnergyBurstLVL|0				BONUS:VAR|EnergyBurstRadius|5*ElementalMasterEnergyBurstLVL	BONUS:VAR|EnergyBurstDice|ElementalMasterEnergyBurstLVL	BONUS:VAR|EnergyBurstDamageDie|8	BONUS:VAR|EnergyBurstDC|ElementalMasterEnergyBurstLVL	SOURCEPAGE:Drac
+Energy Storm	KEY:Energy Storm ~ Elemental Master		CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	DEFINE:ElementalMasterEnergyStormLVL|0				BONUS:VAR|EnergyStormRadius|5*ElementalMasterEnergyStormLVL	BONUS:VAR|EnergyStormDamage|2*ElementalMasterEnergyStormLVL	BONUS:VAR|EnergyStormDuration|ElementalMasterEnergyStormLVL						SOURCEPAGE:Drac
+###Block:
+# Ability Name			Unique Key							Category of Ability		Type			Visible	Define							Combat bonus										Modify VAR												Source Page
+Increased Spell Resistance	KEY:Increased Spell Resistance ~ Hidecarved	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	DEFINE:HidecarvedIncreasedSpellResistanceLVL|0													BONUS:VAR|IncreasedSpellResistanceBonus|HidecarvedIncreasedSpellResistanceLVL	SOURCEPAGE:Drac
+Natural Armor			KEY:Natural Armor ~ Hidecarved			CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	DEFINE:HidecarvedNaturalArmorLVL|0			BONUS:COMBAT|AC|((HidecarvedNaturalArmorLVL/4)*2)|TYPE=NaturalArmor														SOURCEPAGE:Drac
+Wholeness of Body			KEY:Wholeness of Body ~ Hidecarved			CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	DEFINE:HidecarvedWholenessOfBodyLVL|0														BONUS:VAR|WholenessBody|HidecarvedWholenessOfBodyLVL*3				SOURCEPAGE:Drac
+###Block:
+# Ability Name		Unique Key						Category of Ability		Type			Visible	Define						Modify VAR																					Source Page
+Smite Evil Dragons	KEY:Smite Evil Dragons ~ Sacred Warder	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	DEFINE:SacredWarderSmiteEvilDragonLVL|0	BONUS:VAR|SmiteEvilDragons|((SacredWarderSmiteEvilDragonLVL+2)/4)	BONUS:VAR|SmiteEvilDragonsDamage|SacredWarderSmiteEvilDragonLVL	SOURCEPAGE:Drac
+Aura Of Courage		KEY:Aura Of Courage ~ Sacred Warder		CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	DEFINE:SacredWarderAuraOfCourageLVL|0	BONUS:VAR|AuraOfCourageRadius|30*DragonAge	BONUS:VAR|AuraOfCourageBonus|SacredWarderAuraOfCourageLVL					SOURCEPAGE:Drac
+Sacred Shield		KEY:Sacred Shield ~ Sacred Warder		CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	DEFINE:SacredWarderSacredShieldLVL|0	BONUS:VAR|SacredShieldPerDay|3	BONUS:VAR|SacredShieldDuration|10*SacredWarderSacredShieldLVL						SOURCEPAGE:Drac
+Area Sacred Shield	KEY:Area Sacred Shield ~ Sacred Warder	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO								BONUS:VAR|AreaSacredShieldRadius|30																	SOURCEPAGE:Drac
+###Block:
+# Ability Name	Unique Key					Category of Ability		Type			Visible		Define													Description																																													Modify VAR																								Source Page
+Smite			KEY:Smite ~ Unholy Ravager		CATEGORY:Special Ability	TYPE:Internal	VISIBLE:EXPORT	DEFINE:SmiteAnyToHit|0	DEFINE:SmiteAnyDamage|0	DEFINE:UnholyRavagerSmiteLVL|0	DESC:An unholy ravager of Tiamat add its class levels to its cleric levels to determine it bonus on damage when using smite ability granted by Destruction domain.	DESC:+%1 with one normal melee attack for +%2 extra damge %3/day|SmiteAnyToHit|SmiteAnyDamage|SmiteAnyTimes	BONUS:VAR|SmiteAnyToHit|4	BONUS:VAR|SmiteAnyDamage|UnholyRavagerSmiteLVL+classlevel("Cleric")	BONUS:VAR|SmiteAnyTimes|UnholyRavagerSmiteLVL/4	SOURCEPAGE:Drac
+Profane Blast	KEY:Profane Blast ~ Unholy Ravager	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO																																																														BONUS:VAR|ProfaneBlastPerDay|3																				SOURCEPAGE:Drac
+###Block:
+# Ability Name	Unique Key				Category of Ability		Type			Visible	Modify VAR					Source Page
+Summon Dragon	KEY:Summon Dragon ~ Dracolyte	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	BONUS:VAR|SummonDragonPerDay|1	SOURCEPAGE:Drac
+###Block:
+# Ability Name	Unique Key					Category of Ability		Type			Visible	Define											Modify VAR																																Source Page
+Scales		KEY:Scales ~ Dragonkith			CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	DEFINE:DragonkithScalesLVL|0								BONUS:VAR|ScalesACBonus|(DragonkithScalesLVL+2)/3																									SOURCEPAGE:Drac
+Mighty Attack	KEY:Mighty Attack ~ Dragonkith	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	DEFINE:DragonkithMightyAttackLVL|0							BONUS:VAR|MightyAttack|((DragonkithMightyAttackLVL+1)/3)	BONUS:VAR|MightyAttackPerDay|1																		SOURCEPAGE:Drac
+Detect Treasure	KEY:Detect Treasure ~ Dragonkith	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO													BONUS:VAR|DetectTreasurePerDay|1																												SOURCEPAGE:Drac
+Resistance		KEY:Resistance ~ Dragonkith		CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	DEFINE:DragonkithResistanceLVL|0	DEFINE:DragonkithResistanceBase|0	BONUS:VAR|DragonkithResistanceBase|5	BONUS:VAR|DragonkithResistanceBase|5|PREVARGTEQ:DragonkithResistanceLVL,7	BONUS:VAR|DragonkithResistanceBase|5|PREVARGTEQ:DragonkithResistanceLVL,9	SOURCEPAGE:Drac
+Sorcerous Knack	KEY:Sorcerous Knack ~ Dragonkith	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO													BONUS:VAR|SorcerousKnackPerDay|1																												SOURCEPAGE:Drac
+###Block:
+# Ability Name	Unique Key					Category of Ability		Type			Visible	Define					Modify VAR									Source Page
+Dragonriding	KEY:Dragonriding ~ Dragonrider	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	DEFINE:DragonriderDragonridingLVL|0	BONUS:VAR|DragonridingBonus|DragonriderDragonridingLVL	SOURCEPAGE:Drac
+###Block:
+# Ability Name				Unique Key								Category of Ability		Type			Visible	Define																																													Modify VAR														Damage Reduction		Source Page
+Damage Bonus				KEY:Damage Bonus ~ Dragonslayer				CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	DEFINE:DragonslayerDamageBonusLVL|0																																									BONUS:VAR|DamageBonusDragonsHP|DragonslayerDamageBonusLVL										SOURCEPAGE:Drac
+Overcome Draconic Spell Resistance	KEY:Overcome Draconic Spell Resistance ~ Dragonslayer	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	DEFINE:DragonslayerOvercomeDraconicSpellResistanceLVL|0																																					BONUS:VAR|OvercomeDraconicSpellResistance|DragonslayerOvercomeDraconicSpellResistanceLVL					SOURCEPAGE:Drac
+DR						KEY:DR ~ Dragonslayer						CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	DEFINE:DragonslayerDR|0	DEFINE:DragonslayerDRLVL|0																																						BONUS:VAR|DragonslayerDR|DragonslayerDRLVL/3								DR:DragonslayerDR/-	SOURCEPAGE:Drac
+Resistance					KEY:Resistance ~ Dragonslayer					CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	DEFINE:DragonslayerResistanceLVL|0	DEFINE:AcidResistanceBonus|DragonslayerResistanceLVL/5	DEFINE:ColdResistanceBonus|DragonslayerResistanceLVL/5	DEFINE:FireResistanceBonus|DragonslayerResistanceLVL/5	DEFINE:SonicResistanceBonus|DragonslayerResistanceLVL/5																				SOURCEPAGE:Drac
+True Strike Dragons			KEY:True Strike Dragons ~ Dragonslayer			CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO																																															BONUS:VAR|TrueStrikeDragonsPerDay|1														SOURCEPAGE:Drac
+###Block:
+# Ability Name		Unique Key					Category of Ability		Type			Visible	Define														Source Page
+Greater Dragonsong	KEY:Greater Dragonsong ~ Dragonsong	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	DEFINE:GreaterDragonsongLVL|0	DEFINE:GreaterDragonsongDC|10+CHA+GreaterDragonsongLVL	SOURCEPAGE:Drac
+###Block:
+# Ability Name		Unique Key						Category of Ability		Type			Visible	Define							Modify VAR												Source Page
+Hunting Bonus		KEY:Hunting Bonus ~ Dragonstalker		CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	DEFINE:DragonstalkerHuntingBonusLVL|0		BONUS:VAR|HuntingBonus|DragonstalkerHuntingBonusLVL					SOURCEPAGE:Drac
+Dragons Sneak Attack	KEY:Dragons Sneak Attack ~ Dragonstalker	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	DEFINE:DragonstalkerDragonsSneakAttackLVL|0	BONUS:VAR|DragonsSneakAttackDice|((DragonstalkerDragonsSneakAttackLVL/2)*2)	SOURCEPAGE:Drac
+Ignore Natural Armor	KEY:Ignore Natural Armor ~ Dragonstalker	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	DEFINE:DragonstalkerIgnoreNaturalArmorLVL|0	BONUS:VAR|IgnoreNaturalArmorPerDay|(DragonstalkerIgnoreNaturalArmorLVL+1)/4	SOURCEPAGE:Drac
+Foil Blindsense		KEY:Foil Blindsense ~ Dragonstalker		CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO									BONUS:VAR|FoilBlindsensePerDay|1								SOURCEPAGE:Drac
+###Block:
+# Ability Name	Unique Key					Category of Ability		Type			Visible	Define						Modify VAR														Source Page
+Trap Sense		KEY:Trap Sense ~ Hoardstealer		CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	DEFINE:HoardstealerTrapSenseLVL|0		BONUS:VAR|TrapSenseBonus|((HoardstealerTrapSenseLVL)/3)*2						SOURCEPAGE:Drac
+Deep Pockets	KEY:Deep Pockets ~ Hoardstealer	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	DEFINE:HoardstealerDeepPocketsLVL|0		BONUS:VAR|DeepPocketsPerDay|1	BONUS:VAR|DeepPocketsDuration|HoardstealerDeepPocketsLVL	SOURCEPAGE:Drac
+Treasure Dowsing	KEY:Treasure Dowsing ~ Hoardstealer	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	DEFINE:HoardstealerTreasureDowsingLVL|0	BONUS:VAR|TreasureDowsingPerDay|((HoardstealerTreasureDowsingLVL-1)/3)				SOURCEPAGE:Drac
+
+###Block: Initiate of the Draconic Mysteries
+# Ability Name		Unique Key									Category of Ability		Type			Visible	Define						Modify VAR																	Spell Res.		Source Page
+Frightful Presence	KEY:Frightful Presence ~ Initiate of the Draconic Mysteries	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	DEFINE:InitiateFrightfulPresenceLVL|0	BONUS:VAR|FrightfulPresRange|30*max(1,CHA)	BONUS:VAR|FrightfulPresenceDC|InitiateFrightfulPresenceLVL				SOURCEPAGE:Drac
+Spell Resistance		KEY:Spell Resistance ~ Initiate of the Draconic Mysteries	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	DEFINE:InitiateSR|0																						SR:15+InitiateSR	SOURCEPAGE:Drac
+Dragonshape			KEY:Dragonshape ~ Initiate of the Draconic Mysteries		CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO								BONUS:VAR|DragonshapePerDay|1																	SOURCEPAGE:Drac
+###Block: Platinum Knight
+# Ability Name					Category of Ability		Type			Visible	Define						Modify VAR																						Source Page
+Smite Evil Dragons ~ Platinum Knight	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	DEFINE:PlatinumKnightSmiteEvilDragonLVL|0	BONUS:VAR|SmiteEvilDragons|((PlatinumKnightSmiteEvilDragonLVL+2)/3)	BONUS:VAR|SmiteEvilDragonsDamage|SacredWarderSmiteEvilDragonLVL	SOURCEPAGE:Drac
+Platinum Scales ~ Platinum Knight		CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	DEFINE:PlatinumKnightPlatinumScalesLVL|0	BONUS:VAR|PlatinumScalesAC|((PlatinumKnightPlatinumScalesLVL+5)/6)												SOURCEPAGE:Drac
+###Block:
+# Ability Name		Unique Key						Category of Ability		Type			Visible	Define							Modify VAR																		Source Page
+Breath Weapon		KEY:Breath Weapon ~ Talon of Tiamat		CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	DEFINE:TalonOfTiamatBreathWeaponLVL|0		BONUS:VAR|BreathWeaponDC|TalonOfTiamatBreathWeaponLVL	BONUS:VAR|BreathWeaponCone|5*(SIZE-3)				SOURCEPAGE:Drac
+Voice of the Dragon	KEY:Voice of the Dragon ~ Talon of Tiamat	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	DEFINE:TalonOfTiamatVoiceOfTheDragonLVL|0		BONUS:VAR|VoiceOfTheDragonBonus|(((TalonOfTiamatVoiceOfTheDragonLVL+2)/4)*2)							SOURCEPAGE:Drac
+Frightfull Presence	KEY:Frightfull Presence ~ Talon of Tiamat	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	DEFINE:TalonOfTiamatFrightfulPresenceLVL|0	BONUS:VAR|FrightfulPresRange|30*max(1,CHA)	BONUS:VAR|FrightfulPresenceDC|TalonOfTiamatFrightfulPresenceLVL	SOURCEPAGE:Drac
+Dominate Dragon		KEY:Dominate Dragon ~ Talon of Tiamat	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO									BONUS:VAR|DominateDragonPerDay|1														SOURCEPAGE:Drac
+###Block:
+# Ability Name	Unique Key					Category of Ability		Type						Visible	Serves As									Define																												Description																																													Modify VAR																						Source Page
+Inspire Courage	KEY:Inspire Courage ~ Battle Dragon	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	VISIBLE:YES	SERVESAS:ABILITY=Special Ability|Bardic Inspire Courage	DEFINE:InspireCourageDuration|InspireDurationBase	DEFINE:InspireCourageSaves|0	DEFINE:InspireCourageAttack|0	DEFINE:InspireCourageDamage|0	DEFINE:InspireCourageLVL|0	DESC:+%1 to saves against charm or fear effects and +%2 morale bonus on attack and +%3 morale damage rolls (as long as the ally hears the battle dragon sing and for %4 rounds thereafter).|InspireCourageSaves|InspireCourageAttack|InspireCourageDamage|InspireCourageDuration	BONUS:VAR|InspireCourageSaves|2	BONUS:VAR|InspireCourageAttack,InspireCourageDamage|1	BONUS:VAR|InspireCourageLVL|BardicMusicLvl	SOURCEPAGE:Drac
+Battle Fury		KEY:Battle Fury ~ Battle Dragon	CATEGORY:Special Ability	TYPE:Internal				VISIBLE:NO											DEFINE:BattleDragonBattleFuryTimesLVL|0																																																																					BONUS:VAR|BattleFuryTimes|1																			SOURCEPAGE:Drac
+###Block:
+# Ability Name			Unique Key							Category of Ability		Type			Visible	Define					Modify VAR
+Summon Ethereal Cyclones	KEY:Summon Ethereal Cyclones ~ Ethereal Dragon	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO							BONUS:VAR|SummonEtherealCyclones|1
+Smite Evil				KEY:Smite Evil ~ Oceanus Dragon			CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	DEFINE:OceanusDragonSmiteEvilLVL|0	BONUS:VAR|SmiteEvil|1	BONUS:VAR|SmiteEvilDamage|OceanusDragonSmiteEvilLVL
+Healing Touch			KEY:Healing Touch ~ Radiant Dragon			CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO							BONUS:VAR|HealingTouchPerDay|1
+Create Shadows			KEY:Create Shadows ~ Shadowon Dragon		CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO							BONUS:VAR|CreateShadowsPerDay|3
+
+
