@@ -1,0 +1,36 @@
+# CVS $Revision: $ $Author: $ -- Fri Oct 11 07:36:00 2013 -- reformated by prettylst.pl v1.50 (build 20400)
+SOURCELONG:Complete Arcane	SOURCESHORT:CAr	SOURCEDATE:2004-11
+
+
+# Template Name		Output Name				Hit Dice Size	Challenge Rating	Damage Reduction											Template																Source Page		Special ABility																				Define										Multiple Requirements																																								Prohibited Race				Required Stat	Save checks bonus							Combat bonus					Stat bonus					Modify VAR																												Ability																	Spell Res.			Main Race Type		Race Subtype			Type			Hit Dice
+Effigy								HITDIE:10		CR:1																TEMPLATE:Construct														SOURCEPAGE:p.	SAB:Loses Supernatural, Spell-like and extraordinary special abilities for wich a target's saving throw is based on Effigy's Con	DEFINE:LOCK.INT|10	DEFINE:LOCK.WIS|11	DEFINE:LOCK.CHA|1	PREMULT:1,[PRERACE:1,RACETYPE=Aberration],[PRERACE:1,RACETYPE=Animal],[PRERACE:1,RACETYPE=Dragon],[PRERACE:1,RACETYPE=Giant],[PRERACE:1,RACETYPE=Humanoid],[PRERACE:1,RACETYPE=Magical Beast],[PRERACE:1,RACETYPE=Monstrous Humanoid],[PRERACE:1,RACETYPE=Vermin]	!PRERACE:1,RACESUBTYPE=Incorporeal													BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|4	BONUS:STAT|DEX|-2																																																				RACETYPE:Construct						TYPE:Construct	HD:1-3:DR:1/Adamantine	HD:4-6:DR:3/Adamantine	HD:7-10:DR:5/Adamantine	HD:11-15:DR:7/Adamantine	HD:16-20:DR:10/Adamantine	HD:21+:DR:15/Adamantine
+Pseudonatural (CA)	OUTPUTNAME:Pseudonatural							DR:5/Magic|PRELEVEL:MIN=4	DR:10/Magic|PRELEVEL:MIN=12				TEMPLATE:CHOOSE:Int Bonus +1|Int Bonus +2|Int Bonus +3	TEMPLATE:Outsider	TEMPLATE:Shapechanger	SOURCEPAGE:p.																							DEFINE:PseudonaturalSR|0																																																		!PRERACE:1,RACESUBTYPE=Incorporeal																										BONUS:VAR|AcidResistanceBonus|5+((HD>=8)*5)	BONUS:VAR|ElectricityResistanceBonus|5+((HD>=8)*5)	BONUS:VAR|PseudonaturalSR|min(25,10+HD)	BONUS:VAR|TrueStrikePerDay|1	ABILITY:Special Ability|AUTOMATIC|True Strike|Resistance to Acid|Resistance to Electricity|Alternate Form	SR:PseudonaturalSR	RACETYPE:Outsider		RACESUBTYPE:Shapechanger	TYPE:Outsider	HD:4-11:CR:1	HD:12+:CR:2
+Spellstitched										CR:1			DR:5/Magic or Silver|PRELEVEL:MIN=4	DR:5/Magic and Silver|PRELEVEL:MIN=12																		SOURCEPAGE:p.																							DEFINE:SpellstitchedSR|0							PREMULT:2,[PRERACE:1,RACETYPE=Undead],[!PRETEMPLATE:1,Incorporeal]																																						PRESTAT:1,WIS=10	BONUS:CHECKS|Fortitude,Reflex,Will|2|TYPE=Profane														BONUS:VAR|TurnResistBonus|2	BONUS:VAR|SpellstitchedSR|10+CHA																			ABILITY:Special Ability|AUTOMATIC|Turn Resistance										SR:SpellstitchedSR
+
+
+###Block: Hidden
+# Template Name				Visible		Damage Reduction	Template																		Define			Required Class				Required Size	Minimum Size	Maximum Size	Bonus to HP													Bonus to skill		Modify VAR												Ability																													Main Race Type		Race Subtype			Type			Natural Attacks
+Fiendish Symbiosis			VISIBLE:NO		DR:10/Good																									PRECLASS:1,Acolyte of the Skin=10																																																																							RACETYPE:Outsider							TYPE:Outsider
+Alienist Timeless Body			VISIBLE:DISPLAY				TEMPLATE:CHOOSE:Timeless Body ~ Adult|Timeless Body ~ Middle Age|Timeless Body ~ Old|Timeless Body ~ Venerable					PRECLASS:1,Alienist=9
+Alienist Alien Trascendence		VISIBLE:NO		DR:10/Magic																									PRECLASS:1,Alienist=10																										BONUS:SKILL|Disguise|-4	BONUS:VAR|AcidResistanceBonus|10	BONUS:VAR|ElectricityResistanceBonus|10	ABILITY:Special Ability|VIRTUAL|Resistance To Acid|Resistance to Electricity																		RACETYPE:Outsider							TYPE:Outsider
+
+# Elemental Savant
+Elemental Perfection			VISIBLE:NO																												PRECLASS:1,Elemental Savant=10																																									ABILITY:Special Ability|AUTOMATIC|Immunity To Stunning|Immunity To Critical Hits																	RACETYPE:Elemental						TYPE:Elemental
+
+# Green Star Adept
+Green Star Adept Attacks		VISIBLE:NO					TEMPLATE:CHOOSE:Green Star Adept Attacks Small|Green Star Adept Attacks Medium|Green Star Adept Attacks Large
+Green Star Adept Attacks Small	VISIBLE:NO																																		PRESIZEEQ:S																																																																																	NATURALATTACKS:Slam,Weapon.Natural.Finesseable.Melee.Bludgeoning,*1,1d4
+Green Star Adept Attacks Medium	VISIBLE:NO																																		PRESIZEEQ:M																																																																																	NATURALATTACKS:Slam,Weapon.Natural.Finesseable.Melee.Bludgeoning,*1,1d6
+Green Star Adept Attacks Large	VISIBLE:NO																																		PRESIZEEQ:L																																																																																	NATURALATTACKS:Slam,Weapon.Natural.Finesseable.Melee.Bludgeoning,*1,1d8
+Emerald Perfection			VISIBLE:NO					TEMPLATE:Construct																DEFINE:LOCK.CON|10	PRECLASS:1,Green Star Adept=10										BONUS:HP|CURRENTMAX|max(SIZE-2,0)*10	BONUS:HP|CURRENTMAX|max(SIZE-6,0)*10																		ABILITY:Special Ability|AUTOMATIC|Immunity To Poison|Immunity To Stunning|Immunity To Disease|Immunity To Death Effects|Immunity to Necromantic Effetcs|Immunity to Sneak Attack	RACETYPE:Construct						TYPE:Construct
+
+# Master Transmogrifist
+Transmogrifist Shapechanger		VISIBLE:NO																																																																																																												RACESUBTYPE:Shapechanger
+
+# Elemental Grue
+Elemental Grue				VISIBLE:NO																																																																										ABILITY:Special Ability|AUTOMATIC|Spell Disruption
+
+# Draconic Heritage
+Draconic Heritage ~ Claw (Small)	VISIBLE:NO																																								PRESIZELTEQ:S																																																																										NATURALATTACKS:Draconic Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*1,1d4
+Draconic Heritage ~ Claw (Medium)	VISIBLE:NO																																		PRESIZEEQ:M																																																																																	NATURALATTACKS:Draconic Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*1,1d6
+Draconic Heritage ~ Claw (Large)	VISIBLE:NO																																					PRESIZEGTEQ:L																																																																													NATURALATTACKS:Draconic Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*1,1d8
