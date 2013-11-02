@@ -2498,9 +2498,10 @@ STAT:DEX=11|CON=11|WIS=11|STR=10|INT=10|CHA=10
 GEAR:Dagger		SIZE:PC	LOCATION:Primary Hand
 GEAR:Longbow	SIZE:PC	LOCATION:Carried		EQMOD:MWORKW
 
-STARTPACK:Dwarf (Duergar) Default	TYPE:DefaultMonster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dwarf (Duergar)]
-RACE:Dwarf (Duergar)	!PRERACE:1,%
+STARTPACK:Dwarf (Duergar) Default	TYPE:DefaultMonster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PREMULT:2,[PRERACE:1,Dwarf],[PREABILITY:1,CATEGORY=Internal,Duergar Dwarf]]
+RACE:Dwarf	!PRERACE:1,%
 NAME:Duergar
+ABILITY:CATEGORY=Dwarf Subrace|Duergar Dwarf		!PREABILITY:1,CATEGORY=Internal,TYPE.DwarfSubrace
 STAT:STR=13|DEX=11|CON=12|INT=10|WIS=9|CHA=8
 ALIGN:LE
 CLASS:Warrior	LEVEL:1
@@ -2882,11 +2883,13 @@ GEAR:Morningstar		SIZE:PC	LOCATION:Secondary Hand
 GEAR:Javelin	QTY:2	SIZE:PC	LOCATION:Carried
 GEAR:Hide			SIZE:PC	LOCATION:Equipped
 
-STARTPACK:Elf (Drow) Default	TYPE:DefaultMonster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elf (Drow)]
-RACE:Elf (Drow)	!PRERACE:1,%
+STARTPACK:Elf (Drow) Default	TYPE:DefaultMonster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PREMULT:2,[PRERACE:1,Elf],[PREABILITY:1,CATEGORY=Internal,Drow Elf]]
+RACE:Elf	!PRERACE:1,%
 NAME:Elf (Drow)
+ABILITY:CATEGORY=Elf Subrace|Drow Elf		!PREABILITY:1,CATEGORY=Internal,TYPE.ElfSubrace
 STAT:STR=13|DEX=11|CON=12|INT=10|WIS=9|CHA=8
 ALIGN:NE
+ABILITY:CATEGORY=Elf Subrace|Drow Elf
 CLASS:Warrior	LEVEL:1
 GEAR:Chain Shirt			SIZE:PC	LOCATION:Equipped
 GEAR:Shield (Light/Steel)	SIZE:PC	LOCATION:Equipped
@@ -3392,8 +3395,9 @@ FEAT:Track
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 GEAR:Battleaxe	SIZE:PC	LOCATION:Both Hands
 
-STARTPACK:Gnome (Svirfneblin) Default	TYPE:DefaultMonster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gnome (Svirfneblin)]
-RACE:Gnome (Svirfneblin)	!PRERACE:1,%
+STARTPACK:Gnome (Svirfneblin) Default	TYPE:DefaultMonster.Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PREMULT:2,[PRERACE:1,Gnome],[PREABILITY:1,CATEGORY=Internal,Svirfneblin Gnome]]
+RACE:Gnome	!PRERACE:1,%
+ABILITY:CATEGORY=Gnome Subrace|Svirfneblin Gnome	!PREABILITY:1,CATEGORY=Internal,TYPE.GnomeSubrace
 NAME:Svirfneblin
 STAT:STR=13|DEX=11|CON=12|INT=10|WIS=9|CHA=8
 ALIGN:TN
@@ -3542,8 +3546,9 @@ FEAT:Combat Reflexes
 FEAT:Improved Initiative
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
-STARTPACK:Hydra (Eight Headed) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Eight Headed)]
-RACE:Hydra (Eight Headed)	!PRERACE:1,%
+###Block: Hydra needs new qualifier - 
+STARTPACK:Hydra (Eight Headed) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra]
+RACE:Hydra	!PRERACE:1,%
 NAME:Eight Headed Hydra
 ALIGN:TN
 SKILL:Spot		RANK:6
@@ -3553,8 +3558,8 @@ FEAT:Toughness
 FEAT:Weapon Focus(Bite)
 STAT:STR=11|CHA=11|DEX=10|CON=10|INT=10|WIS=10
 
-STARTPACK:Hydra (Eleven Headed) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Eleven Headed)]
-RACE:Hydra (Eleven Headed)	!PRERACE:1,%
+STARTPACK:Hydra (Eleven Headed) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra]
+RACE:Hydra	!PRERACE:1,%
 NAME:Eleven Headed Hydra
 ALIGN:TN
 SKILL:Listen	RANK:7
@@ -3565,8 +3570,8 @@ FEAT:Toughness
 FEAT:Weapon Focus(Bite)
 STAT:STR=11|CHA=11|DEX=10|CON=10|INT=10|WIS=10
 
-STARTPACK:Hydra (Five Headed) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Five Headed)]
-RACE:Hydra (Five Headed)	!PRERACE:1,%
+STARTPACK:Hydra (Five Headed) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra]
+RACE:Hydra	!PRERACE:1,%
 NAME:Five Headed Hydra
 ALIGN:TN
 SKILL:Listen	RANK:4
@@ -3575,8 +3580,8 @@ FEAT:Iron Will
 FEAT:Toughness
 STAT:STR=11|CHA=11|DEX=10|CON=10|INT=10|WIS=10
 
-STARTPACK:Hydra (Nine Headed) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Nine Headed)]
-RACE:Hydra (Nine Headed)	!PRERACE:1,%
+STARTPACK:Hydra (Nine Headed) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra]
+RACE:Hydra	!PRERACE:1,%
 NAME:Nine Headed Hydra
 ALIGN:TN
 SKILL:Listen	RANK:6
@@ -3587,8 +3592,8 @@ FEAT:Toughness
 FEAT:Weapon Focus(Bite)
 STAT:STR=11|CHA=11|DEX=10|CON=10|INT=10|WIS=10
 
-STARTPACK:Hydra (Seven Headed) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Seven Headed)]
-RACE:Hydra (Seven Headed)	!PRERACE:1,%
+STARTPACK:Hydra (Seven Headed) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra]
+RACE:Hydra	!PRERACE:1,%
 NAME:Seven Headed Hydra
 ALIGN:TN
 SKILL:Listen	RANK:5
@@ -3598,8 +3603,8 @@ FEAT:Toughness
 FEAT:Weapon Focus(Bite)
 STAT:STR=11|CHA=11|DEX=10|CON=10|INT=10|WIS=10
 
-STARTPACK:Hydra (Six Headed) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Six Headed)]
-RACE:Hydra (Six Headed)	!PRERACE:1,%
+STARTPACK:Hydra (Six Headed) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra]
+RACE:Hydra	!PRERACE:1,%
 NAME:Six Headed Hydra
 ALIGN:TN
 SKILL:Listen	RANK:4
@@ -3609,8 +3614,8 @@ FEAT:Toughness
 FEAT:Weapon Focus(Bite)
 STAT:STR=11|CHA=11|DEX=10|CON=10|INT=10|WIS=10
 
-STARTPACK:Hydra (Ten Headed) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Ten Headed)]
-RACE:Hydra (Ten Headed)	!PRERACE:1,%
+STARTPACK:Hydra (Ten Headed) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra]
+RACE:Hydra	!PRERACE:1,%
 NAME:Ten Headed Hydra
 ALIGN:TN
 SKILL:Listen	RANK:6
@@ -3621,8 +3626,8 @@ FEAT:Toughness
 FEAT:Weapon Focus(Bite)
 STAT:STR=11|CHA=11|DEX=10|CON=10|INT=10|WIS=10
 
-STARTPACK:Hydra (Twelve Headed) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Twelve Headed)]
-RACE:Hydra (Twelve Headed)	!PRERACE:1,%
+STARTPACK:Hydra (Twelve Headed) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra]
+RACE:Hydra	!PRERACE:1,%
 NAME:Twelve Headed Hydra
 ALIGN:TN
 SKILL:Spot		RANK:8
@@ -3634,98 +3639,98 @@ FEAT:Toughness
 FEAT:Weapon Focus(Bite)
 STAT:STR=11|CHA=11|DEX=10|CON=10|INT=10|WIS=10
 
-STARTPACK:Hydra (Eight Headed/Pyrohydra) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Eight Headed)]
-RACE:Hydra (Eight Headed)	!PRERACE:1,%
+STARTPACK:Hydra (Eight Headed/Pyrohydra) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra]
+RACE:Hydra	!PRERACE:1,%
 KIT:Hydra (Eight Headed) Default
 TEMPLATE:Hydra (Pyrohydra)
 NAME:Eight Headed Pyrohydra
 
-STARTPACK:Hydra (Eleven Headed/Pyrohydra) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Eleven Headed)]
-RACE:Hydra (Eleven Headed)	!PRERACE:1,%
+STARTPACK:Hydra (Eleven Headed/Pyrohydra) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra]
+RACE:Hydra	!PRERACE:1,%
 KIT:Hydra (Eleven Headed) Default
 TEMPLATE:Hydra (Pyrohydra)
 NAME:Eleven Headed Pyrohydra
 
-STARTPACK:Hydra (Five Headed/Pyrohydra) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Five Headed)]
-RACE:Hydra (Five Headed)	!PRERACE:1,%
+STARTPACK:Hydra (Five Headed/Pyrohydra) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra]
+RACE:Hydra	!PRERACE:1,%
 KIT:Hydra (Five Headed) Default
 TEMPLATE:Hydra (Pyrohydra)
 NAME:Five Headed Pyrohydra
 
-STARTPACK:Hydra (Nine Headed/Pyrohydra) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Nine Headed)]
-RACE:Hydra (Nine Headed)	!PRERACE:1,%
+STARTPACK:Hydra (Nine Headed/Pyrohydra) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra]
+RACE:Hydra	!PRERACE:1,%
 KIT:Hydra (Nine Headed) Default
 TEMPLATE:Hydra (Pyrohydra)
 NAME:Nine Headed Pyrohydra
 
-STARTPACK:Hydra (Seven Headed/Pyrohydra) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Seven Headed)]
-RACE:Hydra (Seven Headed)	!PRERACE:1,%
+STARTPACK:Hydra (Seven Headed/Pyrohydra) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra]
+RACE:Hydra	!PRERACE:1,%
 KIT:Hydra (Seven Headed) Default
 TEMPLATE:Hydra (Pyrohydra)
 NAME:Seven Headed Pyrohydra
 
-STARTPACK:Hydra (Six Headed/Pyrohydra) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Six Headed)]
-RACE:Hydra (Six Headed)	!PRERACE:1,%
+STARTPACK:Hydra (Six Headed/Pyrohydra) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra]
+RACE:Hydra	!PRERACE:1,%
 KIT:Hydra (Six Headed) Default
 TEMPLATE:Hydra (Pyrohydra)
 NAME:Six Headed Pyrohydra
 
-STARTPACK:Hydra (Ten Headed/Pyrohydra) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Ten Headed)]
-RACE:Hydra (Ten Headed)	!PRERACE:1,%
+STARTPACK:Hydra (Ten Headed/Pyrohydra) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra]
+RACE:Hydra	!PRERACE:1,%
 KIT:Hydra (Ten Headed) Default
 TEMPLATE:Hydra (Pyrohydra)
 NAME:Ten Headed Pyrohydra
 
-STARTPACK:Hydra (Twelve Headed/Pyrohydra) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Twelve Headed)]
-RACE:Hydra (Twelve Headed)	!PRERACE:1,%
+STARTPACK:Hydra (Twelve Headed/Pyrohydra) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra]
+RACE:Hydra	!PRERACE:1,%
 KIT:Hydra (Twelve Headed) Default
 TEMPLATE:Hydra (Pyrohydra)
 NAME:Twelve Headed Pyrohydra
 
-STARTPACK:Hydra (Eight Headed/Cryohydra) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Eight Headed)]
-RACE:Hydra (Eight Headed)	!PRERACE:1,%
+STARTPACK:Hydra (Eight Headed/Cryohydra) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra]
+RACE:Hydra	!PRERACE:1,%
 KIT:Hydra (Eight Headed) Default
 TEMPLATE:Hydra (Cryohydra)
 NAME:Eight Headed Cryohydra
 
-STARTPACK:Hydra (Eleven Headed/Cryohydra) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Eleven Headed)]
-RACE:Hydra (Eleven Headed)	!PRERACE:1,%
+STARTPACK:Hydra (Eleven Headed/Cryohydra) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra]
+RACE:Hydra	!PRERACE:1,%
 KIT:Hydra (Eleven Headed) Default
 TEMPLATE:Hydra (Cryohydra)
 NAME:Eleven Headed Cryohydra
 
-STARTPACK:Hydra (Five Headed/Cryohydra) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Five Headed)]
-RACE:Hydra (Five Headed)	!PRERACE:1,%
+STARTPACK:Hydra (Five Headed/Cryohydra) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra]
+RACE:Hydra	!PRERACE:1,%
 KIT:Hydra (Five Headed) Default
 TEMPLATE:Hydra (Cryohydra)
 NAME:Five Headed Cryohydra
 
-STARTPACK:Hydra (Nine Headed/Cryohydra) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Nine Headed)]
-RACE:Hydra (Nine Headed)	!PRERACE:1,%
+STARTPACK:Hydra (Nine Headed/Cryohydra) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra]
+RACE:Hydra	!PRERACE:1,%
 KIT:Hydra (Five Headed) Default
 TEMPLATE:Hydra (Cryohydra)
 NAME:Five Headed Cryohydra
 
-STARTPACK:Hydra (Seven Headed/Cryohydra) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Seven Headed)]
-RACE:Hydra (Seven Headed)	!PRERACE:1,%
+STARTPACK:Hydra (Seven Headed/Cryohydra) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra]
+RACE:Hydra	!PRERACE:1,%
 KIT:Hydra (Seven Headed) Default
 TEMPLATE:Hydra (Cryohydra)
 NAME:Seven Headed Cryohydra
 
-STARTPACK:Hydra (Six Headed/Cryohydra) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Six Headed)]
-RACE:Hydra (Six Headed)	!PRERACE:1,%
+STARTPACK:Hydra (Six Headed/Cryohydra) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra]
+RACE:Hydra	!PRERACE:1,%
 KIT:Hydra (Six Headed) Default
 TEMPLATE:Hydra (Cryohydra)
 NAME:Six Headed Cryohydra
 
-STARTPACK:Hydra (Ten Headed/Cryohydra) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Ten Headed)]
-RACE:Hydra (Ten Headed)	!PRERACE:1,%
+STARTPACK:Hydra (Ten Headed/Cryohydra) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra]
+RACE:Hydra	!PRERACE:1,%
 KIT:Hydra (Ten Headed) Default
 TEMPLATE:Hydra (Cryohydra)
 NAME:Ten Headed Cryohydra
 
-STARTPACK:Hydra (Twelve Headed/Cryohydra) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra (Twelve Headed)]
-RACE:Hydra (Twelve Headed)	!PRERACE:1,%
+STARTPACK:Hydra (Twelve Headed/Cryohydra) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hydra]
+RACE:Hydra	!PRERACE:1,%
 KIT:Hydra (Twelve Headed) Default
 TEMPLATE:Hydra (Cryohydra)
 NAME:Twelve Headed Cryohydra
