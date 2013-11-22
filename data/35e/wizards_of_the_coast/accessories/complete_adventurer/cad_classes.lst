@@ -121,20 +121,22 @@ CLASS:Spellthief	SPELLTYPE:Arcane	SPELLSTAT|CHA	MEMORIZE:NO	BONUS:CASTERLEVEL|Sp
 
 CLASS:Animal Lord	HD:10	TYPE:Prestige.PC	SOURCEPAGE:p.22	MAXLEVEL:10		BONUS:CHECKS|BASE.Will|CL/3	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|(CL/2)+2	BONUS:COMBAT|BAB|CL		DEFINE:AnimalLordLVL|CL
 CLASS:Animal Lord	PREALIGN:NG,LN,TN,CN,NE	PREATT:5	PRESKILL:2,Handle Animal=4,Knowledge (Nature)=2		PREMULT:1,[PREMULT:2,[PRESKILL:1,Climb=4],[PREFEAT:1,Toughness]],[PREMULT:2,[PRESKILL:1,Intimidate=4],[PREFEAT:1,Endurance]],[PREMULT:2,[PRESKILL:1,Spot=4],[PREFEAT:1,Improved Flight]],[PREMULT:2,[PRESKILL:1,Move Silently=4],[PREFEAT:1,Weapon Finesse]],[PREMULT:2,[PRESKILL:1,Jump=4],[PREFEAT:1,Run]],[PREMULT:2,[PRESKILL:1,Swim=4],[PREFEAT:1,Improved Swimming]],[PREMULT:2,[PRESKILL:1,Escape Artist=4],[PREFEAT:1,Combat Reflexes]],[PREMULT:2,[PRESKILL:1,Survival=4],[PREFEAT:1,Track]]
-CLASS:Animal Lord	STARTSKILLPTS:4	CSKILL:Climb|Escape Artist|Handle Animal|Heal|Hide|Intimidate|Jump|Knowledge (nature)|Listen|Move Silently|Spot|Survival|Swim
+CLASS:Animal Lord	STARTSKILLPTS:4	CSKILL:Climb|Escape Artist|Handle Animal|Heal|Hide|Intimidate|Jump|Knowledge (Nature)|Listen|Move Silently|Spot|Survival|Swim
 #
-SUBCLASS:Apelord		COST:0	PRESKILL:1,Climb=4		PREFEAT:1,Toughness
-SUBCLASS:Bearlord		COST:0	PRESKILL:1,Intimidate=4		PREFEAT:1,Endurance
-SUBCLASS:Birdlord		COST:0	PRESKILL:1,Spot=4			PREFEAT:1,Improved Flight
-SUBCLASS:Catlord		COST:0	PRESKILL:1,Move Silently=4	PREFEAT:1,Weapon Finesse
-SUBCLASS:Horselord	COST:0	PRESKILL:1,Jump=4			PREFEAT:1,Run
-SUBCLASS:Sharklord	COST:0	PRESKILL:1,Swim=4			PREFEAT:1,Improved Swimming
-SUBCLASS:Snakelord	COST:0	PRESKILL:1,Escape Artist=4	PREFEAT:1,Combat Reflexes
-SUBCLASS:Wolflord		COST:0	PRESKILL:1,Survival=4		PREFEAT:1,Track
+#SUBCLASS:Apelord		COST:0	PRESKILL:1,Climb=4		PREFEAT:1,Toughness		ABILITY:Internal|AUTOMATIC|Animal Lord Choice ~ Apelord
+#SUBCLASS:Bearlord		COST:0	PRESKILL:1,Intimidate=4		PREFEAT:1,Endurance			ABILITY:Internal|AUTOMATIC|Animal Lord Choice ~ Bearlord
+#SUBCLASS:Birdlord		COST:0	PRESKILL:1,Spot=4			PREFEAT:1,Improved Flight		ABILITY:Internal|AUTOMATIC|Animal Lord Choice ~ Birdlord
+#SUBCLASS:Catlord		COST:0	PRESKILL:1,Move Silently=4	PREFEAT:1,Weapon Finesse		ABILITY:Internal|AUTOMATIC|Animal Lord Choice ~ Catlord
+#SUBCLASS:Horselord	COST:0	PRESKILL:1,Jump=4			PREFEAT:1,Run		ABILITY:Internal|AUTOMATIC|Animal Lord Choice ~ Horselord
+#SUBCLASS:Sharklord	COST:0	PRESKILL:1,Swim=4			PREFEAT:1,Improved Swimming		ABILITY:Internal|AUTOMATIC|Animal Lord Choice ~ Sharklord
+#SUBCLASS:Snakelord	COST:0	PRESKILL:1,Escape Artist=4	PREFEAT:1,Combat Reflexes		ABILITY:Internal|AUTOMATIC|Animal Lord Choice ~ Snakelord
+#SUBCLASS:Wolflord		COST:0	PRESKILL:1,Survival=4		PREFEAT:1,Track		ABILITY:Internal|AUTOMATIC|Animal Lord Choice ~ Wolflord
 #
+1	BONUS:ABILITYPOOL|Animal Lord Selection|1
+###Block:
 1	ABILITY:Animal Lord Class Feature|AUTOMATIC|Animal Bond ~ Animal Lord|Detect Animals ~ Animal Lord|Wild Empathy ~ Animal Lord
 2	ABILITY:Animal Lord Class Feature|AUTOMATIC|First Totem ~ Animal Lord|Low-Light Vision ~ Animal Lord
-3	ABILITY:Animal Lord Class Feature|AUTOMATIC|Wild Aspect ~ Animal Lord	DEFINE:WildAspectTimes|0
+3	ABILITY:Animal Lord Class Feature|AUTOMATIC|Wild Aspect ~ Animal Lord
 4	ABILITY:Animal Lord Class Feature|AUTOMATIC|Speak with Animals ~ Animal Lord
 5	ABILITY:Animal Lord Class Feature|AUTOMATIC|Summon Animal ~ Animal Lord
 6	ABILITY:Animal Lord Class Feature|AUTOMATIC|Second Totem ~ Animal Lord
@@ -152,6 +154,9 @@ CLASS:Daggerspell Shaper
 CLASS:Dread Pirate
 CLASS:Dungeon Delver
 CLASS:Exemplar
+
+
+
 CLASS:Fochlucan Lyrist
 CLASS:Ghost-Faced Killer
 CLASS:Highlander Stalker
