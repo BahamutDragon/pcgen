@@ -11,7 +11,7 @@ CLASS:Brown Dragon	PRERACE:1,Dragon (Brown%	PRERACETYPE:Dragon
 CLASS:Brown Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot
 ###Block:
 1																						BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Sorcerer")+var("CL=Sorcerer")))
-1	VISION:Keen Senses|Darkvision (120')|Blindsense (60')|Tremorsense (500')	BONUS:COMBAT|AC|CL-3|TYPE=NaturalArmor.REPLACE
+1	VISION:Blindsense (60')|Darkvision (120')|Keen Senses|Tremorsense (500')	BONUS:COMBAT|AC|CL-3|TYPE=NaturalArmor.REPLACE
 ###Block: Breath Weapon and other SA's
 1	DEFINE:BreathWeaponLine|max((SIZE-1)*20,30)	DEFINE:BreathWeaponDice|(2*DragonAge)	DEFINE:BreathWeaponDamageDie|4	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Line of Acid
 1																						ABILITY:Special Ability|AUTOMATIC|Immunity to Sleep
@@ -23,7 +23,7 @@ CLASS:Brown Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot
 1	DEFINE:DragonCL|0
 1	DEFINE:DragonAge|(CL-3)/3
 ###Block:
-15																ADD:SPELLCASTER|1|Sorcerer													SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Create Water
+15																ADD:SPELLCASTER|Sorcerer													SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Create Water
 17				BONUS:PCLEVEL|Sorcerer|1
 18	SR:20	DR:5/Magic	BONUS:PCLEVEL|Sorcerer|1
 20				BONUS:PCLEVEL|Sorcerer|1
@@ -49,7 +49,7 @@ CLASS:Deep Dragon	PRERACE:1,Dragon (Deep%	PRERACETYPE:Dragon
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
 CLASS:Deep Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Hide|Move Silently|Swim
 1																		BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Sorcerer")+var("CL=Sorcerer")))	DEFINE:DragonCL|0
-1	VISION:Keen Senses|Darkvision (120')|Blindsense (60')	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
+1	VISION:Blindsense (60')|Darkvision (120')|Keen Senses	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
 ###Block: Breath Weapon and standard immunities
 1	DEFINE:BreathWeaponCone|max((SIZE-1)*10,15)	DEFINE:BreathWeaponDice|(2*DragonAge)	DEFINE:BreathWeaponDamageDie|6	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Flesh-Corrosive Gas
 #1	#secondary breath
@@ -61,7 +61,7 @@ CLASS:Deep Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Hi
 1									BONUS:VAR|ColdResistanceBonus|10	BONUS:VAR|FireResistanceBonus|10	DEFINE:DragonAge|1						ABILITY:Special Ability|AUTOMATIC|Immunity to Charm|Resistance to Cold|Resistance to Fire|True Seeing	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=DragonCL|Detect Magic
 9									BONUS:VAR|SnakeFormTimes|3								DEFINE:DragonAge|2						ABILITY:Special Ability|AUTOMATIC|Alternate Form ~ Snake Form
 12									BONUS:VAR|HumanoidFormTimes|3								DEFINE:DragonAge|3						ABILITY:Special Ability|AUTOMATIC|Alternate Form ~ Humanoid Form
-15									BONUS:VAR|SnakeFormTimes|1	BONUS:VAR|HumanoidFormTimes|1			DEFINE:DragonAge|4	ADD:SPELLCASTER|1|Sorcerer
+15									BONUS:VAR|SnakeFormTimes|1	BONUS:VAR|HumanoidFormTimes|1			DEFINE:DragonAge|4	ADD:SPELLCASTER|Sorcerer
 18	SR:22	DR:5/Magic	BONUS:PCLEVEL|Sorcerer|1													DEFINE:DragonAge|5
 21	SR:23			BONUS:PCLEVEL|Sorcerer|1													DEFINE:DragonAge|6																							SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=DragonCL|Freedom of Movement
 24	SR:26	DR:10/Magic	BONUS:PCLEVEL|Sorcerer|1													DEFINE:DragonAge|7
@@ -86,7 +86,7 @@ CLASS:Song Dragon	PRERACE:1,Dragon (Song%	PRERACETYPE:Dragon
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
 CLASS:Song Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Bluff|Disguise|Jump
 1																		BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Sorcerer")+var("CL=Sorcerer")))	DEFINE:DragonCL|0
-1	VISION:Keen Senses|Darkvision (120')|Blindsense (60')	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
+1	VISION:Blindsense (60')|Darkvision (120')|Keen Senses	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
 ###Block: Breath Weapon and standard immunities
 1	DEFINE:BreathWeaponCone|max((SIZE-1)*10,15)	DEFINE:BreathWeaponDice|(2*DragonAge)	DEFINE:BreathWeaponDamageDie|6	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Electrically-Charged Gas
 #1	#secondary breath
@@ -95,10 +95,10 @@ CLASS:Song Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Bl
 ###Block: Frightful Presence
 1	BONUS:VAR|FrightfulPresRange|DragonAge*30|PREVARGTEQ:DragonAge,5	ABILITY:Special Ability|AUTOMATIC|Frightful Presence
 ###Block: Normal Progression
-1									DEFINE:DragonAge|1						ABILITY:Special Ability|AUTOMATIC|Alternate Form|True Seeing|Tongues|Immunity to Electricity|Immunity to Poison	SPELLS:Innate|TIMES=1|TIMEUNIT=Hour|CASTERLEVEL=DragonCL|Light|Darkness
+1									DEFINE:DragonAge|1						ABILITY:Special Ability|AUTOMATIC|Alternate Form|Immunity to Electricity|Immunity to Poison|Tongues|True Seeing	SPELLS:Innate|TIMES=1|TIMEUNIT=Hour|CASTERLEVEL=DragonCL|Darkness|Light
 8									DEFINE:DragonAge|2
 11									DEFINE:DragonAge|3																									SPELLS:Innate|TIMES=2|CASTERLEVEL=DragonCL|Feather Fall
-14									DEFINE:DragonAge|4	ADD:SPELLCASTER|1|Sorcerer																				SPELLS:Innate|TIMES=2|CASTERLEVEL=DragonCL|Blink
+14									DEFINE:DragonAge|4	ADD:SPELLCASTER|Sorcerer																				SPELLS:Innate|TIMES=2|CASTERLEVEL=DragonCL|Blink
 17	SR:20	DR:5/Magic	BONUS:PCLEVEL|Sorcerer|1	DEFINE:DragonAge|5
 20	SR:23			BONUS:PCLEVEL|Sorcerer|1	DEFINE:DragonAge|6																									SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Teleport,15+CHA
 23	SR:25	DR:10/Magic	BONUS:PCLEVEL|Sorcerer|1	DEFINE:DragonAge|7

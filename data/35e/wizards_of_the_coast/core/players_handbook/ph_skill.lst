@@ -53,7 +53,7 @@ Knowledge (The Planes)				KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Know
 Knowledge (Untrained)				KEYSTAT:INT								TYPE:Intelligence.Knowledge.Standard	VISIBLE:EXPORT	SOURCEPAGE:p.78
 Listen						KEYSTAT:WIS								TYPE:Wisdom.Standard.Perception							SOURCEPAGE:p.78
 Move Silently					KEYSTAT:DEX				ACHECK:YES			TYPE:Dexterity.Standard.Stealth							SOURCEPAGE:p.79
-Open Lock						KEYSTAT:DEX	USEUNTRAINED:NO					TYPE:Dexterity.Standard							SOURCEPAGE:p.79	BONUS:SKILL|Open Lock|-2|TYPE=Circumstance|!PREITEM:1,TYPE=ThiefTools|PREAPPLY:PC	TEMPDESC:Attempting an Open Lock check without a set of thieves' tools imposes a -2 circumstance penalty on the check
+Open Lock						KEYSTAT:DEX	USEUNTRAINED:NO					TYPE:Dexterity.Standard							SOURCEPAGE:p.79	TEMPBONUS:PC|SKILL|Open Lock|-2|TYPE=Circumstance|!PREITEM:1,TYPE=ThiefTools	TEMPDESC:Attempting an Open Lock check without a set of thieves' tools imposes a -2 circumstance penalty on the check
 Perform (Act)					KEYSTAT:CHA	USEUNTRAINED:NO					TYPE:Charisma.Perform.Standard					SOURCEPAGE:p.79
 Perform (Comedy)					KEYSTAT:CHA	USEUNTRAINED:NO					TYPE:Charisma.Perform.Standard					SOURCEPAGE:p.79
 Perform (Dance)					KEYSTAT:CHA	USEUNTRAINED:NO					TYPE:Charisma.Perform.Standard					SOURCEPAGE:p.79
@@ -113,7 +113,7 @@ Not Used		TYPE:Innuedo	VISIBLE:EXPORT	USEUNTRAINED:NO
 # Skill Name					Choose			Bonus to skill																																				Modify VAR										Temporary effect description																			Automatically Gained Language
 Bluff.MOD										BONUS:SKILL|Sleight of Hand,Diplomacy,Intimidate|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Bluff=5
 Climb.MOD										BONUS:SKILL|Climb|8|PREMOVE:1,Climb=1|TYPE=Racial
-Disable Device.MOD								BONUS:SKILL|Disable Device|-2|!PREITEM:1,TYPE=ThiefTools|PREAPPLY:PC
+Disable Device.MOD								TEMPBONUS:PC|SKILL|Disable Device|-2|!PREITEM:1,TYPE=ThiefTools
 Handle Animal.MOD									BONUS:SKILL|Ride|SynergyBonus|PRESKILL:1,Handle Animal=5|TYPE=Synergy.STACK
 Jump.MOD										BONUS:SKILL|Tumble|SynergyBonus|PRESKILL:1,Jump=5|TYPE=Synergy.STACK	BONUS:SKILL|Jump|max(floor((var("MOVE[Walk]")-30)/10)*4,0)|TYPE=Speed.STACK	BONUS:SKILL|Jump|min(ceil((var("MOVE[Walk]")-30)/10)*6,0)|TYPE=Speed.STACK
 Knowledge (Arcana).MOD								BONUS:SKILL|Spellcraft|SynergyBonus|PRESKILL:1,Knowledge (Arcana)=5|TYPE=Synergy.STACK
@@ -121,7 +121,7 @@ Knowledge (History).MOD																																														BONUS:VAR|B
 Knowledge (Local).MOD								BONUS:SKILL|Gather Information|SynergyBonus|PRESKILL:1,Knowledge (Local)=5|TYPE=Synergy.STACK
 Knowledge (Nobility and Royalty).MOD					BONUS:SKILL|Diplomacy|SynergyBonus|PRESKILL:1,Knowledge (Nobility and Royalty)=5|TYPE=Synergy.STACK
 Knowledge (Religion).MOD																																													BONUS:VAR|TurnCheckUndead|2|PRESKILL:1,Knowledge (Religion)=5
-Ride.MOD										BONUS:SKILL|Ride|-5|TYPE=Circumstance|!PREITEM:1,TYPE=Saddle|PREAPPLY:ANYPC																																					TEMPDESC:If you are riding bareback, or attempt to ride a creature that is ill suited as a mount, you take a -5 penalty on Ride checks.
+Ride.MOD										TEMPBONUS:ANYPC|SKILL|Ride|-5|TYPE=Circumstance|!PREITEM:1,TYPE=Saddle																																					TEMPDESC:If you are riding bareback, or attempt to ride a creature that is ill suited as a mount, you take a -5 penalty on Ride checks.
 Sense Motive.MOD									BONUS:SKILL|Diplomacy|SynergyBonus|PRESKILL:1,Sense Motive=5|TYPE=Synergy.STACK
 Speak Language.MOD				CHOOSE:LANG|TYPE=Spoken																																																																									AUTO:LANG|%LIST
 Survival.MOD									BONUS:SKILL|Knowledge (Nature)|SynergyBonus|PRESKILL:1,Survival=5|TYPE=Synergy.STACK
@@ -131,18 +131,18 @@ Tumble.MOD										BONUS:SKILL|Balance,Jump|SynergyBonus|PRESKILL:1,Tumble=5|TY
 
 ###Block: Craft Optional Penalties
 # Skill Name			Bonus to skill																Temporary effect description
-Craft (Armorsmithing).MOD	BONUS:SKILL|Craft (Armorsmithing)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=ArmorsmithingTools|PREAPPLY:PC		TEMPDESC:Craft skill checks are made with a -2 circumstance penalty If improvised tools are used
-Craft (Blacksmithing).MOD	BONUS:SKILL|Craft (Blacksmithing)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=BlacksmithingTools|PREAPPLY:PC		TEMPDESC:Craft skill checks are made with a -2 circumstance penalty If improvised tools are used
-Craft (Bowmaking).MOD		BONUS:SKILL|Craft (Bowmaking)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=BowmakingTools|PREAPPLY:PC			TEMPDESC:Craft skill checks are made with a -2 circumstance penalty If improvised tools are used
-Craft (Carpentry).MOD		BONUS:SKILL|Craft (Carpentry)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=CarpentryTools|PREAPPLY:PC			TEMPDESC:Craft skill checks are made with a -2 circumstance penalty If improvised tools are used
-Craft (Leatherworking).MOD	BONUS:SKILL|Craft (Leatherworking)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=LeatherworkingTools|PREAPPLY:PC	TEMPDESC:Craft skill checks are made with a -2 circumstance penalty If improvised tools are used
-Craft (Painting).MOD		BONUS:SKILL|Craft (Painting)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=PaintingTools|PREAPPLY:PC			TEMPDESC:Craft skill checks are made with a -2 circumstance penalty If improvised tools are used
-Craft (Pottery).MOD		BONUS:SKILL|Craft (Pottery)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=PotteryTools|PREAPPLY:PC				TEMPDESC:Craft skill checks are made with a -2 circumstance penalty If improvised tools are used
-Craft (Sculpting).MOD		BONUS:SKILL|Craft (Sculpting)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=SculptingTools|PREAPPLY:PC			TEMPDESC:Craft skill checks are made with a -2 circumstance penalty If improvised tools are used
-Craft (Shipmaking).MOD		BONUS:SKILL|Craft (Shipmaking)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=ShipmakingTools|PREAPPLY:PC			TEMPDESC:Craft skill checks are made with a -2 circumstance penalty If improvised tools are used
-Craft (Stonemasonry).MOD	BONUS:SKILL|Craft (Stonemasonry)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=StonemasonryTools|PREAPPLY:PC		TEMPDESC:Craft skill checks are made with a -2 circumstance penalty If improvised tools are used
-Craft (Trapmaking).MOD		BONUS:SKILL|Craft (Trapmaking)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=TrapmakingTools|PREAPPLY:PC
-Craft (Weaponsmithing).MOD	BONUS:SKILL|Craft (Weaponsmithing)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=WeaponsmithingTools|PREAPPLY:PC
+Craft (Armorsmithing).MOD	TEMPBONUS:PC|SKILL|Craft (Armorsmithing)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=ArmorsmithingTools		TEMPDESC:Craft skill checks are made with a -2 circumstance penalty If improvised tools are used
+Craft (Blacksmithing).MOD	TEMPBONUS:PC|SKILL|Craft (Blacksmithing)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=BlacksmithingTools		TEMPDESC:Craft skill checks are made with a -2 circumstance penalty If improvised tools are used
+Craft (Bowmaking).MOD		TEMPBONUS:PC|SKILL|Craft (Bowmaking)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=BowmakingTools			TEMPDESC:Craft skill checks are made with a -2 circumstance penalty If improvised tools are used
+Craft (Carpentry).MOD		TEMPBONUS:PC|SKILL|Craft (Carpentry)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=CarpentryTools			TEMPDESC:Craft skill checks are made with a -2 circumstance penalty If improvised tools are used
+Craft (Leatherworking).MOD	TEMPBONUS:PC|SKILL|Craft (Leatherworking)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=LeatherworkingTools	TEMPDESC:Craft skill checks are made with a -2 circumstance penalty If improvised tools are used
+Craft (Painting).MOD		TEMPBONUS:PC|SKILL|Craft (Painting)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=PaintingTools			TEMPDESC:Craft skill checks are made with a -2 circumstance penalty If improvised tools are used
+Craft (Pottery).MOD		TEMPBONUS:PC|SKILL|Craft (Pottery)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=PotteryTools				TEMPDESC:Craft skill checks are made with a -2 circumstance penalty If improvised tools are used
+Craft (Sculpting).MOD		TEMPBONUS:PC|SKILL|Craft (Sculpting)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=SculptingTools			TEMPDESC:Craft skill checks are made with a -2 circumstance penalty If improvised tools are used
+Craft (Shipmaking).MOD		TEMPBONUS:PC|SKILL|Craft (Shipmaking)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=ShipmakingTools			TEMPDESC:Craft skill checks are made with a -2 circumstance penalty If improvised tools are used
+Craft (Stonemasonry).MOD	TEMPBONUS:PC|SKILL|Craft (Stonemasonry)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=StonemasonryTools		TEMPDESC:Craft skill checks are made with a -2 circumstance penalty If improvised tools are used
+Craft (Trapmaking).MOD		TEMPBONUS:PC|SKILL|Craft (Trapmaking)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=TrapmakingTools
+Craft (Weaponsmithing).MOD	TEMPBONUS:PC|SKILL|Craft (Weaponsmithing)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=WeaponsmithingTools
 
 ### From RSRD Sort:
 ###Block: Conditional Skills for output only
@@ -182,4 +182,3 @@ Survival.MOD						BONUS:SKILL|Survival (Underground),Survival (The Planes),Survi
 Swim.MOD							BONUS:SKILL|Swim (Avoid taking nonlethal fatigue damage)|SKILL.Swim.MISC																								BONUS:SKILLRANK|Swim (Avoid taking nonlethal fatigue damage)|SKILLRANK=Swim|TYPE=SkillGranted|PRERULE:1,DISPLAYSKILLUSE|PREVARGT:var("SKILL.Swim (Avoid taking nonlethal fatigue damage).MISC"),var("SKILL.Swim.MISC")
 Use Magic Device.MOD					BONUS:SKILL|Spellcraft (Decipher spell on scroll)|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Use Magic Device=5	BONUS:SKILL|Use Magic Device (Scroll)|SKILL.Use Magic Device.MISC							BONUS:SKILLRANK|Use Magic Device (Scroll)|SKILLRANK=Use Magic Device|TYPE=SkillGranted|PRERULE:1,DISPLAYSKILLUSE|PRESKILL:1,Decipher Script=5,Spellcraft=5
 Use Rope.MOD						BONUS:SKILL|Climb (Using a rope),Escape Artist (Escape from rope bonds)|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Use Rope=5	BONUS:SKILL|Use Rope (Bind someone)|SKILL.Use Rope.MISC						BONUS:SKILLRANK|Use Rope (Bind someone)|SKILLRANK=Use Rope|TYPE=SkillGranted|PRERULE:1,DISPLAYSKILLUSE|PRESKILL:1,Escape Artist=5
-

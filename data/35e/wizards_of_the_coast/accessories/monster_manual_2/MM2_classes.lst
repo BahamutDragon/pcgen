@@ -15,9 +15,9 @@ CLASS:Amethist Dragon	HD:12		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.
 # Class Name		Required Race			Reg. Race Type
 CLASS:Amethist Dragon	PRERACE:1,Dragon (Amethyst%	PRERACETYPE:Dragon
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
-CLASS:Amethist Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE.Knowledge|Sense Motive|Use Magic Device|Bluff|Hide|Jump
+CLASS:Amethist Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device|Bluff|Hide|Jump
 1																		BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Kineticist")+classlevel("Kineticist")))	DEFINE:DragonCL|0
-1	VISION:Keen Senses|Darkvision (120')|Blindsense (60')	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
+1	VISION:Blindsense (60')|Darkvision (120')|Keen Senses	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
 ###Block: Breath Weapon and other SA's
 1	BONUS:VAR|BreathWeaponDamageDie|6	DEFINE:BreathWeaponLine|max((SIZE-1)*20,30)	DEFINE:BreathWeaponDice|(2*DragonAge)	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Line of Concussive Force
 1	BONUS:VAR|FireResistanceBonus|15																ABILITY:Special Ability|AUTOMATIC|Planar Travel	ABILITY:Special Ability|AUTOMATIC|Resistance To Fire
@@ -31,11 +31,11 @@ CLASS:Amethist Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spo
 9		DR:5/Magic													DEFINE:DragonAge|2
 12																DEFINE:DragonAge|3
 ###TODO: livello 15 ADD:SPELLCASTER|1|Psion.Kineticist[Psychokinesis]
-15																DEFINE:DragonAge|4	ADD:SPELLCASTER|1|Psion	ABILITY:Special Ability|AUTOMATIC|Stomp
+15																DEFINE:DragonAge|4	ADD:SPELLCASTER|Psion	ABILITY:Special Ability|AUTOMATIC|Stomp
 17				BONUS:PCLEVEL|Psion|1
 18	SR:19			BONUS:PCLEVEL|Psion|1									DEFINE:DragonAge|5
 20				BONUS:PCLEVEL|Psion|1
-21	SR:21			BONUS:PCLEVEL|Psion|1	BONUS:VAR|DragonAmethistExplosiveGemLVL|CL	DEFINE:DragonAge|6					ABILITY:Special Ability|AUTOMATIC|Explosive Gem|Dragon Amethyst Explosive Gem						SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Invisibility,13+CHA
+21	SR:21			BONUS:PCLEVEL|Psion|1	BONUS:VAR|DragonAmethistExplosiveGemLVL|CL	DEFINE:DragonAge|6					ABILITY:Special Ability|AUTOMATIC|Dragon Amethyst Explosive Gem|Explosive Gem						SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Invisibility,13+CHA
 23				BONUS:PCLEVEL|Psion|1
 24	SR:22	DR:10/Magic	BONUS:PCLEVEL|Psion|1									DEFINE:DragonAge|7
 26				BONUS:PCLEVEL|Psion|1
@@ -60,9 +60,9 @@ CLASS:Crystal Dragon	HD:12		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.
 # Class Name		Required Race			Reg. Race Type
 CLASS:Crystal Dragon	PRERACE:1,Dragon (Crystal%	PRERACETYPE:Dragon
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
-CLASS:Crystal Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE.Knowledge|Sense Motive|Use Magic Device|Gather Information|Jump|Swim
+CLASS:Crystal Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device|Gather Information|Jump|Swim
 1																		BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Telepath")+classlevel("Telepath")))	DEFINE:DragonCL|0
-1	VISION:Keen Senses|Darkvision (120')|Blindsense (60')	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
+1	VISION:Blindsense (60')|Darkvision (120')|Keen Senses	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
 ###Block: Breath Weapon and other SA's
 1	BONUS:VAR|BreathWeaponDamageDie|6	DEFINE:BreathWeaponCone|max((SIZE-1)*10,15)	DEFINE:BreathWeaponDice|(2*DragonAge)	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Brilliant Light
 1	BONUS:VAR|FireResistanceBonus|15																ABILITY:Special Ability|AUTOMATIC|Planar Travel	ABILITY:Special Ability|AUTOMATIC|Resistance To Fire
@@ -78,7 +78,7 @@ CLASS:Crystal Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot
 14							DEFINE:DragonAge|4
 17	DR:5/Magic					DEFINE:DragonAge|5
 ###TODO: livello 20 ADD:SPELLCASTER|1|Psion.Telepath[Telepathy]
-20			BONUS:PCLEVEL|Psion|4	DEFINE:DragonAge|6	ADD:SPELLCASTER|1|Psion										SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Charm Person,11+CHA
+20			BONUS:PCLEVEL|Psion|4	DEFINE:DragonAge|6	ADD:SPELLCASTER|Psion										SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Charm Person,11+CHA
 22			BONUS:PCLEVEL|Psion|1
 23	DR:10/Magic	BONUS:PCLEVEL|Psion|1	DEFINE:DragonAge|7
 25			BONUS:PCLEVEL|Psion|1
@@ -99,9 +99,9 @@ CLASS:Emerald Dragon	HD:12		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.
 # Class Name		Required Race			Reg. Race Type
 CLASS:Emerald Dragon	PRERACE:1,Dragon (Emerald%	PRERACETYPE:Dragon
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
-CLASS:Emerald Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE.Knowledge|Sense Motive|Use Magic Device|Gather Information|Jump|Swim
+CLASS:Emerald Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device|Gather Information|Jump|Swim
 1																		BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Seer")+classlevel("Seer")))	DEFINE:DragonCL|0
-1	VISION:Keen Senses|Darkvision (120')|Blindsense (60')	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
+1	VISION:Blindsense (60')|Darkvision (120')|Keen Senses	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
 ###Block: Breath Weapon and other SA's
 1	BONUS:VAR|BreathWeaponDamageDie|6	DEFINE:BreathWeaponCone|max((SIZE-1)*10,15)	DEFINE:BreathWeaponDice|(2*DragonAge)	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Keening Energy
 1	BONUS:VAR|FireResistanceBonus|15																ABILITY:Special Ability|AUTOMATIC|Planar Travel	ABILITY:Special Ability|AUTOMATIC|Resistance To Fire
@@ -114,7 +114,7 @@ CLASS:Emerald Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot
 6																														SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=DragonCL|Object Reading,12+CHA
 9							DEFINE:DragonAge|2
 ###TODO: livello 12 ADD:SPELLCASTER|1|Psion.Seer[Clairsentience]
-12							DEFINE:DragonAge|3	ADD:SPELLCASTER|1|Psion																SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Invisibility (Greater),15+CHA
+12							DEFINE:DragonAge|3	ADD:SPELLCASTER|Psion																SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Invisibility (Greater),15+CHA
 14			BONUS:PCLEVEL|Psion|1
 15			BONUS:PCLEVEL|Psion|1	DEFINE:DragonAge|4																				SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Fog Cloud,15+CHA
 17			BONUS:PCLEVEL|Psion|1
@@ -132,7 +132,7 @@ CLASS:Emerald Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot
 35			BONUS:PCLEVEL|Psion|1
 36	DR:20/Magic	BONUS:PCLEVEL|Psion|1	DEFINE:DragonAge|11
 38			BONUS:PCLEVEL|Psion|1
-39			BONUS:PCLEVEL|Psion|1	DEFINE:DragonAge|12					ABILITY:Special Ability|AUTOMATIC|Shield of Prudence|Dragon Emerald Shield Of Prudence
+39			BONUS:PCLEVEL|Psion|1	DEFINE:DragonAge|12					ABILITY:Special Ability|AUTOMATIC|Dragon Emerald Shield Of Prudence|Shield of Prudence
 #
 
 # Class Name		Hit Dice	Type			Max Level		Source Page		Save checks bonus															Combat bonus
@@ -141,9 +141,9 @@ CLASS:Sapphire Dragon	HD:12		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.
 # Class Name		Required Race			Reg. Race Type
 CLASS:Sapphire Dragon	PRERACE:1,Dragon (Sapphire%	PRERACETYPE:Dragon
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
-CLASS:Sapphire Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE.Knowledge|Sense Motive|Use Magic Device|Climb|Jump|Move Silently
+CLASS:Sapphire Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device|Climb|Jump|Move Silently
 1																		BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Nomad")+classlevel("Nomad")))	DEFINE:DragonCL|0
-1	VISION:Keen Senses|Darkvision (120')|Blindsense (60')	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
+1	VISION:Blindsense (60')|Darkvision (120')|Keen Senses	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
 ###Block: Breath Weapon and other SA's
 1							DEFINE:BreathWeaponCone|max((SIZE-1)*10,15)	DEFINE:BreathWeaponDice|(2*DragonAge)	DEFINE:BreathWeaponDamageDie|6	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Sonic Energy
 1	BONUS:VAR|FireResistanceBonus|15																						ABILITY:Special Ability|AUTOMATIC|Planar Travel	ABILITY:Special Ability|AUTOMATIC|Resistance To Fire
@@ -156,7 +156,7 @@ CLASS:Sapphire Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spo
 5							DEFINE:DragonAge|2
 8							DEFINE:DragonAge|3
 ###TODO: livello 11 ADD:SPELLCASTER|1|Psion.Nomad[Psychoportation]
-11							DEFINE:DragonAge|4	ADD:SPELLCASTER|1|Psion
+11							DEFINE:DragonAge|4	ADD:SPELLCASTER|Psion
 13			BONUS:PCLEVEL|Psion|1
 14			BONUS:PCLEVEL|Psion|1	DEFINE:DragonAge|5					ABILITY:Special Ability|AUTOMATIC|Sense Psychoportation
 16			BONUS:PCLEVEL|Psion|1
@@ -183,9 +183,9 @@ CLASS:Topaz Dragon	HD:12		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.
 # Class Name		Required Race			Reg. Race Type
 CLASS:Topaz Dragon	PRERACE:1,Dragon (Topaz%	PRERACETYPE:Dragon
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
-CLASS:Topaz Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE.Knowledge|Sense Motive|Use Magic Device|Hide|Survival|Swim
+CLASS:Topaz Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device|Hide|Survival|Swim
 1																		BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Egoist")+classlevel("Egoist")))	DEFINE:DragonCL|0
-1	VISION:Keen Senses|Darkvision (120')|Blindsense (60')	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
+1	VISION:Blindsense (60')|Darkvision (120')|Keen Senses	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
 ###Block: Breath Weapon and other SA's
 1							DEFINE:BreathWeaponCone|max((SIZE-1)*10,15)	DEFINE:BreathWeaponDice|(2*DragonAge)	DEFINE:BreathWeaponDamageDie|6	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Dehydratation
 1	BONUS:VAR|FireResistanceBonus|15																						ABILITY:Special Ability|AUTOMATIC|Planar Travel	ABILITY:Special Ability|AUTOMATIC|Resistance To Fire
@@ -199,7 +199,7 @@ CLASS:Topaz Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|C
 10					DEFINE:DragonAge|3
 13					DEFINE:DragonAge|4
 ###TODO: livello 16 ADD:SPELLCASTER|1|Psion.Egoist[Psychometabolism]
-16	BONUS:PCLEVEL|Psion|2	DEFINE:DragonAge|5	ADD:SPELLCASTER|1|Psion																			SPELLS:Innate|TIMES=2|CASTERLEVEL=DragonCL|Feather Fall,11+CHA
+16	BONUS:PCLEVEL|Psion|2	DEFINE:DragonAge|5	ADD:SPELLCASTER|Psion																			SPELLS:Innate|TIMES=2|CASTERLEVEL=DragonCL|Feather Fall,11+CHA
 18	BONUS:PCLEVEL|Psion|1
 19	BONUS:PCLEVEL|Psion|1	DEFINE:DragonAge|6
 21	BONUS:PCLEVEL|Psion|1
@@ -231,7 +231,7 @@ CLASS:Grey Linnorm	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Bluff|Concentration|
 1							DEFINE:BreathWeaponLine|max((SIZE-1)*20,30)													ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Acid Breath Line
 1	BONUS:VAR|CrushBonusDamage|STR/2*3	DEFINE:CrushDice|2	DEFINE:CrushDamageDie|8													ABILITY:Special Ability|AUTOMATIC|Crush
 ###Block: Normal Progression
-1									DEFINE:DragonAge|1	ADD:SPELLCASTER|1|Cleric	SPELLLIST:2|DOMAIN.Destruction|DOMAIN.Evil
+1									DEFINE:DragonAge|1	ADD:SPELLCASTER|Cleric	SPELLLIST:2|DOMAIN.Destruction|DOMAIN.Evil
 2	BONUS:PCLEVEL|Cleric|1					DEFINE:DragonAge|2
 3	BONUS:PCLEVEL|Cleric|1					DEFINE:DragonAge|3
 4	BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Cleric|1	DEFINE:DragonAge|4
@@ -261,7 +261,7 @@ CLASS:Dread Linnorm	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Bluff|Concentration
 1																											ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Line of Fire
 1	BONUS:VAR|CrushBonusDamage|STR/2*3	DEFINE:CrushDice|4	DEFINE:CrushDamageDie|8													ABILITY:Special Ability|AUTOMATIC|Crush
 ###Block: Normal Progression
-1						DEFINE:DragonAge|1	ADD:SPELLCASTER|1|Sorcerer
+1						DEFINE:DragonAge|1	ADD:SPELLCASTER|Sorcerer
 2	BONUS:PCLEVEL|Sorcerer|1	DEFINE:DragonAge|2
 3	BONUS:PCLEVEL|Sorcerer|1	DEFINE:DragonAge|3
 4	BONUS:PCLEVEL|Sorcerer|1	DEFINE:DragonAge|4
@@ -298,7 +298,7 @@ CLASS:Linnorm Corpse Tearer	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Bluff|Conce
 1																ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Line of Disease
 1	BONUS:VAR|CrushBonusDamage|STR/2*3		DEFINE:CrushDice|4	DEFINE:CrushDamageDie|6	ABILITY:Special Ability|AUTOMATIC|Crush
 ###Block: Normal Progression
-1									DEFINE:DragonAge|1	ADD:SPELLCASTER|1|Cleric	SPELLLIST:2|DOMAIN.Destruction|DOMAIN.Evil
+1									DEFINE:DragonAge|1	ADD:SPELLCASTER|Cleric	SPELLLIST:2|DOMAIN.Destruction|DOMAIN.Evil
 2									DEFINE:DragonAge|2
 3	BONUS:PCLEVEL|Cleric|1					DEFINE:DragonAge|3
 4									DEFINE:DragonAge|4
@@ -338,7 +338,7 @@ CLASS:Abeil Queen	HD:8		TYPE:Monster	MAXLEVEL:14	SOURCEPAGE:p.
 CLASS:Abeil Queen	PRERACE:1,Abeil (Queen)	PRERACETYPE:Monstrous Humanoid
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Abeil Queen	STARTSKILLPTS:2	MODTOSKILLS:NO
-1	BONUS:PCLEVEL|Druid|1					ADD:SPELLCASTER|1|Druid
+1	BONUS:PCLEVEL|Druid|1					ADD:SPELLCASTER|Druid
 2	BONUS:PCLEVEL|Druid|1
 3	BONUS:PCLEVEL|Druid|1
 4	BONUS:PCLEVEL|Druid|1
@@ -361,7 +361,7 @@ CLASS:Naga (Bone)	HD:12		TYPE:Monster	MAXLEVEL:15	SOURCEPAGE:p.
 CLASS:Naga (Bone)	PRERACE:1,Naga (Bone)	PRERACETYPE:Undead
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Naga (Bone)	STARTSKILLPTS:4	MODTOSKILLS:NO
-1						ADD:SPELLCASTER|1|Sorcerer
+1						ADD:SPELLCASTER|Sorcerer
 2	BONUS:PCLEVEL|Sorcerer|1
 3	BONUS:PCLEVEL|Sorcerer|1
 4	BONUS:PCLEVEL|Sorcerer|1
@@ -385,7 +385,7 @@ CLASS:Air Weird	HD:8		TYPE:Monster	MAXLEVEL:14	SOURCEPAGE:p.
 CLASS:Air Weird	PRERACE:1,Elemental Weird (Air Weird)	PRERACETYPE:Elemental
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Air Weird	STARTSKILLPTS:2	MODTOSKILLS:YES
-1	BONUS:PCLEVEL|Sorcerer|1						ADD:SPELLCASTER|1|Sorcerer	SPELLLIST:3|Sorcerer|DOMAIN.Air|DOMAIN.Travel
+1	BONUS:PCLEVEL|Sorcerer|1						ADD:SPELLCASTER|Sorcerer	SPELLLIST:3|Sorcerer|DOMAIN.Air|DOMAIN.Travel
 2	BONUS:PCLEVEL|Sorcerer|1
 3	BONUS:PCLEVEL|Sorcerer|1
 4	BONUS:PCLEVEL|Sorcerer|1
@@ -409,7 +409,7 @@ CLASS:Earth Weird	HD:8		TYPE:Monster	MAXLEVEL:14	SOURCEPAGE:p.
 CLASS:Earth Weird	PRERACE:1,Elemental Weird (Earth Weird)	PRERACETYPE:Elemental
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Earth Weird	STARTSKILLPTS:2	MODTOSKILLS:YES
-1	BONUS:PCLEVEL|Sorcerer|1						ADD:SPELLCASTER|1|Sorcerer	SPELLLIST:3|Sorcerer|DOMAIN.Earth|DOMAIN.Destruction
+1	BONUS:PCLEVEL|Sorcerer|1						ADD:SPELLCASTER|Sorcerer	SPELLLIST:3|Sorcerer|DOMAIN.Destruction|DOMAIN.Earth
 2	BONUS:PCLEVEL|Sorcerer|1
 3	BONUS:PCLEVEL|Sorcerer|1
 4	BONUS:PCLEVEL|Sorcerer|1
@@ -433,7 +433,7 @@ CLASS:Fire Weird	HD:8		TYPE:Monster	MAXLEVEL:14	SOURCEPAGE:p.
 CLASS:Fire Weird	PRERACE:1,Elemental Weird (Fire Weird)	PRERACETYPE:Elemental
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Fire Weird	STARTSKILLPTS:2	MODTOSKILLS:YES
-1	BONUS:PCLEVEL|Sorcerer|1						ADD:SPELLCASTER|1|Sorcerer	SPELLLIST:3|Sorcerer|DOMAIN.Fire|DOMAIN.Sun
+1	BONUS:PCLEVEL|Sorcerer|1						ADD:SPELLCASTER|Sorcerer	SPELLLIST:3|Sorcerer|DOMAIN.Fire|DOMAIN.Sun
 2	BONUS:PCLEVEL|Sorcerer|1
 3	BONUS:PCLEVEL|Sorcerer|1
 4	BONUS:PCLEVEL|Sorcerer|1
@@ -457,7 +457,7 @@ CLASS:Water Weird	HD:8		TYPE:Monster	MAXLEVEL:14	SOURCEPAGE:p.
 CLASS:Water Weird	PRERACE:1,Elemental Weird (Water Weird)	PRERACETYPE:Elemental
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Water Weird	STARTSKILLPTS:2	MODTOSKILLS:YES
-1	BONUS:PCLEVEL|Sorcerer|1						ADD:SPELLCASTER|1|Sorcerer	SPELLLIST:3|Sorcerer|DOMAIN.Water|DOMAIN.Healing
+1	BONUS:PCLEVEL|Sorcerer|1						ADD:SPELLCASTER|Sorcerer	SPELLLIST:3|Sorcerer|DOMAIN.Healing|DOMAIN.Water
 2	BONUS:PCLEVEL|Sorcerer|1
 3	BONUS:PCLEVEL|Sorcerer|1
 4	BONUS:PCLEVEL|Sorcerer|1
@@ -484,7 +484,7 @@ CLASS:Immoth	STARTSKILLPTS:2	MODTOSKILLS:YES
 ###Block: Spell Restrictions
 1	PROHIBITSPELL:DESCRIPTOR.Fire
 #
-1						BONUS:PCLEVEL|Sorcerer|1						ADD:SPELLCASTER|1|Sorcerer
+1						BONUS:PCLEVEL|Sorcerer|1						ADD:SPELLCASTER|Sorcerer
 2						BONUS:PCLEVEL|Sorcerer|1
 3						BONUS:PCLEVEL|Sorcerer|1
 4						BONUS:PCLEVEL|Sorcerer|1
@@ -503,7 +503,7 @@ CLASS:Spell Weaver	HD:8		TYPE:Monster	MAXLEVEL:30	SOURCEPAGE:p.
 CLASS:Spell Weaver	PRERACE:1,Spell Weaver	PRERACETYPE:Monstrous Humanoid
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Spell Weaver	STARTSKILLPTS:2	CSKILL:Knowledge (Arcana)|Knowledge (The Planes)|Listen|Spellcraft|Spot|Use Magic Device
-1	BONUS:PCLEVEL|Sorcerer|1	DEFINE:SorcererLVL|CL+2+classlevel("Sorcerer")	ADD:SPELLCASTER|1|Sorcerer	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=SorcererLVL|Detect Magic,10+CHA|Invisibility,12+CHA	SPELLS:Innate|TIMES=1|CASTERLEVEL=SorcererLVL|Plane Shift	VFEAT:Spell Focus(Abjuration)
+1	BONUS:PCLEVEL|Sorcerer|1	DEFINE:SorcererLVL|CL+2+classlevel("Sorcerer")	ADD:SPELLCASTER|Sorcerer	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=SorcererLVL|Detect Magic,10+CHA|Invisibility,12+CHA	SPELLS:Innate|TIMES=1|CASTERLEVEL=SorcererLVL|Plane Shift	VFEAT:Spell Focus(Abjuration)
 1	BONUS:PCLEVEL|Sorcerer|1																																								VFEAT:Spell Focus(Evocation)	VFEAT:Spell Penetration
 2	BONUS:PCLEVEL|Sorcerer|1
 3	BONUS:PCLEVEL|Sorcerer|1
@@ -543,7 +543,7 @@ CLASS:Sylph		HD:8		TYPE:Monster	MAXLEVEL:9	SOURCEPAGE:p.
 CLASS:Sylph		PRERACE:1,Sylph	PRERACETYPE:Outsider
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Sylph		STARTSKILLPTS:8	CSKILL:Knowledge (Arcana)|Knowledge (The Planes)|Listen|Spellcraft|Spot|Use Magic Device
-1	BONUS:PCLEVEL|Sorcerer|4	ADD:SPELLCASTER|1|Sorcerer
+1	BONUS:PCLEVEL|Sorcerer|4	ADD:SPELLCASTER|Sorcerer
 2	BONUS:PCLEVEL|Sorcerer|1
 3	BONUS:PCLEVEL|Sorcerer|1
 4	BONUS:PCLEVEL|Sorcerer|1
@@ -571,7 +571,7 @@ CLASS:Arcanoloth	HD:8		TYPE:Monster	MAXLEVEL:24	SOURCEPAGE:p.
 CLASS:Arcanoloth	PRERACE:1,Yugoloth (Arcanoloth)	PRERACETYPE:Outsider
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Arcanoloth	STARTSKILLPTS:8	MODTOSKILLS:YES
-1						ADD:SPELLCASTER|1|Sorcerer	ABILITY:Special Ability|AUTOMATIC|Outsider Traits|PREVAREQ:NoTypeTraits,0
+1						ADD:SPELLCASTER|Sorcerer	ABILITY:Special Ability|AUTOMATIC|Outsider Traits|PREVAREQ:NoTypeTraits,0
 2	BONUS:PCLEVEL|Sorcerer|1
 3	BONUS:PCLEVEL|Sorcerer|1
 4	BONUS:PCLEVEL|Sorcerer|1
