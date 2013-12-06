@@ -1,4 +1,4 @@
-CLASS:Deathless	HD:12	TYPE:Monster	SOURCEPAGE:p.157	BONUS:COMBAT|BAB|CL*1/2		BONUS:CHECKS|BASE.Will|(CL/2)+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3
+CLASS:Deathless	HD:12	TYPE:Monster	SOURCEPAGE:p.157	BONUS:COMBAT|BAB|CL*1/2|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|CL|PREVAREQ:UseFractionalBAB,1		BONUS:CHECKS|BASE.Will|(CL/2)+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3
 CLASS:Deathless	STARTSKILLPTS:4	PRERACETYPE:1,Deathless
 
 CLASS:Anointed Knight	HD:10		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.49	BONUS:CHECKS|BASE.Fortitude|(CL/2)+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
@@ -9,7 +9,8 @@ CLASS:Anointed Knight	STARTSKILLPTS:2	CSKILL:Climb|Concentration|Craft (Alchemy)
 2	ABILITY:Anointed Knight Class Feature|AUTOMATIC|Anoint Ancestral Weapon ~ Anointed Knight	DEFINE:AnointedKnightAnointAncestralWeaponCount|(CL+1)/3
 3	ABILITY:Anointed Knight Class Feature|AUTOMATIC|Bonus Feat ~ Anointed Knight			DEFINE:AnointedKnightBonusFeatCount|CL/3
 
-CLASS:Apostle of Peace	HD:4		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.51	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|(CL/2)+2		BONUS:COMBAT|BAB|CL*1/2
+CLASS:Apostle of Peace	HD:4		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.51	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|(CL/2)+2		BONUS:COMBAT|BAB|CL*1/2|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|CL|PREVAREQ:UseFractionalBAB,1	
+
 CLASS:Apostle of Peace	PREALIGN:LG,NG,CG	PRECHECK:1,Will=5	PRESKILL:2,Concentration=10,Diplomacy=6	PREFEAT:4,Sacred Vow,Vow of Nonviolence,Vow of Peace,Vow of Poverty
 CLASS:Apostle of Peace	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|TYPE=Craft|Diplomacy|Escape Artist|Gather Information|Handle Animal|Heal|TYPE=Knowledge|Listen|TYPE=Perform|TYPE=Profession|Search|Sense Motive|Speak Language|Spellcraft|Spot
 ###Block:
@@ -53,7 +54,8 @@ CLASS:Beloved of Valarian	STARTSKILLPTS:2	CSKILL:Concentration|Diplomacy|Handle 
 9	CAST:0,2,2,1,1
 10	CAST:0,2,2,2,1
 
-CLASS:Celestial Mystic	HD:4		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.55	BONUS:CHECKS|BASE.Will|(CL/2)+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*1/2
+CLASS:Celestial Mystic	HD:4		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.55	BONUS:CHECKS|BASE.Will|(CL/2)+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*1/2|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|CL|PREVAREQ:UseFractionalBAB,1	
+
 CLASS:Celestial Mystic	PREALIGN:LG	PRESKILL:4,Knowledge (Arcana)=4,Knowledge (The Planes)=4,Knowledge (Religion)=6,Spellcraft=6	PREFEAT:3,Servant of the Heavens,Sacred Vow,Vow of Abstinence	PRESPELLTYPE:1,Arcane=4,Divine=4
 CLASS:Celestial Mystic	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (The Planes)|Knowledge (Religion)|Spellcraft
 ###Block:
@@ -122,7 +124,8 @@ CLASS:Defender of Sealtiel	STARTSKILLPTS:2	CSKILL:TYPE=Craft|Listen|Sense Motive
 6	BONUS:VAR|ProtectiveAura|1
 10	BONUS:VAR|ProtectiveAura|2
 
-CLASS:Emissary of Barachiel	HD:6		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.59	BONUS:CHECKS|BASE.Will|(CL/2)+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4
+CLASS:Emissary of Barachiel	HD:6		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.59	BONUS:CHECKS|BASE.Will|(CL/2)+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1	
+
 CLASS:Emissary of Barachiel	PREALIGN:LG	PRESKILL:2,Diplomacy=8,Knowledge (The Planes)=4	PREFEAT:2,Servant of the Heavens,Words of Creation
 CLASS:Emissary of Barachiel	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Decipher Script|Diplomacy|Gather Information|TYPE=Knowledge|Listen|TYPE=Perform|TYPE=Profession|Sense Motive|Speak Language|Spellcraft|Use Magic Device
 ###Block:
@@ -152,7 +155,8 @@ CLASS:Emissary of Barachiel	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Deci
 9	KNOWN:0,4,4,4,3
 10	KNOWN:0,4,4,4,4
 
-CLASS:Exalted Arcanist	HD:4		TYPE:Prestige	MAXLEVEL:5	SOURCEPAGE:p.61	BONUS:CHECKS|BASE.Will|(CL/2)+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*1/2
+CLASS:Exalted Arcanist	HD:4		TYPE:Prestige	MAXLEVEL:5	SOURCEPAGE:p.61	BONUS:CHECKS|BASE.Will|(CL/2)+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*1/2|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|CL|PREVAREQ:UseFractionalBAB,1	
+
 CLASS:Exalted Arcanist	PREALIGN:LG,NG,CG	PRECHECKBASE:1,Will=5	PRESKILL:2,Knowledge (Arcana)=9Knowledge (Religion)=4	PREFEAT:2,Consecrate Spell,Purify Spell	PRETEXT:Spells: Able to spontaneously cast 3rd-level arcane spells.
 CLASS:Exalted Arcanist	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Decipher Script|Diplomacy|Knowledge (Arcana)|Knowledge (Religion)|TYPE=Perform|TYPE=Profession|Sense Motive|Spellcraft|Use Magic Device
 ###Block:
@@ -197,7 +201,8 @@ CLASS:Fist of Raziel	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|H
 9	ADD:SPELLCASTER|ANY
 10	ADD:SPELLCASTER|ANY
 
-CLASS:Initiate of Pistis Sophia	HD:8		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.64	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|(CL/2)+2	BONUS:COMBAT|BAB|CL*3/4
+CLASS:Initiate of Pistis Sophia	HD:8		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.64	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|(CL/2)+2	BONUS:COMBAT|BAB|CL*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1	
+
 CLASS:Initiate of Pistis Sophia	PREALIGN:LG	PRECHECKBASE:3,Fortitude=5,Reflex=5,Will=5	PRESKILL:1,Concentration=9	PREFEAT:3,Sacred Vow,Sanctify Ki Strike,Servant of the Heavens
 CLASS:Initiate of Pistis Sophia	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Diplomacy|Escape Artist|Hide|Jump|Knowledge (The Planes)|Knowledge (Religion)|Listen|Move Silently|TYPE=Perform|TYPE=Profession|Sense Motive|Spot|Swim|Tumble
 ###Block:
@@ -218,7 +223,8 @@ CLASS:Initiate of Pistis Sophia	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentrati
 4	BONUS:VAR|InitiateofPistisSophiaElecricityResistanceBonus|5
 7	BONUS:VAR|InitiateofPistisSophiaElecricityResistanceBonus|5
 
-CLASS:Lion of Talisid	HD:8		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.65	BONUS:CHECKS|BASE.Fortitude,BASE.Will|(CL/2)+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4
+CLASS:Lion of Talisid	HD:8		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.65	BONUS:CHECKS|BASE.Fortitude,BASE.Will|(CL/2)+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1	
+
 CLASS:Lion of Talisid	PREALIGN:NG	PREATT:4	PRESKILL:2,Knowledge (Nature)=9,Survival=9	PREFEAT:1,Favored of the Companions	PRETEXT:Special: The character must have an animal companion as a class feature. Spells: Able to cast summon nature's ally II.
 CLASS:Lion of Talisid	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Listen|Knowledge (Nature)|Ride|Spellcraft|Spot|Survival|Swim
 ###Block:
@@ -239,7 +245,8 @@ CLASS:Lion of Talisid	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|
 ###Block:
 1:REPEATLEVEL:1	ADD:SPELLCASTER|ANY
 
-CLASS:Prophet of Erathaol	HD:6		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.66	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|(CL/2)+2	BONUS:COMBAT|BAB|CL*1/2
+CLASS:Prophet of Erathaol	HD:6		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.66	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|(CL/2)+2	BONUS:COMBAT|BAB|CL*1/2|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|CL|PREVAREQ:UseFractionalBAB,1	
+
 CLASS:Prophet of Erathaol	PREALIGN:LG	PRESKILL:2,Knowledge (Arcana)=5,Spellcraft=10	PREFEAT:4,Sacred Vow,Servant of the Heavens,Spell Focus (Divination),Vow of Chastity	PRESPELLTYPE:1,Arcane=4,Divine=4
 CLASS:Prophet of Erathaol	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Heal|Intimidate|Knowledge (Arcana)|Knowledge (The Planes)|Knowledge (Religion)|TYPE=Profession|Spellcraft
 ###Block:
@@ -247,7 +254,8 @@ CLASS:Prophet of Erathaol	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Heal|I
 ###Block:
 2:REPEATLEVEL:1	ADD:SPELLCASTER|ANY
 
-CLASS:Risen Martyr	HD:12		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.68	BONUS:CHECKS|BASE.Will|(CL/2)+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*1/2
+CLASS:Risen Martyr	HD:12		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.68	BONUS:CHECKS|BASE.Will|(CL/2)+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*1/2|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|CL|PREVAREQ:UseFractionalBAB,1	
+
 CLASS:Risen Martyr	PREALIGN:LG,NG,CG	PRECHECKBASE:3,Fortitude=2,Reflex=2,Will=2	PRESKILL:1,RANK=9	PRELANG:1,Celestial	PREMULT:2,[PREFEAT:1,Nimbus of Light],[PREFEAT:2,TYPE=Exalted]	PRETEXT:Special: The character must have suffered martyrdom (see Chapter 2) and must not have been returned to life. As a special feature of this prestige class, the character rises with the abilities of a 0-level risen martyr added to the character's previous abilities. When the character earns enough experience points to advance another level, he must become a 1st-level risen martyr.
 CLASS:Risen Martyr	STARTSKILLPTS:2	CSKILL:Concentration|Diplomacy|Gather Information|Heal|Knowledge (The Planes)|Knowledge (Religion)|Listen|Sense Motive|Spot
 ###Block:
@@ -270,7 +278,8 @@ CLASS:Risen Martyr	STARTSKILLPTS:2	CSKILL:Concentration|Diplomacy|Gather Informa
 1	BONUS:VAR|CharismaScoreIncreaseCount|1
 5	BONUS:VAR|CharismaScoreIncreaseCount|1
 
-CLASS:Sentinel of Bharrai	HD:4		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.69	BONUS:CHECKS|BASE.Will|(CL/2)+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*1/2
+CLASS:Sentinel of Bharrai	HD:4		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.69	BONUS:CHECKS|BASE.Will|(CL/2)+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*1/2|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|CL|PREVAREQ:UseFractionalBAB,1	
+
 CLASS:Sentinel of Bharrai	PREALIGN:LG,NG,CG	PRESKILL:3,Knowledge (Arcana)=8,Knowledge (Nature)=8,Spellcraft=8	PREFEAT:2,Sacred Vow,Vow of Obedience
 CLASS:Sentinel of Bharrai	STARTSKILLPTS:4	CSKILL:Craft (Alchemy)|Concentration|Decipher Script|Gather Information|Handle Animal|Heal|TYPE=Knowledge|TYPE=Profession|Speak Language|Spellcraft|Survival|Use Magic Device
 # Invalid Skill - Read/Write Language & Alchemy
@@ -316,7 +325,8 @@ CLASS:Skylord	STARTSKILLPTS:2	CSKILL:Balance|Handle Animal|Heal|TYPE=Knowledge|L
 8	ADD:SPELLCASTER|ANY
 10	ADD:SPELLCASTER|ANY
 
-CLASS:Slayer of Domiel	HD:6		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.73	BONUS:CHECKS|BASE.Reflex|(CL/2)+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4
+CLASS:Slayer of Domiel	HD:6		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.73	BONUS:CHECKS|BASE.Reflex|(CL/2)+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1	
+
 CLASS:Slayer of Domiel	PREALIGN:LG	PRESKILL:2,Hide=8,Move Silently=8	PREFEAT:2,Sanctify Martial Strike,Servant of the Heavens	PRETEXT:Sneak attack +3d6, evasion Class Feature.	PREVARGTEQ:SneakAttackQualify,3	PREABILITY:1,CATEGORY=Special Ability,TYPE.Evasion
 CLASS:Slayer of Domiel	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Diplomacy|Disguise|Gather Information|Hide|Intimidate|Jump|Listen|Move Silently|Open Lock|Search|Sense Motive|Spot|Tumble|Use Magic Device|Use Rope
 ###Block:
@@ -391,7 +401,8 @@ CLASS:Sword of Righteousness	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Diplomacy|H
 ###Block:
 1	BONUS:VAR|ExaltedFeatCount|CL
 
-CLASS:Troubadour of Stars	HD:6		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.78	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL/2)+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4
+CLASS:Troubadour of Stars	HD:6		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.78	BONUS:CHECKS|BASE.Reflex,BASE.Will|(CL/2)+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1	
+
 CLASS:Troubadour of Stars	PREALIGN:CG	PRESKILL:1,TYPE.Perform=6	PREFEAT:1,Knight of Stars	PRETEXT:Spells: Able to spontaneously cast 4th level arcane spells.
 CLASS:Troubadour of Stars	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Concentration|TYPE=Craft|Decipher Script|Diplomacy|Disguise|Escape Artist|Gather Information|Hide|Jump|TYPE=Knowledge|Listen|Move Silently|TYPE=Perform|TYPE=Profession|Sense Motive|Sleight of Hand|Speak Language|Spellcraft|Swim|Tumble|Use Magic Device
 ###Block:
@@ -435,7 +446,8 @@ CLASS:Vassal of Bahamut	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Concentration
 9	CAST:0,2,2,1,1
 10	CAST:0,2,2,2,1
 
-CLASS:Wonderworker	HD:6		TYPE:Prestige	MAXLEVEL:3	SOURCEPAGE:p.82	BONUS:CHECKS|BASE.Will|(CL/2)+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*1/2
+CLASS:Wonderworker	HD:6		TYPE:Prestige	MAXLEVEL:3	SOURCEPAGE:p.82	BONUS:CHECKS|BASE.Will|(CL/2)+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*1/2|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|CL|PREVAREQ:UseFractionalBAB,1	
+
 CLASS:Wonderworker	PREALIGN:LG,NG,CG	PRECHECKBASE:1,Will=5	PREMULT:2,[PREFEAT:2,TYPE.Exalted],[PREFEAT:1,Favored of the Companions,Knight of Stars,Servant of the Heavens]	PRESPELLTYPE:1,Arcane=3,Divine=3,Psionic=3
 CLASS:Wonderworker	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (Nature)|Knowledge (Religion)|TYPE=Profession|Sense Motive|Spellcraft
 ###Block:

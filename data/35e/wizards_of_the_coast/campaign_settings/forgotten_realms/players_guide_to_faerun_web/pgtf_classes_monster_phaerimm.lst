@@ -4,7 +4,8 @@ SOURCELONG:Player's Guide to Faerun	SOURCESHORT:PGtF	SOURCEWEB:http://www.gozzil
 # Class Name req	Requirements	FINE											
 # Class Name 3	Skill Pts/Lvl (STARTSKILLPTS)	Class Skill (CSKILL)	Spell Statistic (SPELLSTAT)	Spell type (SPELLTYPE)	Spellbook (SPELLBOOK)	knowspell (KNOWNSPELLS)	spell level increases (BONUS:CASTERLEVEL)	define class variables (DEFINE:variable|value	FINE				
 #(level number)	ADD:SPELLCASTER o CAST	FEATAUTO proficiency	(FEATAUTO)	(SA)	(SA)	(DOMAIN)	(BONUS)			(DEFINE)			
-CLASS:Phaerimm	HD:8	TYPE:Monster		MAXLEVEL:NOLIMIT	SOURCEPAGE:PGtFwe	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+CLASS:Phaerimm	HD:8	TYPE:Monster		MAXLEVEL:NOLIMIT	SOURCEPAGE:PGtFwe	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1	
+
 CLASS:Phaerimm	PRERACE:1,RACESUBTYPE=Phaerimm	PRERACETYPE:Aberration
 CLASS:Phaerimm	STARTSKILLPTS:2	CSKILL:Concentration|Diplomacy|Knowledge (Arcana)|Listen|Search|Sense Motive|Spellcraft|Spot								MODTOSKILLS:YES
 1							BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE	BONUS:VAR|PhaerimmCL|max(PhaerimmAge,(var("BL=Sorcerer")+var("CL=Sorcerer")))			DEFINE:PhaerimmCL|0
