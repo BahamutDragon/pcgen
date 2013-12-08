@@ -1,9 +1,62 @@
-SOURCELONG:Complete Warrior	SOURCESHORT:CW
+# CVS $Revision: $ $Author: $ -- Sun Dec  8 00:22:17 2013 -- reformated by prettylst.pl v1.50 (build 22352)
+SOURCELONG:Complete Warrior	SOURCESHORT:CW	SOURCEDATE:2003-12
 
+# Contents:
+#@BASE Classes
 # Hexblade
-CLASS:Hexblade	HD:10	TYPE:Base.PC.Martial.Spellcaster.Arcane	EXCLASS:Ex Hexblade	SOURCEPAGE:p.5	BONUS:COMBAT|BAB|CL	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|(CL/2)+2
+# Samurai
+# Swashbuckler
+#@VARIANT Classes
+# Paladin (Variant Add-on)
+# Ranger (Variant Add-on)
+#@PRESTIGE Classes
+# Bear Warrior
+# Bladesinger
+# Cavalier
+# Dark Hunter
+# Darkwood Stalker
+# Dervish
+# Drunken Master
+# Exotic Weapon Master
+# Eye of Gruumsh
+# Frenzied Berserker
+# Gnome Giant-Slayer
+# Halfling Outrider
+# Hulking Hurler
+# Hunter of the Dead
+# Invisible Blade
+# Justicar
+# Kensai
+# Knight of the Chalice
+# Knight Protector
+# Master Thrower
+# Master of the Unseen Hand
+# Mindspy
+# Nature's Warrior
+# Occult Slayer
+# Order of the Bow Initiate
+# Purple Dragon Knight
+# Rage Mage
+# Ravager
+# Reaping Mauler
+# Ronin
+# Spellsword
+# Stonelord
+# Tattooed Monk
+# Thayan Knight
+# War Chanter
+# Warshaper
+
+###Block: @BASE Classes
+# Hexblade
+
+# Class Name	Hit Dice	Type							Ex Class			Source Page		Save checks bonus												Combat bonus
+CLASS:Hexblade	HD:10		TYPE:Base.PC.Martial.Spellcaster.Arcane	EXCLASS:Ex Hexblade	SOURCEPAGE:p.5	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|(CL/2)+2	BONUS:COMBAT|BAB|CL
+# Class Name	Restricted AL
 CLASS:Hexblade	!PREALIGN:LG,NG,CG
+# Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Hexblade	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Diplomacy|Intimidate|Knowledge (Arcana)|TYPE=Profession|Ride|Spellcraft
+# Class Name	Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Hexblade	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Hexblade|CL/2|PRECLASS:1,Hexblade=4
 1	ABILITY:Hexblade Class Feature|AUTOMATIC|Weapon and Armor Proficiency ~ Hexblade
 1	ABILITY:Hexblade Class Feature|AUTOMATIC|Hexblade's Curse ~ Hexblade
@@ -38,7 +91,9 @@ CLASS:Hexblade	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Hexb
 19	CAST:0,3,3,3,2	KNOWN:0,5,5,5,4
 20	CAST:0,3,3,3,3	KNOWN:0,5,5,5,5
 
-CLASS:Ex Hexblade	VISIBLE:NO	HD:10	TYPE:Base.PC.Martial.CompleteWarrior	SOURCEPAGE:p.8	BONUS:COMBAT|BAB|CL	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|(CL/2)+2
+# Class Name	Hit Dice	Type							Source Page		Visible	Save checks bonus												Combat bonus
+CLASS:Ex Hexblade	HD:10		TYPE:Base.PC.Martial.CompleteWarrior	SOURCEPAGE:p.8	VISIBLE:NO	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|(CL/2)+2	BONUS:COMBAT|BAB|CL
+# Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Ex Hexblade	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Diplomacy|Intimidate|Knowledge (Arcana)|TYPE=Profession|Ride|Spellcraft
 1	ABILITY:Hexblade Class Feature|AUTOMATIC|Weapon and Armor Proficiency ~ Hexblade
 3	ABILITY:Hexblade Class Feature|AUTOMATIC|Mettle ~ Hexblade
@@ -47,128 +102,74 @@ CLASS:Ex Hexblade	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Diplomac
 5	BONUS:VAR|HexbladeBonusFeatCount|CL/5
 
 # Samurai
-CLASS:Samurai	HD:10	TYPE:Base.PC	ABB:Sam	MAXLEVEL:20	SOURCEPAGE:p.8	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL	EXCLASS:Ex Samurai
+
+# Class Name	Hit Dice	Type					Abbreviation	Max Level	Ex Class			Source Page		Save checks bonus														Combat bonus
+CLASS:Samurai	HD:10		TYPE:Base.PC.Martial.Oriental	ABB:Sam		MAXLEVEL:20	EXCLASS:Ex Samurai	SOURCEPAGE:p.8	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
+# Class Name	Required AL
 CLASS:Samurai	PREALIGN:LG,LN,LE
+# Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Samurai	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Intimidate|Knowledge (History)|Knowledge (Nobility and Royalty)|Ride|Sense Motive
-1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Samurai|!PREABILITY:1,CATEGORY=ACF,TYPE.SamuraiProficiencies
-1	ABILITY:Special Ability|AUTOMATIC|Daisho Proficiency ~ Samurai
-2	ABILITY:Special Ability|AUTOMATIC|Two Swords as One ~ Samurai
-3	ABILITY:Special Ability|AUTOMATIC|Kiai Smite ~ Samurai
-5	ABILITY:Special Ability|AUTOMATIC|Iaijutsu Master ~ Samurai
-6	ABILITY:Special Ability|AUTOMATIC|Staredown ~ Samurai
-8	ABILITY:Special Ability|AUTOMATIC|Improved Initiative ~ Samurai
-10	ABILITY:Special Ability|AUTOMATIC|Mass Staredown ~ Samurai
-11	ABILITY:Special Ability|AUTOMATIC|Improved Two Swords as One ~ Samurai
-14	ABILITY:Special Ability|AUTOMATIC|Improved Staredown ~ Samurai
-16	ABILITY:Special Ability|AUTOMATIC|Greater Two Swords as One ~ Samurai
-20	ABILITY:Special Ability|AUTOMATIC|Frightful Presence ~ Samurai
+1	ABILITY:Samurai Class Feature|AUTOMATIC|Weapon and Armor Proficiency ~ Samurai|!PREABILITY:1,CATEGORY=ACF,TYPE.SamuraiProficiencies
+1	ABILITY:Samurai Class Feature|AUTOMATIC|Daisho Proficiency ~ Samurai
+2	ABILITY:Samurai Class Feature|AUTOMATIC|Two Swords as One ~ Samurai
+3	ABILITY:Samurai Class Feature|AUTOMATIC|Kiai Smite ~ Samurai
+5	ABILITY:Samurai Class Feature|AUTOMATIC|Iaijutsu Master ~ Samurai
+6	ABILITY:Samurai Class Feature|AUTOMATIC|Staredown ~ Samurai
+8	ABILITY:Samurai Class Feature|AUTOMATIC|Improved Initiative ~ Samurai
+10	ABILITY:Samurai Class Feature|AUTOMATIC|Mass Staredown ~ Samurai
+11	ABILITY:Samurai Class Feature|AUTOMATIC|Improved Two Swords as One ~ Samurai
+14	ABILITY:Samurai Class Feature|AUTOMATIC|Improved Staredown ~ Samurai
+16	ABILITY:Samurai Class Feature|AUTOMATIC|Greater Two Swords as One ~ Samurai
+20	ABILITY:Samurai Class Feature|AUTOMATIC|Frightful Presence ~ Samurai
 ###Block
 3	BONUS:VAR|SamuraiKiaiSmiteLVL|CL
 20	BONUS:VAR|SamuraiFrightfulPresenceLVL|CL
 #
-CLASS:Ex Samurai	HD:10	TYPE:Base.PC.Oriental		SOURCEPAGE:p.8	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL	VISIBLE:NO	
-CLASS:Ex Samurai	STARTSKILLPTS:2		CSKILL:Concentration|TYPE.Craft|Diplomacy|Intimidate|Knowledge (History)|Knowledge (Nobility and Royalty)|Ride|Sense Motive
 
-CLASS:Swashbuckler	HD:10	TYPE:Base.PC	ABB:SwB	MAXLEVEL:20	SOURCEPAGE:p.11	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
-#CLASS:Swashbuckler											
-CLASS:Swashbuckler	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Diplomacy|Escape Artist|Jump|TYPE=Profession|Sense Motive|Swim|Tumble|Use Rope									
-1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Swashbuckler|!PREABILITY:1,CATEGORY=ACF,TYPE.SwashbucklerProficiencies
-2	ABILITY:Special Ability|AUTOMATIC|Grace ~ Swashbuckler
-3	ABILITY:Special Ability|AUTOMATIC|Insightful Strike ~ Swashbuckler
-5	ABILITY:Special Ability|AUTOMATIC|Dodge Bonus ~ Swashbuckler
-7	ABILITY:Special Ability|AUTOMATIC|Acrobatic Charge ~ Swashbuckler
-8	ABILITY:Special Ability|AUTOMATIC|Improved Flanking ~ Swashbuckler
-11	ABILITY:Special Ability|AUTOMATIC|Lucky ~ Swashbuckler
-13	ABILITY:Special Ability|AUTOMATIC|Acrobatic Skill Mastery ~ Swashbuckler
-14	ABILITY:Special Ability|AUTOMATIC|Weakening Critical ~ Swashbuckler
-17	ABILITY:Special Ability|AUTOMATIC|Slippery Mind ~ Swashbuckler
-19	ABILITY:Special Ability|AUTOMATIC|Wounding Critical ~ Swashbuckler
+# Class Name	Hit Dice	Type					Source Page		Visible	Save checks bonus											Combat bonus
+CLASS:Ex Samurai	HD:10		TYPE:Base.PC.Martial.Oriental	SOURCEPAGE:p.8	VISIBLE:NO	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Ex Samurai	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Diplomacy|Intimidate|Knowledge (History)|Knowledge (Nobility and Royalty)|Ride|Sense Motive
+
+# Class Name		Hit Dice	Type				Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Swashbuckler	HD:10		TYPE:Base.PC.Martial	ABB:SwB		MAXLEVEL:20	SOURCEPAGE:p.11	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Swashbuckler	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Diplomacy|Escape Artist|Jump|TYPE=Profession|Sense Motive|Swim|Tumble|Use Rope
+1	ABILITY:Swashbuckler Class Feature|AUTOMATIC|Weapon and Armor Proficiency ~ Swashbuckler|!PREABILITY:1,CATEGORY=ACF,TYPE.SwashbucklerProficiencies
+2	ABILITY:Swashbuckler Class Feature|AUTOMATIC|Grace ~ Swashbuckler
+3	ABILITY:Swashbuckler Class Feature|AUTOMATIC|Insightful Strike ~ Swashbuckler
+5	ABILITY:Swashbuckler Class Feature|AUTOMATIC|Dodge Bonus ~ Swashbuckler
+7	ABILITY:Swashbuckler Class Feature|AUTOMATIC|Acrobatic Charge ~ Swashbuckler
+8	ABILITY:Swashbuckler Class Feature|AUTOMATIC|Improved Flanking ~ Swashbuckler
+11	ABILITY:Swashbuckler Class Feature|AUTOMATIC|Lucky ~ Swashbuckler
+13	ABILITY:Swashbuckler Class Feature|AUTOMATIC|Acrobatic Skill Mastery ~ Swashbuckler
+14	ABILITY:Swashbuckler Class Feature|AUTOMATIC|Weakening Critical ~ Swashbuckler
+17	ABILITY:Swashbuckler Class Feature|AUTOMATIC|Slippery Mind ~ Swashbuckler
+19	ABILITY:Swashbuckler Class Feature|AUTOMATIC|Wounding Critical ~ Swashbuckler
 ###Block
 2	BONUS:VAR|SwashbucklerGraceLVL|CL
 3	BONUS:VAR|InsightfulStrikeBonus|max(0,INT)
 5	BONUS:VAR|SwashbucklerDodgeLVL|CL
 
+###Block: @VARIANT Classes - Paladin and Ranger
 
-# Samurai	8
-# Swashbuckler	11
-
-CLASS:Paladin.MOD	
+# Class Name
+CLASS:Paladin.MOD
 1	BONUS:ABILITYPOOL|Paladin Class|1
+###Block:
 1	ABILITY:Paladin Class Feature|AUTOMATIC|Spells ~ Variant Paladin Without Spellcasting|PREABILITY:1,CATEGORY=Internal,Variant Paladin ~ Without Spellcasting
 6	ABILITY:Paladin Class Feature|AUTOMATIC|Blessed Weapon ~ Variant Paladin Without Spellcasting|PREABILITY:1,CATEGORY=Internal,Variant Paladin ~ Without Spellcasting
 11	ABILITY:Paladin Class Feature|AUTOMATIC|Divine Might ~ Variant Paladin Without Spellcasting|PREABILITY:1,CATEGORY=Internal,Variant Paladin ~ Without Spellcasting
 13	ABILITY:Paladin Class Feature|AUTOMATIC|Tend to Mount ~ Variant Paladin Without Spellcasting|PREABILITY:1,CATEGORY=Internal,Variant Paladin ~ Without Spellcasting
 16	ABILITY:Paladin Class Feature|AUTOMATIC|Holy Sword ~ Variant Paladin Without Spellcasting|PREABILITY:1,CATEGORY=Internal,Variant Paladin ~ Without Spellcasting
 
-
+# Class Name
 CLASS:Ranger.MOD
 1	BONUS:ABILITYPOOL|Ranger Class|1
+###Block:
 1	ABILITY:Ranger Class Feature|AUTOMATIC|Spells ~ Variant Ranger Without Spellcasting|PREABILITY:1,CATEGORY=Internal,Variant Ranger ~ Without Spellcasting
 6	ABILITY:Ranger Class Feature|AUTOMATIC|Fast Movement ~ Variant Ranger Without Spellcasting|PREABILITY:1,CATEGORY=Internal,Variant Ranger ~ Without Spellcasting
 11	ABILITY:Ranger Class Feature|AUTOMATIC|Nature's Blessing ~ Variant Ranger Without Spellcasting|PREABILITY:1,CATEGORY=Internal,Variant Ranger ~ Without Spellcasting
 13	ABILITY:Ranger Class Feature|AUTOMATIC|Healing Touch ~ Variant Ranger Without Spellcasting|PREABILITY:1,CATEGORY=Internal,Variant Ranger ~ Without Spellcasting
 16	ABILITY:Ranger Class Feature|AUTOMATIC|Freedom of Movement ~ Variant Ranger Without Spellcasting|PREABILITY:1,CATEGORY=Internal,Variant Ranger ~ Without Spellcasting
 
-
-
-
-
-###Block: Prestige Classes
-
-# Bear Warrior
-# Bladesinger
-# Cavalier
-# Dark Hunter
-# Darkwood Stalker
-
-# $Author: echuir $ -- Tue May 21 2013
-
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page					Save checks bonus											Combat bonus
-CLASS:Dervish	HD:10		TYPE:PC.Prestige	ABB:Der		MAXLEVEL:10	SOURCEPAGE:p.25	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL
-# Class Name	Req. Att.	Required Feat															Required Skill
-CLASS:Dervish	PREATT:5	PREFEAT:1,Dodge,Expeditious Dodge	PREFEAT:3,Combat Expertise,Mobility,Weapon Focus (TYPE=Slashing)	PRESKILL:2,Perform (Dance)=3,Tumble=3
-# Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Dervish	STARTSKILLPTS:4	CSKILL:Balance|TYPE=Craft|Escape Artist|Jump|Listen|TYPE=Perform|TYPE=Profession|Swim|Tumble
-
-1	BONUS:ABILITYPOOL|Dervish|3
-2	BONUS:ABILITYPOOL|Dervish|1
-4	BONUS:ABILITYPOOL|Dervish|1
-5	BONUS:ABILITYPOOL|Dervish|1
-6	BONUS:ABILITYPOOL|Dervish|1
-7	BONUS:ABILITYPOOL|Dervish|1
-8	BONUS:ABILITYPOOL|Dervish|1
-9	BONUS:ABILITYPOOL|Dervish|1
-10	BONUS:ABILITYPOOL|Dervish|1
-###Block:
-3	AUTO:FEAT|Spring Attack
-
-# Drunken Master
-# Exotic Weapon Master
-# Eye of Gruumsh
-# Frenzied Berserker
-# Gnome Giant-Slayer
-# Halfling Outrider
-# Hulking Hurler
-# Hunter of the Dead
-# Invisible Blade
-# Justicar
-# Kensai
-# Knight of the Chalice
-# Knight Protector
-# Master Thrower
-# Master of the Unseen Hand
-# Mindspy
-# Nature's Warrior
-# Occult Slayer
-# Order of the Bow Initiate
-# Purple Dragon Knight
-# Rage Mage
-# Ravager
-# Reaping Mauler
-# Ronin
-# Spellsword
-# Stonelord
-# Tattooed Monk
-# Thayan Knight
-# War Chanter
-# Warshaper
