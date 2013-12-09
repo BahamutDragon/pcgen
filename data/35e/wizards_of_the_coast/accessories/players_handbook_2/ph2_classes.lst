@@ -1,26 +1,26 @@
-# CVS $Revision: $ $Author: $ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
-SOURCELONG:Player's Handbook II	SOURCESHORT:phb2	SOURCEDATE:2006-05
+# CVS $Revision: $ $Author: $ -- Sun Dec  8 22:17:49 2013 -- reformated by prettylst.pl v1.50 (build 22352)
+SOURCELONG:Player's Handbook II	SOURCESHORT:PHBII
 
 #Beguiler
-# Class Name	Hit Dice	Type			Save checks bonus											Combat bonus
-CLASS:Beguiler	HD:6		TYPE:Base.PC	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*1/2|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|CL|PREVAREQ:UseFractionalBAB,1	
 
+# Class Name	Hit Dice	Type			Save checks bonus											Combat bonus							Modify VAR
+CLASS:Beguiler	HD:6		TYPE:Base.PC	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*1/2|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|CL|PREVAREQ:UseFractionalBAB,1
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Beguiler	STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Climb|Concentration|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Jump|Knowledge (Arcana)|Knowledge (Local)|Listen|Move Silently|Open Lock|TYPE=Profession|Search|Sense Motive|Sleight of Hand|Speak Language|Spellcraft|Spot|Swim|Tumble|Use Magic Device
 # Class Name	Spell Stat		Spell Type		Memorize	Automatically Known Spell Levels							Caster level			Use Spell List
 CLASS:Beguiler	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:NO	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6	BONUS:CASTERLEVEL|Beguiler|CL	SPELLLIST:1|Beguiler
 #Block: Proficiencies
-1																AUTO:FEAT|Simple Weapon Proficiency
-1																AUTO:FEAT|Armor Proficiency (Light)
+1																				AUTO:FEAT|Simple Weapon Proficiency
+1																				AUTO:FEAT|Armor Proficiency (Light)
 1	ABILITY:Special Ability|AUTOMATIC|Armored Mage ~ Beguiler|Weapon Proficiencies ~ Beguiler|Trapfinding ~ Beguiler
 ###Block: Level
 2													BONUS:VAR|CloakedCastingProgression|1	BONUS:VAR|SurpriseCastingProgression|1	ABILITY:Special Ability|AUTOMATIC|Cloaked Casting ~ Beguiler|Surprise Casting ~ Beguiler
 3						BONUS:ABILITYPOOL|Advanced Learning|1
-5																																							AUTO:FEAT|Silent Spell
+5																																										AUTO:FEAT|Silent Spell
 6													BONUS:VAR|SurpriseCastingProgression|1
 7						BONUS:ABILITYPOOL|Advanced Learning|1
 8													BONUS:VAR|CloakedCastingProgression|1
-10																																							AUTO:FEAT|Still Spell
+10																																										AUTO:FEAT|Still Spell
 11						BONUS:ABILITYPOOL|Advanced Learning|1
 14													BONUS:VAR|CloakedCastingProgression|1
 15						BONUS:ABILITYPOOL|Advanced Learning|1
@@ -53,13 +53,13 @@ CLASS:Beguiler	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:NO	KNOWNSPELLS:LEVEL=0|LE
 
 #DUSKBLADE
 
-# Class Name	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus											Combat bonus					Modify VAR
-CLASS:Duskblade	HD:8		TYPE:Base.PC	ABB:DB		SOURCEPAGE:p.	BONUS:CHECKS|BASE.Will,BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|BAB|CL*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1		BONUS:VAR|FamiliarLVL|CL
+# Class Name	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus											Combat bonus								Modify VAR
+CLASS:Duskblade	HD:8		TYPE:Base.PC	ABB:DB		SOURCEPAGE:p.	BONUS:CHECKS|BASE.Will,BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|BAB|CL*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|FamiliarLVL|CL
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Duskblade	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher Script|TYPE=Knowledge|TYPE=Profession|Spellcraft
 # Class Name	Spell Stat		Spell Type		Spellbook		Caster level
 CLASS:Duskblade	SPELLSTAT:INT	SPELLTYPE:Arcane	SPELLBOOK:YES	BONUS:CASTERLEVEL|Duskblade|CL
-###Block: 
+###Block:
 1	ABILITY:Special Ability|AUTOMATIC|Arcane Attunement ~ Duskblade|Armored Mage ~ Duskblade
 2	ABILITY:Special Ability|AUTOMATIC|Combat Casting ~ Duskblade
 3	ABILITY:Special Ability|AUTOMATIC|Arcane Channeling ~ Duskblade
@@ -102,17 +102,17 @@ CLASS:Duskblade	SPELLSTAT:INT	SPELLTYPE:Arcane	SPELLBOOK:YES	BONUS:CASTERLEVEL|D
 
 #KNIGHT
 
-# Class Name	Hit Dice	Type			Abbreviation	Source Page		Automatically Gained Language	Save checks bonus											Combat bonus
-CLASS:Knight	HD:12		TYPE:Base.PC	ABB:Kni		SOURCEPAGE:PHB II			BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL	
+# Class Name	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus											Combat bonus
+CLASS:Knight	HD:12		TYPE:Base.PC	ABB:Kni		SOURCEPAGE:PHB II	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Knight	STARTSKILLPTS:2	CSKILL:Climb|Handle Animal|Intimidate|Jump|Knowledge (Nobility and Royalty)|Ride|Swim
 
 # TODO: Get Knight Profs set up to new standard
 ###Block:
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies
-1	AUTO:FEAT|Simple Weapon Proficiency
-1	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1	AUTO:FEAT|Shield Proficiency
+1																	AUTO:FEAT|Simple Weapon Proficiency
+1																	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1																	AUTO:FEAT|Shield Proficiency
 ###Block:
 1	ABILITY:Special Ability|AUTOMATIC|Fighting Challenge ~ Knight|Knight's Challenge ~ Knight|Knight's Code ~ Knight
 2	ABILITY:Special Ability|AUTOMATIC|Shield Block ~ Knight										VFEAT:Mounted Combat
