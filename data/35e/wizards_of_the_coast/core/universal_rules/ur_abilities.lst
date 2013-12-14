@@ -40,7 +40,9 @@ LEVEL_ADJUSTMENT_6	VISIBLE:NO	CATEGORY:Internal	TEMPLATE:LEVEL_ADJUSTMENT_6
 
 
 Default			CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|Low-Light Vision|PREVARGTEQ:HasLowlightVision,1	ABILITY:Special Ability|AUTOMATIC|Darkvision|PREVARGTEQ:DarkvisionRange,1	ABILITY:Internal|AUTOMATIC|Defines			ABILITY:Special Ability|AUTOMATIC|Aerial Maneuverability|PREMOVE:1,Fly=1	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base	DEFINE:DarkvisionRange|0	DEFINE:HasLowlightVision|0		BONUS:COMBAT|REACH|-5|PREVAREQ:RaceSizeIsLong,1|PRESIZEGTEQ:L	BONUS:COMBAT|REACH|-5|PREVAREQ:RaceSizeIsLong,1|PRESIZEGTEQ:C	
-	BONUS:COMBAT|BAB|ClassMasterBAB|PREVAREQ:UseFractionalBAB,1	DEFINE:ClassMasterBAB|0	DEFINE:ClassBABPoor|0	DEFINE:ClassBABModerate|0	BONUS:VAR|ClassMasterBAB|(ClassBABPoor*1/2)+(ClassBABModerate*3/4)
+	DEFINE:ClassBABPoor|0	DEFINE:ClassBABModerate|0
+	BONUS:COMBAT|BAB|max(((TL-HD)-19)/2,0)|TYPE=Epic	
+#	BONUS:COMBAT|BAB|ClassMasterBAB|PREVAREQ:UseFractionalBAB,1	DEFINE:ClassMasterBAB|0	BONUS:VAR|ClassMasterBAB|(ClassBABPoor*1/2)+(ClassBABModerate*3/4)
 #	BONUS:COMBAT|BAB|ClassMasterBAB|PRERULE:Use Fractional BAB
 
 ###Block: Vision Modes

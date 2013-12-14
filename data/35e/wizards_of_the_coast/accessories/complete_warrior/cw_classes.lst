@@ -173,3 +173,538 @@ CLASS:Ranger.MOD
 13	ABILITY:Ranger Class Feature|AUTOMATIC|Healing Touch ~ Variant Ranger Without Spellcasting|PREABILITY:1,CATEGORY=Internal,Variant Ranger ~ Without Spellcasting
 16	ABILITY:Ranger Class Feature|AUTOMATIC|Freedom of Movement ~ Variant Ranger Without Spellcasting|PREABILITY:1,CATEGORY=Internal,Variant Ranger ~ Without Spellcasting
 
+
+###Block: @PRESTIGE Classes
+
+# Class Name		Hit Dice	Type				Abbreviation	Max Level	Source Page		Save checks bonus														Combat bonus
+CLASS:Bear Warrior	HD:12		TYPE:Prestige.Oriental	ABB:BeW		MAXLEVEL:10	SOURCEPAGE:p.16	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
+# Class Name		Required Ability							Req. Att.	Required Feat
+CLASS:Bear Warrior	PREABILITY:1,CATEGORY=Special Ability,Rage,Frenzy	PREATT:7	PREFEAT:1,Power Attack
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Bear Warrior	STARTSKILLPTS:4	CSKILL:Climb|Handle Animal|Intimidate|Jump|Listen|Ride|Survival|Swim
+1	ABILITY:Special Ability|AUTOMATIC|Bear Form ~ Bear Warrior
+3	ABILITY:Special Ability|AUTOMATIC|Scent ~ Bear Warrior
+5	ABILITY:Special Ability|AUTOMATIC|Brown Bear Form ~ Bear Warrior
+7	ABILITY:Special Ability|AUTOMATIC|Rage ~ Bear Warrior
+10	ABILITY:Special Ability|AUTOMATIC|Dire Bear Form ~ Bear Warrior
+###Block:
+1	BONUS:VAR|BearWarriorBearFormLVL|CL
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus															Combat bonus
+CLASS:Bladesinger	HD:8		TYPE:Prestige	ABB:Bld		MAXLEVEL:10	SOURCEPAGE:p.17	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL
+# Class Name	Req. Att.	Required Feat																Multiple Requirements								Required Skill														Required Casting Type		Req. Spell Type
+CLASS:Bladesinger	PREATT:5	PREFEAT:3,Combat Casting,Combat Expertise,Dodge	PREFEAT:1,Weapon Focus(Longsword),Weapon Focus(Rapier)	PREMULT:1,[PRERACE:1,Elf%,Half-Elf],[PRERACE:1,RACESUBTYPE=Elf]	PRESKILL:4,Balance=2,Perform (Dance)=2,Perform (Sing)=2,Tumble=2	PRESKILL:1,Concentration=4	PRESPELLCAST:TYPE=Arcane	PRESPELLTYPE:1,Arcane=1
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Bladesinger	STARTSKILLPTS:2	CSKILL:Balance|Concentration|Jump|Knowledge (Arcana)|TYPE=Perform|Spellcraft|Tumble
+1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Bladesinger
+1	ABILITY:Special Ability|AUTOMATIC|Bladesong Style ~ Bladesinger
+2	ABILITY:Special Ability|AUTOMATIC|Lesser Spellsong ~ Bladesinger
+4	ABILITY:Special Ability|AUTOMATIC|Song of Celerity ~ Bladesinger
+6	ABILITY:Special Ability|AUTOMATIC|Greater Spellsong ~ Bladesinger
+10	ABILITY:Special Ability|AUTOMATIC|Song of Fury ~ Bladesinger
+###Block:
+1	BONUS:VAR|BladesingerBladesongStyleLVL|CL
+4	BONUS:VAR|SongOfCelerityPerDay|1	BONUS:VAR|SongOfCelerityPower|CL/4
+###Block:
+1:REPEATLEVEL:2	ADD:SPELLCASTER|Arcane
+
+###TODO CONTIGUOUS:Paladin
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus														Combat bonus
+CLASS:Cavalier	HD:10		TYPE:Prestige	ABB:Cav		MAXLEVEL:10	SOURCEPAGE:p.19	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL
+# Class Name	Required AL		Req. Att.	Required Feat											Required Skill
+CLASS:Cavalier	PREALIGN:LG,LN,LE	PREATT:8	PREFEAT:4,Spirited Charge,Weapon Focus(Lance),Mounted Combat,Ride By Attack	PRESKILL:2,Handle Animal=4,Knowledge (Nobility and Royalty)=4	PRESKILL:1,Ride=6
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Cavalier	STARTSKILLPTS:2	CSKILL:Diplomacy|Handle Animal|Intimidate|Knowledge (Nobility and Royalty)|TYPE=Profession|Ride
+1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Cavalier
+1	ABILITY:Special Ability|AUTOMATIC|Special Mount ~ Cavalier|Mounted Weapon Bonus ~ Cavalier
+1	ABILITY:Special Ability|AUTOMATIC|Ride Bonus ~ Cavalier|Courtly Knowledge ~ Cavalier
+2	ABILITY:Special Ability|AUTOMATIC|Cavalier Mounted Weapon Bonus Sword|Deadly Charge ~ Cavalier
+3	ABILITY:Special Ability|AUTOMATIC|Burst of Speed ~ Cavalier
+6	ABILITY:Special Ability|AUTOMATIC|Full Mounted Attack ~ Cavalier
+10	ABILITY:Special Ability|AUTOMATIC|Unstoppable Charge ~ Cavalier
+###Block:
+1	BONUS:VAR|SpecialMountLVL|CL
+1	BONUS:VAR|CavalierMountedLanceLVL|CL
+1	BONUS:VAR|CavalierRideBonusLVL|CL
+1	BONUS:VAR|CourtlyKnowledgeBonus|CL
+2	BONUS:VAR|CavalierMountedSwordLVL|CL
+2	BONUS:VAR|DeadlyChargePerDay|CL/2
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus															Combat bonus
+CLASS:Dark Hunter	HD:8		TYPE:Prestige	ABB:DHu		MAXLEVEL:5	SOURCEPAGE:p.20	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
+# Class Name	Req. Att.	Required Feat			Required Skill
+CLASS:Dark Hunter	PREATT:5	PREFEAT:2,Blind-Fight,Track	PRESKILL:1,Craft (Trapmaking)=5	PRESKILL:3,Knowledge (Dungeoneering)=2,Move Silently=2,Survival=2
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Dark Hunter	STARTSKILLPTS:4	CSKILL:Climb|Concentration|TYPE=Craft|Disable Device|Hide|Knowledge (Dungeoneering)|Listen|Move Silently|TYPE=Profession|Spot|Survival|Swim|Use Rope
+1								DEFINE:StonecunningLevel|2	ABILITY:Special Ability|AUTOMATIC|Stonecunning ~ Dark Hunter
+2	BONUS:VAR|DarkvisionRange|30								ABILITY:Special Ability|AUTOMATIC|Enhanced Darkvision ~ Dark Hunter
+3	BONUS:VAR|DarkHunterSneakAttackLVL|CL						ABILITY:Special Ability|AUTOMATIC|Sneak Attack ~ Dark Hunter
+4	BONUS:VAR|DarkvisionRange|30								ABILITY:Special Ability|AUTOMATIC|Stone Hue ~ Dark Hunter
+5	BONUS:VAR|DeathAttack|CL								ABILITY:Special Ability|AUTOMATIC|Death Attack ~ Dark Hunter
+###Block:
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus														Combat bonus
+CLASS:Darkwood Stalker	HD:8		TYPE:Prestige	ABB:Dws		MAXLEVEL:10	SOURCEPAGE:p.23	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL
+# Class Name		Req. Att.	Required Feat		Required Language	Multiple Requirements								Required Skill
+CLASS:Darkwood Stalker	PREATT:5	PREFEAT:2,Dodge,Track	PRELANG:1,Orc	PREMULT:1,[PRERACE:1,Elf%,Half-Elf],[PRERACE:1,RACESUBTYPE=Elf]	PRESKILL:5,Hide=5,Listen=5,Move Silently=5,Spot=5,Survival=5
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Darkwood Stalker	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Heal|Hide|Jump|Knowledge (Nature)|Listen|Move Silently|TYPE=Profession|Ride|Search|Spot|Survival|Swim|Use Rope
+1	BONUS:VAR|DarkwoodAncientFoeLVL|CL										ABILITY:Special Ability|AUTOMATIC|Ancient Foe ~ Darkwood Stalker
+2	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.STACK	BONUS:VAR|UncannyDodgeLevel|1	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Darkwood Stalker
+3	BONUS:VAR|DarkwoodSneakAttackLVL|CL										ABILITY:Special Ability|AUTOMATIC|Sneak Attack ~ Darkwood Stalker
+5	BONUS:VAR|UncannyDodgeLevel|1
+8																ABILITY:Special Ability|AUTOMATIC|Dodge Critical ~ Darkwood Stalker
+10																ABILITY:Special Ability|AUTOMATIC|Death Attack (Orc) ~ Darkwood Stalker
+###Block:
+4	BONUS:VAR|DarkvisionRange|30
+7	BONUS:VAR|DarkvisionRange|60
+10	BONUS:VAR|DeathAttackOrc|CL
+###Block:
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus															Combat bonus
+CLASS:Dervish	HD:10		TYPE:Prestige	ABB:Der		MAXLEVEL:10	SOURCEPAGE:p.25	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL
+# Class Name	Req. Att.	Required Feat													Required Skill
+CLASS:Dervish	PREATT:5	PREFEAT:3,Combat Expertise,Dodge,Mobility	PREFEAT:1,CHECKMULT,Weapon Focus(TYPE=Slashing)	PRESKILL:2,Perform (Dance)=3,Tumble=3
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Dervish	STARTSKILLPTS:4	CSKILL:Balance|TYPE=Craft|Escape Artist|Jump|Listen|TYPE=Perform|TYPE=Profession|Swim|Tumble
+1	BONUS:VAR|DervishACBonus|CL	BONUS:VAR|DervishDanceLVL|CL	ABILITY:Special Ability|AUTOMATIC|AC Bonus ~ Dervish|Dervish Dance ~ Dervish|Movement Mastery ~ Dervish|Slashing Blades ~ Dervish
+2	BONUS:VAR|DervishMoveBonus|((CL+1)/3)*5				ABILITY:Special Ability|AUTOMATIC|Fast Movement ~ Dervish
+3																															VFEAT:Spring Attack
+4											ABILITY:Special Ability|AUTOMATIC|Dance of Death ~ Dervish
+6											ABILITY:Special Ability|AUTOMATIC|Improved Reaction ~ Dervish
+7											ABILITY:Special Ability|AUTOMATIC|Elaborate Parry ~ Dervish
+9											ABILITY:Special Ability|AUTOMATIC|Tireless Dance ~ Dervish
+10											ABILITY:Special Ability|AUTOMATIC|A Thousand Cuts ~ Dervish
+
+###TODO CONTIGUOUS:Monk
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus															Combat bonus
+CLASS:Drunken Master	HD:8		TYPE:Prestige	ABB:Dru		MAXLEVEL:10	SOURCEPAGE:p.27	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4
+# Class Name		Required Ability															Required Feat								Required Skill		Required Text
+CLASS:Drunken Master	PREABILITY:1,CATEGORY=Special Ability,Evasion	PREABILITY:1,CATEGORY=Special Ability,Flurry of Blows	PREFEAT:3,Dodge,Great Fortitude,Improved Unarmed Strike	PRESKILL:1,Tumble=8	PRETEXT:Must be chosen by existing drunken masters and survive a night of revelry among them without being incarcerated, poisoned or extraordinarily embarassed
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Drunken Master	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Escape Artist|Hide|Jump|Listen|Move Silently|TYPE=Perform|TYPE=Profession|Swim|Tumble
+1								ABILITY:Special Ability|AUTOMATIC|Drink like a Demon ~ Drunken Master|Improvised Weapons ~ Drunken Master
+2								ABILITY:Special Ability|AUTOMATIC|Stagger ~ Drunken Master
+3								ABILITY:Special Ability|AUTOMATIC|Swaying Waist ~ Drunken Master
+4	BONUS:VAR|DrunkenMasterACBonusLVL|CL	ABILITY:Special Ability|AUTOMATIC|AC Bonus ~ Drunken Master|Improved Improvised Weapons ~ Drunken Master
+5								ABILITY:Special Ability|AUTOMATIC|Greater Improvised Weapons ~ Drunken Master
+6																							VFEAT:Improved Feint
+7																							VFEAT:Improved Grapple
+8	BONUS:VAR|MedicinalPurposePerDay|3		ABILITY:Special Ability|AUTOMATIC|For Medicinal Purpose ~ Drunken Master
+9								ABILITY:Special Ability|AUTOMATIC|Corckscrew Rush ~ Drunken Master|Superior Improvised Weapons ~ Drunken Master
+10	BONUS:VAR|DrunkenMasterBreathFlameLVL|CL	ABILITY:Special Ability|AUTOMATIC|Breath Flame ~ Drunken Master
+
+# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus														Combat bonus
+CLASS:Exotic Wepon Master	HD:10		TYPE:Prestige	ABB:Ewm		MAXLEVEL:3	SOURCEPAGE:p.30	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
+# Class Name			Req. Att.	Required Feat
+CLASS:Exotic Wepon Master	PREATT:6	PREFEAT:1,CHECKMULT,Exotic Weapon Proficiency	PREFEAT:1,CHECKMULT,Weapon Focus
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Exotic Wepon Master	STARTSKILLPTS:2	CSKILL:TYPE=Craft|Intimidate|TYPE=Profession
+1	BONUS:ABILITYPOOL|Exotic Weapon Stunt|CL
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus														Combat bonus
+CLASS:Eye of Gruumsh	HD:12		TYPE:Prestige	ABB:Eye		MAXLEVEL:10	SOURCEPAGE:p.31	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
+# Class Name		Required AL		Req. Att.	Required Deity		Required Feat													Multiple Requirements								Required Text
+CLASS:Eye of Gruumsh	PREALIGN:CE,CN,NE	PREATT:6	PREDEITY:1,Gruumsh	PREFEAT:2,Exotic Weapon Proficiency(Axe (Orc Double)),Weapon Focus(Axe (Orc Double))	PREMULT:1,[PRERACE:1,Orc%,Half-Orc],[PRERACE:1,RACESUBTYPE=Orc]	PRETEXT:Must pop out his own right eye in a special ritual
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Eye of Gruumsh	STARTSKILLPTS:2	CSKILL:Climb|Intimidate|Jump|Ride|Survival|Swim
+1															ABILITY:Special Ability|AUTOMATIC|Command the Horde ~ Eye of Gruumsh						VFEAT:Blind Fight
+1					BONUS:VAR|EyeGruumshRageTimesLVL,EyeGruumshRagePowerLVL|CL	ABILITY:Special Ability|AUTOMATIC|Rage ~ Eye of Gruumsh
+2															ABILITY:Special Ability|AUTOMATIC|Swing Blindly ~ Eye of Gruumsh
+3					BONUS:VAR|EyeGruumshRitualScarringLVL|CL				ABILITY:Special Ability|AUTOMATIC|Ritual Scarring ~ Eye of Gruumsh
+4					BONUS:VAR|BlindingSpittlePerDay|2					ABILITY:Special Ability|AUTOMATIC|Blinding Spittle ~ Eye of Gruumsh
+5	VISION:Blindsight (5')
+7					BONUS:VAR|BlindingSpittlePerDay|2
+8	VISION:Blindsight (10')
+10															ABILITY:Special Ability|AUTOMATIC|Sight of Gruumsh
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus														Combat bonus
+CLASS:Frenzied Berserk	HD:12		TYPE:Prestige	ABB:Fre		MAXLEVEL:10	SOURCEPAGE:p.34	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
+# Class Name		Required AL				Req. Att.	Required Feat
+CLASS:Frenzied Berserk	PREALIGN:NG,TN,NE,CG,CN,CE	PREATT:6	PREFEAT:4,Cleave,Destructive Rage,Intimidating Rage,Power Attack
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Frenzied Berserk	STARTSKILLPTS:2	CSKILL:Climb|Intimidate|Jump|Ride|Ride|Swim
+1	BONUS:VAR|FrenziedBFrenzyTimesLVL|CL	BONUS:VAR|FrenziedBFrenzyPowerLVL|CL	ABILITY:Special Ability|AUTOMATIC|Frenzy ~ Frenzied Berserker			VFEAT:Diehard
+2															ABILITY:Special Ability|AUTOMATIC|Supreme Cleave ~ Frenzied Berserker
+4															ABILITY:Special Ability|AUTOMATIC|Deathless Frenzy ~ Frenzied Berserker
+5															ABILITY:Special Ability|AUTOMATIC|Improved Power Attack ~ Frenzied Berserker
+6	BONUS:VAR|FrenziedBerserkerInspireFrenzyLVL|CL							ABILITY:Special Ability|AUTOMATIC|Inspire Frenzy ~ Frenzied Berserker
+10															ABILITY:Special Ability|AUTOMATIC|Supreme Power Attack ~ Frenzied Berserker
+
+# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus														Combat bonus
+CLASS:Gnome Giant-Slayer	HD:10		TYPE:Prestige	ABB:Ggs		MAXLEVEL:10	SOURCEPAGE:p.36	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
+# Class Name			Req. Att.	Required Feat					Required Language	Multiple Requirements							Required Skill
+CLASS:Gnome Giant-Slayer	PREATT:5	PREFEAT:3,Dodge,Mobility,Spring Attack	PRELANG:1,Giant	PREMULT:1,[PRERACE:1,Gnome%],[PRERACE:1,RACESUBTYPE=Gnome]	PRESKILL:2,Escape Artist=3,Tumble=3
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Gnome Giant-Slayer	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Escape Artist|Hide|Intimidate|Jump|Move Silently|Tumble|Use Rope
+1									ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Gnome Giant-Slayer
+1	BONUS:VAR|GnomeGiantSlayerFavoredEnemyLVL|CL	ABILITY:Special Ability|AUTOMATIC|Favored Enemy ~ Gnome Giant-Slayer	ABILITY:Special Ability|NORMAL|Favored Enemy (Giant)
+2									ABILITY:Special Ability|AUTOMATIC|Crafty Fighter ~ Gnome Giant-Slayer
+3									ABILITY:Special Ability|AUTOMATIC|Slippery ~ Gnome Giant-Slayer
+5									ABILITY:Special Ability|AUTOMATIC|Close Shot ~ Gnome Giant-Slayer
+6									ABILITY:Special Ability|AUTOMATIC|Fast Movement ~ Gnome Giant-Slayer
+8									ABILITY:Special Ability|AUTOMATIC|Improved Mobility ~ Gnome Giant-Slayer
+9									ABILITY:Special Ability|AUTOMATIC|Annoying Strike ~ Gnome Giant-Slayer
+10									ABILITY:Special Ability|AUTOMATIC|Defensive Roll ~ Gnome Giant-Slayer
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Define									Save checks bonus															Combat bonus
+CLASS:Halfling Outrider	HD:8		TYPE:Prestige	ABB:Hfo		MAXLEVEL:10	SOURCEPAGE:p.38	DEFINE:SpecialMountLVL|0	DEFINE:AnimalCompanionLVL|0	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
+# Class Name		Req. Att.	Required Feat					Multiple Requirements								Required Skill
+CLASS:Halfling Outrider	PREATT:5	PREFEAT:2,Mounted Combat,Mounted Archery	PREMULT:1,[PRERACE:1,Halfling%],[PRERACE:1,RACESUBTYPE=Halfling]	PRESKILL:2,Listen=3,Spot=3	PRESKILL:1,Ride=6
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Halfling Outrider	STARTSKILLPTS:4	CSKILL:Handle Animal|Listen|Ride|Spot|Survival
+1	BONUS:VAR|OutriderACBonusLVL|CL	BONUS:VAR|OutriderMountLVL|CL	BONUS:VAR|RideBonus|CL			ABILITY:Special Ability|AUTOMATIC|AC Bonus ~ Halfling Outrider|Mount ~ Halfling Outrider|Ride Bonus ~ Halfling Outrider	VFEAT:Alertness
+2																		ABILITY:Special Ability|AUTOMATIC|Defensive Riding ~ Halfling Outrider
+3																		ABILITY:Special Ability|AUTOMATIC|Unbroken Charge ~ Halfling Outrider
+4																		ABILITY:Special Ability|AUTOMATIC|Stand on Mount ~ Halfling Outrider
+5																		ABILITY:Special Ability|AUTOMATIC|Leap from Saddle ~ Halfling Outrider
+6	BONUS:VAR|EvasionUsable,ImprovedEvasionUsable|1|TYPE=Prerequisite|PREEQUIP:1,TYPE=Medium,TYPE=Heavy	ABILITY:Special Ability|AUTOMATIC|Improved Evasion ~ Halfling Outrider
+8																		ABILITY:Special Ability|AUTOMATIC|Full Mounted Attack ~ Halfling Outrider
+10																		ABILITY:Special Ability|AUTOMATIC|Quick Turn ~ Halfling Outrider
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus															Combat bonus
+CLASS:Hulking Hurler	HD:10		TYPE:Prestige	ABB:Hul		MAXLEVEL:3	SOURCEPAGE:p.40	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
+# Class Name		Req. Att.	Required Feat													Minimum Size
+CLASS:Hulking Hurler	PREATT:5	PREFEAT:2,Point Blank Shot,Power Attack	PREFEAT:1,CHECKMULT,Weapon Focus(TYPE=Ranged)	PRESIZEGTEQ:L
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Hulking Hurler	STARTSKILLPTS:2	CSKILL:Climb|Intimidate|Jump|Swim
+1							ABILITY:Special Ability|AUTOMATIC|Catch Weapon ~ Hulking Hurler|Really Throw Anything ~ Hulking Hurler
+2	BONUS:ABILITYPOOL|Hurl Trick|CL-1
+
+# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus														Combat bonus
+CLASS:Hunter of the Dead	HD:8		TYPE:Prestige	ABB:Hud		MAXLEVEL:10	SOURCEPAGE:p.42	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
+# Class Name			Required Ability							Required AL				Req. Att.	Required Skill				Required Text
+CLASS:Hunter of the Dead	PREABILITY:1,CATEGORY=Special Ability,Turn Undead	PREALIGN:LG,LN,NG,TN,CG,CN	PREATT:5	PRESKILL:1,Knowledge (Religion)=5	PRETEXT:Must have lost one level or had an ability score drained by an undead creature.
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Hunter of the Dead	STARTSKILLPTS:2	CSKILL:Concentration|Heal|Knowledge (Religion)|TYPE=Profession|Ride|Search
+# Class Name			Spell Stat		Spell Type		Automatically Known Spell Levels				Spellbook		Caster level
+CLASS:Hunter of the Dead	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	SPELLBOOK:NO	BONUS:CASTERLEVEL|Hunter of the Dead|CL
+1	CAST:0,0		BONUS:VAR|DetectUndeadLVL|CL				ABILITY:Special Ability|AUTOMATIC|Detect Undead ~ Hunter of the Dead
+2	CAST:0,1		BONUS:VAR|HunterDeadSmiteUndeadLVL|CL		ABILITY:Special Ability|AUTOMATIC|Smite Undead ~ Hunter of the Dead
+3	CAST:0,1,0										ABILITY:Special Ability|AUTOMATIC|Spurn Death's Touch ~ Hunter of the Dead
+4	CAST:0,1,1
+5	CAST:0,1,1,0									ABILITY:Special Ability|AUTOMATIC|True Death ~ Hunter of the Dead
+6	CAST:0,1,1,1																										VFEAT:Extra Turning
+7	CAST:0,2,1,1,0
+8	CAST:0,2,1,1,1	BONUS:VAR|HunterOfTheDeadPositiveBurstLVL|CL	ABILITY:Special Ability|AUTOMATIC|Positive Energy Burst ~ Hunter of the Dead
+9	CAST:0,2,2,1,1
+10	CAST:0,2,2,2,1									ABILITY:Special Ability|AUTOMATIC|Sealed Life ~ Hunter of the Dead
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus															Combat bonus
+CLASS:Invisible Blade	HD:6		TYPE:Prestige	ABB:Inv		MAXLEVEL:5	SOURCEPAGE:p.44	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
+# Class Name		Required Feat													Required Skill							Required Text
+CLASS:Invisible Blade	PREFEAT:1,Weapon Focus(Dagger),Weapon Focus(Kukri)	PREFEAT:2,Far Shot,Point Blank Shot	PRESKILL:1,Sense Motive=6	PRESKILL:1,Bluff=8	PRETEXT:Must defeat a worthy opponent using only daggers o kukris
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Invisible Blade	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Escape Artist|Jump|Hide|Listen|Move Silently|TYPE=Perform|TYPE=Profession|Sense Motive|Spot|Tumble
+1	BONUS:VAR|InvisibleBladeDaggerSneakAttackLVL|CL	BONUS:VAR|InvisibleBladeUnfetteredDefenseLVL|CL	ABILITY:Special Ability|AUTOMATIC|Dagger Sneak Attack ~ Invisible Blade|Unfettered Defense ~ Invisible Blade
+2																	ABILITY:Special Ability|AUTOMATIC|Bleeding Wound ~ Invisible Blade
+3	BONUS:VAR|InvisibleBladeUncannyFeintLVL|CL									ABILITY:Special Ability|AUTOMATIC|Uncanny Feint ~ Invisible Blade
+4																	ABILITY:Special Ability|AUTOMATIC|Feint Mastery ~ Invisible Blade
+
+###TODO CONTIGUOUS:Paladin
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus														Combat bonus
+CLASS:Justicar	HD:10		TYPE:Prestige	ABB:Jus		MAXLEVEL:10	SOURCEPAGE:p.47	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL
+# Class Name	Required AL		Req. Att.	Required Feat					Required Skill
+CLASS:Justicar	PREALIGN:LG,LN,LE	PREATT:6	PREFEAT:1,Skill Focus(Gather Information)	PRESKILL:3,Gather Information=5,Search=5,Survival=5
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Justicar	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Disguise|Gather Information|Heal|Hide|Intimidate|Jump|TYPE=Knowledge|Listen|Move Silently|Open Lock|Ride|Search|Sense Motive|Spot|Survival|Swim|Use Rope
+1	BONUS:VAR|JusticarNonLethalStrikeLVL|CL	ABILITY:Special Ability|AUTOMATIC|Bring'em Back Alive ~ Justicar|Non Lethal Strike ~ Justicar
+2								ABILITY:Special Ability|AUTOMATIC|Crippling Strike ~ Justicar								VFEAT:Improved Grapple
+3								ABILITY:Special Ability|AUTOMATIC|Street Savvy ~ Justicar						VFEAT:Exotic Weapon Proficiency(Manacles)
+5	BONUS:VAR|JusticarHogTieLVL|CL		ABILITY:Special Ability|AUTOMATIC|Hog tie ~ Justicar
+10								ABILITY:Special Ability|AUTOMATIC|Intuition ~ Justicar
+
+###TODO CONTIGUOUS:Samurai|Paladin|Monk
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus														Combat bonus
+CLASS:Kensai	HD:10		TYPE:Prestige	ABB:Ken		MAXLEVEL:10	SOURCEPAGE:p.49	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4
+# Class Name	Required AL		Req. Att.	Required Feat											Required Skill						Required Text
+CLASS:Kensai	PREALIGN:LG,LN,LE	PREATT:5	PREFEAT:1,Combat Expertise	PREFEAT:1,CHECKMULT,Weapon Focus(TYPE=ANY)	PRESKILL:3,Concentration=5,Diplomacy=5,Ride=5	PRETEXT:Must complete an oath of service to either an overlord or an ideal
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Kensai	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Diplomacy|Intimidate|Jump|Knowledge (Local)|Knowledge (Nobility and Royalty)|Ride|Sense Motive
+1							ADD:ABILITY|Special Ability|VIRTUAL|Signature Weapon
+2																ABILITY:Special Ability|AUTOMATIC|Power Surge ~ Kensai
+4	BONUS:VAR|KensaiKiProjectionLVL|CL										ABILITY:Special Ability|AUTOMATIC|Ki Projection ~ Kensai
+5																ABILITY:Special Ability|AUTOMATIC|Withstand ~ Kensai
+8																ABILITY:Special Ability|AUTOMATIC|Instill ~ Kensai
+10																ABILITY:Special Ability|AUTOMATIC|Ki Warlord ~ Kensai
+
+###TODO CONTIGUOUS:Paladin
+
+# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus														Combat bonus
+CLASS:Knight of the Chalice	HD:10		TYPE:Prestige	ABB:Cha		MAXLEVEL:10	SOURCEPAGE:p.53	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
+# Class Name			Required AL	Req. Att.	Required Skill										Req. Known Spell				Required Casting Type		Req. Spell Type
+CLASS:Knight of the Chalice	PREALIGN:LG	PREATT:8	PRESKILL:1,Knowledge (The Planes)=5	PRESKILL:1,Knowledge (Religion)=10	PRESPELL:1,Protection from Evil	PRESPELLCAST:TYPE=Divine	PRESPELLTYPE:1,Divine=1
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Knight of the Chalice	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Intimidate|Knowledge (The Planes)|Knowledge (Religion)|TYPE=Profession|Sense Motive
+# Class Name			Spell Stat		Spell Type		Automatically Known Spell Levels				Spellbook		Caster level
+CLASS:Knight of the Chalice	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	SPELLBOOK:NO	BONUS:CASTERLEVEL|Knight of the Chalice|CL
+1	CAST:0,0		BONUS:VAR|KnightChaliceFiendslayingLVL|CL				ABILITY:Special Ability|AUTOMATIC|Fiendslaying ~ Knight of the Chalice
+2	CAST:0,1		BONUS:VAR|CensurePowerLVL|CL						ABILITY:Special Ability|AUTOMATIC|Censure Demons ~ Knight of the Chalice|Courage of Heavens (fear) ~ Knight of the Chalice
+3	CAST:0,1,0
+4	CAST:0,1,1												ABILITY:Special Ability|AUTOMATIC|Consecrated Casting ~ Knight of the Chalice
+5	CAST:0,1,1,0											ABILITY:Special Ability|AUTOMATIC|Courage of Heavens (enchantment) ~ Knight of the Chalice
+6	CAST:0,1,1,1
+7	CAST:0,2,1,1,0
+8	CAST:0,2,1,1,1											ABILITY:Special Ability|AUTOMATIC|Courage of Heavens (radius) ~ Knight of the Chalice
+9	CAST:0,2,2,1,1
+10	CAST:0,2,2,2,1	BONUS:VAR|HolyAuraLVL|10	BONUS:VAR|HolyAuraTimes|1	ABILITY:Special Ability|AUTOMATIC|Holy Aura ~ Knight of the Chalice
+
+###TODO CONTIGUOUS:Samurai|Paladin
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Ex Class				Source Page		Save checks bonus														Combat bonus
+CLASS:Knight Protector	HD:10		TYPE:Prestige	ABB:Kni		MAXLEVEL:10	EXCLASS:Ex Knight Protector	SOURCEPAGE:p.55	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL
+# Class Name		Required AL		Req. Att.	Required Feat												Required Skill
+CLASS:Knight Protector	PREALIGN:LG,LN	PREATT:5	PREFEAT:5,Armor Proficiency (Heavy),Cleave,Great Cleave,Mounted Combat,Power Attack	PRESKILL:2,Diplomacy=6,Ride=6	PRESKILL:1,Knowledge (Nobility and Royalty)=4
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Knight Protector	STARTSKILLPTS:2	CSKILL:Diplomacy|Intimidate|Knowledge (Nobility and Royalty)|Ride|Spot
+1									ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Knight Protector
+
+1	BONUS:VAR|KnightProtectorDefensiveStanceLVL|CL	ABILITY:Special Ability|AUTOMATIC|Defensive Stance ~ Knight Protector|Shining Beacon ~ Knight Protector
+2	BONUS:VAR|KnightProtectorBestEffortLVL|CL		ABILITY:Special Ability|AUTOMATIC|Best Effort ~ Knight Protector					VFEAT:Iron Will
+3									ABILITY:Special Ability|AUTOMATIC|Supreme Cleave ~ Knight Protector
+6	BONUS:VAR|NoMercyAttack|1				ABILITY:Special Ability|AUTOMATIC|No Mercy ~ Knight Protector
+9	BONUS:VAR|NoMercyAttack|1
+10									ABILITY:Special Ability|AUTOMATIC|Retributive Attack ~ Knight Protector
+
+# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Visible	Save checks bonus														Combat bonus
+CLASS:Ex Knight Protector	HD:10		TYPE:Prestige	ABB:XKni		MAXLEVEL:10	SOURCEPAGE:p.55	VISIBLE:NO	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Ex Knight Protector	STARTSKILLPTS:2	CSKILL:Diplomacy|Intimidate|Knowledge (Nobility and Royalty)|Ride|Spot
+1									ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Knight Protector
+
+1	BONUS:VAR|KnightProtectorDefensiveStanceLVL|CL	ABILITY:Special Ability|AUTOMATIC|Defensive Stance ~ Knight Protector
+2	BONUS:VAR|KnightProtectorBestEffortLVL|CL		ABILITY:Special Ability|AUTOMATIC|Best Effort ~ Knight Protector			VFEAT:Iron Will
+3									ABILITY:Special Ability|AUTOMATIC|Supreme Cleave ~ Knight Protector
+6	BONUS:VAR|KnightProtectorNoMercyLVL|CL		ABILITY:Special Ability|AUTOMATIC|No Mercy|Knight Protector No Mercy
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus															Combat bonus
+CLASS:Master Thrower	HD:8		TYPE:Prestige	ABB:Thr		MAXLEVEL:5	SOURCEPAGE:p.58	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
+# Class Name		Req. Att.	Required Feat													Required Skill
+CLASS:Master Thrower	PREATT:5	PREFEAT:2,Point Blank Shot,Precise Shot	PREFEAT:1,CHECKMULT,Weapon Focus(TYPE=Thrown)	PRESKILL:1,Sleight of Hand=4
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Master Thrower	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Concentration|TYPE=Craft|Jump|TYPE=Perform|TYPE=Profession|Sleight of Hand|Spot|Tumble|Use Rope
+1	BONUS:ABILITYPOOL|Thrown Weapon Trick|(CL+1)/2																												VFEAT:Quick Draw
+2									BONUS:VAR|EvasionUsable,ImprovedEvasionUsable|1|TYPE=Prerequisite|PREEQUIP:1,TYPE=Medium,TYPE=Heavy	ABILITY:Special Ability|AUTOMATIC|Evasion|Improved Evasion
+4																																				VFEAT:Snatch Arrows
+5																										ABILITY:Special Ability|AUTOMATIC|Critical Throw
+
+# Class Name				Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus														Combat bonus
+CLASS:Master of the Unseen Hand	HD:4		TYPE:Prestige	ABB:Muh		MAXLEVEL:5	SOURCEPAGE:p.60	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL
+# Class Name				Required Skill			Req. Known Spell
+CLASS:Master of the Unseen Hand	PRESKILL:1,Concentration=8	PRESPELL:1,Telekinesis
+# Class Name				Skill Pts/Lvl	Class Skill
+CLASS:Master of the Unseen Hand	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Intimidate|Knowledge (Arcana)|TYPE=Profession|Spellcraft
+1	BONUS:ABILITYPOOL|Improved Caster Level|CL	ABILITY:Special Ability|AUTOMATIC|Versatile Telekinesis
+2									ABILITY:Special Ability|AUTOMATIC|Telekinetic Wielder|Sustained Concentration
+3									ABILITY:Special Ability|AUTOMATIC|Full Attack Telekinesis
+4									ABILITY:Special Ability|AUTOMATIC|Improved Violent Thrust|Telekinetic Fly
+5									ABILITY:Special Ability|AUTOMATIC|Flying Skyward
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus														Combat bonus
+CLASS:Mindspy	HD:8		TYPE:Prestige	ABB:Min		MAXLEVEL:5	SOURCEPAGE:p.62	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL
+# Class Name	Req. Att.	Required Skill			Req. Known Spell
+CLASS:Mindspy	PREATT:3	PRESKILL:1,Concentration=8	PRESPELL:1,Detect Thoughts
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Mindspy	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Intimidate|TYPE=Profession|Sense Motive
+1	BONUS:VAR|MindspyAnticipateLVL|CL			ABILITY:Special Ability|AUTOMATIC|Anticipate ~ Mindspy|Combat Telegraphy ~ Mindspy|Spherical Detect Thoughts ~ Mindspy
+2									ABILITY:Special Ability|AUTOMATIC|Faster Mindscan ~ Mindspy
+3	BONUS:VAR|MindspyMultipleSurfaceThoughtLVL|CL	ABILITY:Special Ability|AUTOMATIC|Multiple Surface Thoughts ~ Mindspy
+4									ABILITY:Special Ability|AUTOMATIC|Instant Mindscan ~ Mindspy
+5
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus														Combat bonus
+CLASS:Nature's Warrior	HD:10		TYPE:Prestige	ABB:NWr		MAXLEVEL:5	SOURCEPAGE:p.63	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
+# Class Name		Required Ability							Required AL		Req. Att.	Required Feat	Required Skill
+CLASS:Nature's Warrior	PREABILITY:1,CATEGORY=Special Ability,TYPE.WildShape	PREALIGN:LN,TN,CN	PREATT:4	PREFEAT:1,Track	PRESKILL:2,Knowledge (Nature)=8,Survival=8	PRESKILL:1,Knowledge (The Planes)=2
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Nature's Warrior	STARTSKILLPTS:2	CSKILL:Diplomacy|Handle Animal|Intimidate|Jump|Knowledge (Nature)|Listen|Survival|Swim
+1	BONUS:ABILITYPOOL|Nature's Armament|(CL+1)/2	BONUS:VAR|WildingBonus|CL|TYPE=NatureWarrior	ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Wilding ~ Nature's Warrior
+3																	ADD:SPELLCASTER|Divine
+5																	ADD:SPELLCASTER|Divine
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus														Combat bonus
+CLASS:Occult Slayer	HD:8		TYPE:Prestige	ABB:Osl		MAXLEVEL:5	SOURCEPAGE:p.66	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL
+# Class Name		Req. Att.	Required Feat											Required Skill
+CLASS:Occult Slayer	PREATT:5	PREFEAT:1,Improved Initiative	PREFEAT:1,Weapon Focus(TYPE=ANY)	PRESKILL:1,Knowledge (Arcana)=4	PRESKILL:1,Spellcraft=3
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Occult Slayer	STARTSKILLPTS:2	CSKILL:Bluff|TYPE=Craft|Gather Information|Knowledge (Arcana)|TYPE=Profession|Sense Motive|Spellcraft
+1														ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Occult Slayer
+1	BONUS:ABILITYPOOL|Weapon Bond|1	BONUS:VAR|OccultSlayerMagicDefenseLVL|0	ABILITY:Special Ability|AUTOMATIC|Magic Defense ~ Occult Slayer
+2							BONUS:VAR|OccultSlayerMindOverBodyLVL|CL	ABILITY:Special Ability|AUTOMATIC|Mind Over Magic ~ Occult Slayer|Viciuos Slayer ~ Occult Slayer
+3														ABILITY:Special Ability|AUTOMATIC|Auravision ~ Occult Slayer
+4														ABILITY:Special Ability|AUTOMATIC|Nondetection Cloak ~ Occult Slayer
+5														ABILITY:Special Ability|AUTOMATIC|Blank Thoughts ~ Occult Slayer
+
+
+# Class Name				Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus															Combat bonus
+CLASS:Order of the Bow Initiate	HD:8		TYPE:Prestige	ABB:Obi		MAXLEVEL:10	SOURCEPAGE:p.68	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL
+# Class Name				Req. Att.	Required Feat													Required Skill
+CLASS:Order of the Bow Initiate	PREATT:5	PREFEAT:3,Point Blank Shot,Precise Shot,Rapid Shot	PREFEAT:1,Weapon Focus(TYPE=Bow)	PRESKILL:1,Knowledge (Religion)=2	PRESKILL:1,Craft (Bowmaking)=5
+# Class Name				Skill Pts/Lvl	Class Skill
+CLASS:Order of the Bow Initiate	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Knowledge (Religion)|Ride|Spot|Swim
+1	BONUS:VAR|OrderBowInitiateRangedPrecisionLVL|CL								ABILITY:Special Ability|AUTOMATIC|Ranged Precision ~ Order of the Bow Initiate
+2																ABILITY:Special Ability|AUTOMATIC|Close Combat Shot ~ Order of the Bow Initiate
+4									ADD:VFEAT|Greater Weapon Focus(TYPE=Bow)	ABILITY:Special Ability|AUTOMATIC|Greater Weapon Focus Qualify
+6																															VFEAT:Sharp Shooting
+10																ABILITY:Special Ability|AUTOMATIC|Extended Precision ~ Order of the Bow Initiate
+
+###TODO CONTIGUOUS:Paladin
+
+# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus														Combat bonus
+CLASS:Purple Dragon Knight	HD:10		TYPE:Prestige	ABB:Prp		MAXLEVEL:5	SOURCEPAGE:p.70	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
+# Class Name			Required AL			Req. Att.	Required Feat				Required Skill										Required Text
+CLASS:Purple Dragon Knight	PREALIGN:LG,NG,LN,TN	PREATT:5	PREFEAT:2,Mounted Combat,Negotiator	PRESKILL:1,Diplomacy=1,Intimidate=1	PRESKILL:3,Listen=2,Ride=2,Spot=2	PRETEXT:Must be member of the Purple Dragons
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Purple Dragon Knight	STARTSKILLPTS:2	CSKILL:Climb|Diplomacy|Handle Animal|Intimidate|Knowledge (Local)|Jump|Ride|Swim
+1									ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Purple Dragon Knight
+1									ABILITY:Special Ability|AUTOMATIC|Heroic Shield ~ Purple Dragon Knight|Rallying Cry ~ Purple Dragon Knight
+2	BONUS:VAR|PurpleKnightInspireCourageLVL|CL	ABILITY:Special Ability|AUTOMATIC|Inspire Courage ~ Purple Dragon Knight
+3	BONUS:VAR|PurpleKnightFearLVL|CL			ABILITY:Special Ability|AUTOMATIC|Fear ~ Purple Dragon Knight
+4	BONUS:VAR|OathOfWrathPerDay|1				ABILITY:Special Ability|AUTOMATIC|Oath of Wrath ~ Purple Dragon Knight
+5									ABILITY:Special Ability|AUTOMATIC|Final Stand ~ Purple Dragon Knight
+#
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus														Combat bonus
+CLASS:Rage Mage	HD:8		TYPE:Prestige	ABB:Rgm		MAXLEVEL:10	SOURCEPAGE:p.72	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4
+# Class Name	Required Ability						Required AL				Req. Att.	Required Feat									Required Casting Type		Req. Spell Type
+CLASS:Rage Mage	PREABILITY:1,CATEGORY=Special Ability,TYPE.Rage	PREALIGN:NG,TN,NE,CG,CN,CE	PREATT:4	PREFEAT:1,Combat Casting	PREFEAT:2,Mounted Combat,Negotiator	PRESPELLCAST:TYPE=Arcane	PRESPELLTYPE:1,Arcane=2
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Rage Mage	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Profession|Spellcraft|Survival
+1	BONUS:VAR|SpellRageTimes|(CL+1)/5					ABILITY:Special Ability|AUTOMATIC|Spell Rage ~ Rage Mage
+
+2							ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Overcome Spell Failure ~ Rage Mage
+3											ABILITY:Special Ability|AUTOMATIC|Rage ~ Rage Mage
+4							ADD:SPELLCASTER|Arcane
+5	BONUS:VAR|RageMageAngrySpellLVL|CL					ABILITY:Special Ability|AUTOMATIC|Angry Spell ~ Rage Mage
+6							ADD:SPELLCASTER|Arcane
+7	BONUS:VAR|SpellFuryTimes|1						ABILITY:Special Ability|AUTOMATIC|Spell Fury ~ Rage Mage
+8							ADD:SPELLCASTER|Arcane
+9	BONUS:VAR|TirelessSpellRage|1
+10	BONUS:VAR|WarriorCryPerDay|1		ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Warrior Cry ~ Rage Mage
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus														Combat bonus
+CLASS:Ravager	HD:10		TYPE:Prestige	ABB:Rav		MAXLEVEL:10	SOURCEPAGE:p.73	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
+# Class Name	Required AL		Req. Att.	Required Feat					Required Skill										Required Text
+CLASS:Ravager	PREALIGN:CE,NE	PREATT:5	PREFEAT:2,Improved Sunder,Power Attack	PRESKILL:2,Intimidate=3,Knowledge (Religion)=3	PRESKILL:1,Survival=4	PRETEXT:Must survive the ravager initiation rites
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Ravager	STARTSKILLPTS:2	CSKILL:Intimidate|Knowledge (Religion)|Move Silently|TYPE=Profession|Ride
+1	BONUS:VAR|RavagerPainTouchAbilityLVL|CL					ABILITY:Special Ability|AUTOMATIC|Pain Touch Ability ~ Ravager
+2	BONUS:VAR|RavagerAuraOfFearLVL|CL						ABILITY:Special Ability|AUTOMATIC|Aura of Fear ~ Ravager
+3	BONUS:VAR|RavagerCruelestCutLVL|CL						ABILITY:Special Ability|AUTOMATIC|Cruelest Cut ~ Ravager
+10	BONUS:VAR|VisageOfTerrorPerDay|1	BONUS:VAR|VisageOfTerrorDC|CL	ABILITY:Special Ability|AUTOMATIC|Visage of Terror ~ Ravager
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus															Combat bonus
+CLASS:Reaping Mauler	HD:10		TYPE:Prestige	ABB:Rem		MAXLEVEL:5	SOURCEPAGE:p.75	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
+# Class Name		Req. Att.	Required Feat														Required Skill				Required Text
+CLASS:Reaping Mauler	PREATT:5	PREFEAT:2,Clever Wrestling,Improved Unarmed Strike	PREFEAT:2,Improved Sunder,Power Attack	PRESKILL:2,Escape Artist=5,Tumble=5	PRETEXT:Must have defeated at least 3 opponents one size category larger than himself with his bare hands
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Reaping Mauler	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Escape Artist|Intimidate|Jump|TYPE=Perform|TYPE=Profession|Swim|Tumble
+1																									VFEAT:Improved Grapple|PREARMORTYPE:1,TYPE.Light	VFEAT:Mobility|PREARMORTYPE:1,TYPE.Light
+2	BONUS:VAR|ReapingMaulerAdeptWrestlingLVL|CL	ABILITY:Special Ability|AUTOMATIC|Adept Wrestling ~ Reaping Mauler
+3	BONUS:VAR|ReapingMaulerSleeperLockLVL|CL		ABILITY:Special Ability|AUTOMATIC|Counter Grapple ~ Reaping Mauler|Sleeper Lock ~ Reaping Mauler
+5	BONUS:VAR|ReapingMaulerDevastatingGrappleLVL|CL	ABILITY:Special Ability|AUTOMATIC|Devastating Grapple ~ Reaping Mauler
+
+# Class Name	Hit Dice	Type				Abbreviation	Max Level	Source Page		Save checks bonus														Combat bonus
+CLASS:Ronin		HD:10		TYPE:Prestige.Oriental	ABB:Ron		MAXLEVEL:10	SOURCEPAGE:p.77	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
+# Class Name	Required AL				Req. Att.	Required Feat							Required Text
+CLASS:Ronin		PREALIGN:NG,TN,NE,CG,CN,CE	PREATT:6	PREFEAT:1,Exotic Weapon Proficiency(Sword (Bastard))	PRETEXT:Must have fled or exiled from the service of a feudal lord because disobeying, cowardice or similar
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Ronin		STARTSKILLPTS:2	CSKILL:Bluff|Disguise|Intimidate|Knowledge (History)|Knowledge (Nobility and Royalty)|Ride|Sense Motive
+# ex-samurai
+1																ABILITY:Special Ability|AUTOMATIC|Kiai Smite ~ Ronin|PRECLASS:1,Ex Samurai=1
+1	BONUS:SKILL|Intimidate|4|PRECLASS:1,Ex Samurai=6							ABILITY:Special Ability|AUTOMATIC|Staredown ~ Ronin|PRECLASS:1,Ex Samurai=6
+1																ABILITY:Special Ability|AUTOMATIC|Mass Staredown ~ Ronin|PRECLASS:1,Ex Samurai=10
+1																ABILITY:Special Ability|AUTOMATIC|Improved Staredown ~ Ronin|PRECLASS:1,Ex Samurai=14
+1										EXCHANGELEVEL:Ex Samurai|11|10|1
+###Block:
+1								BONUS:VAR|RoninSneakAttackLVL|CL	ABILITY:Special Ability|AUTOMATIC|Infamy ~ Ronin|Sneak Attack ~ Ronin
+2														ABILITY:Special Ability|AUTOMATIC|Banzai Charge ~ Ronin
+5	BONUS:ABILITYPOOL|Ronin Feats|(CL-1)/4
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus														Combat bonus
+CLASS:Spellsword	HD:8		TYPE:Prestige	ABB:Ssw		MAXLEVEL:10	SOURCEPAGE:p.79	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL
+# Class Name	Req. Att.	Required Feat																													Required Skill				Required Casting Type		Req. Spell Type		Required Text
+CLASS:Spellsword	PREATT:4	PREFEAT:1,CHECKMULT,Simple Weapon Proficiency	PREFEAT:1,CHECKMULT,Martial Weapon Proficiency	PREFEAT:3|Armor Proficiency (Light),Armor Proficiency (Medium),Armor Proficiency (Heavy)	PRESKILL:1,Knowledge (Arcana)=6	PRESPELLCAST:TYPE=Arcane	PRESPELLTYPE:1,Arcane=2	PRETEXT:Must have defeated an foe through force of arms alone, without recourse to spellcasting
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Spellsword	STARTSKILLPTS:2	CSKILL:Climb|Concentration|TYPE=Knowledge|Jump|TYPE=Profession|Spellcraft
+1	ABILITY:Special Ability|AUTOMATIC|Ignore Spell Failure ~ Spellsword
+4	ABILITY:Special Ability|AUTOMATIC|Channel Spell ~ Spellsword
+10	ABILITY:Special Ability|AUTOMATIC|Multiple Channel Spell ~ Spellsword
+###Block:
+1:REPEATLEVEL:2	ADD:SPELLCASTER|Arcane
+###Block:
+2	BONUS:ABILITYPOOL|Spellsword Feat|1
+###Block:
+1	BONUS:VAR|SpellswordIgnoreSpellFailureLVL|CL
+4	BONUS:VAR|SpellswordChannelSpellLVL|CL
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus														Combat bonus
+CLASS:Stonelord	HD:8		TYPE:Prestige	ABB:Stn		MAXLEVEL:10	SOURCEPAGE:p.81	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
+# Class Name	Req. Att.	Required Feat		Required Language	Multiple Requirements							Required Skill				Required Text
+CLASS:Stonelord	PREATT:5	PREFEAT:1,Endurance	PRELANG:1,Terran	PREMULT:1,[PRERACE:1,Dwarf%],[PRERACE:1,RACESUBTYPE=Dwarf]	PRESKILL:1,Craft (Stoneworking)=6	PRETEXT:Must undergo a special ritual with costly gems
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Stonelord	STARTSKILLPTS:2	CSKILL:Climb|Concentration|TYPE=Knowledge|TYPE=Profession|Spot|Survival
+1							BONUS:VAR|EarthsBloodPerDay|1										ABILITY:Special Ability|AUTOMATIC|Earth's Blood ~ Stonelord
+2	BONUS:ABILITYPOOL|Stone Power|CL/2	BONUS:VAR|StonePowerLVL|CL	BONUS:VAR|StonePowerSummonElementalPower|((CL+2)/3)	ABILITY:Special Ability|AUTOMATIC|Stone Power ~ Stonelord
+3							BONUS:VAR|StoneShapeLVL|CL	BONUS:VAR|StoneShapePerDay|1					ABILITY:Special Ability|AUTOMATIC|Stone Shape ~ Stonelord
+5							BONUS:VAR|MeldIntoStoneLVL|CL	BONUS:VAR|MeldIntoStonePerDay|CL				ABILITY:Special Ability|AUTOMATIC|Meld into Stone ~ Stonelord
+7							BONUS:VAR|StoneTellLVL|CL	BONUS:VAR|StoneTellPerDay|1					ABILITY:Special Ability|AUTOMATIC|Stone Tell ~ Stonelord
+9							BONUS:VAR|EarthquakeLVL|CL	BONUS:VAR|EarthquakePerDay|1					ABILITY:Special Ability|AUTOMATIC|Earthquake ~ Stonelord
+
+###TODO CONTIGUOUS:Monk
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Define				Save checks bonus															Combat bonus
+CLASS:Tattoed Monk	HD:8		TYPE:Prestige	ABB:Ttm		MAXLEVEL:10	SOURCEPAGE:p.82	DEFINE:TtmTattooNumber|0	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4
+# Class Name		Required AL		Req. Att.	Required Feat									Required Skill
+CLASS:Tattoed Monk	PREALIGN:LG,LN,LE	PREATT:3	PREFEAT:3,Endurance,Improved Grapple,Improved Unarmed Strike	PRESKILL:1,Knowledge (Religion)=8
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Tattoed Monk	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Diplomacy|Escape Artist|Hide|Jump|TYPE=Knowledge|Listen|Move Silently|TYPE=Perform|TYPE=Profession|Swim|Tumble
+1								BONUS:UDAM|CLASS.Monk|CL	BONUS:VAR|TatooedMonkACLVL|CL			ABILITY:Special Ability|AUTOMATIC|Tatooed Monk AC ~ Tattoed Monk
+1													BONUS:VAR|TatooedMonkMoveLVL|CL		ABILITY:Special Ability|AUTOMATIC|Tatooed Monk Movement ~ Tattoed Monk
+1	BONUS:ABILITYPOOL|Tatoo Power|(CL+1)/2						BONUS:VAR|TatooedMonkTatooPowerLVL|CL	ABILITY:Special Ability|AUTOMATIC|Tatoo Power Base|Tatooed Monk Tatoo Power ~ Tattoed Monk
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Define																					Save checks bonus														Combat bonus
+CLASS:Thayan Knight	HD:10		TYPE:Prestige	ABB:Thk		MAXLEVEL:5	SOURCEPAGE:p.85	DEFINE:ThkHorrorsBonus|0	DEFINE:ThkZulkirDefenderBonus|0	DEFINE:ThkFinalStandTimes|0	DEFINE:ThkZulkirChampioTimes|0	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
+# Class Name		Required AL				Req. Att.	Required Feat						Required Race			Required Skill									Required Text
+CLASS:Thayan Knight	PREALIGN:LN,LE,TN,NE,CN,CE	PREATT:5	PREFEAT:2,Iron Will,Weapon Focus(Longsword)	PRERACE:1,RACESUBTYPE=Human	PRESKILL:3,Intimidate=2,Knowledge (Arcana)=2,Knowledge (Local)=2	PRETEXT:Must sworn allegiance to the Red Wizards of Thay
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Thayan Knight	STARTSKILLPTS:2	CSKILL:Bluff|Climb|TYPE=Craft|Gather Information|Handle Animal|Intimidate|Jump|Knowledge (Arcana)|Knowledge (Local)|TYPE=Profession|Spot|Swim
+1								ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Thayan Knight
+1	BONUS:VAR|ThayanKnightHorrorsOfThayLVL|CL	ABILITY:Special Ability|AUTOMATIC|Horrors of Thay ~ Thayan Knight|Zulkir Favor ~ Thayan Knight
+2	BONUS:VAR|ThkZulkirDefenderBonus|2		ABILITY:Special Ability|AUTOMATIC|Zulkir Defender ~ Thayan Knight
+4								ABILITY:Special Ability|AUTOMATIC|Final Stand ~ Thayan Knight
+5								ABILITY:Special Ability|AUTOMATIC|Zulkir Champion ~ Thayan Knight
+###Block:
+3	BONUS:ABILITYPOOL|Fighter Feat|1
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus														Combat bonus
+CLASS:War Chanter	HD:8		TYPE:Prestige	ABB:Wch		MAXLEVEL:10	SOURCEPAGE:p.87	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
+# Class Name	Required Ability									Required AL				Req. Att.	Required Feat							Required Skill
+CLASS:War Chanter	PREABILITY:1,CATEGORY=Special Ability,Bardic Inspire Courage	PREALIGN:NG,TN,NE,CG,CN,CE	PREATT:4	PREFEAT:1,Combat Expertise	PREFEAT:1,Weapon Focus	PRESKILL:1,Perform (Sing)=6,Perform (Oratory)=6
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:War Chanter	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Diplomacy|Escape Artist|Gather Information|Intimidate|Jump|TYPE=Perform|TYPE=Profession|Sense Motive|Swim
+1								ABILITY:Special Ability|VIRTUAL|Inspire Toughness ~ War Chanter|PREVARGTEQ:WarChanterMusicLVL,1|PRESKILL:1,Perform (Sing)=9,Perform (Oratory)=9
+1								ABILITY:Special Ability|VIRTUAL|Inspire Recklessness ~ War Chanter|PREVARGTEQ:WarChanterMusicLVL,3|PRESKILL:1,TYPE.Perform=12
+1								ABILITY:Special Ability|VIRTUAL|Combine Song ~ War Chanter|PREVARGTEQ:WarChanterMusicLVL,5|PRESKILL:1,TYPE.Perform=12
+1								ABILITY:Special Ability|VIRTUAL|Inspire Awe ~ War Chanter|PREVARGTEQ:WarChanterMusicLVL,7|PRESKILL:1,TYPE.Perform=15
+1								ABILITY:Special Ability|VIRTUAL|Inspire Legion ~ War Chanter|PREVARGTEQ:WarChanterMusicLVL,10|PRESKILL:1,TYPE.Perform=18
+1	BONUS:VAR|WarChanterMusicLVL|CL		ABILITY:Special Ability|AUTOMATIC|Music ~ War Chanter
+8	BONUS:VAR|WarChanterSingingShoutLVL|CL	ABILITY:Special Ability|AUTOMATIC|Singing Shout ~ War Chanter
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus														Combat bonus
+CLASS:Warshaper	HD:8		TYPE:Prestige	ABB:Wsh		MAXLEVEL:5	SOURCEPAGE:p.89	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL/3*4
+# Class Name	Req. Att.	Required Text
+CLASS:Warshaper	PREATT:4	PRETEXT:Must be able to change shape
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Warshaper	STARTSKILLPTS:2	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Disguise|Escape Artist|Jump|Swim
+1	ABILITY:Special Ability|AUTOMATIC|Morphic Immunities ~ Warshaper|Morphic Weapons ~ Warshaper
+2	ABILITY:Special Ability|AUTOMATIC|Morphic Body ~ Warshaper
+3	ABILITY:Special Ability|AUTOMATIC|Morphic Reach ~ Warshaper
+4	ABILITY:Special Ability|AUTOMATIC|Morphic Healing ~ Warshaper
+5	ABILITY:Special Ability|AUTOMATIC|Flashmorph/Multimorph ~ Warshaper
+###Block
+5	BONUS:ABILITYPOOL|Warshaper Morph|1
