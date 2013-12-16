@@ -1,0 +1,201 @@
+SOURCELONG:Monsters of Faerun	SOURCESHORT:MoF	SOURCEDATE:2003-05
+
+###Block: Prestige Classes
+# Class Name			Hit Dice	Type				Abbreviation	Max Level	Source Page		Save checks bonus														Combat bonus
+CLASS:Beholder Mage (MoF)	HD:4		TYPE:Monster.Prestige	ABB:BeHM		MAXLEVEL:10	SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*1/2|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|CL|PREVAREQ:UseFractionalBAB,1		
+# Class Name			Required Race				Required Text
+CLASS:Beholder Mage (MoF)	PRERACE:1,RACESUBTYPE:Beholder	PRETEXT:Lose or put out central magic eye.
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Beholder Mage (MoF)	STARTSKILLPTS:2	CSKILL:Craft (Alchemy)|Appraise|Concentration|Decipher Script|TYPE=Knowledge|Speak Language|Spellcraft|Use Magic Device
+# Class Name			Spell Stat		Spell Type		Spellbook		Caster level
+CLASS:Beholder Mage (MoF)	SPELLSTAT:INT	SPELLTYPE:Arcane	SPELLBOOK:YES	BONUS:CASTERLEVEL|Beholder Mage (MoF)|CL
+1	CAST:6,3									ABILITY:Special Ability|AUTOMATIC|Sacrifice Eyestalk
+2	CAST:6,5,3
+3	CAST:6,6,5,3			BONUS:VAR|FamiliarLVL|CL	ABILITY:Special Ability|AUTOMATIC|Summon Familiar
+4	CAST:6,6,6,5,3
+5	CAST:6,6,6,6,5,3
+6	CAST:6,6,6,6,6,5,3
+7	CAST:6,6,6,6,6,6,5,3
+8	CAST:6,6,6,6,6,6,6,5,3
+9	CAST:6,6,6,6,6,6,6,6,5,3
+10	CAST:6,6,6,6,6,6,6,6,6,5
+
+
+
+###Block: Monster Classes
+# Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus															Combat bonus					Add domain number
+CLASS:Banelar	HD:10		TYPE:Monster	MAXLEVEL:21	SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL		BONUS:DOMAIN|NUMBER|3
+# Class Name	Required Race	Reg. Race Type
+CLASS:Banelar	PRERACE:1,Banelar	PRERACETYPE:1,Magical Beast
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Banelar	STARTSKILLPTS:2	MODTOSKILLS:NO
+1	DOMAIN:Evil|Magic|Water									ADD:SPELLCASTER|1|Cleric	ADD:SPELLCASTER|1|Wizard
+2					BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Wizard|1
+3					BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Wizard|1
+5					BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Wizard|1
+6					BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Wizard|1
+7					BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Wizard|1
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus														Combat bonus					Add domain number
+CLASS:Choldrith	HD:8		TYPE:Monster	MAXLEVEL:4	SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1	
+	BONUS:DOMAIN|NUMBER|3
+# Class Name	Required Race		Reg. Race Type
+CLASS:Choldrith	PRERACE:1,Choldrith	PRERACETYPE:1,Aberration
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Choldrith	STARTSKILLPTS:2	MODTOSKILLS:NO
+1	DOMAIN:Chaos|Evil|Protection					ADD:SPELLCASTER|1|Cleric
+2						BONUS:PCLEVEL|Cleric|1
+3						BONUS:PCLEVEL|Cleric|1
+4						BONUS:PCLEVEL|Cleric|1
+
+# Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus														Combat bonus
+CLASS:Cloaker Lord	HD:8		TYPE:Monster	MAXLEVEL:9	SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1	
+
+# Class Name		Required Race		Reg. Race Type
+CLASS:Cloaker Lord	PRERACE:1,Cloaker Lord	PRERACETYPE:Aberration
+# Class Name		Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Cloaker Lord	STARTSKILLPTS:2	MODTOSKILLS:YES
+SUBCLASS:Shadow	COST:0	CHOICE:SUBSCHOOL|Shadow	KNOWNSPELLSFROMSPECIALTY:1
+SUBCLASSLEVEL:1	ABILITY:Special Ability|AUTOMATIC|Shadow Learning Bonus
+1					ADD:SPELLCASTER|1|Wizard
+2	BONUS:PCLEVEL|Wizard|1
+3	BONUS:PCLEVEL|Wizard|1
+4	BONUS:PCLEVEL|Wizard|1
+5	BONUS:PCLEVEL|Wizard|1
+6	BONUS:PCLEVEL|Wizard|1
+7	BONUS:PCLEVEL|Wizard|1
+8	BONUS:PCLEVEL|Wizard|1
+9	BONUS:PCLEVEL|Wizard|1
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus														Combat bonus					Add domain number
+CLASS:Sharn		HD:8		TYPE:Monster	MAXLEVEL:12	SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1	
+	BONUS:DOMAIN|NUMBER|4	BONUS:DOMAIN|NUMBER|4
+# Class Name	Required Race	Reg. Race Type
+CLASS:Sharn		PRERACE:1,Sharn	PRERACETYPE:1,Aberration
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Sharn		STARTSKILLPTS:2	MODTOSKILLS:NO
+1	BONUS:PCLEVEL|Cleric|1						ADD:SPELLCASTER|1|Cleric	ADD:SPELLCASTER|1|Sorcerer	ADDDOMAINS:Chaos.Death.Knowledge.Luck.Magic.Protection.Travel.Trickery
+2	BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Sorcerer|2
+3	BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Sorcerer|2
+4	BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Sorcerer|2
+5	BONUS:PCLEVEL|Sorcerer|1
+6	BONUS:PCLEVEL|Cleric|1
+7	BONUS:PCLEVEL|Sorcerer|1
+8	BONUS:PCLEVEL|Cleric|1
+9	BONUS:PCLEVEL|Sorcerer|1
+10	BONUS:PCLEVEL|Cleric|1
+11	BONUS:PCLEVEL|Sorcerer|1
+12	BONUS:PCLEVEL|Cleric|1
+
+# Class Name		Hit Dice	Type			Max Level		Source Page		Save checks bonus															Combat bonus
+CLASS:Brown Dragon	HD:12		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL
+# Class Name		Required Race			Reg. Race Type
+CLASS:Brown Dragon	PRERACE:1,Dragon (Brown%	PRERACETYPE:Dragon
+# Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
+CLASS:Brown Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot
+###Block:
+1																						BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Sorcerer")+var("CL=Sorcerer")))
+1	VISION:Blindsense (60')|Darkvision (120')|Keen Senses|Tremorsense (500')	BONUS:COMBAT|AC|CL-3|TYPE=NaturalArmor.REPLACE
+###Block: Breath Weapon and other SA's
+1	DEFINE:BreathWeaponLine|max((SIZE-1)*20,30)	DEFINE:BreathWeaponDice|(2*DragonAge)	DEFINE:BreathWeaponDamageDie|4	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Line of Acid
+1																						ABILITY:Special Ability|AUTOMATIC|Immunity to Sleep
+1																						ABILITY:Special Ability|AUTOMATIC|Immunity to Paralysis
+1																						ABILITY:Special Ability|AUTOMATIC|Immunity to Acid
+###Block: Frightful Presence
+1	BONUS:VAR|FrightfulPresRange|DragonAge*30|PREVARGTEQ:DragonAge,5	ABILITY:Special Ability|AUTOMATIC|Frightful Presence
+###Block: Normal Progression
+1	DEFINE:DragonCL|0
+1	DEFINE:DragonAge|(CL-3)/3
+###Block:
+15																ADD:SPELLCASTER|Sorcerer													SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Create Water
+17				BONUS:PCLEVEL|Sorcerer|1
+18	SR:20	DR:5/Magic	BONUS:PCLEVEL|Sorcerer|1
+20				BONUS:PCLEVEL|Sorcerer|1
+21	SR:23			BONUS:PCLEVEL|Sorcerer|1													ABILITY:Special Ability|AUTOMATIC|Sandstorm
+23				BONUS:PCLEVEL|Sorcerer|1
+24	SR:25	DR:10/Magic	BONUS:PCLEVEL|Sorcerer|1
+26				BONUS:PCLEVEL|Sorcerer|1
+27	SR:27			BONUS:PCLEVEL|Sorcerer|1	BONUS:VAR|SummonAirElementalPerDay|1						ABILITY:Special Ability|AUTOMATIC|Summon Huge Air Elemental (Sp)
+29				BONUS:PCLEVEL|Sorcerer|1
+30	SR:28	DR:15/Magic	BONUS:PCLEVEL|Sorcerer|1
+32				BONUS:PCLEVEL|Sorcerer|1
+33	SR:30			BONUS:PCLEVEL|Sorcerer|1	BONUS:VAR|SummonAirElementalPerDay|1						ABILITY:Special Ability|AUTOMATIC|Summon Greater Air Elemental (Sp)
+35				BONUS:PCLEVEL|Sorcerer|1
+36	SR:32	DR:20/Magic	BONUS:PCLEVEL|Sorcerer|1
+38				BONUS:PCLEVEL|Sorcerer|1
+39	SR:34			BONUS:PCLEVEL|Sorcerer|1																									SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Disintegrate,16+CHA
+###Block:
+
+# Class Name	Hit Dice	Type			Max Level		Source Page		Save checks bonus															Combat bonus
+CLASS:Deep Dragon	HD:12		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL
+# Class Name	Required Race		Reg. Race Type
+CLASS:Deep Dragon	PRERACE:1,Dragon (Deep%	PRERACETYPE:Dragon
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
+CLASS:Deep Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Hide|Move Silently|Swim
+1																		BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Sorcerer")+var("CL=Sorcerer")))	DEFINE:DragonCL|0
+1	VISION:Blindsense (60')|Darkvision (120')|Keen Senses	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
+###Block: Breath Weapon and standard immunities
+1	DEFINE:BreathWeaponCone|max((SIZE-1)*10,15)	DEFINE:BreathWeaponDice|(2*DragonAge)	DEFINE:BreathWeaponDamageDie|6	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Flesh-Corrosive Gas
+#1	#secondary breath
+1																						ABILITY:Special Ability|AUTOMATIC|Immunity to Sleep
+1																						ABILITY:Special Ability|AUTOMATIC|Immunity to Paralysis
+###Block: Frightful Presence
+1	BONUS:VAR|FrightfulPresRange|DragonAge*30|PREVARGTEQ:DragonAge,5	ABILITY:Special Ability|AUTOMATIC|Frightful Presence
+###Block: Normal Progression
+1									BONUS:VAR|ColdResistanceBonus|10	BONUS:VAR|FireResistanceBonus|10	DEFINE:DragonAge|1						ABILITY:Special Ability|AUTOMATIC|Immunity to Charm|Resistance to Cold|Resistance to Fire|True Seeing	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=DragonCL|Detect Magic
+9									BONUS:VAR|SnakeFormTimes|3								DEFINE:DragonAge|2						ABILITY:Special Ability|AUTOMATIC|Alternate Form ~ Snake Form
+12									BONUS:VAR|HumanoidFormTimes|3								DEFINE:DragonAge|3						ABILITY:Special Ability|AUTOMATIC|Alternate Form ~ Humanoid Form
+15									BONUS:VAR|SnakeFormTimes|1	BONUS:VAR|HumanoidFormTimes|1			DEFINE:DragonAge|4	ADD:SPELLCASTER|Sorcerer
+18	SR:22	DR:5/Magic	BONUS:PCLEVEL|Sorcerer|1													DEFINE:DragonAge|5
+21	SR:23			BONUS:PCLEVEL|Sorcerer|1													DEFINE:DragonAge|6																							SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=DragonCL|Freedom of Movement
+24	SR:26	DR:10/Magic	BONUS:PCLEVEL|Sorcerer|1													DEFINE:DragonAge|7
+27	SR:27			BONUS:PCLEVEL|Sorcerer|1													DEFINE:DragonAge|8																							SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Transmute Rock to Mud,15+CHA
+30	SR:30	DR:15/Magic	BONUS:PCLEVEL|Sorcerer|1													DEFINE:DragonAge|9
+33	SR:31			BONUS:PCLEVEL|Sorcerer|1													DEFINE:DragonAge|10																							SPELLS:Innate|TIMES=2|CASTERLEVEL=DragonCL|Passwall
+36	SR:34	DR:20/Magic	BONUS:PCLEVEL|Sorcerer|1													DEFINE:DragonAge|11
+39	SR:35			BONUS:PCLEVEL|Sorcerer|1													DEFINE:DragonAge|12																							SPELLS:Innate|TIMES=2|CASTERLEVEL=DragonCL|Stone Shape
+17				BONUS:PCLEVEL|Sorcerer|1
+20				BONUS:PCLEVEL|Sorcerer|1
+23				BONUS:PCLEVEL|Sorcerer|1
+26				BONUS:PCLEVEL|Sorcerer|1
+29				BONUS:PCLEVEL|Sorcerer|1
+32				BONUS:PCLEVEL|Sorcerer|1
+35				BONUS:PCLEVEL|Sorcerer|1
+38				BONUS:PCLEVEL|Sorcerer|1
+
+# Class Name	Hit Dice	Type			Max Level		Source Page		Save checks bonus															Combat bonus
+CLASS:Song Dragon	HD:12		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL
+# Class Name	Required Race		Reg. Race Type
+CLASS:Song Dragon	PRERACE:1,Dragon (Song%	PRERACETYPE:Dragon
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
+CLASS:Song Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Bluff|Disguise|Jump
+1																		BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Sorcerer")+var("CL=Sorcerer")))	DEFINE:DragonCL|0
+1	VISION:Blindsense (60')|Darkvision (120')|Keen Senses	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
+###Block: Breath Weapon and standard immunities
+1	DEFINE:BreathWeaponCone|max((SIZE-1)*10,15)	DEFINE:BreathWeaponDice|(2*DragonAge)	DEFINE:BreathWeaponDamageDie|6	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Electrically-Charged Gas
+#1	#secondary breath
+1																						ABILITY:Special Ability|AUTOMATIC|Immunity to Sleep
+1																						ABILITY:Special Ability|AUTOMATIC|Immunity to Paralysis
+###Block: Frightful Presence
+1	BONUS:VAR|FrightfulPresRange|DragonAge*30|PREVARGTEQ:DragonAge,5	ABILITY:Special Ability|AUTOMATIC|Frightful Presence
+###Block: Normal Progression
+1									DEFINE:DragonAge|1						ABILITY:Special Ability|AUTOMATIC|Alternate Form|Immunity to Electricity|Immunity to Poison|Tongues|True Seeing	SPELLS:Innate|TIMES=1|TIMEUNIT=Hour|CASTERLEVEL=DragonCL|Darkness|Light
+8									DEFINE:DragonAge|2
+11									DEFINE:DragonAge|3																									SPELLS:Innate|TIMES=2|CASTERLEVEL=DragonCL|Feather Fall
+14									DEFINE:DragonAge|4	ADD:SPELLCASTER|Sorcerer																				SPELLS:Innate|TIMES=2|CASTERLEVEL=DragonCL|Blink
+17	SR:20	DR:5/Magic	BONUS:PCLEVEL|Sorcerer|1	DEFINE:DragonAge|5
+20	SR:23			BONUS:PCLEVEL|Sorcerer|1	DEFINE:DragonAge|6																									SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Teleport,15+CHA
+23	SR:25	DR:10/Magic	BONUS:PCLEVEL|Sorcerer|1	DEFINE:DragonAge|7
+26	SR:28			BONUS:PCLEVEL|Sorcerer|1	DEFINE:DragonAge|8																									SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Heal,16+CHA
+29	SR:29	DR:15/Magic	BONUS:PCLEVEL|Sorcerer|1	DEFINE:DragonAge|9
+32	SR:31			BONUS:PCLEVEL|Sorcerer|1	DEFINE:DragonAge|10																									SPELLS:Innate|TIMES=2|CASTERLEVEL=DragonCL|Polymorph Any Object,18+CHA
+35	SR:32	DR:20/Magic	BONUS:PCLEVEL|Sorcerer|1	DEFINE:DragonAge|11
+38	SR:34			BONUS:PCLEVEL|Sorcerer|1	DEFINE:DragonAge|12																									SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Plane Shift,17+CHA
+16				BONUS:PCLEVEL|Sorcerer|1
+19				BONUS:PCLEVEL|Sorcerer|1
+22				BONUS:PCLEVEL|Sorcerer|1
+25				BONUS:PCLEVEL|Sorcerer|1
+28				BONUS:PCLEVEL|Sorcerer|1
+31				BONUS:PCLEVEL|Sorcerer|1
+34				BONUS:PCLEVEL|Sorcerer|1
+37				BONUS:PCLEVEL|Sorcerer|1
