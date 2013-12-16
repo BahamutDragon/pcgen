@@ -2,9 +2,7 @@
 
 
 # Ability Name			Category of Ability	Template					Ability
-Default				CATEGORY:Internal
-
-CATEGORY=Internal|Default.MOD											ABILITY:Internal|AUTOMATIC|Assign 1st Level|PREPCLEVEL:MIN=1
+Default				CATEGORY:Internal								ABILITY:Internal|AUTOMATIC|Assign 1st Level|PREPCLEVEL:MIN=1
 
 Assign 1st Level			CATEGORY:Internal		TEMPLATE:First Level Class Choice
 
@@ -22,11 +20,11 @@ Weapon Proficiencies ~ Soldier	CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	
 # Ability Name					Category of Ability	Type				Define						Automatically Gained Feat																								Ability										Bonus to Ability Pool																			Combat bonus								Bonus to HP			Bonus to skill rank								Modify VAR							Weapon prof. bonus
 Heroic PC Tracker					CATEGORY:Internal						DEFINE:HeroicLVL|0																																																																	BONUS:COMBAT|INITIATIVE|skillinfo("TOTAL", "Initiative")					BONUS:SKILLRANK|TYPE.Standard|HeroicLevels/2|TYPE=HeroicLevels									BONUS:WEAPONPROF=TYPE.Weapon|DAMAGE|HeroicLevels/2|TYPE=HeroicLevels
 #
-First Level ~ Jedi				CATEGORY:Internal		TYPE:StartingClass	DEFINE:JediSkillTrainingNumber|0		AUTO:FEAT|Force Sensitivity|Lightsabers Weapon Proficiency|Simple Weapon Proficiency														ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	BONUS:ABILITYPOOL|Skill Training Choice|JediSkillTrainingNumber																						BONUS:HP|CURRENTMAX|20												BONUS:VAR|JediSkillTrainingNumber|INT+2
-First Level ~ Noble				CATEGORY:Internal		TYPE:StartingClass	DEFINE:NobleSkillTrainingNumber|0		AUTO:FEAT|Pistols Weapon Proficiency|Simple Weapon Proficiency	AUTO:FEAT|Linguist|PRESTAT:1,INT=13												ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	BONUS:ABILITYPOOL|Skill Training Choice|NobleSkillTrainingNumber																						BONUS:HP|CURRENTMAX|12												BONUS:VAR|NobleSkillTrainingNumber|INT+6
-First Level ~ Scoundrel				CATEGORY:Internal		TYPE:StartingClass	DEFINE:ScoundrelSkillTrainingNumber|0	AUTO:FEAT|Pistols Weapon Proficiency|Point Blank Shot|Simple Weapon Proficiency															ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	BONUS:ABILITYPOOL|Skill Training Choice|ScoundrelSkillTrainingNumber																					BONUS:HP|CURRENTMAX|12												BONUS:VAR|ScoundrelSkillTrainingNumber|INT+4
-First Level ~ Scout				CATEGORY:Internal		TYPE:StartingClass	DEFINE:ScoutSkillTrainingNumber|0		AUTO:FEAT|Pistols Weapon Proficiency|Rifles Weapon Proficiency|Simple Weapon Proficiency	AUTO:FEAT|Shake It Off|PREFEAT:1,Skill Training (Endurance)|PRESTAT:1,CON=13	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	BONUS:ABILITYPOOL|Skill Training Choice|ScoutSkillTrainingNumber																						BONUS:HP|CURRENTMAX|16												BONUS:VAR|ScoutSkillTrainingNumber|INT+5
-First Level ~ Soldier				CATEGORY:Internal		TYPE:StartingClass	DEFINE:SoldierSkillTrainingNumber|0		AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Pistols Weapon Proficiency|Rifles Weapon Proficiency|Simple Weapon Proficiency					ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	BONUS:ABILITYPOOL|Skill Training Choice|SoldierSkillTrainingNumber																					BONUS:HP|CURRENTMAX|20												BONUS:VAR|SoldierSkillTrainingNumber|INT+3
+First Class Level ~ Jedi			CATEGORY:Internal		TYPE:StartingClass	DEFINE:SkillTrainingCount|0			AUTO:FEAT|Force Sensitivity|Weapon Proficiency (Lightsabers)|Weapon Proficiency (Simple Weapons)														ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	BONUS:ABILITYPOOL|Jedi Skill Training|SkillTrainingCount																							BONUS:HP|CURRENTMAX|20												BONUS:VAR|SkillTrainingCount|INT+2
+First Class Level ~ Noble			CATEGORY:Internal		TYPE:StartingClass	DEFINE:SkillTrainingCount|0			AUTO:FEAT|Weapon Proficiency (Pistols)|Weapon Proficiency (Simple Weapons)	AUTO:FEAT|Linguist|PRESTAT:1,INT=13												ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	BONUS:ABILITYPOOL|Noble Skill Training|SkillTrainingCount																							BONUS:HP|CURRENTMAX|12												BONUS:VAR|SkillTrainingCount|INT+6
+First Class Level ~ Scoundrel			CATEGORY:Internal		TYPE:StartingClass	DEFINE:SkillTrainingCount|0			AUTO:FEAT|Weapon Proficiency (Pistols)|Point Blank Shot|Weapon Proficiency (Simple Weapons)															ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	BONUS:ABILITYPOOL|Scoundrel Skill Training|SkillTrainingCount																						BONUS:HP|CURRENTMAX|12												BONUS:VAR|SkillTrainingCount|INT+4
+First Class Level ~ Scout			CATEGORY:Internal		TYPE:StartingClass	DEFINE:SkillTrainingCount|0			AUTO:FEAT|Weapon Proficiency (Pistols)|Weapon Proficiency (Rifles)|Weapon Proficiency (Simple Weapons)	AUTO:FEAT|Shake It Off|PREFEAT:1,Skill Training (Endurance)|PRESTAT:1,CON=13	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	BONUS:ABILITYPOOL|Scout Skill Training|SkillTrainingCount																							BONUS:HP|CURRENTMAX|16												BONUS:VAR|SkillTrainingCount|INT+5
+First Class Level ~ Soldier			CATEGORY:Internal		TYPE:StartingClass	DEFINE:SkillTrainingCount|0			AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Weapon Proficiency (Pistols)|Weapon Proficiency (Rifles)|Weapon Proficiency (Simple Weapons)					ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	BONUS:ABILITYPOOL|Soldier Skill Training|SkillTrainingCount																							BONUS:HP|CURRENTMAX|20												BONUS:VAR|SkillTrainingCount|INT+3
 #
 CATEGORY=Internal|Heroic PC Tracker.MOD																																																							BONUS:ABILITYPOOL|Jedi Multiclass Selection|1|PREPCLEVEL:MIN=2|PRECLASS:1,Jedi=1|!PRETEMPLATE:1,First Level ~ Jedi
 CATEGORY=Internal|Heroic PC Tracker.MOD																																																							BONUS:ABILITYPOOL|Noble Multiclass Selection|1|PREPCLEVEL:MIN=2|PRECLASS:1,Noble=1|!PRETEMPLATE:1,First Level ~ Noble
@@ -137,11 +135,16 @@ Deceptive				KEY:Deceptive ~ Twi'lek				CATEGORY:Special Ability	TYPE:SpeciesTra
 Great Fortitude			KEY:Great Fortitude ~ Twi'lek			CATEGORY:Special Ability	TYPE:SpeciesTrait.Twi'lekSpeciesTrait.SpecialQuality		DESC:You gain a +2 species bonus to your Fortitude Defense. You have great health with a natural resistance to toxins and illness.																																																																																																				BONUS:CHECKS|Fortitude|2|TYPE=Species	SOURCEPAGE:p.32
 # Wookie
 Extraordinary Recuperation	KEY:Extraordinary Recuperation ~ Wookie	CATEGORY:Special Ability	TYPE:SpeciesTrait.WookieSpeciesTrait.SpecialQuality		DESC:A Wookiee regains hit points at double the normal rate (see Natural Healing, page 148).																																																																																																																	SOURCEPAGE:p.32
-Rage					KEY:Rage ~ Wookie					CATEGORY:Special Ability	TYPE:SpeciesTrait.WookieSpeciesTrait.SpecialAttack		DESC:Once per day, a Wookiee can fly into a rage as a swift action. While raging, the Wookiee temporarily gains a +2 rage bonus on melee attack rolls and melee damage rolls but cannot use skills that require patience and concentration, such as Mechanics, Stealth, or Use the Force. A fit of rage lasts for a number of rounds equal to 5 + the Wookiee's Constitution modifier. At the end of its rage, a Wookiee moves -1 persistent step along the condition track (see Conditions, page 148). The penalties imposed by this condition persist until the Wookiee takes at least 10 minutes to recuperate, during which time the Wookiee can't engage in any strenuous activity.																		SOURCEPAGE:p.32
+Rage					KEY:Rage ~ Wookie					CATEGORY:Special Ability	TYPE:SpeciesTrait.WookieSpeciesTrait.SpecialAttack.Rage	DESC:Once per day, a Wookiee can fly into a rage as a swift action. While raging, the Wookiee temporarily gains a +2 rage bonus on melee attack rolls and melee damage rolls but cannot use skills that require patience and concentration, such as Mechanics, Stealth, or Use the Force. A fit of rage lasts for a number of rounds equal to 5 + the Wookiee's Constitution modifier. At the end of its rage, a Wookiee moves -1 persistent step along the condition track (see Conditions, page 148). The penalties imposed by this condition persist until the Wookiee takes at least 10 minutes to recuperate, during which time the Wookiee can't engage in any strenuous activity.																		SOURCEPAGE:p.32
 Weapon Familiarity		KEY:Weapon Familiarity ~ Wookie		CATEGORY:Special Ability	TYPE:SpeciesTrait.WookieSpeciesTrait.SpecialQuality		DESC:Wookies treat bowcasters as rifles instead of exotic weapons.																																																																																																								AUTO:WEAPONPROF|Bowcaster									SOURCEPAGE:p.32
 # Zabrak
 Heightened Awareness		KEY:Heightened Awareness ~ Zabrak		CATEGORY:Special Ability	TYPE:SpeciesTrait.ZabrakSpeciesTrait.SpecialQuality		DESC:Having strong survival instincts and quick reactions, a Zabrak may choose to reroll any Perception check, but the result of the reroll must be accepted even if it is worse.																																																																																																			SOURCEPAGE:p.33
 Superior Defenses			KEY:Superior Defenses ~ Zabrak		CATEGORY:Special Ability	TYPE:SpeciesTrait.ZabrakSpeciesTrait.SpecialQuality		DESC:Adapted to a very tough and trying environment, Zabrak gain a + 1 species bonus to all of their defenses.																																																																																																														SOURCEPAGE:p.33
+# Droid
+Nonliving				KEY:Nonliving ~ Droid				CATEGORY:Special Ability	TYPE:SpeciesTrait.DroidSpeciesTrait.SpecialQuality		DESC:A droid is immune to poison, disease, radiation, noncorrosive atmospheric hazards, vacuum, mind-affecting effects, stunning effects, and any other effect that works only on living targets. Droids have no connection to the Force and can't gain the Force Sensitivity feat or learn Force powers. 
+
+# Acklay
+Immunity to Radiation		CATEGORY:Special Ability	TYPE:SpecialQuality
 
 ###Block: Droids
 # Ability Name	Unique Key			Category of Ability	Type			Description					Template			Stat bonus
@@ -150,6 +153,17 @@ Superior Defenses			KEY:Superior Defenses ~ Zabrak		CATEGORY:Special Ability	TYP
 3rd-Degree		KEY:Droid 3rd Degree	CATEGORY:Internal		TYPE:DroidDegree	DESC:Protocol, service droids		TEMPLATE:3rd-degree	BONUS:STAT|WIS,CHA|2|TYPE=Racial	BONUS:STAT|STR|-2|TYPE=Racial
 4th-Degree		KEY:Droid 4th Degree	CATEGORY:Internal		TYPE:DroidDegree	DESC:Combat, security droids		TEMPLATE:4th-degree	BONUS:STAT|DEX|2|TYPE=Racial	BONUS:STAT|INT,CHA|-2|TYPE=Racial
 5th-Degree		KEY:Droid 5th Degree	CATEGORY:Internal		TYPE:DroidDegree	DESC:Labor, utility droids		TEMPLATE:5th-degree	BONUS:STAT|STR|4|TYPE=Racial	BONUS:STAT|INT,CHA|-4|TYPE=Racial
+
+###Block: Droid Size
+Droid Fine		CATEGORY:Internal		TYPE:DroidSize	PRECHARACTERTYPE:1,NPC		TEMPLATE:Fine
+Droid Diminutive	CATEGORY:Internal		TYPE:DroidSize	PRECHARACTERTYPE:1,NPC		TEMPLATE:Diminutive
+Droid Tiny		CATEGORY:Internal		TYPE:DroidSize	PRECHARACTERTYPE:1,NPC		TEMPLATE:Tiny
+Droid Small		CATEGORY:Internal		TYPE:DroidSize	PRECHARACTERTYPE:1,PC,NPC	TEMPLATE:Small
+Droid Medium	CATEGORY:Internal		TYPE:DroidSize	PRECHARACTERTYPE:1,PC,NPC	TEMPLATE:Medium
+Droid Large		CATEGORY:Internal		TYPE:DroidSize	PRECHARACTERTYPE:1,NPC		TEMPLATE:Large
+Droid Huge		CATEGORY:Internal		TYPE:DroidSize	PRECHARACTERTYPE:1,NPC		TEMPLATE:Huge
+Droid Gargantuan	CATEGORY:Internal		TYPE:DroidSize	PRECHARACTERTYPE:1,NPC		TEMPLATE:Gargantuan
+Droid Colossal	CATEGORY:Internal		TYPE:DroidSize	PRECHARACTERTYPE:1,NPC		TEMPLATE:Colossal
 
 ###Block: Jedi Class Feature
 # Ability Name	Category of Ability		Type
@@ -307,19 +321,19 @@ Weapon Specialization	CATEGORY:Talent		TYPE:SoldierTalent.Talent.WeaponSpecialis
 ###Block: Ace Pilot Talent Trees
 
 # Expert Pilot Talent Tree
-# Ability Name		Category of Ability	Type								Description		Source Page
-Elusive Dogfighter	CATEGORY:Talent		TYPE:AcePilotTalent.Talent.ExpertPilotTalent	DESC:See text	SOURCEPAGE:p.	SOURCEPAGE:p.
-Full Throttle		CATEGORY:Talent		TYPE:AcePilotTalent.Talent.ExpertPilotTalent	DESC:See text	SOURCEPAGE:p.	SOURCEPAGE:p.
-Juke				CATEGORY:Talent		TYPE:AcePilotTalent.Talent.ExpertPilotTalent	DESC:See text	SOURCEPAGE:p.	SOURCEPAGE:p.
-Keep It Together		CATEGORY:Talent		TYPE:AcePilotTalent.Talent.ExpertPilotTalent	DESC:See text	SOURCEPAGE:p.	SOURCEPAGE:p.
-Relentless Pursuit	CATEGORY:Talent		TYPE:AcePilotTalent.Talent.ExpertPilotTalent	DESC:See text	SOURCEPAGE:p.	SOURCEPAGE:p.
-Vehicular Evasion		CATEGORY:Talent		TYPE:AcePilotTalent.Talent.ExpertPilotTalent	DESC:See text	SOURCEPAGE:p.	SOURCEPAGE:p.
+# Ability Name		Category of Ability	Type								Source Page
+Elusive Dogfighter	CATEGORY:Talent		TYPE:AcePilotTalent.Talent.ExpertPilotTalent	SOURCEPAGE:p.
+Full Throttle		CATEGORY:Talent		TYPE:AcePilotTalent.Talent.ExpertPilotTalent	SOURCEPAGE:p.
+Juke				CATEGORY:Talent		TYPE:AcePilotTalent.Talent.ExpertPilotTalent	SOURCEPAGE:p.
+Keep It Together		CATEGORY:Talent		TYPE:AcePilotTalent.Talent.ExpertPilotTalent	SOURCEPAGE:p.
+Relentless Pursuit	CATEGORY:Talent		TYPE:AcePilotTalent.Talent.ExpertPilotTalent	SOURCEPAGE:p.
+Vehicular Evasion		CATEGORY:Talent		TYPE:AcePilotTalent.Talent.ExpertPilotTalent	SOURCEPAGE:p.
 
 # Gunner Talent Tree
-Dogfight Gunner		CATEGORY:Talent		TYPE:AcePilotTalent.Talent.GunnerTalent		DESC:See text	SOURCEPAGE:p.	SOURCEPAGE:p.
-Expert Gunner		CATEGORY:Talent		TYPE:AcePilotTalent.Talent.GunnerTalent		DESC:See text	SOURCEPAGE:p.	SOURCEPAGE:p.
-Quick Trigger		CATEGORY:Talent		TYPE:AcePilotTalent.Talent.GunnerTalent		DESC:See text	SOURCEPAGE:p.	SOURCEPAGE:p.
-System Hit			CATEGORY:Talent		TYPE:AcePilotTalent.Talent.GunnerTalent		DESC:See text	SOURCEPAGE:p.	SOURCEPAGE:p.
+Dogfight Gunner		CATEGORY:Talent		TYPE:AcePilotTalent.Talent.GunnerTalent		SOURCEPAGE:p.
+Expert Gunner		CATEGORY:Talent		TYPE:AcePilotTalent.Talent.GunnerTalent		SOURCEPAGE:p.
+Quick Trigger		CATEGORY:Talent		TYPE:AcePilotTalent.Talent.GunnerTalent		SOURCEPAGE:p.
+System Hit			CATEGORY:Talent		TYPE:AcePilotTalent.Talent.GunnerTalent		SOURCEPAGE:p.
 
 ###Block: Jedi Knight Talent
 
@@ -449,10 +463,12 @@ Wicked Strike		CATEGORY:Talent		TYPE:Talent.SithApprenticeTalent.SithTalent					
 
 ###Block: Force Support
 # Ability Name		Category of Ability		Type				Define			Description			Bonus to Ability Pool						Modify VAR																					Source Page
-Force Training Tracker	CATEGORY:Internal															BONUS:ABILITYPOOL|Force Powers|ForceTrainingNumber	BONUS:VAR|ForceTrainingNumber|max(WIS,0)	BONUS:VAR|ForceTrainingNumber|1*COUNT("ABILITIES","CATEGORY=FEAT","NAME=Force Training")
+Force Training Tracker	CATEGORY:Internal															BONUS:ABILITYPOOL|Force Powers|ForceTrainingCount	BONUS:VAR|ForceTrainingCount|max(WIS,0)	BONUS:VAR|ForceTrainingCount|1*COUNT("ABILITIES","CATEGORY=FEAT","KEY=Force Training")
 
 # Ability Name		Category of Ability		Type				Define			Description			Bonus to Ability Pool						Modify VAR																					Source Page
 Force Points		CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:ForcePoints|0	DESC:%1|ForcePoints																																SOURCEPAGE:p.
+
+
 ###Block: Prestige Class Features
 # Ability Name	Unique Key					Category of Ability		Type														Define				Description																																																																																																																																																															Weapon prof. bonus							Damage Reduction			Source Page
 Vehicle Dodge	KEY:Vehicle Dodge				CATEGORY:Special Ability	TYPE:ClassFeature.Ace PilotClassFeature.SpecialQuality					DEFINE:VehicleDodgeBonus|0	DESC:+%1|VehicleDodgeBonus	DESC:Beginning at 2nd level, you apply a dodge bonus to the Reflex Defense of any vehicle you pilot. The dodge bonus is equal to one-half your class level, rounded down. Any condition that makes you lose your Dexterity bonus to Reflex Defense also makes you lose dodge bonuses. Also, dodge bonuses stack with each other, unlike most other types of bonuses.																																																																																																															SOURCEPAGE:p.
@@ -464,7 +480,7 @@ Indomitable		KEY:Indomitable				CATEGORY:Special Ability	TYPE:ClassFeature.Force
 Trusty Sidearm	KEY:Trusty Sidearm			CATEGORY:Special Ability	TYPE:ClassFeature.GunslingerClassFeature.SpecialQuality					DEFINE:TrustySidearmDamage|0	DESC:+%1 damage|TrustySidearmDamage	DESC:Starting at 2nd level, you gain a bonus on damage rolls equal to one-half your class level (rounded down) when wielding a pistol. This damage is in addition to the character's usual level bonus to damage. This damage is doubled on a successful critical hit, as normal.																																																																																																													BONUS:WEAPONPROF=TYPE.Pistols|DAMAGE|TrustySidearmDamage						SOURCEPAGE:p.
 Fearless		KEY:Fearless				CATEGORY:Special Ability	TYPE:ClassFeature.Jedi MasterClassFeature.Sith LordClassFeature.SpecialQuality						DESC:You are immune to fear effects																																																																																																																																																																										SOURCEPAGE:p.
 Serenity		KEY:Serenity				CATEGORY:Special Ability	TYPE:ClassFeature.Jedi MasterClassFeature.SpecialQuality										DESC:You may enter a brief meditative state as a full-round action. You may remain in this trance as long as you wish, and you are still aware of your surroundings; however, you are otherwise helpless and cannot perform any other actions. Upon emerging from the trance (a swift action), your first attack roll or Use the Force skill check made in the following round is considered to be a natural 20.																																																																																																													SOURCEPAGE:p.
-Share Talent	KEY:Share Talent				CATEGORY:Special Ability	TYPE:ClassFeature.OfficerClassFeature.SpecialQuality											DESC:At every even-numbered level, choose a talent that you already possess. The talent you select must be under the Influence talent tree (page 43). the Inspiration talent tree (page 43). the Commando talent tree (page 52). or the Military Tactics talent tree (see above). Once per day as a standard action, you can impart the benefits of the chosen talent to one or more allies, effectively granting them the talent (even if they don't meet the prerequisites). An ally must be within 10 squares of you and must be able to see and hear you to gain the talent; once gained, its benefits last until the end of the encounter. You can share the talent with a number of allies equal to one-half your officer class level (rounded down). Each time you gain this ability, it applies to a different talent. By 10th level, an officer has five different talents that he can share with up to five allies at a time. Once you select a shared talent, it cannot be changed.																SOURCEPAGE:p.
+Share Talent	KEY:Share Talent ~ Officer		CATEGORY:Special Ability	TYPE:ClassFeature.OfficerClassFeature.SpecialQuality											DESC:At every even-numbered level, choose a talent that you already possess. The talent you select must be under the Influence talent tree (page 43). the Inspiration talent tree (page 43). the Commando talent tree (page 52). or the Military Tactics talent tree (see above). Once per day as a standard action, you can impart the benefits of the chosen talent to one or more allies, effectively granting them the talent (even if they don't meet the prerequisites). An ally must be within 10 squares of you and must be able to see and hear you to gain the talent; once gained, its benefits last until the end of the encounter. You can share the talent with a number of allies equal to one-half your officer class level (rounded down). Each time you gain this ability, it applies to a different talent. By 10th level, an officer has five different talents that he can share with up to five allies at a time. Once you select a shared talent, it cannot be changed.																SOURCEPAGE:p.
 Temptation		KEY:Temptation				CATEGORY:Special Ability	TYPE:ClassFeature.Sith LordClassFeature.SpecialQuality										DESC:You are adept at using Dun Moch, an ancient and vile technique for tempting others to tap into the dark side of the Force. As a standard action, make a Persuasion check and compare it to the Will Defense of a single opponent within line of sight. If the check succeeds, the target is filled with fear or anger, briefly giving in to the dark side. If the target spends a Force Point before your next turn, it must either add 1 point to its Dark Side Score or move-l step on the condition track (see Conditions, page 148) as it is overcome by doubt and remorse. If the target spends a Destiny Point before your next turn, it instead must add 2 points to its Dark Side Score or move -2 steps on the condition track.																																																								SOURCEPAGE:p.
 
 ###Block: Force Powers
@@ -546,12 +562,12 @@ Shaped Power	CATEGORY:Talent		TYPE:ForceSecrets	SOURCEPAGE:p.
 
 
 ###Block: Beast Species Traits
-# Ability Name	Unique Key				Category of Ability		Type									Description																																																																																																																				Source Page
-Ambush		KEY:Ambush ~ Nexu			CATEGORY:Special Ability	TYPE:SpeciesTrait.NexuSpeciesTrait.SpecialQuality	DESC:A nexu deals +2d6 points of damage with its natural weapons against a flat-footed opponent.																																																																																																					SOURCEPAGE:p.	SOURCEPAGE:p.276
-Fast Healing 5	KEY:Fast Healing ~ Rancor	CATEGORY:Special Ability	TYPE:SpeciesTrait.RancorSpeciesTrait.SpecialQuality	DESC:A rancor automatically regains 5 hit points every round at the end of its turn, up to its normal maximum, until it is killed.																																																																																																SOURCEPAGE:p.	SOURCEPAGE:p.276
-Rage			KEY:Rage ~ Reek			CATEGORY:Special Ability	TYPE:SpeciesTrait.ReekSpeciesTrait.SpecialQuality	DESC:The first time a reek takes damage greater than its Will Defense from a single attack, it flies into a terrible rage. While enraged, the reek temporarily gains a +2 rage bonus on melee attack rolls and melee damage rolls. The reek's fit of rage lasts for a number of rounds equal to 5 + its Constitution modifier. At the end of its rage, the reek moves -1 persistent step along the condition track (see Conditions, page 148). The penalties imposed by this condition persist until the reek takes at least 10 minutes to recuperate, during which time it can't engage in any strenuous activity. A reek can be pulled out of its enraged state by making it friendly (see the Persuasion skill, page 71).	SOURCEPAGE:p.	SOURCEPAGE:p.276
-Scent			KEY:Scent ~ Tauntaun		CATEGORY:Special Ability	TYPE:SpeciesTrait.TauntaunSpeciesTrait.SpecialQuality	DESC:Tauntauns ignore concealment and cover when making Perception checks to notice opponents within 10 squares, and they take no penalty from poor visibility when tracking (see the Survival skill, page 73).																																																																																			SOURCEPAGE:p.	SOURCEPAGE:p.277
-Rend			KEY:Rend ~ Wampa			CATEGORY:Special Ability	TYPE:SpeciesTrait.WampaSpeciesTrait.SpecialQuality	DESC:If a wampa hits with both of its claw attacks in the same turn, it rends its opponent for an additional 2d6 points of damage.																																																																																																SOURCEPAGE:p.	SOURCEPAGE:p.277
+# Ability Name	Unique Key				Category of Ability		Type										Description																																																																																																																				Source Page
+Ambush		KEY:Ambush ~ Nexu			CATEGORY:Special Ability	TYPE:SpeciesTrait.NexuSpeciesTrait.SpecialQuality		DESC:A nexu deals +2d6 points of damage with its natural weapons against a flat-footed opponent.																																																																																																					SOURCEPAGE:p.276
+Fast Healing 5	KEY:Fast Healing ~ Rancor	CATEGORY:Special Ability	TYPE:SpeciesTrait.RancorSpeciesTrait.SpecialQuality		DESC:A rancor automatically regains 5 hit points every round at the end of its turn, up to its normal maximum, until it is killed.																																																																																																SOURCEPAGE:p.276
+Rage			KEY:Rage ~ Reek			CATEGORY:Special Ability	TYPE:SpeciesTrait.ReekSpeciesTrait.SpecialQuality.Rage	DESC:The first time a reek takes damage greater than its Will Defense from a single attack, it flies into a terrible rage. While enraged, the reek temporarily gains a +2 rage bonus on melee attack rolls and melee damage rolls. The reek's fit of rage lasts for a number of rounds equal to 5 + its Constitution modifier. At the end of its rage, the reek moves -1 persistent step along the condition track (see Conditions, page 148). The penalties imposed by this condition persist until the reek takes at least 10 minutes to recuperate, during which time it can't engage in any strenuous activity. A reek can be pulled out of its enraged state by making it friendly (see the Persuasion skill, page 71).	SOURCEPAGE:p.276
+Scent			KEY:Scent ~ Tauntaun		CATEGORY:Special Ability	TYPE:SpeciesTrait.TauntaunSpeciesTrait.SpecialQuality		DESC:Tauntauns ignore concealment and cover when making Perception checks to notice opponents within 10 squares, and they take no penalty from poor visibility when tracking (see the Survival skill, page 73).																																																																																			SOURCEPAGE:p.277
+Rend			KEY:Rend ~ Wampa			CATEGORY:Special Ability	TYPE:SpeciesTrait.WampaSpeciesTrait.SpecialQuality		DESC:If a wampa hits with both of its claw attacks in the same turn, it rends its opponent for an additional 2d6 points of damage.																																																																																																SOURCEPAGE:p.277
 
 ###Block: Other Species Traits
 # Ability Name			Category of Ability	Ability
@@ -563,19 +579,19 @@ Species Trait ~ Yuuzhan Vong	CATEGORY:Internal		ABILITY:Special Ability|AUTOMATI
 ###Block:
 # Aqualish
 # Ability Name		Unique Key						Category of Ability		Type										Description																																												Automatically Gained Feat								Change Weapon Prof. Category	Source Page
-Breathe Underwater	KEY:Breathe Underwater ~ Aqualish		CATEGORY:Special Ability	TYPE:SpeciesTrait.AqualishSpeciesTrait.SpecialQuality		DESC:As amphibious creatures, Aqualish can't drown in water.																																																				SOURCEPAGE:p.	SOURCEPAGE:p.284
-Expert Swimmer		KEY:Expert Swimmer ~ Aqualish			CATEGORY:Special Ability	TYPE:SpeciesTrait.AqualishSpeciesTrait.SpecialQuality		DESC:An Aqualish may choose to reroll any Swim check, but the result of the reroll must be accepted even if it is worse. In addition, an Aqualish may choose to take 10 on Swim checks even when distracted or threatened.																										SOURCEPAGE:p.	SOURCEPAGE:p.284
+Breathe Underwater	KEY:Breathe Underwater ~ Aqualish		CATEGORY:Special Ability	TYPE:SpeciesTrait.AqualishSpeciesTrait.SpecialQuality		DESC:As amphibious creatures, Aqualish can't drown in water.																																																				SOURCEPAGE:p.284
+Expert Swimmer		KEY:Expert Swimmer ~ Aqualish			CATEGORY:Special Ability	TYPE:SpeciesTrait.AqualishSpeciesTrait.SpecialQuality		DESC:An Aqualish may choose to reroll any Swim check, but the result of the reroll must be accepted even if it is worse. In addition, an Aqualish may choose to take 10 on Swim checks even when distracted or threatened.																										SOURCEPAGE:p.284
 
 # Hutt
-Force Resistance		KEY:Force Resistance ~ Hutt			CATEGORY:Special Ability	TYPE:SpeciesTrait.HuttSpeciesTrait.SpecialQuality		DESC:+5 species bonus to Will Defense against any Use the Force check.																																																			SOURCEPAGE:p.	SOURCEPAGE:p.285
-Supreme Stability		KEY:Supreme Stability ~ Hutt			CATEGORY:Special Ability	TYPE:SpeciesTrait.HuttSpeciesTrait.SpecialQuality		DESC:Hutts can't be tripped or knocked prone.																																																							SOURCEPAGE:p.	SOURCEPAGE:p.285
-Skills			KEY:Skills ~ Hutt					CATEGORY:Special Ability	TYPE:SpeciesTrait.HuttSpeciesTrait.SpecialQuality		DESC:A Hutt may reroll a Persuasion check, keeping the better result.																																																			SOURCEPAGE:p.	SOURCEPAGE:p.285
+Force Resistance		KEY:Force Resistance ~ Hutt			CATEGORY:Special Ability	TYPE:SpeciesTrait.HuttSpeciesTrait.SpecialQuality		DESC:+5 species bonus to Will Defense against any Use the Force check.																																																			SOURCEPAGE:p.285
+Supreme Stability		KEY:Supreme Stability ~ Hutt			CATEGORY:Special Ability	TYPE:SpeciesTrait.HuttSpeciesTrait.SpecialQuality		DESC:Hutts can't be tripped or knocked prone.																																																							SOURCEPAGE:p.285
+Skills			KEY:Skills ~ Hutt					CATEGORY:Special Ability	TYPE:SpeciesTrait.HuttSpeciesTrait.SpecialQuality		DESC:A Hutt may reroll a Persuasion check, keeping the better result.																																																			SOURCEPAGE:p.285
 
 # Neimoidian
-Conditional Bonus Feat	KEY:Conditional Bonus Feat ~ Neimoidian	CATEGORY:Special Ability	TYPE:SpeciesTrait.NeimoidianSpeciesTrait.SpecialQuality	DESC:Neimoidians with Deception as a trained skill gain Skill Focus (Deception) as a bonus feat.																													AUTO:FEAT|Skill Focus (Deception)|PREFEAT:1,Skill Training (Deception)						SOURCEPAGE:p.	SOURCEPAGE:p.285
-Skills			KEY:Skills ~ Neimoidian				CATEGORY:Special Ability	TYPE:SpeciesTrait.NeimoidianSpeciesTrait.SpecialQuality	DESC:A Neimoidian may reroll a Deception check but must keep the second result.																																																	SOURCEPAGE:p.	SOURCEPAGE:p.285
+Conditional Bonus Feat	KEY:Conditional Bonus Feat ~ Neimoidian	CATEGORY:Special Ability	TYPE:SpeciesTrait.NeimoidianSpeciesTrait.SpecialQuality	DESC:Neimoidians with Deception as a trained skill gain Skill Focus (Deception) as a bonus feat.																													AUTO:FEAT|Skill Focus (Deception)|PREFEAT:1,Skill Training (Deception)						SOURCEPAGE:p.285
+Skills			KEY:Skills ~ Neimoidian				CATEGORY:Special Ability	TYPE:SpeciesTrait.NeimoidianSpeciesTrait.SpecialQuality	DESC:A Neimoidian may reroll a Deception check but must keep the second result.																																																	SOURCEPAGE:p.285
 
 # Yuuzhan Vong
-Force Immunity		KEY:Force Immunity ~ Yuuzhan Vong		CATEGORY:Special Ability	TYPE:SpeciesTrait.Yuuzhan VongSpeciesTrait.SpecialQuality	DESC:Yuuzhan Vong can't take the Force Sensitivity feat, can't make Use the Force checks, and never gain Force Points. In addition, they are immune to any Force effect that targets their Will Defense (including Force powers and aspects of the Use the Force skill).																		SOURCEPAGE:p.	SOURCEPAGE:p.285
-Technophobic		KEY:Technophobic ~ Yuuzhan Vong		CATEGORY:Special Ability	TYPE:SpeciesTrait.Yuuzhan VongSpeciesTrait.SpecialQuality	DESC:Yuuzhan Vong take a -5 penalty on attack rolls and skill checks made when using mechanical weapons or tools.																																												SOURCEPAGE:p.	SOURCEPAGE:p.285
-Weapon Familiarity	KEY:Weapon Familiarity ~ Yuuzhan Vong	CATEGORY:Special Ability	TYPE:SpeciesTrait.Yuuzhan VongSpeciesTrait.SpecialQuality	DESC:Yuuzhan Vong treat the amphistaff as a simple weapon instead of an exotic weapon.																																											CHANGEPROF:Amphistaff=Simple	SOURCEPAGE:p.	SOURCEPAGE:p.285
+Force Immunity		KEY:Force Immunity ~ Yuuzhan Vong		CATEGORY:Special Ability	TYPE:SpeciesTrait.Yuuzhan VongSpeciesTrait.SpecialQuality	DESC:Yuuzhan Vong can't take the Force Sensitivity feat, can't make Use the Force checks, and never gain Force Points. In addition, they are immune to any Force effect that targets their Will Defense (including Force powers and aspects of the Use the Force skill).																		SOURCEPAGE:p.285
+Technophobic		KEY:Technophobic ~ Yuuzhan Vong		CATEGORY:Special Ability	TYPE:SpeciesTrait.Yuuzhan VongSpeciesTrait.SpecialQuality	DESC:Yuuzhan Vong take a -5 penalty on attack rolls and skill checks made when using mechanical weapons or tools.																																												SOURCEPAGE:p.285
+Weapon Familiarity	KEY:Weapon Familiarity ~ Yuuzhan Vong	CATEGORY:Special Ability	TYPE:SpeciesTrait.Yuuzhan VongSpeciesTrait.SpecialQuality	DESC:Yuuzhan Vong treat the amphistaff as a simple weapon instead of an exotic weapon.																																											CHANGEPROF:Amphistaff=Simple	SOURCEPAGE:p.285
