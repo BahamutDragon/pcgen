@@ -40,8 +40,9 @@ LEVEL_ADJUSTMENT_6	VISIBLE:NO	CATEGORY:Internal	TEMPLATE:LEVEL_ADJUSTMENT_6
 
 
 Default			CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|Low-Light Vision|PREVARGTEQ:HasLowlightVision,1	ABILITY:Special Ability|AUTOMATIC|Darkvision|PREVARGTEQ:DarkvisionRange,1	ABILITY:Internal|AUTOMATIC|Defines			ABILITY:Special Ability|AUTOMATIC|Aerial Maneuverability|PREMOVE:1,Fly=1	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base	DEFINE:DarkvisionRange|0	DEFINE:HasLowlightVision|0		BONUS:COMBAT|REACH|-5|PREVAREQ:RaceSizeIsLong,1|PRESIZEGTEQ:L	BONUS:COMBAT|REACH|-5|PREVAREQ:RaceSizeIsLong,1|PRESIZEGTEQ:C	
-	DEFINE:ClassBABPoor|0	DEFINE:ClassBABModerate|0
-	BONUS:COMBAT|BAB|max(((TL-HD)-19)/2,0)|TYPE=Epic	
+	DEFINE:ClassBABPoor|0	DEFINE:ClassBABModerate|0	DEFINE:ClassBABModerateTotal|0
+	DEFINE:EpicAttackBonus|0	BONUS:VAR|EpicAttackBonus|max(((TL-HD)-19)/2,0)|TYPE=Epic	
+	BONUS:VAR|BaseAttackBonus|BAB+EpicAttackBonus	DEFINE:BaseAttackBonus|0
 #	BONUS:COMBAT|BAB|ClassMasterBAB|PREVAREQ:UseFractionalBAB,1	DEFINE:ClassMasterBAB|0	BONUS:VAR|ClassMasterBAB|(ClassBABPoor*1/2)+(ClassBABModerate*3/4)
 #	BONUS:COMBAT|BAB|ClassMasterBAB|PRERULE:Use Fractional BAB
 
@@ -144,7 +145,7 @@ Tanar'ri Subtype		KEY:Subtype Output ~ Tanar'ri			CATEGORY:Special Ability	TYPE:
 #A creature with the augmented subtype usually has the _traits_ of its current type, but the _features_ of its original type.
 #For example, a wizard's raven familiar has an animal's features and the traits of a magical beast.
 
-###Block: Augmented Subtypes
+###Block: Augmented Subtypes	For these to work you must have a TYPE that correlates on the actual RACE. RACETYPE doesn't handle this, it's TYPE.
 Augmented Aberration		CATEGORY:Internal	TYPE:AugmentedSubType.AugmentedSubTypeAberration		TEMPLATE:RaceSubtype ~ Augmented Aberration
 Augmented Animal			CATEGORY:Internal	TYPE:AugmentedSubType.AugmentedSubTypeAnimal			TEMPLATE:RaceSubtype ~ Augmented Animal
 Augmented Construct		CATEGORY:Internal	TYPE:AugmentedSubType.AugmentedSubTypeConstruct			TEMPLATE:RaceSubtype ~ Augmented Construct
