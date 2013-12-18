@@ -1,8 +1,9 @@
 # CVS $Revision: $ $Author: $ -- Fri May  3 14:36:53 2013 -- reformated by prettylst.pl v1.50 (build 19967)
 
-# Base Race loses several abilities for subsequent Subraces, these need to be tailored to remove the Abilities individually.
+# Base Race looses several abilities for subsequent Subraces, these need to be tailored to remove the Abilities individually.
 # Also, keep in mind that Unearthed Arcana can swap abilities.
 # Races have a separate pool to easily display abilities - thoughts to redo how abilities are displayed to separate out Race Granted and Class Granted...
+# Base Races have Subrace selections- using Ability to apply the correct modifier.
 
 # RSRD uses an internal ability 'Default' - for backwards consistency, we'll need to use that as well.
 # Ability Name	Category of Ability
@@ -13,6 +14,7 @@
 Hill		CATEGORY:Internal	TYPE:DwarfSubrace		TEMPLATE:Hill Dwarf		BONUS:STAT|CON|2|TYPE=Racial	BONUS:STAT|CHA|-2|TYPE=Racial	ABILITY:Dwarf Race Trait|AUTOMATIC|Darkvision ~ Dwarf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfRacialVision	ABILITY:Dwarf Race Trait|AUTOMATIC|Weapon Familiarity ~ Dwarf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfWeaponFamiliarity	ABILITY:Dwarf Race Trait|AUTOMATIC|Stonecunning ~ Dwarf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfStonecunning	ABILITY:Dwarf Race Trait|AUTOMATIC|Stability ~ Dwarf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfStability	ABILITY:Dwarf Race Trait|AUTOMATIC|Poison Save Bonus ~ Dwarf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfPoisonSaveBonus	ABILITY:Dwarf Race Trait|AUTOMATIC|Spell Save Bonus ~ Dwarf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfSpellSaveBonus	ABILITY:Dwarf Race Trait|AUTOMATIC|Attack Bonus ~ Dwarf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfAttackBonus	ABILITY:Dwarf Race Trait|AUTOMATIC|Dodge Bonus ~ Dwarf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfDodgeBonus	ABILITY:Dwarf Race Trait|AUTOMATIC|Appraise Bonus ~ Dwarf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfAppraiseBonus	ABILITY:Dwarf Race Trait|AUTOMATIC|Craft Bonus ~ Dwarf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfCraftBonus
 #Elf
 High		CATEGORY:Internal	TYPE:ElfSubrace		TEMPLATE:High Elf			BONUS:STAT|CON|-2|TYPE=Racial	BONUS:STAT|DEX|2|TYPE=Racial	ABILITY:Elf Race Trait|AUTOMATIC|Racial Immunity ~ Elf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfRacialImmunity	ABILITY:Elf Race Trait|AUTOMATIC|Low-Light Vision ~ Elf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfLowLightVision	ABILITY:Elf Race Trait|AUTOMATIC|Weapon Proficiency ~ Elf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfWeaponProficiency	ABILITY:Elf Race Trait|AUTOMATIC|Skill Bonus ~ Elf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfSkillBonus
+# Half-Elf is listed under Elf as a Subrace. 
 Half-Elf	CATEGORY:Internal	TYPE:ElfSubrace		TEMPLATE:Half-Elf									ABILITY:Half-Elf Race Trait|AUTOMATIC|Elven Blood ~ Half-Elf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfElfBlood	ABILITY:Half-Elf Race Trait|AUTOMATIC|Low-Light Vision ~ Half-Elf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfElfRacialVision	ABILITY:Half-Elf Race Trait|AUTOMATIC|Racial +1 Skill Bonus ~ Half-Elf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfElfPerception	ABILITY:Half-Elf Race Trait|AUTOMATIC|Racial +2 Skill Bonus ~ Half-Elf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfElfPersuasion	ABILITY:Half-Elf Race Trait|AUTOMATIC|Racial Immunity ~ Half-Elf|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfElfImunity
 
 #Gnome
@@ -38,6 +40,8 @@ Race Traits ~ Halfling		CATEGORY:Internal	BONUS:ABILITYPOOL|Halfling Subrace|1
 # Ability Name	Unique Key			Category of Ability		Type							Description														Bonus to skill point/L		Source Page
 Skill Bonus		KEY:Skill Bonus ~ Human	CATEGORY:Special Ability	TYPE:SpecialQuality.RaceTrait.HumanRaceTrait	DESC:4 extra skill points at 1st level and 1 extra skill point at each additional level.	BONUS:SKILLPOINTS|NUMBER|1	SOURCEPAGE:p.13
 Feat Bonus		KEY:Bonus Feat ~ Human	CATEGORY:Special Ability	TYPE:SpecialQuality.RaceTrait.HumanRaceTrait	DESC:1 extra feat at 1st level.															SOURCEPAGE:p.13	BONUS:ABILITYPOOL|FEAT|1
+
+# COMMENT: TO DO - Race Traits Display needs to be done for remainder of Base Races.
 
 ###Block: Dwarf - Assigned
 # Ability Name						Ability
