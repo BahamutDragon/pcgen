@@ -1,24 +1,16 @@
 # CVS $Revision: $ $Author: $ -- Sun Dec  8 22:17:49 2013 -- reformated by prettylst.pl v1.50 (build 22352)
 ###Block: PSYCHIC --------------------------------------------------------------------------------------
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus							Modify VAR
-CLASS:Psychic	HD:6		TYPE:Base.PC	ABB:Psy		MAXLEVEL:20	SOURCEPAGE:p.180	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1
+# Class Name	Hit Dice	Type			Abbreviation		Source Page		Save checks bonus											Combat bonus							Modify VAR
+CLASS:Psychic	HD:6		TYPE:Base.PC	ABB:Psy			SOURCEPAGE:p.5	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|PREVAREQ:UseFractionalBAB,0
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Psychic	STARTSKILLPTS:6	CSKILL:Bluff|Concentration|Endurance|TYPE=Craft|Diplomacy|Persuasion|Gather Information|Intimidate|TYPE=Knowledge|Listen|TYPE=Perform|TYPE=Profession|Search|Sense Motive|Spot|TYPE=PsychicSense|TYPE=PsychicShield|Perception
-### Class Skills via FEATS when they become available - Any PrC needing Class Skills from the Psychic should use the feats.
-1	VFEAT:Psychic Telepathy|PREFEAT:1,Telepathy
-1	VFEAT:Psychic Dimensional Shift|PREFEAT:1,Dimensional Shift
-1	VFEAT:Psychic Psychic Weapon|PREFEAT:1,Psychic Weapon
-1	VFEAT:Psychic Psychokinesis|PREFEAT:1,Psychokinesis
-1	VFEAT:Psychic Psychometabolism|PREFEAT:1,Psychometabolism
-1	VFEAT:Psychic Psychoportation|PREFEAT:1,Psychoportation
-1	VFEAT:Psychic Clairsentience|PREFEAT:1,Clairsentience
-1	VFEAT:Psychic Mind Switch|PREFEAT:1,Mind Switch
-###Block:Proficiencies
-1												AUTO:FEAT|Simple Weapon Proficiency
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies
+CLASS:Psychic	STARTSKILLPTS:6	CSKILL:Bluff|Concentration|Endurance|TYPE=Craft|Diplomacy|Persuasion|Gather Information|Intimidate|TYPE=Knowledge|Listen|TYPE=Perform|TYPE=Profession|Search|Sense Motive|Spot|TYPE=Psychic|Perception
+###Block:
+1	ABILITY:Psychic Class Feature|AUTOMATIC|Weapon and Armor Proficiency ~ Psychic
+1	ABILITY:Psychic Class Feature|AUTOMATIC|Psychic Ability ~ Psychic
+1	ABILITY:Psychic Class Feature|AUTOMATIC|Bonus Feats ~ Psychic
+1	ABILITY:Psychic Class Feature|AUTOMATIC|Psychic Skills ~ Psychic
 ###Block: Level progression
-1							AUTO:FEAT|Psychic Ability
 1	BONUS:ABILITYPOOL|Psychic Feat|1
 2	BONUS:ABILITYPOOL|Psychic Feat|1
 4	BONUS:ABILITYPOOL|Psychic Feat|1
@@ -28,14 +20,36 @@ CLASS:Psychic	STARTSKILLPTS:6	CSKILL:Bluff|Concentration|Endurance|TYPE=Craft|Di
 17	BONUS:ABILITYPOOL|Psychic Feat|1
 20	BONUS:ABILITYPOOL|Psychic Feat|1
 
+CLASS:Beastmaster	HD:8	TYPE:Prestige.PC	ABB:BtMst	SOURCEPAGE:p.10	BONUS:COMBAT|BAB|CL	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3
+CLASS:Beastmaster	PREFEAT:2,Psychic Ability,Telepathy	PRESKILL:3,Handle Animal=7,Mental Contact=7,Survival=7
+CLASS:Beastmaster	STARTSKILLPTS:6	CSKILL:Balance|Climb|Concentration|Handle Animal|Hide|Jump|Knowledge (Nature)|Listen|Move Silently|Ride|Spot|Survival|Swim|TYPE=Psychic
+###Block:
+1	ABILITY:Beastmaster Class Feature|AUTOMATIC|Animal Bond ~ Beastmaster|Animal Empathy ~ Beastmaster
+2	ABILITY:Beastmaster Class Feature|AUTOMATIC|Beast Link ~ Beastmaster
+4	ABILITY:Beastmaster Class Feature|AUTOMATIC|Beast Empathy ~ Beastmaster
+6	ABILITY:Beastmaster Class Feature|AUTOMATIC|Beast Cohorts ~ Beastmaster
+8	ABILITY:Beastmaster Class Feature|AUTOMATIC|Reduced Strain ~ Beastmaster
+10	ABILITY:Beastmaster Class Feature|AUTOMATIC|Ride Within ~ Beastmaster
+###Block:
+1	BONUS:VAR|BeastmasterAnimalEmpathyBonus|(CL+1)/2	DEFINE:BeastmasterAnimalEmpathyBonus|0
+###Block:
+11	PREPCLEVEL:MIN=20
+
+CLASS:Fire-Starter	HD:6	TYPE:Prestige	ABB:FS	SOURCEPAGE:p.11	BONUS:COMBAT|BAB|CL*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2
+CLASS:Fire-Starter	PREMULT:1,[PREFEAT:2,Psychic Ability,Psychokinesis],[PREFEAT:1,Wild Talent Psychic(Pyrokinesis)]	PRESKILL:1,TYPE.Pyrokinesis=8
+CLASS:Fire-Starter	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Intimidate|TYPE=Knowledge|Listen|TYPE=Perform|TYPE=Profession|Pyrokinesis|Search|Sense Motive|Spot|TYPE=Psychic
+
+
+
+
 ###Block: Psychic Adept ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus								Combat bonus							Modify VAR
-CLASS:Psychic Adept	HD:8		TYPE:PC.Prestige	ABB:Pad		MAXLEVEL:10	SOURCEPAGE:p.16	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1
+# Class Name		Hit Dice	Type			Abbreviation	Source Page		Save checks bonus								Combat bonus							Modify VAR
+CLASS:Psychic Adept	HD:8		TYPE:PC.Prestige	ABB:Pad		SOURCEPAGE:p.16	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|PREVAREQ:UseFractionalBAB,0
 # Class Name		Required Feat						Required Skill
 CLASS:Psychic Adept	PREFEAT:2,Psychic Ability,Psychometabolism	PRESKILL:3,Balance=8,TYPE.PsychicBodyControl=8,Concentration=8
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Psychic Adept	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|Escape Artist|Heal|Hide|Jump|Knowledge (Psychic)|Listen|Move Silently|TYPE=Profession|Search|Sense Motive|Spot|Swim|Tumble
+CLASS:Psychic Adept	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|Escape Artist|Heal|Hide|Jump|Knowledge (Psychic)|Listen|Move Silently|TYPE=Profession|Search|Sense Motive|Spot|Swim|Tumble|TYPE=Psychic
 1	BONUS:UDAM|CLASS.Monk|CL
 ###Block:
 1	ABILITY:Special Ability|AUTOMATIC|Psychic Stamina ~ Psychic Adept|Psychic Strike ~ Psychic Adept					AUTO:FEAT|Improved Unarmed Strike|Psychic Stamina
@@ -48,3 +62,13 @@ CLASS:Psychic Adept	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|Escape Ar
 8	ABILITY:Special Ability|AUTOMATIC|Improved Ability Enhancement ~ Psychic Adept
 9	ABILITY:Special Ability|AUTOMATIC|Timeless Body ~ Monk								TEMPLATE:Timeless Body
 10	ABILITY:Special Ability|AUTOMATIC|Body Mastery ~ Psychic Adept
+11	PREPCLEVEL:MIN=20
+
+
+###Block: Fractional Support
+CLASS:Psychic.MOD		BONUS:COMBAT|BAB|ClassBABModerate*3/4|TYPE=ClassBABModerate|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1
+CLASS:Fire-Starter.MOD		BONUS:COMBAT|BAB|ClassBABModerate*3/4|TYPE=ClassBABModerate|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1
+
+CLASS:Psychic Adept.MOD		BONUS:COMBAT|BAB|ClassBABModerate*3/4|TYPE=ClassBABModerate|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1
+#1/2
+CLASS:xxx.MOD		BONUS:COMBAT|BAB|ClassBABPoor*1/2|TYPE=ClassBABPoor|PREVAREQ:UseFractionalBAB,1		BONUS:VAR|ClassBABPoor|CL|PREVAREQ:UseFractionalBAB,1
