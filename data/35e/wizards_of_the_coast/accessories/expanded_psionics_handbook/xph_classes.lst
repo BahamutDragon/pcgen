@@ -8,17 +8,17 @@ CLASS:Psion		STARTSKILLPTS:2
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Psion		SPELLSTAT:INT	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Psion|CL
 ###COMMENT:
-SUBCLASS:Egoist		COST:0	PROHIBITCOST:0	SPELLLIST:2|Psion	DEFINE:PsionicSeer|1		CSKILL:Concentration|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Psicraft|Autohypnosis|Balance|Heal
+SUBCLASS:Egoist		COST:0	PROHIBITCOST:0	SPELLLIST:1|Psion	DEFINE:PsionicSeer|1		CSKILL:Concentration|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Psicraft|Autohypnosis|Balance|Heal
 #SUBCLASS:Egoist		CHOICE:SCHOOL|Psychometabolism
-SUBCLASS:Kineticist	COST:0	PROHIBITCOST:0	SPELLLIST:2|Psion	DEFINE:PsionicKineticist|1	CSKILL:Concentration|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Psicraft|Autohypnosis|Disable Device|Intimidate
+SUBCLASS:Kineticist	COST:0	PROHIBITCOST:0	SPELLLIST:1|Psion	DEFINE:PsionicKineticist|1	CSKILL:Concentration|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Psicraft|Autohypnosis|Disable Device|Intimidate
 #SUBCLASS:Kineticist	CHOICE:SCHOOL|Psychokinesis
-SUBCLASS:Nomad		COST:0	PROHIBITCOST:0	SPELLLIST:2|Psion	DEFINE:PsionicNomad|1		CSKILL:Concentration|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Psicraft|Climb|Jump|Ride|Survival|Swim
+SUBCLASS:Nomad		COST:0	PROHIBITCOST:0	SPELLLIST:1|Psion	DEFINE:PsionicNomad|1		CSKILL:Concentration|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Psicraft|Climb|Jump|Ride|Survival|Swim
 #SUBCLASS:Nomad		CHOICE:SCHOOL|Psychoportation
-SUBCLASS:Seer		COST:0	PROHIBITCOST:0	SPELLLIST:2|Psion	DEFINE:PsionicSeer|1		CSKILL:Concentration|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Psicraft|Gather Information|Listen|Spot
+SUBCLASS:Seer		COST:0	PROHIBITCOST:0	SPELLLIST:1|Psion	DEFINE:PsionicSeer|1		CSKILL:Concentration|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Psicraft|Gather Information|Listen|Spot
 #SUBCLASS:Seer		CHOICE:SCHOOL|Clairsentience
-SUBCLASS:Shaper		COST:0	PROHIBITCOST:0	SPELLLIST:2|Psion	DEFINE:PsionicShaper|1		CSKILL:Concentration|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Psicraft|Bluff|Disguise|Use Psionic Device
+SUBCLASS:Shaper		COST:0	PROHIBITCOST:0	SPELLLIST:1|Psion	DEFINE:PsionicShaper|1		CSKILL:Concentration|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Psicraft|Bluff|Disguise|Use Psionic Device
 #SUBCLASS:Shaper		CHOICE:SCHOOL|Metacreativity
-SUBCLASS:Telepath		COST:0	PROHIBITCOST:0	SPELLLIST:2|Psion	DEFINE:PsionicTelepath|1	CSKILL:Concentration|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Psicraft|Bluff|Diplomacy|Gather Information|Sense Motive
+SUBCLASS:Telepath		COST:0	PROHIBITCOST:0	SPELLLIST:1|Psion	DEFINE:PsionicTelepath|1	CSKILL:Concentration|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Psicraft|Bluff|Diplomacy|Gather Information|Sense Motive
 #SUBCLASS:Telepath	CHOICE:SCHOOL|Telepathy
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Psion
@@ -30,14 +30,7 @@ SUBCLASS:Telepath		COST:0	PROHIBITCOST:0	SPELLLIST:2|Psion	DEFINE:PsionicTelepat
 # Code those that have KNOWN tags similar to this but change the VAR names, i.e. PsionML becomes WilderML,
 # PsionBonusPP becomes WarmindBonusPP, alter the basepp bonus:var's to the correct values, etc.
 1	BONUS:VAR|PsionML|CL	BONUS:VAR|PsionML|var("BL=Psion")
-DEFINE:PsionML|0	TEMPLATE:Psionic
-1	BONUS:VAR|BasePowerPoints|2	BONUS:VAR|BasePowerPoints|4|PREVARGTEQ:PsionML,2	BONUS:VAR|BasePowerPoints|5|PREVARGTEQ:PsionML,3	BONUS:VAR|BasePowerPoints|6|PREVARGTEQ:PsionML,4
-1	BONUS:VAR|BasePowerPoints|8|PREVARGTEQ:PsionML,5	BONUS:VAR|BasePowerPoints|10|PREVARGTEQ:PsionML,6	BONUS:VAR|BasePowerPoints|11|PREVARGTEQ:PsionML,7	BONUS:VAR|BasePowerPoints|12|PREVARGTEQ:PsionML,8
-1	BONUS:VAR|BasePowerPoints|14|PREVARGTEQ:PsionML,9	BONUS:VAR|BasePowerPoints|16|PREVARGTEQ:PsionML,10	BONUS:VAR|BasePowerPoints|18|PREVARGTEQ:PsionML,11	BONUS:VAR|BasePowerPoints|20|PREVARGTEQ:PsionML,12
-1	BONUS:VAR|BasePowerPoints|21|PREVARGTEQ:PsionML,13	BONUS:VAR|BasePowerPoints|23|PREVARGTEQ:PsionML,14	BONUS:VAR|BasePowerPoints|25|PREVARGTEQ:PsionML,15	BONUS:VAR|BasePowerPoints|26|PREVARGTEQ:PsionML,16
-1	BONUS:VAR|BasePowerPoints|29|PREVARGTEQ:PsionML,17	BONUS:VAR|BasePowerPoints|30|PREVARGTEQ:PsionML,18	BONUS:VAR|BasePowerPoints|31|PREVARGTEQ:PsionML,19	BONUS:VAR|BasePowerPoints|32|PREVARGTEQ:PsionML,20
-1	BONUS:VAR|BonusPowerPoints|(INT*PsionML)/2|TYPE=PsionBonusPP
-
+1	TEMPLATE:Psionic|Psionic Power Points Progression
 ###Block: Class Info
 1	KNOWN:0,3				BONUS:ABILITYPOOL|Psion Feat|(CL/5)+1
 2	KNOWN:0,5
@@ -143,7 +136,6 @@ CLASS:Wilder	SPELLSTAT:CHA	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Wilde
 1	BONUS:VAR|BasePowerPoints|21|PREVARGTEQ:WilderML,13	BONUS:VAR|BasePowerPoints|23|PREVARGTEQ:WilderML,14	BONUS:VAR|BasePowerPoints|25|PREVARGTEQ:WilderML,15	BONUS:VAR|BasePowerPoints|26|PREVARGTEQ:WilderML,16
 1	BONUS:VAR|BasePowerPoints|29|PREVARGTEQ:WilderML,17	BONUS:VAR|BasePowerPoints|30|PREVARGTEQ:WilderML,18	BONUS:VAR|BasePowerPoints|31|PREVARGTEQ:WilderML,19	BONUS:VAR|BasePowerPoints|32|PREVARGTEQ:WilderML,20
 1	BONUS:VAR|BonusPowerPoints|(CHA*WilderML)/2|TYPE=WilderBonusPP
-
 ###Block: Class Info
 1	KNOWN:0,1				BONUS:VAR|PsychicEnervation|1	BONUS:VAR|WildSurge|1	ABILITY:Special Ability|AUTOMATIC|Psychic Enervation|Wild Surge
 2	KNOWN:0,2				BONUS:VAR|EludeTouch|CHA					ABILITY:Special Ability|AUTOMATIC|Elude Touch

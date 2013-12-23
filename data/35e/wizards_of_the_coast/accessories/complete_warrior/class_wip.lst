@@ -74,14 +74,17 @@ CLASS:Darkwood Stalker	HD:8		TYPE:Prestige	ABB:Dws		MAXLEVEL:10	SOURCEPAGE:p.23	
 CLASS:Darkwood Stalker	PREATT:5	PREFEAT:2,Dodge,Track	PRELANG:1,Orc	PREMULT:1,[PRERACE:1,Elf%,Half-Elf],[PRERACE:1,RACESUBTYPE=Elf]	PRESKILL:5,Hide=5,Listen=5,Move Silently=5,Spot=5,Survival=5
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Darkwood Stalker	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Heal|Hide|Jump|Knowledge (Nature)|Listen|Move Silently|TYPE=Profession|Ride|Search|Spot|Survival|Swim|Use Rope
-1	BONUS:VAR|DarkwoodAncientFoeLVL|CL										ABILITY:Special Ability|AUTOMATIC|Ancient Foe ~ Darkwood Stalker
-2	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.STACK	BONUS:VAR|UncannyDodgeLevel|1	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Darkwood Stalker
-3	BONUS:VAR|DarkwoodSneakAttackLVL|CL										ABILITY:Special Ability|AUTOMATIC|Sneak Attack ~ Darkwood Stalker
-5	BONUS:VAR|UncannyDodgeLevel|1
-8																ABILITY:Special Ability|AUTOMATIC|Dodge Critical ~ Darkwood Stalker
-10																ABILITY:Special Ability|AUTOMATIC|Death Attack (Orc) ~ Darkwood Stalker
+1	ABILITY:Special Ability|AUTOMATIC|Ancient Foe ~ Darkwood Stalker
+2	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Darkwood Stalker
+3	ABILITY:Special Ability|AUTOMATIC|Sneak Attack ~ Darkwood Stalker
+8	ABILITY:Special Ability|AUTOMATIC|Dodge Critical ~ Darkwood Stalker
+10	ABILITY:Special Ability|AUTOMATIC|Death Attack (Orc) ~ Darkwood Stalker
 ###Block:
+1	BONUS:VAR|DarkwoodAncientFoeLVL|CL
+2	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.STACK	BONUS:VAR|UncannyDodgeLevel|1
+3	BONUS:VAR|DarkwoodSneakAttackLVL|CL
 4	BONUS:VAR|DarkvisionRange|30
+5	BONUS:VAR|UncannyDodgeLevel|1
 7	BONUS:VAR|DarkvisionRange|60
 10	BONUS:VAR|DeathAttackOrc|CL
 ###Block:
@@ -109,16 +112,21 @@ CLASS:Drunken Master	HD:8		TYPE:Prestige	ABB:Dru		MAXLEVEL:10	SOURCEPAGE:p.27	BO
 CLASS:Drunken Master	PREABILITY:1,CATEGORY=Special Ability,Evasion	PREABILITY:1,CATEGORY=Special Ability,Flurry of Blows	PREFEAT:3,Dodge,Great Fortitude,Improved Unarmed Strike	PRESKILL:1,Tumble=8	PRETEXT:Must be chosen by existing drunken masters and survive a night of revelry among them without being incarcerated, poisoned or extraordinarily embarassed
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Drunken Master	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Escape Artist|Hide|Jump|Listen|Move Silently|TYPE=Perform|TYPE=Profession|Swim|Tumble
-1								ABILITY:Special Ability|AUTOMATIC|Drink like a Demon ~ Drunken Master|Improvised Weapons ~ Drunken Master
-2								ABILITY:Special Ability|AUTOMATIC|Stagger ~ Drunken Master
-3								ABILITY:Special Ability|AUTOMATIC|Swaying Waist ~ Drunken Master
-4	BONUS:VAR|DrunkenMasterACBonusLVL|CL	ABILITY:Special Ability|AUTOMATIC|AC Bonus ~ Drunken Master|Improved Improvised Weapons ~ Drunken Master
-5								ABILITY:Special Ability|AUTOMATIC|Greater Improvised Weapons ~ Drunken Master
-6																							VFEAT:Improved Feint
-7																							VFEAT:Improved Grapple
-8	BONUS:VAR|MedicinalPurposePerDay|3		ABILITY:Special Ability|AUTOMATIC|For Medicinal Purpose ~ Drunken Master
-9								ABILITY:Special Ability|AUTOMATIC|Corckscrew Rush ~ Drunken Master|Superior Improvised Weapons ~ Drunken Master
-10	BONUS:VAR|DrunkenMasterBreathFlameLVL|CL	ABILITY:Special Ability|AUTOMATIC|Breath Flame ~ Drunken Master
+1	ABILITY:Special Ability|AUTOMATIC|Drink like a Demon ~ Drunken Master|Improvised Weapons ~ Drunken Master
+2	ABILITY:Special Ability|AUTOMATIC|Stagger ~ Drunken Master
+3	ABILITY:Special Ability|AUTOMATIC|Swaying Waist ~ Drunken Master
+4	ABILITY:Special Ability|AUTOMATIC|AC Bonus ~ Drunken Master|Improved Improvised Weapons ~ Drunken Master
+5	ABILITY:Special Ability|AUTOMATIC|Greater Improvised Weapons ~ Drunken Master
+8	ABILITY:Special Ability|AUTOMATIC|For Medicinal Purpose ~ Drunken Master
+9	ABILITY:Special Ability|AUTOMATIC|Corckscrew Rush ~ Drunken Master|Superior Improvised Weapons ~ Drunken Master
+10	ABILITY:Special Ability|AUTOMATIC|Breath Flame ~ Drunken Master
+###Block:
+6	VFEAT:Improved Feint
+7	VFEAT:Improved Grapple
+###Block:
+4	BONUS:VAR|DrunkenMasterACBonusLVL|CL
+8	BONUS:VAR|MedicinalPurposePerDay|3
+10	BONUS:VAR|DrunkenMasterBreathFlameLVL|CL
 
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus														Combat bonus
 CLASS:Exotic Wepon Master	HD:10		TYPE:Prestige	ABB:Ewm		MAXLEVEL:3	SOURCEPAGE:p.30	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
@@ -134,15 +142,20 @@ CLASS:Eye of Gruumsh	HD:12		TYPE:Prestige	ABB:Eye		MAXLEVEL:10	SOURCEPAGE:p.31	B
 CLASS:Eye of Gruumsh	PREALIGN:CE,CN,NE	PREATT:6	PREDEITY:1,Gruumsh	PREFEAT:2,Exotic Weapon Proficiency(Axe (Orc Double)),Weapon Focus(Axe (Orc Double))	PREMULT:1,[PRERACE:1,Orc%,Half-Orc],[PRERACE:1,RACESUBTYPE=Orc]	PRETEXT:Must pop out his own right eye in a special ritual
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Eye of Gruumsh	STARTSKILLPTS:2	CSKILL:Climb|Intimidate|Jump|Ride|Survival|Swim
-1															ABILITY:Special Ability|AUTOMATIC|Command the Horde ~ Eye of Gruumsh						VFEAT:Blind Fight
-1					BONUS:VAR|EyeGruumshRageTimesLVL,EyeGruumshRagePowerLVL|CL	ABILITY:Special Ability|AUTOMATIC|Rage ~ Eye of Gruumsh
-2															ABILITY:Special Ability|AUTOMATIC|Swing Blindly ~ Eye of Gruumsh
-3					BONUS:VAR|EyeGruumshRitualScarringLVL|CL				ABILITY:Special Ability|AUTOMATIC|Ritual Scarring ~ Eye of Gruumsh
-4					BONUS:VAR|BlindingSpittlePerDay|2					ABILITY:Special Ability|AUTOMATIC|Blinding Spittle ~ Eye of Gruumsh
+1	ABILITY:Special Ability|AUTOMATIC|Command the Horde ~ Eye of Gruumsh						VFEAT:Blind Fight
+1	ABILITY:Special Ability|AUTOMATIC|Rage ~ Eye of Gruumsh
+2	ABILITY:Special Ability|AUTOMATIC|Swing Blindly ~ Eye of Gruumsh
+3	ABILITY:Special Ability|AUTOMATIC|Ritual Scarring ~ Eye of Gruumsh
+4	ABILITY:Special Ability|AUTOMATIC|Blinding Spittle ~ Eye of Gruumsh
+10	ABILITY:Special Ability|AUTOMATIC|Sight of Gruumsh ~ Eye of Gruumsh
+###Block:
+1	BONUS:VAR|EyeGruumshRageTimesLVL,EyeGruumshRagePowerLVL|CL
+3	BONUS:VAR|EyeGruumshRitualScarringLVL|CL
+4	BONUS:VAR|BlindingSpittlePerDay|2
+7	BONUS:VAR|BlindingSpittlePerDay|2
+###Block:
 5	VISION:Blindsight (5')
-7					BONUS:VAR|BlindingSpittlePerDay|2
 8	VISION:Blindsight (10')
-10															ABILITY:Special Ability|AUTOMATIC|Sight of Gruumsh
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus														Combat bonus
 CLASS:Frenzied Berserk	HD:12		TYPE:Prestige	ABB:Fre		MAXLEVEL:10	SOURCEPAGE:p.34	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
