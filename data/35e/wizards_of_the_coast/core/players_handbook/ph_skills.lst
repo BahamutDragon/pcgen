@@ -4,8 +4,8 @@
 # Skill Name					Key Stat	Untrained?		Skill Penalty Apply	Type							Visible		Source Page		Temporary effect description																Temporary Bonus
 Appraise						KEYSTAT:INT								TYPE:Intelligence.Standard						SOURCEPAGE:p.67
 Balance						KEYSTAT:DEX				ACHECK:YES			TYPE:Dexterity.Standard							SOURCEPAGE:p.67
-Bluff							KEYSTAT:CHA								TYPE:Charisma.Standard							SOURCEPAGE:p.67
-Climb							KEYSTAT:STR				ACHECK:YES			TYPE:Strength.Standard							SOURCEPAGE:p.69
+Bluff							KEYSTAT:CHA								TYPE:Charisma.Standard.Deception					SOURCEPAGE:p.67
+Climb							KEYSTAT:STR				ACHECK:YES			TYPE:Strength.Standard.Athletics					SOURCEPAGE:p.69
 Concentration					KEYSTAT:CON								TYPE:Constitution.Standard						SOURCEPAGE:p.69
 Craft (Alchemy)					KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Craft.Standard					SOURCEPAGE:p.70
 Craft (Armorsmithing)				KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Craft.Standard					SOURCEPAGE:p.70
@@ -29,7 +29,7 @@ Craft (Weaponsmithing)				KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Craf
 Craft (Weaving)					KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Craft.Standard					SOURCEPAGE:p.70
 Craft (Untrained)					KEYSTAT:INT								TYPE:Intelligence.Craft.Standard		VISIBLE:EXPORT	SOURCEPAGE:p.70
 Decipher Script					KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Standard						SOURCEPAGE:p.71
-Diplomacy						KEYSTAT:CHA								TYPE:Charisma.Standard							SOURCEPAGE:p.71
+Diplomacy						KEYSTAT:CHA								TYPE:Charisma.Standard.Persuasion					SOURCEPAGE:p.71
 Disable Device					KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Standard						SOURCEPAGE:p.72
 Disguise						KEYSTAT:CHA								TYPE:Charisma.Standard							SOURCEPAGE:p.72
 Escape Artist					KEYSTAT:DEX				ACHECK:YES			TYPE:Dexterity.Standard							SOURCEPAGE:p.73
@@ -38,7 +38,7 @@ Gather Information				KEYSTAT:CHA								TYPE:Charisma.Standard							SOURCEPAGE
 Handle Animal					KEYSTAT:CHA	USEUNTRAINED:NO					TYPE:Charisma.Standard							SOURCEPAGE:p.74
 Heal							KEYSTAT:WIS								TYPE:Wisdom.Standard							SOURCEPAGE:p.75
 Hide							KEYSTAT:DEX				ACHECK:YES			TYPE:Dexterity.Standard.Stealth					SOURCEPAGE:p.76
-Intimidate						KEYSTAT:CHA								TYPE:Charisma.Standard							SOURCEPAGE:p.76
+Intimidate						KEYSTAT:CHA								TYPE:Charisma.Standard.Persuasion					SOURCEPAGE:p.76
 Jump							KEYSTAT:STR				ACHECK:YES			TYPE:Strength.Standard							SOURCEPAGE:p.77
 Knowledge (Arcana)				KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge.Standard				SOURCEPAGE:p.78
 Knowledge (Architecture and Engineering)	KEYSTAT:INT	USEUNTRAINED:NO					TYPE:Intelligence.Knowledge.Standard				SOURCEPAGE:p.78
@@ -124,7 +124,7 @@ Knowledge (Nobility and Royalty).MOD					BONUS:SKILL|Diplomacy|SynergyBonus|PRES
 Knowledge (Religion).MOD																																													BONUS:VAR|TurnCheckUndead|2|PRESKILL:1,Knowledge (Religion)=5
 Ride.MOD																																																											TEMPDESC:If you are riding bareback, or attempt to ride a creature that is ill suited as a mount, you take a -5 penalty on Ride checks.	TEMPBONUS:ANYPC|SKILL|Ride|-5|TYPE=Circumstance|!PREITEM:1,TYPE=Saddle
 Sense Motive.MOD									BONUS:SKILL|Diplomacy|SynergyBonus|PRESKILL:1,Sense Motive=5|TYPE=Synergy.STACK
-Speak Language.MOD				CHOOSE:LANG|TYPE=Spoken																																																																																					AUTO:LANG|%LIST
+Speak Language.MOD				CHOOSE:LANG|!PC,TYPE=Spoken																																																																																					AUTO:LANG|%LIST
 Survival.MOD									BONUS:SKILL|Knowledge (Nature)|SynergyBonus|PRESKILL:1,Survival=5|TYPE=Synergy.STACK
 Swim.MOD										BONUS:SKILL|Swim|8|PREMOVE:1,Swim=1|TYPE=Racial
 Tumble.MOD										BONUS:SKILL|Balance,Jump|SynergyBonus|PRESKILL:1,Tumble=5|TYPE=Synergy.STACK
