@@ -1,8 +1,8 @@
-# CVS $Revision: $ $Author: $ -- Sun Dec  8 22:17:49 2013 -- reformated by prettylst.pl v1.50 (build 22352)
+# CVS $Revision: $ $Author: $ -- Sat Jan  4 10:42:33 2014 -- reformated by prettylst.pl v1.50 (build 22746)
 ###Block: PSYCHIC --------------------------------------------------------------------------------------
 
-# Class Name	Hit Dice	Type			Abbreviation		Source Page		Save checks bonus											Combat bonus							Modify VAR
-CLASS:Psychic	HD:6		TYPE:Base.PC	ABB:Psy			SOURCEPAGE:p.5	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|PREVAREQ:UseFractionalBAB,0
+# Class Name	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus											Combat bonus
+CLASS:Psychic	HD:6		TYPE:Base.PC	ABB:Psy		SOURCEPAGE:p.5	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|PREVAREQ:UseFractionalBAB,0
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Psychic	STARTSKILLPTS:6	CSKILL:Bluff|Concentration|TYPE=Craft|Diplomacy|Gather Information|Intimidate|TYPE=Knowledge|Listen|TYPE=Perform|TYPE=Profession|Search|Sense Motive|Spot|TYPE=Psychic
 ###Block:
@@ -20,8 +20,11 @@ CLASS:Psychic	STARTSKILLPTS:6	CSKILL:Bluff|Concentration|TYPE=Craft|Diplomacy|Ga
 17	BONUS:ABILITYPOOL|Psychic Feat|1
 20	BONUS:ABILITYPOOL|Psychic Feat|1
 
-CLASS:Beastmaster	HD:8	TYPE:Prestige.PC	ABB:BtMst	SOURCEPAGE:p.10	BONUS:COMBAT|BAB|CL	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3
+# Class Name	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus											Combat bonus
+CLASS:Beastmaster	HD:8		TYPE:Prestige.PC	ABB:BtMst		SOURCEPAGE:p.10	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
+# Class Name	Required Feat				Required Skill
 CLASS:Beastmaster	PREFEAT:2,Psychic Ability,Telepathy	PRESKILL:3,Handle Animal=7,Mental Contact=7,Survival=7
+# Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Beastmaster	STARTSKILLPTS:6	CSKILL:Balance|Climb|Concentration|Handle Animal|Hide|Jump|Knowledge (Nature)|Listen|Move Silently|Ride|Spot|Survival|Swim|TYPE=Psychic
 ###Block:
 1	ABILITY:Beastmaster Class Feature|AUTOMATIC|Animal Bond ~ Beastmaster|Animal Empathy ~ Beastmaster
@@ -36,8 +39,12 @@ CLASS:Beastmaster	STARTSKILLPTS:6	CSKILL:Balance|Climb|Concentration|Handle Anim
 11	PREPCLEVEL:MIN=20
 
 # Fire-Start
-CLASS:Fire-Starter	HD:6	TYPE:Prestige.PC	ABB:FS	SOURCEPAGE:p.11	BONUS:COMBAT|BAB|CL*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2
+
+# Class Name		Hit Dice	Type			Abbreviation	Source Page		Save checks bonus											Combat bonus
+CLASS:Fire-Starter	HD:6		TYPE:Prestige.PC	ABB:FS		SOURCEPAGE:p.11	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|PREVAREQ:UseFractionalBAB,0
+# Class Name		Multiple Requirements														Required Skill
 CLASS:Fire-Starter	PREMULT:1,[PREFEAT:2,Psychic Ability,Psychokinesis],[PREFEAT:1,Wild Talent Psychic(Pyrokinesis)]	PRESKILL:1,TYPE.Pyrokinesis=8
+# Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Fire-Starter	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Intimidate|TYPE=Knowledge|Listen|TYPE=Perform|TYPE=Profession|TYPE=Pyrokinesis|Search|Sense Motive|Spot
 ###Block:
 1	ABILITY:Fire-Starter Class Feature|AUTOMATIC|Weapon and Armor Proficiency ~ Fire-Starter|Reduced Strain ~ Fire-Starter
@@ -54,8 +61,12 @@ CLASS:Fire-Starter	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Intimidate|TY
 11	PREPCLEVEL:MIN=20
 
 # Ghost Stalker
-CLASS:Ghost Stalker	HD:8	TYPE:Prestige.PC	ABB:GS	SOURCEPAGE:p.13	BONUS:COMBAT|BAB|CL	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2
+
+# Class Name		Hit Dice	Type			Abbreviation	Source Page		Save checks bonus											Combat bonus
+CLASS:Ghost Stalker	HD:8		TYPE:Prestige.PC	ABB:GS		SOURCEPAGE:p.13	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL
+# Class Name		Required Feat					Required Skill
 CLASS:Ghost Stalker	PREFEAT:2,Psychic Ability,Clairsentience	PRESKILL:1,TYPE.Psychic Sense=8
+# Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Ghost Stalker	STARTSKILLPTS:4	CSKILL:Heal|Listen|Knowledge (Spirits)|TYPE=Profession|Search|Spot|Survival|TYPE=Psychic
 1	ABILITY:Ghost Stalker Class Feature|AUTOMATIC|Weapon and Armor Proficiency ~ Ghost Stalker
 1	ABILITY:Ghost Stalker Class Feature|AUTOMATIC|Psychic Weapon ~ Ghost Stalker|Ghost Hunt ~ Ghost Stalker
@@ -71,28 +82,32 @@ CLASS:Ghost Stalker	STARTSKILLPTS:4	CSKILL:Heal|Listen|Knowledge (Spirits)|TYPE=
 11	PREPCLEVEL:MIN=20
 
 # Mind Hunter
-CLASS:Mind Hunter	HD:8	TYPE:Prestige.PC	ABB:MH	SOURCEPAGE:p.14	BONUS:COMBAT|BAB|CL	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2
-CLASS:Mind Hunter	PREMULT:1,[PREATT:5],[PREVARGTEQ:BaseAttackBonus,5]	PRECHECKBASE:1,Will=3	PRESKILL:1,Knowledge (Psychic)=3	PREFEAT:1,Track	PREMULT:1,[!PREFEAT:1,TYPE.Psychic],[PRECLASS:1,Mind Hunter=1]	PRETEXT:Special: Must have overcome a psychic creature in single combat.
+
+# Class Name	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus											Combat bonus
+CLASS:Mind Hunter	HD:8		TYPE:Prestige.PC	ABB:MH		SOURCEPAGE:p.14	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL
+# Class Name	Required Check Base	Required Feat	Multiple Requirements																	Required Skill				Required Text
+CLASS:Mind Hunter	PRECHECKBASE:1,Will=3	PREFEAT:1,Track	PREMULT:1,[PREATT:5],[PREVARGTEQ:BaseAttackBonus,5]	PREMULT:1,[!PREFEAT:1,TYPE.Psychic],[PRECLASS:1,Mind Hunter=1]	PRESKILL:1,Knowledge (Psychic)=3	PRETEXT:Special: Must have overcome a psychic creature in single combat.
+# Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Mind Hunter	STARTSKILLPTS:6	CSKILL:Climb|Concentration|TYPE=Craft|Hide|Intimidate|Jump|Knowledge (Psychic)|Listen|Move Silently|TYPE=Profession|Search|Sense Motive|Spot|Survival
 ###Block:
-1	ABILITY:Mind Hunter Class Feature|AUTOMATIC|Weapon and Armor Proficiency ~ Mind Hunter
-1	ABILITY:Mind Hunter Class Feature|AUTOMATIC|Psychic Sense ~ Mind Hunter|Psychic Shield ~ Mind Hunter
-2	ABILITY:Mind Hunter Class Feature|AUTOMATIC|Psychic Static ~ Mind Hunter|Imbue Weapon ~ Mind Hunter
-3	ABILITY:Mind Hunter Class Feature|AUTOMATIC|Drain Power ~ Mind Hunter|Mental Fortitude ~ Mind Hunter
-4	ABILITY:Mind Hunter Class Feature|AUTOMATIC|Drain Vitality ~ Mind Hunter|Mind Over Matter ~ Mind Hunter
-5	ABILITY:Mind Hunter Class Feature|AUTOMATIC|Psychically Null ~ Mind Hunter
-6	ABILITY:Mind Hunter Class Feature|AUTOMATIC|Divert Teleport ~ Mind Hunter
-7	ABILITY:Mind Hunter Class Feature|AUTOMATIC|Psychic Reflection ~ Mind Hunter
-8	ABILITY:Mind Hunter Class Feature|AUTOMATIC|Psychic Hampering ~ Mind Hunter
-10	ABILITY:Mind Hunter Class Feature|AUTOMATIC|Psychic Severance ~ Mind Hunter
-#	
+1												ABILITY:Mind Hunter Class Feature|AUTOMATIC|Weapon and Armor Proficiency ~ Mind Hunter
+1												ABILITY:Mind Hunter Class Feature|AUTOMATIC|Psychic Sense ~ Mind Hunter|Psychic Shield ~ Mind Hunter
+2												ABILITY:Mind Hunter Class Feature|AUTOMATIC|Psychic Static ~ Mind Hunter|Imbue Weapon ~ Mind Hunter
+3												ABILITY:Mind Hunter Class Feature|AUTOMATIC|Drain Power ~ Mind Hunter|Mental Fortitude ~ Mind Hunter
+4												ABILITY:Mind Hunter Class Feature|AUTOMATIC|Drain Vitality ~ Mind Hunter|Mind Over Matter ~ Mind Hunter
+5												ABILITY:Mind Hunter Class Feature|AUTOMATIC|Psychically Null ~ Mind Hunter
+6												ABILITY:Mind Hunter Class Feature|AUTOMATIC|Divert Teleport ~ Mind Hunter
+7												ABILITY:Mind Hunter Class Feature|AUTOMATIC|Psychic Reflection ~ Mind Hunter
+8												ABILITY:Mind Hunter Class Feature|AUTOMATIC|Psychic Hampering ~ Mind Hunter
+10												ABILITY:Mind Hunter Class Feature|AUTOMATIC|Psychic Severance ~ Mind Hunter
+#
 3	BONUS:VAR|MentalHardnessScore|CL/3	DEFINE:MentalHardnessScore|0
 ###Block:
 11	PREPCLEVEL:MIN=20
 
 ###Block: Psychic Adept ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-# Class Name		Hit Dice	Type			Abbreviation	Source Page		Save checks bonus								Combat bonus							Modify VAR
+# Class Name		Hit Dice	Type			Abbreviation	Source Page		Save checks bonus								Combat bonus
 CLASS:Psychic Adept	HD:8		TYPE:PC.Prestige	ABB:Pad		SOURCEPAGE:p.16	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|PREVAREQ:UseFractionalBAB,0
 # Class Name		Required Feat						Required Skill
 CLASS:Psychic Adept	PREFEAT:2,Psychic Ability,Psychometabolism	PRESKILL:3,Balance=8,TYPE.PsychicBodyControl=8,Concentration=8
@@ -108,14 +123,18 @@ CLASS:Psychic Adept	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|Escape Ar
 6	ABILITY:Psychic Adept Class Feature|AUTOMATIC|Psychic Speed ~ Psychic Adept
 7	ABILITY:Psychic Adept Class Feature|AUTOMATIC|Improved Body Control ~ Psychic Adept
 8	ABILITY:Psychic Adept Class Feature|AUTOMATIC|Improved Ability Enhancement ~ Psychic Adept
-9	ABILITY:Psychic Adept Class Feature|AUTOMATIC|Timeless Body ~ Psychic Adept								TEMPLATE:Timeless Body
+9	ABILITY:Psychic Adept Class Feature|AUTOMATIC|Timeless Body ~ Psychic Adept							TEMPLATE:Timeless Body
 10	ABILITY:Psychic Adept Class Feature|AUTOMATIC|Body Mastery ~ Psychic Adept
 ###Block:
 11	PREPCLEVEL:MIN=20
 
 # Psychic Healer
-CLASS:Psychic Healer	HD:6	TYPE:PC.Prestige	ABB:PsyH	SOURCEPAGE:p.17	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*1/2|PREVAREQ:UseFractionalBAB,0
+
+# Class Name		Hit Dice	Type			Abbreviation	Source Page		Save checks bonus											Combat bonus
+CLASS:Psychic Healer	HD:6		TYPE:PC.Prestige	ABB:PsyH		SOURCEPAGE:p.17	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*1/2|PREVAREQ:UseFractionalBAB,0
+# Class Name		Multiple Requirements															Required Skill
 CLASS:Psychic Healer	PREMULT:1,[PREFEAT:2,Psychic Ability,Psychometabolism],[PREFEAT:1,Wild Talent(Psychic (Psychic Healing))]	PRESKILL:2,Heal=6,TYPE.Psychic Healing=6
+# Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Psychic Healer	STARTSKILLPTS:6	CSKILL:Concentration|TYPE=Craft|Intimidate|TYPE=Knowledge|Heal|Listen|TYPE=Profession|Search|Sense Motive|Spot|TYPE=Psychometabolism
 1	ABILITY:Psychic Healer Class Feature|AUTOMATIC|Weapon and Armor Proficiency ~ Psychic Healer
 1	ABILITY:Psychic Healer Class Feature|AUTOMATIC|Healing Focus ~ Psychic Healer
@@ -131,12 +150,23 @@ CLASS:Psychic Healer	STARTSKILLPTS:6	CSKILL:Concentration|TYPE=Craft|Intimidate|
 ###Block:
 11	PREPCLEVEL:MIN=20
 
-CLASS:Psychic Construct	HD:8	CSKILL:TYPE=Psychic|TYPE=Standard	DEFINE:PsychicConstructLVL|0	BONUS:VAR|PsychicConstructLVL|CL
+# Class Name		Hit Dice	Define				Modify VAR
+CLASS:Psychic Construct	HD:8		DEFINE:PsychicConstructLVL|0	BONUS:VAR|PsychicConstructLVL|CL
+# Class Name		Class Skill
+CLASS:Psychic Construct	CSKILL:TYPE=Psychic|TYPE=Standard
 1:REPEATLEVEL:1	PREVARLT:PsychicConstructLVL,MasterLevel
 
 ###Block: Fractional Support
-CLASS:Psychic.MOD			BONUS:COMBAT|BAB|ClassBABModerate*3/4|TYPE=ClassBABModerate|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1
-CLASS:Fire-Starter.MOD		BONUS:COMBAT|BAB|ClassBABModerate*3/4|TYPE=ClassBABModerate|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1
-CLASS:Psychic Adept.MOD		BONUS:COMBAT|BAB|ClassBABModerate*3/4|TYPE=ClassBABModerate|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1
+
+# Class Name	Combat bonus													Modify VAR
+CLASS:Psychic.MOD	BONUS:COMBAT|BAB|ClassBABModerate*3/4|TYPE=ClassBABModerate|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1
+
+# Class Name		Combat bonus													Modify VAR
+CLASS:Fire-Starter.MOD	BONUS:COMBAT|BAB|ClassBABModerate*3/4|TYPE=ClassBABModerate|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1
+
+# Class Name		Combat bonus													Modify VAR
+CLASS:Psychic Adept.MOD	BONUS:COMBAT|BAB|ClassBABModerate*3/4|TYPE=ClassBABModerate|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1
 #1/2
-CLASS:Psychic Healer.MOD	BONUS:COMBAT|BAB|ClassBABPoor*1/2|TYPE=ClassBABPoor|PREVAREQ:UseFractionalBAB,1		BONUS:VAR|ClassBABPoor|CL|PREVAREQ:UseFractionalBAB,1
+
+# Class Name			Combat bonus												Modify VAR
+CLASS:Psychic Healer.MOD	BONUS:COMBAT|BAB|ClassBABPoor*1/2|TYPE=ClassBABPoor|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassBABPoor|CL|PREVAREQ:UseFractionalBAB,1
