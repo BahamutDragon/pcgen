@@ -1,10 +1,10 @@
-# CVS $Revision: $ $Author: $ -- Sun Dec  8 22:17:49 2013 -- reformated by prettylst.pl v1.50 (build 22352)
+# CVS $Revision: $ $Author: $ -- Sat Jan  4 10:54:50 2014 -- reformated by prettylst.pl v1.50 (build 22746)
 
 
-# Ability Name			Category of Ability	Template					Ability
-Default				CATEGORY:Internal								ABILITY:Internal|AUTOMATIC|Assign 1st Level|PREPCLEVEL:MIN=1
+# Ability Name	Category of Ability	Template					Ability
+Default		CATEGORY:Internal								ABILITY:Internal|AUTOMATIC|Assign 1st Level|PREPCLEVEL:MIN=1
 
-Assign 1st Level			CATEGORY:Internal		TEMPLATE:First Level Class Choice
+Assign 1st Level	CATEGORY:Internal		TEMPLATE:First Level Class Choice
 
 ###Block: Granted Weapon Profs
 # Ability Name				Category of Ability		Type			Visible	Automatically Gained Weapon Prof.
@@ -17,20 +17,20 @@ Weapon Proficiencies ~ Scout		CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	A
 Weapon Proficiencies ~ Soldier	CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Pistols|TYPE=Rifles
 
 ###Block: Tracker - Need a method to deal with Not over granting on 2nd class.
-# Ability Name					Category of Ability	Type				Define						Automatically Gained Feat																								Ability										Bonus to Ability Pool																			Combat bonus								Bonus to HP			Bonus to skill rank								Modify VAR							Weapon prof. bonus
-Heroic PC Tracker					CATEGORY:Internal						DEFINE:HeroicLVL|0																																																																	BONUS:COMBAT|INITIATIVE|skillinfo("TOTAL", "Initiative")					BONUS:SKILLRANK|TYPE.Standard|HeroicLevels/2|TYPE=HeroicLevels									BONUS:WEAPONPROF=TYPE.Weapon|DAMAGE|HeroicLevels/2|TYPE=HeroicLevels
+# Ability Name					Category of Ability	Type				Define				Automatically Gained Feat																											Ability										Bonus to Ability Pool																			Combat bonus								Bonus to HP			Bonus to skill rank								Modify VAR					Weapon prof. bonus
+Heroic PC Tracker					CATEGORY:Internal						DEFINE:HeroicLVL|0																																																																		BONUS:COMBAT|INITIATIVE|skillinfo("TOTAL", "Initiative")					BONUS:SKILLRANK|TYPE.Standard|HeroicLevels/2|TYPE=HeroicLevels							BONUS:WEAPONPROF=TYPE.Weapon|DAMAGE|HeroicLevels/2|TYPE=HeroicLevels
 #
-First Class Level ~ Jedi			CATEGORY:Internal		TYPE:StartingClass	DEFINE:SkillTrainingCount|0			AUTO:FEAT|Force Sensitivity|Weapon Proficiency (Lightsabers)|Weapon Proficiency (Simple Weapons)														ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	BONUS:ABILITYPOOL|Jedi Skill Training|SkillTrainingCount																							BONUS:HP|CURRENTMAX|20												BONUS:VAR|SkillTrainingCount|INT+2
-First Class Level ~ Noble			CATEGORY:Internal		TYPE:StartingClass	DEFINE:SkillTrainingCount|0			AUTO:FEAT|Weapon Proficiency (Pistols)|Weapon Proficiency (Simple Weapons)	AUTO:FEAT|Linguist|PRESTAT:1,INT=13												ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	BONUS:ABILITYPOOL|Noble Skill Training|SkillTrainingCount																							BONUS:HP|CURRENTMAX|12												BONUS:VAR|SkillTrainingCount|INT+6
-First Class Level ~ Scoundrel			CATEGORY:Internal		TYPE:StartingClass	DEFINE:SkillTrainingCount|0			AUTO:FEAT|Weapon Proficiency (Pistols)|Point Blank Shot|Weapon Proficiency (Simple Weapons)															ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	BONUS:ABILITYPOOL|Scoundrel Skill Training|SkillTrainingCount																						BONUS:HP|CURRENTMAX|12												BONUS:VAR|SkillTrainingCount|INT+4
-First Class Level ~ Scout			CATEGORY:Internal		TYPE:StartingClass	DEFINE:SkillTrainingCount|0			AUTO:FEAT|Weapon Proficiency (Pistols)|Weapon Proficiency (Rifles)|Weapon Proficiency (Simple Weapons)	AUTO:FEAT|Shake It Off|PREFEAT:1,Skill Training (Endurance)|PRESTAT:1,CON=13	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	BONUS:ABILITYPOOL|Scout Skill Training|SkillTrainingCount																							BONUS:HP|CURRENTMAX|16												BONUS:VAR|SkillTrainingCount|INT+5
-First Class Level ~ Soldier			CATEGORY:Internal		TYPE:StartingClass	DEFINE:SkillTrainingCount|0			AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Weapon Proficiency (Pistols)|Weapon Proficiency (Rifles)|Weapon Proficiency (Simple Weapons)					ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	BONUS:ABILITYPOOL|Soldier Skill Training|SkillTrainingCount																							BONUS:HP|CURRENTMAX|20												BONUS:VAR|SkillTrainingCount|INT+3
+First Class Level ~ Jedi			CATEGORY:Internal		TYPE:StartingClass	DEFINE:SkillTrainingCount|0	AUTO:FEAT|Force Sensitivity|Weapon Proficiency (Lightsabers)|Weapon Proficiency (Simple Weapons)															ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	BONUS:ABILITYPOOL|Jedi Skill Training|SkillTrainingCount																							BONUS:HP|CURRENTMAX|20												BONUS:VAR|SkillTrainingCount|INT+2
+First Class Level ~ Noble			CATEGORY:Internal		TYPE:StartingClass	DEFINE:SkillTrainingCount|0	AUTO:FEAT|Weapon Proficiency (Pistols)|Weapon Proficiency (Simple Weapons)	AUTO:FEAT|Linguist|PRESTAT:1,INT=13													ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	BONUS:ABILITYPOOL|Noble Skill Training|SkillTrainingCount																							BONUS:HP|CURRENTMAX|12												BONUS:VAR|SkillTrainingCount|INT+6
+First Class Level ~ Scoundrel			CATEGORY:Internal		TYPE:StartingClass	DEFINE:SkillTrainingCount|0	AUTO:FEAT|Weapon Proficiency (Pistols)|Point Blank Shot|Weapon Proficiency (Simple Weapons)																ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	BONUS:ABILITYPOOL|Scoundrel Skill Training|SkillTrainingCount																						BONUS:HP|CURRENTMAX|12												BONUS:VAR|SkillTrainingCount|INT+4
+First Class Level ~ Scout			CATEGORY:Internal		TYPE:StartingClass	DEFINE:SkillTrainingCount|0	AUTO:FEAT|Weapon Proficiency (Pistols)|Weapon Proficiency (Rifles)|Weapon Proficiency (Simple Weapons)	AUTO:FEAT|Shake It Off|PREFEAT:1,Skill Training (Endurance)|PRESTAT:1,CON=13	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	BONUS:ABILITYPOOL|Scout Skill Training|SkillTrainingCount																							BONUS:HP|CURRENTMAX|16												BONUS:VAR|SkillTrainingCount|INT+5
+First Class Level ~ Soldier			CATEGORY:Internal		TYPE:StartingClass	DEFINE:SkillTrainingCount|0	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Weapon Proficiency (Pistols)|Weapon Proficiency (Rifles)|Weapon Proficiency (Simple Weapons)						ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	BONUS:ABILITYPOOL|Soldier Skill Training|SkillTrainingCount																							BONUS:HP|CURRENTMAX|20												BONUS:VAR|SkillTrainingCount|INT+3
 #
-CATEGORY=Internal|Heroic PC Tracker.MOD																																																							BONUS:ABILITYPOOL|Jedi Multiclass Selection|1|PREPCLEVEL:MIN=2|PRECLASS:1,Jedi=1|!PRETEMPLATE:1,First Level ~ Jedi
-CATEGORY=Internal|Heroic PC Tracker.MOD																																																							BONUS:ABILITYPOOL|Noble Multiclass Selection|1|PREPCLEVEL:MIN=2|PRECLASS:1,Noble=1|!PRETEMPLATE:1,First Level ~ Noble
-CATEGORY=Internal|Heroic PC Tracker.MOD																																																							BONUS:ABILITYPOOL|Scoundrel Multiclass Selection|1|PREPCLEVEL:MIN=2|PRECLASS:1,Scoundrel=1|!PRETEMPLATE:1,First Level ~ Scoundrel
-CATEGORY=Internal|Heroic PC Tracker.MOD																																																							BONUS:ABILITYPOOL|Scout Multiclass Selection|1|PREPCLEVEL:MIN=2|PRECLASS:1,Scout=1|!PRETEMPLATE:1,First Level ~ Scout
-CATEGORY=Internal|Heroic PC Tracker.MOD																																																							BONUS:ABILITYPOOL|Soldier Multiclass Selection|1|PREPCLEVEL:MIN=2|PRECLASS:1,Soldier=1|!PRETEMPLATE:1,First Level ~ Soldier
+CATEGORY=Internal|Heroic PC Tracker.MOD																																																								BONUS:ABILITYPOOL|Jedi Multiclass Selection|1|PREPCLEVEL:MIN=2|PRECLASS:1,Jedi=1|!PRETEMPLATE:1,First Level ~ Jedi
+CATEGORY=Internal|Heroic PC Tracker.MOD																																																								BONUS:ABILITYPOOL|Noble Multiclass Selection|1|PREPCLEVEL:MIN=2|PRECLASS:1,Noble=1|!PRETEMPLATE:1,First Level ~ Noble
+CATEGORY=Internal|Heroic PC Tracker.MOD																																																								BONUS:ABILITYPOOL|Scoundrel Multiclass Selection|1|PREPCLEVEL:MIN=2|PRECLASS:1,Scoundrel=1|!PRETEMPLATE:1,First Level ~ Scoundrel
+CATEGORY=Internal|Heroic PC Tracker.MOD																																																								BONUS:ABILITYPOOL|Scout Multiclass Selection|1|PREPCLEVEL:MIN=2|PRECLASS:1,Scout=1|!PRETEMPLATE:1,First Level ~ Scout
+CATEGORY=Internal|Heroic PC Tracker.MOD																																																								BONUS:ABILITYPOOL|Soldier Multiclass Selection|1|PREPCLEVEL:MIN=2|PRECLASS:1,Soldier=1|!PRETEMPLATE:1,First Level ~ Soldier
 
 ###Block: Species Traits
 
@@ -141,10 +141,10 @@ Weapon Familiarity		KEY:Weapon Familiarity ~ Wookie		CATEGORY:Special Ability	TY
 Heightened Awareness		KEY:Heightened Awareness ~ Zabrak		CATEGORY:Special Ability	TYPE:SpeciesTrait.ZabrakSpeciesTrait.SpecialQuality		DESC:Having strong survival instincts and quick reactions, a Zabrak may choose to reroll any Perception check, but the result of the reroll must be accepted even if it is worse.																																																																																																			SOURCEPAGE:p.33
 Superior Defenses			KEY:Superior Defenses ~ Zabrak		CATEGORY:Special Ability	TYPE:SpeciesTrait.ZabrakSpeciesTrait.SpecialQuality		DESC:Adapted to a very tough and trying environment, Zabrak gain a + 1 species bonus to all of their defenses.																																																																																																														SOURCEPAGE:p.33
 # Droid
-Nonliving				KEY:Nonliving ~ Droid				CATEGORY:Special Ability	TYPE:SpeciesTrait.DroidSpeciesTrait.SpecialQuality		DESC:A droid is immune to poison, disease, radiation, noncorrosive atmospheric hazards, vacuum, mind-affecting effects, stunning effects, and any other effect that works only on living targets. Droids have no connection to the Force and can't gain the Force Sensitivity feat or learn Force powers. 
+Nonliving				KEY:Nonliving ~ Droid				CATEGORY:Special Ability	TYPE:SpeciesTrait.DroidSpeciesTrait.SpecialQuality		DESC:A droid is immune to poison, disease, radiation, noncorrosive atmospheric hazards, vacuum, mind-affecting effects, stunning effects, and any other effect that works only on living targets. Droids have no connection to the Force and can't gain the Force Sensitivity feat or learn Force powers.
 
 # Acklay
-Immunity to Radiation		CATEGORY:Special Ability	TYPE:SpecialQuality
+Immunity to Radiation									CATEGORY:Special Ability	TYPE:SpecialQuality
 
 ###Block: Droids
 # Ability Name	Unique Key			Category of Ability	Type			Description					Template			Stat bonus
@@ -155,6 +155,7 @@ Immunity to Radiation		CATEGORY:Special Ability	TYPE:SpecialQuality
 5th-Degree		KEY:Droid 5th Degree	CATEGORY:Internal		TYPE:DroidDegree	DESC:Labor, utility droids		TEMPLATE:5th-degree	BONUS:STAT|STR|4|TYPE=Racial	BONUS:STAT|INT,CHA|-4|TYPE=Racial
 
 ###Block: Droid Size
+# Ability Name	Category of Ability	Type			PRECHARACTERTYPE			Template
 Droid Fine		CATEGORY:Internal		TYPE:DroidSize	PRECHARACTERTYPE:1,NPC		TEMPLATE:Fine
 Droid Diminutive	CATEGORY:Internal		TYPE:DroidSize	PRECHARACTERTYPE:1,NPC		TEMPLATE:Diminutive
 Droid Tiny		CATEGORY:Internal		TYPE:DroidSize	PRECHARACTERTYPE:1,NPC		TEMPLATE:Tiny
