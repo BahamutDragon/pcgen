@@ -1,0 +1,19 @@
+
+
+
+
+Tashalatora
+	TYPE:General
+	DESC:You have successfully integrated martial arts with psionic power under the tutelage of Tashalatora masters.
+	PRETEXT:Prerequisites: Autohypnosis 5 ranks, Concentration 5 ranks, Monastic Training (psionic class), ability to manifest 1st-level powers.
+	BENEFIT: Your levels in the psionic class you selected for Monastic Training stack with your monk levels to determine your AC bonus, flurry of blows attacks, and unarmed damage from the monk class.
+	SOURCEPAGE:p.119
+	PRESKILL:2,Autohypnosis=5,Concentration=5
+	PREFEAT:1,Monastic Training(TYPE=Psionic)
+	PRECLASS:1,SPELLCASTER.Psionic=1
+	BONUS:VAR|MonkACLVL,FlurryLVL|TashalatoraLVL
+	BONUS:UDAM|CLASS.Monk|TashalatoraLVL
+	DEFINE:TashalatoraLVL|0
+	BONUS:VAR|TashalatoraLVL|("CL=Psion")|PREFEAT:1,Monastic Training(Psion)
+	BONUS:VAR|TashalatoraLVL|("CL=Psychic Warrior")|PREFEAT:1,Monastic Training(Psychic Warrior)
+	BONUS:VAR|TashalatoraLVL|("CL=Wilder")|PREFEAT:1,Monastic Training(Wilder)
