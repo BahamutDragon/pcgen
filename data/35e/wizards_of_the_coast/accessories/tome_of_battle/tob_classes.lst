@@ -1,6 +1,6 @@
 
 
-CLASS:Crusader	HD:10	SOURCEPAGE:p.8	TYPE:PC.Base	BONUS:COMBAT|BAB|CL	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	
+CLASS:Crusader	HD:10	SOURCEPAGE:p.8	TYPE:PC.Base	BONUS:COMBAT|BAB|CL	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	DEFINE:CrusaderLVL|CL
 CLASS:Crusader	STARTSKILLPTS:4	CSKILL:Balance|Concentration|TYPE=Craft|Diplomacy|Intimidate|Jump|Knowledge (History)|Knowledge (Religion)|Martial Lore|Ride
 ###Block: 
 1	ABILITY:Crusader Class Feature|AUTOMATIC|Crusader ~ Weapon and Armor Proficiency|Crusader ~ Maneuvers|Crusader ~ Maneuvers Readied|Crusader ~ Stances Known
@@ -16,17 +16,47 @@ CLASS:Crusader	STARTSKILLPTS:4	CSKILL:Balance|Concentration|TYPE=Craft|Diplomacy
 1	BONUS:VAR|CrusaderManueversKnown|(CL+9)/2		DEFINE:CrusaderManueversKnown|0
 1	BONUS:VAR|CrusaderStancesKnown|(CL+10)/6		DEFINE:CrusaderStancesKnown|0
 1	BONUS:VAR|CrusaderReadiedManuevers|(CL/10)+5	DEFINE:CrusaderReadiedManuevers|0
-
-
+1	BONUS:VAR|CrusaderInitiatorLVL|CrusaderLVL+(CrusaderLVL-TL/2)	DEFINE:CrusaderInitiatorLVL|0
+1	BONUS:VAR|CrusaderInitiatorManeuverLVL|(1+CrusaderInitiatorLVL)/2	DEFINE:CrusaderInitiatorManeuverLVL|0
 
 CLASS:Swordsage	HD:8	SOURCEPAGE:p.15	TYPE:PC.Base	BONUS:COMBAT|BAB|CL*3/4	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	
 CLASS:Swordsage	STARTSKILLPTS:6	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Heal|Hide|Intimidate|Jump|Knowledge (History)|Knowledge (Local)|Knowledge (Nature)|Knowledge (Nobility and Royalty)|Listen|Martial Lore|Move Silently|TYPE=Profession|Ride|Sense Motive|Swim|Tumble
 ###Block: 
+1	BONUS:VAR|SwordsageManueversKnown|5+CL		DEFINE:SwordsageManueversKnown|0
+1	BONUS:VAR|SwordsageStancesKnown|1+(CL>1)+(CL>4)+(CL>8)+(CL>13)+(CL>19)		DEFINE:SwordsageStancesKnown|0
 
-CLASS:Warblade	HD:12	SOURCEPAGE:p.20	TYPE:PC.Base	
-	BONUS:COMBAT|BAB|CL	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	
+1	BONUS:VAR|SwordsageReadiedManuevers|4	DEFINE:SwordsageReadiedManuevers|0
+
+1	BONUS:VAR|SwordsageInitiatorLVL|SwordsageLVL+(SwordsageLVL-TL/2)	DEFINE:SwordsageInitiatorLVL|0
+1	BONUS:VAR|SwordsageInitiatorManeuverLVL|(1+SwordsageInitiatorLVL)/2	DEFINE:SwordsageInitiatorManeuverLVL|0
+1	BONUS:VAR|QuickToActBonus|1+(CL/5)	DEFINE:QuickToActBonus|0
+# Swordsage
+1	ABILITY:Swordsage Class Feature|AUTOMATIC|Swordsage ~ Weapon and Armor Proficiency|Swordsage ~ Maneuvers|Swordsage ~ Maneuvers Readied|Swordsage ~ Stances Known|Swordsage ~ Discipline Focus|Swordsage ~ Quick to Act
+2	ABILITY:Swordsage Class Feature|AUTOMATIC|Swordsage ~ AC Bonus
+7	ABILITY:Swordsage Class Feature|AUTOMATIC|Swordsage ~ Sense Magic
+9	ABILITY:Swordsage Class Feature|AUTOMATIC|Swordsage ~ Evasion
+17	ABILITY:Swordsage Class Feature|AUTOMATIC|Swordsage ~ Improved Evasion
+20	ABILITY:Swordsage Class Feature|AUTOMATIC|Swordsage ~ Dual Boost
+
+
+CLASS:Warblade	HD:12	SOURCEPAGE:p.20	TYPE:PC.Base	BONUS:COMBAT|BAB|CL	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	
 CLASS:Warblade	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Diplomacy|Intimidate|Jump|Knowledge (History)|Knowledge (Local)|Martial Lore|Swim|Tumble
 ###Block: 
+#1	BONUS:VAR|WarbladeManueversKnown|(CL+9)/2		DEFINE:WarbladeManueversKnown|0
+#1	BONUS:VAR|WarbladeStancesKnown|(CL+10)/6		DEFINE:WarbladeStancesKnown|0
+#1	BONUS:VAR|WarbladeReadiedManuevers|(CL/10)+5	DEFINE:WarbladeReadiedManuevers|0
+1	BONUS:VAR|WarbladeInitiatorLVL|WarbladeLVL+(WarbladeLVL-TL/2)	DEFINE:WarbladeInitiatorLVL|0
+1	BONUS:VAR|WarbladeInitiatorManeuverLVL|(1+WarbladeInitiatorLVL)/2	DEFINE:WarbladeInitiatorManeuverLVL|0
+# Warblade
+1	ABILITY:Warblade Class Feature|AUTOMATIC|Warblade ~ Weapon and Armor Proficiency|Warblade ~ Maneuvers|Warblade ~ Maneuvers Readied|Warblade ~ Stances Known|Warblade ~ Battle Clarity|Warblade ~ Weapon Aptitude
+2	ABILITY:Warblade Class Feature|AUTOMATIC|Warblade ~ Uncanny Dodge
+3	ABILITY:Warblade Class Feature|AUTOMATIC|Warblade ~ Battle Ardor
+5	ABILITY:Warblade Class Feature|AUTOMATIC|Warblade ~ Bonus Feat
+6	ABILITY:Warblade Class Feature|AUTOMATIC|Warblade ~ Improved Uncanny Dodge
+7	ABILITY:Warblade Class Feature|AUTOMATIC|Warblade ~ Battle Cunning
+11	ABILITY:Warblade Class Feature|AUTOMATIC|Warblade ~ Battle Skill
+15	ABILITY:Warblade Class Feature|AUTOMATIC|Warblade ~ Battle Mastery
+20	ABILITY:Warblade Class Feature|AUTOMATIC|Warblade ~ Stance Mastery
 
 ###Block: @Prestige Classes
 
