@@ -1,8 +1,11 @@
+# CVS $Revision: $ $Author: $ -- Thu Jan  9 11:46:56 2014 -- reformated by prettylst.pl v1.50 (build 22746)
 
 
-CLASS:Crusader	HD:10	SOURCEPAGE:p.8	TYPE:PC.Base	BONUS:COMBAT|BAB|CL	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	DEFINE:CrusaderLVL|CL
+# Class Name	Hit Dice	Type			Source Page		Define			Save checks bonus											Combat bonus
+CLASS:Crusader	HD:10		TYPE:PC.Base	SOURCEPAGE:p.8	DEFINE:CrusaderLVL|CL	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
+# Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Crusader	STARTSKILLPTS:4	CSKILL:Balance|Concentration|TYPE=Craft|Diplomacy|Intimidate|Jump|Knowledge (History)|Knowledge (Religion)|Martial Lore|Ride
-###Block: 
+###Block:
 1	ABILITY:Crusader Class Feature|AUTOMATIC|Crusader ~ Weapon and Armor Proficiency|Crusader ~ Maneuvers|Crusader ~ Maneuvers Readied|Crusader ~ Stances Known
 1	ABILITY:Crusader Class Feature|AUTOMATIC|Crusader ~ Furious Counterstrike|Crusader ~ Steely Resolve
 2	ABILITY:Crusader Class Feature|AUTOMATIC|Crusader ~ Indomitable Soul
@@ -10,27 +13,27 @@ CLASS:Crusader	STARTSKILLPTS:4	CSKILL:Balance|Concentration|TYPE=Craft|Diplomacy
 6	ABILITY:Crusader Class Feature|AUTOMATIC|Crusader ~ Smite
 10	ABILITY:Crusader Class Feature|AUTOMATIC|Crusader ~ Die Hard
 12	ABILITY:Crusader Class Feature|AUTOMATIC|Crusader ~ Mettle
-###Block: 
-1	BONUS:VAR|SteelyResolve|5+(5*(CL/4))	DEFINE:SteelyResolve|0
-6	BONUS:VAR|SmiteTimes|(CL+6)/12		DEFINE:SmiteTimes|0
-1	BONUS:VAR|CrusaderManueversKnown|(CL+9)/2		DEFINE:CrusaderManueversKnown|0
-1	BONUS:VAR|CrusaderStancesKnown|(CL+10)/6		DEFINE:CrusaderStancesKnown|0
-1	BONUS:VAR|CrusaderReadiedManuevers|(CL/10)+5	DEFINE:CrusaderReadiedManuevers|0
+###Block:
+1	BONUS:VAR|SteelyResolve|5+(5*(CL/4))					DEFINE:SteelyResolve|0
+6	BONUS:VAR|SmiteTimes|(CL+6)/12						DEFINE:SmiteTimes|0
+1	BONUS:VAR|CrusaderManueversKnown|(CL+9)/2					DEFINE:CrusaderManueversKnown|0
+1	BONUS:VAR|CrusaderStancesKnown|(CL+10)/6					DEFINE:CrusaderStancesKnown|0
+1	BONUS:VAR|CrusaderReadiedManuevers|(CL/10)+5				DEFINE:CrusaderReadiedManuevers|0
 1	BONUS:VAR|CrusaderInitiatorLVL|CrusaderLVL+(CrusaderLVL-TL/2)	DEFINE:CrusaderInitiatorLVL|0
 1	BONUS:VAR|CrusaderInitiatorManeuverLVL|(1+CrusaderInitiatorLVL)/2	DEFINE:CrusaderInitiatorManeuverLVL|0
 
-CLASS:Swordsage	HD:8	SOURCEPAGE:p.15	TYPE:PC.Base	BONUS:COMBAT|BAB|CL*3/4	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	
+# Class Name	Hit Dice	Type			Source Page		Save checks bonus											Combat bonus
+CLASS:Swordsage	HD:8		TYPE:PC.Base	SOURCEPAGE:p.15	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4
+# Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Swordsage	STARTSKILLPTS:6	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Heal|Hide|Intimidate|Jump|Knowledge (History)|Knowledge (Local)|Knowledge (Nature)|Knowledge (Nobility and Royalty)|Listen|Martial Lore|Move Silently|TYPE=Profession|Ride|Sense Motive|Swim|Tumble
-###Block: 
-1	BONUS:VAR|SwordsageManueversKnown|5+CL		DEFINE:SwordsageManueversKnown|0
-1	BONUS:VAR|SwordsageStancesKnown|1+(CL>1)+(CL>4)+(CL>8)+(CL>13)+(CL>19)		DEFINE:SwordsageStancesKnown|0
-
-1	BONUS:VAR|SwordsageReadiedManuevers|4	DEFINE:SwordsageReadiedManuevers|0
-
-1	BONUS:VAR|SwordsageInitiatorLVL|SwordsageLVL+(SwordsageLVL-TL/2)	DEFINE:SwordsageInitiatorLVL|0
+###Block:
+1	BONUS:VAR|SwordsageManueversKnown|5+CL						DEFINE:SwordsageManueversKnown|0
+1	BONUS:VAR|SwordsageStancesKnown|1+(CL>1)+(CL>4)+(CL>8)+(CL>13)+(CL>19)	DEFINE:SwordsageStancesKnown|0
+1	BONUS:VAR|SwordsageReadiedManuevers|4						DEFINE:SwordsageReadiedManuevers|0
+1	BONUS:VAR|SwordsageInitiatorLVL|SwordsageLVL+(SwordsageLVL-TL/2)		DEFINE:SwordsageInitiatorLVL|0
 1	BONUS:VAR|SwordsageInitiatorManeuverLVL|(1+SwordsageInitiatorLVL)/2	DEFINE:SwordsageInitiatorManeuverLVL|0
-1	BONUS:VAR|QuickToActBonus|1+(CL/5)	DEFINE:QuickToActBonus|0
-# Swordsage
+1	BONUS:VAR|QuickToActBonus|1+(CL/5)							DEFINE:QuickToActBonus|0
+###Block:
 1	ABILITY:Swordsage Class Feature|AUTOMATIC|Swordsage ~ Weapon and Armor Proficiency|Swordsage ~ Maneuvers|Swordsage ~ Maneuvers Readied|Swordsage ~ Stances Known|Swordsage ~ Discipline Focus|Swordsage ~ Quick to Act
 2	ABILITY:Swordsage Class Feature|AUTOMATIC|Swordsage ~ AC Bonus
 7	ABILITY:Swordsage Class Feature|AUTOMATIC|Swordsage ~ Sense Magic
@@ -39,15 +42,17 @@ CLASS:Swordsage	STARTSKILLPTS:6	CSKILL:Balance|Climb|Concentration|TYPE=Craft|He
 20	ABILITY:Swordsage Class Feature|AUTOMATIC|Swordsage ~ Dual Boost
 
 
-CLASS:Warblade	HD:12	SOURCEPAGE:p.20	TYPE:PC.Base	BONUS:COMBAT|BAB|CL	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	
+# Class Name	Hit Dice	Type			Source Page		Save checks bonus											Combat bonus
+CLASS:Warblade	HD:12		TYPE:PC.Base	SOURCEPAGE:p.20	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
+# Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Warblade	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Diplomacy|Intimidate|Jump|Knowledge (History)|Knowledge (Local)|Martial Lore|Swim|Tumble
-###Block: 
-#1	BONUS:VAR|WarbladeManueversKnown|(CL+9)/2		DEFINE:WarbladeManueversKnown|0
-#1	BONUS:VAR|WarbladeStancesKnown|(CL+10)/6		DEFINE:WarbladeStancesKnown|0
-#1	BONUS:VAR|WarbladeReadiedManuevers|(CL/10)+5	DEFINE:WarbladeReadiedManuevers|0
-1	BONUS:VAR|WarbladeInitiatorLVL|WarbladeLVL+(WarbladeLVL-TL/2)	DEFINE:WarbladeInitiatorLVL|0
-1	BONUS:VAR|WarbladeInitiatorManeuverLVL|(1+WarbladeInitiatorLVL)/2	DEFINE:WarbladeInitiatorManeuverLVL|0
-# Warblade
+###Block:
+1	BONUS:VAR|WarbladeManueversKnown|(WarbladeLVL+5/2)+(CL>1)			DEFINE:WarbladeManueversKnown|0
+1	BONUS:VAR|WarbladeStancesKnown|1+(CL>2)+(CL>9)+(CL>15)			DEFINE:WarbladeStancesKnown|0
+1	BONUS:VAR|WarbladeReadiedManuevers|3+(CL>3)+(CL>9)+(CL>14)+(CL>19)	DEFINE:WarbladeReadiedManuevers|0
+1	BONUS:VAR|WarbladeInitiatorLVL|WarbladeLVL+(WarbladeLVL-TL/2)		DEFINE:WarbladeInitiatorLVL|0
+1	BONUS:VAR|WarbladeInitiatorManeuverLVL|(1+WarbladeInitiatorLVL)/2		DEFINE:WarbladeInitiatorManeuverLVL|0
+###Block:e
 1	ABILITY:Warblade Class Feature|AUTOMATIC|Warblade ~ Weapon and Armor Proficiency|Warblade ~ Maneuvers|Warblade ~ Maneuvers Readied|Warblade ~ Stances Known|Warblade ~ Battle Clarity|Warblade ~ Weapon Aptitude
 2	ABILITY:Warblade Class Feature|AUTOMATIC|Warblade ~ Uncanny Dodge
 3	ABILITY:Warblade Class Feature|AUTOMATIC|Warblade ~ Battle Ardor
@@ -60,29 +65,26 @@ CLASS:Warblade	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Dip
 
 ###Block: @Prestige Classes	96+
 
-CLASS:Bloodclaw Master	HD:12	MAXLEVEL:5	TYPE:Prestige.PC	SOURCEPAGE:p.96
-CLASS:Bloodclaw Master
-	PRESKILL:1,Jump=9
-	PREFEAT:1,Multiattack,Two-Weapon Fighting
-	PRETEXT:Martial Maneuvers: Must know three Tiger Claw maneuvers.
-	PREABILITY:3,CATEGORY=Maneuvers and Stances,TYPE.Tiger Claw Maneuver
+# Class Name		Hit Dice	Type			Max Level	Source Page
+CLASS:Bloodclaw Master	HD:12		TYPE:Prestige.PC	MAXLEVEL:5	SOURCEPAGE:p.96
+# Class Name		Required Ability										Required Feat					Required Skill	Required Text
+CLASS:Bloodclaw Master	PREABILITY:3,CATEGORY=Maneuvers and Stances,TYPE.Tiger Claw Maneuver	PREFEAT:1,Multiattack,Two-Weapon Fighting	PRESKILL:1,Jump=9	PRETEXT:Martial Maneuvers: Must know three Tiger Claw maneuvers.
+# Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Bloodclaw Master	STARTSKILLPTS:2	CSKILL:Balance|Climb|Handle Animal|Hide|Jump|Knowledge (Nature)|Listen|Martial Lore|Move Silently|Spot|Survival
 
 
-CLASS:Bloodstorm Blade	HD:12	TYPE:Prestige.PC	SOURCEPAGE:p.100
+# Class Name		Hit Dice	Type			Source Page
+CLASS:Bloodstorm Blade	HD:12		TYPE:Prestige.PC	SOURCEPAGE:p.100
+# Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Bloodstorm Blade	STARTSKILLPTS:4	CSKILL:Balance|Concentration|TYPE=Craft|Intimidate|Jump|Martial Lore|Spot|Tumble
-
 11	PREPCLEVEL:MIN=20
 
-CLASS:Deepstone Sentinel	HD:10	MAXLEVEL:5	TYPE:Prestige.PC	SOURCEPAGE:p.105
-CLASS:Deepstone Sentinel	PRERACE:1,Dwarf
-	PREMULT:1,[PREATT:10],[PREVARGTEQ:BaseAttackBonus,10]
-	PRESKILL:1,Balance=13
-	PREFEAT:1,Power Attack,Stone Power
-	PRETEXT:Martial Maneuvers: Must know at least two Stone Dragon maneuvers and one Stone Dragon stance.
-	PREABILITY:2,CATEGORY=Maneuvers and Stances,TYPE.Stone Dragon Maneuver	PREABILITY:1,CATEGORY=Maneuvers and Stances,TYPE.Stone Dragon Stance
+# Class Name			Hit Dice	Type			Max Level	Source Page
+CLASS:Deepstone Sentinel	HD:10		TYPE:Prestige.PC	MAXLEVEL:5	SOURCEPAGE:p.105
+# Class Name			Required Ability																						Required Feat				Multiple Requirements						Required Race	Required Skill		Required Text
+CLASS:Deepstone Sentinel	PREABILITY:2,CATEGORY=Maneuvers and Stances,TYPE.Stone Dragon Maneuver	PREABILITY:1,CATEGORY=Maneuvers and Stances,TYPE.Stone Dragon Stance	PREFEAT:1,Power Attack,Stone Power	PREMULT:1,[PREATT:10],[PREVARGTEQ:BaseAttackBonus,10]	PRERACE:1,Dwarf	PRESKILL:1,Balance=13	PRETEXT:Martial Maneuvers: Must know at least two Stone Dragon maneuvers and one Stone Dragon stance.
+# Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Deepstone Sentinel	STARTSKILLPTS:2	CSKILL:Balance|Concentration|TYPE=Craft|Intimidate|Knowledge (Dungeoneering)|Listen|Martial Lore|Spot
-1	BONUS:ABILITYPOOL|Martial Maneuvers Known|
-	BONUS:ABILITYPOOL|Martial Maneuvers Readied|
-
-
+1	BONUS:ABILITYPOOL|Martial Maneuvers Known|1
+3	BONUS:ABILITYPOOL|Martial Maneuvers Known|1	BONUS:ABILITYPOOL|Martial Maneuvers Readied|1
+5	BONUS:ABILITYPOOL|Martial Maneuvers Known|1
