@@ -4,28 +4,22 @@ SOURCELONG:Player's Handbook II	SOURCESHORT:PH2
 #Beguiler
 
 # Class Name	Hit Dice	Type			Save checks bonus											Combat bonus							Modify VAR
-CLASS:Beguiler	HD:6		TYPE:Base.PC	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*1/2|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|CL|PREVAREQ:UseFractionalBAB,1
+CLASS:Beguiler	HD:6		TYPE:Base.PC	SOURCEPAGE:p.6	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*1/2|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|CL|PREVAREQ:UseFractionalBAB,1
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Beguiler	STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Climb|Concentration|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Jump|Knowledge (Arcana)|Knowledge (Local)|Listen|Move Silently|Open Lock|TYPE=Profession|Search|Sense Motive|Sleight of Hand|Speak Language|Spellcraft|Spot|Swim|Tumble|Use Magic Device
 # Class Name	Spell Stat		Spell Type		Memorize	Automatically Known Spell Levels							Caster level			Use Spell List
 CLASS:Beguiler	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:NO	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6	BONUS:CASTERLEVEL|Beguiler|CL	SPELLLIST:1|Beguiler
-#Block: Proficiencies
-1																				AUTO:FEAT|Simple Weapon Proficiency
-1																				AUTO:FEAT|Armor Proficiency (Light)
-1	ABILITY:Special Ability|AUTOMATIC|Armored Mage ~ Beguiler|Weapon Proficiencies ~ Beguiler|Trapfinding ~ Beguiler
+###Block:
+1	ABILITY:Beguiler Class Feature|AUTOMATIC|Beguiler ~ Weapon and Armor Proficiency|Beguiler ~ Spells|Beguiler ~ Armored Mage|Beguiler ~ Trapfinding
+2	ABILITY:Beguiler Class Feature|AUTOMATIC|Beguiler ~ Cloaked Casting|Beguiler ~ Surprise Casting
+3	ABILITY:Beguiler Class Feature|AUTOMATIC|Beguiler ~ Advanced Learning
+5	ABILITY:Beguiler Class Feature|AUTOMATIC|Beguiler ~ Silent Spell
+10	ABILITY:Beguiler Class Feature|AUTOMATIC|Beguiler ~ Still Spell
 ###Block: Level
-2													BONUS:VAR|CloakedCastingProgression|1	BONUS:VAR|SurpriseCastingProgression|1	ABILITY:Special Ability|AUTOMATIC|Cloaked Casting ~ Beguiler|Surprise Casting ~ Beguiler
-3						BONUS:ABILITYPOOL|Advanced Learning|1
-5																																										AUTO:FEAT|Silent Spell
-6													BONUS:VAR|SurpriseCastingProgression|1
-7						BONUS:ABILITYPOOL|Advanced Learning|1
-8													BONUS:VAR|CloakedCastingProgression|1
-10																																										AUTO:FEAT|Still Spell
-11						BONUS:ABILITYPOOL|Advanced Learning|1
-14													BONUS:VAR|CloakedCastingProgression|1
-15						BONUS:ABILITYPOOL|Advanced Learning|1
-19						BONUS:ABILITYPOOL|Advanced Learning|1
-20													BONUS:VAR|CloakedCastingProgression|1
+3	BONUS:VAR|AdvancedLearningCount|(CL+1)/4
+2	BONUS:VAR|CloakedCastingLVL|(CL+4)/6
+2	BONUS:VAR|SurpriseCastingLVL|1
+6	BONUS:VAR|SurpriseCastingLVL|1
 #Block: Spellcasting Section
 1	CAST:5,3
 2	CAST:6,4
@@ -47,7 +41,6 @@ CLASS:Beguiler	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:NO	KNOWNSPELLS:LEVEL=0|LE
 18	CAST:6,6,6,6,6,6,6,6,5,3
 19	CAST:6,6,6,6,6,6,6,6,6,4
 20	CAST:6,6,6,6,6,6,6,6,6,5
-###EOF
 
 #Dragon Shaman
 
@@ -65,14 +58,14 @@ CLASS:Duskblade	SPELLSTAT:INT	SPELLTYPE:Arcane	SPELLBOOK:YES	BONUS:CASTERLEVEL|D
 3	ABILITY:Special Ability|AUTOMATIC|Arcane Channeling ~ Duskblade
 5	ABILITY:Special Ability|AUTOMATIC|Quick Cast ~ Duskblade
 ###Block:
-1	BONUS:VAR|ArmoredMageLv|1
-4	BONUS:VAR|ArmoredMageLv|1
+1	BONUS:VAR|ArmoredMageLVL|1
+4	BONUS:VAR|ArmoredMageLVL|1
 5	BONUS:VAR|DuskBladeQuickCast|1
 6	BONUS:VAR|DuskBladeSpellPowerBonus|2
-7	BONUS:VAR|ArmoredMageLv|1
+7	BONUS:VAR|ArmoredMageLVL|1
 10	BONUS:VAR|DuskBladeQuickCast|1
 11	BONUS:VAR|DuskBladeSpellPowerBonus|1
-13	BONUS:VAR|ArcaneChannelingLv|1
+13	BONUS:VAR|ArcaneChannelingLVL|1
 15	BONUS:VAR|DuskBladeQuickCast|1
 16	BONUS:VAR|DuskBladeSpellPowerBonus|1
 18	BONUS:VAR|DuskBladeSpellPowerBonus|1
