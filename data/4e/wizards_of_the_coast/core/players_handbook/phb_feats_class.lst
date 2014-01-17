@@ -1,6 +1,50 @@
-SOURCELONG:4e Player's Handbook
-SOURCESHORT:PHB
-SOURCEWEB:http://www.wizards.com
+
+#Heroic Tier Feats
+Action Surge	TYPE:Heroic Tier.Human	SOURCEPAGE:p.193
+	PRERACE:1,Human
+	BENEFIT:You gain a +3 bonus to attack rolls you make during any action you gained by spending an action point.
+Agile Hunter	TYPE:Heroic Tier.Ranger	SOURCEPAGE:p.193
+	PRESTAT:1,DEX=15
+	PRETEXT:RANGER
+	PREABILITY:1,CATEGORY=Special Ability,Hunter's Quarry
+	BENEFIT:When you score a critical hit with a melee attack against the target of your Hunter's Quarry, you can shift as a free action, and the enemy takes a -2 penalty on attack rolls against you until the end of your next turn.
+Alertness	TYPE:Heroic Tier	SOURCEPAGE:p.193
+	BENEFIT:You don't grant enemies combat advantage during surprise rounds. You also gain a +2 feat bonus to Perception checks.
+	BONUS:SKILL|Perception|2|TYPE=Feat
+Armor of Bahamut	TYPE:Heroic Tier.Divinity	SOURCEPAGE:p.193
+	PREABILITY:1,CATEGORY=Special Ability,Channel Divinity
+	PRETEXT:must worship Bahamut
+	PREDEITY:1,Bahamut
+	BENEFIT:You can invoke the power of your deity to use armor of Bahamut.
+Armor Proficiency (Chainmail)	TYPE:Heroic Tier	SOURCEPAGE:p.193
+	PRESTAT:2,STR=13,CON=13
+	PREFEAT:1,Armor Proficiency (Leather),Armor Proficiency (Hide)
+	BENEFIT:You gain training with chainmail.
+	AUTO:ARMORPROF|Chainmail
+Armor Proficiency (Hide)	TYPE:Heroic Tier	SOURCEPAGE:p.193
+	PRESTAT:2,STR=13,CON=13
+	PREFEAT:1,Armor Proficiency (Leather)
+	BENEFIT:You gain training with hide armor.
+	AUTO:ARMORPROF|Hide
+Armor Proficiency (Leather)	TYPE:Heroic Tier	SOURCEPAGE:p.193
+	BENEFIT:You gain training with leather armor.
+	AUTO:ARMORPROF|Leather
+Armor Proficiency (Plate)	TYPE:Heroic Tier	SOURCEPAGE:p.193
+	PRESTAT:2,STR=15,CON=15
+	PREFEAT:1,Armor Proficiency (Scale)
+	BENEFIT:You gain training with plate armor.
+	AUTO:ARMORPROF|Plate
+Armor Proficiency (Scale)	TYPE:Heroic Tier	SOURCEPAGE:p.193
+	PRESTAT:2,STR=13,CON=13
+	PREFEAT:1,Armor Proficiency (Chainmail)
+	BENEFIT:You gain training with scale armor.
+	AUTO:ARMORPROF|Scale
+Astral Fire	TYPE:Heroic Tier	SOURCEPAGE:p.193
+	PRESTAT:2,DEX=13,CHA=13
+	BENEFIT:You gain a +1 feat bonus to damage rolls when you use a power that has the fire or radiant keyword. At 11th level, this bonus increases to +2. At 21st level, it increases to +3.
+
+
+
 
 # Class Features
 
@@ -63,7 +107,6 @@ Wand of Accuracy		TYPE:Class.Wizard.ArcImpMastery	VISIBLE:YES
 
 
 ###Block: Descriptions
-
 Archer Fighting Style.MOD		SOURCEPAGE:p.104	DESC:.CLEAR	DESC:Because of your focus on ranged attacks, you gain Defensive Mobility as a bonus feat.
 Artful Dodger.MOD			SOURCEPAGE:p.117	DESC:.CLEAR	DESC:You gain a +%1 bonus to AC against opportunity attacks.|max(CHA,0)
 Brutal Scoundrel.MOD			SOURCEPAGE:p.117	DESC:.CLEAR	DESC:You gain a +%1 bonus to Sneak Attack damage.|max(STR,0)
@@ -92,3 +135,19 @@ Two-Handed Weapon Talent.MOD		SOURCEPAGE:p.76		DESC:.CLEAR	DESC:+1 bonus to all 
 Wand Implement.MOD			SOURCEPAGE:p.56		DESC:.CLEAR	DESC:You can use Wand Implements.
 Wand of Accuracy.MOD			SOURCEPAGE:p.158	DESC:.CLEAR	DESC:Once per encounter as a free action, you gain a +%1 bonus to a single attack roll.  You must wield your wand to benefit from this feature.  This form of mastery is good for war wizards because it helps increase their accuracy with damaging powers.|max(DEX,0)
 Warlock's Curse.MOD			SOURCEPAGE:p.131	DESC:.CLEAR	DESC:Once per turn as a minor action, you can place a Warlock's Curse on the enemy nearest to you that you can see. A cursed enemy is more vulnerable to your attacks. If you damage a cursed enemy, you deal extra damage. You decide whether to apply the extra damage after making the damage roll.  You can deal this extra damage once per round.  A Warlock's Curse remains in effect until the end of the encounter or until the cursed enemy drops to 0 hit points or fewer.  You can place a Warlock's Curse on multiple targets over the course of an encounter; each curse requires the use of a minor action. You can't place a Warlock's Curse on a creature that is already affected by your or another character's Warlock's Curse.
+
+###Block: Multiclass Feats
+Arcane Initiate ~ Cloud of Daggers	TYPE:Heroic.Multiclass	PRESTAT:1,INT=13		BONUS:ABILITYPOOL|Wizard Class Skills|1|!PREFEAT:1,Skill Training(Arcana)	ABILITY:Power|AUTOMATIC|Encounter Cloud of Daggers	AUTO:FEAT|Orb Implement|Staff Implement|Wand Implement	SOURCEPAGE:p.208	DESC:You gain training in the Arcana skill. You can use the Cloud of Daggers power once per encounter. In addition, you can use an orb, a staff, or a wand as an implement when using a wizard power or a wizard paragon path power.
+Arcane Initiate ~ Magic Missile	TYPE:Heroic.Multiclass	PRESTAT:1,INT=13		BONUS:ABILITYPOOL|Wizard Class Skills|1|!PREFEAT:1,Skill Training(Arcana)	ABILITY:Power|AUTOMATIC|Encounter Magic Missile		AUTO:FEAT|Orb Implement|Staff Implement|Wand Implement	SOURCEPAGE:p.208	DESC:You gain training in the Arcana skill. You can use the Magic Missile power once per encounter. In addition, you can use an orb, a staff, or a wand as an implement when using a wizard power or a wizard paragon path power.
+Arcane Initiate ~ Ray of Frost	TYPE:Heroic.Multiclass	PRESTAT:1,INT=13		BONUS:ABILITYPOOL|Wizard Class Skills|1|!PREFEAT:1,Skill Training(Arcana)	ABILITY:Power|AUTOMATIC|Encounter Ray of Frost		AUTO:FEAT|Orb Implement|Staff Implement|Wand Implement	SOURCEPAGE:p.208	DESC:You gain training in the Arcana skill. You can use the Ray of Frost power once per encounter. In addition, you can use an orb, a staff, or a wand as an implement when using a wizard power or a wizard paragon path power.
+Arcane Initiate ~ Scorching Burst	TYPE:Heroic.Multiclass	PRESTAT:1,INT=13		BONUS:ABILITYPOOL|Wizard Class Skills|1|!PREFEAT:1,Skill Training(Arcana)	ABILITY:Power|AUTOMATIC|Encounter Scorching Burst	AUTO:FEAT|Orb Implement|Staff Implement|Wand Implement	SOURCEPAGE:p.208	DESC:You gain training in the Arcana skill. You can use the Scorching Burst power once per encounter. In addition, you can use an orb, a staff, or a wand as an implement when using a wizard power or a wizard paragon path power.
+Arcane Initiate ~ Thunderwave		TYPE:Heroic.Multiclass	PRESTAT:1,INT=13		BONUS:ABILITYPOOL|Wizard Class Skills|1|!PREFEAT:1,Skill Training(Arcana)	ABILITY:Power|AUTOMATIC|Encounter Thunderwave		AUTO:FEAT|Orb Implement|Staff Implement|Wand Implement	SOURCEPAGE:p.208	DESC:You gain training in the Arcana skill. You can use the Thunderwave power once per encounter. In addition, you can use an orb, a staff, or a wand as an implement when using a wizard power or a wizard paragon path power.
+Fey Pact Initiate				TYPE:Heroic.Multiclass	PRESTAT:1,CHA=13		BONUS:ABILITYPOOL|Warlock Class Skills|1							ABILITY:Power|AUTOMATIC|Encounter Eyebite			AUTO:FEAT|Pact Blade Implement|Rod Implement|Wand Implement	SOURCEPAGE:p.208	DESC:You gain training in one skill from the warlock's class skill list.You gain Eyebite as an encounter power, and you can pursue the warlock paragon path based on that pact. In addition, you can use a rod, a wand, or a pact blade as an implement when using a warlock power or a warlock paragon path power.
+Infernal Pact Initiate			TYPE:Heroic.Multiclass	PRESTAT:1,CHA=13		BONUS:ABILITYPOOL|Warlock Class Skills|1							ABILITY:Power|AUTOMATIC|Encounter Hellish Rebuke	AUTO:FEAT|Pact Blade Implement|Rod Implement|Wand Implement	SOURCEPAGE:p.208	DESC:You gain training in one skill from the warlock's class skill list.You gain Hellish Rebuke as an encounter power, and you can pursue the warlock paragon path based on that pact. In addition, you can use a rod, a wand, or a pact blade as an implement when using a warlock power or a warlock paragon path power.
+Initiate of the Faith			TYPE:Heroic.Multiclass	PRESTAT:1,WIS=13		BONUS:ABILITYPOOL|Cleric Class Skills|1|!PREFEAT:1,Skill Training(Religion)	ABILITY:Power|AUTOMATIC|Daily Healing Word		AUTO:FEAT|Holy Symbol Implement					SOURCEPAGE:p.208	DESC:You gain training in the Religion skill. Once per day, you can use the cleric's healing word power. In addition, you can use a holy symbol as an implement when using a cleric power or a cleric paragon path power.
+Sneak of Shadows				TYPE:Heroic.Multiclass	PRESTAT:1,DEX=13		BONUS:ABILITYPOOL|Rogue Class Skills|1|!PREFEAT:1,Skill Training(Thievery)	ABILITY:Power|AUTOMATIC|Encounter Sneak Attack												SOURCEPAGE:p.208	DESC:You gain training in the Thievery skill. Once per encounter, you can use the rogue's Sneak Attack class feature.
+Soldier of the Faith			TYPE:Heroic.Multiclass	PRESTAT:2,STR=13,CHA=13	BONUS:ABILITYPOOL|Paladin Class Skills|1							ABILITY:Power|AUTOMATIC|Encounter Divine Challenge	AUTO:FEAT|Holy Symbol Implement					SOURCEPAGE:p.208	DESC:You gain training in one skill from the paladin's class skill list. Once per encounter, you can use the paladin's divine challenge power. In addition, you can use a holy symbol or a holy avenger as an implement when using a paladin power or a paladin paragon path power.
+Star Pact Initiate			TYPE:Heroic.Multiclass	PRESTAT:1,CHA=13		BONUS:ABILITYPOOL|Warlock Class Skills|1							ABILITY:Power|AUTOMATIC|Encounter Dire Radiance		AUTO:FEAT|Pact Blade Implement|Rod Implement|Wand Implement	SOURCEPAGE:p.208	DESC:You gain training in one skill from the warlock's class skill list.You gain Dire Radiance as an encounter power, and you can pursue the warlock paragon path based on that pact. In addition, you can use a rod, a wand, or a pact blade as an implement when using a warlock power or a warlock paragon path power.
+Student of Battle				TYPE:Heroic.Multiclass	PRESTAT:1,STR=13		BONUS:ABILITYPOOL|Warlord Class Skills|1							ABILITY:Power|AUTOMATIC|Daily Inspiring Word												SOURCEPAGE:p.208	DESC:You gain training in one skill from the warlord's class skill list. Once per day, you can use the warlord's inspiring word power.
+Student of the Sword			TYPE:Heroic.Multiclass	PRESTAT:1,STR=13		BONUS:ABILITYPOOL|Fighter Class Skills|1																										SOURCEPAGE:p.208	DESC:You gain training in one skill from the fighter's class skill list. Choose either one-handed melee weapons or twohanded melee weapons. Once per encounter as a free action, you can add a +1 bonus to the next attack roll you make with a weapon of that category. Whether the attack hits or misses, you mark the target until the end of your next turn.
+Warrior of the Wild			TYPE:Heroic.Multiclass	PRESTAT:1,STR=13,CHA=13	BONUS:ABILITYPOOL|Ranger Class Skills|1						ABILITY:Power|AUTOMATIC|Encounter Hunter's Quarry												SOURCEPAGE:p.208	DESC:You gain training in one skill from the ranger's class skill list. Once per encounter, you can use the ranger's Hunter's Quarry class feature.
