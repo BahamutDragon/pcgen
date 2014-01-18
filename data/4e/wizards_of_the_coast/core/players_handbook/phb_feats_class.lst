@@ -1,47 +1,220 @@
 
 #Heroic Tier Feats
-Action Surge	TYPE:Heroic Tier.Human	SOURCEPAGE:p.193
-	PRERACE:1,Human
-	BENEFIT:You gain a +3 bonus to attack rolls you make during any action you gained by spending an action point.
-Agile Hunter	TYPE:Heroic Tier.Ranger	SOURCEPAGE:p.193
-	PRESTAT:1,DEX=15
-	PRETEXT:RANGER
-	PREABILITY:1,CATEGORY=Special Ability,Hunter's Quarry
-	BENEFIT:When you score a critical hit with a melee attack against the target of your Hunter's Quarry, you can shift as a free action, and the enemy takes a -2 penalty on attack rolls against you until the end of your next turn.
-Alertness	TYPE:Heroic Tier	SOURCEPAGE:p.193
-	BENEFIT:You don't grant enemies combat advantage during surprise rounds. You also gain a +2 feat bonus to Perception checks.
-	BONUS:SKILL|Perception|2|TYPE=Feat
-Armor of Bahamut	TYPE:Heroic Tier.Divinity	SOURCEPAGE:p.193
-	PREABILITY:1,CATEGORY=Special Ability,Channel Divinity
-	PRETEXT:must worship Bahamut
-	PREDEITY:1,Bahamut
-	BENEFIT:You can invoke the power of your deity to use armor of Bahamut.
-Armor Proficiency (Chainmail)	TYPE:Heroic Tier	SOURCEPAGE:p.193
-	PRESTAT:2,STR=13,CON=13
-	PREFEAT:1,Armor Proficiency (Leather),Armor Proficiency (Hide)
-	BENEFIT:You gain training with chainmail.
-	AUTO:ARMORPROF|Chainmail
-Armor Proficiency (Hide)	TYPE:Heroic Tier	SOURCEPAGE:p.193
-	PRESTAT:2,STR=13,CON=13
-	PREFEAT:1,Armor Proficiency (Leather)
-	BENEFIT:You gain training with hide armor.
-	AUTO:ARMORPROF|Hide
-Armor Proficiency (Leather)	TYPE:Heroic Tier	SOURCEPAGE:p.193
-	BENEFIT:You gain training with leather armor.
-	AUTO:ARMORPROF|Leather
-Armor Proficiency (Plate)	TYPE:Heroic Tier	SOURCEPAGE:p.193
-	PRESTAT:2,STR=15,CON=15
-	PREFEAT:1,Armor Proficiency (Scale)
-	BENEFIT:You gain training with plate armor.
-	AUTO:ARMORPROF|Plate
-Armor Proficiency (Scale)	TYPE:Heroic Tier	SOURCEPAGE:p.193
-	PRESTAT:2,STR=13,CON=13
-	PREFEAT:1,Armor Proficiency (Chainmail)
-	BENEFIT:You gain training with scale armor.
-	AUTO:ARMORPROF|Scale
-Astral Fire	TYPE:Heroic Tier	SOURCEPAGE:p.193
-	PRESTAT:2,DEX=13,CHA=13
-	BENEFIT:You gain a +1 feat bonus to damage rolls when you use a power that has the fire or radiant keyword. At 11th level, this bonus increases to +2. At 21st level, it increases to +3.
+Action Surge			TYPE:Heroic.Human			PRERACE:1,Human
+Agile Hunter			TYPE:Heroic.Ranger			PRECLASS:1,Ranger=1	PREFEAT:1,Hunter's Quarry
+Alertness			TYPE:Heroic												BONUS:SKILL|Perception|2|TYPE=Feat
+Armor of Bahamut		TYPE:Heroic.Divinity			PREABILITY:1,CATEGORY=Class Feature,Channel Divinity	PREDEITY:1,Bahamut		ABILITY:Power|AUTOMATIC|Armor of Bahamut
+Armor Proficiency (Chainmail)	TYPE:Heroic				PRESTAT:2,STR=13,CON=13	PREFEAT:1,Armor Proficiency (Leather),Armor Proficiency (Hide)		AUTO:ARMORPROF|ARMORTYPE=Chainmail
+Armor Proficiency (Cloth)	TYPE:Heroic																AUTO:ARMORPROF|ARMORTYPE=Cloth
+Armor Proficiency (Hide)	TYPE:Heroic				PRESTAT:2,STR=13,CON=13	PREFEAT:1,Armor Proficiency (Leather)					AUTO:ARMORPROF|ARMORTYPE=Hide
+Armor Proficiency (Leather)	TYPE:Heroic																AUTO:ARMORPROF|ARMORTYPE=Leather
+Armor Proficiency (Plate)	TYPE:Heroic				PRESTAT:2,STR=15,CON=15	PREFEAT:1,Armor Proficiency (Scale)					AUTO:ARMORPROF|ARMORTYPE=Plate
+Armor Proficiency (Scale)	TYPE:Heroic				PRESTAT:2,STR=13,CON=13	PREFEAT:1,Armor Proficiency (Chainmail)					AUTO:ARMORPROF|ARMORTYPE=Scale
+Astral Fire			TYPE:Heroic				PRESTAT:2,DEX=13,CHA=13
+Avandra's Rescue		TYPE:Heroic.Divinity			PREABILITY:1,CATEGORY=Class Feature,Channel Divinity	PREDEITY:1,Avandra		ABILITY:Power|AUTOMATIC|Avandra's Rescue
+Backstabber			TYPE:Heroic.Rogue			PRECLASS:1,Rogue=1	PREFEAT:1,Sneak Attack			BONUS:VAR|SneakAttackDieSize|2
+Blade Opportunist		TYPE:Heroic				PRESTAT:2,STR=13,DEX=13
+Burning Blizzard		TYPE:Heroic				PRESTAT:2,INT=13,WIS=13
+Combat Reflexes			TYPE:Heroic				PRESTAT:1,DEX=13
+Corellon's Grace		TYPE:Heroic.Divinity			PREABILITY:1,CATEGORY=Class Feature,Channel Divinity	PREDEITY:1,Corellon		ABILITY:Power|AUTOMATIC|Corellon's Grace
+Dark Fury			TYPE:Heroic				PRESTAT:2,CON=13,WIS=13
+Defensive Mobility		TYPE:Heroic		
+Distracting Shield		TYPE:Heroic.Fighter			PRESTAT:1,WIS=15	PRECLASS:1,Fighter=1	PREFEAT:1,Combat Challenge
+Dodge Giants			TYPE:Heroic.Dwarf			PRERACE:1,Dwarf
+Dragonborn Frenzy		TYPE:Heroic.Dragonborn			PRERACE:1,Dragonborn
+Dragonborn Senses		TYPE:Heroic.Dragonborn			PRERACE:1,Dragonborn						VISION:Low-light	BONUS:SKILL|Perception|1|TYPE=Feat
+Durable				TYPE:Heroic												BONUS:VAR|HealingSurges|2
+Dwarven Weapon Training		TYPE:Heroic.Dwarf			PRERACE:1,Dwarf							BONUS:COMBAT|DAMAGE.Axe|2|TYPE=Feat	BONUS:COMBAT|DAMAGE.Hammer|2|TYPE=Feat		AUTO:WEAPONPROF|Axe|Hammer
+Eladrin Soldier			TYPE:Heroic.Eladrin			PRERACE:1,Eladrin						BONUS:COMBAT|DAMAGE.Spear|2|TYPE=Feat	BONUS:COMBAT|DAMAGE.Longsword|2|TYPE=Feat	AUTO:WEAPONPROF|Spear
+Elven Precision			TYPE:Heroic.Elf				PRERACE:1,Elf		PREFEAT:1,Elven Accuracy
+Enlarged Dragon Breath		TYPE:Heroic.Dragonborn			PRERACE:1,Dragonborn
+Escape Artist			TYPE:Heroic				PREABILITY:1,CATEGORY=Skills,Skill Training (Acrobatics)	BONUS:SKILL|Acrobatics|2|TYPE=Feat
+Expanded Spellbook		TYPE:Heroic.Wizard			PRECLASS:1,Wizard	PRESTAT:1,WIS=13			BONUS:VAR|SpellbookDailyPerLevel|1	BONUS:VAR|SpellbookUtilityPerLevel|1
+Far Shot			TYPE:Heroic				PRESTAT:1,DEX=13						BONUS:RANGEADD|PROJECTILE|5
+Far Throw			TYPE:Heroic				PRESTAT:1,STR=13						BONUS:RANGEADD|THROWN|2
+Fast Runner			TYPE:Heroic				PRESTAT:1,CON=13
+Ferocious Rebuke		TYPE:Heroic.Tiefling			PRERACE:1,Tiefling	PREFEAT:1,Tiefling Infernal Wrath
+Group Insight			TYPE:Heroic.Half-Elf			PRERACE:1,Half-Elf
+Halfling Agility		TYPE:Heroic.Halfling			PRERACE:1,Halfling	PREFEAT:1,Second Chance
+Harmony of Erathis		TYPE:Heroic.Divinity			PREABILITY:1,CATEGORY=Class Feature,Channel Divinity	PREDEITY:1,Erathis		ABILITY:Power|AUTOMATIC|Harmony of Erathis
+Healing Hands			TYPE:Heroic.Paladin			PRECLASS:1,Paladin	PREFEAT:1,Lay on Hands
+Hellfire Blood			TYPE:Heroic.Tiefling			PRERACE:1,Tiefling
+Human Perseverance		TYPE:Heroic.Human			PRERACE:1,Human
+Improved Dark One's Blessing	TYPE:Heroic.Warlock			PRECLASS:1,Warlock	PRESTAT:1,CON=15	PREFEAT:1,Infernal Pact	BONUS:VAR|DarkOnesBlessingHP|3
+Improved Fate of the Void	TYPE:Heroic.Warlock			PRECLASS:1,Warlock	PRESTAT:1,CON=13,CHA=13	PREFEAT:1,Star Pact	BONUS:VAR|FateOfTheVoidBonus|1
+Improved Initiative		TYPE:Heroic													BONUS:COMBAT|INITIATIVE|4|TYPE=Feat
+Improved Misty Step		TYPE:Heroic.Warlock			PRECLASS:1,Warlock	PRESTAT:1,INT=13	PREFEAT:1,Fey Pact	BONUS:VAR|MistyStepSquares|2
+Inspired Recovery		TYPE:Heroic.Warlord			PRECLASS:1,Warlord	PREFEAT:1,Inspiring Presence
+Ioun's Poise			TYPE:Heroic.Divinity			PREABILITY:1,CATEGORY=Class Feature,Channel Divinity	PREDEITY:1,Ioun			ABILITY:Power|AUTOMATIC|Ioun's Poise
+Jack of All Trades		TYPE:Heroic		MULT:YES	PRESTAT:1,INT=13						CHOOSE:NONCLASSSKILLLIST|LIST	SELECT:20	BONUS:SKILL|LIST|2|TYPE=Feat
+Kord's Favor			TYPE:Heroic.Divinity			PREABILITY:1,CATEGORY=Class Feature,Channel Divinity	PREDEITY:1,Kord			ABILITY:Power|AUTOMATIC|Kord's Favor
+Lethal Hunter			TYPE:Heroic.Ranger			PRECLASS:1,Ranger	PREFEAT:1,Hunter's Quarry		BONUS:VAR|HuntersQuarryDieSize|2
+Light Step			TYPE:Heroic.Elf				PRERACE:1,Elf							BONUS:SKILL|Acrobatics|1|TYPE=Feat	BONUS:SKILL|Stealth|1|TYPE=Feat
+Linguist			TYPE:Heroic		MULT:YES	PRESTAT:1,INT=13	BONUS:VAR|LanguageBonus|3
+Long Jumper			TYPE:Heroic				PREFEAT:1,Skill Training(Athletics)				BONUS:SKILL|Athletics|1|TYPE=Feat
+Lost in the Crowd		TYPE:Heroic.Halfling			PRERACE:1,Halfling
+Melora's Tide			TYPE:Heroic.Divinity			PREABILITY:1,CATEGORY=Class Feature,Channel Divinity	PREDEITY:1,Melora		ABILITY:Power|AUTOMATIC|Melora's Tide
+Moradin's Resolve		TYPE:Heroic.Divinity			PREABILITY:1,CATEGORY=Class Feature,Channel Divinity	PREDEITY:1,Moradin		ABILITY:Power|AUTOMATIC|Moradin's Resolve
+Mounted Combat			TYPE:Heroic		
+Nimble Blade			TYPE:Heroic				PRESTAT:1,DEX=15
+Pelor's Radiance		TYPE:Heroic.Divinity			PREABILITY:1,CATEGORY=Class Feature,Channel Divinity	PREDEITY:1,Pelor		ABILITY:Power|AUTOMATIC|Pelor's Radiance
+Potent Challenge		TYPE:Heroic.Fighter			PRECLASS:1,Fighter	PRESTAT:1,CON=15	PREFEAT:1,Combat Challenge
+Power Attack			TYPE:Heroic				PRESTAT:1,STR=15
+Powerful Charge			TYPE:Heroic				PRESTAT:1,STR=13
+Precise Hunter			TYPE:Heroic.Ranger			PRECLASS:1,Ranger	PRESTAT:1,WIS=15	PREFEAT:1,Hunter's Quarry
+Press the Advantage		TYPE:Heroic.Rogue			PRECLASS:1,Rogue	PRESTAT:1,CHA=15
+Quick Draw			TYPE:Heroic				PRESTAT:1,DEX=13						BONUS:COMBAT|INITIATIVE|2|TYPE=Feat
+Raging Storm			TYPE:Heroic				PRESTAT:2,CON=13,DEX=13
+Raven Queen's Blessing		TYPE:Heroic.Divinity			PREABILITY:1,CATEGORY=Class Feature,Channel Divinity	PREDEITY:1,The Raven Queen	ABILITY:Power|AUTOMATIC|Raven Queen's Blessing
+Ritual Caster			TYPE:Heroic				PREFEAT:1,Skill Training(Arcana),Skill Training(Religion)
+Sehanine's Reversal		TYPE:Heroic.Divinity			PREABILITY:1,CATEGORY=Class Feature,Channel Divinity	PREDEITY:1,Sehanine		ABILITY:Power|AUTOMATIC|Sehanine's Reversal
+Shield Proficiency (Heavy)	TYPE:Heroic				PREFEAT:1,Shield Proficiency (Light)	PRESTAT:1,STR=15	AUTO:SHIELDPROF|SHIELDTYPE=Heavy
+Shield Proficiency (Light)	TYPE:Heroic				PRESTAT:1,STR=13						AUTO:SHIELDPROF|SHIELDTYPE=Light
+Shield Push			TYPE:Heroic.Fighter			PRECLASS:1,Fighter	PREFEAT:1,Combat Challenge
+Skill Focus			TYPE:Heroic		MULT:YES	PREFEAT:1,Skill Training					CHOOSE:FEAT=Skill Training	BONUS:SKILL|LIST|3|TYPE=Feat
+Skill Training			TYPE:Heroic		MULT:YES									CHOOSE:SKILLSNAMED|ALL		BONUS:SKILL|LIST|5|TYPE=Trained	CSKILL:LIST
+Sure Climber			TYPE:Heroic				PREFEAT:1,Skill Training(Athletics)				BONUS:SKILL|Athletics|1|TYPE=Feat
+Surprise Knockdown		TYPE:Heroic.Rogue			PRECLASS:1,Rogue	PRESTAT:1,STR=15
+Tactical Assault		TYPE:Heroic.Warlord			PRECLASS:1,Warlord	PREFEAT:1,Tactical Presence
+Toughness			TYPE:Heroic												BONUS:HP|CURRENTMAX|(5+5*floor((TL-1)/10))
+Two-weapon Defense		TYPE:Heroic				PRESTAT:1,DEX=13	PREFEAT:1,Two-weapon Fighting
+Two-weapon Fighting		TYPE:Heroic				PRESTAT:1,DEX=13						BONUS:COMBAT|TOHIT-PRIMARY|2	BONUS:COMBAT|TOHIT-SECONDARY|6
+Weapon Focus			TYPE:Heroic		MULT:YES									CHOOSE:FEATADD|TYPE=WeaponGroup
+Weapon Proficiency		TYPE:Heroic		MULT:YES									CHOOSE:PROFICIENCY|WEAPON|ALL|TYPE=Simple|TYPE=Martial|TYPE=Superior	AUTO:WEAPONPROF|%LIST
+Wintertouched			TYPE:Heroic		
+
+
+###Block: Standard bonuses
+Bloodied Value			TYPE:Class	VISIBLE:YES		DESC:Bloodied at %1 hit points.|floor(HP/2)
+Healing Surges			TYPE:Class	VISIBLE:YES		DESC:Healing Surges %1/day for %2 hps each.|HealingSurges|floor(HP/4)+HealingSurgeBonusHP
+Hit Point Stuff			TYPE:Class	VISIBLE:YES		DEFINE:Hurt|0	BONUS:VAR|Hurt|floor(HP/2)	DEFINE:HealValue|0	BONUS:VAR|HealValue|floor(HP/4)	DEFINE:HealTimes|0	BONUS:VAR|HealTimes|6	SAB:Hurt %, Heal Value %, Heal Times %, HPS=%, Bloodied %|Hurt|HealValue|HealTimes|HP|BloodiedValue
+
+
+###Block: Weapon proficiencies
+
+Military Weapons		TYPE:Class			VISIBLE:YES	AUTO:WEAPONPROF|TYPE.Military
+Military Melee Weapons		TYPE:Class			VISIBLE:YES	AUTO:WEAPONPROF|TYPE.MilitaryMelee
+Military Ranged Weapons		TYPE:Class			VISIBLE:YES	AUTO:WEAPONPROF|TYPE.MilitaryRanged
+Simple Weapons			TYPE:Class			VISIBLE:YES	AUTO:WEAPONPROF|TYPE.Simple
+Simple Melee Weapons		TYPE:Class			VISIBLE:YES	AUTO:WEAPONPROF|TYPE.SimpleMelee
+Simple Ranged Weapons		TYPE:Class			VISIBLE:YES	AUTO:WEAPONPROF|TYPE.SimpleRanged
+Superior Weapons		TYPE:Class			VISIBLE:YES	AUTO:WEAPONPROF|TYPE.Superior
+Superior Melee Weapons		TYPE:Class			VISIBLE:YES	AUTO:WEAPONPROF|TYPE.SuperiorMelee
+Superior Ranged Weapons		TYPE:Class			VISIBLE:YES	AUTO:WEAPONPROF|TYPE.SuperiorRanged
+
+
+###Block: Weapon groups
+
+Axes				TYPE:WeaponGroup		VISIBLE:NO	BONUS:COMBAT|TOHIT.Axe|(1+floor((TL-1)/10))|TYPE=Feat		SAB:Weapon Focus (Axes): +% feat bonus to damage rolls with Axes.|(1+floor((TL-1)/10))
+Bows				TYPE:WeaponGroup		VISIBLE:NO	BONUS:COMBAT|TOHIT.Bow|(1+floor((TL-1)/10))|TYPE=Feat		SAB:Weapon Focus (Bows): +% feat bonus to damage rolls with Bows.|(1+floor((TL-1)/10))
+Crossbows			TYPE:WeaponGroup		VISIBLE:NO	BONUS:COMBAT|TOHIT.Crossbow|(1+floor((TL-1)/10))|TYPE=Feat	SAB:Weapon Focus (Crossbows): +% feat bonus to damage rolls with Crossbows.|(1+floor((TL-1)/10))
+Flails				TYPE:WeaponGroup		VISIBLE:NO	BONUS:COMBAT|TOHIT.Flail|(1+floor((TL-1)/10))|TYPE=Feat		SAB:Weapon Focus (Flails): +% feat bonus to damage rolls with Flails.|(1+floor((TL-1)/10))
+Hammers				TYPE:WeaponGroup		VISIBLE:NO	BONUS:COMBAT|TOHIT.Hammer|(1+floor((TL-1)/10))|TYPE=Feat	SAB:Weapon Focus (Hammers): +% feat bonus to damage rolls with Hammers.|(1+floor((TL-1)/10))
+Heavy Blades			TYPE:WeaponGroup		VISIBLE:NO	BONUS:COMBAT|TOHIT.HeavyBlade|(1+floor((TL-1)/10))|TYPE=Feat	SAB:Weapon Focus (Heavy Blades): +% feat bonus to damage rolls with Heavy Blades.|(1+floor((TL-1)/10))
+Light Blades			TYPE:WeaponGroup		VISIBLE:NO	BONUS:COMBAT|TOHIT.LightBlade|(1+floor((TL-1)/10))|TYPE=Feat	SAB:Weapon Focus (Light Blades): +% feat bonus to damage rolls with Light Blades.|(1+floor((TL-1)/10))
+Maces				TYPE:WeaponGroup		VISIBLE:NO	BONUS:COMBAT|TOHIT.Mace|(1+floor((TL-1)/10))|TYPE=Feat		SAB:Weapon Focus (Maces): +% feat bonus to damage rolls with Maces.|(1+floor((TL-1)/10))
+Picks				TYPE:WeaponGroup		VISIBLE:NO	BONUS:COMBAT|TOHIT.Pick|(1+floor((TL-1)/10))|TYPE=Feat		SAB:Weapon Focus (Picks): +% feat bonus to damage rolls with Picks.|(1+floor((TL-1)/10))
+Polearms			TYPE:WeaponGroup		VISIBLE:NO	BONUS:COMBAT|TOHIT.Polearm|(1+floor((TL-1)/10))|TYPE=Feat	SAB:Weapon Focus (Polearms): +% feat bonus to damage rolls with Polearms.|(1+floor((TL-1)/10))
+Slings				TYPE:WeaponGroup		VISIBLE:NO	BONUS:COMBAT|TOHIT.Sling|(1+floor((TL-1)/10))|TYPE=Feat		SAB:Weapon Focus (Slings): +% feat bonus to damage rolls with Slings.|(1+floor((TL-1)/10))
+Spears				TYPE:WeaponGroup		VISIBLE:NO	BONUS:COMBAT|TOHIT.Spear|(1+floor((TL-1)/10))|TYPE=Feat		SAB:Weapon Focus (Spears): +% feat bonus to damage rolls with Spears.|(1+floor((TL-1)/10))
+Staves				TYPE:WeaponGroup		VISIBLE:NO	BONUS:COMBAT|TOHIT.Staff|(1+floor((TL-1)/10))|TYPE=Feat		SAB:Weapon Focus (Staves): +% feat bonus to damage rolls with Staves.|(1+floor((TL-1)/10))
+
+
+###Block: Static Feat Descriptions
+Action Surge.MOD			SOURCEPAGE:p.193	DESC:.CLEAR	DESC:You gain a +3 bonus to attack rolls you make during any action you gained by spending an action point.
+Agile Hunter.MOD			SOURCEPAGE:p.193	DESC:.CLEAR	DESC:When you score a critical hit with a melee attack against the target of your Hunter's Quarry, you can shift as a free action, and the enemy takes a -2 penalty on attack rolls against you until the end of your next turn.
+Alertness.MOD				SOURCEPAGE:p.193	DESC:.CLEAR	DESC:You don't grant enemies combat advantage during surprise rounds.  You also gain +2 to Perception checks.
+Armor of Bahamut.MOD			SOURCEPAGE:p.193	DESC:.CLEAR	DESC:You can invoke the power of your deity to use Armor of Bahamut.
+Armor Proficiency (Chainmail).MOD	SOURCEPAGE:p.193	DESC:.CLEAR	DESC:You gain training with Chainmail armor.
+Armor Proficiency (Cloth).MOD		SOURCEPAGE:p.193	DESC:.CLEAR	DESC:You gain training with Cloth armor.
+Armor Proficiency (Hide).MOD		SOURCEPAGE:p.193	DESC:.CLEAR	DESC:You gain training with Hide armor.
+Armor Proficiency (Leather).MOD		SOURCEPAGE:p.193	DESC:.CLEAR	DESC:You gain training with Leather armor.
+Armor Proficiency (Plate).MOD		SOURCEPAGE:p.193	DESC:.CLEAR	DESC:You gain training with Plate armor.
+Armor Proficiency (Scale).MOD		SOURCEPAGE:p.193	DESC:.CLEAR	DESC:You gain training with Scale armor.
+Astral Fire.MOD				SOURCEPAGE:p.193	DESC:.CLEAR	DESC:You gain a +%1 feat bonus to damage rolls when you use a power that has the fire or radiant keyword.|(1+floor((TL-1)/10))
+Avandra's Rescue.MOD			SOURCEPAGE:p.194	DESC:.CLEAR	DESC:You can invoke the power of your deity to use Avandra's Rescue.
+Backstabber.MOD				SOURCEPAGE:p.194	DESC:.CLEAR	DESC:The extra damage dice from your Sneak Attack class feature increase from d6s to d8s.
+Blade Opportunist.MOD			SOURCEPAGE:p.194	DESC:.CLEAR	DESC:You gain a +2 bonus to opportunity attack rolls with a heavy blade or a light blade.
+Burning Blizzard.MOD			SOURCEPAGE:p.194	DESC:.CLEAR	DESC:You gain a +%1 feat bonus to damage rolls when you use a power that has the acid or cold keyword.|(1+floor((TL-1)/10))
+Combat Reflexes.MOD			SOURCEPAGE:p.194	DESC:.CLEAR	DESC:You gain a +1 bonus to opportunity attack rolls.
+Corellon's Grace.MOD			SOURCEPAGE:p.194	DESC:.CLEAR	DESC:You can invoke the power of your deity to use Corellon's Grace.
+Dark Fury.MOD				SOURCEPAGE:p.194	DESC:.CLEAR	DESC:You gain a +%1 feat bonus to damage rolls when you use a power that has the necrotic or psychic keyword.|(1+floor((TL-1)/10))
+Defensive Mobility.MOD			SOURCEPAGE:p.194	DESC:.CLEAR	DESC:You gain a +2 bonus to AC against opportunity attacks.
+Distracting Shield.MOD			SOURCEPAGE:p.194	DESC:.CLEAR	DESC:If you hit a foe with an attack granted by your Combat Challenge class feature, the target takes a -2 penalty to attack rolls until the start of your next turn.  You must have a shield equipped to benefit from this feat.
+Dodge Giants.MOD			SOURCEPAGE:p.194	DESC:.CLEAR	DESC:You gain a +1 bonus to AC and Reflex defense against the attacks of Large or larger foes.
+Dragonborn Frenzy.MOD			SOURCEPAGE:p.194	DESC:.CLEAR	DESC:While you are bloodied, you gain a +2 bonus to damage rolls.
+Dragonborn Senses.MOD			SOURCEPAGE:p.194	DESC:.CLEAR	DESC:You gain low-light vision, and a +1 feat bonus to Perception checks.
+Dual Heritage.MOD			SOURCEPAGE:p.42		DESC:.CLEAR	DESC:You can take feats that have either elf or human as a prerequisite (as well as those specifically for half-elves), as long as you meet any other requirements.
+Durable.MOD				SOURCEPAGE:p.194	DESC:.CLEAR	DESC:Increase your number of healing surges by two.
+Dwarven Weapon Training.MOD		SOURCEPAGE:p.194	DESC:.CLEAR	DESC:You gain proficiency and a +2 feat bonus to damage rolls with axes and hammers.
+Eladrin Soldier.MOD			SOURCEPAGE:p.194	DESC:.CLEAR	DESC:You gain proficiency with all spears and a +2 feat bonus to damage rolls with longswords and all spears.
+Elven Precision.MOD			SOURCEPAGE:p.194	DESC:.CLEAR	DESC:When you use the Elven Accuracy power, you gain a +2 bonus to the new attack roll.
+Enlarged Dragon Breath.MOD		SOURCEPAGE:p.195	DESC:.CLEAR	DESC:When you use your Dragon Breath power, you can choose to make it blast 5 instead of blast 3.
+Escape Artist.MOD			SOURCEPAGE:p.195	DESC:.CLEAR	DESC:You can attempt to escape a grab as a minor action, instead of a move action.
+Expanded Spellbook.MOD			SOURCEPAGE:p.195	DESC:.CLEAR	DESC:Choose one daily wizard attack spell of every level you know.  Add this spell to your spellbook.  This feat doesn't change the number of daily attack spells you can prepare each day.
+Far Shot.MOD				SOURCEPAGE:p.195	DESC:.CLEAR	DESC:When you use a projectile weapon such as a bow or a crossbow, increase both the normal range and the long range by 5 squares.
+Far Throw.MOD				SOURCEPAGE:p.195	DESC:.CLEAR	DESC:When you use a thrown weapon such as a dagger or javelin, increase both the normal range and the long range by 2 squares.
+Fast Runner.MOD				SOURCEPAGE:p.195	DESC:.CLEAR	DESC:You gain a +2 bonus to speed when you charge or run.
+Ferocious Rebuke.MOD			SOURCEPAGE:p.195	DESC:.CLEAR	DESC:When you use the Infernal Wrath power and hit with an attack, you can push the target 1 square in addition to any damage you deal.
+Group Insight.MOD			SOURCEPAGE:p.195	DESC:.CLEAR	DESC:You grant allies within 10 squares of you a +1 racial bonus to Insight checks and Initiative checks.
+Halfling Agility.MOD			SOURCEPAGE:p.195	DESC:.CLEAR	DESC:When you use your halfling Second Chance ability, the attacker takes a -2 penalty to the new attack roll.
+Harmony of Erathis.MOD			SOURCEPAGE:p.195	DESC:.CLEAR	DESC:You can invoke the power of your deity to use Harmony of Erathis.
+Healing Hands.MOD			SOURCEPAGE:p.195	DESC:.CLEAR	DESC:When you use the Lay On Hands pwer, the affected ally regains +%1 additional hit points.|CHA
+Hellfire Blood.MOD			SOURCEPAGE:p.195	DESC:.CLEAR	DESC:You gain a +1 feat bonus to attack rolls and damage rolls when you use a power that has the fire or fear keyword.
+Human Perseverance.MOD			SOURCEPAGE:p.198	DESC:.CLEAR	DESC:You gain a +1 feat bonus to all saving throws.
+Improved Dark One's Blessing.MOD	SOURCEPAGE:p.198	DESC:.CLEAR	DESC:Your Dark One's Blessing now gives you 3 additional temporary hit points.
+Improved Fate of the Void.MOD		SOURCEPAGE:p.198	DESC:.CLEAR	DESC:Your Fate of the Void grants an additional +1 bonus to the d20 roll.
+Improved Initiative.MOD			SOURCEPAGE:p.198	DESC:.CLEAR	DESC:You gain a +4 feat bonus to initiative checks.
+Improved Misty Step.MOD			SOURCEPAGE:p.198	DESC:.CLEAR	DESC:Your Misty Step now allows you to teleport an additional 2 squares.
+Inspired Recovery.MOD			SOURCEPAGE:p.198	DESC:.CLEAR	DESC:When an ally who can see you spends an action point to gain an extra standard action, that ally can roll a saving throw as a free action, adding +%1 to the roll.|CHA
+Ioun's Poise.MOD			SOURCEPAGE:p.198	DESC:.CLEAR	DESC:You can invoke the power of your deity to use Ioun's Poise.
+Jack of All Trades.MOD			SOURCEPAGE:p.198	DESC:.CLEAR	DESC:You gain a +2 feat bonus to all untrained skill checks.
+Kord's Favor.MOD			SOURCEPAGE:p.198	DESC:.CLEAR	DESC:You can invoke the power of your deity to use Kord's Favor.
+Lethal Hunter.MOD			SOURCEPAGE:p.198	DESC:.CLEAR	DESC:The extra damage dice from your Hunter's Quarry class feature increase from d6s to d8s.
+Light Step.MOD				SOURCEPAGE:p.198	DESC:.CLEAR	DESC:For the purpose of hourly or daily travel rates, add 1 to your overland speed and the speed of all allies in your traveling group.  Add 5 to the DC required to find or follow your tracks.  If traveling with allies, you can share this benefit with up to five other characters.  You gain a +1 feat bonus to Acrobatics checks and Stealth checks.
+Linguist.MOD				SOURCEPAGE:p.198	DESC:.CLEAR	DESC:Choose three languages.  You can now speak, read, and write those languages fluently.
+Long Jumper.MOD				SOURCEPAGE:p.198	DESC:.CLEAR	DESC:You can make all long jumps as if you had a running start.  You also gain a +1 feat bonus to all athletics checks.
+Lost in the Crowd.MOD			SOURCEPAGE:p.198	DESC:.CLEAR	DESC:You gain a +2 bonus to AC when you are adjacent to at least two enemies larger than you.
+Melora's Tide.MOD			SOURCEPAGE:p.198	DESC:.CLEAR	DESC:You can invoke the power of your deity to use Melora's Tide.
+Moradin's Resolve.MOD			SOURCEPAGE:p.199	DESC:.CLEAR	DESC:You can invoke the power of your deity to use Moradin's Resolve.
+Military Weapons.MOD			SOURCEPAGE:p.215	DESC:.CLEAR	DESC:You gain the Proficiency bonus for any Military weapon you attack with.
+Military Melee Weapons.MOD		SOURCEPAGE:p.215	DESC:.CLEAR	DESC:You gain the Proficiency bonus for any Military Melee Weapon you attack with.
+Military Ranged Weapons.MOD		SOURCEPAGE:p.215	DESC:.CLEAR	DESC:You gain the Proficiency bonus for any Military Ranged Weapon you attack with.
+Mounted Combat.MOD			SOURCEPAGE:p.199	DESC:.CLEAR	DESC:When you ride a creature, you gain access to any special mount abilities it confers to its rider.  Not every creature has these abilities.  The Dungeon Master's Guide has more information on mounts and mounted combat.  While you're riding a creature, it can make any Athletics, Acrobatics, Endurance, or Stealth checks using your base skill check bonus rather than its own if yours is higher.
+Nimble Blade.MOD			SOURCEPAGE:p.199	DESC:.CLEAR	DESC:When you attack with a light blade and you have combat advantage, you gain a +1 bonus to attack rolls.
+Pelor's Radiance.MOD			SOURCEPAGE:p.199	DESC:.CLEAR	DESC:You can invoke the power of your deity to use Pelor's Radiance.
+Potent Challenge.MOD			SOURCEPAGE:p.199	DESC:.CLEAR	DESC:If you hit a foe with an attack granted by your Combat Challenge class feature, add +%1 to your damage roll.|CON
+Power Attack.MOD			SOURCEPAGE:p.199	DESC:.CLEAR	DESC:When making a melee attack, you can take a -2 penalty to the attack roll.  If the attack hits, you gain a +2 bonus to the damage roll (or a +3 bonus to the damage roll with a two-handed weapon).  This damage bonus is per tier (Heroic,Paragon,Epic).
+Powerful Charge.MOD			SOURCEPAGE:p.199	DESC:.CLEAR	DESC:When you charge, you gain a +2 bonus to damage and a +2 bonus to bull rush attempts.
+Precise Hunter.MOD			SOURCEPAGE:p.199	DESC:.CLEAR	DESC:When you score a critical hit against the target of your Hunter's Quarry with a ranged attack, your allies gain a +1 bonus to attack rolls against that target until the start of your next turn.
+Press the Advantage.MOD			SOURCEPAGE:p.199	DESC:.CLEAR	DESC:If you score a critical hit while you have combat advantage, you gain combat advantage against the target until the end of your next turn.
+Quick Draw.MOD				SOURCEPAGE:p.200	DESC:.CLEAR	DESC:You can draw a weapon (or an object stored in a belt pouch, bandolier, or similar container, such as a potion) as part of the same action used to attack with the weapon or use the object.  You also gain a +2 feat bonus to initiative checks.
+Raging Storm.MOD			SOURCEPAGE:p.200	DESC:.CLEAR	DESC:You gain a +%1 feat bonus to damage rolls when you use a power that has the lightning or thunder keyword.|(1+floor((TL-1)/10))
+Raven Queen's Blessing.MOD		SOURCEPAGE:p.200	DESC:.CLEAR	DESC:You can invoke the power of your deity to use Raven Queen's Blessing.
+Ritual Caster.MOD			SOURCEPAGE:p.200	DESC:.CLEAR	DESC:You can master and perfor rituals of your level or lower.
+Sehanine's Reversal.MOD			SOURCEPAGE:p.200	DESC:.CLEAR	DESC:You can invoke the power of your deity to use Sehanine's Reversal.
+Shield Proficiency (Heavy).MOD		SOURCEPAGE:p.200	DESC:.CLEAR	DESC:You gain proficiency with heavy shields.
+Shield Proficiency (Light).MOD		SOURCEPAGE:p.200	DESC:.CLEAR	DESC:You gain proficiency with light shields.
+Shield Push.MOD				SOURCEPAGE:p.200	DESC:.CLEAR	DESC:If you hit a foe with an attack granted by your Combat Challenge class feature, you push the target 1 square after dealing damage.
+Simple Weapons.MOD			SOURCEPAGE:p.215	DESC:.CLEAR	DESC:You gain the Proficiency bonus for any Simple Weapon you attack with.
+Simple Melee Weapons.MOD		SOURCEPAGE:p.215	DESC:.CLEAR	DESC:You gain the Proficiency bonus for any Simple Melee Weapon you attack with.
+Simple Ranged Weapons.MOD		SOURCEPAGE:p.215	DESC:.CLEAR	DESC:You gain the Proficiency bonus for any Simple Ranged Weapon you attack with.
+Skill Focus.MOD				SOURCEPAGE:p.201	DESC:.CLEAR	DESC:Choose a skill in which you have training.  You have a +3 feat bonus to checks with that skill.
+Skill Training.MOD			SOURCEPAGE:p.201	DESC:.CLEAR	DESC:You gain training in one skill.  The skill need not be on your class skill list.
+Superior Weapons.MOD			SOURCEPAGE:p.215	DESC:.CLEAR	DESC:You gain the Proficiency bonus for any Superior Weapon you attack with.
+Superior Melee Weapons.MOD		SOURCEPAGE:p.215	DESC:.CLEAR	DESC:You gain the Proficiency bonus for any Superior Melee Weapon you attack with.
+Superior Ranged Weapons.MOD		SOURCEPAGE:p.215	DESC:.CLEAR	DESC:You gain the Proficiency bonus for any Superior Ranged Weapon you attack with.
+Sure Climber.MOD			SOURCEPAGE:p.201	DESC:.CLEAR	DESC:A successful Athletics check allows you to climb at your normal speed, rather than half-speed.  You also gain a +1 feat bonus to Athletics checks.
+Surprise Knockdown.MOD			SOURCEPAGE:p.201	DESC:.CLEAR	DESC:If you score a critical hit while you have combat advantage, you knock the target prone.
+Tactical Assault.MOD			SOURCEPAGE:p.201	DESC:.CLEAR	DESC:When an ally who can see you spends an action point to make an attack, the attack's damage roll gains a +%1 bonus.|INT
+Toughness.MOD				SOURCEPAGE:p.201	DESC:.CLEAR	DESC:When you take this feat, you gain an additional 5 hit points per tier of play (5 at 1st level, 5 more at 11th, 5 more at 21st)
+Two-weapon Defense.MOD			SOURCEPAGE:p.201	DESC:.CLEAR	DESC:While holding a melee weapon in each hand, you gain a +1 shield bonus to AC and Reflex.
+Two-weapon Fighting.MOD			SOURCEPAGE:p.201	DESC:.CLEAR	DESC:While holding a melee weapon in each hand, you gain a +1 bonus to damage rolls with your main weapon.
+Weapon Focus.MOD			SOURCEPAGE:p.201	DESC:.CLEAR	DESC:Choose a specific weapon group, such as spears or heavy blades.  You gain a +%1 feat bonus to damage rolls with your chosen weapon group.|(1+floor((TL-1)/10))
+Weapon Proficiency.MOD			SOURCEPAGE:p.201	DESC:.CLEAR	DESC:You gain proficiency in a single weapon of your choice.
+Wintertouched.MOD			SOURCEPAGE:p.201	DESC:.CLEAR	DESC:When attacking a creature that is vulnerable to cold, you gain combat advantage when you use a power that has the cold keyword.
+
+
 
 
 
