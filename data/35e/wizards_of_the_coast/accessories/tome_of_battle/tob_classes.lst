@@ -23,7 +23,7 @@ CLASS:Crusader	STARTSKILLPTS:4	CSKILL:Balance|Concentration|TYPE=Craft|Diplomacy
 1	BONUS:VAR|CrusaderInitiatorManeuverLVL|(1+CrusaderInitiatorLVL)/2	DEFINE:CrusaderInitiatorManeuverLVL|0
 
 # Class Name	Hit Dice	Type			Source Page		Save checks bonus											Combat bonus
-CLASS:Swordsage	HD:8		TYPE:PC.Base	SOURCEPAGE:p.15	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4
+CLASS:Swordsage	HD:8		TYPE:PC.Base	SOURCEPAGE:p.15	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4	DEFINE:SwordsageLVL|CL
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Swordsage	STARTSKILLPTS:6	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Heal|Hide|Intimidate|Jump|Knowledge (History)|Knowledge (Local)|Knowledge (Nature)|Knowledge (Nobility and Royalty)|Listen|Martial Lore|Move Silently|TYPE=Profession|Ride|Sense Motive|Swim|Tumble
 ###Block:
@@ -43,7 +43,7 @@ CLASS:Swordsage	STARTSKILLPTS:6	CSKILL:Balance|Climb|Concentration|TYPE=Craft|He
 
 
 # Class Name	Hit Dice	Type			Source Page		Save checks bonus											Combat bonus
-CLASS:Warblade	HD:12		TYPE:PC.Base	SOURCEPAGE:p.20	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
+CLASS:Warblade	HD:12		TYPE:PC.Base	SOURCEPAGE:p.20	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL	DEFINE:WarbladeLVL|CL
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Warblade	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Diplomacy|Intimidate|Jump|Knowledge (History)|Knowledge (Local)|Martial Lore|Swim|Tumble
 ###Block:
@@ -52,7 +52,7 @@ CLASS:Warblade	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Dip
 1	BONUS:VAR|WarbladeReadiedManuevers|3+(CL>3)+(CL>9)+(CL>14)+(CL>19)	DEFINE:WarbladeReadiedManuevers|0
 1	BONUS:VAR|WarbladeInitiatorLVL|WarbladeLVL+(WarbladeLVL-TL/2)		DEFINE:WarbladeInitiatorLVL|0
 1	BONUS:VAR|WarbladeInitiatorManeuverLVL|(1+WarbladeInitiatorLVL)/2		DEFINE:WarbladeInitiatorManeuverLVL|0
-###Block:e
+###Block:	WarbladeInitiatorManeuverLVL
 1	ABILITY:Warblade Class Feature|AUTOMATIC|Warblade ~ Weapon and Armor Proficiency|Warblade ~ Maneuvers|Warblade ~ Maneuvers Readied|Warblade ~ Stances Known|Warblade ~ Battle Clarity|Warblade ~ Weapon Aptitude
 2	ABILITY:Warblade Class Feature|AUTOMATIC|Warblade ~ Uncanny Dodge
 3	ABILITY:Warblade Class Feature|AUTOMATIC|Warblade ~ Battle Ardor
