@@ -1,0 +1,202 @@
+# CVS $Revision: $ $Author: $ -- Thu Jan 16 17:43:15 2014 -- reformated by prettylst.pl v1.51 (build 22959)
+
+
+
+#Human		CATEGORY:Internal	TYPE:HumanSubrace		TEMPLATE:Human Base	ABILITY:Human Race Trait|AUTOMATIC|Skill Bonus ~ Human|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HumanSkillBonus	ABILITY:Human Race Trait|AUTOMATIC|Bonus Feat ~ Human|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HumanBonusFeat
+
+###Banned Classes
+
+# Class Name	Required Var. value
+CLASS:Bard.MOD	PREVAREQ:BardAllowed,0
+
+# Class Name	Required Var. value
+CLASS:Cleric.MOD	PREVAREQ:ClericAllowed,0
+
+# Class Name	Required Var. value
+CLASS:Druid.MOD	PREVAREQ:DruidAllowed,0
+
+# Class Name	Required Var. value
+CLASS:Paladin.MOD	PREVAREQ:PaladinAllowed,0
+
+# Class Name	Required Var. value
+CLASS:Wizard.MOD	PREVAREQ:WizardAllowed,0
+
+###Block:
+
+# Class Name	Class Skill
+CLASS:Monk.MOD	CSKILL:Knowledge (Religion)
+1	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Multiclass Monks
+
+###Block: New Classes - Samurai.
+# COMMENT: Conflict with Samurai in Complete Warrior - Noting this version using a Different KEY and Name.
+
+# Class Name	Unique Key		Hit Dice	Type						Source Page		Save checks bonus											Combat bonus		Monster Role
+CLASS:Samurai	KEY:Samurai (OA)	HD:10		TYPE:Base.PC.OrientalAdventures	SOURCEPAGE:p.20	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL	ROLE:Combat
+
+# Class Name		Required AL
+CLASS:Samurai (OA)	PREALIGN:LG,LN,LE
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Samurai (OA)	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Diplomacy|Iaijutsu Focus|Intimidate|Jump|TYPE=Perform|TYPE=Profession|Ride|Sense Motive|Swim
+###Block:
+2	BONUS:ABILITYPOOL|Samurai Feat|SamuraiBonusFeatCount	BONUS:VAR|SamuraiBonusFeatCount|CL/2	DEFINE:SamuraiBonusFeatCount|0
+###Block:
+1	ABILITY:Samurai (OA) Class Feature|AUTOMATIC|Samurai (OA) ~ Weapon and Armor Proficiency|Samurai (OA) ~ Ancestral Daisho|Samurai (OA) ~ Code of Conduct
+2	ABILITY:Samurai (OA) Class Feature|AUTOMATIC|Samurai (OA) ~ Bonus Feats
+
+# - Shaman
+
+# Class Name	Unique Key		Hit Dice	Type						Source Page		Save checks bonus											Combat bonus
+CLASS:Shaman	KEY:Shaman (OA)	HD:6		TYPE:Base.PC.OrientalAdventures	SOURCEPAGE:p.22	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4
+
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Shaman (OA)	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (Religion)|Knowledge (Spirits)|TYPE=Profession|Spellcraft
+# Class Name	Spell Stat		Spell Type		Memorize		Automatically Known Spell Levels											Caster level			Use Spell List
+CLASS:Shaman (OA)	SPELLSTAT:WIS	SPELLTYPE:Divine	MEMORIZE:YES	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Shaman|CL	SPELLLIST:1|Shaman
+#Scry	<- 3e skill only, no replacement
+###Block:
+1	ABILITY:Shaman (OA) Class Feature|AUTOMATIC|Shaman (OA) ~ Weapon and Armor Proficiency|Shaman (OA) ~ Spells|Shaman (OA) ~ Spirits Domains and Domain Spells|Shaman (OA) ~ Spontaneous Casting|Shaman (OA) ~ Alignment Spells|Shaman (OA) ~ Extra Turning
+1	ABILITY:Shaman (OA) Class Feature|AUTOMATIC|Shaman (OA) ~ Strike|Shaman (OA) ~ Animal Companion
+2	ABILITY:Shaman (OA) Class Feature|AUTOMATIC|Shaman (OA) ~ Spirit Sight
+3	ABILITY:Shaman (OA) Class Feature|AUTOMATIC|Shaman (OA) ~ Turn or Rebuke Undead
+4	ABILITY:Shaman (OA) Class Feature|AUTOMATIC|Shaman (OA) ~ Bonus Feat
+5	ABILITY:Shaman (OA) Class Feature|AUTOMATIC|Shaman (OA) ~ Spirits' Favor
+###Block:
+4	BONUS:ABILITYPOOL|Shaman (OA) Feat|ShamanBonusFeatCount	BONUS:VAR|ShamanBonusFeatCount|CL/4	DEFINE:ShamanBonusFeatCount|0
+1											BONUS:VAR|ShamanDomainCount|2		DEFINE:ShamanDomainCount|0
+11											BONUS:VAR|ShamanDomainCount|1
+###Block:
+1	BONUS:DOMAIN|NUMBER|ShamanDomainCount
+###Block:
+# TODO: Figure out how to increase the +1 to a +2 for the Domains. Investigating the docs for help.
+1	CAST:3,1
+2	CAST:4,2
+3	CAST:4,2,1
+4	CAST:5,3,2
+5	CAST:5,3,2,1
+6	CAST:5,3,3,2
+7	CAST:6,4,3,2,1
+8	CAST:6,4,3,3,2
+9	CAST:6,4,4,3,2,1
+10	CAST:6,4,4,3,3,2
+11	CAST:6,4,4,4,3,2,1
+12	CAST:6,4,4,4,3,3,2
+13	CAST:6,4,4,4,4,3,2,1
+14	CAST:6,4,4,4,4,3,3,2
+15	CAST:6,4,4,4,4,4,3,2,1
+16	CAST:6,4,4,4,4,4,3,3,2
+17	CAST:6,4,4,4,4,4,4,3,2,1
+18	CAST:6,4,4,4,4,4,4,3,3,2
+19	CAST:6,4,4,4,4,4,4,4,3,3
+20	CAST:6,4,4,4,4,4,4,4,4,4
+
+# - Shugenja
+
+# Class Name	Unique Key		Type						Base class as subclass?	Source Page		Save checks bonus											Combat bonus
+CLASS:Shugenja	KEY:Shugenja (OA)	TYPE:Base.PC.OrientalAdventures	ALLOWBASECLASS:NO		SOURCEPAGE:p.24	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*1/2
+CLASS:Shugenja (OA)	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|TYPE=Knowledge|TYPE=Profession|Spellcraft
+CLASS:Shugenja (OA)	SPELLSTAT:CHA	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Shugenja|CL	SPELLLIST:1|Shugenja
+#
+SUBCLASS:Air Shugenja	COST:0	CHOICE:DESCRIPTOR|Air Shugenja	PROHIBITSPELL:DESCRIPTOR.Earth Shugenja	PREABILITY:1,CATEGORY=Internal,Human CRANE,Human SCORPION
+SUBCLASS:Earth Shugenja	COST:0	CHOICE:DESCRIPTOR|Earth Shugenja	PROHIBITSPELL:DESCRIPTOR.Air Shugenja	PREABILITY:1,CATEGORY=Internal,Human CRAB,Human DRAGON,Human SCORPION
+SUBCLASS:Fire Shugenja	COST:0	CHOICE:DESCRIPTOR|Fire Shugenja	PROHIBITSPELL:DESCRIPTOR.Water Shugenja	PREABILITY:1,CATEGORY=Internal,Human PHOENIX
+SUBCLASS:Water Shugenja	COST:0	CHOICE:DESCRIPTOR|Water Shugenja	PROHIBITSPELL:DESCRIPTOR.Fire Shugenja	PREABILITY:1,CATEGORY=Internal,Human LION,Human UNICORN
+# TODO: Request ability to HIDESPELL - DESCRIPTOR.
+###Block: This selects the "School" using Domain as that matches how this appears to work. Preselects based upon Human Clan.
+1	DOMAIN:AGASHA SCHOOL[PREABILITY:1,CATEGORY=Internal,Human PHOENIX]
+1	DOMAIN:ASAHINA SCHOOL[PREABILITY:1,CATEGORY=Internal,Human CRANE]
+1	DOMAIN:IUCHI SCHOOL[PREABILITY:1,CATEGORY=Internal,Human UNICORN]
+1	DOMAIN:KITSU SCHOOL[PREABILITY:1,CATEGORY=Internal,Human LION]
+1	DOMAIN:KUNI SCHOOL[PREABILITY:1,CATEGORY=Internal,Human CRAB]
+1	DOMAIN:SOSHI SCHOOL[PREABILITY:1,CATEGORY=Internal,Human SCORPION]
+1	DOMAIN:TAMORI SCHOOL[PREABILITY:1,CATEGORY=Internal,Human DRAGON]
+1	DOMAIN:YOGO SCHOOL[PREABILITY:1,CATEGORY=Internal,Human SCORPION]
+###Block
+1	BONUS:DOMAIN|NUMBER|1
+###Block:
+1	ABILITY:Shugenja (OA) Class Feature|AUTOMATIC|Shugenja (OA) ~ Weapon and Armor Proficiency|Shugenja (OA) ~ Element Focus|Shugenja (OA) ~ Sense Elements
+###Block: Spell Block - Complicated Class - Using Specialtyknown - Need Subclass to trigger.
+# TODO: Test this to see if it outputs the correct numbers
+1	CAST:5,3				KNOWN:2,1				SPECIALTYKNOWN:2,1
+2	CAST:6,4				KNOWN:2,1				SPECIALTYKNOWN:3,1
+3	CAST:6,5				KNOWN:2,1				SPECIALTYKNOWN:3,2
+4	CAST:6,6,3				KNOWN:3,1,0				SPECIALTYKNOWN:3,2,1
+5	CAST:6,6,4				KNOWN:3,2,1				SPECIALTYKNOWN:3,2,1
+6	CAST:6,6,5,3			KNOWN:3,2,1,0			SPECIALTYKNOWN:4,2,1,1
+7	CAST:6,6,6,4			KNOWN:3,2,1,1			SPECIALTYKNOWN:4,3,2,1
+8	CAST:6,6,6,5,3			KNOWN:4,2,1,1,0			SPECIALTYKNOWN:4,3,2,1,1
+9	CAST:6,6,6,6,4			KNOWN:4,2,2,1,1			SPECIALTYKNOWN:4,3,2,2,1
+10	CAST:6,6,6,6,5,3			KNOWN:4,2,2,1,1,0			SPECIALTYKNOWN:5,3,2,2,1,1
+11	CAST:6,6,6,6,6,4			KNOWN:4,2,2,2,1,1			SPECIALTYKNOWN:5,3,3,2,2,1
+12	CAST:6,6,6,6,6,5,3		KNOWN:4,2,2,2,1,1,0		SPECIALTYKNOWN:5,3,3,2,2,1,1
+13	CAST:6,6,6,6,6,6,4		KNOWN:4,2,2,2,2,1,1		SPECIALTYKNOWN:5,3,3,2,2,2,1
+14	CAST:6,6,6,6,6,6,5,3		KNOWN:4,2,2,2,2,1,1,0		SPECIALTYKNOWN:5,3,3,2,2,2,1,1
+15	CAST:6,6,6,6,6,6,6,4		KNOWN:4,2,2,2,2,2,1,1		SPECIALTYKNOWN:5,3,3,2,2,2,2,1
+16	CAST:6,6,6,6,6,6,6,5,3		KNOWN:4,2,2,2,2,2,1,1,0		SPECIALTYKNOWN:5,3,3,2,2,2,2,1,1
+17	CAST:6,6,6,6,6,6,6,6,4		KNOWN:4,2,2,2,2,2,1,1,1		SPECIALTYKNOWN:5,3,3,2,2,2,2,2,1
+18	CAST:6,6,6,6,6,6,6,6,5,3	KNOWN:4,2,2,2,2,2,1,1,1,0	SPECIALTYKNOWN:5,3,3,2,2,2,2,2,1,1
+19	CAST:6,6,6,6,6,6,6,6,6,4	KNOWN:4,2,2,2,2,2,1,1,1,1	SPECIALTYKNOWN:5,3,3,2,2,2,2,2,2,1
+20	CAST:6,6,6,6,6,6,6,6,6,6	KNOWN:4,2,2,2,2,2,1,1,1,1	SPECIALTYKNOWN:5,3,3,2,2,2,2,2,2,2
+
+# - Sohei
+
+# Class Name	Unique Key		Hit Dice	Type						Ex Class			Source Page		Save checks bonus											Combat bonus
+CLASS:Sohei		KEY:Sohei (OA)	HD:10		TYPE:Base.PC.OrientalAdventures	EXCLASS:Ex Sohei (OA)	SOURCEPAGE:p.27	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4
+
+# Class Name	Required AL
+CLASS:Sohei (OA)	PREALIGN:LG,LN,LE
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Sohei (OA)	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Iaijutsu Focus|Knowledge (Religion)|TYPE=Profession
+# Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels				Caster level			Use Spell List
+CLASS:Sohei (OA)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Sohei|CL	SPELLLIST:1|Sohei
+###Block:
+###Block:
+4	CAST:0
+5	CAST:0
+6	CAST:1
+7	CAST:1
+8	CAST:1,0
+9	CAST:1,0
+10	CAST:1,1
+11	CAST:1,1,0
+12	CAST:1,1,1
+13	CAST:1,1,1
+14	CAST:2,1,1,0
+15	CAST:2,1,1,1
+16	CAST:2,2,1,1
+17	CAST:2,2,2,1
+18	CAST:3,2,2,1
+19	CAST:3,3,3,2
+20	CAST:3,3,3,3
+
+# - Wu Jen
+
+# Class Name	Unique Key		Hit Dice	Type						Source Page		Save checks bonus											Combat bonus
+CLASS:Wu Jen	KEY:Wu Jen (OA)	HD:4		TYPE:Base.PC.OrientalAdventures	SOURCEPAGE:p.31	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*1/2
+
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Wu Jen (OA)	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Spellcraft
+# Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels	Spellbook		Caster level			Use Spell List
+CLASS:Wu Jen (OA)	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			SPELLBOOK:YES	BONUS:CASTERLEVEL|Wu Jen|CL	SPELLLIST:1|Wu Jen
+###Block:
+
+###Block:
+1	CAST:3,1
+2	CAST:4,2
+3	CAST:4,2,1
+4	CAST:4,3,2
+5	CAST:4,3,2,1
+6	CAST:4,3,3,2
+7	CAST:4,4,3,2,1
+8	CAST:4,4,3,3,2
+9	CAST:4,4,4,3,2,1
+10	CAST:4,4,4,3,3,2
+11	CAST:4,4,4,4,3,2,1
+12	CAST:4,4,4,4,3,3,2
+13	CAST:4,4,4,4,4,3,2,1
+14	CAST:4,4,4,4,4,3,3,2
+15	CAST:4,4,4,4,4,4,3,2,1
+16	CAST:4,4,4,4,4,4,3,3,2
+17	CAST:4,4,4,4,4,4,4,3,2,1
+18	CAST:4,4,4,4,4,4,4,3,3,2
+19	CAST:4,4,4,4,4,4,4,4,3,3
+20	CAST:4,4,4,4,4,4,4,4,4,4
