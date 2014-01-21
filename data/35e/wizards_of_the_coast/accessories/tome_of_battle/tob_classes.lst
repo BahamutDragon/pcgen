@@ -5,7 +5,7 @@
 CLASS:Crusader	HD:10		TYPE:PC.Base	SOURCEPAGE:p.8	DEFINE:CrusaderLVL|CL	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Crusader	STARTSKILLPTS:4	CSKILL:Balance|Concentration|TYPE=Craft|Diplomacy|Intimidate|Jump|Knowledge (History)|Knowledge (Religion)|Martial Lore|Ride
-CLASS:Crusader	SPELLSTAT:WIS	BONUSSPELLSTAT:NONE	BONUS:CASTERLEVEL|Crusader|CrusaderInitiatorManeuverLVL
+CLASS:Crusader	SPELLSTAT:WIS	SPELLTYPE:Martial	MEMORIZE:NO		BONUSSPELLSTAT:NONE	BONUS:CASTERLEVEL|Crusader|CrusaderInitiatorManeuverLVL
 ###Block:
 1	ABILITY:Crusader Class Feature|AUTOMATIC|Crusader ~ Weapon and Armor Proficiency|Crusader ~ Maneuvers|Crusader ~ Maneuvers Readied|Crusader ~ Stances Known
 1	ABILITY:Crusader Class Feature|AUTOMATIC|Crusader ~ Furious Counterstrike|Crusader ~ Steely Resolve
@@ -22,12 +22,14 @@ CLASS:Crusader	SPELLSTAT:WIS	BONUSSPELLSTAT:NONE	BONUS:CASTERLEVEL|Crusader|Crus
 1	BONUS:VAR|CrusaderReadiedManuevers|(CL/10)+5				DEFINE:CrusaderReadiedManuevers|0
 1	BONUS:VAR|CrusaderInitiatorLVL|CrusaderLVL+(CrusaderLVL-TL/2)	DEFINE:CrusaderInitiatorLVL|0
 1	BONUS:VAR|CrusaderInitiatorManeuverLVL|(1+CrusaderInitiatorLVL)/2	DEFINE:CrusaderInitiatorManeuverLVL|0
+#Block:
+1:REPEATLEVEL:1	KNOWN:0,0,0,0,0,0,0,0,0,0
 
 # Class Name	Hit Dice	Type			Source Page		Define			Save checks bonus											Combat bonus
 CLASS:Swordsage	HD:8		TYPE:PC.Base	SOURCEPAGE:p.15	DEFINE:SwordsageLVL|CL	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Swordsage	STARTSKILLPTS:6	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Heal|Hide|Intimidate|Jump|Knowledge (History)|Knowledge (Local)|Knowledge (Nature)|Knowledge (Nobility and Royalty)|Listen|Martial Lore|Move Silently|TYPE=Profession|Ride|Sense Motive|Swim|Tumble
-CLASS:Swordsage	SPELLSTAT:WIS	BONUSSPELLSTAT:NONE	BONUS:CASTERLEVEL|Swordsage|SwordsageInitiatorManeuverLVL
+CLASS:Swordsage	SPELLSTAT:WIS	SPELLTYPE:Martial	MEMORIZE:NO		BONUSSPELLSTAT:NONE	BONUS:CASTERLEVEL|Swordsage|SwordsageInitiatorManeuverLVL
 ###Block:
 1	BONUS:VAR|SwordsageManueversKnown|5+CL						DEFINE:SwordsageManueversKnown|0
 1	BONUS:VAR|SwordsageStancesKnown|1+(CL>1)+(CL>4)+(CL>8)+(CL>13)+(CL>19)	DEFINE:SwordsageStancesKnown|0
@@ -42,13 +44,14 @@ CLASS:Swordsage	SPELLSTAT:WIS	BONUSSPELLSTAT:NONE	BONUS:CASTERLEVEL|Swordsage|Sw
 9	ABILITY:Swordsage Class Feature|AUTOMATIC|Swordsage ~ Evasion
 17	ABILITY:Swordsage Class Feature|AUTOMATIC|Swordsage ~ Improved Evasion
 20	ABILITY:Swordsage Class Feature|AUTOMATIC|Swordsage ~ Dual Boost
-
+#Block:
+1:REPEATLEVEL:1	KNOWN:0,0,0,0,0,0,0,0,0,0
 
 # Class Name	Hit Dice	Type			Source Page		Define			Save checks bonus											Combat bonus
 CLASS:Warblade	HD:12		TYPE:PC.Base	SOURCEPAGE:p.20	DEFINE:WarbladeLVL|CL	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Warblade	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Diplomacy|Intimidate|Jump|Knowledge (History)|Knowledge (Local)|Martial Lore|Swim|Tumble
-CLASS:Warblade	SPELLSTAT:WIS	BONUSSPELLSTAT:NONE	BONUS:CASTERLEVEL|Warblade|WarbladeInitiatorManeuverLVL
+CLASS:Warblade	SPELLSTAT:WIS	SPELLTYPE:Martial	MEMORIZE:NO		BONUSSPELLSTAT:NONE	BONUS:CASTERLEVEL|Warblade|WarbladeInitiatorManeuverLVL
 ###Block:
 1	BONUS:VAR|WarbladeManueversKnown|(WarbladeLVL+5/2)+(CL>1)			DEFINE:WarbladeManueversKnown|0
 1	BONUS:VAR|WarbladeStancesKnown|1+(CL>2)+(CL>9)+(CL>15)			DEFINE:WarbladeStancesKnown|0
@@ -65,6 +68,8 @@ CLASS:Warblade	SPELLSTAT:WIS	BONUSSPELLSTAT:NONE	BONUS:CASTERLEVEL|Warblade|Warb
 11	ABILITY:Warblade Class Feature|AUTOMATIC|Warblade ~ Battle Skill
 15	ABILITY:Warblade Class Feature|AUTOMATIC|Warblade ~ Battle Mastery
 20	ABILITY:Warblade Class Feature|AUTOMATIC|Warblade ~ Stance Mastery
+#Block:
+1:REPEATLEVEL:1	KNOWN:0,0,0,0,0,0,0,0,0,0
 
 ###Block: @Prestige Classes	96+
 
