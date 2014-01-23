@@ -2,10 +2,15 @@ SOURCELONG:Magic of Incarnum	SOURCESHORT:MoI
 # Original Entry by: BahamutDragon
 # Date Entered: 2014-01
 
-CLASS:Incarnate	HD:6	SOURCEPAGE:p.20	TYPE:Base.PC	BONUS:COMBAT|BAB|CL*1/2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	DEFINE:IncarnateLVL|CL	DEFINE:MeldshaperLVL|0	BONUS:VAR|MeldshaperLVL|CL
+CLASS:Incarnate	HD:6	SOURCEPAGE:p.20	TYPE:Base.PC	EXCLASS:Ex Incarnate	BONUS:COMBAT|BAB|CL*1/2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	DEFINE:IncarnateLVL|CL	DEFINE:MeldshaperLVL|0	BONUS:VAR|MeldshaperLVL|CL
+CLASS:Incarnate	PREALIGN:NG,NE,LN,CN
 CLASS:Incarnate	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Knowledge (Arcana)|Knowledge (Religion)|Knowledge (The Planes)|TYPE=Profession|Spellcraft
 ###Block:
-1	BONUS:ABILITYPOOL|Incarnate Alignment Focus|1
+#1	BONUS:ABILITYPOOL|Incarnate Alignment Focus|1
+1	ABILITY:Special Ability|AUTOMATIC|Incarnate Alignment Focus (Good)|PREALIGN:NG
+1	ABILITY:Special Ability|AUTOMATIC|Incarnate Alignment Focus (Evil)|PREALIGN:NE
+1	ABILITY:Special Ability|AUTOMATIC|Incarnate Alignment Focus (Law)|PREALIGN:LN
+1	ABILITY:Special Ability|AUTOMATIC|Incarnate Alignment Focus (Chaos)|PREALIGN:CN
 ###Block:
 1	ABILITY:Incarnate Class Feature|AUTOMATIC|Incarnate ~ Weapon and Armor Proficiency|Incarnate ~ Meldshaping|Incarnate ~ Aligned Soulmelds
 1	ABILITY:Incarnate Class Feature|AUTOMATIC|Incarnate ~ Aura|Detect Opposition
@@ -26,9 +31,13 @@ CLASS:Incarnate	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Knowledge (Arcan
 15	BONUS:VAR|ExpandedSoulmelds|1
 5	BONUS:VAR|RapidMeldshapingTimes|CL+1/6	DEFINE:RapidMeldshapingTimes|0
 
+CLASS:Ex Incarnate	VISIBLE:NO	HD:6	SOURCEPAGE:p.22	TYPE:Base.PC	BONUS:COMBAT|BAB|CL*1/2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3
+CLASS:Ex Incarnate	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Knowledge (Arcana)|Knowledge (Religion)|Knowledge (The Planes)|TYPE=Profession|Spellcraft
+1	ABILITY:Incarnate Class Feature|AUTOMATIC|Incarnate ~ Weapon and Armor Proficiency
+
 CLASS:Soulborn	HD:10	SOURCEPAGE:p.25	TYPE:Base.PC	PREALIGN:LG,CG,LE,CE	ALLOWBASECLASS:NO	BONUS:COMBAT|BAB|CL	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	DEFINE:SoulbornLVL|CL	DEFINE:MeldshaperLVL|0	BONUS:VAR|MeldshaperLVL|CL/2
 CLASS:Soulborn	STARTSKILLPTS:2	CSKILL:Climb|Concentration|TYPE=Craft|Handle Animal|Heal|Jump|Knowledge (Arcana)|Knowledge (The Planes)|TYPE=Profession|Ride|Spellcraft|Swim
-###Block:
+###Block: This could be skipped if there was a method to assign class skills to a class.
 SUBCLASS:Lawful Good Soulborn		COST:0	PREALIGN:LG	CSKILL:Diplomacy
 SUBCLASS:Chaotic Good Soulborn	COST:0	PREALIGN:CG	CSKILL:Gather Information
 SUBCLASS:Lawful Evil Soulborn		COST:0	PREALIGN:LE	CSKILL:Bluff
@@ -41,12 +50,18 @@ SUBCLASS:Chaotic Evil Soulborn	COST:0	PREALIGN:CE	CSKILL:Intimidate
 8	ABILITY:Soulborn Class Feature|AUTOMATIC|Soulborn ~ Chakra Binds
 9	ABILITY:Soulborn Class Feature|AUTOMATIC|Soulborn ~ Share Incarnum Defense
 19	ABILITY:Soulborn Class Feature|AUTOMATIC|Soulborn ~ Timeless Body
-#
+###Block:
 1	BONUS:VAR|SmiteOppositionTimes|1+(CL/5)		DEFINE:SmiteOppositionTimes|0
 4	BONUS:VAR|Soulmelds|CL/4				DEFINE:Soulmelds|0
 9	BONUS:VAR|ShareIncarnumDefenseTimes|(CL-5)/4	DEFINE:ShareIncarnumDefenseTimes|0
 8	BONUS:VAR|ChakraBinds|1+(CL>13)+(CL>17)		DEFINE:ChakraBinds|0
 6	BONUS:VAR|EssentiaPool|(CL-4)/2+(CL>16)+(CL>18)	DEFINE:EssentiaPool|0
+
+CLASS:Ex Soulborn	HD:10	SOURCEPAGE:p.27	TYPE:Base.PC	VISIBLE:NO	BONUS:COMBAT|BAB|CL	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	DEFINE:SoulbornLVL|CL	DEFINE:MeldshaperLVL|0	BONUS:VAR|MeldshaperLVL|CL/2
+CLASS:Ex Soulborn	STARTSKILLPTS:2	CSKILL:Climb|Concentration|TYPE=Craft|Handle Animal|Heal|Jump|Knowledge (Arcana)|Knowledge (The Planes)|TYPE=Profession|Ride|Spellcraft|Swim
+1	ABILITY:Soulborn Class Feature|AUTOMATIC|Soulborn ~ Weapon and Armor Proficiency
+3	ABILITY:Soulborn Class Feature|AUTOMATIC|Soulborn ~ Bonus Feat
+19	ABILITY:Soulborn Class Feature|AUTOMATIC|Soulborn ~ Timeless Body
 
 CLASS:Totemist	HD:8	SOURCEPAGE:p.29	TYPE:Base.PC	BONUS:COMBAT|BAB|CL*3/4	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	DEFINE:TotemistLVL|CL	DEFINE:MeldshaperLVL|0	BONUS:VAR|MeldshaperLVL|CL
 CLASS:Totemist	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Handle Animal|Knowledge (Arcana)|Knowledge (Nature)|Knowledge (The Planes)|Listen|TYPE=Profession|Ride|Spellcraft|Spot|Survival|Swim
