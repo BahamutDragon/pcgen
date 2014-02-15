@@ -1,0 +1,32 @@
+
+
+
+#Battlesmith
+CLASS:Battlesmith	SOURCEPAGE:p.97	HD:10	MAXLEVEL:5	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
+CLASS:Battlesmith	PRERACE:1,Dwarf%,RACESUBTYPE=Dwarf	PREMULT:1,[PREATT:5],[PREVARGTEQ:BaseAttackBonus,5]	PRESKILL:1,Craft (Armorsmithing)=10,Craft (Weaponsmithing)=10	PREFEAT:3,Armor Proficiency (Heavy),Endurance,Weapon Focus (Warhammer)	PRETEXT:Special: The character must have created a dwarvencraft weapon (see page 159) and used it in battle.
+CLASS:Battlesmith	STARTSKILLPTS:2	CSKILL:Appraise|Concentration|TYPE=Craft|Intimidate|Knowledge (Religion)
+1	ABILITY:Battlesmith Class Feature|AUTOMATIC|Battlesmith ~ Weapon and Armor Proficiency
+1	ABILITY:Battlesmith Class Feature|AUTOMATIC|Battlesmith ~ One with the Hammer|Battlesmith ~ Secrets of the Forge
+2	ABILITY:Battlesmith Class Feature|AUTOMATIC|Battlesmith ~ Flesh of My Flesh
+3	ABILITY:Battlesmith Class Feature|AUTOMATIC|Battlesmith ~ Forged in Fire
+5	ABILITY:Battlesmith Class Feature|AUTOMATIC|Battlesmith ~ Tempered in Blood
+###Block:
+2	BONUS:VAR|FleshOfMyFleshACBonus|1
+4	BONUS:VAR|FleshOfMyFleshACBonus|1
+
+
+
+###Block: Substitution Levels
+CLASS:Cleric.MOD
+SUBSTITUTIONCLASS:Dwarf Cleric	HD:10		SOURCEPAGE:p.146	STARTSKILLPTS:2
+SUBSTITUTIONLEVEL:1	PRERACE:1,Dwarf%	1	BONUS:VAR|AlignmentAuraBase|CL	ABILITY:Dwarf Cleric Class Feature|AUTOMATIC|Dwarf Cleric ~ Smite Giants	CSKILL:Knowledge (Dungeoneering)
+SUBSTITUTIONLEVEL:1	ABILITY:Cleric Class Feature|AUTOMATIC|Cleric ~ Weapon and Armor Proficiency|!PREABILITY:1,CATEGORY=ACF,TYPE.ClericProficiences
+SUBSTITUTIONLEVEL:1	ABILITY:Cleric Class Feature|AUTOMATIC|Cleric ~ Aura
+SUBSTITUTIONLEVEL:1	ABILITY:Cleric Class Feature|AUTOMATIC|Cleric ~ Spells
+SUBSTITUTIONLEVEL:1	ABILITY:Cleric Class Feature|AUTOMATIC|Cleric ~ Spontaneous Casting
+SUBSTITUTIONLEVEL:1	CAST:3,1	PROHIBITSPELL:ALIGNMENT.Chaotic|PREALIGN:LG,LN,LE|PREDEITYALIGN:LG,LN,LE	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG|PREDEITYALIGN:LG,NG,CG	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE|PREDEITYALIGN:LE,NE,CE	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE|PREDEITYALIGN:CG,CN,CE
+SUBSTITUTIONLEVEL:4	PRERACE:1,Dwarf%	PREDEITY:1,Moradin,PANTHEON.FavoredWeaponWarhammer	ABILITY:Dwarf Cleric Class Feature|AUTOMATIC|Dwarf Cleric ~ Hammer Specialist
+SUBSTITUTIONLEVEL:4	CAST:5,3,2		BONUS:SPELLCAST|CLASS=Cleric;LEVEL=2|-1
+SUBSTITUTIONLEVEL:8	PRERACE:1,Dwarf%	ABILITY:Dwarf Cleric Class Feature|AUTOMATIC|Dwarf Cleric ~ Earthen Spell Power
+SUBSTITUTIONLEVEL:8	CAST:6,4,3,3,2	BONUS:SPELLCAST|CLASS=Cleric;LEVEL=4|-1
+
