@@ -55,9 +55,19 @@ Psionic Talent Power Points	CATEGORY:Special Ability	TYPE:ClassAbility.Internal	
 # See this tracker: http://sourceforge.net/tracker/?func=detail&aid=1158480&group_id=36698&atid=417819
 ###Block: Weapon proficiencies
 # Ability Name			Category of Ability		Type					Visible	Automatically Gained Weapon Prof.
-Psion Weapon Proficiencies	CATEGORY:Special Ability	TYPE:ClassAbility.Internal	VISIBLE:NO	AUTO:WEAPONPROF|Club|Dagger|Crossbow (Heavy)|Crossbow (Light)|Quarterstaff|Shortspear|Spells (Ray)
+
+
+###Block: New Class
+# Ability Name			Unique Key								Category of Ability		Description																																							Automatically Gained Weapon Prof.										Ability
+Weapon and Armor Proficiency	KEY:Psion ~ Weapon and Armor Proficiency	SOURCEPAGE:p.20	CATEGORY:Special Ability	TYPE:ClassFeature.PsionClassFeature.SpecialQuality	DESC:Psions are proficient with the club, dagger, heavy crossbow, light crossbow, quarter staff, and shortspear. They are not proficient with any type of armor or shield. Armor does not, however, interfere with the manifestation of powers.	AUTO:WEAPONPROF|Club|Dagger|Crossbow (Heavy)|Crossbow (Light)|Quarterstaff|Shortspear	ABILITY:Internal|AUTOMATIC|Weapon Prof ~ Auto
+Power Points/Day			KEY:Psion ~ Power Points/Day			SOURCEPAGE:p.20	CATEGORY:Special Ability	TYPE:ClassFeature.PsionClassFeature.SpecialQuality	DESC:A psion's ability to manifest powers is limited by the power points he has available. His base daily allotment of power points is given on Table 2-3: The Psion. In addition, he receives bonus power points per day if he has a high Intelligence score (see Table 2-1: Ability Modifiers and Bonus Power Points). His race may also provide bonus power points per day, as may certain feats and items.
+Discipline				KEY:Psion ~ Discipline				SOURCEPAGE:p.20	CATEGORY:Special Ability	TYPE:ClassFeature.PsionClassFeature.SpecialQuality	DESC:Every psion must decide at 1st level which psionic discipline he will specialize in. Choosing a discipline provides a psion with access to the class skills associated with that discipline (see above), as well as the powers restricted to that discipline. However, choosing a discipline also means that the psion cannot learn powers that are restricted to other disciplines. He can't even use such powers by employing psionic items. (See Psionic Disciplines, below, for a brief description of each discipline. Chapter 5 of this book contains a list of powers available to all psions and lists of powers restricted to certain disciplines.)
+Powers Known			KEY:Psion ~ Powers Known			SOURCEPAGE:p.20	CATEGORY:Special Ability	TYPE:ClassFeature.PsionClassFeature.SpecialQuality	DESC:A psion begins play knowing three psion powers of your choice. Each time he achieves a new level, he unlocks the knowledge of new powers. Choose the powers known from the psion power list, or from the list of powers of your chosen discipline. You cannot choose powers from disciplines other than your chosen discipline. (Exception: The feats Expanded Knowledge, page 46, and Epic Expanded Knowledge, page 34, do allow a psion to learn powers from the lists of other disciplines or even other classes.) A psion can manifest any power that has a power point cost equal to or lower than his manifester level. The number of times a psion can manifest powers in a day is limited only by his daily power points. For example, a 9th-level psion (with a total of 72 power points) could manifest a power costing 1 power point seventy-two times in one day, a power costing 9 power points eight times in one day, or any other combination of manifestations that does not exceed 72 power points in total. A psion simply knows his powers; they are ingrained in his mind. He does not need to prepare them (in the way that some spellcasters prepare their spells), though he must get a good night's sleep each day to regain all his spent power points. The Diffi culty Class for saving throws against psion powers is 10 + the power's level + the psion's Intelligence modifi er. For example, the saving throw against a 6th-level power has a DC of 16 + Int modifi er.
+Maximum Power Level Known	KEY:Psion ~ Maximum Power Level Known	SOURCEPAGE:p.21	CATEGORY:Special Ability	TYPE:ClassFeature.PsionClassFeature.SpecialQuality	DESC:A psion begins play with the ability to learn 1st-level powers. As he attains higher levels, a psion may gain the ability to master more complex powers-for example, a 3rd-level psion can learn powers of 2nd level or lower, a 5th-level psion can learn powers of 3rd level or lower, and so on. To learn or manifest a power, a psion must have an Intelligence score of at least 10 + the power's level. For example, a psion within an Intelligence score of 15 can manifest powers of 5th level or lower.
+Bonus Feats				KEY:Psion ~ Bonus Feats				SOURCEPAGE:p.21	CATEGORY:Special Ability	TYPE:ClassFeature.PsionClassFeature.SpecialQuality	DESC:A psion gains a bonus feat at 1st level, 5th level, 10th level, 15th level, and 20th level. This feat must be a psionic feat, a metapsionic feat, or a psionic item creation feat. These bonus feats are in addition to the feats that a character of any class gains every three levels (as given on Table 3-2: Experience and Level-Dependent Benefi ts, page 22 of the Player's Handbook). A psion is not limited to psionic feats, metapsionic feats, and psionic item creation feats when choosing these other feats.		BONUS:ABILITYPOOL|Psion Feat|(PsionLVL/5)+1
 
 ###Block: Mind Blade abilities
+Weapon and Armor Proficiency	KEY:Psychic Warrior ~ Weapon and Armor Proficiency	CATEGORY:Special Ability																																																								ABILITY:Internal|AUTOMATIC|Shield Prof|Weapon Prof ~ Auto|Weapon Prof ~ Simple|TYPE=ArmorProfHeavy
 # Ability Name							Unique Key					Output Name						Category of Ability		Type								Visible	Define																Description																																																																																																																																																																																												Automatically Gained Weapon Prof.	Modify VAR																										Aspects
 MindBlade Wielder																				CATEGORY:Special Ability	TYPE:ClassAbility.Internal				VISIBLE:NO	DEFINE:MndBladeECL|0	DEFINE:MindBladePlus|0	DEFINE:MindBladeEnhancement|0	DEFINE:PsychicStrike|0																																																																																																																																																																																														AUTO:WEAPONPROF|Mind Blade		BONUS:VAR|MindBladePlus|floor(MndBladeECL/4)	BONUS:VAR|MindBladeEnhancement|floor((MndBladeECL-2)/4)	BONUS:VAR|PsychicStrike|floor((MndBladeECL+1)/4)
 Mind Blade								KEY:MindBlade Standard			OUTPUTNAME:Mind Blade				CATEGORY:Special Ability	TYPE:ClassAbility.SpecialAttack			VISIBLE:YES
@@ -70,6 +80,7 @@ Mind Blade Enhancement						KEY:MindBlade Enhancement		OUTPUTNAME:Mind Blade Enh
 Bladewind								KEY:MindBlade Bladewind			OUTPUTNAME:Bladewind				CATEGORY:Special Ability	TYPE:ClassAbility.SpecialAttack			VISIBLE:YES
 Knife to the Soul							KEY:MindBlade Knife to the Soul	OUTPUTNAME:Knife to the Soul			CATEGORY:Special Ability	TYPE:ClassAbility.SpecialAttack			VISIBLE:YES
 Multiple Throw							KEY:MindBlade Multiple Throw		OUTPUTNAME:Multiple Throw			CATEGORY:Special Ability	TYPE:ClassAbility.SpecialAttack			VISIBLE:YES
+Weapon and Armor Proficiency	KEY:Soulknife ~ Weapon and Armor Proficiency		CATEGORY:Special Ability																																																								ABILITY:Internal|AUTOMATIC|Shield Prof|Weapon Prof ~ Auto|Weapon Prof ~ Simple|TYPE=ArmorProfLight
 
 
 CATEGORY=Special Ability|MindBlade Psychic Strike.MOD																																														DESC:As a move action, a soulknife of 3rd level or higher can imbue his mind blade with destructive psychic energy. This effect deals an extra 1d8 points of damage to the next living, nonmindless target he successfully hits with a melee attack (or ranged attack, if he is using the throw mind blade ability). Creatures immune to mind-affecting effects are immune to psychic strike damage. (Unlike the rogue's sneak attack, the psychic strike is not precision damage and can affect creatures otherwise immune to extra damage from critical hits or more than 30 feet away, provided they are living, nonmindless creatures not immune to mind-affecting effects.) A mind blade deals this extra damage only once when this ability is called upon, but a soulknife can imbue his mind blade with psychic energy again by taking another move action. Once a soulknife has prepared his blade for a psychic strike, it holds the extra energy until it is used. Even if the soulknife drops the mind blade (or it otherwise dissipates, such as when it is thrown and misses), it is still imbued with psychic energy when the soulknife next materializes it.
@@ -77,51 +88,53 @@ CATEGORY=Special Ability|MindBlade Psychic Strike.MOD																											
 
 ###Block: Wilder Abilities
 # Ability Name		Category of Ability		Type							Visible	Define				Description												Aspects
-Psychic Enervation	CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality		VISIBLE:YES	DEFINE:PsychicEnervation|0	DESC:+%1 percent/lvl added|PsychicEnervation
-Wild Surge			CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality		VISIBLE:YES	DEFINE:WildSurge|0		DESC:+%1|WildSurge										ASPECT:Ability Benefit|+%1|WildSurge
-Elude Touch			CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.ModifyAC	VISIBLE:YES	DEFINE:EludeTouch|0		DESC:+%1 AC vs. Touch Attacks|EludeTouch							ASPECT:Ability Benefit|+%1 AC vs. Touch Attacks|EludeTouch
-Surging Euphoria		CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality		VISIBLE:YES	DEFINE:SurgingEuphoria|0	DESC:+%1|SurgingEuphoria									ASPECT:Ability Benefit|+%1|SurgingEuphoria
-Volatile Mind		CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality		VISIBLE:YES	DEFINE:VolatileMind|0		DESC:+%1 PP cost for telepathy powers used against character|VolatileMind
+Weapon and Armor Proficiency	KEY:Wilder ~ Weapon and Armor Proficiency	CATEGORY:Special Ability	TYPE:ClassFeature.WilderClassFeature.SpecialQuality																																																							ABILITY:Internal|AUTOMATIC|Shield Prof|Weapon Prof ~ Auto|Weapon Prof ~ Simple|TYPE=ArmorProfLight
+Psychic Enervation		KEY:Wilder ~ Psychic Enervation		CATEGORY:Special Ability	TYPE:ClassFeature.WilderClassFeature.SpecialQuality		VISIBLE:YES	DEFINE:PsychicEnervation|0	DESC:+%1 percent/lvl added|PsychicEnervation
+Wild Surge				KEY:Wilder ~ Wild Surge				CATEGORY:Special Ability	TYPE:ClassFeature.WilderClassFeature.SpecialQuality		VISIBLE:YES	DEFINE:WildSurge|0		DESC:+%1|WildSurge										ASPECT:Ability Benefit|+%1|WildSurge
+Elude Touch				KEY:Wilder ~ Elude Touch			CATEGORY:Special Ability	TYPE:ClassFeature.WilderClassFeature.SpecialQuality.ModifyAC	VISIBLE:YES	DEFINE:EludeTouch|0		DESC:+%1 AC vs. Touch Attacks|EludeTouch							ASPECT:Ability Benefit|+%1 AC vs. Touch Attacks|EludeTouch
+Surging Euphoria			KEY:Wilder ~ Surging Euphoria			CATEGORY:Special Ability	TYPE:ClassFeature.WilderClassFeature.SpecialQuality		VISIBLE:YES	DEFINE:SurgingEuphoria|0	DESC:+%1|SurgingEuphoria									ASPECT:Ability Benefit|+%1|SurgingEuphoria
+Volatile Mind			KEY:Wilder ~ Volatile Mind			CATEGORY:Special Ability	TYPE:ClassFeature.WilderClassFeature.SpecialQuality		VISIBLE:YES	DEFINE:VolatileMind|0		DESC:+%1 PP cost for telepathy powers used against character|VolatileMind
 
 ###Block: Elocator abilities
 # Ability Name		Category of Ability		Type												Visible	Define				Description										Stackable?	Multiple?	Choose				Bonus to spell known/L				Aspects							List of Class Spells by Level
-Elocator Transporter	CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.Extraordinary.ElocatorTransporter	VISIBLE:YES																	STACK:NO	MULT:YES	CHOOSE:CLASS|SPELLCASTER	BONUS:SPELLKNOWN|CLASS=%LIST;LEVEL=3|2									SPELLLEVEL:CLASS|SPELLCASTER.Psionic=3|Plane Shift (Psionic),Teleport (Psionic)
-Scorn Earth			CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.Supernatural					VISIBLE:YES
-Opportunistic Strike	CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.Extraordinary					VISIBLE:YES	DEFINE:OpportunisticStrike|0	DESC:+%1|OpportunisticStrike																							ASPECT:Ability Benefit|+%1|OpportunisticStrike
-Dimension Step		CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.Supernatural.ModifyMovement		VISIBLE:YES
-Flanker			CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.Extraordinary					VISIBLE:YES						DESC:Designate adjacent square to be determination for flanking
-Capricious Step		CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.Extraordinary.ModifyMovement		VISIBLE:YES						DESC:Extra 5' step in round with no other movement than the steps
-Dimension Spring Attack	CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.Supernatural.ModifyMovement		VISIBLE:YES						DESC:1x/day
-Accelerated Action	CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.Supernatural.ModifyMovement		VISIBLE:YES
+Elocator Transporter	CATEGORY:Special Ability	TYPE:ClassFeature.ElocatorClassFeature.SpecialQuality.Extraordinary.ElocatorTransporter	VISIBLE:YES																	STACK:NO	MULT:YES	CHOOSE:CLASS|SPELLCASTER	BONUS:SPELLKNOWN|CLASS=%LIST;LEVEL=3|2									SPELLLEVEL:CLASS|SPELLCASTER.Psionic=3|Plane Shift (Psionic),Teleport (Psionic)
+Scorn Earth			CATEGORY:Special Ability	TYPE:ClassFeature.ElocatorClassFeature.SpecialQuality.Supernatural					VISIBLE:YES
+Opportunistic Strike	CATEGORY:Special Ability	TYPE:ClassFeature.ElocatorClassFeature.SpecialQuality.Extraordinary					VISIBLE:YES	DEFINE:OpportunisticStrike|0	DESC:+%1|OpportunisticStrike																							ASPECT:Ability Benefit|+%1|OpportunisticStrike
+Dimension Step		CATEGORY:Special Ability	TYPE:ClassFeature.ElocatorClassFeature.SpecialQuality.Supernatural.ModifyMovement		VISIBLE:YES
+Flanker			CATEGORY:Special Ability	TYPE:ClassFeature.ElocatorClassFeature.SpecialQuality.Extraordinary					VISIBLE:YES						DESC:Designate adjacent square to be determination for flanking
+Capricious Step		CATEGORY:Special Ability	TYPE:ClassFeature.ElocatorClassFeature.SpecialQuality.Extraordinary.ModifyMovement		VISIBLE:YES						DESC:Extra 5' step in round with no other movement than the steps
+Dimension Spring Attack	CATEGORY:Special Ability	TYPE:ClassFeature.ElocatorClassFeature.SpecialQuality.Supernatural.ModifyMovement		VISIBLE:YES						DESC:1x/day
+Accelerated Action	CATEGORY:Special Ability	TYPE:ClassFeature.ElocatorClassFeature.SpecialQuality.Supernatural.ModifyMovement		VISIBLE:YES
 
 ###Block: Slayer abilities
 # Ability Name		Output Name				Category of Ability		Type							Visible	Special ABility														Define				Description																													ASPECT
 #TODO we can add a CHOOSE to set the Favored Enemy selection
 # Ability Name		Output Name				Category of Ability		Type										Visible	Define				Description																													Aspects
-Slayer Favored Enemy	OUTPUTNAME:Favored Enemy	CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.Extraordinary			VISIBLE:YES	DEFINE:SlayerFavoredEnemy|0	DESC:+%1 bonus on weapon damage rolls and +%1 bonus on Bluff, Listen, Sense Motive, Spot, and Survival checks when using these skills against her favored enemy.|SlayerFavoredEnemy	ASPECT:Ability Benefit|+%1|SlayerFavoredEnemy
-Sense Favored Enemy	OUTPUTNAME:Enemy Sense		CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.Supernatural.Sense		VISIBLE:YES						DESC:You can sense the presence of her favored enemy within 60 feet of yourself.
-Brain Nausea							CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.Supernatural			VISIBLE:YES	DEFINE:BrainNausea|0		DESC:Will Save DC %1|BrainNausea
-Lucid Buffer							CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.Extraordinary			VISIBLE:YES						DESC:+4 Save vs. Compulsions, Mind-affecting effects
-Cerebral Blind							CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.Supernatural			VISIBLE:YES						DESC:Protection from location detection as long as psionically focused
-Breech Power Resistance						CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.Supernatural			VISIBLE:YES
-Cerebral Immunity							CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.Supernatural.Immunity	VISIBLE:YES						DESC:Immune to mind influencing effects as long as psionically focused
-Blast Feedback							CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.Supernatural			VISIBLE:YES
+Weapon and Armor Proficiency	KEY:Slayer ~ Weapon and Armor Proficiency			CATEGORY:Special Ability	TYPE:ClassFeature.SlayerClassFeature.SpecialQuality																																																							ABILITY:Internal|AUTOMATIC|Shield Prof|Weapon Prof ~ Auto|Weapon Prof ~ Simple|TYPE=ArmorProfHeavy
+Slayer Favored Enemy	OUTPUTNAME:Favored Enemy	CATEGORY:Special Ability	TYPE:ClassFeature.SlayerClassFeature.SpecialQuality.Extraordinary			VISIBLE:YES	DEFINE:SlayerFavoredEnemy|0	DESC:+%1 bonus on weapon damage rolls and +%1 bonus on Bluff, Listen, Sense Motive, Spot, and Survival checks when using these skills against her favored enemy.|SlayerFavoredEnemy	ASPECT:Ability Benefit|+%1|SlayerFavoredEnemy
+Sense Favored Enemy	OUTPUTNAME:Enemy Sense		CATEGORY:Special Ability	TYPE:ClassFeature.SlayerClassFeature.SpecialQuality.Supernatural.Sense		VISIBLE:YES						DESC:You can sense the presence of her favored enemy within 60 feet of yourself.
+Brain Nausea							CATEGORY:Special Ability	TYPE:ClassFeature.SlayerClassFeature.SpecialQuality.Supernatural			VISIBLE:YES	DEFINE:BrainNausea|0		DESC:Will Save DC %1|BrainNausea
+Lucid Buffer							CATEGORY:Special Ability	TYPE:ClassFeature.SlayerClassFeature.SpecialQuality.Extraordinary			VISIBLE:YES						DESC:+4 Save vs. Compulsions, Mind-affecting effects
+Cerebral Blind							CATEGORY:Special Ability	TYPE:ClassFeature.SlayerClassFeature.SpecialQuality.Supernatural			VISIBLE:YES						DESC:Protection from location detection as long as psionically focused
+Breech Power Resistance						CATEGORY:Special Ability	TYPE:ClassFeature.SlayerClassFeature.SpecialQuality.Supernatural			VISIBLE:YES
+Cerebral Immunity							CATEGORY:Special Ability	TYPE:ClassFeature.SlayerClassFeature.SpecialQuality.Supernatural.Immunity	VISIBLE:YES						DESC:Immune to mind influencing effects as long as psionically focused
+Blast Feedback							CATEGORY:Special Ability	TYPE:ClassFeature.SlayerClassFeature.SpecialQuality.Supernatural			VISIBLE:YES
 
 ###Block: Metamind abilities
 # Ability Name		Category of Ability		Type							Visible	Define					Description
-Free Manifesting		CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.PsiLike	VISIBLE:YES	DEFINE:FreeManifestingProgression|0	DESC:1st Level Powers (3x/day)|PREVAREQ:FreeManifestingProgression,1	DESC:1st Level Powers (3x/day), 2nd Level Powers (3x/day)|PREVAREQ:FreeManifestingProgression,2	DESC:1st Level Powers (3x/day), 2nd Level Powers (3x/day), 3rd Level Powers (1x/day)|PREVAREQ:FreeManifestingProgression,3	DESC:1st Level Powers (3x/day), 2nd Level Powers (3x/day), 3rd Level Powers (1x/day), 4th Level Powers (1x/day)|PREVAREQ:FreeManifestingProgression,4	DESC:1st Level Powers (3x/day), 2nd Level Powers (3x/day), 3rd Level Powers (1x/day), 4th Level Powers (1x/day), 5th Level Powers (1x/day)|PREVARGTEQ:FreeManifestingProgression,5
-Font of Power		CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality		VISIBLE:YES
-Cognizance Psicrystal	CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality		VISIBLE:YES	DEFINE:CogPsiCrystal|0			DESC:%1 points|CogPsiCrystal
+Free Manifesting		CATEGORY:Special Ability	TYPE:ClassFeature.MetamindClassFeature.SpecialQuality.PsiLike	VISIBLE:YES	DEFINE:FreeManifestingProgression|0	DESC:1st Level Powers (3x/day)|PREVAREQ:FreeManifestingProgression,1	DESC:1st Level Powers (3x/day), 2nd Level Powers (3x/day)|PREVAREQ:FreeManifestingProgression,2	DESC:1st Level Powers (3x/day), 2nd Level Powers (3x/day), 3rd Level Powers (1x/day)|PREVAREQ:FreeManifestingProgression,3	DESC:1st Level Powers (3x/day), 2nd Level Powers (3x/day), 3rd Level Powers (1x/day), 4th Level Powers (1x/day)|PREVAREQ:FreeManifestingProgression,4	DESC:1st Level Powers (3x/day), 2nd Level Powers (3x/day), 3rd Level Powers (1x/day), 4th Level Powers (1x/day), 5th Level Powers (1x/day)|PREVARGTEQ:FreeManifestingProgression,5
+Font of Power		CATEGORY:Special Ability	TYPE:ClassFeature.MetamindClassFeature.SpecialQuality		VISIBLE:YES
+Cognizance Psicrystal	CATEGORY:Special Ability	TYPE:ClassFeature.MetamindClassFeature.SpecialQuality		VISIBLE:YES	DEFINE:CogPsiCrystal|0			DESC:%1 points|CogPsiCrystal
 
 ###Block: Psion Uncarnate abilities
 # Ability Name			Output Name				Category of Ability		Type								Visible	Define					Description																	Aspects
-Uncarnate Armor								CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.Supernatural	VISIBLE:YES
-Uncarnate Incorporeal Touch	OUTPUTNAME:Incorporeal Touch	CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.Supernatural	VISIBLE:YES	DEFINE:UncarnateIncorporealTouch|0	DESC:%1d6 (3x/day)|UncarnateIncorporealTouch											ASPECT:Ability Benefit|%1d6|UncarnateIncorporealTouch
-Shed Body									CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.Supernatural	VISIBLE:YES	DEFINE:ShedBody|0				DESC:%1x/day|ShedBody
-Assume Equipment								CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.Supernatural	VISIBLE:YES
-Assume Likeness								CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.Supernatural	VISIBLE:YES
-Telekinetic Force								CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.Supernatural	VISIBLE:YES	DEFINE:TelekineticForceDC|0		DESC:DC %1 (3x/day when Corporeal otherwise unlimited)|TelekineticForceDC|PREVARGT:TelekineticForceDC,0
-Uncarnate Bridge								CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.Supernatural	VISIBLE:YES
+Uncarnate Armor								CATEGORY:Special Ability	TYPE:ClassFeature.Psion UncarnateClassFeature.SpecialQuality.Supernatural	VISIBLE:YES
+Uncarnate Incorporeal Touch	OUTPUTNAME:Incorporeal Touch	CATEGORY:Special Ability	TYPE:ClassFeature.Psion UncarnateClassFeature.SpecialQuality.Supernatural	VISIBLE:YES	DEFINE:UncarnateIncorporealTouch|0	DESC:%1d6 (3x/day)|UncarnateIncorporealTouch											ASPECT:Ability Benefit|%1d6|UncarnateIncorporealTouch
+Shed Body									CATEGORY:Special Ability	TYPE:ClassFeature.Psion UncarnateClassFeature.SpecialQuality.Supernatural	VISIBLE:YES	DEFINE:ShedBody|0				DESC:%1x/day|ShedBody
+Assume Equipment								CATEGORY:Special Ability	TYPE:ClassFeature.Psion UncarnateClassFeature.SpecialQuality.Supernatural	VISIBLE:YES
+Assume Likeness								CATEGORY:Special Ability	TYPE:ClassFeature.Psion UncarnateClassFeature.SpecialQuality.Supernatural	VISIBLE:YES
+Telekinetic Force								CATEGORY:Special Ability	TYPE:ClassFeature.Psion UncarnateClassFeature.SpecialQuality.Supernatural	VISIBLE:YES	DEFINE:TelekineticForceDC|0		DESC:DC %1 (3x/day when Corporeal otherwise unlimited)|TelekineticForceDC|PREVARGT:TelekineticForceDC,0
+Uncarnate Bridge								CATEGORY:Special Ability	TYPE:ClassFeature.Psion UncarnateClassFeature.SpecialQuality.Supernatural	VISIBLE:YES
 Uncarnate									CATEGORY:Special Ability	TYPE:ClassAbility.SpecialQuality.Extraordinary	VISIBLE:YES
 
 ###Block: Pyrokineticist abilities
@@ -339,13 +352,6 @@ Ethereal Jaunt (Su)			KEY:Ethereal Jaunt ~ Thought Slayer		CATEGORY:Special Abil
 
 Naturally Psionic (Ex)			KEY:Naturally Psionic ~ Phrenic		CATEGORY:Special Ability	TYPE:RaceTrait.PhrenicRaceTrait.SpecialQuality			DESC:A phrenic creature gains 1 bonus power point.																																																																																																																																															SOURCEPAGE:p.206
 
-###Block: New Class
-# Ability Name			Unique Key								Category of Ability		Description																																							Automatically Gained Weapon Prof.										Ability
-Weapon and Armor Proficiency	KEY:Weapon and Armor Proficiency ~ Psion			CATEGORY:Special Ability	DESC:Psions are proficient with the club, dagger, heavy crossbow, light crossbow, quarter staff, and shortspear. They are not proficient with any type of armor or shield. Armor does not, however, interfere with the manifestation of powers.	AUTO:WEAPONPROF|Club|Dagger|Crossbow (Heavy)|Crossbow (Light)|Quarterstaff|Shortspear	ABILITY:Internal|AUTOMATIC|Weapon Prof ~ Auto
-Weapon and Armor Proficiency	KEY:Weapon and Armor Proficiency ~ Psychic Warrior	CATEGORY:Special Ability																																																								ABILITY:Internal|AUTOMATIC|Shield Prof|Weapon Prof ~ Auto|Weapon Prof ~ Simple|TYPE=ArmorProfHeavy
-Weapon and Armor Proficiency	KEY:Weapon and Armor Proficiency ~ Soulknife		CATEGORY:Special Ability																																																								ABILITY:Internal|AUTOMATIC|Shield Prof|Weapon Prof ~ Auto|Weapon Prof ~ Simple|TYPE=ArmorProfLight
-Weapon and Armor Proficiency	KEY:Weapon and Armor Proficiency ~ Wilder			CATEGORY:Special Ability																																																								ABILITY:Internal|AUTOMATIC|Shield Prof|Weapon Prof ~ Auto|Weapon Prof ~ Simple|TYPE=ArmorProfLight
-Weapon and Armor Proficiency	KEY:Weapon and Armor Proficiency ~ Slayer			CATEGORY:Special Ability																																																								ABILITY:Internal|AUTOMATIC|Shield Prof|Weapon Prof ~ Auto|Weapon Prof ~ Simple|TYPE=ArmorProfHeavy
 
 
 
