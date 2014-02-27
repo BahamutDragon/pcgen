@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Thu Jan 23 19:18:03 2014 -- reformated by prettylst.pl v1.51 (build 22988)
+# CVS $Revision: $ $Author: $ -- Wed Feb 26 18:18:46 2014 -- reformated by prettylst.pl v1.51 (build 22988)
 
 
 # Spell Name			Unique Key					Classes of caster											School			Sub-School			Spell Descriptors				Spell Variations				Type			Components			Casting Time			Range			Target Area or Effect													Duration										Save Info								Spell Resistance		XP Cost	Bonus to skill					Choose								Source Page		Description																													Temporary effect description													Temporary Bonus
@@ -619,12 +619,13 @@ Wall Walker.MOD					DESC:You can walk on vertical surfaces or even traverse ceil
 Weapon of Energy.MOD				DESC:As claw of energy, except this power can be manifested on a touched weapon. This power's subtype is the same as the type of energy infused in the touched weapon.|PRERULE:1,DisplayFullSpell
 
 ###Block: Temp Bonus
-Animal Affinity (Strength)		TEMPBONUS:ANYPC|STAT|STR|%LIST	CHOOSE:STRING|4|8|12|16|20|24|28|32|36
-Animal Affinity (Dexterity)		TEMPBONUS:ANYPC|STAT|DEX|%LIST	CHOOSE:STRING|4|8|12|16|20|24|28|32|36
-Animal Affinity (Constitution)	TEMPBONUS:ANYPC|STAT|CON|%LIST	CHOOSE:STRING|4|8|12|16|20|24|28|32|36
-Animal Affinity (Intelligence)	TEMPBONUS:ANYPC|STAT|INT|%LIST	CHOOSE:STRING|4|8|12|16|20|24|28|32|36
-Animal Affinity (Wisdom)		TEMPBONUS:ANYPC|STAT|WIS|%LIST	CHOOSE:STRING|4|8|12|16|20|24|28|32|36
-Animal Affinity (Charisma)		TEMPBONUS:ANYPC|STAT|CHA|%LIST	CHOOSE:STRING|4|8|12|16|20|24|28|32|36
+# Spell Name				Choose						Temporary Bonus
+Animal Affinity (Strength)		CHOOSE:STRING|4|8|12|16|20|24|28|32|36	TEMPBONUS:ANYPC|STAT|STR|%LIST
+Animal Affinity (Dexterity)		CHOOSE:STRING|4|8|12|16|20|24|28|32|36	TEMPBONUS:ANYPC|STAT|DEX|%LIST
+Animal Affinity (Constitution)	CHOOSE:STRING|4|8|12|16|20|24|28|32|36	TEMPBONUS:ANYPC|STAT|CON|%LIST
+Animal Affinity (Intelligence)	CHOOSE:STRING|4|8|12|16|20|24|28|32|36	TEMPBONUS:ANYPC|STAT|INT|%LIST
+Animal Affinity (Wisdom)		CHOOSE:STRING|4|8|12|16|20|24|28|32|36	TEMPBONUS:ANYPC|STAT|WIS|%LIST
+Animal Affinity (Charisma)		CHOOSE:STRING|4|8|12|16|20|24|28|32|36	TEMPBONUS:ANYPC|STAT|CHA|%LIST
 
 #Need way to make Insight bonus also NotFlatfooted bonus - Fluxxdog
 #Precognition (Defensive)		CLASSES:Psion,Psychic Warrior,Wilder=1								SCHOOL:Clairsentience													TYPE:Psionic	COMPS:Ma, Vi		CASTTIME:1 standard action						RANGE:Personal			TARGETAREA:You																DURATION:(CASTERLEVEL) min. [D]																										CHOOSE:NUMBER|MIN=1|MAX=19|TITLE=Choose power points spent to increase bonus	SOURCEPAGE:p.124	DESC:Gain +1 insight bonus to AC and saving throws.|!PRERULE:1,DisplayFullSpell												TEMPDESC:Grants saving throw and armor bonus based on power points spent	TEMPBONUS:PC|CHECKS|Fortitude,Reflex,Will|(%CHOICE+2)/3|TYPE=Insight	TEMPBONUS:PC|COMBAT|AC|(%CHOICE+2)/3|TYPE=Insight
@@ -633,10 +634,10 @@ Animal Affinity (Charisma)		TEMPBONUS:ANYPC|STAT|CHA|%LIST	CHOOSE:STRING|4|8|12|
 #Deceleration.MOD	TEMPBONUS:PC|MOVEMULT|TYPE.Walk,TYPE.Fly,TYPE.Burrow,TYPE.Swim,TYPE.Climb|.5|TYPE=Enhancement
 
 #There is no BONUS:WEAPON|CRITRANGE - Fluxxdog
-Keen Edge (Psionic).MOD	TEMPBONUS:PC|WEAPONPROF=TYPE.Piercing|CRITRANGEDOUBLE|1|TYPE=DoNotStack	TEMPBONUS:PC|WEAPONPROF=TYPE.Slashing|CRITRANGEDOUBLE|1|TYPE=DoNotStack
+Keen Edge (Psionic).MOD										TEMPBONUS:PC|WEAPONPROF=TYPE.Piercing|CRITRANGEDOUBLE|1|TYPE=DoNotStack	TEMPBONUS:PC|WEAPONPROF=TYPE.Slashing|CRITRANGEDOUBLE|1|TYPE=DoNotStack
 
 #No way to limit choice to only claw or bite attacks - Fluxxdog
-Metaphysical Claw.MOD	TEMPBONUS:PC|WEAPONPROF=Claw|TOHIT,DAMAGE|1|TYPE=Enhancement	TEMPBONUS:PC|WEAPONPROF=Bite|TOHIT,DAMAGE|1|TYPE=Enhancement
+Metaphysical Claw.MOD										TEMPBONUS:PC|WEAPONPROF=Claw|TOHIT,DAMAGE|1|TYPE=Enhancement	TEMPBONUS:PC|WEAPONPROF=Bite|TOHIT,DAMAGE|1|TYPE=Enhancement
 
 #Need a way to affect ALL movements at once - Fluxxdog
 #Oak Body.MOD		TEMPDESC:Grants changes of becoming living oak		TEMPBONUS:PC|COMBAT|AC|5|TYPE=NaturalArmor		TEMPBONUS:PC|MISC|ACCHECK|-4		TEMPBONUS:PC|MISC|SPELLFAILURE|25		TEMPBONUS:PC|MOVEMULT|TYPE.Walk,TYPE.Fly,TYPE.Climb,TYPE.Burrow,TYPE.Swim|.5|TYPE=Temporary		TEMPBONUS:PC|STAT|STR|4|TYPE=Enhancement	TEMPBONUS:PC|STAT|DEX|-1*(min(2,DEXSCORE-1))|TYPE=Temporary
