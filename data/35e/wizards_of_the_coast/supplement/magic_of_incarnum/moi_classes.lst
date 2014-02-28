@@ -89,3 +89,101 @@ CLASS:Totemist	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Handle Animal|Kno
 1	BONUS:VAR|TotemistSoulmeldsCount|(CL-1)/3						DEFINE:TotemistSoulmeldsCount|0
 1	BONUS:VAR|TotemistChakraBinds|(CL+2)/4						DEFINE:TotemistChakraBinds|0
 1	BONUS:VAR|EssentiaPool|CL-(CL>2)-(CL>4)-(CL>7)+(CL>17)+(CL>18)+(CL>19)	DEFINE:EssentiaPool|0
+
+#Incandescent Champion: This good-aligned warrior wields pure incarnum to protect the innocent from the depredations of tyranny.
+CLASS:Incandescent Champion	VISIBLE:NO	SOURCEPAGE:p.115	TYPE:PC.Prestige.Incarnum	HD:10	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3
+CLASS:Incandescent Champion	BONUS:COMBAT|BAB|CL*3/4
+CLASS:Incandescent Champion	PRETEXT:Alignment: Any good. Base Attack Bonus: +6. Skills: Concentration 4 ranks. Essentia Pool: 1.	PREALIGN:LG,NG,CG	PREMULT:1,[PREATT:6],[PREVARGTEQ:BaseAttackBonus,6]	PRESKILL:1,Concentration=4	PREVARGTEQ:EssentiaPool,1
+CLASS:Incandescent Champion	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Heal|Intimidate|Knowledge (Arcana)|Knowledge (Religion)|Knowledge (The Planes)|TYPE=Profession|Ride
+1	ABILITY:Incandescent Champion Class Feature|AUTOMATIC|Incandescent Champion ~ Weapon and Armor Proficiency
+1	ABILITY:Incandescent Champion Class Feature|AUTOMATIC|Incandescent Champion ~ Incandescent Strike
+2	ABILITY:Incandescent Champion Class Feature|AUTOMATIC|Incandescent Champion ~ Fast Healing
+3	ABILITY:Incandescent Champion Class Feature|AUTOMATIC|Incandescent Champion ~ Unbearable Countenance
+4	ABILITY:Incandescent Champion Class Feature|AUTOMATIC|Incandescent Champion ~ Incarnum Overload
+5	ABILITY:Incandescent Champion Class Feature|AUTOMATIC|Incandescent Champion ~ Incandescent Ray
+8	ABILITY:Incandescent Champion Class Feature|AUTOMATIC|Incandescent Champion ~ Incandescent Aura
+10	ABILITY:Incandescent Champion Class Feature|AUTOMATIC|Incandescent Champion ~ Incandescent Transcendence
+
+#Incarnum Blade: This fierce warrior augments his melee weapon with incarnum to gain extra combat benefits.
+CLASS:Incarnum Blade	VISIBLE:NO	SOURCEPAGE:p.121	TYPE:PC.Prestige.Incarnum	HD:10	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3
+CLASS:Incarnum Blade	BONUS:COMBAT|BAB|CL
+CLASS:Incarnum Blade	PRETEXT:Alignment: Any except neutral. Base Attack Bonus: +5. Skills: Concentration 2 ranks.	!PREALIGN:TN	PREMULT:1,[PREATT:5],[PREVARGTEQ:BaseAttackBonus,5]	PRESKILL:1,Concentration=2
+CLASS:Incarnum Blade	STARTSKILLPTS:2	CSKILL:Climb|Concentration|TYPE=Craft|Intimidate|Jump|Knowledge (Arcana)|Swim
+1	ABILITY:Incarnum Blade Class Feature|AUTOMATIC|Incarnum Blade ~ Weapon and Armor Proficiency
+1	ABILITY:Incarnum Blade Class Feature|AUTOMATIC|Incarnum Blade ~ Shape Blademeld
+1	ABILITY:Incarnum Blade Class Feature|AUTOMATIC|Incarnum Blade ~ Blademeld Chakra Bind
+3	ABILITY:Incarnum Blade Class Feature|AUTOMATIC|Incarnum Blade ~ Rebind Blademeld
+5	ABILITY:Incarnum Blade Class Feature|AUTOMATIC|Incarnum Blade ~ Dual Chakra Binding
+
+#Ironsoul Forgemaster: An ironsoul forgemaster is a dwarf smith who infuses his creations with incarnum to gain offensive and defensive benefits.
+CLASS:Ironsoul Forgemaster	HD:8	SOURCEPAGE:p.126	TYPE:PC.Prestige.Incarnum
+CLASS:Ironsoul Forgemaster	PRETEXT:Race: Dwarf. Alignment: Any nonevil. Skills: Craft (armorsmithing or weaponsmithing) 8 ranks, Knowledge (arcana) 2 ranks. Meldshaping: Ability to shape soulmelds.	PRERACE:1,Dwarf%	!PREALIGN:LE,NE,CE	PRESKILL:1,Craft (Armorsmithing)=8,Craft (Weaponsmithing)=8	PRESKILL:1,Knowledge (Arcana)=2
+CLASS:Ironsoul Forgemaster	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Knowledge (Arcana)|Knowledge (Religion)|TYPE=Profession|Sense Motive|Spellcraft
+1	ABILITY:Ironsoul Forgemaster Class Feature|AUTOMATIC|Ironsoul Forgemaster ~ Weapon and Armor Proficiency
+1	ABILITY:Ironsoul Forgemaster Class Feature|AUTOMATIC|Ironsoul Forgemaster ~ Meldshaping
+1	ABILITY:Ironsoul Forgemaster Class Feature|AUTOMATIC|Ironsoul Forgemaster ~ Shield Bond
+2	ABILITY:Ironsoul Forgemaster Class Feature|AUTOMATIC|Ironsoul Forgemaster ~ Secrets of the Forge
+3	ABILITY:Ironsoul Forgemaster Class Feature|AUTOMATIC|Ironsoul Forgemaster ~ Forge Lore
+4	ABILITY:Ironsoul Forgemaster Class Feature|AUTOMATIC|Ironsoul Forgemaster ~ Chakra Binds
+5	ABILITY:Ironsoul Forgemaster Class Feature|AUTOMATIC|Ironsoul Forgemaster ~ Armor Bond
+9	ABILITY:Ironsoul Forgemaster Class Feature|AUTOMATIC|Ironsoul Forgemaster ~ Weapon Bond
+
+#Necrocarnate: This black-hearted meldshaper draws his power from the life energy of others and creates horrific undead from the corpses of his enemies.
+CLASS:Necrocarnate	SOURCEPAGE:p.132	HD:6	TYPE:PC.Prestige.Incarnum	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2
+CLASS:Necrocarnate	BONUS:COMBAT|BAB|CL*1/2
+CLASS:Necrocarnate	PRETEXT:Alignment: Any evil. Skills: Knowledge (arcana) 5 ranks, Knowledge (religion) 5 ranks, Spellcraft 10 ranks. Feat: Necrocarnum Acolyte. Meldshaping: Ability to shape soulmelds, ability to bind soulmelds to the crown, feet, and hands chakras.	PREALIGN:LE,NE,CE	PRESKILL:3,Knowledge (Arcana)=5,Knowledge (Religion)=5,Spellcraft=10	PREFEAT:1,Necrocarnum Acolyte
+CLASS:Necrocarnate	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Intimidate|Knowledge (Arcana)|Knowledge (Religion)|Knowledge (The Planes)|TYPE=Profession|Spellcraft
+1	ABILITY:Necrocarnate Class Feature|AUTOMATIC|Necrocarnate ~ Weapon and Armor Proficiency
+1	ABILITY:Necrocarnate Class Feature|AUTOMATIC|Necrocarnate ~ Harvest Soul
+1	ABILITY:Necrocarnate Class Feature|AUTOMATIC|Necrocarnate ~ Improved Meldshaper Level
+2	ABILITY:Necrocarnate Class Feature|AUTOMATIC|Necrocarnate ~ Necrocarnum Soulshield
+3	ABILITY:Necrocarnate Class Feature|AUTOMATIC|Necrocarnate ~ Chakra Binds
+4	ABILITY:Necrocarnate Class Feature|AUTOMATIC|Necrocarnate ~ Extra Chakra Bind
+4	ABILITY:Necrocarnate Class Feature|AUTOMATIC|Necrocarnate ~ Extra Soulmelds
+5	ABILITY:Necrocarnate Class Feature|AUTOMATIC|Necrocarnate ~ Essentia Trap
+6	ABILITY:Necrocarnate Class Feature|AUTOMATIC|Necrocarnate ~ Necrocarnum Zombie Master
+9	ABILITY:Necrocarnate Class Feature|AUTOMATIC|Necrocarnate ~ Expanded Necrocarnum Meld Capacity
+
+14	PREPCLEVEL:MIN=20
+
+#Sapphire Hierarch: A member of an order devoted to the mysterious Sapphire Eidolon, this character is a stalwart servant of law who fights chaos wherever it reigns.
+CLASS:Sapphire Hierarch	HD:6	SOURCEPAGE:p.136	TYPE:PC.Prestige.Incarnum	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2
+CLASS:Sapphire Hierarch	BONUS:COMBAT|BAB|CL*1/2
+CLASS:Sapphire Hierarch	PRETEXT:Alignment: Lawful. Meldshaping: Ability to shape three soulmelds. Spellcasting: Ability to cast 2nd-level divine spells. Skills: Knowledge (arcana) 4 ranks, Knowledge (religion) 4 ranks. Essentia Pool: 3. Special: Access to the Law domain.	PREALIGN:LG,LN,LE	PRESPELLTYPE:1,Divine=2	PRESKILL:2,Knowledge (Arcana)=4,Knowledge (Religion)=4	PREVARGTEQ:EssentiaPool,3	PREDOMAIN:1,Law
+CLASS:Sapphire Hierarch	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Knowledge (Arcana)|Knowledge (Religion)|Knowledge (The Planes)|TYPE=Profession|Sense Motive|Spellcraft
+1	ABILITY:Sapphire Hierarch Class Feature|AUTOMATIC|Sapphire Hierarch ~ Weapon and Armor Proficiency
+1	ABILITY:Sapphire Hierarch Class Feature|AUTOMATIC|Sapphire Hierarch ~ Meldshaping
+1	ABILITY:Sapphire Hierarch Class Feature|AUTOMATIC|Sapphire Hierarch ~ Spellcasting
+1	ABILITY:Sapphire Hierarch Class Feature|AUTOMATIC|Sapphire Hierarch ~ Consultation
+1	ABILITY:Sapphire Hierarch Class Feature|AUTOMATIC|Sapphire Hierarch ~ Smite Chaos
+2	ABILITY:Sapphire Hierarch Class Feature|AUTOMATIC|Sapphire Hierarch ~ Favored of the Eidolon
+3	ABILITY:Sapphire Hierarch Class Feature|AUTOMATIC|Sapphire Hierarch ~ Damage Reduction
+5	ABILITY:Sapphire Hierarch Class Feature|AUTOMATIC|Sapphire Hierarch ~ Sapphire Body
+8	ABILITY:Sapphire Hierarch Class Feature|AUTOMATIC|Sapphire Hierarch ~ Timeless Body
+
+#Soulcaster: Incarnum-suffused magic is the specialty of this arcane spellcaster.
+CLASS:Soulcaster	HD:4	SOURCEPAGE:p.142		TYPE:PC.Prestige.Incarnum	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2
+CLASS:Soulcaster	BONUS:COMBAT|BAB|CL*1/2
+CLASS:Soulcaster	PRETEXT:Skills: Knowledge (arcana) 8 ranks. Feats: Incarnum Spellshaping. Spellcasting: Ability to cast 2nd-level arcane spells. Meldshaping: Ability to shape three soulmelds; ability to bind a soulmeld to a chakra.	PRESKILL:1,Knowledge (Arcana)=8	PREFEAT:1,Incarnum Spellshaping	PRESPELLTYPE:1,Arcane=2
+CLASS:Soulcaster	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Knowledge (Arcana)|Knowledge (Religion)|Knowledge (The Planes)|TYPE=Profession|Spellcraft
+1	ABILITY:Soulcaster Class Feature|AUTOMATIC|Soulcaster ~ Weapon and Armor Proficiency
+1	ABILITY:Soulcaster Class Feature|AUTOMATIC|Soulcaster ~ Meldshaping
+1	ABILITY:Soulcaster Class Feature|AUTOMATIC|Soulcaster ~ Spellcasting
+1	ABILITY:Soulcaster Class Feature|AUTOMATIC|Soulcaster ~ Arcane Investment
+3	ABILITY:Soulcaster Class Feature|AUTOMATIC|Soulcaster ~ Chakra Binds
+10	ABILITY:Soulcaster Class Feature|AUTOMATIC|Soulcaster ~ Magical Distillation
+
+#Spinemeld Warrior: This noble, fighting skarn can use his arm spines to devastating effect.
+CLASS:Spinemeld Warrior	HD:10	SOURCEPAGE:p.147	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Fortitude|CL/2+2
+CLASS:Spinemeld Warrior	BONUS:COMBAT|BAB|CL
+CLASS:Spinemeld Warrior	PRETEXT:Race: Skarn. Alignment: Any lawful. Base Attack Bonus: +5. Essentia Pool: 1.	PRERACE:1,Skarn%	PREALIGN:LG,LN,LE	PREMULT:1,[PREATT:5],[PREVARGTEQ:BaseAttackBonus,5]	PREVARGTEQ:EssentiaPool,1
+CLASS:Spinemeld Warrior	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Diplomacy|Handle Animal|Intimidate|Jump|Knowledge (Nobility and Royalty)|TYPE=Profession|Ride|Swim
+1	ABILITY:Spinemeld Warrior Class Feature|AUTOMATIC|Spinemeld Warrior ~ Weapon and Armor Proficiency
+1	ABILITY:Spinemeld Warrior Class Feature|AUTOMATIC|Spinemeld Warrior ~ Meldshaping
+1	ABILITY:Spinemeld Warrior Class Feature|AUTOMATIC|Spinemeld Warrior ~ Twin Spine Fighting
+1	ABILITY:Spinemeld Warrior Class Feature|AUTOMATIC|Spinemeld Warrior ~ Two-Weapon Fighting
+2	ABILITY:Spinemeld Warrior Class Feature|AUTOMATIC|Spinemeld Warrior ~ Noble Familiarity
+2	ABILITY:Spinemeld Warrior Class Feature|AUTOMATIC|Spinemeld Warrior ~ Spine Enhancement
+5	ABILITY:Spinemeld Warrior Class Feature|AUTOMATIC|Spinemeld Warrior ~ Spine Rend
+7	ABILITY:Spinemeld Warrior Class Feature|AUTOMATIC|Spinemeld Warrior ~ Chakra Bind (Arms)
+9	ABILITY:Spinemeld Warrior Class Feature|AUTOMATIC|Spinemeld Warrior ~ Adamantine Spines
