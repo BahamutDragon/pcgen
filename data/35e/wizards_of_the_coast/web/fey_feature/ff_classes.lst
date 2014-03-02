@@ -1,0 +1,73 @@
+# CVS $Revision: $ $Author: $ -- Wed Feb 26 18:18:46 2014 -- reformated by prettylst.pl v1.51 (build 22988)
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Save checks bonus												Combat bonus
+CLASS:Courtier	HD:6		TYPE:PC.Prestige	ABB:Ctr		MAXLEVEL:4	BONUS:CHECKS|BASE.Reflex|(CL+4)/2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
+# Class Name	Multiple Requirements																			Required Skill
+CLASS:Courtier	PREMULT:2,[PREFEAT:1,Leadership],[PREFEAT:1,Seelie Court Member,Unseelie Court Member,Seelie Court Noble,Unseelie Court Noble]	PRESKILL:2,Diplomacy=8,Gather Information=4
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Courtier	STARTSKILLPTS:6	CSKILL:Bluff|Concentration|TYPE=Craft|Diplomacy|Intimidate|Gather Information|Knowledge (Local)|Knowledge (Nobility and Royalty)|Listen|Move Silently|Search|Sense Motive|Spot
+1	ADD:SPELLCASTER|ANY
+4	ADD:SPELLCASTER|ANY
+###Block:
+1	BONUS:VAR|CourtierFeat|1
+4	BONUS:VAR|CourtierFeat|1
+###Block:
+1	ABILITY:Courtier Class Feature|AUTOMATIC|Courtier ~ Weapon and Armor Proficiency|Courtier ~ Spells per Day/Spells Known|Courtier ~ Bonus Feat
+2	ABILITY:Courtier Class Feature|AUTOMATIC|Courtier ~ Enhanced Leadership
+3	ABILITY:Courtier Class Feature|AUTOMATIC|Courtier ~ Court Connections
+
+# https://www.wizards.com/default.asp?x=dnd/fey/20030315a
+
+# Class Name	Hit Dice	Type			Save checks bonus											Combat bonus
+CLASS:Dark Hunter	HD:6		TYPE:Prestige.PC	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4
+# Class Name	Required Feat				Multiple Requirements						Required Skill													Required Text
+CLASS:Dark Hunter	PREFEAT:2,Improved Initiative,Track	PREMULT:1,[PREATT:5],[PREVARGTEQ:BaseAttackBonus,5]	PRESKILL:5,Hide=5,Knowledge (Nature)=3,Move Silently=8,Ride=5,TYPE.Wilderness Lore=8	PRETEXT:Special: Entry into the class must be approved by the Queen of Air and Darkness, and each Dark Hunter must swear an annual oath to obey her.
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Dark Hunter	STARTSKILLPTS:4	CSKILL:TYPE=Animal Empathy|Climb|Concentration|Handle Animal|Heal|Hide|TYPE=Intuit Direction|Jump|Knowledge (Local)|Knowledge (Nature)|Listen|Move Silently|Ride|Search|Sense Motive|Spot|Swim|Use Rope|TYPE=Wilderness Lore
+1	ABILITY:Dark Hunter Class Feature|AUTOMATIC|Dark Hunter ~ Weapon and Armor Proficiency|Dark Hunter ~ Spells
+1	ABILITY:Dark Hunter Class Feature|AUTOMATIC|Dark Hunter ~ Low-Light Vision
+2	ABILITY:Dark Hunter Class Feature|AUTOMATIC|Dark Hunter ~ Fast Mount
+2	ABILITY:Dark Hunter Class Feature|AUTOMATIC|Dark Hunter ~ Fast Movement
+3	ABILITY:Dark Hunter Class Feature|AUTOMATIC|Dark Hunter ~ Darkvision
+4	ABILITY:Dark Hunter Class Feature|AUTOMATIC|Dark Hunter ~ Uncanny Dodge
+6	ABILITY:Dark Hunter Class Feature|AUTOMATIC|Dark Hunter ~ Scent
+9	ABILITY:Dark Hunter Class Feature|AUTOMATIC|Dark Hunter ~ Freedom of Movement
+10	ABILITY:Dark Hunter Class Feature|AUTOMATIC|Dark Hunter ~ Discern Location
+1	ABILITY:Dark Hunter Class Feature|AUTOMATIC|Dark Hunter ~ Code of Conduct
+
+
+#https://www.wizards.com/default.asp?x=dnd/fey/20040507a
+
+# Class Name		Hit Dice	Type			Save checks bonus											Combat bonus
+CLASS:Cold Iron Warrior	HD:8		TYPE:Prestige.PC	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Cold Iron Warrior	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Hide|Knowledge (Nature)|Listen|Move Silently|TYPE=Profession|Spellcraft|Spot
+# Class Name		Spell Stat		Spell Type		Caster level
+CLASS:Cold Iron Warrior	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Cold Iron Warrior|CL
+1	ABILITY:Cold Iron Warrior Class Feature|AUTOMATIC|Cold Iron Warrior ~ Weapon and Armor Proficiency|Cold Iron Warrior ~ Spells per Day
+1	ABILITY:Cold Iron Warrior Class Feature|AUTOMATIC|Cold Iron Warrior ~ Smite Fey
+2	ABILITY:Cold Iron Warrior Class Feature|AUTOMATIC|Cold Iron Warrior ~ Detect fey|Cold Iron Warrior ~ Iron Mind
+3	ABILITY:Cold Iron Warrior Class Feature|AUTOMATIC|Cold Iron Warrior ~ Dispel Magic
+4	ABILITY:Cold Iron Warrior Class Feature|AUTOMATIC|Cold Iron Warrior ~ Mind over Magic
+5	ABILITY:Cold Iron Warrior Class Feature|AUTOMATIC|Cold Iron Warrior ~ Unmaking Magic
+7	ABILITY:Cold Iron Warrior Class Feature|AUTOMATIC|Cold Iron Warrior ~ Cold Iron Strike
+10	ABILITY:Cold Iron Warrior Class Feature|AUTOMATIC|Cold Iron Warrior ~ Slippery Mind
+###Block
+1	BONUS:VAR|SmiteFeyTimes|CL/5+1
+3	BONUS:VAR|DispelMagicTimes|CL/3
+2	BONUS:VAR|IronMindBonus|2
+8	BONUS:VAR|IronMindBonus|2
+4	BONUS:VAR|MindOverMagicTimes|CL/4
+###Block
+1	CAST:0,0
+2	CAST:0,1
+3	CAST:0,2,0
+4	CAST:0,3,1
+5	CAST:0,3,2,0
+6	CAST:0,3,3,1
+7	CAST:0,3,3,2,0
+8	CAST:0,3,3,3,1
+9	CAST:0,3,3,3,2
+10	CAST:0,3,3,3,3
+###Block
+11	PREPCLEVEL:MIN=20

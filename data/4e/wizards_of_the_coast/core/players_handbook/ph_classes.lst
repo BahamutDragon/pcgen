@@ -1,0 +1,104 @@
+# CVS $Revision: $ $Author: $ -- Mon Feb 17 18:13:34 2014 -- reformated by prettylst.pl v1.51 (build 22988)
+SOURCELONG:Player's Handbook v.4.0	SOURCESHORT:PH	SOURCEWEB:http://www.wizards.com/welcome.asp	SOURCEDATE:2008-06
+
+# Class Name	Type			Abbreviation	Max Level	Source Page		Ability							Define			Save checks bonus				Bonus to HP										Modify VAR
+CLASS:Cleric	TYPE:Base.PC	ABB:Clr		MAXLEVEL:30	SOURCEPAGE:p.60	ABILITY:Internal|AUTOMATIC|Class Progression	DEFINE:ClericLevel|0	BONUS:CHECKS|Will|2|TYPE=Class	BONUS:HP|CURRENTMAX|12+CONSCORE	BONUS:HP|CURRENTMAX|(CL-1)*5	BONUS:VAR|ClericLevel|CL
+# Class Name	Multiple Requirements
+CLASS:Cleric	PREMULT:1,[!PRECLASS:1,%],[PRECLASS:1,Cleric=1]
+###Block: Basics
+1															ABILITY:Special Ability|AUTOMATIC|Cleric Proficiencies
+1															ABILITY:Special Ability|AUTOMATIC|Cleric Abilities
+1															ABILITY:Special Ability|AUTOMATIC|Cleric Features
+1								BONUS:VAR|HealingSurges|7+CON|TYPE=Class
+1	BONUS:ABILITYPOOL|Cleric Class Skills|3
+1																									AUTO:FEAT|Skill Training (Religion)
+
+# Class Name	Type			Abbreviation	Max Level	Source Page		Ability							Save checks bonus				Bonus to HP
+CLASS:Fighter	TYPE:Base.PC	ABB:Ftr		MAXLEVEL:30	SOURCEPAGE:p.75	ABILITY:Internal|AUTOMATIC|Class Progression	BONUS:CHECKS|Fortitude|2|TYPE=Class	BONUS:HP|CURRENTMAX|15+CONSCORE	BONUS:HP|CURRENTMAX|(TL-1)*6
+# Class Name	Multiple Requirements
+CLASS:Fighter	PREMULT:1,[!PRECLASS:1,%],[PRECLASS:1,Fighter=1]
+###Block: Basics
+1								BONUS:VAR|FighterLevel|CL			DEFINE:FighterLevel|0
+1																			ABILITY:Special Ability|AUTOMATIC|Fighter Proficiencies
+1																			ABILITY:Special Ability|AUTOMATIC|Fighter Features
+1								BONUS:VAR|HealingSurges|9+CON|TYPE=Class
+1	BONUS:ABILITYPOOL|Fighter Class Skills|3
+
+# Class Name	Type			Abbreviation	Max Level	Source Page		Ability							Save checks bonus						Bonus to HP
+CLASS:Paladin	TYPE:Base.PC	ABB:Pal		MAXLEVEL:30	SOURCEPAGE:p.89	ABILITY:Internal|AUTOMATIC|Class Progression	BONUS:CHECKS|Fortitude,Reflex,Will|1|TYPE=Class	BONUS:HP|CURRENTMAX|15+CONSCORE	BONUS:HP|CURRENTMAX|(TL-1)*6
+# Class Name	Multiple Requirements
+CLASS:Paladin	PREMULT:1,[!PRECLASS:1,%],[PRECLASS:1,Paladin=1]
+###Block: Basics
+1								BONUS:VAR|PaladinLevel|CL			DEFINE:PaladinLevel|0
+1																			ABILITY:Special Ability|AUTOMATIC|Paladin Proficiencies
+1																			ABILITY:Special Ability|AUTOMATIC|Paladin Abilities
+1																			ABILITY:Special Ability|AUTOMATIC|Paladin Features
+1								BONUS:VAR|HealingSurges|10+CON|TYPE=Class
+1	BONUS:ABILITYPOOL|Paladin Class Skills|3
+1																													AUTO:FEAT|Skill Training (Religion)
+
+# Class Name	Type			Abbreviation	Max Level	Source Page		Ability							Save checks bonus						Bonus to HP
+CLASS:Ranger	TYPE:Base.PC	ABB:Rng		MAXLEVEL:30	SOURCEPAGE:p.103	ABILITY:Internal|AUTOMATIC|Class Progression	BONUS:CHECKS|Fortitude,Reflex|1|TYPE=Class	BONUS:HP|CURRENTMAX|12+CONSCORE	BONUS:HP|CURRENTMAX|(TL-1)*5
+# Class Name	Multiple Requirements
+CLASS:Ranger	PREMULT:1,[!PRECLASS:1,%],[PRECLASS:1,Ranger=1]
+###Block: Basics
+1								BONUS:VAR|RangerLevel|CL			DEFINE:RangerLevel|0
+1																			ABILITY:Special Ability|AUTOMATIC|Ranger Proficiencies
+1																			ABILITY:Special Ability|AUTOMATIC|Ranger Features
+1								BONUS:VAR|HealingSurges|6+CON|TYPE=Class
+1	BONUS:ABILITYPOOL|Ranger Class Skills|5
+
+# Class Name	Type			Abbreviation	Max Level	Source Page		Ability							Save checks bonus				Bonus to HP
+CLASS:Rogue		TYPE:Base.PC	ABB:Rog		MAXLEVEL:30	SOURCEPAGE:p.115	ABILITY:Internal|AUTOMATIC|Class Progression	BONUS:CHECKS|Reflex|2|TYPE=Class	BONUS:HP|CURRENTMAX|12+CONSCORE	BONUS:HP|CURRENTMAX|(TL-1)*5
+# Class Name	Multiple Requirements
+CLASS:Rogue		PREMULT:1,[!PRECLASS:1,%],[PRECLASS:1,Rogue=1]
+###Block: Basics
+1								BONUS:VAR|RogueLevel|CL				DEFINE:RogueLevel|0
+1																			ABILITY:Special Ability|AUTOMATIC|Rogue Proficiencies
+1																			ABILITY:Special Ability|AUTOMATIC|Rogue Features
+1								BONUS:VAR|HealingSurges|6+CON|TYPE=Class
+1	BONUS:ABILITYPOOL|Rogue Class Skills|4
+1																												AUTO:FEAT|Skill Training (Stealth)|Skill Training (Thievery)
+
+# Class Name	Type			Abbreviation	Max Level	Source Page		Ability							Save checks bonus					Bonus to HP
+CLASS:Warlock	TYPE:Base.PC	ABB:Wlk		MAXLEVEL:30	SOURCEPAGE:p.129	ABILITY:Internal|AUTOMATIC|Class Progression	BONUS:CHECKS|Reflex,Will|1|TYPE=Class	BONUS:HP|CURRENTMAX|12+CONSCORE	BONUS:HP|CURRENTMAX|(TL-1)*5
+# Class Name	Multiple Requirements
+CLASS:Warlock	PREMULT:1,[!PRECLASS:1,%],[PRECLASS:1,Warlock=1]
+###Block: Basics
+1								BONUS:VAR|WarlockLevel|CL			DEFINE:WarlockLevel|0
+1																			ABILITY:Special Ability|AUTOMATIC|Warlock Proficiencies
+1																			ABILITY:Special Ability|AUTOMATIC|Warlock Abilities
+1																			ABILITY:Special Ability|AUTOMATIC|Warlock Features
+1								BONUS:VAR|HealingSurges|6+CON|TYPE=Class
+1	BONUS:ABILITYPOOL|Warlock Class Skills|4
+
+# Class Name	Type			Abbreviation	Max Level	Source Page		Ability							Save checks bonus					Bonus to HP
+CLASS:Warlord	TYPE:Base.PC	ABB:Wld		MAXLEVEL:30	SOURCEPAGE:p.143	ABILITY:Internal|AUTOMATIC|Class Progression	BONUS:CHECKS|Fortitude,Will|1|TYPE=Class	BONUS:HP|CURRENTMAX|12+CONSCORE	BONUS:HP|CURRENTMAX|(TL-1)*5
+# Class Name	Multiple Requirements
+CLASS:Warlord	PREMULT:1,[!PRECLASS:1,%],[PRECLASS:1,Warlord=1]
+###Block: Basics
+1								BONUS:VAR|WarlordLevel|CL			DEFINE:WarlordLevel|0
+1																			ABILITY:Special Ability|AUTOMATIC|Warlord Proficiencies
+1																			ABILITY:Special Ability|AUTOMATIC|Warlord Features
+1								BONUS:VAR|HealingSurges|7+CON|TYPE=Class
+1	BONUS:ABILITYPOOL|Warlord Class Skills|4
+
+# Class Name	Type			Abbreviation	Max Level	Source Page		Ability							Save checks bonus				Bonus to HP
+CLASS:Wizard	TYPE:Base.PC	ABB:Wiz		MAXLEVEL:30	SOURCEPAGE:p.156	ABILITY:Internal|AUTOMATIC|Class Progression	BONUS:CHECKS|Will|2|TYPE=Class	BONUS:HP|CURRENTMAX|10+CONSCORE
+# Class Name	Multiple Requirements
+CLASS:Wizard	PREMULT:1,[!PRECLASS:1,%],[PRECLASS:1,Wizard=1]
+###Block: Basics
+1								BONUS:VAR|WizardLevel|CL			DEFINE:WizardLevel|0
+1																			ABILITY:Special Ability|AUTOMATIC|Wizard Proficiencies
+1																			ABILITY:Special Ability|AUTOMATIC|Wizard Abilities
+1																			ABILITY:Special Ability|AUTOMATIC|Wizard Features
+1								BONUS:VAR|HealingSurges|6+CON|TYPE=Class
+1	BONUS:ABILITYPOOL|Wizard Class Skills|3
+1																													AUTO:FEAT|Skill Training (Arcana)
+###Block: Level Progression	REVIEW - Wizard is odd in it's set up
+1	BONUS:ABILITYPOOL|Bonus Rituals 1|3
+5	BONUS:ABILITYPOOL|Bonus Rituals 5|3
+11	BONUS:ABILITYPOOL|Bonus Rituals 11|3
+15	BONUS:ABILITYPOOL|Bonus Rituals 15|3
+21	BONUS:ABILITYPOOL|Bonus Rituals 21|3
+25	BONUS:ABILITYPOOL|Bonus Rituals 25|3

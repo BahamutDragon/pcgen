@@ -1,8 +1,8 @@
-# CVS $Revision: $ $Author: $ -- Sat Jan  4 10:42:33 2014 -- reformated by prettylst.pl v1.50 (build 22746)
+# CVS $Revision: $ $Author: $ -- Wed Feb 26 18:18:46 2014 -- reformated by prettylst.pl v1.51 (build 22988)
 
 
 # Class Name	Hit Dice	Type				Class Type		Base class as subclass?	Source Page		Save checks bonus											Combat bonus							Modify VAR
-CLASS:Psion		HD:4		TYPE:Base.Psionic.PC	CLASSTYPE:PC	ALLOWBASECLASS:NO		SOURCEPAGE:p.	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*1/2|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|CL|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|PsiCrystalLVL|CL|PREFEAT:1,Psicrystal Affinity
+CLASS:Psion		HD:4		TYPE:Base.Psionic.PC	CLASSTYPE:PC	ALLOWBASECLASS:NO		SOURCEPAGE:p.19	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*1/2|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|CL|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|PsiCrystalLVL|CL|PREFEAT:1,Psicrystal Affinity
 # Class Name	Skill Pts/Lvl
 CLASS:Psion		STARTSKILLPTS:2
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
@@ -21,7 +21,9 @@ SUBCLASS:Shaper		COST:0	PROHIBITCOST:0	SPELLLIST:1|Psion	DEFINE:PsionicShaper|1	
 SUBCLASS:Telepath		COST:0	PROHIBITCOST:0	SPELLLIST:1|Psion	DEFINE:PsionicTelepath|1	CSKILL:Concentration|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Psicraft|Bluff|Diplomacy|Gather Information|Sense Motive
 #SUBCLASS:Telepath	CHOICE:SCHOOL|Telepathy
 ###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Psion
+1	ABILITY:Psion Class Feature|AUTOMATIC|Psion ~ Weapon and Armor Proficiency
+1	ABILITY:Psion Class Feature|AUTOMATIC|Psion ~ Power Points/Day|Psion ~ Discipline|Psion ~ Powers Known|Psion ~ Maximum Power Level Known|Psion ~ Bonus Feats
+
 ###Block: Psionic subtype, BasePowerPoints, BonusPowerPoints
 # TEMPLATE:Psionic qualifies the character for Psionic only items and feats and DEFINES base and bonus power points.
 # due to the use of "BL=Psion" (which provides the bonus caster levels applied to Psion) there are no
@@ -32,7 +34,7 @@ SUBCLASS:Telepath		COST:0	PROHIBITCOST:0	SPELLLIST:1|Psion	DEFINE:PsionicTelepat
 1	BONUS:VAR|PsionML|CL	BONUS:VAR|PsionML|var("BL=Psion")
 1											TEMPLATE:Psionic|Psionic Power Points Progression
 ###Block: Class Info
-1	KNOWN:0,3				BONUS:ABILITYPOOL|Psion Feat|(CL/5)+1
+1	KNOWN:0,3
 2	KNOWN:0,5
 3	KNOWN:0,5,2
 4	KNOWN:0,5,4
@@ -63,7 +65,7 @@ CLASS:Psychic Warrior	STARTSKILLPTS:2	CSKILL:Autohypnosis|Climb|Concentration|TY
 # Class Name		Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Psychic Warrior	SPELLSTAT:WIS	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Psychic Warrior|CL
 ###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Psychic Warrior
+1	ABILITY:Special Ability|AUTOMATIC|Psychic Warrior ~ Weapon and Armor Proficiency
 ###Block: Psionic subtype, BasePowerPoints, BonusPowerPoints
 1	BONUS:VAR|PsychicWarriorML|CL	BONUS:VAR|PsychicWarriorML|var("BL=Psychic Warrior")																											DEFINE:PsychicWarriorML|0	TEMPLATE:Psionic
 1	BONUS:VAR|BasePowerPoints|0	BONUS:VAR|BasePowerPoints|1|PREVARGTEQ:PsychicWarriorML,2	BONUS:VAR|BasePowerPoints|2|PREVARGTEQ:PsychicWarriorML,3	BONUS:VAR|BasePowerPoints|2|PREVARGTEQ:PsychicWarriorML,4
@@ -101,7 +103,7 @@ CLASS:Soulknife	HD:10		TYPE:Base.Psionic.PC	CLASSTYPE:PC	SOURCEPAGE:p.	BONUS:CHE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Soulknife	STARTSKILLPTS:4	CSKILL:Autohypnosis|Climb|Concentration|TYPE=Craft|Hide|Jump|Knowledge (Psionics)|Listen|Move Silently|TYPE=Profession|Spot|Tumble
 ###Block:Proficiency
-1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Soulknife
+1	ABILITY:Special Ability|AUTOMATIC|Soulknife ~ Weapon and Armor Proficiency
 ###Block: Mind Blade abilities by effective level; to add a PrC's class level to SK for
 #  mind blade powers, use BONUS:VAR|MndBladeECL|x in the PrC's class level line setup
 1	BONUS:VAR|MndBladeECL|CL	ABILITY:Special Ability|AUTOMATIC|MindBlade Standard|PREVARLTEQ:MndBladeECL,3	ABILITY:Special Ability|AUTOMATIC|MindBlade Wielder
@@ -116,9 +118,9 @@ CLASS:Soulknife	STARTSKILLPTS:4	CSKILL:Autohypnosis|Climb|Concentration|TYPE=Cra
 1						ABILITY:Special Ability|AUTOMATIC|MindBlade Multiple Throw|PREVARGTEQ:MndBladeECL,17
 
 ###Block: Class Info
-1	TEMPLATE:Psionic	AUTO:FEAT|Weapon Focus(Mind Blade)|Wild Talent
+1	TEMPLATE:Psionic	AUTO:FEAT|Weapon Focus (Mind Blade)|Wild Talent
 6				AUTO:FEAT|Speed of Thought
-9				AUTO:FEAT|Greater Weapon Focus(Mind Blade)
+9				AUTO:FEAT|Greater Weapon Focus (Mind Blade)
 
 # Class Name	Hit Dice	Type				Class Type		Source Page		Save checks bonus											Combat bonus							Modify VAR
 CLASS:Wilder	HD:6		TYPE:Base.Psionic.PC	CLASSTYPE:PC	SOURCEPAGE:p.	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|PsiCrystalLVL|CL|PREFEAT:1,Psicrystal Affinity
@@ -127,7 +129,7 @@ CLASS:Wilder	STARTSKILLPTS:4	CSKILL:Autohypnosis|Balance|Bluff|Climb|Concentrati
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Wilder	SPELLSTAT:CHA	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Wilder|CL
 ###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Wilder
+1	ABILITY:Wilder Class Feature|AUTOMATIC|Wilder ~ Weapon and Armor Proficiency
 ###Block: Psionic subtype, BasePowerPoints, BonusPowerPoints
 1	BONUS:VAR|WilderML|CL	BONUS:VAR|WilderML|var("BL=Wilder")																											DEFINE:WilderML|0	TEMPLATE:Psionic
 1	BONUS:VAR|BasePowerPoints|2	BONUS:VAR|BasePowerPoints|4|PREVARGTEQ:WilderML,2	BONUS:VAR|BasePowerPoints|5|PREVARGTEQ:WilderML,3	BONUS:VAR|BasePowerPoints|6|PREVARGTEQ:WilderML,4
@@ -136,12 +138,17 @@ CLASS:Wilder	SPELLSTAT:CHA	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Wilde
 1	BONUS:VAR|BasePowerPoints|21|PREVARGTEQ:WilderML,13	BONUS:VAR|BasePowerPoints|23|PREVARGTEQ:WilderML,14	BONUS:VAR|BasePowerPoints|25|PREVARGTEQ:WilderML,15	BONUS:VAR|BasePowerPoints|26|PREVARGTEQ:WilderML,16
 1	BONUS:VAR|BasePowerPoints|29|PREVARGTEQ:WilderML,17	BONUS:VAR|BasePowerPoints|30|PREVARGTEQ:WilderML,18	BONUS:VAR|BasePowerPoints|31|PREVARGTEQ:WilderML,19	BONUS:VAR|BasePowerPoints|32|PREVARGTEQ:WilderML,20
 1	BONUS:VAR|BonusPowerPoints|(CHA*WilderML)/2|TYPE=WilderBonusPP
+###Block:
+1	ABILITY:Wilder Class Feature|AUTOMATIC|Wilder ~ Psychic Enervation|Wilder ~ Wild Surge
+2	ABILITY:Wilder Class Feature|AUTOMATIC|Wilder ~ Elude Touch
+4	ABILITY:Wilder Class Feature|AUTOMATIC|Wilder ~ Surging Euphoria
+5	ABILITY:Wilder Class Feature|AUTOMATIC|Wilder ~ Volatile Mind
 ###Block: Class Info
-1	KNOWN:0,1				BONUS:VAR|PsychicEnervation|1	BONUS:VAR|WildSurge|1	ABILITY:Special Ability|AUTOMATIC|Psychic Enervation|Wild Surge
-2	KNOWN:0,2				BONUS:VAR|EludeTouch|CHA					ABILITY:Special Ability|AUTOMATIC|Elude Touch
+1	KNOWN:0,1				BONUS:VAR|PsychicEnervation|1	BONUS:VAR|WildSurge|1
+2	KNOWN:0,2				BONUS:VAR|EludeTouch|CHA
 3	KNOWN:0,2				BONUS:VAR|WildSurge|1
-4	KNOWN:0,2,1				BONUS:VAR|SurgingEuphoria|1					ABILITY:Special Ability|AUTOMATIC|Surging Euphoria
-5	KNOWN:0,2,1				BONUS:VAR|VolatileMind|1					ABILITY:Special Ability|AUTOMATIC|Volatile Mind
+4	KNOWN:0,2,1				BONUS:VAR|SurgingEuphoria|1
+5	KNOWN:0,2,1				BONUS:VAR|VolatileMind|1
 6	KNOWN:0,2,1,1
 7	KNOWN:0,2,1,1			BONUS:VAR|WildSurge|1
 8	KNOWN:0,2,1,1,1
@@ -232,8 +239,8 @@ CLASS:Psionic Fist	SPELLSTAT:WIS	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL
 1	BONUS:VAR|BonusPowerPoints|(WIS*PsionicFistML)/2|TYPE=PsionicFistBonusPP
 
 ###Block:Monk Abilities
-1						BONUS:VAR|MonkACLVL|CL		ABILITY:Special Ability|AUTOMATIC|AC Bonus ~ Monk
-1						BONUS:VAR|MonkMoveLVL|CL	ABILITY:Special Ability|AUTOMATIC|Fast Movement ~ Monk
+1						BONUS:VAR|MonkACLVL|CL		ABILITY:Special Ability|AUTOMATIC|Monk ~ AC Bonus
+1						BONUS:VAR|MonkMoveLVL|CL	ABILITY:Special Ability|AUTOMATIC|Monk ~ Fast Movement
 1	BONUS:UDAM|CLASS.Monk|CL
 ###Block: Class Info
 1	KNOWN:0,1
@@ -255,7 +262,7 @@ CLASS:Slayer	PREATT:4	PREFEAT:1,Track	PRESKILL:1,Knowledge (Dungeoneering)=4	PRE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Slayer	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Knowledge (Dungeoneering)|Listen|Psicraft|Sense Motive|Spot|Survival
 ###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Slayer
+1	ABILITY:Special Ability|AUTOMATIC|Slayer ~ Weapon and Armor Proficiency
 ###Block: Class Info
 1											ABILITY:Special Ability|AUTOMATIC|Sense Favored Enemy|Slayer Favored Enemy
 2	BONUS:VAR|BrainNausea|15+CL		ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Brain Nausea

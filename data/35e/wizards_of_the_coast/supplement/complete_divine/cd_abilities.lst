@@ -1,27 +1,35 @@
-# CVS $Revision: $ $Author: $ -- Sat Jan  4 10:42:33 2014 -- reformated by prettylst.pl v1.50 (build 22746)
+# CVS $Revision: $ $Author: $ -- Wed Feb 26 18:18:46 2014 -- reformated by prettylst.pl v1.51 (build 22988)
+
 # Ability Name			Category of Ability		Ability																																					List of Class Spells by Level
 OracleDomainSpells ~ Wizard	CATEGORY:Special Ability																																							SPELLLEVEL:CLASS|Wizard=1|Identify|Wizard=2|Augury|Wizard=3|Divination|Wizard=4|Scrying|Wizard=5|Commune|Wizard=6|Legend Lore|Wizard=7|Scrying (Greater)|Wizard=8|Discern Location|Wizard=9|Foresight
+
+
 #Retain Dex To AC ~ Flat-footed	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO	DESC:You retain your Dexterity bonus to AC even when flat-footed
 
 Uncanny Dodge Select		CATEGORY:Special Ability	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge|!PREABILITY:1,CATEGORY=Special Ability,Improved Uncanny Dodge	ABILITY:Special Ability|AUTOMATIC|Improved Uncanny Dodge|PREABILITY:1,CATEGORY=Special Ability,Uncanny Dodge
 
-###Block: Divine Oracle ---------------------------------------------------------------------------------
-# Ability Name		Unique Key							Category of Ability		Type						Description																								Bonus to DC
-Oracle Domain granted	KEY:Oracle Domain granted ~ Divine Oracle		CATEGORY:Special Ability	TYPE:SpecialQuality			DESC:Oracle Domain granted
-Scry Bonus			KEY:Scry Bonus ~ Divine Oracle			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	DESC:A divine oracle add a +1 sacred bonus to the save DC of all her divination (scrying) spells.									BONUS:DC|DESCRIPTOR.Scry|1|TYPE=Sacred
-Prescient Sense		KEY:Prescient Sense ~ Divine Oracle			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:If a divine oracle makes a successful Reflex saving throw agains an attack that normally inflicts half damage, she instead takes no damage.
-Divination Enhancement	KEY:Divination Enhancement ~ Divine Oracle	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:May roll twice and take the better result when using divination spells.
-Immune to Surprise	KEY:Immune to Surprise ~ Divine Oracle		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:Can always take a standard action during a surprise round.
-
 
 ###Block: Contemplative Class: ---------------------------------------------------------------------------
 # Ability Name						Unique Key						Category of Ability		Type						Define					Clear Description	Description																		Template			Modify VAR				Spell Res.		Damage Reduction
-CATEGORY=Special Ability|Slippery Mind.MOD																									DESC:.CLEAR		DESC:May attempt saving throw one round later after failed save against Mind-affecting. (Only one resave allowed)
+#CATEGORY=Special Ability|Slippery Mind.MOD																									DESC:.CLEAR		DESC:May attempt saving throw one round later after failed save against Mind-affecting. (Only one resave allowed)
+# Ability Name	Unique Key						Category of Ability		Type						Define					Description										Template			Modify VAR				Spell Res.		Damage Reduction
+Divine Health	KEY:Contemplative ~ Divine Health		CATEGORY:Special Ability	TYPE:SpecialQuality
 
-#Slippery Mind		KEY:Slippery Mind ~ Contemplative					CATEGORY:Special Ability	TYPE:SpecialQuality.x
-Divine Wholeness						KEY:Divine Wholeness ~ Contemplative	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	DEFINE:DivineWholenessHealing|0				DESC:Heal %1 hp/day|DivineWholenessHealing
-Divine Body							KEY:Divine Body ~ Contemplative		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural										DESC:Immune to poisons of all kinds
-Divine Soul							KEY:Divine Soul ~ Contemplative		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	DEFINE:DivineSoulSR|0						DESC:Gain Spell Resistance %1|DivineSoulSR																BONUS:VAR|DivineSoulSR|15	SR:DivineSoulSR
-Eternal Body						KEY:Eternal Body ~ Contemplative		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary										DESC:No longer suffer aging penalties nor can you be aged.
+Slippery Mind	KEY:Contemplative ~ Slippery Mind		CATEGORY:Special Ability	TYPE:SpecialQuality.x
+Divine Wholeness	KEY:Contemplative ~ Divine Wholeness	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	DEFINE:DivineWholenessHealing|0	DESC:Heal %1 hp/day|DivineWholenessHealing
+Divine Body		KEY:Contemplative ~ Divine Body		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural							DESC:Immune to poisons of all kinds
+Divine Soul		KEY:Contemplative ~ Divine Soul		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	DEFINE:DivineSoulSR|0			DESC:Gain Spell Resistance %1|DivineSoulSR								BONUS:VAR|DivineSoulSR|15	SR:DivineSoulSR
+Eternal Body	KEY:Contemplative ~ Eternal Body		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary							DESC:No longer suffer aging penalties nor can you be aged.
 #Same as Timeless Body. Grab Code from Druid Timeless Body
-Mystic Union						KEY:Mystic Union ~ Contemplative		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural										DESC:Become Outsider (Native) and gain Damage Reduction 10/magic									TEMPLATE:Mystic Union									DR:10/magic
+Mystic Union	KEY:Contemplative ~ Mystic Union		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural							DESC:Become Outsider (Native) and gain Damage Reduction 10/magic	TEMPLATE:Mystic Union									DR:10/magic
+
+
+
+###Block: Divine Oracle ---------------------------------------------------------------------------------
+# Ability Name		Unique Key							Category of Ability		Type						Description																								Bonus to DC
+Oracle Domain granted	KEY:Divine Oracle ~ Oracle Domain granted		CATEGORY:Special Ability	TYPE:SpecialQuality			DESC:Oracle Domain granted
+Scry Bonus			KEY:Divine Oracle ~ Scry Bonus			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	DESC:A divine oracle add a +1 sacred bonus to the save DC of all her divination (scrying) spells.									BONUS:DC|DESCRIPTOR.Scry|1|TYPE=Sacred
+Prescient Sense		KEY:Divine Oracle ~ Prescient Sense			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:If a divine oracle makes a successful Reflex saving throw agains an attack that normally inflicts half damage, she instead takes no damage.
+Divination Enhancement	KEY:Divine Oracle ~ Divination Enhancement	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:May roll twice and take the better result when using divination spells.
+Immune to Surprise	KEY:Divine Oracle ~ Immune to Surprise		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:Can always take a standard action during a surprise round.
+Trap Sense			KEY:Divine Oracle ~ Trap Sense			CATEGORY:Special Ability	TYPE:SpecialQuality

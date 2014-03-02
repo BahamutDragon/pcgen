@@ -1,370 +1,635 @@
+# CVS $Revision: $ $Author: $ -- Sat Mar  1 22:57:43 2014 -- reformated by prettylst.pl v1.51 (build 22988)
 
-
-###Block: Materials used from Gozzilioni
-
-CLASS:Arcane Devotee	HD:4	TYPE:Prestige	ABB:Dev	MAXLEVEL:5	CLASSTYPE:Prestige	SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*1/2|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|CL|PREVAREQ:UseFractionalBAB,1		
-CLASS:Arcane Devotee	PRESKILL:1,Knowledge (Religion)=8,Spellcraft=8	PREFEAT:1,Enlarge Spell	PRESPELLTYPE:1,Arcane=4	PREDEITY:1,Y
+# Class Name		Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page		Save checks bonus														Combat bonus							Modify VAR
+CLASS:Arcane Devotee	HD:4		TYPE:Prestige	CLASSTYPE:Prestige	ABB:Dev		MAXLEVEL:5	SOURCEPAGE:p.48	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*1/2|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|CL|PREVAREQ:UseFractionalBAB,1
+# Class Name		Required Deity	Required Feat		Required Skill						Req. Spell Type
+CLASS:Arcane Devotee	PREDEITY:1,Y	PREFEAT:1,Enlarge Spell	PRESKILL:1,Knowledge (Religion)=8,Spellcraft=8	PRESPELLTYPE:1,Arcane=4
+# Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Arcane Devotee	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher Script|TYPE=Knowledge|TYPE=Profession|Spellcraft
 ###Block:
-1	ADD:SPELLCASTER|Arcane			ABILITY:Special Ability|AUTOMATIC|Arcane Devotee Reach of the Holy|Reach of the Holy						DEFINE:ReachOfTheHolyPerDay|0
-2	ADD:SPELLCASTER|Arcane			ABILITY:Special Ability|AUTOMATIC|Arcane Devotee Sacred Defense|Sacred Defense			BONUS:VAR|ArcaneDevoteeSacredDefenseLVL|CL
-3	ADD:SPELLCASTER|Arcane			ABILITY:Special Ability|AUTOMATIC|Divine Synergy
+1	ADD:SPELLCASTER|Arcane
+2	ADD:SPELLCASTER|Arcane
+3	ADD:SPELLCASTER|Arcane
 4	ADD:SPELLCASTER|Arcane
-5	ADD:SPELLCASTER|Arcane			ABILITY:Special Ability|AUTOMATIC|Divine Shroud (Sp)			BONUS:VAR|DivineShroudLVL|CL	BONUS:VAR|DivineShroudTimes|1
-#													
-CLASS:Divine Champion	HD:10	TYPE:Prestige	ABB:Chm	MAXLEVEL:5	CLASSTYPE:Prestige	SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL	
-CLASS:Divine Champion	PREATT:7	PRESKILL:1,Knowledge (Religion)=3	PREFEAT:1,Weapon Focus	PRETEXT:Weapon focus in deity's favored weapon	PREDEITY:1,Y
+5	ADD:SPELLCASTER|Arcane
+###Block
+1	ABILITY:Arcane Devotee Class Feature|AUTOMATIC|Arcane Devotee ~ Weapon and Armor Proficiency
+1	ABILITY:Arcane Devotee Class Feature|AUTOMATIC|Arcane Devotee ~ Spells per Day/Spells Known
+1	ABILITY:Arcane Devotee Class Feature|AUTOMATIC|Arcane Devotee ~ Reach of the Holy
+2	ABILITY:Arcane Devotee Class Feature|AUTOMATIC|Arcane Devotee ~ Sacred Defense
+3	ABILITY:Arcane Devotee Class Feature|AUTOMATIC|Arcane Devotee ~ Divine Synergy
+5	ABILITY:Arcane Devotee Class Feature|AUTOMATIC|Arcane Devotee ~ Divine Shroud
+###Block:
+2	BONUS:VAR|ArcaneDevoteeSacredDefenseLVL|CL
+5	BONUS:VAR|DivineShroudLVL|CL	BONUS:VAR|DivineShroudTimes|1
+1											DEFINE:ReachOfTheHolyPerDay|0
+
+###Block: Divine Champion
+#
+
+# Class Name		Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page		Save checks bonus														Combat bonus
+CLASS:Divine Champion	HD:10		TYPE:Prestige	CLASSTYPE:Prestige	ABB:Chm		MAXLEVEL:5	SOURCEPAGE:p.49	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
+# Class Name		Req. Att.	Required Deity	Required Feat		Required Skill				Required Text
+CLASS:Divine Champion	PREATT:7	PREDEITY:1,Y	PREFEAT:1,Weapon Focus	PRESKILL:1,Knowledge (Religion)=3	PRETEXT:Weapon focus in deity's favored weapon
+# Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Divine Champion	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate|Jump|Knowledge (Religion)|Ride|Swim
-1		ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Divine Champion
 ###Block:
-1				ABILITY:Special Ability|AUTOMATIC|Lay on Hands			BONUS:VAR|LayOnHandsLVL|CL
-2				ABILITY:Special Ability|AUTOMATIC|Divine Champion Sacred Defense|Sacred Defense			BONUS:ABILITYPOOL|Divine Champion Feat|CL/2	BONUS:VAR|DivineChampionSacredDefenseLVL|CL
-3				ABILITY:Special Ability|AUTOMATIC|Divine Champion Smite Infidels|Smite Infidels			BONUS:VAR|DivineChampionSmiteInfidelsLVL|CL
-4
-5				ABILITY:Special Ability|AUTOMATIC|Divine Wrath (Su)
+1									BONUS:VAR|LayOnHandsLVL|CL
+2	BONUS:ABILITYPOOL|Divine Champion Feat|CL/2	BONUS:VAR|DivineChampionSacredDefenseLVL|CL
+3									BONUS:VAR|DivineChampionSmiteInfidelsLVL|CL
 ###Block:
-CLASS:Divine Disciple	HD:5	TYPE:Prestige	ABB:Dis	MAXLEVEL:5	CLASSTYPE:Prestige	SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/3*4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1	
-CLASS:Divine Disciple	PRESKILL:1,Diplomacy=5	PRESKILL:1,Knowledge (Religion)=8	PRESPELLTYPE:1,Divine=4	PREDEITY:1,Y	PRESPELLCAST:TYPE=Divine
+1	ABILITY:Divine Champion Class Feature|AUTOMATIC|Divine Champion ~ Weapon and Armor Proficiency
+1	ABILITY:Divine Champion Class Feature|AUTOMATIC|Divine Champion ~ Lay on Hands
+2	ABILITY:Divine Champion Class Feature|AUTOMATIC|Divine Champion ~ Bonus Feat
+2	ABILITY:Divine Champion Class Feature|AUTOMATIC|Divine Champion ~ Sacred Defense
+3	ABILITY:Divine Champion Class Feature|AUTOMATIC|Divine Champion ~ Smite Infidel
+5	ABILITY:Divine Champion Class Feature|AUTOMATIC|Divine Champion ~ Divine Wrath
+
+###Block: Divine Disciple
+
+# Class Name		Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page		Save checks bonus														Combat bonus							Modify VAR
+CLASS:Divine Disciple	HD:5		TYPE:Prestige	CLASSTYPE:Prestige	ABB:Dis		MAXLEVEL:5	SOURCEPAGE:p.51	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL/3*4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1
+# Class Name		Required Deity	Required Skill								Required Casting Type		Req. Spell Type
+CLASS:Divine Disciple	PREDEITY:1,Y	PRESKILL:1,Diplomacy=5	PRESKILL:1,Knowledge (Religion)=8	PRESPELLCAST:TYPE=Divine	PRESPELLTYPE:1,Divine=4
+# Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Divine Disciple	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (History)|Knowledge (Nature)|Knowledge (The Planes)|Knowledge (Religion)|TYPE=Profession|Spellcraft|Survival
 ###Block:
-1	ADD:SPELLCASTER|Divine			ABILITY:Special Ability|AUTOMATIC|Divine Disciple Divine Emissary|Divine Emissary|Telepathy			BONUS:VAR|DivineDiscipleDivineEmissaryLVL|CL	BONUS:VAR|TelepathyRange|60
-2	ADD:SPELLCASTER|Divine			ABILITY:Special Ability|AUTOMATIC|Divine Disciple Sacred Defense|Sacred Defense			BONUS:VAR|DivineDiscipleSacredDefenseLVL|CL
-3	ADD:SPELLCASTER|Divine			ABILITY:Special Ability|AUTOMATIC|Imbue With Spell Ability (Sp)			BONUS:VAR|ImbueWithSpellAbilityTimes|1	BONUS:VAR|ImbueWithSpellAbilityLVL|CL
-4	ADD:SPELLCASTER|Divine					BONUS:DOMAIN|NUMBER|1
-5	ADD:SPELLCASTER|Divine			ABILITY:Special Ability|AUTOMATIC|Trascendence									TEMPLATE:Trascendence
-###Block:
-CLASS:Divine Seeker	HD:6	TYPE:Prestige	ABB:Skr	MAXLEVEL:5	CLASSTYPE:Prestige	SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1	
+1					BONUS:VAR|DivineDiscipleDivineEmissaryLVL|CL	BONUS:VAR|TelepathyRange|60		ADD:SPELLCASTER|Divine
+2					BONUS:VAR|DivineDiscipleSacredDefenseLVL|CL							ADD:SPELLCASTER|Divine
+3					BONUS:VAR|ImbueWithSpellAbilityTimes|1	BONUS:VAR|ImbueWithSpellAbilityLVL|CL	ADD:SPELLCASTER|Divine
+4	BONUS:DOMAIN|NUMBER|1															ADD:SPELLCASTER|Divine
+5																			ADD:SPELLCASTER|Divine	TEMPLATE:Trascendence
+###Block
+1	ABILITY:Divine Disciple Class Feature|AUTOMATIC|Divine Disciple ~ Weapon and Armor Proficiency
+1	ABILITY:Divine Disciple Class Feature|AUTOMATIC|Divine Disciple ~ Spells per Day/Spells Known
+1	ABILITY:Divine Disciple Class Feature|AUTOMATIC|Divine Disciple ~ Divine Emissary
+2	ABILITY:Divine Disciple Class Feature|AUTOMATIC|Divine Disciple ~ Sacred Defense
+3	ABILITY:Divine Disciple Class Feature|AUTOMATIC|Divine Disciple ~ Imbue With Spell Ability
+4	ABILITY:Divine Disciple Class Feature|AUTOMATIC|Divine Disciple ~ Domain
+5	ABILITY:Divine Disciple Class Feature|AUTOMATIC|Divine Disciple ~ Transcendence
 
-CLASS:Divine Seeker	PRESKILL:1,Hide=8	PRESKILL:1,Knowledge (Religion)=3	PRESKILL:1,Move Silently=10	PRESKILL:1,Spot=5	PREFEAT:1,Stealthy	PREDEITY:1,Y
+###Block: Divine Seeker
+
+# Class Name		Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page		Save checks bonus															Combat bonus							Modify VAR
+CLASS:Divine Seeker	HD:6		TYPE:Prestige	CLASSTYPE:Prestige	ABB:Skr		MAXLEVEL:5	SOURCEPAGE:p.52	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1
+# Class Name		Required Deity	Required Feat		Required Skill
+CLASS:Divine Seeker	PREDEITY:1,Y	PREFEAT:1,Stealthy	PRESKILL:1,Hide=8	PRESKILL:1,Knowledge (Religion)=3	PRESKILL:1,Move Silently=10	PRESKILL:1,Spot=5
+# Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Divine Seeker	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Diplomacy|Hide|Jump|Knowledge (Geography)|Knowledge (Religion)|Listen|Move Silently|TYPE=Profession|Ride|Search|Spot|Survival|Swim|Use Rope
-1		ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Divine Seeker
 ###Block:
-1				ABILITY:Special Ability|AUTOMATIC|Sacred Stealth|Twart Magic Trap
-2				ABILITY:Special Ability|AUTOMATIC|Divine Seeker Sacred Defense|Divine Seeker Sneak Attack|Sacred Defense|Sneak Attack			BONUS:VAR|DivineSeekerSacredDefenseLVL|CL	BONUS:VAR|DivineSeekerSneakAttackLVL|CL	BONUS:VAR|DivineSeekerUncannyDodgeLVL|CL
-3				ABILITY:Special Ability|AUTOMATIC|Locate Creature (Sp)|Locate Object (Sp)			BONUS:VAR|LocateCreatureLVL|CL+CHA	BONUS:VAR|LocateCreatureTimes|1	BONUS:VAR|LocateObjectLVL|CL+CHA	BONUS:VAR|LocateObjectTimes|1
-4				ABILITY:Special Ability|AUTOMATIC|Divine Perseverance
-5				ABILITY:Special Ability|AUTOMATIC|Find the Path (Sp)			BONUS:VAR|FindThePathLVL|CL+CHA	BONUS:VAR|FindThePathPerDay|1
-###Block:
-CLASS:Evereskan Tomb Guardian	HD:6	TYPE:Prestige	ABB:Etg	MAXLEVEL:5	CLASSTYPE:Prestige	SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1	
+2	BONUS:VAR|DivineSeekerSacredDefenseLVL|CL	BONUS:VAR|DivineSeekerSneakAttackLVL|CL	BONUS:VAR|DivineSeekerUncannyDodgeLVL|CL
+3	BONUS:VAR|LocateCreatureLVL|CL+CHA	BONUS:VAR|LocateCreatureTimes|1	BONUS:VAR|LocateObjectLVL|CL+CHA	BONUS:VAR|LocateObjectTimes|1
+5	BONUS:VAR|FindThePathLVL|CL+CHA	BONUS:VAR|FindThePathPerDay|1
+###Block
+1	ABILITY:Divine Seeker Class Feature|AUTOMATIC|Divine Seeker ~ Weapon and Armor Proficiency
+1	ABILITY:Divine Seeker Class Feature|AUTOMATIC|Divine Seeker ~ Sacred Stealth
+1	ABILITY:Divine Seeker Class Feature|AUTOMATIC|Divine Seeker ~ Thwart Magic Trap
+2	ABILITY:Divine Seeker Class Feature|AUTOMATIC|Divine Seeker ~ Sacred Defense
+2	ABILITY:Divine Seeker Class Feature|AUTOMATIC|Divine Seeker ~ Sneak Attack
+3	ABILITY:Divine Seeker Class Feature|AUTOMATIC|Divine Seeker ~ Locate Creature
+3	ABILITY:Divine Seeker Class Feature|AUTOMATIC|Divine Seeker ~ Locate Object
+4	ABILITY:Divine Seeker Class Feature|AUTOMATIC|Divine Seeker ~ Divine Perseverance
+5	ABILITY:Divine Seeker Class Feature|AUTOMATIC|Divine Seeker ~ Find the Path
 
-CLASS:Evereskan Tomb Guardian	PRERACE:1,RACESUBTYPE=Elf	PREREGION:1,Evereska	PREATT:4	PRESKILL:3,Hide=5,Move Silently=5,Survival=5	PRESKILL:2,Listen=2,Spot=2	PREFEAT:2,Alertness,Track	PRESPELLTYPE:1,Arcane=2	PRESPELLCAST:TYPE=Arcane
+###Block: Evereskan Tomb Guardian
+
+# Class Name			Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page		Save checks bonus															Combat bonus							Modify VAR
+CLASS:Evereskan Tomb Guardian	HD:6		TYPE:Prestige	CLASSTYPE:Prestige	ABB:Etg		MAXLEVEL:5	SOURCEPAGE:p.53	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1
+# Class Name			Req. Att.	Required Feat			Required Race			Required Region		Required Skill											Required Casting Type		Req. Spell Type
+CLASS:Evereskan Tomb Guardian	PREATT:4	PREFEAT:2,Alertness,Track	PRERACE:1,RACESUBTYPE=Elf	PREREGION:1,Evereska	PRESKILL:3,Hide=5,Move Silently=5,Survival=5	PRESKILL:2,Listen=2,Spot=2	PRESPELLCAST:TYPE=Arcane	PRESPELLTYPE:1,Arcane=2
+# Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Evereskan Tomb Guardian	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Decipher Script|Disable Device|Escape Artist|Gather Information|Hide|Intimidate|Jump|Knowledge (Geography)|Knowledge (Local)|Listen|Move Silently|Open Lock|TYPE=Profession|Search|Sense Motive|Sleight of Hand|Spot|Swim|Tumble|Use Rope
-1	ADD:SPELLCASTER|Arcane			ABILITY:Special Ability|AUTOMATIC|Sacred Duty
-2	ADD:SPELLCASTER|Arcane			ABILITY:Special Ability|AUTOMATIC|Devoted Pursuit
-3	ADD:SPELLCASTER|Arcane			ABILITY:Special Ability|AUTOMATIC|Swift Tracking|Tomb Guardian Dodge Bonus			BONUS:VAR|TombGuardianDodgeLVL|CL
-4	ADD:SPELLCASTER|Arcane
-5	ADD:SPELLCASTER|Arcane			ABILITY:Special Ability|AUTOMATIC|Silent Guardian
-###Block:
-CLASS:Eye of Horus-Re	HD:8	TYPE:Prestige	ABB:Ehr	MAXLEVEL:10	CLASSTYPE:Prestige	SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1	
+1							ADD:SPELLCASTER|Arcane
+2							ADD:SPELLCASTER|Arcane
+3	BONUS:VAR|TombGuardianDodgeLVL|CL	ADD:SPELLCASTER|Arcane
+4							ADD:SPELLCASTER|Arcane
+5							ADD:SPELLCASTER|Arcane
+###Block
+1	ABILITY:Evereskan Tomb Guardian Class Feature|AUTOMATIC|Evereskan Tomb Guardian ~ Weapon and Armor Proficiency
+1	ABILITY:Evereskan Tomb Guardian Class Feature|AUTOMATIC|Evereskan Tomb Guardian ~ Spells per Day/Spells Known
+1	ABILITY:Evereskan Tomb Guardian Class Feature|AUTOMATIC|Evereskan Tomb Guardian ~ Sacred Duty
+2	ABILITY:Evereskan Tomb Guardian Class Feature|AUTOMATIC|Evereskan Tomb Guardian ~ Devoted Pursuit
+2	ABILITY:Evereskan Tomb Guardian Class Feature|AUTOMATIC|Evereskan Tomb Guardian ~ Dodge Bonus
+3	ABILITY:Evereskan Tomb Guardian Class Feature|AUTOMATIC|Evereskan Tomb Guardian ~ Swift Tracking
+5	ABILITY:Evereskan Tomb Guardian Class Feature|AUTOMATIC|Evereskan Tomb Guardian ~ Silent Guardian
 
-CLASS:Eye of Horus-Re	PREALIGN:LG	PREREGION:1,Mulhorand	PRESKILL:1,Knowledge (Religion)=9	PRESKILL:1,Spot=4	PREFEAT:2,Alertness,Extra Turning	PRESPELLTYPE:1,Divine=3	PREDOMAIN:1,Sun	PREDEITY:1,Horus-Re	PRESPELLCAST:TYPE=Divine
+# Eye of Horus-Re
+
+# Class Name		Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page		Save checks bonus														Combat bonus							Modify VAR
+CLASS:Eye of Horus-Re	HD:8		TYPE:Prestige	CLASSTYPE:Prestige	ABB:Ehr		MAXLEVEL:10	SOURCEPAGE:p.54	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1
+# Class Name		Required AL	Required Deity		Required Domain	Required Feat				Required Region		Required Skill							Required Casting Type		Req. Spell Type
+CLASS:Eye of Horus-Re	PREALIGN:LG	PREDEITY:1,Horus-Re	PREDOMAIN:1,Sun	PREFEAT:2,Alertness,Extra Turning	PREREGION:1,Mulhorand	PRESKILL:1,Knowledge (Religion)=9	PRESKILL:1,Spot=4	PRESPELLCAST:TYPE=Divine	PRESPELLTYPE:1,Divine=3
+# Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Eye of Horus-Re	STARTSKILLPTS:2	CSKILL:Concentration|Diplomacy|Heal|TYPE=Knowledge|TYPE=Profession|Spellcraft|Spot
-1				ABILITY:Special Ability|AUTOMATIC|Eye Horus Re Turn Undead			BONUS:VAR|EyeHorusReTurnUndeadLVL|CL
+1	BONUS:VAR|EyeHorusReTurnUndeadLVL|CL
 ###Block:
-1				ABILITY:Special Ability|AUTOMATIC|Extra Greater Turning|Radiance
-2	ADD:SPELLCASTER|Cleric							VISION:Darkvision (60')|Low-light
-3	ADD:SPELLCASTER|Cleric			ABILITY:Special Ability|AUTOMATIC|Touch of the Sun (good)
-4	ADD:SPELLCASTER|Cleric
-5	ADD:SPELLCASTER|Cleric					BONUS:DOMAIN|NUMBER|1
-6	ADD:SPELLCASTER|Cleric		VFEAT:Blind Fight	ABILITY:Special Ability|AUTOMATIC|Piercing Sight
-7	ADD:SPELLCASTER|Cleric
-8	ADD:SPELLCASTER|Cleric			ABILITY:Special Ability|AUTOMATIC|Eye Horus Re Positive Energy Burst|Positive Energy Burst			BONUS:VAR|EyeHorusRePositiveBurstLVL|CL
-9	ADD:SPELLCASTER|Cleric
-10	ADD:SPELLCASTER|Cleric			ABILITY:Special Ability|AUTOMATIC|Trueseeing
-###Block:
-###Block:###Block:###Block:TODO CONTIGUOUS:Paladin													
-CLASS:Hammer of Moradin	HD:10	TYPE:Prestige	ABB:Hom	MAXLEVEL:10	CLASSTYPE:Prestige	SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL		EXCLASS:Ex-Hammer of Moradin
-CLASS:Hammer of Moradin	PRERACE:1,RACESUBTYPE=Dwarf	PREREGION:1,Spine of the World	PREATT:7	PRESKILL:1,Craft (Weaponsmithing)=10	PREFEAT:2,Iron Will,Weapon Focus (Warhammer)	PRESPELLTYPE:1,Divine=2	PREDEITY:1,Moradin	PRETEXT:Member of the Hammers of Moradin	PRESPELLCAST:TYPE=Divine
+2	VISION:Darkvision (60')|Low-Light Vision												ADD:SPELLCASTER|Cleric
+3																			ADD:SPELLCASTER|Cleric
+4																			ADD:SPELLCASTER|Cleric
+5								BONUS:DOMAIN|NUMBER|1								ADD:SPELLCASTER|Cleric
+6																			ADD:SPELLCASTER|Cleric
+7																			ADD:SPELLCASTER|Cleric
+8												BONUS:VAR|EyeHorusRePositiveBurstLVL|CL	ADD:SPELLCASTER|Cleric
+9																			ADD:SPELLCASTER|Cleric
+10																			ADD:SPELLCASTER|Cleric
+###Block
+1	ABILITY:Eye of Horus-Re Class Feature|AUTOMATIC|Eye of Horus-Re ~ Weapon and Armor Proficiency
+1	ABILITY:Eye of Horus-Re Class Feature|AUTOMATIC|Eye of Horus-Re ~ Spells per Day/Spells Known
+1	ABILITY:Eye of Horus-Re Class Feature|AUTOMATIC|Eye of Horus-Re ~ Greater Turning
+1	ABILITY:Eye of Horus-Re Class Feature|AUTOMATIC|Eye of Horus-Re ~ Radiance
+1	ABILITY:Eye of Horus-Re Class Feature|AUTOMATIC|Eye of Horus-Re ~ Turn Undead
+2	ABILITY:Eye of Horus-Re Class Feature|AUTOMATIC|Eye of Horus-Re ~ Everlight
+3	ABILITY:Eye of Horus-Re Class Feature|AUTOMATIC|Eye of Horus-Re ~ Touch of the Sun
+5	ABILITY:Eye of Horus-Re Class Feature|AUTOMATIC|Eye of Horus-Re ~ Domain
+6	ABILITY:Eye of Horus-Re Class Feature|AUTOMATIC|Eye of Horus-Re ~ Piercing Sight
+8	ABILITY:Eye of Horus-Re Class Feature|AUTOMATIC|Eye of Horus-Re ~ Positive Energy Burst
+10	ABILITY:Eye of Horus-Re Class Feature|AUTOMATIC|Eye of Horus-Re ~ True Seeing
+
+# Hammer of Moradin (Updated)
+
+# Class Name		Hit Dice	Type			Class Type			Abbreviation	Ex Class				Source Page		Save checks bonus														Combat bonus
+CLASS:Hammer of Moradin	HD:10		TYPE:Prestige.PC	CLASSTYPE:Prestige	ABB:Hom		EXCLASS:Ex-Hammer of Moradin	SOURCEPAGE:p.56	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
+# Class Name		Required Deity		Required Feat						Multiple Requirements						Required Race			Required Skill					Required Casting Type		Req. Spell Type		Required Text
+CLASS:Hammer of Moradin	PREDEITY:1,Moradin	PREFEAT:2,Iron Will,Weapon Focus (Warhammer)	PREMULT:1,[PREATT:7],[PREVARGTEQ:BaseAttackBonus,7]	PRERACE:1,RACESUBTYPE=Dwarf	PRESKILL:1,Craft (Weaponsmithing)=10	PRESPELLCAST:TYPE=Divine	PRESPELLTYPE:1,Divine=2	PRETEXT:Region - Spine of the World	PRETEXT:Member of the Hammers of Moradin
+# Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Hammer of Moradin	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Heal|Knowledge (Arcana)|Knowledge (History)|Knowledge (Religion)|Knowledge (Local)|Knowledge (The Planes)|TYPE=Profession|Spellcraft
-1		ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Hammer of Moradin
 ###Block:
-1				ABILITY:Special Ability|AUTOMATIC|Aura of Courage|Hammer Throw
-2				ABILITY:Special Ability|AUTOMATIC|Goblinkiller|Hammer Return
-3				ABILITY:Special Ability|AUTOMATIC|Hammer Moradin Damage Reduction|Powerful Grip ~ Warhammer			BONUS:VAR|HammerMoradinDRLVL|CL
-4				ABILITY:Special Ability|AUTOMATIC|Far Shot (warhammer)|Hammer Moradin Quake|Quake			BONUS:VAR|HammerMoradinQuakeLVL|CL
-5				ABILITY:Special Ability|AUTOMATIC|Drowbasher|Hammer Moradin Power Strike|Power Strike			BONUS:VAR|HammerMoradinPowerStrikeLVL|CL
-6
-7				ABILITY:Special Ability|AUTOMATIC|Chaos Crusher|Hammer Moradin Chaos Crusher|Stalwart
-8				ABILITY:Special Ability|AUTOMATIC|Giantslayer|Thunder Strike
-9				ABILITY:Special Ability|AUTOMATIC|Power Throw
-10				ABILITY:Special Ability|AUTOMATIC|Bone of the Earth (Sp)			BONUS:VAR|BonesOfEarthLVL|CL
+1	ABILITY:Hammer of Moradin Class Feature|AUTOMATIC|Hammer of Moradin ~ Weapon and Armor Proficiency
+1	ABILITY:Hammer of Moradin Class Feature|AUTOMATIC|Hammer of Moradin ~ Aura of Courage|Hammer of Moradin ~ Hammer Throw
+2	ABILITY:Hammer of Moradin Class Feature|AUTOMATIC|Hammer of Moradin ~ Goblinkiller|Hammer of Moradin ~ Hammer Return
+3	ABILITY:Hammer of Moradin Class Feature|AUTOMATIC|Hammer of Moradin ~ Damage Reduction|Hammer of Moradin ~ Powerful Grip
+4	ABILITY:Hammer of Moradin Class Feature|AUTOMATIC|Hammer of Moradin ~ Far Shot|Hammer of Moradin ~ Quake
+5	ABILITY:Hammer of Moradin Class Feature|AUTOMATIC|Hammer of Moradin ~ Drowbasher|Hammer of Moradin ~ Power Strike
+7	ABILITY:Hammer of Moradin Class Feature|AUTOMATIC|Hammer of Moradin ~ Chaos Crusher|Hammer of Moradin ~ Stalwart
+8	ABILITY:Hammer of Moradin Class Feature|AUTOMATIC|Hammer of Moradin ~ Giantslayer|Hammer of Moradin ~ Thunder Strike
+9	ABILITY:Hammer of Moradin Class Feature|AUTOMATIC|Hammer of Moradin ~ Power Throw
+10	ABILITY:Hammer of Moradin Class Feature|AUTOMATIC|Hammer of Moradin ~ Bones of the Earth
 ###Block:
-CLASS:Ex-Hammer of Moradin	HD:10	TYPE:Prestige	ABB:XHom	MAXLEVEL:10	CLASSTYPE:Prestige	SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL		VISIBLE:NO
+11	PREPCLEVEL:MIN=20
+###Block:
+1	BONUS:VAR|HammerOfMoradinDRLVL|CL
+4	BONUS:VAR|HammerOfMoradinQuakeLVL|CL
+5	BONUS:VAR|HammerOfMoradinPowerStrikeLVL|CL
+10	BONUS:VAR|BonesOfTheEarthLVL|CL
+###Block:
+
+# Class Name			Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page		Visible	Save checks bonus														Combat bonus
+CLASS:Ex-Hammer of Moradin	HD:10		TYPE:Prestige.PC	CLASSTYPE:Prestige	ABB:XHom		MAXLEVEL:10	SOURCEPAGE:p.57	VISIBLE:NO	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
+# Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Ex-Hammer of Moradin	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Heal|Knowledge (Arcana)|Knowledge (History)|Knowledge (Religion)|Knowledge (Local)|Knowledge (The Planes)|TYPE=Profession|Spellcraft
-1		ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Hammer of Moradin
 ###Block:
-1				ABILITY:Special Ability|AUTOMATIC|Hammer Throw
-2
-3				ABILITY:Special Ability|AUTOMATIC|Hammer Moradin Damage Reduction|Powerful Grip ~ Warhammer			BONUS:VAR|HammerMoradinDRLVL|CL
-4				ABILITY:Special Ability|AUTOMATIC|Far Shot (warhammer)
-5
-6
-7
-8				ABILITY:Special Ability|AUTOMATIC|Thunder Strike
-9
-10
-###Block:
-CLASS:Harper Agent	HD:6	TYPE:Prestige	ABB:Hra	MAXLEVEL:5	CLASSTYPE:Prestige	SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1	
-	EXCLASS:Ex-Harper Agent
-CLASS:Harper Agent	PREALIGN:LG,LN,NG,TN,CG,CN	PRESKILL:1,Diplomacy=8	PRESKILL:1,Knowledge (Local)=4	PRESKILL:2,Sense Motive=2,Survival=2	PREFEAT:1,Negotiator	PRETEXT:The candidate must be sponsored by a member in good standing of the Harpers and win approval from High Harpers.
+1	ABILITY:Hammer of Moradin Class Feature|AUTOMATIC|Hammer of Moradin ~ Weapon and Armor Proficiency
+1	ABILITY:Hammer of Moradin Class Feature|AUTOMATIC|Hammer of Moradin ~ Hammer Throw
+3	ABILITY:Hammer of Moradin Class Feature|AUTOMATIC|Hammer of Moradin ~ Damage Reduction|Hammer of Moradin ~ Powerful Grip
+4	ABILITY:Hammer of Moradin Class Feature|AUTOMATIC|Hammer of Moradin ~ Far Shot|Hammer of Moradin ~ Quake
+8	ABILITY:Hammer of Moradin Class Feature|AUTOMATIC|Hammer of Moradin ~ Thunder Strike
+
+# Harper Agent
+
+# Class Name		Hit Dice	Type			Class Type			Abbreviation	Max Level	Ex Class			Source Page		Save checks bonus														Combat bonus							Modify VAR
+CLASS:Harper Agent	HD:6		TYPE:Prestige	CLASSTYPE:Prestige	ABB:Hra		MAXLEVEL:5	EXCLASS:Ex-Harper Agent	SOURCEPAGE:p.58	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1
+# Class Name		Required AL				Required Feat		Required Skill															Required Text
+CLASS:Harper Agent	PREALIGN:LG,LN,NG,TN,CG,CN	PREFEAT:1,Negotiator	PRESKILL:1,Diplomacy=8	PRESKILL:1,Knowledge (Local)=4	PRESKILL:2,Sense Motive=2,Survival=2	PRETEXT:The candidate must be sponsored by a member in good standing of the Harpers and win approval from High Harpers.
+# Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Harper Agent	STARTSKILLPTS:6	CSKILL:Appraise|Bluff|Climb|TYPE=Craft|Diplomacy|Disguise|Escape Artist|Gather Information|Hide|Jump|TYPE=Knowledge|Listen|Move Silently|TYPE=Perform|TYPE=Profession|Sense Motive|Sleight of Hand|Speak Language|Survival|Swim|Tumble
-1		ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Harper Agent
 ###Block:
-1				ABILITY:Special Ability|AUTOMATIC|Harper Agent Harper Knowledge|Harper Knowledge			BONUS:VAR|HarperAgentHarperKnowledgeLVL|CL
-2	ADD:SPELLCASTER|ANY			ABILITY:Special Ability|AUTOMATIC|Deneyr's Eye|Lliira's Heart
-3	ADD:SPELLCASTER|ANY			ABILITY:Special Ability|AUTOMATIC|Tymora's Smile
-4	ADD:SPELLCASTER|ANY			ABILITY:Special Ability|AUTOMATIC|Lurue's Voice (Sp)			BONUS:VAR|LurueVoiceLVL|CL
-5	ADD:SPELLCASTER|ANY			ABILITY:Special Ability|AUTOMATIC|Mystra's Boon
-###Block:
-CLASS:Ex-Harper Agent	HD:6	TYPE:Prestige	ABB:XHra	MAXLEVEL:5	CLASSTYPE:Prestige	SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1	
-	VISIBLE:NO
+1	BONUS:VAR|HarperAgentHarperKnowledgeLVL|CL
+2									ADD:SPELLCASTER|ANY
+3									ADD:SPELLCASTER|ANY
+4	BONUS:VAR|LurueVoiceLVL|CL				ADD:SPELLCASTER|ANY
+5									ADD:SPELLCASTER|ANY
+###Block
+1	ABILITY:Harper Agent Class Feature|AUTOMATIC|Harper Agent ~ Weapon and Armor Proficiency
+1	ABILITY:Harper Agent Class Feature|AUTOMATIC|Harper Agent ~ Spells per Day/Spells Known
+1	ABILITY:Harper Agent Class Feature|AUTOMATIC|Harper Agent ~ Harper Knowledge
+2	ABILITY:Harper Agent Class Feature|AUTOMATIC|Harper Agent ~ Deneir's Eye
+2	ABILITY:Harper Agent Class Feature|AUTOMATIC|Harper Agent ~ Lliira's Heart
+3	ABILITY:Harper Agent Class Feature|AUTOMATIC|Harper Agent ~ Tymora's Smile
+4	ABILITY:Harper Agent Class Feature|AUTOMATIC|Harper Agent ~ Lurue's Voice
+5	ABILITY:Harper Agent Class Feature|AUTOMATIC|Harper Agent ~ Mystra's Boon
+
+# Class Name		Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page		Visible	Save checks bonus														Combat bonus							Modify VAR
+CLASS:Ex-Harper Agent	HD:6		TYPE:Prestige	CLASSTYPE:Prestige	ABB:XHra		MAXLEVEL:5	SOURCEPAGE:p.59	VISIBLE:NO	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1
+# Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Ex-Harper Agent	STARTSKILLPTS:6	CSKILL:Appraise|Bluff|Climb|TYPE=Craft|Diplomacy|Disguise|Escape Artist|Gather Information|Hide|Jump|TYPE=Knowledge|Listen|Move Silently|TYPE=Perform|TYPE=Profession|Sense Motive|Sleight of Hand|Speak Language|Survival|Swim|Tumble
-1		ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Harper Agent
 ###Block:
-1				ABILITY:Special Ability|AUTOMATIC|Harper Agent Harper Knowledge|Harper Knowledge			BONUS:VAR|HarperAgentHarperKnowledgeLVL|CL
-2	ADD:SPELLCASTER|ANY
-3	ADD:SPELLCASTER|ANY
-4	ADD:SPELLCASTER|ANY
-5	ADD:SPELLCASTER|ANY
+1	BONUS:VAR|HarperAgentHarperKnowledgeLVL|CL					ABILITY:Harper Agent Class Feature|AUTOMATIC|Harper Agent ~ Harper Knowledge
+2									ADD:SPELLCASTER|ANY
+3									ADD:SPELLCASTER|ANY
+4									ADD:SPELLCASTER|ANY
+5									ADD:SPELLCASTER|ANY
+
+# Hathran
+
+# Class Name	Hit Dice	Type			Class Type			Abbreviation	Max Level	Ex Class			Source Page		Save checks bonus														Combat bonus							Modify VAR
+CLASS:Hathran	HD:4		TYPE:Prestige	CLASSTYPE:Prestige	ABB:Hth		MAXLEVEL:10	EXCLASS:Ex-Hathran	SOURCEPAGE:p.59	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*1/2|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|CL|PREVAREQ:UseFractionalBAB,1
+# Class Name	Required AL		Required Deity				Required Feat										Required Gender		Required Region		Required Skill				Req. Spell Type				Required Text
+CLASS:Hathran	PREALIGN:LG,LN,NG	PREDEITY:1,Chauntea,Mielikki,Mystra	PREFEAT:1,Ethran,Leadership	PREFEAT:2,TYPE=ItemCreation,Scribe Scroll	PREGENDER:1,Female	PREREGION:1,Rashemen	PRESKILL:1,Knowledge (Local)=4	PRESPELLTYPE:1,Arcane=4,Divine=4	PRETEXT:The candidate must be a member in good standing of the Witches of Rashemen
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Hathran	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|TYPE=Knowledge|TYPE=Perform|TYPE=Profession|Swim|Speak Language|Spellcraft|Survival
+# Class Name	Use Spell List
+CLASS:Hathran	SPELLLIST:1|Hathran
 ###Block:
-CLASS:Hathran	HD:4	TYPE:Prestige	ABB:Hth	MAXLEVEL:10	CLASSTYPE:Prestige	SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*1/2|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|CL|PREVAREQ:UseFractionalBAB,1			EXCLASS:Ex-Hathran
-CLASS:Hathran	PREALIGN:LG,LN,NG	PREGENDER:1,Female	PREREGION:1,Rashemen	PRESKILL:1,Knowledge (Local)=4	PREFEAT:1,Ethran,Leadership	PRESPELLTYPE:1,Arcane=4,Divine=4	PREDEITY:1,Chauntea,Mielikki,Mystra	PREFEAT:2,TYPE=ItemCreation,Scribe Scroll	PRETEXT:The candidate must be a member in good standing of the Witches of Rashemen
-CLASS:Hathran	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|TYPE=Knowledge|TYPE=Perform|TYPE=Profession|Swim|Speak Language|Spellcraft|Survival				SPELLLIST:1|Hathran
-1		ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Hathran
+1	BONUS:ABILITYPOOL|Taboo|1										ADD:SPELLCASTER|ANY
+2															ADD:SPELLCASTER|ANY
+3							BONUS:VAR|HathranAweOfWychlaranLVL|CL		ADD:SPELLCASTER|ANY
+4							BONUS:VAR|HathranUniversalSpiritMagicLVL|CL	ADD:SPELLCASTER|ANY
+5							BONUS:VAR|HathranCircleLeaderLVL|CL			ADD:SPELLCASTER|ANY
+6															ADD:SPELLCASTER|ANY
+7															ADD:SPELLCASTER|ANY
+8															ADD:SPELLCASTER|ANY
+9															ADD:SPELLCASTER|ANY
+10	BONUS:ABILITYPOOL|Hathran Spells|1									ADD:SPELLCASTER|ANY
+###Block
+1	ABILITY:Hathran Class Feature|AUTOMATIC|Hathran ~ Weapon and Armor Proficiency
+1	ABILITY:Hathran Class Feature|AUTOMATIC|Hathran ~ Spells per Day/Spells Known
+1	ABILITY:Hathran Class Feature|AUTOMATIC|Hathran ~ Leadership Bonus
+1	ABILITY:Hathran Class Feature|AUTOMATIC|Hathran ~ Rashemi Spirit Magic
+1	ABILITY:Hathran Class Feature|AUTOMATIC|Hathran ~ Taboo
+2	ABILITY:Hathran Class Feature|AUTOMATIC|Hathran ~ Spirit Speech
+3	ABILITY:Hathran Class Feature|AUTOMATIC|Hathran ~ Awe of the Wychlaran
+3	ABILITY:Hathran Class Feature|AUTOMATIC|Hathran ~ Universal Spirit Magic
+4	ABILITY:Hathran Class Feature|AUTOMATIC|Hathran ~ Spirit Concordat
+5	ABILITY:Hathran Class Feature|AUTOMATIC|Hathran ~ Circle Leader
+8	ABILITY:Hathran Class Feature|AUTOMATIC|Hathran ~ Spirit Dominion
+10	ABILITY:Hathran Class Feature|AUTOMATIC|Hathran ~ Great Circle Leader
 ###Block:
-1	ADD:SPELLCASTER|ANY			ABILITY:Special Ability|AUTOMATIC|Hathran Leadership|Rashemi Spirit Magic			BONUS:ABILITYPOOL|Taboo|1
-2	ADD:SPELLCASTER|ANY			ABILITY:Special Ability|AUTOMATIC|Spirit Speech
-3	ADD:SPELLCASTER|ANY			ABILITY:Special Ability|AUTOMATIC|Awe of Wychlaran|Hathran Awe of Wychlaran			BONUS:VAR|HathranAweOfWychlaranLVL|CL
-4	ADD:SPELLCASTER|ANY			ABILITY:Special Ability|AUTOMATIC|Hathran Universal Spirit Magic|Spirit Concordat|Universal Spirit Magic			BONUS:VAR|HathranUniversalSpiritMagicLVL|CL
-5	ADD:SPELLCASTER|ANY			ABILITY:Special Ability|AUTOMATIC|Circle Leader|Hathran Circle Leader			BONUS:VAR|HathranCircleLeaderLVL|CL
-6	ADD:SPELLCASTER|ANY
-7	ADD:SPELLCASTER|ANY
-8	ADD:SPELLCASTER|ANY			ABILITY:Special Ability|AUTOMATIC|Spirit Dominion
-9	ADD:SPELLCASTER|ANY
-10	ADD:SPELLCASTER|ANY						BONUS:ABILITYPOOL|Hathran Spells|1
+
+# Class Name	Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page		Visible	Save checks bonus														Combat bonus							Modify VAR
+CLASS:Ex-Hathran	HD:4		TYPE:Prestige	CLASSTYPE:Prestige	ABB:XHth		MAXLEVEL:10	SOURCEPAGE:p.61	VISIBLE:NO	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*1/2|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|CL|PREVAREQ:UseFractionalBAB,1
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Ex-Hathran	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|TYPE=Knowledge|TYPE=Perform|TYPE=Profession|Swim|Speak Language|Spellcraft|Survival
+# Class Name	Use Spell List
+CLASS:Ex-Hathran	SPELLLIST:1|Hathran
 ###Block:
-CLASS:Ex-Hathran	HD:4	TYPE:Prestige	ABB:XHth	MAXLEVEL:10	CLASSTYPE:Prestige	SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*1/2|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|CL|PREVAREQ:UseFractionalBAB,1			VISIBLE:NO
-CLASS:Ex-Hathran	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|TYPE=Knowledge|TYPE=Perform|TYPE=Profession|Swim|Speak Language|Spellcraft|Survival				SPELLLIST:1|Hathran
-1		ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Hathran
-###Block:
-1	ADD:SPELLCASTER|ANY
-2	ADD:SPELLCASTER|ANY			ABILITY:Special Ability|AUTOMATIC|Spirit Speech
-3	ADD:SPELLCASTER|ANY						BONUS:VAR|HathranAweOfWychlaranLVL|CL
-4	ADD:SPELLCASTER|ANY			ABILITY:Special Ability|AUTOMATIC|Spirit Concordat			BONUS:VAR|HathranUniversalSpiritMagicLVL|CL
-5	ADD:SPELLCASTER|ANY						BONUS:VAR|HathranCircleLeaderLVL|CL
-6	ADD:SPELLCASTER|ANY
-7	ADD:SPELLCASTER|ANY
-8	ADD:SPELLCASTER|ANY			ABILITY:Special Ability|AUTOMATIC|Spirit Dominion
-9	ADD:SPELLCASTER|ANY
-10	ADD:SPELLCASTER|ANY
-###Block:
-CLASS:Incantatrix	HD:4	TYPE:Prestige	ABB:Inc	MAXLEVEL:10	CLASSTYPE:Prestige	SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*1/2|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|CL|PREVAREQ:UseFractionalBAB,1					ALLOWBASECLASS:NO
-CLASS:Incantatrix	PRESKILL:1,Concentration=4	PRESKILL:2,Knowledge (Arcana)=8,Spellcraft=8	PREFEAT:1,Iron Will	PREFEAT:1,TYPE=Metamagic	PRESPELLTYPE:1,Arcane=3	PRETEXT:Cannot have Abjuration as a prohibited school.
+1									ADD:SPELLCASTER|ANY
+2									ADD:SPELLCASTER|ANY	ABILITY:Hathran Class Feature|AUTOMATIC|Hathran ~ Spirit Speech
+3	BONUS:VAR|HathranAweOfWychlaranLVL|CL		ADD:SPELLCASTER|ANY
+4	BONUS:VAR|HathranUniversalSpiritMagicLVL|CL	ADD:SPELLCASTER|ANY	ABILITY:Hathran Class Feature|AUTOMATIC|Hathran ~ Spirit Concordat
+5	BONUS:VAR|HathranCircleLeaderLVL|CL			ADD:SPELLCASTER|ANY
+6									ADD:SPELLCASTER|ANY
+7									ADD:SPELLCASTER|ANY
+8									ADD:SPELLCASTER|ANY	ABILITY:Hathran Class Feature|AUTOMATIC|Hathran ~ Spirit Dominion
+9									ADD:SPELLCASTER|ANY
+10									ADD:SPELLCASTER|ANY
+
+# Incantrix
+
+# Class Name	Hit Dice	Type			Class Type			Abbreviation	Max Level	Base class as subclass?	Source Page		Save checks bonus														Combat bonus							Modify VAR
+CLASS:Incantatrix	HD:4		TYPE:Prestige	CLASSTYPE:Prestige	ABB:Inc		MAXLEVEL:10	ALLOWBASECLASS:NO		SOURCEPAGE:p.61	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*1/2|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|CL|PREVAREQ:UseFractionalBAB,1
+# Class Name	Required Feat							Required Skill											Req. Spell Type		Required Text
+CLASS:Incantatrix	PREFEAT:1,Iron Will	PREFEAT:1,TYPE=Metamagic	PRESKILL:1,Concentration=4	PRESKILL:2,Knowledge (Arcana)=8,Spellcraft=8	PRESPELLTYPE:1,Arcane=3	PRETEXT:Cannot have Abjuration as a prohibited school.
+# Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Incantatrix	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Heal|Intimidate|Knowledge (Arcana)|Knowledge (The Planes)|TYPE=Profession|Spellcraft
 SUBCLASS:Incantatrix ~ Abjurer	COST:1	PROHIBITCOST:0	CHOICE:SCHOOL|Abjuration
-SUBCLASSLEVEL:1				ABILITY:Special Ability|AUTOMATIC|Focused Studies ~ Abjurer
+SUBCLASSLEVEL:1
+#	ABILITY:Special Ability|AUTOMATIC|Focused Studies ~ Abjurer
 SUBCLASS:Incantatrix ~ Conjurer	COST:1	PROHIBITCOST:1	CHOICE:SCHOOL|Conjuration
-SUBCLASSLEVEL:1				ABILITY:Special Ability|AUTOMATIC|Focused Studies ~ Conjurer
+SUBCLASSLEVEL:1
+#	ABILITY:Special Ability|AUTOMATIC|Focused Studies ~ Conjurer
 SUBCLASS:Incantatrix ~ Diviner	COST:1	PROHIBITCOST:0	CHOICE:SCHOOL|Divination
-SUBCLASSLEVEL:1				ABILITY:Special Ability|AUTOMATIC|Focused Studies ~ Diviner
+SUBCLASSLEVEL:1
+#	ABILITY:Special Ability|AUTOMATIC|Focused Studies ~ Diviner
 SUBCLASS:Incantatrix ~ Enchanter	COST:1	PROHIBITCOST:1	CHOICE:SCHOOL|Enchantment
-SUBCLASSLEVEL:1				ABILITY:Special Ability|AUTOMATIC|Focused Studies ~ Enchanter
+SUBCLASSLEVEL:1
+#	ABILITY:Special Ability|AUTOMATIC|Focused Studies ~ Enchanter
 SUBCLASS:Incantatrix ~ Evoker		COST:1	PROHIBITCOST:1	CHOICE:SCHOOL|Evocation
-SUBCLASSLEVEL:1				ABILITY:Special Ability|AUTOMATIC|Focused Studies ~ Evoker
+SUBCLASSLEVEL:1
+#	ABILITY:Special Ability|AUTOMATIC|Focused Studies ~ Evoker
 SUBCLASS:Incantatrix ~ Illusionist	COST:1	PROHIBITCOST:1	CHOICE:SCHOOL|Illusion
-SUBCLASSLEVEL:1				ABILITY:Special Ability|AUTOMATIC|Focused Studies ~ Illusionist
+SUBCLASSLEVEL:1
+#	ABILITY:Special Ability|AUTOMATIC|Focused Studies ~ Illusionist
 SUBCLASS:Incantatrix ~ Necromancer	COST:1	PROHIBITCOST:1	CHOICE:SCHOOL|Necromancy
-SUBCLASSLEVEL:1				ABILITY:Special Ability|AUTOMATIC|Focused Studies ~ Necromancer
+SUBCLASSLEVEL:1
+#	ABILITY:Special Ability|AUTOMATIC|Focused Studies ~ Necromancer
 SUBCLASS:Incantatrix ~ Transmuter	COST:1	PROHIBITCOST:1	CHOICE:SCHOOL|Transmutation
-SUBCLASSLEVEL:1				ABILITY:Special Ability|AUTOMATIC|Focused Studies ~ Transmuter
-1	ADD:SPELLCASTER|Arcane			ABILITY:Special Ability|AUTOMATIC|Cooperative Metamagic			BONUS:ABILITYPOOL|Incantatrix Feat|(CL+2)/3
-2	ADD:SPELLCASTER|Arcane
-3	ADD:SPELLCASTER|Arcane			ABILITY:Special Ability|AUTOMATIC|Metamagic Effect
-4	ADD:SPELLCASTER|Arcane
-5	ADD:SPELLCASTER|Arcane			ABILITY:Special Ability|AUTOMATIC|Metamagic Spell Trigger
-6	ADD:SPELLCASTER|Arcane			ABILITY:Special Ability|AUTOMATIC|Seize Concentration
-7	ADD:SPELLCASTER|Arcane			ABILITY:Special Ability|AUTOMATIC|Incantatrix Instant Metamagic|Instant Metamagic		BONUS:VAR|IncantatrixInstantMetamagicLVL|CL		DEFINE:InstantMetamagicPerDay|0
-8	ADD:SPELLCASTER|Arcane			ABILITY:Special Ability|AUTOMATIC|Snatch Spell
-9	ADD:SPELLCASTER|Arcane
-10	ADD:SPELLCASTER|Arcane			ABILITY:Special Ability|AUTOMATIC|Improved Metamagic
-###Block:
-###Block:###Block:###Block:TODO CONTIGUOUS:Paladin													
-CLASS:Justiciar of Tyr	HD:8	TYPE:Prestige	ABB:Jot	MAXLEVEL:10	CLASSTYPE:Prestige	SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1	
-	EXCLASS:Ex-Justiciar of Tyr
-CLASS:Justiciar of Tyr	PREALIGN:LG	PREATT:5	PRESKILL:1,Diplomacy=7	PRESKILL:1,Knowledge (Local)=4	PRESKILL:1,Knowledge (Religion)=6	PRESPELLTYPE:1,Divine=2	PREDEITY:1,Tyr
+SUBCLASSLEVEL:1
+#ABILITY:Special Ability|AUTOMATIC|Focused Studies ~ Transmuter
+1	BONUS:ABILITYPOOL|Incantatrix Feat|(CL+2)/3															ADD:SPELLCASTER|Arcane
+2																							ADD:SPELLCASTER|Arcane
+3																							ADD:SPELLCASTER|Arcane
+4																							ADD:SPELLCASTER|Arcane
+5																							ADD:SPELLCASTER|Arcane
+6																							ADD:SPELLCASTER|Arcane
+7									BONUS:VAR|IncantatrixInstantMetamagicLVL|CL	DEFINE:InstantMetamagicPerDay|0	ADD:SPELLCASTER|Arcane
+8																							ADD:SPELLCASTER|Arcane
+9																							ADD:SPELLCASTER|Arcane
+10																							ADD:SPELLCASTER|Arcane
+###Block
+1	ABILITY:Incantrix Class Feature|AUTOMATIC|Incantrix ~ Weapon and Armor Proficiency
+1	ABILITY:Incantrix Class Feature|AUTOMATIC|Incantrix ~ Spells per Day/Spells Known
+1	ABILITY:Incantrix Class Feature|AUTOMATIC|Incantrix ~ Bonus Metamagic Feat
+1	ABILITY:Incantrix Class Feature|AUTOMATIC|Incantrix ~ Focused Studies
+2	ABILITY:Incantrix Class Feature|AUTOMATIC|Incantrix ~ Cooperative Metamagic
+3	ABILITY:Incantrix Class Feature|AUTOMATIC|Incantrix ~ Metamagic Effect
+5	ABILITY:Incantrix Class Feature|AUTOMATIC|Incantrix ~ Metamagic Spell Trigger
+6	ABILITY:Incantrix Class Feature|AUTOMATIC|Incantrix ~ Seize Concentration
+7	ABILITY:Incantrix Class Feature|AUTOMATIC|Incantrix ~ Instant Metamagic
+8	ABILITY:Incantrix Class Feature|AUTOMATIC|Incantrix ~ Snatch Spell
+10	ABILITY:Incantrix Class Feature|AUTOMATIC|Incantrix ~ Improved Metamagic
+
+# Justiciar of Tyr
+
+# Class Name		Hit Dice	Type			Class Type			Abbreviation	Max Level	Ex Class				Source Page		Save checks bonus														Combat bonus							Modify VAR
+CLASS:Justiciar of Tyr	HD:8		TYPE:Prestige	CLASSTYPE:Prestige	ABB:Jot		MAXLEVEL:10	EXCLASS:Ex-Justiciar of Tyr	SOURCEPAGE:p.63	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1
+# Class Name		Required AL	Req. Att.	Required Deity	Required Skill														Req. Spell Type
+CLASS:Justiciar of Tyr	PREALIGN:LG	PREATT:5	PREDEITY:1,Tyr	PRESKILL:1,Diplomacy=7	PRESKILL:1,Knowledge (Local)=4	PRESKILL:1,Knowledge (Religion)=6	PRESPELLTYPE:1,Divine=2
+# Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Justiciar of Tyr	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (Local)|Knowledge (The Planes)|Knowledge (Religion)|TYPE=Profession|Spellcraft
-1		ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Justiciar of Tyr
 ###Block:
-1	ADD:SPELLCASTER|Divine			ABILITY:Special Ability|AUTOMATIC|Detect Chaos|Justicar Smite Anarchy|Smite Anarchy			BONUS:VAR|DetectChaosLVL|CL	BONUS:VAR|JusticarSmiteAnarchyLVL|CL
-2	ADD:SPELLCASTER|Divine			ABILITY:Special Ability|AUTOMATIC|Bureaucratic Knowledge|Justicar Bureaucratic Knowledge			BONUS:VAR|JusticarBureaucraticKnowledgeLVL|CL
-3	ADD:SPELLCASTER|Divine			ABILITY:Special Ability|AUTOMATIC|Axiomatic Spellcasting|Justicar Axiomatic Spellcasting			BONUS:VAR|JusticarAxiomaticSpellcastingLVL|CL
-4	ADD:SPELLCASTER|Divine			ABILITY:Special Ability|AUTOMATIC|Detect Lies			BONUS:VAR|DetectLiesLVL|CL
-5	ADD:SPELLCASTER|Divine			ABILITY:Special Ability|AUTOMATIC|Maimed God's Boon
-6	ADD:SPELLCASTER|Divine
-7	ADD:SPELLCASTER|Divine			ABILITY:Special Ability|AUTOMATIC|Justicar Order's Calm|Order's Calm			BONUS:VAR|JusticarOrderCalmLVL|CL			DEFINE:OrderCalmPerDay|0	DEFINE:OrderCalmDC|0
-8	ADD:SPELLCASTER|Divine			ABILITY:Special Ability|AUTOMATIC|Blade of Justice
-9	ADD:SPELLCASTER|Divine
-10	ADD:SPELLCASTER|Divine			ABILITY:Special Ability|AUTOMATIC|Aura of Absolute Law
+1	BONUS:VAR|DetectChaosLVL|CL	BONUS:VAR|JusticarSmiteAnarchyLVL|CL										ADD:SPELLCASTER|Divine
+2	BONUS:VAR|JusticarBureaucraticKnowledgeLVL|CL														ADD:SPELLCASTER|Divine
+3	BONUS:VAR|JusticarAxiomaticSpellcastingLVL|CL														ADD:SPELLCASTER|Divine
+4	BONUS:VAR|DetectLiesLVL|CL																	ADD:SPELLCASTER|Divine
+5																						ADD:SPELLCASTER|Divine
+6																						ADD:SPELLCASTER|Divine
+7	BONUS:VAR|JusticarOrderCalmLVL|CL							DEFINE:OrderCalmPerDay|0	DEFINE:OrderCalmDC|0	ADD:SPELLCASTER|Divine
+8																						ADD:SPELLCASTER|Divine
+9																						ADD:SPELLCASTER|Divine
+10																						ADD:SPELLCASTER|Divine
 ###Block:
-CLASS:Ex-Justiciar of Tyr	HD:8	TYPE:Prestige	ABB:XJot	MAXLEVEL:10	CLASSTYPE:Prestige	SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1	
-	VISIBLE:NO
+1	ABILITY:Justiciar of Tyr Class Feature|AUTOMATIC|Justiciar of Tyr ~ Weapon and Armor Proficiency
+1	ABILITY:Justiciar of Tyr Class Feature|AUTOMATIC|Justiciar of Tyr ~ Spells per Day/Spells Known
+1	ABILITY:Justiciar of Tyr Class Feature|AUTOMATIC|Justiciar of Tyr ~ Detect Chaos
+1	ABILITY:Justiciar of Tyr Class Feature|AUTOMATIC|Justiciar of Tyr ~ Smite Anarchy
+2	ABILITY:Justiciar of Tyr Class Feature|AUTOMATIC|Justiciar of Tyr ~ Bureaucratic Knowledge
+3	ABILITY:Justiciar of Tyr Class Feature|AUTOMATIC|Justiciar of Tyr ~ Axiomatic Spellcasting
+4	ABILITY:Justiciar of Tyr Class Feature|AUTOMATIC|Justiciar of Tyr ~ Detect Lie
+5	ABILITY:Justiciar of Tyr Class Feature|AUTOMATIC|Justiciar of Tyr ~ Maimed God's Boon
+7	ABILITY:Justiciar of Tyr Class Feature|AUTOMATIC|Justiciar of Tyr ~ Order's Calm
+8	ABILITY:Justiciar of Tyr Class Feature|AUTOMATIC|Justiciar of Tyr ~ Blade of Justice
+10	ABILITY:Justiciar of Tyr Class Feature|AUTOMATIC|Justiciar of Tyr ~ Aura of Absolute Law
+
+# Class Name			Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page		Visible	Save checks bonus														Combat bonus							Modify VAR
+CLASS:Ex-Justiciar of Tyr	HD:8		TYPE:Prestige	CLASSTYPE:Prestige	ABB:XJot		MAXLEVEL:10	SOURCEPAGE:p.65	VISIBLE:NO	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1
+# Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Ex-Justiciar of Tyr	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (Local)|Knowledge (The Planes)|Knowledge (Religion)|TYPE=Profession|Spellcraft
-1		ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Justiciar of Tyr
 ###Block:
-1	ADD:SPELLCASTER|Divine
-2	ADD:SPELLCASTER|Divine			ABILITY:Special Ability|AUTOMATIC|Bureaucratic Knowledge|Justicar Bureaucratic Knowledge			BONUS:VAR|JusticarBureaucraticKnowledgeLVL|CL
-3	ADD:SPELLCASTER|Divine
-4	ADD:SPELLCASTER|Divine
-5	ADD:SPELLCASTER|Divine
-6	ADD:SPELLCASTER|Divine
-7	ADD:SPELLCASTER|Divine
-8	ADD:SPELLCASTER|Divine
-9	ADD:SPELLCASTER|Divine
-10	ADD:SPELLCASTER|Divine
-###Block:
-CLASS:Monk of the Long Death	HD:8	TYPE:Prestige	ABB:Mld	MAXLEVEL:10	CLASSTYPE:Prestige	SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1	
-	EXCLASS:Ex-Monk of the Long Death
-CLASS:Monk of the Long Death	PREALIGN:LN,LE,TN,NE,CN,CE	PRESKILL:1,Craft (Alchemy)=5	PRESKILL:1,Craft (Poisonmaking)=7	PRESKILL:1,Heal=3	PRESKILL:1,Knowledge (Arcana)=8	PREATT:5	PRETEXT:Must be inducted into the monks of the long death via a secret ceremony consisting of various morbid and hideous acts designed to test his resolve.
+1									ADD:SPELLCASTER|Divine
+2	BONUS:VAR|JusticarBureaucraticKnowledgeLVL|CL	ADD:SPELLCASTER|Divine		ABILITY:Justiciar of Tyr Class Feature|AUTOMATIC|Justiciar of Tyr ~ Bureaucratic Knowledge
+3									ADD:SPELLCASTER|Divine
+4									ADD:SPELLCASTER|Divine
+5									ADD:SPELLCASTER|Divine
+6									ADD:SPELLCASTER|Divine
+7									ADD:SPELLCASTER|Divine
+8									ADD:SPELLCASTER|Divine
+9									ADD:SPELLCASTER|Divine
+10									ADD:SPELLCASTER|Divine
+
+# Monk of the Long Death
+
+# Class Name			Hit Dice	Type			Class Type			Abbreviation	Max Level	Ex Class					Source Page		Save checks bonus															Combat bonus							Modify VAR
+CLASS:Monk of the Long Death	HD:8		TYPE:Prestige	CLASSTYPE:Prestige	ABB:Mld		MAXLEVEL:10	EXCLASS:Ex-Monk of the Long Death	SOURCEPAGE:p.65	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1
+# Class Name			Required AL				Req. Att.	Required Skill																		Required Text
+CLASS:Monk of the Long Death	PREALIGN:LN,LE,TN,NE,CN,CE	PREATT:5	PRESKILL:1,Craft (Alchemy)=5	PRESKILL:1,Craft (Poisonmaking)=7	PRESKILL:1,Heal=3	PRESKILL:1,Knowledge (Arcana)=8	PRETEXT:Must be inducted into the monks of the long death via a secret ceremony consisting of various morbid and hideous acts designed to test his resolve.
+# Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Monk of the Long Death	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Concentration|TYPE=Craft|Decipher Script|Disguise|Forgery|Heal|Intimidate|Jump|Knowledge (Arcana)|Knowledge (Religion)|TYPE=Profession|Speak Language|Tumble
-1				ABILITY:Special Ability|AUTOMATIC|Monk AC			BONUS:VAR|MonkACLVL|CL
-1							BONUS:UDAM|CLASS.Monk|CL
-1				ABILITY:Special Ability|AUTOMATIC|Monk Movement			BONUS:VAR|MonkMoveLVL|CL
+1						BONUS:VAR|MonkACLVL|CL		ABILITY:Special Ability|AUTOMATIC|Monk ~ AC Bonus
+1	BONUS:UDAM|CLASS.Monk|CL
+1						BONUS:VAR|MonkMoveLVL|CL	ABILITY:Special Ability|AUTOMATIC|Monk ~ Fast Movement
 ###Block:
-1				ABILITY:Special Ability|AUTOMATIC|Deathguard|Monk of the Long Death Deathguard|Poison Use			BONUS:VAR|MonkLongDeathDeathguardLVL|CL
-2				ABILITY:Special Ability|AUTOMATIC|Macabre Shroud
-3				ABILITY:Special Ability|AUTOMATIC|Death Knell (Sp/Wis)			BONUS:VAR|DeathKnellPerDay|1	BONUS:VAR|DeathKnellLVL|CL
-4
-5
-6				ABILITY:Special Ability|AUTOMATIC|Death Attack|Monk of the Long Death Death Attack			BONUS:VAR|MonkLongDeathDeathAttackLVL|CL
-7
-8
-9
-10				ABILITY:Special Ability|AUTOMATIC|Death Touch|Monk of the Long Death Death Touch			BONUS:VAR|MonkLongDeathDeathTouchLVL|CL
+1	BONUS:VAR|MonkLongDeathDeathguardLVL|CL
+3	BONUS:VAR|DeathKnellPerDay|1	BONUS:VAR|DeathKnellLVL|CL
+6	BONUS:VAR|MonkLongDeathDeathAttackLVL|CL
+10	BONUS:VAR|MonkLongDeathDeathTouchLVL|CL
+###Block
+1	ABILITY:Monk of the Long Death Class Feature|AUTOMATIC|Monk of the Long Death ~ Weapon and Armor Proficiency
+1	ABILITY:Monk of the Long Death Class Feature|AUTOMATIC|Monk of the Long Death ~ Deathguard
+1	ABILITY:Monk of the Long Death Class Feature|AUTOMATIC|Monk of the Long Death ~ Monk Abilities
+1	ABILITY:Monk of the Long Death Class Feature|AUTOMATIC|Monk of the Long Death ~ Poison Use
+2	ABILITY:Monk of the Long Death Class Feature|AUTOMATIC|Monk of the Long Death ~ Macabre Shroud
+3	ABILITY:Monk of the Long Death Class Feature|AUTOMATIC|Monk of the Long Death ~ Death Knell
+6	ABILITY:Monk of the Long Death Class Feature|AUTOMATIC|Monk of the Long Death ~ Death Attack
+10	ABILITY:Monk of the Long Death Class Feature|AUTOMATIC|Monk of the Long Death ~ Death Touch
 ###Block:
-CLASS:Ex-Monk of the Long Death	HD:8	TYPE:Prestige	ABB:XMld	MAXLEVEL:10	CLASSTYPE:Prestige	SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1	
-	VISIBLE:NO
+
+# Class Name				Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page		Visible	Save checks bonus															Combat bonus							Modify VAR
+CLASS:Ex-Monk of the Long Death	HD:8		TYPE:Prestige	CLASSTYPE:Prestige	ABB:XMld		MAXLEVEL:10	SOURCEPAGE:p.66	VISIBLE:NO	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1
+# Class Name				Skill Pts/Lvl	Class Skill
 CLASS:Ex-Monk of the Long Death	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Concentration|TYPE=Craft|Decipher Script|Disguise|Forgery|Heal|Intimidate|Jump|Knowledge (Arcana)|Knowledge (Religion)|TYPE=Profession|Speak Language|Tumble
-1				ABILITY:Special Ability|AUTOMATIC|Monk AC			BONUS:VAR|MonkACLVL|CL
-1							BONUS:UDAM|CLASS.Monk|CL
-1				ABILITY:Special Ability|AUTOMATIC|Monk Movement			BONUS:VAR|MonkMoveLVL|CL
+1						BONUS:VAR|MonkACLVL|CL		ABILITY:Special Ability|AUTOMATIC|Monk ~ AC Bonus
+1	BONUS:UDAM|CLASS.Monk|CL
+1						BONUS:VAR|MonkMoveLVL|CL	ABILITY:Special Ability|AUTOMATIC|Monk ~ Fast Movement
 ###Block:
-1				ABILITY:Special Ability|AUTOMATIC|Deathguard|Monk of the Long Death Deathguard|Poison Use			BONUS:VAR|MonkLongDeathDeathguardLVL|CL
-2				ABILITY:Special Ability|AUTOMATIC|Macabre Shroud
-3				ABILITY:Special Ability|AUTOMATIC|Death Knell (Sp/Wis)			BONUS:VAR|DeathKnellPerDay|1	BONUS:VAR|DeathKnellLVL|CL
-4
-5
-6				ABILITY:Special Ability|AUTOMATIC|Death Attack|Monk of the Long Death Death Attack			BONUS:VAR|MonkLongDeathDeathAttackLVL|CL
-7
-8
-9
-10				ABILITY:Special Ability|AUTOMATIC|Death Touch|Monk of the Long Death Death Touch			BONUS:VAR|MonkLongDeathDeathTouchLVL|CL
-###Block:
-CLASS:Morninglord of Lathander	HD:8	TYPE:Prestige	ABB:Mol	MAXLEVEL:10	CLASSTYPE:Prestige	SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1	
+1	BONUS:VAR|MonkLongDeathDeathguardLVL|CL				ABILITY:Monk of the Long Death Class Feature|AUTOMATIC|Monk of the Long Death ~ Deathguard|Monk of the Long Death ~ Poison Use
+2											ABILITY:Monk of the Long Death Class Feature|AUTOMATIC|Monk of the Long Death ~ Macabre Shroud
+3	BONUS:VAR|DeathKnellPerDay|1	BONUS:VAR|DeathKnellLVL|CL	ABILITY:Monk of the Long Death Class Feature|AUTOMATIC|Monk of the Long Death ~ Death Knell
+6	BONUS:VAR|MonkLongDeathDeathAttackLVL|CL				ABILITY:Monk of the Long Death Class Feature|AUTOMATIC|Monk of the Long Death ~ Death Attack
+10	BONUS:VAR|MonkLongDeathDeathTouchLVL|CL				ABILITY:Monk of the Long Death Class Feature|AUTOMATIC|Monk of the Long Death ~ Death Touch
 
-CLASS:Morninglord of Lathander	PREALIGN:LG,NG,CG	PRESKILL:1,TYPE.Craft=4	PRESKILL:1,Diplomacy=7	PRESKILL:1,Knowledge (Religion)=8	PRESKILL:1,TYPE.Perform=2	PREFEAT:1,Improved Turning	PRESPELLTYPE:1,Divine=3	PRESPELL:1,Daylight	PREDEITY:1,Lathander
+# Morninglord of Lathander
+
+# Class Name				Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page		Save checks bonus														Combat bonus							Modify VAR
+CLASS:Morninglord of Lathander	HD:8		TYPE:Prestige	CLASSTYPE:Prestige	ABB:Mol		MAXLEVEL:10	SOURCEPAGE:p.66	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1
+# Class Name				Required AL		Required Deity		Required Feat			Required Skill																	Req. Known Spell		Req. Spell Type
+CLASS:Morninglord of Lathander	PREALIGN:LG,NG,CG	PREDEITY:1,Lathander	PREFEAT:1,Improved Turning	PRESKILL:1,TYPE.Craft=4	PRESKILL:1,Diplomacy=7	PRESKILL:1,Knowledge (Religion)=8	PRESKILL:1,TYPE.Perform=2	PRESPELL:1,Daylight	PRESPELLTYPE:1,Divine=3
+# Class Name				Skill Pts/Lvl	Class Skill
 CLASS:Morninglord of Lathander	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (History)|Knowledge (The Planes)|Knowledge (Religion)|TYPE=Perform|Spellcraft
-1	ADD:SPELLCASTER|Divine			ABILITY:Special Ability|AUTOMATIC|Bane of the Restless|Lathander's Light|Morninglord Turn Undead			BONUS:VAR|MorninglordTurnUndeadLVL|CL
-2	ADD:SPELLCASTER|Divine			ABILITY:Special Ability|AUTOMATIC|Creative Fire|Morninglord Creative Fire			BONUS:VAR|MorninglordCreativeFireLVL|CL
-3	ADD:SPELLCASTER|Divine			ABILITY:Special Ability|AUTOMATIC|Daylight (Sp)			BONUS:VAR|DaylightLVL|CL	BONUS:VAR|DaylightPerDay|1
-4	ADD:SPELLCASTER|Divine			ABILITY:Special Ability|AUTOMATIC|Searing Light (Sp)			BONUS:VAR|SearingLightLVL|CL	BONUS:VAR|SearingLightPerDay|1
-5	ADD:SPELLCASTER|Divine			ABILITY:Special Ability|AUTOMATIC|Basic Greater Turning|Morninglord Greater Turning			BONUS:ABILITYPOOL|Greater Turn Undead|1|TYPE=ClassAbility	BONUS:VAR|MorninglordGreaterTurnUndeadLVL|CL
-6	ADD:SPELLCASTER|Divine			ABILITY:Special Ability|AUTOMATIC|Blessing of Dawn
-7	ADD:SPELLCASTER|Divine			ABILITY:Special Ability|AUTOMATIC|Maximize Turning
-8	ADD:SPELLCASTER|Divine
-9	ADD:SPELLCASTER|Divine			ABILITY:Special Ability|AUTOMATIC|Rejuvenation of the Morn
-10	ADD:SPELLCASTER|Divine			ABILITY:Special Ability|AUTOMATIC|Aura of Radiance
-###Block:
-CLASS:Purple Dragon Knight/FR	HD:10	TYPE:Prestige	ABB:Prp	MAXLEVEL:5	CLASSTYPE:Prestige	SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL	
-CLASS:Purple Dragon Knight/FR	PREALIGN:LG,LN,NG,TN	PREMULT:1,[PRESKILL:1,Knowledge (Local)=8],[PREREGION:1,Cormyr]	PREATT:4	PRESKILL:1,Diplomacy=1,Intimidate=1	PRESKILL:3,Listen=2,Ride=2,Spot=2	PREFEAT:2,Leadership,Mounted Combat	PRETEXT:Must be a member of the Purple Dragons
+1											BONUS:VAR|MorninglordTurnUndeadLVL|CL					ADD:SPELLCASTER|Divine
+2											BONUS:VAR|MorninglordCreativeFireLVL|CL					ADD:SPELLCASTER|Divine
+3											BONUS:VAR|DaylightLVL|CL	BONUS:VAR|DaylightPerDay|1		ADD:SPELLCASTER|Divine
+4											BONUS:VAR|SearingLightLVL|CL	BONUS:VAR|SearingLightPerDay|1	ADD:SPELLCASTER|Divine
+5	BONUS:ABILITYPOOL|Greater Turn Undead|1|TYPE=ClassAbility	BONUS:VAR|MorninglordGreaterTurnUndeadLVL|CL				ADD:SPELLCASTER|Divine
+6																						ADD:SPELLCASTER|Divine
+7																						ADD:SPELLCASTER|Divine
+8																						ADD:SPELLCASTER|Divine
+9																						ADD:SPELLCASTER|Divine
+10																						ADD:SPELLCASTER|Divine
+###Block
+1	ABILITY:Morninglord of Lathander Class Feature|AUTOMATIC|Morninglord of Lathander ~ Weapon and Armor Proficiency
+1	ABILITY:Morninglord of Lathander Class Feature|AUTOMATIC|Morninglord of Lathander ~ Spells per Day/Spells Known
+1	ABILITY:Morninglord of Lathander Class Feature|AUTOMATIC|Morninglord of Lathander ~ Bane of the Restless
+1	ABILITY:Morninglord of Lathander Class Feature|AUTOMATIC|Morninglord of Lathander ~ Lathander's Light
+2	ABILITY:Morninglord of Lathander Class Feature|AUTOMATIC|Morninglord of Lathander ~ Creative Fire
+3	ABILITY:Morninglord of Lathander Class Feature|AUTOMATIC|Morninglord of Lathander ~ Daylight
+4	ABILITY:Morninglord of Lathander Class Feature|AUTOMATIC|Morninglord of Lathander ~ Searing Ray
+5	ABILITY:Morninglord of Lathander Class Feature|AUTOMATIC|Morninglord of Lathander ~ Greater Turning
+6	ABILITY:Morninglord of Lathander Class Feature|AUTOMATIC|Morninglord of Lathander ~ Blessing of Dawn
+7	ABILITY:Morninglord of Lathander Class Feature|AUTOMATIC|Morninglord of Lathander ~ Maximize Turning
+8	ABILITY:Morninglord of Lathander Class Feature|AUTOMATIC|Morninglord of Lathander ~ Rejuvenation of the Morn
+10	ABILITY:Morninglord of Lathander Class Feature|AUTOMATIC|Morninglord of Lathander ~ Aura of Radiance
+
+# Purple Dragon Knight
+
+# Class Name			Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page		Save checks bonus														Combat bonus
+CLASS:Purple Dragon Knight/FR	HD:10		TYPE:Prestige	CLASSTYPE:Prestige	ABB:Prp		MAXLEVEL:5	SOURCEPAGE:p.68	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
+# Class Name			Required AL			Req. Att.	Required Feat				Multiple Requirements								Required Skill										Required Text
+CLASS:Purple Dragon Knight/FR	PREALIGN:LG,LN,NG,TN	PREATT:4	PREFEAT:2,Leadership,Mounted Combat	PREMULT:1,[PRESKILL:1,Knowledge (Local)=8],[PREREGION:1,Cormyr]	PRESKILL:1,Diplomacy=1,Intimidate=1	PRESKILL:3,Listen=2,Ride=2,Spot=2	PRETEXT:Must be a member of the Purple Dragons
+# Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Purple Dragon Knight/FR	STARTSKILLPTS:2	CSKILL:Climb|Diplomacy|Intimidate|Jump|Knowledge (Local)|Knowledge (Tactics)|Ride|Swim
-1				ABILITY:Special Ability|AUTOMATIC|Heroic Shield|Purple Knight FR Rallying Cry|Rallying Cry
-2				ABILITY:Special Ability|AUTOMATIC|Inspire Courage|Purple Knight FR Inspire Courage			BONUS:VAR|PurpleKnightFRInspireCourageLVL|CL
-3				ABILITY:Special Ability|AUTOMATIC|Fear (Su)|Purple Knight FR Fear			BONUS:VAR|PurpleKnightFRFearLVL|CL
-4				ABILITY:Special Ability|AUTOMATIC|Oath of Wrath			BONUS:VAR|OathOfWrathPerDay|1
-5				ABILITY:Special Ability|AUTOMATIC|Final Stand|Purple Knight Final Stand
-###Block:
-CLASS:Runecaster	HD:8	TYPE:Prestige	ABB:Rnc	MAXLEVEL:10	CLASSTYPE:Prestige	SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1	
+2	BONUS:VAR|PurpleKnightFRInspireCourageLVL|CL
+3	BONUS:VAR|PurpleKnightFRFearLVL|CL
+4	BONUS:VAR|OathOfWrathPerDay|1
+###Block
+1	ABILITY:Purple Dragon Knight Class Feature|AUTOMATIC|Purple Dragon Knight ~ Weapon and Armor Proficiency
+1	ABILITY:Purple Dragon Knight Class Feature|AUTOMATIC|Purple Dragon Knight ~ Heroic Shield
+1	ABILITY:Purple Dragon Knight Class Feature|AUTOMATIC|Purple Dragon Knight ~ Rallying Cry
+2	ABILITY:Purple Dragon Knight Class Feature|AUTOMATIC|Purple Dragon Knight ~ Inspire Courage
+3	ABILITY:Purple Dragon Knight Class Feature|AUTOMATIC|Purple Dragon Knight ~ Fear
+4	ABILITY:Purple Dragon Knight Class Feature|AUTOMATIC|Purple Dragon Knight ~ Oath of Wrath
+5	ABILITY:Purple Dragon Knight Class Feature|AUTOMATIC|Purple Dragon Knight ~ Final Stand
 
-CLASS:Runecaster	PRESKILL:1,Spellcraft=8	PRESKILL:1,Craft (Calligraphy)=8,Craft (Gemcutting)=8,Craft (Metalworking)=8,Craft (Stonecarving)=8,Craft (Woodcarving)=8	PREFEAT:1,Inscribe Rune	PRESPELLTYPE:1,Divine=3
+# Runecaster
+
+# Class Name	Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page		Save checks bonus														Combat bonus							Modify VAR
+CLASS:Runecaster	HD:8		TYPE:Prestige	CLASSTYPE:Prestige	ABB:Rnc		MAXLEVEL:10	SOURCEPAGE:p.69	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1
+# Class Name	Required Feat		Required Skill																							Req. Spell Type
+CLASS:Runecaster	PREFEAT:1,Inscribe Rune	PRESKILL:1,Spellcraft=8	PRESKILL:1,Craft (Calligraphy)=8,Craft (Gemcutting)=8,Craft (Metalworking)=8,Craft (Stonecarving)=8,Craft (Woodcarving)=8	PRESPELLTYPE:1,Divine=3
+# Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Runecaster	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (Religion)|TYPE=Profession|Spellcraft
-1	ADD:SPELLCASTER|Divine			ABILITY:Special Ability|AUTOMATIC|Runecaster Rune Craft|Rune Craft			BONUS:VAR|RunecasterRuneCraftLVL|CL
-2	ADD:SPELLCASTER|Divine			ABILITY:Special Ability|AUTOMATIC|Runecaster Rune Power|Rune Power			BONUS:VAR|RunecasterRunePowerLVL|CL
-3	ADD:SPELLCASTER|Divine			ABILITY:Special Ability|AUTOMATIC|Improved Runecasting
-4	ADD:SPELLCASTER|Divine
-5	ADD:SPELLCASTER|Divine
-6	ADD:SPELLCASTER|Divine			ABILITY:Special Ability|AUTOMATIC|Maximize Rune
-7	ADD:SPELLCASTER|Divine
-8	ADD:SPELLCASTER|Divine
-9	ADD:SPELLCASTER|Divine
-10	ADD:SPELLCASTER|Divine			ABILITY:Special Ability|AUTOMATIC|Rune Chant
-###Block:
-CLASS:Shaaryan Hunter	HD:10	TYPE:Prestige	ABB:Shr	MAXLEVEL:10	CLASSTYPE:Prestige	SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL	
-CLASS:Shaaryan Hunter	PREREGION:1,Shaar	PREATT:5	PRESKILL:1,Handle Animal=4	PRESKILL:1,Ride=6	PRESKILL:1,Survival=8	PREFEAT:4,Animal Affinity,Mounted Archery,Mounted Combat,Track
-CLASS:Shaaryan Hunter	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Handle Animal|Heal|Hide|Jump|Knowledge (Nature)|Knowledge (Local)|Listen|Move Silently|TYPE=Profession|Ride|Search|Spot|Survival|Swim|Use Rope
-1				ABILITY:Special Ability|AUTOMATIC|Ride Bonus|Shaaryan Ride Bonus			BONUS:VAR|ShaaryanRideBonusLVL|CL
-2				ABILITY:Special Ability|AUTOMATIC|Mounted Tracking|Shaaryan Mounted Tracking			BONUS:VAR|ShaaryanMountedTrackingLVL|CL
-3				ABILITY:Special Ability|AUTOMATIC|Burst of Speed
-4				ABILITY:Special Ability|AUTOMATIC|Mounted Accuracy|Shaaryan Mounted Accuracy			BONUS:VAR|ShaaryanMountedAccuracyLVL|CL
-5			VFEAT:Spirited Charge
-6
-7				ABILITY:Special Ability|AUTOMATIC|Long Riding
-8				ABILITY:Special Ability|AUTOMATIC|Born in the Saddle
-9
-10
-###Block:
-CLASS:Shadow Adept	HD:4	TYPE:Prestige	ABB:Sha	MAXLEVEL:10	CLASSTYPE:Prestige	SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*1/2|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|CL|PREVAREQ:UseFractionalBAB,1		
-CLASS:Shadow Adept	PREALIGN:LN,LE,TN,NE,CN,CE	PRESKILL:2,Knowledge (Arcana)=8,Spellcraft=8	PREFEAT:1,Shadow Weave Magic	PREFEAT:1,TYPE=Metamagic	PRESPELLTYPE:1,Arcane=3,Divine=3
-CLASS:Shadow Adept	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Disguise|Hide|TYPE=Knowledge|TYPE=Profession|Spellcraft
-1	ADD:SPELLCASTER|ANY		AUTO:FEAT|Insidious Magic|Pernicious Magic	BONUS:ABILITYPOOL|Tenacious Magic Choice ~ FR|1
-2	ADD:SPELLCASTER|ANY												VISION:Low-light
-3	ADD:SPELLCASTER|ANY			ABILITY:Special Ability|AUTOMATIC|Shadow Adept Shadow Defense|Shadow Defense			BONUS:VAR|ShadowAdeptShadowDefenseLVL|CL
-4	ADD:SPELLCASTER|ANY			ABILITY:Special Ability|AUTOMATIC|Shadow Adept Shield of Shadows|Shield of Shadows			BONUS:VAR|ShadowAdeptShieldOfShadowLVL|CL
-5	ADD:SPELLCASTER|ANY
-6	ADD:SPELLCASTER|ANY
-7	ADD:SPELLCASTER|ANY			ABILITY:Special Ability|AUTOMATIC|Shadow Walk (Sp)			BONUS:VAR|ShadowWalkLVL|CL	BONUS:VAR|ShadowWalkTimes|1					VISION:Darkvision (60')
-8	ADD:SPELLCASTER|ANY
-9	ADD:SPELLCASTER|ANY
-10	ADD:SPELLCASTER|ANY			ABILITY:Special Ability|AUTOMATIC|Shadow Double
-###Block:
-CLASS:Shadow Thief of Amn	HD:6	TYPE:Prestige	ABB:Sta	MAXLEVEL:5	CLASSTYPE:Prestige	SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1	
+1	BONUS:VAR|RunecasterRuneCraftLVL|CL	ADD:SPELLCASTER|Divine
+2	BONUS:VAR|RunecasterRunePowerLVL|CL	ADD:SPELLCASTER|Divine
+3							ADD:SPELLCASTER|Divine
+4							ADD:SPELLCASTER|Divine
+5							ADD:SPELLCASTER|Divine
+6							ADD:SPELLCASTER|Divine
+7							ADD:SPELLCASTER|Divine
+8							ADD:SPELLCASTER|Divine
+9							ADD:SPELLCASTER|Divine
+10							ADD:SPELLCASTER|Divine
+###Block
+1	ABILITY:Runecaster Class Feature|AUTOMATIC|Runecaster ~ Weapon and Armor Proficiency
+1	ABILITY:Runecaster Class Feature|AUTOMATIC|Runecaster ~ Spells per Day/Spells Known
+1	ABILITY:Runecaster Class Feature|AUTOMATIC|Runecaster ~ Rune Craft
+2	ABILITY:Runecaster Class Feature|AUTOMATIC|Runecaster ~ Rune Power
+3	ABILITY:Runecaster Class Feature|AUTOMATIC|Runecaster ~ Improved Runecasting
+6	ABILITY:Runecaster Class Feature|AUTOMATIC|Runecaster ~ Maximize Rune
+10	ABILITY:Runecaster Class Feature|AUTOMATIC|Runecaster ~ Rune Chant
 
-CLASS:Shadow Thief of Amn	PRESKILL:4,Bluff=3,Gather Information=3,Intimidate=3,Move Silently=3	PRESKILL:1,Hide=8	PREFEAT:1,Persuasive	PRETEXT:Must be a member of a Shadow Thieves' Guild
+# Shaaryan Hunter
+
+# Class Name		Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page		Save checks bonus															Combat bonus
+CLASS:Shaaryan Hunter	HD:10		TYPE:Prestige	CLASSTYPE:Prestige	ABB:Shr		MAXLEVEL:10	SOURCEPAGE:p.71	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
+# Class Name		Req. Att.	Required Feat									Required Region	Required Skill
+CLASS:Shaaryan Hunter	PREATT:5	PREFEAT:4,Animal Affinity,Mounted Archery,Mounted Combat,Track	PREREGION:1,Shaar	PRESKILL:1,Handle Animal=4	PRESKILL:1,Ride=6	PRESKILL:1,Survival=8
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Shaaryan Hunter	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Handle Animal|Heal|Hide|Jump|Knowledge (Nature)|Knowledge (Local)|Listen|Move Silently|TYPE=Profession|Ride|Search|Spot|Survival|Swim|Use Rope
+1	BONUS:VAR|ShaaryanRideBonusLVL|CL
+2	BONUS:VAR|ShaaryanMountedTrackingLVL|CL
+4	BONUS:VAR|ShaaryanMountedAccuracyLVL|CL
+###Block
+5	VFEAT:Spirited Charge
+###Block
+1	ABILITY:Shaaryan Hunter Class Feature|AUTOMATIC|Shaaryan Hunter ~ Weapon and Armor Proficiency
+1	ABILITY:Shaaryan Hunter Class Feature|AUTOMATIC|Shaaryan Hunter ~ Ride Bonus
+2	ABILITY:Shaaryan Hunter Class Feature|AUTOMATIC|Shaaryan Hunter ~ Mounted Tracking
+3	ABILITY:Shaaryan Hunter Class Feature|AUTOMATIC|Shaaryan Hunter ~ Burst of Speed
+4	ABILITY:Shaaryan Hunter Class Feature|AUTOMATIC|Shaaryan Hunter ~ Mounted Accuracy
+5	ABILITY:Shaaryan Hunter Class Feature|AUTOMATIC|Shaaryan Hunter ~ Spirited Charge
+7	ABILITY:Shaaryan Hunter Class Feature|AUTOMATIC|Shaaryan Hunter ~ Long Riding
+8	ABILITY:Shaaryan Hunter Class Feature|AUTOMATIC|Shaaryan Hunter ~ Born in the Saddle
+
+# Shadow Adept
+
+# Class Name		Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page		Save checks bonus														Combat bonus							Modify VAR
+CLASS:Shadow Adept	HD:4		TYPE:Prestige	CLASSTYPE:Prestige	ABB:Sha		MAXLEVEL:10	SOURCEPAGE:p.72	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*1/2|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|CL|PREVAREQ:UseFractionalBAB,1
+# Class Name		Required AL				Required Feat								Required Skill						Req. Spell Type
+CLASS:Shadow Adept	PREALIGN:LN,LE,TN,NE,CN,CE	PREFEAT:1,Shadow Weave Magic	PREFEAT:1,TYPE=Metamagic	PRESKILL:2,Knowledge (Arcana)=8,Spellcraft=8	PRESPELLTYPE:1,Arcane=3,Divine=3
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Shadow Adept	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Disguise|Hide|TYPE=Knowledge|TYPE=Profession|Spellcraft
+1					BONUS:ABILITYPOOL|Tenacious Magic Choice ~ FR|1											ADD:SPELLCASTER|ANY	AUTO:FEAT|Insidious Magic|Pernicious Magic
+2	VISION:Low-light																				ADD:SPELLCASTER|ANY
+3													BONUS:VAR|ShadowAdeptShadowDefenseLVL|CL				ADD:SPELLCASTER|ANY
+4													BONUS:VAR|ShadowAdeptShieldOfShadowLVL|CL				ADD:SPELLCASTER|ANY
+5																							ADD:SPELLCASTER|ANY
+6																							ADD:SPELLCASTER|ANY
+7	VISION:Darkvision (60')									BONUS:VAR|ShadowWalkLVL|CL	BONUS:VAR|ShadowWalkTimes|1	ADD:SPELLCASTER|ANY
+8																							ADD:SPELLCASTER|ANY
+9																							ADD:SPELLCASTER|ANY
+10																							ADD:SPELLCASTER|ANY
+###Block
+1	ABILITY:Shadow Adept Class Feature|AUTOMATIC|Shadow Adept ~ Weapon and Armor Proficiency
+1	ABILITY:Shadow Adept Class Feature|AUTOMATIC|Shadow Adept ~ Spells per Day/Spells Known
+1	ABILITY:Shadow Adept Class Feature|AUTOMATIC|Shadow Adept ~ Shadow Feats
+2	ABILITY:Shadow Adept Class Feature|AUTOMATIC|Shadow Adept ~ Low-Light Vision
+3	ABILITY:Shadow Adept Class Feature|AUTOMATIC|Shadow Adept ~ Shadow Defense
+4	ABILITY:Shadow Adept Class Feature|AUTOMATIC|Shadow Adept ~ Shield of Shadows
+7	ABILITY:Shadow Adept Class Feature|AUTOMATIC|Shadow Adept ~ Darkvision
+7	ABILITY:Shadow Adept Class Feature|AUTOMATIC|Shadow Adept ~ Shadow Walk
+10	ABILITY:Shadow Adept Class Feature|AUTOMATIC|Shadow Adept ~ Shadow Double
+
+# Shadow Thief of Amn
+
+# Class Name			Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page		Save checks bonus															Combat bonus							Modify VAR
+CLASS:Shadow Thief of Amn	HD:6		TYPE:Prestige	CLASSTYPE:Prestige	ABB:Sta		MAXLEVEL:5	SOURCEPAGE:p.74	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1
+# Class Name			Required Feat		Required Skill													Required Text
+CLASS:Shadow Thief of Amn	PREFEAT:1,Persuasive	PRESKILL:4,Bluff=3,Gather Information=3,Intimidate=3,Move Silently=3	PRESKILL:1,Hide=8	PRETEXT:Must be a member of a Shadow Thieves' Guild
+# Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Shadow Thief of Amn	STARTSKILLPTS:6	CSKILL:Appraise|Bluff|Climb|TYPE=Craft|Diplomacy|Disable Device|Forgery|Sense Motive|Intimidate|Jump|Knowledge (Local)|Listen|Move Silently|Open Lock|Sleight of Hand|TYPE=Profession|Search|Sense Motive|Spot|Use Rope
 ###Block:
-1		ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Shadow Thief of Amn
-1				ABILITY:Special Ability|AUTOMATIC|Doublespeak|Shadow Thief Sneak Attack|Sneak Attack			BONUS:VAR|ShadowThiefSneakAttackLVL|CL
-2				ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base			BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.STACK	BONUS:VAR|UncannyDodgeLevel|1	BONUS:ABILITYPOOL|Shadow Thief Feat|CL/2
-3				ABILITY:Special Ability|AUTOMATIC|Reputation|Shadow Thief Reputation			BONUS:VAR|ShadowThiefReputationLVL|CL
-4
+1								BONUS:VAR|ShadowThiefSneakAttackLVL|CL
+2	BONUS:ABILITYPOOL|Shadow Thief Feat|CL/2	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.STACK	BONUS:VAR|UncannyDodgeLevel|1
+3								BONUS:VAR|ShadowThiefReputationLVL|CL
 5								BONUS:VAR|UncannyDodgeLevel|1
-###Block:
-CLASS:Spellguard of Silverymoon	HD:4	TYPE:Prestige	ABB:Spl	MAXLEVEL:5	CLASSTYPE:Prestige	SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*1/2|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|CL|PREVAREQ:UseFractionalBAB,1			EXCLASS:Ex-Spellguard of Silverymoon
-CLASS:Spellguard of Silverymoon	PREALIGN:LG,LN,NG,TN,CG,CN	PREREGION:1,Silverymoon,Silver Marches	PRESKILL:1,Concentration=8	PRESKILL:1,Spellcraft=5	PREFEAT:1,Combat Casting	PREFEAT:1,TYPE=Metamagic	PRESPELLTYPE:1,Arcane=4	PRETEXT:Must be accepted into the Spellguard.
+###Block
+1	ABILITY:Shadow Thief of Amn Class Feature|AUTOMATIC|Shadow Thief of Amn ~ Weapon and Armor Proficiency
+1	ABILITY:Shadow Thief of Amn Class Feature|AUTOMATIC|Shadow Thief of Amn ~ Doublespeak
+1	ABILITY:Shadow Thief of Amn Class Feature|AUTOMATIC|Shadow Thief of Amn ~ Sneak Attack
+2	ABILITY:Shadow Thief of Amn Class Feature|AUTOMATIC|Shadow Thief of Amn ~ Bonus Feat
+2	ABILITY:Shadow Thief of Amn Class Feature|AUTOMATIC|Shadow Thief of Amn ~ Uncanny Dodge
+3	ABILITY:Shadow Thief of Amn Class Feature|AUTOMATIC|Shadow Thief of Amn ~ Reputation
+5	ABILITY:Shadow Thief of Amn Class Feature|AUTOMATIC|Shadow Thief of Amn ~ Improved Uncanny Dodge
+
+# Spellguard of Silverymoon
+
+# Class Name				Hit Dice	Type			Class Type			Abbreviation	Max Level	Ex Class						Source Page		Save checks bonus														Combat bonus							Modify VAR
+CLASS:Spellguard of Silverymoon	HD:4		TYPE:Prestige	CLASSTYPE:Prestige	ABB:Spl		MAXLEVEL:5	EXCLASS:Ex-Spellguard of Silverymoon	SOURCEPAGE:p.75	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*1/2|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|CL|PREVAREQ:UseFractionalBAB,1
+# Class Name				Required AL				Required Feat								Required Region					Required Skill							Req. Spell Type		Required Text
+CLASS:Spellguard of Silverymoon	PREALIGN:LG,LN,NG,TN,CG,CN	PREFEAT:1,Combat Casting	PREFEAT:1,TYPE=Metamagic	PREREGION:1,Silverymoon,Silver Marches	PRESKILL:1,Concentration=8	PRESKILL:1,Spellcraft=5	PRESPELLTYPE:1,Arcane=4	PRETEXT:Must be accepted into the Spellguard.
+# Class Name				Skill Pts/Lvl	Class Skill
 CLASS:Spellguard of Silverymoon	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher Script|TYPE=Knowledge|TYPE=Profession|Spellcraft|Spot
-1	ADD:SPELLCASTER|Arcane			ABILITY:Special Ability|AUTOMATIC|Obligation|Token (spellguard)|Ward Attunement
-2	ADD:SPELLCASTER|Arcane						BONUS:ABILITYPOOL|Spellguard Feat|CL/2
-3	ADD:SPELLCASTER|Arcane			ABILITY:Special Ability|AUTOMATIC|Selective Spell
-4	ADD:SPELLCASTER|Arcane			ABILITY:Special Ability|AUTOMATIC|Spellguard
-5	ADD:SPELLCASTER|Arcane			ABILITY:Special Ability|AUTOMATIC|Spell Power	BONUS:VAR|SpellPower|1
-
+1												ADD:SPELLCASTER|Arcane
+2	BONUS:ABILITYPOOL|Spellguard Feat|CL/2					ADD:SPELLCASTER|Arcane
+3												ADD:SPELLCASTER|Arcane
+4												ADD:SPELLCASTER|Arcane
+5								BONUS:VAR|SpellPower|1	ADD:SPELLCASTER|Arcane
+###Block
+1	ABILITY:Spellguard of Silverymoon Class Feature|AUTOMATIC|Spellguard of Silverymoon ~ Weapon and Armor Proficiency
+1	ABILITY:Spellguard of Silverymoon Class Feature|AUTOMATIC|Spellguard of Silverymoon ~ Spells per Day/Spells Known
+1	ABILITY:Spellguard of Silverymoon Class Feature|AUTOMATIC|Spellguard of Silverymoon ~ Obligation
+1	ABILITY:Spellguard of Silverymoon Class Feature|AUTOMATIC|Spellguard of Silverymoon ~ Token
+1	ABILITY:Spellguard of Silverymoon Class Feature|AUTOMATIC|Spellguard of Silverymoon ~ Ward Attunement
+2	ABILITY:Spellguard of Silverymoon Class Feature|AUTOMATIC|Spellguard of Silverymoon ~ Metamagic Feat
+3	ABILITY:Spellguard of Silverymoon Class Feature|AUTOMATIC|Spellguard of Silverymoon ~ Selective Spell
+4	ABILITY:Spellguard of Silverymoon Class Feature|AUTOMATIC|Spellguard of Silverymoon ~ Spellguard
+5	ABILITY:Spellguard of Silverymoon Class Feature|AUTOMATIC|Spellguard of Silverymoon ~ Spell Power
 ###Block:
-CLASS:Ex-Spellguard of Silverymoon	HD:4	TYPE:Prestige	ABB:XSpl	MAXLEVEL:5	CLASSTYPE:Prestige	SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*1/2|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|CL|PREVAREQ:UseFractionalBAB,1			VISIBLE:NO
+
+# Class Name				Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page		Visible	Save checks bonus														Combat bonus							Modify VAR
+CLASS:Ex-Spellguard of Silverymoon	HD:4		TYPE:Prestige	CLASSTYPE:Prestige	ABB:XSpl		MAXLEVEL:5	SOURCEPAGE:p.77	VISIBLE:NO	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*1/2|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|CL|PREVAREQ:UseFractionalBAB,1
+# Class Name				Skill Pts/Lvl	Class Skill
 CLASS:Ex-Spellguard of Silverymoon	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher Script|TYPE=Knowledge|TYPE=Profession|Spellcraft|Spot
-1	ADD:SPELLCASTER|Arcane
-2	ADD:SPELLCASTER|Arcane						BONUS:ABILITYPOOL|Spellguard Feat|CL/2
-3	ADD:SPELLCASTER|Arcane			ABILITY:Special Ability|AUTOMATIC|Selective Spell
-4	ADD:SPELLCASTER|Arcane			ABILITY:Special Ability|AUTOMATIC|Spellguard
-5	ADD:SPELLCASTER|Arcane			ABILITY:Special Ability|AUTOMATIC|Spell Power	BONUS:VAR|Spell Power|1
+1												ADD:SPELLCASTER|Arcane
+2	BONUS:ABILITYPOOL|Spellguard Feat|CL/2					ADD:SPELLCASTER|Arcane
+3												ADD:SPELLCASTER|Arcane	ABILITY:Spellguard of Silverymoon Class Feature|AUTOMATIC|Spellguard of Silverymoon ~ Selective Spell
+4												ADD:SPELLCASTER|Arcane	ABILITY:Spellguard of Silverymoon Class Feature|AUTOMATIC|Spellguard of Silverymoon ~ Spellguard
+5								BONUS:VAR|Spell Power|1	ADD:SPELLCASTER|Arcane	ABILITY:Spellguard of Silverymoon Class Feature|AUTOMATIC|Spellguard of Silverymoon ~ Spell Power
 
-###Block:
-CLASS:Zhentarim Spy	HD:6	TYPE:Prestige	ABB:Zsp	MAXLEVEL:5	CLASSTYPE:Prestige	SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1	
+# Zhentarim Spy
 
-CLASS:Zhentarim Spy	PREALIGN:LE,NE,CE	PREATT:5	PRESKILL:4,Bluff=5,Disguise=5,Forgery=5,Gather Information=5	PREFEAT:1,Deceitful
+# Class Name		Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page		Save checks bonus															Combat bonus							Modify VAR
+CLASS:Zhentarim Spy	HD:6		TYPE:Prestige	CLASSTYPE:Prestige	ABB:Zsp		MAXLEVEL:5	SOURCEPAGE:p.77	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1
+# Class Name		Required AL		Req. Att.	Required Feat		Required Skill
+CLASS:Zhentarim Spy	PREALIGN:LE,NE,CE	PREATT:5	PREFEAT:1,Deceitful	PRESKILL:4,Bluff=5,Disguise=5,Forgery=5,Gather Information=5
+# Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Zhentarim Spy	STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Climb|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Intimidate|Jump|Listen|Move Silently|Open Lock|Search|Sense Motive|Sleight of Hand|Speak Language|Spot|Tumble|Use Magic Device|Use Rope
 ###Block:
-1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Zhentarim Spy
-1	ABILITY:Special Ability|AUTOMATIC|Cover Identity
-2	ABILITY:Special Ability|AUTOMATIC|Sneak Attack|Undetectable Alignment|Zhentarim Spy Sneak Attack			BONUS:VAR|ZhentarimSpySneakAttackLVL|CL
-3	ABILITY:Special Ability|AUTOMATIC|Poison Use|Unlikely Cover
-4	ABILITY:Special Ability|AUTOMATIC|Slippery Mind
-5	ABILITY:Special Ability|AUTOMATIC|Deep Cover
+###Block
+1	ABILITY:Zhentarim Spy Class Feature|AUTOMATIC|Zhentarim Spy ~ Weapon and Armor Proficiency
+1	ABILITY:Zhentarim Spy Class Feature|AUTOMATIC|Zhentarim Spy ~ Cover Identity
+2	ABILITY:Zhentarim Spy Class Feature|AUTOMATIC|Zhentarim Spy ~ Sneak Attack
+2	ABILITY:Zhentarim Spy Class Feature|AUTOMATIC|Zhentarim Spy ~ Undetectable Alignment
+3	ABILITY:Zhentarim Spy Class Feature|AUTOMATIC|Zhentarim Spy ~ Poison Use
+3	ABILITY:Zhentarim Spy Class Feature|AUTOMATIC|Zhentarim Spy ~ Unlikely Cover
+4	ABILITY:Zhentarim Spy Class Feature|AUTOMATIC|Zhentarim Spy ~ Slippery Mind
+5	ABILITY:Zhentarim Spy Class Feature|AUTOMATIC|Zhentarim Spy ~ Deep Cover
+
+
+# Vile and Exalted Prestige Classes
+#CLASS:Black Blood Hunter	SOURCEPAGE:p.177
+#CLASS:Celebrant of Sharess	SOURCEPAGE:p.178
+#CLASS:Harper Paragon		SOURCEPAGE:p.181
+#CLASS:Maiden of Pain		SOURCEPAGE:p.182
+#CLASS:Martyred Champion of Ilmater	SOURCEPAGE:p.184
+#CLASS:Slime Lord				SOURCEPAGE:p.186
+#CLASS:Yathrinshee			SOURCEPAGE:p.187
