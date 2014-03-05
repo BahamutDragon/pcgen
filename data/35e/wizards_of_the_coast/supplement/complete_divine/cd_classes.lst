@@ -55,10 +55,6 @@ SUBCLASS:Water Shugenja	COST:0	CHOICE:DESCRIPTOR|Water Shugenja	PROHIBITSPELL:DE
 
 
 
-#CLASS:Black Flame Zealot:					SOURCEPAGE:21
-#CLASS:Blighter								SOURCEPAGE:23
-#CLASS:Church Inquisitor					SOURCEPAGE:26
-#CLASS:Consecrated Harrier					SOURCEPAGE:28
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page				Save checks bonus											Combat bonus							Modify VAR
 CLASS:Contemplative	HD:6		TYPE:PC.Prestige	ABB:Com		MAXLEVEL:10	SOURCEPAGE:p.30	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*1/2|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|CL|PREVAREQ:UseFractionalBAB,1
@@ -77,7 +73,6 @@ CLASS:Contemplative	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|He
 9												ADD:SPELLCASTER|Divine	ABILITY:Contemplative Class Feature|AUTOMATIC|Contemplative ~ Eternal Body
 10												ADD:SPELLCASTER|Divine	ABILITY:Contemplative Class Feature|AUTOMATIC|Contemplative ~ Mystic Union
 
-#CLASS:Divine Crusader						SOURCEPAGE:33
 
 ### Divine Oracle - Added 2007-05-12
 
@@ -133,33 +128,76 @@ CLASS:Spirit Shaman	HD:8			SOURCEPAGE:14	TYPE:Base.PC			ABB:SprShm		MAXLEVEL:20	
 CLASS:Spirit Shaman	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Knowledge (Geography)|Knowledge (History)|Knowledge (Local)|Knowledge (Nature)|Listen|TYPE=Profession|Ride|Spellcraft|Spot|Survival|Swim
 #CLASS NAME				SPELLSTAT		BONUS SPELL STAT		SPELL TYPE			MEMORIZE			CASTERLEVEL									SPELL LIST			SPELL DC ADJUST
 CLASS:Spirit Shaman	SPELLSTAT:WIS	BONUSSPELLSTAT:WIS	SPELLTYPE:Divine	MEMORIZE:NO		BONUS:CASTERLEVEL|Spirit Shaman|CL	SPELLLIST:1|Druid	BONUS:DC|CLASS.SpiritShaman|CHA-WIS
-1	CAST:3,2							KNOWN:3,1						ABILITY:Spirit Shaman Class Feature|AUTOMATIC|Spirit Shaman ~ Weapon and Armor Proficiency|Spirit Shaman ~ Spirit Guide|Spirit Shaman ~ Wild Empathy
-2	CAST:4,3							KNOWN:3,2						ABILITY:Spirit Shaman Class Feature|AUTOMATIC|Spirit Shaman ~ Chastise Spirits
-3	CAST:5,4,2						KNOWN:3,2,1						ABILITY:Spirit Shaman Class Feature|AUTOMATIC|Spirit Shaman ~ Detect Spirits
-4	CAST:6,5,3						KNOWN:3,3,1						ABILITY:Spirit Shaman Class Feature|AUTOMATIC|Spirit Shaman ~ Blessing of the Spirits
-5	CAST:6,6,4,2					KNOWN:3,3,1,1					ABILITY:Spirit Shaman Class Feature|AUTOMATIC|Spirit Shaman ~ Follow the Guide
-6	CAST:6,6,5,3					KNOWN:3,3,2,1					ABILITY:Spirit Shaman Class Feature|AUTOMATIC|Spirit Shaman ~ Ghost Warrior
-7	CAST:6,6,6,4,2					KNOWN:3,3,2,1,1				ABILITY:Spirit Shaman Class Feature|AUTOMATIC|Spirit Shaman ~ Warding of the Spirits
-8	CAST:6,6,6,5,3					KNOWN:3,3,2,2,1
-9	CAST:6,6,6,6,4,2				KNOWN:3,3,3,2,1,1				ABILITY:Spirit Shaman Class Feature|AUTOMATIC|Spirit Shaman ~ Spirit Form					BONUS:VAR|SpiritFormsPerDay|1
-10	CAST:6,6,6,6,5,3				KNOWN:3,3,3,2,2,1				ABILITY:Spirit Shaman Class Feature|AUTOMATIC|Spirit Shaman ~ Guide Magic
-11	CAST:6,6,6,6,6,4,2			KNOWN:3,3,3,3,2,1,1			ABILITY:Spirit Shaman Class Feature|AUTOMATIC|Spirit Shaman ~ Recall Spirit
-12	CAST:6,6,6,6,6,5,3			KNOWN:3,3,3,3,2,2,1
-13	CAST:6,6,6,6,6,6,4,2			KNOWN:3,3,3,3,3,2,1,1		ABILITY:Spirit Shaman Class Feature|AUTOMATIC|Spirit Shaman ~ Exorcism
-14	CAST:6,6,6,6,6,6,5,3			KNOWN:3,3,3,3,3,2,2,1
-15	CAST:6,6,6,6,6,6,6,4,2		KNOWN:3,3,3,3,3,3,2,1,1																											BONUS:VAR|SpiritFormsPerDay|1
-16	CAST:6,6,6,6,6,6,6,5,3		KNOWN:3,3,3,3,3,3,2,2,1		ABILITY:Spirit Shaman Class Feature|AUTOMATIC|Spirit Shaman ~ Weaken Spirits
-17	CAST:6,6,6,6,6,6,6,6,4,2	KNOWN:3,3,3,3,3,3,3,2,1,1	ABILITY:Spirit Shaman Class Feature|AUTOMATIC|Spirit Shaman ~ Spirit Journey
+1	CAST:3,2				KNOWN:3,1			
+2	CAST:4,3				KNOWN:3,2			
+3	CAST:5,4,2				KNOWN:3,2,1			
+4	CAST:6,5,3				KNOWN:3,3,1			
+5	CAST:6,6,4,2			KNOWN:3,3,1,1		
+6	CAST:6,6,5,3			KNOWN:3,3,2,1		
+7	CAST:6,6,6,4,2			KNOWN:3,3,2,1,1		
+8	CAST:6,6,6,5,3			KNOWN:3,3,2,2,1
+9	CAST:6,6,6,6,4,2			KNOWN:3,3,3,2,1,1		
+10	CAST:6,6,6,6,5,3			KNOWN:3,3,3,2,2,1		
+11	CAST:6,6,6,6,6,4,2		KNOWN:3,3,3,3,2,1,1	
+12	CAST:6,6,6,6,6,5,3		KNOWN:3,3,3,3,2,2,1
+13	CAST:6,6,6,6,6,6,4,2		KNOWN:3,3,3,3,3,2,1,1	
+14	CAST:6,6,6,6,6,6,5,3		KNOWN:3,3,3,3,3,2,2,1
+15	CAST:6,6,6,6,6,6,6,4,2		KNOWN:3,3,3,3,3,3,2,1,1	
+16	CAST:6,6,6,6,6,6,6,5,3		KNOWN:3,3,3,3,3,3,2,2,1	
+17	CAST:6,6,6,6,6,6,6,6,4,2	KNOWN:3,3,3,3,3,3,3,2,1,1
 18	CAST:6,6,6,6,6,6,6,6,5,3	KNOWN:3,3,3,3,3,3,3,2,2,1
-19	CAST:6,6,6,6,6,6,6,6,6,4	KNOWN:3,3,3,3,3,3,3,3,2,2	ABILITY:Spirit Shaman Class Feature|AUTOMATIC|Spirit Shaman ~ Favored of the Spirits
-20	CAST:6,6,6,6,6,6,6,6,6,5	KNOWN:3,3,3,3,3,3,3,3,3,2	ABILITY:Spirit Shaman Class Feature|AUTOMATIC|Spirit Shaman ~ Spirit Who Walks			BONUS:VAR|SpiritFormsPerDay|1
+19	CAST:6,6,6,6,6,6,6,6,6,4	KNOWN:3,3,3,3,3,3,3,3,2,2
+20	CAST:6,6,6,6,6,6,6,6,6,5	KNOWN:3,3,3,3,3,3,3,3,3,2
+###Block
+9	BONUS:VAR|SpiritFormsPerDay|1
+15	BONUS:VAR|SpiritFormsPerDay|1
+20	BONUS:VAR|SpiritFormsPerDay|1
+###Block
+1	ABILITY:Spirit Shaman Class Feature|AUTOMATIC|Spirit Shaman ~ Weapon and Armor Proficiency|Spirit Shaman ~ Spirit Guide|Spirit Shaman ~ Wild Empathy
+2	ABILITY:Spirit Shaman Class Feature|AUTOMATIC|Spirit Shaman ~ Chastise Spirits
+3	ABILITY:Spirit Shaman Class Feature|AUTOMATIC|Spirit Shaman ~ Detect Spirits
+4	ABILITY:Spirit Shaman Class Feature|AUTOMATIC|Spirit Shaman ~ Blessing of the Spirits
+5	ABILITY:Spirit Shaman Class Feature|AUTOMATIC|Spirit Shaman ~ Follow the Guide
+6	ABILITY:Spirit Shaman Class Feature|AUTOMATIC|Spirit Shaman ~ Ghost Warrior
+7	ABILITY:Spirit Shaman Class Feature|AUTOMATIC|Spirit Shaman ~ Warding of the Spirits
+9	ABILITY:Spirit Shaman Class Feature|AUTOMATIC|Spirit Shaman ~ Spirit Form		
+10	ABILITY:Spirit Shaman Class Feature|AUTOMATIC|Spirit Shaman ~ Guide Magic
+11	ABILITY:Spirit Shaman Class Feature|AUTOMATIC|Spirit Shaman ~ Recall Spirit
+13	ABILITY:Spirit Shaman Class Feature|AUTOMATIC|Spirit Shaman ~ Exorcism
+16	ABILITY:Spirit Shaman Class Feature|AUTOMATIC|Spirit Shaman ~ Weaken Spirits
+17	ABILITY:Spirit Shaman Class Feature|AUTOMATIC|Spirit Shaman ~ Spirit Journey
+19	ABILITY:Spirit Shaman Class Feature|AUTOMATIC|Spirit Shaman ~ Favored of the Spirits
+20	ABILITY:Spirit Shaman Class Feature|AUTOMATIC|Spirit Shaman ~ Spirit Who Walks	
 
+###Block: Prestige Classes
 
+#CLASS:Black Flame Zealot					SOURCEPAGE:p.21
+
+CLASS:Blighter	HD:8	TYPE:Prestige	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	SOURCEPAGE:p.23
+CLASS:Blighter	BONUS:COMBAT|BAB|CL*3/4	
+CLASS:Blighter	PRECLASS:1,Ex Druid=5	!PREALIGN:LG,NG,CG	PREMULT:1,[PREATT:4],[PREVARGTEQ:BaseAttackBonus,4]
+CLASS:Blighter	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nature)|Listen|Profession (Herbalist)|Spellcraft|Spot|Survival|Swim
+CLASS:Blighter	SPELLTYPE:Divine	SPELLSTAT:WIS	BONUS:CASTERLEVEL|Blighter|CL
+1	CAST:4,2
+2	CAST:5,3,0
+3	CAST:5,3,1,0
+4	CAST:6,3,2,1,0
+5	CAST:6,3,3,2,1,0
+6	CAST:6,3,3,3,2,1,0
+7	CAST:6,4,3,3,3,2,1,0
+8	CAST:6,4,4,3,3,3,2,1,0
+9	CAST:6,5,4,4,4,4,3,2,1,0
+10	CAST:6,5,5,4,4,4,4,3,2,1
+###Block
+
+#CLASS:Church Inquisitor					SOURCEPAGE:26
+CLASS:Consecrated Harrier					SOURCEPAGE:p.28
+#CLASS:Divine Crusader						SOURCEPAGE:33
 #CLASS:Dweomerkeeper							SOURCEPAGE:WU
 #CLASS:Entropomancer							SOURCEPAGE:36
 #CLASS:Evangelist								SOURCEPAGE:39
 #CLASS:Geomancer								SOURCEPAGE:41
-#CLASS:Holy Liberator						SOURCEPAGE:45
+CLASS:Holy Liberator						SOURCEPAGE:p.45
 #CLASS:Hospitaler								SOURCEPAGE:48
 #CLASS:Master of Shrouds					SOURCEPAGE:WU
 #CLASS:Moon Guardian							SOURCEPAGE:WU
@@ -172,7 +210,7 @@ CLASS:Spirit Shaman	SPELLSTAT:WIS	BONUSSPELLSTAT:WIS	SPELLTYPE:Divine	MEMORIZE:N
 #CLASS:Seeker of the Misty Isle			SOURCEPAGE:61
 #CLASS:Shining Blade of Heironeous		SOURCEPAGE:63
 #CLASS:Stormlord								SOURCEPAGE:65
-#CLASS:Temple Raider of Olidammara		SOURCEPAGE:67
+CLASS:Temple Raider of Olidammara		SOURCEPAGE:p.67
 #CLASS:Ur-Priest								SOURCEPAGE:70
 #CLASS:Void Disciple							SOURCEPAGE:71
 #CLASS:Warpriest								SOURCEPAGE:74
