@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Thu Jan 23 19:18:03 2014 -- reformated by prettylst.pl v1.51 (build 22988)
+# CVS $Revision: $ $Author: $ -- Wed Mar  5 16:52:34 2014 -- reformated by prettylst.pl v1.51 (build 22988)
 SOURCELONG:Player's Handbook II	SOURCESHORT:PH2	SOURCEDATE:2006-05
 
 #Beguiler
@@ -42,9 +42,33 @@ CLASS:Beguiler	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:NO	KNOWNSPELLS:LEVEL=0|LE
 19	CAST:6,6,6,6,6,6,6,6,6,4
 20	CAST:6,6,6,6,6,6,6,6,6,5
 
-#Dragon Shaman
+#CLASS NAME				HITDICE		SOURCEPAGE		TYPE						ABBREVIATION	MAXLEVEL			LANGBONUS				SAVING THROWS																								BASE ATTACK BONUS									DEFINE
 
-#DUSKBLADE
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Bonus Languages		Save checks bonus													Combat bonus
+CLASS:Dragon Shaman	HD:10		TYPE:PC.Base	ABB:DrSh		MAXLEVEL:20	SOURCEPAGE:11	LANGBONUS:Draconic	BONUS:CHECKS|BASE.Reflex|(CL/3)	BONUS:CHECKS|BASE.Fortitude,BASE.Will|((CL/2)+2)	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name		Required AL
+CLASS:Dragon Shaman	PREALIGN:LG,LN,LE,NG,NE,CG,CN,CE
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Dragon Shaman	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Intimidate|Knowledge (Arcana)|Knowledge (Nature)|Search
+#ABILITY BLOCK
+1																										ABILITY:Dragon Shaman Class Feature|AUTOMATIC|Dragon Shaman ~ Weapon and Armor Proficiency
+1	BONUS:ABILITYPOOL|DraconicAuras|3	BONUS:VAR|DraconicAura|((CL/5+1))														ABILITY:Dragon Shaman Class Feature|AUTOMATIC|Dragon Shaman ~ Draconic Aura|Dragon Shaman ~ Totem Dragon
+2	BONUS:ABILITYPOOL|DraconicSkill|1																				ABILITY:Dragon Shaman Class Feature|AUTOMATIC|Dragon Shaman ~ Skill Focus
+3	BONUS:ABILITYPOOL|DraconicAuras|1																				ABILITY:Dragon Shaman Class Feature|AUTOMATIC|Dragon Shaman ~ Draconic Adaptation1
+4							BONUS:VAR|DragonShamanBreathWpn|(CL/2)	BONUS:VAR|DragonShamanConeSz|15	BONUS:VAR|DragonShamanLineSz|30	ABILITY:Dragon Shaman Class Feature|AUTOMATIC|Dragon Shaman ~ Breath Weapon|Dragon Shaman ~ Draconic Resolve
+5	BONUS:ABILITYPOOL|DraconicAuras|1
+6																										ABILITY:Dragon Shaman Class Feature|AUTOMATIC|Dragon Shaman ~ Touch of Vitality1
+7	BONUS:ABILITYPOOL|DraconicAuras|1	BONUS:VAR|DragonShamanNaturalArmor|1													ABILITY:Dragon Shaman Class Feature|AUTOMATIC|Dragon Shaman ~ Natural Armor
+8	BONUS:ABILITYPOOL|DraconicSkill|1
+9	BONUS:ABILITYPOOL|DraconicAuras|1																				ABILITY:Dragon Shaman Class Feature|AUTOMATIC|Dragon Shaman ~ Energy Immunity
+11																										ABILITY:Dragon Shaman Class Feature|AUTOMATIC|Dragon Shaman ~ Touch of Vitality2
+12							BONUS:VAR|DragonShamanConeSz|15	BONUS:VAR|DragonShamanLineSz|30	BONUS:VAR|DragonShamanNaturalArmor|1
+13																										ABILITY:Dragon Shaman Class Feature|AUTOMATIC|Dragon Shaman ~ Draconic Adaptation2
+14																										ABILITY:Dragon Shaman Class Feature|AUTOMATIC|Dragon Shaman ~ Commune with Dragon Spirit
+16	BONUS:ABILITYPOOL|DraconicSkill|1
+17							BONUS:VAR|DragonShamanNaturalArmor|1
+19																										ABILITY:Dragon Shaman Class Feature|AUTOMATIC|Dragon Shaman ~ Draconic Wings
+20							BONUS:VAR|DragonShamanConeSz|30	BONUS:VAR|DragonShamanLineSz|60
 
 # Class Name	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus											Combat bonus								Modify VAR
 CLASS:Duskblade	HD:8		TYPE:Base.PC	ABB:DB		SOURCEPAGE:p.	BONUS:CHECKS|BASE.Will,BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|BAB|CL*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|FamiliarLVL|CL
@@ -53,23 +77,25 @@ CLASS:Duskblade	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher Script|
 # Class Name	Spell Stat		Spell Type		Spellbook		Caster level
 CLASS:Duskblade	SPELLSTAT:INT	SPELLTYPE:Arcane	SPELLBOOK:YES	BONUS:CASTERLEVEL|Duskblade|CL
 ###Block:
-1	ABILITY:Special Ability|AUTOMATIC|Arcane Attunement ~ Duskblade|Armored Mage ~ Duskblade
-2	ABILITY:Special Ability|AUTOMATIC|Combat Casting ~ Duskblade
-3	ABILITY:Special Ability|AUTOMATIC|Arcane Channeling ~ Duskblade
-5	ABILITY:Special Ability|AUTOMATIC|Quick Cast ~ Duskblade
+1	ABILITY:Duskblade Class Feature|AUTOMATIC|Duskblade ~ Weapon and Armor Proficiency
+1	ABILITY:Duskblade Class Feature|AUTOMATIC|Duskblade ~ Arcane Attunement|Duskblade ~ Armored Mage
+2	ABILITY:Duskblade Class Feature|AUTOMATIC|Duskblade ~ Combat Casting
+3	ABILITY:Duskblade Class Feature|AUTOMATIC|Duskblade ~ Arcane Channeling
+5	ABILITY:Duskblade Class Feature|AUTOMATIC|Duskblade ~ Quick Cast
 ###Block:
-1	BONUS:VAR|ArmoredMageLVL|1
-4	BONUS:VAR|ArmoredMageLVL|1
-5	BONUS:VAR|DuskBladeQuickCast|1
+1	BONUS:VAR|DuskbladeArmoredMageLVL|1
+4	BONUS:VAR|DuskbladeArmoredMageLVL|1
+7	BONUS:VAR|DuskbladeArmoredMageLVL|1
+5	BONUS:VAR|DuskBladeQuickCastTimes|1
+10	BONUS:VAR|DuskBladeQuickCastTimes|1
+15	BONUS:VAR|DuskBladeQuickCastTimes|1
+20	BONUS:VAR|DuskBladeQuickCastTimes|1
+3	BONUS:VAR|DuskBladeArcaneChannelingLVL|1
+13	BONUS:VAR|DuskBladeArcaneChannelingLVL|1
 6	BONUS:VAR|DuskBladeSpellPowerBonus|2
-7	BONUS:VAR|ArmoredMageLVL|1
-10	BONUS:VAR|DuskBladeQuickCast|1
 11	BONUS:VAR|DuskBladeSpellPowerBonus|1
-13	BONUS:VAR|ArcaneChannelingLVL|1
-15	BONUS:VAR|DuskBladeQuickCast|1
 16	BONUS:VAR|DuskBladeSpellPowerBonus|1
 18	BONUS:VAR|DuskBladeSpellPowerBonus|1
-20	BONUS:VAR|DuskBladeQuickCast|1
 ###Block:
 1	CAST:3,2
 2	CAST:4,3
@@ -92,33 +118,26 @@ CLASS:Duskblade	SPELLSTAT:INT	SPELLTYPE:Arcane	SPELLBOOK:YES	BONUS:CASTERLEVEL|D
 19	CAST:6,10,10,9,7,5
 20	CAST:6,10,10,10,8,6
 
-
-#KNIGHT
-
 # Class Name	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus											Combat bonus
 CLASS:Knight	HD:12		TYPE:Base.PC	ABB:Kni		SOURCEPAGE:PHB II	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Knight	STARTSKILLPTS:2	CSKILL:Climb|Handle Animal|Intimidate|Jump|Knowledge (Nobility and Royalty)|Ride|Swim
-
-# TODO: Get Knight Profs set up to new standard
 ###Block:
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies
-1																	AUTO:FEAT|Simple Weapon Proficiency
-1																	AUTO:FEAT|Armor Proficiency (Heavy)|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1																	AUTO:FEAT|Shield Proficiency
+1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial|TYPE=ArmorProfHeavy|TYPE=ShieldProf
 ###Block:
-1	ABILITY:Special Ability|AUTOMATIC|Fighting Challenge ~ Knight|Knight's Challenge ~ Knight|Knight's Code ~ Knight
-2	ABILITY:Special Ability|AUTOMATIC|Shield Block ~ Knight										VFEAT:Mounted Combat
-3	ABILITY:Special Ability|AUTOMATIC|Bulwark of Defense ~ Knight
-4	ABILITY:Special Ability|AUTOMATIC|Armor Mastery ~ Knight|Test of Mettle ~ Knight
-5	ABILITY:Special Ability|AUTOMATIC|Vigilant Defender ~ Knight
-6	ABILITY:Special Ability|AUTOMATIC|Shield Ally ~ Knight
-8	ABILITY:Special Ability|AUTOMATIC|Call to Battle ~ Knight
-12	ABILITY:Special Ability|AUTOMATIC|Daunting Challenge ~ Knight
-14	ABILITY:Special Ability|AUTOMATIC|Improved Shield Ally ~ Knight
-16	ABILITY:Special Ability|AUTOMATIC|Bond of Loyalty ~ Knight
-17	ABILITY:Special Ability|AUTOMATIC|Impetuos Endurance ~ Knight
-20	ABILITY:Special Ability|AUTOMATIC|Loyal Beyond Death ~ Knight
+1	ABILITY:Knight Class Feature|AUTOMATIC|Knight ~ Weapon and Armor Proficiency
+1	ABILITY:Knight Class Feature|AUTOMATIC|Knight ~ Fighting Challenge|Knight ~ Knight's Challenge|Knight ~ Knight's Code
+2	ABILITY:Knight Class Feature|AUTOMATIC|Knight ~ Shield Block										VFEAT:Mounted Combat
+3	ABILITY:Knight Class Feature|AUTOMATIC|Knight ~ Bulwark of Defense
+4	ABILITY:Knight Class Feature|AUTOMATIC|Knight ~ Armor Mastery|Knight ~ Test of Mettle
+5	ABILITY:Knight Class Feature|AUTOMATIC|Knight ~ Vigilant Defender
+6	ABILITY:Knight Class Feature|AUTOMATIC|Knight ~ Shield Ally
+8	ABILITY:Knight Class Feature|AUTOMATIC|Knight ~ Call to Battle
+12	ABILITY:Knight Class Feature|AUTOMATIC|Knight ~ Daunting Challenge
+14	ABILITY:Knight Class Feature|AUTOMATIC|Knight ~ Improved Shield Ally
+16	ABILITY:Knight Class Feature|AUTOMATIC|Knight ~ Bond of Loyalty
+17	ABILITY:Knight Class Feature|AUTOMATIC|Knight ~ Impetuous Endurance
+20	ABILITY:Knight Class Feature|AUTOMATIC|Knight ~ Loyal Beyond Death
 ###Block:
 4	BONUS:MOVEADD|TYPE.Walk|10|PREARMORTYPE:1,TYPE.Medium
 9	BONUS:MOVEADD|TYPE.Walk|10|PREARMORTYPE:1,TYPE.Heavy,TYPE.Exotic
@@ -127,12 +146,12 @@ CLASS:Knight	STARTSKILLPTS:2	CSKILL:Climb|Handle Animal|Intimidate|Jump|Knowledg
 10	BONUS:ABILITYPOOL|Knight's Feat|1
 15	BONUS:ABILITYPOOL|Knight's Feat|1
 ###Block:
-1	BONUS:VAR|FightingChallengeLvl|1
-2	BONUS:VAR|ShieldBlockLvl|1
-4	BONUS:VAR|ArmorMasteryLvl|1
-7	BONUS:VAR|FightingChallengeLvl|1
-9	BONUS:VAR|ArmorMasteryLvl|1
-11	BONUS:VAR|ShieldBlockLvl|1
-13	BONUS:VAR|FightingChallengeLvl|1
-19	BONUS:VAR|FightingChallengeLvl|1
-20	BONUS:VAR|ShieldBlockLvl|1
+1	BONUS:VAR|FightingChallengeLVL|1
+2	BONUS:VAR|ShieldBlockLVL|1
+4	BONUS:VAR|ArmorMasteryLVL|1
+7	BONUS:VAR|FightingChallengeLVL|1
+9	BONUS:VAR|ArmorMasteryLVL|1
+11	BONUS:VAR|ShieldBlockLVL|1
+13	BONUS:VAR|FightingChallengeLVL|1
+19	BONUS:VAR|FightingChallengeLVL|1
+20	BONUS:VAR|ShieldBlockLVL|1

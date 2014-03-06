@@ -1,19 +1,18 @@
-# CVS $Revision: $ $Author: $ -- Sat Jan  4 10:42:33 2014 -- reformated by prettylst.pl v1.50 (build 22746)
+# CVS $Revision: $ $Author: $ -- Wed Mar  5 16:52:34 2014 -- reformated by prettylst.pl v1.51 (build 22988)
 SOURCELONG:Complete Divine	SOURCESHORT:CD	SOURCEDATE:2004-05
 
 
-# Class Name	Unique Key		Type						Base class as subclass?	Source Page		Save checks bonus											Combat bonus
+# Class Name	Unique Key		Type					Base class as subclass?	Source Page		Save checks bonus											Combat bonus
 CLASS:Shugenja	KEY:Shugenja	TYPE:Base.PC.Complete Divine	ALLOWBASECLASS:NO		SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*1/2
-
-# Class Name		Skill Pts/Lvl	Class Skill
+# Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Shugenja	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|TYPE=Knowledge|TYPE=Profession|Spellcraft
-# Class Name		Spell Stat		Spell Type		Caster level			Use Spell List
+# Class Name	Spell Stat		Spell Type		Caster level			Use Spell List
 CLASS:Shugenja	SPELLSTAT:CHA	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Shugenja|CL	SPELLLIST:1|Shugenja
 #
-SUBCLASS:Air Shugenja	COST:0	CHOICE:DESCRIPTOR|Air Shugenja	PROHIBITSPELL:DESCRIPTOR.Earth Shugenja	ABILITY:Shugenja Class Feature|AUTOMATIC|Shugenja ~ Element Focus (Air)		DEFINE:AirShugenja|0
-SUBCLASS:Earth Shugenja	COST:0	CHOICE:DESCRIPTOR|Earth Shugenja	PROHIBITSPELL:DESCRIPTOR.Air Shugenja	ABILITY:Shugenja Class Feature|AUTOMATIC|Shugenja ~ Element Focus (Earth)	DEFINE:EarthShugenja|0
-SUBCLASS:Fire Shugenja	COST:0	CHOICE:DESCRIPTOR|Fire Shugenja	PROHIBITSPELL:DESCRIPTOR.Water Shugenja	ABILITY:Shugenja Class Feature|AUTOMATIC|Shugenja ~ Element Focus (Fire)	DEFINE:FireShugenja|0
-SUBCLASS:Water Shugenja	COST:0	CHOICE:DESCRIPTOR|Water Shugenja	PROHIBITSPELL:DESCRIPTOR.Fire Shugenja	ABILITY:Shugenja Class Feature|AUTOMATIC|Shugenja ~ Element Focus (Water)	DEFINE:WaterShugenja|0
+SUBCLASS:Air Shugenja	COST:0	CHOICE:DESCRIPTOR|Air Shugenja	PROHIBITSPELL:DESCRIPTOR.Earth Shugenja	DEFINE:AirShugenja|0	ABILITY:Shugenja Class Feature|AUTOMATIC|Shugenja ~ Element Focus (Air)
+SUBCLASS:Earth Shugenja	COST:0	CHOICE:DESCRIPTOR|Earth Shugenja	PROHIBITSPELL:DESCRIPTOR.Air Shugenja	DEFINE:EarthShugenja|0	ABILITY:Shugenja Class Feature|AUTOMATIC|Shugenja ~ Element Focus (Earth)
+SUBCLASS:Fire Shugenja	COST:0	CHOICE:DESCRIPTOR|Fire Shugenja	PROHIBITSPELL:DESCRIPTOR.Water Shugenja	DEFINE:FireShugenja|0	ABILITY:Shugenja Class Feature|AUTOMATIC|Shugenja ~ Element Focus (Fire)
+SUBCLASS:Water Shugenja	COST:0	CHOICE:DESCRIPTOR|Water Shugenja	PROHIBITSPELL:DESCRIPTOR.Fire Shugenja	DEFINE:WaterShugenja|0	ABILITY:Shugenja Class Feature|AUTOMATIC|Shugenja ~ Element Focus (Water)
 # TODO: Request ability to HIDESPELL - DESCRIPTOR.
 ###Block: This selects the "School" using Domain as that matches how this appears to work. Preselects based upon Human Clan.
 #1	DOMAIN:Order of the All-Seeing Eye[PREABILITY:1,CATEGORY=Internal,Order of the All-Seeing Eye]
@@ -56,7 +55,7 @@ SUBCLASS:Water Shugenja	COST:0	CHOICE:DESCRIPTOR|Water Shugenja	PROHIBITSPELL:DE
 
 
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page				Save checks bonus											Combat bonus							Modify VAR
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus							Modify VAR
 CLASS:Contemplative	HD:6		TYPE:PC.Prestige	ABB:Com		MAXLEVEL:10	SOURCEPAGE:p.30	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*1/2|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|CL|PREVAREQ:UseFractionalBAB,1
 # Class Name		Required Feat						Required Skill				Req. Spell Type
 CLASS:Contemplative	PREFEAT:1,Skill Focus (Knowledge (Religion))	PRESKILL:1,Knowledge (Religion)=13	PRESPELLTYPE:1,Divine=1
@@ -95,55 +94,58 @@ CLASS:Divine Oracle	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Heal|Intimid
 
 
 #CLASS NAME				HITDICE		SOURCEPAGE		TYPE						ABBREVIATION	MAXLEVEL			LANGBONUS	SAVING THROWS																								BASE ATTACK BONUS									DEFINE
-CLASS:Favored Soul	HD:8			SOURCEPAGE:6	TYPE:Base.PC			ABB:FvSl			MAXLEVEL:20						BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|((CL/2)+2)								BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
-#CLASS NAME				SKILLPOINTS			CLASS SKILL LIST
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus									Combat bonus
+CLASS:Favored Soul	HD:8		TYPE:Base.PC	ABB:FvSl		MAXLEVEL:20	SOURCEPAGE:6	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|((CL/2)+2)	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Favored Soul	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Jump|Knowledge (Arcana)|TYPE=Profession|Sense Motive|Spellcraft
-#CLASS NAME				SPELLSTAT		BONUS SPELL STAT		SPELL TYPE			MEMORIZE			CASTERLEVEL									SPELL LIST				SPELL DC ADJUST
-CLASS:Favored Soul	SPELLSTAT:CHA	BONUSSPELLSTAT:CHA	SPELLTYPE:Divine	MEMORIZE:NO		BONUS:CASTERLEVEL|Favored Soul|CL	SPELLLIST:1|Cleric	BONUS:DC|CLASS.Favored Soul|(WIS-CHA)
-1	CAST:5,3							KNOWN:4,3						ABILITY:Favored Soul Class Feature|AUTOMATIC|Favored Soul ~ Weapon and Armor Proficiency
-2	CAST:6,4							KNOWN:5,3
-3	CAST:6,5							KNOWN:5,4						ABILITY:Favored Soul Class Feature|AUTOMATIC|Favored Soul ~ Weapon Focus
-4	CAST:6,6,3						KNOWN:6,4,3
-5	CAST:6,6,4						KNOWN:6,5,3						ABILITY:Favored Soul Class Feature|AUTOMATIC|Favored Soul ~ Energy Resistance					BONUS:ABILITYPOOL|Favored Soul Resistance|1
-6	CAST:6,6,5,3					KNOWN:7,5,4,3
-7	CAST:6,6,6,4					KNOWN:7,6,4,3
-8	CAST:6,6,6,5,3					KNOWN:8,6,5,4,3
-9	CAST:6,6,6,6,4					KNOWN:8,6,5,4,3
-10	CAST:6,6,6,6,5,3				KNOWN:9,6,6,5,4,3				BONUS:ABILITYPOOL|Favored Soul Resistance|1
-11	CAST:6,6,6,6,6,4				KNOWN:9,6,6,5,4,3
-12	CAST:6,6,6,6,6,5,3			KNOWN:9,6,6,6,5,4,3			ABILITY:Favored Soul Class Feature|AUTOMATIC|Favored Soul ~ Weapon Specialization
-13	CAST:6,6,6,6,6,6,4			KNOWN:9,6,6,6,5,4,3
-14	CAST:6,6,6,6,6,6,5,3			KNOWN:9,6,6,6,6,5,4,3
-15	CAST:6,6,6,6,6,6,6,4			KNOWN:9,6,6,6,6,5,4,3		BONUS:ABILITYPOOL|Favored Soul Resistance|1
+# Class Name		Spell Stat		Stat for Bonus Spells	Spell Type		Memorize	Caster level				Bonus to DC						Use Spell List
+CLASS:Favored Soul	SPELLSTAT:CHA	BONUSSPELLSTAT:CHA	SPELLTYPE:Divine	MEMORIZE:NO	BONUS:CASTERLEVEL|Favored Soul|CL	BONUS:DC|CLASS.Favored Soul|(WIS-CHA)	SPELLLIST:1|Cleric
+1	CAST:5,3				KNOWN:4,3												ABILITY:Favored Soul Class Feature|AUTOMATIC|Favored Soul ~ Weapon and Armor Proficiency
+2	CAST:6,4				KNOWN:5,3
+3	CAST:6,5				KNOWN:5,4												ABILITY:Favored Soul Class Feature|AUTOMATIC|Favored Soul ~ Weapon Focus
+4	CAST:6,6,3				KNOWN:6,4,3
+5	CAST:6,6,4				KNOWN:6,5,3				BONUS:ABILITYPOOL|Favored Soul Resistance|1	ABILITY:Favored Soul Class Feature|AUTOMATIC|Favored Soul ~ Energy Resistance
+6	CAST:6,6,5,3			KNOWN:7,5,4,3
+7	CAST:6,6,6,4			KNOWN:7,6,4,3
+8	CAST:6,6,6,5,3			KNOWN:8,6,5,4,3
+9	CAST:6,6,6,6,4			KNOWN:8,6,5,4,3
+10	CAST:6,6,6,6,5,3			KNOWN:9,6,6,5,4,3			BONUS:ABILITYPOOL|Favored Soul Resistance|1
+11	CAST:6,6,6,6,6,4			KNOWN:9,6,6,5,4,3
+12	CAST:6,6,6,6,6,5,3		KNOWN:9,6,6,6,5,4,3										ABILITY:Favored Soul Class Feature|AUTOMATIC|Favored Soul ~ Weapon Specialization
+13	CAST:6,6,6,6,6,6,4		KNOWN:9,6,6,6,5,4,3
+14	CAST:6,6,6,6,6,6,5,3		KNOWN:9,6,6,6,6,5,4,3
+15	CAST:6,6,6,6,6,6,6,4		KNOWN:9,6,6,6,6,5,4,3		BONUS:ABILITYPOOL|Favored Soul Resistance|1
 16	CAST:6,6,6,6,6,6,6,5,3		KNOWN:9,6,6,6,6,6,5,4,3
-17	CAST:6,6,6,6,6,6,6,6,4		KNOWN:9,6,6,6,6,6,5,4,3		ABILITY:Favored Soul Class Feature|AUTOMATIC|Favored Soul ~ Wings
+17	CAST:6,6,6,6,6,6,6,6,4		KNOWN:9,6,6,6,6,6,5,4,3										ABILITY:Favored Soul Class Feature|AUTOMATIC|Favored Soul ~ Wings
 18	CAST:6,6,6,6,6,6,6,5,4,3	KNOWN:9,6,6,6,6,6,6,5,4,3
 19	CAST:6,6,6,6,6,6,6,6,6,4	KNOWN:9,6,6,6,6,6,6,5,4,3
-20	CAST:6,6,6,6,6,6,6,6,6,6	KNOWN:9,6,6,6,6,6,6,6,5,4	ABILITY:Favored Soul Class Feature|AUTOMATIC|Favored Soul ~ Damage Reduction
+20	CAST:6,6,6,6,6,6,6,6,6,6	KNOWN:9,6,6,6,6,6,6,6,5,4									ABILITY:Favored Soul Class Feature|AUTOMATIC|Favored Soul ~ Damage Reduction
 ###Block
 
 
-CLASS:Spirit Shaman	HD:8			SOURCEPAGE:14	TYPE:Base.PC			ABB:SprShm		MAXLEVEL:20						BONUS:CHECKS|BASE.Fortitude,BASE.Will|((CL/2)+2)	BONUS:CHECKS|BASE.Reflex|(CL/3)	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
-#CLASS NAME				SKILLPOINTS			CLASS SKILL LIST
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus
+CLASS:Spirit Shaman	HD:8		TYPE:Base.PC	ABB:SprShm		MAXLEVEL:20	SOURCEPAGE:14	BONUS:CHECKS|BASE.Fortitude,BASE.Will|((CL/2)+2)	BONUS:CHECKS|BASE.Reflex|(CL/3)	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Spirit Shaman	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Knowledge (Geography)|Knowledge (History)|Knowledge (Local)|Knowledge (Nature)|Listen|TYPE=Profession|Ride|Spellcraft|Spot|Survival|Swim
-#CLASS NAME				SPELLSTAT		BONUS SPELL STAT		SPELL TYPE			MEMORIZE			CASTERLEVEL									SPELL LIST			SPELL DC ADJUST
-CLASS:Spirit Shaman	SPELLSTAT:WIS	BONUSSPELLSTAT:WIS	SPELLTYPE:Divine	MEMORIZE:NO		BONUS:CASTERLEVEL|Spirit Shaman|CL	SPELLLIST:1|Druid	BONUS:DC|CLASS.SpiritShaman|CHA-WIS
-1	CAST:3,2				KNOWN:3,1			
-2	CAST:4,3				KNOWN:3,2			
-3	CAST:5,4,2				KNOWN:3,2,1			
-4	CAST:6,5,3				KNOWN:3,3,1			
-5	CAST:6,6,4,2			KNOWN:3,3,1,1		
-6	CAST:6,6,5,3			KNOWN:3,3,2,1		
-7	CAST:6,6,6,4,2			KNOWN:3,3,2,1,1		
+# Class Name		Spell Stat		Stat for Bonus Spells	Spell Type		Memorize	Caster level				Bonus to DC					Use Spell List
+CLASS:Spirit Shaman	SPELLSTAT:WIS	BONUSSPELLSTAT:WIS	SPELLTYPE:Divine	MEMORIZE:NO	BONUS:CASTERLEVEL|Spirit Shaman|CL	BONUS:DC|CLASS.SpiritShaman|CHA-WIS	SPELLLIST:1|Druid
+1	CAST:3,2				KNOWN:3,1
+2	CAST:4,3				KNOWN:3,2
+3	CAST:5,4,2				KNOWN:3,2,1
+4	CAST:6,5,3				KNOWN:3,3,1
+5	CAST:6,6,4,2			KNOWN:3,3,1,1
+6	CAST:6,6,5,3			KNOWN:3,3,2,1
+7	CAST:6,6,6,4,2			KNOWN:3,3,2,1,1
 8	CAST:6,6,6,5,3			KNOWN:3,3,2,2,1
-9	CAST:6,6,6,6,4,2			KNOWN:3,3,3,2,1,1		
-10	CAST:6,6,6,6,5,3			KNOWN:3,3,3,2,2,1		
-11	CAST:6,6,6,6,6,4,2		KNOWN:3,3,3,3,2,1,1	
+9	CAST:6,6,6,6,4,2			KNOWN:3,3,3,2,1,1
+10	CAST:6,6,6,6,5,3			KNOWN:3,3,3,2,2,1
+11	CAST:6,6,6,6,6,4,2		KNOWN:3,3,3,3,2,1,1
 12	CAST:6,6,6,6,6,5,3		KNOWN:3,3,3,3,2,2,1
-13	CAST:6,6,6,6,6,6,4,2		KNOWN:3,3,3,3,3,2,1,1	
+13	CAST:6,6,6,6,6,6,4,2		KNOWN:3,3,3,3,3,2,1,1
 14	CAST:6,6,6,6,6,6,5,3		KNOWN:3,3,3,3,3,2,2,1
-15	CAST:6,6,6,6,6,6,6,4,2		KNOWN:3,3,3,3,3,3,2,1,1	
-16	CAST:6,6,6,6,6,6,6,5,3		KNOWN:3,3,3,3,3,3,2,2,1	
+15	CAST:6,6,6,6,6,6,6,4,2		KNOWN:3,3,3,3,3,3,2,1,1
+16	CAST:6,6,6,6,6,6,6,5,3		KNOWN:3,3,3,3,3,3,2,2,1
 17	CAST:6,6,6,6,6,6,6,6,4,2	KNOWN:3,3,3,3,3,3,3,2,1,1
 18	CAST:6,6,6,6,6,6,6,6,5,3	KNOWN:3,3,3,3,3,3,3,2,2,1
 19	CAST:6,6,6,6,6,6,6,6,6,4	KNOWN:3,3,3,3,3,3,3,3,2,2
@@ -160,24 +162,27 @@ CLASS:Spirit Shaman	SPELLSTAT:WIS	BONUSSPELLSTAT:WIS	SPELLTYPE:Divine	MEMORIZE:N
 5	ABILITY:Spirit Shaman Class Feature|AUTOMATIC|Spirit Shaman ~ Follow the Guide
 6	ABILITY:Spirit Shaman Class Feature|AUTOMATIC|Spirit Shaman ~ Ghost Warrior
 7	ABILITY:Spirit Shaman Class Feature|AUTOMATIC|Spirit Shaman ~ Warding of the Spirits
-9	ABILITY:Spirit Shaman Class Feature|AUTOMATIC|Spirit Shaman ~ Spirit Form		
+9	ABILITY:Spirit Shaman Class Feature|AUTOMATIC|Spirit Shaman ~ Spirit Form
 10	ABILITY:Spirit Shaman Class Feature|AUTOMATIC|Spirit Shaman ~ Guide Magic
 11	ABILITY:Spirit Shaman Class Feature|AUTOMATIC|Spirit Shaman ~ Recall Spirit
 13	ABILITY:Spirit Shaman Class Feature|AUTOMATIC|Spirit Shaman ~ Exorcism
 16	ABILITY:Spirit Shaman Class Feature|AUTOMATIC|Spirit Shaman ~ Weaken Spirits
 17	ABILITY:Spirit Shaman Class Feature|AUTOMATIC|Spirit Shaman ~ Spirit Journey
 19	ABILITY:Spirit Shaman Class Feature|AUTOMATIC|Spirit Shaman ~ Favored of the Spirits
-20	ABILITY:Spirit Shaman Class Feature|AUTOMATIC|Spirit Shaman ~ Spirit Who Walks	
+20	ABILITY:Spirit Shaman Class Feature|AUTOMATIC|Spirit Shaman ~ Spirit Who Walks
 
 ###Block: Prestige Classes
 
 #CLASS:Black Flame Zealot					SOURCEPAGE:p.21
 
-CLASS:Blighter	HD:8	TYPE:Prestige	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	SOURCEPAGE:p.23
-CLASS:Blighter	BONUS:COMBAT|BAB|CL*3/4	
-CLASS:Blighter	PRECLASS:1,Ex Druid=5	!PREALIGN:LG,NG,CG	PREMULT:1,[PREATT:4],[PREVARGTEQ:BaseAttackBonus,4]
+# Class Name	Hit Dice	Type			Source Page		Save checks bonus											Combat bonus
+CLASS:Blighter	HD:8		TYPE:Prestige	SOURCEPAGE:p.23	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4
+# Class Name	Restricted AL		Required Class		Multiple Requirements
+CLASS:Blighter	!PREALIGN:LG,NG,CG	PRECLASS:1,Ex Druid=5	PREMULT:1,[PREATT:4],[PREVARGTEQ:BaseAttackBonus,4]
+# Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Blighter	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nature)|Listen|Profession (Herbalist)|Spellcraft|Spot|Survival|Swim
-CLASS:Blighter	SPELLTYPE:Divine	SPELLSTAT:WIS	BONUS:CASTERLEVEL|Blighter|CL
+# Class Name	Spell Stat		Spell Type		Caster level
+CLASS:Blighter	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Blighter|CL
 1	CAST:4,2
 2	CAST:5,3,0
 3	CAST:5,3,1,0
@@ -191,13 +196,17 @@ CLASS:Blighter	SPELLTYPE:Divine	SPELLSTAT:WIS	BONUS:CASTERLEVEL|Blighter|CL
 ###Block
 
 #CLASS:Church Inquisitor					SOURCEPAGE:26
-CLASS:Consecrated Harrier					SOURCEPAGE:p.28
+
+# Class Name			Source Page
+CLASS:Consecrated Harrier	SOURCEPAGE:p.28
 #CLASS:Divine Crusader						SOURCEPAGE:33
 #CLASS:Dweomerkeeper							SOURCEPAGE:WU
 #CLASS:Entropomancer							SOURCEPAGE:36
 #CLASS:Evangelist								SOURCEPAGE:39
 #CLASS:Geomancer								SOURCEPAGE:41
-CLASS:Holy Liberator						SOURCEPAGE:p.45
+
+# Class Name		Source Page
+CLASS:Holy Liberator	SOURCEPAGE:p.45
 #CLASS:Hospitaler								SOURCEPAGE:48
 #CLASS:Master of Shrouds					SOURCEPAGE:WU
 #CLASS:Moon Guardian							SOURCEPAGE:WU
@@ -210,7 +219,9 @@ CLASS:Holy Liberator						SOURCEPAGE:p.45
 #CLASS:Seeker of the Misty Isle			SOURCEPAGE:61
 #CLASS:Shining Blade of Heironeous		SOURCEPAGE:63
 #CLASS:Stormlord								SOURCEPAGE:65
-CLASS:Temple Raider of Olidammara		SOURCEPAGE:p.67
+
+# Class Name				Source Page
+CLASS:Temple Raider of Olidammara	SOURCEPAGE:p.67
 #CLASS:Ur-Priest								SOURCEPAGE:70
 #CLASS:Void Disciple							SOURCEPAGE:71
 #CLASS:Warpriest								SOURCEPAGE:74

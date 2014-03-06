@@ -1,8 +1,12 @@
+# CVS $Revision: $ $Author: $ -- Wed Mar  5 16:52:34 2014 -- reformated by prettylst.pl v1.51 (build 22988)
 
 
-CLASS:Artificer	DEFINE:ArtificerLVL|CL	SOURCEPAGE:p.29	HD:6	TYPE:Base.PC	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|(CL/2)+2	BONUS:COMBAT|BAB|CL*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1	
+# Class Name	Hit Dice	Type			Source Page		Define			Save checks bonus												Combat bonus							Modify VAR
+CLASS:Artificer	HD:6		TYPE:Base.PC	SOURCEPAGE:p.29	DEFINE:ArtificerLVL|CL	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|(CL/2)+2	BONUS:COMBAT|BAB|CL*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1
+# Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Artificer	STARTSKILLPTS:4	CSKILL:Appraise|Concentration|TYPE=Craft|Disable Device|Knowledge (Arcana)|Knowledge (Architecture and Engineering)|Knowledge (The Planes)|Open Lock|TYPE=Profession|Search|Spellcraft|Use Magic Device
-CLASS:Artificer	SPELLTYPE:Infusion	SPELLSTAT:INT	BONUS:CASTERLEVEL|Artificer|CL
+# Class Name	Spell Stat		Spell Type			Caster level
+CLASS:Artificer	SPELLSTAT:INT	SPELLTYPE:Infusion	BONUS:CASTERLEVEL|Artificer|CL
 1	ABILITY:Artificer Class Feature|AUTOMATIC|Artificer ~ Weapon and Armor Proficiency
 1	ABILITY:Artificer Class Feature|AUTOMATIC|Artificer ~ Infusions
 1	ABILITY:Artificer Class Feature|AUTOMATIC|Artificer ~ Craft Reserve
@@ -38,10 +42,13 @@ CLASS:Artificer	SPELLTYPE:Infusion	SPELLSTAT:INT	BONUS:CASTERLEVEL|Artificer|CL
 20	CAST:0,4,4,4,4,4,4
 
 #Dragonmark Heir: Harnesses the power of a dragonmark efficiently and effectively.
-CLASS:Dragonmark Heir	HD:8	SOURCEPAGE:p.73	TYPE:PC.Prestige.Eberron	MAXLEVEL:5	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2
-CLASS:Dragonmark Heir	BONUS:COMBAT|BAB|CL*3/4
+
+# Class Name		Hit Dice	Type					Max Level	Source Page		Save checks bonus								Combat bonus
+CLASS:Dragonmark Heir	HD:8		TYPE:PC.Prestige.Eberron	MAXLEVEL:5	SOURCEPAGE:p.73	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4
+# Class Name		Required Feat						Required Skill		Required Text
+CLASS:Dragonmark Heir	PREFEAT:2,Favored in House,Least Dragonmark	PRESKILL:1,TYPE.Base=7	PRETEXT:Race: Member of appropriate dragonmarked race and house. Skills: 7 ranks in any two skills. Feats: Favored in House, Least Dragonmark.
+# Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Dragonmark Heir	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Diplomacy|Gather Information|Intimidate|Knowledge (Arcana)|Knowledge (Nobility and Royalty)|TYPE=Perform|Ride|Sense Motive|Speak Language|Spellcraft
-CLASS:Dragonmark Heir	PRETEXT:Race: Member of appropriate dragonmarked race and house. Skills: 7 ranks in any two skills. Feats: Favored in House, Least Dragonmark.	PRESKILL:1,TYPE.Base=7	PREFEAT:2,Favored in House,Least Dragonmark
 1	ABILITY:Dragonmark Heir Class Feature|AUTOMATIC|Dragonmark Heir ~ Weapon and Armor Proficiency
 1	ABILITY:Dragonmark Heir Class Feature|AUTOMATIC|Dragonmark Heir ~ Lesser Dragonmark
 1	ABILITY:Dragonmark Heir Class Feature|AUTOMATIC|Dragonmark Heir ~ House Status
@@ -52,10 +59,13 @@ CLASS:Dragonmark Heir	PRETEXT:Race: Member of appropriate dragonmarked race and 
 5	ABILITY:Dragonmark Heir Class Feature|AUTOMATIC|Dragonmark Heir ~ Improved Greater Dragonmark
 
 #Eldeen Ranger: Dedicated to protecting some aspect of the Eldeen Reaches.
-CLASS:Eldeen Ranger	MAXLEVEL:5	HD:8	SOURCEPAGE:p.74	TYPE:PC.Prestige.Eberron	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3
-CLASS:Eldeen Ranger	BONUS:COMBAT|BAB|CL
+
+# Class Name		Hit Dice	Type					Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Eldeen Ranger	HD:8		TYPE:PC.Prestige.Eberron	MAXLEVEL:5	SOURCEPAGE:p.74	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
+# Class Name		Required Ability								Required Feat	Multiple Requirements						Required Skill						Required Text
+CLASS:Eldeen Ranger	PREABILITY:1,CATEGORY=Special Ability,TYPE.Favored Enemy	PREFEAT:1,Track	PREMULT:1,[PREATT:5],[PREVARGTEQ:BaseAttackBonus,5]	PRESKILL:2,Knowledge (Nature)=6,Survival=8	PRETEXT:Alignment: Requirement varies by sect: Ashbound: No restriction. Children of Winter: Any nongood. Gatekeepers: Any nonevil. Greensingers: Any chaotic. Wardens of the Wood: Any nonevil. Base Attack Bonus: +5. Skills: Knowledge (nature) 6 ranks, Survival 8 ranks. Feat: Track. Special: Favored enemy class feature. Also, before taking his fi rst level in this class, a character must train in the Eldeen Reaches with other members of the sect that he wishes to join.
+# Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Eldeen Ranger	STARTSKILLPTS:6	CSKILL:Climb|TYPE=Craft|Handle Animal|Heal|Hide|Jump|Knowledge (Dungeoneering)|Knowledge (Geography)|Knowledge (Nature)|Listen|Move Silently|TYPE=Profession|Ride|Search|Spot|Survival|Swim|Use Rope
-CLASS:Eldeen Ranger	PRETEXT:Alignment: Requirement varies by sect: Ashbound: No restriction. Children of Winter: Any nongood. Gatekeepers: Any nonevil. Greensingers: Any chaotic. Wardens of the Wood: Any nonevil. Base Attack Bonus: +5. Skills: Knowledge (nature) 6 ranks, Survival 8 ranks. Feat: Track. Special: Favored enemy class feature. Also, before taking his fi rst level in this class, a character must train in the Eldeen Reaches with other members of the sect that he wishes to join.	PREMULT:1,[PREATT:5],[PREVARGTEQ:BaseAttackBonus,5]	PRESKILL:2,Knowledge (Nature)=6,Survival=8	PREFEAT:1,Track	PREABILITY:1,CATEGORY=Special Ability,TYPE.Favored Enemy	
 1	ABILITY:Eldeen Ranger Class Feature|AUTOMATIC|Eldeen Ranger ~ Weapon and Armor Proficiency
 1	ABILITY:Eldeen Ranger Class Feature|AUTOMATIC|Eldeen Ranger ~ Sect Ability I
 2	ABILITY:Eldeen Ranger Class Feature|AUTOMATIC|Eldeen Ranger ~ Hated Foe
@@ -64,10 +74,13 @@ CLASS:Eldeen Ranger	PRETEXT:Alignment: Requirement varies by sect: Ashbound: No 
 5	ABILITY:Eldeen Ranger Class Feature|AUTOMATIC|Eldeen Ranger ~ Sect Ability III
 
 #Exorcist of the Silver Flame: Fights the forces of supernatural evil.
-CLASS:Exorcist of the Silver Flame	HD:8	SOURCEPAGE:p.77	TYPE:PC.Prestige.Eberron	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3
-CLASS:Exorcist of the Silver Flame	BONUS:COMBAT|BAB|CL
+
+# Class Name				Hit Dice	Type					Source Page		Save checks bonus											Combat bonus
+CLASS:Exorcist of the Silver Flame	HD:8		TYPE:PC.Prestige.Eberron	SOURCEPAGE:p.77	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL
+# Class Name				Required AL		Required Deity					Multiple Requirements						Required Skill								Req. Spell Type		Required Text
+CLASS:Exorcist of the Silver Flame	PREALIGN:LG,NG,CG	PREDEITY:1,Church of the Silver Flame	PREMULT:1,[PREATT:3],[PREVARGTEQ:BaseAttackBonus,3]	PRESKILL:2,Knowledge (The Planes)=3,Knowledge (Religion)=8	PRESPELLTYPE:1,Divine=1	PRETEXT:Alignment: Any good. Base Attack Bonus: +3. Skills: Knowledge (the planes) 3 ranks, Knowledge (religion) 8 ranks. Spells: Able to cast 1st-level divine spells. Special: Worshiper of the Silver Flame.
+# Class Name				Skill Pts/Lvl	Class Skill
 CLASS:Exorcist of the Silver Flame	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Intimidate|Knowledge (Arcana)|Knowledge (The Planes)|Knowledge (Religion)|TYPE=Profession|Sense Motive|Spellcraft
-CLASS:Exorcist of the Silver Flame	PRETEXT:Alignment: Any good. Base Attack Bonus: +3. Skills: Knowledge (the planes) 3 ranks, Knowledge (religion) 8 ranks. Spells: Able to cast 1st-level divine spells. Special: Worshiper of the Silver Flame.	PREALIGN:LG,NG,CG	PREMULT:1,[PREATT:3],[PREVARGTEQ:BaseAttackBonus,3]	PRESKILL:2,Knowledge (The Planes)=3,Knowledge (Religion)=8	PRESPELLTYPE:1,Divine=1	PREDEITY:1,Church of the Silver Flame
 11	PREPCLEVEL:MIN=20
 ###Block
 1	ABILITY:Exorcist of the Silver Flame Class Feature|AUTOMATIC|Exorcist of the Silver Flame ~ Weapon and Armor Proficiency
@@ -87,10 +100,13 @@ CLASS:Exorcist of the Silver Flame	PRETEXT:Alignment: Any good. Base Attack Bonu
 10	ABILITY:Exorcist of the Silver Flame Class Feature|AUTOMATIC|Exorcist of the Silver Flame ~ Warding Flame
 
 #Extreme Explorer: Delves into ancient ruins in search of secrets and adventure.
-CLASS:Extreme Explorer	HD:8	SOURCEPAGE:p.79	TYPE:PC.Prestige.Eberron	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	MAXLEVEL:5
-CLASS:Extreme Explorer	BONUS:COMBAT|BAB|CL*3/4
+
+# Class Name		Hit Dice	Type					Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Extreme Explorer	HD:8		TYPE:PC.Prestige.Eberron	MAXLEVEL:5	SOURCEPAGE:p.79	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4
+# Class Name		Required Feat		Multiple Requirements						Required Skill							Required Text
+CLASS:Extreme Explorer	PREFEAT:1,Action Boost	PREMULT:1,[PREATT:4],[PREVARGTEQ:BaseAttackBonus,4]	PRESKILL:2,Knowledge (Dungeoneering)=4,Survival=4	PRETEXT:Base Attack Bonus: +4. Skills: Knowledge (dungeoneering) 4 ranks, Survival 4 ranks. Feat: Action Boost.
+# Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Extreme Explorer	STARTSKILLPTS:6	CSKILL:Balance|Climb|Decipher Script|Disable Device|Escape Artist|Jump|Knowledge (Arcana)|Knowledge (Dungeoneering)|Knowledge (History)|Listen|Open Lock|Ride|Search|Speak Language|Survival|Swim|Tumble|Use Magic Device|Use Rope
-CLASS:Extreme Explorer	PRETEXT:Base Attack Bonus: +4. Skills: Knowledge (dungeoneering) 4 ranks, Survival 4 ranks. Feat: Action Boost.	PREMULT:1,[PREATT:4],[PREVARGTEQ:BaseAttackBonus,4]	PRESKILL:2,Knowledge (Dungeoneering)=4,Survival=4	PREFEAT:1,Action Boost
 1	ABILITY:Extreme Explorer Class Feature|AUTOMATIC|Extreme Explorer ~ Weapon and Armor Proficiency
 1	ABILITY:Extreme Explorer Class Feature|AUTOMATIC|Extreme Explorer ~ Additional Action Points
 1	ABILITY:Extreme Explorer Class Feature|AUTOMATIC|Extreme Explorer ~ Trap Sense
@@ -101,10 +117,13 @@ CLASS:Extreme Explorer	PRETEXT:Base Attack Bonus: +4. Skills: Knowledge (dungeon
 4	ABILITY:Extreme Explorer Class Feature|AUTOMATIC|Extreme Explorer ~ Extreme Action
 
 #Heir of Siberys: Manifests a uniquely powerful dragonmark. "Any skill that is a class skill for one of an heir of Siberys's other classes is a class skill for his heir of Siberys class as well."
-CLASS:Heir of Siberys	HD:6	SOURCEPAGE:p.80	TYPE:PC.Prestige.Eberron	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	MAXLEVEL:3
-CLASS:Heir of Siberys	BONUS:COMBAT|BAB|CL*3/4
+
+# Class Name		Hit Dice	Type					Max Level	Source Page		Save checks bonus								Combat bonus
+CLASS:Heir of Siberys	HD:6		TYPE:PC.Prestige.Eberron	MAXLEVEL:3	SOURCEPAGE:p.80	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4
+# Class Name		Required Feat		Required Skill		Required Text
+CLASS:Heir of Siberys	PREFEAT:1,Heroic Spirit	PRESKILL:2,TYPE.Base=15	PRETEXT:Race: Dragonmarked race. Level: 15 ranks in any two skills. Feats: Heroic Spirit*. Special: A character who has the Aberrant Dragonmark, Least Dragonmark, Lesser Dragonmark, or Greater Dragonmark feat cannot enter this prestige class. Also, once a character gains any levels in this class, he can't adopt the dragonmark heir prestige class. *New feat described on page 55.
+# Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Heir of Siberys	STARTSKILLPTS:2	CSKILL:TYPE=Base
-CLASS:Heir of Siberys	PRETEXT:Race: Dragonmarked race. Level: 15 ranks in any two skills. Feats: Heroic Spirit*. Special: A character who has the Aberrant Dragonmark, Least Dragonmark, Lesser Dragonmark, or Greater Dragonmark feat cannot enter this prestige class. Also, once a character gains any levels in this class, he can't adopt the dragonmark heir prestige class. *New feat described on page 55.	PRESKILL:2,TYPE.Base=15	PREFEAT:1,Heroic Spirit
 1	ABILITY:Heir of Siberys Class Feature|AUTOMATIC|Heir of Siberys ~ Weapon and Armor Proficiency
 1	ABILITY:Heir of Siberys Class Feature|AUTOMATIC|Heir of Siberys ~ Additional Action Points
 1	ABILITY:Heir of Siberys Class Feature|AUTOMATIC|Heir of Siberys ~ Bonus Feat
@@ -113,10 +132,13 @@ CLASS:Heir of Siberys	PRETEXT:Race: Dragonmarked race. Level: 15 ranks in any tw
 3	ABILITY:Heir of Siberys Class Feature|AUTOMATIC|Heir of Siberys ~ Improved Siberys Mark
 
 #Master Inquisitive: Investigates crimes and solves mysteries; uncovers secrets and reveals facts.
-CLASS:Master Inquisitive	HD:	SOURCEPAGE:p.82	TYPE:PC.Prestige.Eberron	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	MAXLEVEL:5
-CLASS:Master Inquisitive	BONUS:COMBAT|BAB|CL*3/4
+
+# Class Name			Hit Dice	Type					Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Master Inquisitive	HD:		TYPE:PC.Prestige.Eberron	MAXLEVEL:5	SOURCEPAGE:p.82	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4
+# Class Name			Required Feat		Required Skill								Required Text
+CLASS:Master Inquisitive	PREFEAT:1,Investigate	PRESKILL:3,Gather Information=6,Search=3,Sense Motive=6	PRETEXT:Skills: Gather Information 6 ranks, Search 3 ranks, Sense Motive 6 ranks. Feat: Investigate*. *New feat described on page 55.
+# Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Master Inquisitive	STARTSKILLPTS:6	CSKILL:Bluff|Decipher Script|Gather Information|Knowledge (Local)|Listen|Search|Sense Motive|Spot
-CLASS:Master Inquisitive	PRETEXT:Skills: Gather Information 6 ranks, Search 3 ranks, Sense Motive 6 ranks. Feat: Investigate*. *New feat described on page 55.	PRESKILL:3,Gather Information=6,Search=3,Sense Motive=6	PREFEAT:1,Investigate
 1	ABILITY:Master Inquisitive Class Feature|AUTOMATIC|Master Inquisitive ~ Weapon and Armor Proficiency
 1	ABILITY:Master Inquisitive Class Feature|AUTOMATIC|Master Inquisitive ~ Zone of Truth
 2	ABILITY:Master Inquisitive Class Feature|AUTOMATIC|Master Inquisitive ~ Bonus Feat
@@ -125,10 +147,13 @@ CLASS:Master Inquisitive	PRETEXT:Skills: Gather Information 6 ranks, Search 3 ra
 5	ABILITY:Master Inquisitive Class Feature|AUTOMATIC|Master Inquisitive ~ True Seeing
 
 #Warforged Juggernaut: A class for any warforged dedicated to becoming a combat powerhouse.
-CLASS:Warforged Juggernaut	HD:12	SOURCEPAGE:p.83	TYPE:PC.Prestige.Eberron	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	MAXLEVEL:5
-CLASS:Warforged Juggernaut	BONUS:COMBAT|BAB|CL*3/4
+
+# Class Name			Hit Dice	Type					Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Warforged Juggernaut	HD:12		TYPE:PC.Prestige.Eberron	MAXLEVEL:5	SOURCEPAGE:p.83	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4
+# Class Name			Required Feat								Multiple Requirements						Required Race		Required Text
+CLASS:Warforged Juggernaut	PREFEAT:3.Adamantine Body,Improved Bull Rush,Power Attack	PREMULT:1,[PREATT:5],[PREVARGTEQ:BaseAttackBonus,5]	PRERACE:1,Warforged%	PRETEXT:Race: Warforged. Base Attack Bonus: +5. Feats: Adamantine Body*, Improved Bull Rush, Power Attack.
+# Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Warforged Juggernaut	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Intimidate|Jump|Survival|Swim
-CLASS:Warforged Juggernaut	PRETEXT:Race: Warforged. Base Attack Bonus: +5. Feats: Adamantine Body*, Improved Bull Rush, Power Attack.	PRERACE:1,Warforged%	PREMULT:1,[PREATT:5],[PREVARGTEQ:BaseAttackBonus,5]	PREFEAT:3.Adamantine Body,Improved Bull Rush,Power Attack
 1	ABILITY:Warforged Juggernaut Class Feature|AUTOMATIC|Warforged Juggernaut ~ Weapon and Armor Proficiency
 1	ABILITY:Warforged Juggernaut Class Feature|AUTOMATIC|Warforged Juggernaut ~ Armor Spikes
 1	ABILITY:Warforged Juggernaut Class Feature|AUTOMATIC|Warforged Juggernaut ~ Expert Bull Rush
@@ -142,10 +167,13 @@ CLASS:Warforged Juggernaut	PRETEXT:Race: Warforged. Base Attack Bonus: +5. Feats
 5	ABILITY:Warforged Juggernaut Class Feature|AUTOMATIC|Warforged Juggernaut ~ Greater Powerful Charge
 
 #Weretouched Master: Explores the powers of shifter heritage to adopt animal forms.
-CLASS:Weretouched Master	HD:8	SOURCEPAGE:p.85	TYPE:PC.Prestige.Eberron	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	MAXLEVEL:5
-CLASS:Weretouched Master	BONUS:COMBAT|BAB|CL*3/4
+
+# Class Name			Hit Dice	Type					Max Level	Source Page		Save checks bonus											Combat bonus
+CLASS:Weretouched Master	HD:8		TYPE:PC.Prestige.Eberron	MAXLEVEL:5	SOURCEPAGE:p.85	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4
+# Class Name			Required Feat		Multiple Requirements						Required Race		Required Skill						Required Text
+CLASS:Weretouched Master	PREFEAT:1,TYPE=Shifter	PREMULT:1,[PREATT:4],[PREVARGTEQ:BaseAttackBonus,4]	PRERACE:1,Shifter%	PRESKILL:2,Knowledge (Nature)=5,Survival=8	PRETEXT:Race: Shifter. Base Attack Bonus: +4. Skills: Knowledge (nature) 5 ranks, Survival 8 ranks. Feat: Any shifter feat.
+# Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Weretouched Master	STARTSKILLPTS:2	CSKILL:Balance|Climb|Handle Animal|Hide|Intimidate|Jump|Knowledge (nature)|Listen|Move Silently|Spot|Survival|Swim
-CLASS:Weretouched Master	PRETEXT:Race: Shifter. Base Attack Bonus: +4. Skills: Knowledge (nature) 5 ranks, Survival 8 ranks. Feat: Any shifter feat.	PRERACE:1,Shifter%	PREMULT:1,[PREATT:4],[PREVARGTEQ:BaseAttackBonus,4]	PRESKILL:2,Knowledge (Nature)=5,Survival=8	PREFEAT:1,TYPE=Shifter
 1	ABILITY:Weretouched Master Class Feature|AUTOMATIC|Weretouched Master ~ Weapon and Armor Proficiency
 1	ABILITY:Weretouched Master Class Feature|AUTOMATIC|Weretouched Master ~ Weretouched I
 2	ABILITY:Weretouched Master Class Feature|AUTOMATIC|Weretouched Master ~ Wild Empathy
@@ -153,6 +181,3 @@ CLASS:Weretouched Master	PRETEXT:Race: Shifter. Base Attack Bonus: +4. Skills: K
 3	ABILITY:Weretouched Master Class Feature|AUTOMATIC|Weretouched Master ~ Weretouched II
 4	ABILITY:Weretouched Master Class Feature|AUTOMATIC|Weretouched Master ~ Frightful Shifting
 5	ABILITY:Weretouched Master Class Feature|AUTOMATIC|Weretouched Master ~ Alternate Form
-
-
-
