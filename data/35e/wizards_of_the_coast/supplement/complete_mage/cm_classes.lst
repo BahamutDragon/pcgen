@@ -12,14 +12,66 @@ CLASS:Abjurant Champion	STARTSKILLPTS:2	CSKILL:Climb|Concentration|TYPE=Craft|Ha
 4	ADD:SPELLCASTER|ARCANE
 5	ADD:SPELLCASTER|ARCANE
 ###Block
-1	ABILITY:Special Ability|AUTOMATIC|Abjurant Champion ~ Spellcasting|Abjurant Champion ~ Abjurant Armor|Abjurant Champion ~ Extended Abjuration
-2	ABILITY:Special Ability|AUTOMATIC|Abjurant Champion ~ Swift Abjuration
-4	ABILITY:Special Ability|AUTOMATIC|Abjurant Champion ~ Arcane Boost
-5	ABILITY:Special Ability|AUTOMATIC|Abjurant Champion ~ Martial Arcanist
+1	ABILITY:Abjurant Champion Class Feature|AUTOMATIC|Abjurant Champion ~ Spellcasting|Abjurant Champion ~ Abjurant Armor|Abjurant Champion ~ Extended Abjuration
+2	ABILITY:Abjurant Champion Class Feature|AUTOMATIC|Abjurant Champion ~ Swift Abjuration
+4	ABILITY:Abjurant Champion Class Feature|AUTOMATIC|Abjurant Champion ~ Arcane Boost
+5	ABILITY:Abjurant Champion Class Feature|AUTOMATIC|Abjurant Champion ~ Martial Arcanist
 
 
-CLASS:Eldritch Disciple	SOURCEPAGE:p.53	TYPE:PC.Prestige	
-CLASS:Eldritch Theurge	SOURCEPAGE:p.	TYPE:PC.Prestige	
+CLASS:Eldritch Disciple	SOURCEPAGE:p.53	TYPE:PC.Prestige	HD:8	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3
+CLASS:Eldritch Disciple	BONUS:COMBAT|BAB|CL*3/4
+CLASS:Eldritch Disciple	PRETEXT:Skills: Knowledge (religion) 8 ranks, Knowledge (the planes) 4 ranks. Spells: Ability to cast 2nd-level divine spells. Invocations: Ability to use least invocations. Special: Ability to turn or rebuke undead, must worship a chaotic or evil deity.	PRESPELLTYPE:1,Divine=2	PREABILITY:1,CATEGORY=Special Ability,TYPE=Least Invocation	PREABILITY:1,CATEGORY=Special Ability,TYPE=Turn Undead,TYPE=Rebuke Undead	PREDEITYALIGN:CG,CN,CE,NE,LE	PRESKILL:2,Knowledge (Religion)=8,Knowledge (The Planes)
+CLASS:Eldritch Disciple	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Diplomacy|Heal|Intimidate|Knowledge (Arcana)|Knowledge (Nature)|Knowledge (Religion)|Knowledge (The Planes)|TYPE=Profession|Sense Motive|Spellcraft
+###Block
+1	ABILITY:Eldritch Disciple Class Feature|AUTOMATIC|Eldritch Disciple ~ Invocations|Eldritch Disciple ~ Spellcasting
+1	ABILITY:Eldritch Disciple Class Feature|AUTOMATIC|Eldritch Disciple ~ Gift of the Divine Patron|Eldritch Disciple ~ Turn/Rebuke Undead
+5	ABILITY:Eldritch Disciple Class Feature|AUTOMATIC|Eldritch Disciple ~ Eldritch Spellweave
+10	ABILITY:Eldritch Disciple Class Feature|AUTOMATIC|Eldritch Disciple ~ Timeless Body
+###Block	
+# COMMENT: TODO +1 level of existing invocation-using class each level
+2	ADD:SPELLCASTER:Divine
+3	ADD:SPELLCASTER:Divine
+4	ADD:SPELLCASTER:Divine
+5	ADD:SPELLCASTER:Divine
+6	ADD:SPELLCASTER:Divine
+7	ADD:SPELLCASTER:Divine
+8	ADD:SPELLCASTER:Divine
+9	ADD:SPELLCASTER:Divine
+10	ADD:SPELLCASTER:Divine
+###Block
+11	PREPCLEVEL:MIN=20
+
+
+
+CLASS:Eldritch Theurge	SOURCEPAGE:p.57	TYPE:PC.Prestige	HD:4	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3
+CLASS:Eldritch Theurge	BONUS:COMBAT|BAB|CL*3/4
+CLASS:Eldritch Theurge	PRETEXT:Skills: Knowledge (arcana) 8 ranks, Knowledge (the planes) 8 ranks. Spells: Ability to cast 2nd-level arcane spells. Invocations: Ability to use least invocations. Special: Eldritch blast +2d6.	PRESKILL:2,Knowledge (Arcana)=8,Knowledge (The Planes)=8	PRESPELLTYPE:1,Arcane=2	PREABILITY:1,CATEGORY=Special Ability,TYPE=Least Invocation	PREVARGTEQ:EldritchBlastDice,2
+CLASS:Eldritch Theurge	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Intimidate|Knowledge (Arcana)|Knowledge (Religion)|Knowledge (The Planes)|TYPE=Profession|Sense Motive|Spellcraft|Use Magic Device
+###Block
+1	ABILITY:Eldritch Theurge Class Feature|AUTOMATIC|Eldritch Theurge ~ Spellcasting|Eldritch Theurge ~ Invocations
+1	ABILITY:Eldritch Theurge Class Feature|AUTOMATIC|Eldritch Theurge ~ Damage Reduction
+2	ABILITY:Eldritch Theurge Class Feature|AUTOMATIC|Eldritch Theurge ~ Fiendish Resilience
+3	ABILITY:Eldritch Theurge Class Feature|AUTOMATIC|Eldritch Theurge ~ Spellblast
+5	ABILITY:Eldritch Theurge Class Feature|AUTOMATIC|Eldritch Theurge ~ Eldritch Spellweave
+10	ABILITY:Eldritch Theurge Class Feature|AUTOMATIC|Eldritch Theurge ~ Greatreach Blast
+###Block
+2	BONUS:VAR|FiendishResilienceBonus|(CL+4)/6
+1	BONUS:VAR|DRColdIron|(CL+2)/3			
+###Block
+1	ADD:SPELLCASTER:Arcane
+2	ADD:SPELLCASTER:Arcane
+3	ADD:SPELLCASTER:Arcane
+4	ADD:SPELLCASTER:Arcane
+5	ADD:SPELLCASTER:Arcane
+6	ADD:SPELLCASTER:Arcane
+7	ADD:SPELLCASTER:Arcane
+8	ADD:SPELLCASTER:Arcane
+9	ADD:SPELLCASTER:Arcane
+10	ADD:SPELLCASTER:Arcane
+###Block
+11	PREPCLEVEL:MIN=20
+
+
 CLASS:Enlightened Spirit	SOURCEPAGE:p.	TYPE:PC.Prestige	
 CLASS:Holy Scourge	SOURCEPAGE:p.	TYPE:PC.Prestige	
 CLASS:Lyric Thaumaturge	SOURCEPAGE:p.	TYPE:PC.Prestige	
@@ -32,11 +84,17 @@ CLASS:Nightmare Spinner	HD:4		TYPE:PC.Prestige	ABB:NmS		MAXLEVEL:5	SOURCEPAGE:p.
 CLASS:Nightmare Spinner	PRESKILL:3,Bluff=4,Intimidate=10,Sense Motive=4	PRESPELLDESCRIPTOR:1,Fear=0	PRESPELLDESCRIPTOR:1,Mind-Affecting=0	PRESPELLSCHOOLSUB:1,Illusion=0	PRESPELLTYPE:1,Arcane=3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Nightmare Spinner	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Decipher Script|Diplomacy|Intimidate|TYPE=Knowledge|TYPE=Profession|Search|Sense Motive|Spellcraft
-1	BONUS:SPELLCAST|TYPE=Arcane;LEVEL=0|1					ABILITY:Special Ability|AUTOMATIC|Immunity to Fear|Inspire Fear ~ Nightmare Spinner
-2								ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Nightmare Phantasm ~ Nightmare Spinner
-3								ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Spirit Chill ~ Nightmare Spinner
+1	ABILITY:Nightmare Spinner Class Feature|AUTOMATIC|Immunity to Fear|Nightmare Spinner ~ Inspire Fear
+2	ABILITY:Nightmare Spinner Class Feature|AUTOMATIC|Nightmare Spinner ~ Nightmare Phantasm
+3	ABILITY:Nightmare Spinner Class Feature|AUTOMATIC|Nightmare Spinner ~ Spirit Chill
+5	ABILITY:Nightmare Spinner Class Feature|AUTOMATIC|Nightmare Spinner ~ Deadly Nightmare
+###Block
+1	BONUS:SPELLCAST|TYPE=Arcane;LEVEL=0|1					
+###Block
+2								ADD:SPELLCASTER|ANY	
+3								ADD:SPELLCASTER|ANY	
 4								ADD:SPELLCASTER|ANY
-5								ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Deadly Nightmare ~ Nightmare Spinner
+5								ADD:SPELLCASTER|ANY	
 
 CLASS:Ultimate Magus	SOURCEPAGE:p.	TYPE:PC.Prestige	
 CLASS:Unseen Seer	SOURCEPAGE:p.	TYPE:PC.Prestige	
