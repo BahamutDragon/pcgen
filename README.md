@@ -1,10 +1,12 @@
 pcgen
 =====
-Updated: 2014-01-23
+Updated: 2014-03-17
 
 PCGen Data Sets & Homebrew
 
 Mates! This is for my growing collection of PCGen compatible books. (http://pcgen.org)
+
+To get the most from these sets, please utilize the latest version (unstable if necessary) of pcgen. Their autobuild for the main development line is here: http://www.pcgen.org/autobuilds/download.html
 
 
 Orginally this was meant to be as compatible with the existing PCGen book data sets. To achieve that, I attempt to re-use a lot of common pcgen standards to avoid any non-compatibility.
