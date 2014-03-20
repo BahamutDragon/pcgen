@@ -263,19 +263,32 @@ CLASS:Mortal Hunter	PREALIGN:LE,NE,CE	PREATT:5	PREFEAT:3,Alertness,Mortalbane,Tr
 CLASS:Mortal Hunter	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Concentration|Disguise|Hide|Jump|Knowledge (Arcana)|Knowledge (Religion)|Knowledge (The Planes)|Listen|Move Silently|Search|Sense Motive|Spot|Survival
 # Class Name		Spell Stat		Spell Type		Memorize	Automatically Known Spell Levels				Caster level
 CLASS:Mortal Hunter	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Mortal Hunter|CL
-#	1	CAST:0,0		BONUS:VAR|MortalHunterMortalHuntingLVL|CL	BONUS:VAR|MortalHunterMortalSkinLVL|CL							
-#	2	CAST:0,1																ADD:FEAT|Boost Spell-Like Ability	
-#	3	CAST:0,1,0
-#	4	CAST:0,1,1		BONUS:VAR|MortalHunterSmiteMortalsLVL|CL														
-#	5	CAST:0,1,1,0	BONUS:VAR|SpurnMortalMagicBonus|max(WIS,0)													
-#	6	CAST:0,1,1,1
-#	7	CAST:0,2,1,1,0																					
-#	8	CAST:0,2,1,1,1	BONUS:VAR|MortalHunterMortalbaneShoutLVL|CL													
-#	9	CAST:0,2,2,1,1
-#	10	CAST:0,2,2,2,1																					
 ###Block
-
-#
+1	CAST:0,0								
+2	CAST:0,1																ADD:FEAT|Boost Spell-Like Ability	
+3	CAST:0,1,0
+4	CAST:0,1,1															
+5	CAST:0,1,1,0													
+6	CAST:0,1,1,1
+7	CAST:0,2,1,1,0																					
+8	CAST:0,2,1,1,1													
+9	CAST:0,2,2,1,1
+10	CAST:0,2,2,2,1																					
+###Block
+1	BONUS:VAR|MortalHunterMortalHuntingLVL|CL	BONUS:VAR|MortalHunterMortalSkinLVL|CL
+4	BONUS:VAR|MortalHunterSmiteMortalsLVL|CL
+8	BONUS:VAR|MortalHunterMortalbaneShoutLVL|CL
+###Block
+1	ABILITY:Mortal Hunter Class Feature|AUTOMATIC|Mortal Hunter ~ Weapon and Armor Proficiency|Mortal Hunter ~ Spells				
+1	ABILITY:Mortal Hunter Class Feature|AUTOMATIC|Mortal Hunter ~ Mortal Hunting			
+1	ABILITY:Mortal Hunter Class Feature|AUTOMATIC|Mortal Hunter ~ Mortal Skin			
+2	ABILITY:Mortal Hunter Class Feature|AUTOMATIC|Mortal Hunter ~ Detect Mortals			
+2	ABILITY:Mortal Hunter Class Feature|AUTOMATIC|Mortal Hunter ~ Boost Spell-Like Ability	
+4	ABILITY:Mortal Hunter Class Feature|AUTOMATIC|Mortal Hunter ~ Smite Mortals			
+5	ABILITY:Mortal Hunter Class Feature|AUTOMATIC|Mortal Hunter ~ Spurn Mortal Magic		
+7	ABILITY:Mortal Hunter Class Feature|AUTOMATIC|Mortal Hunter ~ Claws of the Overfiend	
+8	ABILITY:Mortal Hunter Class Feature|AUTOMATIC|Mortal Hunter ~ Mortalbane Shout		
+10	ABILITY:Mortal Hunter Class Feature|AUTOMATIC|Mortal Hunter ~ Slay Mortal			
 ###Block
 11	PREPCLEVEL:MIN=20
 
@@ -285,16 +298,20 @@ CLASS:Soul Eater	HD:8		TYPE:PC.Prestige	ABB:Sou		SOURCEPAGE:p.	VISIBLE:NO	BONUS:
 CLASS:Soul Eater	PREALIGN:LE,NE,CE	PREATT:5	PREFEAT:1,Alertness	PREFEAT:1,Weapon Focus (Claw),Weapon Focus (TYPE=Natural)	PRERACE:1,RACETYPE=Humanoid,RACETYPE=Monstrous Humanoid	PRESKILL:1,Knowledge (Arcana)=2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Soul Eater	STARTSKILLPTS:4	CSKILL:Climb|Concentration|Hide|Intimidate|Jump|Listen|Move Silently|TYPE=Profession|Search|Spellcraft|Spot|Swim|Use Rope
-#1	BONUS:VAR|EnergyDrainLevels|(CL+5)/6									
-#2																
-#3	BONUS:VAR|SoulBlastPerDay|1	BONUS:VAR|SoulBlastDamage|CL	BONUS:VAR|SoulBlastDC|CL	
-#4																
-#5																
-#6																
-#8																
-#9																
-#10																
-#
+###Block
+1	BONUS:VAR|EnergyDrainLevels|(CL+5)/6									
+3	BONUS:VAR|SoulBlastPerDay|1	BONUS:VAR|SoulBlastDamage|CL	BONUS:VAR|SoulBlastDC|CL	
+###Block
+1	ABILITY:Soul Eater Class Feature|AUTOMATIC|Soul Eater ~ Weapon and Armor Proficiency	
+1	ABILITY:Soul Eater Class Feature|AUTOMATIC|Soul Eater ~ Energy Drain				
+2	ABILITY:Soul Eater Class Feature|AUTOMATIC|Soul Eater ~ Soul Strength			
+3	ABILITY:Soul Eater Class Feature|AUTOMATIC|Soul Eater ~ Soul Blast				
+4	ABILITY:Soul Eater Class Feature|AUTOMATIC|Soul Eater ~ Soul Enhancement			
+5	ABILITY:Soul Eater Class Feature|AUTOMATIC|Soul Eater ~ Soul Endurance			
+6	ABILITY:Soul Eater Class Feature|AUTOMATIC|Soul Eater ~ Soul Radiance			
+8	ABILITY:Soul Eater Class Feature|AUTOMATIC|Soul Eater ~ Soul Agility				
+9	ABILITY:Soul Eater Class Feature|AUTOMATIC|Soul Eater ~ Soul Slave				
+10	ABILITY:Soul Eater Class Feature|AUTOMATIC|Soul Eater ~ Soul Power				
 ###Block
 11	PREPCLEVEL:MIN=20
 
@@ -304,18 +321,30 @@ CLASS:Thrall of Demogorgon	HD:8		TYPE:PC.Prestige.Vile	ABB:Tod		SOURCEPAGE:p.	VI
 CLASS:Thrall of Demogorgon	PREALIGN:CE	PREATT:4	PREFEAT:2,Willing Deformity,Thrall to Demon	PREMULT:1,[PRESPELLTYPE:1,ANY=1],[PREABILITY:1,CATEGORY=Special Ability,Sneak Attack]	PRESKILL:2,Knowledge (Arcana)=2,Knowledge (Religion)=2	PRESKILL:3,TYPE.Knowledge=2	PRETEXT:must go through an horrific rite that involves the sacrifice of an intelligent being dedicated to Demogorgon.
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Thrall of Demogorgon	STARTSKILLPTS:4	CSKILL:Climb|Concentration|Hide|Intimidate|Jump|Listen|Move Silently|TYPE=Profession|Search|Spellcraft|Spot|Swim|Use Rope
-#	1																											
-#
-#1	BONUS:ABILITYPOOL|Thrall of Demogorgon Ability|(CL+2)/3	BONUS:VAR|ThrallOfDemogorgonScalyFleshLVL|CL	BONUS:VAR|ThrallOfDemogorgonHypnosisLVL|CL	
-#2											BONUS:VAR|ThrallOfDemogorgonTouchOfFearLVL|CL									
-#3											BONUS:VAR|ReachingTouchPerDay|2											
-#4											BONUS:VAR|DualActionPerDay|2												
-#5											BONUS:VAR|SummonDemonPerDay|1												
-#7											BONUS:VAR|RottingTouchPerDay|3											
-#8											BONUS:VAR|ThrallOfDemogorgonDeathTouchLVL|CL									
-#9											BONUS:VAR|SummonMajorDemonPerDay|1											
-#10											BONUS:VAR|DemogorgonSWillPerDay|1											
-#
+1	BONUS:ABILITYPOOL|Thrall of Demogorgon Ability|(CL+2)/3	BONUS:VAR|ThrallOfDemogorgonScalyFleshLVL|CL	BONUS:VAR|ThrallOfDemogorgonHypnosisLVL|CL	
+###Block
+1	BONUS:VAR|ThrallOfDemogorgonScalyFleshLVL|CL	BONUS:VAR|ThrallOfDemogorgonHypnosisLVL|CL	
+2	BONUS:VAR|ThrallOfDemogorgonTouchOfFearLVL|CL									
+3	BONUS:VAR|ReachingTouchPerDay|2	
+4	BONUS:VAR|DualActionPerDay|2		
+5	BONUS:VAR|SummonDemonPerDay|1		
+7	BONUS:VAR|RottingTouchPerDay|3	
+8	BONUS:VAR|ThrallOfDemogorgonDeathTouchLVL|CL									
+9	BONUS:VAR|SummonMajorDemonPerDay|1	
+10	BONUS:VAR|DemogorgonSWillPerDay|1	
+###Block
+1	ABILITY:Thrall of Demogorgon Class Feature|AUTOMATIC|Thrall of Demogorgon ~ Weapon and Armor Proficiency	
+1	ABILITY:Thrall of Demogorgon Class Feature|AUTOMATIC|Thrall of Demogorgon ~ Bonus Feat or Spells			
+1	ABILITY:Thrall of Demogorgon Class Feature|AUTOMATIC|Thrall of Demogorgon ~ Scaly Flesh				
+1	ABILITY:Thrall of Demogorgon Class Feature|AUTOMATIC|Thrall of Demogorgon ~ Hypnosis					
+2	ABILITY:Thrall of Demogorgon Class Feature|AUTOMATIC|Thrall of Demogorgon ~ Touch of Fear				
+3	ABILITY:Thrall of Demogorgon Class Feature|AUTOMATIC|Thrall of Demogorgon ~ Reaching Touch				
+4	ABILITY:Thrall of Demogorgon Class Feature|AUTOMATIC|Thrall of Demogorgon ~ Dual Actions				
+5	ABILITY:Thrall of Demogorgon Class Feature|AUTOMATIC|Thrall of Demogorgon ~ Summon Demon				
+6	ABILITY:Thrall of Demogorgon Class Feature|AUTOMATIC|Thrall of Demogorgon ~ Rotting Touch				
+8	ABILITY:Thrall of Demogorgon Class Feature|AUTOMATIC|Thrall of Demogorgon ~ Two Personas				
+9	ABILITY:Thrall of Demogorgon Class Feature|AUTOMATIC|Thrall of Demogorgon ~ Death Touch				
+10	ABILITY:Thrall of Demogorgon Class Feature|AUTOMATIC|Thrall of Demogorgon ~ Demogorgon's Will			
 ###Block
 11	PREPCLEVEL:MIN=20
 
@@ -338,7 +367,14 @@ CLASS:Thrall of Graz'zt	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Decipher Scri
 7	ADD:SPELLCASTER|ANY
 9	ADD:SPELLCASTER|ANY	
 10	ADD:SPELLCASTER|ANY
-#
+###Block
+1	ABILITY:Thrall of Graz'zt Class Feature|AUTOMATIC|Thrall of Graz'zt ~ Weapon and Armor Proficiency	
+1	ABILITY:Thrall of Graz'zt Class Feature|AUTOMATIC|Thrall of Graz'zt ~ Spells				
+1	ABILITY:Thrall of Graz'zt Class Feature|AUTOMATIC|Thrall of Graz'zt ~ Charm					
+2	ABILITY:Thrall of Graz'zt Class Feature|AUTOMATIC|Thrall of Graz'zt ~ Spell Betrayal			
+3	ABILITY:Thrall of Graz'zt Class Feature|AUTOMATIC|Thrall of Graz'zt ~ Dark Charisma			
+4	ABILITY:Thrall of Graz'zt Class Feature|AUTOMATIC|Thrall of Graz'zt ~ Summon Demon			
+6	ABILITY:Thrall of Graz'zt Class Feature|AUTOMATIC|Thrall of Graz'zt ~ Spellstrike				
 ###Block
 11	PREPCLEVEL:MIN=20
 
@@ -348,13 +384,25 @@ CLASS:Thrall of Juiblex	HD:10		TYPE:PC.Prestige.Vile	ABB:ToJ		SOURCEPAGE:p.	VISI
 CLASS:Thrall of Juiblex	PREALIGN:LE,NE,CE	PREFEAT:2,Thrall to Demon,Willing Deformity	PRESKILL:1,Escape Artist=5	PRETEXT:must have been polymoprhed or experienced some sort of shapeshifting experience. must be initiated by the sect of Juiblex in a terrific rite.
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Thrall of Juiblex	STARTSKILLPTS:2	CSKILL:Climb|Disguise|Escape Artist|Intimidate|Jump|Knowledge (Religion)|Listen|Move Silently|Spot
-#1	BONUS:VAR|ThrallOfJuiblexSickeningSlimeLVL|CL			
-#3	BONUS:VAR|SummonOozePerDay|1						
-#4	BONUS:VAR|ContagionPerDay|1	BONUS:VAR|ContagionLVL|10
-#5	BONUS:VAR|SummonDemonPerDay|1						
-#6	BONUS:VAR|ThrallOfJuiblexCorrosiveSpewLVL|CL			
-#7	BONUS:VAR|SummonPuddingPerDay|1					
-#9	BONUS:VAR|SummonMajorDemonPerDay|1					
+1	BONUS:VAR|ThrallOfJuiblexSickeningSlimeLVL|CL			
+3	BONUS:VAR|SummonOozePerDay|1						
+4	BONUS:VAR|ContagionPerDay|1	BONUS:VAR|ContagionLVL|10
+5	BONUS:VAR|SummonDemonPerDay|1						
+6	BONUS:VAR|ThrallOfJuiblexCorrosiveSpewLVL|CL			
+7	BONUS:VAR|SummonPuddingPerDay|1					
+9	BONUS:VAR|SummonMajorDemonPerDay|1					
+###Block
+1	ABILITY:Thrall of Juiblex Class Feature|AUTOMATIC|Thrall of Juiblex ~ Weapon and Armor Proficiency	
+1	ABILITY:Thrall of Juiblex Class Feature|AUTOMATIC|Thrall of Juiblex ~ Sickening Slime			
+2	ABILITY:Thrall of Juiblex Class Feature|AUTOMATIC|Thrall of Juiblex ~ Corrosive Touch			
+3	ABILITY:Thrall of Juiblex Class Feature|AUTOMATIC|Thrall of Juiblex ~ Summon Ooze				
+4	ABILITY:Thrall of Juiblex Class Feature|AUTOMATIC|Thrall of Juiblex ~ Contagion				
+4	ABILITY:Thrall of Juiblex Class Feature|AUTOMATIC|Thrall of Juiblex ~ Alter Self				
+5	ABILITY:Thrall of Juiblex Class Feature|AUTOMATIC|Thrall of Juiblex ~ Summon Demon			
+6	ABILITY:Thrall of Juiblex Class Feature|AUTOMATIC|Thrall of Juiblex ~ Corrosive Spew			
+7	ABILITY:Thrall of Juiblex Class Feature|AUTOMATIC|Thrall of Juiblex ~ Summon Pudding			
+8	ABILITY:Thrall of Juiblex Class Feature|AUTOMATIC|Thrall of Juiblex ~ Polymorph Self			
+10	ABILITY:Thrall of Juiblex Class Feature|AUTOMATIC|Thrall of Juiblex ~ No Discernible Anatomy		
 ###Block
 11	PREPCLEVEL:MIN=20
 
@@ -364,20 +412,51 @@ CLASS:Thrall of Orcus	HD:8		TYPE:PC.Prestige.Vile	ABB:ToO		SOURCEPAGE:p.	VISIBLE
 CLASS:Thrall of Orcus	PREALIGN:LE,NE,CE	PREATT:4	PREFEAT:2,Lichloved,Thrall to Demon	PRESKILL:2,Knowledge (Arcana)=2,Knowledge (Religion)=2	PRESPELLSCHOOL:1,Necromancy=1	PRETEXT:must be initiated by the sect of Juiblex in a terrific rite.
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Thrall of Orcus	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Hide|Intimidate|TYPE=Knowledge|Move Silently|TYPE=Profession|Spot
-#	1																				
+1																				
 #
-#	1	BONUS:ABILITYPOOL|Thrall of Orcus Ability|(CL+2)/3	BONUS:VAR|ThrallOfOrcusCarrionStenchLVL|CL			
-#	2										BONUS:VAR|CauseFearPerDay|3	BONUS:VAR|CauseFearLVL|10	
-#	3										BONUS:VAR|ThrallOfOrcusDemonWingsLVL|CL				
-#	4	BONUS:ABILITYPOOL|Thrall of Orcus Deformity|1
-#	5										BONUS:VAR|SummonUndeadPerDay|1					
-#	6																				
-#	8										BONUS:VAR|DeathTouchPerDay|1	BONUS:VAR|DeathTouchDC|CL	
-#	10										BONUS:VAR|SummonNightwingPerWeek|1					
-#
+1	BONUS:ABILITYPOOL|Thrall of Orcus Ability|(CL+2)/3	BONUS:VAR|ThrallOfOrcusCarrionStenchLVL|CL			
+2										BONUS:VAR|CauseFearPerDay|3	BONUS:VAR|CauseFearLVL|10	
+3										BONUS:VAR|ThrallOfOrcusDemonWingsLVL|CL				
+4	BONUS:ABILITYPOOL|Thrall of Orcus Deformity|1
+5										BONUS:VAR|SummonUndeadPerDay|1					
+6																				
+8										BONUS:VAR|DeathTouchPerDay|1	BONUS:VAR|DeathTouchDC|CL	
+10										BONUS:VAR|SummonNightwingPerWeek|1					
+###Block
+1	ABILITY:Thrall of Orcus Class Feature|AUTOMATIC|Thrall of Orcus ~ Weapon and Armor Proficiency	
+1	ABILITY:Thrall of Orcus Class Feature|AUTOMATIC|Thrall of Orcus ~ Bonus Feat or Spells				
+1	ABILITY:Thrall of Orcus Class Feature|AUTOMATIC|Thrall of Orcus ~ Carrion Stench					
+2	ABILITY:Thrall of Orcus Class Feature|AUTOMATIC|Thrall of Orcus ~ Touch of Fear						
+3	ABILITY:Thrall of Orcus Class Feature|AUTOMATIC|Thrall of Orcus ~ Demon Wings						
+4	ABILITY:Thrall of Orcus Class Feature|AUTOMATIC|Thrall of Orcus ~ Massive Girth/Skeletal Visage			
+5	ABILITY:Thrall of Orcus Class Feature|AUTOMATIC|Thrall of Orcus ~ Summon Undead						
+6	ABILITY:Thrall of Orcus Class Feature|AUTOMATIC|Thrall of Orcus ~ Pallor of Death					
+8	ABILITY:Thrall of Orcus Class Feature|AUTOMATIC|Thrall of Orcus ~ Death Touch						
+10	ABILITY:Thrall of Orcus Class Feature|AUTOMATIC|Thrall of Orcus ~ Summon Nightwing					
 
-#CLASS:Ur-Priest
-#
+CLASS:Ur-Priest	HD:8	SOURCEPAGE:p.72	TYPE:PC.Prestige	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3
+CLASS:Ur-Priest	BONUS:COMBAT|BAB|CL*3/4
+CLASS:Ur-Priest	PREALIGN:LE,CE,NE	PRECHECKBASE:2,Fortitude=3,Will=3	PRESKILL:5,Bluff=6,Knowledge (Arcana)=5,Knowledge (Religion)=8,Knowledge (The Planes)=5,Spellcraft=8	PREFEAT:2,Iron Will,Malign Spell Focus	PRETEXT:Alignment: Any evil. Base Save Bonus: Fort +3, Will +3. Skills: Bluff 6 ranks, Knowledge (arcana) 5 ranks, Knowledge (religion) 8 ranks, Knowledge (the planes) 5 ranks, Spellcraft 8 ranks. Feats: Iron Will, Malign Spell Focus. Special: The character must have no ability to cast divine spells. If that ability was previously possessed (as with an excleric), the ability must be forever forsaken. Special: The character must be trained by another ur-priest.
+CLASS:Ur-Priest	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Knowledge (Arcana)|Knowledge (Religion)|Knowledge (The Planes)|TYPE=Profession|Spellcraft
+CLASS:Ur-Priest	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Ur-Priest|CL	SPELLLIST:1|Cleric	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9
+###Block
+1	CAST:4,2
+2	CAST:5,3,0
+3	CAST:5,3,1,0
+4	CAST:6,3,2,1,0
+5	CAST:6,3,3,2,1,0
+6	CAST:6,3,3,3,2,1,0
+7	CAST:6,4,3,3,3,2,1,0
+8	CAST:6,4,4,3,3,3,2,1,0
+9	CAST:6,5,4,4,4,4,3,2,1,0
+10	CAST:6,5,5,4,4,4,4,3,2,1
+###Block
+1	ABILITY:Ur-Priest Class Feature|AUTOMATIC|Ur-Priest ~ Weapon and Armor Proficiency
+1	ABILITY:Ur-Priest Class Feature|AUTOMATIC|Ur-Priest ~ Spells
+2	ABILITY:Ur-Priest Class Feature|AUTOMATIC|Ur-Priest ~ Rebuke Undead
+4	ABILITY:Ur-Priest Class Feature|AUTOMATIC|Ur-Priest ~ Divine Spell Resistance
+6	ABILITY:Ur-Priest Class Feature|AUTOMATIC|Ur-Priest ~ Siphon Spell Power
+10	ABILITY:Ur-Priest Class Feature|AUTOMATIC|Ur-Priest ~ Steal Spell-Like Ability
 ###Block
 11	PREPCLEVEL:MIN=20
 
@@ -387,15 +466,27 @@ CLASS:Vermin Lord	HD:6		TYPE:PC.Prestige.Vile	ABB:Vrm		SOURCEPAGE:p.	VISIBLE:NO	
 CLASS:Vermin Lord	PREALIGN:LE,NE,CE	PREFEAT:1,Verminfriend	PRESKILL:2,Hide=3,Move Silently=3	PRESKILL:1,Knowledge (Nature)=2	PRESPELL:1,Giant Vermin	PRETEXT:must be initiated by an intelligent evil creature with a physical resemblance to vermin.
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Vermin Lord	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Concentration|Hide|Knowledge (Nature)|Listen|Move Silently|TYPE=Perform|Sleight of Hand|Search|Spellcraft|Spot
-#	1	BONUS:VAR|VerminFamiliarLVL|CL												ADD:SPELLCASTER|ANY	
-#	3	BONUS:VAR|SpiderHandPerDay|1	BONUS:VAR|SpiderHandLVL|CL								ADD:SPELLCASTER|ANY	
-#	4	BONUS:VAR|VerminlordSwarmArmorLVL|CL															
-#	5	BONUS:VAR|VerminFamiliarLVL2|CL	BONUS:VAR|WingsOfTheVerminPerDay|1						ADD:SPELLCASTER|ANY	
-#	6	BONUS:VAR|SpiderLegsPerDay|1	BONUS:VAR|SpiderLegsLVL|CL+charbonusto("CASTERLEVEL","Vermin Lord")					
-#	7	BONUS:VAR|VerminlordSpewVerminLVL|CL											ADD:SPELLCASTER|ANY	
-#	8	BONUS:VAR|PoisonDC|CL																		
-#	9	BONUS:VAR|VerminFamiliarLVL3|CL												ADD:SPELLCASTER|ANY	
-#
+1	BONUS:VAR|VerminFamiliarLVL|CL												ADD:SPELLCASTER|ANY	
+3	BONUS:VAR|SpiderHandPerDay|1	BONUS:VAR|SpiderHandLVL|CL								ADD:SPELLCASTER|ANY	
+4	BONUS:VAR|VerminlordSwarmArmorLVL|CL															
+5	BONUS:VAR|VerminFamiliarLVL2|CL	BONUS:VAR|WingsOfTheVerminPerDay|1						ADD:SPELLCASTER|ANY	
+6	BONUS:VAR|SpiderLegsPerDay|1	BONUS:VAR|SpiderLegsLVL|CL+charbonusto("CASTERLEVEL","Vermin Lord")					
+7	BONUS:VAR|VerminlordSpewVerminLVL|CL											ADD:SPELLCASTER|ANY	
+8	BONUS:VAR|PoisonDC|CL																		
+9	BONUS:VAR|VerminFamiliarLVL3|CL												ADD:SPELLCASTER|ANY	
+###Block
+1	ABILITY:Vermin Lord Class Feature|AUTOMATIC|Vermin Lord ~ Weapon and Armor Proficiency	
+1	ABILITY:Vermin Lord Class Feature|AUTOMATIC|Vermin Lord ~ Spells				
+1	ABILITY:Vermin Lord Class Feature|AUTOMATIC|Vermin Lord ~ Chitin				
+1	ABILITY:Vermin Lord Class Feature|AUTOMATIC|Vermin Lord ~ Vermin Servant			
+2	ABILITY:Vermin Lord Class Feature|AUTOMATIC|Vermin Lord ~ Blood Drain				
+3	ABILITY:Vermin Lord Class Feature|AUTOMATIC|Vermin Lord ~ Spider Hand				
+4	ABILITY:Vermin Lord Class Feature|AUTOMATIC|Vermin Lord ~ Swarm Armor				
+5	ABILITY:Vermin Lord Class Feature|AUTOMATIC|Vermin Lord ~ Wings of the Vermin		
+6	ABILITY:Vermin Lord Class Feature|AUTOMATIC|Vermin Lord ~ Spider Legs				
+7	ABILITY:Vermin Lord Class Feature|AUTOMATIC|Vermin Lord ~ Spew Vermin				
+8	ABILITY:Vermin Lord Class Feature|AUTOMATIC|Vermin Lord ~ Poison				
+10	ABILITY:Vermin Lord Class Feature|AUTOMATIC|Vermin Lord ~ Hivemind				
 ###Block
 11	PREPCLEVEL:MIN=20
 
@@ -405,16 +496,16 @@ CLASS:Warrior of Darkness	HD:10		TYPE:PC.Prestige	ABB:WoD		SOURCEPAGE:p.	VISIBLE
 CLASS:Warrior of Darkness	PREALIGN:LE,NE,CE	PREATT:5	PREFEAT:1,Iron Will	PRELANG:1,Abyssal,Infernal	PRESKILL:2,Craft (Alchemy)=3,Knowledge (Arcana)=3	PRESKILL:1,Spellcraft=1	PRETEXT:must endure a week of painful and scarring black magic rituals in solitude, the secret of wich take a month to study and research succesfully.
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Warrior of Darkness	STARTSKILLPTS:4	CSKILL:Craft (Alchemy)|Bluff|Climb|Concentration|Hide|Jump|Knowledge (Arcana)|Knowledge (The Planes)|Move Silently|Ride|Spellcraft
-#	1	
 ###Block:
-#	1	BONUS:ABILITYPOOL|Black Magic Oil|((CL+2)/3)	BONUS:VAR|WarriorOfDarknessBlackMagicOilLVL|CL
-#	3	BONUS:ABILITYPOOL|Black Magic Elixir|CL/3		BONUS:VAR|WarriorOfDarknessBlackMagicElixirLVL|CL
+1	BONUS:ABILITYPOOL|Black Magic Oil|((CL+2)/3)	BONUS:VAR|WarriorOfDarknessBlackMagicOilLVL|CL
+3	BONUS:ABILITYPOOL|Black Magic Elixir|CL/3		BONUS:VAR|WarriorOfDarknessBlackMagicElixirLVL|CL
 ###Block:
-#	1	
-#	2	
-#	3	
-#	5	
-#	8	
+Warrior of Darkness ~ Weapon and Armor Proficiency
+1	ABILITY:Warrior of Darkness Class Feature|AUTOMATIC|Warrior of Darkness ~ Black Magic Oil
+2	ABILITY:Warrior of Darkness Class Feature|AUTOMATIC|Warrior of Darkness ~ Darkling Weapon
+3	ABILITY:Warrior of Darkness Class Feature|AUTOMATIC|Warrior of Darkness ~ Black Magic Elixir
+5	ABILITY:Warrior of Darkness Class Feature|AUTOMATIC|Warrior of Darkness ~ Scarred Flesh
+8	ABILITY:Warrior of Darkness Class Feature|AUTOMATIC|Warrior of Darkness ~ Repellent Flesh
 ###Block
 11	PREPCLEVEL:MIN=20
 
