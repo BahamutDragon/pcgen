@@ -2,7 +2,7 @@
 
 
 # Class Name	Hit Dice	Type				Class Type		Abbreviation	Max Level	Ex Class			Source Page		Define			Save checks bonus											Combat bonus		Monster Role
-CLASS:Barbarian	HD:12		TYPE:PC.Base.NonCaster	CLASSTYPE:PC	ABB:Brb		MAXLEVEL:20	EXCLASS:Ex-Barbarian	SOURCEPAGE:p.24	DEFINE:IlliteracyLVL|CL	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL	ROLE:Combat
+CLASS:Barbarian	HD:12		TYPE:PC.Base.NonCaster	CLASSTYPE:PC	ABB:Brb		MAXLEVEL:20	EXCLASS:Ex-Barbarian	SOURCEPAGE:p.24	DEFINE:IlliteracyLVL|CL	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL	ROLE:Combat	DEFINE:BarbarianLVL|CL
 # Class Name	Restricted AL
 CLASS:Barbarian	!PREALIGN:LG,LN,LE
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -10,7 +10,6 @@ CLASS:Barbarian	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate
 ###Block:
 1	BONUS:VAR|BarbRageTimesLVL,BarbRagePowerLVL|CL|!PREABILITY:1,CATEGORY=ACF,TYPE.BarbarianRage
 2	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE
-3	BONUS:VAR|TrapSenseBonus|CL/3
 7	BONUS:VAR|BarbarianDRLVL|CL
 ###Block: Level Progression
 1	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Weapon and Armor Proficiency|!PREABILITY:1,CATEGORY=ACF,TYPE.BarbarianProficiencies
@@ -27,12 +26,11 @@ CLASS:Barbarian	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate
 20	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Mighty Rage|!PREABILITY:1,CATEGORY=ACF,TYPE.BarbarianMightyRage
 
 # Class Name		Hit Dice	Type				Class Type		Abbreviation	Source Page		Visible	Define			Save checks bonus											Combat bonus		Monster Role
-CLASS:Ex-Barbarian	HD:12		TYPE:Base.PC.NonCaster	CLASSTYPE:PC	ABB:XBrb		SOURCEPAGE:p.26	VISIBLE:NO	DEFINE:IlliteracyLVL|CL	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL	ROLE:Combat
+CLASS:Ex-Barbarian	HD:12		TYPE:Base.PC.NonCaster	CLASSTYPE:PC	ABB:XBrb		SOURCEPAGE:p.26	VISIBLE:NO	DEFINE:IlliteracyLVL|CL	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL	ROLE:Combat	DEFINE:BarbarianLVL|CL
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Ex-Barbarian	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate|Jump|Listen|Ride|Survival|Swim
 ###Block:
 2	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE
-3	BONUS:VAR|TrapSense|CL/3
 7	BONUS:VAR|BarbarianDRLVL|CL
 ###Block: Level progression
 1	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Weapon and Armor Proficiency|!PREABILITY:1,CATEGORY=ACF,TYPE.BarbarianProficiencies
