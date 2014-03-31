@@ -330,18 +330,25 @@ CLASS:Ranger	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 20	CAST:0,3,3,3,3
 
 # Class Name	Hit Dice	Type				Class Type		Abbreviation	Source Page		Define			Save checks bonus												Combat bonus							Monster Role
-CLASS:Rogue		HD:6		TYPE:PC.Base.NonCaster	CLASSTYPE:PC	ABB:Rog		SOURCEPAGE:p.49	DEFINE:RogueLVL|CL	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|PREVAREQ:UseFractionalBAB,0	ROLE:Skill
+CLASS:Rogue		HD:6		TYPE:PC.Base.NonCaster	CLASSTYPE:PC	ABB:Rog		SOURCEPAGE:p.49	DEFINE:RogueLVL|0	BONUS:VAR|RogueLVL|CL	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|PREVAREQ:UseFractionalBAB,0	ROLE:Skill
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Rogue		STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE=Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Intimidate|Jump|Knowledge (Local)|Listen|Move Silently|Open Lock|TYPE=Perform|TYPE=Profession|Search|Sense Motive|Sleight of Hand|Spot|Swim|Tumble|Use Magic Device|Use Rope
+CLASS:Rogue	DEFINE:RogueTrapSense|0
 ###Block:
+1	BONUS:VAR|RogueTrapSense|1
 1	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Weapon and Armor Proficiency|!PREABILITY:1,CATEGORY=ACF,TYPE.RogueProficiencies
 1	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Sneak Attack|!PREABILITY:1,CATEGORY=ACF,TYPE.RogueSneakAttack
 1	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Trapfinding|!PREABILITY:1,CATEGORY=ACF,TYPE.RogueTrapfinding
 2	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Evasion|!PREABILITY:1,CATEGORY=ACF,TYPE.RogueEvasion
 3	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Trap Sense|!PREABILITY:1,CATEGORY=ACF,TYPE.RogueTrapSense
 4	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Uncanny Dodge|!PREABILITY:1,CATEGORY=ACF,TYPE.RogueUncannyDodge
+6	BONUS:VAR|RogueTrapSense|1
 8	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Improved Uncanny Dodge|!PREABILITY:1,CATEGORY=ACF,TYPE.RogueImprovedUncannyDodge
+9	BONUS:VAR|RogueTrapSense|1
 10	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Special Abilities|!PREABILITY:1,CATEGORY=ACF,TYPE.RogueSpecialAbilities
+12	BONUS:VAR|RogueTrapSense|1
+15	BONUS:VAR|RogueTrapSense|1
+16	BONUS:VAR|RogueTrapSense|1
 
 # Class Name	Hit Dice	Type						Class Type		Abbreviation	Source Page		Define							Save checks bonus											Combat bonus							Monster Role
 CLASS:Sorcerer	HD:4		TYPE:PC.Base.Spellcaster.Arcane.SpontaneousArcaneCaster	CLASSTYPE:PC	ABB:Sor		SOURCEPAGE:p.51	DEFINE:SorcererLVL|CL	DEFINE:SorcererLVL|CL	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*1/2|PREVAREQ:UseFractionalBAB,0	ROLE:Sorcerer
