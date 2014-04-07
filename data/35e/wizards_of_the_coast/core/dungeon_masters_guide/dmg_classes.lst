@@ -5,7 +5,7 @@
 #####################
 
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Adept		HD:6		TYPE:Base.NPC	CLASSTYPE:NPC	ABB:Adp		MAXLEVEL:20	SOURCEPAGE:p.107	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*1/2|PREVAREQ:UseFractionalBAB,0
+CLASS:Adept		HD:6		TYPE:Base.NPC	CLASSTYPE:NPC	ABB:Adp		MAXLEVEL:20	SOURCEPAGE:p.107	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*1/2|PREVAREQ:UseFractionalBAB,0	DEFINE:AdeptLVL|CL
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Adept		STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Handle Animal|Heal|TYPE=Knowledge|TYPE=Profession|Spellcraft|Survival
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels					Caster level
@@ -18,11 +18,9 @@ CLASS:Adept		SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 1	SPELLLEVEL:CLASS|Adept=4|Cure Critical Wounds,Minor Creation,Polymorph,Restoration,Stoneskin,Wall of Fire
 1	SPELLLEVEL:CLASS|Adept=5|Baleful Polymorph,Break Enchantment,Commune,Heal,Major Creation,Raise Dead,True Seeing,Wall of Stone
 ###Block: Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Adept
-1	ABILITY:Special Ability|AUTOMATIC|Spells ~ Adept
-2	ABILITY:Special Ability|AUTOMATIC|Summon Familiar ~ Adept
-###Block:
-2	BONUS:VAR|FamiliarLVL|CL
+1	ABILITY:Adept Class Feature|AUTOMATIC|Adept ~ Weapon and Armor Proficiency
+1	ABILITY:Adept Class Feature|AUTOMATIC|Adept ~ Spells
+2	ABILITY:Adept Class Feature|AUTOMATIC|Adept ~ Summon Familiar
 ###Block Normal Level progression
 1	CAST:3,1
 2	CAST:3,1
@@ -50,21 +48,21 @@ CLASS:Aristocrat	HD:8		TYPE:Base.NPC	CLASSTYPE:NPC	ABB:Ari		MAXLEVEL:20	SOURCEPA
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Aristocrat	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Diplomacy|Disguise|Forgery|Gather Information|Handle Animal|Intimidate|TYPE=Knowledge|Listen|TYPE=Perform|Ride|Sense Motive|Speak Language|Spot|Swim|Survival
 ###Block: Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Aristocrat
+1	ABILITY:Aristocrat Class Feature|AUTOMATIC|Aristocrat ~ Weapon and Armor Proficiency
 
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Optionnal Weapon Prof.	Save checks bonus								Combat bonus
 CLASS:Commoner	HD:4		TYPE:Base.NPC	CLASSTYPE:NPC	ABB:Com		MAXLEVEL:20	SOURCEPAGE:p.108	WEAPONBONUS:TYPE=Simple	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*1/2|PREVAREQ:UseFractionalBAB,0
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Commoner	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Jump|Listen|TYPE=Profession|Ride|Spot|Swim|Use Rope
 ###Block: Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Commoner
+1	ABILITY:Commoner Class Feature|AUTOMATIC|Commoner ~ Weapon and Armor Proficiency
 
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus							Modify VAR
 CLASS:Expert	HD:6		TYPE:Base.NPC	CLASSTYPE:NPC	ABB:Exp		MAXLEVEL:20	SOURCEPAGE:p.109	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1
 # Class Name	Skill Pts/Lvl
 CLASS:Expert	STARTSKILLPTS:6
 ###Block: Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Expert
+1	ABILITY:Expert Class Feature|AUTOMATIC|Expert ~ Weapon and Armor Proficiency
 ###Block: Class skills
 #1	BONUS:ABILITYPOOL|Expert Class Skills|10
 1	ADD:CLASSSKILLS|10|ANY
@@ -74,7 +72,7 @@ CLASS:Warrior	HD:8		TYPE:Base.NPC	CLASSTYPE:NPC	ABB:War		MAXLEVEL:20	SOURCEPAGE:
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Warrior	STARTSKILLPTS:2	CSKILL:Climb|Handle Animal|Intimidate|Jump|Ride|Swim
 ###Block: Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Warrior
+1	ABILITY:Warrior Class Feature|AUTOMATIC|Warrior ~ Weapon and Armor Proficiency
 
 
 #####################
@@ -96,13 +94,13 @@ CLASS:Arcane Archer	STARTSKILLPTS:4	CSKILL:TYPE=Craft|Hide|Listen|Move Silently|
 8	BONUS:VAR|HailArrowsTimes|1
 8	BONUS:VAR|HailArrowsTargets|CL
 ###Block:
-1	ABILITY:Arcane Archer Class Feature|AUTOMATIC|Weapon and Armor Proficiency ~ Arcane Archer
-1	ABILITY:Arcane Archer Class Feature|AUTOMATIC|Enhance Arrow ~ Arcane Archer
-2	ABILITY:Arcane Archer Class Feature|AUTOMATIC|Imbue Arrow ~ Arcane Archer
-4	ABILITY:Arcane Archer Class Feature|AUTOMATIC|Seeker Arrow ~ Arcane Archer
-6	ABILITY:Arcane Archer Class Feature|AUTOMATIC|Phase Arrow ~ Arcane Archer
-8	ABILITY:Arcane Archer Class Feature|AUTOMATIC|Hail of Arrows ~ Arcane Archer
-10	ABILITY:Arcane Archer Class Feature|AUTOMATIC|Arrow of Death ~ Arcane Archer
+1	ABILITY:Arcane Archer Class Feature|AUTOMATIC|Arcane Archer ~ Weapon and Armor Proficiency
+1	ABILITY:Arcane Archer Class Feature|AUTOMATIC|Arcane Archer ~ Enhance Arrow
+2	ABILITY:Arcane Archer Class Feature|AUTOMATIC|Arcane Archer ~ Imbue Arrow
+4	ABILITY:Arcane Archer Class Feature|AUTOMATIC|Arcane Archer ~ Seeker Arrow
+6	ABILITY:Arcane Archer Class Feature|AUTOMATIC|Arcane Archer ~ Phase Arrow
+8	ABILITY:Arcane Archer Class Feature|AUTOMATIC|Arcane Archer ~ Hail of Arrows
+10	ABILITY:Arcane Archer Class Feature|AUTOMATIC|Arcane Archer ~ Arrow of Death
 ###Block:
 11	PREPCLEVEL:MIN=20
 
@@ -117,11 +115,11 @@ CLASS:Arcane Trickster	STARTSKILLPTS:4	CSKILL:Appraise|Balance|Bluff|Climb|Conce
 2	BONUS:VAR|SneakAttackDice|CL/2
 3	BONUS:VAR|ImpromptuSneakAttackTimes|(CL+1)/4
 ###Block:
-1	ABILITY:Arcane Trickster Class Feature|AUTOMATIC|Weapon and Armor Proficiency ~ Arcane Trickster
-1	ABILITY:Arcane Trickster Class Feature|AUTOMATIC|Spells per Day ~ Arcane Trickster
-1	ABILITY:Arcane Trickster Class Feature|AUTOMATIC|Ranged Legerdemain ~ Arcane Trickster
-2	ABILITY:Arcane Trickster Class Feature|AUTOMATIC|Sneak Attack ~ Arcane Trickster
-3	ABILITY:Arcane Trickster Class Feature|AUTOMATIC|Impromptu Sneak Attack ~ Arcane Trickster
+1	ABILITY:Arcane Trickster Class Feature|AUTOMATIC|Arcane Trickster ~ Weapon and Armor Proficiency	
+1	ABILITY:Arcane Trickster Class Feature|AUTOMATIC|Arcane Trickster ~ Spells per Day			
+1	ABILITY:Arcane Trickster Class Feature|AUTOMATIC|Arcane Trickster ~ Ranged Legerdemain		
+2	ABILITY:Arcane Trickster Class Feature|AUTOMATIC|Arcane Trickster ~ Sneak Attack				
+3	ABILITY:Arcane Trickster Class Feature|AUTOMATIC|Arcane Trickster ~ Impromptu Sneak Attack
 ###Block:
 1	ADD:SPELLCASTER|ANY
 2	ADD:SPELLCASTER|ANY
@@ -136,7 +134,6 @@ CLASS:Arcane Trickster	STARTSKILLPTS:4	CSKILL:Appraise|Balance|Bluff|Climb|Conce
 ###Block:
 11	PREPCLEVEL:MIN=20
 
-
 # Class Name	Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Archmage	HD:4		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:Arm		MAXLEVEL:5	SOURCEPAGE:p.178	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*1/2|PREVAREQ:UseFractionalBAB,0
 # Class Name	Multiple Requirements											Required Skill						Required Spell School																		Req. Spell Type
@@ -146,9 +143,9 @@ CLASS:Archmage	STARTSKILLPTS:2	CSKILL:Concentration|Craft (Alchemy)|TYPE=Knowled
 ###Block:
 1	BONUS:ABILITYPOOL|High Arcana Ability|CL
 ###Block:
-1	ABILITY:Archmage Class Feature|AUTOMATIC|Weapon and Armor Proficiency ~ Archmage
-1	ABILITY:Archmage Class Feature|AUTOMATIC|Spells per Day/Spells Known ~ Archmage
-1	ABILITY:Archmage Class Feature|AUTOMATIC|High Arcana ~ Archmage
+1	ABILITY:Archmage Class Feature|AUTOMATIC|Archmage ~ Weapon and Armor Proficiency
+1	ABILITY:Archmage Class Feature|AUTOMATIC|Archmage ~ Spells per Day/Spells Known
+1	ABILITY:Archmage Class Feature|AUTOMATIC|Archmage ~ High Arcana
 ###Block:
 1	ADD:SPELLCASTER|Arcane
 2	ADD:SPELLCASTER|Arcane
@@ -172,15 +169,15 @@ CLASS:Assassin	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Assa
 2	BONUS:VAR|UncannyDodgeLevel|1
 5	BONUS:VAR|UncannyDodgeLevel|1
 ###Block:
-1	ABILITY:Assassin Class Feature|AUTOMATIC|Weapon and Armor Proficiency ~ Assassin
-1	ABILITY:Assassin Class Feature|AUTOMATIC|Sneak Attack ~ Assassin
-1	ABILITY:Assassin Class Feature|AUTOMATIC|Death Attack ~ Assassin
-1	ABILITY:Assassin Class Feature|AUTOMATIC|Poison Use ~ Assassin
-1	ABILITY:Assassin Class Feature|AUTOMATIC|Spells ~ Assassin
-2	ABILITY:Assassin Class Feature|AUTOMATIC|Save Bonus against Poison ~ Assassin
-2	ABILITY:Assassin Class Feature|AUTOMATIC|Uncanny Dodge ~ Assassin
-5	ABILITY:Assassin Class Feature|AUTOMATIC|Improved Uncanny Dodge ~ Assassin
-8	ABILITY:Assassin Class Feature|AUTOMATIC|Hide in Plain Sight ~ Assassin
+1	ABILITY:Assassin Class Feature|AUTOMATIC|Assassin ~ Weapon and Armor Proficiency
+1	ABILITY:Assassin Class Feature|AUTOMATIC|Assassin ~ Death Attack
+1	ABILITY:Assassin Class Feature|AUTOMATIC|Assassin ~ Poison Use
+1	ABILITY:Assassin Class Feature|AUTOMATIC|Assassin ~ Sneak Attack
+1	ABILITY:Assassin Class Feature|AUTOMATIC|Assassin ~ Spells
+2	ABILITY:Assassin Class Feature|AUTOMATIC|Assassin ~ Uncanny Dodge
+2	ABILITY:Assassin Class Feature|AUTOMATIC|Assassin ~ Save Bonus against Poison
+5	ABILITY:Assassin Class Feature|AUTOMATIC|Assassin ~ Improved Uncanny Dodge
+8	ABILITY:Assassin Class Feature|AUTOMATIC|Assassin ~ Hide in Plain Sight
 ###Block:
 1	CAST:0,0		KNOWN:0,2
 2	CAST:0,1		KNOWN:0,3
@@ -332,15 +329,15 @@ CLASS:Duelist	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Escape Artist|Jump|Listen|TYP
 5	BONUS:VAR|PreciseStrike|CL/5
 7	BONUS:VAR|ElaborateParryLVL|CL
 ###Block:
-1	ABILITY:Duelist Class Feature|AUTOMATIC|Weapon and Armor Proficiency ~ Duelist
-1	ABILITY:Duelist Class Feature|AUTOMATIC|Canny Defense ~ Duelist
-2	ABILITY:Duelist Class Feature|AUTOMATIC|Improved Reaction ~ Duelist
-3	ABILITY:Duelist Class Feature|AUTOMATIC|Enhanced Mobility ~ Duelist
-4	ABILITY:Duelist Class Feature|AUTOMATIC|Grace ~ Duelist
-5	ABILITY:Duelist Class Feature|AUTOMATIC|Precise Strike ~ Duelist
-6	ABILITY:Duelist Class Feature|AUTOMATIC|Acrobatic Charge ~ Duelist
-7	ABILITY:Duelist Class Feature|AUTOMATIC|Elaborate Parry ~ Duelist
-9	ABILITY:Duelist Class Feature|AUTOMATIC|Deflect Arrows ~ Duelist
+1	ABILITY:Duelist Class Feature|AUTOMATIC|Duelist ~ Weapon and Armor Proficiency
+1	ABILITY:Duelist Class Feature|AUTOMATIC|Duelist ~ Canny Defense
+2	ABILITY:Duelist Class Feature|AUTOMATIC|Duelist ~ Improved Reaction
+3	ABILITY:Duelist Class Feature|AUTOMATIC|Duelist ~ Enhanced Mobility
+4	ABILITY:Duelist Class Feature|AUTOMATIC|Duelist ~ Grace
+5	ABILITY:Duelist Class Feature|AUTOMATIC|Duelist ~ Precise Strike
+6	ABILITY:Duelist Class Feature|AUTOMATIC|Duelist ~ Acrobatic Charge
+7	ABILITY:Duelist Class Feature|AUTOMATIC|Duelist ~ Elaborate Parry
+9	ABILITY:Duelist Class Feature|AUTOMATIC|Duelist ~ Deflect Arrows
 ###Block:
 11	PREPCLEVEL:MIN=20
 
@@ -359,14 +356,14 @@ CLASS:Dwarven Defender	STARTSKILLPTS:2	CSKILL:TYPE=Craft|Listen|Sense Motive|Spo
 4	BONUS:VAR|TrapSense|CL/4
 6	BONUS:VAR|DwarvenDefenderDRLVL|CL
 ###Block:
-1	ABILITY:Dwarven Defender Class Feature|AUTOMATIC|Weapon and Armor Proficiency ~ Dwarven Defender
-1	ABILITY:Dwarven Defender Class Feature|AUTOMATIC|AC Bonus ~ Dwarven Defender
-1	ABILITY:Dwarven Defender Class Feature|AUTOMATIC|Defensive Stance ~ Dwarven Defender
-2	ABILITY:Dwarven Defender Class Feature|AUTOMATIC|Uncanny Dodge ~ Dwarven Defender
-4	ABILITY:Dwarven Defender Class Feature|AUTOMATIC|Trap Sense ~ Dwarven Defender
-6	ABILITY:Dwarven Defender Class Feature|AUTOMATIC|Damage Reduction ~ Dwarven Defender
-6	ABILITY:Dwarven Defender Class Feature|AUTOMATIC|Improved Uncanny Dodge ~ Dwarven Defender
-8	ABILITY:Dwarven Defender Class Feature|AUTOMATIC|Mobile Defense ~ Dwarven Defender
+1	ABILITY:Dwarven Defender Class Feature|AUTOMATIC|Dwarven Defender ~ Weapon and Armor Proficiency
+1	ABILITY:Dwarven Defender Class Feature|AUTOMATIC|Dwarven Defender ~ AC Bonus
+1	ABILITY:Dwarven Defender Class Feature|AUTOMATIC|Dwarven Defender ~ Defensive Stance
+2	ABILITY:Dwarven Defender Class Feature|AUTOMATIC|Dwarven Defender ~ Uncanny Dodge
+4	ABILITY:Dwarven Defender Class Feature|AUTOMATIC|Dwarven Defender ~ Trap Sense
+5	ABILITY:Dwarven Defender Class Feature|AUTOMATIC|Dwarven Defender ~ Damage Reduction
+5	ABILITY:Dwarven Defender Class Feature|AUTOMATIC|Dwarven Defender ~ Improved Uncanny Dodge
+8	ABILITY:Dwarven Defender Class Feature|AUTOMATIC|Dwarven Defender ~ Mobile Defense
 ###Block:
 11	PREPCLEVEL:MIN=20
 
@@ -377,8 +374,9 @@ CLASS:Eldritch Knight	PREABILITY:1,CATEGORY=Special Ability,All Martial Weapon P
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Eldritch Knight	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher Script|Jump|Knowledge (Arcana)|Knowledge (Nobility and Royalty)|Ride|Sense Motive|Spellcraft|Swim
 ###Block:
-1	ABILITY:Eldritch Knight Class Feature|AUTOMATIC|Weapon and Armor Proficiency ~ Eldritch Knight
-1	ABILITY:Eldritch Knight Class Feature|AUTOMATIC|Bonus Feat ~ Eldritch Knight
+1	ABILITY:Eldritch Knight Class Feature|AUTOMATIC|Eldritch Knight ~ Weapon and Armor Proficiency	
+1	ABILITY:Eldritch Knight Class Feature|AUTOMATIC|Eldritch Knight ~ Bonus Feat				
+2	ABILITY:Eldritch Knight Class Feature|AUTOMATIC|Eldritch Knight ~ Spells per Day			
 ###Block:
 1	BONUS:ABILITYPOOL|Fighter Bonus Feat|1
 ###Block:
@@ -432,11 +430,13 @@ CLASS:Loremaster	STARTSKILLPTS:4	CSKILL:Appraise|Concentration|Craft (Alchemy)|D
 ###Block:
 1	BONUS:VAR|LoremasterSecretsLVL|CL+INT
 ###Block:
-1	ABILITY:Loremaster Class Feature|AUTOMATIC|Weapon and Armor Proficiency ~ Loremaster
-1	ABILITY:Loremaster Class Feature|AUTOMATIC|Secret ~ Loremaster
-2	ABILITY:Loremaster Class Feature|AUTOMATIC|Lore ~ Loremaster
-6	ABILITY:Loremaster Class Feature|AUTOMATIC|Greater Lore ~ Loremaster
-10	ABILITY:Loremaster Class Feature|AUTOMATIC|True Lore ~ Loremaster
+1	ABILITY:Loremaster Class Feature|AUTOMATIC|Loremaster ~ Weapon and Armor Proficiency
+1	ABILITY:Loremaster Class Feature|AUTOMATIC|Loremaster ~ Spells per Day/Spells Known
+1	ABILITY:Loremaster Class Feature|AUTOMATIC|Loremaster ~ Secret
+2	ABILITY:Loremaster Class Feature|AUTOMATIC|Loremaster ~ Lore
+4	ABILITY:Loremaster Class Feature|AUTOMATIC|Loremaster ~ Bonus Languages
+6	ABILITY:Loremaster Class Feature|AUTOMATIC|Loremaster ~ Greater Lore
+10	ABILITY:Loremaster Class Feature|AUTOMATIC|Loremaster ~ True Lore
 ###Block:
 4	ADD:LANGUAGE|TYPE=Spoken
 8	ADD:LANGUAGE|TYPE=Spoken
@@ -461,7 +461,8 @@ CLASS:Mystic Theurge	PRESKILL:2,Knowledge (Arcana)=6,Knowledge (Religion)=6	PRES
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Mystic Theurge	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher Script|Knowledge (Arcana)|Knowledge (Religion)|TYPE=Profession|Sense Motive|Spellcraft
 ###Block:
-1	ABILITY:Mystic Theurge Class Feature|AUTOMATIC|Weapon and Armor Proficiency ~ Mystic Theurge
+1	ABILITY:Mystic Theurge Class Feature|AUTOMATIC|Mystic Theurge ~ Weapon and Armor Proficiency	
+1	ABILITY:Mystic Theurge Class Feature|AUTOMATIC|Mystic Theurge ~ Spells per Day				
 ###Block:
 1	ADD:SPELLCASTER|Arcane	ADD:SPELLCASTER|Divine
 2	ADD:SPELLCASTER|Arcane	ADD:SPELLCASTER|Divine
@@ -514,17 +515,21 @@ CLASS:Shadowdancer	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Decipher Script|Diplomac
 ###Block: Normal Level Progression
 2	BONUS:VAR|DarkvisionRange|60|TYPE=Base	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	BONUS:VAR|UncannyDodgeLevel|(CL+1)/3	BONUS:VAR|EvasionUsable,ImprovedEvasionUsable|1|PREVAREQ:var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.MEDIUM]"),0,var("COUNT[EQTYPE.ARMOR.EQUIPPED.IS.HEAVY]"),0
 3	BONUS:VAR|ShadowIllusionLVL,ShadowCompanionLVL|CL
-4	BONUS:VAR|ShadowJump|20
-6	BONUS:VAR|ShadowJump|20
-8	BONUS:VAR|ShadowJump|40
-10	BONUS:VAR|ShadowJump|80
+4	BONUS:VAR|ShadowJumpRange|20
+6	BONUS:VAR|ShadowJumpRange|20
+8	BONUS:VAR|ShadowJumpRange|40
+10	BONUS:VAR|ShadowJumpRange|80
 ###Block:
 1	ABILITY:Shadowdancer Class Feature|AUTOMATIC|Shadowdancer ~ Weapon and Armor Proficiency
 1	ABILITY:Shadowdancer Class Feature|AUTOMATIC|Shadowdancer ~ Hide in Plain Sight
 2	ABILITY:Shadowdancer Class Feature|AUTOMATIC|Shadowdancer ~ Evasion
-3	ABILITY:Shadowdancer Class Feature|AUTOMATIC|Shadowdancer ~ Shadow Illusion|Shadowdancer ~ Summon Shadow
+2	ABILITY:Shadowdancer Class Feature|AUTOMATIC|Shadowdancer ~ Darkvision
+2	ABILITY:Shadowdancer Class Feature|AUTOMATIC|Shadowdancer ~ Uncanny Dodge
+3	ABILITY:Shadowdancer Class Feature|AUTOMATIC|Shadowdancer ~ Shadow Illusion
+3	ABILITY:Shadowdancer Class Feature|AUTOMATIC|Shadowdancer ~ Summon Shadow
 4	ABILITY:Shadowdancer Class Feature|AUTOMATIC|Shadowdancer ~ Shadow Jump
 5	ABILITY:Shadowdancer Class Feature|AUTOMATIC|Shadowdancer ~ Defensive Roll
+5	ABILITY:Shadowdancer Class Feature|AUTOMATIC|Shadowdancer ~ Improved Uncanny Dodge
 7	ABILITY:Shadowdancer Class Feature|AUTOMATIC|Shadowdancer ~ Slippery Mind
 10	ABILITY:Shadowdancer Class Feature|AUTOMATIC|Shadowdancer ~ Improved Evasion
 ###Block:
@@ -536,12 +541,13 @@ CLASS:Thaumaturgist	HD:4		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:Tha		MAXLEVEL:
 CLASS:Thaumaturgist	PREFEAT:1,Spell Focus (Conjuration)	PRESPELL:1,Planar Ally (Lesser)
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Thaumaturgist	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Knowledge (Religion)|Knowledge (The Planes)|TYPE=Profession|Sense Motive|Speak Language|Spellcraft
-1	ABILITY:Thaumaturgist Class Feature|AUTOMATIC|Weapon and Armor Proficiency ~ Thaumaturgist
-1	ABILITY:Thaumaturgist Class Feature|AUTOMATIC|Improved Ally ~ Thaumaturgist
-2	ABILITY:Thaumaturgist Class Feature|AUTOMATIC|Augment Summoning ~ Thaumaturgist
-3	ABILITY:Thaumaturgist Class Feature|AUTOMATIC|Extended Summoning ~ Thaumaturgist
-4	ABILITY:Thaumaturgist Class Feature|AUTOMATIC|Contingent Conjuration ~ Thaumaturgist
-5	ABILITY:Thaumaturgist Class Feature|AUTOMATIC|Planar Cohort ~ Thaumaturgist
+1	ABILITY:Thaumaturgist Class Feature|AUTOMATIC|Thaumaturgist ~ Weapon and Armor Proficiency
+1	ABILITY:Thaumaturgist Class Feature|AUTOMATIC|Thaumaturgist ~ Spells per Day
+1	ABILITY:Thaumaturgist Class Feature|AUTOMATIC|Thaumaturgist ~ Improved Ally
+2	ABILITY:Thaumaturgist Class Feature|AUTOMATIC|Thaumaturgist ~ Augment Summoning
+3	ABILITY:Thaumaturgist Class Feature|AUTOMATIC|Thaumaturgist ~ Extended Summoning
+4	ABILITY:Thaumaturgist Class Feature|AUTOMATIC|Thaumaturgist ~ Contingent Conjuration
+5	ABILITY:Thaumaturgist Class Feature|AUTOMATIC|Thaumaturgist ~ Planar Cohort
 ###Block:
 1	ADD:SPELLCASTER|ANY
 2	ADD:SPELLCASTER|ANY

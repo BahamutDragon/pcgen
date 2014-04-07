@@ -8,10 +8,6 @@ CLASS:Barbarian	!PREALIGN:LG,LN,LE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Barbarian	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate|Jump|Listen|Ride|Survival|Swim
 ###Block:
-1	BONUS:VAR|BarbRageTimesLVL,BarbRagePowerLVL|CL|!PREABILITY:1,CATEGORY=ACF,TYPE.BarbarianRage
-2	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE
-7	BONUS:VAR|BarbarianDRLVL|CL
-###Block: Level Progression
 1	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Weapon and Armor Proficiency|!PREABILITY:1,CATEGORY=ACF,TYPE.BarbarianProficiencies
 1	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Fast Movement|!PREABILITY:1,CATEGORY=ACF,TYPE.BarbarianFastMovement
 1	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Illiteracy|PREVAREQ:TL,IlliteracyLVL
@@ -30,9 +26,6 @@ CLASS:Ex-Barbarian	HD:12		TYPE:Base.PC.NonCaster	CLASSTYPE:PC	ABB:XBrb		SOURCEPA
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Ex-Barbarian	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate|Jump|Listen|Ride|Survival|Swim
 ###Block:
-2	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE
-7	BONUS:VAR|BarbarianDRLVL|CL
-###Block: Level progression
 1	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Weapon and Armor Proficiency|!PREABILITY:1,CATEGORY=ACF,TYPE.BarbarianProficiencies
 1	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Illiteracy|PREVAREQ:TL,IlliteracyLVL
 1	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Fast Movement|!PREABILITY:1,CATEGORY=ACF,TYPE.BarbarianFastMovement
@@ -77,16 +70,11 @@ CLASS:Bard		SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Bard|CL
 # Ex Bard	SOURCEPAGE:p.30	Doesn't do anything except prevent leveling in the class.
 
 # Class Name	Hit Dice	Type						Class Type		Abbreviation	Source Page		Bonus Languages					Group of Prohibited Spells																																													Save checks bonus											Combat bonus							Add domain number		Template				Monster Role
-CLASS:Cleric	HD:8		TYPE:Base.PC.Spellcaster.Divine	CLASSTYPE:PC	ABB:Clr		SOURCEPAGE:p.30	LANGBONUS:Abyssal,Celestial,Infernal	PROHIBITSPELL:ALIGNMENT.Chaotic|PREALIGN:LG,LN,LE|PREDEITYALIGN:LG,LN,LE	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG|PREDEITYALIGN:LG,NG,CG	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE|PREDEITYALIGN:LE,NE,CE	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE|PREDEITYALIGN:CG,CN,CE	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:DOMAIN|NUMBER|2	TEMPLATE:RighteousMightDR	ROLE:Cleric
+CLASS:Cleric	HD:8		TYPE:Base.PC.Spellcaster.Divine	CLASSTYPE:PC	ABB:Clr		SOURCEPAGE:p.30	LANGBONUS:Abyssal,Celestial,Infernal	PROHIBITSPELL:ALIGNMENT.Chaotic|PREALIGN:LG,LN,LE|PREDEITYALIGN:LG,LN,LE	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG|PREDEITYALIGN:LG,NG,CG	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE|PREDEITYALIGN:LE,NE,CE	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE|PREDEITYALIGN:CG,CN,CE	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:DOMAIN|NUMBER|2	TEMPLATE:RighteousMightDR	ROLE:Cleric	DEFINE:ClericLVL|CL
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Cleric	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (History)|Knowledge (Religion)|Knowledge (The Planes)|TYPE=Profession|Spellcraft
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels											Caster level
 CLASS:Cleric	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Cleric|CL
-###Block:
-1	BONUS:VAR|AlignmentAuraBase|CL
-1	BONUS:VAR|TurnLevelBase,TurnDamagePlusBase|CL|TYPE=Level.REPLACE
-1	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base
-1	BONUS:VAR|TurnCheckBase|CHA|TYPE=Base
 ###Block:
 1	ABILITY:Cleric Class Feature|AUTOMATIC|Cleric ~ Weapon and Armor Proficiency|!PREABILITY:1,CATEGORY=ACF,TYPE.ClericProficiences
 1	ABILITY:Cleric Class Feature|AUTOMATIC|Cleric ~ Aura
@@ -116,19 +104,14 @@ CLASS:Cleric	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|
 20	CAST:6,5,5,5,5,5,4,4,4,4
 
 # Class Name	Hit Dice	Type						Class Type		Abbreviation	Ex Class		Source Page		Bonus Languages	Group of Prohibited Spells																																													Automatically Gained Language	Save checks bonus											Combat bonus							Monster Role
-CLASS:Druid		HD:8		TYPE:Base.PC.Spellcaster.Divine	CLASSTYPE:PC	ABB:Drd		EXCLASS:Ex Druid	SOURCEPAGE:p.33	LANGBONUS:Sylvan	PROHIBITSPELL:ALIGNMENT.Chaotic|PREALIGN:LG,LN,LE|PREDEITYALIGN:LG,LN,LE	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG|PREDEITYALIGN:LG,NG,CG	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE|PREDEITYALIGN:LE,NE,CE	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE|PREDEITYALIGN:CG,CN,CE	AUTO:LANG|Druidic			BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|PREVAREQ:UseFractionalBAB,0	ROLE:Druid
+CLASS:Druid		HD:8		TYPE:Base.PC.Spellcaster.Divine	CLASSTYPE:PC	ABB:Drd		EXCLASS:Ex Druid	SOURCEPAGE:p.33	LANGBONUS:Sylvan	AUTO:LANG|Druidic			BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|PREVAREQ:UseFractionalBAB,0	ROLE:Druid	DEFINE:DruidLVL|CL
 # Class Name	Restricted AL
 CLASS:Druid		!PREALIGN:LG,LE,CG,CE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Druid		STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nature)|Listen|TYPE=Profession|Ride|Spellcraft|Spot|Survival|Swim
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels											Caster level
 CLASS:Druid		SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Druid|CL
-###Block:
-1	TEMPLATE:Timeless Body
-###Block:
-1	BONUS:VAR|DruidWildShapeLVL|CL
-1	BONUS:VAR|WildEmpathyBonus|CL
-1	BONUS:VAR|AnimalCompanionLVL|CL
+CLASS:Druid		TEMPLATE:Timeless Body	PROHIBITSPELL:ALIGNMENT.Chaotic|PREALIGN:LG,LN,LE|PREDEITYALIGN:LG,LN,LE	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG|PREDEITYALIGN:LG,NG,CG	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE|PREDEITYALIGN:LE,NE,CE	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE|PREDEITYALIGN:CG,CN,CE
 ###Block:
 1	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ Weapon and Armor Proficiency|!PREABILITY:1,CATEGORY=ACF,TYPE.DruidProficiencies
 1	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ Spells
@@ -191,9 +174,7 @@ CLASS:Monk		HD:8		TYPE:Base.PC.NonCaster	CLASSTYPE:PC	ABB:Mnk		SOURCEPAGE:p.39	D
 # Class Name	Required AL
 CLASS:Monk		PREALIGN:LG,LN,LE
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Monk		STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Diplomacy|Escape Artist|Hide|Jump|Knowledge (Arcana)|Knowledge (Religion)|Listen|Move Silently|TYPE=Perform|TYPE=Profession|Sense Motive|Spot|Swim|Tumble
-###Block:
-1	KIT:1|Monk Flurry of Blows
+CLASS:Monk		STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Diplomacy|Escape Artist|Hide|Jump|Knowledge (Arcana)|Knowledge (Religion)|Listen|Move Silently|TYPE=Perform|TYPE=Profession|Sense Motive|Spot|Swim|Tumble		KIT:1|Monk Flurry of Blows
 ###Block:
 1	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Weapon and Armor Proficiency|!PREABILITY:1,CATEGORY=ACF,TYPE.MonkProficiencies
 1	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ AC Bonus|!PREABILITY:1,CATEGORY=ACF,TYPE.MonkACBonus
@@ -374,11 +355,12 @@ CLASS:Sorcerer	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Sorc
 20	CAST:6,6,6,6,6,6,6,6,6,6	KNOWN:9,5,5,4,4,4,3,3,3,3
 
 # Class Name	Hit Dice	Type						Class Type		Abbreviation	Source Page		Bonus Languages		Define			Save checks bonus											Combat bonus							Monster Role
-CLASS:Wizard	HD:4		TYPE:PC.Base.Spellcaster.Arcane.NonSpontaneousArcaneCaster	CLASSTYPE:PC	ABB:Wiz		SOURCEPAGE:p.55	LANGBONUS:Draconic	DEFINE:WizardLVL|CL	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*1/2|PREVAREQ:UseFractionalBAB,0	ROLE:Wizard
+CLASS:Wizard	HD:4		TYPE:PC.Base.Spellcaster.Arcane.NonSpontaneousArcaneCaster	CLASSTYPE:PC	ABB:Wiz		SOURCEPAGE:p.55	LANGBONUS:Draconic	DEFINE:WizardLVL|CL	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*1/2|PREVAREQ:UseFractionalBAB,0	ROLE:Wizard	DEFINE:WizardLVL|CL
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Wizard	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher Script|TYPE=Knowledge|TYPE=Profession|Spellcraft
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels	Spellbook		Caster level
 CLASS:Wizard	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			SPELLBOOK:YES	BONUS:CASTERLEVEL|Wizard|CL
+CLASS:Wizard	PROHIBITSPELL:SCHOOL.Abjuration|PREVARGTEQ:ProhibitAbjuration,1	PROHIBITSPELL:SCHOOL.Conjuration|PREVARGTEQ:ProhibitConjuration,1	PROHIBITSPELL:SCHOOL.Divination|PREVARGTEQ:ProhibitDivination,1	PROHIBITSPELL:SCHOOL.Enchantment|PREVARGTEQ:ProhibitEnchantment,1	PROHIBITSPELL:SCHOOL.Evocation|PREVARGTEQ:ProhibitEvocation,1	PROHIBITSPELL:SCHOOL.Illusion|PREVARGTEQ:ProhibitIllusion,1	PROHIBITSPELL:SCHOOL.Necromancy|PREVARGTEQ:ProhibitNecromancy,1	PROHIBITSPELL:SCHOOL.Transmutation|PREVARGTEQ:ProhibitTransmutation,1
 #
 SUBCLASS:Abjurer		COST:2	PROHIBITCOST:1	CHOICE:SCHOOL|Abjuration	KNOWNSPELLSFROMSPECIALTY:1	DEFINE:WizardSpecialist|1
 SUBCLASSLEVEL:1	ABILITY:Wizard Class Feature|AUTOMATIC|Abjurer Learning Bonus
@@ -397,24 +379,11 @@ SUBCLASSLEVEL:1	ABILITY:Wizard Class Feature|AUTOMATIC|Necromancer Learning Bonu
 SUBCLASS:Transmuter	COST:2	PROHIBITCOST:1	CHOICE:SCHOOL|Transmutation	KNOWNSPELLSFROMSPECIALTY:1	DEFINE:WizardSpecialist|1
 SUBCLASSLEVEL:1	ABILITY:Wizard Class Feature|AUTOMATIC|Transmuter Learning Bonus
 ###Block:
-1	BONUS:VAR|FamiliarLVL|CL|!PREABILITY:1,CATEGORY=ACF,TYPE.WizardFamiliar
-###Block:
-5	BONUS:ABILITYPOOL|Wizard Feat|min((CL/5),4)
-###Block:
 1	ABILITY:Wizard Class Feature|AUTOMATIC|Wizard ~ Weapon and Armor Proficiency|!PREABILITY:1,CATEGORY=ACF,TYPE.WizardProficiencies
 1	ABILITY:Wizard Class Feature|AUTOMATIC|Wizard ~ Familiar|!PREABILITY:1,CATEGORY=ACF,TYPE.WizardSummonFamiliar
 1	ABILITY:Wizard Class Feature|AUTOMATIC|Wizard ~ Scribe Scroll|!PREABILITY:1,CATEGORY=ACF,TYPE.WizardScribeScroll
 5	ABILITY:Wizard Class Feature|AUTOMATIC|Wizard ~ Bonus Feats|!PREABILITY:1,CATEGORY=ACF,TYPE.WizardBonusFeats
 1	ABILITY:Wizard Class Feature|AUTOMATIC|Wizard ~ Spellbooks|PREMULT:1,[PREMULT:2,[PREPCLEVEL:MAX=0],[PRECLASS:1,Wizard=1]],[PREMULT:2,[!PRECLASS:1,TYPE.Base=0],[PRECLASS:1,Wizard=1]]
-###Block:
-1	PROHIBITSPELL:SCHOOL.Abjuration|PREVARGTEQ:ProhibitAbjuration,1
-1	PROHIBITSPELL:SCHOOL.Conjuration|PREVARGTEQ:ProhibitConjuration,1
-1	PROHIBITSPELL:SCHOOL.Divination|PREVARGTEQ:ProhibitDivination,1
-1	PROHIBITSPELL:SCHOOL.Enchantment|PREVARGTEQ:ProhibitEnchantment,1
-1	PROHIBITSPELL:SCHOOL.Evocation|PREVARGTEQ:ProhibitEvocation,1
-1	PROHIBITSPELL:SCHOOL.Illusion|PREVARGTEQ:ProhibitIllusion,1
-1	PROHIBITSPELL:SCHOOL.Necromancy|PREVARGTEQ:ProhibitNecromancy,1
-1	PROHIBITSPELL:SCHOOL.Transmutation|PREVARGTEQ:ProhibitTransmutation,1
 ###Block:
 1	CAST:3,1
 2	CAST:4,2
