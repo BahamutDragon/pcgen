@@ -1,12 +1,14 @@
 # CVS $Revision: $ $Author: $ -- Sun Dec  8 22:17:49 2013 -- reformated by prettylst.pl v1.50 (build 22352)
 
+#Errata Applied from CompleteAdventurer_Errata08022005.pdf
+# Disable Device added to Scout Class Skills
+
 # Class Name	Hit Dice	Max Level	Source Page		Define			Save checks bonus												Combat bonus							Modify VAR
 CLASS:Ninja		HD:6		MAXLEVEL:20	SOURCEPAGE:p.5	DEFINE:NinjaLVL|CL	BONUS:CHECKS|BASE.Reflex|(CL/2)+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Ninja		STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Concentration|TYPE=Craft|Disable Device|Disguise|Escape Artist|Gather Information|Hide|Jump|Listen|Move Silently|Open Lock|Search|Sense Motive|Sleight of Hand|Spot|Swim|Tumble
 ###Block:
 1	ABILITY:Ninja Class Feature|AUTOMATIC|Ninja ~ Weapon and Armor Proficiency
-###Block:
 1	ABILITY:Ninja Class Feature|AUTOMATIC|Ninja ~ Ki Power|Ninja ~ Sudden Strike|Ninja ~ Trapfinding
 2	ABILITY:Ninja Class Feature|AUTOMATIC|Ninja ~ Ghost Step
 3	ABILITY:Ninja Class Feature|AUTOMATIC|Ninja ~ Poison Use
@@ -20,20 +22,13 @@ CLASS:Ninja		STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Concentration|TYPE=Craft
 16	ABILITY:Ninja Class Feature|AUTOMATIC|Ninja ~ Ghost Sight
 18	ABILITY:Ninja Class Feature|AUTOMATIC|Ninja ~ Greater Ki Dodge
 20	ABILITY:Ninja Class Feature|AUTOMATIC|Ninja ~ Ghost Walk
-###Block:
-5	BONUS:VAR|NinjaACBonus|CL/5			DEFINE:NinjaACBonus|0
-1	BONUS:VAR|SuddenStrikeDice|(CL+1)/2		DEFINE:SuddenStrikeDice|0
-2	BONUS:VAR|GhostStepTier|1			DEFINE:GhostStepTier|0
-10	BONUS:VAR|GhostStepTier|1
-6	BONUS:VAR|NinjaAcrobaticsBonus|(CL/6)*2	DEFINE:NinjaAcrobaticsBonus|0
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Define			Save checks bonus												Combat bonus							Modify VAR
-CLASS:Scout		HD:8		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.10	DEFINE:ScoutLVL|CL	BONUS:CHECKS|BASE.Reflex|(CL/2)+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1
+CLASS:Scout		HD:8		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.10	DEFINE:ScoutLVL|CL	BONUS:CHECKS|BASE.Reflex|(CL/2)+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1	DEFINE:ScoutLVL|CL
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Scout		STARTSKILLPTS:8	CSKILL:Balance|Climb|TYPE=Craft|Escape Artist|Hide|Jump|Knowledge (Dungeoneering)|Knowledge (Geography)|Knowledge (Nature)|Listen|Move Silently|Ride|Search|Sense Motive|Speak Language|Spot|Survival|Swim|Tumble|Use Rope
+CLASS:Scout		STARTSKILLPTS:8	CSKILL:Balance|Climb|TYPE=Craft|Escape Artist|Hide|Jump|Knowledge (Dungeoneering)|Knowledge (Geography)|Knowledge (Nature)|Listen|Move Silently|Ride|Search|Sense Motive|Speak Language|Spot|Survival|Swim|Tumble|Use Rope|Disable Device
 ###Block:
 1	ABILITY:Scout Class Feature|AUTOMATIC|Scout ~ Weapon and Armor Proficiency
-###Block:
 1	ABILITY:Scout Class Feature|AUTOMATIC|Scout ~ Skirmish|Scout ~ Trapfinding
 2	ABILITY:Scout Class Feature|AUTOMATIC|Scout ~ Battle Fortitude|Scout ~ Uncanny Dodge
 3	ABILITY:Scout Class Feature|AUTOMATIC|Scout ~ Fast Movement|Scout ~ Trackless Step
@@ -45,30 +40,19 @@ CLASS:Scout		STARTSKILLPTS:8	CSKILL:Balance|Climb|TYPE=Craft|Escape Artist|Hide|
 14	ABILITY:Scout Class Feature|AUTOMATIC|Scout ~ Hide in Plain Sight
 18	ABILITY:Scout Class Feature|AUTOMATIC|Scout ~ Free Movement
 20	ABILITY:Scout Class Feature|AUTOMATIC|Scout ~ Blindsight
-###Block:
-1	BONUS:VAR|SkirmishDice|(CL+3)/4		DEFINE:SkirmishDice|0
-3	BONUS:VAR|SkirmishACBonus|(CL+1)/4		DEFINE:SkirmishACBonus|0
-3	BONUS:VAR|FastMovementBonus|10		DEFINE:FastMovementBonus|0
-11	BONUS:VAR|FastMovementBonus|10
-18	BONUS:VAR|FastMovementBonus|10
-4	BONUS:VAR|ScoutFeatCount|CL/4			DEFINE:ScoutFeatCount|0
-2	BONUS:VAR|BattleFortitudeBonus|(CL+7)/9	DEFINE:BattleFortitudeBonus|0
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Define			Save checks bonus												Combat bonus							Modify VAR
-CLASS:Spellthief	HD:6		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.13	DEFINE:ScoutLVL|CL	BONUS:CHECKS|BASE.Will|(CL/2)+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1
+CLASS:Spellthief	HD:6		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.13	DEFINE:SpellthiefLVL|CL	BONUS:CHECKS|BASE.Will|(CL/2)+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Spellthief	STARTSKILLPTS:6	CSKILL:Appraise|Bluff|Concentration|TYPE=Craft|Decipher Script|Disable Device|Escape Artist|Gather Information|Hide|Jump|Knowledge (arcana)|Knowledge (local)|Listen|Move Silently|Open Lock|Search|Speak Language|Spellcraft|Spot|Swim|Tumble|Use Magic Device
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level								Use Spell List
 CLASS:Spellthief	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Spellthief|CL/2|PRECLASS:1,Spellthief=4	SPELLLIST:1|Wizard
+CLASS:Spellthief	PROHIBITSPELL:SCHOOL.Conjuration	PROHIBITSPELL:SCHOOL.Evocation	PROHIBITSPELL:SCHOOL.Necromancy
 ###Block: Can only learn from the following Schools - abjuration, divination, enchantment, illusion, and transmutation.
 # List of Schools: Abjuration, Conjuration, Divination, Enchantment, Evocation, Illusion, Necromancy, Transmutation
-1	PROHIBITSPELL:SCHOOL.Conjuration
-1	PROHIBITSPELL:SCHOOL.Evocation
-1	PROHIBITSPELL:SCHOOL.Necromancy
 ###Block:
 1	ABILITY:Spellthief Class Feature|AUTOMATIC|Spellthief ~ Weapon and Armor Proficiency
 4	ABILITY:Spellthief Class Feature|AUTOMATIC|Spellthief ~ Spells
-###Block:
 1	ABILITY:Spellthief Class Feature|AUTOMATIC|Spellthief ~ Sneak Attack|Spellthief ~ Steal Spell|Spellthief ~ Trapfinding
 2	ABILITY:Spellthief Class Feature|AUTOMATIC|Spellthief ~ Detect Magic|Spellthief ~ Spellgrace|Spellthief ~ Steal Spell Effect
 3	ABILITY:Spellthief Class Feature|AUTOMATIC|Spellthief ~ Steal Energy Resistance
@@ -113,17 +97,6 @@ CLASS:Spellthief	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Sp
 18	KNOWN:0,5,5,4,4
 19	KNOWN:0,5,5,5,4
 20	KNOWN:0,5,5,5,5
-###Block:
-2	BONUS:VAR|StealSpellLevel|min(CL/2,9)			DEFINE:StealSpellLevel|0
-1	BONUS:VAR|SneakAttackDice|1					DEFINE:SneakAttackDice|0
-5	BONUS:VAR|SneakAttackDice|1
-9	BONUS:VAR|SneakAttackDice|1
-14	BONUS:VAR|SneakAttackDice|1
-17	BONUS:VAR|SneakAttackDice|1
-3	BONUS:VAR|StealEnergyResistanceBonus|((CL+5)/8)*10	DEFINE:StealEnergyResistanceBonus|0
-2	BONUS:VAR|SpellgraceBonus|(CL+7)/9				DEFINE:SpellgraceBonus|0
-
-20	BONUS:VAR|AbsorbSpellTier|1					DEFINE:AbsorbSpellTier|0
 
 ###Block: Prestige Classes
 
@@ -155,9 +128,10 @@ CLASS:Animal Lord	STARTSKILLPTS:4	CSKILL:Climb|Escape Artist|Handle Animal|Heal|
 8	ABILITY:Animal Lord Class Feature|AUTOMATIC|Animal Lord ~ Animal Telepathy
 10	ABILITY:Animal Lord Class Feature|AUTOMATIC|Animal Lord ~ Third Totem
 ###Block
-3	BONUS:VAR|WildAspectTimes|CL/3
+3	BONUS:VAR|WildAspectTimes|AnimalLordLVL/3
 ###Block
-11	PREPCLEVEL:MIN=11
+11	PREPCLEVEL:MIN=20
+
 
 # Class Name
 CLASS:Beastmaster	SOURCEPAGE:p.26	HD:10	TYPE:PC.Prestige	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|/3
@@ -174,7 +148,8 @@ CLASS:Beastmaster	STARTSKILLPTS:4	CSKILL:Climb|Handle Animal|Heal|Hide|Jump|Know
 5	ABILITY:Beastmaster Class Feature|AUTOMATIC|Beastmaster ~ Low-Light Vision
 8	ABILITY:Beastmaster Class Feature|AUTOMATIC|Beastmaster ~ Scent
 ###Block
-11	PREPCLEVEL:MIN=11
+11	PREPCLEVEL:MIN=20
+
 
 # Class Name
 CLASS:Bloodhound	SOURCEPAGE:p.28	HD:10	TYPE:PC.Prestige	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|/3
@@ -199,7 +174,8 @@ CLASS:Bloodhound	STARTSKILLPTS:6	CSKILL:Bluff|Climb|Diplomacy|Disguise|Gather In
 9	ABILITY:Bloodhound Class Feature|AUTOMATIC|Bloodhound ~ Scent
 10	ABILITY:Bloodhound Class Feature|AUTOMATIC|Bloodhound ~ Find the Path
 ###Block
-11	PREPCLEVEL:MIN=11
+11	PREPCLEVEL:MIN=20
+
 
 # Class Name
 CLASS:Daggerspell Mage	SOURCEPAGE:p.31	HD:6	TYPE:PC.Prestige	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3
@@ -227,7 +203,8 @@ CLASS:Daggerspell Mage	STARTSKILLPTS:6	CSKILL:Balance|Climb|Concentration|TYPE=C
 9	ADD:SPELLCASTER|Arcane
 10	ADD:SPELLCASTER|Arcane
 ###Block
-11	PREPCLEVEL:MIN=11
+11	PREPCLEVEL:MIN=20
+
 
 # Class Name
 CLASS:Daggerspell Shaper	SOURCEPAGE:p.36	HD:6	TYPE:PC.Prestige	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3
@@ -254,11 +231,13 @@ CLASS:Daggerspell Shaper	STARTSKILLPTS:6	CSKILL:Balance|Climb|Concentration|TYPE
 9	ADD:SPELLCASTER|Divine
 10	ADD:SPELLCASTER|Divine
 ###Block
-11	PREPCLEVEL:MIN=11
+11	PREPCLEVEL:MIN=20
 
 
 # Class Name
-CLASS:Dread Pirate	SOURCEPAGE:p.39	
+CLASS:Dread Pirate	SOURCEPAGE:p.39	HD:8		TYPE:PC.Prestige	BONUS:COMBAT|BAB|CL	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	DEFINE:DreadPirateLVL|CL
+CLASS:Dread Pirate	PREMULT:1,[PREATT:4],[PREVARGTEQ:BaseAttackBonus,4]	PRESKILL:4,Appraise=8,Profession (Sailor)=8,Swim=4,Use Rope=4	PREFEAT:2,Quick Draw,Weapon Finesse	PRETEXT:Alignment: Any nonlawful. Base Attack Bonus: +4. Skills: Appraise 8 ranks, Profession (sailor) 8 ranks, Swim 4 ranks, Use Rope 4 ranks. Feats: Quick Draw, Weapon Finesse. Special: The character must own a ship worth at least 10,000 gp. The method of acquisition-purchase, force of arms, or skullduggery-makes no difference, as long as he can freely operate it on the high seas.
+CLASS:Dread Pirate	STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Climb|TYPE=Craft|Gather Information|Intimidate|Jump|Listen|TYPE=Perform|TYPE=Profession|Search|Sense Motive|Sleight of Hand|Spot|Swim|Tumble|Use Rope
 1	ABILITY:Dread Pirate Class Feature|AUTOMATIC|Dread Pirate ~ Weapon and Armor Proficiency	
 1	ABILITY:Dread Pirate Class Feature|AUTOMATIC|Dread Pirate ~ Seamanship				
 1	ABILITY:Dread Pirate Class Feature|AUTOMATIC|Dread Pirate ~ Two-Weapon Fighting		
@@ -274,59 +253,241 @@ CLASS:Dread Pirate	SOURCEPAGE:p.39
 9	ABILITY:Dread Pirate Class Feature|AUTOMATIC|Dread Pirate ~ Motivate the Scum		
 10	ABILITY:Dread Pirate Class Feature|AUTOMATIC|Dread Pirate ~ Pirate King			
 ###Block
-11	PREPCLEVEL:MIN=11
+11	PREPCLEVEL:MIN=20
 
 
+# Class Name
+CLASS:Dungeon Delver	SOURCEPAGE:p.42	HD:6		TYPE:PC.Prestige	BONUS:COMBAT|BAB|CL*3/4	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3
+CLASS:Dungeon Delver	PREFEAT:1,Alertness,Blind-Fight	PRESKILL:8,Climb=10,Craft (Stonemasonry)=5,Disable Device=10,Hide=5,Knowledge (Dungeoneering)=5,Move Silently=5,Open Lock=10,Search=10	PREABILITY:1,CATEGORY=Special Ability,TYPE.Trapfinding	PRETEXT:Skills: Climb 10 ranks, Craft (stonemasonry) 5 ranks, Disable Device 10 ranks, Hide 5 ranks, Knowledge (dungeoneering) 5 ranks, Move Silently 5 ranks, Open Lock 10 ranks, Search 10 ranks. Feats: Alertness, Blind-Fight. Special: Trapfinding class feature. Special: The character must survive a great trial underground. This trial usually takes one of three forms: A solo dungeon expedition that earns the character half of the experience points needed for advancement to the next level. (For example, a 7th-level character must earn 3,500 XP on such a solo run.) The character must complete the venture in one week, though he may leave the dungeon and return as often as desired during that time. Survival of a cave-in or other collapse (see page 66 of the Dungeon Master's Guide). Living for a year without seeing the light of the sun, usually among underground denizens such as the deep dwarves or drow.
+CLASS:Dungeon Delver	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Climb|TYPE=Craft|Disable Device|Hide|Jump|Knowledge (Dungeoneering)|Listen|Move Silently|Open Lock|Search|Spot|Survival|Swim|Tumble|Use Magic Device|Use Rope
+###Block
+1	ABILITY:Dungeon Delver Class Feature|AUTOMATIC|Dungeon Delver ~ Weapon and Armor Proficiency	
+1	ABILITY:Dungeon Delver Class Feature|AUTOMATIC|Dungeon Delver ~ Darkvision				
+1	ABILITY:Dungeon Delver Class Feature|AUTOMATIC|Dungeon Delver ~ Deep Survival				
+1	ABILITY:Dungeon Delver Class Feature|AUTOMATIC|Dungeon Delver ~ Trap Sense				
+2	ABILITY:Dungeon Delver Class Feature|AUTOMATIC|Dungeon Delver ~ Reduce					
+2	ABILITY:Dungeon Delver Class Feature|AUTOMATIC|Dungeon Delver ~ Stonecunning				
+3	ABILITY:Dungeon Delver Class Feature|AUTOMATIC|Dungeon Delver ~ Augury					
+3	ABILITY:Dungeon Delver Class Feature|AUTOMATIC|Dungeon Delver ~ Skill Mastery				
+4	ABILITY:Dungeon Delver Class Feature|AUTOMATIC|Dungeon Delver ~ Evasion					
+5	ABILITY:Dungeon Delver Class Feature|AUTOMATIC|Dungeon Delver ~ Blindsense				
+6	ABILITY:Dungeon Delver Class Feature|AUTOMATIC|Dungeon Delver ~ Passwall					
+8	ABILITY:Dungeon Delver Class Feature|AUTOMATIC|Dungeon Delver ~ Find the Path				
+9	ABILITY:Dungeon Delver Class Feature|AUTOMATIC|Dungeon Delver ~ Phase Door				
+###Block
+11	PREPCLEVEL:MIN=20
+
 
 # Class Name
-CLASS:Dungeon Delver
-#	ABILITY:Bloodhound Class Feature|AUTOMATIC|
-# Class Name
-CLASS:Exemplar
-#	ABILITY:Bloodhound Class Feature|AUTOMATIC|
-# Class Name
-CLASS:Fochlucan Lyrist
-#	ABILITY:Bloodhound Class Feature|AUTOMATIC|
-# Class Name
-CLASS:Ghost-Faced Killer
-#	ABILITY:Bloodhound Class Feature|AUTOMATIC|
-# Class Name
-CLASS:Highlander Stalker
-#	ABILITY:Bloodhound Class Feature|AUTOMATIC|
-# Class Name
-CLASS:Maester
-#	ABILITY:Bloodhound Class Feature|AUTOMATIC|
+CLASS:Exemplar	SOURCEPAGE:p.44	TYPE:PC.Prestige	HD:6	BONUS:COMBAT|BAB|CL*3/4	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2
+CLASS:Exemplar	PREFEAT:1,Skill Focus	PRESKILL:2,Diplomacy=6,TYPE.Base=13	PRETEXT:Skills: Diplomacy 6 ranks, any other skill 13 ranks. Feat: Skill Focus (any).
+CLASS:Exemplar	STARTSKILLPTS:8	CSKILL:TYPE=Base
+###Block
+1	ABILITY:Exemplar Class Feature|AUTOMATIC|Exemplar ~ Weapon and Armor Proficiency	
+1	ABILITY:Exemplar Class Feature|AUTOMATIC|Exemplar ~ Skill Artistry			
+1	ABILITY:Exemplar Class Feature|AUTOMATIC|Exemplar ~ Skill Mastery				
+2	ABILITY:Exemplar Class Feature|AUTOMATIC|Exemplar ~ Lend Talent				
+3	ABILITY:Exemplar Class Feature|AUTOMATIC|Exemplar ~ Bonus Feat				
+4	ABILITY:Exemplar Class Feature|AUTOMATIC|Exemplar ~ Sustaining Presence			
+5	ABILITY:Exemplar Class Feature|AUTOMATIC|Exemplar ~ Persuasive Performance		
+8	ABILITY:Exemplar Class Feature|AUTOMATIC|Exemplar ~ Intellectual Agility		
+10	ABILITY:Exemplar Class Feature|AUTOMATIC|Exemplar ~ Perfect Self				
+###Block
+11	PREPCLEVEL:MIN=20
+
 
 # Class Name
-CLASS:Master of Many Forms
-#	ABILITY:Bloodhound Class Feature|AUTOMATIC|
+CLASS:Fochlucan Lyrist	SOURCEPAGE:p.47	TYPE:PC.Prestige	HD:6	BONUS:COMBAT|BAB|CL	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3
+CLASS:Fochlucan Lyrist	PRESKILL:6,Decipher Script=7,Diplomacy=7,Gather Information=7,Knowledge (Nature)=7,Perform (String Instruments)=13,Sleight of Hand=7	PRELANG:1,Druidic	PREALIGN:NG,TN,CN,NE	PRESPELLTYPE:2,Arcane=1,Divine=1	PREABILITY:2,CATEGORY=Special Ability,TYPE.Bardic Knowledge,TYPE.Evasion	PRETEXT:Skills: Decipher Script 7 ranks, Diplomacy 7 ranks, Gather Information 7 ranks, Knowledge (nature) 7 ranks, Perform (string instruments) 13 ranks, Sleight of Hand 7 ranks, Speak Language (Druidic). Alignment: Neutral good, neutral, chaotic neutral, or neutral evil. Spells: Ability to cast 1st-level arcane and divine spells. Special: Bardic knowledge and evasion abilities.
+CLASS:Fochlucan Lyrist	STARTSKILLPTS:6	CSKILL:Appraise|Bluff|Concentration|TYPE=Craft|Decipher Script|Diplomacy|Disguise|Gather Information|Handle Animal|Heal|Hide|TYPE=Knowledge|Listen|Move Silently|TYPE=Perform|TYPE=Profession|Ride|Sense Motive|Sleight of Hand|Speak Language|Spellcraft|Survival|Swim|Use Magic Device
+###Block
+1	ABILITY:Fochlucan Lyrist Class Feature|AUTOMATIC|Fochlucan Lyrist ~ Weapon and Armor Proficiency	
+1	ABILITY:Fochlucan Lyrist Class Feature|AUTOMATIC|Fochlucan Lyrist ~ Spells per Day/Spells Known	
+1	ABILITY:Fochlucan Lyrist Class Feature|AUTOMATIC|Fochlucan Lyrist ~ Bardic Knowledge			
+1	ABILITY:Fochlucan Lyrist Class Feature|AUTOMATIC|Fochlucan Lyrist ~ Bardic Music				
+1	ABILITY:Fochlucan Lyrist Class Feature|AUTOMATIC|Fochlucan Lyrist ~ Unbound				
+###Block:
+1:REPEATLEVEL:1	ADD:SPELLCASTER|Arcane	ADD:SPELLCASTER|Divine
+###Block
+11	PREPCLEVEL:MIN=20
+
 
 # Class Name
-CLASS:Nightsong Enforcer
-#	ABILITY:Bloodhound Class Feature|AUTOMATIC|
+CLASS:Ghost-Faced Killer	SOURCEPAGE:p.51	TYPE:PC.Prestige	HD:8	BONUS:COMBAT|BAB|CL	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Fortitude|CL/2+2
+CLASS:Ghost-Faced Killer	PREALIGN:NE,CE,LE	PREMULT:1,[PREATT:5],[PREVARGTEQ:BaseAttackBonus,5]	PRESKILL:4,Hide=6,Concentration=4,Intimidate=8,Move Silently=6	PREFEAT:2,Improved Initiative,Power Attack	PRETEXT:Alignment: Any evil. Base Attack Bonus: +5. Skills: Hide 6 ranks, Concentration 4 ranks, Intimidate 8 ranks, Move Silently 6 ranks. Feats: Improved Initiative, Power Attack.
+CLASS:Ghost-Faced Killer	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Concentration|Hide|Intimidate|Jump|Listen|Move Silently|Open Lock|Search|Spot|Swim|Tumble
+###Block
+1	ABILITY:Ghost-Faced Killer Class Feature|AUTOMATIC|Ghost-Faced Killer ~ Weapon and Armor Proficiency	
+1	ABILITY:Ghost-Faced Killer Class Feature|AUTOMATIC|Ghost-Faced Killer ~ Ghost Step				
+2	ABILITY:Ghost-Faced Killer Class Feature|AUTOMATIC|Ghost-Faced Killer ~ Sudden Strike			
+3	ABILITY:Ghost-Faced Killer Class Feature|AUTOMATIC|Ghost-Faced Killer ~ Frightful Attack			
+7	ABILITY:Ghost-Faced Killer Class Feature|AUTOMATIC|Ghost-Faced Killer ~ Ghost Sight			
+10	ABILITY:Ghost-Faced Killer Class Feature|AUTOMATIC|Ghost-Faced Killer ~ Frightful Cleave			
+###Block
+11	PREPCLEVEL:MIN=20
+
 
 # Class Name
-CLASS:Nightson Infiltrator
-#	ABILITY:Bloodhound Class Feature|AUTOMATIC|
+CLASS:Highland Stalker	SOURCEPAGE:p.54	TYPE:PC.Prestige	HD:8	BONUS:COMBAT|BAB|CL	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Fortitude|CL/2+2
+CLASS:Highland Stalker	PREMULT:1,[PREATT:5],[PREVARGTEQ:BaseAttackBonus,5]	PRESKILL:3,Listen=8,Spot=8,Survival=8	PREFEAT:1,Track	PREABILITY:1,CATEGORY=Special Ability,TYPE.Skirmish,TYPE.Sneak Attack	PRETEXT:Base Attack Bonus: +5. Skills: Listen 8 ranks, Spot 8 ranks, Survival 8 ranks. Feats: Track. Special: Skirmish or sneak attack class feature.
+CLASS:Highland Stalker	STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE=Craft|Hide|Jump|Knowledge (Geography)|Knowledge (Nature)|Listen|Move Silently|Search|Spot|Survival
+###Block
+1	ABILITY:Highland Stalker Class Feature|AUTOMATIC|Highland Stalker ~ Weapon and Armor Proficiency	
+1	ABILITY:Highland Stalker Class Feature|AUTOMATIC|Highland Stalker ~ Mountain Stride			
+2	ABILITY:Highland Stalker Class Feature|AUTOMATIC|Highland Stalker ~ Skirmish				
+3	ABILITY:Highland Stalker Class Feature|AUTOMATIC|Highland Stalker ~ Swift Tracker			
+5	ABILITY:Highland Stalker Class Feature|AUTOMATIC|Highland Stalker ~ Surefooted				
+7	ABILITY:Highland Stalker Class Feature|AUTOMATIC|Highland Stalker ~ Camouflage				
+###Block
+11	PREPCLEVEL:MIN=20
+
 
 # Class Name
-CLASS:Ollam
-#	ABILITY:Bloodhound Class Feature|AUTOMATIC|
+CLASS:Maester	SOURCEPAGE:p.56	TYPE:PC.Prestige	HD:4	BONUS:COMBAT|BAB|CL*1/2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2
+CLASS:Maester	PRERACE:1,RACESUBTYPE=Gnome,Gnome	PRESKILL:1,TYPE.Craft=8	PRESKILL:1,Use Magic Device=4	PREFEAT:2,TYPE=ItemCreation,TYPE=Item Creation	PRESPELLTYPE:1,Arcane=5	PRETEXT:Race: Gnome. Skills: Craft (any) 8 ranks, Use Magic Device 4 ranks. Feats: Any two item creation feats. Spells: Arcane caster level 5th.
+CLASS:Maester	STARTSKILLPTS:4	CSKILL:Appraise|Concentration|TYPE=Craft|Disable Device|Knowledge (Arcana)|Knowledge (Architecture and Engineering)|Spellcraft|Use Magic Device
+###Block
+1	ABILITY:Maester Class Feature|AUTOMATIC|Maester ~ Weapon and Armor Proficiency	
+1	ABILITY:Maester Class Feature|AUTOMATIC|Maester ~ Bonus Feats				
+1	ABILITY:Maester Class Feature|AUTOMATIC|Maester ~ Quick Crafting				
+2	ABILITY:Maester Class Feature|AUTOMATIC|Maester ~ Spells per Day/Spells Known		
+3	ABILITY:Maester Class Feature|AUTOMATIC|Maester ~ Identification				
+###Block
+11	PREPCLEVEL:MIN=20
 
 # Class Name
-CLASS:Shadowbane Inquisitor
-#	ABILITY:Bloodhound Class Feature|AUTOMATIC|
+CLASS:Master of Many Forms	SOURCEPAGE:p.58	TYPE:PC.Prestige	HD:8	BONUS:COMBAT|BAB|CL*3/4	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3
+CLASS:Master of Many Forms	PREFEAT:2,Alertness,Endurance	PREABILITY:1,CATEGORY=Special Ability,TYPE.Wild Shape	PRETEXT:Feats: Alertness, Endurance. Special: Wild shape class feature.
+CLASS:Master of Many Forms	STARTSKILLPTS:4	CSKILL:Climb|Concentration|TYPE=Craft|Diplomacy|Disguise|Handle Animal|Hide|Jump|Knowledge (Nature)|Listen|Spot|Swim|Survival
+1	ABILITY:Master of Many Forms Class Feature|AUTOMATIC|Master of Many Forms ~ Weapon and Armor Proficiency	
+1	ABILITY:Master of Many Forms Class Feature|AUTOMATIC|Master of Many Forms ~ Shifter's Speech			
+2	ABILITY:Master of Many Forms Class Feature|AUTOMATIC|Master of Many Forms ~ Improved Wild Shape			
+3	ABILITY:Master of Many Forms Class Feature|AUTOMATIC|Master of Many Forms ~ Fast Wild Shape			
+7	ABILITY:Master of Many Forms Class Feature|AUTOMATIC|Master of Many Forms ~ Extraordinary Wild Shape		
+10	ABILITY:Master of Many Forms Class Feature|AUTOMATIC|Master of Many Forms ~ Evershifting Form			
+###Block
+11	PREPCLEVEL:MIN=20
 
 # Class Name
-CLASS:Shadowbane Stalker
-#	ABILITY:Bloodhound Class Feature|AUTOMATIC|
+CLASS:Nightsong Enforcer	SOURCEPAGE:p.60	TYPE:PC.Prestige	HD:8	BONUS:COMBAT|BAB|CL	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3
+CLASS:Nightsong Enforcer	PREMULT:1,[PREATT:5],[PREVARGTEQ:BaseAttackBonus,5]	PRESKILL:2,Hide=10,Move Silently=10	PREFEAT:1,Improved Initiative	PREABILITY:1,CATEGORY=Special Ability,TYPE.Evasion	PRETEXT:Base Attack Bonus: +5. Skills: Hide 10 ranks, Move Silently 10 ranks. Feats: Improved Initiative. Special: Evasion class feature. Special: The character must undergo intensive training and tests with the Nightsong Guild before she can gain the class abilities.
+CLASS:Nightsong Enforcer	STARTSKILLPTS:4	CSKILL:Balance|Climb|Disable Device|Disguise|Escape Artist|Hide|Intimidate|Jump|Listen|Move Silently|Open Lock|TYPE=Profession|Ride|Search|Spot|Swim|Tumble
+###Block
+1	ABILITY:Nightsong Enforcer Class Feature|AUTOMATIC|Nightsong Enforcer ~ Weapon and Armor Proficiency	
+1	ABILITY:Nightsong Enforcer Class Feature|AUTOMATIC|Nightsong Enforcer ~ Sneak Attack			
+1	ABILITY:Nightsong Enforcer Class Feature|AUTOMATIC|Nightsong Enforcer ~ Teamwork				
+2	ABILITY:Nightsong Enforcer Class Feature|AUTOMATIC|Nightsong Enforcer ~ Agility Training		
+3	ABILITY:Nightsong Enforcer Class Feature|AUTOMATIC|Nightsong Enforcer ~ Skill Teamwork			
+5	ABILITY:Nightsong Enforcer Class Feature|AUTOMATIC|Nightsong Enforcer ~ Flanking Teamwork		
+6	ABILITY:Nightsong Enforcer Class Feature|AUTOMATIC|Nightsong Enforcer ~ Opportunist			
+8	ABILITY:Nightsong Enforcer Class Feature|AUTOMATIC|Nightsong Enforcer ~ Improved Evasion			
+###Block
+11	PREPCLEVEL:MIN=20
+
 
 # Class Name
-CLASS:Shadowmind
-#	ABILITY:Bloodhound Class Feature|AUTOMATIC|
+CLASS:Nightsong Infiltrator	SOURCEPAGE:p.62	TYPE:PC.Prestige	HD:6	BONUS:COMBAT|BAB|CL*3/4	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3
+CLASS:Nightsong Infiltrator	PRESKILL:4,Climb=10,Disable Device=5,Open Lock=5,Search=5	PREFEAT:1,Alertness	PREABILITY:1,CATEGORY=Special Ability,TYPE.Evasion	PRETEXT:Skills: Climb 10 ranks, Disable Device 5 ranks, Open Lock 5 ranks, Search 5 ranks. Feats: Alertness. Special: Evasion class feature. Special: The character must undergo intensive training and tests with the Nightsong Guild before she can gain the class abilities.
+CLASS:Nightsong Infiltrator	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE=Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Jump|Listen|Move Silently|Open Lock|TYPE=Profession|Ride|Search|Sleight of Hand|Spot|Swim|Tumble|Use Magic Device|Use Rope
+###Block
+1	ABILITY:Nightsong Infiltrator Class Feature|AUTOMATIC|Nightsong Infiltrator ~ Weapon and Armor Proficiency	
+1	ABILITY:Nightsong Infiltrator Class Feature|AUTOMATIC|Nightsong Infiltrator ~ Teamwork Trap Sense		
+1	ABILITY:Nightsong Infiltrator Class Feature|AUTOMATIC|Nightsong Infiltrator ~ Trapfinding				
+2	ABILITY:Nightsong Infiltrator Class Feature|AUTOMATIC|Nightsong Infiltrator ~ Steady Stance			
+2	ABILITY:Nightsong Infiltrator Class Feature|AUTOMATIC|Nightsong Infiltrator ~ Teamwork Infiltration		
+3	ABILITY:Nightsong Infiltrator Class Feature|AUTOMATIC|Nightsong Infiltrator ~ Break Away				
+3	ABILITY:Nightsong Infiltrator Class Feature|AUTOMATIC|Nightsong Infiltrator ~ Trackless Step			
+4	ABILITY:Nightsong Infiltrator Class Feature|AUTOMATIC|Nightsong Infiltrator ~ Detect Magic				
+4	ABILITY:Nightsong Infiltrator Class Feature|AUTOMATIC|Nightsong Infiltrator ~ Teamwork Sneak Attack		
+5	ABILITY:Nightsong Infiltrator Class Feature|AUTOMATIC|Nightsong Infiltrator ~ Defensive Roll			
+5	ABILITY:Nightsong Infiltrator Class Feature|AUTOMATIC|Nightsong Infiltrator ~ Grant Move Action			
+6	ABILITY:Nightsong Infiltrator Class Feature|AUTOMATIC|Nightsong Infiltrator ~ Improved Evasion			
+6	ABILITY:Nightsong Infiltrator Class Feature|AUTOMATIC|Nightsong Infiltrator ~ Skill Mastery			
+6	ABILITY:Nightsong Infiltrator Class Feature|AUTOMATIC|Nightsong Infiltrator ~ Specialized Tools			
+10	ABILITY:Nightsong Infiltrator Class Feature|AUTOMATIC|Nightsong Infiltrator ~ Hide in Plain Sight		
+###Block
+11	PREPCLEVEL:MIN=20
+
 
 # Class Name
-CLASS:Spymaster	TYPE:PC.Prestige	SOURCEPAGE:p.76	HD:6	MAXLEVEL:7	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3
+CLASS:Ollam	SOURCEPAGE:p.66	TYPE:PC.Prestige	HD:8	MAXLEVEL:5	BONUS:COMBAT|BAB|CL*1/2	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3
+CLASS:Ollam	PREALIGN:LG	PRESKILL:2,Knowledge (History)=10,Perform (Oratory)=5	PRESKILL:2,TYPE.Knowledge=10	PRERACE:1,RACESUBTYPE=Dwarf,Dwarf	PRETEXT:Race: Dwarf. Alignment: Lawful good. Skills: Knowledge (history) 10 ranks, Knowledge (any other) 10 ranks, Perform (oratory) 5 ranks.
+CLASS:Ollam	STARTSKILLPTS:6	CSKILL:Concentration|TYPE=Craft|Decipher Script|Diplomacy|Gather Information|Heal|TYPE=Knowledge|Listen|TYPE=Perform|Search|Sense Motive|Speak Language|Spellcraft
+###Block
+1	ABILITY:Ollam Class Feature|AUTOMATIC|Ollam ~ Weapon and Armor Proficiency	
+1	ABILITY:Ollam Class Feature|AUTOMATIC|Ollam ~ Spells per Day/Spells Known	
+1	ABILITY:Ollam Class Feature|AUTOMATIC|Ollam ~ Lore					
+3	ABILITY:Ollam Class Feature|AUTOMATIC|Ollam ~ Inspire Competence		
+5	ABILITY:Ollam Class Feature|AUTOMATIC|Ollam ~ Inspire Resilience		
+###Block
+2	ADD:SPELLCASTER|ANY
+3	ADD:SPELLCASTER|ANY
+4	ADD:SPELLCASTER|ANY
+
+
+# Class Name
+CLASS:Shadowbane Inquisitor	SOURCEPAGE:p.68	TYPE:PC.Prestige	HD:10	BONUS:COMBAT|BAB|CL	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3
+CLASS:Shadowbane Inquisitor	PREALIGN:LG	PREMULT:1,[PREATT:5],[PREVARGTEQ:BaseAttackBonus,5]	PRESKILL:3,Gather Information=4,Knowledge (Religion)=2Sense Motive=8	PREFEAT:1,Power Attack	PREMULT:1,[PRESPELL:1,Detect Evil],[PREABILITY:1,CATEGORY=Special Ability,TYPE.Detect Evil]	PREABILITY:1,CATEGORY=Special Ability,TYPE.Turn Undead	PREABILITY:1,CATEGORY=Special Ability,TYPE.Sneak Attack	PRETEXT:Alignment: Lawful good. Base Attack: +5. Skills: Gather Information 4 ranks, Knowledge (religion) 2 ranks, Sense Motive 8 ranks. Feats: Power Attack. Special: Detect evil class feature or ability to cast detect evil as a divine spell. Special: Turn undead class feature. Special: Sneak attack class feature.
+CLASS:Shadowbane Inquisitor	STARTSKILLPTS:4	CSKILL:Climb|Concentration|TYPE=Craft|Decipher Script|Gather Information|Heal|Hide|Jump|Knowledge (Religion)|Move Silently|TYPE=Profession|Search|Sense Motive|Swim
+###Block
+1	ABILITY:Shadowbane Inquisitor Class Feature|AUTOMATIC|Shadowbane Inquisitor ~ Weapon and Armor Proficiency	
+1	ABILITY:Shadowbane Inquisitor Class Feature|AUTOMATIC|Shadowbane Inquisitor ~ Absolute Conviction			
+1	ABILITY:Shadowbane Inquisitor Class Feature|AUTOMATIC|Shadowbane Inquisitor ~ Pierce Shadows			
+2	ABILITY:Shadowbane Inquisitor Class Feature|AUTOMATIC|Shadowbane Inquisitor ~ Sacred Stealth			
+2	ABILITY:Shadowbane Inquisitor Class Feature|AUTOMATIC|Shadowbane Inquisitor ~ Smite					
+3	ABILITY:Shadowbane Inquisitor Class Feature|AUTOMATIC|Shadowbane Inquisitor ~ Improved Sunder			
+4	ABILITY:Shadowbane Inquisitor Class Feature|AUTOMATIC|Shadowbane Inquisitor ~ Sneak Attack				
+5	ABILITY:Shadowbane Inquisitor Class Feature|AUTOMATIC|Shadowbane Inquisitor ~ Merciless Purity			
+8	ABILITY:Shadowbane Inquisitor Class Feature|AUTOMATIC|Shadowbane Inquisitor ~ Righteous Fervor			
+9	ABILITY:Shadowbane Inquisitor Class Feature|AUTOMATIC|Shadowbane Inquisitor ~ Burning Light				
+1	ABILITY:Shadowbane Inquisitor Class Feature|AUTOMATIC|Shadowbane Inquisitor ~ Multiclassing Note			
+###Block
+11	PREPCLEVEL:MIN=20
+
+
+# Class Name
+CLASS:Shadowbane Stalker	SOURCEPAGE:p.70	TYPE:PC.Prestige	HD:8	BONUS:COMBAT|BAB|CL*3/4	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will,BASE.Fortitude|CL/3
+CLASS:Shadowbane Stalker	PREALIGN:LG	PRESKILL:3,Gather Information=8,Search=4,Sense Motive=4	PREMULT:1,[PRESPELL:1,Detect Evil],[PREABILITY:1,CATEGORY=Special Ability,TYPE.Detect Evil]	PREABILITY:1,CATEGORY=Special Ability,TYPE.Sneak Attack	PRETEXT:Alignment: Lawful good. Skills: Gather Information 8 ranks, Search 4 ranks, Sense Motive 4 ranks. Special: Detect evil class feature or ability to cast detect evil as a divine spell. Special: Sneak attack +1d6.
+CLASS:Shadowbane Stalker	STARTSKILLPTS:6	CSKILL:Appraise|Balance|Climb|Concentration|TYPE=Craft|Decipher Script|Disable Device|Escape Artist|Gather Information|Heal|Hide|Jump|Knowledge (History)|Knowledge (Nature)|Knowledge (Religion)|Knowledge (The Planes)|Listen|Move Silently|Open Lock|TYPE=Profession|Search|Sense Motive|Sleight of Hand|Spellcraft|Spot|Tumble|Use Magic Device|Use Rope
+###Block
+1	ABILITY:Shadowbane Stalker Class Feature|AUTOMATIC|Shadowbane Stalker ~ Weapon and Armor Proficiency	
+1	ABILITY:Shadowbane Stalker Class Feature|AUTOMATIC|Shadowbane Stalker ~ Spells per Day/Spells Known	
+1	ABILITY:Shadowbane Stalker Class Feature|AUTOMATIC|Shadowbane Stalker ~ Detect Evil			
+1	ABILITY:Shadowbane Stalker Class Feature|AUTOMATIC|Shadowbane Stalker ~ Sacred Stealth			
+2	ABILITY:Shadowbane Stalker Class Feature|AUTOMATIC|Shadowbane Stalker ~ Discover Subterfuge		
+3	ABILITY:Shadowbane Stalker Class Feature|AUTOMATIC|Shadowbane Stalker ~ Sneak Attack			
+4	ABILITY:Shadowbane Stalker Class Feature|AUTOMATIC|Shadowbane Stalker ~ Sacred Defense			
+10	ABILITY:Shadowbane Stalker Class Feature|AUTOMATIC|Shadowbane Stalker ~ Sacred Strike			
+###Block
+1	ADD:SPELLCASTER|Divine
+2	ADD:SPELLCASTER|Divine
+3	ADD:SPELLCASTER|Divine
+5	ADD:SPELLCASTER|Divine
+6	ADD:SPELLCASTER|Divine
+7	ADD:SPELLCASTER|Divine
+8	ADD:SPELLCASTER|Divine
+10	ADD:SPELLCASTER|Divine
+###Block
+11	PREPCLEVEL:MIN=20
+
+
+# Class Name
+CLASS:Shadowmind	SOURCEPAGE:p.74	TYPE:PC.Prestige	HD:6	BONUS:COMBAT|BAB|CL*3/4	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3
+CLASS:Shadowmind	PREMULT:1,[PREATT:3],[PREVARGTEQ:BaseAttackBonus,3]	PRESKILL:3,Hide=5,Move Silently=5,Sleight of Hand=3	PRETEXT:Base Attack Bonus: +3. Skills: Hide 5 ranks, Move Silently 5 Ranks, Sleight of Hand 3 ranks. Special: Manifester level 3rd. Special: Able to manifest concealing amorpha.
+CLASS:Shadowmind	STARTSKILLPTS:4	CSKILL:Autohypnosis|Bluff|Concentration|TYPE=Craft|Disable Device|Escape Artist|Hide|Jump|Knowledge (Psionics)|Listen|Move Silently|Open Lock|Psicraft|Search|Sense Motive|Sleight of Hand|Spot|Tumble
+###Block
+1	ABILITY:Shadowmind Class Feature|AUTOMATIC|Shadowmind ~ Weapon and Armor Proficiency	
+1	ABILITY:Shadowmind Class Feature|AUTOMATIC|Shadowmind ~ Powers Known				
+1	ABILITY:Shadowmind Class Feature|AUTOMATIC|Shadowmind ~ Read Thoughts			
+2	ABILITY:Shadowmind Class Feature|AUTOMATIC|Shadowmind ~ Sneak Attack				
+3	ABILITY:Shadowmind Class Feature|AUTOMATIC|Shadowmind ~ Cloud Mind				
+9	ABILITY:Shadowmind Class Feature|AUTOMATIC|Shadowmind ~ Mass Cloud Mind			
+10	ABILITY:Shadowmind Class Feature|AUTOMATIC|Shadowmind ~ Mind Stab				
+###Block
+11	PREPCLEVEL:MIN=20
+
+# Class Name
+CLASS:Spymaster	TYPE:PC.Prestige	SOURCEPAGE:p.76	HD:6	MAXLEVEL:7	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	DEFINE:SpymasterLVL|CL
 CLASS:Spymaster	BONUS:COMBAT|BAB|CL*3/4
 CLASS:Spymaster	PRESKILL:6,Bluff=8,Diplomacy=4,Disguise=8,Forgery=4,Gather Information=4,Sense Motive=4	PREFEAT:1,Skill Focus (Bluff)	PRETEXT:Skills: Bluff 8 ranks, Diplomacy 4 ranks, Disguise 8 ranks, Forgery 4 ranks, Gather Information 4 ranks, Sense Motive 4 ranks. Feat: Skill Focus (Bluff).
 CLASS:Spymaster	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Intimidate|Jump|Knowledge (Geography)|Knowledge (History)|Knowledge (Local)|Knowledge (Nobility and Royalty)|Listen|Move Silently|Open Lock|Search|Sense Motive|Sleight of Hand|Speak Language|Spot|Swim|Tumble|Use Magic Device|Use Rope
@@ -342,30 +503,125 @@ CLASS:Spymaster	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|Decipher Scr
 5	ABILITY:Spymaster Class Feature|AUTOMATIC|Spymaster ~ Dispel Scrying			
 7	ABILITY:Spymaster Class Feature|AUTOMATIC|Spymaster ~ Deep Cover				
 ###Block
-3	BONUS:VAR|SneakAttackDice|min(CL/3,2)
+11	PREPCLEVEL:MIN=20
 
+
+# Class Name	
+CLASS:Streetfighter	SOURCEPAGE:p.79	TYPE:PC.Prestige	HD:8	MAXLEVEL:5	BONUS:COMBAT|BAB|CL	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3
+CLASS:Streetfighter	PREMULT:1,[PREATT:5],[PREVARGTEQ:BaseAttackBonus,5]	PRESKILL:3,Bluff=5,Intimidate=5,Knowledge (Local)=5	PREFEAT:2,Combat Expertise,Improved Feint	PRETEXT:Base Attack Bonus: +5. Skills: Bluff 5 ranks, Intimidate 5 ranks, Knowledge (local) 5 ranks. Feats: Combat Expertise, Improved Feint.
+CLASS:Streetfighter	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Disable Device|Hide|Intimidate|Jump|Knowledge (Local)|Listen|Move Silently|Open Lock|Ride|Search|Spot|Tumble
+###Block
+1	ABILITY:Streetfighter Class Feature|AUTOMATIC|Streetfighter ~ Weapon and Armor Proficiency	
+1	ABILITY:Streetfighter Class Feature|AUTOMATIC|Streetfighter ~ Always Ready				
+1	ABILITY:Streetfighter Class Feature|AUTOMATIC|Streetfighter ~ Streetwise				
+2	ABILITY:Streetfighter Class Feature|AUTOMATIC|Streetfighter ~ Stand Tough				
+3	ABILITY:Streetfighter Class Feature|AUTOMATIC|Streetfighter ~ Sneak Attack				
+5	ABILITY:Streetfighter Class Feature|AUTOMATIC|Streetfighter ~ Uncanny Dodge				
 
 
 # Class Name
-CLASS:Streetfighter
-#	ABILITY:Bloodhound Class Feature|AUTOMATIC|
+CLASS:Tempest	SOURCEPAGE:p.81	TYPE:PC.Prestige	HD:10	MAXLEVEL:5		BONUS:COMBAT|BAB|CL	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3
+CLASS:Tempest	PREMULT:1,[PREATT:6],[PREVARGTEQ:BaseAttackBonus,6]	PREFEAT:5,Dodge,Improved Two-Weapon Fighting,Mobility,Spring Attack,Two-Weapon Fighting	PRETEXT:Base Attack Bonus: +6. Feats: Dodge, Improved Two-Weapon Fighting, Mobility, Spring Attack, Two-Weapon Fighting.
+CLASS:Tempest	STARTSKILLPTS:2	CSKILL:Balance|Climb|TYPE=Craft|Jump|Sleight of Hand|Tumble
+###Block
+1	ABILITY:Tempest Class Feature|AUTOMATIC|Tempest ~ Weapon and Armor Proficiency	
+1	ABILITY:Tempest Class Feature|AUTOMATIC|Tempest ~ Tempest Defense				
+2	ABILITY:Tempest Class Feature|AUTOMATIC|Tempest ~ Ambidexterity				
+3	ABILITY:Tempest Class Feature|AUTOMATIC|Tempest ~ Two-Weapon Versatility		
+5	ABILITY:Tempest Class Feature|AUTOMATIC|Tempest ~ Two-Weapon Spring Attack		
+
 
 # Class Name
-CLASS:Tempest
-#	ABILITY:Bloodhound Class Feature|AUTOMATIC|
+CLASS:Thief-Acrobat	SOURCEPAGE:p.83	TYPE:PC.Prestige	HD:6	MAXLEVEL:5	BONUS:COMBAT|BAB|CL*3/4	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3
+CLASS:Thief-Acrobat	PRESKILL:4,Balance=8,Climb=8,Jump=8,Tumble=8	PREABILITY:1,CATEGORY=Special Ability,TYPE.Evasion	PRETEXT:Skills: Balance 8 ranks, Climb 8 ranks, Jump 8 ranks, Tumble 8 ranks. Special: Evasion class feature.
+CLASS:Thief-Acrobat	STARTSKILLPTS:6	CSKILL:Appraise|Balance|Climb|TYPE=Craft|Disable Device|Escape Artist|Hide|Jump|Move Silently|Open Lock|TYPE=Perform|Search|Tumble|Use Rope
+###Block
+1	ABILITY:Thief-Acrobat Class Feature|AUTOMATIC|Thief-Acrobat ~ Weapon and Armor Proficiency	
+1	ABILITY:Thief-Acrobat Class Feature|AUTOMATIC|Thief-Acrobat ~ Fast Acrobatics				
+1	ABILITY:Thief-Acrobat Class Feature|AUTOMATIC|Thief-Acrobat ~ Kip Up					
+1	ABILITY:Thief-Acrobat Class Feature|AUTOMATIC|Thief-Acrobat ~ Steady Stance				
+2	ABILITY:Thief-Acrobat Class Feature|AUTOMATIC|Thief-Acrobat ~ Agile Fighting				
+2	ABILITY:Thief-Acrobat Class Feature|AUTOMATIC|Thief-Acrobat ~ Slow Fall					
+3	ABILITY:Thief-Acrobat Class Feature|AUTOMATIC|Thief-Acrobat ~ Acrobatic Charge			
+3	ABILITY:Thief-Acrobat Class Feature|AUTOMATIC|Thief-Acrobat ~ Defensive Roll				
+4	ABILITY:Thief-Acrobat Class Feature|AUTOMATIC|Thief-Acrobat ~ Skill Mastery				
+5	ABILITY:Thief-Acrobat Class Feature|AUTOMATIC|Thief-Acrobat ~ Improved Evasion			
+
 
 # Class Name
-CLASS:Thief-Acrobat
-#	ABILITY:Bloodhound Class Feature|AUTOMATIC|
+CLASS:Vigilante	SOURCEPAGE:p.85	TYPE:PC.Prestige	HD:8	BONUS:COMBAT|BAB|CL*3/4	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3
+CLASS:Vigilante	!PREALIGN:NE,CE,LE	PREMULT:1,[PREATT:4],[PREVARGTEQ:BaseAttackBonus,4]	PRESKILL:5,Gather Information=8,Intimidate=4,Knowledge (Local)=8,Search=4,Sense Motive=8	PREFEAT:1,Alertness	PRETEXT:Alignment: Any nonevil. Base Attack Bonus: +4. Skills: Gather Information 8 ranks, Intimidate 4 ranks, Knowledge (local) 8 ranks, Search 4 ranks, Sense Motive 8 ranks. Feats: Alertness.
+CLASS:Vigilante	STARTSKILLPTS:6	CSKILL:Balance|Climb|TYPE=Craft|Disable Device|Disguise|Escape Artist|Gather Information|Hide|Intimidate|Jump|Knowledge (Local)|Move Silently|Open Lock|TYPE=Perform|Search|Sense Motive|Tumble|Use Rope
+CLASS:Vigilante	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Vigilante|CL
+###Block
+1	ABILITY:Vigilante Class Feature|AUTOMATIC|Vigilante ~ Weapon and Armor Proficiency	
+1	ABILITY:Vigilante Class Feature|AUTOMATIC|Vigilante ~ Detect Evil				
+1	ABILITY:Vigilante Class Feature|AUTOMATIC|Vigilante ~ Spells per Day			
+1	ABILITY:Vigilante Class Feature|AUTOMATIC|Vigilante ~ Streetwise				
+2	ABILITY:Vigilante Class Feature|AUTOMATIC|Vigilante ~ Smite the Guilty			
+3	ABILITY:Vigilante Class Feature|AUTOMATIC|Vigilante ~ Quick Search				
+4	ABILITY:Vigilante Class Feature|AUTOMATIC|Vigilante ~ Speak with Dead			
+5	ABILITY:Vigilante Class Feature|AUTOMATIC|Vigilante ~ Quick Hide				
+8	ABILITY:Vigilante Class Feature|AUTOMATIC|Vigilante ~ Dimensional Anchor			
+9	ABILITY:Vigilante Class Feature|AUTOMATIC|Vigilante ~ Mettle					
+###Block
+1	CAST:0,0
+2	CAST:0,1
+3	CAST:0,2,0
+4	CAST:0,3,1
+5	CAST:0,3,2,0
+6	CAST:0,3,3,1
+7	CAST:0,3,3,2,0
+8	CAST:0,3,3,3,1
+9	CAST:0,3,3,3,2
+10	CAST:0,3,3,3,3
+###Block
+1	KNOWN:2
+2	KNOWN:3
+3	KNOWN:3,2
+4	KNOWN:4,3
+5	KNOWN:4,3,2
+6	KNOWN:4,4,3
+7	KNOWN:4,4,3,2
+8	KNOWN:4,4,4,3
+9	KNOWN:4,4,4,3
+10	KNOWN:4,4,4,4
+###Block
+11	PREPCLEVEL:MIN=20
+
 
 # Class Name
-CLASS:Vigilante
-#	ABILITY:Bloodhound Class Feature|AUTOMATIC|
+CLASS:Virtuoso	SOURCEPAGE:p.89	TYPE:PC.Prestige	HD:6	BONUS:COMBAT|BAB|CL*3/4	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2
+CLASS:Virtuoso	PRESKILL:2,Diplomacy=4,Intimidate=4	PRESKILL:1,TYPE.Perform=10	PRESPELLTYPE:1,Arcane=1	PRETEXT:Skills: Diplomacy 4 ranks, Intimidate 4 ranks, Perform (any) 10 ranks. Spells: Arcane caster level 1st
+CLASS:Virtuoso	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Concentration|TYPE=Craft|Diplomacy|Disguise|Escape Artist|Gather Information|Intimidate|Jump|TYPE=Perform|Spellcraft|Tumble
+###Block
+1	ABILITY:Virtuoso Class Feature|AUTOMATIC|Virtuoso ~ Weapon and Armor Proficiency	
+1	ABILITY:Virtuoso Class Feature|AUTOMATIC|Virtuoso ~ Bardic Music				
+1	ABILITY:Virtuoso Class Feature|AUTOMATIC|Virtuoso ~ Virtuoso Performance			
+2	ABILITY:Virtuoso Class Feature|AUTOMATIC|Virtuoso ~ Spells per Day/Spells Known
+###Block
+2	ADD:SPELLCASTER|Arcane
+3	ADD:SPELLCASTER|Arcane
+4	ADD:SPELLCASTER|Arcane
+5	ADD:SPELLCASTER|Arcane
+6	ADD:SPELLCASTER|Arcane
+7	ADD:SPELLCASTER|Arcane
+8	ADD:SPELLCASTER|Arcane
+9	ADD:SPELLCASTER|Arcane
+10	ADD:SPELLCASTER|Arcane
+###Block
+11	PREPCLEVEL:MIN=20
+
 
 # Class Name
-CLASS:Virtuoso
-#	ABILITY:Bloodhound Class Feature|AUTOMATIC|
-
-# Class Name
-CLASS:Wild Plains Outrider
-#	ABILITY:Bloodhound Class Feature|AUTOMATIC|
+CLASS:Wild Plains Outrider	SOURCEPAGE:p.92	TYPE:PC.Prestige	HD:8	MAXLEVEL:3	BONUS:COMBAT|BAB|CL	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:CHECKS|BASE.Fortitude|CL/2+2
+CLASS:Wild Plains Outrider	PREABILITY:1,CATEGORY=Special Ability,TYPE.Animal Companion,TYPE.Special Mount	PREFEAT:2,Mounted Combat,Track	PRESKILL:1,Ride=9	PRETEXT:Skills: Ride 9 ranks. Feats: Mounted Combat, Track. Special: Animal companion large enough to serve as a mount, or a paladin's special mount.
+CLASS:Wild Plains Outrider	STARTSKILLPTS:4	CSKILL:Balance|Handle Animal|Jump|Knowledge (Nature)|Listen|Move Silently|Ride|Spot|Survival|Swim
+###Block
+1	ABILITY:Wild Plains Outrider Class Feature|AUTOMATIC|Wild Plains Outrider ~ Weapon and Armor Proficiency	
+1	ABILITY:Wild Plains Outrider Class Feature|AUTOMATIC|Wild Plains Outrider ~ Animal Companion/Special Mount	
+1	ABILITY:Wild Plains Outrider Class Feature|AUTOMATIC|Wild Plains Outrider ~ Ride Bonus				
+1	ABILITY:Wild Plains Outrider Class Feature|AUTOMATIC|Wild Plains Outrider ~ Wild Plains Stalker			
+2	ABILITY:Wild Plains Outrider Class Feature|AUTOMATIC|Wild Plains Outrider ~ Wild Plains Swiftness		
+3	ABILITY:Wild Plains Outrider Class Feature|AUTOMATIC|Wild Plains Outrider ~ Wild Plains Offensive		
+1	ABILITY:Wild Plains Outrider Class Feature|AUTOMATIC|Wild Plains Outrider ~ Multiclassing Note			
