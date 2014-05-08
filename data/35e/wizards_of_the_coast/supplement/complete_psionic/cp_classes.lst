@@ -223,15 +223,141 @@ CLASS:Anarchic Initiate	STARTSKILLPTS:4	CSKILL:Autohypnosis|Bluff|Concentration|
 ###Block
 1:REPEATLEVEL:1	ADD:SPELLCASTER|Psionic
 ###Block
-
+1	ABILITY:Anarchic Initiate Class Feature|AUTOMATIC|Anarchic Initiate ~ Powers Known			
+1	ABILITY:Anarchic Initiate Class Feature|AUTOMATIC|Anarchic Initiate ~ Chaotic Surge			
+2	ABILITY:Anarchic Initiate Class Feature|AUTOMATIC|Anarchic Initiate ~ Anarchic Grace			
+3	ABILITY:Anarchic Initiate Class Feature|AUTOMATIC|Anarchic Initiate ~ Wild Surge				
+3	ABILITY:Anarchic Initiate Class Feature|AUTOMATIC|Anarchic Initiate ~ Psychic Enervation		
+4	ABILITY:Anarchic Initiate Class Feature|AUTOMATIC|Anarchic Initiate ~ Clarity of Confusion		
+6	ABILITY:Anarchic Initiate Class Feature|AUTOMATIC|Anarchic Initiate ~ Chaotic Breach (Minor)		
+8	ABILITY:Anarchic Initiate Class Feature|AUTOMATIC|Anarchic Initiate ~ Postpone Enervation		
+10	ABILITY:Anarchic Initiate Class Feature|AUTOMATIC|Anarchic Initiate ~ Chaotic Breach (Complete)	
 ###Block
 11	PREPCLEVEL:MIN=20
 
-CLASS:Ebon Saint			SOURCEPAGE:p.22
-CLASS:Ectopic Adept		SOURCEPAGE:p.26
-CLASS:Flayerspawn Psychic	SOURCEPAGE:p.30
-CLASS:Illumine Soul		SOURCEPAGE:p.33
-CLASS:Soulbow			SOURCEPAGE:p.36
-CLASS:Storm Disciple		SOURCEPAGE:p.40
-CLASS:Zerth Cenobite		SOURCEPAGE:p.43
+CLASS:Ebon Saint		MAXLEVEL:5	SOURCEPAGE:p.22	HD:6	TYPE:Prestige.PC	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3
+CLASS:Ebon Saint	BONUS:COMBAT|BAB|CL*3/4
+CLASS:Ebon Saint	PRESKILL:4,Bluff=8,Disguise=8,Hide=8,Move Silently=8	PREFEAT:2,Combat Expertise,Improved Feint	PREVARGTEQ:PsionicPowerPoint,1	PREMULT:1,[PREVARGTEQ:SneakAttackDice,1],[PREVARGTEQ:PsionicSneakAttackDice,1]	PRETEXT:Skills: Bluff 8 ranks, Disguise 8 ranks. Hide 8 ranks, Move Silently 8 ranks. Feats: Combat Expertise, Improved Feint. Psionics: Must have a power point reserve of at least 1 power point. Special: Sneak attack +1d6 or psionic sneak attack +1d6.
+CLASS:Ebon Saint	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Concentration|Disguise|Escape Artist|Hide|Intimidate|Jump|Listen|Move Silently|Psicraft|Search|Sense Motive|Sleight of Hand|Spot|Swim|Tumble
+###Block:
+1	ABILITY:Ebon Saint Class Feature|AUTOMATIC|Ebon Saint ~ Powers Known			
+1	ABILITY:Ebon Saint Class Feature|AUTOMATIC|Ebon Saint ~ Dire Strike			
+1	ABILITY:Ebon Saint Class Feature|AUTOMATIC|Ebon Saint ~ Shadowfriend			
+1	ABILITY:Ebon Saint Class Feature|AUTOMATIC|Ebon Saint ~ Dire Augments		
+2	ABILITY:Ebon Saint Class Feature|AUTOMATIC|Ebon Saint ~ Thought Theft		
+3	ABILITY:Ebon Saint Class Feature|AUTOMATIC|Ebon Saint ~ Mind Interrogation		
+4	ABILITY:Ebon Saint Class Feature|AUTOMATIC|Ebon Saint ~ Steal Form			
+5	ABILITY:Ebon Saint Class Feature|AUTOMATIC|Ebon Saint ~ Disappear from the Mind	
+3	ABILITY:Ebon Saint Class Feature|AUTOMATIC|Ebon Saint ~ Sneak Attack			
 
+CLASS:Ectopic Adept		SOURCEPAGE:p.26	HD:4	MAXLEVEL:5	TYPE:Prestige.PC	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3
+CLASS:Ectopic Adept	BONUS:COMBAT|BAB|CL*3/4
+CLASS:Ectopic Adept	PRESKILL:1,Psicraft=8	PREFEAT:2,Skill Focus (Craft (Sculpting)),Ectopic Form	PRETEXT:Skill: Psicraft 8 ranks. Feats: Skill Focus (Craft [sculpting]), Ectopic Form (any). Powers: Must be able to manifest the astral construct power.
+CLASS:Ectopic Adept	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|Craft (Sculpting)|Disguise|TYPE=Knowledge|TYPE=Profession|Psicraft|Use Psionic Device
+###Block:
+2	ADD:SPELLCASTER|Psionic
+3	ADD:SPELLCASTER|Psionic
+4	ADD:SPELLCASTER|Psionic
+5	ADD:SPELLCASTER|Psionic
+###Block:
+1	ABILITY:Ectopic Adept Class Feature|AUTOMATIC|Ectopic Adept ~ Manifesting		
+1	ABILITY:Ectopic Adept Class Feature|AUTOMATIC|Ectopic Adept ~ Resilient Construct	
+2	ABILITY:Ectopic Adept Class Feature|AUTOMATIC|Ectopic Adept ~ Ectopic Form		
+3	ABILITY:Ectopic Adept Class Feature|AUTOMATIC|Ectopic Adept ~ Rapid Creation		
+5	ABILITY:Ectopic Adept Class Feature|AUTOMATIC|Ectopic Adept ~ Double Creation		
+
+
+CLASS:Flayerspawn Psychic	SOURCEPAGE:p.30	HD:6	TYPE:Prestige.PC	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	DEFINE:FlayerspawnPsychicLVL|CL	
+CLASS:Flayerspawn Psychic	BONUS:COMBAT|BAB|CL*1/2
+CLASS:Flayerspawn Psychic	PRESKILL:1,Knowledge (Psionics)=8	PREFEAT:1,Illithid Heritage	PRELANG:1,Undercommon	PRETEXT:Powers: Ability to manifest psionic charm. Skills: Knowledge (psionics) 8 ranks. Feats: Illithid Heritage. Language: Undercommon.
+CLASS:Flayerspawn Psychic	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|Disguise|Hide|Intimidate|TYPE=Knowledge|Listen|Move Silently|Psicraft|Sense Motive|Spot|Use Psionic Device
+###Block
+1	ABILITY:Flayerspawn Psychic Class Feature|AUTOMATIC|Flayerspawn Psychic ~ Manifesting	
+1	ABILITY:Flayerspawn Psychic Class Feature|AUTOMATIC|Flayerspawn Psychic ~ Illithid Blast	
+2	ABILITY:Flayerspawn Psychic Class Feature|AUTOMATIC|Flayerspawn Psychic ~ Illithid Feat	
+###Block
+2	ADD:SPELLCASTER|Psionic
+4	ADD:SPELLCASTER|Psionic
+5	ADD:SPELLCASTER|Psionic
+7	ADD:SPELLCASTER|Psionic
+9	ADD:SPELLCASTER|Psionic
+10	ADD:SPELLCASTER|Psionic
+###Block
+11	PREPCLEVEL:MIN=20
+
+
+CLASS:Illumine Soul	SOURCEPAGE:p.33	HD:10	MAXLEVEL:5		TYPE:Prestige.PC	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	
+CLASS:Illumine Soul		BONUS:COMBAT|BAB|CL*3/4
+CLASS:Illumine Soul	!PREALIGN:LE,NE,CE	PRESKILL:2,Knowledge (Psionics)=8,Knowledge (Religion)=4
+CLASS:Illumine Soul	PRETEXT:Alignment: Any non-evil. Skills: Knowledge (psionics) 8 ranks, Knowledge (religion) 4 ranks. Special: Mind blade, psychic strike +1d8.
+CLASS:Illumine Soul	STARTSKILLPTS:4	CSKILL:Autohypnosis|Climb|Concentration|TYPE=Craft|Heal|Hide|Jump|Knowledge (Psionics)|Knowledge (Religion)|Listen|Move Silently|TYPE=Profession|Spot|Tumble
+###Block
+1	ABILITY:Illumine Soul Class Feature|AUTOMATIC|Illumine Soul ~ Positive Energy Conduit	
+1	ABILITY:Illumine Soul Class Feature|AUTOMATIC|Illumine Soul ~ Improved Mind Blade		
+1	ABILITY:Illumine Soul Class Feature|AUTOMATIC|Illumine Soul ~ Psychic Strike			
+2	ABILITY:Illumine Soul Class Feature|AUTOMATIC|Illumine Soul ~ Positive Energy Ray		
+2	ABILITY:Illumine Soul Class Feature|AUTOMATIC|Illumine Soul ~ Death Ward			
+3	ABILITY:Illumine Soul Class Feature|AUTOMATIC|Illumine Soul ~ Undead Mind Bane		
+4	ABILITY:Illumine Soul Class Feature|AUTOMATIC|Illumine Soul ~ Positive Energy Healing	
+5	ABILITY:Illumine Soul Class Feature|AUTOMATIC|Illumine Soul ~ Positive Energy Flare		
+
+
+CLASS:Soulbow			SOURCEPAGE:p.36	HD:10		TYPE:Prestige.PC	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3		DEFINE:SoulbowLVL|CL
+CLASS:Soulbow		BONUS:COMBAT|BAB|CL*3/4
+CLASS:Soulbow	PRESKILL:1,Autohypnosis=8	PREFEAT:1,Point Blank Shot	PREABILITY:1,CATEGORY=Special Ability,TYPE.Throw Mind Blade	PRETEXT:Skills: Autohypnosis 8 ranks. Feats: Point Blank Shot. Special: Throw mind blade class feature.
+CLASS:Soulbow	STARTSKILLPTS:4	CSKILL:Autohypnosis|Climb|Concentration|TYPE=Craft|Hide|Jump|Knowledge (Psionics)|Listen|Move Silently|TYPE=Profession|Spot|Tumble
+###Block
+1	ABILITY:Soulbow Class Feature|AUTOMATIC|Soulbow ~ Mind Arrow			
+1	ABILITY:Soulbow Class Feature|AUTOMATIC|Soulbow ~ Bonus Feat			
+2	ABILITY:Soulbow Class Feature|AUTOMATIC|Soulbow ~ Mind Arrow Enhancement	
+4	ABILITY:Soulbow Class Feature|AUTOMATIC|Soulbow ~ Close Combat Shot		
+8	ABILITY:Soulbow Class Feature|AUTOMATIC|Soulbow ~ Phase Arrow			
+###Block
+11	PREPCLEVEL:MIN=20
+
+
+CLASS:Storm Disciple		SOURCEPAGE:p.40	HD:10	MAXLEVEL:5	TYPE:Prestige.PC	BONUS:CHECKS|BASE.Will,BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3		DEFINE:StormDiscipleLVL|CL
+CLASS:Storm Disciple		BONUS:COMBAT|BAB|CL
+CLASS:Storm Disciple	PREMULT:1,[PREATT:5],[PREVARGTEQ:BaseAttackBonus,5]	PRESKILL:1,Knowledge (Religion)=8	PREALIGN:CG,CN,CE 	PRETEXT:Base Attack Bonus: +5. Skills: Knowledge (religion) 8 ranks. Alignment: Any chaotic. Special: Energy mantle or Natural World mantle.
+CLASS:Storm Disciple		STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Intimidate|Knowledge (Religion)|Psicraft|Sense Motive
+###Block
+2	ADD:SPELLCASTER|Psionic
+3	ADD:SPELLCASTER|Psionic
+4	ADD:SPELLCASTER|Psionic
+###Block
+1	ABILITY:Storm Disciple Class Feature|AUTOMATIC|Storm Disciple ~ Manifesting			
+1	ABILITY:Storm Disciple Class Feature|AUTOMATIC|Storm Disciple ~ Shocking Aura			
+2	ABILITY:Storm Disciple Class Feature|AUTOMATIC|Storm Disciple ~ Resistance to Electricity	
+3	ABILITY:Storm Disciple Class Feature|AUTOMATIC|Storm Disciple ~ Stormwalker			
+5	ABILITY:Storm Disciple Class Feature|AUTOMATIC|Storm Disciple ~ Thunderblade			
+
+
+CLASS:Zerth Cenobite	SOURCEPAGE:p.43	HD:8		TYPE:Prestige.PC	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	DEFINE:ZerthCenobiteLVL|CL	
+CLASS:Zerth Cenobite	BONUS:COMBAT|BAB|CL*3/4
+CLASS:Zerth Cenobite	PREMULT:1,[PREATT:4],[PREVARGTEQ:BaseAttackBonus,4]	PRESKILL:1,Concentration=9	PREVARGTEQ:BasePowerPoints,2	PREABILITY:1,CATEGORY=Special Ability,TYPE.Still Mind	PRETEXT:Base Attack Bonus: +4. Skills: Concentration 9 ranks. Manifesting: Power point reserve of at least 2. Special: Still mind class feature.
+CLASS:Zerth Cenobite	STARTSKILLPTS:4	CSKILL:Autohypnosis|Concentration|TYPE=Craft|Escape Artist|Hide|Jump|Knowledge (Psionics)|Knowledge (Religion)|Listen|Move Silently|Psicraft|Sense Motive|Spot|Tumble
+CLASS:Zerth Cenobite	SPELLSTAT:WIS	SPELLTYPE:Psionic	SPELLLIST:1|Psychic Warrior	BONUS:CASTERLEVEL|Zerth Cenobite|CL
+###Block
+1	ABILITY:Zerth Cenobite Class Feature|AUTOMATIC|Zerth Cenobite ~ Power Points/Day		
+1	ABILITY:Zerth Cenobite Class Feature|AUTOMATIC|Zerth Cenobite ~ Powers Known			
+1	ABILITY:Zerth Cenobite Class Feature|AUTOMATIC|Zerth Cenobite ~ Monk Abilities			
+1	ABILITY:Zerth Cenobite Class Feature|AUTOMATIC|Zerth Cenobite ~ Temporal Distillation	
+2	ABILITY:Zerth Cenobite Class Feature|AUTOMATIC|Zerth Cenobite ~ Backslip				
+3	ABILITY:Zerth Cenobite Class Feature|AUTOMATIC|Zerth Cenobite ~ Timeless Step			
+7	ABILITY:Zerth Cenobite Class Feature|AUTOMATIC|Zerth Cenobite ~ Precognition			
+8	ABILITY:Zerth Cenobite Class Feature|AUTOMATIC|Zerth Cenobite ~ Temporal Strike		
+9	ABILITY:Zerth Cenobite Class Feature|AUTOMATIC|Zerth Cenobite ~ Precognitive Surge		
+10	ABILITY:Zerth Cenobite Class Feature|AUTOMATIC|Zerth Cenobite ~ Timeless Body			
+###Block	(Using the Text instead of the table: At 1st level, you know one psychic warrior power of your choice. Each time you attain a new level, you learn one new power.)
+1	KNOWN:0,1
+2	KNOWN:0,2
+3	KNOWN:0,3
+4	KNOWN:0,3,1
+5	KNOWN:0,3,2
+6	KNOWN:0,3,3
+7	KNOWN:0,3,3,1
+8	KNOWN:0,3,3,2
+9	KNOWN:0,3,3,3
+10	KNOWN:0,3,3,3,1
+###Block
+11	PREPCLEVEL:MIN=20
