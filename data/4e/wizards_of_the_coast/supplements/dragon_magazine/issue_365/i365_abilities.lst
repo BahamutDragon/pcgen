@@ -1,5 +1,29 @@
 # CVS $Revision: $ $Author: $ -- Sun Dec  8 22:17:49 2013 -- reformated by prettylst.pl v1.50 (build 22352)
+SOURCELONG:Dragon Magazine, Issue 365	SOURCESHORT:DM364	SOURCEWEB:http://www.wizards.com/welcome.asp	SOURCEDATE:2008-07
 
+#Class Skill Bonuses		CATEGORY:Special Ability	TYPE:Class	VISIBLE:YES	DEFINE:ClassSkills|0
+#Artificer First Level		CATEGORY:First Level		TYPE:Artificer.FirstLv	VISIBLE:NO	PREMULT:1,[!PREABILITY:1,CATEGORY=First Level,ALL],[PREABILITY:1,CATEGORY=First Level,TYPE=Artificer]
+
+###Block: Skill Training
+# Ability Name								Category of Ability		Type					Visible	Description																																																																																				Automatically Gained Feat																Ability
+CATEGORY=Skill Training|Trained Skill (Arcana).MOD							TYPE:Artificer
+CATEGORY=Skill Training|Trained Skill (Diplomacy).MOD							TYPE:Artificer
+CATEGORY=Skill Training|Trained Skill (Dungeoneering).MOD						TYPE:Artificer
+CATEGORY=Skill Training|Trained Skill (Heal).MOD							TYPE:Artificer
+CATEGORY=Skill Training|Trained Skill (History).MOD							TYPE:Artificer
+CATEGORY=Skill Training|Trained Skill (Perception).MOD						TYPE:Artificer
+CATEGORY=Skill Training|Trained Skill (Thievery).MOD							TYPE:Artificer
+
+Artificer Proficiencies							CATEGORY:Special Ability	TYPE:Class Ability.Artificer	VISIBLE:NO																																																																																						AUTO:FEAT|Simple Melee Weapons|Simple Ranged Weapons	AUTO:FEAT|Armor Proficiency (Cloth)|Armor Proficiency (Leather)
+Artificer Abilities							CATEGORY:Special Ability	TYPE:Class Ability.Artificer	VISIBLE:NO																																																																																						AUTO:FEAT|Ritual Caster																	ABILITY:Special Ability|AUTOMATIC|Orb Implement|Rod Implement|Staff Implement|Wand Implement
+Artificer Features							CATEGORY:Special Ability	TYPE:Class Feature.Artificer	VISIBLE:NO																																																																																																										ABILITY:Power|AUTOMATIC|Curative Admixture|Repair Object|Restorative Formula
+
+Healer's Lore								CATEGORY:Special Ability		TYPE:Cleric				VISIBLE:YES	DESC:Add +%1 to the number of hit points regained whenever you use healing power.|max(WIS,0)
+Arcane Replenishment							CATEGORY:Special Ability		TYPE:Class Feature.Artificer	VISIBLE:YES	DESC:Your study of magic items has given you the ability to manipulate the power contained within such objects. You can restore energy drained from a magic item. During a short rest, you can recharge an item's daily power. You can recharge an item that has a level less than or equal to your level + your Intelligence modifier. You can use arcane replenishment once per day, plus you gain one additional use for each milestone you reach. An item can be recharged by arcane replenishment only once per day.
+Components									CATEGORY:Special Ability		TYPE:Class Feature.Artificer	VISIBLE:YES	DESC:Your weapons, implements, and other gear are inscribed with runes and mystic patterns. You carry esoteric reagents and materials, along with tiny crafted objects that you use to create your artifices (see below). Eventually, you also pack a large number of magic items. If you don't have what you need, you can transmute mundane materials into components. After an extended rest, you craft, imbue, or prepare the objects and compounds you need to use your powers for the day.
+Healing Infusion								CATEGORY:Special Ability		TYPE:Class Feature.Artificer	VISIBLE:YES	DESC:The artificer's Healing Infusion class feature works like a power. The Healing Infusion class feature encompasses multiple powers. An artificer can access powers from this class feature twice per encounter. At 16th level, you can access powers from this class feature three times per encounter.
+
+###Block: Powers
 # Ability Name			Category of Ability	Type															Var. Min. Value			Description																																Aspects
 Restorative Formula		CATEGORY:Power		TYPE:Class Feature.Artificer.Healing Infusion.Encounter.(Special).Arcane.Healing		PREVARGTEQ:ArtificerLVL,1	DESC:You breathe arcane energy into a special mixture of restorative compounds. You then blow that mixture into the air, focusing it on someone in need.								ASPECT:Action Type|Minor Action	ASPECT:Attack Type|Close burst 5 (10 at 11th level, 15 at 21st level)	ASPECT:Target|You or one ally in burst	ASPECT:Effect|The target can spend a healing surge and regain an additional 1d6 hit points.	ASPECT:Increase|the amount of additional hit points regained to 2d6 at 6th level, 3d6 at 11th level, 4d6 at 16th level, 5d6 at 21st level, and 6d6 at 26th level.	ASPECT:Special|You can use a healing infusion power twice per encounter, but only once per round. At 16th level, you can use a healing infusion power three times per encounter, but only once per round.
 Curative Admixture		CATEGORY:Power		TYPE:Class Feature.Artificer.Healing Infusion.Encounter.(Special).Arcane			PREVARGTEQ:ArtificerLVL,1	DESC:Casting your restorative compound into the air, you create a cloud that you infuse with arcane energy to bolster you and your comrades.										ASPECT:Action Type|Minor Action	ASPECT:Attack Type|Close burst 5 (10 at 11th level, 15 at 21st level)	ASPECT:Targets|You and each ally in burst	ASPECT:Effect|Each target can spend a healing surge to gain temporary hit points equal to your Constitution modifier + 1.	ASPECT:Increase|the amount of temporary hit points gained to Constitution modifier + 2 at 6th level, Constitution modifier + 3 at 11th level, Constitution modifier + 4 at 16th level, Constitution modifier + 5 at 21st level, and Constitution modifier + 6 at 27th level.	ASPECT:Special|You can use a healing infusion power twice per encounter, but only once per round. At 16th level, you can use a healing infusion power three times per encounter, but only once per round.
