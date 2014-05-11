@@ -32,9 +32,12 @@ Two methods exist to get the content onto your system.
    1) The easier method is to use the GITHUB download option <https://github.com/BahamutDragon/pcgen/archive/master.zip> Save the zip folder to your data folder of choice. Unzip. Enjoy. 
    2) The bestter method is to install GIT and a GIT Client, and then pull the repo into your valid data folder. This allows easy updates when they happen. (Saves bandwidth since you only download changes, not the whole repo). I use this method to allow testing, uploads and downloads.
 
-Links for Git a client -
-   SSH: <git@github.com:BahamutDragon/pcgen.git>
-   HTTPS: <https://github.com/BahamutDragon/pcgen.git>
+==
+Links for Git a client:
+
+   SSH: git@github.com:BahamutDragon/pcgen.git
+
+   HTTPS: https://github.com/BahamutDragon/pcgen.git
 
 Link for SVN client -
    SVN: <https://github.com/BahamutDragon/pcgen>
