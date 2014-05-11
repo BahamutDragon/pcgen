@@ -16,7 +16,6 @@ Utility Power Switch	CATEGORY:Power		TYPE:UtilitySwitch	DESC:This is a reminder 
 
 ###Block: Racial Traits	Placeholder
 # Ability Name			Category of Ability
-Race Features ~ Dragonborn	CATEGORY:Internal
 Race Features ~ Dwarf		CATEGORY:Internal
 Race Features ~ Eladrin		CATEGORY:Internal
 Race Features ~ Elf		CATEGORY:Internal
@@ -859,12 +858,37 @@ Elven Accuracy	CATEGORY:Power		TYPE:Race.Elf Racial Power.Encounter				DESC:With
 Second Chance	CATEGORY:Power		TYPE:Race.Halfling Racial Power.Encounter				DESC:Luck and small size combine to work in your favor as you dodge your enemy's attack.						ASPECT:NAME|Elven Accuracy	ASPECT:Action Type|Immediate Interrupt	ASPECT:Attack Type|Personal	ASPECT:Target|Personal	ASPECT:Effect|When an attack hits you, force an enemy to roll the attack again. The enemy uses the second roll, even if it's lower.
 Infernal Wrath	CATEGORY:Power		TYPE:Race.Tiefling Racial Power.Encounter				DESC:You call upon your furious nature to improve your odds of harming your foe.							ASPECT:NAME|Infernal Wrath	ASPECT:Action Type|Minor Action	ASPECT:Attack Type|Personal	ASPECT:Target|Personal	ASPECT:Effect|You can channel your fury to gain a +1 power bonus to your next attack roll against an enemy that hit you since your last turn. If your attack hits and deals damage, add your Charisma modifier as extra damage.
 
-Breath Weapon	KEY:Dragonborn Breath Weapon ~ Base			CATEGORY:Power			TYPE:Breath Weapon.Racial	ASPECT:Action|Minor	ASPECT:Area|Close blast 3	ASPECT:Power|Strength+2 vs. Reflex	DESC:%1d6+%2 damage.|(1+floor((TL-1)/10))|CON
-Fire		KEY:Dragonborn Breath Weapon ~ Fire			CATEGORY:Power			TYPE:Breath Weapon.Racial	ASPECT:Action|Minor	ASPECT:Area|Close blast 3	ASPECT:Power|Strength+2 vs. Reflex	DESC:%1d6+%2 damage.|(1+floor((TL-1)/10))|CON
-Cold		KEY:Dragonborn Breath Weapon ~ Cold			CATEGORY:Power			TYPE:Breath Weapon.Racial	ASPECT:Action|Minor	ASPECT:Area|Close blast 3	ASPECT:Power|Strength+2 vs. Reflex	DESC:%1d6+%2 damage.|(1+floor((TL-1)/10))|CON
-Electricity	KEY:Dragonborn Breath Weapon ~ Electricity	CATEGORY:Power			TYPE:Breath Weapon.Racial	ASPECT:Action|Minor	ASPECT:Area|Close blast 3	ASPECT:Power|Strength+2 vs. Reflex	DESC:%1d6+%2 damage.|(1+floor((TL-1)/10))|CON
 
+Race Features ~ Dragonborn	CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=DragonbornRaceTrait
 
+Dragon Breath	KEY:Dragonborn ~ Dragon Breath	BONUS:ABILITYPOOL|Dragonborn Dragon Breath Damage|1	BONUS:ABILITYPOOL|Dragonborn Dragon Breath Attack|1		CATEGORY:Power	TYPE:Breath Weapon.Racial.Class Feature		ASPECT:Power Type|Dragonborn Racial Power	ASPECT:Power Use|Encounter		ASPECT:Power Use| + Acid|PREABILITY:1,CATEGORY=Internal,Dragonborn Breath Weapon Damage ~ Acid	ASPECT:Power Use| + Cold|PREABILITY:1,CATEGORY=Internal,Dragonborn Breath Weapon Damage ~ Cold	ASPECT:Power Use| + Fire|PREABILITY:1,CATEGORY=Internal,Dragonborn Breath Weapon Damage ~ Fire	ASPECT:Power Use| + Lightning|PREABILITY:1,CATEGORY=Internal,Dragonborn Breath Weapon Damage ~ Lightning	ASPECT:Power Use| + Poison|PREABILITY:1,CATEGORY=Internal,Dragonborn Breath Weapon Damage ~ Poison	ASPECT:Effect|As you open your mouth with a roar, the deadly power of your draconic kin blasts forth to engulf your foes.	ASPECT:Action Type|Minor		ASPECT:Attack Type|Close blast 3		ASPECT:Attack|Strength|PREABILITY:1,CATEGORY=Internal,Dragonborn Breath Weapon Attack ~ Strength	ASPECT:Attack|Dexterity|PREABILITY:1,CATEGORY=Internal,Dragonborn Breath Weapon Attack ~ Dexterity	ASPECT:Attack|Constitution|PREABILITY:1,CATEGORY=Internal,Dragonborn Breath Weapon Attack ~ Constitution	ASPECT:Attack| + 2 vs. Reflex		ASPECT:Hit|%1d6+%2 damage.|(1+floor((TL-1)/10))|CON
+#
+Dragonborn Breath Weapon Damage ~ Acid		CATEGORY:Internal	TYPE:DragonbornBreathWeaponDamage
+Dragonborn Breath Weapon Damage ~ Cold		CATEGORY:Internal	TYPE:DragonbornBreathWeaponDamage
+Dragonborn Breath Weapon Damage ~ Fire		CATEGORY:Internal	TYPE:DragonbornBreathWeaponDamage
+Dragonborn Breath Weapon Damage ~ Lightning	CATEGORY:Internal	TYPE:DragonbornBreathWeaponDamage
+Dragonborn Breath Weapon Damage ~ Poison		CATEGORY:Internal	TYPE:DragonbornBreathWeaponDamage
+#
+Dragonborn Breath Weapon Attack ~ Strength	CATEGORY:Internal	TYPE:DragonbornBreathWeaponAttack
+Dragonborn Breath Weapon Attack ~ Constitution	CATEGORY:Internal	TYPE:DragonbornBreathWeaponAttack
+Dragonborn Breath Weapon Attack ~ Dexterity	CATEGORY:Internal	TYPE:DragonbornBreathWeaponAttack
 
+Dragonborn Fury	KEY:Dragonborn ~ Dragonborn Fury	SOURCEPAGE:p.34	CATEGORY:Special Ability	TYPE:RaceTrait.DragonbornRaceTrait.SpecialQuality	DESC:When you're bloodied, you gain a +1 racial bonus to attack rolls.
+Draconic Heritage	KEY:Dragonborn ~ Draconic Heritage	SOURCEPAGE:p.34	CATEGORY:Special Ability	TYPE:RaceTrait.DragonbornRaceTrait.SpecialQuality	DESC:Your healing surge value is equal to one-quarter of your maximum hit points + your Constitution modifier.
+Dragon Breath	KEY:Dragonborn ~ Dragon Breath	SOURCEPAGE:p.34	CATEGORY:Special Ability	TYPE:RaceTrait.DragonbornRaceTrait.SpecialQuality	DESC:You can use dragon breath as an encounter power.	ABILITY:Power|AUTOMATIC|Dragonborn ~ Dragon Breath
 
-
+# Cheat Sheet for Powers
+#	CATEGORY:Power
+#	TYPE:Class Feature
+#	ASPECT.Power Type
+#	ASPECT.Power Use
+#	ASPECT.Action Type
+#	ASPECT.Special
+#	ASPECT.Trigger
+#	ASPECT.Target
+#	ASPECT.Attack Type
+#	ASPECT.Attack
+#	ASPECT.Hit
+#	ASPECT.Miss
+#	ASPECT.Effect
+#	ASPECT.Sustain
