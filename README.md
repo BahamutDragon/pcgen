@@ -37,11 +37,11 @@ Save the zip folder to your data folder of choice. Unzip. Enjoy.
 
 ==
 ####Links for Git a client:
-* ([SSH:]git@github.com:BahamutDragon/pcgen.git)
-* ([HTTPS:]https://github.com/BahamutDragon/pcgen.git)
+* [SSH:](git@github.com:BahamutDragon/pcgen.git)
+* [HTTPS:](https://github.com/BahamutDragon/pcgen.git)
 
 ####Link for SVN client 
-* ([SVN:]https://github.com/BahamutDragon/pcgen)
+* [SVN:](https://github.com/BahamutDragon/pcgen)
 
 Note: Additional folders are also provided that are not DATA content. These will need to be copied to the correct correlating pcgen folders to get the full benefit of additional options such as gamemodes, outputsheets, previews, etc. Leaving them in the data folder will not cause any issues.
 
