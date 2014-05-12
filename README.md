@@ -2,9 +2,9 @@
 PCGEN
 =
 
-Updated: 2014-05-11
+######Updated: 2014-05-11
 ==========================
-PCGen Data Sets & Homebrew
+#####PCGen Data Sets & Homebrew
 
 Mates! This is for my growing collection of PCGen compatible books (Mostly Closed Content). PCGen the program can be found at this link (http://pcgen.org)
 
@@ -24,23 +24,24 @@ I'm willing to collaborate with anyone desiring to grow this collection of mine.
 I also made a discussion group for homebrewers, share ideas and of course make requests -- http://games.groups.yahoo.com/group/bd_games/
 
 
-HOW TO USE THIS CONTENT:
+###HOW TO USE THIS CONTENT:
 
 These Book data sets are not meant to be "Installed" using the Install feature in PCGen. Instead, you can drop them as is into a pcgen valid data folder of your choosing. I highly recommend using 'Vendor Data' (any version of pcgen) or Homebrew Data (new in 6.3) folders outside the main installation, makes upgrading your pcgen version easier.
 
 Two methods exist to get the content onto your system.
-   1) The easier method is to use the GITHUB download option <https://github.com/BahamutDragon/pcgen/archive/master.zip> Save the zip folder to your data folder of choice. Unzip. Enjoy. 
-   2) The bestter method is to install GIT and a GIT Client, and then pull the repo into your valid data folder. This allows easy updates when they happen. (Saves bandwidth since you only download changes, not the whole repo). I use this method to allow testing, uploads and downloads.
+
+1) The easier method is to use the GITHUB download option ([Download]https://github.com/BahamutDragon/pcgen/archive/master.zip)
+Save the zip folder to your data folder of choice. Unzip. Enjoy. 
+
+   2) The better method is to install GIT and a GIT Client, and then pull the repo into your valid data folder. This allows easy updates when they happen. (Saves bandwidth since you only download changes, not the whole repo). I use this method to allow testing, uploads and downloads.
 
 ==
-Links for Git a client:
+####Links for Git a client:
+* ([SSH:]git@github.com:BahamutDragon/pcgen.git)
+* ([HTTPS:]https://github.com/BahamutDragon/pcgen.git)
 
-   SSH: git@github.com:BahamutDragon/pcgen.git
-
-   HTTPS: https://github.com/BahamutDragon/pcgen.git
-
-Link for SVN client -
-   SVN: <https://github.com/BahamutDragon/pcgen>
+####Link for SVN client 
+* ([SVN:]https://github.com/BahamutDragon/pcgen)
 
 Note: Additional folders are also provided that are not DATA content. These will need to be copied to the correct correlating pcgen folders to get the full benefit of additional options such as gamemodes, outputsheets, previews, etc. Leaving them in the data folder will not cause any issues.
 
