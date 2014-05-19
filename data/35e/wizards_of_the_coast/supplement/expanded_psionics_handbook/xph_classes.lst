@@ -6,24 +6,17 @@ CLASS:Psion		HD:4		TYPE:Base.Psionic.PC	CLASSTYPE:PC	ALLOWBASECLASS:NO		SOURCEPA
 # Class Name	Skill Pts/Lvl
 CLASS:Psion		STARTSKILLPTS:2
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
-CLASS:Psion		SPELLSTAT:INT	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Psion|CL
+CLASS:Psion		SPELLSTAT:INT	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Psion|CL		ABILITY:Internal|AUTOMATIC|Psion ~ Seer|PRESUBCLASS:1,Seer	ABILITY:Internal|AUTOMATIC|Psion ~ Kineticist|PRESUBCLASS:1,Kineticist	ABILITY:Internal|AUTOMATIC|Psion ~ Nomad|PRESUBCLASS:1,Nomad	ABILITY:Internal|AUTOMATIC|Psion ~ Seer|PRESUBCLASS:1,Seer	ABILITY:Internal|AUTOMATIC|Psion ~ Shaper|PRESUBCLASS:1,Shaper	ABILITY:Internal|AUTOMATIC|Psion ~ Telepath|PRESUBCLASS:1,Telepath
 ###COMMENT:
 SUBCLASS:Egoist		COST:0	PROHIBITCOST:0	SPELLLIST:1|Psion	DEFINE:PsionicSeer|1		CSKILL:Concentration|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Psicraft|Autohypnosis|Balance|Heal
-#SUBCLASS:Egoist		CHOICE:SCHOOL|Psychometabolism
 SUBCLASS:Kineticist	COST:0	PROHIBITCOST:0	SPELLLIST:1|Psion	DEFINE:PsionicKineticist|1	CSKILL:Concentration|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Psicraft|Autohypnosis|Disable Device|Intimidate
-#SUBCLASS:Kineticist	CHOICE:SCHOOL|Psychokinesis
 SUBCLASS:Nomad		COST:0	PROHIBITCOST:0	SPELLLIST:1|Psion	DEFINE:PsionicNomad|1		CSKILL:Concentration|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Psicraft|Climb|Jump|Ride|Survival|Swim
-#SUBCLASS:Nomad		CHOICE:SCHOOL|Psychoportation
 SUBCLASS:Seer		COST:0	PROHIBITCOST:0	SPELLLIST:1|Psion	DEFINE:PsionicSeer|1		CSKILL:Concentration|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Psicraft|Gather Information|Listen|Spot
-#SUBCLASS:Seer		CHOICE:SCHOOL|Clairsentience
 SUBCLASS:Shaper		COST:0	PROHIBITCOST:0	SPELLLIST:1|Psion	DEFINE:PsionicShaper|1		CSKILL:Concentration|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Psicraft|Bluff|Disguise|Use Psionic Device
-#SUBCLASS:Shaper		CHOICE:SCHOOL|Metacreativity
 SUBCLASS:Telepath		COST:0	PROHIBITCOST:0	SPELLLIST:1|Psion	DEFINE:PsionicTelepath|1	CSKILL:Concentration|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Psicraft|Bluff|Diplomacy|Gather Information|Sense Motive
-#SUBCLASS:Telepath	CHOICE:SCHOOL|Telepathy
-###Block:Proficiencies
+###Block
 1	ABILITY:Psion Class Feature|AUTOMATIC|Psion ~ Weapon and Armor Proficiency
 1	ABILITY:Psion Class Feature|AUTOMATIC|Psion ~ Power Points/Day|Psion ~ Discipline|Psion ~ Powers Known|Psion ~ Maximum Power Level Known|Psion ~ Bonus Feats
-
 ###Block: Psionic subtype, BasePowerPoints, BonusPowerPoints
 # TEMPLATE:Psionic qualifies the character for Psionic only items and feats and DEFINES base and bonus power points.
 # due to the use of "BL=Psion" (which provides the bonus caster levels applied to Psion) there are no
@@ -74,7 +67,6 @@ CLASS:Psychic Warrior	SPELLSTAT:WIS	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLE
 1	BONUS:VAR|BasePowerPoints|8|PREVARGTEQ:PsychicWarriorML,13	BONUS:VAR|BasePowerPoints|8|PREVARGTEQ:PsychicWarriorML,14	BONUS:VAR|BasePowerPoints|8|PREVARGTEQ:PsychicWarriorML,15	BONUS:VAR|BasePowerPoints|12|PREVARGTEQ:PsychicWarriorML,16
 1	BONUS:VAR|BasePowerPoints|12|PREVARGTEQ:PsychicWarriorML,17	BONUS:VAR|BasePowerPoints|12|PREVARGTEQ:PsychicWarriorML,18	BONUS:VAR|BasePowerPoints|12|PREVARGTEQ:PsychicWarriorML,19	BONUS:VAR|BasePowerPoints|12|PREVARGTEQ:PsychicWarriorML,20
 1	BONUS:VAR|BonusPowerPoints|(WIS*PsychicWarriorML)/2|TYPE=PsychicWarriorBonusPP
-
 ###Block: Class Info
 1	KNOWN:0,1			BONUS:ABILITYPOOL|Psychic Warrior Feat|((CL+1)/3)+1
 2	KNOWN:0,2
