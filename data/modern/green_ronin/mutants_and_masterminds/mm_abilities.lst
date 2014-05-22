@@ -1,0 +1,211 @@
+
+Default	CATEGORY:Internal	BONUS:ABILITYPOOL|Power Point|Power_Points	DEFINE:StatBase|0	BONUS:VAR|StatBase|10|TYPE=Base	TEMPLATE:Power_Level
+###Block: This locks the Stats right from the start
+CATEGORY=Internal|Default.MOD	DEFINESTAT:LOCK|STR|StatBase
+CATEGORY=Internal|Default.MOD	DEFINESTAT:LOCK|DEX|StatBase
+CATEGORY=Internal|Default.MOD	DEFINESTAT:LOCK|CON|StatBase
+CATEGORY=Internal|Default.MOD	DEFINESTAT:LOCK|INT|StatBase
+CATEGORY=Internal|Default.MOD	DEFINESTAT:LOCK|WIS|StatBase
+CATEGORY=Internal|Default.MOD	DEFINESTAT:LOCK|CHA|StatBase
+
+###Block: Power Cost Expenditures
+
+# Ability Score
+Increase Strength +1			KEY:Power Point Cost ~ Increase STR	SORTKEY:Basic	TYPE:Power Purchase.Basic	CATEGORY:Power	BONUS:LOCKEDSTAT|STR|1	CHOOSE:NOCHOICE	MULT:YES	STACK:YES
+Increase Dexterity +1			KEY:Power Point Cost ~ Increase DEX	SORTKEY:Basic	TYPE:Power Purchase.Basic	CATEGORY:Power	BONUS:LOCKEDSTAT|DEX|1	CHOOSE:NOCHOICE	MULT:YES	STACK:YES
+Increase Constitution +1		KEY:Power Point Cost ~ Increase CON	SORTKEY:Basic	TYPE:Power Purchase.Basic	CATEGORY:Power	BONUS:LOCKEDSTAT|CON|1	CHOOSE:NOCHOICE	MULT:YES	STACK:YES
+Increase Intelligence +1		KEY:Power Point Cost ~ Increase INT	SORTKEY:Basic	TYPE:Power Purchase.Basic	CATEGORY:Power	BONUS:LOCKEDSTAT|INT|1	CHOOSE:NOCHOICE	MULT:YES	STACK:YES
+Increase Wisdom +1			KEY:Power Point Cost ~ Increase WIS	SORTKEY:Basic	TYPE:Power Purchase.Basic	CATEGORY:Power	BONUS:LOCKEDSTAT|WIS|1	CHOOSE:NOCHOICE	MULT:YES	STACK:YES
+Increase Charisma +1			KEY:Power Point Cost ~ Increase CHA	SORTKEY:Basic	TYPE:Power Purchase.Basic	CATEGORY:Power	BONUS:LOCKEDSTAT|CHA|1	CHOOSE:NOCHOICE	MULT:YES	STACK:YES
+
+# Attack Bonus
+Increase Attack Bonus +1	COST:3	KEY:Power Point Cost ~ Increase Attack Bonus	SORTKEY:Basic	TYPE:Power Purchase.Basic	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:COMBAT|BAB|1					PREVARLT:BAB,Max_Attack_Bonus
+
+# Defense Bonus
+Increase Defense Bonus +1	COST:2	KEY:Power Point Cost ~ Increase Defense Bonus	SORTKEY:Basic	TYPE:Power Purchase.Basic	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:COMBAT|AC|1|TYPE=ClassDefense	BONUS:VAR|DefenseBonusTaken|1	DEFINE:DefenseBonusTaken|0		PREVARLT:DefenseBonusTaken,Max_Defense_Bonus
+
+# Skill Ranks
+Increase Skill Ranks +1			KEY:Power Point Cost ~ Increase Skill Ranks	SORTKEY:Basic	TYPE:Power Purchase.Basic	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:ABILITYPOOL|Skill|1	
+
+# Feats
+Add Feat +1			COST:2		KEY:Power Point Cost ~ Add Feat	SORTKEY:Basic	TYPE:Power Purchase.Basic	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:ABILITYPOOL|Feat|1
+
+# Weakness
+Berserker		COST:0	KEY:Weakness ~ Berserker			SORTKEY:WEAKNESS	TYPE:Power Purchase.Weakness	CATEGORY:Power	BONUS:VAR|Power_Points|10|TYPE=Weakness.STACK
+Disabled		COST:0	KEY:Weakness ~ Disabled				SORTKEY:WEAKNESS	TYPE:Power Purchase.Weakness	CATEGORY:Power	BONUS:VAR|Power_Points|10|TYPE=Weakness.STACK
+Disturbing		COST:0	KEY:Weakness ~ Disturbing			SORTKEY:WEAKNESS	TYPE:Power Purchase.Weakness	CATEGORY:Power	BONUS:VAR|Power_Points|10|TYPE=Weakness.STACK
+Naive			COST:0	KEY:Weakness ~ Naive				SORTKEY:WEAKNESS	TYPE:Power Purchase.Weakness	CATEGORY:Power	BONUS:VAR|Power_Points|10|TYPE=Weakness.STACK
+Quirk			COST:0	KEY:Weakness ~ Quirk				SORTKEY:WEAKNESS	TYPE:Power Purchase.Weakness	CATEGORY:Power	BONUS:VAR|Power_Points|10|TYPE=Weakness.STACK
+Susceptible		COST:0	KEY:Weakness ~ Susceptible			SORTKEY:WEAKNESS	TYPE:Power Purchase.Weakness	CATEGORY:Power	BONUS:VAR|Power_Points|10|TYPE=Weakness.STACK
+Transformation	COST:0	KEY:Weakness ~ Transformation			SORTKEY:WEAKNESS	TYPE:Power Purchase.Weakness	CATEGORY:Power	BONUS:VAR|Power_Points|10|TYPE=Weakness.STACK
+Unlucky		COST:0	KEY:Weakness ~ Unlucky				SORTKEY:WEAKNESS	TYPE:Power Purchase.Weakness	CATEGORY:Power	BONUS:VAR|Power_Points|10|TYPE=Weakness.STACK
+Vulnerable		COST:0	KEY:Weakness ~ Vulnerable			SORTKEY:WEAKNESS	TYPE:Power Purchase.Weakness	CATEGORY:Power	BONUS:VAR|Power_Points|10|TYPE=Weakness.STACK
+
+
+
+###Block: Purchase Powers
+Absorption					COST:3	PREVARLT:skillinfo("TOTALRANK","Absorption"),Max_Power_Rank			SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Absorption|1
+Alternate Form				COST:5	PREVARLT:skillinfo("TOTALRANK","Alternate Form"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Alternate Form|1
+Amazing Save				COST:1	PREVARLT:skillinfo("TOTALRANK","Amazing Save"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Amazing Save|1
+Animation					COST:2	PREVARLT:skillinfo("TOTALRANK","Animation"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Animation|1
+Armor						COST:1	PREVARLT:skillinfo("TOTALRANK","Armor"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Armor|1
+Astral Projection				COST:5	PREVARLT:skillinfo("TOTALRANK","Astral Projection"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Astral Projection|1
+Blending					COST:1	PREVARLT:skillinfo("TOTALRANK","Blending"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Blending|1
+Boost						COST:2	PREVARLT:skillinfo("TOTALRANK","Boost"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Boost|1
+Clinging					COST:1	PREVARLT:skillinfo("TOTALRANK","Clinging"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Clinging|1
+Combat Sense				COST:1	PREVARLT:skillinfo("TOTALRANK","Combat Sense"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Combat Sense|1
+Comprehend					COST:2	PREVARLT:skillinfo("TOTALRANK","Comprehend"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Comprehend|1
+Corrosion					COST:1	PREVARLT:skillinfo("TOTALRANK","Corrosion"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Corrosion|1
+Cosmic Power				COST:8	PREVARLT:skillinfo("TOTALRANK","Cosmic Power"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Cosmic Power|1
+Create Object				COST:2	PREVARLT:skillinfo("TOTALRANK","Create Object"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Create Object|1
+Datalink					COST:2	PREVARLT:skillinfo("TOTALRANK","Datalink"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Datalink|1
+Dazzle					COST:2	PREVARLT:skillinfo("TOTALRANK","Dazzle"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Dazzle|1
+Density Control				COST:5	PREVARLT:skillinfo("TOTALRANK","Density Control"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Density Control|1
+Dimensional Travel			COST:2	PREVARLT:skillinfo("TOTALRANK","Dimensional Travel"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Dimensional Travel|1
+Disintegration				COST:2	PREVARLT:skillinfo("TOTALRANK","Disintegration"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Disintegration|1
+Drain						COST:2	PREVARLT:skillinfo("TOTALRANK","Drain"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Drain|1
+Duplication					COST:2	PREVARLT:skillinfo("TOTALRANK","Duplication"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Duplication|1
+Elasticity					COST:4	PREVARLT:skillinfo("TOTALRANK","Elasticity"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Elasticity|1
+Element Control				COST:2	PREVARLT:skillinfo("TOTALRANK","Element Control"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Element Control|1
+Energy Blast				COST:2	PREVARLT:skillinfo("TOTALRANK","Energy Blast"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Energy Blast|1
+Energy Field				COST:2	PREVARLT:skillinfo("TOTALRANK","Energy Field"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Energy Field|1
+ESP						COST:2	PREVARLT:skillinfo("TOTALRANK","Esp"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Esp|1
+Fatigue					COST:2	PREVARLT:skillinfo("TOTALRANK","Fatigue"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Fatigue|1
+Flight					COST:2	PREVARLT:skillinfo("TOTALRANK","Flight"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Flight|1
+Force Field					COST:1	PREVARLT:skillinfo("TOTALRANK","Force Field"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Force Field|1
+Gadgets					COST:1	PREVARLT:skillinfo("TOTALRANK","Gadgets"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Gadgets|1
+Growth					COST:6	PREVARLT:skillinfo("TOTALRANK","Growth"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Growth|1
+Healing					COST:3	PREVARLT:skillinfo("TOTALRANK","Healing"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Healing|1
+Illusion					COST:2	PREVARLT:skillinfo("TOTALRANK","Illusion"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Illusion|1
+Immovability				COST:1	PREVARLT:skillinfo("TOTALRANK","Immovability"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Immovability|1
+Incorporeal					COST:2	PREVARLT:skillinfo("TOTALRANK","Incorporeal"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Incorporeal|1
+Invisibility				COST:2	PREVARLT:skillinfo("TOTALRANK","Invisibility"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Invisibility|1
+Leaping					COST:2	PREVARLT:skillinfo("TOTALRANK","Leaping"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Leaping|1
+Luck						COST:5	PREVARLT:skillinfo("TOTALRANK","Luck"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Luck|1
+Mental Blast				COST:3	PREVARLT:skillinfo("TOTALRANK","Mental Blast"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Mental Blast|1
+Mental Projection				COST:2	PREVARLT:skillinfo("TOTALRANK","Mental Projection"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Mental Projection|1
+Microscopic Vision			COST:1	PREVARLT:skillinfo("TOTALRANK","Microscopic Vision"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Microscopic Vision|1
+Mimic						COST:2	PREVARLT:skillinfo("TOTALRANK","Mimic"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Mimic|1
+Mind Control				COST:2	PREVARLT:skillinfo("TOTALRANK","Mind Control"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Mind Control|1
+Natural Weapon				COST:2	PREVARLT:skillinfo("TOTALRANK","Natural Weapon"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Natural Weapon|1
+Neutralize					COST:2	PREVARLT:skillinfo("TOTALRANK","Neutralize"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Neutralize|1
+Obscure					COST:2	PREVARLT:skillinfo("TOTALRANK","Obscure"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Obscure|1
+Paralysis					COST:2	PREVARLT:skillinfo("TOTALRANK","Paralysis"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Paralysis|1
+Plant Control				COST:2	PREVARLT:skillinfo("TOTALRANK","Plant Control"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Plant Control|1
+Possession					COST:3	PREVARLT:skillinfo("TOTALRANK","Possession"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Possession|1
+Postcognition				COST:3	PREVARLT:skillinfo("TOTALRANK","Postcognition"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Postcognition|1
+Precognition				COST:3	PREVARLT:skillinfo("TOTALRANK","Precognition"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Precognition|1
+Protection					COST:2	PREVARLT:skillinfo("TOTALRANK","Protection"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Protection|1
+Regeneration				COST:2	PREVARLT:skillinfo("TOTALRANK","Regeneration"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Regeneration|1
+Reincarnate					COST:4	PREVARLT:skillinfo("TOTALRANK","Reincarnate"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Reincarnate|1
+Running					COST:2	PREVARLT:skillinfo("TOTALRANK","Running"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Running|1
+Sensory Protections			COST:1	PREVARLT:skillinfo("TOTALRANK","Sensory Protections"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Sensory Protections|1
+Shape Matter				COST:2	PREVARLT:skillinfo("TOTALRANK","Shape Matter"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Shape Matter|1
+Shapeshift					COST:2	PREVARLT:skillinfo("TOTALRANK","Shapeshift"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Shapeshift|1
+Shrinking					COST:2	PREVARLT:skillinfo("TOTALRANK","Shrinking"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Shrinking|1
+Slick						COST:2	PREVARLT:skillinfo("TOTALRANK","Slick"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Slick|1
+Slow						COST:2	PREVARLT:skillinfo("TOTALRANK","Slow"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Slow|1
+Snare						COST:2	PREVARLT:skillinfo("TOTALRANK","Snare"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Snare|1
+Sorcery					COST:7	PREVARLT:skillinfo("TOTALRANK","Sorcery"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Sorcery|1
+Space Flight				COST:2	PREVARLT:skillinfo("TOTALRANK","Space Flight"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Space Flight|1
+Spinning					COST:2	PREVARLT:skillinfo("TOTALRANK","Spinning"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Spinning|1
+Strike					COST:3	PREVARLT:skillinfo("TOTALRANK","Strike"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Strike|1
+Stun						COST:3	PREVARLT:skillinfo("TOTALRANK","Stun"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Stun|1
+Suffocate					COST:3	PREVARLT:skillinfo("TOTALRANK","Suffocate"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Suffocate|1
+Super-Charisma				COST:2	PREVARLT:skillinfo("TOTALRANK","Super-Charisma"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Super-Charisma|1
+Super-Constitution			COST:4	PREVARLT:skillinfo("TOTALRANK","Super-Constitution"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Super-Constitution|1
+Super-Intelligence			COST:4	PREVARLT:skillinfo("TOTALRANK","Super-Intelligence"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Super-Intelligence|1
+Super-Senses				COST:3	PREVARLT:skillinfo("TOTALRANK","Super-Senses"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Super-Senses|1
+Super-Skill					COST:1	PREVARLT:skillinfo("TOTALRANK","Super-Skill"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Super-Skill|1
+Super-Speed					COST:6	PREVARLT:skillinfo("TOTALRANK","Super-Speed"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Super-Speed|1
+Super-Strength				COST:4	PREVARLT:skillinfo("TOTALRANK","Super-Strength"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Super-Strength|1
+Super-Wisdom				COST:3	PREVARLT:skillinfo("TOTALRANK","Super-Wisdom"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Super-Wisdom|1
+Swimming					COST:2	PREVARLT:skillinfo("TOTALRANK","Swimming"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Swimming|1
+Telekinesis					COST:2	PREVARLT:skillinfo("TOTALRANK","Telekinesis"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Telekinesis|1
+Telepathy					COST:2	PREVARLT:skillinfo("TOTALRANK","Telepathy"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Telepathy|1
+Teleportation				COST:2	PREVARLT:skillinfo("TOTALRANK","Teleportation"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Teleportation|1
+Telescopic Sense				COST:1	PREVARLT:skillinfo("TOTALRANK","Telescopic Sense"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Telescopic Sense|1
+Time Control				COST:9	PREVARLT:skillinfo("TOTALRANK","Time Control"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Time Control|1
+Time Travel					COST:2	PREVARLT:skillinfo("TOTALRANK","Time Travel"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Time Travel|1
+Transfer					COST:3	PREVARLT:skillinfo("TOTALRANK","Transfer"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Transfer|1
+Transformation				COST:3	PREVARLT:skillinfo("TOTALRANK","Transformation"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Transformation|1
+Transmutation				COST:3	PREVARLT:skillinfo("TOTALRANK","Transmutation"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Transmutation|1
+Tunneling					COST:2	PREVARLT:skillinfo("TOTALRANK","Tunneling"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Tunneling|1
+Weapon					COST:1	PREVARLT:skillinfo("TOTALRANK","Weapon"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Weapon|1
+Weather Control				COST:2	PREVARLT:skillinfo("TOTALRANK","Weather Control"),Max_Power_Rank	SORTKEY:Power	TYPE:Power Purchase.Power	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Weather Control|1
+
+###Block: Purchase Skills
+Acrobatics					COST:1	PREVARLT:skillinfo("TOTALRANK","Acrobatics"),Max_Skill_Rank	TYPE:Skill Purchase	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Acrobatics|1
+Balance					COST:1	PREVARLT:skillinfo("TOTALRANK","Balance"),Max_Skill_Rank	TYPE:Skill Purchase	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Balance|1
+Bluff						COST:1	PREVARLT:skillinfo("TOTALRANK","Bluff"),Max_Skill_Rank	TYPE:Skill Purchase	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Bluff|1
+Climb						COST:1	PREVARLT:skillinfo("TOTALRANK","Climb"),Max_Skill_Rank	TYPE:Skill Purchase	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Climb|1
+Computers					COST:1	PREVARLT:skillinfo("TOTALRANK","Computers"),Max_Skill_Rank	TYPE:Skill Purchase	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Computers|1
+Concentration				COST:1	PREVARLT:skillinfo("TOTALRANK","Concentration"),Max_Skill_Rank	TYPE:Skill Purchase	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Concentration|1
+Craft (Cooking)				COST:1	PREVARLT:skillinfo("TOTALRANK","Craft (Cooking)"),Max_Skill_Rank	TYPE:Skill Purchase	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Craft (Cooking)|1
+Craft (Carpentry)				COST:1	PREVARLT:skillinfo("TOTALRANK","Craft (Carpentry)"),Max_Skill_Rank	TYPE:Skill Purchase	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Craft (Carpentry)|1
+Craft (Drawing)				COST:1	PREVARLT:skillinfo("TOTALRANK","Craft (Drawing)"),Max_Skill_Rank	TYPE:Skill Purchase	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Craft (Drawing)|1
+Craft (Electronics)			COST:1	PREVARLT:skillinfo("TOTALRANK","Craft (Electronics)"),Max_Skill_Rank	TYPE:Skill Purchase	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Craft (Electronics)|1
+Craft (Magical Items)			COST:1	PREVARLT:skillinfo("TOTALRANK","Craft (Magical Items)"),Max_Skill_Rank	TYPE:Skill Purchase	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Craft (Magical Items)|1
+Craft (Mechanics)				COST:1	PREVARLT:skillinfo("TOTALRANK","Craft (Mechanics)"),Max_Skill_Rank	TYPE:Skill Purchase	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Craft (Mechanics)|1
+Craft (Painting)				COST:1	PREVARLT:skillinfo("TOTALRANK","Craft (Painting)"),Max_Skill_Rank	TYPE:Skill Purchase	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Craft (Painting)|1
+Craft (Sculpting)				COST:1	PREVARLT:skillinfo("TOTALRANK","Craft (Sculpting)"),Max_Skill_Rank	TYPE:Skill Purchase	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Craft (Sculpting)|1
+Craft (Weapon Systems)			COST:1	PREVARLT:skillinfo("TOTALRANK","Craft (Weapon Systems)"),Max_Skill_Rank	TYPE:Skill Purchase	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Craft (Weapon Systems)|1
+Demolitions					COST:1	PREVARLT:skillinfo("TOTALRANK","Demolitions"),Max_Skill_Rank	TYPE:Skill Purchase	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Demolitions|1
+Diplomacy					COST:1	PREVARLT:skillinfo("TOTALRANK","Diplomacy"),Max_Skill_Rank	TYPE:Skill Purchase	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Diplomacy|1
+Disable Device				COST:1	PREVARLT:skillinfo("TOTALRANK","Disable Device"),Max_Skill_Rank	TYPE:Skill Purchase	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Disable Device|1
+Disguise					COST:1	PREVARLT:skillinfo("TOTALRANK","Disguise"),Max_Skill_Rank	TYPE:Skill Purchase	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Disguise|1
+Drive						COST:1	PREVARLT:skillinfo("TOTALRANK","Drive"),Max_Skill_Rank	TYPE:Skill Purchase	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Drive|1
+Escape Artist				COST:1	PREVARLT:skillinfo("TOTALRANK","Escape Artist"),Max_Skill_Rank	TYPE:Skill Purchase	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Escape Artist|1
+Forgery					COST:1	PREVARLT:skillinfo("TOTALRANK","Forgery"),Max_Skill_Rank	TYPE:Skill Purchase	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Forgery|1
+Gather Information			COST:1	PREVARLT:skillinfo("TOTALRANK","Gather Information"),Max_Skill_Rank	TYPE:Skill Purchase	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Gather Information|1
+Handle Animal				COST:1	PREVARLT:skillinfo("TOTALRANK","Handle Animal"),Max_Skill_Rank	TYPE:Skill Purchase	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Handle Animal|1
+Hide						COST:1	PREVARLT:skillinfo("TOTALRANK","Hide"),Max_Skill_Rank	TYPE:Skill Purchase	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Hide|1
+Innuendo					COST:1	PREVARLT:skillinfo("TOTALRANK","Innuendo"),Max_Skill_Rank	TYPE:Skill Purchase	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Innuendo|1
+Intimidate					COST:1	PREVARLT:skillinfo("TOTALRANK","Intimidate"),Max_Skill_Rank	TYPE:Skill Purchase	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Intimidate|1
+Jump						COST:1	PREVARLT:skillinfo("TOTALRANK","Jump"),Max_Skill_Rank	TYPE:Skill Purchase	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Jump|1
+Knowledge (Culture)			COST:1	PREVARLT:skillinfo("TOTALRANK","Knowledge (Culture)"),Max_Skill_Rank	TYPE:Skill Purchase	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Knowledge (Culture)|1
+Knowledge (Geography)			COST:1	PREVARLT:skillinfo("TOTALRANK","Knowledge (Geography)"),Max_Skill_Rank	TYPE:Skill Purchase	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Knowledge (Geography)|1
+Knowledge (History)			COST:1	PREVARLT:skillinfo("TOTALRANK","Knowledge (History)"),Max_Skill_Rank	TYPE:Skill Purchase	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Knowledge (History)|1
+Knowledge (Religion)			COST:1	PREVARLT:skillinfo("TOTALRANK","Knowledge (Religion)"),Max_Skill_Rank	TYPE:Skill Purchase	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Knowledge (Religion)|1
+Knowledge (Trivia)			COST:1	PREVARLT:skillinfo("TOTALRANK","Knowledge (Trivia)"),Max_Skill_Rank	TYPE:Skill Purchase	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Knowledge (Trivia)|1
+Language					COST:1	PREVARLT:skillinfo("TOTALRANK","Language"),Max_Skill_Rank	TYPE:Skill Purchase	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Language|1
+Listen					COST:1	PREVARLT:skillinfo("TOTALRANK","Listen"),Max_Skill_Rank	TYPE:Skill Purchase	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Listen|1
+Medicine					COST:1	PREVARLT:skillinfo("TOTALRANK","Medicine"),Max_Skill_Rank	TYPE:Skill Purchase	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Medicine|1
+Move Silently				COST:1	PREVARLT:skillinfo("TOTALRANK","Move Silently"),Max_Skill_Rank	TYPE:Skill Purchase	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Move Silently|1
+Open Lock					COST:1	PREVARLT:skillinfo("TOTALRANK","Open Lock"),Max_Skill_Rank	TYPE:Skill Purchase	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Open Lock|1
+Perform					COST:1	PREVARLT:skillinfo("TOTALRANK","Perform"),Max_Skill_Rank	TYPE:Skill Purchase	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Perform|1
+Profession (Accountant)			COST:1	PREVARLT:skillinfo("TOTALRANK","Profession (Accountant)"),Max_Skill_Rank	TYPE:Skill Purchase	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Profession (Accountant)|1
+Profession (Doctor)			COST:1	PREVARLT:skillinfo("TOTALRANK","Profession (Doctor)"),Max_Skill_Rank	TYPE:Skill Purchase	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Profession (Doctor)|1
+Profession (Engineer)			COST:1	PREVARLT:skillinfo("TOTALRANK","Profession (Engineer)"),Max_Skill_Rank	TYPE:Skill Purchase	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Profession (Engineer)|1
+Profession (Lawyer)			COST:1	PREVARLT:skillinfo("TOTALRANK","Profession (Lawyer)"),Max_Skill_Rank	TYPE:Skill Purchase	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Profession (Lawyer)|1
+Profession (Police Officer)		COST:1	PREVARLT:skillinfo("TOTALRANK","Profession (Police Officer)"),Max_Skill_Rank	TYPE:Skill Purchase	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Profession (Police Officer)|1
+Profession (Teacher)			COST:1	PREVARLT:skillinfo("TOTALRANK","Profession (Teacher)"),Max_Skill_Rank	TYPE:Skill Purchase	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Profession (Teacher)|1
+Read Lips					COST:1	PREVARLT:skillinfo("TOTALRANK","Read Lips"),Max_Skill_Rank	TYPE:Skill Purchase	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Read Lips|1
+Repair					COST:1	PREVARLT:skillinfo("TOTALRANK","Repair"),Max_Skill_Rank	TYPE:Skill Purchase	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Repair|1
+Ride						COST:1	PREVARLT:skillinfo("TOTALRANK","Ride"),Max_Skill_Rank	TYPE:Skill Purchase	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Ride|1
+Pilot						COST:1	PREVARLT:skillinfo("TOTALRANK","Pilot"),Max_Skill_Rank	TYPE:Skill Purchase	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Pilot|1
+Science (Archeology)			COST:1	PREVARLT:skillinfo("TOTALRANK","Science (Archeology)"),Max_Skill_Rank	TYPE:Skill Purchase	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Science (Archeology)|1
+Science (Biochemistry)			COST:1	PREVARLT:skillinfo("TOTALRANK","Science (Biochemistry)"),Max_Skill_Rank	TYPE:Skill Purchase	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Science (Biochemistry)|1
+Science (Biology)				COST:1	PREVARLT:skillinfo("TOTALRANK","Science (Biology)"),Max_Skill_Rank	TYPE:Skill Purchase	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Science (Biology)|1
+Science (Botany)				COST:1	PREVARLT:skillinfo("TOTALRANK","Science (Botany)"),Max_Skill_Rank	TYPE:Skill Purchase	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Science (Botany)|1
+Science (Chemistry)			COST:1	PREVARLT:skillinfo("TOTALRANK","Science (Chemistry)"),Max_Skill_Rank	TYPE:Skill Purchase	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Science (Chemistry)|1
+Science (Ecology)				COST:1	PREVARLT:skillinfo("TOTALRANK","Science (Ecology)"),Max_Skill_Rank	TYPE:Skill Purchase	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Science (Ecology)|1
+Science (Exobiology)			COST:1	PREVARLT:skillinfo("TOTALRANK","Science (Exobiology)"),Max_Skill_Rank	TYPE:Skill Purchase	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Science (Exobiology)|1
+Science (Genetics)			COST:1	PREVARLT:skillinfo("TOTALRANK","Science (Genetics)"),Max_Skill_Rank	TYPE:Skill Purchase	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Science (Genetics)|1
+Science (Geology)				COST:1	PREVARLT:skillinfo("TOTALRANK","Science (Geology)"),Max_Skill_Rank	TYPE:Skill Purchase	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Science (Geology)|1
+Science (Mathematics)			COST:1	PREVARLT:skillinfo("TOTALRANK","Science (Mathematics)"),Max_Skill_Rank	TYPE:Skill Purchase	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Science (Mathematics)|1
+Science (Metallurgy)			COST:1	PREVARLT:skillinfo("TOTALRANK","Science (Metallurgy)"),Max_Skill_Rank	TYPE:Skill Purchase	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Science (Metallurgy)|1
+Science (Nuclear Physics)		COST:1	PREVARLT:skillinfo("TOTALRANK","Science (Nuclear Physics)"),Max_Skill_Rank	TYPE:Skill Purchase	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Science (Nuclear Physics)|1
+Science (Physics)				COST:1	PREVARLT:skillinfo("TOTALRANK","Science (Physics)"),Max_Skill_Rank	TYPE:Skill Purchase	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Science (Physics)|1
+Science (Psychology)			COST:1	PREVARLT:skillinfo("TOTALRANK","Science (Psychology)"),Max_Skill_Rank	TYPE:Skill Purchase	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Science (Psychology)|1
+Science (Quantum Physics)		COST:1	PREVARLT:skillinfo("TOTALRANK","Science (Quantum Physics)"),Max_Skill_Rank	TYPE:Skill Purchase	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Science (Quantum Physics)|1
+Science (Robotics)			COST:1	PREVARLT:skillinfo("TOTALRANK","Science (Robotics)"),Max_Skill_Rank	TYPE:Skill Purchase	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Science (Robotics)|1
+Science (Sociology)			COST:1	PREVARLT:skillinfo("TOTALRANK","Science (Sociology)"),Max_Skill_Rank	TYPE:Skill Purchase	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Science (Sociology)|1
+Science (Zoology)				COST:1	PREVARLT:skillinfo("TOTALRANK","Science (Zoology)"),Max_Skill_Rank	TYPE:Skill Purchase	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Science (Zoology)|1
+Search					COST:1	PREVARLT:skillinfo("TOTALRANK","Search"),Max_Skill_Rank	TYPE:Skill Purchase	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Search|1
+Sense Motive				COST:1	PREVARLT:skillinfo("TOTALRANK","Sense Motive"),Max_Skill_Rank	TYPE:Skill Purchase	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Sense Motive|1
+Sleight of Hand				COST:1	PREVARLT:skillinfo("TOTALRANK","Sleight of Hand"),Max_Skill_Rank	TYPE:Skill Purchase	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Sleight of Hand|1
+Spot						COST:1	PREVARLT:skillinfo("TOTALRANK","Spot"),Max_Skill_Rank	TYPE:Skill Purchase	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Spot|1
+Survival					COST:1	PREVARLT:skillinfo("TOTALRANK","Survival"),Max_Skill_Rank	TYPE:Skill Purchase	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Survival|1
+Swim						COST:1	PREVARLT:skillinfo("TOTALRANK","Swim"),Max_Skill_Rank	TYPE:Skill Purchase	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Swim|1
+Taunt						COST:1	PREVARLT:skillinfo("TOTALRANK","Taunt"),Max_Skill_Rank	TYPE:Skill Purchase	CATEGORY:Power	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	BONUS:SKILLRANK|Taunt|1
