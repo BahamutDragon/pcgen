@@ -1,84 +1,28 @@
 
-# Careers
-Bounty Hunter	TYPE:Career	CATEGORY:Career
-Colonist		TYPE:Career	CATEGORY:Career
-Explorer		TYPE:Career	CATEGORY:Career
-Hired Gun		TYPE:Career	CATEGORY:Career
-Smuggler		TYPE:Career	CATEGORY:Career
-Technician		TYPE:Career	CATEGORY:Career
-
-
-
-
-
-Bounty Hunter Career Skill ~ Athletics
-Bounty Hunter Career Skill ~ Brawl
-Bounty Hunter Career Skill ~ Perception
-Bounty Hunter Career Skill ~ Piloting (Planetary)
-Bounty Hunter Career Skill ~ Piloting (Space)
-Bounty Hunter Career Skill ~ Ranged (Heavy)
-Bounty Hunter Career Skill ~ Streetwise
-Bounty Hunter Career Skill ~ Vigilance
-
-
-
-
-
-Colonist Career Skill ~ Charm
-Colonist Career Skill ~ Deception
-Colonist Career Skill ~ Knowledge (Core Worlds)
-Colonist Career Skill ~ Knowledge (Education)
-Colonist Career Skill ~ Knowledge (Lore)
-Colonist Career Skill ~ Leadership
-Colonist Career Skill ~ Negotiation
-Colonist Career Skill ~ Streewise
-
-
-
-
-		
-		
-Explorer Career Skill ~ Astrogation
-Explorer Career Skill ~ Cool
-Explorer Career Skill ~ Knowledge (Lore)
-Explorer Career Skill ~ Knowledge (Xenology)
-Explorer Career Skill ~ Perception
-Explorer Career Skill ~ Piloting (Space)
-Explorer Career Skill ~ Survival
-
-Hired Gun Career Skill ~ Athletics
-Hired Gun Career Skill ~ Brawl
-Hired Gun Career Skill ~ Discipline
-Hired Gun Career Skill ~ Melee
-Hired Gun Career Skill ~ Piloting (Planetary)
-Hired Gun Career Skill ~ Ranged (Light)
-Hired Gun Career Skill ~ Resilience
-Hired Gun Career Skill ~ Vigilance
-
-Smuggler Career Skill ~ Coordination
-Smuggler Career Skill ~ Deception
-Smuggler Career Skill ~ Knowledge (Underworld)
-Smuggler Career Skill ~ Perception
-Smuggler Career Skill ~ Piloting (Space)
-Smuggler Career Skill ~ Skulduggery
-Smuggler Career Skill ~ Streetwise
-Smuggler Career Skill ~ Vigilance
-
-Technician Career Skill ~ Astrogation
-Technician Career Skill ~ Computers
-Technician Career Skill ~ Coordination
-Technician Career Skill ~ Discipline
-Technician Career Skill ~ Knowledge (Outer Rim)
-Technician Career Skill ~ Mechanics
-Technician Career Skill ~ Perception
-Technician Career Skill ~ Piloting (Planetary)
-
+Default	CATEGORY:Internal
+CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Skill Tracker	BONUS:ABILITYPOOL|Career Selection|1	BONUS:ABILITYPOOL|Career Skill Selection|CareerSkillCount|PREABILITY:1,CATEGORY=Career,TYPE.Career	DEFINE:CareerSkillCount|0	BONUS:VAR|CareerSkillCount|4
 
 
 ###Block: Species Abilities:
-Special Abilities	KEY:Droid ~ Special Abilities	CATEGORY:Special Ability	TYPE:Display.SpecialQuality	DESC:Droids do not need to eat, sleep, or breathe, and are unaffected by toxins or poisons. Droids have a cybernetic implant cap of 6 instead of their Brawn rating. In additiona, after selection their career, a Droid Player Character may train one rank in six of the eith career skills (instead of the usual four). After selection their first specialization, a Droid Player Character may train one rank in three of the four specialization skills (instead of the usual two).
+# Droid Subrace selection
+2-1B Surgical Droid		KEY:Droid Subrace ~ Surgical		CATEGORY:Internal	TYPE:DroidSubrace
+3P0 Protocol Droid		KEY:Droid Subrace ~ 3P0 Protocol	CATEGORY:Internal	TYPE:DroidSubrace
+IG Assassin Droid			KEY:Droid Subrace ~ Assassin		CATEGORY:Internal	TYPE:DroidSubrace
+LE-VO Law Enforcement Droid	KEY:Droid Subrace ~ Law Enforcement	CATEGORY:Internal	TYPE:DroidSubrace
+LOM Protocol Droid		KEY:Droid Subrace ~ LOM Protocol	CATEGORY:Internal	TYPE:DroidSubrace
+R-Series Astromech Droid	KEY:Droid Subrace ~ Astromech		CATEGORY:Internal	TYPE:DroidSubrace
+
+###
+Special Abilities	KEY:Droid ~ Special Abilities	CATEGORY:Special Ability	TYPE:Display.SpecialQuality	DESC:Droids do not need to eat, sleep, or breathe, and are unaffected by toxins or poisons. Droids have a cybernetic implant cap of 6 instead of their Brawn rating. In additiona, after selection their career, a Droid Player Character may train one rank in six of the eith career skills (instead of the usual four). After selection their first specialization, a Droid Player Character may train one rank in three of the four specialization skills (instead of the usual two).	BONUS:VAR|CareerSkillCount|2	BONUS:VAR|SpecializationSkillCount|1
 Inorganic		KEY:Droid ~ Inorganic		CATEGORY:Special Ability	TYPE:Display.SpecialQuality	DESC:Since droids are inorganic, the do not gain the benefits of recovering with a bacta tank, stimpack, or Medicine skill checks. Droids do recover naturally by resting, as their systems attempt self-repairs. Otherwise, droids need to be tended to with a Mechnics check, using the same difficulties and results of Medicine checks for organic beings. Emergency repair patches can be used to repair damage just like a stimpack are used on organic beings. See page 220 for more on droid repairs and healing. Due to their resislient metallic construction, drounds stat the game with one rank in the Enduring talent.
 Mechanical Being	KEY:Droid ~ Mechanical Being	CATEGORY:Special Ability	TYPE:Display.SpecialQuality	DESC:Drouds cannot become Force sensitive, nor aquire a Force Rating by any means. Drouds cannot use Force powers, and also cannot be affected by mind-altering Force powers.
+
+Ammonia Breathers		KEY:Gand ~ Ammonia Breathers	CATEGORY:Special Ability	TYPE:Display.SpecialQuality	DESC:One notable difference between the two main sub-species of Gand is that one has lungs and one does not.	BONUS:ABILITYPOOL|Gand Lung Selection|1
+
+Lungs			KEY:Gand ~ Lungs		TYPE:GandLungSelection	DESC:Start the game with an ammonia respirator	BONUS:VAR|Experience|10|TYPE=Species.STACK
+No Lungs		KEY:Gand ~ No Lungs	TYPE:GandLungSelection	DESC:Immune to suffocation
+
+Human Non-Career Skill	CATEGORY:Internal	CHOOSE:SKILL|NONCLASSSKILL	MULT:YES	STACK:NO
 
 
 
@@ -89,3 +33,130 @@ Charm		KEY:Twilek Skill ~ Charm	CATEGORY:Internal	TYPE:TwilekRace		BONUS:SKILLRA
 Deception	KEY:Twilek Skill ~ Deception	CATEGORY:Internal	TYPE:TwilekRace	BONUS:SKILLRANK|Deception|1|TYPE=Species
 
 Wookie Rage		KEY:Wookie ~ Wookie Rage	CATEGORY:Special Ability	TYPE:Display.SpecialQuality	DESC:When a Wookiee has suffered any wounds, he deals + 1 damage to Brawl and Melee attacks. When a Wookiee is Critically Injured, he instead deals + 2 damage to Brawl and Melee attacks.
+
+
+Career Skill Selection		CATEGORY:Internal	TYPE:CareerSkillSelect		CHOOSE:ABILITY=Career Skill|PC,TYPE=Career Skill		MULT:YES	STACK:NO
+Specialty Skill Selection	CATEGORY:Internal	TYPE:SpecialtySkillSelect	CHOOSE:ABILITY=Career Skill|PC,TYPE=Specialization Skill	MULT:YES	STACK:NO
+
+
+###Block: Careers
+Bounty Hunter	TYPE:Career	CATEGORY:Career	ABILITY:Career Skill|AUTOMATIC|Career Skill ~ Athletics|Career Skill ~ Brawl|Career Skill ~ Perception|Career Skill ~ Piloting (Planetary)|Career Skill ~ Piloting (Space)|Career Skill ~ Ranged (Heavy)|Career Skill ~ Streetwise|Career Skill ~ Vigilance
+Colonist		TYPE:Career	CATEGORY:Career	ABILITY:Career Skill|AUTOMATIC|Career Skill ~ Charm|Career Skill ~ Deception|Career Skill ~ Knowledge (Core Worlds)|Career Skill ~ Knowledge (Education)|Career Skill ~ Knowledge (Lore)|Career Skill ~ Leadership|Career Skill ~ Negotiation|Career Skill ~ Streewise
+Explorer		TYPE:Career	CATEGORY:Career	ABILITY:Career Skill|AUTOMATIC|Career Skill ~ Charm|Career Skill ~ Deception|Career Skill ~ Knowledge (Core Worlds)|Career Skill ~ Knowledge (Education)|Career Skill ~ Knowledge (Lore)|Career Skill ~ Leadership|Career Skill ~ Negotiation|Career Skill ~ Streewise
+Hired Gun		TYPE:Career	CATEGORY:Career	ABILITY:Career Skill|AUTOMATIC|Career Skill ~ Athletics|Career Skill ~ Brawl|Career Skill ~ Discipline|Career Skill ~ Melee|Career Skill ~ Piloting (Planetary)|Career Skill ~ Ranged (Light)|Career Skill ~ Resilience|Career Skill ~ Vigilance
+Smuggler		TYPE:Career	CATEGORY:Career	ABILITY:Career Skill|AUTOMATIC|Career Skill ~ Coordination|Career Skill ~ Deception|Career Skill ~ Knowledge (Underworld)|Career Skill ~ Perception|Career Skill ~ Piloting (Space)|Career Skill ~ Skulduggery|Career Skill ~ Streetwise|Career Skill ~ Vigilance
+Technician		TYPE:Career	CATEGORY:Career	ABILITY:Career Skill|AUTOMATIC|Career Skill ~ Astrogation|Career Skill ~ Computers|Career Skill ~ Coordination|Career Skill ~ Discipline|Career Skill ~ Knowledge (Outer Rim)|Career Skill ~ Mechanics|Career Skill ~ Perception|Career Skill ~ Piloting (Planetary)
+
+###Block: Career Specialization
+Assassin		KEY:Bounty Hunter Specialization ~ Assassin	TYPE:Career Specialization	CATEGORY:Career	ABILITY:Internal|AUTOMATIC|Specialization Skill ~ Melee|Specialization Skill ~ Ranged (Heavy)|Specialization Skill ~ Skulduggery|Specialization Skill ~ Stealth		
+Gadgeteer		KEY:Bounty Hunter Specialization ~ Gadgeteer	TYPE:Career Specialization	CATEGORY:Career	ABILITY:Internal|AUTOMATIC|Specialization Skill ~ Brawl|Specialization Skill ~ Coercion|Specialization Skill ~ Mechanics|Specialization Skill ~ Ranged (Light)
+Survivalist		KEY:Bounty Hunter Specialization ~ Survivalist	TYPE:Career Specialization	CATEGORY:Career	ABILITY:Internal|AUTOMATIC|Specialization Skill ~ Knowledge (Xenology)|Specialization Skill ~ Perception|Specialization Skill ~ Resilience|Specialization Skill ~ Survival
+
+# Assassin Talent Tree - COMMENT: The tree makes absolutely no sense, need to prod and figure out what the correct application is. (Why spend 25 points for Dodge, when you can select the 5 point one with the exact same results?
+
+
+###Block: Career Skill Selections
+Astrogation				KEY:Career Skill ~ Astrogation				TYPE:Career Skill	CATEGORY:Career Skill	CSKILL:Astrogation			
+Athletics				KEY:Career Skill ~ Athletics					TYPE:Career Skill	CATEGORY:Career Skill	CSKILL:Athletics			
+Brawl					KEY:Career Skill ~ Brawl					TYPE:Career Skill	CATEGORY:Career Skill	CSKILL:Brawl				
+Charm					KEY:Career Skill ~ Charm					TYPE:Career Skill	CATEGORY:Career Skill	CSKILL:Charm				
+Coercion				KEY:Career Skill ~ Coercion					TYPE:Career Skill	CATEGORY:Career Skill	CSKILL:Coercion			
+Computers				KEY:Career Skill ~ Computers					TYPE:Career Skill	CATEGORY:Career Skill	CSKILL:Computers			
+Cool					KEY:Career Skill ~ Cool						TYPE:Career Skill	CATEGORY:Career Skill	CSKILL:Cool				
+Coordination			KEY:Career Skill ~ Coordination				TYPE:Career Skill	CATEGORY:Career Skill	CSKILL:Coordination		
+Knowledge (Core Worlds)		KEY:Career Skill ~ Knowledge (Core Worlds)		TYPE:Career Skill	CATEGORY:Career Skill	CSKILL:Knowledge (Core Worlds)	
+Deception				KEY:Career Skill ~ Deception					TYPE:Career Skill	CATEGORY:Career Skill	CSKILL:Deception			
+Discipline				KEY:Career Skill ~ Discipline					TYPE:Career Skill	CATEGORY:Career Skill	CSKILL:Discipline			
+Knowledge (Education)		KEY:Career Skill ~ Knowledge (Education)			TYPE:Career Skill	CATEGORY:Career Skill	CSKILL:Knowledge (Education)	
+Gunnery				KEY:Career Skill ~ Gunnery					TYPE:Career Skill	CATEGORY:Career Skill	CSKILL:Gunnery			
+Leadership				KEY:Career Skill ~ Leadership					TYPE:Career Skill	CATEGORY:Career Skill	CSKILL:Leadership			
+Knowledge (Lore)			KEY:Career Skill ~ Knowledge (Lore)				TYPE:Career Skill	CATEGORY:Career Skill	CSKILL:Knowledge (Lore)		
+Mechanics				KEY:Career Skill ~ Mechanics					TYPE:Career Skill	CATEGORY:Career Skill	CSKILL:Mechanics			
+Medicine				KEY:Career Skill ~ Medicine					TYPE:Career Skill	CATEGORY:Career Skill	CSKILL:Medicine			
+Melee					KEY:Career Skill ~ Melee					TYPE:Career Skill	CATEGORY:Career Skill	CSKILL:Melee				
+Negotiation				KEY:Career Skill ~ Negotiation				TYPE:Career Skill	CATEGORY:Career Skill	CSKILL:Negotiation			
+Knowledge (Outer Rim)		KEY:Career Skill ~ Knowledge (Outer Rim)			TYPE:Career Skill	CATEGORY:Career Skill	CSKILL:Knowledge (Outer Rim)	
+Perception				KEY:Career Skill ~ Perception					TYPE:Career Skill	CATEGORY:Career Skill	CSKILL:Perception			
+Piloting (Planetary)		KEY:Career Skill ~ Piloting (Planetary)			TYPE:Career Skill	CATEGORY:Career Skill	CSKILL:Piloting (Planetary)	
+Piloting (Space)			KEY:Career Skill ~ Piloting (Space)				TYPE:Career Skill	CATEGORY:Career Skill	CSKILL:Piloting (Space)		
+Ranged (Heavy)			KEY:Career Skill ~ Ranged (Heavy)				TYPE:Career Skill	CATEGORY:Career Skill	CSKILL:Ranged (Heavy)		
+Ranged (Light)			KEY:Career Skill ~ Ranged (Light)				TYPE:Career Skill	CATEGORY:Career Skill	CSKILL:Ranged (Light)		
+Resilience				KEY:Career Skill ~ Resilience					TYPE:Career Skill	CATEGORY:Career Skill	CSKILL:Resilience			
+Skulduggery				KEY:Career Skill ~ Skulduggery				TYPE:Career Skill	CATEGORY:Career Skill	CSKILL:Skulduggery			
+Stealth				KEY:Career Skill ~ Stealth					TYPE:Career Skill	CATEGORY:Career Skill	CSKILL:Stealth			
+Streetwise				KEY:Career Skill ~ Streetwise					TYPE:Career Skill	CATEGORY:Career Skill	CSKILL:Streetwise			
+Survival				KEY:Career Skill ~ Survival					TYPE:Career Skill	CATEGORY:Career Skill	CSKILL:Survival			
+Knowledge (Underworld)		KEY:Career Skill ~ Knowledge (Underworld)			TYPE:Career Skill	CATEGORY:Career Skill	CSKILL:Knowledge (Underworld)	
+Vigilance				KEY:Career Skill ~ Vigilance					TYPE:Career Skill	CATEGORY:Career Skill	CSKILL:Vigilance			
+Knowledge (Xenology)		KEY:Career Skill ~ Knowledge (Xenology)			TYPE:Career Skill	CATEGORY:Career Skill	CSKILL:Knowledge (Xenology)	
+
+
+Astrogation				KEY:Specialization Skill ~ Astrogation					TYPE:Specialization Skill	CATEGORY:Career Skill	CSKILL:Astrogation			
+Athletics				KEY:Specialization Skill ~ Athletics					TYPE:Specialization Skill	CATEGORY:Career Skill	CSKILL:Athletics			
+Brawl					KEY:Specialization Skill ~ Brawl						TYPE:Specialization Skill	CATEGORY:Career Skill	CSKILL:Brawl				
+Charm					KEY:Specialization Skill ~ Charm						TYPE:Specialization Skill	CATEGORY:Career Skill	CSKILL:Charm				
+Coercion				KEY:Specialization Skill ~ Coercion						TYPE:Specialization Skill	CATEGORY:Career Skill	CSKILL:Coercion			
+Computers				KEY:Specialization Skill ~ Computers					TYPE:Specialization Skill	CATEGORY:Career Skill	CSKILL:Computers			
+Cool					KEY:Specialization Skill ~ Cool						TYPE:Specialization Skill	CATEGORY:Career Skill	CSKILL:Cool				
+Coordination			KEY:Specialization Skill ~ Coordination					TYPE:Specialization Skill	CATEGORY:Career Skill	CSKILL:Coordination		
+Knowledge (Core Worlds)		KEY:Specialization Skill ~ Knowledge (Core Worlds)			TYPE:Specialization Skill	CATEGORY:Career Skill	CSKILL:Knowledge (Core Worlds)	
+Deception				KEY:Specialization Skill ~ Deception					TYPE:Specialization Skill	CATEGORY:Career Skill	CSKILL:Deception			
+Discipline				KEY:Specialization Skill ~ Discipline					TYPE:Specialization Skill	CATEGORY:Career Skill	CSKILL:Discipline			
+Knowledge (Education)		KEY:Specialization Skill ~ Knowledge (Education)			TYPE:Specialization Skill	CATEGORY:Career Skill	CSKILL:Knowledge (Education)	
+Gunnery				KEY:Specialization Skill ~ Gunnery						TYPE:Specialization Skill	CATEGORY:Career Skill	CSKILL:Gunnery			
+Leadership				KEY:Specialization Skill ~ Leadership					TYPE:Specialization Skill	CATEGORY:Career Skill	CSKILL:Leadership			
+Knowledge (Lore)			KEY:Specialization Skill ~ Knowledge (Lore)				TYPE:Specialization Skill	CATEGORY:Career Skill	CSKILL:Knowledge (Lore)		
+Mechanics				KEY:Specialization Skill ~ Mechanics					TYPE:Specialization Skill	CATEGORY:Career Skill	CSKILL:Mechanics			
+Medicine				KEY:Specialization Skill ~ Medicine						TYPE:Specialization Skill	CATEGORY:Career Skill	CSKILL:Medicine			
+Melee					KEY:Specialization Skill ~ Melee						TYPE:Specialization Skill	CATEGORY:Career Skill	CSKILL:Melee				
+Negotiation				KEY:Specialization Skill ~ Negotiation					TYPE:Specialization Skill	CATEGORY:Career Skill	CSKILL:Negotiation			
+Knowledge (Outer Rim)		KEY:Specialization Skill ~ Knowledge (Outer Rim)			TYPE:Specialization Skill	CATEGORY:Career Skill	CSKILL:Knowledge (Outer Rim)	
+Perception				KEY:Specialization Skill ~ Perception					TYPE:Specialization Skill	CATEGORY:Career Skill	CSKILL:Perception			
+Piloting (Planetary)		KEY:Specialization Skill ~ Piloting (Planetary)				TYPE:Specialization Skill	CATEGORY:Career Skill	CSKILL:Piloting (Planetary)	
+Piloting (Space)			KEY:Specialization Skill ~ Piloting (Space)				TYPE:Specialization Skill	CATEGORY:Career Skill	CSKILL:Piloting (Space)		
+Ranged (Heavy)			KEY:Specialization Skill ~ Ranged (Heavy)					TYPE:Specialization Skill	CATEGORY:Career Skill	CSKILL:Ranged (Heavy)		
+Ranged (Light)			KEY:Specialization Skill ~ Ranged (Light)					TYPE:Specialization Skill	CATEGORY:Career Skill	CSKILL:Ranged (Light)		
+Resilience				KEY:Specialization Skill ~ Resilience					TYPE:Specialization Skill	CATEGORY:Career Skill	CSKILL:Resilience			
+Skulduggery				KEY:Specialization Skill ~ Skulduggery					TYPE:Specialization Skill	CATEGORY:Career Skill	CSKILL:Skulduggery			
+Stealth				KEY:Specialization Skill ~ Stealth						TYPE:Specialization Skill	CATEGORY:Career Skill	CSKILL:Stealth			
+Streetwise				KEY:Specialization Skill ~ Streetwise					TYPE:Specialization Skill	CATEGORY:Career Skill	CSKILL:Streetwise			
+Survival				KEY:Specialization Skill ~ Survival						TYPE:Specialization Skill	CATEGORY:Career Skill	CSKILL:Survival			
+Knowledge (Underworld)		KEY:Specialization Skill ~ Knowledge (Underworld)			TYPE:Specialization Skill	CATEGORY:Career Skill	CSKILL:Knowledge (Underworld)	
+Vigilance				KEY:Specialization Skill ~ Vigilance					TYPE:Specialization Skill	CATEGORY:Career Skill	CSKILL:Vigilance			
+Knowledge (Xenology)		KEY:Specialization Skill ~ Knowledge (Xenology)				TYPE:Specialization Skill	CATEGORY:Career Skill	CSKILL:Knowledge (Xenology)	
+
+Skill Tracker																			CATEGORY:Internal
+###Block: Skill Tracker - This grants 1 Skill Rank if the chooser selects the appropriate skill. Speciality or Career
+CATEGORY=Internal|Skill Tracker.MOD	BONUS:SKILLRANK|Astrogation|1|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Astrogation),Career Skill Selection (Career Skill ~ Astrogation)
+CATEGORY=Internal|Skill Tracker.MOD	BONUS:SKILLRANK|Athletics|1|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Athletics),Career Skill Selection (Career Skill ~ Athletics)
+CATEGORY=Internal|Skill Tracker.MOD	BONUS:SKILLRANK|Brawl|1|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Brawl),Career Skill Selection (Career Skill ~ Brawl)
+CATEGORY=Internal|Skill Tracker.MOD	BONUS:SKILLRANK|Charm|1|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Charm),Career Skill Selection (Career Skill ~ Charm)
+CATEGORY=Internal|Skill Tracker.MOD	BONUS:SKILLRANK|Coercion|1|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Coercion),Career Skill Selection (Career Skill ~ Coercion)
+CATEGORY=Internal|Skill Tracker.MOD	BONUS:SKILLRANK|Computers|1|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Computers),Career Skill Selection (Career Skill ~ Computers)
+CATEGORY=Internal|Skill Tracker.MOD	BONUS:SKILLRANK|Cool|1|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Cool),Career Skill Selection (Career Skill ~ Cool)
+CATEGORY=Internal|Skill Tracker.MOD	BONUS:SKILLRANK|Coordination|1|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Coordination),Career Skill Selection (Career Skill ~ Coordination)
+CATEGORY=Internal|Skill Tracker.MOD	BONUS:SKILLRANK|Knowledge (Core Worlds)|1|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Knowledge (Core Worlds)),Career Skill Selection (Career Skill ~ Knowledge (Core Worlds))
+CATEGORY=Internal|Skill Tracker.MOD	BONUS:SKILLRANK|Deception|1|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Deception),Career Skill Selection (Career Skill ~ Deception)
+CATEGORY=Internal|Skill Tracker.MOD	BONUS:SKILLRANK|Discipline|1|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Discipline),Career Skill Selection (Career Skill ~ Discipline)
+CATEGORY=Internal|Skill Tracker.MOD	BONUS:SKILLRANK|Knowledge (Education)|1|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Knowledge (Education)),Career Skill Selection (Career Skill ~ Knowledge (Education))
+CATEGORY=Internal|Skill Tracker.MOD	BONUS:SKILLRANK|Gunnery|1|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Gunnery),Career Skill Selection (Career Skill ~ Gunnery)
+CATEGORY=Internal|Skill Tracker.MOD	BONUS:SKILLRANK|Leadership|1|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Leadership),Career Skill Selection (Career Skill ~ Leadership)
+CATEGORY=Internal|Skill Tracker.MOD	BONUS:SKILLRANK|Knowledge (Lore)|1|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Knowledge (Lore)),Career Skill Selection (Career Skill ~ Knowledge (Lore))
+CATEGORY=Internal|Skill Tracker.MOD	BONUS:SKILLRANK|Mechanics|1|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Mechanics),Career Skill Selection (Career Skill ~ Mechanics)
+CATEGORY=Internal|Skill Tracker.MOD	BONUS:SKILLRANK|Medicine|1|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Medicine),Career Skill Selection (Career Skill ~ Medicine)
+CATEGORY=Internal|Skill Tracker.MOD	BONUS:SKILLRANK|Melee|1|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Melee),Career Skill Selection (Career Skill ~ Melee)
+CATEGORY=Internal|Skill Tracker.MOD	BONUS:SKILLRANK|Negotiation|1|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Negotiation),Career Skill Selection (Career Skill ~ Negotiation)
+CATEGORY=Internal|Skill Tracker.MOD	BONUS:SKILLRANK|Knowledge (Outer Rim)|1|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Knowledge (Outer Rim)),Career Skill Selection (Career Skill ~ Knowledge (Outer Rim))
+CATEGORY=Internal|Skill Tracker.MOD	BONUS:SKILLRANK|Perception|1|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Perception),Career Skill Selection (Career Skill ~ Perception)
+CATEGORY=Internal|Skill Tracker.MOD	BONUS:SKILLRANK|Piloting (Planetary)|1|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Piloting (Planetary)),Career Skill Selection (Career Skill ~ Piloting (Planetary))
+CATEGORY=Internal|Skill Tracker.MOD	BONUS:SKILLRANK|Piloting (Space)|1|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Piloting (Space)),Career Skill Selection (Career Skill ~ Piloting (Space))
+CATEGORY=Internal|Skill Tracker.MOD	BONUS:SKILLRANK|Ranged (Heavy)|1|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Ranged (Heavy)),Career Skill Selection (Career Skill ~ Ranged (Heavy))
+CATEGORY=Internal|Skill Tracker.MOD	BONUS:SKILLRANK|Ranged (Light)|1|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Ranged (Light)),Career Skill Selection (Career Skill ~ Ranged (Light))
+CATEGORY=Internal|Skill Tracker.MOD	BONUS:SKILLRANK|Resilience|1|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Resilience),Career Skill Selection (Career Skill ~ Resilience)
+CATEGORY=Internal|Skill Tracker.MOD	BONUS:SKILLRANK|Skulduggery|1|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Skulduggery),Career Skill Selection (Career Skill ~ Skulduggery)
+CATEGORY=Internal|Skill Tracker.MOD	BONUS:SKILLRANK|Stealth|1|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Stealth),Career Skill Selection (Career Skill ~ Stealth)
+CATEGORY=Internal|Skill Tracker.MOD	BONUS:SKILLRANK|Streetwise|1|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Streetwise),Career Skill Selection (Career Skill ~ Streetwise)
+CATEGORY=Internal|Skill Tracker.MOD	BONUS:SKILLRANK|Survival|1|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Survival),Career Skill Selection (Career Skill ~ Survival)
+CATEGORY=Internal|Skill Tracker.MOD	BONUS:SKILLRANK|Knowledge (Underworld)|1|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Knowledge (Underworld)),Career Skill Selection (Career Skill ~ Knowledge (Underworld))
+CATEGORY=Internal|Skill Tracker.MOD	BONUS:SKILLRANK|Vigilance|1|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Vigilance),Career Skill Selection (Career Skill ~ Vigilance)
+CATEGORY=Internal|Skill Tracker.MOD	BONUS:SKILLRANK|Knowledge (Xenology)|1|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Knowledge (Xenology)),Career Skill Selection (Career Skill ~ Knowledge (Xenology))
