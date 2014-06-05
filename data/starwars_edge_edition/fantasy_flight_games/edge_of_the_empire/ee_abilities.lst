@@ -1,6 +1,6 @@
 
 Default	CATEGORY:Internal
-CATEGORY=Internal|Default.MOD	DEFINE:Experience|0	ABILITY:Internal|AUTOMATIC|Skill Tracker	BONUS:ABILITYPOOL|Career Selection|1	BONUS:ABILITYPOOL|Career Skill Selection|CareerSkillCount|PREABILITY:1,CATEGORY=Career,TYPE.Career	BONUS:ABILITYPOOL|Career Specialty Skill|SpecializationSkillCount|PREABILITY:1,CATEGORY=Career,TYPE.Career Specialization	DEFINE:CareerSkillCount|0	BONUS:VAR|CareerSkillCount|4	DEFINE:SpecializationSkillCount|0	BONUS:VAR|SpecializationSkillCount|2	
+CATEGORY=Internal|Default.MOD	DEFINE:Experience|0	ABILITY:Internal|AUTOMATIC|Skill Tracker|Career Tracker|Stat Tracker	BONUS:ABILITYPOOL|Career Selection|1	BONUS:ABILITYPOOL|Career Skill Selection|CareerSkillCount|PREABILITY:1,CATEGORY=Career,TYPE.Career	BONUS:ABILITYPOOL|Career Specialty Skill|SpecializationSkillCount|PREABILITY:1,CATEGORY=Career,TYPE.Career Specialization	DEFINE:CareerSkillCount|0	BONUS:VAR|CareerSkillCount|4	DEFINE:SpecializationSkillCount|0	BONUS:VAR|SpecializationSkillCount|2		DEFINE:Force_Rating|0
 
 
 ###Block: Species Abilities:
@@ -40,12 +40,12 @@ Specialty Skill Selection	CATEGORY:Career Skill	TYPE:SpecialtySkillSelect	CHOOSE
 
 
 ###Block: Careers
-Bounty Hunter	TYPE:Career	CATEGORY:Career	ABILITY:Career Skill|AUTOMATIC|Career Skill ~ Athletics|Career Skill ~ Brawl|Career Skill ~ Perception|Career Skill ~ Piloting (Planetary)|Career Skill ~ Piloting (Space)|Career Skill ~ Ranged (Heavy)|Career Skill ~ Streetwise|Career Skill ~ Vigilance			BONUS:ABILITYPOOL|Bounty Hunter Specialization Choice|1
-Colonist		TYPE:Career	CATEGORY:Career	ABILITY:Career Skill|AUTOMATIC|Career Skill ~ Charm|Career Skill ~ Deception|Career Skill ~ Knowledge (Core Worlds)|Career Skill ~ Knowledge (Education)|Career Skill ~ Knowledge (Lore)|Career Skill ~ Leadership|Career Skill ~ Negotiation|Career Skill ~ Streetwise	BONUS:ABILITYPOOL|Colonist Specialization Choice|1
-Explorer		TYPE:Career	CATEGORY:Career	ABILITY:Career Skill|AUTOMATIC|Career Skill ~ Charm|Career Skill ~ Deception|Career Skill ~ Knowledge (Core Worlds)|Career Skill ~ Knowledge (Education)|Career Skill ~ Knowledge (Lore)|Career Skill ~ Leadership|Career Skill ~ Negotiation|Career Skill ~ Streetwise	BONUS:ABILITYPOOL|Explorer Specialization Choice|1
-Hired Gun		TYPE:Career	CATEGORY:Career	ABILITY:Career Skill|AUTOMATIC|Career Skill ~ Athletics|Career Skill ~ Brawl|Career Skill ~ Discipline|Career Skill ~ Melee|Career Skill ~ Piloting (Planetary)|Career Skill ~ Ranged (Light)|Career Skill ~ Resilience|Career Skill ~ Vigilance				BONUS:ABILITYPOOL|Hired Gun Specialization Choice|1
-Smuggler		TYPE:Career	CATEGORY:Career	ABILITY:Career Skill|AUTOMATIC|Career Skill ~ Coordination|Career Skill ~ Deception|Career Skill ~ Knowledge (Underworld)|Career Skill ~ Perception|Career Skill ~ Piloting (Space)|Career Skill ~ Skulduggery|Career Skill ~ Streetwise|Career Skill ~ Vigilance		BONUS:ABILITYPOOL|Smuggler Specialization Choice|1
-Technician		TYPE:Career	CATEGORY:Career	ABILITY:Career Skill|AUTOMATIC|Career Skill ~ Astrogation|Career Skill ~ Computers|Career Skill ~ Coordination|Career Skill ~ Discipline|Career Skill ~ Knowledge (Outer Rim)|Career Skill ~ Mechanics|Career Skill ~ Perception|Career Skill ~ Piloting (Planetary)	BONUS:ABILITYPOOL|Technician Specialization Choice|1
+Bounty Hunter	TYPE:Career	CATEGORY:Career	ABILITY:Career Skill|AUTOMATIC|Career Skill ~ Athletics|Career Skill ~ Brawl|Career Skill ~ Perception|Career Skill ~ Piloting (Planetary)|Career Skill ~ Piloting (Space)|Career Skill ~ Ranged (Heavy)|Career Skill ~ Streetwise|Career Skill ~ Vigilance			BONUS:ABILITYPOOL|Bounty Hunter Specialization Choice|1|!PREABILITY:1,CATEGORY=Career,TYPE.Bounty Hunter
+Colonist		TYPE:Career	CATEGORY:Career	ABILITY:Career Skill|AUTOMATIC|Career Skill ~ Charm|Career Skill ~ Deception|Career Skill ~ Knowledge (Core Worlds)|Career Skill ~ Knowledge (Education)|Career Skill ~ Knowledge (Lore)|Career Skill ~ Leadership|Career Skill ~ Negotiation|Career Skill ~ Streetwise	BONUS:ABILITYPOOL|Colonist Specialization Choice|1|!PREABILITY:1,CATEGORY=Career,TYPE.Colonist
+Explorer		TYPE:Career	CATEGORY:Career	ABILITY:Career Skill|AUTOMATIC|Career Skill ~ Charm|Career Skill ~ Deception|Career Skill ~ Knowledge (Core Worlds)|Career Skill ~ Knowledge (Education)|Career Skill ~ Knowledge (Lore)|Career Skill ~ Leadership|Career Skill ~ Negotiation|Career Skill ~ Streetwise	BONUS:ABILITYPOOL|Explorer Specialization Choice|1|!PREABILITY:1,CATEGORY=Career,TYPE.Explorer
+Hired Gun		TYPE:Career	CATEGORY:Career	ABILITY:Career Skill|AUTOMATIC|Career Skill ~ Athletics|Career Skill ~ Brawl|Career Skill ~ Discipline|Career Skill ~ Melee|Career Skill ~ Piloting (Planetary)|Career Skill ~ Ranged (Light)|Career Skill ~ Resilience|Career Skill ~ Vigilance				BONUS:ABILITYPOOL|Hired Gun Specialization Choice|1|!PREABILITY:1,CATEGORY=Career,TYPE.Hired Gun
+Smuggler		TYPE:Career	CATEGORY:Career	ABILITY:Career Skill|AUTOMATIC|Career Skill ~ Coordination|Career Skill ~ Deception|Career Skill ~ Knowledge (Underworld)|Career Skill ~ Perception|Career Skill ~ Piloting (Space)|Career Skill ~ Skulduggery|Career Skill ~ Streetwise|Career Skill ~ Vigilance		BONUS:ABILITYPOOL|Smuggler Specialization Choice|1|!PREABILITY:1,CATEGORY=Career,TYPE.Smuggler
+Technician		TYPE:Career	CATEGORY:Career	ABILITY:Career Skill|AUTOMATIC|Career Skill ~ Astrogation|Career Skill ~ Computers|Career Skill ~ Coordination|Career Skill ~ Discipline|Career Skill ~ Knowledge (Outer Rim)|Career Skill ~ Mechanics|Career Skill ~ Perception|Career Skill ~ Piloting (Planetary)	BONUS:ABILITYPOOL|Technician Specialization Choice|1|!PREABILITY:1,CATEGORY=Career,TYPE.Technician
 
 ###Block: Career Specialization
 Assassin	COST:0	KEY:Bounty Hunter Specialization ~ Assassin	PREVARGTEQ:Experience,AssassinCareerSpecializationCost	BONUS:VAR|Experience|10|PREVAREQ:CareerBountyHunter,1	TYPE:Career Specialization.Bounty Hunter	CATEGORY:Career	ABILITY:Career Skill|AUTOMATIC|Specialization Skill ~ Melee|Specialization Skill ~ Ranged (Heavy)|Specialization Skill ~ Skulduggery|Specialization Skill ~ Stealth		
@@ -66,6 +66,8 @@ Thief		COST:0	KEY:Smuggler Specialization ~ Thief			PREVARGTEQ:Experience,ThiefC
 Mechanic	COST:0	KEY:Technician Specialization ~ Mechanic		PREVARGTEQ:Experience,MechanicCareerSpecializationCost	BONUS:VAR|Experience|10|PREVAREQ:CareerTechnician,1	TYPE:Career Specialization.Technician	CATEGORY:Career	ABILITY:Career Skill|AUTOMATIC|Specialization Skill ~ Brawl|Specialization Skill ~ Mechanics|Specialization Skill ~ Piloting (Space)|Specialization Skill ~ Skulduggery
 Outlaw Tech	COST:0	KEY:Technician Specialization ~ Outlaw Tech	PREVARGTEQ:Experience,Outlaw_TechCareerSpecializationCost	BONUS:VAR|Experience|10|PREVAREQ:CareerTechnician,1	TYPE:Career Specialization.Technician	CATEGORY:Career	ABILITY:Career Skill|AUTOMATIC|Specialization Skill ~ Knowledge (Education)|Specialization Skill ~ Knowledge (Underworld)|Specialization Skill ~ Mechanics|Specialization Skill ~ Streetwise
 Slicer	COST:0	KEY:Technician Specialization ~ Slicer		PREVARGTEQ:Experience,SlicerCareerSpecializationCost		BONUS:VAR|Experience|10|PREVAREQ:CareerTechnician,1	TYPE:Career Specialization.Technician	CATEGORY:Career	ABILITY:Career Skill|AUTOMATIC|Specialization Skill ~ Computers|Specialization Skill ~ Knowledge (Education)|Specialization Skill ~ Knowledge (Underworld)|Specialization Skill ~ Stealth
+# Universal Specialization
+Force Sensitive Exile	COST:0	KEY:Career Specialization ~ Force Sensitive Exile		PREVARGTEQ:Experience,ForceSensitiveExileCareerSpecializationCost					TYPE:Career Specialization.Technician	CATEGORY:Career	BONUS:Force_Rating|1
 
 
 # Assassin Talent Tree - COMMENT: The tree makes absolutely no sense, need to prod and figure out what the correct application is. (Why spend 25 points for Dodge, when you can select the 5 point one with the exact same results?)
@@ -173,7 +175,7 @@ Knowledge (Outer Rim)	PREVARGTEQ:Experience,SkillCostKnowledgeOuterRim						PREV
 Perception			PREVARGTEQ:Experience,SkillCostPerception								PREVARLT:skillinfo("TOTALRANK","Perception"),5			COST:0	KEY:Skill Training ~ Perception				TYPE:Skill Training	CATEGORY:Skill Training	BONUS:SKILLRANK|Perception|1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE
 Piloting (Planetary)	PREVARGTEQ:Experience,SkillCostPilotingPlanetary						PREVARLT:skillinfo("TOTALRANK","Piloting (Planetary)"),5	COST:0	KEY:Skill Training ~ Piloting (Planetary)			TYPE:Skill Training	CATEGORY:Skill Training	BONUS:SKILLRANK|Piloting (Planetary)|1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE
 Piloting (Space)		PREVARGTEQ:Experience,SkillCostPilotingSpace							PREVARLT:skillinfo("TOTALRANK","Piloting (Space)"),5		COST:0	KEY:Skill Training ~ Piloting (Space)			TYPE:Skill Training	CATEGORY:Skill Training	BONUS:SKILLRANK|Piloting (Space)|1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE
-Ranged (Heavy)		PREVARGTEQ:Experience,SkillCostRangedHeavy)							PREVARLT:skillinfo("TOTALRANK","Ranged (Heavy)"),5		COST:0	KEY:Skill Training ~ Ranged (Heavy)				TYPE:Skill Training	CATEGORY:Skill Training	BONUS:SKILLRANK|Ranged (Heavy)|1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE
+Ranged (Heavy)		PREVARGTEQ:Experience,SkillCostRangedHeavy							PREVARLT:skillinfo("TOTALRANK","Ranged (Heavy)"),5		COST:0	KEY:Skill Training ~ Ranged (Heavy)				TYPE:Skill Training	CATEGORY:Skill Training	BONUS:SKILLRANK|Ranged (Heavy)|1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE
 Ranged (Light)		PREVARGTEQ:Experience,SkillCostRangedLight							PREVARLT:skillinfo("TOTALRANK","Ranged (Light)"),5		COST:0	KEY:Skill Training ~ Ranged (Light)				TYPE:Skill Training	CATEGORY:Skill Training	BONUS:SKILLRANK|Ranged (Light)|1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE
 Resilience			PREVARGTEQ:Experience,SkillCostResilience								PREVARLT:skillinfo("TOTALRANK","Resilience"),5			COST:0	KEY:Skill Training ~ Resilience				TYPE:Skill Training	CATEGORY:Skill Training	BONUS:SKILLRANK|Resilience|1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE
 Skulduggery			PREVARGTEQ:Experience,SkillCostSkulduggery							PREVARLT:skillinfo("TOTALRANK","Skulduggery"),5			COST:0	KEY:Skill Training ~ Skulduggery				TYPE:Skill Training	CATEGORY:Skill Training	BONUS:SKILLRANK|Skulduggery|1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE
@@ -185,6 +187,178 @@ Vigilance			PREVARGTEQ:Experience,SkillCostVigilance								PREVARLT:skillinfo("
 Knowledge (Xenology)	PREVARGTEQ:Experience,SkillCostKnowledgeXenology						PREVARLT:skillinfo("TOTALRANK","Knowledge (Xenology)"),5	COST:0	KEY:Skill Training ~ Knowledge (Xenology)			TYPE:Skill Training	CATEGORY:Skill Training	BONUS:SKILLRANK|Knowledge (Xenology)|1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE
 
 ###Block: Talents
+Adversary			SOURCEPAGE:p.132	CATEGORY:Talent	TYPE:Talent
+Anatomy Lessons					CATEGORY:Talent	TYPE:Talent
+Armor Master					CATEGORY:Talent	TYPE:Talent
+Armor Master (Improved)				CATEGORY:Talent	TYPE:Talent
+Bacta Specialist					CATEGORY:Talent	TYPE:Talent
+Bad Motivator					CATEGORY:Talent	TYPE:Talent
+Balance						CATEGORY:Talent	TYPE:Talent
+Barrage						CATEGORY:Talent	TYPE:Talent
+Black market Contacts				CATEGORY:Talent	TYPE:Talent
+Blooded						CATEGORY:Talent	TYPE:Talent
+Body Guard						CATEGORY:Talent	TYPE:Talent
+Brace							CATEGORY:Talent	TYPE:Talent
+Brilliant Evasion					CATEGORY:Talent	TYPE:Talent
+Bypass Security					CATEGORY:Talent	TYPE:Talent
+Codebreaker						CATEGORY:Talent	TYPE:Talent
+Command						CATEGORY:Talent	TYPE:Talent
+Confidence						CATEGORY:Talent	TYPE:Talent
+Contraption						CATEGORY:Talent	TYPE:Talent
+Convincing Demeanor				CATEGORY:Talent	TYPE:Talent
+Crippling Blow					CATEGORY:Talent	TYPE:Talent
+Dead to Rights					CATEGORY:Talent	TYPE:Talent
+(Improved)						CATEGORY:Talent	TYPE:Talent
+Deadly Accuracy					CATEGORY:Talent	TYPE:Talent
+Dedication						CATEGORY:Talent	TYPE:Talent
+Defensive Driving					CATEGORY:Talent	TYPE:Talent
+Defensive Slicing					CATEGORY:Talent	TYPE:Talent
+Defensive Slicing (Improved)			CATEGORY:Talent	TYPE:Talent
+Defensive Stance					CATEGORY:Talent	TYPE:Talent
+Disorient						CATEGORY:Talent	TYPE:Talent
+Dodge							CATEGORY:Talent	TYPE:Talent
+Durable						CATEGORY:Talent	TYPE:Talent
+Enduring						CATEGORY:Talent	TYPE:Talent
+Expert Tracker					CATEGORY:Talent	TYPE:Talent
+Familiar Suns					CATEGORY:Talent	TYPE:Talent
+Feral Strength					CATEGORY:Talent	TYPE:Talent
+Field Commander					CATEGORY:Talent	TYPE:Talent
+Field Commander (Improved)			CATEGORY:Talent	TYPE:Talent
+Fine Tuning						CATEGORY:Talent	TYPE:Talent
+Forager						CATEGORY:Talent	TYPE:Talent
+Force Rating					CATEGORY:Talent	TYPE:Talent
+Frenzied Attack					CATEGORY:Talent	TYPE:Talent
+Full Throttle					CATEGORY:Talent	TYPE:Talent
+Full Throttle (Improved)			CATEGORY:Talent	TYPE:Talent
+Full Throttle (Supreme)				CATEGORY:Talent	TYPE:Talent
+Galaxy Mapper					CATEGORY:Talent	TYPE:Talent
+Gearhead						CATEGORY:Talent	TYPE:Talent
+Grit							CATEGORY:Talent	TYPE:Talent
+Hard Headed						CATEGORY:Talent	TYPE:Talent
+Hard Headed (Improved)				CATEGORY:Talent	TYPE:Talent
+Heightened Awareness				CATEGORY:Talent	TYPE:Talent
+Heroic Fortitude					CATEGORY:Talent	TYPE:Talent
+Hidden Storage					CATEGORY:Talent	TYPE:Talent
+Hold Together					CATEGORY:Talent	TYPE:Talent
+Hunter						CATEGORY:Talent	TYPE:Talent
+Indistinguishable					CATEGORY:Talent	TYPE:Talent
+Insight						CATEGORY:Talent	TYPE:Talent
+Inspiring Rhetoric				CATEGORY:Talent	TYPE:Talent
+Inspiring Rhetoric (Improved)			CATEGORY:Talent	TYPE:Talent
+Inspiring Rhetoric (Supreme)			CATEGORY:Talent	TYPE:Talent
+Intense Focus					CATEGORY:Talent	TYPE:Talent
+Intense Presence					CATEGORY:Talent	TYPE:Talent
+Intimidating					CATEGORY:Talent	TYPE:Talent
+Inventor						CATEGORY:Talent	TYPE:Talent
+Jump Up						CATEGORY:Talent	TYPE:Talent
+Jury Rigged						CATEGORY:Talent	TYPE:Talent
+Kill With Kindness				CATEGORY:Talent	TYPE:Talent
+Knockdown						CATEGORY:Talent	TYPE:Talent
+Know Somebody					CATEGORY:Talent	TYPE:Talent
+Knowledge Specialization			CATEGORY:Talent	TYPE:Talent
+Known Schematic					CATEGORY:Talent	TYPE:Talent
+Let's Ride						CATEGORY:Talent	TYPE:Talent
+Lethal Blows					CATEGORY:Talent	TYPE:Talent
+Master Doctor					CATEGORY:Talent	TYPE:Talent
+Master Merchant					CATEGORY:Talent	TYPE:Talent
+Master Of Shadows					CATEGORY:Talent	TYPE:Talent
+Master Pilot					CATEGORY:Talent	TYPE:Talent
+Master Slicer					CATEGORY:Talent	TYPE:Talent
+Master Starhopper					CATEGORY:Talent	TYPE:Talent
+Mental Fortress					CATEGORY:Talent	TYPE:Talent
+Natural Brawler					CATEGORY:Talent	TYPE:Talent
+Natural Charmer					CATEGORY:Talent	TYPE:Talent
+Natural Doctor					CATEGORY:Talent	TYPE:Talent
+Natural Enforcer					CATEGORY:Talent	TYPE:Talent
+Natural Hunter					CATEGORY:Talent	TYPE:Talent
+Natural Marksman					CATEGORY:Talent	TYPE:Talent
+Natural Negotiator				CATEGORY:Talent	TYPE:Talent
+Natural Outdoorsman				CATEGORY:Talent	TYPE:Talent
+Natural Pilot					CATEGORY:Talent	TYPE:Talent
+Natural Programmer				CATEGORY:Talent	TYPE:Talent
+Natural Rogue					CATEGORY:Talent	TYPE:Talent
+Natural Scholar					CATEGORY:Talent	TYPE:Talent
+Natural Tinkerer					CATEGORY:Talent	TYPE:Talent
+Nobody's Fool					CATEGORY:Talent	TYPE:Talent
+Outdoorsman						CATEGORY:Talent	TYPE:Talent
+Overwhelm Emotions				CATEGORY:Talent	TYPE:Talent
+Plausible Deniability				CATEGORY:Talent	TYPE:Talent
+Point Blank						CATEGORY:Talent	TYPE:Talent
+Precise Aim						CATEGORY:Talent	TYPE:Talent
+Pressure Point					CATEGORY:Talent	TYPE:Talent
+Quick Draw						CATEGORY:Talent	TYPE:Talent
+Quick Strike					CATEGORY:Talent	TYPE:Talent
+Rapid Reaction					CATEGORY:Talent	TYPE:Talent
+Rapid Recovery					CATEGORY:Talent	TYPE:Talent
+Redundant Systems					CATEGORY:Talent	TYPE:Talent
+Researcher						CATEGORY:Talent	TYPE:Talent
+Resolve						CATEGORY:Talent	TYPE:Talent
+Respected Scholar					CATEGORY:Talent	TYPE:Talent
+Scathing Tirade					CATEGORY:Talent	TYPE:Talent
+Scathing Tirade (Improved)			CATEGORY:Talent	TYPE:Talent
+Scathing Tirade (Supreme)			CATEGORY:Talent	TYPE:Talent
+Second Wind						CATEGORY:Talent	TYPE:Talent
+Sense Danger					CATEGORY:Talent	TYPE:Talent
+Sense Emotions					CATEGORY:Talent	TYPE:Talent
+Shortcut						CATEGORY:Talent	TYPE:Talent
+Side Step						CATEGORY:Talent	TYPE:Talent
+Sixth Sense						CATEGORY:Talent	TYPE:Talent
+Skilled Jockey					CATEGORY:Talent	TYPE:Talent
+Skilled Slicer					CATEGORY:Talent	TYPE:Talent
+Smooth Talker					CATEGORY:Talent	TYPE:Talent
+Sniper Shot						CATEGORY:Talent	TYPE:Talent
+Soft Spot						CATEGORY:Talent	TYPE:Talent
+Solid Repairs					CATEGORY:Talent	TYPE:Talent
+Spare Clip						CATEGORY:Talent	TYPE:Talent
+Speaks Binary					CATEGORY:Talent	TYPE:Talent
+Stalker						CATEGORY:Talent	TYPE:Talent
+Steely Nerves					CATEGORY:Talent	TYPE:Talent
+Stim Application					CATEGORY:Talent	TYPE:Talent
+Stim Application (Improved)			CATEGORY:Talent	TYPE:Talent
+Stim Application (Supreme)			CATEGORY:Talent	TYPE:Talent
+Street Smarts					CATEGORY:Talent	TYPE:Talent
+Stroke of Genius					CATEGORY:Talent	TYPE:Talent
+Strong Arm						CATEGORY:Talent	TYPE:Talent
+Stunning Blow					CATEGORY:Talent	TYPE:Talent
+Stunning Blow (Improved)			CATEGORY:Talent	TYPE:Talent
+Superior Reflexes					CATEGORY:Talent	TYPE:Talent
+Surgeon						CATEGORY:Talent	TYPE:Talent
+Swift							CATEGORY:Talent	TYPE:Talent
+Targetted Blow					CATEGORY:Talent	TYPE:Talent
+Technical Aptitude				CATEGORY:Talent	TYPE:Talent
+Tinkerer						CATEGORY:Talent	TYPE:Talent
+Touch Of Fate					CATEGORY:Talent	TYPE:Talent
+Toughened						CATEGORY:Talent	TYPE:Talent
+Tricky Target					CATEGORY:Talent	TYPE:Talent
+True Aim						CATEGORY:Talent	TYPE:Talent
+Uncanny Reactions					CATEGORY:Talent	TYPE:Talent
+Uncanny Senses					CATEGORY:Talent	TYPE:Talent
+Utility Belt					CATEGORY:Talent	TYPE:Talent
+Utinni!						CATEGORY:Talent	TYPE:Talent
+Well Rounded					CATEGORY:Talent	TYPE:Talent
+Wheel and Deal					CATEGORY:Talent	TYPE:Talent
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Convincing Demeanor Talent	CATEGORY:Special Ability
 Expert Tracker Talent		CATEGORY:Special Ability
 
@@ -257,7 +431,7 @@ CATEGORY=Internal|Skill Tracker.MOD	BONUS:VAR|SkillCostKnowledgeOuterRim|(count(
 CATEGORY=Internal|Skill Tracker.MOD	BONUS:VAR|SkillCostPerception|(count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Perception")+1)*((count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Perception")+2)/2)*5		BONUS:VAR|Experience|-(count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Perception"))*((count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Perception")+1)/2)*5
 CATEGORY=Internal|Skill Tracker.MOD	BONUS:VAR|SkillCostPilotingPlanetary|(count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Piloting (Planetary)")+1)*((count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Piloting (Planetary)")+2)/2)*5		BONUS:VAR|Experience|-(count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Piloting (Planetary)"))*((count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Piloting (Planetary)")+1)/2)*5
 CATEGORY=Internal|Skill Tracker.MOD	BONUS:VAR|SkillCostPilotingSpace|(count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Piloting (Space)")+1)*((count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Piloting (Space)")+2)/2)*5		BONUS:VAR|Experience|-(count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Piloting (Space)"))*((count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Piloting (Space)")+1)/2)*5
-CATEGORY=Internal|Skill Tracker.MOD	BONUS:VAR|SkillCostRangedHeavy)|(count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Ranged (Heavy)")+1)*((count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Ranged (Heavy)")+2)/2)*5		BONUS:VAR|Experience|-(count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Ranged (Heavy)"))*((count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Ranged (Heavy)")+1)/2)*5
+CATEGORY=Internal|Skill Tracker.MOD	BONUS:VAR|SkillCostRangedHeavy|(count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Ranged (Heavy)")+1)*((count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Ranged (Heavy)")+2)/2)*5		BONUS:VAR|Experience|-(count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Ranged (Heavy)"))*((count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Ranged (Heavy)")+1)/2)*5
 CATEGORY=Internal|Skill Tracker.MOD	BONUS:VAR|SkillCostRangedLight|(count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Ranged (Light)")+1)*((count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Ranged (Light)")+2)/2)*5		BONUS:VAR|Experience|-(count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Ranged (Light)"))*((count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Ranged (Light)")+1)/2)*5
 CATEGORY=Internal|Skill Tracker.MOD	BONUS:VAR|SkillCostResilience|(count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Resilience")+1)*((count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Resilience")+2)/2)*5		BONUS:VAR|Experience|-(count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Resilience"))*((count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Resilience")+1)/2)*5
 CATEGORY=Internal|Skill Tracker.MOD	BONUS:VAR|SkillCostSkulduggery|(count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Skulduggery")+1)*((count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Skulduggery")+2)/2)*5		BONUS:VAR|Experience|-(count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Skulduggery"))*((count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Skulduggery")+1)/2)*5
@@ -310,4 +484,9 @@ CATEGORY=Internal|Career Tracker.MOD	DEFINE:ThiefCareerSpecializationCost|0		BON
 CATEGORY=Internal|Career Tracker.MOD	DEFINE:MechanicCareerSpecializationCost|0		BONUS:VAR|MechanicCareerSpecializationCost|CareerSpecializationCost		BONUS:VAR|MechanicCareerSpecializationCost|10|PREVAREQ:CareerTechnician,0	
 CATEGORY=Internal|Career Tracker.MOD	DEFINE:Outlaw_TechCareerSpecializationCost|0	BONUS:VAR|Outlaw_TechCareerSpecializationCost|CareerSpecializationCost		BONUS:VAR|Outlaw_TechCareerSpecializationCost|10|PREVAREQ:CareerTechnician,0	
 CATEGORY=Internal|Career Tracker.MOD	DEFINE:SlicerCareerSpecializationCost|0		BONUS:VAR|SlicerCareerSpecializationCost|CareerSpecializationCost			BONUS:VAR|SlicerCareerSpecializationCost|10|PREVAREQ:CareerTechnician,0		
+# Universal Specialization - no 10 point penalty
+CATEGORY=Internal|Career Tracker.MOD	DEFINE:ForceSensitiveExileCareerSpecializationCost|0		BONUS:VAR|ForceSensitiveExileCareerSpecializationCost|CareerSpecializationCost					
 
+
+
+###END
