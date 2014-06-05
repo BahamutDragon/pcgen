@@ -1,6 +1,6 @@
 
 Default	CATEGORY:Internal
-CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Skill Tracker	BONUS:ABILITYPOOL|Career Selection|1	BONUS:ABILITYPOOL|Career Skill Selection|CareerSkillCount|PREABILITY:1,CATEGORY=Career,TYPE.Career	DEFINE:CareerSkillCount|0	BONUS:VAR|CareerSkillCount|4
+CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Skill Tracker	BONUS:ABILITYPOOL|Career Selection|1	BONUS:ABILITYPOOL|Career Skill Selection|CareerSkillCount|PREABILITY:1,CATEGORY=Career,TYPE.Career	DEFINE:CareerSkillCount|0	BONUS:VAR|CareerSkillCount|4	DEFINE:SpecializationSkillCount|0	BONUS:VAR|SpecializationSkillCount|2	
 
 
 ###Block: Species Abilities:
@@ -19,10 +19,10 @@ Mechanical Being	KEY:Droid ~ Mechanical Being	CATEGORY:Special Ability	TYPE:Disp
 
 Ammonia Breathers		KEY:Gand ~ Ammonia Breathers	CATEGORY:Special Ability	TYPE:Display.SpecialQuality	DESC:One notable difference between the two main sub-species of Gand is that one has lungs and one does not.	BONUS:ABILITYPOOL|Gand Lung Selection|1
 
-Lungs			KEY:Gand ~ Lungs		TYPE:GandLungSelection	DESC:Start the game with an ammonia respirator	BONUS:VAR|Experience|10|TYPE=Species.STACK
-No Lungs		KEY:Gand ~ No Lungs	TYPE:GandLungSelection	DESC:Immune to suffocation
+Lungs			KEY:Gand ~ Lungs		CATEGORY:Internal	TYPE:GandLungSelection	DESC:Start the game with an ammonia respirator	BONUS:VAR|Experience|10|TYPE=Species.STACK
+No Lungs		KEY:Gand ~ No Lungs	CATEGORY:Internal	TYPE:GandLungSelection	DESC:Immune to suffocation
 
-Human Non-Career Skill	CATEGORY:Internal	CHOOSE:SKILL|NONCLASSSKILL	MULT:YES	STACK:NO
+Human Non-Career Skill	CATEGORY:Internal	CHOOSE:SKILL|CROSSCLASS	MULT:YES	STACK:NO	BONUS:SKILLRANK|%LIST|1
 
 
 
@@ -35,42 +35,42 @@ Deception	KEY:Twilek Skill ~ Deception	CATEGORY:Internal	TYPE:TwilekRace	BONUS:S
 Wookie Rage		KEY:Wookie ~ Wookie Rage	CATEGORY:Special Ability	TYPE:Display.SpecialQuality	DESC:When a Wookiee has suffered any wounds, he deals + 1 damage to Brawl and Melee attacks. When a Wookiee is Critically Injured, he instead deals + 2 damage to Brawl and Melee attacks.
 
 
-Career Skill Selection		CATEGORY:Internal	TYPE:CareerSkillSelect		CHOOSE:ABILITY=Career Skill|PC,TYPE=Career Skill		MULT:YES	STACK:NO
-Specialty Skill Selection	CATEGORY:Internal	TYPE:SpecialtySkillSelect	CHOOSE:ABILITY=Career Skill|PC,TYPE=Specialization Skill	MULT:YES	STACK:NO
+Career Skill Selection		CATEGORY:Career Skill	TYPE:CareerSkillSelect		CHOOSE:ABILITY|Career Skill|PC,TYPE=Career Skill		MULT:YES	STACK:NO
+Specialty Skill Selection	CATEGORY:Career Skill	TYPE:SpecialtySkillSelect	CHOOSE:ABILITY|Career Skill|PC,TYPE=Specialization Skill	MULT:YES	STACK:NO
 
 
 ###Block: Careers
 Bounty Hunter	TYPE:Career	CATEGORY:Career	ABILITY:Career Skill|AUTOMATIC|Career Skill ~ Athletics|Career Skill ~ Brawl|Career Skill ~ Perception|Career Skill ~ Piloting (Planetary)|Career Skill ~ Piloting (Space)|Career Skill ~ Ranged (Heavy)|Career Skill ~ Streetwise|Career Skill ~ Vigilance
-Colonist		TYPE:Career	CATEGORY:Career	ABILITY:Career Skill|AUTOMATIC|Career Skill ~ Charm|Career Skill ~ Deception|Career Skill ~ Knowledge (Core Worlds)|Career Skill ~ Knowledge (Education)|Career Skill ~ Knowledge (Lore)|Career Skill ~ Leadership|Career Skill ~ Negotiation|Career Skill ~ Streewise
-Explorer		TYPE:Career	CATEGORY:Career	ABILITY:Career Skill|AUTOMATIC|Career Skill ~ Charm|Career Skill ~ Deception|Career Skill ~ Knowledge (Core Worlds)|Career Skill ~ Knowledge (Education)|Career Skill ~ Knowledge (Lore)|Career Skill ~ Leadership|Career Skill ~ Negotiation|Career Skill ~ Streewise
+Colonist		TYPE:Career	CATEGORY:Career	ABILITY:Career Skill|AUTOMATIC|Career Skill ~ Charm|Career Skill ~ Deception|Career Skill ~ Knowledge (Core Worlds)|Career Skill ~ Knowledge (Education)|Career Skill ~ Knowledge (Lore)|Career Skill ~ Leadership|Career Skill ~ Negotiation|Career Skill ~ Streetwise
+Explorer		TYPE:Career	CATEGORY:Career	ABILITY:Career Skill|AUTOMATIC|Career Skill ~ Charm|Career Skill ~ Deception|Career Skill ~ Knowledge (Core Worlds)|Career Skill ~ Knowledge (Education)|Career Skill ~ Knowledge (Lore)|Career Skill ~ Leadership|Career Skill ~ Negotiation|Career Skill ~ Streetwise
 Hired Gun		TYPE:Career	CATEGORY:Career	ABILITY:Career Skill|AUTOMATIC|Career Skill ~ Athletics|Career Skill ~ Brawl|Career Skill ~ Discipline|Career Skill ~ Melee|Career Skill ~ Piloting (Planetary)|Career Skill ~ Ranged (Light)|Career Skill ~ Resilience|Career Skill ~ Vigilance
 Smuggler		TYPE:Career	CATEGORY:Career	ABILITY:Career Skill|AUTOMATIC|Career Skill ~ Coordination|Career Skill ~ Deception|Career Skill ~ Knowledge (Underworld)|Career Skill ~ Perception|Career Skill ~ Piloting (Space)|Career Skill ~ Skulduggery|Career Skill ~ Streetwise|Career Skill ~ Vigilance
 Technician		TYPE:Career	CATEGORY:Career	ABILITY:Career Skill|AUTOMATIC|Career Skill ~ Astrogation|Career Skill ~ Computers|Career Skill ~ Coordination|Career Skill ~ Discipline|Career Skill ~ Knowledge (Outer Rim)|Career Skill ~ Mechanics|Career Skill ~ Perception|Career Skill ~ Piloting (Planetary)
 
 ###Block: Career Specialization
-Assassin		KEY:Bounty Hunter Specialization ~ Assassin	TYPE:Career Specialization.Bounty Hunter	CATEGORY:Career	ABILITY:Internal|AUTOMATIC|Specialization Skill ~ Melee|Specialization Skill ~ Ranged (Heavy)|Specialization Skill ~ Skulduggery|Specialization Skill ~ Stealth		
-Gadgeteer		KEY:Bounty Hunter Specialization ~ Gadgeteer	TYPE:Career Specialization.Bounty Hunter	CATEGORY:Career	ABILITY:Internal|AUTOMATIC|Specialization Skill ~ Brawl|Specialization Skill ~ Coercion|Specialization Skill ~ Mechanics|Specialization Skill ~ Ranged (Light)
-Survivalist		KEY:Bounty Hunter Specialization ~ Survivalist	TYPE:Career Specialization.Bounty Hunter	CATEGORY:Career	ABILITY:Internal|AUTOMATIC|Specialization Skill ~ Knowledge (Xenology)|Specialization Skill ~ Perception|Specialization Skill ~ Resilience|Specialization Skill ~ Survival
+Assassin		KEY:Bounty Hunter Specialization ~ Assassin	TYPE:Career Specialization.Bounty Hunter	CATEGORY:Career	ABILITY:Career Skill|AUTOMATIC|Specialization Skill ~ Melee|Specialization Skill ~ Ranged (Heavy)|Specialization Skill ~ Skulduggery|Specialization Skill ~ Stealth		
+Gadgeteer		KEY:Bounty Hunter Specialization ~ Gadgeteer	TYPE:Career Specialization.Bounty Hunter	CATEGORY:Career	ABILITY:Career Skill|AUTOMATIC|Specialization Skill ~ Brawl|Specialization Skill ~ Coercion|Specialization Skill ~ Mechanics|Specialization Skill ~ Ranged (Light)
+Survivalist		KEY:Bounty Hunter Specialization ~ Survivalist	TYPE:Career Specialization.Bounty Hunter	CATEGORY:Career	ABILITY:Career Skill|AUTOMATIC|Specialization Skill ~ Knowledge (Xenology)|Specialization Skill ~ Perception|Specialization Skill ~ Resilience|Specialization Skill ~ Survival
 #
-Doctor		KEY:Colonist Specialization ~ Doctor		TYPE:Career Specialization.Colonist	CATEGORY:Career	ABILITY:Internal|AUTOMATIC|Specialization Skill ~ Cool|Specialization Skill ~ Knowledge (Education)|Specialization Skill ~ Medicine|Specialization Skill ~ Resilience
-Politico		KEY:Colonist Specialization ~ Politico		TYPE:Career Specialization.Colonist	CATEGORY:Career	ABILITY:Internal|AUTOMATIC|Specialization Skill ~ Charm|Specialization Skill ~ Coercion|Specialization Skill ~ Deception|Specialization Skill ~ Knowledge (Core Worlds)
-Scholar		KEY:Colonist Specialization ~ Scholar		TYPE:Career Specialization.Colonist	CATEGORY:Career	ABILITY:Internal|AUTOMATIC|Specialization Skill ~ Knowledge (Outer Rim)|Specialization Skill ~ Knowledge (Underworld)|Specialization Skill ~ Knowledge (Xenology)|Specialization Skill ~ Perception
+Doctor		KEY:Colonist Specialization ~ Doctor		TYPE:Career Specialization.Colonist	CATEGORY:Career	ABILITY:Career Skill|AUTOMATIC|Specialization Skill ~ Cool|Specialization Skill ~ Knowledge (Education)|Specialization Skill ~ Medicine|Specialization Skill ~ Resilience
+Politico		KEY:Colonist Specialization ~ Politico		TYPE:Career Specialization.Colonist	CATEGORY:Career	ABILITY:Career Skill|AUTOMATIC|Specialization Skill ~ Charm|Specialization Skill ~ Coercion|Specialization Skill ~ Deception|Specialization Skill ~ Knowledge (Core Worlds)
+Scholar		KEY:Colonist Specialization ~ Scholar		TYPE:Career Specialization.Colonist	CATEGORY:Career	ABILITY:Career Skill|AUTOMATIC|Specialization Skill ~ Knowledge (Outer Rim)|Specialization Skill ~ Knowledge (Underworld)|Specialization Skill ~ Knowledge (Xenology)|Specialization Skill ~ Perception
 #
-Fringer		KEY:Explorer Specialization ~ Scholar		TYPE:Career Specialization.Explorer	CATEGORY:Career	ABILITY:Internal|AUTOMATIC|Specialization Skill ~ Astrogation|Specialization Skill ~ Coordination|Specialization Skill ~ Negotiation|Specialization Skill ~ Streetwise
-Scout			KEY:Explorer Specialization ~ Scholar		TYPE:Career Specialization.Explorer	CATEGORY:Career	ABILITY:Internal|AUTOMATIC|Specialization Skill ~ Athletics|Specialization Skill ~ Medicine|Specialization Skill ~ Piloting (Planetary)|Specialization Skill ~ Survival
-Trader		KEY:Explorer Specialization ~ Scholar		TYPE:Career Specialization.Explorer	CATEGORY:Career	ABILITY:Internal|AUTOMATIC|Specialization Skill ~ Deception|Specialization Skill ~ Knowledge (Core Worlds)|Specialization Skill ~ Knowledge (Underworld)|Specialization Skill ~ Negotiation
+Fringer		KEY:Explorer Specialization ~ Scholar		TYPE:Career Specialization.Explorer	CATEGORY:Career	ABILITY:Career Skill|AUTOMATIC|Specialization Skill ~ Astrogation|Specialization Skill ~ Coordination|Specialization Skill ~ Negotiation|Specialization Skill ~ Streetwise
+Scout			KEY:Explorer Specialization ~ Scholar		TYPE:Career Specialization.Explorer	CATEGORY:Career	ABILITY:Career Skill|AUTOMATIC|Specialization Skill ~ Athletics|Specialization Skill ~ Medicine|Specialization Skill ~ Piloting (Planetary)|Specialization Skill ~ Survival
+Trader		KEY:Explorer Specialization ~ Scholar		TYPE:Career Specialization.Explorer	CATEGORY:Career	ABILITY:Career Skill|AUTOMATIC|Specialization Skill ~ Deception|Specialization Skill ~ Knowledge (Core Worlds)|Specialization Skill ~ Knowledge (Underworld)|Specialization Skill ~ Negotiation
 #
-Bodyguard		KEY:Hired Gun Specialization ~ Scholar		TYPE:Career Specialization.Hired Gun	CATEGORY:Career	ABILITY:Internal|AUTOMATIC|Specialization Skill ~ Gunnery|Specialization Skill ~ Perception|Specialization Skill ~ Piloting (Planetary)|Specialization Skill ~ Ranged (Heavy)
-Marauder		KEY:Hired Gun Specialization ~ Scholar		TYPE:Career Specialization.Hired Gun	CATEGORY:Career	ABILITY:Internal|AUTOMATIC|Specialization Skill ~ Coercion|Specialization Skill ~ Melee|Specialization Skill ~ Resilience|Specialization Skill ~ Survival
-Mercenary		KEY:Hired Gun Specialization ~ Scholar		TYPE:Career Specialization.Hired Gun	CATEGORY:Career	ABILITY:Internal|AUTOMATIC|Specialization Skill ~ Discipline|Specialization Skill ~ Gunnery|Specialization Skill ~ Leadership|Specialization Skill ~ Ranged (Heavy)
+Bodyguard		KEY:Hired Gun Specialization ~ Scholar		TYPE:Career Specialization.Hired Gun	CATEGORY:Career	ABILITY:Career Skill|AUTOMATIC|Specialization Skill ~ Gunnery|Specialization Skill ~ Perception|Specialization Skill ~ Piloting (Planetary)|Specialization Skill ~ Ranged (Heavy)
+Marauder		KEY:Hired Gun Specialization ~ Scholar		TYPE:Career Specialization.Hired Gun	CATEGORY:Career	ABILITY:Career Skill|AUTOMATIC|Specialization Skill ~ Coercion|Specialization Skill ~ Melee|Specialization Skill ~ Resilience|Specialization Skill ~ Survival
+Mercenary		KEY:Hired Gun Specialization ~ Scholar		TYPE:Career Specialization.Hired Gun	CATEGORY:Career	ABILITY:Career Skill|AUTOMATIC|Specialization Skill ~ Discipline|Specialization Skill ~ Gunnery|Specialization Skill ~ Leadership|Specialization Skill ~ Ranged (Heavy)
 #
-Pilot			KEY:Smuggler Specialization ~ Scholar		TYPE:Career Specialization.Smuggler	CATEGORY:Career	ABILITY:Internal|AUTOMATIC|Specialization Skill ~ Astrogation|Specialization Skill ~ Gunnery|Specialization Skill ~ Piloting (Planetary)|Specialization Skill ~ Piloting (Space)
-Scoundrel		KEY:Smuggler Specialization ~ Scholar		TYPE:Career Specialization.Smuggler	CATEGORY:Career	ABILITY:Internal|AUTOMATIC|Specialization Skill ~ Charm|Specialization Skill ~ Cool|Specialization Skill ~ Deception|Specialization Skill ~ Ranged (Light)
-Thief			KEY:Smuggler Specialization ~ Scholar		TYPE:Career Specialization.Smuggler	CATEGORY:Career	ABILITY:Internal|AUTOMATIC|Specialization Skill ~ Computers|Specialization Skill ~ Skulduggery|Specialization Skill ~ Stealth|Specialization Skill ~ Vigilance
+Pilot			KEY:Smuggler Specialization ~ Scholar		TYPE:Career Specialization.Smuggler	CATEGORY:Career	ABILITY:Career Skill|AUTOMATIC|Specialization Skill ~ Astrogation|Specialization Skill ~ Gunnery|Specialization Skill ~ Piloting (Planetary)|Specialization Skill ~ Piloting (Space)
+Scoundrel		KEY:Smuggler Specialization ~ Scholar		TYPE:Career Specialization.Smuggler	CATEGORY:Career	ABILITY:Career Skill|AUTOMATIC|Specialization Skill ~ Charm|Specialization Skill ~ Cool|Specialization Skill ~ Deception|Specialization Skill ~ Ranged (Light)
+Thief			KEY:Smuggler Specialization ~ Scholar		TYPE:Career Specialization.Smuggler	CATEGORY:Career	ABILITY:Career Skill|AUTOMATIC|Specialization Skill ~ Computers|Specialization Skill ~ Skulduggery|Specialization Skill ~ Stealth|Specialization Skill ~ Vigilance
 #
-Mechanic		KEY:Technician Specialization ~ Scholar		TYPE:Career Specialization.Technician	CATEGORY:Career	ABILITY:Internal|AUTOMATIC|Specialization Skill ~ Brawl|Specialization Skill ~ Mechanics|Specialization Skill ~ Piloting (Space)|Specialization Skill ~ Skulduggery
-Outlaw Tech		KEY:Technician Specialization ~ Scholar		TYPE:Career Specialization.Technician	CATEGORY:Career	ABILITY:Internal|AUTOMATIC|Specialization Skill ~ Knowledge (Education)|Specialization Skill ~ Knowledge (Underworld)|Specialization Skill ~ Mechanics|Specialization Skill ~ Streetwise
-Slicer		KEY:Technician Specialization ~ Scholar		TYPE:Career Specialization.Technician	CATEGORY:Career	ABILITY:Internal|AUTOMATIC|Specialization Skill ~ Computers|Specialization Skill ~ Knowledge (Education)|Specialization Skill ~ Knowledge (Underworld)|Specialization Skill ~ Stealth
+Mechanic		KEY:Technician Specialization ~ Scholar		TYPE:Career Specialization.Technician	CATEGORY:Career	ABILITY:Career Skill|AUTOMATIC|Specialization Skill ~ Brawl|Specialization Skill ~ Mechanics|Specialization Skill ~ Piloting (Space)|Specialization Skill ~ Skulduggery
+Outlaw Tech		KEY:Technician Specialization ~ Scholar		TYPE:Career Specialization.Technician	CATEGORY:Career	ABILITY:Career Skill|AUTOMATIC|Specialization Skill ~ Knowledge (Education)|Specialization Skill ~ Knowledge (Underworld)|Specialization Skill ~ Mechanics|Specialization Skill ~ Streetwise
+Slicer		KEY:Technician Specialization ~ Scholar		TYPE:Career Specialization.Technician	CATEGORY:Career	ABILITY:Career Skill|AUTOMATIC|Specialization Skill ~ Computers|Specialization Skill ~ Knowledge (Education)|Specialization Skill ~ Knowledge (Underworld)|Specialization Skill ~ Stealth
 
 
 # Assassin Talent Tree - COMMENT: The tree makes absolutely no sense, need to prod and figure out what the correct application is. (Why spend 25 points for Dodge, when you can select the 5 point one with the exact same results?
@@ -145,103 +145,153 @@ Knowledge (Underworld)		KEY:Specialization Skill ~ Knowledge (Underworld)			TYPE
 Vigilance				KEY:Specialization Skill ~ Vigilance					TYPE:Specialization Skill	CATEGORY:Career Skill	CSKILL:Vigilance			
 Knowledge (Xenology)		KEY:Specialization Skill ~ Knowledge (Xenology)				TYPE:Specialization Skill	CATEGORY:Career Skill	CSKILL:Knowledge (Xenology)	
 
-Skill Tracker																			CATEGORY:Internal
-###Block: Skill Tracker - This grants 1 Skill Rank if the chooser selects the appropriate skill. Speciality or Career
-CATEGORY=Internal|Skill Tracker.MOD	BONUS:SKILLRANK|Astrogation|1|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Astrogation),Career Skill Selection (Career Skill ~ Astrogation)
-CATEGORY=Internal|Skill Tracker.MOD	BONUS:SKILLRANK|Athletics|1|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Athletics),Career Skill Selection (Career Skill ~ Athletics)
-CATEGORY=Internal|Skill Tracker.MOD	BONUS:SKILLRANK|Brawl|1|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Brawl),Career Skill Selection (Career Skill ~ Brawl)
-CATEGORY=Internal|Skill Tracker.MOD	BONUS:SKILLRANK|Charm|1|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Charm),Career Skill Selection (Career Skill ~ Charm)
-CATEGORY=Internal|Skill Tracker.MOD	BONUS:SKILLRANK|Coercion|1|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Coercion),Career Skill Selection (Career Skill ~ Coercion)
-CATEGORY=Internal|Skill Tracker.MOD	BONUS:SKILLRANK|Computers|1|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Computers),Career Skill Selection (Career Skill ~ Computers)
-CATEGORY=Internal|Skill Tracker.MOD	BONUS:SKILLRANK|Cool|1|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Cool),Career Skill Selection (Career Skill ~ Cool)
-CATEGORY=Internal|Skill Tracker.MOD	BONUS:SKILLRANK|Coordination|1|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Coordination),Career Skill Selection (Career Skill ~ Coordination)
-CATEGORY=Internal|Skill Tracker.MOD	BONUS:SKILLRANK|Knowledge (Core Worlds)|1|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Knowledge (Core Worlds)),Career Skill Selection (Career Skill ~ Knowledge (Core Worlds))
-CATEGORY=Internal|Skill Tracker.MOD	BONUS:SKILLRANK|Deception|1|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Deception),Career Skill Selection (Career Skill ~ Deception)
-CATEGORY=Internal|Skill Tracker.MOD	BONUS:SKILLRANK|Discipline|1|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Discipline),Career Skill Selection (Career Skill ~ Discipline)
-CATEGORY=Internal|Skill Tracker.MOD	BONUS:SKILLRANK|Knowledge (Education)|1|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Knowledge (Education)),Career Skill Selection (Career Skill ~ Knowledge (Education))
-CATEGORY=Internal|Skill Tracker.MOD	BONUS:SKILLRANK|Gunnery|1|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Gunnery),Career Skill Selection (Career Skill ~ Gunnery)
-CATEGORY=Internal|Skill Tracker.MOD	BONUS:SKILLRANK|Leadership|1|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Leadership),Career Skill Selection (Career Skill ~ Leadership)
-CATEGORY=Internal|Skill Tracker.MOD	BONUS:SKILLRANK|Knowledge (Lore)|1|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Knowledge (Lore)),Career Skill Selection (Career Skill ~ Knowledge (Lore))
-CATEGORY=Internal|Skill Tracker.MOD	BONUS:SKILLRANK|Mechanics|1|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Mechanics),Career Skill Selection (Career Skill ~ Mechanics)
-CATEGORY=Internal|Skill Tracker.MOD	BONUS:SKILLRANK|Medicine|1|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Medicine),Career Skill Selection (Career Skill ~ Medicine)
-CATEGORY=Internal|Skill Tracker.MOD	BONUS:SKILLRANK|Melee|1|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Melee),Career Skill Selection (Career Skill ~ Melee)
-CATEGORY=Internal|Skill Tracker.MOD	BONUS:SKILLRANK|Negotiation|1|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Negotiation),Career Skill Selection (Career Skill ~ Negotiation)
-CATEGORY=Internal|Skill Tracker.MOD	BONUS:SKILLRANK|Knowledge (Outer Rim)|1|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Knowledge (Outer Rim)),Career Skill Selection (Career Skill ~ Knowledge (Outer Rim))
-CATEGORY=Internal|Skill Tracker.MOD	BONUS:SKILLRANK|Perception|1|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Perception),Career Skill Selection (Career Skill ~ Perception)
-CATEGORY=Internal|Skill Tracker.MOD	BONUS:SKILLRANK|Piloting (Planetary)|1|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Piloting (Planetary)),Career Skill Selection (Career Skill ~ Piloting (Planetary))
-CATEGORY=Internal|Skill Tracker.MOD	BONUS:SKILLRANK|Piloting (Space)|1|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Piloting (Space)),Career Skill Selection (Career Skill ~ Piloting (Space))
-CATEGORY=Internal|Skill Tracker.MOD	BONUS:SKILLRANK|Ranged (Heavy)|1|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Ranged (Heavy)),Career Skill Selection (Career Skill ~ Ranged (Heavy))
-CATEGORY=Internal|Skill Tracker.MOD	BONUS:SKILLRANK|Ranged (Light)|1|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Ranged (Light)),Career Skill Selection (Career Skill ~ Ranged (Light))
-CATEGORY=Internal|Skill Tracker.MOD	BONUS:SKILLRANK|Resilience|1|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Resilience),Career Skill Selection (Career Skill ~ Resilience)
-CATEGORY=Internal|Skill Tracker.MOD	BONUS:SKILLRANK|Skulduggery|1|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Skulduggery),Career Skill Selection (Career Skill ~ Skulduggery)
-CATEGORY=Internal|Skill Tracker.MOD	BONUS:SKILLRANK|Stealth|1|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Stealth),Career Skill Selection (Career Skill ~ Stealth)
-CATEGORY=Internal|Skill Tracker.MOD	BONUS:SKILLRANK|Streetwise|1|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Streetwise),Career Skill Selection (Career Skill ~ Streetwise)
-CATEGORY=Internal|Skill Tracker.MOD	BONUS:SKILLRANK|Survival|1|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Survival),Career Skill Selection (Career Skill ~ Survival)
-CATEGORY=Internal|Skill Tracker.MOD	BONUS:SKILLRANK|Knowledge (Underworld)|1|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Knowledge (Underworld)),Career Skill Selection (Career Skill ~ Knowledge (Underworld))
-CATEGORY=Internal|Skill Tracker.MOD	BONUS:SKILLRANK|Vigilance|1|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Vigilance),Career Skill Selection (Career Skill ~ Vigilance)
-CATEGORY=Internal|Skill Tracker.MOD	BONUS:SKILLRANK|Knowledge (Xenology)|1|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Knowledge (Xenology)),Career Skill Selection (Career Skill ~ Knowledge (Xenology))
 
 ###Block: Purchases
-Increase Agility		COST:0	CATEGORY:Internal	TYPE:Purchase	
-Increase Brawn		COST:0	CATEGORY:Internal	TYPE:Purchase	
-Increase Cunning		COST:0	CATEGORY:Internal	TYPE:Purchase	
-Increase Intellect	COST:0	CATEGORY:Internal	TYPE:Purchase	
-Increase Presence		COST:0	CATEGORY:Internal	TYPE:Purchase	
-Increase Willpower	COST:0	CATEGORY:Internal	TYPE:Purchase	
+Increase Agility		PREVARGTEQ:Experience,PurchaseAGI	KEY:Stat Increase ~ AGI	COST:0	CATEGORY:Internal	TYPE:StatSelect	BONUS:LOCKEDSTAT|AGI|1	CHOOSE:NOCHOICE	MULT:YES	STACK:YES
+Increase Brawn		PREVARGTEQ:Experience,PurchaseBRA	KEY:Stat Increase ~ BRA	COST:0	CATEGORY:Internal	TYPE:StatSelect	BONUS:LOCKEDSTAT|BRA|1	CHOOSE:NOCHOICE	MULT:YES	STACK:YES
+Increase Cunning		PREVARGTEQ:Experience,PurchaseCUN	KEY:Stat Increase ~ CUN	COST:0	CATEGORY:Internal	TYPE:StatSelect	BONUS:LOCKEDSTAT|CUN|1	CHOOSE:NOCHOICE	MULT:YES	STACK:YES
+Increase Intellect	PREVARGTEQ:Experience,PurchaseINT	KEY:Stat Increase ~ INT	COST:0	CATEGORY:Internal	TYPE:StatSelect	BONUS:LOCKEDSTAT|INT|1	CHOOSE:NOCHOICE	MULT:YES	STACK:YES
+Increase Presence		PREVARGTEQ:Experience,PurchasePRE	KEY:Stat Increase ~ PRE	COST:0	CATEGORY:Internal	TYPE:StatSelect	BONUS:LOCKEDSTAT|PRE|1	CHOOSE:NOCHOICE	MULT:YES	STACK:YES
+Increase Willpower	PREVARGTEQ:Experience,PurchaseWIL	KEY:Stat Increase ~ WIL	COST:0	CATEGORY:Internal	TYPE:StatSelect	BONUS:LOCKEDSTAT|WIL|1	CHOOSE:NOCHOICE	MULT:YES	STACK:YES
+
+###Block: Skill Training - Purchaseable
+Astrogation			PREVARLT:skillinfo("TOTALRANK","Astrogation"),5			KEY:Skill Training ~ Astrogation				TYPE:Skill Training	CATEGORY:Skill Training	BONUS:SKILLRANK|Astrogation|1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE
+Athletics			PREVARLT:skillinfo("TOTALRANK","Athletics"),5			KEY:Skill Training ~ Athletics					TYPE:Skill Training	CATEGORY:Skill Training	BONUS:SKILLRANK|Athletics|1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE
+Brawl				PREVARLT:skillinfo("TOTALRANK","Brawl"),5				KEY:Skill Training ~ Brawl					TYPE:Skill Training	CATEGORY:Skill Training	BONUS:SKILLRANK|Brawl|1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE
+Charm				PREVARLT:skillinfo("TOTALRANK","Charm"),5				KEY:Skill Training ~ Charm					TYPE:Skill Training	CATEGORY:Skill Training	BONUS:SKILLRANK|Charm|1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE
+Coercion			PREVARLT:skillinfo("TOTALRANK","Coercion"),5			KEY:Skill Training ~ Coercion					TYPE:Skill Training	CATEGORY:Skill Training	BONUS:SKILLRANK|Coercion|1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE
+Computers			PREVARLT:skillinfo("TOTALRANK","Computers"),5			KEY:Skill Training ~ Computers					TYPE:Skill Training	CATEGORY:Skill Training	BONUS:SKILLRANK|Computers|1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE
+Cool				PREVARLT:skillinfo("TOTALRANK","Cool"),5				KEY:Skill Training ~ Cool						TYPE:Skill Training	CATEGORY:Skill Training	BONUS:SKILLRANK|Cool|1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE
+Coordination		PREVARLT:skillinfo("TOTALRANK","Coordination"),5		KEY:Skill Training ~ Coordination				TYPE:Skill Training	CATEGORY:Skill Training	BONUS:SKILLRANK|Coordination|1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE
+Knowledge (Core Worlds)	PREVARLT:skillinfo("TOTALRANK","Knowledge (Core Worlds)"),5	KEY:Skill Training ~ Knowledge (Core Worlds)		TYPE:Skill Training	CATEGORY:Skill Training	BONUS:SKILLRANK|Knowledge (Core Worlds)|1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE
+Deception			PREVARLT:skillinfo("TOTALRANK","Deception"),5			KEY:Skill Training ~ Deception					TYPE:Skill Training	CATEGORY:Skill Training	BONUS:SKILLRANK|Deception|1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE
+Discipline			PREVARLT:skillinfo("TOTALRANK","Discipline"),5			KEY:Skill Training ~ Discipline					TYPE:Skill Training	CATEGORY:Skill Training	BONUS:SKILLRANK|Discipline|1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE
+Knowledge (Education)	PREVARLT:skillinfo("TOTALRANK","Knowledge (Education)"),5	KEY:Skill Training ~ Knowledge (Education)			TYPE:Skill Training	CATEGORY:Skill Training	BONUS:SKILLRANK|Knowledge (Education)|1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE
+Gunnery			PREVARLT:skillinfo("TOTALRANK","Gunnery"),5			KEY:Skill Training ~ Gunnery					TYPE:Skill Training	CATEGORY:Skill Training	BONUS:SKILLRANK|Gunnery|1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE
+Leadership			PREVARLT:skillinfo("TOTALRANK","Leadership"),5			KEY:Skill Training ~ Leadership					TYPE:Skill Training	CATEGORY:Skill Training	BONUS:SKILLRANK|Leadership|1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE
+Knowledge (Lore)		PREVARLT:skillinfo("TOTALRANK","Knowledge (Lore)"),5		KEY:Skill Training ~ Knowledge (Lore)				TYPE:Skill Training	CATEGORY:Skill Training	BONUS:SKILLRANK|Knowledge (Lore)|1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE
+Mechanics			PREVARLT:skillinfo("TOTALRANK","Mechanics"),5			KEY:Skill Training ~ Mechanics					TYPE:Skill Training	CATEGORY:Skill Training	BONUS:SKILLRANK|Mechanics|1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE
+Medicine			PREVARLT:skillinfo("TOTALRANK","Medicine"),5			KEY:Skill Training ~ Medicine					TYPE:Skill Training	CATEGORY:Skill Training	BONUS:SKILLRANK|Medicine|1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE
+Melee				PREVARLT:skillinfo("TOTALRANK","Melee"),5				KEY:Skill Training ~ Melee					TYPE:Skill Training	CATEGORY:Skill Training	BONUS:SKILLRANK|Melee|1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE
+Negotiation			PREVARLT:skillinfo("TOTALRANK","Negotiation"),5			KEY:Skill Training ~ Negotiation				TYPE:Skill Training	CATEGORY:Skill Training	BONUS:SKILLRANK|Negotiation|1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE
+Knowledge (Outer Rim)	PREVARLT:skillinfo("TOTALRANK","Knowledge (Outer Rim)"),5	KEY:Skill Training ~ Knowledge (Outer Rim)			TYPE:Skill Training	CATEGORY:Skill Training	BONUS:SKILLRANK|Knowledge (Outer Rim)|1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE
+Perception			PREVARLT:skillinfo("TOTALRANK","Perception"),5			KEY:Skill Training ~ Perception					TYPE:Skill Training	CATEGORY:Skill Training	BONUS:SKILLRANK|Perception|1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE
+Piloting (Planetary)	PREVARLT:skillinfo("TOTALRANK","Piloting (Planetary)"),5	KEY:Skill Training ~ Piloting (Planetary)			TYPE:Skill Training	CATEGORY:Skill Training	BONUS:SKILLRANK|Piloting (Planetary)|1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE
+Piloting (Space)		PREVARLT:skillinfo("TOTALRANK","Piloting (Space)"),5		KEY:Skill Training ~ Piloting (Space)				TYPE:Skill Training	CATEGORY:Skill Training	BONUS:SKILLRANK|Piloting (Space)|1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE
+Ranged (Heavy)		PREVARLT:skillinfo("TOTALRANK","Ranged (Heavy)"),5		KEY:Skill Training ~ Ranged (Heavy)				TYPE:Skill Training	CATEGORY:Skill Training	BONUS:SKILLRANK|Ranged (Heavy)|1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE
+Ranged (Light)		PREVARLT:skillinfo("TOTALRANK","Ranged (Light)"),5		KEY:Skill Training ~ Ranged (Light)				TYPE:Skill Training	CATEGORY:Skill Training	BONUS:SKILLRANK|Ranged (Light)|1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE
+Resilience			PREVARLT:skillinfo("TOTALRANK","Resilience"),5			KEY:Skill Training ~ Resilience					TYPE:Skill Training	CATEGORY:Skill Training	BONUS:SKILLRANK|Resilience|1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE
+Skulduggery			PREVARLT:skillinfo("TOTALRANK","Skulduggery"),5			KEY:Skill Training ~ Skulduggery				TYPE:Skill Training	CATEGORY:Skill Training	BONUS:SKILLRANK|Skulduggery|1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE
+Stealth			PREVARLT:skillinfo("TOTALRANK","Stealth"),5			KEY:Skill Training ~ Stealth					TYPE:Skill Training	CATEGORY:Skill Training	BONUS:SKILLRANK|Stealth|1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE
+Streetwise			PREVARLT:skillinfo("TOTALRANK","Streetwise"),5			KEY:Skill Training ~ Streetwise					TYPE:Skill Training	CATEGORY:Skill Training	BONUS:SKILLRANK|Streetwise|1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE		
+Survival			PREVARLT:skillinfo("TOTALRANK","Survival"),5			KEY:Skill Training ~ Survival					TYPE:Skill Training	CATEGORY:Skill Training	BONUS:SKILLRANK|Survival|1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE
+Knowledge (Underworld)	PREVARLT:skillinfo("TOTALRANK","Knowledge (Underworld)"),5	KEY:Skill Training ~ Knowledge (Underworld)			TYPE:Skill Training	CATEGORY:Skill Training	BONUS:SKILLRANK|Knowledge (Underworld)|1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE
+Vigilance			PREVARLT:skillinfo("TOTALRANK","Vigilance"),5			KEY:Skill Training ~ Vigilance					TYPE:Skill Training	CATEGORY:Skill Training	BONUS:SKILLRANK|Vigilance|1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE
+Knowledge (Xenology)	PREVARLT:skillinfo("TOTALRANK","Knowledge (Xenology)"),5	KEY:Skill Training ~ Knowledge (Xenology)			TYPE:Skill Training	CATEGORY:Skill Training	BONUS:SKILLRANK|Knowledge (Xenology)|1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE
+
+###Block: Talents
+Convincing Demeanor Talent	CATEGORY:Special Ability
+Expert Tracker Talent		CATEGORY:Special Ability
+
+###################
+#	Trackers	#
+###################
++1 AGI	KEY:Race Stat ~ AGI	CATEGORY:Internal	TYPE:RaceStatOnly		ABILITY:Internal|AUTOMATIC|Stat Increase ~ AGI	CHOOSE:NOCHOICE	MULT:YES	STACK:YES
++1 BRA	KEY:Race Stat ~ BRA	CATEGORY:Internal	TYPE:RaceStatOnly		ABILITY:Internal|AUTOMATIC|Stat Increase ~ BRA	CHOOSE:NOCHOICE	MULT:YES	STACK:YES
++1 CUN	KEY:Race Stat ~ CUN	CATEGORY:Internal	TYPE:RaceStatOnly		ABILITY:Internal|AUTOMATIC|Stat Increase ~ CUN	CHOOSE:NOCHOICE	MULT:YES	STACK:YES
++1 INT	KEY:Race Stat ~ INT	CATEGORY:Internal	TYPE:RaceStatOnly		ABILITY:Internal|AUTOMATIC|Stat Increase ~ INT	CHOOSE:NOCHOICE	MULT:YES	STACK:YES
++1 PRE	KEY:Race Stat ~ PRE	CATEGORY:Internal	TYPE:RaceStatOnly		ABILITY:Internal|AUTOMATIC|Stat Increase ~ PRE	CHOOSE:NOCHOICE	MULT:YES	STACK:YES
++1 WIL	KEY:Race Stat ~ WIL	CATEGORY:Internal	TYPE:RaceStatOnly		ABILITY:Internal|AUTOMATIC|Stat Increase ~ WIL	CHOOSE:NOCHOICE	MULT:YES	STACK:YES
+
+Skill Tracker																			CATEGORY:Internal	BONUS:VAR|Experience|5*count("ABILITIES","CATEGORY=Career Skill")
+###Block: Skill Tracker - This grants 1 Skill Rank if the chooser selects the appropriate skill. Speciality or Career
+CATEGORY=Internal|Skill Tracker.MOD	ABILITY:Skill Training|AUTOMATIC|Skill Training ~ Astrogation|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Astrogation),Career Skill Selection (Career Skill ~ Astrogation)
+CATEGORY=Internal|Skill Tracker.MOD	ABILITY:Skill Training|AUTOMATIC|Skill Training ~ Athletics|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Athletics),Career Skill Selection (Career Skill ~ Athletics)
+CATEGORY=Internal|Skill Tracker.MOD	ABILITY:Skill Training|AUTOMATIC|Skill Training ~ Brawl|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Brawl),Career Skill Selection (Career Skill ~ Brawl)
+CATEGORY=Internal|Skill Tracker.MOD	ABILITY:Skill Training|AUTOMATIC|Skill Training ~ Charm|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Charm),Career Skill Selection (Career Skill ~ Charm)
+CATEGORY=Internal|Skill Tracker.MOD	ABILITY:Skill Training|AUTOMATIC|Skill Training ~ Coercion|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Coercion),Career Skill Selection (Career Skill ~ Coercion)
+CATEGORY=Internal|Skill Tracker.MOD	ABILITY:Skill Training|AUTOMATIC|Skill Training ~ Computers|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Computers),Career Skill Selection (Career Skill ~ Computers)
+CATEGORY=Internal|Skill Tracker.MOD	ABILITY:Skill Training|AUTOMATIC|Skill Training ~ Cool|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Cool),Career Skill Selection (Career Skill ~ Cool)
+CATEGORY=Internal|Skill Tracker.MOD	ABILITY:Skill Training|AUTOMATIC|Skill Training ~ Coordination|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Coordination),Career Skill Selection (Career Skill ~ Coordination)
+CATEGORY=Internal|Skill Tracker.MOD	ABILITY:Skill Training|AUTOMATIC|Skill Training ~ Knowledge (Core Worlds)|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Knowledge (Core Worlds)),Career Skill Selection (Career Skill ~ Knowledge (Core Worlds))
+CATEGORY=Internal|Skill Tracker.MOD	ABILITY:Skill Training|AUTOMATIC|Skill Training ~ Deception|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Deception),Career Skill Selection (Career Skill ~ Deception)
+CATEGORY=Internal|Skill Tracker.MOD	ABILITY:Skill Training|AUTOMATIC|Skill Training ~ Discipline|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Discipline),Career Skill Selection (Career Skill ~ Discipline)
+CATEGORY=Internal|Skill Tracker.MOD	ABILITY:Skill Training|AUTOMATIC|Skill Training ~ Knowledge (Education)|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Knowledge (Education)),Career Skill Selection (Career Skill ~ Knowledge (Education))
+CATEGORY=Internal|Skill Tracker.MOD	ABILITY:Skill Training|AUTOMATIC|Skill Training ~ Gunnery|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Gunnery),Career Skill Selection (Career Skill ~ Gunnery)
+CATEGORY=Internal|Skill Tracker.MOD	ABILITY:Skill Training|AUTOMATIC|Skill Training ~ Leadership|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Leadership),Career Skill Selection (Career Skill ~ Leadership)
+CATEGORY=Internal|Skill Tracker.MOD	ABILITY:Skill Training|AUTOMATIC|Skill Training ~ Knowledge (Lore)|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Knowledge (Lore)),Career Skill Selection (Career Skill ~ Knowledge (Lore))
+CATEGORY=Internal|Skill Tracker.MOD	ABILITY:Skill Training|AUTOMATIC|Skill Training ~ Mechanics|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Mechanics),Career Skill Selection (Career Skill ~ Mechanics)
+CATEGORY=Internal|Skill Tracker.MOD	ABILITY:Skill Training|AUTOMATIC|Skill Training ~ Medicine|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Medicine),Career Skill Selection (Career Skill ~ Medicine)
+CATEGORY=Internal|Skill Tracker.MOD	ABILITY:Skill Training|AUTOMATIC|Skill Training ~ Melee|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Melee),Career Skill Selection (Career Skill ~ Melee)
+CATEGORY=Internal|Skill Tracker.MOD	ABILITY:Skill Training|AUTOMATIC|Skill Training ~ Negotiation|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Negotiation),Career Skill Selection (Career Skill ~ Negotiation)
+CATEGORY=Internal|Skill Tracker.MOD	ABILITY:Skill Training|AUTOMATIC|Skill Training ~ Knowledge (Outer Rim)|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Knowledge (Outer Rim)),Career Skill Selection (Career Skill ~ Knowledge (Outer Rim))
+CATEGORY=Internal|Skill Tracker.MOD	ABILITY:Skill Training|AUTOMATIC|Skill Training ~ Perception|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Perception),Career Skill Selection (Career Skill ~ Perception)
+CATEGORY=Internal|Skill Tracker.MOD	ABILITY:Skill Training|AUTOMATIC|Skill Training ~ Piloting (Planetary)|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Piloting (Planetary)),Career Skill Selection (Career Skill ~ Piloting (Planetary))
+CATEGORY=Internal|Skill Tracker.MOD	ABILITY:Skill Training|AUTOMATIC|Skill Training ~ Piloting (Space)|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Piloting (Space)),Career Skill Selection (Career Skill ~ Piloting (Space))
+CATEGORY=Internal|Skill Tracker.MOD	ABILITY:Skill Training|AUTOMATIC|Skill Training ~ Ranged (Heavy)|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Ranged (Heavy)),Career Skill Selection (Career Skill ~ Ranged (Heavy))
+CATEGORY=Internal|Skill Tracker.MOD	ABILITY:Skill Training|AUTOMATIC|Skill Training ~ Ranged (Light)|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Ranged (Light)),Career Skill Selection (Career Skill ~ Ranged (Light))
+CATEGORY=Internal|Skill Tracker.MOD	ABILITY:Skill Training|AUTOMATIC|Skill Training ~ Resilience|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Resilience),Career Skill Selection (Career Skill ~ Resilience)
+CATEGORY=Internal|Skill Tracker.MOD	ABILITY:Skill Training|AUTOMATIC|Skill Training ~ Skulduggery|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Skulduggery),Career Skill Selection (Career Skill ~ Skulduggery)
+CATEGORY=Internal|Skill Tracker.MOD	ABILITY:Skill Training|AUTOMATIC|Skill Training ~ Stealth|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Stealth),Career Skill Selection (Career Skill ~ Stealth)
+CATEGORY=Internal|Skill Tracker.MOD	ABILITY:Skill Training|AUTOMATIC|Skill Training ~ Streetwise|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Streetwise),Career Skill Selection (Career Skill ~ Streetwise)
+CATEGORY=Internal|Skill Tracker.MOD	ABILITY:Skill Training|AUTOMATIC|Skill Training ~ Survival|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Survival),Career Skill Selection (Career Skill ~ Survival)
+CATEGORY=Internal|Skill Tracker.MOD	ABILITY:Skill Training|AUTOMATIC|Skill Training ~ Knowledge (Underworld)|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Knowledge (Underworld)),Career Skill Selection (Career Skill ~ Knowledge (Underworld))
+CATEGORY=Internal|Skill Tracker.MOD	ABILITY:Skill Training|AUTOMATIC|Skill Training ~ Vigilance|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Vigilance),Career Skill Selection (Career Skill ~ Vigilance)
+CATEGORY=Internal|Skill Tracker.MOD	ABILITY:Skill Training|AUTOMATIC|Skill Training ~ Knowledge (Xenology)|PREABILITY:1,CATEGORY=Career Skill,Specialty Skill Selection (Specialization Skill ~ Knowledge (Xenology)),Career Skill Selection (Career Skill ~ Knowledge (Xenology))
+
+CATEGORY=Internal|Skill Tracker.MOD	BONUS:VAR|PurchaseSkillName|(count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Astrogation")+1)*((count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Astrogation")+2)/2)*5		BONUS:VAR|Experience|-(count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Astrogation"))*((count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Astrogation")+1)/2)*5
+CATEGORY=Internal|Skill Tracker.MOD	BONUS:VAR|PurchaseSkillName|(count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Athletics")+1)*((count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Athletics")+2)/2)*5		BONUS:VAR|Experience|-(count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Athletics"))*((count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Athletics")+1)/2)*5
+CATEGORY=Internal|Skill Tracker.MOD	BONUS:VAR|PurchaseSkillName|(count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Brawl")+1)*((count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Brawl")+2)/2)*5		BONUS:VAR|Experience|-(count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Brawl"))*((count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Brawl")+1)/2)*5
+CATEGORY=Internal|Skill Tracker.MOD	BONUS:VAR|PurchaseSkillName|(count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Charm")+1)*((count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Charm")+2)/2)*5		BONUS:VAR|Experience|-(count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Charm"))*((count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Charm")+1)/2)*5
+CATEGORY=Internal|Skill Tracker.MOD	BONUS:VAR|PurchaseSkillName|(count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Coercion")+1)*((count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Coercion")+2)/2)*5		BONUS:VAR|Experience|-(count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Coercion"))*((count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Coercion")+1)/2)*5
+CATEGORY=Internal|Skill Tracker.MOD	BONUS:VAR|PurchaseSkillName|(count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Computers")+1)*((count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Computers")+2)/2)*5		BONUS:VAR|Experience|-(count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Computers"))*((count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Computers")+1)/2)*5
+CATEGORY=Internal|Skill Tracker.MOD	BONUS:VAR|PurchaseSkillName|(count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Cool")+1)*((count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Cool")+2)/2)*5		BONUS:VAR|Experience|-(count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Cool"))*((count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Cool")+1)/2)*5
+CATEGORY=Internal|Skill Tracker.MOD	BONUS:VAR|PurchaseSkillName|(count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Coordination")+1)*((count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Coordination")+2)/2)*5		BONUS:VAR|Experience|-(count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Coordination"))*((count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Coordination")+1)/2)*5
+CATEGORY=Internal|Skill Tracker.MOD	BONUS:VAR|PurchaseSkillName|(count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Knowledge (Core Worlds)")+1)*((count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Knowledge (Core Worlds)")+2)/2)*5		BONUS:VAR|Experience|-(count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Knowledge (Core Worlds)"))*((count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Knowledge (Core Worlds)")+1)/2)*5
+CATEGORY=Internal|Skill Tracker.MOD	BONUS:VAR|PurchaseSkillName|(count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Deception")+1)*((count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Deception")+2)/2)*5		BONUS:VAR|Experience|-(count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Deception"))*((count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Deception")+1)/2)*5
+CATEGORY=Internal|Skill Tracker.MOD	BONUS:VAR|PurchaseSkillName|(count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Discipline")+1)*((count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Discipline")+2)/2)*5		BONUS:VAR|Experience|-(count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Discipline"))*((count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Discipline")+1)/2)*5
+CATEGORY=Internal|Skill Tracker.MOD	BONUS:VAR|PurchaseSkillName|(count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Knowledge (Education)")+1)*((count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Knowledge (Education)")+2)/2)*5		BONUS:VAR|Experience|-(count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Knowledge (Education)"))*((count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Knowledge (Education)")+1)/2)*5
+CATEGORY=Internal|Skill Tracker.MOD	BONUS:VAR|PurchaseSkillName|(count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Gunnery")+1)*((count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Gunnery")+2)/2)*5		BONUS:VAR|Experience|-(count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Gunnery"))*((count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Gunnery")+1)/2)*5
+CATEGORY=Internal|Skill Tracker.MOD	BONUS:VAR|PurchaseSkillName|(count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Leadership")+1)*((count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Leadership")+2)/2)*5		BONUS:VAR|Experience|-(count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Leadership"))*((count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Leadership")+1)/2)*5
+CATEGORY=Internal|Skill Tracker.MOD	BONUS:VAR|PurchaseSkillName|(count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Knowledge (Lore)")+1)*((count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Knowledge (Lore)")+2)/2)*5		BONUS:VAR|Experience|-(count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Knowledge (Lore)"))*((count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Knowledge (Lore)")+1)/2)*5
+CATEGORY=Internal|Skill Tracker.MOD	BONUS:VAR|PurchaseSkillName|(count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Mechanics")+1)*((count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Mechanics")+2)/2)*5		BONUS:VAR|Experience|-(count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Mechanics"))*((count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Mechanics")+1)/2)*5
+CATEGORY=Internal|Skill Tracker.MOD	BONUS:VAR|PurchaseSkillName|(count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Medicine")+1)*((count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Medicine")+2)/2)*5		BONUS:VAR|Experience|-(count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Medicine"))*((count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Medicine")+1)/2)*5
+CATEGORY=Internal|Skill Tracker.MOD	BONUS:VAR|PurchaseSkillName|(count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Melee")+1)*((count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Melee")+2)/2)*5		BONUS:VAR|Experience|-(count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Melee"))*((count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Melee")+1)/2)*5
+CATEGORY=Internal|Skill Tracker.MOD	BONUS:VAR|PurchaseSkillName|(count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Negotiation")+1)*((count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Negotiation")+2)/2)*5		BONUS:VAR|Experience|-(count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Negotiation"))*((count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Negotiation")+1)/2)*5
+CATEGORY=Internal|Skill Tracker.MOD	BONUS:VAR|PurchaseSkillName|(count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Knowledge (Outer Rim)")+1)*((count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Knowledge (Outer Rim)")+2)/2)*5		BONUS:VAR|Experience|-(count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Knowledge (Outer Rim)"))*((count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Knowledge (Outer Rim)")+1)/2)*5
+CATEGORY=Internal|Skill Tracker.MOD	BONUS:VAR|PurchaseSkillName|(count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Perception")+1)*((count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Perception")+2)/2)*5		BONUS:VAR|Experience|-(count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Perception"))*((count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Perception")+1)/2)*5
+CATEGORY=Internal|Skill Tracker.MOD	BONUS:VAR|PurchaseSkillName|(count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Piloting (Planetary)")+1)*((count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Piloting (Planetary)")+2)/2)*5		BONUS:VAR|Experience|-(count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Piloting (Planetary)"))*((count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Piloting (Planetary)")+1)/2)*5
+CATEGORY=Internal|Skill Tracker.MOD	BONUS:VAR|PurchaseSkillName|(count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Piloting (Space)")+1)*((count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Piloting (Space)")+2)/2)*5		BONUS:VAR|Experience|-(count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Piloting (Space)"))*((count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Piloting (Space)")+1)/2)*5
+CATEGORY=Internal|Skill Tracker.MOD	BONUS:VAR|PurchaseSkillName|(count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Ranged (Heavy)")+1)*((count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Ranged (Heavy)")+2)/2)*5		BONUS:VAR|Experience|-(count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Ranged (Heavy)"))*((count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Ranged (Heavy)")+1)/2)*5
+CATEGORY=Internal|Skill Tracker.MOD	BONUS:VAR|PurchaseSkillName|(count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Ranged (Light)")+1)*((count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Ranged (Light)")+2)/2)*5		BONUS:VAR|Experience|-(count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Ranged (Light)"))*((count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Ranged (Light)")+1)/2)*5
+CATEGORY=Internal|Skill Tracker.MOD	BONUS:VAR|PurchaseSkillName|(count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Resilience")+1)*((count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Resilience")+2)/2)*5		BONUS:VAR|Experience|-(count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Resilience"))*((count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Resilience")+1)/2)*5
+CATEGORY=Internal|Skill Tracker.MOD	BONUS:VAR|PurchaseSkillName|(count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Skulduggery")+1)*((count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Skulduggery")+2)/2)*5		BONUS:VAR|Experience|-(count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Skulduggery"))*((count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Skulduggery")+1)/2)*5
+CATEGORY=Internal|Skill Tracker.MOD	BONUS:VAR|PurchaseSkillName|(count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Stealth")+1)*((count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Stealth")+2)/2)*5		BONUS:VAR|Experience|-(count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Stealth"))*((count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Stealth")+1)/2)*5
+CATEGORY=Internal|Skill Tracker.MOD	BONUS:VAR|PurchaseSkillName|(count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Streetwise")+1)*((count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Streetwise")+2)/2)*5		BONUS:VAR|Experience|-(count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Streetwise"))*((count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Streetwise")+1)/2)*5
+CATEGORY=Internal|Skill Tracker.MOD	BONUS:VAR|PurchaseSkillName|(count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Survival")+1)*((count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Survival")+2)/2)*5		BONUS:VAR|Experience|-(count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Survival"))*((count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Survival")+1)/2)*5
+CATEGORY=Internal|Skill Tracker.MOD	BONUS:VAR|PurchaseSkillName|(count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Knowledge (Underworld)")+1)*((count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Knowledge (Underworld)")+2)/2)*5		BONUS:VAR|Experience|-(count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Knowledge (Underworld)"))*((count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Knowledge (Underworld)")+1)/2)*5
+CATEGORY=Internal|Skill Tracker.MOD	BONUS:VAR|PurchaseSkillName|(count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Vigilance")+1)*((count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Vigilance")+2)/2)*5		BONUS:VAR|Experience|-(count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Vigilance"))*((count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Vigilance")+1)/2)*5
+CATEGORY=Internal|Skill Tracker.MOD	BONUS:VAR|PurchaseSkillName|(count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Knowledge (Xenology)")+1)*((count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Knowledge (Xenology)")+2)/2)*5		BONUS:VAR|Experience|-(count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Knowledge (Xenology)"))*((count("ABILITIES","CATEGORY=Skill Training","KEY=Skill Training ~ Knowledge (Xenology)")+1)/2)*5
 
 
 
-#+1 AGL		BONUS:LOCKEDSTAT|AGL|1
-#+1 BRA		BONUS:LOCKEDSTAT|BRA|1
-#+1 CUN		BONUS:LOCKEDSTAT|CUN|1
-#+1 INT		BONUS:LOCKEDSTAT|INT|1
-#+1 PRE		BONUS:LOCKEDSTAT|PRE|1
-#+1 WIL		BONUS:LOCKEDSTAT|WIL|1
+Stat Tracker	CATEGORY:Internal
+CATEGORY=Internal|Stat Tracker.MOD	BONUS:VAR|PurchaseAGI|(count("ABILITIES","CATEGORY=Internal","KEY=Stat Increase ~ AGI")+1)*((count("ABILITIES","CATEGORY=Internal","KEY=Stat Increase ~ AGI")+2)/2)*10
+CATEGORY=Internal|Stat Tracker.MOD	BONUS:VAR|PurchaseBRA|(count("ABILITIES","CATEGORY=Internal","KEY=Stat Increase ~ BRA")+1)*((count("ABILITIES","CATEGORY=Internal","KEY=Stat Increase ~ BRA")+2)/2)*10
+CATEGORY=Internal|Stat Tracker.MOD	BONUS:VAR|PurchaseCUN|(count("ABILITIES","CATEGORY=Internal","KEY=Stat Increase ~ CUN")+1)*((count("ABILITIES","CATEGORY=Internal","KEY=Stat Increase ~ CUN")+2)/2)*10
+CATEGORY=Internal|Stat Tracker.MOD	BONUS:VAR|PurchaseINT|(count("ABILITIES","CATEGORY=Internal","KEY=Stat Increase ~ INT")+1)*((count("ABILITIES","CATEGORY=Internal","KEY=Stat Increase ~ INT")+2)/2)*10
+CATEGORY=Internal|Stat Tracker.MOD	BONUS:VAR|PurchasePRE|(count("ABILITIES","CATEGORY=Internal","KEY=Stat Increase ~ PRE")+1)*((count("ABILITIES","CATEGORY=Internal","KEY=Stat Increase ~ PRE")+2)/2)*10
+CATEGORY=Internal|Stat Tracker.MOD	BONUS:VAR|PurchaseWIL|(count("ABILITIES","CATEGORY=Internal","KEY=Stat Increase ~ WIL")+1)*((count("ABILITIES","CATEGORY=Internal","KEY=Stat Increase ~ WIL")+2)/2)*10
+CATEGORY=Internal|Stat Tracker.MOD	BONUS:VAR|Experience|-(count("ABILITIES","CATEGORY=Internal","KEY=Stat Increase ~ AGI"))*((count("ABILITIES","CATEGORY=Internal","KEY=Stat Increase ~ AGI")+1)/2)*10
+CATEGORY=Internal|Stat Tracker.MOD	BONUS:VAR|Experience|-(count("ABILITIES","CATEGORY=Internal","KEY=Stat Increase ~ BRA"))*((count("ABILITIES","CATEGORY=Internal","KEY=Stat Increase ~ BRA")+1)/2)*10
+CATEGORY=Internal|Stat Tracker.MOD	BONUS:VAR|Experience|-(count("ABILITIES","CATEGORY=Internal","KEY=Stat Increase ~ CUN"))*((count("ABILITIES","CATEGORY=Internal","KEY=Stat Increase ~ CUN")+1)/2)*10
+CATEGORY=Internal|Stat Tracker.MOD	BONUS:VAR|Experience|-(count("ABILITIES","CATEGORY=Internal","KEY=Stat Increase ~ INT"))*((count("ABILITIES","CATEGORY=Internal","KEY=Stat Increase ~ INT")+1)/2)*10
+CATEGORY=Internal|Stat Tracker.MOD	BONUS:VAR|Experience|-(count("ABILITIES","CATEGORY=Internal","KEY=Stat Increase ~ PRE"))*((count("ABILITIES","CATEGORY=Internal","KEY=Stat Increase ~ PRE")+1)/2)*10
+CATEGORY=Internal|Stat Tracker.MOD	BONUS:VAR|Experience|-(count("ABILITIES","CATEGORY=Internal","KEY=Stat Increase ~ WIL"))*((count("ABILITIES","CATEGORY=Internal","KEY=Stat Increase ~ WIL")+1)/2)*10
+CATEGORY=Internal|Stat Tracker.MOD	BONUS:VAR|Experience|(count("ABILITIES","CATEGORY=Internal","KEY=Race Stat ~ AGI"))*((count("ABILITIES","CATEGORY=Internal","KEY=Race Stat ~ AGI")+1)/2)*10
+CATEGORY=Internal|Stat Tracker.MOD	BONUS:VAR|Experience|(count("ABILITIES","CATEGORY=Internal","KEY=Race Stat ~ BRA"))*((count("ABILITIES","CATEGORY=Internal","KEY=Race Stat ~ BRA")+1)/2)*10
+CATEGORY=Internal|Stat Tracker.MOD	BONUS:VAR|Experience|(count("ABILITIES","CATEGORY=Internal","KEY=Race Stat ~ CUN"))*((count("ABILITIES","CATEGORY=Internal","KEY=Race Stat ~ CUN")+1)/2)*10
+CATEGORY=Internal|Stat Tracker.MOD	BONUS:VAR|Experience|(count("ABILITIES","CATEGORY=Internal","KEY=Race Stat ~ INT"))*((count("ABILITIES","CATEGORY=Internal","KEY=Race Stat ~ INT")+1)/2)*10
+CATEGORY=Internal|Stat Tracker.MOD	BONUS:VAR|Experience|(count("ABILITIES","CATEGORY=Internal","KEY=Race Stat ~ PRE"))*((count("ABILITIES","CATEGORY=Internal","KEY=Race Stat ~ PRE")+1)/2)*10
+CATEGORY=Internal|Stat Tracker.MOD	BONUS:VAR|Experience|(count("ABILITIES","CATEGORY=Internal","KEY=Race Stat ~ WIL"))*((count("ABILITIES","CATEGORY=Internal","KEY=Race Stat ~ WIL")+1)/2)*10
 
-#	DEFINE:xxxCost|0	BONUS:VAR|xxxCost|10*(AGL+1)	
-#	DEFINE:xxxPurchase|0	BONUS:VAR|xxxPurchase|10*AGL
-
-
-
-
-
-
-#	PREVARGTEQ:Experience,xxxCost
-
-
-#	DEFINE:xxxCost|0	BONUS:VAR|xxxCost|5*(skillinfo("TOTALRANK","xxx")+1)	BONUS:VAR|xxxCost|5|!PRECSKILL:1,xxx
-#	DEFINE:xxxPurchase|0	BONUS:VAR|xxxPurchase|5*(skillinfo("TOTALRANK","xxx")+1)	BONUS:VAR|xxxPurchase|5|!PRECSKILL:1,xxx
-
-Astrogation				KEY:Skill Training ~ Astrogation				TYPE:Skill Training	CATEGORY:Skill Training	BONUS:SKILLRANK|Astrogation|1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE
-Athletics				KEY:Skill Training ~ Athletics					TYPE:Skill Training	CATEGORY:Skill Training	BONUS:SKILLRANK|Athletics|1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE
-Brawl					KEY:Skill Training ~ Brawl					TYPE:Skill Training	CATEGORY:Skill Training	BONUS:SKILLRANK|Brawl|1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE
-Charm					KEY:Skill Training ~ Charm					TYPE:Skill Training	CATEGORY:Skill Training	BONUS:SKILLRANK|Charm|1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE
-Coercion				KEY:Skill Training ~ Coercion					TYPE:Skill Training	CATEGORY:Skill Training	BONUS:SKILLRANK|Coercion|1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE
-Computers				KEY:Skill Training ~ Computers					TYPE:Skill Training	CATEGORY:Skill Training	BONUS:SKILLRANK|Computers|1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE
-Cool					KEY:Skill Training ~ Cool						TYPE:Skill Training	CATEGORY:Skill Training	BONUS:SKILLRANK|Cool|1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE
-Coordination			KEY:Skill Training ~ Coordination				TYPE:Skill Training	CATEGORY:Skill Training	BONUS:SKILLRANK|Coordination|1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE
-Knowledge (Core Worlds)		KEY:Skill Training ~ Knowledge (Core Worlds)		TYPE:Skill Training	CATEGORY:Skill Training	BONUS:SKILLRANK|Knowledge (Core Worlds)|1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE
-Deception				KEY:Skill Training ~ Deception					TYPE:Skill Training	CATEGORY:Skill Training	BONUS:SKILLRANK|Deception|1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE
-Discipline				KEY:Skill Training ~ Discipline					TYPE:Skill Training	CATEGORY:Skill Training	BONUS:SKILLRANK|Discipline|1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE
-Knowledge (Education)		KEY:Skill Training ~ Knowledge (Education)			TYPE:Skill Training	CATEGORY:Skill Training	BONUS:SKILLRANK|Knowledge (Education)|1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE
-Gunnery				KEY:Skill Training ~ Gunnery					TYPE:Skill Training	CATEGORY:Skill Training	BONUS:SKILLRANK|Gunnery|1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE
-Leadership				KEY:Skill Training ~ Leadership					TYPE:Skill Training	CATEGORY:Skill Training	BONUS:SKILLRANK|Leadership|1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE
-Knowledge (Lore)			KEY:Skill Training ~ Knowledge (Lore)				TYPE:Skill Training	CATEGORY:Skill Training	BONUS:SKILLRANK|Knowledge (Lore)|1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE
-Mechanics				KEY:Skill Training ~ Mechanics					TYPE:Skill Training	CATEGORY:Skill Training	BONUS:SKILLRANK|Mechanics|1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE
-Medicine				KEY:Skill Training ~ Medicine					TYPE:Skill Training	CATEGORY:Skill Training	BONUS:SKILLRANK|Medicine|1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE
-Melee					KEY:Skill Training ~ Melee					TYPE:Skill Training	CATEGORY:Skill Training	BONUS:SKILLRANK|Melee|1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE
-Negotiation				KEY:Skill Training ~ Negotiation				TYPE:Skill Training	CATEGORY:Skill Training	BONUS:SKILLRANK|Negotiation|1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE
-Knowledge (Outer Rim)		KEY:Skill Training ~ Knowledge (Outer Rim)			TYPE:Skill Training	CATEGORY:Skill Training	BONUS:SKILLRANK|Knowledge (Outer Rim)|1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE
-Perception				KEY:Skill Training ~ Perception					TYPE:Skill Training	CATEGORY:Skill Training	BONUS:SKILLRANK|Perception|1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE
-Piloting (Planetary)		KEY:Skill Training ~ Piloting (Planetary)			TYPE:Skill Training	CATEGORY:Skill Training	BONUS:SKILLRANK|Piloting (Planetary)|1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE
-Piloting (Space)			KEY:Skill Training ~ Piloting (Space)				TYPE:Skill Training	CATEGORY:Skill Training	BONUS:SKILLRANK|Piloting (Space)|1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE
-Ranged (Heavy)			KEY:Skill Training ~ Ranged (Heavy)				TYPE:Skill Training	CATEGORY:Skill Training	BONUS:SKILLRANK|Ranged (Heavy)|1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE
-Ranged (Light)			KEY:Skill Training ~ Ranged (Light)				TYPE:Skill Training	CATEGORY:Skill Training	BONUS:SKILLRANK|Ranged (Light)|1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE
-Resilience				KEY:Skill Training ~ Resilience					TYPE:Skill Training	CATEGORY:Skill Training	BONUS:SKILLRANK|Resilience|1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE
-Skulduggery				KEY:Skill Training ~ Skulduggery				TYPE:Skill Training	CATEGORY:Skill Training	BONUS:SKILLRANK|Skulduggery|1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE
-Stealth				KEY:Skill Training ~ Stealth					TYPE:Skill Training	CATEGORY:Skill Training	BONUS:SKILLRANK|Stealth|1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE
-Streetwise				KEY:Skill Training ~ Streetwise					TYPE:Skill Training	CATEGORY:Skill Training	BONUS:SKILLRANK|Streetwise|1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE		
-Survival				KEY:Skill Training ~ Survival					TYPE:Skill Training	CATEGORY:Skill Training	BONUS:SKILLRANK|Survival|1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE
-Knowledge (Underworld)		KEY:Skill Training ~ Knowledge (Underworld)			TYPE:Skill Training	CATEGORY:Skill Training	BONUS:SKILLRANK|Knowledge (Underworld)|1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE
-Vigilance				KEY:Skill Training ~ Vigilance					TYPE:Skill Training	CATEGORY:Skill Training	BONUS:SKILLRANK|Vigilance|1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE
-Knowledge (Xenology)		KEY:Skill Training ~ Knowledge (Xenology)			TYPE:Skill Training	CATEGORY:Skill Training	BONUS:SKILLRANK|Knowledge (Xenology)|1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE
