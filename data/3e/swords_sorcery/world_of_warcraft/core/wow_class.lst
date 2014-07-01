@@ -2,7 +2,7 @@
 SOURCELONG:World of Warcraft	SOURCESHORT:WoW	SOURCEDATE:2006-11
 
 # Class Name	Hit Dice	Type			Abbreviation	Automatically Gained Language	Save checks bonus											Combat bonus
-CLASS:Arcanist	HD:4		TYPE:Base.PC	ABB:Arc		AUTO:LANG|Literacy		BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*1/2|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|CL|PREVAREQ:UseFractionalBAB,1	
+CLASS:Arcanist	HD:4		TYPE:Base.PC	ABB:Arc		AUTO:LANG|Literacy		BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")asslevel("APPLIEDAS=NONEPIC")*1/2|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|CL|PREVAREQ:UseFractionalBAB,1	
 
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels	Caster level
 CLASS:Arcanist	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			BONUS:CASTERLEVEL|Arcanist|CL
@@ -28,7 +28,7 @@ CLASS:Arcanist	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			BONUS:CASTER
 20	CAST:4,4,4,4,4,4,4,4,4,4
 
 # Class Name	Hit Dice	Type			Abbreviation	Automatically Gained Language	Save checks bonus											Combat bonus
-CLASS:Mage Path	HD:4		TYPE:Base.PC	ABB:Arc		AUTO:LANG|Literacy		BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*1/2|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|CL|PREVAREQ:UseFractionalBAB,1	
+CLASS:Mage Path	HD:4		TYPE:Base.PC	ABB:Arc		AUTO:LANG|Literacy		BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")asslevel("APPLIEDAS=NONEPIC")*1/2|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|CL|PREVAREQ:UseFractionalBAB,1	
 
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels	Caster level
 CLASS:Mage Path	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			BONUS:CASTERLEVEL|Mage Path|CL
@@ -56,7 +56,7 @@ CLASS:Mage Path	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			BONUS:CASTE
 #Arcanist in WOW get d6 but this is for a Wizard norm campaign.
 
 # Class Name		Hit Dice	Type			Abbreviation	Automatically Gained Language	Save checks bonus											Combat bonus
-CLASS:Warlock Path	HD:4		TYPE:Base.PC	ABB:WarPth		AUTO:LANG|Literacy		BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*1/2|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|CL|PREVAREQ:UseFractionalBAB,1	
+CLASS:Warlock Path	HD:4		TYPE:Base.PC	ABB:WarPth		AUTO:LANG|Literacy		BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")asslevel("APPLIEDAS=NONEPIC")*1/2|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|CL|PREVAREQ:UseFractionalBAB,1	
 
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Warlock Path	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Craft (Trade Skill)|Decipher Script|Knowledge (Arcana)|TYPE=Knowledge|TYPE=Profession|Speak Languages|Spellcraft|Diplomacy|Intimidate
@@ -142,7 +142,7 @@ CLASS:Warlock Path	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			BONUS:CA
 #Dark Metmorphosis
 
 # Class Name	Hit Dice	Type			Abbreviation	Ex Class		Source Page			Bonus Languages	Define				Automatically Gained Language	Save checks bonus											Combat bonus					Add domain number		Modify VAR
-CLASS:Druid Path	HD:8		TYPE:Base.PC	ABB:DotW		EXCLASS:Ex Druid	SOURCEPAGE:ClassesI.rtf	LANGBONUS:Sylvan	DEFINE:AnimalCompanionLVL|0	AUTO:LANG|Druidic|Literacy	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1	
+CLASS:Druid Path	HD:8		TYPE:Base.PC	ABB:DotW		EXCLASS:Ex Druid	SOURCEPAGE:ClassesI.rtf	LANGBONUS:Sylvan	DEFINE:AnimalCompanionLVL|0	AUTO:LANG|Druidic|Literacy	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")asslevel("APPLIEDAS=NONEPIC")*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1	
 	BONUS:DOMAIN|NUMBER|1	BONUS:VAR|AnimalCompanionLVL|CL
 # Class Name	Required AL
 CLASS:Druid Path	PREALIGN:LN,NG,TN,NE,CN

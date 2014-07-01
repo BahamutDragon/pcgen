@@ -1,7 +1,7 @@
 SOURCELONG:Arcana Evolved	SOURCESHORT:AE
 
 
-CLASS:Akashic	HD:6	TYPE:Base.PC	ABB:Aka		SOURCEPAGE:p.39	BONUS:CHECKS|BASE.Will|(CL/2)+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1	
+CLASS:Akashic	HD:6	TYPE:Base.PC	ABB:Aka		SOURCEPAGE:p.39	BONUS:SAVE|BASE.Will|(CL/2)+2	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")asslevel("APPLIEDAS=NONEPIC")*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1	
 
 CLASS:Akashic	STARTSKILLPTS:8	CSKILL:TYPE=Standard
 ###Block:
@@ -33,7 +33,7 @@ CLASS:Akashic	STARTSKILLPTS:8	CSKILL:TYPE=Standard
 24	BONUS:VAR|MomentaryMemoryAbilityCount|1
 
 #	Champion	
-CLASS:Champion	HD:10	TYPE:Base.PC	ABB:Cha	SOURCEPAGE:p.44	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL		DEFINE:ChampionLVL|CL
+CLASS:Champion	HD:10	TYPE:Base.PC	ABB:Cha	SOURCEPAGE:p.44	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")		DEFINE:ChampionLVL|CL
 CLASS:Champion	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Diplomacy|Heal|Jump|TYPE=Knowledge|Ride|Spot|Swim
 ###Block: Class Features
 1	ABILITY:Champion Class Feature|AUTOMATIC|Champion Ability ~ Champion|Weapon and Armor Proficiency ~ Champion
@@ -56,7 +56,7 @@ CLASS:Champion	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Diplomacy|Heal|Jump|TYPE=
 
 
 #	Greenbond	53
-CLASS:Greenbond	HD:6	TYPE:Base.PC	ABB:Cha	SOURCEPAGE:p.53	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1	
+CLASS:Greenbond	HD:6	TYPE:Base.PC	ABB:Cha	SOURCEPAGE:p.53	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")asslevel("APPLIEDAS=NONEPIC")*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1	
 	DEFINE:ChampionLVL|CL
 CLASS:Greenbond	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Gather Information|Handle Animal|Heal|Knowledge (Ceremony)|Knowledge (Geography)|Knowledge (Magic)|Knowledge (Nature)|Listen|Speak Language|Spellcraft|Survival|Swim
 CLASS:Greenbond	SPELLSTAT:CHA	SPELLTYPE:Simple	BONUS:CASTERLEVEL|Greenbond|CL
@@ -114,8 +114,8 @@ CLASS:Greenbond	SPELLSTAT:CHA	SPELLTYPE:Simple	BONUS:CASTERLEVEL|Greenbond|CL
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Source Page		
-CLASS:Mage Blade	HD:8		TYPE:Base.PC	ABB:MB		SOURCEPAGE:p.	BONUS:COMBAT|BAB|CL*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1	
-	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude,BASE.Will|(CL>1)+(CL>2)+(CL>5)+(CL>6)+(CL>10)+(CL>12)+(CL>15)+(CL>17)+(CL>19)+(CL>21)+(CL>23)
+CLASS:Mage Blade	HD:8		TYPE:Base.PC	ABB:MB		SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")asslevel("APPLIEDAS=NONEPIC")*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1	
+	BONUS:SAVE|BASE.Reflex,BASE.Fortitude,BASE.Will|(CL>1)+(CL>2)+(CL>5)+(CL>6)+(CL>10)+(CL>12)+(CL>15)+(CL>17)+(CL>19)+(CL>21)+(CL>23)
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Mage Blade	STARTSKILLPTS:2	CSKILL:Alchemy|Climb|Concentration|TYPE=Craft|Intimidate|Jump|TYPE=Knowledge|Search|Speak Language|Spellcraft|Swim
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels									Spellbook		Caster level
@@ -175,7 +175,7 @@ CLASS:Mage Blade	SPELLSTAT:CHA	SPELLTYPE:Simple	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVE
 #	MAGISTER
 
 # Class Name	Hit Dice	Type			Abbreviation	Source Page				Automatically Gained Language	Save checks bonus											Combat bonus
-CLASS:Magister	HD:6		TYPE:Base.PC	ABB:MAG		SOURCEPAGE:p.	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Will|CL/2+3	BONUS:COMBAT|BAB|CL*1/2|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|CL|PREVAREQ:UseFractionalBAB,1		
+CLASS:Magister	HD:6		TYPE:Base.PC	ABB:MAG		SOURCEPAGE:p.	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|CL/2+3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")asslevel("APPLIEDAS=NONEPIC")*1/2|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|CL|PREVAREQ:UseFractionalBAB,1		
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Magister	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE=Craft|Decipher Script|Innuendo|Intimidate|TYPE=Knowledge|Search|Speak Language|Spellcraft
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels												Spellbook		Caster level
@@ -230,7 +230,7 @@ CLASS:Magister	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=
 ### >>>RACIAL CLASSES<<<
 
 # Class Name	Hit Dice	Type			Abbreviation	Source Page				Automatically Gained Language	Save checks bonus											Combat bonus
-CLASS:Litorian	HD:8		TYPE:Base.PC	ABB:Lit		SOURCEPAGE:Arcana Evolved	AUTO:LANG|Literacy		BONUS:CHECKS|BASE.Will|CL/3	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL	
+CLASS:Litorian	HD:8		TYPE:Base.PC	ABB:Lit		SOURCEPAGE:Arcana Evolved	AUTO:LANG|Literacy		BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Litorian	STARTSKILLPTS:2	CSKILL:Balance|Climb|TYPE=Craft|Jump|Knowledge (Litorians)|Search|Sneak|Survival
 

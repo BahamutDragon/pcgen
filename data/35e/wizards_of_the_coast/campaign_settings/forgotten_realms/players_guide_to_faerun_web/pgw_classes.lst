@@ -1,13 +1,13 @@
 # CVS $Revision: $ $Author: $ -- Sun Dec  8 22:17:49 2013 -- reformated by prettylst.pl v1.50 (build 22352)
 SOURCELONG:Player's Guide to Faerun Web Enhancement	SOURCESHORT:PGtF	SOURCEDATE:2004-03
 #
-# Class Name 1	Hit Dice (HD)	Type (TYPE:)	Abbreviation (ABB)	Max Level (MAXLEVEL)	Source Page (SOURCEPAGE)	Save checks bonus (Fortitude) (BONUS:CHECKS)	Save checks bonus (Reflex)	Save checks bonus (Will)	Combat bonus	EXCLASS	FINE
+# Class Name 1	Hit Dice (HD)	Type (TYPE:)	Abbreviation (ABB)	Max Level (MAXLEVEL)	Source Page (SOURCEPAGE)	Save checks bonus (Fortitude) (BONUS:SAVE)	Save checks bonus (Reflex)	Save checks bonus (Will)	Combat bonus	EXCLASS	FINE
 # Class Name req	Requirements	FINE
 # Class Name 3	Skill Pts/Lvl (STARTSKILLPTS)	Class Skill (CSKILL)	Spell Statistic (SPELLSTAT)	Spell type (SPELLTYPE)	Spellbook (SPELLBOOK)	knowspell (KNOWNSPELLS)	spell level increases (BONUS:CASTERLEVEL)	define class variables (DEFINE:variable|value	FINE
 #(level number)	ADD:SPELLCASTER o CAST	FEATAUTO proficiency	(FEATAUTO)	(SA)	(SA)	(DOMAIN)	(BONUS)			(DEFINE)
 
 # Class Name	Hit Dice	Type			Max Level		Source Page		Save checks bonus															Combat bonus							Modify VAR
-CLASS:Phaerimm	HD:8		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:PGtFwe	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1
+CLASS:Phaerimm	HD:8		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:PGtFwe	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")asslevel("APPLIEDAS=NONEPIC")*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1
 # Class Name	Required Race				Reg. Race Type
 CLASS:Phaerimm	PRERACE:1,RACESUBTYPE=Phaerimm	PRERACETYPE:Aberration
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
