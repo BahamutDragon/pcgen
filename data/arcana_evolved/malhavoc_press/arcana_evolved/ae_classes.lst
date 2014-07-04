@@ -37,7 +37,7 @@ CLASS:Champion	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Diplomacy|Heal|Jump|TYPE=
 ###Block: Class Features
 1	ABILITY:Champion Class Feature|AUTOMATIC|Champion ~ Champion Ability|Champion ~ Weapon and Armor Proficiency
 2	ABILITY:Champion Class Feature|AUTOMATIC|Champion ~ Call or Imbue Shield
-4	ABILITY:Champion Class Feature|AUTOMATIC|Champion ~ Call Upon Power
+4	ABILITY:Champion Class Feature|AUTOMATIC|Champion ~ Call Upon the Power
 7	ABILITY:Champion Class Feature|AUTOMATIC|Champion ~ Call or Imbue Weapon
 9	ABILITY:Champion Class Feature|AUTOMATIC|Champion ~ Heartening Cry
 10	ABILITY:Champion Class Feature|AUTOMATIC|Champion ~ Focused Devotion
@@ -49,8 +49,8 @@ CLASS:Champion	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Diplomacy|Heal|Jump|TYPE=
 23	ABILITY:Champion Class Feature|AUTOMATIC|Champion ~ True Shield
 24	ABILITY:Champion Class Feature|AUTOMATIC|Champion ~ True Weapon
 ###Block:
-1	BONUS:VAR|ChampionAbilityCount|1+CL/5
-16	BONUS:VAR|AvatarAllyLVL|1+(CL>20)
+1	BONUS:VAR|ChampionAbilityCount|1+CL/5	DEFINE:ChampionAbilityCount|0
+16	BONUS:VAR|AvatarAllyLVL|1+(CL>20)	DEFINE:AvatarAllyLVL|0
 
 #	Greenbond
 CLASS:Greenbond	HD:6	TYPE:Base.PC	ABB:Cha	SOURCEPAGE:p.53	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1	
@@ -60,12 +60,11 @@ CLASS:Greenbond	SPELLSTAT:CHA	SPELLTYPE:Simple	BONUS:CASTERLEVEL|Greenbond|CL
 #LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8	SPELLBOOK:YES	BONUS:CASTERLEVEL|Mage Blade|CL
 ###Block: Class Features
 1	ABILITY:Greenbond Class Feature|AUTOMATIC|Greenbond ~ Infuse With Life|Greenbond ~ Nature sense	
-2	ABILITY:Greenbond Class Feature|AUTOMATIC|Greenbond ~ Nature's gift (lesser)
+2	ABILITY:Greenbond Class Feature|AUTOMATIC|Greenbond ~ Nature's gift	
 3	ABILITY:Greenbond Class Feature|AUTOMATIC|Greenbond ~ Trackless step
 5	ABILITY:Greenbond Class Feature|AUTOMATIC|Greenbond ~ Bond with the Green	
 6	ABILITY:Greenbond Class Feature|AUTOMATIC|Greenbond ~ Percipience
-8	ABILITY:Greenbond Class Feature|AUTOMATIC|Greenbond ~ Speak with spirits (lesser)
-12	ABILITY:Greenbond Class Feature|AUTOMATIC|Greenbond ~ Nature's gift (greater)
+8	ABILITY:Greenbond Class Feature|AUTOMATIC|Greenbond ~ Speak with spirits
 17	ABILITY:Greenbond Class Feature|AUTOMATIC|Greenbond ~ Spiritform
 ###Block:
 8	BONUS:VAR|SpeakWithSpiritsTier|1
@@ -85,6 +84,8 @@ CLASS:Greenbond	SPELLSTAT:CHA	SPELLTYPE:Simple	BONUS:CASTERLEVEL|Greenbond|CL
 23	BONUS:VAR|BondWithTheGreenCount|1
 24	BONUS:VAR|BondWithTheGreenCount|1
 25	BONUS:VAR|InfuseWithLifeDice|2
+2	BONUS:VAR|NaturesGiftLVL|1	DEFINE:NaturesGiftLVL|0
+12	BONUS:VAR|NaturesGiftLVL|1
 ###Block: Casting Progression
 1	CAST:2,1
 2	CAST:3,2
@@ -129,9 +130,7 @@ CLASS:Mage Blade	SPELLSTAT:CHA	SPELLTYPE:Simple	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVE
 1	ABILITY:Mage Blade Class Feature|AUTOMATIC|Mage Blade ~ Weapon and Armor Proficiency
 1	ABILITY:Mage Blade Class Feature|AUTOMATIC|Mage Blade ~ Athame
 4	ABILITY:Mage Blade Class Feature|AUTOMATIC|Mage Blade ~ Shimmering Shield
-6	ABILITY:Mage Blade Class Feature|AUTOMATIC|Mage Blade ~ Athame Defense
 7	ABILITY:Mage Blade Class Feature|AUTOMATIC|Mage Blade ~ Sprightly Step
-9	ABILITY:Mage Blade Class Feature|AUTOMATIC|Mage Blade ~ Summon Athame
 11	ABILITY:Mage Blade Class Feature|AUTOMATIC|Mage Blade ~ Slice through Wardings
 12	ABILITY:Mage Blade Class Feature|AUTOMATIC|Mage Blade ~ Familiarity with Magic
 16	ABILITY:Mage Blade Class Feature|AUTOMATIC|Mage Blade ~ Spell Parry
@@ -183,7 +182,7 @@ CLASS:Magister	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE=Craft|Decipher 
 CLASS:Magister	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9|LEVEL=10	SPELLBOOK:YES	BONUS:CASTERLEVEL|Magister|CL
 ###Block: Proficiencies
 1	AUTO:WEAPONPROF|Magister's Staff
-5	AUTO:WEAPONPROF|Sword Stave
+5	AUTO:WEAPONPROF|Sword Staff
 5	BONUS:ABILITYPOOL|Magister Feat|CL/5
 ###Block: Class Features
 
@@ -253,13 +252,13 @@ CLASS:Dracha	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Jump|Knowledge (Dracha)|Kno
 ###Block:
 3	AUTO:FEAT|Bite
 ###Block:
-1	ABILITY:Dracha Race Ability|AUTOMATIC|Dracha ~ Weapon and Armor Proficiency		
-2	ABILITY:Dracha Race Ability|AUTOMATIC|Dracha ~ Flight					
-3	ABILITY:Dracha Race Ability|AUTOMATIC|Dracha ~ Natural Armor Bonus			
+1	ABILITY:Dracha Race Trait|AUTOMATIC|Dracha ~ Weapon and Armor Proficiency		
+2	ABILITY:Dracha Race Trait|AUTOMATIC|Dracha ~ Flight					
+3	ABILITY:Dracha Race Trait|AUTOMATIC|Dracha ~ Natural Armor Bonus			
 # Evolved
-4	ABILITY:Dracha Race Ability|AUTOMATIC|Dracha ~ Evolved Dracha Breath Weapon|Dracha ~ Evolved Dracha Natural Armor Bonus	
-5	ABILITY:Dracha Race Ability|AUTOMATIC|Dracha ~ Evolved Dracha Claws|Dracha ~ Evolved Dracha Flight			
-6	ABILITY:Dracha Race Ability|AUTOMATIC|Dracha ~ Evolved Dracha Pounce			
+4	ABILITY:Dracha Race Trait|AUTOMATIC|Dracha ~ Evolved Dracha Breath Weapon|Dracha ~ Evolved Dracha Natural Armor Bonus	
+5	ABILITY:Dracha Race Trait|AUTOMATIC|Dracha ~ Evolved Dracha Claws|Dracha ~ Evolved Dracha Flight			
+6	ABILITY:Dracha Race Trait|AUTOMATIC|Dracha ~ Evolved Dracha Pounce			
 
 
 CLASS:Loresong Faen	HD:6	MAXLEVEL:3	TYPE:PC.Race	PRETEXT:Evolved Levels Only
@@ -292,15 +291,11 @@ CLASS:Spryte		HD:6	MAXLEVEL:6	TYPE:PC.Race	BONUS:COMBAT|BASEAB|classlevel("APPLI
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Source Page				Automatically Gained Language	Save checks bonus											Combat bonus
-CLASS:Litorian	HD:8		TYPE:Base.PC	ABB:Lit		SOURCEPAGE:Arcana Evolved	AUTO:LANG|Literacy		BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	
+CLASS:Litorian	HD:8		TYPE:Base.PC	ABB:Lit		SOURCEPAGE:Arcana Evolved			BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Litorian	STARTSKILLPTS:2	CSKILL:Balance|Climb|TYPE=Craft|Jump|Knowledge (Litorians)|Search|Sneak|Survival
 
 ###Block:Proficiencies
-1	AUTO:FEAT|All Automatic Proficiencies|Simple Weapon Proficiencies
-1	AUTO:FEAT|Armor Proficiency (Light)
-1	AUTO:ARMORPROF|ARMORTYPE=Light
-1	AUTO:SHIELDPROF|Shield (Light)
 ###Racial Levels
 1																					BONUS:STAT|STR,DEX|1
 2	SAB:Scent														BONUS:MOVEADD|TYPE.Walk|10
