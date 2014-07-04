@@ -2,7 +2,6 @@ SOURCELONG:Arcana Evolved	SOURCESHORT:AE
 
 
 CLASS:Akashic	HD:6	TYPE:Base.PC	ABB:Aka		SOURCEPAGE:p.39	BONUS:SAVE|BASE.Will|(CL/2)+2	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1	
-
 CLASS:Akashic	STARTSKILLPTS:8	CSKILL:TYPE=Standard
 ###Block:
 1	ABILITY:Akashic Class Feature|AUTOMATIC|Akashic ~ Skill Memory	BONUS:VAR|AkashicSkillMemoryBonus|2
@@ -36,24 +35,22 @@ CLASS:Akashic	STARTSKILLPTS:8	CSKILL:TYPE=Standard
 CLASS:Champion	HD:10	TYPE:Base.PC	ABB:Cha	SOURCEPAGE:p.44	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")		DEFINE:ChampionLVL|CL
 CLASS:Champion	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Diplomacy|Heal|Jump|TYPE=Knowledge|Ride|Spot|Swim
 ###Block: Class Features
-1	ABILITY:Champion Class Feature|AUTOMATIC|Champion Ability|Weapon and Armor Proficiency
-2	ABILITY:Champion Class Feature|AUTOMATIC|Call or Imbue Shield
-4	ABILITY:Champion Class Feature|AUTOMATIC|Call Upon Power
-7	ABILITY:Champion Class Feature|AUTOMATIC|Call or Imbue Weapon
-9	ABILITY:Champion Class Feature|AUTOMATIC|Heartening Cry
-10	ABILITY:Champion Class Feature|AUTOMATIC|Focused Devotion
-12	ABILITY:Champion Class Feature|AUTOMATIC|Take on the Mantle
-16	ABILITY:Champion Class Feature|AUTOMATIC|Avatar's Ally
-17	ABILITY:Champion Class Feature|AUTOMATIC|Unassailable Soul
-19	ABILITY:Champion Class Feature|AUTOMATIC|Avatar
-22	ABILITY:Champion Class Feature|AUTOMATIC|Unassailable Body
-23	ABILITY:Champion Class Feature|AUTOMATIC|True Shield
-24	ABILITY:Champion Class Feature|AUTOMATIC|True Weapon
+1	ABILITY:Champion Class Feature|AUTOMATIC|Champion ~ Champion Ability|Champion ~ Weapon and Armor Proficiency
+2	ABILITY:Champion Class Feature|AUTOMATIC|Champion ~ Call or Imbue Shield
+4	ABILITY:Champion Class Feature|AUTOMATIC|Champion ~ Call Upon Power
+7	ABILITY:Champion Class Feature|AUTOMATIC|Champion ~ Call or Imbue Weapon
+9	ABILITY:Champion Class Feature|AUTOMATIC|Champion ~ Heartening Cry
+10	ABILITY:Champion Class Feature|AUTOMATIC|Champion ~ Focused Devotion
+12	ABILITY:Champion Class Feature|AUTOMATIC|Champion ~ Take on the Mantle
+16	ABILITY:Champion Class Feature|AUTOMATIC|Champion ~ Avatar's Ally
+17	ABILITY:Champion Class Feature|AUTOMATIC|Champion ~ Unassailable Soul
+19	ABILITY:Champion Class Feature|AUTOMATIC|Champion ~ Avatar
+22	ABILITY:Champion Class Feature|AUTOMATIC|Champion ~ Unassailable Body
+23	ABILITY:Champion Class Feature|AUTOMATIC|Champion ~ True Shield
+24	ABILITY:Champion Class Feature|AUTOMATIC|Champion ~ True Weapon
 ###Block:
 1	BONUS:VAR|ChampionAbilityCount|1+CL/5
 16	BONUS:VAR|AvatarAllyLVL|1+(CL>20)
-
-
 
 #	Greenbond
 CLASS:Greenbond	HD:6	TYPE:Base.PC	ABB:Cha	SOURCEPAGE:p.53	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1	
@@ -65,11 +62,11 @@ CLASS:Greenbond	SPELLSTAT:CHA	SPELLTYPE:Simple	BONUS:CASTERLEVEL|Greenbond|CL
 1	ABILITY:Greenbond Class Feature|AUTOMATIC|Greenbond ~ Infuse With Life|Greenbond ~ Nature sense	
 2	ABILITY:Greenbond Class Feature|AUTOMATIC|Greenbond ~ Nature's gift (lesser)
 3	ABILITY:Greenbond Class Feature|AUTOMATIC|Greenbond ~ Trackless step
-5	ABILITY:Greenbond Class Feature|AUTOMATIC|Bond with the Green	
-6	ABILITY:Greenbond Class Feature|AUTOMATIC|Percipience
-8	ABILITY:Greenbond Class Feature|AUTOMATIC|Speak with spirits (lesser)
-12	ABILITY:Greenbond Class Feature|AUTOMATIC|Nature's gift (greater)
-17	ABILITY:Greenbond Class Feature|AUTOMATIC|Spiritform
+5	ABILITY:Greenbond Class Feature|AUTOMATIC|Greenbond ~ Bond with the Green	
+6	ABILITY:Greenbond Class Feature|AUTOMATIC|Greenbond ~ Percipience
+8	ABILITY:Greenbond Class Feature|AUTOMATIC|Greenbond ~ Speak with spirits (lesser)
+12	ABILITY:Greenbond Class Feature|AUTOMATIC|Greenbond ~ Nature's gift (greater)
+17	ABILITY:Greenbond Class Feature|AUTOMATIC|Greenbond ~ Spiritform
 ###Block:
 8	BONUS:VAR|SpeakWithSpiritsTier|1
 14	BONUS:VAR|SpeakWithSpiritsTier|1
@@ -233,16 +230,77 @@ CLASS:Magister	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=
 
 ### >>>RACIAL CLASSES<<<
 
+CLASS:Human Evolved	HD:8	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2
+CLASS:Human Evolved	STARTSKILLPTS:2	
+#1	ADD:	6 CLASSSKILL
+1:REPEATLEVEL:1	BONUS:ABILITYPOOL|FEAT|1	BONUS:ABILITYPOOL|+1 to Any Ability Score|1	ADD:SPELLCASTER|ANY
+
+CLASS:Dracha	HD:8	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Dracha	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Jump|Knowledge (Dracha)|Knowledge (Dragons)|Spot|Survival
+1	BONUS:STAT|STR,CON|1
+2	BONUS:STAT|STR|1
+3	BONUS:STAT|CON|1
+5	BONUS:STAT|STR|1
+6	BONUS:STAT|CON|1
+###Block:
+2	BONUS:VAR|DrachaNaturalArmorBonus|1
+4	BONUS:VAR|DrachaNaturalArmorBonus|1
+6	BONUS:VAR|DrachaNaturalArmorBonus|1
+2	BONUS:VAR|Maneuverability|1
+3	BONUS:VAR|Maneuverability|1
+5	BONUS:VAR|Maneuverability|1
+6	BONUS:VAR|Maneuverability|1
+###Block:
+3	AUTO:FEAT|Bite
+###Block:
+1	ABILITY:Dracha Race Ability|AUTOMATIC|Dracha ~ Weapon and Armor Proficiency		
+2	ABILITY:Dracha Race Ability|AUTOMATIC|Dracha ~ Flight					
+3	ABILITY:Dracha Race Ability|AUTOMATIC|Dracha ~ Natural Armor Bonus			
+# Evolved
+4	ABILITY:Dracha Race Ability|AUTOMATIC|Dracha ~ Evolved Dracha Breath Weapon|Dracha ~ Evolved Dracha Natural Armor Bonus	
+5	ABILITY:Dracha Race Ability|AUTOMATIC|Dracha ~ Evolved Dracha Claws|Dracha ~ Evolved Dracha Flight			
+6	ABILITY:Dracha Race Ability|AUTOMATIC|Dracha ~ Evolved Dracha Pounce			
+
+
+CLASS:Loresong Faen	HD:6	MAXLEVEL:3	TYPE:PC.Race	PRETEXT:Evolved Levels Only
+1	ABILITY:Special Ability|AUTOMATIC|Loresong ~ Weapon and Armor Proficiency|Loresong ~ Evolved Loresong Spell-Like Abilities	
+2	BONUS:STAT|DEX,INT|1
+3	BONUS:STAT|DEX,INT|1
+###Block:
+1:REPEATLEVEL:1	ADD:SPELLCASTER|ANY
+
+CLASS:Quickling Faen	HD:6	MAXLEVEL:3	TYPE:PC.Race	BONUS:COMBAT|BASEAB|CL*3/4	BONUS:SAVE|BASE.Fortitude,BASE.Will|CL/3	BONUS:SAVE|BASE.Reflex|CL/2+2	PRETEXT:Evolved Levels Only
+1	BONUS:STAT|DEX|1	BONUS:MOVEADD|TYPE.Walk|10
+2	BONUS:STAT|DEX|1	BONUS:COMBAT|AC|1|TYPE=Dodge
+3	BONUS:STAT|DEX|2	BONUS:MOVEADD|TYPE.Walk|10
+###Block:
+2	ADD:SPELLCASTER|ANY
+
+CLASS:Spryte		HD:6	MAXLEVEL:6	TYPE:PC.Race	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
+1	BONUS:STAT|DEX|1
+2	BONUS:STAT|DEX|1		ADD:SPELLCASTER|ANY
+4	BONUS:STAT|DEX|1
+5					ADD:SPELLCASTER|ANY
+6	BONUS:STAT|DEX|1		ADD:SPELLCASTER|ANY
+###Block:
+1	ABILITY:Special Ability|AUTOMATIC|Spryte ~ 1st-Level Spryte Spell-Like Abilities		
+2	ABILITY:Special Ability|AUTOMATIC|Spryte ~ 2nd-Level Spryte Spell-Like Ability		
+3	ABILITY:Special Ability|AUTOMATIC|Spryte ~ 3rd-Level Spryte Spell-Like Abilities		
+4	ABILITY:Special Ability|AUTOMATIC|Spryte ~ 4th-Level Evolved Spryte Spell-Like Abilities	
+5	ABILITY:Special Ability|AUTOMATIC|Spryte ~ 5th-Level Evolved Spryte Spell-Like Abilities	
+6	ABILITY:Special Ability|AUTOMATIC|Spryte ~ 6th-Level Evolved Spryte Spell-Like Abilities	
+
+
 # Class Name	Hit Dice	Type			Abbreviation	Source Page				Automatically Gained Language	Save checks bonus											Combat bonus
 CLASS:Litorian	HD:8		TYPE:Base.PC	ABB:Lit		SOURCEPAGE:Arcana Evolved	AUTO:LANG|Literacy		BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Litorian	STARTSKILLPTS:2	CSKILL:Balance|Climb|TYPE=Craft|Jump|Knowledge (Litorians)|Search|Sneak|Survival
 
 ###Block:Proficiencies
-1																																											AUTO:FEAT|All Automatic Proficiencies|Simple Weapon Proficiencies
-1																																											AUTO:FEAT|Armor Proficiency (Light)
-1																																					AUTO:ARMORPROF|ARMORTYPE=Light
-1																																																						AUTO:SHIELDPROF|Shield (Light)
+1	AUTO:FEAT|All Automatic Proficiencies|Simple Weapon Proficiencies
+1	AUTO:FEAT|Armor Proficiency (Light)
+1	AUTO:ARMORPROF|ARMORTYPE=Light
+1	AUTO:SHIELDPROF|Shield (Light)
 ###Racial Levels
 1																					BONUS:STAT|STR,DEX|1
 2	SAB:Scent														BONUS:MOVEADD|TYPE.Walk|10
