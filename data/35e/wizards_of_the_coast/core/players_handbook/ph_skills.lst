@@ -145,48 +145,40 @@ Craft (Pottery).MOD		TEMPDESC:Craft skill checks are made with a -2 circumstance
 Craft (Sculpting).MOD		TEMPDESC:Craft skill checks are made with a -2 circumstance penalty If improvised tools are used	TEMPBONUS:PC|SKILL|Craft (Sculpting)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=SculptingTools
 Craft (Shipmaking).MOD		TEMPDESC:Craft skill checks are made with a -2 circumstance penalty If improvised tools are used	TEMPBONUS:PC|SKILL|Craft (Shipmaking)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=ShipmakingTools
 
-Craft (Trapmaking).MOD																			TEMPBONUS:PC|SKILL|Craft (Trapmaking)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=TrapmakingTools
-Craft (Weaponsmithing).MOD																		TEMPBONUS:PC|SKILL|Craft (Weaponsmithing)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=WeaponsmithingTools
+Craft (Trapmaking).MOD		TEMPBONUS:PC|SKILL|Craft (Trapmaking)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=TrapmakingTools
+Craft (Weaponsmithing).MOD	TEMPBONUS:PC|SKILL|Craft (Weaponsmithing)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=WeaponsmithingTools
 
-### From RSRD Sort:
-###Block: Conditional Skills for output only
-# Skill Name						Key Stat	Untrained?		Classes	Type			Visible		Req. Rule (in options)		Prohibited Var. Value														Source Page			Bonus to skill
-Climb (Using a rope)					KEYSTAT:STR	USEUNTRAINED:YES	CLASSES:ALL		TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Climb (Using a rope).MISC"),var("SKILL.Climb.MISC")					SOURCEPAGE:p.69
-Concentration (Cast defensively)			KEYSTAT:CON	USEUNTRAINED:YES	CLASSES:ALL		TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Concentration (Cast defensively).MISC"),var("SKILL.Concentration.MISC")		SOURCEPAGE:p.69-70
-Disguise (Act in character)				KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL		TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Disguise (Act in character).MISC"),var("SKILL.Disguise.MISC")				SOURCEPAGE:p.71-72
-Escape Artist (Escape from rope bonds)		KEYSTAT:DEX	USEUNTRAINED:YES	CLASSES:ALL		TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Escape Artist (Escape from rope bonds).MISC"),var("SKILL.Escape Artist.MISC")	SOURCEPAGE:p.73
-Search (Secret doors and hidden compartments)	KEYSTAT:INT	USEUNTRAINED:YES	CLASSES:ALL		TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Search (Secret doors and hidden compartments).MISC"),var("SKILL.Search.MISC")	SOURCEPAGE:p.78
-Search (Notice unusual stonework)			KEYSTAT:INT	USEUNTRAINED:YES	CLASSES:ALL		TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Search (Notice unusual stonework).MISC"),var("SKILL.Search.MISC")			SOURCEPAGE:p.15
-Spellcraft (Decipher spell on scroll)		KEYSTAT:INT	USEUNTRAINED:NO	CLASSES:ALL		TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Spellcraft (Decipher spell on scroll).MISC"),var("SKILL.Spellcraft.MISC")		SOURCEPAGE:p.82-83
-Survival (Underground)					KEYSTAT:WIS	USEUNTRAINED:YES	CLASSES:ALL		TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Survival (Underground).MISC"),var("SKILL.Survival.MISC")					SOURCEPAGE:p.78
-Survival (The Planes)					KEYSTAT:WIS	USEUNTRAINED:YES	CLASSES:ALL		TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Survival (The Planes).MISC"),var("SKILL.Survival.MISC")					SOURCEPAGE:p.78
-Survival (Natural environments)			KEYSTAT:WIS	USEUNTRAINED:YES	CLASSES:ALL		TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Survival (Natural environments).MISC"),var("SKILL.Survival.MISC")			SOURCEPAGE:p.78
-Survival (Lost/Natural hazards)			KEYSTAT:WIS	USEUNTRAINED:YES	CLASSES:ALL		TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Survival (Lost/Natural hazards).MISC"),var("SKILL.Survival.MISC")			SOURCEPAGE:p.78
-Survival (Find or follow tracks)			KEYSTAT:WIS	USEUNTRAINED:YES	CLASSES:ALL		TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Survival (Find or follow tracks).MISC"),var("SKILL.Survival.MISC")			SOURCEPAGE:p.
-Swim (Avoid taking nonlethal fatigue damage)	KEYSTAT:STR	USEUNTRAINED:YES	CLASSES:ALL		TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Swim (Avoid taking nonlethal fatigue damage).MISC"),var("SKILL.Swim.MISC")		SOURCEPAGE:p.		BONUS:SKILL|Swim (Avoid taking nonlethal fatigue damage)|8|PREMOVE:1,Swim=1|TYPE=Racial
-Use Magic Device (Scroll)				KEYSTAT:CHA	USEUNTRAINED:NO	CLASSES:ALL		TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Use Magic Device (Scroll).MISC"),var("SKILL.Use Magic Device.MISC")			SOURCEPAGE:p.
-Use Rope (Bind someone)					KEYSTAT:DEX	USEUNTRAINED:YES	CLASSES:ALL		TYPE:SkillUse	VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Use Rope (Bind someone).MISC"),var("SKILL.Use Rope.MISC")				SOURCEPAGE:p.
 
-###Block: Skill .MODs
+###Block: Skill Situation Support .MODs
 # Skill Name						Bonus to skill																																		Bonus to skill rank
-Bluff.MOD							BONUS:SKILL|Disguise (Act in character)|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Bluff=5
-Climb.MOD							BONUS:SKILL|Climb (Using a rope)|SKILL.Climb.MISC																												BONUS:SKILLRANK|Climb (Using a rope)|SKILLRANK=Climb|TYPE=SkillGranted|PRERULE:1,DISPLAYSKILLUSE|PRESKILL:1,Use Rope=5
-Concentration.MOD						BONUS:SKILL|Concentration (Cast defensively)|SKILL.Concentration.MISC																									BONUS:SKILLRANK|Concentration (Cast Defensively)|SKILLRANK=Concentration|TYPE=SkillGranted|PRERULE:1,DISPLAYSKILLUSE|PREVARGT:var("SKILL.Concentration (Cast defensively).MISC"),var("SKILL.Concentration.MISC")
-Decipher Script.MOD					BONUS:SKILL|Use Magic Device (Scroll)|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Decipher Script=5
-Disguise.MOD						BONUS:SKILL|Disguise (Act in character)|SKILL.Disguise.MISC																											BONUS:SKILLRANK|Disguise (Act in character)|SKILLRANK=Disguise|TYPE=SkillGranted|PRERULE:1,DISPLAYSKILLUSE|PRESKILL:1,Bluff=5
-Escape Artist.MOD						BONUS:SKILL|Escape Artist (Escape from rope bonds)|SKILL.Escape Artist.MISC	BONUS:SKILL|Use Rope (Bind someone)|SynergyBonus|PRESKILL:1,Escape Artist=5|TYPE=Synergy.STACK								BONUS:SKILLRANK|Escape Artist (Escape from rope bonds)|SKILLRANK=Escape Artist|TYPE=SkillGranted|PRERULE:1,DISPLAYSKILLUSE|PRESKILL:1,Use Rope=5
-Knowledge (Architecture and Engineering).MOD	BONUS:SKILL|Search (Secret doors and hidden compartments)|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Knowledge (Architecture and Engineering)=5
-Knowledge (Dungeoneering).MOD				BONUS:SKILL|Survival (Underground)|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Knowledge (Dungeoneering)=5
-Knowledge (Geography).MOD				BONUS:SKILL|Survival (Lost/Natural hazards)|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Knowledge (Geography)=5
-Knowledge (Nature).MOD					BONUS:SKILL|Survival (Natural environments)|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Knowledge (Nature)=5
-Knowledge (The Planes).MOD				BONUS:SKILL|Survival (The Planes)|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Knowledge (The Planes)=5
-Search.MOD							BONUS:SKILL|Search (Secret doors and hidden compartments),Search (Notice unusual stonework)|SKILL.Search.MISC	BONUS:SKILL|Survival (Find or follow tracks)|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Search=5	BONUS:SKILLRANK|Search (Secret doors and hidden compartments)|SKILLRANK=Search|TYPE=SkillGranted|PRERULE:1,DISPLAYSKILLUSE|PRESKILL:1,Knowledge (Architecture and Engineering)=5	BONUS:SKILLRANK|Search (Notice unusual stonework)|SKILLRANK=Search|TYPE=SkillGranted|PRERULE:1,DISPLAYSKILLUSE|PREVARGT:var("SKILL.Search (Notice unusual stonework).MISC"),var("SKILL.Search.MISC")
-Spellcraft.MOD						BONUS:SKILL|Spellcraft (Decipher spell on scroll)|SKILL.Spellcraft.MISC	BONUS:SKILL|Use Magic Device (Scroll)|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Spellcraft=5									BONUS:SKILLRANK|Spellcraft (Decipher spell on scroll)|SKILLRANK=Spellcraft|TYPE=SkillGranted|PRERULE:1,DISPLAYSKILLUSE|PRESKILL:1,Use Magic Device=5
-Survival.MOD						BONUS:SKILL|Survival (Underground),Survival (The Planes),Survival (Natural environments),Survival (Lost/Natural hazards),Survival (Find or follow tracks)|SKILL.Survival.MISC								BONUS:SKILLRANK|Survival (Underground)|SKILLRANK=Survival|TYPE=SkillGranted|PRERULE:1,DISPLAYSKILLUSE|PRESKILL:1,Knowledge (Dungeoneering)=5	BONUS:SKILLRANK|Survival (The Planes)|SKILLRANK=Survival|TYPE=SkillGranted|PRERULE:1,DISPLAYSKILLUSE|PRESKILL:1,Knowledge (The Planes)=5	BONUS:SKILLRANK|Survival (Natural environments)|SKILLRANK=Survival|TYPE=SkillGranted|PRERULE:1,DISPLAYSKILLUSE|PRESKILL:1,Knowledge (Nature)=5	BONUS:SKILLRANK|Survival (Lost/Natural hazards)|SKILLRANK=Survival|TYPE=SkillGranted|PRESKILL:1,Knowledge (Geography)=5	BONUS:SKILLRANK|Survival (Find or follow tracks)|SKILLRANK=Survival|TYPE=SkillGranted|PRERULE:1,DISPLAYSKILLUSE|PRESKILL:1,Search=5
-Swim.MOD							BONUS:SKILL|Swim (Avoid taking nonlethal fatigue damage)|SKILL.Swim.MISC																								BONUS:SKILLRANK|Swim (Avoid taking nonlethal fatigue damage)|SKILLRANK=Swim|TYPE=SkillGranted|PRERULE:1,DISPLAYSKILLUSE|PREVARGT:var("SKILL.Swim (Avoid taking nonlethal fatigue damage).MISC"),var("SKILL.Swim.MISC")
-Use Magic Device.MOD					BONUS:SKILL|Spellcraft (Decipher spell on scroll)|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Use Magic Device=5	BONUS:SKILL|Use Magic Device (Scroll)|SKILL.Use Magic Device.MISC							BONUS:SKILLRANK|Use Magic Device (Scroll)|SKILLRANK=Use Magic Device|TYPE=SkillGranted|PRERULE:1,DISPLAYSKILLUSE|PRESKILL:1,Decipher Script=5,Spellcraft=5
-Use Rope.MOD						BONUS:SKILL|Climb (Using a rope),Escape Artist (Escape from rope bonds)|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Use Rope=5	BONUS:SKILL|Use Rope (Bind someone)|SKILL.Use Rope.MISC						BONUS:SKILLRANK|Use Rope (Bind someone)|SKILLRANK=Use Rope|TYPE=SkillGranted|PRERULE:1,DISPLAYSKILLUSE|PRESKILL:1,Escape Artist=5
-###Block:
+Bluff.MOD							BONUS:SITUATION|Disguise=Act in character|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Bluff=5
+Decipher Script.MOD					BONUS:SITUATION|Use Magic Device=Scroll|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Decipher Script=5
+Escape Artist.MOD						BONUS:SITUATION|Use Rope=Bind someone|SynergyBonus|PRESKILL:1,Escape Artist=5|TYPE=Synergy.STACK								
+Knowledge (Architecture and Engineering).MOD	BONUS:SITUATION|Search=Secret doors and hidden compartments|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Knowledge (Architecture and Engineering)=5
+Knowledge (Dungeoneering).MOD				BONUS:SITUATION|Survival=Underground|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Knowledge (Dungeoneering)=5
+Knowledge (Geography).MOD				BONUS:SITUATION|Survival=Lost/Natural hazards|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Knowledge (Geography)=5
+Knowledge (Nature).MOD					BONUS:SITUATION|Survival=Natural environments|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Knowledge (Nature)=5
+Knowledge (The Planes).MOD				BONUS:SITUATION|Survival=The Planes|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Knowledge (The Planes)=5
+Search.MOD							BONUS:SITUATION|Survival=Find or follow tracks|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Search=5
+Spellcraft.MOD						BONUS:SITUATION|Use Magic Device=Scroll|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Spellcraft=5
+Use Magic Device.MOD					BONUS:SITUATION|Spellcraft=Decipher spell on scroll|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Use Magic Device=5
+Use Rope.MOD						BONUS:SITUATION|Climb=Using a rope,Escape Artist=Escape from rope bonds|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Use Rope=5	
+
+###Block: New Situation Tag
 Diplomacy.MOD	SITUATION:Wild Empathy (Animals)|Wild Empathy (Magical Beasts)
 
-
+Climb.MOD				SITUATION:Using a rope
+Concentration.MOD			SITUATION:Cast defensively
+Disguise.MOD			SITUATION:Act in character
+Escape Artist.MOD			SITUATION:Escape from rope bonds
+Search.MOD				SITUATION:Secret doors and hidden compartments
+Search.MOD				SITUATION:Notice unusual stonework
+Spellcraft.MOD			SITUATION:Decipher spell on scroll
+Survival.MOD			SITUATION:Underground
+Survival.MOD			SITUATION:The Planes
+Survival.MOD			SITUATION:Natural environments
+Survival.MOD			SITUATION:Lost/Natural hazards
+Survival.MOD			SITUATION:Find or follow tracks
+Swim.MOD				SITUATION:Avoid taking nonlethal fatigue damage
+Use Magic Device.MOD		SITUATION:Scroll
+Use Rope.MOD			SITUATION:Bind someone

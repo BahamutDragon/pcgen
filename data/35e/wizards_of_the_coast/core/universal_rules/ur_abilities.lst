@@ -41,8 +41,8 @@ LEVEL_ADJUSTMENT_6	CATEGORY:Internal		VISIBLE:NO																																
 SOURCELONG:Universal Rules	SOURCESHORT:UR	SOURCEDATE:2003-09
 
 Default			CATEGORY:Internal				DEFINE:DarkvisionRange|0	DEFINE:HasLowlightVision|0	DEFINE:FirstLevelFeatTaken|0	DEFINE:FirstLevelFeatAllowed|0	DEFINE:ClassBABPoor|0	DEFINE:ClassBABModerate|0	DEFINE:ClassBABModerateTotal|0	DEFINE:EpicAttackBonus|0	DEFINE:BaseAttackBonus|0						ABILITY:Special Ability|AUTOMATIC|Low-Light Vision|PREVARGTEQ:HasLowlightVision,1	ABILITY:Special Ability|AUTOMATIC|Darkvision|PREVARGTEQ:DarkvisionRange,1	ABILITY:Internal|AUTOMATIC|Defines	ABILITY:Special Ability|AUTOMATIC|Aerial Maneuverability|PREMOVE:1,Fly=1	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base	BONUS:COMBAT|REACH|-5|PREVAREQ:RaceSizeIsLong,1|PRESIZEGTEQ:L	BONUS:COMBAT|REACH|-5|PREVAREQ:RaceSizeIsLong,1|PRESIZEGTEQ:C	BONUS:VAR|FirstLevelFeatTaken|count("ABILITIES","CATEGORY=FEAT","NATURE=Normal","TYPE=FirstLevel")	BONUS:VAR|FirstLevelFeatAllowed|1	BONUS:VAR|FirstLevelFeatAllowed|1|PRERACE:1,Human	BONUS:VAR|EpicAttackBonus|max(((TL-HD)-19)/2,0)|TYPE=Epic	BONUS:VAR|BaseAttackBonus|BAB+EpicAttackBonus	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base
-#	BONUS:COMBAT|BAB|ClassMasterBAB|PREVAREQ:UseFractionalBAB,1	DEFINE:ClassMasterBAB|0	BONUS:VAR|ClassMasterBAB|(ClassBABPoor*1/2)+(ClassBABModerate*3/4)
-#	BONUS:COMBAT|BAB|ClassMasterBAB|PRERULE:Use Fractional BAB
+#	BONUS:COMBAT|BASEAB|ClassMasterBAB|PREVAREQ:UseFractionalBAB,1	DEFINE:ClassMasterBAB|0	BONUS:VAR|ClassMasterBAB|(ClassBABPoor*1/2)+(ClassBABModerate*3/4)
+#	BONUS:COMBAT|BASEAB|ClassMasterBAB|PRERULE:Use Fractional BAB
 
 ###Block: Vision Modes
 # Ability Name	Category of Ability		Type							Define				Description																																																																																													Modify VAR				Vision					Source, Short Desc.	Source Page		Aspects
@@ -67,21 +67,21 @@ Giant Type			CATEGORY:Special Ability	TYPE:RaceType																													
 Humanoid Type		CATEGORY:Special Ability	TYPE:RaceType
 Magical Beast Type	CATEGORY:Special Ability	TYPE:RaceType																																																																																		BONUS:VAR|HasLowLightVision|1|TYPE=Base	BONUS:VAR|DarkvisionRange|60|TYPE=Base
 Monstrous Humanoid Type	CATEGORY:Special Ability	TYPE:RaceType																																																																																		BONUS:VAR|DarkvisionRange|60|TYPE=Base
-Ooze Type			CATEGORY:Special Ability	TYPE:RaceType	DEFINE:OozeObjectAcidDamageAmount|0	DEFINE:OozeHasObjectAcidDamage|0	TEMPLATE:Non-Ability ~ Intelligence	ABILITY:Special Ability|AUTOMATIC|Blindsight ~ Ooze Shared																																																						BONUS:VAR|OozeObjectAcidDamageAmount|10+(HD/2)+CON																			VISION:Blind
+Ooze Type			CATEGORY:Special Ability	TYPE:RaceType	DEFINE:OozeObjectAcidDamageAmount|0	DEFINE:OozeHasObjectAcidDamage|0	TEMPLATE:Non-Ability ~ Intelligence	ABILITY:Special Ability|AUTOMATIC|Ooze Shared ~ Blindsight																																																						BONUS:VAR|OozeObjectAcidDamageAmount|10+(HD/2)+CON																			VISION:Blind
 Outsider Type		CATEGORY:Special Ability	TYPE:RaceType																			ABILITY:Special Ability|AUTOMATIC|Outsider House Rule ~ Martial Weapons|PRERULE:1,OutsiderZeroHDGainMartialWeapons																																												BONUS:VAR|DarkvisionRange|60|TYPE=Base
 Plant Type			CATEGORY:Special Ability	TYPE:RaceType																																																																																		BONUS:VAR|HasLowLightVision|1|TYPE=Base
 Undead Type			CATEGORY:Special Ability	TYPE:RaceType													TEMPLATE:Non-Ability ~ Constitution																																																										BONUS:SKILL|Concentration|CHA-CON
 Vermin Type			CATEGORY:Special Ability	TYPE:RaceType																																																																																		BONUS:VAR|DarkvisionRange|60|TYPE=Base
 # Creature Subtype Traits
 Air Subtype			CATEGORY:Special Ability	TYPE:SubRaceType
-Angel Subtype		CATEGORY:Special Ability	TYPE:SubRaceType																			ABILITY:Special Ability|AUTOMATIC|Immunity to Acid|Immunity to Cold|Immunity to Petrification|Protective Aura ~ Angel|Tongues ~ Angel																																									BONUS:VAR|HasLowLightVision|1|TYPE=Base	BONUS:VAR|DarkvisionRange|60|TYPE=Base																	SOURCEPAGE:p.10
+Angel Subtype		CATEGORY:Special Ability	TYPE:SubRaceType																			ABILITY:Special Ability|AUTOMATIC|Immunity to Acid|Immunity to Cold|Immunity to Petrification|Angel ~ Protective Aura|Angel ~ Tongues																																									BONUS:VAR|HasLowLightVision|1|TYPE=Base	BONUS:VAR|DarkvisionRange|60|TYPE=Base																	SOURCEPAGE:p.10
 Aquatic Subtype		CATEGORY:Special Ability	TYPE:SubRaceType
-Archon Subtype		CATEGORY:Special Ability	TYPE:SubRaceType																			ABILITY:Special Ability|AUTOMATIC|Aura of Menace ~ Archon|Immunity to Electricity|Immunity to Petrification|Magic Circle against Evil ~ Archon|Teleport ~ Archon|Tongues ~ Archon																																		BONUS:VAR|HasLowLightVision|1|TYPE=Base	BONUS:VAR|DarkvisionRange|60|TYPE=Base																	SOURCEPAGE:p.16
+Archon Subtype		CATEGORY:Special Ability	TYPE:SubRaceType																			ABILITY:Special Ability|AUTOMATIC|Archon ~ Aura of Menace|Immunity to Electricity|Immunity to Petrification|Archon ~ Magic Circle against Evil|Archon ~ Teleport|Archon ~ Tongues																																		BONUS:VAR|HasLowLightVision|1|TYPE=Base	BONUS:VAR|DarkvisionRange|60|TYPE=Base																	SOURCEPAGE:p.16
 Augmented Subtype		CATEGORY:Special Ability	TYPE:SubRaceType
 Chaotic Subtype		CATEGORY:Special Ability	TYPE:SubRaceType
 Cold Subtype		CATEGORY:Special Ability	TYPE:SubRaceType																			ABILITY:Special Ability|AUTOMATIC|Immunity to Cold|Vulnerability to Fire
 Tanar'ri Subtype		CATEGORY:Special Ability	TYPE:SubRaceType																			ABILITY:Special Ability|AUTOMATIC|Immunity to Electricity|Immunity to Poison|Resistance to Acid|Resistance to Cold|Resistance to Fire|Summon Demon|Telepathy																																					BONUS:VAR|AcidResistanceBonus|10|TYPE=Resistance	BONUS:VAR|ColdResistanceBonus|10|TYPE=Resistance	BONUS:VAR|FireResistanceBonus|10|TYPE=Resistance
-Baatezu Subtype		CATEGORY:Special Ability	TYPE:SubRaceType																			ABILITY:Special Ability|AUTOMATIC|Immunity to Fire|Immunity to Poison|Resistance to Acid|Resistance to Cold|See in Darkness ~ Baatezu|Summon ~ Baatezu|Telepathy																																					BONUS:VAR|AcidResistanceBonus|10|TYPE=Resistance	BONUS:VAR|ColdResistanceBonus|10|TYPE=Resistance
+Baatezu Subtype		CATEGORY:Special Ability	TYPE:SubRaceType																			ABILITY:Special Ability|AUTOMATIC|Immunity to Fire|Immunity to Poison|Resistance to Acid|Resistance to Cold|Baatezu ~ See in Darkness|Baatezu ~ Summon|Telepathy																																					BONUS:VAR|AcidResistanceBonus|10|TYPE=Resistance	BONUS:VAR|ColdResistanceBonus|10|TYPE=Resistance
 Earth Subtype		CATEGORY:Special Ability	TYPE:SubRaceType
 Evil Subtype		CATEGORY:Special Ability	TYPE:SubRaceType
 Extraplanar Subtype	CATEGORY:Special Ability	TYPE:SubRaceType
@@ -90,7 +90,7 @@ Goblinoid Subtype		CATEGORY:Special Ability	TYPE:SubRaceType
 Good Subtype		CATEGORY:Special Ability	TYPE:SubRaceType
 Incorporeal Subtype	CATEGORY:Special Ability	TYPE:SubRaceType	DEFINE:CanNotGrapple|1																																													BONUS:COMBAT|AC|max(1,CHA)|TYPE=Deflection	BONUS:COMBAT|TOHIT.MELEE|DEX
 Lawful Subtype		CATEGORY:Special Ability	TYPE:SubRaceType
-Mephit Subtype		CATEGORY:Special Ability	TYPE:SubRaceType																			ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Mephit|Fast Healing ~ Mephit|Natural Weapons ~ Mephit|Spell-Like Abilities ~ Mephit|Summon Mephit ~ Mephit
+Mephit Subtype		CATEGORY:Special Ability	TYPE:SubRaceType																			ABILITY:Special Ability|AUTOMATIC|Mephit ~ Breath Weapon|Mephit ~ Fast Healing|Mephit ~ Natural Weapons|Mephit ~ Spell-Like Abilities|Mephit ~ Summon Mephit
 Native Subtype		CATEGORY:Special Ability	TYPE:SubRaceType
 Reptilian Subtype		CATEGORY:Special Ability	TYPE:SubRaceType
 Shapechanger Subtype	CATEGORY:Special Ability	TYPE:SubRaceType
@@ -186,6 +186,16 @@ Tremorsense		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Vision	D
 Keen Scent		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Vision	DEFINE:KeenScentRange|0		DESC:Range %1 ft.|KeenScentRange																																																																																																																																																																																																																																																													VISION:Keen Scent (KeenScentRange)			ASPECT:Vision|Keen Scent %1 ft.|KeenScentRange
 See Etheral		CATEGORY:Special Ability	TYPE:SpecialQuality.Vision			DEFINE:SeeEtheralRange|0	DESC:Range %1 ft.|SeeEtheralRange																																																																																																																																																																																																																																																													VISION:See Etheral (SeeEtheralRange)		ASPECT:Vision|See Etheral %1 ft.|SeeEtheralRange
 See Invisibility	CATEGORY:Special Ability	TYPE:SpecialQuality.Vision			DEFINE:SeeInvisibilityRange|0	DESC:Range %1 ft.|SeeInvisibilityRange																																																																																																																																																																																																																																																												VISION:See Invisibility (SeeInvisibilityRange)	ASPECT:Vision|See Invisibility %1 ft.|SeeInvisibilityRange
+#
+Resistance to Mind-Affecting		CATEGORY:Special Ability	TYPE:SpecialQuality	
+Resistance to Paralysis			CATEGORY:Special Ability	TYPE:SpecialQuality	
+Resistance to Poison			CATEGORY:Special Ability	TYPE:SpecialQuality	
+Resistance to Sleep			CATEGORY:Special Ability	TYPE:SpecialQuality	
+Resistance to Stunning			CATEGORY:Special Ability	TYPE:SpecialQuality	
+Spell Resistance				CATEGORY:Special Ability	TYPE:SpecialQuality	
+Immunity to Aging				CATEGORY:Special Ability	TYPE:SpecialQuality
+Immunity to Non-Magical Disease	CATEGORY:Special Ability	TYPE:SpecialQuality
+Flight					CATEGORY:Special Ability	TYPE:SpecialQuality
 
 
 ###Block: Dragons Redone Proposal

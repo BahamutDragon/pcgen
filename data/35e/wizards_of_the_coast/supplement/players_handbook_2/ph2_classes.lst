@@ -4,7 +4,7 @@ SOURCELONG:Player's Handbook II	SOURCESHORT:PH2	SOURCEDATE:2006-05
 #Beguiler
 
 # Class Name	Hit Dice	Type			Source Page		Save checks bonus											Combat bonus							Modify VAR
-CLASS:Beguiler	HD:6		TYPE:Base.PC	SOURCEPAGE:p.6	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*1/2|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|CL|PREVAREQ:UseFractionalBAB,1
+CLASS:Beguiler	HD:6		TYPE:Base.PC	SOURCEPAGE:p.6	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|CL|PREVAREQ:UseFractionalBAB,1
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Beguiler	STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Climb|Concentration|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Jump|Knowledge (Arcana)|Knowledge (Local)|Listen|Move Silently|Open Lock|TYPE=Profession|Search|Sense Motive|Sleight of Hand|Speak Language|Spellcraft|Spot|Swim|Tumble|Use Magic Device
 # Class Name	Spell Stat		Spell Type		Memorize	Automatically Known Spell Levels							Caster level			Use Spell List
@@ -45,7 +45,7 @@ CLASS:Beguiler	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:NO	KNOWNSPELLS:LEVEL=0|LE
 #CLASS NAME				HITDICE		SOURCEPAGE		TYPE						ABBREVIATION	MAXLEVEL			LANGBONUS				SAVING THROWS																								BASE ATTACK BONUS									DEFINE
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Bonus Languages		Save checks bonus													Combat bonus
-CLASS:Dragon Shaman	HD:10		TYPE:PC.Base	ABB:DrSh		MAXLEVEL:20	SOURCEPAGE:11	LANGBONUS:Draconic	BONUS:CHECKS|BASE.Reflex|(CL/3)	BONUS:CHECKS|BASE.Fortitude,BASE.Will|((CL/2)+2)	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+CLASS:Dragon Shaman	HD:10		TYPE:PC.Base	ABB:DrSh		MAXLEVEL:20	SOURCEPAGE:11	LANGBONUS:Draconic	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")/3)	BONUS:SAVE|BASE.Fortitude,BASE.Will|((CL/2)+2)	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE
 # Class Name		Required AL
 CLASS:Dragon Shaman	PREALIGN:LG,LN,LE,NG,NE,CG,CN,CE
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -71,7 +71,7 @@ CLASS:Dragon Shaman	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Intimidate|Knowledge
 20							BONUS:VAR|DragonShamanConeSz|30	BONUS:VAR|DragonShamanLineSz|60
 
 # Class Name	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus											Combat bonus								Modify VAR
-CLASS:Duskblade	HD:8		TYPE:Base.PC	ABB:DB		SOURCEPAGE:p.	BONUS:CHECKS|BASE.Will,BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|BAB|CL*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|FamiliarLVL|CL
+CLASS:Duskblade	HD:8		TYPE:Base.PC	ABB:DB		SOURCEPAGE:p.	BONUS:SAVE|BASE.Will,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|BAB|classlevel("APPLIEDAS=NONEPIC")*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|FamiliarLVL|CL
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Duskblade	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher Script|TYPE=Knowledge|TYPE=Profession|Spellcraft
 # Class Name	Spell Stat		Spell Type		Spellbook		Caster level
@@ -119,7 +119,7 @@ CLASS:Duskblade	SPELLSTAT:INT	SPELLTYPE:Arcane	SPELLBOOK:YES	BONUS:CASTERLEVEL|D
 20	CAST:6,10,10,10,8,6
 
 # Class Name	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus											Combat bonus
-CLASS:Knight	HD:12		TYPE:Base.PC	ABB:Kni		SOURCEPAGE:PHB II	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL
+CLASS:Knight	HD:12		TYPE:Base.PC	ABB:Kni		SOURCEPAGE:PHB II	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Knight	STARTSKILLPTS:2	CSKILL:Climb|Handle Animal|Intimidate|Jump|Knowledge (Nobility and Royalty)|Ride|Swim
 ###Block:

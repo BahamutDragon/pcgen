@@ -1,0 +1,329 @@
+SOURCELONG:Arcana Evolved	SOURCESHORT:AE
+
+
+CLASS:Akashic	HD:6	TYPE:Base.PC	ABB:Aka		SOURCEPAGE:p.39	BONUS:SAVE|BASE.Will|(CL/2)+2	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1	
+CLASS:Akashic	STARTSKILLPTS:8	CSKILL:TYPE=Standard
+###Block:
+1	ABILITY:Akashic Class Feature|AUTOMATIC|Akashic ~ Skill Memory	BONUS:VAR|AkashicSkillMemoryBonus|2
+2	ABILITY:Akashic Class Feature|AUTOMATIC|Akashic ~ Perfect Recall
+3	ABILITY:Akashic Class Feature|AUTOMATIC|Akashic ~ Delve into Collective Memory
+4	ABILITY:Akashic Class Feature|AUTOMATIC|Akashic ~ Minor akashic ability	DEFINE:MinorAkashicAbilityCount|0	BONUS:VAR|MinorAkashicAbilityCount|1
+8	ABILITY:Akashic Class Feature|AUTOMATIC|Akashic ~ Lesser akashic ability	DEFINE:LesserAkashicAbilityCount|0	BONUS:VAR|LesserAkashicAbilityCount|1
+12	ABILITY:Akashic Class Feature|AUTOMATIC|Akashic ~ Feat memory
+15	ABILITY:Akashic Class Feature|AUTOMATIC|Akashic ~ Greater akashic ability	DEFINE:GreaterAkashicAbilityCount|0	BONUS:VAR|GreaterAkashicAbilityCount|1
+20	ABILITY:Akashic Class Feature|AUTOMATIC|Akashic ~ Spell memory	DEFINE:AkashicSpellMemoryTimes|0	BONUS:VAR|AkashicSpellMemoryTimes|1
+21	ABILITY:Akashic Class Feature|AUTOMATIC|Akashic ~ Momentary Memory Ability		BONUS:VAR|AkashicSpellMemoryTimes|1	DEFINE:MomentaryMemoryAbilityCount|0	BONUS:VAR|MomentaryMemoryAbilityCount|1
+22	ABILITY:Akashic Class Feature|AUTOMATIC|Akashic ~ Greater Spell Memory	DEFINE:AkashicGreaterSpellMemoryTimes|0	BONUS:VAR|AkashicGreaterSpellMemoryTimes|1	BONUS:VAR|MomentaryMemoryAbilityCount|1
+25	ABILITY:Akashic Class Feature|AUTOMATIC|Akashic ~ Class Ability		BONUS:VAR|AkashicSkillMemoryBonus|2
+###Block:
+5	BONUS:VAR|MinorAkashicAbilityCount|1
+6	BONUS:VAR|MinorAkashicAbilityCount|1
+7	BONUS:VAR|MinorAkashicAbilityCount|1
+9	BONUS:VAR|AkashicSkillMemoryBonus|2
+10	BONUS:VAR|LesserAkashicAbilityCount|1
+11	BONUS:VAR|LesserAkashicAbilityCount|1
+13	BONUS:VAR|LesserAkashicAbilityCount|1
+14	BONUS:VAR|LesserAkashicAbilityCount|1
+16	BONUS:VAR|GreaterAkashicAbilityCount|1
+17	BONUS:VAR|AkashicSkillMemoryBonus|2
+18	BONUS:VAR|GreaterAkashicAbilityCount|1
+19	BONUS:VAR|GreaterAkashicAbilityCount|1
+23	BONUS:VAR|AkashicGreaterSpellMemoryTimes|1	BONUS:VAR|MomentaryMemoryAbilityCount|1
+24	BONUS:VAR|MomentaryMemoryAbilityCount|1
+
+#	Champion	
+CLASS:Champion	HD:10	TYPE:Base.PC	ABB:Cha	SOURCEPAGE:p.44	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")		DEFINE:ChampionLVL|CL
+CLASS:Champion	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Diplomacy|Heal|Jump|TYPE=Knowledge|Ride|Spot|Swim
+###Block: Class Features
+1	ABILITY:Champion Class Feature|AUTOMATIC|Champion ~ Champion Ability|Champion ~ Weapon and Armor Proficiency
+2	ABILITY:Champion Class Feature|AUTOMATIC|Champion ~ Call or Imbue Shield
+4	ABILITY:Champion Class Feature|AUTOMATIC|Champion ~ Call Upon the Power
+7	ABILITY:Champion Class Feature|AUTOMATIC|Champion ~ Call or Imbue Weapon
+9	ABILITY:Champion Class Feature|AUTOMATIC|Champion ~ Heartening Cry
+10	ABILITY:Champion Class Feature|AUTOMATIC|Champion ~ Focused Devotion
+12	ABILITY:Champion Class Feature|AUTOMATIC|Champion ~ Take on the Mantle
+16	ABILITY:Champion Class Feature|AUTOMATIC|Champion ~ Avatar's Ally
+17	ABILITY:Champion Class Feature|AUTOMATIC|Champion ~ Unassailable Soul
+19	ABILITY:Champion Class Feature|AUTOMATIC|Champion ~ Avatar
+22	ABILITY:Champion Class Feature|AUTOMATIC|Champion ~ Unassailable Body
+23	ABILITY:Champion Class Feature|AUTOMATIC|Champion ~ True Shield
+24	ABILITY:Champion Class Feature|AUTOMATIC|Champion ~ True Weapon
+###Block:
+1	BONUS:VAR|ChampionAbilityCount|1+CL/5	DEFINE:ChampionAbilityCount|0
+16	BONUS:VAR|AvatarAllyLVL|1+(CL>20)	DEFINE:AvatarAllyLVL|0
+
+#	Greenbond
+CLASS:Greenbond	HD:6	TYPE:Base.PC	ABB:Cha	SOURCEPAGE:p.53	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1	
+	DEFINE:GreenbondLVL|CL
+CLASS:Greenbond	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Gather Information|Handle Animal|Heal|Knowledge (Ceremony)|Knowledge (Geography)|Knowledge (Magic)|Knowledge (Nature)|Listen|Speak Language|Spellcraft|Survival|Swim
+CLASS:Greenbond	SPELLSTAT:CHA	SPELLTYPE:Simple	BONUS:CASTERLEVEL|Greenbond|CL
+#LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8	SPELLBOOK:YES	BONUS:CASTERLEVEL|Mage Blade|CL
+###Block: Class Features
+1	ABILITY:Greenbond Class Feature|AUTOMATIC|Greenbond ~ Infuse With Life|Greenbond ~ Nature sense	
+2	ABILITY:Greenbond Class Feature|AUTOMATIC|Greenbond ~ Nature's gift	
+3	ABILITY:Greenbond Class Feature|AUTOMATIC|Greenbond ~ Trackless step
+5	ABILITY:Greenbond Class Feature|AUTOMATIC|Greenbond ~ Bond with the Green	
+6	ABILITY:Greenbond Class Feature|AUTOMATIC|Greenbond ~ Percipience
+8	ABILITY:Greenbond Class Feature|AUTOMATIC|Greenbond ~ Speak with spirits
+17	ABILITY:Greenbond Class Feature|AUTOMATIC|Greenbond ~ Spiritform
+###Block:
+8	BONUS:VAR|SpeakWithSpiritsTier|1
+14	BONUS:VAR|SpeakWithSpiritsTier|1
+1	BONUS:VAR|InfuseWithLifeDice|1
+4	BONUS:VAR|InfuseWithLifeDice|1
+5	BONUS:VAR|BondWithTheGreenCount|1
+7	BONUS:VAR|InfuseWithLifeDice|1
+10	BONUS:VAR|InfuseWithLifeDice|1
+13	BONUS:VAR|InfuseWithLifeDice|2
+15	BONUS:VAR|BondWithTheGreenCount|1
+16	BONUS:VAR|InfuseWithLifeDice|2
+19	BONUS:VAR|InfuseWithLifeDice|2
+20	BONUS:VAR|BondWithTheGreenCount|1
+21	BONUS:VAR|BondWithTheGreenCount|1
+22	BONUS:VAR|InfuseWithLifeDice|2
+23	BONUS:VAR|BondWithTheGreenCount|1
+24	BONUS:VAR|BondWithTheGreenCount|1
+25	BONUS:VAR|InfuseWithLifeDice|2
+2	BONUS:VAR|NaturesGiftLVL|1	DEFINE:NaturesGiftLVL|0
+12	BONUS:VAR|NaturesGiftLVL|1
+###Block: Casting Progression
+1	CAST:2,1
+2	CAST:3,2
+3	CAST:3,2,1
+4	CAST:3,3,2
+5	CAST:4,3,2,1
+6	CAST:4,3,3,2
+7	CAST:4,4,3,2,1
+8	CAST:4,4,3,3,2
+9	CAST:5,4,4,3,2,1
+10	CAST:5,4,4,3,3,2
+11	CAST:5,5,4,4,3,2,1
+12	CAST:5,5,4,4,3,3,2
+13	CAST:5,5,5,4,4,3,2,1
+14	CAST:6,5,5,4,4,3,3,2
+15	CAST:6,5,5,5,4,4,3,2,1
+16	CAST:6,6,5,5,4,4,3,3,2
+17	CAST:6,6,5,5,5,4,4,3,2,1
+18	CAST:6,6,6,5,5,4,4,3,3,2
+19	CAST:6,6,6,5,5,5,4,4,3,2
+20	CAST:7,6,6,6,5,5,4,4,3,3
+21	CAST:7,6,6,6,5,5,5,4,4,3,1
+22	CAST:7,7,6,6,6,5,5,4,4,3,2
+23	CAST:0,7,6,6,6,5,5,5,4,4,3
+24	CAST:0,7,7,6,6,6,5,5,4,4,4
+25	CAST:0,0,7,6,6,6,5,5,5,4,4
+
+
+
+# Class Name	Hit Dice	Type			Abbreviation	Source Page		
+CLASS:Mage Blade	HD:8		TYPE:Base.PC	ABB:MB		SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1	
+	BONUS:SAVE|BASE.Reflex,BASE.Fortitude,BASE.Will|(CL>1)+(CL>2)+(CL>5)+(CL>6)+(CL>10)+(CL>12)+(CL>15)+(CL>17)+(CL>19)+(CL>21)+(CL>23)
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Mage Blade	STARTSKILLPTS:2	CSKILL:Alchemy|Climb|Concentration|TYPE=Craft|Intimidate|Jump|TYPE=Knowledge|Search|Speak Language|Spellcraft|Swim
+# Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels									Spellbook		Caster level
+CLASS:Mage Blade	SPELLSTAT:CHA	SPELLTYPE:Simple	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8	SPELLBOOK:YES	BONUS:CASTERLEVEL|Mage Blade|CL
+###Block:
+9	BONUS:VAR|AthameLVL|1+(CL>13)
+###Block:
+5	BONUS:ABILITYPOOL|Mage Blade Feat|min(CL/5,4)+(CL>20)+(CL>22)+(CL>23)
+###Block:		
+1	ABILITY:Mage Blade Class Feature|AUTOMATIC|Mage Blade ~ Weapon and Armor Proficiency
+1	ABILITY:Mage Blade Class Feature|AUTOMATIC|Mage Blade ~ Athame
+4	ABILITY:Mage Blade Class Feature|AUTOMATIC|Mage Blade ~ Shimmering Shield
+7	ABILITY:Mage Blade Class Feature|AUTOMATIC|Mage Blade ~ Sprightly Step
+11	ABILITY:Mage Blade Class Feature|AUTOMATIC|Mage Blade ~ Slice through Wardings
+12	ABILITY:Mage Blade Class Feature|AUTOMATIC|Mage Blade ~ Familiarity with Magic
+16	ABILITY:Mage Blade Class Feature|AUTOMATIC|Mage Blade ~ Spell Parry
+18	ABILITY:Mage Blade Class Feature|AUTOMATIC|Mage Blade ~ Slice through Spells
+###Block: 
+1	CAST:2,0
+2	CAST:2,1
+3	CAST:3,2
+4	CAST:3,2,0
+5	CAST:3,2,1
+6	CAST:3,2,2
+7	CAST:4,3,2,0
+8	CAST:4,3,2,1
+9	CAST:4,3,2,2
+10	CAST:4,3,3,2,0
+11	CAST:4,4,3,2,1
+12	CAST:4,4,3,2,2
+13	CAST:4,4,3,3,2,0
+14	CAST:4,4,4,3,2,1
+15	CAST:4,4,4,3,2,2
+16	CAST:4,4,4,3,3,2,0
+17	CAST:4,4,4,4,3,2,1
+18	CAST:4,4,4,4,3,2,2
+19	CAST:4,4,4,4,3,3,2,0
+20	CAST:4,4,4,4,4,3,2,1
+21	CAST:4,4,4,4,4,3,2,2
+22	CAST:4,4,4,4,4,3,3,2,0
+23	CAST:4,4,4,4,4,3,3,2,1
+24	CAST:4,4,4,4,4,3,3,2,2
+25	CAST:4,4,4,4,4,3,3,3,2
+
+#KNOWN:6,6,6,6,6,4,3,2KNOWN:6,6,6,6,6,5,4,3,0KNOWN:6,6,6,6,6,5,4,3,1KNOWN:6,6,6,6,6,5,4,3,2KNOWN:6,6,6,6,6,6,5,4,3
+#KNOWN:2,1	KNOWN:3,2	KNOWN:3,3	KNOWN:3,3,0	KNOWN:4,3,1
+#KNOWN:4,4,2	KNOWN:4,4,3,0	KNOWN:5,4,3,1
+#KNOWN:5,5,3,2	KNOWN:5,5,4,3,0	KNOWN:6,5,4,3,1
+#KNOWN:6,6,4,3,2	KNOWN:6,6,5,4,3,0	KNOWN:6,6,5,4,3,1
+#KNOWN:6,6,5,4,3,2	KNOWN:6,6,6,5,4,3,0
+#KNOWN:6,6,6,5,4,3,1	KNOWN:6,6,6,5,4,3,2
+#KNOWN:6,6,6,6,5,4,3,0	KNOWN:6,6,6,6,5,4,3,1
+###END MAGE BLADE
+
+#	MAGISTER
+
+# Class Name	Hit Dice	Type			Abbreviation	Source Page				Automatically Gained Language	Save checks bonus											Combat bonus
+CLASS:Magister	HD:6		TYPE:Base.PC	ABB:MAG		SOURCEPAGE:p.	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|CL/2+3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|CL|PREVAREQ:UseFractionalBAB,1		
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Magister	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE=Craft|Decipher Script|Innuendo|Intimidate|TYPE=Knowledge|Search|Speak Language|Spellcraft
+# Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels												Spellbook		Caster level
+CLASS:Magister	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9|LEVEL=10	SPELLBOOK:YES	BONUS:CASTERLEVEL|Magister|CL
+###Block: Proficiencies
+1	AUTO:WEAPONPROF|Magister's Staff
+5	AUTO:WEAPONPROF|Sword Staff
+5	BONUS:ABILITYPOOL|Magister Feat|CL/5
+###Block: Class Features
+
+###Block: Spell Level progression
+1	CAST:2,1				KNOWN:5,3					SAB:Magister's Staff
+2	CAST:3,2				KNOWN:6,3
+3	CAST:3,2,1				KNOWN:6,4,2
+4	CAST:3,3,2				KNOWN:7,4,3
+5	CAST:4,3,2,1			KNOWN:7,5,3,2
+6	CAST:4,3,3,2			KNOWN:8,5,4,3				SAB:Familiarity with magic
+7	CAST:4,4,3,2,1			KNOWN:8,6,4,3,2
+8	CAST:4,4,3,3,2			KNOWN:9,6,5,4,3
+9	CAST:5,4,4,3,2,1			KNOWN:9,7,5,4,3,2
+10	CAST:5,4,4,3,3,2			KNOWN:9,7,6,5,4,3
+11	CAST:5,5,4,4,3,2,1		KNOWN:9,8,6,5,4,3,2
+12	CAST:5,5,4,4,3,3,2		KNOWN:9,8,7,6,5,4,3			SAB:Lesser aspect of power
+13	CAST:5,5,5,4,4,3,2,1		KNOWN:9,9,7,6,5,4,3,2
+14	CAST:6,5,5,4,4,3,3,2		KNOWN:9,9,8,7,6,5,4,3			SAB:Lesser mind over matter
+15	CAST:6,5,5,5,4,4,3,2,1		KNOWN:9,9,8,7,6,5,4,3,2
+16	CAST:6,6,5,5,4,4,3,3,2		KNOWN:9,9,9,8,7,6,5,4,3
+17	CAST:6,6,5,5,5,4,4,3,2,1	KNOWN:9,9,9,8,7,6,5,4,3,2
+18	CAST:6,6,6,5,5,4,4,3,3,2	KNOWN:9,9,9,9,8,7,6,5,4,3		SAB:Greater aspect of power
+19	CAST:6,6,6,5,5,5,4,4,3,2	KNOWN:9,9,9,9,8,7,6,5,4,3
+20	CAST:7,6,6,6,5,5,4,4,3,3	KNOWN:9,9,9,9,9,8,7,6,5,4
+21	CAST:99,6,6,6,5,5,5,4,4,3,1	KNOWN:99,9,9,9,9,8,7,6,5,4,1
+22	CAST:99,7,6,6,6,5,5,4,4,3,2	KNOWN:99,99,9,9,9,9,8,7,6,5,2		SAB:Greater mind over matter
+23	CAST:99,99,6,6,6,5,5,5,4,4,3	KNOWN:99,99,99,9,9,9,8,7,6,5,3
+24	CAST:99,99,7,6,6,6,5,5,4,4,4	KNOWN:99,99,99,99,9,9,9,8,7,6,4	SAB:Master's aspect of power
+25	CAST:99,99,99,6,6,6,5,5,5,4,4	KNOWN:99,99,99,99,99,9,9,8,7,6,4
+
+#	Oathsworn
+
+#	Ritual Warrior
+
+#	Runethane
+
+#	Totem Warrior
+
+#	Unfettered
+
+#	Warmain
+
+#	Witch
+
+### >>>RACIAL CLASSES<<<
+
+CLASS:Human Evolved	HD:8	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2
+CLASS:Human Evolved	STARTSKILLPTS:2	
+#1	ADD:	6 CLASSSKILL
+1:REPEATLEVEL:1	BONUS:ABILITYPOOL|FEAT|1	BONUS:ABILITYPOOL|+1 to Any Ability Score|1	ADD:SPELLCASTER|ANY
+
+CLASS:Dracha	HD:8	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Dracha	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Jump|Knowledge (Dracha)|Knowledge (Dragons)|Spot|Survival
+1	BONUS:STAT|STR,CON|1
+2	BONUS:STAT|STR|1
+3	BONUS:STAT|CON|1
+5	BONUS:STAT|STR|1
+6	BONUS:STAT|CON|1
+###Block:
+2	BONUS:VAR|DrachaNaturalArmorBonus|1
+4	BONUS:VAR|DrachaNaturalArmorBonus|1
+6	BONUS:VAR|DrachaNaturalArmorBonus|1
+2	BONUS:VAR|Maneuverability|1
+3	BONUS:VAR|Maneuverability|1
+5	BONUS:VAR|Maneuverability|1
+6	BONUS:VAR|Maneuverability|1
+###Block:
+3	AUTO:FEAT|Bite
+###Block:
+1	ABILITY:Dracha Race Trait|AUTOMATIC|Dracha ~ Weapon and Armor Proficiency		
+2	ABILITY:Dracha Race Trait|AUTOMATIC|Dracha ~ Flight					
+3	ABILITY:Dracha Race Trait|AUTOMATIC|Dracha ~ Natural Armor Bonus			
+# Evolved
+4	ABILITY:Dracha Race Trait|AUTOMATIC|Dracha ~ Evolved Dracha Breath Weapon|Dracha ~ Evolved Dracha Natural Armor Bonus	
+5	ABILITY:Dracha Race Trait|AUTOMATIC|Dracha ~ Evolved Dracha Claws|Dracha ~ Evolved Dracha Flight			
+6	ABILITY:Dracha Race Trait|AUTOMATIC|Dracha ~ Evolved Dracha Pounce			
+
+
+CLASS:Loresong Faen	HD:6	MAXLEVEL:3	TYPE:PC.Race	PRETEXT:Evolved Levels Only
+1	ABILITY:Special Ability|AUTOMATIC|Loresong ~ Weapon and Armor Proficiency|Loresong ~ Evolved Loresong Spell-Like Abilities	
+2	BONUS:STAT|DEX,INT|1
+3	BONUS:STAT|DEX,INT|1
+###Block:
+1:REPEATLEVEL:1	ADD:SPELLCASTER|ANY
+
+CLASS:Quickling Faen	HD:6	MAXLEVEL:3	TYPE:PC.Race	BONUS:COMBAT|BASEAB|CL*3/4	BONUS:SAVE|BASE.Fortitude,BASE.Will|CL/3	BONUS:SAVE|BASE.Reflex|CL/2+2	PRETEXT:Evolved Levels Only
+1	BONUS:STAT|DEX|1	BONUS:MOVEADD|TYPE.Walk|10
+2	BONUS:STAT|DEX|1	BONUS:COMBAT|AC|1|TYPE=Dodge
+3	BONUS:STAT|DEX|2	BONUS:MOVEADD|TYPE.Walk|10
+###Block:
+2	ADD:SPELLCASTER|ANY
+
+CLASS:Spryte		HD:6	MAXLEVEL:6	TYPE:PC.Race	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
+1	BONUS:STAT|DEX|1
+2	BONUS:STAT|DEX|1		ADD:SPELLCASTER|ANY
+4	BONUS:STAT|DEX|1
+5					ADD:SPELLCASTER|ANY
+6	BONUS:STAT|DEX|1		ADD:SPELLCASTER|ANY
+###Block:
+1	ABILITY:Special Ability|AUTOMATIC|Spryte ~ 1st-Level Spryte Spell-Like Abilities		
+2	ABILITY:Special Ability|AUTOMATIC|Spryte ~ 2nd-Level Spryte Spell-Like Ability		
+3	ABILITY:Special Ability|AUTOMATIC|Spryte ~ 3rd-Level Spryte Spell-Like Abilities		
+4	ABILITY:Special Ability|AUTOMATIC|Spryte ~ 4th-Level Evolved Spryte Spell-Like Abilities	
+5	ABILITY:Special Ability|AUTOMATIC|Spryte ~ 5th-Level Evolved Spryte Spell-Like Abilities	
+6	ABILITY:Special Ability|AUTOMATIC|Spryte ~ 6th-Level Evolved Spryte Spell-Like Abilities	
+
+
+# Class Name	Hit Dice	Type			Abbreviation	Source Page				Automatically Gained Language	Save checks bonus											Combat bonus
+CLASS:Litorian	HD:8		TYPE:Base.PC	ABB:Lit		SOURCEPAGE:Arcana Evolved			BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Litorian	STARTSKILLPTS:2	CSKILL:Balance|Climb|TYPE=Craft|Jump|Knowledge (Litorians)|Search|Sneak|Survival
+
+###Block:Proficiencies
+###Racial Levels
+1																					BONUS:STAT|STR,DEX|1
+2	SAB:Scent														BONUS:MOVEADD|TYPE.Walk|10
+3																					BONUS:STAT|CON,DEX|1																																				AUTO:WEAPONPROF|Bite (Litorian)
+###Evolved Levels
+4																					BONUS:STAT|STR,CON|1
+5										BONUS:COMBAT|AC|TYPE.Natural|1										BONUS:WEAPONPROF=Bite (Litorian)|DAMAGE,TOHIT|1	ADD:SPELLCASTER|Arcane
+6	SAB:Litorian Claws: 1d8 natural damage	SAB:Pounce												BONUS:STAT|DEX|2																																					AUTO:WEAPONPROF|Claws (Litorian)
+
+
+#	Mojh
+#	Rune Children
+#	Sibeccai
+#	Verrik
+
+### HIDDEN
+
+# Class Name	Visible
+CLASS:Simple	VISIBLE:NO
+# Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels												Spellbook		Caster level
+CLASS:Simple	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9|LEVEL=10	SPELLBOOK:YES	BONUS:CASTERLEVEL|Simple|CL
+
+# Class Name	Visible
+CLASS:Complex	VISIBLE:NO
+# Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels												Spellbook		Caster level
+CLASS:Complex	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9|LEVEL=10	SPELLBOOK:YES	BONUS:CASTERLEVEL|Complex|CL
+
+# Class Name	Visible
+CLASS:Exotic	VISIBLE:NO
+# Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels												Spellbook		Caster level
+CLASS:Exotic	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9|LEVEL=10	SPELLBOOK:YES	BONUS:CASTERLEVEL|Exotic|CL

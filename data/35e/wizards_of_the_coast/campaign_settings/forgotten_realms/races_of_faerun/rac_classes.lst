@@ -1,7 +1,7 @@
 # CVS $Revision: $ $Author: $ -- Sun Mar  2 00:12:48 2014 -- reformated by prettylst.pl v1.51 (build 22988)
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Battlerager	HD:12		TYPE:PC.Prestige	ABB:Brg		MAXLEVEL:5	SOURCEPAGE:p.178	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+CLASS:Battlerager	HD:12		TYPE:PC.Prestige	ABB:Brg		MAXLEVEL:5	SOURCEPAGE:p.178	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
 # Class Name	Restricted AL		Req. Att.	Required Feat								Required Race	Required Skill
 CLASS:Battlerager	!PREALIGN:LG,LN,LE	PREATT:5	PREFEAT:3,Cleave,Endurance,Power Attack	PREFEAT:1,Rage	PRERACE:1,Dwarf	PRESKILL:1,Intimidate=8	PRESKILL:3,Knowledge (Religion)=2,Perform (Sing)=2,TYPE.Perform=2
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -15,7 +15,7 @@ CLASS:Battlerager	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimida
 5							BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE
 
 # Class Name		Hit Dice	Type			Abbreviation	Source Page		Save checks bonus											Combat bonus
-CLASS:Bladesinger (RoF)	HD:8		TYPE:PC.Prestige	ABB:Blsg		SOURCEPAGE:p.180	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+CLASS:Bladesinger (RoF)	HD:8		TYPE:PC.Prestige	ABB:Blsg		SOURCEPAGE:p.180	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
 # Class Name		Req. Att.	Required Feat																		Required Race		Required Skill									Req. Spell Type
 CLASS:Bladesinger (RoF)	PREATT:5	PREFEAT:4,Combat Casting,Dodge,Combat Expertise,Still Spell	PREFEAT:1,Weapon Focus (Longsword),Weapon Focus (Rapier)	PRERACE:1,Elf,Half-Elf	PRESKILL:1,Concentration=4	PRESKILL:2,TYPE.Perform=3,Tumble=3	PRESPELLTYPE:1,Arcane=1
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -36,7 +36,7 @@ CLASS:Bladesinger (RoF)	SPELLSTAT:INT	SPELLTYPE:Arcane	SPELLBOOK:YES	BONUS:CASTE
 11	PREPCLEVEL:MIN=20
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Breachgnome	HD:10		TYPE:PC.Prestige	ABB:BrG		MAXLEVEL:5	SOURCEPAGE:p.181	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|CL|TYPE=Base.REPLACE
+CLASS:Breachgnome	HD:10		TYPE:PC.Prestige	ABB:BrG		MAXLEVEL:5	SOURCEPAGE:p.181	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|CL|TYPE=Base.REPLACE
 # Class Name	Restricted AL		Req. Att.	Required Feat							Required Race	Required Skill
 CLASS:Breachgnome	!PREALIGN:CG,CN,CE	PREATT:5	PREFEAT:3,Combat Reflexes,Dodge,Improved Initiative	PRERACE:1,Gnome	PRESKILL:2,Listen=5,Spot=5
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -67,7 +67,7 @@ CLASS:Elven High Mage	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher S
 11	PREPCLEVEL:MIN=20
 
 # Class Name			Hit Dice	Type			Abbreviation	Source Page		Define				Save checks bonus											Combat bonus					Modify VAR
-CLASS:Great Rift Skyguard	HD:10		TYPE:PC.Prestige	ABB:GRS		SOURCEPAGE:p.183	DEFINE:SkyguardMountLevel|0	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE	BONUS:VAR|SkyguardMountLevel|CL
+CLASS:Great Rift Skyguard	HD:10		TYPE:PC.Prestige	ABB:GRS		SOURCEPAGE:p.183	DEFINE:SkyguardMountLevel|0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:VAR|SkyguardMountLevel|CL
 # Class Name			Required Feat				Required Race		Required Skill
 CLASS:Great Rift Skyguard	PREFEAT:2,Mounted Combat,Toughness	PRERACE:1,Dwarf (Gold)	PRESKILL:2,Handle Animal=4,Jump=4	PRESKILL:1,Ride=8
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -84,7 +84,7 @@ CLASS:Great Rift Skyguard	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|
 11	PREPCLEVEL:MIN=20
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Orc Warlord	HD:12		TYPE:PC.Prestige	ABB:OWL		MAXLEVEL:5	SOURCEPAGE:p.184	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+CLASS:Orc Warlord	HD:12		TYPE:PC.Prestige	ABB:OWL		MAXLEVEL:5	SOURCEPAGE:p.184	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
 # Class Name	Restricted AL		Req. Att.	Required Feat											Required Race		Required Skill							Var. Min. Value
 CLASS:Orc Warlord	!PREALIGN:LG,NG,CG	PREATT:5	PREFEAT:1,Blood of the Warlord,Might Makes Right	PREFEAT:1,Leadership	PRERACE:1,Orc,Half-Orc	PRESKILL:2,Ride=5,Survival=5	PRESKILL:1,Intimidate=8	PREVARGTEQ:Rage,1
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -95,7 +95,7 @@ CLASS:Orc Warlord	STARTSKILLPTS:2	CSKILL:Bluff|TYPE=Craft|Intimidate|Jump|Listen
 5	SAB:Final Rage (Ex)
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Spellsinger	HD:6		TYPE:PC.Prestige	ABB:SpS		MAXLEVEL:5	SOURCEPAGE:p.185	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+CLASS:Spellsinger	HD:6		TYPE:PC.Prestige	ABB:SpS		MAXLEVEL:5	SOURCEPAGE:p.185	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE
 # Class Name	Required Feat							Required Skill						Req. Spell Type		Required Text
 CLASS:Spellsinger	PREFEAT:2,Improved Counterspell,Skill Focus (Perform)	PRESKILL:2,Knowledge (Arcana)=8,TYPE.Perform=8	PRESPELLTYPE:1,Arcane=1	PRETEXT:Must be at least 1/8th Elven
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -107,7 +107,7 @@ CLASS:Spellsinger	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|TYPE=Craft|Decipher
 5	SAB:Amplified Music (Su)															ADD:SPELLCASTER|Arcane
 
 # Class Name		Hit Dice	Type			Abbreviation	Source Page		Save checks bonus											Combat bonus
-CLASS:Warrior Skald	HD:6		TYPE:PC.Prestige	ABB:WSk		SOURCEPAGE:p.187	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+CLASS:Warrior Skald	HD:6		TYPE:PC.Prestige	ABB:WSk		SOURCEPAGE:p.187	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
 # Class Name		Required Feat			Required Skill
 CLASS:Warrior Skald	PREFEAT:2,Power Attack,Cleave	PRESKILL:1,Concentration=6	PRESKILL:1,TYPE=Perform=9
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -124,7 +124,7 @@ CLASS:Warrior Skald	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Concentration|TYPE=Craft|
 11	PREPCLEVEL:MIN=20
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Warsling Sniper	HD:6		TYPE:PC.Prestige	ABB:WSS		MAXLEVEL:6	SOURCEPAGE:p.187	BONUS:CHECKS|BASE.Will,BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:COMBAT|BAB|CL|TYPE=Base.REPLACE
+CLASS:Warsling Sniper	HD:6		TYPE:PC.Prestige	ABB:WSS		MAXLEVEL:6	SOURCEPAGE:p.187	BONUS:SAVE|BASE.Will,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
 # Class Name		Req. Att.	Required Feat																			Required Race		Required Skill
 CLASS:Warsling Sniper	PREATT:5	PREFEAT:4,Exotic Weapon Proficiency (Warsling (Halfling)),Exotic Weapon Proficiency (Skiprock),Point Blank Shot,Precise Shot	PRERACE:1,Halfling	PRESKILL:1,Craft (Weaponsmithing)=3	PRESKILL:1,Hide=4	PRESKILL:1,Spot=6
 # Class Name		Skill Pts/Lvl	Class Skill
