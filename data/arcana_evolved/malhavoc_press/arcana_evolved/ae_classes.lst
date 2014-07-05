@@ -1,7 +1,7 @@
 SOURCELONG:Arcana Evolved	SOURCESHORT:AE
 
 
-CLASS:Akashic	HD:6	TYPE:Base.PC	ABB:Aka		SOURCEPAGE:p.39	BONUS:SAVE|BASE.Will|(CL/2)+2	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1	
+CLASS:Akashic	HD:6	TYPE:Base.PC	ABB:Aka	MAXLEVEL:25		SOURCEPAGE:p.39	BONUS:SAVE|BASE.Will|(CL/2)+2	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1	
 CLASS:Akashic	STARTSKILLPTS:8	CSKILL:TYPE=Standard
 ###Block:
 1	ABILITY:Akashic Class Feature|AUTOMATIC|Akashic ~ Skill Memory	BONUS:VAR|AkashicSkillMemoryBonus|2
@@ -32,7 +32,7 @@ CLASS:Akashic	STARTSKILLPTS:8	CSKILL:TYPE=Standard
 24	BONUS:VAR|MomentaryMemoryAbilityCount|1
 
 #	Champion	
-CLASS:Champion	HD:10	TYPE:Base.PC	ABB:Cha	SOURCEPAGE:p.44	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")		DEFINE:ChampionLVL|CL
+CLASS:Champion	HD:10	TYPE:Base.PC	ABB:Cha	MAXLEVEL:25	SOURCEPAGE:p.44	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")		DEFINE:ChampionLVL|CL
 CLASS:Champion	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Diplomacy|Heal|Jump|TYPE=Knowledge|Ride|Spot|Swim
 ###Block: Class Features
 1	ABILITY:Champion Class Feature|AUTOMATIC|Champion ~ Champion Ability|Champion ~ Weapon and Armor Proficiency
@@ -53,11 +53,9 @@ CLASS:Champion	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Diplomacy|Heal|Jump|TYPE=
 16	BONUS:VAR|AvatarAllyLVL|1+(CL>20)	DEFINE:AvatarAllyLVL|0
 
 #	Greenbond
-CLASS:Greenbond	HD:6	TYPE:Base.PC	ABB:Cha	SOURCEPAGE:p.53	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1	
-	DEFINE:GreenbondLVL|CL
+CLASS:Greenbond	HD:6	TYPE:Base.PC	ABB:Cha	MAXLEVEL:25	SOURCEPAGE:p.53	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1		DEFINE:GreenbondLVL|CL
 CLASS:Greenbond	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Gather Information|Handle Animal|Heal|Knowledge (Ceremony)|Knowledge (Geography)|Knowledge (Magic)|Knowledge (Nature)|Listen|Speak Language|Spellcraft|Survival|Swim
-CLASS:Greenbond	SPELLSTAT:CHA	SPELLTYPE:Simple	BONUS:CASTERLEVEL|Greenbond|CL
-#LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8	SPELLBOOK:YES	BONUS:CASTERLEVEL|Mage Blade|CL
+CLASS:Greenbond	SPELLSTAT:CHA	SPELLTYPE:Simple	BONUS:CASTERLEVEL|Greenbond|CL	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8	SPELLBOOK:YES	BONUS:CASTERLEVEL|Greenbond|CL
 ###Block: Class Features
 1	ABILITY:Greenbond Class Feature|AUTOMATIC|Greenbond ~ Infuse With Life|Greenbond ~ Nature sense	
 2	ABILITY:Greenbond Class Feature|AUTOMATIC|Greenbond ~ Nature's gift	
@@ -116,25 +114,23 @@ CLASS:Greenbond	SPELLSTAT:CHA	SPELLTYPE:Simple	BONUS:CASTERLEVEL|Greenbond|CL
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Source Page		
-CLASS:Mage Blade	HD:8		TYPE:Base.PC	ABB:MB		SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1	
-	BONUS:SAVE|BASE.Reflex,BASE.Fortitude,BASE.Will|(CL>1)+(CL>2)+(CL>5)+(CL>6)+(CL>10)+(CL>12)+(CL>15)+(CL>17)+(CL>19)+(CL>21)+(CL>23)
+CLASS:Mage Blade	HD:8		TYPE:Base.PC	ABB:MB	MAXLEVEL:25	DEFINE:MageBladeLVL|0	SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1		BONUS:SAVE|BASE.Reflex,BASE.Fortitude,BASE.Will|(CL>1)+(CL>2)+(CL>5)+(CL>6)+(CL>10)+(CL>12)+(CL>15)+(CL>17)+(CL>19)+(CL>21)+(CL>23)
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Mage Blade	STARTSKILLPTS:2	CSKILL:Alchemy|Climb|Concentration|TYPE=Craft|Intimidate|Jump|TYPE=Knowledge|Search|Speak Language|Spellcraft|Swim
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels									Spellbook		Caster level
-CLASS:Mage Blade	SPELLSTAT:CHA	SPELLTYPE:Simple	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8	SPELLBOOK:YES	BONUS:CASTERLEVEL|Mage Blade|CL
-###Block:
-9	BONUS:VAR|AthameLVL|1+(CL>13)
-###Block:
-5	BONUS:ABILITYPOOL|Mage Blade Feat|min(CL/5,4)+(CL>20)+(CL>22)+(CL>23)
+CLASS:Mage Blade	SPELLSTAT:CHA	SPELLTYPE:Simple	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8	SPELLBOOK:YES	BONUS:CASTERLEVEL|Mage Blade|CL	BONUS:VAR|MageBladeLVL|CL
 ###Block:		
-1	ABILITY:Mage Blade Class Feature|AUTOMATIC|Mage Blade ~ Weapon and Armor Proficiency
+1	ABILITY:Mage Blade Class Feature|AUTOMATIC|Mage Blade ~ Weapon and Armor Proficiency|Mage Blade ~ Spells
 1	ABILITY:Mage Blade Class Feature|AUTOMATIC|Mage Blade ~ Athame
 4	ABILITY:Mage Blade Class Feature|AUTOMATIC|Mage Blade ~ Shimmering Shield
+5	ABILITY:Mage Blade Class Feature|AUTOMATIC|Mage Blade ~ Bonus Feats				
 7	ABILITY:Mage Blade Class Feature|AUTOMATIC|Mage Blade ~ Sprightly Step
 11	ABILITY:Mage Blade Class Feature|AUTOMATIC|Mage Blade ~ Slice through Wardings
 12	ABILITY:Mage Blade Class Feature|AUTOMATIC|Mage Blade ~ Familiarity with Magic
 16	ABILITY:Mage Blade Class Feature|AUTOMATIC|Mage Blade ~ Spell Parry
 18	ABILITY:Mage Blade Class Feature|AUTOMATIC|Mage Blade ~ Slice through Spells
+22	ABILITY:Mage Blade Class Feature|AUTOMATIC|Mage Blade ~ Athame Critical			
+25	ABILITY:Mage Blade Class Feature|AUTOMATIC|Mage Blade ~ Athame Burst				
 ###Block: 
 1	CAST:2,0
 2	CAST:2,1
@@ -162,74 +158,199 @@ CLASS:Mage Blade	SPELLSTAT:CHA	SPELLTYPE:Simple	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVE
 24	CAST:4,4,4,4,4,3,3,2,2
 25	CAST:4,4,4,4,4,3,3,3,2
 
-#KNOWN:6,6,6,6,6,4,3,2KNOWN:6,6,6,6,6,5,4,3,0KNOWN:6,6,6,6,6,5,4,3,1KNOWN:6,6,6,6,6,5,4,3,2KNOWN:6,6,6,6,6,6,5,4,3
-#KNOWN:2,1	KNOWN:3,2	KNOWN:3,3	KNOWN:3,3,0	KNOWN:4,3,1
-#KNOWN:4,4,2	KNOWN:4,4,3,0	KNOWN:5,4,3,1
-#KNOWN:5,5,3,2	KNOWN:5,5,4,3,0	KNOWN:6,5,4,3,1
-#KNOWN:6,6,4,3,2	KNOWN:6,6,5,4,3,0	KNOWN:6,6,5,4,3,1
-#KNOWN:6,6,5,4,3,2	KNOWN:6,6,6,5,4,3,0
-#KNOWN:6,6,6,5,4,3,1	KNOWN:6,6,6,5,4,3,2
-#KNOWN:6,6,6,6,5,4,3,0	KNOWN:6,6,6,6,5,4,3,1
-###END MAGE BLADE
 
 #	MAGISTER
-
 # Class Name	Hit Dice	Type			Abbreviation	Source Page				Automatically Gained Language	Save checks bonus											Combat bonus
-CLASS:Magister	HD:6		TYPE:Base.PC	ABB:MAG		SOURCEPAGE:p.	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|CL/2+3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|CL|PREVAREQ:UseFractionalBAB,1		
+CLASS:Magister	HD:6		TYPE:Base.PC	ABB:MAG	MAXLEVEL:25		SOURCEPAGE:p.61	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|CL/2+3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|CL|PREVAREQ:UseFractionalBAB,1			DEFINE:MagisterLVL|0	BONUS:VAR|MagisterLVL|CL
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Magister	STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE=Craft|Decipher Script|Innuendo|Intimidate|TYPE=Knowledge|Search|Speak Language|Spellcraft
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels												Spellbook		Caster level
 CLASS:Magister	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9|LEVEL=10	SPELLBOOK:YES	BONUS:CASTERLEVEL|Magister|CL
-###Block: Proficiencies
-1	AUTO:WEAPONPROF|Magister's Staff
-5	AUTO:WEAPONPROF|Sword Staff
-5	BONUS:ABILITYPOOL|Magister Feat|CL/5
 ###Block: Class Features
-
+1	ABILITY:Magister Class Feature|AUTOMATIC|Magister ~ Weapon and Armor Proficiency	
+1	ABILITY:Magister Class Feature|AUTOMATIC|Magister ~ Spells					
+1	ABILITY:Magister Class Feature|AUTOMATIC|Magister ~ The Magister’s Staff		
+5	ABILITY:Magister Class Feature|AUTOMATIC|Magister ~ Bonus Feats				
+6	ABILITY:Magister Class Feature|AUTOMATIC|Magister ~ Familiarity With Magic		
+12	ABILITY:Magister Class Feature|AUTOMATIC|Magister ~ Lesser Aspect of Power		
+14	ABILITY:Magister Class Feature|AUTOMATIC|Magister ~ Lesser Mind Over Matter		
+18	ABILITY:Magister Class Feature|AUTOMATIC|Magister ~ Greater Aspect of Power		
+22	ABILITY:Magister Class Feature|AUTOMATIC|Magister ~ Greater Mind Over Matter		
+24	ABILITY:Magister Class Feature|AUTOMATIC|Magister ~ Master’s Aspect of Power		
 ###Block: Spell Level progression
-1	CAST:2,1				KNOWN:5,3					SAB:Magister's Staff
-2	CAST:3,2				KNOWN:6,3
-3	CAST:3,2,1				KNOWN:6,4,2
-4	CAST:3,3,2				KNOWN:7,4,3
-5	CAST:4,3,2,1			KNOWN:7,5,3,2
-6	CAST:4,3,3,2			KNOWN:8,5,4,3				SAB:Familiarity with magic
-7	CAST:4,4,3,2,1			KNOWN:8,6,4,3,2
-8	CAST:4,4,3,3,2			KNOWN:9,6,5,4,3
-9	CAST:5,4,4,3,2,1			KNOWN:9,7,5,4,3,2
-10	CAST:5,4,4,3,3,2			KNOWN:9,7,6,5,4,3
-11	CAST:5,5,4,4,3,2,1		KNOWN:9,8,6,5,4,3,2
-12	CAST:5,5,4,4,3,3,2		KNOWN:9,8,7,6,5,4,3			SAB:Lesser aspect of power
-13	CAST:5,5,5,4,4,3,2,1		KNOWN:9,9,7,6,5,4,3,2
-14	CAST:6,5,5,4,4,3,3,2		KNOWN:9,9,8,7,6,5,4,3			SAB:Lesser mind over matter
-15	CAST:6,5,5,5,4,4,3,2,1		KNOWN:9,9,8,7,6,5,4,3,2
-16	CAST:6,6,5,5,4,4,3,3,2		KNOWN:9,9,9,8,7,6,5,4,3
-17	CAST:6,6,5,5,5,4,4,3,2,1	KNOWN:9,9,9,8,7,6,5,4,3,2
-18	CAST:6,6,6,5,5,4,4,3,3,2	KNOWN:9,9,9,9,8,7,6,5,4,3		SAB:Greater aspect of power
-19	CAST:6,6,6,5,5,5,4,4,3,2	KNOWN:9,9,9,9,8,7,6,5,4,3
-20	CAST:7,6,6,6,5,5,4,4,3,3	KNOWN:9,9,9,9,9,8,7,6,5,4
-21	CAST:99,6,6,6,5,5,5,4,4,3,1	KNOWN:99,9,9,9,9,8,7,6,5,4,1
-22	CAST:99,7,6,6,6,5,5,4,4,3,2	KNOWN:99,99,9,9,9,9,8,7,6,5,2		SAB:Greater mind over matter
-23	CAST:99,99,6,6,6,5,5,5,4,4,3	KNOWN:99,99,99,9,9,9,8,7,6,5,3
-24	CAST:99,99,7,6,6,6,5,5,4,4,4	KNOWN:99,99,99,99,9,9,9,8,7,6,4	SAB:Master's aspect of power
-25	CAST:99,99,99,6,6,6,5,5,5,4,4	KNOWN:99,99,99,99,99,9,9,8,7,6,4
+1	CAST:2,1				
+2	CAST:3,2				
+3	CAST:3,2,1				
+4	CAST:3,3,2				
+5	CAST:4,3,2,1			
+6	CAST:4,3,3,2			
+7	CAST:4,4,3,2,1			
+8	CAST:4,4,3,3,2			
+9	CAST:5,4,4,3,2,1			
+10	CAST:5,4,4,3,3,2			
+11	CAST:5,5,4,4,3,2,1		
+12	CAST:5,5,4,4,3,3,2		
+13	CAST:5,5,5,4,4,3,2,1		
+14	CAST:6,5,5,4,4,3,3,2		
+15	CAST:6,5,5,5,4,4,3,2,1		
+16	CAST:6,6,5,5,4,4,3,3,2		
+17	CAST:6,6,5,5,5,4,4,3,2,1	
+18	CAST:6,6,6,5,5,4,4,3,3,2	
+19	CAST:6,6,6,5,5,5,4,4,3,2	
+20	CAST:7,6,6,6,5,5,4,4,3,3	
+21	CAST:99,6,6,6,5,5,5,4,4,3,1	
+22	CAST:99,7,6,6,6,5,5,4,4,3,2	
+23	CAST:99,99,6,6,6,5,5,5,4,4,3	
+24	CAST:99,99,7,6,6,6,5,5,4,4,4	
+25	CAST:99,99,99,6,6,6,5,5,5,4,4	
 
-#	Oathsworn
+CLASS:Oathsworn	MAXLEVEL:25	SOURCEPAGE:p.65	HD:10		TYPE:Base.PC	ABB:Oat	DEFINE:OathswornLVL|0	BONUS:VAR|OathswornLVL|CL	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4		BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Oathsworn	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Escape Artist|Heal|Intimidate|Jump|Listen|Sense Motive|Sneak|Spot|Survival|Swim|Tumble
+###Block:
+1	ABILITY:Oathsworn Class Feature|AUTOMATIC|Oathsworn ~ Weapon and Armor Proficiency	
+1	ABILITY:Oathsworn Class Feature|AUTOMATIC|Oathsworn ~ Unarmed Strike			
+1	ABILITY:Oathsworn Class Feature|AUTOMATIC|Oathsworn ~ Swear an Oath				
+2	ABILITY:Oathsworn Class Feature|AUTOMATIC|Oathsworn ~ Eschew Food				
+2	ABILITY:Oathsworn Class Feature|AUTOMATIC|Oathsworn ~ Shattering Blow			
+3	ABILITY:Oathsworn Class Feature|AUTOMATIC|Oathsworn ~ Evasion					
+4	ABILITY:Oathsworn Class Feature|AUTOMATIC|Oathsworn ~ Combat Rites				
+3	ABILITY:Oathsworn Class Feature|AUTOMATIC|Oathsworn ~ Fast Movement|PRESIZELTEQ:S				
+4	ABILITY:Oathsworn Class Feature|AUTOMATIC|Oathsworn ~ Fast Movement				
+4	ABILITY:Oathsworn Class Feature|AUTOMATIC|Oathsworn ~ Throw Object				
+4	ABILITY:Oathsworn Class Feature|AUTOMATIC|Oathsworn ~ Lesser Adaptation			
+5	ABILITY:Oathsworn Class Feature|AUTOMATIC|Oathsworn ~ Refuse Fatigue			
+5	ABILITY:Oathsworn Class Feature|AUTOMATIC|Oathsworn ~ Refuse Fear				
+6	ABILITY:Oathsworn Class Feature|AUTOMATIC|Oathsworn ~ Objects as Weapons			
+7	ABILITY:Oathsworn Class Feature|AUTOMATIC|Oathsworn ~ Lesser Shattering Strike		
+8	ABILITY:Oathsworn Class Feature|AUTOMATIC|Oathsworn ~ Eschew Water				
+9	ABILITY:Oathsworn Class Feature|AUTOMATIC|Oathsworn ~ Refuse Wounds				
+10	ABILITY:Oathsworn Class Feature|AUTOMATIC|Oathsworn ~ Oathpower				
+11	ABILITY:Oathsworn Class Feature|AUTOMATIC|Oathsworn ~ Refuse Poison or Disease		
+12	ABILITY:Oathsworn Class Feature|AUTOMATIC|Oathsworn ~ Eschew Air				
+13	ABILITY:Oathsworn Class Feature|AUTOMATIC|Oathsworn ~ Greater Adaptation			
+14	ABILITY:Oathsworn Class Feature|AUTOMATIC|Oathsworn ~ Eschew Sleep				
+14	ABILITY:Oathsworn Class Feature|AUTOMATIC|Oathsworn ~ Refuse Hindrances			
+15	ABILITY:Oathsworn Class Feature|AUTOMATIC|Oathsworn ~ Refuse Spells				
+16	ABILITY:Oathsworn Class Feature|AUTOMATIC|Oathsworn ~ Greater Shattering Strike		
+17	ABILITY:Oathsworn Class Feature|AUTOMATIC|Oathsworn ~ Eschew Aging				
+17	ABILITY:Oathsworn Class Feature|AUTOMATIC|Oathsworn ~ Refuse Debilitation			
+18	ABILITY:Oathsworn Class Feature|AUTOMATIC|Oathsworn ~ Oathstrike				
+19	ABILITY:Oathsworn Class Feature|AUTOMATIC|Oathsworn ~ True Adaptation			
+20	ABILITY:Oathsworn Class Feature|AUTOMATIC|Oathsworn ~ Refuse Harm				
+21	ABILITY:Oathsworn Class Feature|AUTOMATIC|Oathsworn ~ Refuse Elements			
+22	ABILITY:Oathsworn Class Feature|AUTOMATIC|Oathsworn ~ Refuse Energy				
+25	ABILITY:Oathsworn Class Feature|AUTOMATIC|Oathsworn ~ Refuse Mortality			
 
-#	Ritual Warrior
+CLASS:Ritual Warrior	MAXLEVEL:25	SOURCEPAGE:p.69	HD:10	TYPE:Base.PC	ABB:Rit	DEFINE:RitualWarriorLVL|0	BONUS:VAR|RitualWarriorLVL|CL	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4		BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")/2)-(CL>7)-(CL>15)	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")/2)-(CL>7)-(CL>15)	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Ritual Warrior	STARTSKILLPTS:4	CSKILL:Climb|Concentration|TYPE=Craft|Heal|Jump|Knowledge (ceremony)|Listen|Ride|Spot|Swim
+###Block:
+1	ABILITY:Ritual Warrior Class Feature|AUTOMATIC|Ritual Warrior ~ Weapon and Armor Proficiency	
+1	ABILITY:Ritual Warrior Class Feature|AUTOMATIC|Ritual Warrior ~ Combat Rites				
+1	ABILITY:Ritual Warrior Class Feature|AUTOMATIC|Ritual Warrior ~ Bonus Feats				
+2	ABILITY:Ritual Warrior Class Feature|AUTOMATIC|Ritual Warrior ~ Ability Score Bonus			
+5	ABILITY:Ritual Warrior Class Feature|AUTOMATIC|Ritual Warrior ~ Concentration Save			
+20	ABILITY:Ritual Warrior Class Feature|AUTOMATIC|Ritual Warrior ~ Dodge Bonus to AC			
 
-#	Runethane
 
-#	Totem Warrior
+CLASS:Runethane	MAXLEVEL:25	SOURCEPAGE:p.72	HD:6	TYPE:Base.PC	ABB:Rth	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2		BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Runethane	STARTSKILLPTS:4	CSKILL:Alchemy|Appraise|Concentration|TYPE=Craft|Decipher Script|Disable Device|Forgery|Gather Information|TYPE=Knowledge|Open Lock|Speak Language|Spellcraft|Spot
+###Block:
+1	ABILITY:Runethane Class Feature|AUTOMATIC|Runethane ~ Weapon and Armor Proficiency	
+1	ABILITY:Runethane Class Feature|AUTOMATIC|Runethane ~ Runes					
+1	ABILITY:Runethane Class Feature|AUTOMATIC|Runethane ~ Spells					
+1	ABILITY:Runethane Class Feature|AUTOMATIC|Runethane ~ Runic Template			
+1	ABILITY:Runethane Class Feature|AUTOMATIC|Runethane ~ Lesser Runes				
+1	ABILITY:Runethane Class Feature|AUTOMATIC|Runethane ~ Erase Rune				
+3	ABILITY:Runethane Class Feature|AUTOMATIC|Runethane ~ Sense Rune				
+5	ABILITY:Runethane Class Feature|AUTOMATIC|Runethane ~ Invested Rune				
+6	ABILITY:Runethane Class Feature|AUTOMATIC|Runethane ~ Advanced Runes			
+10	ABILITY:Runethane Class Feature|AUTOMATIC|Runethane ~ Password				
+11	ABILITY:Runethane Class Feature|AUTOMATIC|Runethane ~ Greater Runes				
+12	ABILITY:Runethane Class Feature|AUTOMATIC|Runethane ~ Familiarity With Magic		
+15	ABILITY:Runethane Class Feature|AUTOMATIC|Runethane ~ Inscribe Rune				
+16	ABILITY:Runethane Class Feature|AUTOMATIC|Runethane ~ Runes of Power			
+20	ABILITY:Runethane Class Feature|AUTOMATIC|Runethane ~ Ultimate Rune				
 
-#	Unfettered
 
-#	Warmain
+CLASS:Totem Warrior	MAXLEVEL:25	SOURCEPAGE:p.78	TYPE:Base.PC	ABB:ToW	DEFINE:TotemWarriorLVL|0	BONUS:VAR|TotemWarriorLVL|CL	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")		BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Totem Warrior	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Handle Animal|Heal|Jump|Knowledge (nature)|Listen|Ride|Spot|Survival|Swim
+#
+SUBCLASS:Bear Totem Warrior	COST:0		OUTPUTNAME:Bear
+SUBCLASSLEVEL:1:REPEATLEVEL:1		HITDIE:12
+SUBCLASSLEVEL:1	ABILITY:Totem Warrior Class Feature|AUTOMATIC|Totem Warrior (Bear) ~ Weapon and Armor Proficiency
+SUBCLASS:Hawk Totem Warrior	COST:0		OUTPUTNAME:Hawk	CSKILL:Balance|Knowledge (Geography)|Search
+SUBCLASSLEVEL:1:REPEATLEVEL:1		HITDIE:8	
+SUBCLASSLEVEL:1	ABILITY:Totem Warrior Class Feature|AUTOMATIC|Totem Warrior (Hawk) ~ Weapon and Armor Proficiency|Totem Warrior (Hawk) ~ Additional Class Skills|Totem Warrior (Hawk) ~ Special
+SUBCLASS:Shark Totem Warrior	COST:0		OUTPUTNAME:Shark	CSKILL:Knowledge (Sailing and Navigation)
+SUBCLASSLEVEL:1:REPEATLEVEL:1		HITDIE:10	
+SUBCLASSLEVEL:1	ABILITY:Totem Warrior Class Feature|AUTOMATIC|Totem Warrior (Shark) ~ Weapon and Armor Proficiency|Totem Warrior (Shark) ~ Additional Class Skill|Totem Warrior (Shark) ~ Special
+SUBCLASS:Snake Totem Warrior	COST:0		OUTPUTNAME:Snake
+SUBCLASSLEVEL:1:REPEATLEVEL:1		HITDIE:8	
+SUBCLASSLEVEL:1	ABILITY:Totem Warrior Class Feature|AUTOMATIC|Totem Warrior (Snake) ~ Weapon and Armor Proficiency|Totem Warrior (Snake) ~ Special
+SUBCLASS:Wolf Totem Warrior	COST:0		OUTPUTNAME:Wolf	CSKILL:Knowledge (Geography)|Sneak
+SUBCLASSLEVEL:1:REPEATLEVEL:1		HITDIE:10		
+SUBCLASSLEVEL:1	ABILITY:Totem Warrior Class Feature|AUTOMATIC|Totem Warrior (Wolf) ~ Weapon and Armor Proficiency|Totem Warrior (Wolf) ~ Additional Class Skills|Totem Warrior (Wolf) ~ Special					
+SUBCLASS:Wolverine Totem Warrior	COST:0	OUTPUTNAME:Wolverine	CSKILL:Sneak|Tumble
+SUBCLASSLEVEL:1:REPEATLEVEL:1		HITDIE:10	
+SUBCLASSLEVEL:1	ABILITY:Totem Warrior Class Feature|AUTOMATIC|Totem Warrior (Wolverine) ~ Weapon and Armor Proficiency|Totem Warrior (Wolverine) ~ Additional Class Skills|Totem Warrior (Wolverine) ~ Special					
+###Block:
+1	ABILITY:Totem Warrior Class Feature|AUTOMATIC|Totem Warrior ~ Totem Powers				
+2	ABILITY:Totem Warrior Class Feature|AUTOMATIC|Totem Warrior ~ Bonus Feats				
+3	ABILITY:Totem Warrior Class Feature|AUTOMATIC|Totem Warrior ~ Totem Animal Companion		
+7	ABILITY:Totem Warrior Class Feature|AUTOMATIC|Totem Warrior ~ Totem Animal Bond			
+9	ABILITY:Totem Warrior Class Feature|AUTOMATIC|Totem Warrior ~ Totem Spirit Companion	
+11	ABILITY:Totem Warrior Class Feature|AUTOMATIC|Totem Warrior ~ Totem Animal Speech		
+25	ABILITY:Totem Warrior Class Feature|AUTOMATIC|Totem Warrior ~ Totem Body			
 
-#	Witch
+CLASS:Unfettered	MAXLEVEL:25	SOURCEPAGE:p.85	HD:8	TYPE:Base.PC	ABB:Unf	DEFINE:UnfetteredLVL|0	BONUS:VAR|UnfetteredLVL|CL	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")		BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Unfettered	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Diplomacy|Disguise|Escape Artist|Forgery|Gather Information|Innuendo|Jump|Knowledge (nobility and courtesy)|Open Lock|TYPE=Perform|Search|Sense Motive|Sleight of Hand|Sneak|Spot|Swim|Tumble|Use Rope
+###Block:
+1	ABILITY:Unfettered Class Feature|AUTOMATIC|Unfettered ~ Weapon and Armor Proficiency	
+1	ABILITY:Unfettered Class Feature|AUTOMATIC|Unfettered ~ Armor Class Bonus			
+1	ABILITY:Unfettered Class Feature|AUTOMATIC|Unfettered ~ Parry					
+2	ABILITY:Unfettered Class Feature|AUTOMATIC|Unfettered ~ Bonus Feats				
+4	ABILITY:Unfettered Class Feature|AUTOMATIC|Unfettered ~ Sneak Attack				
+7	ABILITY:Unfettered Class Feature|AUTOMATIC|Unfettered ~ Parry Ranged Attacks		
+9	ABILITY:Unfettered Class Feature|AUTOMATIC|Unfettered ~ Evasion				
+13	ABILITY:Unfettered Class Feature|AUTOMATIC|Unfettered ~ Parry Magic				
+17	ABILITY:Unfettered Class Feature|AUTOMATIC|Unfettered ~ Enhanced Parry Weapon		
+19	ABILITY:Unfettered Class Feature|AUTOMATIC|Unfettered ~ Improved Evasion			
+21	ABILITY:Unfettered Class Feature|AUTOMATIC|Unfettered ~ Parry All				
+25	ABILITY:Unfettered Class Feature|AUTOMATIC|Unfettered ~ True Parry				
+
+CLASS:Warmain	MAXLEVEL:25	SOURCEPAGE:p.88	HD:12	TYPE:Base.PC	ABB:War	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")		BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")/2)-(CL>7)-(CL>15)
+CLASS:Warmain	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate|Jump|Knowledge (architecture)|Knowledge (engineering)|Knowledge (history)|Knowledge (nobility and courtesy)|Ride|Swim
+###Block:
+1	ABILITY:Warmain Class Feature|AUTOMATIC|Warmain ~ Weapon and Armor Proficiency	
+1	ABILITY:Warmain Class Feature|AUTOMATIC|Warmain ~ Sturdy					
+2	ABILITY:Warmain Class Feature|AUTOMATIC|Warmain ~ Bonus Feats				
+4	ABILITY:Warmain Class Feature|AUTOMATIC|Warmain ~ Weapon Specialization			
+8	ABILITY:Warmain Class Feature|AUTOMATIC|Warmain ~ Crushing Blow				
+12	ABILITY:Warmain Class Feature|AUTOMATIC|Warmain ~ Armor Specialization			
+13	ABILITY:Warmain Class Feature|AUTOMATIC|Warmain ~ Combat Rites				
+16	ABILITY:Warmain Class Feature|AUTOMATIC|Warmain ~ Weapon Size Increase			
+20	ABILITY:Warmain Class Feature|AUTOMATIC|Warmain ~ Weapon Mastery				
+
+
+CLASS:Witch	MAXLEVEL:25	SOURCEPAGE:p.91	HD:6	TYPE:Base.PC	ABB:Wch	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4		BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Witch	STARTSKILLPTS:4	CSKILL:Alchemy|Bluff|Concentration|TYPE=Craft|Disguise|Heal|TYPE=Knowledge|Search|Sense Motive|Speak Language|Spellcraft|Use Magic Device
+###Block:
+1	ABILITY:Witch Class Feature|AUTOMATIC|Witch ~ Weapon and Armor Proficiency	
+1	ABILITY:Witch Class Feature|AUTOMATIC|Witch ~ Spells				
+1	ABILITY:Witch Class Feature|AUTOMATIC|Witch ~ Material Components		
+1	ABILITY:Witch Class Feature|AUTOMATIC|Witch ~ Witchery				
+4	ABILITY:Witch Class Feature|AUTOMATIC|Witch ~ The Sight
+7	ABILITY:Witch Class Feature|AUTOMATIC|Witch ~ Familiarity With Magic	
+9	ABILITY:Witch Class Feature|AUTOMATIC|Witch ~ Witchery Spellcasting	
+13	ABILITY:Witch Class Feature|AUTOMATIC|Witch ~ Witchery Lord
+18	ABILITY:Witch Class Feature|AUTOMATIC|Witch ~ Witchery Mastery	
+21	ABILITY:Witch Class Feature|AUTOMATIC|Witch ~ Witchsight		
+23	ABILITY:Witch Class Feature|AUTOMATIC|Witch ~ Channel Witchery	
+
 
 ### >>>RACIAL CLASSES<<<
 
-CLASS:Human Evolved	HD:8	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2
+CLASS:Human Evolved	HD:8	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	MAXLEVEL:3	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2
 CLASS:Human Evolved	STARTSKILLPTS:2	
 #1	ADD:	6 CLASSSKILL
 1:REPEATLEVEL:1	BONUS:ABILITYPOOL|FEAT|1	BONUS:ABILITYPOOL|+1 to Any Ability Score|1	ADD:SPELLCASTER|ANY
@@ -262,6 +383,10 @@ CLASS:Dracha	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Jump|Knowledge (Dracha)|Kno
 
 
 CLASS:Loresong Faen	HD:6	MAXLEVEL:3	TYPE:PC.Race	PRETEXT:Evolved Levels Only
+	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	
+	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
+	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 1	ABILITY:Special Ability|AUTOMATIC|Loresong ~ Weapon and Armor Proficiency|Loresong ~ Evolved Loresong Spell-Like Abilities	
 2	BONUS:STAT|DEX,INT|1
 3	BONUS:STAT|DEX,INT|1
@@ -269,6 +394,7 @@ CLASS:Loresong Faen	HD:6	MAXLEVEL:3	TYPE:PC.Race	PRETEXT:Evolved Levels Only
 1:REPEATLEVEL:1	ADD:SPELLCASTER|ANY
 
 CLASS:Quickling Faen	HD:6	MAXLEVEL:3	TYPE:PC.Race	BONUS:COMBAT|BASEAB|CL*3/4	BONUS:SAVE|BASE.Fortitude,BASE.Will|CL/3	BONUS:SAVE|BASE.Reflex|CL/2+2	PRETEXT:Evolved Levels Only
+# Evolved
 1	BONUS:STAT|DEX|1	BONUS:MOVEADD|TYPE.Walk|10
 2	BONUS:STAT|DEX|1	BONUS:COMBAT|AC|1|TYPE=Dodge
 3	BONUS:STAT|DEX|2	BONUS:MOVEADD|TYPE.Walk|10
@@ -294,8 +420,6 @@ CLASS:Spryte		HD:6	MAXLEVEL:6	TYPE:PC.Race	BONUS:COMBAT|BASEAB|classlevel("APPLI
 CLASS:Litorian	HD:8		TYPE:Base.PC	ABB:Lit		SOURCEPAGE:Arcana Evolved			BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Litorian	STARTSKILLPTS:2	CSKILL:Balance|Climb|TYPE=Craft|Jump|Knowledge (Litorians)|Search|Sneak|Survival
-
-###Block:Proficiencies
 ###Racial Levels
 1																					BONUS:STAT|STR,DEX|1
 2	SAB:Scent														BONUS:MOVEADD|TYPE.Walk|10
@@ -306,10 +430,22 @@ CLASS:Litorian	STARTSKILLPTS:2	CSKILL:Balance|Climb|TYPE=Craft|Jump|Knowledge (L
 6	SAB:Litorian Claws: 1d8 natural damage	SAB:Pounce												BONUS:STAT|DEX|2																																					AUTO:WEAPONPROF|Claws (Litorian)
 
 
-#	Mojh
-#	Rune Children
-#	Sibeccai
-#	Verrik
+CLASS:Mojh
+	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	
+	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
+	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+
+CLASS:Sibeccai
+	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	
+	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
+	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Verrik
+	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	
+	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
+	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 
 ### HIDDEN
 
