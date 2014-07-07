@@ -2,7 +2,7 @@
 PCGEN
 =
 
-######Updated: 2014-05-11
+######Updated: 2014-07-07
 ==========================
 #####PCGen Data Sets & Homebrew
 
@@ -14,7 +14,7 @@ To get the most from these sets, you will need to utilize the latest version (un
 Orginally this was meant to be as compatible with the existing PCGen book data sets. To achieve that, I attempt to re-use a lot of common pcgen standards to avoid any non-compatibility.
 
 
-I've remade the 3.5 books, including the core rulebooks to include what PCGen is missing from their sets due to OGL issues.
+I've remade the D&D 3.5 books, including the core rulebooks to include what PCGen is missing from their sets due to OGL issues.
 
 
 My own gaming group prefers the complete non-rsrd materials and that is what I plan on giving them. I code up what we need or what is requested.
@@ -23,6 +23,7 @@ I'm willing to collaborate with anyone desiring to grow this collection of mine.
 
 I also made a discussion group for homebrewers, share ideas and of course make requests -- http://games.groups.yahoo.com/group/bd_games/
 
+List of books and their progress is held here: https://github.com/BahamutDragon/pcgen/wiki/Book-Statuses
 
 ###HOW TO USE THIS CONTENT:
 
@@ -30,7 +31,7 @@ These Book data sets are not meant to be "Installed" using the Install feature i
 
 Two methods exist to get the content onto your system.
 
-1) The easier method is to use the GITHUB download option ([Download]https://github.com/BahamutDragon/pcgen/archive/master.zip)
+   1) The easier method is to use the GITHUB download option ([Download]https://github.com/BahamutDragon/pcgen/archive/master.zip)
 Save the zip folder to your data folder of choice. Unzip. Enjoy. 
 
    2) The better method is to install GIT and a GIT Client, and then pull the repo into your valid data folder. This allows easy updates when they happen. (Saves bandwidth since you only download changes, not the whole repo). I use this method to allow testing, uploads and downloads.
@@ -43,7 +44,7 @@ Save the zip folder to your data folder of choice. Unzip. Enjoy.
 ####Link for SVN client 
 * HTTPS: (https://github.com/BahamutDragon/pcgen)
 
-Note: Additional folders are also provided that are not DATA content. These will need to be copied to the correct correlating pcgen folders to get the full benefit of additional options such as gamemodes, outputsheets, previews, etc. Leaving them in the data folder will not cause any issues.
+Note: Additional folders are also provided that are not DATA content. These will need to be copied to the correct correlating pcgen folders to get the full benefit of additional options such as gamemodes, outputsheets, previews, etc. Leaving them in the data folder will not cause any issues, but you will not be able to access the additional content either.
 
 Please consult GIT documentation to set up GIT.
 
