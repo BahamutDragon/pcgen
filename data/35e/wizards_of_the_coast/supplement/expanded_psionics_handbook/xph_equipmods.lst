@@ -1,9 +1,31 @@
 # CVS $Revision: $ $Author: $ -- Sun Dec  8 22:17:49 2013 -- reformated by prettylst.pl v1.50 (build 22352)
 
 
-# Modifier Name	Unique Key		Naming Option	Type		Cost		Visible		Type granted		Source Page				Required Type		Bonus Weapon Modifiers
-Psionic Blade	KEY:PSIBLADE	NAMEOPT:NORMAL	TYPE:Weapon	COST:0	VISIBLE:QUALIFY	ITYPE:Energy.Masterwork	SOURCEPAGE:PsionicClasses.rtf	PRETYPE:1,MindBlade
-Thrown Psiblade	KEY:T_PSIBLADE	NAMEOPT:NORMAL	TYPE:Weapon	COST:0	VISIBLE:QUALIFY	ITYPE:Ranged.Thrown	SOURCEPAGE:PsionicClasses.rtf	PRETYPE:1,MindBlade	BONUS:EQMWEAPON|RANGEADD|30
+# Modifier Name	Unique Key		Naming Option	Type		Cost		Visible		Type granted		Source Page		Required Type		Bonus Weapon Modifiers
+Psionic Blade	KEY:PSIBLADE	NAMEOPT:NORMAL	TYPE:Weapon		COST:0	VISIBLE:NO	ITYPE:Energy.Masterwork	SOURCEPAGE:p.27	PRETYPE:1,MindBlade	BONUS:WEAPON|TOHIT,DAMAGE|Mind_Blade_Enhancement_Bonus|TYPE=Enhancement
+Thrown Psiblade	KEY:T_PSIBLADE	NAMEOPT:NORMAL	TYPE:MindBlade	COST:0	VISIBLE:NO	ITYPE:Ranged.Thrown	SOURCEPAGE:p.28	PRETYPE:1,MindBlade	BONUS:EQMWEAPON|RANGEADD|30
+
+Mindblade		KEY:MIND_BLADE		NAMEOPT:NORMAL	TYPE:MindBlade	COST:0	VISIBLE:QUALIFY	ITYPE:Energy.Masterwork	SOURCEPAGE:p.27	PRETYPE:1,MindBlade	BONUS:WEAPON|TOHIT,DAMAGE|Mind_Blade_Enhancement_Bonus|TYPE=Enhancement
+Throw Mindblade	KEY:MIND_BLADE_THROW	NAMEOPT:NORMAL	TYPE:MindBlade	COST:0	VISIBLE:QUALIFY	ITYPE:Ranged.Thrown	SOURCEPAGE:p.28	PRETYPE:1,MindBlade	BONUS:EQMWEAPON|RANGEADD|30|PREABILITY:1,CATEGORY=Special Ability,Soulknife ~ Throw Mind Blade
+
+
+
+#Weapon Special Ability Enhancement Bonus Value
+Defending			PREVARGTEQ:Mind_Blade_Enhancement_Value,1	COST:0	VISIBLE:QUALIFY	KEY:MINDBLADE_DEFENDING			TYPE:MindBlade	SOURCEPAGE:p.29	PRETYPE:1,MindBlade	SPROP:can transfer some or all of sword's enhancement bonus to AC																																																																																																												ASSIGNTOALL:YES
+Keen				PREVARGTEQ:Mind_Blade_Enhancement_Value,1	COST:0	VISIBLE:QUALIFY	KEY:MINDBLADE_KEEN			TYPE:MindBlade	SOURCEPAGE:p.29	PRETYPE:1,MindBlade	BONUS:EQMWEAPON|CRITRANGEDOUBLE|1|TYPE=NonStackingCrit									SPROP:threat range doubled
+Lucky				PREVARGTEQ:Mind_Blade_Enhancement_Value,1	COST:0	VISIBLE:QUALIFY	KEY:MINDBLADE_LUCKY			TYPE:MindBlade	SOURCEPAGE:p.29	PRETYPE:1,MindBlade	SPROP:once per day can reroll a failed attack roll as a free action
+Mighty Cleaving		PREVARGTEQ:Mind_Blade_Enhancement_Value,1	COST:0	VISIBLE:QUALIFY	KEY:MINDBLADE_MIGHTYCLEAVING		TYPE:MindBlade	SOURCEPAGE:p.29	PRETYPE:1,MindBlade	BONUS:VAR|CleaveCount|1																													SPROP:allows 1 extra cleave per round (need Cleave feat)
+Psychokinetic		PREVARGTEQ:Mind_Blade_Enhancement_Value,1	COST:0	VISIBLE:QUALIFY	KEY:MINDBLADE_PSYCHOKINECTIC		TYPE:MindBlade	SOURCEPAGE:p.29	PRETYPE:1,MindBlade	SPROP:+1d4 ectoplasmic damage (ignores DR)
+Sundering			PREVARGTEQ:Mind_Blade_Enhancement_Value,1	COST:0	VISIBLE:QUALIFY	KEY:MINDBLADE_SUNDER			TYPE:MindBlade	SOURCEPAGE:p.29	PRETYPE:1,MindBlade	SPROP:wielder treated as if has Improved Sunder Feat																											VFEAT:Improved Sunder
+Vicious			PREVARGTEQ:Mind_Blade_Enhancement_Value,1	COST:0	VISIBLE:QUALIFY	KEY:MINDBLADE_VICIOUS			TYPE:MindBlade	SOURCEPAGE:p.29	PRETYPE:1,MindBlade	SPROP:deals extra 2d6 damage to target plus 1d6 damage to user.
+Collision			PREVARGTEQ:Mind_Blade_Enhancement_Value,2	COST:0	VISIBLE:QUALIFY	KEY:MINDBLADE_COLLISION			TYPE:MindBlade	SOURCEPAGE:p.29	PRETYPE:1,MindBlade	BONUS:WEAPON|DAMAGE|5	SPROP:weapon increases mass just before strike doing an additional 5 points of damage on any hit in addition to the enhancement bonus
+Mindcrusher			PREVARGTEQ:Mind_Blade_Enhancement_Value,2	COST:0	VISIBLE:QUALIFY	KEY:MINDBLADE_MINDCRUSHER		TYPE:MindBlade	SOURCEPAGE:p.29	PRETYPE:1,MindBlade	SPROP:drains base damage worth of power points; if no power points or non-psionic, DC:17 WIll save or 1d2 Wisdom Damage
+Psychokinetic Burst	PREVARGTEQ:Mind_Blade_Enhancement_Value,2	COST:0	VISIBLE:QUALIFY	KEY:MINDBLADE_PSYCHOKINECTICBURST	TYPE:MindBlade	SOURCEPAGE:p.29	PRETYPE:1,MindBlade	SPROP:+1d4 ectoplasmic damage (ignores DR); On a critical hit deals +%d6 additional ectoplasmic damage (ignores DR)|CRITMULT-1
+Suppression			PREVARGTEQ:Mind_Blade_Enhancement_Value,2	COST:0	VISIBLE:QUALIFY	KEY:MINDBLADE_SUPPRESSION		TYPE:MindBlade	SOURCEPAGE:p.29	PRETYPE:1,MindBlade	SPROP:target opponent or object suffers targeted dispel psionics ((1d20 + 5 + wielders manifester level, max 15) vs DC of 11+manifester level of power
+Wounding			PREVARGTEQ:Mind_Blade_Enhancement_Value,2	COST:0	VISIBLE:QUALIFY	KEY:MINDBLADE_WOUNDING			TYPE:MindBlade	SOURCEPAGE:p.29	PRETYPE:1,MindBlade	SPROP:Blood loss causes 1 pt of Con damage per hit
+Bodyfeeder			PREVARGTEQ:Mind_Blade_Enhancement_Value,3	COST:0	VISIBLE:QUALIFY	KEY:MINDBLADE_BODYFEEDER		TYPE:MindBlade	SOURCEPAGE:p.29	PRETYPE:1,MindBlade	SPROP:adds damage as temporary hit points on a critical hit
+Mindfeeder			PREVARGTEQ:Mind_Blade_Enhancement_Value,3	COST:0	VISIBLE:QUALIFY	KEY:MINDBLADE_MINDFEEDER		TYPE:MindBlade	SOURCEPAGE:p.29	PRETYPE:1,MindBlade	SPROP:on a critical hit gives wielder temporary power points equal to damage dealt; points overlap, don't stack
+Soulbreaker			PREVARGTEQ:Mind_Blade_Enhancement_Value,3	COST:0	VISIBLE:QUALIFY	KEY:MINDBLADE_SOULBREAKER		TYPE:MindBlade	SOURCEPAGE:p.29	PRETYPE:1,MindBlade	SPROP:on a critical hit bestows one negative level on target; FORT Save (DC:18) day later or permanent
 
 
 ###Block: Base Materials
