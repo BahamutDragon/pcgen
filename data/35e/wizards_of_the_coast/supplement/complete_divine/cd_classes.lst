@@ -96,7 +96,7 @@ CLASS:Divine Oracle	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Heal|Intimid
 #CLASS NAME				HITDICE		SOURCEPAGE		TYPE						ABBREVIATION	MAXLEVEL			LANGBONUS	SAVING THROWS																								BASE ATTACK BONUS									DEFINE
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus									Combat bonus
-CLASS:Favored Soul	HD:8		TYPE:Base.PC	ABB:FvSl		MAXLEVEL:20	SOURCEPAGE:6	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|((CL/2)+2)	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE
+CLASS:Favored Soul	HD:8		TYPE:Base.PC	ABB:FvSl		MAXLEVEL:20	SOURCEPAGE:6	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Favored Soul	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Jump|Knowledge (Arcana)|TYPE=Profession|Sense Motive|Spellcraft
 # Class Name		Spell Stat		Stat for Bonus Spells	Spell Type		Memorize	Caster level				Bonus to DC						Use Spell List
@@ -125,7 +125,7 @@ CLASS:Favored Soul	SPELLSTAT:CHA	BONUSSPELLSTAT:CHA	SPELLTYPE:Divine	MEMORIZE:NO
 
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus
-CLASS:Spirit Shaman	HD:8		TYPE:Base.PC	ABB:SprShm		MAXLEVEL:20	SOURCEPAGE:14	BONUS:SAVE|BASE.Fortitude,BASE.Will|((CL/2)+2)	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")/3)	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE
+CLASS:Spirit Shaman	HD:8		TYPE:Base.PC	ABB:SprShm		MAXLEVEL:20	SOURCEPAGE:14	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")/3)	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Spirit Shaman	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Knowledge (Geography)|Knowledge (History)|Knowledge (Local)|Knowledge (Nature)|Listen|TYPE=Profession|Ride|Spellcraft|Spot|Survival|Swim
 # Class Name		Spell Stat		Stat for Bonus Spells	Spell Type		Memorize	Caster level				Bonus to DC					Use Spell List
@@ -196,33 +196,31 @@ CLASS:Blighter	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Blighter|CL
 ###Block
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Subclass?		Source, Long Desc.		Source, Short Desc.	Source Page		Save checks bonus													Combat bonus
-CLASS:Pious Templar	HD:10		TYPE:PC.Prestige	ABB:Pio		MAXLEVEL:10	SOURCEPAGE:p.50	BONUS:CHECKS|BASE.Fortitude,BASE.Will|((CL/2)+2)	BONUS:CHECKS|BASE.Reflex|(CL/3)	BONUS:COMBAT|BAB|CL
+CLASS:Pious Templar	HD:10		TYPE:PC.Prestige	ABB:Pio		MAXLEVEL:10	SOURCEPAGE:p.50	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	DEFINE:PiousTemplarLVL|0	BONUS:VAR|PiousTemplarLVL|CL
 # Class Name		Req. Att.	Multiple Requirements		Required Skill
-CLASS:Pious Templar	PREATT:5	PREMULT:1,[PREFEAT:1,True Believer],[PRETEXT:Must have Weapon Focus in deity's chosen weapon]	PRESKILL:1,Knowledge (Religion)=4
+CLASS:Pious Templar	PRETOTALAB:5	PREMULT:1,[PREFEAT:1,True Believer],[PREFEAT:1,Weapon Focus(DEITYWEAPON),Weapon Focus]	PRETEXT:Must have Weapon Focus in deity's chosen weapon	PRESKILL:1,Knowledge (Religion)=4
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Pious Templar	STARTSKILLPTS:2	CSKILL:Climb|Concentration|TYPE.Craft|Heal|Jump|Knowledge (Religion)|TYPE.Profession|Swim
 # Class Name		Spell Stat		Spell Type		Caster level
 CLASS:Pious Templar	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Pious Templar|CL	SPELLLIST:1|Paladin		KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4
-1	CAST:0,0
+###Block
 1	ABILITY:Pious Templar Class Feature|AUTOMATIC|Pious Templar ~ Mettle
-2	CAST:0,1
-2	BONUS:VAR|SmiteTimes|1
-3	CAST:0,1
-3	DR:1/-
+2	ABILITY:Pious Templar Class Feature|AUTOMATIC|Pious Templar ~ Smite				
 3	ABILITY:Pious Templar Class Feature|AUTOMATIC|Pious Templar ~ Weapon Specialization
+4	ABILITY:Pious Templar Class Feature|AUTOMATIC|Pious Templar ~ Bonus Feat			
+3	ABILITY:Pious Templar Class Feature|AUTOMATIC|Pious Templar ~ Damage Reduction		
+###Block
+1	CAST:0,0
+2	CAST:0,1
+3	CAST:0,1
 4	CAST:0,1,1
-4	BONUS:VAR|PiousTemplarBonusFeatCount|(CL)/4
 5	CAST:0,1,1,0
 6	CAST:0,1,1,1
-6	BONUS:VAR|SmiteTimes|1
 7	CAST:0,2,1,1,0
-7	BONUS:DR|-|1
 8	CAST:0,2,1,1,1
 9	CAST:0,2,2,1,1
 10	CAST:0,2,2,2,1
-10	BONUS:VAR|SmiteTimes|1
-###Block
-2	
+
 
 #CLASS:Church Inquisitor					SOURCEPAGE:26
 
