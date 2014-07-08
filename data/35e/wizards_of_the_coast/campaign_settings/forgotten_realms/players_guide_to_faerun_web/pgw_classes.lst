@@ -13,34 +13,34 @@ CLASS:Phaerimm	PRERACE:1,RACESUBTYPE=Phaerimm	PRERACETYPE:Aberration
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
 CLASS:Phaerimm	STARTSKILLPTS:2	MODTOSKILLS:YES			CSKILL:Concentration|Diplomacy|Knowledge (Arcana)|Listen|Search|Sense Motive|Spellcraft|Spot
 1	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE	BONUS:VAR|PhaerimmCL|max(PhaerimmAge,(var("BL=Sorcerer")+var("CL=Sorcerer")))	DEFINE:PhaerimmCL|0
-1									BONUS:VAR|FamiliarLVL|PhaerimmCL								DEFINE:FamiliarLVL|0
+1									BONUS:VAR|FamiliarLVL|PhaerimmCL								DEFINE:FamiliarLVL|0	DEFINE:PhaerimmAge|0
 ###Block: SA's
 1	ABILITY:Special Ability|AUTOMATIC|Immunity To Polymorph
 1	ABILITY:Special Ability|AUTOMATIC|Immunity To Petrification
 ###Block: Normal Progression
 #Hatchling
-1										BONUS:VAR|DetectMagicWillLVL|PhaerimmCL	DEFINE:PhaerimmAge|1	ADD:SPELLCASTER|Sorcerer	ABILITY:Special Ability|AUTOMATIC|Detect Magic (Sp at will)|Phaerimm Magic
+1										BONUS:VAR|DetectMagicWillLVL|PhaerimmCL	BONUS:VAR|PhaerimmAge|1|TYPE=Base	ADD:SPELLCASTER|Sorcerer	ABILITY:Special Ability|AUTOMATIC|Detect Magic (Sp at will)|Phaerimm Magic
 2					BONUS:PCLEVEL|Sorcerer|1
 3					BONUS:PCLEVEL|Sorcerer|1
 #Juvenile
-4					BONUS:PCLEVEL|Sorcerer|1	BONUS:VAR|TelepathyRange|100			DEFINE:PhaerimmAge|2	ADD:LANGUAGE|Telepathy		ABILITY:Special Ability|AUTOMATIC|Full Vision|Phaerim Full Vision (Invisibility)|Telepathy
+4					BONUS:PCLEVEL|Sorcerer|1	BONUS:VAR|TelepathyRange|100			BONUS:VAR|PhaerimmAge|2|TYPE=Base	ADD:LANGUAGE|Telepathy		ABILITY:Special Ability|AUTOMATIC|Full Vision|Phaerim Full Vision (Invisibility)|Telepathy
 5					BONUS:PCLEVEL|Sorcerer|1
 6					BONUS:PCLEVEL|Sorcerer|1
 #Young Adult
-7					BONUS:PCLEVEL|Sorcerer|1								DEFINE:PhaerimmAge|3						ABILITY:Special Ability|AUTOMATIC|Poison
+7					BONUS:PCLEVEL|Sorcerer|1								BONUS:VAR|PhaerimmAge|3|TYPE=Base						ABILITY:Special Ability|AUTOMATIC|Poison
 8					BONUS:PCLEVEL|Sorcerer|1
 9					BONUS:PCLEVEL|Sorcerer|1
 #Adult
-10					BONUS:PCLEVEL|Sorcerer|1								DEFINE:PhaerimmAge|4						ABILITY:Special Ability|AUTOMATIC|Implant|Phaerim Full Vision (Arcane Sight)
+10					BONUS:PCLEVEL|Sorcerer|1								BONUS:VAR|PhaerimmAge|4|TYPE=Base						ABILITY:Special Ability|AUTOMATIC|Implant|Phaerim Full Vision (Arcane Sight)
 11					BONUS:PCLEVEL|Sorcerer|1
 12					BONUS:PCLEVEL|Sorcerer|1
 #Mature Adult
-13	DR:10/Magic			BONUS:PCLEVEL|Sorcerer|1								DEFINE:PhaerimmAge|5
+13	DR:10/Magic			BONUS:PCLEVEL|Sorcerer|1								BONUS:VAR|PhaerimmAge|5|TYPE=Base
 14					BONUS:PCLEVEL|Sorcerer|1
 15					BONUS:PCLEVEL|Sorcerer|1
 #Elder
-16					BONUS:PCLEVEL|Sorcerer|1								DEFINE:PhaerimmAge|6						ABILITY:Special Ability|AUTOMATIC|Phaerim Full Vision (True Seeing)
+16					BONUS:PCLEVEL|Sorcerer|1								BONUS:VAR|PhaerimmAge|6|TYPE=Base						ABILITY:Special Ability|AUTOMATIC|Phaerim Full Vision (True Seeing)
 17					BONUS:PCLEVEL|Sorcerer|1
 18					BONUS:PCLEVEL|Sorcerer|1
 #Revered elder
-19	DR:15/Magic and Silver	BONUS:PCLEVEL|Sorcerer|1								DEFINE:PhaerimmAge|7
+19	DR:15/Magic and Silver	BONUS:PCLEVEL|Sorcerer|1								BONUS:VAR|PhaerimmAge|7|TYPE=Base

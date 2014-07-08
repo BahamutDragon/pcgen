@@ -4,7 +4,7 @@ SOURCELONG:Magic of Incarnum	SOURCESHORT:MoI	SOURCEDATE:2005-09
 # Date Entered: 2014-01
 
 # Class Name	Hit Dice	Type			Ex Class			Source Page		Define													Save checks bonus											Combat bonus		Modify VAR
-CLASS:Incarnate	HD:6		TYPE:Base.PC	EXCLASS:Ex Incarnate	SOURCEPAGE:p.20	DEFINE:IncarnateLVL|CL	DEFINE:IncarnateMeldshaperLVL|0	DEFINE:IncarnumUser|1	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2	BONUS:VAR|MeldshaperLVL|CL
+CLASS:Incarnate	HD:6		TYPE:Base.PC	EXCLASS:Ex Incarnate	SOURCEPAGE:p.20	DEFINE:IncarnateLVL|0	BONUS:VAR|IncarnateLVL|CL	DEFINE:IncarnateMeldshaperLVL|0	DEFINE:IncarnumUser|0	BONUS:VAR|IncarnumUser|1	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2	BONUS:VAR|MeldshaperLVL|CL
 # Class Name	Required AL
 CLASS:Incarnate	PREALIGN:NG,NE,LN,CN
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -36,13 +36,13 @@ CLASS:Incarnate	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Knowledge (Arcan
 5	BONUS:VAR|RapidMeldshapingTimes|CL+1/6
 
 # Class Name		Hit Dice	Type			Source Page		Visible	Define									Save checks bonus											Combat bonus
-CLASS:Ex Incarnate	HD:6		TYPE:Base.PC	SOURCEPAGE:p.22	VISIBLE:NO	DEFINE:IncarnateLVL|CL	DEFINE:IncarnateMeldshaperLVL|CL	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2
+CLASS:Ex Incarnate	HD:6		TYPE:Base.PC	SOURCEPAGE:p.22	VISIBLE:NO	DEFINE:IncarnateLVL|0	BONUS:VAR|IncarnateLVL|CL	DEFINE:IncarnateMeldshaperLVL|0	BONUS:VAR|IncarnateMeldshaperLVL|IncarnateLVL	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Ex Incarnate	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Knowledge (Arcana)|Knowledge (Religion)|Knowledge (The Planes)|TYPE=Profession|Spellcraft
 1	ABILITY:Incarnate Class Feature|AUTOMATIC|Incarnate ~ Weapon and Armor Proficiency
 
 # Class Name	Hit Dice	Type			Base class as subclass?	Source Page		Define													Save checks bonus						Combat bonus		Modify VAR
-CLASS:Soulborn	HD:10		TYPE:Base.PC	ALLOWBASECLASS:NO		SOURCEPAGE:p.25	DEFINE:SoulbornLVL|CL	DEFINE:SoulbornMeldshaperLVL|0	DEFINE:IncarnumUser|1	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:VAR|SoulbornMeldshaperLVL|CL/2
+CLASS:Soulborn	HD:10		TYPE:Base.PC	ALLOWBASECLASS:NO		SOURCEPAGE:p.25	DEFINE:SoulbornLVL|0	BONUS:VAR|SoulbornLVL|CL	DEFINE:SoulbornMeldshaperLVL|0	DEFINE:IncarnumUser|0	BONUS:VAR|IncarnumUser|1	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:VAR|SoulbornMeldshaperLVL|CL/2
 # Class Name	Required AL
 CLASS:Soulborn	PREALIGN:LG,CG,LE,CE
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -68,7 +68,7 @@ SUBCLASS:Chaotic Evil Soulborn	COST:0	PREALIGN:CE	CSKILL:Intimidate
 6	BONUS:VAR|EssentiaPool|(CL-4)/2+(CL>16)+(CL>18)	DEFINE:EssentiaPool|0
 
 # Class Name	Hit Dice	Type			Source Page		Visible	Define									Save checks bonus						Combat bonus		Modify VAR
-CLASS:Ex Soulborn	HD:10		TYPE:Base.PC	SOURCEPAGE:p.27	VISIBLE:NO	DEFINE:SoulbornLVL|CL	DEFINE:SoulbornMeldshaperLVL|0	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:VAR|SoulbornMeldshaperLVL|CL/2
+CLASS:Ex Soulborn	HD:10		TYPE:Base.PC	SOURCEPAGE:p.27	VISIBLE:NO	DEFINE:SoulbornLVL|0	BONUS:VAR|SoulbornLVL|CL	DEFINE:SoulbornMeldshaperLVL|0	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:VAR|SoulbornMeldshaperLVL|CL/2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Ex Soulborn	STARTSKILLPTS:2	CSKILL:Climb|Concentration|TYPE=Craft|Handle Animal|Heal|Jump|Knowledge (Arcana)|Knowledge (The Planes)|TYPE=Profession|Ride|Spellcraft|Swim
 1	ABILITY:Soulborn Class Feature|AUTOMATIC|Soulborn ~ Weapon and Armor Proficiency
@@ -76,7 +76,7 @@ CLASS:Ex Soulborn	STARTSKILLPTS:2	CSKILL:Climb|Concentration|TYPE=Craft|Handle A
 19	ABILITY:Soulborn Class Feature|AUTOMATIC|Soulborn ~ Timeless Body
 
 # Class Name	Hit Dice	Type			Source Page		Define													Save checks bonus											Combat bonus		Modify VAR
-CLASS:Totemist	HD:8		TYPE:Base.PC	SOURCEPAGE:p.29	DEFINE:TotemistLVL|CL	DEFINE:TotemistMeldshaperLVL|0	DEFINE:IncarnumUser|1	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:VAR|TotemistMeldshaperLVL|CL
+CLASS:Totemist	HD:8		TYPE:Base.PC	SOURCEPAGE:p.29	DEFINE:TotemistLVL|0	BONUS:VAR|TotemistLVL|CL	DEFINE:TotemistMeldshaperLVL|0	DEFINE:IncarnumUser|0	BONUS:VAR|IncarnumUser|1	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:VAR|TotemistMeldshaperLVL|CL
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Totemist	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Handle Animal|Knowledge (Arcana)|Knowledge (Nature)|Knowledge (The Planes)|Listen|TYPE=Profession|Ride|Spellcraft|Spot|Survival|Swim
 1	ABILITY:Totemist Class Feature|AUTOMATIC|Totemist ~ Weapon and Armor Proficiency|Totemist ~ Meldshaping

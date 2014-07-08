@@ -453,25 +453,25 @@ CLASS:Fang Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Co
 1																		BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Sorcerer")+var("CL=Sorcerer")))	DEFINE:DragonCL|0
 1	VISION:Blindsense (60')|Darkvision (120')|Keen Senses	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
 ###Block: Breath Weapon and other SA's
-1	DEFINE:FangDragonAbilityDrainDamage|1	DEFINE:FangDragonAbilityDrainDamageDie|2	ABILITY:Special Ability|AUTOMATIC|Ability Drain ~ Fang Dragon
+1	DEFINE:FangDragonAbilityDrainDamage|0	BONUS:VAR|FangDragonAbilityDrainDamage|1	DEFINE:FangDragonAbilityDrainDamageDie|0	BONUS:VAR|FangDragonAbilityDrainDamageDie|2	ABILITY:Special Ability|AUTOMATIC|Ability Drain ~ Fang Dragon
 #1
 1															ABILITY:Special Ability|AUTOMATIC|Immunity To Paralysis
 1															ABILITY:Special Ability|AUTOMATIC|Immunity To Sleep
 ###Block: Frightful Presence
 1	BONUS:VAR|FrightfulPresRange|DragonAge*30|PREVARGTEQ:DragonAge,5	ABILITY:Special Ability|AUTOMATIC|Frightful Presence
 ###Block: Normal Progression
-1									DEFINE:DragonAge|1										ABILITY:Special Ability|AUTOMATIC|Increased Damage|Sound Imitation	ABILITY:Special Ability|AUTOMATIC|Trip	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=DragonCL|Detect Magic|Read Magic
-6									DEFINE:DragonAge|2
-9									DEFINE:DragonAge|3																													SPELLS:Innate|TIMES=2|CASTERLEVEL=DragonCL|Shield
-12	SR:16								DEFINE:DragonAge|4																													SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Dispel Magic
-15	SR:18	DR:5/Magic						DEFINE:DragonAge|5					ADD:SPELLCASTER|Sorcerer
-18	SR:20			BONUS:PCLEVEL|Sorcerer|1	DEFINE:DragonAge|6																													SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Spell Turning
-21	SR:22	DR:10/Magic	BONUS:PCLEVEL|Sorcerer|1	DEFINE:DragonAge|7
-24	SR:25			BONUS:PCLEVEL|Sorcerer|1	DEFINE:DragonAge|8																													SPELLS:Innate|TIMES=2|CASTERLEVEL=DragonCL|Telekinesis
-27	SR:27	DR:15/Magic	BONUS:PCLEVEL|Sorcerer|1	DEFINE:DragonAge|9
-30	SR:28			BONUS:PCLEVEL|Sorcerer|1	DEFINE:DragonAge|10	DEFINE:FastHealing|2						ABILITY:Special Ability|AUTOMATIC|Fast Healing
-33	SR:29	DR:20/Magic	BONUS:PCLEVEL|Sorcerer|1	DEFINE:DragonAge|11
-36	SR:31			BONUS:PCLEVEL|Sorcerer|1	DEFINE:DragonAge|12																													SPELLS:Innate|TIMES=2|CASTERLEVEL=DragonCL|Globe of Invulnerability
+1									BONUS:VAR|DragonAge|1|TYPE=Base	DEFINE:DragonAge|0									ABILITY:Special Ability|AUTOMATIC|Increased Damage|Sound Imitation	ABILITY:Special Ability|AUTOMATIC|Trip	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=DragonCL|Detect Magic|Read Magic
+6									BONUS:VAR|DragonAge|2|TYPE=Base
+9									BONUS:VAR|DragonAge|3|TYPE=Base																													SPELLS:Innate|TIMES=2|CASTERLEVEL=DragonCL|Shield
+12	SR:16								BONUS:VAR|DragonAge|4|TYPE=Base																													SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Dispel Magic
+15	SR:18	DR:5/Magic						BONUS:VAR|DragonAge|5|TYPE=Base					ADD:SPELLCASTER|Sorcerer
+18	SR:20			BONUS:PCLEVEL|Sorcerer|1	BONUS:VAR|DragonAge|6|TYPE=Base																													SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Spell Turning
+21	SR:22	DR:10/Magic	BONUS:PCLEVEL|Sorcerer|1	BONUS:VAR|DragonAge|7|TYPE=Base
+24	SR:25			BONUS:PCLEVEL|Sorcerer|1	BONUS:VAR|DragonAge|8|TYPE=Base																													SPELLS:Innate|TIMES=2|CASTERLEVEL=DragonCL|Telekinesis
+27	SR:27	DR:15/Magic	BONUS:PCLEVEL|Sorcerer|1	BONUS:VAR|DragonAge|9|TYPE=Base
+30	SR:28			BONUS:PCLEVEL|Sorcerer|1	BONUS:VAR|DragonAge|10|TYPE=Base	BONUS:VAR|FastHealingBonus|2						ABILITY:Special Ability|AUTOMATIC|Fast Healing
+33	SR:29	DR:20/Magic	BONUS:PCLEVEL|Sorcerer|1	BONUS:VAR|DragonAge|11|TYPE=Base
+36	SR:31			BONUS:PCLEVEL|Sorcerer|1	BONUS:VAR|DragonAge|12|TYPE=Base																													SPELLS:Innate|TIMES=2|CASTERLEVEL=DragonCL|Globe of Invulnerability
 17				BONUS:PCLEVEL|Sorcerer|1
 20				BONUS:PCLEVEL|Sorcerer|1
 23				BONUS:PCLEVEL|Sorcerer|1
@@ -490,7 +490,7 @@ CLASS:Battle Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|
 1																		BONUS:VAR|DragonCL|DragonAge	DEFINE:DragonCL|0
 1	VISION:Blindsense (60')|Darkvision (120')|Keen Senses	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
 ###Block: Breath Weapon and other SA's
-1	DEFINE:BreathWeaponCone|max((SIZE-1)*10,15)	DEFINE:BreathWeaponDice|(2*DragonAge)	DEFINE:BreathWeaponDamageDie|6	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Sonic Energy
+1	DEFINE:BreathWeaponCone|0	BONUS:VAR|BreathWeaponCone|max((SIZE-1)*10,15)	DEFINE:BreathWeaponDice|0	BONUS:VAR|BreathWeaponDice|(2*DragonAge)	DEFINE:BreathWeaponDamageDie|0	BONUS:VAR|BreathWeaponDamageDie|6	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Sonic Energy
 1																						ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Fear Gas
 1																						ABILITY:Special Ability|AUTOMATIC|Immunity To Paralysis
 1																						ABILITY:Special Ability|AUTOMATIC|Immunity To Sleep

@@ -97,7 +97,7 @@ CLASS:Brown Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot
 1																						BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Sorcerer")+var("CL=Sorcerer")))
 1	VISION:Blindsense (60')|Darkvision (120')|Keen Senses|Tremorsense (500')	BONUS:COMBAT|AC|CL-3|TYPE=NaturalArmor.REPLACE
 ###Block: Breath Weapon and other SA's
-1	DEFINE:BreathWeaponLine|max((SIZE-1)*20,30)	DEFINE:BreathWeaponDice|(2*DragonAge)	DEFINE:BreathWeaponDamageDie|4	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Line of Acid
+1	DEFINE:BreathWeaponLine|0	BONUS:VAR|BreathWeaponLine|max((SIZE-1)*20,30)	DEFINE:BreathWeaponDice|0	BONUS:VAR|BreathWeaponDice|(2*DragonAge)	DEFINE:BreathWeaponDamageDie|0	BONUS:VAR|BreathWeaponDamageDie|4	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Line of Acid
 1																						ABILITY:Special Ability|AUTOMATIC|Immunity to Sleep
 1																						ABILITY:Special Ability|AUTOMATIC|Immunity to Paralysis
 1																						ABILITY:Special Ability|AUTOMATIC|Immunity to Acid
@@ -105,7 +105,7 @@ CLASS:Brown Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot
 1	BONUS:VAR|FrightfulPresRange|DragonAge*30|PREVARGTEQ:DragonAge,5	ABILITY:Special Ability|AUTOMATIC|Frightful Presence
 ###Block: Normal Progression
 1	DEFINE:DragonCL|0
-1	DEFINE:DragonAge|(CL-3)/3
+1	DEFINE:DragonAge|0	BONUS:VAR|DragonAge|(CL-3)/3
 ###Block:
 15																ADD:SPELLCASTER|Sorcerer													SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Create Water
 17				BONUS:PCLEVEL|Sorcerer|1

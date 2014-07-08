@@ -69,7 +69,7 @@ CLASS:Drunken Master	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Escap
 ###Block: AC Bonus
 4	BONUS:COMBAT|AC|DrunkenMasterACBonus|TYPE=Class
 ###Block: Vars
-4	BONUS:VAR|DrunkenMasterACBonus|1	DEFINE:DrunkenMasterACBonus|1
+4	BONUS:VAR|DrunkenMasterACBonus|2	DEFINE:DrunkenMasterACBonus|0
 9	BONUS:VAR|DrunkenMasterACBonus|1
 ###Block: Movement Increase - due to the Static Movement, and unknown race, figured this was a safer method.
 1	MOVE:Walk,50
@@ -240,7 +240,7 @@ CLASS:Master Samurai	STARTSKILLPTS:2	CSKILL:Intimidate|Jump|Knowledge (Code of M
 # Ninja of the Crescent Moon
 
 # Class Name				Hit Dice	Type			Max Level	Source Page		Define					Save checks bonus												Combat bonus							Modify VAR
-CLASS:Ninja of the Crescent Moon	HD:8		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.30	DEFINE:NinjaOfTheCrescentMoonLVL|CL	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1
+CLASS:Ninja of the Crescent Moon	HD:8		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.30	DEFINE:NinjaOfTheCrescentMoonLVL|0	BONUS:VAR|NinjaOfTheCrescentMoonLVL|CL	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1
 # Class Name				Required Ability							Req. Att.	Required Feat								Required Skill				Required Text
 CLASS:Ninja of the Crescent Moon	PREABILITY:1,CATEGORY=Special Ability,TYPE.Evasion	PREATT:6	PREFEAT:3,Improved Unarmed Strike,Deflect Arrows,Quick-Draw	PRESKILL:2,Move Silently=10,Hide=10	PRETEXT:Evasion class feature, must contact Crescent Moon leadership.
 # Class Name				Skill Pts/Lvl	Class Skill
@@ -297,9 +297,9 @@ CLASS:Ravager	STARTSKILLPTS:2	CSKILL:Intimidate|Knowledge (Religion)|Move Silent
 3	ABILITY:Ravager Ability|AUTOMATIC|Cruelest Cut ~ Ravager
 10	ABILITY:Ravager Ability|AUTOMATIC|Visage Of Terror ~ Ravager
 ###Block:
-1	DEFINE:RavagerPainTouchTimes|(CL+2)/3
-2	DEFINE:RavagerAuraOfFearTimes|(CL+1)/3	DEFINE:RavagerAuraOfFearRange|((CL+1)/3)*10
-3	DEFINE:RavagerCruelestCutTimes|classlevel("APPLIEDAS=NONEPIC")/3
+1	DEFINE:RavagerPainTouchTimes|0	BONUS:VAR|RavagerPainTouchTimes|(CL+2)/3
+2	DEFINE:RavagerAuraOfFearTimes|0	DEFINE:RavagerAuraOfFearRange|0	BONUS:VAR|RavagerAuraOfFearTimes|(CL+1)/3	BONUS:VAR|RavagerAuraOfFearRange|((CL+1)/3)*10
+3	DEFINE:RavagerCruelestCutTimes|0	BONUS:VAR|RavagerCruelestCutTimes|CL/3
 
 # Red Avengers
 
@@ -377,7 +377,7 @@ CLASS:Warmaster	STARTSKILLPTS:4	CSKILL:Bluff|type=Craft|Diplomacy|Intimidate|TYP
 # Weapon Master
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Weapon Master	HD:10		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.38	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")
+CLASS:Weapon Master	HD:10		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.38	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	DEFINE:WeaponMasterLVL|0	BONUS:VAR|WeaponMasterLVL|CL
 # Class Name		Req. Att.	Required Feat												Required Skill		Required Stat	Required Text
 CLASS:Weapon Master	PREATT:5	PREFEAT:6,Dodge,Mobility,Combat Reflexes,Expertise,Weapon Focus,Whirlwind Attack	PRESKILL:1,Intimidate=4	PRESTAT:1,DEX=13	PRETEXT:Proficiency: With your weapon of choice.	PRETEXT:Weapon: Masterwork weapon (unless unarmed).
 # Class Name		Skill Pts/Lvl	Class Skill
