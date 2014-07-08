@@ -4,7 +4,7 @@
 # Disable Device added to Scout Class Skills
 
 # Class Name	Hit Dice	Max Level	Source Page		Define			Save checks bonus												Combat bonus							Modify VAR
-CLASS:Ninja		HD:6		MAXLEVEL:20	SOURCEPAGE:p.5	DEFINE:NinjaLVL|0	BONUS:VAR|NinjaLVL|CL	BONUS:SAVE|BASE.Reflex|(CL/2)+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1
+CLASS:Ninja		HD:6		MAXLEVEL:20	SOURCEPAGE:p.5	DEFINE:NinjaLVL|0	BONUS:VAR|NinjaLVL|CL		BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Ninja		STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Concentration|TYPE=Craft|Disable Device|Disguise|Escape Artist|Gather Information|Hide|Jump|Listen|Move Silently|Open Lock|Search|Sense Motive|Sleight of Hand|Spot|Swim|Tumble
 ###Block:
@@ -24,7 +24,7 @@ CLASS:Ninja		STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Concentration|TYPE=Craft
 20	ABILITY:Ninja Class Feature|AUTOMATIC|Ninja ~ Ghost Walk
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Define			Save checks bonus												Combat bonus							Modify VAR
-CLASS:Scout		HD:8		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.10	DEFINE:ScoutLVL|0	BONUS:VAR|ScoutLVL|CL	BONUS:SAVE|BASE.Reflex|(CL/2)+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1
+CLASS:Scout		HD:8		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.10	DEFINE:ScoutLVL|0	BONUS:VAR|ScoutLVL|CL		BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Scout		STARTSKILLPTS:8	CSKILL:Balance|Climb|TYPE=Craft|Escape Artist|Hide|Jump|Knowledge (Dungeoneering)|Knowledge (Geography)|Knowledge (Nature)|Listen|Move Silently|Ride|Search|Sense Motive|Speak Language|Spot|Survival|Swim|Tumble|Use Rope|Disable Device
 ###Block:
@@ -42,7 +42,7 @@ CLASS:Scout		STARTSKILLPTS:8	CSKILL:Balance|Climb|TYPE=Craft|Escape Artist|Hide|
 20	ABILITY:Scout Class Feature|AUTOMATIC|Scout ~ Blindsight
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Define			Save checks bonus												Combat bonus							Modify VAR
-CLASS:Spellthief	HD:6		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.13	DEFINE:SpellthiefLVL|0	BONUS:VAR|SpellthiefLVL|CL	BONUS:SAVE|BASE.Will|(CL/2)+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1
+CLASS:Spellthief	HD:6		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.13	DEFINE:SpellthiefLVL|0	BONUS:VAR|SpellthiefLVL|CL		BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Spellthief	STARTSKILLPTS:6	CSKILL:Appraise|Bluff|Concentration|TYPE=Craft|Decipher Script|Disable Device|Escape Artist|Gather Information|Hide|Jump|Knowledge (arcana)|Knowledge (local)|Listen|Move Silently|Open Lock|Search|Speak Language|Spellcraft|Spot|Swim|Tumble|Use Magic Device
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level								Use Spell List
@@ -101,7 +101,7 @@ CLASS:Spellthief	PROHIBITSPELL:SCHOOL.Conjuration	PROHIBITSPELL:SCHOOL.Evocation
 ###Block: Prestige Classes
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Define			Save checks bonus												Combat bonus
-CLASS:Animal Lord	HD:10		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.22	DEFINE:AnimalLordLVL|0	BONUS:VAR|AnimalLordLVL|CL	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(CL/2)+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")		BONUS:ABILITYPOOL|Animal Lord Selection|1
+CLASS:Animal Lord	HD:10		TYPE:Prestige.PC	MAXLEVEL:10	SOURCEPAGE:p.22	DEFINE:AnimalLordLVL|0	BONUS:VAR|AnimalLordLVL|CL		BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3		BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")		BONUS:ABILITYPOOL|Animal Lord Selection|1
 # Class Name	Required AL			Req. Att.	Multiple Requirements																																																																														Required Skill
 CLASS:Animal Lord	PREALIGN:NG,LN,TN,CN,NE	PREATT:5	PREMULT:1,[PREMULT:2,[PRESKILL:1,Climb=4],[PREFEAT:1,Toughness]],[PREMULT:2,[PRESKILL:1,Intimidate=4],[PREFEAT:1,Endurance]],[PREMULT:2,[PRESKILL:1,Spot=4],[PREFEAT:1,Improved Flight]],[PREMULT:2,[PRESKILL:1,Move Silently=4],[PREFEAT:1,Weapon Finesse]],[PREMULT:2,[PRESKILL:1,Jump=4],[PREFEAT:1,Run]],[PREMULT:2,[PRESKILL:1,Swim=4],[PREFEAT:1,Improved Swimming]],[PREMULT:2,[PRESKILL:1,Escape Artist=4],[PREFEAT:1,Combat Reflexes]],[PREMULT:2,[PRESKILL:1,Survival=4],[PREFEAT:1,Track]]	PRESKILL:2,Handle Animal=4,Knowledge (Nature)=2
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -130,8 +130,8 @@ CLASS:Animal Lord	STARTSKILLPTS:4	CSKILL:Climb|Escape Artist|Handle Animal|Heal|
 
 
 # Class Name
-CLASS:Beastmaster	SOURCEPAGE:p.26	HD:10	TYPE:PC.Prestige	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|/3	DEFINE:BeastmasterLVL|0	BONUS:VAR|BeastmasterLVL|CL
-CLASS:Beastmaster	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")
+CLASS:Beastmaster	SOURCEPAGE:p.26	HD:10	TYPE:PC.Prestige		BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:SAVE|BASE.Will|/3	DEFINE:BeastmasterLVL|0	BONUS:VAR|BeastmasterLVL|CL
+CLASS:Beastmaster		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")
 CLASS:Beastmaster	PRESKILL:2,Handle Animal=8,Survival=4	PREFEAT:1,Skill Focus (Handle Animal)	PRETEXT:Skills: Handle Animal 8 ranks, Survival 4 ranks. Feats: Skill Focus (Handle Animal).
 CLASS:Beastmaster	STARTSKILLPTS:4	CSKILL:Climb|Handle Animal|Heal|Hide|Jump|Knowledge (Nature)|Listen|Ride|Spot|Survival|Swim
 ###Block
@@ -148,8 +148,8 @@ CLASS:Beastmaster	STARTSKILLPTS:4	CSKILL:Climb|Handle Animal|Heal|Hide|Jump|Know
 
 
 # Class Name
-CLASS:Bloodhound	SOURCEPAGE:p.28	HD:10	TYPE:PC.Prestige	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|/3	DEFINE:BloodhoundLVL|0	BONUS:VAR|BloodhoundLVL|CL
-CLASS:Bloodhound	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")
+CLASS:Bloodhound	SOURCEPAGE:p.28	HD:10	TYPE:PC.Prestige		BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:SAVE|BASE.Will|/3	DEFINE:BloodhoundLVL|0	BONUS:VAR|BloodhoundLVL|CL
+CLASS:Bloodhound		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")
 CLASS:Bloodhound	PREMULT:1,[PREATT:4],[PREVARGTEQ:BaseAttackBonus,4]	PRESKILL:3,Gather Information=4,Move Silently=4,Survival=4	PREFEAT:2,Endurance,Track	PRETEXT:Base Attack Bonus: +4. Skills: Gather Information 4 ranks, Move Silently 4 ranks, Survival 4 ranks. Feats: Endurance, Track.
 CLASS:Bloodhound	STARTSKILLPTS:6	CSKILL:Bluff|Climb|Diplomacy|Disguise|Gather Information|Heal|Hide|Intimidate|Jump|Listen|Move Silently|Open Lock|Ride|Search|Sense Motive|Spot|Survival|Swim|Use Rope
 1	ABILITY:Bloodhound Class Feature|AUTOMATIC|Bloodhound ~ Weapon and Armor Proficiency
@@ -174,8 +174,8 @@ CLASS:Bloodhound	STARTSKILLPTS:6	CSKILL:Bluff|Climb|Diplomacy|Disguise|Gather In
 
 
 # Class Name
-CLASS:Daggerspell Mage	SOURCEPAGE:p.31	HD:6	TYPE:PC.Prestige	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	DEFINE:DaggerspellMageLVL|0	BONUS:VAR|DaggerspellMageLVL|CL
-CLASS:Daggerspell Mage	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4
+CLASS:Daggerspell Mage	SOURCEPAGE:p.31	HD:6	TYPE:PC.Prestige		BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	DEFINE:DaggerspellMageLVL|0	BONUS:VAR|DaggerspellMageLVL|CL
+CLASS:Daggerspell Mage		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4
 CLASS:Daggerspell Mage	!PREALIGN:LE,NE,CE	PRESKILL:1,Concentration=8	PREFEAT:2,Weapon Focus (Dagger),Two-Weapon Fighting	PREVARGTEQ:SneakAttackDice,1	PRESPELLTYPE:1,Arcane=5	PRETEXT:Alignment: Any nonevil. Skills: Concentration 8 ranks. Feats: Weapon Focus (dagger), Two-Weapon Fighting. Special: Arcane caster level 5th. Special: Sneak attack +1d6.
 CLASS:Daggerspell Mage	STARTSKILLPTS:6	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Handle Animal|Heal|Hide|Jump|Knowledge (Arcana)|Listen|Move Silently|TYPE=Profession|Ride|Spellcraft|Spot|Survival|Swim|Tumble
 ###Block
@@ -203,8 +203,8 @@ CLASS:Daggerspell Mage	STARTSKILLPTS:6	CSKILL:Balance|Climb|Concentration|TYPE=C
 
 
 # Class Name
-CLASS:Daggerspell Shaper	SOURCEPAGE:p.36	HD:6	TYPE:PC.Prestige	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	DEFINE:DaggerspellShaperLVL|0	BONUS:VAR|DaggerspellShaperLVL|CL
-CLASS:Daggerspell Shaper	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4
+CLASS:Daggerspell Shaper	SOURCEPAGE:p.36	HD:6	TYPE:PC.Prestige		BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	DEFINE:DaggerspellShaperLVL|0	BONUS:VAR|DaggerspellShaperLVL|CL
+CLASS:Daggerspell Shaper		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4
 CLASS:Daggerspell Shaper	!PREALIGN:LE,NE,CE	PRESKILL:1,Concentration=8	PREFEAT:2,Weapon Focus (Dagger),Two-Weapon Fighting	PREABILITY:1,CATEGORY=Special Ability,TYPE.Wild Shape,TYPE.Wild Shape Class Feature	PREMULT:1,[PREVARGTEQ:SneakAttackDice,1],[PREVARGTEQ:SkirmishDice,1]	PRETEXT:Alignment: Any nonevil. Skills: Concentration 8 ranks. Feats: Weapon Focus (dagger), Two-Weapon Fighting. Special: Wild shape class feature. Special: Either sneak attack +1d6 or skirmish +1d6.
 CLASS:Daggerspell Shaper	STARTSKILLPTS:6	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Handle Animal|Heal|Hide|Jump|Knowledge (nature)|Listen|Move Silently|TYPE=Profession|Ride|Spellcraft|Spot|Survival|Swim|Tumble
 1	ABILITY:Daggerspell Shaper Class Feature|AUTOMATIC|Daggerspell Shaper ~ Weapon and Armor Proficiency
@@ -231,7 +231,7 @@ CLASS:Daggerspell Shaper	STARTSKILLPTS:6	CSKILL:Balance|Climb|Concentration|TYPE
 
 
 # Class Name
-CLASS:Dread Pirate	SOURCEPAGE:p.39	HD:8		TYPE:PC.Prestige	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	DEFINE:DreadPirateLVL|0	BONUS:VAR|DreadPirateLVL|CL
+CLASS:Dread Pirate	SOURCEPAGE:p.39	HD:8		TYPE:PC.Prestige		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")		BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	DEFINE:DreadPirateLVL|0	BONUS:VAR|DreadPirateLVL|CL
 CLASS:Dread Pirate	PREMULT:1,[PREATT:4],[PREVARGTEQ:BaseAttackBonus,4]	PRESKILL:4,Appraise=8,Profession (Sailor)=8,Swim=4,Use Rope=4	PREFEAT:2,Quick Draw,Weapon Finesse	PRETEXT:Alignment: Any nonlawful. Base Attack Bonus: +4. Skills: Appraise 8 ranks, Profession (sailor) 8 ranks, Swim 4 ranks, Use Rope 4 ranks. Feats: Quick Draw, Weapon Finesse. Special: The character must own a ship worth at least 10,000 gp. The method of acquisition-purchase, force of arms, or skullduggery-makes no difference, as long as he can freely operate it on the high seas.
 CLASS:Dread Pirate	STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Climb|TYPE=Craft|Gather Information|Intimidate|Jump|Listen|TYPE=Perform|TYPE=Profession|Search|Sense Motive|Sleight of Hand|Spot|Swim|Tumble|Use Rope
 ###Block
@@ -254,7 +254,7 @@ CLASS:Dread Pirate	STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Climb|TYPE=Craf
 
 
 # Class Name
-CLASS:Dungeon Delver	SOURCEPAGE:p.42	HD:6		TYPE:PC.Prestige	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	DEFINE:DungeonDelverLVL|0	BONUS:VAR|DungeonDelverLVL|CL
+CLASS:Dungeon Delver	SOURCEPAGE:p.42	HD:6		TYPE:PC.Prestige		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4		BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	DEFINE:DungeonDelverLVL|0	BONUS:VAR|DungeonDelverLVL|CL
 CLASS:Dungeon Delver	PREFEAT:1,Alertness,Blind-Fight	PRESKILL:8,Climb=10,TYPE.Craft (Stonemasonry)=5,Disable Device=10,Hide=5,Knowledge (Dungeoneering)=5,Move Silently=5,Open Lock=10,Search=10	PREABILITY:1,CATEGORY=Special Ability,TYPE.Trapfinding	PRETEXT:Skills: Climb 10 ranks, Craft (stonemasonry) 5 ranks, Disable Device 10 ranks, Hide 5 ranks, Knowledge (dungeoneering) 5 ranks, Move Silently 5 ranks, Open Lock 10 ranks, Search 10 ranks. Feats: Alertness, Blind-Fight. Special: Trapfinding class feature. Special: The character must survive a great trial underground. This trial usually takes one of three forms: A solo dungeon expedition that earns the character half of the experience points needed for advancement to the next level. (For example, a 7th-level character must earn 3,500 XP on such a solo run.) The character must complete the venture in one week, though he may leave the dungeon and return as often as desired during that time. Survival of a cave-in or other collapse (see page 66 of the Dungeon Master's Guide). Living for a year without seeing the light of the sun, usually among underground denizens such as the deep dwarves or drow.
 CLASS:Dungeon Delver	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Climb|TYPE=Craft|Disable Device|Hide|Jump|Knowledge (Dungeoneering)|Listen|Move Silently|Open Lock|Search|Spot|Survival|Swim|Tumble|Use Magic Device|Use Rope
 ###Block
@@ -276,7 +276,7 @@ CLASS:Dungeon Delver	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Climb|TYPE=Craft|Di
 
 
 # Class Name
-CLASS:Exemplar	SOURCEPAGE:p.44	TYPE:PC.Prestige	HD:6	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	DEFINE:ExemplarLVL|0	BONUS:VAR|ExemplarLVL|CL
+CLASS:Exemplar	SOURCEPAGE:p.44	TYPE:PC.Prestige	HD:6		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4		BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3		BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	DEFINE:ExemplarLVL|0	BONUS:VAR|ExemplarLVL|CL
 CLASS:Exemplar	PREFEAT:1,Skill Focus	PRESKILL:2,Diplomacy=6,TYPE.Base=13	PRETEXT:Skills: Diplomacy 6 ranks, any other skill 13 ranks. Feat: Skill Focus (any).
 CLASS:Exemplar	STARTSKILLPTS:8	CSKILL:TYPE=Base
 ###Block
@@ -294,7 +294,7 @@ CLASS:Exemplar	STARTSKILLPTS:8	CSKILL:TYPE=Base
 
 
 # Class Name
-CLASS:Fochlucan Lyrist	SOURCEPAGE:p.47	TYPE:PC.Prestige	HD:6	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Fochlucan Lyrist	SOURCEPAGE:p.47	TYPE:PC.Prestige	HD:6		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")		BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
 CLASS:Fochlucan Lyrist	PRESKILL:6,Decipher Script=7,Diplomacy=7,Gather Information=7,Knowledge (Nature)=7,Perform (String Instruments)=13,Sleight of Hand=7	PRELANG:1,Druidic	PREALIGN:NG,TN,CN,NE	PRESPELLTYPE:2,Arcane=1,Divine=1	PREABILITY:2,CATEGORY=Special Ability,TYPE.Bardic Knowledge,TYPE.Evasion	PRETEXT:Skills: Decipher Script 7 ranks, Diplomacy 7 ranks, Gather Information 7 ranks, Knowledge (nature) 7 ranks, Perform (string instruments) 13 ranks, Sleight of Hand 7 ranks, Speak Language (Druidic). Alignment: Neutral good, neutral, chaotic neutral, or neutral evil. Spells: Ability to cast 1st-level arcane and divine spells. Special: Bardic knowledge and evasion abilities.
 CLASS:Fochlucan Lyrist	STARTSKILLPTS:6	CSKILL:Appraise|Bluff|Concentration|TYPE=Craft|Decipher Script|Diplomacy|Disguise|Gather Information|Handle Animal|Heal|Hide|TYPE=Knowledge|Listen|Move Silently|TYPE=Perform|TYPE=Profession|Ride|Sense Motive|Sleight of Hand|Speak Language|Spellcraft|Survival|Swim|Use Magic Device
 ###Block
@@ -310,7 +310,7 @@ CLASS:Fochlucan Lyrist	STARTSKILLPTS:6	CSKILL:Appraise|Bluff|Concentration|TYPE=
 
 
 # Class Name
-CLASS:Ghost-Faced Killer	SOURCEPAGE:p.51	TYPE:PC.Prestige	HD:8	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	DEFINE:GhostFacedKillerLVL|0	BONUS:VAR|GhostFacedKillerLVL|CL
+CLASS:Ghost-Faced Killer	SOURCEPAGE:p.51	TYPE:PC.Prestige	HD:8		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")		BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3		BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	DEFINE:GhostFacedKillerLVL|0	BONUS:VAR|GhostFacedKillerLVL|CL
 CLASS:Ghost-Faced Killer	PREALIGN:NE,CE,LE	PREMULT:1,[PREATT:5],[PREVARGTEQ:BaseAttackBonus,5]	PRESKILL:4,Hide=6,Concentration=4,Intimidate=8,Move Silently=6	PREFEAT:2,Improved Initiative,Power Attack	PRETEXT:Alignment: Any evil. Base Attack Bonus: +5. Skills: Hide 6 ranks, Concentration 4 ranks, Intimidate 8 ranks, Move Silently 6 ranks. Feats: Improved Initiative, Power Attack.
 CLASS:Ghost-Faced Killer	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Concentration|Hide|Intimidate|Jump|Listen|Move Silently|Open Lock|Search|Spot|Swim|Tumble
 ###Block
@@ -325,7 +325,7 @@ CLASS:Ghost-Faced Killer	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Concentration|Hide|I
 
 
 # Class Name
-CLASS:Highland Stalker	SOURCEPAGE:p.54	TYPE:PC.Prestige	HD:8	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Highland Stalker	SOURCEPAGE:p.54	TYPE:PC.Prestige	HD:8		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")		BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3		BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
 CLASS:Highland Stalker	PREMULT:1,[PREATT:5],[PREVARGTEQ:BaseAttackBonus,5]	PRESKILL:3,Listen=8,Spot=8,Survival=8	PREFEAT:1,Track	PREABILITY:1,CATEGORY=Special Ability,TYPE.Skirmish,TYPE.Sneak Attack	PRETEXT:Base Attack Bonus: +5. Skills: Listen 8 ranks, Spot 8 ranks, Survival 8 ranks. Feats: Track. Special: Skirmish or sneak attack class feature.
 CLASS:Highland Stalker	STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE=Craft|Hide|Jump|Knowledge (Geography)|Knowledge (Nature)|Listen|Move Silently|Search|Spot|Survival
 ###Block
@@ -340,7 +340,7 @@ CLASS:Highland Stalker	STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE=Craft|Hide|Jump
 
 
 # Class Name
-CLASS:Maester	SOURCEPAGE:p.56	TYPE:PC.Prestige	HD:4	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Maester	SOURCEPAGE:p.56	TYPE:PC.Prestige	HD:4		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2		BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3		BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 CLASS:Maester	PRERACE:1,RACESUBTYPE=Gnome,Gnome	PRESKILL:1,TYPE.Craft=8	PRESKILL:1,Use Magic Device=4	PREFEAT:2,TYPE=ItemCreation,TYPE=Item Creation	PRESPELLTYPE:1,Arcane=5	PRETEXT:Race: Gnome. Skills: Craft (any) 8 ranks, Use Magic Device 4 ranks. Feats: Any two item creation feats. Spells: Arcane caster level 5th.
 CLASS:Maester	STARTSKILLPTS:4	CSKILL:Appraise|Concentration|TYPE=Craft|Disable Device|Knowledge (Arcana)|Knowledge (Architecture and Engineering)|Spellcraft|Use Magic Device
 ###Block
@@ -354,7 +354,7 @@ CLASS:Maester	STARTSKILLPTS:4	CSKILL:Appraise|Concentration|TYPE=Craft|Disable D
 
 
 # Class Name
-CLASS:Master of Many Forms	SOURCEPAGE:p.58	TYPE:PC.Prestige	HD:8	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Master of Many Forms	SOURCEPAGE:p.58	TYPE:PC.Prestige	HD:8		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4		BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 CLASS:Master of Many Forms	PREFEAT:2,Alertness,Endurance	PREABILITY:1,CATEGORY=Special Ability,TYPE.Wild Shape	PRETEXT:Feats: Alertness, Endurance. Special: Wild shape class feature.
 CLASS:Master of Many Forms	STARTSKILLPTS:4	CSKILL:Climb|Concentration|TYPE=Craft|Diplomacy|Disguise|Handle Animal|Hide|Jump|Knowledge (Nature)|Listen|Spot|Swim|Survival
 1	ABILITY:Master of Many Forms Class Feature|AUTOMATIC|Master of Many Forms ~ Weapon and Armor Proficiency
@@ -368,7 +368,7 @@ CLASS:Master of Many Forms	STARTSKILLPTS:4	CSKILL:Climb|Concentration|TYPE=Craft
 
 
 # Class Name
-CLASS:Nightsong Enforcer	SOURCEPAGE:p.60	TYPE:PC.Prestige	HD:8	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	DEFINE:NightsongEnforcerLVL|0	BONUS:VAR|NightsongEnforcerLVL|CL
+CLASS:Nightsong Enforcer	SOURCEPAGE:p.60	TYPE:PC.Prestige	HD:8		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")		BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	DEFINE:NightsongEnforcerLVL|0	BONUS:VAR|NightsongEnforcerLVL|CL
 CLASS:Nightsong Enforcer	PREMULT:1,[PREATT:5],[PREVARGTEQ:BaseAttackBonus,5]	PRESKILL:2,Hide=10,Move Silently=10	PREFEAT:1,Improved Initiative	PREABILITY:1,CATEGORY=Special Ability,TYPE.Evasion	PRETEXT:Base Attack Bonus: +5. Skills: Hide 10 ranks, Move Silently 10 ranks. Feats: Improved Initiative. Special: Evasion class feature. Special: The character must undergo intensive training and tests with the Nightsong Guild before she can gain the class abilities.
 CLASS:Nightsong Enforcer	STARTSKILLPTS:4	CSKILL:Balance|Climb|Disable Device|Disguise|Escape Artist|Hide|Intimidate|Jump|Listen|Move Silently|Open Lock|TYPE=Profession|Ride|Search|Spot|Swim|Tumble
 ###Block
@@ -385,7 +385,7 @@ CLASS:Nightsong Enforcer	STARTSKILLPTS:4	CSKILL:Balance|Climb|Disable Device|Dis
 
 
 # Class Name
-CLASS:Nightsong Infiltrator	SOURCEPAGE:p.62	TYPE:PC.Prestige	HD:6	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	DEFINE:NightsongInfiltratorLVL|0	BONUS:VAR|NightsongInfiltratorLVL|CL
+CLASS:Nightsong Infiltrator	SOURCEPAGE:p.62	TYPE:PC.Prestige	HD:6		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4		BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	DEFINE:NightsongInfiltratorLVL|0	BONUS:VAR|NightsongInfiltratorLVL|CL
 CLASS:Nightsong Infiltrator	PRESKILL:4,Climb=10,Disable Device=5,Open Lock=5,Search=5	PREFEAT:1,Alertness	PREABILITY:1,CATEGORY=Special Ability,TYPE.Evasion	PRETEXT:Skills: Climb 10 ranks, Disable Device 5 ranks, Open Lock 5 ranks, Search 5 ranks. Feats: Alertness. Special: Evasion class feature. Special: The character must undergo intensive training and tests with the Nightsong Guild before she can gain the class abilities.
 CLASS:Nightsong Infiltrator	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE=Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Jump|Listen|Move Silently|Open Lock|TYPE=Profession|Ride|Search|Sleight of Hand|Spot|Swim|Tumble|Use Magic Device|Use Rope
 ###Block
@@ -409,7 +409,7 @@ CLASS:Nightsong Infiltrator	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|
 
 
 # Class Name
-CLASS:Ollam	SOURCEPAGE:p.66	TYPE:PC.Prestige	HD:8	MAXLEVEL:5	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Ollam	SOURCEPAGE:p.66	TYPE:PC.Prestige	HD:8	MAXLEVEL:5		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2		BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 CLASS:Ollam	PREALIGN:LG	PRESKILL:2,Knowledge (History)=10,Perform (Oratory)=5	PRESKILL:2,TYPE.Knowledge=10	PRERACE:1,RACESUBTYPE=Dwarf,Dwarf	PRETEXT:Race: Dwarf. Alignment: Lawful good. Skills: Knowledge (history) 10 ranks, Knowledge (any other) 10 ranks, Perform (oratory) 5 ranks.
 CLASS:Ollam	STARTSKILLPTS:6	CSKILL:Concentration|TYPE=Craft|Decipher Script|Diplomacy|Gather Information|Heal|TYPE=Knowledge|Listen|TYPE=Perform|Search|Sense Motive|Speak Language|Spellcraft
 ###Block
@@ -425,7 +425,7 @@ CLASS:Ollam	STARTSKILLPTS:6	CSKILL:Concentration|TYPE=Craft|Decipher Script|Dipl
 
 
 # Class Name
-CLASS:Shadowbane Inquisitor	SOURCEPAGE:p.68	TYPE:PC.Prestige	HD:10	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	DEFINE:ShadowbaneInquisitorLVL|0	BONUS:VAR|ShadowbaneInquisitorLVL|CL
+CLASS:Shadowbane Inquisitor	SOURCEPAGE:p.68	TYPE:PC.Prestige	HD:10		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")		BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	DEFINE:ShadowbaneInquisitorLVL|0	BONUS:VAR|ShadowbaneInquisitorLVL|CL
 CLASS:Shadowbane Inquisitor	PREALIGN:LG	PREMULT:1,[PREATT:5],[PREVARGTEQ:BaseAttackBonus,5]	PRESKILL:3,Gather Information=4,Knowledge (Religion)=2,Sense Motive=8	PREFEAT:1,Power Attack	PREMULT:1,[PRESPELL:1,Detect Evil],[PREABILITY:1,CATEGORY=Special Ability,TYPE.Detect Evil]	PREABILITY:1,CATEGORY=Special Ability,TYPE.Turn Undead	PREABILITY:1,CATEGORY=Special Ability,TYPE.Sneak Attack	PRETEXT:Alignment: Lawful good. Base Attack: +5. Skills: Gather Information 4 ranks, Knowledge (religion) 2 ranks, Sense Motive 8 ranks. Feats: Power Attack. Special: Detect evil class feature or ability to cast detect evil as a divine spell. Special: Turn undead class feature. Special: Sneak attack class feature.
 CLASS:Shadowbane Inquisitor	STARTSKILLPTS:4	CSKILL:Climb|Concentration|TYPE=Craft|Decipher Script|Gather Information|Heal|Hide|Jump|Knowledge (Religion)|Move Silently|TYPE=Profession|Search|Sense Motive|Swim
 ###Block
@@ -445,7 +445,7 @@ CLASS:Shadowbane Inquisitor	STARTSKILLPTS:4	CSKILL:Climb|Concentration|TYPE=Craf
 
 
 # Class Name
-CLASS:Shadowbane Stalker	SOURCEPAGE:p.70	TYPE:PC.Prestige	HD:8	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	DEFINE:ShadowbaneStalkerLVL|0	BONUS:VAR|ShadowbaneStalkerLVL|CL
+CLASS:Shadowbane Stalker	SOURCEPAGE:p.70	TYPE:PC.Prestige	HD:8		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4		BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:SAVE|BASE.Will,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	DEFINE:ShadowbaneStalkerLVL|0	BONUS:VAR|ShadowbaneStalkerLVL|CL
 CLASS:Shadowbane Stalker	PREALIGN:LG	PRESKILL:3,Gather Information=8,Search=4,Sense Motive=4	PREMULT:1,[PRESPELL:1,Detect Evil],[PREABILITY:1,CATEGORY=Special Ability,TYPE.Detect Evil]	PREABILITY:1,CATEGORY=Special Ability,TYPE.Sneak Attack	PRETEXT:Alignment: Lawful good. Skills: Gather Information 8 ranks, Search 4 ranks, Sense Motive 4 ranks. Special: Detect evil class feature or ability to cast detect evil as a divine spell. Special: Sneak attack +1d6.
 CLASS:Shadowbane Stalker	STARTSKILLPTS:6	CSKILL:Appraise|Balance|Climb|Concentration|TYPE=Craft|Decipher Script|Disable Device|Escape Artist|Gather Information|Heal|Hide|Jump|Knowledge (History)|Knowledge (Nature)|Knowledge (Religion)|Knowledge (The Planes)|Listen|Move Silently|Open Lock|TYPE=Profession|Search|Sense Motive|Sleight of Hand|Spellcraft|Spot|Tumble|Use Magic Device|Use Rope
 ###Block
@@ -471,7 +471,7 @@ CLASS:Shadowbane Stalker	STARTSKILLPTS:6	CSKILL:Appraise|Balance|Climb|Concentra
 
 
 # Class Name
-CLASS:Shadowmind	SOURCEPAGE:p.74	TYPE:PC.Prestige	HD:6	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	DEFINE:ShadowmindLVL|0	BONUS:VAR|ShadowmindLVL|CL
+CLASS:Shadowmind	SOURCEPAGE:p.74	TYPE:PC.Prestige	HD:6		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4		BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	DEFINE:ShadowmindLVL|0	BONUS:VAR|ShadowmindLVL|CL
 CLASS:Shadowmind	PREMULT:1,[PREATT:3],[PREVARGTEQ:BaseAttackBonus,3]	PRESKILL:3,Hide=5,Move Silently=5,Sleight of Hand=3	PRETEXT:Base Attack Bonus: +3. Skills: Hide 5 ranks, Move Silently 5 Ranks, Sleight of Hand 3 ranks. Special: Manifester level 3rd. Special: Able to manifest concealing amorpha.
 CLASS:Shadowmind	STARTSKILLPTS:4	CSKILL:Autohypnosis|Bluff|Concentration|TYPE=Craft|Disable Device|Escape Artist|Hide|Jump|Knowledge (Psionics)|Listen|Move Silently|Open Lock|Psicraft|Search|Sense Motive|Sleight of Hand|Spot|Tumble
 ###Block
@@ -487,8 +487,8 @@ CLASS:Shadowmind	STARTSKILLPTS:4	CSKILL:Autohypnosis|Bluff|Concentration|TYPE=Cr
 
 
 # Class Name
-CLASS:Spymaster	TYPE:PC.Prestige	SOURCEPAGE:p.76	HD:6	MAXLEVEL:7	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	DEFINE:SpymasterLVL|0	BONUS:VAR|SpymasterLVL|CL
-CLASS:Spymaster	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4
+CLASS:Spymaster	TYPE:PC.Prestige	SOURCEPAGE:p.76	HD:6	MAXLEVEL:7		BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	DEFINE:SpymasterLVL|0	BONUS:VAR|SpymasterLVL|CL
+CLASS:Spymaster		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4
 CLASS:Spymaster	PRESKILL:6,Bluff=8,Diplomacy=4,Disguise=8,Forgery=4,Gather Information=4,Sense Motive=4	PREFEAT:1,Skill Focus (Bluff)	PRETEXT:Skills: Bluff 8 ranks, Diplomacy 4 ranks, Disguise 8 ranks, Forgery 4 ranks, Gather Information 4 ranks, Sense Motive 4 ranks. Feat: Skill Focus (Bluff).
 CLASS:Spymaster	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Intimidate|Jump|Knowledge (Geography)|Knowledge (History)|Knowledge (Local)|Knowledge (Nobility and Royalty)|Listen|Move Silently|Open Lock|Search|Sense Motive|Sleight of Hand|Speak Language|Spot|Swim|Tumble|Use Magic Device|Use Rope
 ###Block
@@ -507,7 +507,7 @@ CLASS:Spymaster	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|Decipher Scr
 
 
 # Class Name
-CLASS:Streetfighter	SOURCEPAGE:p.79	TYPE:PC.Prestige	HD:8	MAXLEVEL:5	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	DEFINE:StreetfighterLVL|0	BONUS:VAR|StreetfighterLVL|CL
+CLASS:Streetfighter	SOURCEPAGE:p.79	TYPE:PC.Prestige	HD:8	MAXLEVEL:5		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")		BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	DEFINE:StreetfighterLVL|0	BONUS:VAR|StreetfighterLVL|CL
 CLASS:Streetfighter	PREMULT:1,[PREATT:5],[PREVARGTEQ:BaseAttackBonus,5]	PRESKILL:3,Bluff=5,Intimidate=5,Knowledge (Local)=5	PREFEAT:2,Combat Expertise,Improved Feint	PRETEXT:Base Attack Bonus: +5. Skills: Bluff 5 ranks, Intimidate 5 ranks, Knowledge (local) 5 ranks. Feats: Combat Expertise, Improved Feint.
 CLASS:Streetfighter	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Disable Device|Hide|Intimidate|Jump|Knowledge (Local)|Listen|Move Silently|Open Lock|Ride|Search|Spot|Tumble
 ###Block
@@ -520,7 +520,7 @@ CLASS:Streetfighter	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Disable Device|Hide|Intim
 
 
 # Class Name
-CLASS:Tempest	SOURCEPAGE:p.81	TYPE:PC.Prestige	HD:10	MAXLEVEL:5		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	DEFINE:TempestLVL|0	BONUS:VAR|TempestLVL|CL
+CLASS:Tempest	SOURCEPAGE:p.81	TYPE:PC.Prestige	HD:10	MAXLEVEL:5			BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")		BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	DEFINE:TempestLVL|0	BONUS:VAR|TempestLVL|CL
 CLASS:Tempest	PREMULT:1,[PREATT:6],[PREVARGTEQ:BaseAttackBonus,6]	PREFEAT:5,Dodge,Improved Two-Weapon Fighting,Mobility,Spring Attack,Two-Weapon Fighting	PRETEXT:Base Attack Bonus: +6. Feats: Dodge, Improved Two-Weapon Fighting, Mobility, Spring Attack, Two-Weapon Fighting.
 CLASS:Tempest	STARTSKILLPTS:2	CSKILL:Balance|Climb|TYPE=Craft|Jump|Sleight of Hand|Tumble
 ###Block
@@ -532,7 +532,7 @@ CLASS:Tempest	STARTSKILLPTS:2	CSKILL:Balance|Climb|TYPE=Craft|Jump|Sleight of Ha
 
 
 # Class Name
-CLASS:Thief-Acrobat	SOURCEPAGE:p.83	TYPE:PC.Prestige	HD:6	MAXLEVEL:5	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	DEFINE:ThiefAcrobatLVL|0	BONUS:VAR|ThiefAcrobatLVL|CL
+CLASS:Thief-Acrobat	SOURCEPAGE:p.83	TYPE:PC.Prestige	HD:6	MAXLEVEL:5		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4		BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	DEFINE:ThiefAcrobatLVL|0	BONUS:VAR|ThiefAcrobatLVL|CL
 CLASS:Thief-Acrobat	PRESKILL:4,Balance=8,Climb=8,Jump=8,Tumble=8	PREABILITY:1,CATEGORY=Special Ability,TYPE.Evasion	PRETEXT:Skills: Balance 8 ranks, Climb 8 ranks, Jump 8 ranks, Tumble 8 ranks. Special: Evasion class feature.
 CLASS:Thief-Acrobat	STARTSKILLPTS:6	CSKILL:Appraise|Balance|Climb|TYPE=Craft|Disable Device|Escape Artist|Hide|Jump|Move Silently|Open Lock|TYPE=Perform|Search|Tumble|Use Rope
 ###Block
@@ -549,7 +549,7 @@ CLASS:Thief-Acrobat	STARTSKILLPTS:6	CSKILL:Appraise|Balance|Climb|TYPE=Craft|Dis
 
 
 # Class Name
-CLASS:Vigilante	SOURCEPAGE:p.85	TYPE:PC.Prestige	HD:8	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	DEFINE:VigilanteLVL|0	BONUS:VAR|VigilanteLVL|CL
+CLASS:Vigilante	SOURCEPAGE:p.85	TYPE:PC.Prestige	HD:8		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4		BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	DEFINE:VigilanteLVL|0	BONUS:VAR|VigilanteLVL|CL
 CLASS:Vigilante	!PREALIGN:NE,CE,LE	PREMULT:1,[PREATT:4],[PREVARGTEQ:BaseAttackBonus,4]	PRESKILL:5,Gather Information=8,Intimidate=4,Knowledge (Local)=8,Search=4,Sense Motive=8	PREFEAT:1,Alertness	PRETEXT:Alignment: Any nonevil. Base Attack Bonus: +4. Skills: Gather Information 8 ranks, Intimidate 4 ranks, Knowledge (local) 8 ranks, Search 4 ranks, Sense Motive 8 ranks. Feats: Alertness.
 CLASS:Vigilante	STARTSKILLPTS:6	CSKILL:Balance|Climb|TYPE=Craft|Disable Device|Disguise|Escape Artist|Gather Information|Hide|Intimidate|Jump|Knowledge (Local)|Move Silently|Open Lock|TYPE=Perform|Search|Sense Motive|Tumble|Use Rope
 CLASS:Vigilante	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Vigilante|CL
@@ -591,7 +591,7 @@ CLASS:Vigilante	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Vig
 
 
 # Class Name
-CLASS:Virtuoso	SOURCEPAGE:p.89	TYPE:PC.Prestige	HD:6	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Virtuoso	SOURCEPAGE:p.89	TYPE:PC.Prestige	HD:6		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4		BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3		BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 CLASS:Virtuoso	PRESKILL:2,Diplomacy=4,Intimidate=4	PRESKILL:1,TYPE.Perform=10	PRESPELLTYPE:1,Arcane=1	PRETEXT:Skills: Diplomacy 4 ranks, Intimidate 4 ranks, Perform (any) 10 ranks. Spells: Arcane caster level 1st
 CLASS:Virtuoso	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Concentration|TYPE=Craft|Diplomacy|Disguise|Escape Artist|Gather Information|Intimidate|Jump|TYPE=Perform|Spellcraft|Tumble
 ###Block
@@ -614,7 +614,7 @@ CLASS:Virtuoso	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Concentration|TYPE=Craft|Dip
 
 
 # Class Name
-CLASS:Wild Plains Outrider	SOURCEPAGE:p.92	TYPE:PC.Prestige	HD:8	MAXLEVEL:3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Wild Plains Outrider	SOURCEPAGE:p.92	TYPE:PC.Prestige	HD:8	MAXLEVEL:3		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")		BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3		BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
 CLASS:Wild Plains Outrider	PREABILITY:1,CATEGORY=Special Ability,TYPE.Animal Companion,TYPE.Special Mount	PREFEAT:2,Mounted Combat,Track	PRESKILL:1,Ride=9	PRETEXT:Skills: Ride 9 ranks. Feats: Mounted Combat, Track. Special: Animal companion large enough to serve as a mount, or a paladin's special mount.
 CLASS:Wild Plains Outrider	STARTSKILLPTS:4	CSKILL:Balance|Handle Animal|Jump|Knowledge (Nature)|Listen|Move Silently|Ride|Spot|Survival|Swim
 ###Block
