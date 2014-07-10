@@ -1,10 +1,10 @@
-# CVS $Revision: $ $Author: $ -- Sun Dec  8 22:17:49 2013 -- reformated by prettylst.pl v1.50 (build 22352)
+# CVS $Revision: $ $Author: $ -- Thu Jul 10 13:59:32 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Monte Cook's World of Darkness d20	SOURCESHORT:mc_wod	SOURCEDATE:2009-01
 
 ###Block: Awakened ----------------------------------------------------------------
 
-# Class Name	Hit Dice	Type			Abbreviation	Source Page		Save checks bonus													Combat bonus
-CLASS:Awakened	HD:8		TYPE:Base.PC	ABB:Awakened	SOURCEPAGE:p.59	BONUS:SAVE|BASE.Will|(CL/2)+4	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(CL+2)/2	BONUS:COMBAT|BASEAB|(CL-1*3/4)+3|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Type			Abbreviation	Source Page		Combat bonus							Bonus
+CLASS:Awakened	HD:8		TYPE:Base.PC	ABB:Awakened	SOURCEPAGE:p.59	BONUS:COMBAT|BASEAB|(CL-1*3/4)+3|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|(CL/2)+4	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(CL+2)/2
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Awakened	STARTSKILLPTS:8	MODTOSKILLS:YES
 1														ABILITY:Special Ability|AUTOMATIC|HitPointBoost~d8
@@ -34,8 +34,8 @@ CLASS:Awakened	STARTSKILLPTS:8	MODTOSKILLS:YES
 
 ###Block: Demon ----------------------------------------------------------------------
 
-# Class Name	Type			Abbreviation	Base class as subclass?	Source Page		Save checks bonus													Combat bonus
-CLASS:Demon		TYPE:Base.PC	ABB:Demon		ALLOWBASECLASS:NO		SOURCEPAGE:p.59	BONUS:SAVE|BASE.Will|(CL/2)+4	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(CL+2)/2	BONUS:COMBAT|BASEAB|(CL-1*3/4)+3|TYPE=Base.REPLACE
+# Class Name	Type			Abbreviation	Base class as subclass?	Source Page		Combat bonus							Bonus
+CLASS:Demon		TYPE:Base.PC	ABB:Demon		ALLOWBASECLASS:NO		SOURCEPAGE:p.59	BONUS:COMBAT|BASEAB|(CL-1*3/4)+3|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|(CL/2)+4	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(CL+2)/2
 # Class Name	Skill Pts/Lvl
 CLASS:Demon		STARTSKILLPTS:4
 SUBCLASS:Scourge	HD:10	ABB:Scourge Demon	COST:0
@@ -56,8 +56,8 @@ SUBCLASSLEVEL:20									ABILITY:Special Ability|AUTOMATIC|Tempter~3rd
 
 ###Block: Mage ----------------------------------------------------------------------
 
-# Class Name	Hit Dice	Type			Abbreviation	Base class as subclass?	Save checks bonus																Combat bonus
-CLASS:Mage		HD:6		TYPE:Base.PC	ABB:Mage		ALLOWBASECLASS:NO		BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3+1	BONUS:SAVE|BASE.Reflex|CL+1/2	BONUS:SAVE|BASE.Will|(CL+1)/2+3	BONUS:COMBAT|BASEAB|(CL-1)/2+2
+# Class Name	Hit Dice	Type			Abbreviation	Base class as subclass?	Combat bonus				Bonus
+CLASS:Mage		HD:6		TYPE:Base.PC	ABB:Mage		ALLOWBASECLASS:NO		BONUS:COMBAT|BASEAB|(CL-1)/2+2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3+1	BONUS:SAVE|BASE.Reflex|CL+1/2	BONUS:SAVE|BASE.Will|(CL+1)/2+3
 # Class Name	Skill Pts/Lvl
 CLASS:Mage		STARTSKILLPTS:4
 SUBCLASS:Enchanter	COST:0
@@ -65,17 +65,17 @@ SUBCLASS:Warlock		COST:0
 SUBCLASS:Necromancer	COST:0
 SUBCLASS:Theurgist	COST:0
 SUBCLASS:Shaman		COST:0
-1														BONUS:STAT|INT|2						ABILITY:Special Ability|AUTOMATIC|All Automatic Weapons|HitPointBoost~d6|Mage Automatic|MoveBonus
-1																	BONUS:VAR|Components|45
-1																	BONUS:VAR|Components|15*CL
-1																	BONUS:VAR|Components|CL*INT	ABILITY:Special Ability|AUTOMATIC|MageComponents
+1																				BONUS:STAT|INT|2						ABILITY:Special Ability|AUTOMATIC|All Automatic Weapons|HitPointBoost~d6|Mage Automatic|MoveBonus
+1																							BONUS:VAR|Components|45
+1																							BONUS:VAR|Components|15*CL
+1																							BONUS:VAR|Components|CL*INT	ABILITY:Special Ability|AUTOMATIC|MageComponents
 1	BONUS:ABILITYPOOL|Mage Gnosis|(CL/2)+1
 1								BONUS:COMBAT|AC|(classlevel("APPLIEDAS=NONEPIC")/3)+1|TYPE=Defense
 
 ###Block: Vampire -------------------------------------------------------------
 
-# Class Name	Hit Dice	Type			Abbreviation	Base class as subclass?	Save checks bonus									Combat bonus
-CLASS:Vampire	HD:8		TYPE:Base.PC	ABB:Vampire		ALLOWBASECLASS:NO		BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|(CL-1)/2+4	BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")*3/4)+3
+# Class Name	Hit Dice	Type			Abbreviation	Base class as subclass?	Combat bonus								Bonus
+CLASS:Vampire	HD:8		TYPE:Base.PC	ABB:Vampire		ALLOWBASECLASS:NO		BONUS:COMBAT|BASEAB|(classlevel("APPLIEDAS=NONEPIC")*3/4)+3	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|(CL-1)/2+4
 # Class Name	Skill Pts/Lvl
 CLASS:Vampire	STARTSKILLPTS:4
 SUBCLASS:Daeva		ABB:Daeva Vampire		COST:0	BONUS:SAVE|Will|-2	BONUS:STAT|CHA|2
@@ -100,8 +100,8 @@ SUBCLASS:Ventrue		ABB:Ventrue Vampire	COST:0					BONUS:STAT|INT|2	BONUS:STAT|WIS
 
 ###Block: Werewolf ------------------------------------------------------------------
 
-# Class Name	Hit Dice	Type			Abbreviation	Base class as subclass?	Save checks bonus																Combat bonus
-CLASS:Werewolf	HD:12		TYPE:Base.PC	ABB:Werewolf	ALLOWBASECLASS:NO		BONUS:SAVE|BASE.Reflex|CL/2+1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3+1	BONUS:SAVE|BASE.Fortitude|(CL-1)/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")+3
+# Class Name	Hit Dice	Type			Abbreviation	Base class as subclass?	Combat bonus							Bonus
+CLASS:Werewolf	HD:12		TYPE:Base.PC	ABB:Werewolf	ALLOWBASECLASS:NO		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")+3	BONUS:SAVE|BASE.Reflex|CL/2+1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3+1	BONUS:SAVE|BASE.Fortitude|(CL-1)/2+2
 # Class Name	Skill Pts/Lvl
 CLASS:Werewolf	STARTSKILLPTS:2
 SUBCLASS:Rahu	ABB:Rahu Werewolf		COST:0	BONUS:STAT|STR|2
@@ -114,17 +114,17 @@ SUBCLASS:Ithaeur	ABB:Ithaeur Werewolf	COST:0	BONUS:STAT|WIS|2
 SUBCLASSLEVEL:1	TEMPLATE:Ithaeur
 SUBCLASS:Irraka	ABB:Irraka Werewolf	COST:0	BONUS:STAT|DEX|2
 SUBCLASSLEVEL:1	TEMPLATE:Irraka
-1																BONUS:STAT|STR,CON|2															ABILITY:Special Ability|AUTOMATIC|All Automatic Weapons|Beast Form|Hardiness|Hybrid Form|Pack Mentality|Silver Vulnerability|Sprint Healing|Werewolf Essence|Werewolf Heal Wounds|Werewolf Shapechanging
-1															ABILITY|Special Ability|AUTOMATIC|Werewolf Hybrid Attacks|Werewolf Wolf Attacks
+1																BONUS:STAT|STR,CON|2	ABILITY:Special Ability|AUTOMATIC|All Automatic Weapons|Beast Form|Hardiness|Hybrid Form|Pack Mentality|Silver Vulnerability|Sprint Healing|Werewolf Essence|Werewolf Heal Wounds|Werewolf Shapechanging
+1																																																						ABILITY|Special Ability|AUTOMATIC|Werewolf Hybrid Attacks|Werewolf Wolf Attacks:
 1	BONUS:ABILITYPOOL|Werewolf Rite|(CL/2)+1
 1								BONUS:COMBAT|AC|((CL-1)/2)+2|TYPE=RacialBonus
-1																																		ABILITY:Special Ability|AUTOMATIC|HitPointBoost~d12|MoveBonus
+1																				ABILITY:Special Ability|AUTOMATIC|HitPointBoost~d12|MoveBonus
 
 
 ###Block: Common Humans
 
-# Class Name	Hit Dice	Save checks bonus											Combat bonus
-CLASS:Human		HD:8		BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE
+# Class Name	Hit Dice	Combat bonus										Bonus
+CLASS:Human		HD:8		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Skill Pts/Lvl
 CLASS:Human		STARTSKILLPTS:3
 

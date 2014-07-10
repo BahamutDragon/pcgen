@@ -1,56 +1,71 @@
-# CVS $Revision: $ $Author: $ -- Mon Feb 17 18:13:34 2014 -- reformated by prettylst.pl v1.51 (build 22988)
+# CVS $Revision: $ $Author: $ -- Thu Jul 10 13:59:32 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Player's Handbook v.4.0	SOURCESHORT:PH	SOURCEWEB:http://www.wizards.com/welcome.asp	SOURCEDATE:2008-06
 
-# Class Name	Type			Abbreviation	Max Level	Source Page		Ability							Define			Save checks bonus				Bonus to HP										Modify VAR
+# Class Name	Type			Abbreviation	Max Level	Source Page		Ability							Define			Modify VAR
 CLASS:Cleric	TYPE:Base.PC	ABB:Clr		MAXLEVEL:30	SOURCEPAGE:p.60	ABILITY:Internal|AUTOMATIC|Class Progression	DEFINE:ClericLVL|0	BONUS:VAR|ClericLVL|CL
 # Class Name	Multiple Requirements
-CLASS:Cleric	PREMULT:1,[!PRECLASS:1,%],[PRECLASS:1,Cleric=1]	STARTSKILLPTS:0	MODTOSKILLS:NO
+CLASS:Cleric	PREMULT:1,[!PRECLASS:1,%],[PRECLASS:1,Cleric=1]
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Cleric	STARTSKILLPTS:0	MODTOSKILLS:NO
 
 
-# Class Name	Type			Abbreviation	Max Level	Source Page		Ability							Save checks bonus				Bonus to HP
-CLASS:Fighter	TYPE:Base.PC	ABB:Ftr		MAXLEVEL:30	SOURCEPAGE:p.75	ABILITY:Internal|AUTOMATIC|Class Progression		BONUS:VAR|FighterLVL|CL	DEFINE:FighterLVL|0
+# Class Name	Type			Abbreviation	Max Level	Source Page		Ability							Define			Modify VAR
+CLASS:Fighter	TYPE:Base.PC	ABB:Ftr		MAXLEVEL:30	SOURCEPAGE:p.75	ABILITY:Internal|AUTOMATIC|Class Progression	DEFINE:FighterLVL|0	BONUS:VAR|FighterLVL|CL
 # Class Name	Multiple Requirements
-CLASS:Fighter	PREMULT:1,[!PRECLASS:1,%],[PRECLASS:1,Fighter=1]	STARTSKILLPTS:0	MODTOSKILLS:NO
+CLASS:Fighter	PREMULT:1,[!PRECLASS:1,%],[PRECLASS:1,Fighter=1]
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Fighter	STARTSKILLPTS:0	MODTOSKILLS:NO
 ###Block: Basics
 
-# Class Name	Type			Abbreviation	Max Level	Source Page		Ability							Save checks bonus						Bonus to HP
-CLASS:Paladin	TYPE:Base.PC	ABB:Pal		MAXLEVEL:30	SOURCEPAGE:p.89	ABILITY:Internal|AUTOMATIC|Class Progression
+# Class Name	Type			Abbreviation	Max Level	Source Page		Ability							Define			Modify VAR
+CLASS:Paladin	TYPE:Base.PC	ABB:Pal		MAXLEVEL:30	SOURCEPAGE:p.89	ABILITY:Internal|AUTOMATIC|Class Progression	DEFINE:PaladinLVL|0	BONUS:VAR|PaladinLVL|CL
 # Class Name	Multiple Requirements
-CLASS:Paladin	PREMULT:1,[!PRECLASS:1,%],[PRECLASS:1,Paladin=1]	STARTSKILLPTS:0	MODTOSKILLS:NO	BONUS:VAR|PaladinLVL|CL			DEFINE:PaladinLVL|0
+CLASS:Paladin	PREMULT:1,[!PRECLASS:1,%],[PRECLASS:1,Paladin=1]
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Paladin	STARTSKILLPTS:0	MODTOSKILLS:NO
 ###Block: Basics
 
-# Class Name	Type			Abbreviation	Max Level	Source Page		Ability							Save checks bonus						Bonus to HP
-CLASS:Ranger	TYPE:Base.PC	ABB:Rng		MAXLEVEL:30	SOURCEPAGE:p.103	ABILITY:Internal|AUTOMATIC|Class Progression
+# Class Name	Type			Abbreviation	Max Level	Source Page		Ability							Define			Modify VAR
+CLASS:Ranger	TYPE:Base.PC	ABB:Rng		MAXLEVEL:30	SOURCEPAGE:p.103	ABILITY:Internal|AUTOMATIC|Class Progression	DEFINE:RangerLVL|0	BONUS:VAR|RangerLVL|CL
 # Class Name	Multiple Requirements
-CLASS:Ranger	PREMULT:1,[!PRECLASS:1,%],[PRECLASS:1,Ranger=1]	STARTSKILLPTS:0	MODTOSKILLS:NO	BONUS:VAR|RangerLVL|CL			DEFINE:RangerLVL|0
-###Block: Basics
-							
-
-# Class Name	Type			Abbreviation	Max Level	Source Page		Ability							Save checks bonus				Bonus to HP
-CLASS:Rogue		TYPE:Base.PC	ABB:Rog		MAXLEVEL:30	SOURCEPAGE:p.115	ABILITY:Internal|AUTOMATIC|Class Progression
-# Class Name	Multiple Requirements
-CLASS:Rogue		PREMULT:1,[!PRECLASS:1,%],[PRECLASS:1,Rogue=1]	STARTSKILLPTS:0	MODTOSKILLS:NO		BONUS:VAR|RogueLVL|CL				DEFINE:RogueLVL|0
-###Block: Basics
-
-
-
-# Class Name	Type			Abbreviation	Max Level	Source Page		Ability							Save checks bonus					Bonus to HP
-CLASS:Warlock	TYPE:Base.PC	ABB:Wlk		MAXLEVEL:30	SOURCEPAGE:p.129	ABILITY:Internal|AUTOMATIC|Class Progression
-# Class Name	Multiple Requirements
-CLASS:Warlock	PREMULT:1,[!PRECLASS:1,%],[PRECLASS:1,Warlock=1]		STARTSKILLPTS:0	MODTOSKILLS:NO	BONUS:VAR|WarlockLVL|CL			DEFINE:WarlockLVL|0
+CLASS:Ranger	PREMULT:1,[!PRECLASS:1,%],[PRECLASS:1,Ranger=1]
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Ranger	STARTSKILLPTS:0	MODTOSKILLS:NO
 ###Block: Basics
 
 
-
-# Class Name	Type			Abbreviation	Max Level	Source Page		Ability							Save checks bonus					Bonus to HP
-CLASS:Warlord	TYPE:Base.PC	ABB:Wld		MAXLEVEL:30	SOURCEPAGE:p.143	ABILITY:Internal|AUTOMATIC|Class Progression
+# Class Name	Type			Abbreviation	Max Level	Source Page		Ability							Define		Modify VAR
+CLASS:Rogue		TYPE:Base.PC	ABB:Rog		MAXLEVEL:30	SOURCEPAGE:p.115	ABILITY:Internal|AUTOMATIC|Class Progression	DEFINE:RogueLVL|0	BONUS:VAR|RogueLVL|CL
 # Class Name	Multiple Requirements
-CLASS:Warlord	PREMULT:1,[!PRECLASS:1,%],[PRECLASS:1,Warlord=1]	STARTSKILLPTS:0	MODTOSKILLS:NO	BONUS:VAR|WarlordLVL|CL			DEFINE:WarlordLVL|0
+CLASS:Rogue		PREMULT:1,[!PRECLASS:1,%],[PRECLASS:1,Rogue=1]
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Rogue		STARTSKILLPTS:0	MODTOSKILLS:NO
 ###Block: Basics
 
 
-# Class Name	Type			Abbreviation	Max Level	Source Page		Ability							Save checks bonus				Bonus to HP
-CLASS:Wizard	TYPE:Base.PC	ABB:Wiz		MAXLEVEL:30	SOURCEPAGE:p.156	ABILITY:Internal|AUTOMATIC|Class Progression
-# Class Name	Multiple Requirements
-CLASS:Wizard	PREMULT:1,[!PRECLASS:1,%],[PRECLASS:1,Wizard=1]	STARTSKILLPTS:0	MODTOSKILLS:NO	BONUS:VAR|WizardLVL|CL			DEFINE:WizardLVL|0
 
+# Class Name	Type			Abbreviation	Max Level	Source Page		Ability							Define			Modify VAR
+CLASS:Warlock	TYPE:Base.PC	ABB:Wlk		MAXLEVEL:30	SOURCEPAGE:p.129	ABILITY:Internal|AUTOMATIC|Class Progression	DEFINE:WarlockLVL|0	BONUS:VAR|WarlockLVL|CL
+# Class Name	Multiple Requirements
+CLASS:Warlock	PREMULT:1,[!PRECLASS:1,%],[PRECLASS:1,Warlock=1]
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Warlock	STARTSKILLPTS:0	MODTOSKILLS:NO
+###Block: Basics
+
+
+
+# Class Name	Type			Abbreviation	Max Level	Source Page		Ability							Define			Modify VAR
+CLASS:Warlord	TYPE:Base.PC	ABB:Wld		MAXLEVEL:30	SOURCEPAGE:p.143	ABILITY:Internal|AUTOMATIC|Class Progression	DEFINE:WarlordLVL|0	BONUS:VAR|WarlordLVL|CL
+# Class Name	Multiple Requirements
+CLASS:Warlord	PREMULT:1,[!PRECLASS:1,%],[PRECLASS:1,Warlord=1]
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Warlord	STARTSKILLPTS:0	MODTOSKILLS:NO
+###Block: Basics
+
+
+# Class Name	Type			Abbreviation	Max Level	Source Page		Ability							Define			Modify VAR
+CLASS:Wizard	TYPE:Base.PC	ABB:Wiz		MAXLEVEL:30	SOURCEPAGE:p.156	ABILITY:Internal|AUTOMATIC|Class Progression	DEFINE:WizardLVL|0	BONUS:VAR|WizardLVL|CL
+# Class Name	Multiple Requirements
+CLASS:Wizard	PREMULT:1,[!PRECLASS:1,%],[PRECLASS:1,Wizard=1]
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Wizard	STARTSKILLPTS:0	MODTOSKILLS:NO

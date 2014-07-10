@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Wed Feb 26 18:18:46 2014 -- reformated by prettylst.pl v1.51 (build 22988)
+# CVS $Revision: $ $Author: $ -- Thu Jul 10 14:45:53 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Book of Vile Darkness	SOURCESHORT:BV	SOURCEDATE:2002-10
 
 #########################
@@ -7,18 +7,18 @@ SOURCELONG:Book of Vile Darkness	SOURCESHORT:BV	SOURCEDATE:2002-10
 
 ###Block: Prestige
 
-# Class Name	Hit Dice	Type				Abbreviation	Max Level	Source Page		Visible	Save checks bonus															Combat bonus							Modify VAR
-CLASS:Cancer Mage	HD:6		TYPE:PC.Prestige.Vile	ABB:Cam		SOURCEPAGE:p.52	VISIBLE:NO		BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+# Class Name	Hit Dice	Type				Abbreviation	Source Page		Visible	Combat bonus												Modify VAR														Bonus
+CLASS:Cancer Mage	HD:6		TYPE:PC.Prestige.Vile	ABB:Cam		SOURCEPAGE:p.52	VISIBLE:NO	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Required AL		Required Check Base		Required Feat							Required Skill													Required Text
 CLASS:Cancer Mage	PREALIGN:LE,NE,CE	PRECHECKBASE:1,Fortitude=5	PREFEAT:3,Great Fortitude,Poison Immunity,Toughness	PRESKILL:1,Heal=3	PRESKILL:2,Hide=6,Move Silently=6	PRESKILL:1,Knowledge (Religion)=2	PRETEXT:must have fallen victim to the ravages of a disease and must have taken damage from a poison.
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Cancer Mage	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Disable Device|Disguise|Escape Artist|Gather Information|Heal|Hide|Intimidate|Jump|Knowledge (Nature)|Listen|Move Silently|Sleight of Hand|TYPE=Profession|Ride|Search|Sense Motive|Spot|Swim|Tumble|Use Rope|Survival
 ###Block
-1	BONUS:VAR|CancerMageSneakAttackLVL|CL										
-2	BONUS:VAR|ContagionPerDay|CL	BONUS:VAR|ContagionLVL|CL	BONUS:VAR|CancerousCompanionLVL|CL	
-3	BONUS:VAR|PoisonPerDay|CL	BONUS:VAR|PoisonLVL|CL								
-6	BONUS:VAR|CancerMageInfectedWoundLVL|CL										
-7	BONUS:VAR|InsectPlaguePerDay|1	BONUS:VAR|InsectPlagueLVL|CL						
+1	BONUS:VAR|CancerMageSneakAttackLVL|CL
+2	BONUS:VAR|ContagionPerDay|CL	BONUS:VAR|ContagionLVL|CL	BONUS:VAR|CancerousCompanionLVL|CL
+3	BONUS:VAR|PoisonPerDay|CL	BONUS:VAR|PoisonLVL|CL
+6	BONUS:VAR|CancerMageInfectedWoundLVL|CL
+7	BONUS:VAR|InsectPlaguePerDay|1	BONUS:VAR|InsectPlagueLVL|CL
 ###Block
 1	ABILITY:Cancer Mage Class Feature|AUTOMATIC|Cancer Mage ~ Weapon and Armor Proficiency
 1	ABILITY:Cancer Mage Class Feature|AUTOMATIC|Cancer Mage ~ Sneak Attack|Cancer Mage ~ Disease Host
@@ -33,8 +33,8 @@ CLASS:Cancer Mage	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Disable 
 ###Block
 11	PREPCLEVEL:MIN=20
 
-# Class Name		Hit Dice	Type				Abbreviation	Max Level	Source Page		Visible	Save checks bonus														Combat bonus							Modify VAR
-CLASS:Demonologist	HD:4		TYPE:PC.Prestige.Vile	ABB:Dem		SOURCEPAGE:p.54	VISIBLE:NO		BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3		BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3		BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+# Class Name		Hit Dice	Type				Abbreviation	Source Page		Visible	Combat bonus												Modify VAR													Bonus
+CLASS:Demonologist	HD:4		TYPE:PC.Prestige.Vile	ABB:Dem		SOURCEPAGE:p.54	VISIBLE:NO	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Required AL	Required Feat								Required Skill										Required Spell School
 CLASS:Demonologist	PREALIGN:CE	PREFEAT:3,Evil Brand,Sacrificial Mastery,Malign Spell Focus	PRESKILL:1,Knowledge (Arcana)=4	PRESKILL:1,Knowledge (The Planes)=8	PRESPELLSCHOOL:6,Conjuration=1	PRESPELLSCHOOL:1,Conjuration=3
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -42,14 +42,14 @@ CLASS:Demonologist	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Craft (Alchemy)|De
 # Class Name		Spell Stat		Spell Type		Automatically Known Spell Levels				Spellbook		Caster level
 CLASS:Demonologist	SPELLSTAT:CHA	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	SPELLBOOK:NO	BONUS:CASTERLEVEL|Demonologist|CL
 ###Block
-1	CAST:0,1	
-2	CAST:0,1,1					
-3	CAST:0,2,1,1		
-4	CAST:0,2,2,1,1	
+1	CAST:0,1
+2	CAST:0,1,1
+3	CAST:0,2,1,1
+4	CAST:0,2,2,1,1
 5	CAST:0,3,2,2,1
 6	CAST:0,3,3,2,2
-7	CAST:0,3,3,3,2		
-8	CAST:0,4,3,3,3						
+7	CAST:0,3,3,3,2
+8	CAST:0,4,3,3,3
 9	CAST:0,4,4,3,3
 10	CAST:0,4,4,4,3
 ###Block
@@ -57,8 +57,8 @@ CLASS:Demonologist	SPELLSTAT:CHA	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0|LEVEL=1|LE
 2	BONUS:VAR|QuasitFamiliarLVL|CL
 3	BONUS:VAR|DemonologistSummoningMasteryLVL|CL
 7	BONUS:VAR|HoldDemonPerDay|1	BONUS:VAR|HoldDemonLVL|CL
-8	BONUS:VAR|TelepathyRange|100	
-10	BONUS:VAR|DominateDemonPerDay|1	BONUS:VAR|DominateDemonLVL|CL	
+8	BONUS:VAR|TelepathyRange|100
+10	BONUS:VAR|DominateDemonPerDay|1	BONUS:VAR|DominateDemonLVL|CL
 ###Block
 1	ABILITY:Demonologist Class Feature|AUTOMATIC|Demonologist ~ Weapon and Armor Proficiency|Demonologist ~ Spells
 1	ABILITY:Demonologist Class Feature|AUTOMATIC|Demonologist ~ Charm Demon
@@ -72,8 +72,8 @@ CLASS:Demonologist	SPELLSTAT:CHA	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0|LEVEL=1|LE
 ###Block
 11	PREPCLEVEL:MIN=20
 
-# Class Name	Hit Dice	Type				Abbreviation	Max Level	Source Page		Visible	Save checks bonus														Combat bonus							Modify VAR
-CLASS:Diabolist	HD:4		TYPE:PC.Prestige.Vile	ABB:Dia		SOURCEPAGE:p.56	VISIBLE:NO		BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3		BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3		BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+# Class Name	Hit Dice	Type				Abbreviation	Source Page		Visible	Combat bonus												Modify VAR													Bonus
+CLASS:Diabolist	HD:4		TYPE:PC.Prestige.Vile	ABB:Dia		SOURCEPAGE:p.56	VISIBLE:NO	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required AL	Required Check Base	Required Feat				Required Skill										Req. Known Spell		Required Text
 CLASS:Diabolist	PREALIGN:LE	PRECHECKBASE:1,Will=5	PREFEAT:2,Evil Brand,Corrupt Spell	PRESKILL:1,Bluff=3,Intimidate=3	PRESKILL:1,Knowledge (The Planes)=8	PRESPELL:1,Shriveling	PRETEXT:must offer the soul, but not necessarily the loyalty, to the force of hell in exchange for power.
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -100,16 +100,16 @@ CLASS:Diabolist	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|Diplomacy|Intimidate|
 ###Block
 11	PREPCLEVEL:MIN=20
 
-# Class Name			Hit Dice	Type				Abbreviation	Max Level	Source Page		Visible			Save checks bonus														Combat bonus							Modify VAR
-CLASS:Disciple of Asmodeus	HD:6		TYPE:PC.Prestige.Vile	ABB:Doa		SOURCEPAGE:p.57	VISIBLE:NO	VISIBLE:NO		BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3		BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3		BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+# Class Name			Hit Dice	Type				Abbreviation	Source Page		Visible			Combat bonus												Modify VAR														Bonus
+CLASS:Disciple of Asmodeus	HD:6		TYPE:PC.Prestige.Vile	ABB:Doa		SOURCEPAGE:p.57	VISIBLE:NO	VISIBLE:NO	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name			Required AL		Required Feat							Required Skill								Required Text
 CLASS:Disciple of Asmodeus	PREALIGN:LE,NE	PREFEAT:3,Disciple of Darkness,Evil Brand,Leadership	PRESKILL:2,Bluff=4,Sense Motive=4	PRESKILL:1,Diplomacy=5	PRETEXT:must be initiated by the sect of Asmodeus in a horrific rite.
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Disciple of Asmodeus	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Decipher Script|Diplomacy|Gather Information|Hide|Intimidate|TYPE=Knowledge|Listen|Search|Sense Motive|Spellcraft|Spot
 1	BONUS:VAR|CharmPersonPerDay|1	BONUS:VAR|CharmPersonLVL|CL
-2	BONUS:VAR|CommandPerDay|1	BONUS:VAR|CommandLVL|CL	
-6	BONUS:VAR|DiscipleOfAsmodeusEvilAuthorityLVL|CL		
-8	BONUS:VAR|SummonMajorDevilPerDay|1				
+2	BONUS:VAR|CommandPerDay|1	BONUS:VAR|CommandLVL|CL
+6	BONUS:VAR|DiscipleOfAsmodeusEvilAuthorityLVL|CL
+8	BONUS:VAR|SummonMajorDevilPerDay|1
 9	BONUS:VAR|GreaterCommandPerDay|1	BONUS:VAR|GreaterCommandLVL|CL
 ###Block
 1	ADD:SPELLCASTER|ANY
@@ -119,19 +119,19 @@ CLASS:Disciple of Asmodeus	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Decipher S
 9	ADD:SPELLCASTER|ANY
 10	ADD:SPELLCASTER|ANY
 ###Block
-1	ABILITY:Disciple of Asmodeus Class Feature|AUTOMATIC|Disciple of Asmodeus ~ Weapon and Armor Proficiency|Disciple of Asmodeus ~ Spells					
-1	ABILITY:Disciple of Asmodeus Class Feature|AUTOMATIC|Disciple of Asmodeus ~ Charm|Disciple of Asmodeus ~ Learn Secret				
-2	ABILITY:Disciple of Asmodeus Class Feature|AUTOMATIC|Disciple of Asmodeus ~ Command					
-4	ABILITY:Disciple of Asmodeus Class Feature|AUTOMATIC|Disciple of Asmodeus ~ Summon Hellcat				
-6	ABILITY:Disciple of Asmodeus Class Feature|AUTOMATIC|Disciple of Asmodeus ~ Evil Authority				
-8	ABILITY:Disciple of Asmodeus Class Feature|AUTOMATIC|Disciple of Asmodeus ~ Summon Major Devil			
-9	ABILITY:Disciple of Asmodeus Class Feature|AUTOMATIC|Disciple of Asmodeus ~ Greater Command			
-10	ABILITY:Disciple of Asmodeus Class Feature|AUTOMATIC|Disciple of Asmodeus ~ Dread Might				
+1	ABILITY:Disciple of Asmodeus Class Feature|AUTOMATIC|Disciple of Asmodeus ~ Weapon and Armor Proficiency|Disciple of Asmodeus ~ Spells
+1	ABILITY:Disciple of Asmodeus Class Feature|AUTOMATIC|Disciple of Asmodeus ~ Charm|Disciple of Asmodeus ~ Learn Secret
+2	ABILITY:Disciple of Asmodeus Class Feature|AUTOMATIC|Disciple of Asmodeus ~ Command
+4	ABILITY:Disciple of Asmodeus Class Feature|AUTOMATIC|Disciple of Asmodeus ~ Summon Hellcat
+6	ABILITY:Disciple of Asmodeus Class Feature|AUTOMATIC|Disciple of Asmodeus ~ Evil Authority
+8	ABILITY:Disciple of Asmodeus Class Feature|AUTOMATIC|Disciple of Asmodeus ~ Summon Major Devil
+9	ABILITY:Disciple of Asmodeus Class Feature|AUTOMATIC|Disciple of Asmodeus ~ Greater Command
+10	ABILITY:Disciple of Asmodeus Class Feature|AUTOMATIC|Disciple of Asmodeus ~ Dread Might
 ###Block
 11	PREPCLEVEL:MIN=20
 
-# Class Name			Hit Dice	Type				Abbreviation	Max Level	Source Page		Visible	Save checks bonus															Combat bonus							Modify VAR
-CLASS:Disciple of Baalzebul	HD:6		TYPE:PC.Prestige.Vile	ABB:Dob		SOURCEPAGE:p.58	VISIBLE:NO		BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3		BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+# Class Name			Hit Dice	Type				Abbreviation	Source Page		Visible	Combat bonus												Modify VAR														Bonus
+CLASS:Disciple of Baalzebul	HD:6		TYPE:PC.Prestige.Vile	ABB:Dob		SOURCEPAGE:p.58	VISIBLE:NO	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name			Required AL		Required Feat				Required Skill										Required Text
 CLASS:Disciple of Baalzebul	PREALIGN:LE,NE,CE	PREFEAT:1,Disciple of Darkness	PRESKILL:1,Bluff=10	PRESKILL:2,Diplomacy=4,Gather Information=4	PRETEXT:must be initiated by the sect of Baalzebul in a terrific rite.
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -141,22 +141,22 @@ CLASS:Disciple of Baalzebul	STARTSKILLPTS:6	CSKILL:Appraise|Balance|Climb|Deciph
 3	BONUS:VAR|SuggestionLVL|CL
 7	BONUS:VAR|DiscipleOfBaalzebulBeguilingNatureLVL|CL
 ###Block
-1	ABILITY:Disciple of Baalzebul Class Feature|AUTOMATIC|Disciple of Baalzebul ~ Weapon and Armor Proficiency	
-1	ABILITY:Disciple of Baalzebul Class Feature|AUTOMATIC|Disciple of Baalzebul ~ Tongue of the Devil			
-2	ABILITY:Disciple of Baalzebul Class Feature|AUTOMATIC|Disciple of Baalzebul ~ Sneak Attack				
-3	ABILITY:Disciple of Baalzebul Class Feature|AUTOMATIC|Disciple of Baalzebul ~ Suggestion				
-4	ABILITY:Disciple of Baalzebul Class Feature|AUTOMATIC|Disciple of Baalzebul ~ Summon Osyluth			
-6	ABILITY:Disciple of Baalzebul Class Feature|AUTOMATIC|Disciple of Baalzebul ~ Insect Plague				
-7	ABILITY:Disciple of Baalzebul Class Feature|AUTOMATIC|Disciple of Baalzebul ~ Beguiling Nature			
-9	ABILITY:Disciple of Baalzebul Class Feature|AUTOMATIC|Disciple of Baalzebul ~ Summon Cornugon			
-10	ABILITY:Disciple of Baalzebul Class Feature|AUTOMATIC|Disciple of Baalzebul ~ King of Lies				
+1	ABILITY:Disciple of Baalzebul Class Feature|AUTOMATIC|Disciple of Baalzebul ~ Weapon and Armor Proficiency
+1	ABILITY:Disciple of Baalzebul Class Feature|AUTOMATIC|Disciple of Baalzebul ~ Tongue of the Devil
+2	ABILITY:Disciple of Baalzebul Class Feature|AUTOMATIC|Disciple of Baalzebul ~ Sneak Attack
+3	ABILITY:Disciple of Baalzebul Class Feature|AUTOMATIC|Disciple of Baalzebul ~ Suggestion
+4	ABILITY:Disciple of Baalzebul Class Feature|AUTOMATIC|Disciple of Baalzebul ~ Summon Osyluth
+6	ABILITY:Disciple of Baalzebul Class Feature|AUTOMATIC|Disciple of Baalzebul ~ Insect Plague
+7	ABILITY:Disciple of Baalzebul Class Feature|AUTOMATIC|Disciple of Baalzebul ~ Beguiling Nature
+9	ABILITY:Disciple of Baalzebul Class Feature|AUTOMATIC|Disciple of Baalzebul ~ Summon Cornugon
+10	ABILITY:Disciple of Baalzebul Class Feature|AUTOMATIC|Disciple of Baalzebul ~ King of Lies
 ###Block
 11	PREPCLEVEL:MIN=20
 
-# Class Name			Hit Dice	Type				Abbreviation	Max Level	Source Page		Save checks bonus															Combat bonus
-CLASS:Disciple of Dispater	HD:10		TYPE:PC.Prestige.Vile	ABB:DoD		SOURCEPAGE:p.		BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")
-# Class Name			Required AL		Req. Att.	Required Feat									Required Text
-CLASS:Disciple of Dispater	PREALIGN:LE,NE,CE	PREATT:6	PREFEAT:3,Disciple of Darkness,Combat Expertise,Power Attack	PRETEXT:must be initiated by the sect of Dispater in a terrific rite.
+# Class Name			Hit Dice	Type				Abbreviation	Source Page		Combat bonus							Bonus
+CLASS:Disciple of Dispater	HD:10		TYPE:PC.Prestige.Vile	ABB:DoD		SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name			Required AL		Required Feat									Required Text										PRETOTALAB
+CLASS:Disciple of Dispater	PREALIGN:LE,NE,CE	PREFEAT:3,Disciple of Darkness,Combat Expertise,Power Attack	PRETEXT:must be initiated by the sect of Dispater in a terrific rite.	PRETOTALAB:6
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Disciple of Dispater	STARTSKILLPTS:4	CSKILL:Balance|Climb|Disable Device|Disguise|Escape Artist|Hide|Intimidate|Jump|Knowledge (Religion)|Listen|Move Silently|TYPE=Profession|Ride|Search|Sense Motive|Spot
 ###Block
@@ -174,271 +174,274 @@ CLASS:Disciple of Dispater	STARTSKILLPTS:4	CSKILL:Balance|Climb|Disable Device|D
 ###Block
 11	PREPCLEVEL:MIN=20
 
-# Class Name			Hit Dice	Type				Abbreviation	Max Level	Source Page		Visible	Save checks bonus															Combat bonus							Modify VAR
-CLASS:Disciple of Mammon	HD:6		TYPE:PC.Prestige.Vile	ABB:DoM		SOURCEPAGE:p.	VISIBLE:NO		BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3		BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
-# Class Name			Required AL		Req. Att.	Required Feat				Required Skill									Required Text
-CLASS:Disciple of Mammon	PREALIGN:LE,NE,CE	PREATT:4	PREFEAT:1,Disciple of Darkness	PRESKILL:1,Appraise=6	PRESKILL:2,Open Lock=4,Sleight of Hand=4	PRETEXT:must go through a disgusting and humiliating sexual ritual and betray the closest friend to an evil end.
+# Class Name			Hit Dice	Type				Abbreviation	Source Page		Visible	Combat bonus												Modify VAR														Bonus
+CLASS:Disciple of Mammon	HD:6		TYPE:PC.Prestige.Vile	ABB:DoM		SOURCEPAGE:p.	VISIBLE:NO	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name			Required AL		Required Feat				Required Skill									Required Text																	PRETOTALAB
+CLASS:Disciple of Mammon	PREALIGN:LE,NE,CE	PREFEAT:1,Disciple of Darkness	PRESKILL:1,Appraise=6	PRESKILL:2,Open Lock=4,Sleight of Hand=4	PRETEXT:must go through a disgusting and humiliating sexual ritual and betray the closest friend to an evil end.	PRETOTALAB:4
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Disciple of Mammon	STARTSKILLPTS:4	CSKILL:Appraise|Balance|Disable Device|Disguise|Escape Artist|Forgery|Hide|Intimidate|TYPE=Knowledge|Listen|Move Silently|Open Lock|Sleight of Hand|TYPE=Profession|Search|Spot
 1	BONUS:VAR|DiscipleOfMammonLieLVL|CL
 2	BONUS:VAR|CheatPerDay|CL
 ###Block
-1	ABILITY:Disciple of Mammon Class Feature|AUTOMATIC|Disciple of Mammon ~ Weapon and Armor Proficiency	
-1	ABILITY:Disciple of Mammon Class Feature|AUTOMATIC|Disciple of Mammon ~ Lie					
-2	ABILITY:Disciple of Mammon Class Feature|AUTOMATIC|Disciple of Mammon ~ Cheat				
-3	ABILITY:Disciple of Mammon Class Feature|AUTOMATIC|Disciple of Mammon ~ Thief				
-3	ABILITY:Disciple of Mammon Class Feature|AUTOMATIC|Disciple of Mammon ~ Steal				
-4	ABILITY:Disciple of Mammon Class Feature|AUTOMATIC|Disciple of Mammon ~ Divert Attack			
-5	ABILITY:Disciple of Mammon Class Feature|AUTOMATIC|Disciple of Mammon ~ Summon Osyluth			
-6	ABILITY:Disciple of Mammon Class Feature|AUTOMATIC|Disciple of Mammon ~ Take Object			
-7	ABILITY:Disciple of Mammon Class Feature|AUTOMATIC|Disciple of Mammon ~ Enhance Value			
-8	ABILITY:Disciple of Mammon Class Feature|AUTOMATIC|Disciple of Mammon ~ Divert Spell			
-9	ABILITY:Disciple of Mammon Class Feature|AUTOMATIC|Disciple of Mammon ~ Nondetection			
-10	ABILITY:Disciple of Mammon Class Feature|AUTOMATIC|Disciple of Mammon ~ Summon Gelugon			
+1	ABILITY:Disciple of Mammon Class Feature|AUTOMATIC|Disciple of Mammon ~ Weapon and Armor Proficiency
+1	ABILITY:Disciple of Mammon Class Feature|AUTOMATIC|Disciple of Mammon ~ Lie
+2	ABILITY:Disciple of Mammon Class Feature|AUTOMATIC|Disciple of Mammon ~ Cheat
+3	ABILITY:Disciple of Mammon Class Feature|AUTOMATIC|Disciple of Mammon ~ Thief
+3	ABILITY:Disciple of Mammon Class Feature|AUTOMATIC|Disciple of Mammon ~ Steal
+4	ABILITY:Disciple of Mammon Class Feature|AUTOMATIC|Disciple of Mammon ~ Divert Attack
+5	ABILITY:Disciple of Mammon Class Feature|AUTOMATIC|Disciple of Mammon ~ Summon Osyluth
+6	ABILITY:Disciple of Mammon Class Feature|AUTOMATIC|Disciple of Mammon ~ Take Object
+7	ABILITY:Disciple of Mammon Class Feature|AUTOMATIC|Disciple of Mammon ~ Enhance Value
+8	ABILITY:Disciple of Mammon Class Feature|AUTOMATIC|Disciple of Mammon ~ Divert Spell
+9	ABILITY:Disciple of Mammon Class Feature|AUTOMATIC|Disciple of Mammon ~ Nondetection
+10	ABILITY:Disciple of Mammon Class Feature|AUTOMATIC|Disciple of Mammon ~ Summon Gelugon
 ###Block
 11	PREPCLEVEL:MIN=20
 
-# Class Name				Hit Dice	Type				Abbreviation	Max Level	Source Page		Visible	Save checks bonus															Combat bonus
-CLASS:Disciple of Mephistopheles	HD:8		TYPE:PC.Prestige.Vile	ABB:DoP		SOURCEPAGE:p.	VISIBLE:NO		BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")
-# Class Name				Required AL		Req. Att.	Required Feat					Required Text
-CLASS:Disciple of Mephistopheles	PREALIGN:LE,NE,CE	PREATT:6	PREFEAT:2,Disciple of Darkness,Evil Brand	PRETEXT:must go through a terrible ritual that involves the sacrifice of an intelligent being in magical fire.
+# Class Name				Hit Dice	Type				Abbreviation	Source Page		Visible	Combat bonus							Bonus
+CLASS:Disciple of Mephistopheles	HD:8		TYPE:PC.Prestige.Vile	ABB:DoP		SOURCEPAGE:p.	VISIBLE:NO	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name				Required AL		Required Feat					Required Text																	PRETOTALAB
+CLASS:Disciple of Mephistopheles	PREALIGN:LE,NE,CE	PREFEAT:2,Disciple of Darkness,Evil Brand	PRETEXT:must go through a terrible ritual that involves the sacrifice of an intelligent being in magical fire.	PRETOTALAB:6
 # Class Name				Skill Pts/Lvl	Class Skill
 CLASS:Disciple of Mephistopheles	STARTSKILLPTS:4	CSKILL:Balance|Climb|Disable Device|Disguise|Escape Artist|Hide|Intimidate|Jump|Knowledge (Religion)|Listen|Move Silently|TYPE=Profession|Ride|Search|Sense Motive|Spot
 ###Block
-2	BONUS:VAR|FireResistanceBonus|10											
-4	BONUS:VAR|FlarePerDay|CL	BONUS:VAR|FlareLVL|15								
-5	BONUS:VAR|SummonHamatulaPerDay|1											
-6	BONUS:VAR|FireResistanceBonus|10	BONUS:VAR|HellfirePerDay|3	BONUS:VAR|HellfireLVL|15	
-7	BONUS:VAR|FireShieldPerDay|2	BONUS:VAR|FireShieldLVL|15							
-8	BONUS:VAR|HellfireStormPerDay|2	BONUS:VAR|HellfireStormLVL|15						
-10	BONUS:VAR|BodyOfFlamePerDay|1	BONUS:VAR|BodyOfFlameDuration|10						
+2	BONUS:VAR|FireResistanceBonus|10
+4	BONUS:VAR|FlarePerDay|CL	BONUS:VAR|FlareLVL|15
+5	BONUS:VAR|SummonHamatulaPerDay|1
+6	BONUS:VAR|FireResistanceBonus|10	BONUS:VAR|HellfirePerDay|3	BONUS:VAR|HellfireLVL|15
+7	BONUS:VAR|FireShieldPerDay|2	BONUS:VAR|FireShieldLVL|15
+8	BONUS:VAR|HellfireStormPerDay|2	BONUS:VAR|HellfireStormLVL|15
+10	BONUS:VAR|BodyOfFlamePerDay|1	BONUS:VAR|BodyOfFlameDuration|10
 ###Block
-1	ABILITY:Disciple of Mephistopheles Class Feature|AUTOMATIC|Disciple of Mephistopheles ~ Weapon and Armor Proficiency	
-1	ABILITY:Disciple of Mephistopheles Class Feature|AUTOMATIC|Disciple of Mephistopheles ~ Hellfire Grasp				
-1	ABILITY:Disciple of Mephistopheles Class Feature|AUTOMATIC|Disciple of Mephistopheles ~ Fire Adept				
-2	ABILITY:Disciple of Mephistopheles Class Feature|AUTOMATIC|Disciple of Mephistopheles ~ Fire Resistance			
-3	ABILITY:Disciple of Mephistopheles Class Feature|AUTOMATIC|Disciple of Mephistopheles ~ Hellfire Blast				
-4	ABILITY:Disciple of Mephistopheles Class Feature|AUTOMATIC|Disciple of Mephistopheles ~ Flare					
-5	ABILITY:Disciple of Mephistopheles Class Feature|AUTOMATIC|Disciple of Mephistopheles ~ Summon Hamatula			
-6	ABILITY:Disciple of Mephistopheles Class Feature|AUTOMATIC|Disciple of Mephistopheles ~ Hellfire					
-7	ABILITY:Disciple of Mephistopheles Class Feature|AUTOMATIC|Disciple of Mephistopheles ~ Fire Shield				
-8	ABILITY:Disciple of Mephistopheles Class Feature|AUTOMATIC|Disciple of Mephistopheles ~ Hellfire Storm				
-10	ABILITY:Disciple of Mephistopheles Class Feature|AUTOMATIC|Disciple of Mephistopheles ~ Body of Flame				
+1	ABILITY:Disciple of Mephistopheles Class Feature|AUTOMATIC|Disciple of Mephistopheles ~ Weapon and Armor Proficiency
+1	ABILITY:Disciple of Mephistopheles Class Feature|AUTOMATIC|Disciple of Mephistopheles ~ Hellfire Grasp
+1	ABILITY:Disciple of Mephistopheles Class Feature|AUTOMATIC|Disciple of Mephistopheles ~ Fire Adept
+2	ABILITY:Disciple of Mephistopheles Class Feature|AUTOMATIC|Disciple of Mephistopheles ~ Fire Resistance
+3	ABILITY:Disciple of Mephistopheles Class Feature|AUTOMATIC|Disciple of Mephistopheles ~ Hellfire Blast
+4	ABILITY:Disciple of Mephistopheles Class Feature|AUTOMATIC|Disciple of Mephistopheles ~ Flare
+5	ABILITY:Disciple of Mephistopheles Class Feature|AUTOMATIC|Disciple of Mephistopheles ~ Summon Hamatula
+6	ABILITY:Disciple of Mephistopheles Class Feature|AUTOMATIC|Disciple of Mephistopheles ~ Hellfire
+7	ABILITY:Disciple of Mephistopheles Class Feature|AUTOMATIC|Disciple of Mephistopheles ~ Fire Shield
+8	ABILITY:Disciple of Mephistopheles Class Feature|AUTOMATIC|Disciple of Mephistopheles ~ Hellfire Storm
+10	ABILITY:Disciple of Mephistopheles Class Feature|AUTOMATIC|Disciple of Mephistopheles ~ Body of Flame
 ###Block
 11	PREPCLEVEL:MIN=20
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Visible	Save checks bonus															Combat bonus
-CLASS:Lifedrinker	HD:12		TYPE:PC.Prestige	ABB:DoP		SOURCEPAGE:p.	VISIBLE:NO		BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")
+# Class Name	Hit Dice	Type			Abbreviation	Source Page		Visible	Combat bonus							Bonus
+CLASS:Lifedrinker	HD:12		TYPE:PC.Prestige	ABB:DoP		SOURCEPAGE:p.	VISIBLE:NO	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required AL		Required Skill						Required Template
 CLASS:Lifedrinker	PREALIGN:LE,NE,CE	PRESKILL:2,Knowledge (Arcana)=6,Spellcraft=6	PRETEMPLATE:1,Vampire
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Lifedrinker	STARTSKILLPTS:4	CSKILL:Bluff|Hide|Knowledge (Arcana)|Listen|Move Silently|TYPE=Profession|Search|Sense Motive|Spellcraft|Spot
 ###Block
-1	BONUS:VAR|LifedrinkerLifewellLVL|CL	
+1	BONUS:VAR|LifedrinkerLifewellLVL|CL
 ###Block
-1	ABILITY:Lifedrinker Class Feature|AUTOMATIC|Lifedrinker ~ Weapon and Armor Proficiency		
-1	ABILITY:Lifedrinker Class Feature|AUTOMATIC|Lifedrinker ~ Lifewell					
-1	ABILITY:Lifedrinker Class Feature|AUTOMATIC|Lifedrinker ~ Invigorate					
-2	ABILITY:Lifedrinker Class Feature|AUTOMATIC|Lifedrinker ~ Spell Boost (Empower)			
-3	ABILITY:Lifedrinker Class Feature|AUTOMATIC|Lifedrinker ~ Spell Boost (Heighten)			
-3	ABILITY:Lifedrinker Class Feature|AUTOMATIC|Lifedrinker ~ Special Attack Boost (Empower)	
+1	ABILITY:Lifedrinker Class Feature|AUTOMATIC|Lifedrinker ~ Weapon and Armor Proficiency
+1	ABILITY:Lifedrinker Class Feature|AUTOMATIC|Lifedrinker ~ Lifewell
+1	ABILITY:Lifedrinker Class Feature|AUTOMATIC|Lifedrinker ~ Invigorate
+2	ABILITY:Lifedrinker Class Feature|AUTOMATIC|Lifedrinker ~ Spell Boost (Empower)
+3	ABILITY:Lifedrinker Class Feature|AUTOMATIC|Lifedrinker ~ Spell Boost (Heighten)
+3	ABILITY:Lifedrinker Class Feature|AUTOMATIC|Lifedrinker ~ Special Attack Boost (Empower)
 # Doesn't exist in book, just the table.
-#4	ABILITY:Lifedrinker Class Feature|AUTOMATIC|Lifedrinker ~ Special Attack Boost (Heighten)	
-5	ABILITY:Lifedrinker Class Feature|AUTOMATIC|Lifedrinker ~ Blood Servant				
-5	ABILITY:Lifedrinker Class Feature|AUTOMATIC|Lifedrinker ~ Boost Defenses				
-6	ABILITY:Lifedrinker Class Feature|AUTOMATIC|Lifedrinker ~ Spell Boost (Maximize)			
-7	ABILITY:Lifedrinker Class Feature|AUTOMATIC|Lifedrinker ~ Greater Blood Drain			
-7	ABILITY:Lifedrinker Class Feature|AUTOMATIC|Lifedrinker ~ Special Attack Boost (Maximize)	
-8	ABILITY:Lifedrinker Class Feature|AUTOMATIC|Lifedrinker ~ Spell Boost (Quicken)			
-9	ABILITY:Lifedrinker Class Feature|AUTOMATIC|Lifedrinker ~ Greater Invigorate			
-10	ABILITY:Lifedrinker Class Feature|AUTOMATIC|Lifedrinker ~ Blood Revel					
+#4	ABILITY:Lifedrinker Class Feature|AUTOMATIC|Lifedrinker ~ Special Attack Boost (Heighten)
+5	ABILITY:Lifedrinker Class Feature|AUTOMATIC|Lifedrinker ~ Blood Servant
+5	ABILITY:Lifedrinker Class Feature|AUTOMATIC|Lifedrinker ~ Boost Defenses
+6	ABILITY:Lifedrinker Class Feature|AUTOMATIC|Lifedrinker ~ Spell Boost (Maximize)
+7	ABILITY:Lifedrinker Class Feature|AUTOMATIC|Lifedrinker ~ Greater Blood Drain
+7	ABILITY:Lifedrinker Class Feature|AUTOMATIC|Lifedrinker ~ Special Attack Boost (Maximize)
+8	ABILITY:Lifedrinker Class Feature|AUTOMATIC|Lifedrinker ~ Spell Boost (Quicken)
+9	ABILITY:Lifedrinker Class Feature|AUTOMATIC|Lifedrinker ~ Greater Invigorate
+10	ABILITY:Lifedrinker Class Feature|AUTOMATIC|Lifedrinker ~ Blood Revel
 ###Block
 11	PREPCLEVEL:MIN=20
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Visible	Save checks bonus														Combat bonus
-CLASS:Mortal Hunter	HD:10		TYPE:PC.Prestige	ABB:Mor		SOURCEPAGE:p.	VISIBLE:NO		BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3		BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")
-# Class Name		Required AL		Req. Att.	Required Feat					Required Language	Required Race			Required Skill
-CLASS:Mortal Hunter	PREALIGN:LE,NE,CE	PREATT:5	PREFEAT:3,Alertness,Mortalbane,Track	PRELANG:1,Common	PRERACE:1,RACETYPE=Outsider	PRESKILL:1,Move Silently=3	PRESKILL:1,Survival=5
+# Class Name		Hit Dice	Type			Abbreviation	Source Page		Visible	Combat bonus							Bonus
+CLASS:Mortal Hunter	HD:10		TYPE:PC.Prestige	ABB:Mor		SOURCEPAGE:p.	VISIBLE:NO	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name		Required AL		Required Feat					Required Language	Required Race			Required Skill							PRETOTALAB
+CLASS:Mortal Hunter	PREALIGN:LE,NE,CE	PREFEAT:3,Alertness,Mortalbane,Track	PRELANG:1,Common	PRERACE:1,RACETYPE=Outsider	PRESKILL:1,Move Silently=3	PRESKILL:1,Survival=5	PRETOTALAB:5
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Mortal Hunter	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Concentration|Disguise|Hide|Jump|Knowledge (Arcana)|Knowledge (Religion)|Knowledge (The Planes)|Listen|Move Silently|Search|Sense Motive|Spot|Survival
 # Class Name		Spell Stat		Spell Type		Memorize	Automatically Known Spell Levels				Caster level
 CLASS:Mortal Hunter	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Mortal Hunter|CL
 ###Block
-1	CAST:0,0								
-2	CAST:0,1																ADD:FEAT|Boost Spell-Like Ability	
+1	CAST:0,0
+2	CAST:0,1		ADD:FEAT|Boost Spell-Like Ability
 3	CAST:0,1,0
-4	CAST:0,1,1															
-5	CAST:0,1,1,0													
+4	CAST:0,1,1
+5	CAST:0,1,1,0
 6	CAST:0,1,1,1
-7	CAST:0,2,1,1,0																					
-8	CAST:0,2,1,1,1													
+7	CAST:0,2,1,1,0
+8	CAST:0,2,1,1,1
 9	CAST:0,2,2,1,1
-10	CAST:0,2,2,2,1																					
+10	CAST:0,2,2,2,1
 ###Block
 1	BONUS:VAR|MortalHunterMortalHuntingLVL|CL	BONUS:VAR|MortalHunterMortalSkinLVL|CL
 4	BONUS:VAR|MortalHunterSmiteMortalsLVL|CL
 8	BONUS:VAR|MortalHunterMortalbaneShoutLVL|CL
 ###Block
-1	ABILITY:Mortal Hunter Class Feature|AUTOMATIC|Mortal Hunter ~ Weapon and Armor Proficiency|Mortal Hunter ~ Spells				
-1	ABILITY:Mortal Hunter Class Feature|AUTOMATIC|Mortal Hunter ~ Mortal Hunting			
-1	ABILITY:Mortal Hunter Class Feature|AUTOMATIC|Mortal Hunter ~ Mortal Skin			
-2	ABILITY:Mortal Hunter Class Feature|AUTOMATIC|Mortal Hunter ~ Detect Mortals			
-2	ABILITY:Mortal Hunter Class Feature|AUTOMATIC|Mortal Hunter ~ Boost Spell-Like Ability	
-4	ABILITY:Mortal Hunter Class Feature|AUTOMATIC|Mortal Hunter ~ Smite Mortals			
-5	ABILITY:Mortal Hunter Class Feature|AUTOMATIC|Mortal Hunter ~ Spurn Mortal Magic		
-7	ABILITY:Mortal Hunter Class Feature|AUTOMATIC|Mortal Hunter ~ Claws of the Overfiend	
-8	ABILITY:Mortal Hunter Class Feature|AUTOMATIC|Mortal Hunter ~ Mortalbane Shout		
-10	ABILITY:Mortal Hunter Class Feature|AUTOMATIC|Mortal Hunter ~ Slay Mortal			
+1	ABILITY:Mortal Hunter Class Feature|AUTOMATIC|Mortal Hunter ~ Weapon and Armor Proficiency|Mortal Hunter ~ Spells
+1	ABILITY:Mortal Hunter Class Feature|AUTOMATIC|Mortal Hunter ~ Mortal Hunting
+1	ABILITY:Mortal Hunter Class Feature|AUTOMATIC|Mortal Hunter ~ Mortal Skin
+2	ABILITY:Mortal Hunter Class Feature|AUTOMATIC|Mortal Hunter ~ Detect Mortals
+2	ABILITY:Mortal Hunter Class Feature|AUTOMATIC|Mortal Hunter ~ Boost Spell-Like Ability
+4	ABILITY:Mortal Hunter Class Feature|AUTOMATIC|Mortal Hunter ~ Smite Mortals
+5	ABILITY:Mortal Hunter Class Feature|AUTOMATIC|Mortal Hunter ~ Spurn Mortal Magic
+7	ABILITY:Mortal Hunter Class Feature|AUTOMATIC|Mortal Hunter ~ Claws of the Overfiend
+8	ABILITY:Mortal Hunter Class Feature|AUTOMATIC|Mortal Hunter ~ Mortalbane Shout
+10	ABILITY:Mortal Hunter Class Feature|AUTOMATIC|Mortal Hunter ~ Slay Mortal
 ###Block
 11	PREPCLEVEL:MIN=20
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Visible	Save checks bonus															Combat bonus
-CLASS:Soul Eater	HD:8		TYPE:PC.Prestige	ABB:Sou		SOURCEPAGE:p.	VISIBLE:NO		BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")
-# Class Name	Required AL		Req. Att.	Required Feat												Required Race								Required Skill
-CLASS:Soul Eater	PREALIGN:LE,NE,CE	PREATT:5	PREFEAT:1,Alertness	PREFEAT:1,Weapon Focus (Claw),Weapon Focus (TYPE=Natural)	PRERACE:1,RACETYPE=Humanoid,RACETYPE=Monstrous Humanoid	PRESKILL:1,Knowledge (Arcana)=2
+# Class Name	Hit Dice	Type			Abbreviation	Source Page		Visible	Combat bonus							Bonus
+CLASS:Soul Eater	HD:8		TYPE:PC.Prestige	ABB:Sou		SOURCEPAGE:p.	VISIBLE:NO	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name	Required AL		Required Feat												Required Race								Required Skill				PRETOTALAB
+CLASS:Soul Eater	PREALIGN:LE,NE,CE	PREFEAT:1,Alertness	PREFEAT:1,Weapon Focus (Claw),Weapon Focus (TYPE=Natural)	PRERACE:1,RACETYPE=Humanoid,RACETYPE=Monstrous Humanoid	PRESKILL:1,Knowledge (Arcana)=2	PRETOTALAB:5
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Soul Eater	STARTSKILLPTS:4	CSKILL:Climb|Concentration|Hide|Intimidate|Jump|Listen|Move Silently|TYPE=Profession|Search|Spellcraft|Spot|Swim|Use Rope
 ###Block
-1	BONUS:VAR|EnergyDrainLevels|(CL+5)/6									
-3	BONUS:VAR|SoulBlastPerDay|1	BONUS:VAR|SoulBlastDamage|CL	BONUS:VAR|SoulBlastDC|CL	
+1	BONUS:VAR|EnergyDrainLevels|(CL+5)/6
+3	BONUS:VAR|SoulBlastPerDay|1	BONUS:VAR|SoulBlastDamage|CL	BONUS:VAR|SoulBlastDC|CL
 ###Block
-1	ABILITY:Soul Eater Class Feature|AUTOMATIC|Soul Eater ~ Weapon and Armor Proficiency	
-1	ABILITY:Soul Eater Class Feature|AUTOMATIC|Soul Eater ~ Energy Drain				
-2	ABILITY:Soul Eater Class Feature|AUTOMATIC|Soul Eater ~ Soul Strength			
-3	ABILITY:Soul Eater Class Feature|AUTOMATIC|Soul Eater ~ Soul Blast				
-4	ABILITY:Soul Eater Class Feature|AUTOMATIC|Soul Eater ~ Soul Enhancement			
-5	ABILITY:Soul Eater Class Feature|AUTOMATIC|Soul Eater ~ Soul Endurance			
-6	ABILITY:Soul Eater Class Feature|AUTOMATIC|Soul Eater ~ Soul Radiance			
-8	ABILITY:Soul Eater Class Feature|AUTOMATIC|Soul Eater ~ Soul Agility				
-9	ABILITY:Soul Eater Class Feature|AUTOMATIC|Soul Eater ~ Soul Slave				
-10	ABILITY:Soul Eater Class Feature|AUTOMATIC|Soul Eater ~ Soul Power				
+1	ABILITY:Soul Eater Class Feature|AUTOMATIC|Soul Eater ~ Weapon and Armor Proficiency
+1	ABILITY:Soul Eater Class Feature|AUTOMATIC|Soul Eater ~ Energy Drain
+2	ABILITY:Soul Eater Class Feature|AUTOMATIC|Soul Eater ~ Soul Strength
+3	ABILITY:Soul Eater Class Feature|AUTOMATIC|Soul Eater ~ Soul Blast
+4	ABILITY:Soul Eater Class Feature|AUTOMATIC|Soul Eater ~ Soul Enhancement
+5	ABILITY:Soul Eater Class Feature|AUTOMATIC|Soul Eater ~ Soul Endurance
+6	ABILITY:Soul Eater Class Feature|AUTOMATIC|Soul Eater ~ Soul Radiance
+8	ABILITY:Soul Eater Class Feature|AUTOMATIC|Soul Eater ~ Soul Agility
+9	ABILITY:Soul Eater Class Feature|AUTOMATIC|Soul Eater ~ Soul Slave
+10	ABILITY:Soul Eater Class Feature|AUTOMATIC|Soul Eater ~ Soul Power
 ###Block
 11	PREPCLEVEL:MIN=20
 
-# Class Name			Hit Dice	Type				Abbreviation	Max Level	Source Page		Visible	Save checks bonus														Combat bonus
-CLASS:Thrall of Demogorgon	HD:8		TYPE:PC.Prestige.Vile	ABB:Tod		SOURCEPAGE:p.	VISIBLE:NO		BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3		BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")
-# Class Name			Required AL	Req. Att.	Required Feat						Multiple Requirements												Required Skill													Required Text
-CLASS:Thrall of Demogorgon	PREALIGN:CE	PREATT:4	PREFEAT:2,Willing Deformity,Thrall to Demon	PREMULT:1,[PRESPELLTYPE:1,ANY=1],[PREABILITY:1,CATEGORY=Special Ability,Sneak Attack]	PRESKILL:2,Knowledge (Arcana)=2,Knowledge (Religion)=2	PRESKILL:3,TYPE.Knowledge=2	PRETEXT:must go through an horrific rite that involves the sacrifice of an intelligent being dedicated to Demogorgon.
+# Class Name			Hit Dice	Type				Abbreviation	Source Page		Visible	Combat bonus							Bonus
+CLASS:Thrall of Demogorgon	HD:8		TYPE:PC.Prestige.Vile	ABB:Tod		SOURCEPAGE:p.	VISIBLE:NO	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name			Required AL	Required Feat						Multiple Requirements												Required Skill													Required Text																		PRETOTALAB
+CLASS:Thrall of Demogorgon	PREALIGN:CE	PREFEAT:2,Willing Deformity,Thrall to Demon	PREMULT:1,[PRESPELLTYPE:1,ANY=1],[PREABILITY:1,CATEGORY=Special Ability,Sneak Attack]	PRESKILL:2,Knowledge (Arcana)=2,Knowledge (Religion)=2	PRESKILL:3,TYPE.Knowledge=2	PRETEXT:must go through an horrific rite that involves the sacrifice of an intelligent being dedicated to Demogorgon.	PRETOTALAB:4
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Thrall of Demogorgon	STARTSKILLPTS:4	CSKILL:Climb|Concentration|Hide|Intimidate|Jump|Listen|Move Silently|TYPE=Profession|Search|Spellcraft|Spot|Swim|Use Rope
-1	BONUS:ABILITYPOOL|Thrall of Demogorgon Ability|(CL+2)/3	BONUS:VAR|ThrallOfDemogorgonScalyFleshLVL|CL	BONUS:VAR|ThrallOfDemogorgonHypnosisLVL|CL	
+1	BONUS:ABILITYPOOL|Thrall of Demogorgon Ability|(CL+2)/3	BONUS:VAR|ThrallOfDemogorgonScalyFleshLVL|CL	BONUS:VAR|ThrallOfDemogorgonHypnosisLVL|CL
 ###Block
-1	BONUS:VAR|ThrallOfDemogorgonScalyFleshLVL|CL	BONUS:VAR|ThrallOfDemogorgonHypnosisLVL|CL	
-2	BONUS:VAR|ThrallOfDemogorgonTouchOfFearLVL|CL									
-3	BONUS:VAR|ReachingTouchPerDay|2	
-4	BONUS:VAR|DualActionPerDay|2		
-5	BONUS:VAR|SummonDemonPerDay|1		
-7	BONUS:VAR|RottingTouchPerDay|3	
-8	BONUS:VAR|ThrallOfDemogorgonDeathTouchLVL|CL									
-9	BONUS:VAR|SummonMajorDemonPerDay|1	
-10	BONUS:VAR|DemogorgonSWillPerDay|1	
+1	BONUS:VAR|ThrallOfDemogorgonScalyFleshLVL|CL	BONUS:VAR|ThrallOfDemogorgonHypnosisLVL|CL
+2	BONUS:VAR|ThrallOfDemogorgonTouchOfFearLVL|CL
+3	BONUS:VAR|ReachingTouchPerDay|2
+4	BONUS:VAR|DualActionPerDay|2
+5	BONUS:VAR|SummonDemonPerDay|1
+7	BONUS:VAR|RottingTouchPerDay|3
+8	BONUS:VAR|ThrallOfDemogorgonDeathTouchLVL|CL
+9	BONUS:VAR|SummonMajorDemonPerDay|1
+10	BONUS:VAR|DemogorgonSWillPerDay|1
 ###Block
-1	ABILITY:Thrall of Demogorgon Class Feature|AUTOMATIC|Thrall of Demogorgon ~ Weapon and Armor Proficiency	
-1	ABILITY:Thrall of Demogorgon Class Feature|AUTOMATIC|Thrall of Demogorgon ~ Bonus Feat or Spells			
-1	ABILITY:Thrall of Demogorgon Class Feature|AUTOMATIC|Thrall of Demogorgon ~ Scaly Flesh				
-1	ABILITY:Thrall of Demogorgon Class Feature|AUTOMATIC|Thrall of Demogorgon ~ Hypnosis					
-2	ABILITY:Thrall of Demogorgon Class Feature|AUTOMATIC|Thrall of Demogorgon ~ Touch of Fear				
-3	ABILITY:Thrall of Demogorgon Class Feature|AUTOMATIC|Thrall of Demogorgon ~ Reaching Touch				
-4	ABILITY:Thrall of Demogorgon Class Feature|AUTOMATIC|Thrall of Demogorgon ~ Dual Actions				
-5	ABILITY:Thrall of Demogorgon Class Feature|AUTOMATIC|Thrall of Demogorgon ~ Summon Demon				
-6	ABILITY:Thrall of Demogorgon Class Feature|AUTOMATIC|Thrall of Demogorgon ~ Rotting Touch				
-8	ABILITY:Thrall of Demogorgon Class Feature|AUTOMATIC|Thrall of Demogorgon ~ Two Personas				
-9	ABILITY:Thrall of Demogorgon Class Feature|AUTOMATIC|Thrall of Demogorgon ~ Death Touch				
-10	ABILITY:Thrall of Demogorgon Class Feature|AUTOMATIC|Thrall of Demogorgon ~ Demogorgon's Will			
+1	ABILITY:Thrall of Demogorgon Class Feature|AUTOMATIC|Thrall of Demogorgon ~ Weapon and Armor Proficiency
+1	ABILITY:Thrall of Demogorgon Class Feature|AUTOMATIC|Thrall of Demogorgon ~ Bonus Feat or Spells
+1	ABILITY:Thrall of Demogorgon Class Feature|AUTOMATIC|Thrall of Demogorgon ~ Scaly Flesh
+1	ABILITY:Thrall of Demogorgon Class Feature|AUTOMATIC|Thrall of Demogorgon ~ Hypnosis
+2	ABILITY:Thrall of Demogorgon Class Feature|AUTOMATIC|Thrall of Demogorgon ~ Touch of Fear
+3	ABILITY:Thrall of Demogorgon Class Feature|AUTOMATIC|Thrall of Demogorgon ~ Reaching Touch
+4	ABILITY:Thrall of Demogorgon Class Feature|AUTOMATIC|Thrall of Demogorgon ~ Dual Actions
+5	ABILITY:Thrall of Demogorgon Class Feature|AUTOMATIC|Thrall of Demogorgon ~ Summon Demon
+6	ABILITY:Thrall of Demogorgon Class Feature|AUTOMATIC|Thrall of Demogorgon ~ Rotting Touch
+8	ABILITY:Thrall of Demogorgon Class Feature|AUTOMATIC|Thrall of Demogorgon ~ Two Personas
+9	ABILITY:Thrall of Demogorgon Class Feature|AUTOMATIC|Thrall of Demogorgon ~ Death Touch
+10	ABILITY:Thrall of Demogorgon Class Feature|AUTOMATIC|Thrall of Demogorgon ~ Demogorgon's Will
 ###Block
 11	PREPCLEVEL:MIN=20
 
-# Class Name		Hit Dice	Type				Abbreviation	Max Level	Source Page		Visible	Save checks bonus														Combat bonus							Modify VAR
-CLASS:Thrall of Graz'zt	HD:6		TYPE:PC.Prestige.Vile	ABB:Tog		SOURCEPAGE:p.	VISIBLE:NO		BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3		BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3		BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+# Class Name		Hit Dice	Type				Abbreviation	Source Page		Visible	Combat bonus												Modify VAR													Bonus
+CLASS:Thrall of Graz'zt	HD:6		TYPE:PC.Prestige.Vile	ABB:Tog		SOURCEPAGE:p.	VISIBLE:NO	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Required AL		Required Feat					Required Skill										Required Spell Descriptor	Required Spell School			Required Text
 CLASS:Thrall of Graz'zt	PREALIGN:LE,NE,CE	PREFEAT:2,Thrall to Demon,Violate Spell	PRESKILL:1,Knowledge (Arcana)=5	PRESKILL:2,Bluff=2,Diplomacy=2	PRESPELLDESCRIPTOR:1,Evil=3	PRESPELLSCHOOL:1,Conjuration=3	PRETEXT:must go through an horrific rite that involves the sacrifice of an intelligent being dedicated to Graz'zt
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Thrall of Graz'zt	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Decipher Script|Diplomacy|Gather Information|Hide|TYPE=Knowledge|Listen|Move Silently|Open Lock|TYPE=Perform|Search|Sense Motive|Sleight of Hand|Spellcraft|Spot|Survival|Use Magic Device
-#1	BONUS:VAR|CharmPersonPerDay|1	BONUS:VAR|CharmPersonLVL|CL	
-#2	BONUS:VAR|ThrallOfGrazztSpellBetrayalLVL|CL							
-#3	BONUS:VAR|ThrallOfGrazztDarkCharismaLVL|CL			
-#4	BONUS:VAR|SummonDemonPerDay|1										
-#6	BONUS:VAR|ThrallOfGrazztSpellstrikeLVL|CL								
+#1	BONUS:VAR|CharmPersonPerDay|1	BONUS:VAR|CharmPersonLVL|CL
+#2	BONUS:VAR|ThrallOfGrazztSpellBetrayalLVL|CL
+#3	BONUS:VAR|ThrallOfGrazztDarkCharismaLVL|CL
+#4	BONUS:VAR|SummonDemonPerDay|1
+#6	BONUS:VAR|ThrallOfGrazztSpellstrikeLVL|CL
 #8	BONUS:VAR|SummonMajorDemonPerDay|1
 ###Block
 1	ADD:SPELLCASTER|ANY
 3	ADD:SPELLCASTER|ANY
 5	ADD:SPELLCASTER|ANY
 7	ADD:SPELLCASTER|ANY
-9	ADD:SPELLCASTER|ANY	
+9	ADD:SPELLCASTER|ANY
 10	ADD:SPELLCASTER|ANY
 ###Block
-1	ABILITY:Thrall of Graz'zt Class Feature|AUTOMATIC|Thrall of Graz'zt ~ Weapon and Armor Proficiency	
-1	ABILITY:Thrall of Graz'zt Class Feature|AUTOMATIC|Thrall of Graz'zt ~ Spells				
-1	ABILITY:Thrall of Graz'zt Class Feature|AUTOMATIC|Thrall of Graz'zt ~ Charm					
-2	ABILITY:Thrall of Graz'zt Class Feature|AUTOMATIC|Thrall of Graz'zt ~ Spell Betrayal			
-3	ABILITY:Thrall of Graz'zt Class Feature|AUTOMATIC|Thrall of Graz'zt ~ Dark Charisma			
-4	ABILITY:Thrall of Graz'zt Class Feature|AUTOMATIC|Thrall of Graz'zt ~ Summon Demon			
-6	ABILITY:Thrall of Graz'zt Class Feature|AUTOMATIC|Thrall of Graz'zt ~ Spellstrike				
+1	ABILITY:Thrall of Graz'zt Class Feature|AUTOMATIC|Thrall of Graz'zt ~ Weapon and Armor Proficiency
+1	ABILITY:Thrall of Graz'zt Class Feature|AUTOMATIC|Thrall of Graz'zt ~ Spells
+1	ABILITY:Thrall of Graz'zt Class Feature|AUTOMATIC|Thrall of Graz'zt ~ Charm
+2	ABILITY:Thrall of Graz'zt Class Feature|AUTOMATIC|Thrall of Graz'zt ~ Spell Betrayal
+3	ABILITY:Thrall of Graz'zt Class Feature|AUTOMATIC|Thrall of Graz'zt ~ Dark Charisma
+4	ABILITY:Thrall of Graz'zt Class Feature|AUTOMATIC|Thrall of Graz'zt ~ Summon Demon
+6	ABILITY:Thrall of Graz'zt Class Feature|AUTOMATIC|Thrall of Graz'zt ~ Spellstrike
 ###Block
 11	PREPCLEVEL:MIN=20
 
-# Class Name		Hit Dice	Type				Abbreviation	Max Level	Source Page		Visible	Save checks bonus															Combat bonus
-CLASS:Thrall of Juiblex	HD:10		TYPE:PC.Prestige.Vile	ABB:ToJ		SOURCEPAGE:p.	VISIBLE:NO		BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")
+# Class Name		Hit Dice	Type				Abbreviation	Source Page		Visible	Combat bonus							Bonus
+CLASS:Thrall of Juiblex	HD:10		TYPE:PC.Prestige.Vile	ABB:ToJ		SOURCEPAGE:p.	VISIBLE:NO	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Required AL		Required Feat						Required Skill			Required Text
 CLASS:Thrall of Juiblex	PREALIGN:LE,NE,CE	PREFEAT:2,Thrall to Demon,Willing Deformity	PRESKILL:1,Escape Artist=5	PRETEXT:must have been polymoprhed or experienced some sort of shapeshifting experience. must be initiated by the sect of Juiblex in a terrific rite.
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Thrall of Juiblex	STARTSKILLPTS:2	CSKILL:Climb|Disguise|Escape Artist|Intimidate|Jump|Knowledge (Religion)|Listen|Move Silently|Spot
-1	BONUS:VAR|ThrallOfJuiblexSickeningSlimeLVL|CL			
-3	BONUS:VAR|SummonOozePerDay|1						
+1	BONUS:VAR|ThrallOfJuiblexSickeningSlimeLVL|CL
+3	BONUS:VAR|SummonOozePerDay|1
 4	BONUS:VAR|ContagionPerDay|1	BONUS:VAR|ContagionLVL|10
-5	BONUS:VAR|SummonDemonPerDay|1						
-6	BONUS:VAR|ThrallOfJuiblexCorrosiveSpewLVL|CL			
-7	BONUS:VAR|SummonPuddingPerDay|1					
-9	BONUS:VAR|SummonMajorDemonPerDay|1					
+5	BONUS:VAR|SummonDemonPerDay|1
+6	BONUS:VAR|ThrallOfJuiblexCorrosiveSpewLVL|CL
+7	BONUS:VAR|SummonPuddingPerDay|1
+9	BONUS:VAR|SummonMajorDemonPerDay|1
 ###Block
-1	ABILITY:Thrall of Juiblex Class Feature|AUTOMATIC|Thrall of Juiblex ~ Weapon and Armor Proficiency	
-1	ABILITY:Thrall of Juiblex Class Feature|AUTOMATIC|Thrall of Juiblex ~ Sickening Slime			
-2	ABILITY:Thrall of Juiblex Class Feature|AUTOMATIC|Thrall of Juiblex ~ Corrosive Touch			
-3	ABILITY:Thrall of Juiblex Class Feature|AUTOMATIC|Thrall of Juiblex ~ Summon Ooze				
-4	ABILITY:Thrall of Juiblex Class Feature|AUTOMATIC|Thrall of Juiblex ~ Contagion				
-4	ABILITY:Thrall of Juiblex Class Feature|AUTOMATIC|Thrall of Juiblex ~ Alter Self				
-5	ABILITY:Thrall of Juiblex Class Feature|AUTOMATIC|Thrall of Juiblex ~ Summon Demon			
-6	ABILITY:Thrall of Juiblex Class Feature|AUTOMATIC|Thrall of Juiblex ~ Corrosive Spew			
-7	ABILITY:Thrall of Juiblex Class Feature|AUTOMATIC|Thrall of Juiblex ~ Summon Pudding			
-8	ABILITY:Thrall of Juiblex Class Feature|AUTOMATIC|Thrall of Juiblex ~ Polymorph Self			
-10	ABILITY:Thrall of Juiblex Class Feature|AUTOMATIC|Thrall of Juiblex ~ No Discernible Anatomy		
+1	ABILITY:Thrall of Juiblex Class Feature|AUTOMATIC|Thrall of Juiblex ~ Weapon and Armor Proficiency
+1	ABILITY:Thrall of Juiblex Class Feature|AUTOMATIC|Thrall of Juiblex ~ Sickening Slime
+2	ABILITY:Thrall of Juiblex Class Feature|AUTOMATIC|Thrall of Juiblex ~ Corrosive Touch
+3	ABILITY:Thrall of Juiblex Class Feature|AUTOMATIC|Thrall of Juiblex ~ Summon Ooze
+4	ABILITY:Thrall of Juiblex Class Feature|AUTOMATIC|Thrall of Juiblex ~ Contagion
+4	ABILITY:Thrall of Juiblex Class Feature|AUTOMATIC|Thrall of Juiblex ~ Alter Self
+5	ABILITY:Thrall of Juiblex Class Feature|AUTOMATIC|Thrall of Juiblex ~ Summon Demon
+6	ABILITY:Thrall of Juiblex Class Feature|AUTOMATIC|Thrall of Juiblex ~ Corrosive Spew
+7	ABILITY:Thrall of Juiblex Class Feature|AUTOMATIC|Thrall of Juiblex ~ Summon Pudding
+8	ABILITY:Thrall of Juiblex Class Feature|AUTOMATIC|Thrall of Juiblex ~ Polymorph Self
+10	ABILITY:Thrall of Juiblex Class Feature|AUTOMATIC|Thrall of Juiblex ~ No Discernible Anatomy
 ###Block
 11	PREPCLEVEL:MIN=20
 
-# Class Name		Hit Dice	Type				Abbreviation	Max Level	Source Page		Visible	Save checks bonus														Combat bonus
-CLASS:Thrall of Orcus	HD:8		TYPE:PC.Prestige.Vile	ABB:ToO		SOURCEPAGE:p.	VISIBLE:NO		BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3		BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")
-# Class Name		Required AL		Req. Att.	Required Feat				Required Skill								Required Spell School		Required Text
-CLASS:Thrall of Orcus	PREALIGN:LE,NE,CE	PREATT:4	PREFEAT:2,Lichloved,Thrall to Demon	PRESKILL:2,Knowledge (Arcana)=2,Knowledge (Religion)=2	PRESPELLSCHOOL:1,Necromancy=1	PRETEXT:must be initiated by the sect of Juiblex in a terrific rite.
+# Class Name		Hit Dice	Type				Abbreviation	Source Page		Visible	Combat bonus							Bonus
+CLASS:Thrall of Orcus	HD:8		TYPE:PC.Prestige.Vile	ABB:ToO		SOURCEPAGE:p.	VISIBLE:NO	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name		Required AL		Required Feat				Required Skill								Required Spell School		Required Text										PRETOTALAB
+CLASS:Thrall of Orcus	PREALIGN:LE,NE,CE	PREFEAT:2,Lichloved,Thrall to Demon	PRESKILL:2,Knowledge (Arcana)=2,Knowledge (Religion)=2	PRESPELLSCHOOL:1,Necromancy=1	PRETEXT:must be initiated by the sect of Juiblex in a terrific rite.	PRETOTALAB:4
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Thrall of Orcus	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Hide|Intimidate|TYPE=Knowledge|Move Silently|TYPE=Profession|Spot
-1																				
+1
 #
-1	BONUS:ABILITYPOOL|Thrall of Orcus Ability|(CL+2)/3	BONUS:VAR|ThrallOfOrcusCarrionStenchLVL|CL			
-2										BONUS:VAR|CauseFearPerDay|3	BONUS:VAR|CauseFearLVL|10	
-3										BONUS:VAR|ThrallOfOrcusDemonWingsLVL|CL				
+1	BONUS:ABILITYPOOL|Thrall of Orcus Ability|(CL+2)/3	BONUS:VAR|ThrallOfOrcusCarrionStenchLVL|CL
+2										BONUS:VAR|CauseFearPerDay|3	BONUS:VAR|CauseFearLVL|10
+3										BONUS:VAR|ThrallOfOrcusDemonWingsLVL|CL
 4	BONUS:ABILITYPOOL|Thrall of Orcus Deformity|1
-5										BONUS:VAR|SummonUndeadPerDay|1					
-6																				
-8										BONUS:VAR|DeathTouchPerDay|1	BONUS:VAR|DeathTouchDC|CL	
-10										BONUS:VAR|SummonNightwingPerWeek|1					
+5										BONUS:VAR|SummonUndeadPerDay|1
+6
+8										BONUS:VAR|DeathTouchPerDay|1	BONUS:VAR|DeathTouchDC|CL
+10										BONUS:VAR|SummonNightwingPerWeek|1
 ###Block
-1	ABILITY:Thrall of Orcus Class Feature|AUTOMATIC|Thrall of Orcus ~ Weapon and Armor Proficiency	
-1	ABILITY:Thrall of Orcus Class Feature|AUTOMATIC|Thrall of Orcus ~ Bonus Feat or Spells				
-1	ABILITY:Thrall of Orcus Class Feature|AUTOMATIC|Thrall of Orcus ~ Carrion Stench					
-2	ABILITY:Thrall of Orcus Class Feature|AUTOMATIC|Thrall of Orcus ~ Touch of Fear						
-3	ABILITY:Thrall of Orcus Class Feature|AUTOMATIC|Thrall of Orcus ~ Demon Wings						
-4	ABILITY:Thrall of Orcus Class Feature|AUTOMATIC|Thrall of Orcus ~ Massive Girth/Skeletal Visage			
-5	ABILITY:Thrall of Orcus Class Feature|AUTOMATIC|Thrall of Orcus ~ Summon Undead						
-6	ABILITY:Thrall of Orcus Class Feature|AUTOMATIC|Thrall of Orcus ~ Pallor of Death					
-8	ABILITY:Thrall of Orcus Class Feature|AUTOMATIC|Thrall of Orcus ~ Death Touch						
-10	ABILITY:Thrall of Orcus Class Feature|AUTOMATIC|Thrall of Orcus ~ Summon Nightwing					
+1	ABILITY:Thrall of Orcus Class Feature|AUTOMATIC|Thrall of Orcus ~ Weapon and Armor Proficiency
+1	ABILITY:Thrall of Orcus Class Feature|AUTOMATIC|Thrall of Orcus ~ Bonus Feat or Spells
+1	ABILITY:Thrall of Orcus Class Feature|AUTOMATIC|Thrall of Orcus ~ Carrion Stench
+2	ABILITY:Thrall of Orcus Class Feature|AUTOMATIC|Thrall of Orcus ~ Touch of Fear
+3	ABILITY:Thrall of Orcus Class Feature|AUTOMATIC|Thrall of Orcus ~ Demon Wings
+4	ABILITY:Thrall of Orcus Class Feature|AUTOMATIC|Thrall of Orcus ~ Massive Girth/Skeletal Visage
+5	ABILITY:Thrall of Orcus Class Feature|AUTOMATIC|Thrall of Orcus ~ Summon Undead
+6	ABILITY:Thrall of Orcus Class Feature|AUTOMATIC|Thrall of Orcus ~ Pallor of Death
+8	ABILITY:Thrall of Orcus Class Feature|AUTOMATIC|Thrall of Orcus ~ Death Touch
+10	ABILITY:Thrall of Orcus Class Feature|AUTOMATIC|Thrall of Orcus ~ Summon Nightwing
 
-CLASS:Ur-Priest	HD:8	SOURCEPAGE:p.72	TYPE:PC.Prestige		BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
-CLASS:Ur-Priest		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4
-CLASS:Ur-Priest	PREALIGN:LE,CE,NE	PRECHECKBASE:2,Fortitude=3,Will=3	PRESKILL:5,Bluff=6,Knowledge (Arcana)=5,Knowledge (Religion)=8,Knowledge (The Planes)=5,Spellcraft=8	PREFEAT:2,Iron Will,Malign Spell Focus	PRETEXT:Alignment: Any evil. Base Save Bonus: Fort +3, Will +3. Skills: Bluff 6 ranks, Knowledge (arcana) 5 ranks, Knowledge (religion) 8 ranks, Knowledge (the planes) 5 ranks, Spellcraft 8 ranks. Feats: Iron Will, Malign Spell Focus. Special: The character must have no ability to cast divine spells. If that ability was previously possessed (as with an excleric), the ability must be forever forsaken. Special: The character must be trained by another ur-priest.
+# Class Name	Hit Dice	Type			Source Page		Combat bonus								Bonus
+CLASS:Ur-Priest	HD:8		TYPE:PC.Prestige	SOURCEPAGE:p.72	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Required AL		Required Check Base			Required Feat					Required Skill															Required Text
+CLASS:Ur-Priest	PREALIGN:LE,CE,NE	PRECHECKBASE:2,Fortitude=3,Will=3	PREFEAT:2,Iron Will,Malign Spell Focus	PRESKILL:5,Bluff=6,Knowledge (Arcana)=5,Knowledge (Religion)=8,Knowledge (The Planes)=5,Spellcraft=8	PRETEXT:Alignment: Any evil. Base Save Bonus: Fort +3, Will +3. Skills: Bluff 6 ranks, Knowledge (arcana) 5 ranks, Knowledge (religion) 8 ranks, Knowledge (the planes) 5 ranks, Spellcraft 8 ranks. Feats: Iron Will, Malign Spell Focus. Special: The character must have no ability to cast divine spells. If that ability was previously possessed (as with an excleric), the ability must be forever forsaken. Special: The character must be trained by another ur-priest.
+# Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Ur-Priest	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Knowledge (Arcana)|Knowledge (Religion)|Knowledge (The Planes)|TYPE=Profession|Spellcraft
-CLASS:Ur-Priest	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Ur-Priest|CL	SPELLLIST:1|Cleric	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9
+# Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels											Caster level				Use Spell List
+CLASS:Ur-Priest	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Ur-Priest|CL	SPELLLIST:1|Cleric
 ###Block
 1	CAST:4,2
 2	CAST:5,3,0
@@ -460,45 +463,45 @@ CLASS:Ur-Priest	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Ur-Priest|CL	SP
 ###Block
 11	PREPCLEVEL:MIN=20
 
-# Class Name	Hit Dice	Type				Abbreviation	Max Level	Source Page		Visible	Save checks bonus														Combat bonus							Modify VAR
-CLASS:Vermin Lord	HD:6		TYPE:PC.Prestige.Vile	ABB:Vrm		SOURCEPAGE:p.	VISIBLE:NO		BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3		BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3		BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+# Class Name	Hit Dice	Type				Abbreviation	Source Page		Visible	Combat bonus												Modify VAR													Bonus
+CLASS:Vermin Lord	HD:6		TYPE:PC.Prestige.Vile	ABB:Vrm		SOURCEPAGE:p.	VISIBLE:NO	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required AL		Required Feat		Required Skill										Req. Known Spell		Required Text
 CLASS:Vermin Lord	PREALIGN:LE,NE,CE	PREFEAT:1,Verminfriend	PRESKILL:2,Hide=3,Move Silently=3	PRESKILL:1,Knowledge (Nature)=2	PRESPELL:1,Giant Vermin	PRETEXT:must be initiated by an intelligent evil creature with a physical resemblance to vermin.
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Vermin Lord	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Concentration|Hide|Knowledge (Nature)|Listen|Move Silently|TYPE=Perform|Sleight of Hand|Search|Spellcraft|Spot
-1	BONUS:VAR|VerminFamiliarLVL|CL												ADD:SPELLCASTER|ANY	
-3	BONUS:VAR|SpiderHandPerDay|1	BONUS:VAR|SpiderHandLVL|CL								ADD:SPELLCASTER|ANY	
-4	BONUS:VAR|VerminlordSwarmArmorLVL|CL															
-5	BONUS:VAR|VerminFamiliarLVL2|CL	BONUS:VAR|WingsOfTheVerminPerDay|1						ADD:SPELLCASTER|ANY	
-6	BONUS:VAR|SpiderLegsPerDay|1	BONUS:VAR|SpiderLegsLVL|CL+charbonusto("CASTERLEVEL","Vermin Lord")					
-7	BONUS:VAR|VerminlordSpewVerminLVL|CL											ADD:SPELLCASTER|ANY	
-8	BONUS:VAR|PoisonDC|CL																		
-9	BONUS:VAR|VerminFamiliarLVL3|CL												ADD:SPELLCASTER|ANY	
+1	BONUS:VAR|VerminFamiliarLVL|CL												ADD:SPELLCASTER|ANY
+3	BONUS:VAR|SpiderHandPerDay|1	BONUS:VAR|SpiderHandLVL|CL								ADD:SPELLCASTER|ANY
+4	BONUS:VAR|VerminlordSwarmArmorLVL|CL
+5	BONUS:VAR|VerminFamiliarLVL2|CL	BONUS:VAR|WingsOfTheVerminPerDay|1						ADD:SPELLCASTER|ANY
+6	BONUS:VAR|SpiderLegsPerDay|1	BONUS:VAR|SpiderLegsLVL|CL+charbonusto("CASTERLEVEL","Vermin Lord")
+7	BONUS:VAR|VerminlordSpewVerminLVL|CL											ADD:SPELLCASTER|ANY
+8	BONUS:VAR|PoisonDC|CL
+9	BONUS:VAR|VerminFamiliarLVL3|CL												ADD:SPELLCASTER|ANY
 ###Block
-1	ABILITY:Vermin Lord Class Feature|AUTOMATIC|Vermin Lord ~ Weapon and Armor Proficiency	
-1	ABILITY:Vermin Lord Class Feature|AUTOMATIC|Vermin Lord ~ Spells				
-1	ABILITY:Vermin Lord Class Feature|AUTOMATIC|Vermin Lord ~ Chitin				
-1	ABILITY:Vermin Lord Class Feature|AUTOMATIC|Vermin Lord ~ Vermin Servant			
-2	ABILITY:Vermin Lord Class Feature|AUTOMATIC|Vermin Lord ~ Blood Drain				
-3	ABILITY:Vermin Lord Class Feature|AUTOMATIC|Vermin Lord ~ Spider Hand				
-4	ABILITY:Vermin Lord Class Feature|AUTOMATIC|Vermin Lord ~ Swarm Armor				
-5	ABILITY:Vermin Lord Class Feature|AUTOMATIC|Vermin Lord ~ Wings of the Vermin		
-6	ABILITY:Vermin Lord Class Feature|AUTOMATIC|Vermin Lord ~ Spider Legs				
-7	ABILITY:Vermin Lord Class Feature|AUTOMATIC|Vermin Lord ~ Spew Vermin				
-8	ABILITY:Vermin Lord Class Feature|AUTOMATIC|Vermin Lord ~ Poison				
-10	ABILITY:Vermin Lord Class Feature|AUTOMATIC|Vermin Lord ~ Hivemind				
+1	ABILITY:Vermin Lord Class Feature|AUTOMATIC|Vermin Lord ~ Weapon and Armor Proficiency
+1	ABILITY:Vermin Lord Class Feature|AUTOMATIC|Vermin Lord ~ Spells
+1	ABILITY:Vermin Lord Class Feature|AUTOMATIC|Vermin Lord ~ Chitin
+1	ABILITY:Vermin Lord Class Feature|AUTOMATIC|Vermin Lord ~ Vermin Servant
+2	ABILITY:Vermin Lord Class Feature|AUTOMATIC|Vermin Lord ~ Blood Drain
+3	ABILITY:Vermin Lord Class Feature|AUTOMATIC|Vermin Lord ~ Spider Hand
+4	ABILITY:Vermin Lord Class Feature|AUTOMATIC|Vermin Lord ~ Swarm Armor
+5	ABILITY:Vermin Lord Class Feature|AUTOMATIC|Vermin Lord ~ Wings of the Vermin
+6	ABILITY:Vermin Lord Class Feature|AUTOMATIC|Vermin Lord ~ Spider Legs
+7	ABILITY:Vermin Lord Class Feature|AUTOMATIC|Vermin Lord ~ Spew Vermin
+8	ABILITY:Vermin Lord Class Feature|AUTOMATIC|Vermin Lord ~ Poison
+10	ABILITY:Vermin Lord Class Feature|AUTOMATIC|Vermin Lord ~ Hivemind
 ###Block
 11	PREPCLEVEL:MIN=20
 
-# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Visible	Save checks bonus														Combat bonus
-CLASS:Warrior of Darkness	HD:10		TYPE:PC.Prestige	ABB:WoD		SOURCEPAGE:p.	VISIBLE:NO		BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3		BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")
-# Class Name			Required AL		Req. Att.	Required Feat		Required Language			Required Skill											Required Text
-CLASS:Warrior of Darkness	PREALIGN:LE,NE,CE	PREATT:5	PREFEAT:1,Iron Will	PRELANG:1,Abyssal,Infernal	PRESKILL:2,Craft (Alchemy)=3,Knowledge (Arcana)=3	PRESKILL:1,Spellcraft=1	PRETEXT:must endure a week of painful and scarring black magic rituals in solitude, the secret of wich take a month to study and research succesfully.
+# Class Name			Hit Dice	Type			Abbreviation	Source Page		Visible	Combat bonus							Bonus
+CLASS:Warrior of Darkness	HD:10		TYPE:PC.Prestige	ABB:WoD		SOURCEPAGE:p.	VISIBLE:NO	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name			Required AL		Required Feat		Required Language			Required Skill											Required Text																								PRETOTALAB
+CLASS:Warrior of Darkness	PREALIGN:LE,NE,CE	PREFEAT:1,Iron Will	PRELANG:1,Abyssal,Infernal	PRESKILL:2,Craft (Alchemy)=3,Knowledge (Arcana)=3	PRESKILL:1,Spellcraft=1	PRETEXT:must endure a week of painful and scarring black magic rituals in solitude, the secret of wich take a month to study and research succesfully.	PRETOTALAB:5
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Warrior of Darkness	STARTSKILLPTS:4	CSKILL:Craft (Alchemy)|Bluff|Climb|Concentration|Hide|Jump|Knowledge (Arcana)|Knowledge (The Planes)|Move Silently|Ride|Spellcraft
 ###Block:
-1	BONUS:ABILITYPOOL|Black Magic Oil|((CL+2)/3)	BONUS:VAR|WarriorOfDarknessBlackMagicOilLVL|CL
-3	BONUS:ABILITYPOOL|Black Magic Elixir|classlevel("APPLIEDAS=NONEPIC")/3		BONUS:VAR|WarriorOfDarknessBlackMagicElixirLVL|CL
+1	BONUS:ABILITYPOOL|Black Magic Oil|((CL+2)/3)					BONUS:VAR|WarriorOfDarknessBlackMagicOilLVL|CL
+3	BONUS:ABILITYPOOL|Black Magic Elixir|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|WarriorOfDarknessBlackMagicElixirLVL|CL
 ###Block:
 1	ABILITY:Warrior of Darkness Class Feature|AUTOMATIC|Warrior of Darkness ~ Weapon and Armor Proficiency
 1	ABILITY:Warrior of Darkness Class Feature|AUTOMATIC|Warrior of Darkness ~ Black Magic Oil

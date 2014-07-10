@@ -1,9 +1,9 @@
-# CVS $Revision: $ $Author: $ -- Wed Feb 26 18:18:46 2014 -- reformated by prettylst.pl v1.51 (build 22988)
+# CVS $Revision: $ $Author: $ -- Thu Jul 10 13:59:32 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 
 # COMMENT: This looks incomplete. Tidied up the abilities, the header looks fine. Defines need to go to abilities that grant. ~BD
 
-# Class Name	Hit Dice	Type			Abbreviation	Source Page		Define									Save checks bonus
-CLASS:Binder	HD:8		TYPE:Base.PC	ABB:Bdr		SOURCEPAGE:p.9	DEFINE:BinderMaxVestigeLVL|0	DEFINE:BinderEffectiveLVL|0		BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name	Hit Dice	Type			Abbreviation	Source Page		Define									Bonus
+CLASS:Binder	HD:8		TYPE:Base.PC	ABB:Bdr		SOURCEPAGE:p.9	DEFINE:BinderMaxVestigeLVL|0	DEFINE:BinderEffectiveLVL|0	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Binder	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Decipher Script|Diplomacy|Gather Information|Intimidate|Knowledge (Arcana)|Knowledge (History)|Knowledge (Religion)|Knowledge (The Planes)|TYPE=Profession|Sense Motive
 ###Block: Profs need to be swapped out for actual prof ability
@@ -57,8 +57,8 @@ CLASS:Binder	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Decipher Scri
 20	BONUS:VAR|BinderSoulBindingLVL|1
 20	BONUS:VAR|BinderPactAugmentationCount|1
 
-# Class Name		Hit Dice	Type			Source Page		Define				Save checks bonus											Combat bonus							Modify VAR
-CLASS:Shadowcaster	HD:6		TYPE:Shadow Magic	SOURCEPAGE:p.111	DEFINE:ShadowcasterLVL|0	BONUS:VAR|ShadowcasterLVL|CL		BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+# Class Name		Hit Dice	Type			Source Page		Define				Combat bonus												Modify VAR																		Bonus
+CLASS:Shadowcaster	HD:6		TYPE:Shadow Magic	SOURCEPAGE:p.111	DEFINE:ShadowcasterLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ShadowcasterLVL|CL	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Shadowcaster	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Hide|Intimidate|Knowledge (Arcana)|Knowledge (The Planes)|Move Silently|TYPE=Profession|Spellcraft|Spot
 # Class Name		Spell Stat		Spell Type			Memorize	Caster level
@@ -95,4 +95,3 @@ CLASS:Shadowcaster	SPELLSTAT:INT	SPELLTYPE:Shadow Magic	MEMORIZE:NO	BONUS:CASTER
 18	CAST:0,3,3,3,2,2,2,1,1,1
 19	CAST:0,3,3,3,2,2,2,1,1,1
 20	CAST:0,3,3,3,2,2,2,1,1,1
-

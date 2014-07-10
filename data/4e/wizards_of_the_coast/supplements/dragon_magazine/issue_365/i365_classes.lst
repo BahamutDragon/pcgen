@@ -1,7 +1,10 @@
-# CVS $Revision: $ $Author: $ -- Sun Dec  8 22:17:49 2013 -- reformated by prettylst.pl v1.50 (build 22352)
+# CVS $Revision: $ $Author: $ -- Thu Jul 10 13:59:32 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Dragon Magazine, Issue 365	SOURCESHORT:DM364	SOURCEWEB:http://www.wizards.com/welcome.asp	SOURCEDATE:2008-07
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus
-CLASS:Artificer	HD:1		TYPE:Base.PC	ABB:Art	PREMULT:1,[!PRECLASS:1,%],[PRECLASS:1,Artificer=1]	STARTSKILLPTS:0	MODTOSKILLS:NO	MAXLEVEL:30	SOURCEPAGE:p.5	BONUS:VAR|ArtificerLVL|CL	DEFINE:ArtificerLVL|0
-
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Define			Modify VAR
+CLASS:Artificer	HD:1		TYPE:Base.PC	ABB:Art		MAXLEVEL:30	SOURCEPAGE:p.5	DEFINE:ArtificerLVL|0	BONUS:VAR|ArtificerLVL|CL
+# Class Name	Multiple Requirements
+CLASS:Artificer	PREMULT:1,[!PRECLASS:1,%],[PRECLASS:1,Artificer=1]
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Artificer	STARTSKILLPTS:0	MODTOSKILLS:NO

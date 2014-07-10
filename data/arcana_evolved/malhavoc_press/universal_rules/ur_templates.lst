@@ -1,97 +1,99 @@
+# CVS $Revision: $ $Author: $ -- Thu Jul 10 14:45:53 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 
 ###Block: Used to Change Race Type of the Base Race
-Fey	VISIBLE:NO	RACETYPE:Fey
+# Template Name	Visible	Main Race Type
+Fey			VISIBLE:NO	RACETYPE:Fey
 
 
 #Use Fractional BAB	VISIBLE:YES	DEFINE:UseFractionalBAB|0	BONUS:VAR|UseFractionalBAB|1|TYPE=NoStack
 ###Block: Size Mods for Automatic Changes
-# Template Name		Size		Face/Space	Reach		Visible	Level Adjustment
-REACH_0							REACH:0	VISIBLE:NO
-REACH_5							REACH:5	VISIBLE:NO
-REACH_10							REACH:10	VISIBLE:NO
-REACH_15							REACH:15	VISIBLE:NO
-REACH_20							REACH:20	VISIBLE:NO
-REACH_30							REACH:30	VISIBLE:NO
+# Template Name						Size		Face/Space	Reach		Visible	Level Adjustment	Template																																																																		Define					Define a Stat		Required Race									Modify VAR																		Ability														Removable?		Race Subtype
+REACH_0											REACH:0	VISIBLE:NO
+REACH_5											REACH:5	VISIBLE:NO
+REACH_10											REACH:10	VISIBLE:NO
+REACH_15											REACH:15	VISIBLE:NO
+REACH_20											REACH:20	VISIBLE:NO
+REACH_30											REACH:30	VISIBLE:NO
 #
-FACE_0					FACE:0			VISIBLE:NO
-FACE_1					FACE:1			VISIBLE:NO
-FACE_2					FACE:2.5			VISIBLE:NO
-FACE_5					FACE:5			VISIBLE:NO
-FACE_10					FACE:10			VISIBLE:NO
-FACE_15					FACE:15			VISIBLE:NO
-FACE_20					FACE:20			VISIBLE:NO
-FACE_30					FACE:30			VISIBLE:NO
+FACE_0									FACE:0			VISIBLE:NO
+FACE_1									FACE:1			VISIBLE:NO
+FACE_2									FACE:2.5			VISIBLE:NO
+FACE_5									FACE:5			VISIBLE:NO
+FACE_10									FACE:10			VISIBLE:NO
+FACE_15									FACE:15			VISIBLE:NO
+FACE_20									FACE:20			VISIBLE:NO
+FACE_30									FACE:30			VISIBLE:NO
 #
-SIZE_F			SIZE:F					VISIBLE:NO
-SIZE_D			SIZE:D					VISIBLE:NO
-SIZE_T			SIZE:T					VISIBLE:NO
-SIZE_S			SIZE:S					VISIBLE:NO
-SIZE_M			SIZE:M					VISIBLE:NO
-SIZE_L			SIZE:L					VISIBLE:NO
-SIZE_H			SIZE:H					VISIBLE:NO
-SIZE_G			SIZE:G					VISIBLE:NO
-SIZE_C			SIZE:C					VISIBLE:NO
-SIZE_C+			SIZE:C+					VISIBLE:NO
+SIZE_F							SIZE:F					VISIBLE:NO
+SIZE_D							SIZE:D					VISIBLE:NO
+SIZE_T							SIZE:T					VISIBLE:NO
+SIZE_S							SIZE:S					VISIBLE:NO
+SIZE_M							SIZE:M					VISIBLE:NO
+SIZE_L							SIZE:L					VISIBLE:NO
+SIZE_H							SIZE:H					VISIBLE:NO
+SIZE_G							SIZE:G					VISIBLE:NO
+SIZE_C							SIZE:C					VISIBLE:NO
+SIZE_C+							SIZE:C+					VISIBLE:NO
 #
-LEVEL_ADJUSTMENT_1							VISIBLE:NO	LEVELADJUSTMENT:1
-LEVEL_ADJUSTMENT_2							VISIBLE:NO	LEVELADJUSTMENT:2
-LEVEL_ADJUSTMENT_3							VISIBLE:NO	LEVELADJUSTMENT:3
-LEVEL_ADJUSTMENT_4							VISIBLE:NO	LEVELADJUSTMENT:4
-LEVEL_ADJUSTMENT_5							VISIBLE:NO	LEVELADJUSTMENT:5
-LEVEL_ADJUSTMENT_6							VISIBLE:NO	LEVELADJUSTMENT:6
-LEVEL_ADJUSTMENT_7							VISIBLE:NO	LEVELADJUSTMENT:7
-LEVEL_ADJUSTMENT_8							VISIBLE:NO	LEVELADJUSTMENT:8
-LEVEL_ADJUSTMENT_9							VISIBLE:NO	LEVELADJUSTMENT:9
+LEVEL_ADJUSTMENT_1											VISIBLE:NO	LEVELADJUSTMENT:1
+LEVEL_ADJUSTMENT_2											VISIBLE:NO	LEVELADJUSTMENT:2
+LEVEL_ADJUSTMENT_3											VISIBLE:NO	LEVELADJUSTMENT:3
+LEVEL_ADJUSTMENT_4											VISIBLE:NO	LEVELADJUSTMENT:4
+LEVEL_ADJUSTMENT_5											VISIBLE:NO	LEVELADJUSTMENT:5
+LEVEL_ADJUSTMENT_6											VISIBLE:NO	LEVELADJUSTMENT:6
+LEVEL_ADJUSTMENT_7											VISIBLE:NO	LEVELADJUSTMENT:7
+LEVEL_ADJUSTMENT_8											VISIBLE:NO	LEVELADJUSTMENT:8
+LEVEL_ADJUSTMENT_9											VISIBLE:NO	LEVELADJUSTMENT:9
 
-Non-Ability ~ Strength		DEFINESTAT:NONSTAT|STR
-Non-Ability ~ Constitution	DEFINESTAT:NONSTAT|CON
-Non-Ability ~ Intelligence	DEFINESTAT:NONSTAT|INT
+Non-Ability ~ Strength																																																																																									DEFINESTAT:NONSTAT|STR
+Non-Ability ~ Constitution																																																																																								DEFINESTAT:NONSTAT|CON
+Non-Ability ~ Intelligence																																																																																								DEFINESTAT:NONSTAT|INT
 
 
-# Template Name						Visible	Template																																																																		Define					Define a Stat		Required Race									Modify VAR												Ability														Removable?		Race Subtype
-Base Race Type						VISIBLE:NO	TEMPLATE:CHOOSE:Base Race Type ~ Aberration|Base Race Type ~ Animal|Base Race Type ~ Construct|Base Race Type ~ Dragon|Base Race Type ~ Elemental|Base Race Type ~ Fey|Base Race Type ~ Giant|Base Race Type ~ Humanoid|Base Race Type ~ Magical Beast|Base Race Type ~ Monstrous Humanoid|Base Race Type ~ Ooze|Base Race Type ~ Outsider|Base Race Type ~ Plant|Base Race Type ~ Undead|Base Race Type ~ Vermin
+# Template Name						Size		Face/Space	Reach		Visible	Level Adjustment	Template																																																																		Define					Define a Stat		Required Race									Modify VAR																		Ability														Removable?		Race Subtype
+Base Race Type												VISIBLE:NO				TEMPLATE:CHOOSE:Base Race Type ~ Aberration|Base Race Type ~ Animal|Base Race Type ~ Construct|Base Race Type ~ Dragon|Base Race Type ~ Elemental|Base Race Type ~ Fey|Base Race Type ~ Giant|Base Race Type ~ Humanoid|Base Race Type ~ Magical Beast|Base Race Type ~ Monstrous Humanoid|Base Race Type ~ Ooze|Base Race Type ~ Outsider|Base Race Type ~ Plant|Base Race Type ~ Undead|Base Race Type ~ Vermin
 #
-Base Race Type ~ Aberration				VISIBLE:NO																																																																				DEFINE:BaseRaceTypeUnchanged|1					PRERACE:2,RACETYPE=Aberration,TYPE=Aberration				BONUS:VAR|BaseRaceTypeUnchanged|-1|PRERACE:1,RACETYPE=Aberration			ABILITY:Internal|AUTOMATIC|Augmented Aberration|PREVAREQ:BaseRaceTypeUnchanged,1
-Base Race Type ~ Animal					VISIBLE:NO																																																																				DEFINE:BaseRaceTypeUnchanged|1					PRERACE:2,RACETYPE=Animal,TYPE=Animal					BONUS:VAR|BaseRaceTypeUnchanged|-1|PRERACE:1,RACETYPE=Animal			ABILITY:Internal|AUTOMATIC|Augmented Animal|PREVAREQ:BaseRaceTypeUnchanged,1
-Base Race Type ~ Construct				VISIBLE:NO																																																																				DEFINE:BaseRaceTypeUnchanged|1					PRERACE:2,RACETYPE=Construct,TYPE=Construct				BONUS:VAR|BaseRaceTypeUnchanged|-1|PRERACE:1,RACETYPE=Construct			ABILITY:Internal|AUTOMATIC|Augmented Construct|PREVAREQ:BaseRaceTypeUnchanged,1
-Base Race Type ~ Dragon					VISIBLE:NO																																																																				DEFINE:BaseRaceTypeUnchanged|1					PRERACE:2,RACETYPE=Dragon,TYPE=Dragon					BONUS:VAR|BaseRaceTypeUnchanged|-1|PRERACE:1,RACETYPE=Dragon			ABILITY:Internal|AUTOMATIC|Augmented Dragon|PREVAREQ:BaseRaceTypeUnchanged,1
-Base Race Type ~ Elemental				VISIBLE:NO																																																																				DEFINE:BaseRaceTypeUnchanged|1					PRERACE:2,RACETYPE=Elemental,TYPE=Elemental				BONUS:VAR|BaseRaceTypeUnchanged|-1|PRERACE:1,RACETYPE=Elemental			ABILITY:Internal|AUTOMATIC|Augmented Elemental|PREVAREQ:BaseRaceTypeUnchanged,1
-Base Race Type ~ Fey					VISIBLE:NO																																																																				DEFINE:BaseRaceTypeUnchanged|1					PRERACE:2,RACETYPE=Fey,TYPE=Fey						BONUS:VAR|BaseRaceTypeUnchanged|-1|PRERACE:1,RACETYPE=Fey				ABILITY:Internal|AUTOMATIC|Augmented Fey|PREVAREQ:BaseRaceTypeUnchanged,1
-Base Race Type ~ Giant					VISIBLE:NO																																																																				DEFINE:BaseRaceTypeUnchanged|1					PRERACE:2,RACETYPE=Giant,TYPE=Giant						BONUS:VAR|BaseRaceTypeUnchanged|-1|PRERACE:1,RACETYPE=Giant				ABILITY:Internal|AUTOMATIC|Augmented Giant|PREVAREQ:BaseRaceTypeUnchanged,1
-Base Race Type ~ Humanoid				VISIBLE:NO																																																																				DEFINE:BaseRaceTypeUnchanged|1					PRERACE:2,RACETYPE=Humanoid,TYPE=Humanoid					BONUS:VAR|BaseRaceTypeUnchanged|-1|PRERACE:1,RACETYPE=Humanoid			ABILITY:Internal|AUTOMATIC|Augmented Humanoid|PREVAREQ:BaseRaceTypeUnchanged,1
-Base Race Type ~ Magical Beast			VISIBLE:NO																																																																				DEFINE:BaseRaceTypeUnchanged|1					PRERACE:2,RACETYPE=Magical Beast,TYPE=Magical Beast			BONUS:VAR|BaseRaceTypeUnchanged|-1|PRERACE:1,RACETYPE=Magical Beast		ABILITY:Internal|AUTOMATIC|Augmented Magical Beast|PREVAREQ:BaseRaceTypeUnchanged,1
-Base Race Type ~ Monstrous Humanoid			VISIBLE:NO																																																																				DEFINE:BaseRaceTypeUnchanged|1					PRERACE:2,RACETYPE=Monstrous Humanoid,TYPE=Monstrous Humanoid	BONUS:VAR|BaseRaceTypeUnchanged|-1|PRERACE:1,RACETYPE=Monstrous Humanoid	ABILITY:Internal|AUTOMATIC|Augmented Monstrous Humanoid|PREVAREQ:BaseRaceTypeUnchanged,1
-Base Race Type ~ Ooze					VISIBLE:NO																																																																				DEFINE:BaseRaceTypeUnchanged|1					PRERACE:2,RACETYPE=Ooze,TYPE=Ooze						BONUS:VAR|BaseRaceTypeUnchanged|-1|PRERACE:1,RACETYPE=Ooze				ABILITY:Internal|AUTOMATIC|Augmented Ooze|PREVAREQ:BaseRaceTypeUnchanged,1
-Base Race Type ~ Outsider				VISIBLE:NO																																																																				DEFINE:BaseRaceTypeUnchanged|1					PRERACE:2,RACETYPE=Outsider,TYPE=Outsider					BONUS:VAR|BaseRaceTypeUnchanged|-1|PRERACE:1,RACETYPE=Outsider			ABILITY:Internal|AUTOMATIC|Augmented Outsider|PREVAREQ:BaseRaceTypeUnchanged,1
-Base Race Type ~ Plant					VISIBLE:NO																																																																				DEFINE:BaseRaceTypeUnchanged|1					PRERACE:2,RACETYPE=Plant,TYPE=Plant						BONUS:VAR|BaseRaceTypeUnchanged|-1|PRERACE:1,RACETYPE=Plant				ABILITY:Internal|AUTOMATIC|Augmented Plant|PREVAREQ:BaseRaceTypeUnchanged,1
-Base Race Type ~ Undead					VISIBLE:NO																																																																				DEFINE:BaseRaceTypeUnchanged|1					PRERACE:2,RACETYPE=Undead,TYPE=Undead					BONUS:VAR|BaseRaceTypeUnchanged|-1|PRERACE:1,RACETYPE=Undead			ABILITY:Internal|AUTOMATIC|Augmented Undead|PREVAREQ:BaseRaceTypeUnchanged,1
-Base Race Type ~ Vermin					VISIBLE:NO																																																																				DEFINE:BaseRaceTypeUnchanged|1					PRERACE:2,RACETYPE=Vermin,TYPE=Vermin					BONUS:VAR|BaseRaceTypeUnchanged|-1|PRERACE:1,RACETYPE=Vermin			ABILITY:Internal|AUTOMATIC|Augmented Vermin|PREVAREQ:BaseRaceTypeUnchanged,1
+Base Race Type ~ Aberration										VISIBLE:NO																																																																							DEFINE:BaseRaceTypeUnchanged|0					PRERACE:2,RACETYPE=Aberration,TYPE=Aberration				BONUS:VAR|BaseRaceTypeUnchanged|1	BONUS:VAR|BaseRaceTypeUnchanged|-1|PRERACE:1,RACETYPE=Aberration			ABILITY:Internal|AUTOMATIC|Augmented Aberration|PREVAREQ:BaseRaceTypeUnchanged,1
+Base Race Type ~ Animal											VISIBLE:NO																																																																							DEFINE:BaseRaceTypeUnchanged|0					PRERACE:2,RACETYPE=Animal,TYPE=Animal					BONUS:VAR|BaseRaceTypeUnchanged|1	BONUS:VAR|BaseRaceTypeUnchanged|-1|PRERACE:1,RACETYPE=Animal			ABILITY:Internal|AUTOMATIC|Augmented Animal|PREVAREQ:BaseRaceTypeUnchanged,1
+Base Race Type ~ Construct										VISIBLE:NO																																																																							DEFINE:BaseRaceTypeUnchanged|0					PRERACE:2,RACETYPE=Construct,TYPE=Construct				BONUS:VAR|BaseRaceTypeUnchanged|1	BONUS:VAR|BaseRaceTypeUnchanged|-1|PRERACE:1,RACETYPE=Construct			ABILITY:Internal|AUTOMATIC|Augmented Construct|PREVAREQ:BaseRaceTypeUnchanged,1
+Base Race Type ~ Dragon											VISIBLE:NO																																																																							DEFINE:BaseRaceTypeUnchanged|0					PRERACE:2,RACETYPE=Dragon,TYPE=Dragon					BONUS:VAR|BaseRaceTypeUnchanged|1	BONUS:VAR|BaseRaceTypeUnchanged|-1|PRERACE:1,RACETYPE=Dragon			ABILITY:Internal|AUTOMATIC|Augmented Dragon|PREVAREQ:BaseRaceTypeUnchanged,1
+Base Race Type ~ Elemental										VISIBLE:NO																																																																							DEFINE:BaseRaceTypeUnchanged|0					PRERACE:2,RACETYPE=Elemental,TYPE=Elemental				BONUS:VAR|BaseRaceTypeUnchanged|1	BONUS:VAR|BaseRaceTypeUnchanged|-1|PRERACE:1,RACETYPE=Elemental			ABILITY:Internal|AUTOMATIC|Augmented Elemental|PREVAREQ:BaseRaceTypeUnchanged,1
+Base Race Type ~ Fey											VISIBLE:NO																																																																							DEFINE:BaseRaceTypeUnchanged|0					PRERACE:2,RACETYPE=Fey,TYPE=Fey						BONUS:VAR|BaseRaceTypeUnchanged|1	BONUS:VAR|BaseRaceTypeUnchanged|-1|PRERACE:1,RACETYPE=Fey				ABILITY:Internal|AUTOMATIC|Augmented Fey|PREVAREQ:BaseRaceTypeUnchanged,1
+Base Race Type ~ Giant											VISIBLE:NO																																																																							DEFINE:BaseRaceTypeUnchanged|0					PRERACE:2,RACETYPE=Giant,TYPE=Giant						BONUS:VAR|BaseRaceTypeUnchanged|1	BONUS:VAR|BaseRaceTypeUnchanged|-1|PRERACE:1,RACETYPE=Giant				ABILITY:Internal|AUTOMATIC|Augmented Giant|PREVAREQ:BaseRaceTypeUnchanged,1
+Base Race Type ~ Humanoid										VISIBLE:NO																																																																							DEFINE:BaseRaceTypeUnchanged|0					PRERACE:2,RACETYPE=Humanoid,TYPE=Humanoid					BONUS:VAR|BaseRaceTypeUnchanged|1	BONUS:VAR|BaseRaceTypeUnchanged|-1|PRERACE:1,RACETYPE=Humanoid			ABILITY:Internal|AUTOMATIC|Augmented Humanoid|PREVAREQ:BaseRaceTypeUnchanged,1
+Base Race Type ~ Magical Beast									VISIBLE:NO																																																																							DEFINE:BaseRaceTypeUnchanged|0					PRERACE:2,RACETYPE=Magical Beast,TYPE=Magical Beast			BONUS:VAR|BaseRaceTypeUnchanged|1	BONUS:VAR|BaseRaceTypeUnchanged|-1|PRERACE:1,RACETYPE=Magical Beast		ABILITY:Internal|AUTOMATIC|Augmented Magical Beast|PREVAREQ:BaseRaceTypeUnchanged,1
+Base Race Type ~ Monstrous Humanoid									VISIBLE:NO																																																																							DEFINE:BaseRaceTypeUnchanged|0					PRERACE:2,RACETYPE=Monstrous Humanoid,TYPE=Monstrous Humanoid	BONUS:VAR|BaseRaceTypeUnchanged|1	BONUS:VAR|BaseRaceTypeUnchanged|-1|PRERACE:1,RACETYPE=Monstrous Humanoid	ABILITY:Internal|AUTOMATIC|Augmented Monstrous Humanoid|PREVAREQ:BaseRaceTypeUnchanged,1
+Base Race Type ~ Ooze											VISIBLE:NO																																																																							DEFINE:BaseRaceTypeUnchanged|0					PRERACE:2,RACETYPE=Ooze,TYPE=Ooze						BONUS:VAR|BaseRaceTypeUnchanged|1	BONUS:VAR|BaseRaceTypeUnchanged|-1|PRERACE:1,RACETYPE=Ooze				ABILITY:Internal|AUTOMATIC|Augmented Ooze|PREVAREQ:BaseRaceTypeUnchanged,1
+Base Race Type ~ Outsider										VISIBLE:NO																																																																							DEFINE:BaseRaceTypeUnchanged|0					PRERACE:2,RACETYPE=Outsider,TYPE=Outsider					BONUS:VAR|BaseRaceTypeUnchanged|1	BONUS:VAR|BaseRaceTypeUnchanged|-1|PRERACE:1,RACETYPE=Outsider			ABILITY:Internal|AUTOMATIC|Augmented Outsider|PREVAREQ:BaseRaceTypeUnchanged,1
+Base Race Type ~ Plant											VISIBLE:NO																																																																							DEFINE:BaseRaceTypeUnchanged|0					PRERACE:2,RACETYPE=Plant,TYPE=Plant						BONUS:VAR|BaseRaceTypeUnchanged|1	BONUS:VAR|BaseRaceTypeUnchanged|-1|PRERACE:1,RACETYPE=Plant				ABILITY:Internal|AUTOMATIC|Augmented Plant|PREVAREQ:BaseRaceTypeUnchanged,1
+Base Race Type ~ Undead											VISIBLE:NO																																																																							DEFINE:BaseRaceTypeUnchanged|0					PRERACE:2,RACETYPE=Undead,TYPE=Undead					BONUS:VAR|BaseRaceTypeUnchanged|1	BONUS:VAR|BaseRaceTypeUnchanged|-1|PRERACE:1,RACETYPE=Undead			ABILITY:Internal|AUTOMATIC|Augmented Undead|PREVAREQ:BaseRaceTypeUnchanged,1
+Base Race Type ~ Vermin											VISIBLE:NO																																																																							DEFINE:BaseRaceTypeUnchanged|0					PRERACE:2,RACETYPE=Vermin,TYPE=Vermin					BONUS:VAR|BaseRaceTypeUnchanged|1	BONUS:VAR|BaseRaceTypeUnchanged|-1|PRERACE:1,RACETYPE=Vermin			ABILITY:Internal|AUTOMATIC|Augmented Vermin|PREVAREQ:BaseRaceTypeUnchanged,1
 #
-RaceSubtype ~ Augmented Aberration			VISIBLE:NO																																																																																																																					REMOVABLE:YES	RACESUBTYPE:Augmented Aberration
-RaceSubtype ~ Augmented Animal			VISIBLE:NO																																																																																																																					REMOVABLE:YES	RACESUBTYPE:Augmented Animal
-RaceSubtype ~ Augmented Construct			VISIBLE:NO																																																																																																																					REMOVABLE:YES	RACESUBTYPE:Augmented Construct
-RaceSubtype ~ Augmented Dragon			VISIBLE:NO																																																																																																																					REMOVABLE:YES	RACESUBTYPE:Augmented Dragon
-RaceSubtype ~ Augmented Elemental			VISIBLE:NO																																																																																																																					REMOVABLE:YES	RACESUBTYPE:Augmented Elemental
-RaceSubtype ~ Augmented Fey				VISIBLE:NO																																																																																																																					REMOVABLE:YES	RACESUBTYPE:Augmented Fey
-RaceSubtype ~ Augmented Giant				VISIBLE:NO																																																																																																																					REMOVABLE:YES	RACESUBTYPE:Augmented Giant
-RaceSubtype ~ Augmented Humanoid			VISIBLE:NO																																																																																																																					REMOVABLE:YES	RACESUBTYPE:Augmented Humanoid
-RaceSubtype ~ Augmented Magical Beast		VISIBLE:NO																																																																																																																					REMOVABLE:YES	RACESUBTYPE:Augmented Magical Beast
-RaceSubtype ~ Augmented Monstrous Humanoid	VISIBLE:NO																																																																																																																					REMOVABLE:YES	RACESUBTYPE:Augmented Monstrous Humanoid
-RaceSubtype ~ Augmented Ooze				VISIBLE:NO																																																																																																																					REMOVABLE:YES	RACESUBTYPE:Augmented Ooze
-RaceSubtype ~ Augmented Outsider			VISIBLE:NO																																																																																																																					REMOVABLE:YES	RACESUBTYPE:Augmented Outsider
-RaceSubtype ~ Augmented Plant				VISIBLE:NO																																																																																																																					REMOVABLE:YES	RACESUBTYPE:Augmented Plant
-RaceSubtype ~ Augmented Undead			VISIBLE:NO																																																																																																																					REMOVABLE:YES	RACESUBTYPE:Augmented Undead
-RaceSubtype ~ Augmented Vermin			VISIBLE:NO																																																																																																																					REMOVABLE:YES	RACESUBTYPE:Augmented Vermin
+RaceSubtype ~ Augmented Aberration									VISIBLE:NO																																																																																																																														REMOVABLE:YES	RACESUBTYPE:Augmented Aberration
+RaceSubtype ~ Augmented Animal									VISIBLE:NO																																																																																																																														REMOVABLE:YES	RACESUBTYPE:Augmented Animal
+RaceSubtype ~ Augmented Construct									VISIBLE:NO																																																																																																																														REMOVABLE:YES	RACESUBTYPE:Augmented Construct
+RaceSubtype ~ Augmented Dragon									VISIBLE:NO																																																																																																																														REMOVABLE:YES	RACESUBTYPE:Augmented Dragon
+RaceSubtype ~ Augmented Elemental									VISIBLE:NO																																																																																																																														REMOVABLE:YES	RACESUBTYPE:Augmented Elemental
+RaceSubtype ~ Augmented Fey										VISIBLE:NO																																																																																																																														REMOVABLE:YES	RACESUBTYPE:Augmented Fey
+RaceSubtype ~ Augmented Giant										VISIBLE:NO																																																																																																																														REMOVABLE:YES	RACESUBTYPE:Augmented Giant
+RaceSubtype ~ Augmented Humanoid									VISIBLE:NO																																																																																																																														REMOVABLE:YES	RACESUBTYPE:Augmented Humanoid
+RaceSubtype ~ Augmented Magical Beast								VISIBLE:NO																																																																																																																														REMOVABLE:YES	RACESUBTYPE:Augmented Magical Beast
+RaceSubtype ~ Augmented Monstrous Humanoid							VISIBLE:NO																																																																																																																														REMOVABLE:YES	RACESUBTYPE:Augmented Monstrous Humanoid
+RaceSubtype ~ Augmented Ooze										VISIBLE:NO																																																																																																																														REMOVABLE:YES	RACESUBTYPE:Augmented Ooze
+RaceSubtype ~ Augmented Outsider									VISIBLE:NO																																																																																																																														REMOVABLE:YES	RACESUBTYPE:Augmented Outsider
+RaceSubtype ~ Augmented Plant										VISIBLE:NO																																																																																																																														REMOVABLE:YES	RACESUBTYPE:Augmented Plant
+RaceSubtype ~ Augmented Undead									VISIBLE:NO																																																																																																																														REMOVABLE:YES	RACESUBTYPE:Augmented Undead
+RaceSubtype ~ Augmented Vermin									VISIBLE:NO																																																																																																																														REMOVABLE:YES	RACESUBTYPE:Augmented Vermin
 
 
 # Non-Abilities
-# Template Name						Visible	Template																																																																		Define					Define a Stat		Required Race									Modify VAR												Ability														Removable?		Race Subtype
-Non-Ability ~ Strength					VISIBLE:NO																																																																										DEFINESTAT:NONSTAT|STR
-Non-Ability ~ Dexterity					VISIBLE:NO																																																																										DEFINESTAT:NONSTAT|DEX
-Non-Ability ~ Constitution				VISIBLE:NO																																																																										DEFINESTAT:NONSTAT|CON
-Non-Ability ~ Intelligence				VISIBLE:NO																																																																										DEFINESTAT:NONSTAT|INT
-Non-Ability ~ Wisdom					VISIBLE:NO																																																																										DEFINESTAT:NONSTAT|WIS
-Non-Ability ~ Charisma					VISIBLE:NO																																																																										DEFINESTAT:NONSTAT|CHA
+# Template Name						Size		Face/Space	Reach		Visible	Level Adjustment	Template																																																																		Define					Define a Stat		Required Race									Modify VAR																		Ability														Removable?		Race Subtype
+Non-Ability ~ Strength											VISIBLE:NO																																																																													DEFINESTAT:NONSTAT|STR
+Non-Ability ~ Dexterity											VISIBLE:NO																																																																													DEFINESTAT:NONSTAT|DEX
+Non-Ability ~ Constitution										VISIBLE:NO																																																																													DEFINESTAT:NONSTAT|CON
+Non-Ability ~ Intelligence										VISIBLE:NO																																																																													DEFINESTAT:NONSTAT|INT
+Non-Ability ~ Wisdom											VISIBLE:NO																																																																													DEFINESTAT:NONSTAT|WIS
+Non-Ability ~ Charisma											VISIBLE:NO																																																																													DEFINESTAT:NONSTAT|CHA
 
 ###Block: Dragon Support
 
@@ -106,4 +108,3 @@ L			SIZE:L
 H			SIZE:H
 C			SIZE:C
 C+			SIZE:P
-

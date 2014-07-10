@@ -1,25 +1,25 @@
-# CVS $Revision: $ $Author: $ -- Sun Dec  8 22:17:49 2013 -- reformated by prettylst.pl v1.50 (build 22352)
+# CVS $Revision: $ $Author: $ -- Thu Jul 10 14:45:53 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 
-# Class Name	Hit Dice	Type			Source Page		Save checks bonus												Combat bonus							Modify VAR
-CLASS:Deathless	HD:12		TYPE:Monster	SOURCEPAGE:p.157		BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")/2)+2		BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+# Class Name	Hit Dice	Type			Source Page		Combat bonus												Modify VAR													Bonus
+CLASS:Deathless	HD:12		TYPE:Monster	SOURCEPAGE:p.157	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Reg. Race Type
 CLASS:Deathless	PRERACETYPE:1,Deathless
 # Class Name	Skill Pts/Lvl
 CLASS:Deathless	STARTSKILLPTS:4
 
-# Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Anointed Knight	HD:10		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.49		BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")/2)+2		BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")
+# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus							Bonus
+CLASS:Anointed Knight	HD:10		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.49	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")/2)+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required AL
 CLASS:Anointed Knight	PREALIGN:LG,NG,CG
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Anointed Knight	STARTSKILLPTS:2	CSKILL:Climb|Concentration|Craft (Alchemy)|Heal|Jump|Knowledge (Arcana)|Knowledge (Religion)|Knowledge (The Planes)|Ride|Spellcraft
 ###Block:
-1	DEFINE:AnointedKnightAnointSelfCount|0	BONUS:VAR|AnointedKnightAnointSelfCount|(CL+2)/3			ABILITY:Anointed Knight Class Feature|AUTOMATIC|Anoint Self ~ Anointed Knight|Weapon and Armor Proficiency ~ Anointed Knight
-2	DEFINE:AnointedKnightAnointAncestralWeaponCount|0	BONUS:VAR|AnointedKnightAnointAncestralWeaponCount|(CL+1)/3	ABILITY:Anointed Knight Class Feature|AUTOMATIC|Anoint Ancestral Weapon ~ Anointed Knight
-3	DEFINE:AnointedKnightBonusFeatCount|0	BONUS:VAR|AnointedKnightBonusFeatCount|CL/3				ABILITY:Anointed Knight Class Feature|AUTOMATIC|Bonus Feat ~ Anointed Knight
+1	BONUS:VAR|AnointedKnightAnointSelfCount|(CL+2)/3		DEFINE:AnointedKnightAnointSelfCount|0			ABILITY:Anointed Knight Class Feature|AUTOMATIC|Anoint Self ~ Anointed Knight|Weapon and Armor Proficiency ~ Anointed Knight
+2	BONUS:VAR|AnointedKnightAnointAncestralWeaponCount|(CL+1)/3	DEFINE:AnointedKnightAnointAncestralWeaponCount|0	ABILITY:Anointed Knight Class Feature|AUTOMATIC|Anoint Ancestral Weapon ~ Anointed Knight
+3	BONUS:VAR|AnointedKnightBonusFeatCount|CL/3			DEFINE:AnointedKnightBonusFeatCount|0			ABILITY:Anointed Knight Class Feature|AUTOMATIC|Bonus Feat ~ Anointed Knight
 
-# Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus								Combat bonus							Modify VAR
-CLASS:Apostle of Peace	HD:4		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.51		BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus												Modify VAR													Bonus
+CLASS:Apostle of Peace	HD:4		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.51	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Required AL		Required Check	Required Feat										Required Skill
 CLASS:Apostle of Peace	PREALIGN:LG,NG,CG	PRECHECK:1,Will=5	PREFEAT:4,Sacred Vow,Vow of Nonviolence,Vow of Peace,Vow of Poverty	PRESKILL:2,Concentration=10,Diplomacy=6
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -40,10 +40,10 @@ CLASS:Apostle of Peace	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|TYPE=Craft|Dip
 9	CAST:6,5,4,4,4,4,3,2,1,0
 10	CAST:6,5,5,4,4,4,4,3,2,1
 
-# Class Name			Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Beloved of Valarian	HD:10		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.53		BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")
-# Class Name			Required AL		Req. Att.	Required Feat							Required Gender	Required Skill					Required Text
-CLASS:Beloved of Valarian	PREALIGN:LG,NG,CG	PREATT:7	PREFEAT:3,Mounted Combat,Sacred Vow,Vow of Chastity	PREGENDER:Female	PRESKILL:2,Knowledge (nature)=5,Ride=10	PRETEXT:Special: Before she can become a beloved of Valarian, the character must meditate at a druid's grove and fast until she saves the life of an animal in danger. Should she fail to survive or aid an animal, she does not meet her unicorn companion and cannot advance in this class.
+# Class Name			Hit Dice	Type			Max Level	Source Page		Combat bonus							Bonus
+CLASS:Beloved of Valarian	HD:10		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.53	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name			Required AL		Required Feat							Required Gender	Required Skill					Required Text																																														PRETOTALAB
+CLASS:Beloved of Valarian	PREALIGN:LG,NG,CG	PREFEAT:3,Mounted Combat,Sacred Vow,Vow of Chastity	PREGENDER:Female	PRESKILL:2,Knowledge (nature)=5,Ride=10	PRETEXT:Special: Before she can become a beloved of Valarian, the character must meditate at a druid's grove and fast until she saves the life of an animal in danger. Should she fail to survive or aid an animal, she does not meet her unicorn companion and cannot advance in this class.	PRETOTALAB:7
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Beloved of Valarian	STARTSKILLPTS:2	CSKILL:Concentration|Diplomacy|Handle Animal|Heal|Knowledge (Nature)|Ride|Sense Motive|Survival
 ###Block:
@@ -68,8 +68,8 @@ CLASS:Beloved of Valarian	STARTSKILLPTS:2	CSKILL:Concentration|Diplomacy|Handle 
 9	CAST:0,2,2,1,1
 10	CAST:0,2,2,2,1
 
-# Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus							Modify VAR
-CLASS:Celestial Mystic	HD:4		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.55		BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus												Modify VAR													Bonus
+CLASS:Celestial Mystic	HD:4		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.55	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required AL	Required Feat									Required Skill														Req. Spell Type
 CLASS:Celestial Mystic	PREALIGN:LG	PREFEAT:3,Servant of the Heavens,Sacred Vow,Vow of Abstinence	PRESKILL:4,Knowledge (Arcana)=4,Knowledge (The Planes)=4,Knowledge (Religion)=6,Spellcraft=6	PRESPELLTYPE:1,Arcane=4,Divine=4
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -94,10 +94,10 @@ CLASS:Celestial Mystic	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy
 9	ADD:SPELLCASTER|ANY
 10	ADD:SPELLCASTER|ANY
 
-# Class Name			Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Champion of Gwynharwyf	HD:12		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.56		BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3		BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")
-# Class Name			Required AL	Req. Att.	Required Feat					Required Skill
-CLASS:Champion of Gwynharwyf	PREALIGN:CG	PREATT:6	PREFEAT:2,Knight of Stars,Righteous Wrath	PRESKILL:1,Intimidate=9
+# Class Name			Hit Dice	Type			Max Level	Source Page		Combat bonus							Bonus
+CLASS:Champion of Gwynharwyf	HD:12		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.56	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name			Required AL	Required Feat					Required Skill		PRETOTALAB
+CLASS:Champion of Gwynharwyf	PREALIGN:CG	PREFEAT:2,Knight of Stars,Righteous Wrath	PRESKILL:1,Intimidate=9	PRETOTALAB:6
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Champion of Gwynharwyf	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate|Jump|Listen|Ride|Survival|Swim
 ###Block:
@@ -129,10 +129,10 @@ CLASS:Champion of Gwynharwyf	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Handle Anim
 9	CAST:0,2,2,1,1
 10	CAST:0,2,2,2,1
 
-# Class Name			Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Defender of Sealtiel	HD:12		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.58		BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")
-# Class Name			Required AL	Req. Att.	Required Feat							Required Skill
-CLASS:Defender of Sealtiel	PREALIGN:LG	PREATT:7	PREFEAT:3,Diehard,Endurance,Servant of the Heavens	PRESKILL:1,Listen=5
+# Class Name			Hit Dice	Type			Max Level	Source Page		Combat bonus							Bonus
+CLASS:Defender of Sealtiel	HD:12		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.58	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name			Required AL	Required Feat							Required Skill		PRETOTALAB
+CLASS:Defender of Sealtiel	PREALIGN:LG	PREFEAT:3,Diehard,Endurance,Servant of the Heavens	PRESKILL:1,Listen=5	PRETOTALAB:7
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Defender of Sealtiel	STARTSKILLPTS:2	CSKILL:TYPE=Craft|Listen|Sense Motive|Spot
 ###Block:
@@ -146,8 +146,8 @@ CLASS:Defender of Sealtiel	STARTSKILLPTS:2	CSKILL:TYPE=Craft|Listen|Sense Motive
 6	BONUS:VAR|ProtectiveAura|1
 10	BONUS:VAR|ProtectiveAura|2
 
-# Class Name			Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus							Modify VAR
-CLASS:Emissary of Barachiel	HD:6		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.59		BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+# Class Name			Hit Dice	Type			Max Level	Source Page		Combat bonus												Modify VAR														Bonus
+CLASS:Emissary of Barachiel	HD:6		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.59	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name			Required AL	Required Feat							Required Skill
 CLASS:Emissary of Barachiel	PREALIGN:LG	PREFEAT:2,Servant of the Heavens,Words of Creation	PRESKILL:2,Diplomacy=8,Knowledge (The Planes)=4
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -179,8 +179,8 @@ CLASS:Emissary of Barachiel	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Deci
 9	KNOWN:0,4,4,4,3
 10	KNOWN:0,4,4,4,4
 
-# Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus							Modify VAR
-CLASS:Exalted Arcanist	HD:4		TYPE:Prestige	MAXLEVEL:5	SOURCEPAGE:p.61		BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus												Modify VAR													Bonus
+CLASS:Exalted Arcanist	HD:4		TYPE:Prestige	MAXLEVEL:5	SOURCEPAGE:p.61	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required AL		Required Check Base	Required Feat					Required Skill							Required Text
 CLASS:Exalted Arcanist	PREALIGN:LG,NG,CG	PRECHECKBASE:1,Will=5	PREFEAT:2,Consecrate Spell,Purify Spell	PRESKILL:2,Knowledge (Arcana)=9Knowledge (Religion)=4	PRETEXT:Spells: Able to spontaneously cast 3rd-level arcane spells.
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -205,8 +205,8 @@ CLASS:Exalted Arcanist	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Decipher 
 3	SPELLLEVEL:CLASS|SPELLCASTER.Arcane=6|Aspect of the Deity,Bolt of Glory,Planar Ally|SPELLCASTER.Arcane=7|Heavenly Lightning Storm,Holy Word,Righteous Smite
 4	SPELLLEVEL:CLASS|SPELLCASTER.Arcane=8|Holy Aura,Planar Ally (Greater)|SPELLCASTER.Arcane=9|Aspect of the Deity (Greater)
 
-# Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Fist of Raziel	HD:10		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.62		BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3		BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")
+# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus							Bonus
+CLASS:Fist of Raziel	HD:10		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.62	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Required AL	Required Check Base					Required Feat									Required Skill
 CLASS:Fist of Raziel	PREALIGN:LG	PRECHECKBASE:3,Fortitude=5,Reflex=5,Will=5	PREFEAT:3,Sacred Vow,Sanctify Ki Strike,Servant of the Heavens	PRESKILL:1,Concentration=9
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -230,8 +230,8 @@ CLASS:Fist of Raziel	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|H
 9	ADD:SPELLCASTER|ANY
 10	ADD:SPELLCASTER|ANY
 
-# Class Name				Hit Dice	Type			Max Level	Source Page		Save checks bonus								Combat bonus							Modify VAR
-CLASS:Initiate of Pistis Sophia	HD:8		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.64		BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+# Class Name				Hit Dice	Type			Max Level	Source Page		Combat bonus												Modify VAR														Bonus
+CLASS:Initiate of Pistis Sophia	HD:8		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.64	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name				Required AL	Required Check Base					Required Feat									Required Skill
 CLASS:Initiate of Pistis Sophia	PREALIGN:LG	PRECHECKBASE:3,Fortitude=5,Reflex=5,Will=5	PREFEAT:3,Sacred Vow,Sanctify Ki Strike,Servant of the Heavens	PRESKILL:1,Concentration=9
 # Class Name				Skill Pts/Lvl	Class Skill
@@ -254,10 +254,10 @@ CLASS:Initiate of Pistis Sophia	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentrati
 4	BONUS:VAR|InitiateofPistisSophiaElecricityResistanceBonus|5
 7	BONUS:VAR|InitiateofPistisSophiaElecricityResistanceBonus|5
 
-# Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus							Modify VAR
-CLASS:Lion of Talisid	HD:8		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.65		BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
-# Class Name		Required AL	Req. Att.	Required Feat				Required Skill						Required Text
-CLASS:Lion of Talisid	PREALIGN:NG	PREATT:4	PREFEAT:1,Favored of the Companions	PRESKILL:2,Knowledge (Nature)=9,Survival=9	PRETEXT:Special: The character must have an animal companion as a class feature. Spells: Able to cast summon nature's ally II.
+# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus												Modify VAR														Bonus
+CLASS:Lion of Talisid	HD:8		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.65	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name		Required AL	Required Feat				Required Skill						Required Text																				PRETOTALAB
+CLASS:Lion of Talisid	PREALIGN:NG	PREFEAT:1,Favored of the Companions	PRESKILL:2,Knowledge (Nature)=9,Survival=9	PRETEXT:Special: The character must have an animal companion as a class feature. Spells: Able to cast summon nature's ally II.	PRETOTALAB:4
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Lion of Talisid	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Listen|Knowledge (Nature)|Ride|Spellcraft|Spot|Survival|Swim
 ###Block:
@@ -278,8 +278,8 @@ CLASS:Lion of Talisid	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|
 ###Block:
 1:REPEATLEVEL:1	ADD:SPELLCASTER|ANY
 
-# Class Name			Hit Dice	Type			Max Level	Source Page		Save checks bonus								Combat bonus							Modify VAR
-CLASS:Prophet of Erathaol	HD:6		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.66		BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+# Class Name			Hit Dice	Type			Max Level	Source Page		Combat bonus												Modify VAR													Bonus
+CLASS:Prophet of Erathaol	HD:6		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.66	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name			Required AL	Required Feat													Required Skill						Req. Spell Type
 CLASS:Prophet of Erathaol	PREALIGN:LG	PREFEAT:4,Sacred Vow,Servant of the Heavens,Spell Focus (Divination),Vow of Chastity	PRESKILL:2,Knowledge (Arcana)=5,Spellcraft=10	PRESPELLTYPE:1,Arcane=4,Divine=4
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -289,8 +289,8 @@ CLASS:Prophet of Erathaol	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Heal|I
 ###Block:
 2:REPEATLEVEL:1	ADD:SPELLCASTER|ANY
 
-# Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus							Modify VAR
-CLASS:Risen Martyr	HD:12		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.68		BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus												Modify VAR													Bonus
+CLASS:Risen Martyr	HD:12		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.68	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required AL		Required Check Base					Required Language		Multiple Requirements								Required Skill	Required Text
 CLASS:Risen Martyr	PREALIGN:LG,NG,CG	PRECHECKBASE:3,Fortitude=2,Reflex=2,Will=2	PRELANG:1,Celestial	PREMULT:2,[PREFEAT:1,Nimbus of Light],[PREFEAT:2,TYPE=Exalted]	PRESKILL:1,RANK=9	PRETEXT:Special: The character must have suffered martyrdom (see Chapter 2) and must not have been returned to life. As a special feature of this prestige class, the character rises with the abilities of a 0-level risen martyr added to the character's previous abilities. When the character earns enough experience points to advance another level, he must become a 1st-level risen martyr.
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -315,8 +315,8 @@ CLASS:Risen Martyr	STARTSKILLPTS:2	CSKILL:Concentration|Diplomacy|Gather Informa
 1	BONUS:VAR|CharismaScoreIncreaseCount|1
 5	BONUS:VAR|CharismaScoreIncreaseCount|1
 
-# Class Name			Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus							Modify VAR
-CLASS:Sentinel of Bharrai	HD:4		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.69		BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+# Class Name			Hit Dice	Type			Max Level	Source Page		Combat bonus												Modify VAR													Bonus
+CLASS:Sentinel of Bharrai	HD:4		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.69	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name			Required AL		Required Feat					Required Skill
 CLASS:Sentinel of Bharrai	PREALIGN:LG,NG,CG	PREFEAT:2,Sacred Vow,Vow of Obedience	PRESKILL:3,Knowledge (Arcana)=8,Knowledge (Nature)=8,Spellcraft=8
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -331,7 +331,7 @@ CLASS:Sentinel of Bharrai	STARTSKILLPTS:4	CSKILL:Craft (Alchemy)|Concentration|D
 9	ABILITY:Sentinel of Bharrai Class Feature|AUTOMATIC|Cavalry of Dire Bears ~ Sentinel of Bharrai
 10	ABILITY:Sentinel of Bharrai Class Feature|AUTOMATIC|Quickened Lightning Storm ~ Sentinel of Bharrai
 ###Block:
-1	DEFINE:SentinalOfBharraiResistanceBonus|0	BONUS:VAR|SentinalOfBharraiResistanceBonus|10
+1	BONUS:VAR|SentinalOfBharraiResistanceBonus|10	DEFINE:SentinalOfBharraiResistanceBonus|0
 ###Block:
 2	BONUS:VAR|SentinalOfBharraiResistanceCount|1
 4	BONUS:VAR|SentinalOfBharraiResistanceCount|1
@@ -343,10 +343,10 @@ CLASS:Sentinel of Bharrai	STARTSKILLPTS:4	CSKILL:Craft (Alchemy)|Concentration|D
 ###Block:
 1:REPEATLEVEL:1	ADD:SPELLCASTER|ANY
 
-# Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Skylord	HD:10		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.71		BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")
-# Class Name	Required AL		Req. Att.	Multiple Requirements															Required Race				Required Skill				Required Text
-CLASS:Skylord	PREALIGN:LG,NG,CG	PREATT:7	PREMULT:3,[PREFEAT:1,Mounted Combat],[PREFEAT:1,Mounted Archery,Ride-By Attack],[PREFEAT:1,TYPE.Exalted]	PRERACE:1,RACESUBTYPE=Elf,Half-Elf	PRESKILL:2,Handle Animal=10,Ride=10	PRETEXT:Special: The character must spend 1 week living and meditating atop a mountain.
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus							Bonus
+CLASS:Skylord	HD:10		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.71	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Required AL		Multiple Requirements															Required Race				Required Skill				Required Text													PRETOTALAB
+CLASS:Skylord	PREALIGN:LG,NG,CG	PREMULT:3,[PREFEAT:1,Mounted Combat],[PREFEAT:1,Mounted Archery,Ride-By Attack],[PREFEAT:1,TYPE.Exalted]	PRERACE:1,RACESUBTYPE=Elf,Half-Elf	PRESKILL:2,Handle Animal=10,Ride=10	PRETEXT:Special: The character must spend 1 week living and meditating atop a mountain.	PRETOTALAB:7
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Skylord	STARTSKILLPTS:2	CSKILL:Balance|Handle Animal|Heal|TYPE=Knowledge|Listen|Ride|Spot|Survival
 ###Block:
@@ -367,8 +367,8 @@ CLASS:Skylord	STARTSKILLPTS:2	CSKILL:Balance|Handle Animal|Heal|TYPE=Knowledge|L
 8	ADD:SPELLCASTER|ANY
 10	ADD:SPELLCASTER|ANY
 
-# Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus							Modify VAR
-CLASS:Slayer of Domiel	HD:6		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.73		BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus												Modify VAR														Bonus
+CLASS:Slayer of Domiel	HD:6		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.73	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required Ability							Required AL	Required Feat								Required Skill				Required Text							Var. Min. Value
 CLASS:Slayer of Domiel	PREABILITY:1,CATEGORY=Special Ability,TYPE.Evasion	PREALIGN:LG	PREFEAT:2,Sanctify Martial Strike,Servant of the Heavens	PRESKILL:2,Hide=8,Move Silently=8	PRETEXT:Sneak attack +3d6, evasion Class Feature.	PREVARGTEQ:SneakAttackQualify,3
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -395,8 +395,8 @@ CLASS:Slayer of Domiel	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Dip
 8	BONUS:VAR|DeathTouchTimes|1
 10	BONUS:VAR|DeathTouchTimes|1
 
-# Class Name			Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Stalker of Kharash	HD:8		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.75		BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")
+# Class Name			Hit Dice	Type			Max Level	Source Page		Combat bonus							Bonus
+CLASS:Stalker of Kharash	HD:8		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.75	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name			Required AL	Required Feat							Required Skill
 CLASS:Stalker of Kharash	PREALIGN:NG	PREFEAT:3,Alertness,Favored of the Companions,Track	PRESKILL:2,Hide=8,Move Silently=8
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -414,8 +414,8 @@ CLASS:Stalker of Kharash	STARTSKILLPTS:6	CSKILL:Climb|Concentration|Handle Anima
 8	BONUS:VAR|SmiteEvilTimes|1
 10	BONUS:VAR|SmiteEvilTimes|1
 
-# Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Swanmay	HD:8		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.76		BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus							Bonus
+CLASS:Swanmay	HD:8		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.76	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Required Ability											Required AL		Required Feat				Required Gender	Required Skill								Req. Known Spell			Required Text
 CLASS:Swanmay	PREABILITY:1,CATEGORY=Special Ability,TYPE.Wild Empathy,TYPE.WildEmpathy	PREALIGN:LG,CG,NG	PREFEAT:2,Sacred Vow,Vow of Purity	PREGENDER:Female	PRESKILL:3,Knowledge (nature)=8,Speak Language=1,Survival=8	PRESPELL:1,Speak with Animals	PRETEXT:Special: The character must have the wild empathy class feature.	PRETEXT:Special: Knowingly or not, a character must perform a great service for another swanmay before she can join the order.
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -443,10 +443,10 @@ CLASS:Swanmay	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Handle Animal|Heal
 8	BONUS:VAR|WildEmpathyBonus|2
 10	BONUS:VAR|WildEmpathyBonus|2
 
-# Class Name			Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Sword of Righteousness	HD:8		TYPE:Prestige	MAXLEVEL:3	SOURCEPAGE:p.77		BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")
-# Class Name			Required AL		Req. Att.	Multiple Requirements
-CLASS:Sword of Righteousness	PREALIGN:LG,NG,CG	PREATT:6	PREMULT:2,[PREFEAT:2,TYPE.Exalted],[PREFEAT:1,Favored of the Companions,Knight of Stars,Servant of the Heavens]
+# Class Name			Hit Dice	Type			Max Level	Source Page		Combat bonus							Bonus
+CLASS:Sword of Righteousness	HD:8		TYPE:Prestige	MAXLEVEL:3	SOURCEPAGE:p.77	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name			Required AL		Multiple Requirements																PRETOTALAB
+CLASS:Sword of Righteousness	PREALIGN:LG,NG,CG	PREMULT:2,[PREFEAT:2,TYPE.Exalted],[PREFEAT:1,Favored of the Companions,Knight of Stars,Servant of the Heavens]	PRETOTALAB:6
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Sword of Righteousness	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Diplomacy|Handle Animal|Intimidate|Jump|Knowledge (Nature)|Knowledge (Religion)|TYPE=Profession|Ride|Sense Motive|Swim
 ###Block:
@@ -454,8 +454,8 @@ CLASS:Sword of Righteousness	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Diplomacy|H
 ###Block:
 1	BONUS:VAR|ExaltedFeatCount|CL
 
-# Class Name			Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus							Modify VAR
-CLASS:Troubadour of Stars	HD:6		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.78		BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+# Class Name			Hit Dice	Type			Max Level	Source Page		Combat bonus												Modify VAR														Bonus
+CLASS:Troubadour of Stars	HD:6		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.78	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name			Required AL	Required Feat			Required Skill			Required Text
 CLASS:Troubadour of Stars	PREALIGN:CG	PREFEAT:1,Knight of Stars	PRESKILL:1,TYPE.Perform=6	PRETEXT:Spells: Able to spontaneously cast 4th level arcane spells.
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -472,8 +472,8 @@ CLASS:Troubadour of Stars	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Concentrati
 ###Block:
 2:REPEATLEVEL:2	ADD:SPELLCASTER|ANY
 
-# Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus
-CLASS:Vassal of Bahamut	HD:10		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.80		BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")
+# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus							Bonus
+CLASS:Vassal of Bahamut	HD:10		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.80	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required AL	Required Feat			Required Skill			Required Text
 CLASS:Vassal of Bahamut	PREALIGN:CG	PREFEAT:1,Knight of Stars	PRESKILL:1,TYPE.Perform=6	PRETEXT:Spells: Able to spontaneously cast 4th level arcane spells.
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -504,8 +504,8 @@ CLASS:Vassal of Bahamut	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Concentration
 9	CAST:0,2,2,1,1
 10	CAST:0,2,2,2,1
 
-# Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus												Combat bonus							Modify VAR
-CLASS:Wonderworker	HD:6		TYPE:Prestige	MAXLEVEL:3	SOURCEPAGE:p.82		BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus												Modify VAR													Bonus
+CLASS:Wonderworker	HD:6		TYPE:Prestige	MAXLEVEL:3	SOURCEPAGE:p.82	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required AL		Required Check Base	Multiple Requirements																Req. Spell Type
 CLASS:Wonderworker	PREALIGN:LG,NG,CG	PRECHECKBASE:1,Will=5	PREMULT:2,[PREFEAT:2,TYPE.Exalted],[PREFEAT:1,Favored of the Companions,Knight of Stars,Servant of the Heavens]	PRESPELLTYPE:1,Arcane=3,Divine=3,Psionic=3
 # Class Name		Skill Pts/Lvl	Class Skill
