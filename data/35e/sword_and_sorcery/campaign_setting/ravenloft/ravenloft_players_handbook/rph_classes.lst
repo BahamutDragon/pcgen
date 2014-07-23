@@ -1,0 +1,38 @@
+
+
+CLASS:Monster Hunter	HD:6	TYPE:Prestige	ABB:Mh	MAXLEVEL:5	SOURCEPAGE:p.54	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE		DEFINE:MonsterHunterLVL|0	BONUS:VAR|MonsterHunterLVL|CL
+CLASS:Monster Hunter	PRESKILL:3,Gather Information=5,Knowledge (The Planes)=5,Sense Motive=5	PREFEAT:2,Iron Will,Track	PRETEXT:You must have an hostile encounter with a monster.									
+CLASS:Monster Hunter	STARTSKILLPTS:4	CSKILL:Concentration|Craft (Alchemy)|Decipher Script|Gather Information|Hide|Intimidate|Knowledge (Arcana)|Knowledge (Dungeoneering)|Knowledge (Local)|Knowledge (Nature)|Knowledge (Religion)|Knowledge (The Planes)|Listen|Move Silently|Search|Sense Motive|Spot|Survival										
+CLASS:Monster Hunter	SPELLSTAT:INT	SPELLTYPE:Arcane	SPELLBOOK:YES		BONUS:CASTERLEVEL|Monster Hunter|CL							
+###Block:
+1	ABILITY:Special Ability|AUTOMATIC|Monster Hunter ~ Weapon and Armor Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|Monster Hunter ~ Studied Foe
+2	ABILITY:Special Ability|AUTOMATIC|Monster Hunter ~ Monster Knowledge
+3	ABILITY:Special Ability|AUTOMATIC|Monster Hunter ~ Craft Talisman
+4	ABILITY:Special Ability|AUTOMATIC|Monster Hunter ~ Hunter's Confidence
+5	ABILITY:Special Ability|AUTOMATIC|Monster Hunter ~ Slippery Mind
+###Block:
+1	CAST:0,1
+2	CAST:0,1,0
+3	CAST:0,1,1
+4	CAST:0,2,1,0
+5	CAST:0,2,1,1
+# Only accessible from Specialty Hunter
+6	CAST:0,2,1,1,0	
+7	CAST:0,2,2,1,1	
+8	CAST:0,2,2,1,1,1	
+9	CAST:0,2,2,2,1,1	
+10	CAST:0,3,2,2,2,1	
+
+CLASS:Specialty Hunter	HD:6	TYPE:Prestige	ABB:Shr	MAXLEVEL:5	SOURCEPAGE:p.57	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE			DEFINE:SpecialtyHunterLVL|0	BONUS:VAR|SpecialtyHunterLVL|CL
+CLASS:Specialty Hunter	PRESKILL:2,Intimidate=10,Sense Motive=10	PRESKILL:1,Knowledge (The Planes)=5	PRECLASS:1,Monster Hunter=3	PRETEXT:10 ranks in a relevant Knowledge for the chosen monster type								
+CLASS:Specialty Hunter	STARTSKILLPTS:4	CSKILL:Concentration|Craft (Alchemy)|Decipher Script|Gather Information|Hide|Intimidate|Knowledge (Arcana)|Knowledge (Dungeoneering)|Knowledge (Local)|Knowledge (Nature)|Knowledge (Religion)|Knowledge (The Planes)|Listen|Move Silently|Search|Sense Motive|Spot|Survival
+###Block:
+1	ABILITY:Special Ability|AUTOMATIC|Specialty Hunter ~ Weapon and Armor Proficiency
+3	ABILITY:Special Ability|AUTOMATIC|Specialty Hunter ~ Improved Critical
+5	ABILITY:Special Ability|AUTOMATIC|Specialty Hunter ~ Smite Enemy
+###Block:
+1	BONUS:VAR|MonsterHunterStudiedFoeLVL|CL					
+5	BONUS:VAR|SmiteEnemyToHit|max(0,INT)	BONUS:VAR|SmiteEnemyDamage|SpecialtyHunterLVL	BONUS:VAR|SmiteEnemy|1			
+###Block:
+1:REPEATLEVEL:1	ADD:SPELLCASTER|Monster Hunter
