@@ -7,23 +7,69 @@ Outcast Rating	CATEGORY:Special Ability	TYPE:SpecialQuality	ASPECT:NAME|Outcast 
 
 
 
-Weapon and Armor Proficiency	KEY:Monster Hunter ~ Weapon and Armor Proficiency	CATEGORY:Special Ability				
-Studied Foe				KEY:Monster Hunter ~ Basic Studied Foe			CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO					DEFINE:StudiedFoeBase|0	BONUS:VAR|StudiedFoeBase|2	DEFINE:StudiedFoeEnemies|0	DEFINE:StudiedFoeEBonuses|0	DEFINE:MonsterHunterStudiedFoeLVL|0	BONUS:VAR|MonsterHunterStudiedFoeLVL|MonsterHunterLVL																						SOURCEPAGE:p.										
-Favored Enemy			KEY:Monster Hunter ~ Favored Enemy				CATEGORY:Special Ability
+Weapon and Armor Proficiency	KEY:Monster Hunter ~ Weapon and Armor Proficiency	CATEGORY:Special Ability				ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfSimple|TYPE=ArmorProfMedium
+Studied Foe				KEY:Monster Hunter ~ Studied Foe				CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:NO					DEFINE:StudiedFoeBase|0	BONUS:VAR|StudiedFoeBase|1	DEFINE:StudiedFoeCount|0	BONUS:VAR|StudiedFoeCount|MonsterHunterLVL+1/2																						SOURCEPAGE:p.										
 Monster Knowledge			KEY:Monster Hunter ~ Monster Knowledge			CATEGORY:Special Ability				DEFINE:MonsterKnowledge|0	BONUS:VAR|MonsterKnowledge|MonsterHunterLVL		
 Craft Talisman			KEY:Monster Hunter ~ Craft Talisman				CATEGORY:Special Ability			
-Hunter's Confidence		KEY:Monster Hunter ~ Hunter's Confidence			CATEGORY:Special Ability					
+Hunter's Confidence		KEY:Monster Hunter ~ Hunter's Confidence			CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:At 4th level, a monster hunter gains a +2 bonus on all saves against fear and enchantment effects.				ASPECT:SaveBonus|+2 bonus on all saves against fear and enchantment effects.
 Slippery Mind			KEY:Monster Hunter ~ Slippery Mind				CATEGORY:Special Ability					
 
-Weapon and Armor Proficiency		KEY:Specialty Hunter ~ Weapon and Armor Proficiency		CATEGORY:Special Ability	
+Weapon and Armor Proficiency		KEY:Specialty Hunter ~ Weapon and Armor Proficiency		CATEGORY:Special Ability	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfSimple|TYPE=ArmorProfMedium
 Improved Critical				KEY:Specialty Hunter ~ Improved Critical				CATEGORY:Special Ability	
 Smite Enemy					KEY:Specialty Hunter ~ Smite Enemy					CATEGORY:Special Ability	
+Studied Foe					KEY:Specialty Hunter ~ Studied Foe					CATEGORY:Special Ability	TYPE:SpecialQuality						BONUS:VAR|StudiedFoeCount|SpecialtyHunterLVL+1/2																						SOURCEPAGE:p.										
+
 ###Block:
 Specialty Hunter ~ Beast Hunter	CATEGORY:Internal	TYPE:Specialty Hunter Selection		ABILITY:Special Ability|AUTOMATIC|Lycanthrope Resistant			BONUS:VAR|LycanthropeResistantBonus|SpecialtyHunterLVL	BONUS:ABILITYPOOL|Beast Hunter Courage|1|PREVARGTEQ:SpecialtyHunterLVL,2
 Specialty Hunter ~ Ghost Hunter	CATEGORY:Internal	TYPE:Specialty Hunter Selection		ABILITY:Special Ability|AUTOMATIC|Basic Turning|Ghost Hunter Turning			BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility	BONUS:VAR|TurnLevelBase|CL+classlevel("Monster Hunter")|TYPE=Level.REPLACE	BONUS:VAR|TurnDamagePlusBase|SpecialtyHunterLVL|TYPE=Level.REPLACE			AUTO:FEAT|Ghostsight|PREVARGTEQ:SpecialtyHunterLVL,2									
 Specialty Hunter ~ Vampire Hunter	CATEGORY:Internal	TYPE:Specialty Hunter Selection		ABILITY:Special Ability|AUTOMATIC|Basic Turning|Vampire Hunter Turning			BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility	BONUS:VAR|TurnLevelBase|CL+classlevel("Monster Hunter")|TYPE=Level.REPLACE	BONUS:VAR|TurnDamagePlusBase|SpecialtyHunterLVL|TYPE=Level.REPLACE		ABILITY:Special Ability|AUTOMATIC|Drain Resistant|PREVARGTEQ:SpecialtyHunterLVL,2								
 Specialty Hunter ~ Witch Hunter	CATEGORY:Internal	TYPE:Specialty Hunter Selection		ABILITY:Special Ability|AUTOMATIC|Scent Arcane						BONUS:VAR|ScentArcaneRadius|max(30,10+5*SpecialtyHunterLVL)								ABILITY:Special Ability|AUTOMATIC|Hexbraker|PREVARGTEQ:SpecialtyHunterLVL,2								
 Specialty Hunter ~ Demon Hunter	CATEGORY:Internal	TYPE:Specialty Hunter Selection		ABILITY:Special Ability|AUTOMATIC|Scent Infernal					BONUS:VAR|ScentInfernalRadius|max(30,10+5*SpecialtyHunterLVL)									ABILITY:Special Ability|AUTOMATIC|Censure Demons|PREVARGTEQ:SpecialtyHunterLVL,2			BONUS:VAR|CensurePowerLVL|SpecialtyHunterLVL|PREVARGTEQ:SpecialtyHunterLVL,2					
+
+Scent Arcane		CATEGORY:Special Ability	TYPE:ClassAbility.Supernatural.SpecialQuality.Sense	VISIBLE:YES	DESC:%1' ft radius.|ScentArcaneRadius				DEFINE:ScentArcaneRadius|0																								SOURCEPAGE:RLPHB										
+Scent Infernal		CATEGORY:Special Ability	TYPE:ClassAbility.Supernatural.SpecialQuality.Sense	VISIBLE:YES	DESC:%1' ft radius.|ScentInfernalRadius				DEFINE:ScentInfernalRadius|0																								SOURCEPAGE:RLPHB										
+Vampire Hunter Turning	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO								BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base	BONUS:VAR|TurnCheckBase|CHA|TYPE=Base																				SOURCEPAGE:RLPHB										
+Lycanthrope Resistant	CATEGORY:Special Ability	TYPE:ClassAbility.Supernatural.SpecialQuality	VISIBLE:YES	DESC:+%1 bonus on saving throws against lycanthropy|LycanthropeResistantBonus				DEFINE:LycanthropeResistantBonus|0																								SOURCEPAGE:RLPHB										
+Ghost Hunter Turning	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO								BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base	BONUS:VAR|TurnCheckBase|CHA|TYPE=Base																				SOURCEPAGE:RLPHB										
+Basic Turning		CATEGORY:Special Ability	TYPE:Turning.Internal.ClassAbility				VISIBLE:NO																					DEFINE:AllowExtraTurning|0	BONUS:VAR|AllowExtraTurning,AllowImprovedTurning|1|TYPE=Base	DEFINE:AllowImprovedTurning|0	DEFINE:TurnTimesBase|0	DEFINE:TurnLevelBase|0	DEFINE:TurnDiceBase|0	BONUS:VAR|TurnDiceBase|2|TYPE=Base	DEFINE:TurnDieSizeBase|0	BONUS:VAR|TurnDieSizeBase|6|TYPE=Base	DEFINE:TurnDamagePlusBase|0	BONUS:VAR|TurnDamagePlusBase|CHA|TYPE=Stat	DEFINE:TurnCheckBase|0																																				
+
+
+
+
+# Studied Foe
+#Studied Foe/Intelligent Corporeal Undead (Other)	KEY:Studied Foe ~ Intelligent Corporeal Undead (Other)		CATEGORY:Special Ability	TYPE:StudiedFoeSelection	DEFINE:xxxStudiedFoeBonus|0	BONUS:VAR|xxxStudiedFoeBonus|StudiedFoeBase	DESC:+%1 on sense motive checks, attack rolls and saving throws vs. xxx|xxxStudiedFoeBonus
+#Studied Foe/Spellcasters (Other)				KEY:Studied Foe ~ Spellcasters (Other)					CATEGORY:Special Ability	TYPE:StudiedFoeSelection	DEFINE:xxxStudiedFoeBonus|0	BONUS:VAR|xxxStudiedFoeBonus|StudiedFoeBase	DESC:+%1 on sense motive checks, attack rolls and saving throws vs. xxx|xxxStudiedFoeBonus
+#Studied Foe/Extraplanar (Other)				KEY:Studied Foe ~ Extraplanar (Other)					CATEGORY:Special Ability	TYPE:StudiedFoeSelection	DEFINE:xxxStudiedFoeBonus|0	BONUS:VAR|xxxStudiedFoeBonus|StudiedFoeBase	DESC:+%1 on sense motive checks, attack rolls and saving throws vs. xxx|xxxStudiedFoeBonus
+#Studied Foe/Lycanthrope (Other)				KEY:Studied Foe ~ Lycanthrope (Other)					CATEGORY:Special Ability	TYPE:StudiedFoeSelection	DEFINE:xxxStudiedFoeBonus|0	BONUS:VAR|xxxStudiedFoeBonus|StudiedFoeBase	DESC:+%1 on sense motive checks, attack rolls and saving throws vs. xxx|xxxStudiedFoeBonus
+
+Studied Foe/Lycanthrope (Werewolf)				KEY:Studied Foe ~ Lycanthrope (Werewolf)					CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:WerewolfStudiedFoeBonus|0	BONUS:VAR|WerewolfStudiedFoeBonus|StudiedFoeBase	DESC:+%1 on sense motive checks, attack rolls and saving throws vs. Werewolf|WerewolfStudiedFoeBonus
+Studied Foe/Lycanthrope (Wererat)				KEY:Studied Foe ~ Lycanthrope (Wererat)					CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:WereratStudiedFoeBonus|0	BONUS:VAR|WereratStudiedFoeBonus|StudiedFoeBase	DESC:+%1 on sense motive checks, attack rolls and saving throws vs. Wererat|WereratStudiedFoeBonus
+Studied Foe/Lycanthrope (Werebear)				KEY:Studied Foe ~ Lycanthrope (Werebear)					CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:WerebearStudiedFoeBonus|0	BONUS:VAR|WerebearStudiedFoeBonus|StudiedFoeBase	DESC:+%1 on sense motive checks, attack rolls and saving throws vs. Werebear|WerebearStudiedFoeBonus
+Studied Foe/Lycanthrope (Werefox)				KEY:Studied Foe ~ Lycanthrope (Werefox)					CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:WerefoxStudiedFoeBonus|0	BONUS:VAR|WerefoxStudiedFoeBonus|StudiedFoeBase	DESC:+%1 on sense motive checks, attack rolls and saving throws vs. Werefox|WerefoxStudiedFoeBonus
+Studied Foe/Extraplanar (Demon)				KEY:Studied Foe ~ Extraplanar (Demon)					CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:DemonStudiedFoeBonus|0		BONUS:VAR|DemonStudiedFoeBonus|StudiedFoeBase	DESC:+%1 on sense motive checks, attack rolls and saving throws vs. Demon|DemonStudiedFoeBonus
+Studied Foe/Extraplanar (Devil)				KEY:Studied Foe ~ Extraplanar (Devil)					CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:DevilStudiedFoeBonus|0		BONUS:VAR|DevilStudiedFoeBonus|StudiedFoeBase	DESC:+%1 on sense motive checks, attack rolls and saving throws vs. Devil|DevilStudiedFoeBonus
+Studied Foe/Intelligent Corporeal Undead (Vampire)	KEY:Studied Foe ~ Intelligent Corporeal Undead (Vampire)		CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:VampireStudiedFoeBonus|0	BONUS:VAR|VampireStudiedFoeBonus|StudiedFoeBase	DESC:+%1 on sense motive checks, attack rolls and saving throws vs. Vampire|VampireStudiedFoeBonus
+Studied Foe/Intelligent Corporeal Undead (Ghoul)	KEY:Studied Foe ~ Intelligent Corporeal Undead (Ghoul)		CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:GhoulStudiedFoeBonus|0		BONUS:VAR|GhoulStudiedFoeBonus|StudiedFoeBase	DESC:+%1 on sense motive checks, attack rolls and saving throws vs. Ghoul|GhoulStudiedFoeBonus
+Studied Foe/Spellcasters (Hag)				KEY:Studied Foe ~ Spellcasters (Hags)					CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:HagStudiedFoeBonus|0		BONUS:VAR|HagStudiedFoeBonus|StudiedFoeBase	DESC:+%1 on sense motive checks, attack rolls and saving throws vs. Hag|HagStudiedFoeBonus
+Studied Foe/Spellcasters (Sorcerer)				KEY:Studied Foe ~ Spellcasters (Sorcerer)					CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:SorcererStudiedFoeBonus|0	BONUS:VAR|SorcererStudiedFoeBonus|StudiedFoeBase	DESC:+%1 on sense motive checks, attack rolls and saving throws vs. Sorcerer|SorcererStudiedFoeBonus
+Studied Foe/Spellcasters (Fey)				KEY:Studied Foe ~ Spellcasters (Fey)					CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:FeyStudiedFoeBonus|0		BONUS:VAR|FeyStudiedFoeBonus|StudiedFoeBase	DESC:+%1 on sense motive checks, attack rolls and saving throws vs. Fey|FeyStudiedFoeBonus
+### Actual Bonuses
+Studied Foe/Lycanthrope (Werewolf)				KEY:Studied Foe Bonus ~ Lycanthrope (Werewolf)					CATEGORY:Special Ability	TYPE:StudiedFoeSelection	BONUS:VAR|WerewolfStudiedFoeBonus|1	CHOOSE:NOCHOICE	MULT:YES	STACK:YES				ABILITY:Special Ability|AUTOMATIC|Studied Foe ~ Lycanthrope (Werewolf)				
+Studied Foe/Lycanthrope (Wererat)				KEY:Studied Foe Bonus ~ Lycanthrope (Wererat)					CATEGORY:Special Ability	TYPE:StudiedFoeSelection	BONUS:VAR|WereratStudiedFoeBonus|1	CHOOSE:NOCHOICE	MULT:YES	STACK:YES				ABILITY:Special Ability|AUTOMATIC|Studied Foe ~ Lycanthrope (Wererat)				
+Studied Foe/Lycanthrope (Werebear)				KEY:Studied Foe Bonus ~ Lycanthrope (Werebear)					CATEGORY:Special Ability	TYPE:StudiedFoeSelection	BONUS:VAR|WerebearStudiedFoeBonus|1	CHOOSE:NOCHOICE	MULT:YES	STACK:YES				ABILITY:Special Ability|AUTOMATIC|Studied Foe ~ Lycanthrope (Werebear)				
+Studied Foe/Lycanthrope (Werefox)				KEY:Studied Foe Bonus ~ Lycanthrope (Werefox)					CATEGORY:Special Ability	TYPE:StudiedFoeSelection	BONUS:VAR|WerefoxStudiedFoeBonus|1	CHOOSE:NOCHOICE	MULT:YES	STACK:YES				ABILITY:Special Ability|AUTOMATIC|Studied Foe ~ Lycanthrope (Werefox)				
+Studied Foe/Extraplanar (Demon)				KEY:Studied Foe Bonus ~ Extraplanar (Demon)					CATEGORY:Special Ability	TYPE:StudiedFoeSelection	BONUS:VAR|DemonStudiedFoeBonus|1		CHOOSE:NOCHOICE	MULT:YES	STACK:YES			ABILITY:Special Ability|AUTOMATIC|Studied Foe ~ Extraplanar (Demon)				
+Studied Foe/Extraplanar (Devil)				KEY:Studied Foe Bonus ~ Extraplanar (Devil)					CATEGORY:Special Ability	TYPE:StudiedFoeSelection	BONUS:VAR|DevilStudiedFoeBonus|1		CHOOSE:NOCHOICE	MULT:YES	STACK:YES			ABILITY:Special Ability|AUTOMATIC|Studied Foe ~ Extraplanar (Devil)				
+Studied Foe/Intelligent Corporeal Undead (Vampire)	KEY:Studied Foe Bonus ~ Intelligent Corporeal Undead (Vampire)		CATEGORY:Special Ability	TYPE:StudiedFoeSelection	BONUS:VAR|VampireStudiedFoeBonus|1	CHOOSE:NOCHOICE	MULT:YES	STACK:YES				ABILITY:Special Ability|AUTOMATIC|Studied Foe ~ Intelligent Corporeal Undead (Vampire)	
+Studied Foe/Intelligent Corporeal Undead (Ghoul)	KEY:Studied Foe Bonus ~ Intelligent Corporeal Undead (Ghoul)		CATEGORY:Special Ability	TYPE:StudiedFoeSelection	BONUS:VAR|GhoulStudiedFoeBonus|1		CHOOSE:NOCHOICE	MULT:YES	STACK:YES			ABILITY:Special Ability|AUTOMATIC|Studied Foe ~ Intelligent Corporeal Undead (Ghoul)	
+Studied Foe/Spellcasters (Hags)				KEY:Studied Foe Bonus ~ Spellcasters (Hags)					CATEGORY:Special Ability	TYPE:StudiedFoeSelection	BONUS:VAR|HagStudiedFoeBonus|1		CHOOSE:NOCHOICE	MULT:YES	STACK:YES			ABILITY:Special Ability|AUTOMATIC|Studied Foe ~ Spellcasters (Hags)				
+Studied Foe/Spellcasters (Sorcerer)				KEY:Studied Foe Bonus ~ Spellcasters (Sorcerer)					CATEGORY:Special Ability	TYPE:StudiedFoeSelection	BONUS:VAR|SorcererStudiedFoeBonus|1	CHOOSE:NOCHOICE	MULT:YES	STACK:YES				ABILITY:Special Ability|AUTOMATIC|Studied Foe ~ Spellcasters (Sorcerer)				
+Studied Foe/Spellcasters (Fey)				KEY:Studied Foe Bonus ~ Spellcasters (Fey)					CATEGORY:Special Ability	TYPE:StudiedFoeSelection	BONUS:VAR|FeyStudiedFoeBonus|1		CHOOSE:NOCHOICE	MULT:YES	STACK:YES			ABILITY:Special Ability|AUTOMATIC|Studied Foe ~ Spellcasters (Fey)				
+
+#Studied Foe/Lycanthrope (Other)				KEY:Studied Foe Bonus ~ Lycanthrope (Other)					CATEGORY:Special Ability	TYPE:StudiedFoeBonusSelection
+#Studied Foe/Spellcasters (Other)				KEY:Studied Foe Bonus ~ Spellcasters (Other)					CATEGORY:Special Ability	TYPE:StudiedFoeBonusSelection
+#Studied Foe/Extraplanar (Other)				KEY:Studied Foe Bonus ~ Extraplanar (Other)					CATEGORY:Special Ability	TYPE:StudiedFoeBonusSelection
+#Studied Foe/Intelligent Corporeal Undead (Other)	KEY:Studied Foe Bonus ~ Intelligent Corporeal Undead (Other)		CATEGORY:Special Ability	TYPE:StudiedFoeBonusSelection
 
 
 # Ability Name				Category of Ability	Type	visible	Special ABility			Restricted Ability	Define			BONUS				STACK	MULT	CHOOSE	SELECT														Source Page
