@@ -22,8 +22,8 @@ CLASS:Forest Reeve	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")
 CLASS:Forest Reeve	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
 CLASS:Forest Reeve	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
 CLASS:Forest Reeve	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
-CLASS:Forest Reeve		PRETOTALAB:5	PRESKILL:4,Knowledge (nature)=2,Listen=4,Spot=4,Survival=6	PREFEAT:2,Endurance,Track	PRETEXT:Base Attack Bonus: +5. Skills: Knowledge (nature) 2 ranks, Listen 4 ranks, Spot 4 ranks, Survival 6 ranks. Feats: Endurance, Track. Special: Must be chosen as a forest reeve by the leaders of a band of Guardians of the Green, then serve a six-month apprenticeship to a Guardian of the Green who has at least three forest reeve levels. This requirement can be waived if the would-be forest reeve performs an extraordinary service for the Guardians of the Green.
-CLASS:Forest Reeve	STARTSKILLPTS:6	CSKILL:Balance|Climb|Craft|Handle Animal|Heal|Hide|Intimidate|Jump|Knowledge (geography)|Knowledge (nature)|Listen|Move Silently|Search|Spot|Survival|Swim|Use Rope
+CLASS:Forest Reeve	PRETOTALAB:5	PRESKILL:4,Knowledge (nature)=2,Listen=4,Spot=4,Survival=6	PREFEAT:2,Endurance,Track	PRETEXT:Base Attack Bonus: +5. Skills: Knowledge (nature) 2 ranks, Listen 4 ranks, Spot 4 ranks, Survival 6 ranks. Feats: Endurance, Track. Special: Must be chosen as a forest reeve by the leaders of a band of Guardians of the Green, then serve a six-month apprenticeship to a Guardian of the Green who has at least three forest reeve levels. This requirement can be waived if the would-be forest reeve performs an extraordinary service for the Guardians of the Green.
+CLASS:Forest Reeve	STARTSKILLPTS:6	CSKILL:Balance|Climb|TYPE=Craft|Handle Animal|Heal|Hide|Intimidate|Jump|Knowledge (geography)|Knowledge (nature)|Listen|Move Silently|Search|Spot|Survival|Swim|Use Rope
 ###Block
 1	ABILITY:Forest Reeve Class Feature|AUTOMATIC|Forest Reeve ~ Earth's Defender		
 1	ABILITY:Forest Reeve Class Feature|AUTOMATIC|Forest Reeve ~ Fast Movement		
@@ -40,7 +40,8 @@ CLASS:Holt Warden	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
 CLASS:Holt Warden	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 CLASS:Holt Warden	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 CLASS:Holt Warden	PREALIGN:NG,TN,NE	PRESKILL:2,Knowledge (nature)=8,Survival=4	PRESPELLTYPE:1,Divine=3	PREDOMAIN:1,Plant	PRETEXT:Alignment: Any neutral. Skills: Knowledge (nature) 8 ranks, Survival 4 ranks. Spellcasting: Able to cast 3rd-level divine spells, including the three lowest-level spells of the Plant domain. Special: Must be chosen as a holt warden by the leaders of a band of Guardians of the Green, then serve a one-year apprenticeship to a Guardian of the Green who has at least five holt warden levels.
-CLASS:Holt Warden	STARTSKILLPTS:4	CSKILL:Concentration|Craft|Diplomacy|Handle Animal|Heal|Hide|Knowledge (nature)|Knowledge (religion)|Listen|Move Silently|Spellcraft|Spot|Survival
+CLASS:Holt Warden	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Hide|Knowledge (nature)|Knowledge (religion)|Listen|Move Silently|Spellcraft|Spot|Survival
+###Block
 1:REPEATLEVEL:1	ADD:SPELLCASTER|Divine
 ###Block
 1	ABILITY:Holt Warden Class Feature|AUTOMATIC|Holt Warden ~ Spellcasting		
@@ -62,9 +63,11 @@ CLASS:Mythic Examplar	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/
 CLASS:Mythic Examplar	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 CLASS:Mythic Examplar	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 CLASS:Mythic Examplar	PRESKILL:1,Knowledge (History)=3	PRESKILL:1,Diplomacy=7,Intimidate=7,Knowledge (arcana)=7,Knowledge (religion)=7,Move Silently=7	PREMULT:1,[PRETOTALAB:5],[PRESPELLTYPE:1,Divine=3,Arcane=3],[PREVARGTEQ:SneakAttackDice,2],[PRETEXT: ability to grant allies a bonus on attack rolls, saves, or checks as an extraordinary ability.]	PRETEXT:Skills: Knowledge (history) 3 ranks, plus any one of the following: Diplomacy 7 ranks, Intimidate 7 ranks, Knowledge (arcana) 7 ranks, Knowledge (religion) 7 ranks, or Move Silently 7 ranks. Special: Any one of the following: base attack bonus +5, able to cast 3rd-level spells, sneak attack +2d6, or ability to grant allies a bonus on attack rolls, saves, or checks as an extraordinary ability. Special: Must be a member of the Disciples of Legend.
-CLASS:Mythic Examplar	STARTSKILLPTS:4	CSKILL:Craft|Knowledge (history)|Knowledge (nobility and royalty)|Knowledge (religion)|Listen|Profession|Ride|and Spot.
+CLASS:Mythic Examplar	STARTSKILLPTS:4	CSKILL:TYPE=Craft|Knowledge (history)|Knowledge (nobility and royalty)|Knowledge (religion)|Listen|TYPE=Profession|Ride|Spot
 #Special: You can also add four class skills from one prior class to your mythic exemplar skill list.
-CLASS:Mythic Examplar	BONUS:CASTERLEVEL|Mythic Examplar|CL	SPELLSTAT:	MEMORIZE:
+###Block
+1	ADD:CLASSSKILLS|4|CROSSCLASSSKILLS
+###Block
 2	ADD:SPELLCASTER|ANY
 4	ADD:SPELLCASTER|ANY
 6	ADD:SPELLCASTER|ANY
@@ -87,7 +90,8 @@ CLASS:Ordained Champion	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC"
 CLASS:Ordained Champion	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 CLASS:Ordained Champion	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 CLASS:Ordained Champion	PREALIGN:LG,LN,LE,NG,NE	PRESKILL:1,Knowledge (Religion)=7	PREFEAT:1,Weapon Focus	PRESPELLCAST:1,Magic Weapon	PREDEITY:1,Hextor,Heironeous	PRETEXT:Alignment: Any lawful, neutral good, or neutral evil. Skill: Knowledge (religion) 7 ranks. Feat: Weapon Focus with deity’s favored weapon. Spellcasting: Able to cast magic weapon as a divine spell. Special: Must worship Hextor or Heironeous.
-CLASS:Ordained Champion	STARTSKILLPTS:2	CSKILL:Concentration|Craft|Heal|Intimidate|Knowledge (arcana)|Knowledge (nobility and royalty)|Knowledge (religion)|Knowledge (the planes)|Profession|Ride|Spellcraft
+CLASS:Ordained Champion	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Heal|Intimidate|Knowledge (arcana)|Knowledge (nobility and royalty)|Knowledge (religion)|Knowledge (the planes)|TYPE=Profession|Ride|Spellcraft
+###Block
 2	ADD:SPELLCASTER|Divine
 3	ADD:SPELLCASTER|Divine
 5	ADD:SPELLCASTER|Divine
@@ -113,7 +117,8 @@ CLASS:Paragnostic Apostle	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPI
 CLASS:Paragnostic Apostle	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 CLASS:Paragnostic Apostle	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 CLASS:Paragnostic Apostle	PRESKILL:3,Knowledge (arcana)=5,Knowledge (religion)=5,TYPE.Knowledge=5	PRETEXT:Skills: Knowledge (arcana) 5 ranks, Knowledge (religion) 5 ranks, Knowledge (any other) 5 ranks. Spellcasting: Able to cast 3rd-level spells or use spell-like abilities of equivalent level. Special: Must be a member of the Paragnostic Assembly.
-CLASS:Paragnostic Apostle	STARTSKILLPTS:4	CSKILL:Concentration, Craft, Decipher Script, Knowledge (all skills, taken individually), Profession, Search, Speak Language, Spellcraft, Spot
+CLASS:Paragnostic Apostle	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Decipher Script|TYPE=Knowledge|TYPE=Profession|Search|Speak Language|Spellcraft|Spot
+###Block
 1:REPEATLEVEL:1	ADD:SPELLCASTER|ANY
 ###Block
 1	ABILITY:Paragnostic Apostle Class Feature|AUTOMATIC|Paragnostic Apostle ~ Spellcasting		
@@ -127,8 +132,8 @@ CLASS:Paragnostic Initiate	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")
 CLASS:Paragnostic Initiate	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
 CLASS:Paragnostic Initiate	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
 CLASS:Paragnostic Initiate	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
-CLASS:Paragnostic Initiate	PRETEXT:Skills: Knowledge (arcana) 2 ranks, Knowledge (religion) 2 ranks, Knowledge (any other) 2 ranks. Special: Base attack bonus +4 or Tumble 7 ranks. Special: Must be a member of the Paragnostic Assembly.
-CLASS:Paragnostic Initiate	STARTSKILLPTS:6	CSKILL:Balance|Climb|Craft|Decipher Script|Jump|Knowledge (all skills|taken individually)|Listen|Profession|Search|Speak Language|Spot|Tumble
+CLASS:Paragnostic Initiate	PRESKILL:2,Knowledge (arcana)=2,Knowledge (religion)=2	PRESKILL:3,TYPE.Knowledge=2	PREMULT:1,[PRETOTALAB:4],[{PRESKILL:1,Tumble=7]	PRETEXT:Skills: Knowledge (arcana) 2 ranks, Knowledge (religion) 2 ranks, Knowledge (any other) 2 ranks. Special: Base attack bonus +4 or Tumble 7 ranks. Special: Must be a member of the Paragnostic Assembly.
+CLASS:Paragnostic Initiate	STARTSKILLPTS:6	CSKILL:Balance|Climb|TYPE=Craft|Decipher Script|Jump|TYPE=Knowledge|Listen|TYPE=Profession|Search|Speak Language|Spot|Tumble
 CLASS:Paragnostic Initiate	BONUS:CASTERLEVEL|Paragnostic Initiate|CL	SPELLSTAT:	MEMORIZE:	ADD:SPELLCASTER|
 ###Block
 1	ABILITY:Paragnostic Initiate Class Feature|AUTOMATIC|Paragnostic Initiate ~ Assist Casting		
@@ -141,8 +146,8 @@ CLASS:Sanctified One	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|
 CLASS:Sanctified One	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
 CLASS:Sanctified One	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
 CLASS:Sanctified One	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
-CLASS:Sanctified One	PRETEXT:Base Attack Bonus: +5. Alignment: Must match that of deity chosen. Skill: Knowledge (religion) 6 ranks. Special: Must complete a sanctification ritual performed by a priest or other authority of the chosen deity’s church.
-CLASS:Sanctified One	STARTSKILLPTS:2	CSKILL:Concentration|Diplomacy|Intimidate|Knowledge (religion)|Perform|Sense Motive
+CLASS:Sanctified One	PRETOTALAB:5	PRESKILL:1,Knowledge (Religion)=6	PRETEXT:Base Attack Bonus: +5. Alignment: Must match that of deity chosen. Skill: Knowledge (religion) 6 ranks. Special: Must complete a sanctification ritual performed by a priest or other authority of the chosen deity’s church.
+CLASS:Sanctified One	STARTSKILLPTS:2	CSKILL:Concentration|Diplomacy|Intimidate|Knowledge (religion)|TYPE=Perform|Sense Motive
 2	ADD:SPELLCASTER|ANY
 4	ADD:SPELLCASTER|ANY
 ###Block
@@ -158,7 +163,7 @@ CLASS:Shadowspy	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVA
 CLASS:Shadowspy	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
 CLASS:Shadowspy	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
 CLASS:Shadowspy	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
-CLASS:Shadowspy	PRETEXT:Alignment: Any good. Skills: Gather Information 6 ranks, Hide 6 ranks, Move Silently 6 ranks. Feat: Good Devotion, Healing Devotion, Strength Devotion, or Sun Devotion. Spellcasting: Able to cast 1st-level divine spells. Special: Must be a cleric or paladin of Pelor.
+CLASS:Shadowspy	PREALIGN:LG,NG,CG	PRESKILL:3,Gather Information=6,Hide=6,Move Silently=6	PREFEAT:1,Good Devotion,Healing Devotion,Strength Devotion,Sun Devotion	PRESPELLTYPE:1,Divine=1	PRECLASS:1,Cleric,Paladin	PREDEITY:1,Pelor	PRETEXT:Alignment: Any good. Skills: Gather Information 6 ranks, Hide 6 ranks, Move Silently 6 ranks. Feat: Good Devotion, Healing Devotion, Strength Devotion, or Sun Devotion. Spellcasting: Able to cast 1st-level divine spells. Special: Must be a cleric or paladin of Pelor.
 CLASS:Shadowspy	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Concentration|Decipher Script|Disguise|Escape Artist|Forgery|Gather Information|Hide|Jump|Knowledge (local)|Knowledge (religion)|Listen|Move Silently|Open Lock|Search|Sense Motive|Speak Language|Spot|Tumble
 2	ADD:SPELLCASTER|ANY
 4	ADD:SPELLCASTER|ANY
@@ -200,8 +205,8 @@ CLASS:Squire of Legend	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC"
 CLASS:Squire of Legend	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
 CLASS:Squire of Legend	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 CLASS:Squire of Legend	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
-CLASS:Squire of Legend	PRETEXT:Skills: Knowledge (history) 3 ranks and any one of the following: Diplomacy 7 ranks, Intimidate 7 ranks, Knowledge (arcana) 7 ranks, Knowledge (religion) 7 ranks, or Move Silently 7 ranks. Special: Must be a member of the Disciples of Legend.	PRESKILL:1,Knowledge (History)	PRESKILL:1,Diplomacy=7,Intimidate=7,Knowledge (arcana)=7 ranks,Knowledge (religion)=7,Move Silently=7
-CLASS:Squire of Legend	STARTSKILLPTS:6	CSKILL:Appraise|Bluff|Climb|Concentration|Craft|Diplomacy|Escape Artist|Gather Information|Handle Animal|Heal|Jump|Knowledge (arcana)|Knowledge (nobility and royalty)|Knowledge (religion)|Listen|Perform|Ride|Search|Sense Motive|Spot|Swim
+CLASS:Squire of Legend	PRETEXT:Skills: Knowledge (history) 3 ranks and any one of the following: Diplomacy 7 ranks, Intimidate 7 ranks, Knowledge (arcana) 7 ranks, Knowledge (religion) 7 ranks, or Move Silently 7 ranks. Special: Must be a member of the Disciples of Legend.	PRESKILL:1,Knowledge (History)	PRESKILL:1,Diplomacy=7,Intimidate=7,Knowledge (arcana)=7,Knowledge (religion)=7,Move Silently=7
+CLASS:Squire of Legend	STARTSKILLPTS:6	CSKILL:Appraise|Bluff|Climb|Concentration|TYPE=Craft|Diplomacy|Escape Artist|Gather Information|Handle Animal|Heal|Jump|Knowledge (arcana)|Knowledge (nobility and royalty)|Knowledge (religion)|Listen|TYPE=Perform|Ride|Search|Sense Motive|Spot|Swim
 2	ADD:SPELLCASTER|ANY
 3	ADD:SPELLCASTER|ANY
 ###Block
