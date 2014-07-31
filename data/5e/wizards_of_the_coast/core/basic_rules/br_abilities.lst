@@ -1,18 +1,114 @@
 
 
 
-Race Traits ~ Dwarf	CATEGORY:Internal
-
-Dwarf Traits
-	BONUS:STAT|CON|2|TYPE=Racial
-
+Race Traits ~ Dwarf	CATEGORY:Internal	CATEGORY:Internal	BONUS:ABILITYPOOL|Dwarf Subrace|1	ABILITY:Dwarf Trait|AUTOMATIC|TYPE=Base Dwarf Trait
+	
+#Dwarf Traits	CATEGORY:Special Ability	TYPE:Dwarf Trait	
 
 
-Darkvision				DESC:Accustomed to life underground, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can’t discern color in darkness, only shades of gray.	BONUS:VAR|DarkvisionRange|60|TYPE=Base
-Dwarven Resilience		DESC:You have advantage on saving throws against poison, and you have resistance against poison damage (explained in chapter 9).
-Dwarven Combat Training		DESC:You have proficiency with the battleaxe, handaxe, throwing hammer, and warhammer.
-Tool Proficiency			DESC:You gain proficiency with the artisan’s tools of your choice: smith’s tools, brewer’s supplies, or mason’s tools.
-Stonecunning			DESC:Whenever you make an Intelligence (History) check related to the origin of stonework, you are considered proficient in the History skill and add double your proficiency bonus to the check, instead of your normal proficiency bonus.
+Ability Score Increase	KEY:Dwarf ~ Ability Score Increase		CATEGORY:Special Ability	TYPE:Dwarf Trait.Base Dwarf Trait.SpecialQuality	VISIBLE:EXPORT	DESC:Your Constitution score increases by 2.	BONUS:STAT|CON|2|TYPE=Racial
+Darkvision			KEY:Dwarf ~ Darkvision				CATEGORY:Special Ability	TYPE:Dwarf Trait.Base Dwarf Trait.SpecialQuality	VISIBLE:EXPORT	DESC:Accustomed to life underground, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray.	BONUS:VAR|DarkvisionRange|60|TYPE=Base
+Dwarven Resilience	KEY:Dwarf ~ Dwarven Resilience		CATEGORY:Special Ability	TYPE:Dwarf Trait.Base Dwarf Trait.SpecialQuality	VISIBLE:EXPORT	DESC:You have advantage on saving throws against poison, and you have resistance against poison damage (explained in chapter 9).	ASPECT:SaveBonus|advantage on saving throws against poison, and you have resistance against poison damage
+Dwarven Combat Training	KEY:Dwarf ~ Dwarven Combat Training		CATEGORY:Special Ability	TYPE:Dwarf Trait.Base Dwarf Trait.SpecialQuality	VISIBLE:EXPORT	DESC:You have proficiency with the battleaxe, handaxe, throwing hammer, and warhammer.	AUTO:WEAPONPROF|Battleaxe|Handaxe|Throwing Hammer|Warhammer
+Tool Proficiency		KEY:Dwarf ~ Tool Proficiency			CATEGORY:Special Ability	TYPE:Dwarf Trait.Base Dwarf Trait.SpecialQuality	VISIBLE:EXPORT	DESC:You gain proficiency with the artisan's tools of your choice: smith's tools, brewer's supplies, or mason's tools.	BONUS:ABILITYPOOL|Dwarf Artisan's Tool Proficiency|1
+Stonecunning		KEY:Dwarf ~ Stonecunning			CATEGORY:Special Ability	TYPE:Dwarf Trait.Base Dwarf Trait.SpecialQuality	VISIBLE:EXPORT	DESC:Whenever you make an Intelligence (History) check related to the origin of stonework, you are considered proficient in the History skill and add double your proficiency bonus to the check, instead of your normal proficiency bonus.
+Languages			KEY:Dwarf ~ Languages				CATEGORY:Special Ability	TYPE:Dwarf Trait.Base Dwarf Trait.SpecialQuality	VISIBLE:EXPORT	DESC:You can speak, read, and write Common and Dwarvish. Dwarvish is full of hard consonants and guttural sounds, and those characteristics spill over into whatever other language a dwarf might speak.
+
+# Tool Proficiency
+Smith's Tools		KEY:Tool Proficiency ~ Smith's Tools	CATEGORY:Special Ability	TYPE:DwarfToolProficiency.SpecialQuality	DESC:Proficient with Artisan Smith's Tools.	
+Brewer's Supplies		KEY:Tool Proficiency ~ Brewer's Supplies	CATEGORY:Special Ability	TYPE:DwarfToolProficiency.SpecialQuality	DESC:Proficient with Artisan Brewer's Supplies.	
+Mason's Tools		KEY:Tool Proficiency ~ Mason's Tools	CATEGORY:Special Ability	TYPE:DwarfToolProficiency.SpecialQuality	DESC:Proficient with Artisan Mason's Tools.	
+
+
+Hill Dwarf			KEY:Dwarf Subrace ~ Hill	TYPE:DwarfSubrace	CATEGORY:Internal	ABILITY:Dwarf Trait|AUTOMATIC|Hill Dwarf ~ Ability Score Increase		ABILITY:Dwarf Trait|AUTOMATIC|Hill Dwarf ~ Dwarven Toughness		
+Mountain Dwarf		KEY:Dwarf Subrace ~ Mountain	TYPE:DwarfSubrace	CATEGORY:Internal	ABILITY:Dwarf Trait|AUTOMATIC|Mountain Dwarf ~ Ability Score Increase	ABILITY:Dwarf Trait|AUTOMATIC|Mountain Dwarf ~ Dwarven Armor Training	
+Gray Dwarf			KEY:Dwarf Subrace ~ Gray	TYPE:DwarfSubrace	CATEGORY:Internal	VISIBLE:NO
 
 
 
+# Hill Dwarf
+Ability Score Increase	KEY:Hill Dwarf ~ Ability Score Increase	CATEGORY:Special Ability	TYPE:Dwarf Trait.Hill Dwarf Trait.SpecialQuality	VISIBLE:EXPORT	DESC:Your Wisdom score increases by 1.		BONUS:STAT|WIS|1|TYPE=Racial
+Dwarven Toughness		KEY:Hill Dwarf ~ Dwarven Toughness		CATEGORY:Special Ability	TYPE:Dwarf Trait.Hill Dwarf Trait.SpecialQuality	VISIBLE:EXPORT	DESC:Your hit point maximum increases by 1, and it increases by 1 every time you gain a level.	BONUS:HP|CURRENTMAX|TL
+
+# Mountain Dwarf		
+Ability Score Increase	KEY:Mountain Dwarf ~ Ability Score Increase	CATEGORY:Special Ability	TYPE:Dwarf Trait.Mountain Dwarf Trait.SpecialQuality	VISIBLE:EXPORT	DESC:Your Strength score increases by 2.	BONUS:STAT|STR|2|TYPE=Racial
+Dwarven Armor Training	KEY:Mountain Dwarf ~ Dwarven Armor Training	CATEGORY:Special Ability	TYPE:Dwarf Trait.Mountain Dwarf Trait.SpecialQuality	VISIBLE:EXPORT	DESC:You have proficiency with light and medium armor.	ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfMedium
+
+
+###Block: Elf
+Race Traits ~ Elf	CATEGORY:Internal	CATEGORY:Internal	BONUS:ABILITYPOOL|Elf Subrace|1	ABILITY:Elf Trait|AUTOMATIC|TYPE=Base Elf Trait
+
+Ability Score Increase	KEY:Elf ~ Ability Score Increase	CATEGORY:Special Ability	TYPE:Elf Trait.Base Elf Trait.SpecialQuality	SOURCEPAGE:p.	DESC:Your Dexterity score increases by 2.	BONUS:STAT|DEX|2|TYPE=Racial
+Darkvision			KEY:Elf ~ Darkvision			CATEGORY:Special Ability	TYPE:Elf Trait.Base Elf Trait.SpecialQuality	SOURCEPAGE:p.	DESC:Accustomed to twilit forests and the night sky, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray.
+Keen Senses			KEY:Elf ~ Keen Senses			CATEGORY:Special Ability	TYPE:Elf Trait.Base Elf Trait.SpecialQuality	SOURCEPAGE:p.	DESC:You have proficiency in the Perception skill.
+Fey Ancestry		KEY:Elf ~ Fey Ancestry			CATEGORY:Special Ability	TYPE:Elf Trait.Base Elf Trait.SpecialQuality	SOURCEPAGE:p.	DESC:You have advantage on saving throws against being charmed, and magic can't put you to sleep.
+Trance			KEY:Elf ~ Trance				CATEGORY:Special Ability	TYPE:Elf Trait.Base Elf Trait.SpecialQuality	SOURCEPAGE:p.	DESC:Elves don't need to sleep. Instead, they meditate deeply, remaining semiconscious, for 4 hours a day. (The Common word for such meditation is “trance.”) While meditating, you can dream after a fashion; such dreams are actually mental exercises that have become reflexive through years of practice. After resting in this way, you gain the same benefit that a human does from 8 hours of sleep.
+Languages			KEY:Elf ~ Languages			CATEGORY:Special Ability	TYPE:Elf Trait.Base Elf Trait.SpecialQuality	SOURCEPAGE:p.	DESC:You can speak, read, and write Common and Elvish. Elvish is fluid, with subtle intonations and intricate grammar. Elven literature is rich and varied, and their songs and poems are famous among other races. Many bards learn their language so they can add Elvish ballads to their repertoires.
+
+# Elf Subrace Selection
+High Elf			KEY:Elf Subrace ~ High	TYPE:ElfSubrace	CATEGORY:Internal	ABILITY:Elf Trait|AUTOMATIC|High Elf ~ Ability Score Increase		ABILITY:Elf Trait|AUTOMATIC|High Elf ~ Elf Weapon Training			ABILITY:Elf Trait|AUTOMATIC|High Elf ~ Cantrip					ABILITY:Elf Trait|AUTOMATIC|High Elf ~ Extra Language			
+Wood Elf			KEY:Elf Subrace ~ Wood	TYPE:ElfSubrace	CATEGORY:Internal	ABILITY:Elf Trait|AUTOMATIC|Wood Elf ~ Ability Score Increase		ABILITY:Elf Trait|AUTOMATIC|Wood Elf ~ Elf Weapon Training			ABILITY:Elf Trait|AUTOMATIC|Wood Elf ~ Fleet of Foot				ABILITY:Elf Trait|AUTOMATIC|Wood Elf ~ Mask of the Wild		
+
+
+# High Elf
+Ability Score Increase	KEY:High Elf ~ Ability Score Increase	CATEGORY:Special Ability	TYPE:Elf Trait.High Elf Trait.SpecialQuality	SOURCEPAGE:p.	DESC:Your Intelligence score increases by 1.	BONUS:STAT|INT|1|TYPE=Racial
+Elf Weapon Training	KEY:High Elf ~ Elf Weapon Training		CATEGORY:Special Ability	TYPE:Elf Trait.High Elf Trait.SpecialQuality	SOURCEPAGE:p.	DESC:You have proficiency with the longsword, shortsword, shortbow, and longbow.	AUTO:WEAPONPROF|Longsword|Shortsword|Shortbow|Longbow
+Cantrip			KEY:High Elf ~ Cantrip				CATEGORY:Special Ability	TYPE:Elf Trait.High Elf Trait.SpecialQuality	SOURCEPAGE:p.	DESC:You know one cantrip of your choice from the wizard spell list. Intelligence is your spellcasting ability for it.
+Extra Language		KEY:High Elf ~ Extra Language			CATEGORY:Special Ability	TYPE:Elf Trait.High Elf Trait.SpecialQuality	SOURCEPAGE:p.	DESC:You can speak, read, and write one extra language of your choice.
+
+# Wood Elf
+Ability Score Increase	KEY:Wood Elf ~ Ability Score Increase	CATEGORY:Special Ability	TYPE:Elf Trait.Wood Elf Trait.SpecialQuality	SOURCEPAGE:p.	DESC:Your Wisdom score increases by 1.	BONUS:STAT|WIS|1|TYPE=Racial
+Elf Weapon Training	KEY:Wood Elf ~ Elf Weapon Training		CATEGORY:Special Ability	TYPE:Elf Trait.Wood Elf Trait.SpecialQuality	SOURCEPAGE:p.	DESC:You have proficiency with the longsword, shortsword, shortbow, and longbow.	AUTO:WEAPONPROF|Longsword|Shortsword|Shortbow|Longbow
+Fleet of Foot		KEY:Wood Elf ~ Fleet of Foot			CATEGORY:Special Ability	TYPE:Elf Trait.Wood Elf Trait.SpecialQuality	SOURCEPAGE:p.	DESC:Your base walking speed increases to 35 feet.	BONUS:MOVEADD|TYPE.Walk|5
+Mask of the Wild		KEY:Wood Elf ~ Mask of the Wild		CATEGORY:Special Ability	TYPE:Elf Trait.Wood Elf Trait.SpecialQuality	SOURCEPAGE:p.	DESC:You can attempt to hide even when you are only lightly obscured by foliage, heavy rain, falling snow, mist, and other natural phenomena.
+
+
+###Block: Halfling
+Race Traits ~ Halfling	CATEGORY:Internal	CATEGORY:Internal	BONUS:ABILITYPOOL|Halfling Subrace|1	ABILITY:Halfling Trait|AUTOMATIC|TYPE=Base Halfling Trait
+
+Lucky						KEY:Halfling ~ Lucky			CATEGORY:Special Ability	TYPE:Halfling Trait.Base Halfling Trait.SpecialQuality	SOURCEPAGE:p.	DESC:When you roll a 1 on an attack roll, ability check, or saving throw, you can reroll the die and must use the new roll.
+Brave						KEY:Halfling ~ Brave			CATEGORY:Special Ability	TYPE:Halfling Trait.Base Halfling Trait.SpecialQuality	SOURCEPAGE:p.	DESC:You have advantage on saving throws against being frightened.
+Halfling Nimbleness			KEY:Halfling ~ Halfling Nimbleness	CATEGORY:Special Ability	TYPE:Halfling Trait.Base Halfling Trait.SpecialQuality	SOURCEPAGE:p.	DESC:You can move through the space of any creature that is of a size larger than yours.
+Languages					KEY:Halfling ~ Languages		CATEGORY:Special Ability	TYPE:Halfling Trait.Base Halfling Trait.SpecialQuality	SOURCEPAGE:p.	DESC:You can speak, read, and write Common and Halfling. The Halfling language isn’t secret, but halflings are loath to share it with others. They write very little, so they don’t have a rich body of literature. Their oral tradition, however, is very strong. Almost all halflings speak Common to converse with the people in whose lands they dwell or through which they are traveling.
+
+# Halfing Selection
+Lightfoot			KEY:Halfling Subrace ~ Lightfoot	TYPE:HalflingSubrace	CATEGORY:Internal	ABILITY:Halfling Trait|AUTOMATIC|Lightfoot Halfling ~ Ability Score Increase			ABILITY:Halfling Trait|AUTOMATIC|Lightfoot Halfling ~ Naturally Stealthy		
+Stout				KEY:Halfling Subrace ~ Stout		TYPE:HalflingSubrace	CATEGORY:Internal	ABILITY:Halfling Trait|AUTOMATIC|Stout Halfling ~ Ability Score Increase		ABILITY:Halfling Trait|AUTOMATIC|Stout Halfling ~ Stout Resilience		
+
+
+# Lightfoot
+Ability Score Increase		KEY:Lightfoot Halfling ~ Ability Score Increase				CATEGORY:Special Ability	TYPE:Lightfoot Halfling Trait.SpecialQuality	SOURCEPAGE:p.	DESC:Your Charisma score increases by 1.	BONUS:STAT|CHA|1|TYPE=Racial
+Naturally Stealthy		KEY:Lightfoot Halfling ~ Naturally Stealthy				CATEGORY:Special Ability	TYPE:Lightfoot Halfling Trait.SpecialQuality	SOURCEPAGE:p.	DESC:You can attempt to hide even when you are obscured only by a creature that is at least one size larger than you.
+
+# Stout
+Ability Score Increase		KEY:Stout Halfling ~ Ability Score Increase				CATEGORY:Special Ability	TYPE:Stout Halfling Trait.SpecialQuality	SOURCEPAGE:p.	DESC:Your Constitution score increases by 1.	BONUS:STAT|CON|1|TYPE=Racial
+Stout Resilience			KEY:Stout Halfling ~ Stout Resilience					CATEGORY:Special Ability	TYPE:Stout Halfling Trait.SpecialQuality	SOURCEPAGE:p.	DESC:You have advantage on saving throws against poison, and you have resistance against poison damage.
+
+
+###Block: Human
+Race Traits ~ Human	CATEGORY:Internal	CATEGORY:Internal	BONUS:ABILITYPOOL|Human Rule Selection|1	ABILITY:Human Trait|AUTOMATIC|Human ~ Languages
+
+#
+Basic Rules Human		TYPE:Human Rule Selection	CATEGORY:Internal	ABILITY:Human Trait|AUTOMATIC|Human ~ Ability Score Increase
+Feat Variant Human	TYPE:Human Rule Selection	CATEGORY:Internal	ABILITY:Human Trait|AUTOMATIC|Variant Human ~ Ability Score Increase		ABILITY:Human Trait|AUTOMATIC|Variant Human ~ Skills					ABILITY:Human Trait|AUTOMATIC|Variant Human ~ Feat				
+
+
+
+# Default Human
+Ability Score Increase		KEY:Human ~ Ability Score Increase				CATEGORY:Special Ability	TYPE:Human Trait.SpecialQuality	SOURCEPAGE:p.	DESC:Your ability scores each increase by 1.	BONUS:STAT|STR,DEX,CON,INT,WIS,CHA|1|TYPE=Racial
+Languages				KEY:Human ~ Languages						CATEGORY:Special Ability	TYPE:Human Trait.SpecialQuality	SOURCEPAGE:p.	DESC:You can speak, read, and write Common and one extra language of your choice. Humans typically learn the languages of other peoples they deal with, including obscure dialects. They are fond of sprinkling their speech with words borrowed from other tongues: Orc curses, Elvish musical expressions, Dwarvish military phrases, and so on.
+
+# Variant Human
+Ability Score Increase		KEY:Variant Human ~ Ability Score Increase		CATEGORY:Special Ability	TYPE:Human Trait.SpecialQuality	SOURCEPAGE:p.	DESC:Two different ability scores of your choice increase by 1.	BONUS:ABILITYPOOL|Ability Score Increase +1|2
+Skills				KEY:Variant Human ~ Skills					CATEGORY:Special Ability	TYPE:Human Trait.SpecialQuality	SOURCEPAGE:p.	DESC:You gain proficiency in one skill of your choice.		BONUS:ABILITYPOOL|Skill Proficiency|1
+Feat					KEY:Variant Human ~ Feat					CATEGORY:Special Ability	TYPE:Human Trait.SpecialQuality	SOURCEPAGE:p.	DESC:You gain one feat of your choice.					BONUS:ABILITYPOOL|Feat|1
+
++1 Strength		KEY:Ability Score +1 ~ STR	CATEGORY:Internal	TYPE:StatIncrease+1	BONUS:STAT|STR|1	SORTKEY:AbilityScore_1
++1 Dexterity	KEY:Ability Score +1 ~ DEX	CATEGORY:Internal	TYPE:StatIncrease+1	BONUS:STAT|DEX|1	SORTKEY:AbilityScore_2
++1 Constitution	KEY:Ability Score +1 ~ CON	CATEGORY:Internal	TYPE:StatIncrease+1	BONUS:STAT|CON|1	SORTKEY:AbilityScore_3
++1 Intelligence	KEY:Ability Score +1 ~ INT	CATEGORY:Internal	TYPE:StatIncrease+1	BONUS:STAT|INT|1	SORTKEY:AbilityScore_4
++1 Wisdom		KEY:Ability Score +1 ~ WIS	CATEGORY:Internal	TYPE:StatIncrease+1	BONUS:STAT|WIS|1	SORTKEY:AbilityScore_5
++1 Charisma		KEY:Ability Score +1 ~ CHA	CATEGORY:Internal	TYPE:StatIncrease+1	BONUS:STAT|CHA|1	SORTKEY:AbilityScore_6
+
+
+#		KEY:xxx ~ 			CATEGORY:Special Ability	TYPE:xxx Trait.SpecialQuality	SOURCEPAGE:p.	DESC:
