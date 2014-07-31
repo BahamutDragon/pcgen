@@ -1,4 +1,10 @@
 
+Default	CATEGORY:Internal
+	DEFINE:Proficiency_Bonus|0
+	BONUS:VAR|Proficiency_Bonus|(TL+7)/4
+
+
+
 
 
 Race Traits ~ Dwarf	CATEGORY:Internal	CATEGORY:Internal	BONUS:ABILITYPOOL|Dwarf Subrace|1	ABILITY:Dwarf Trait|AUTOMATIC|TYPE=Base Dwarf Trait
@@ -112,3 +118,104 @@ Feat					KEY:Variant Human ~ Feat					CATEGORY:Special Ability	TYPE:Human Trait.
 
 
 #		KEY:xxx ~ 			CATEGORY:Special Ability	TYPE:xxx Trait.SpecialQuality	SOURCEPAGE:p.	DESC:
+
+###Block: Class Progressions
++1 Strength		COST:0.5	KEY:Ability Score Increase +1 ~ STR	CATEGORY:Internal	TYPE:Ability Score Increase	BONUS:STAT|STR|1	SORTKEY:AbilityScore_1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	PREVARLT:STRSCORE,20
++1 Dexterity	COST:0.5	KEY:Ability Score Increase +1 ~ DEX	CATEGORY:Internal	TYPE:Ability Score Increase	BONUS:STAT|DEX|1	SORTKEY:AbilityScore_2	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	PREVARLT:DEXSCORE,20
++1 Constitution	COST:0.5	KEY:Ability Score Increase +1 ~ CON	CATEGORY:Internal	TYPE:Ability Score Increase	BONUS:STAT|CON|1	SORTKEY:AbilityScore_3	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	PREVARLT:CONSCORE,20
++1 Intelligence	COST:0.5	KEY:Ability Score Increase +1 ~ INT	CATEGORY:Internal	TYPE:Ability Score Increase	BONUS:STAT|INT|1	SORTKEY:AbilityScore_4	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	PREVARLT:INTSCORE,20
++1 Wisdom		COST:0.5	KEY:Ability Score Increase +1 ~ WIS	CATEGORY:Internal	TYPE:Ability Score Increase	BONUS:STAT|WIS|1	SORTKEY:AbilityScore_5	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	PREVARLT:WISSCORE,20
++1 Charisma		COST:0.5	KEY:Ability Score Increase +1 ~ CHA	CATEGORY:Internal	TYPE:Ability Score Increase	BONUS:STAT|CHA|1	SORTKEY:AbilityScore_6	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	PREVARLT:CHASCORE,20
+
++2 Strength				KEY:Ability Score Increase +2 ~ STR	CATEGORY:Internal	TYPE:StatIncrease+2.Ability Score Increase	BONUS:STAT|STR|2	SORTKEY:AbilityScore_1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	PREVARLT:STRSCORE,19
++2 Dexterity			KEY:Ability Score Increase +2 ~ DEX	CATEGORY:Internal	TYPE:StatIncrease+2.Ability Score Increase	BONUS:STAT|DEX|2	SORTKEY:AbilityScore_2	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	PREVARLT:DEXSCORE,19
++2 Constitution			KEY:Ability Score Increase +2 ~ CON	CATEGORY:Internal	TYPE:StatIncrease+2.Ability Score Increase	BONUS:STAT|CON|2	SORTKEY:AbilityScore_3	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	PREVARLT:CONSCORE,19
++2 Intelligence			KEY:Ability Score Increase +2 ~ INT	CATEGORY:Internal	TYPE:StatIncrease+2.Ability Score Increase	BONUS:STAT|INT|2	SORTKEY:AbilityScore_4	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	PREVARLT:INTSCORE,19
++2 Wisdom				KEY:Ability Score Increase +2 ~ WIS	CATEGORY:Internal	TYPE:StatIncrease+2.Ability Score Increase	BONUS:STAT|WIS|2	SORTKEY:AbilityScore_5	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	PREVARLT:WISSCORE,19
++2 Charisma				KEY:Ability Score Increase +2 ~ CHA	CATEGORY:Internal	TYPE:StatIncrease+2.Ability Score Increase	BONUS:STAT|CHA|2	SORTKEY:AbilityScore_6	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	PREVARLT:CHASCORE,19
+
++1 Feat				KEY:Add Feat				CATEGORY:Internal	TYPE:Ability Score Increase
+
+###Block: Shared
+Strength		KEY:Saving Throw ~ Str	BONUS:SAVE|Strength|Proficiency_Bonus|TYPE=Class		CATEGORY:Internal	
+Dexterity		KEY:Saving Throw ~ Dex	BONUS:SAVE|Dexterity|Proficiency_Bonus|TYPE=Class		CATEGORY:Internal
+Constitution	KEY:Saving Throw ~ Con	BONUS:SAVE|Constitution|Proficiency_Bonus|TYPE=Class		CATEGORY:Internal
+Intelligence	KEY:Saving Throw ~ Int	BONUS:SAVE|Intelligence|Proficiency_Bonus|TYPE=Class		CATEGORY:Internal
+Wisdom		KEY:Saving Throw ~ Wis	BONUS:SAVE|Wisdom|Proficiency_Bonus|TYPE=Class			CATEGORY:Internal
+Charisma		KEY:Saving Throw ~ Cha	BONUS:SAVE|Charisma|Proficiency_Bonus|TYPE=Class		CATEGORY:Internal
+
+# Weapon Profs
+Simple Weapon Proficiency	KEY:Weapon Proficiency ~ Simple	TYPE:WeaponProfSimple.WeaponProfMartial		AUTO:WEAPONPROF|TYPE=Simple
+Martial Weapon Proficiency	KEY:Weapon Proficiency ~ Martial	TYPE:WeaponProfMartial					AUTO:WEAPONPROF|TYPE=Martial
+
+
+
+
+#	AUTO:WEAPONPROF|TYPE=Simple
+#	BONUS:WEAPONPROF=xxx|TOHIT|Proficiency_Bonus|TYPE=Class|PREWEAPONPROF:1,xxx
+
+# Handles the Proficiency Bonus for Classes, to avoid the inherent overlap PCGen will allow if the tag is not an exact match.
+CATEGORY=Internal|Default.MOD
+	BONUS:WEAPONPROF=Club|TOHIT|Proficiency_Bonus|TYPE=Class|PREWEAPONPROF:1,Club			
+	BONUS:WEAPONPROF=Dagger|TOHIT|Proficiency_Bonus|TYPE=Class|PREWEAPONPROF:1,Dagger		
+	BONUS:WEAPONPROF=Greatclub|TOHIT|Proficiency_Bonus|TYPE=Class|PREWEAPONPROF:1,Greatclub		
+	BONUS:WEAPONPROF=Handaxe|TOHIT|Proficiency_Bonus|TYPE=Class|PREWEAPONPROF:1,Handaxe		
+	BONUS:WEAPONPROF=Javelin|TOHIT|Proficiency_Bonus|TYPE=Class|PREWEAPONPROF:1,Javelin		
+	BONUS:WEAPONPROF=Light Hammer|TOHIT|Proficiency_Bonus|TYPE=Class|PREWEAPONPROF:1,Light Hammer	
+	BONUS:WEAPONPROF=Mace|TOHIT|Proficiency_Bonus|TYPE=Class|PREWEAPONPROF:1,Mace			
+	BONUS:WEAPONPROF=Quarterstaff|TOHIT|Proficiency_Bonus|TYPE=Class|PREWEAPONPROF:1,Quarterstaff	
+	BONUS:WEAPONPROF=Sickle|TOHIT|Proficiency_Bonus|TYPE=Class|PREWEAPONPROF:1,Sickle		
+	BONUS:WEAPONPROF=Spear|TOHIT|Proficiency_Bonus|TYPE=Class|PREWEAPONPROF:1,Spear				
+	BONUS:WEAPONPROF=Unarmed Strike|TOHIT|Proficiency_Bonus|TYPE=Class|PREWEAPONPROF:1,Unarmed Strike	
+	BONUS:WEAPONPROF=Crossbow (Light)|TOHIT|Proficiency_Bonus|TYPE=Class|PREWEAPONPROF:1,Crossbow (Light)	
+	BONUS:WEAPONPROF=Dart|TOHIT|Proficiency_Bonus|TYPE=Class|PREWEAPONPROF:1,Dart			
+	BONUS:WEAPONPROF=Shortbow|TOHIT|Proficiency_Bonus|TYPE=Class|PREWEAPONPROF:1,Shortbow		
+	BONUS:WEAPONPROF=Sling|TOHIT|Proficiency_Bonus|TYPE=Class|PREWEAPONPROF:1,Sling				
+	BONUS:WEAPONPROF=Battleaxe|TOHIT|Proficiency_Bonus|TYPE=Class|PREWEAPONPROF:1,Battleaxe		
+	BONUS:WEAPONPROF=Flail|TOHIT|Proficiency_Bonus|TYPE=Class|PREWEAPONPROF:1,Flail				
+	BONUS:WEAPONPROF=Glaive|TOHIT|Proficiency_Bonus|TYPE=Class|PREWEAPONPROF:1,Glaive		
+	BONUS:WEAPONPROF=Greataxe|TOHIT|Proficiency_Bonus|TYPE=Class|PREWEAPONPROF:1,Greataxe		
+	BONUS:WEAPONPROF=Greatsword|TOHIT|Proficiency_Bonus|TYPE=Class|PREWEAPONPROF:1,Greatsword		
+	BONUS:WEAPONPROF=Halberd|TOHIT|Proficiency_Bonus|TYPE=Class|PREWEAPONPROF:1,Halberd		
+	BONUS:WEAPONPROF=Lance|TOHIT|Proficiency_Bonus|TYPE=Class|PREWEAPONPROF:1,Lance				
+	BONUS:WEAPONPROF=Longsword|TOHIT|Proficiency_Bonus|TYPE=Class|PREWEAPONPROF:1,Longsword		
+	BONUS:WEAPONPROF=Maul|TOHIT|Proficiency_Bonus|TYPE=Class|PREWEAPONPROF:1,Maul			
+	BONUS:WEAPONPROF=Morningstar|TOHIT|Proficiency_Bonus|TYPE=Class|PREWEAPONPROF:1,Morningstar			
+	BONUS:WEAPONPROF=Pike|TOHIT|Proficiency_Bonus|TYPE=Class|PREWEAPONPROF:1,Pike			
+	BONUS:WEAPONPROF=Rapier|TOHIT|Proficiency_Bonus|TYPE=Class|PREWEAPONPROF:1,Rapier		
+	BONUS:WEAPONPROF=Scimitar|TOHIT|Proficiency_Bonus|TYPE=Class|PREWEAPONPROF:1,Scimitar		
+	BONUS:WEAPONPROF=Shortsword|TOHIT|Proficiency_Bonus|TYPE=Class|PREWEAPONPROF:1,Shortsword		
+	BONUS:WEAPONPROF=Trident|TOHIT|Proficiency_Bonus|TYPE=Class|PREWEAPONPROF:1,Trident		
+	BONUS:WEAPONPROF=War Pick|TOHIT|Proficiency_Bonus|TYPE=Class|PREWEAPONPROF:1,War Pick		
+	BONUS:WEAPONPROF=Warhammer|TOHIT|Proficiency_Bonus|TYPE=Class|PREWEAPONPROF:1,Warhammer		
+	BONUS:WEAPONPROF=Whip|TOHIT|Proficiency_Bonus|TYPE=Class|PREWEAPONPROF:1,Whip			
+	BONUS:WEAPONPROF=Blowgun|TOHIT|Proficiency_Bonus|TYPE=Class|PREWEAPONPROF:1,Blowgun		
+	BONUS:WEAPONPROF=Crossbow (Hand)|TOHIT|Proficiency_Bonus|TYPE=Class|PREWEAPONPROF:1,Crossbow (Hand)	
+	BONUS:WEAPONPROF=Crossbow (Heavy)|TOHIT|Proficiency_Bonus|TYPE=Class|PREWEAPONPROF:1,Crossbow (Heavy)	
+	BONUS:WEAPONPROF=Longbow|TOHIT|Proficiency_Bonus|TYPE=Class|PREWEAPONPROF:1,Longbow		
+	BONUS:WEAPONPROF=Net|TOHIT|Proficiency_Bonus|TYPE=Class|PREWEAPONPROF:1,Net			
+
+
+
+
+
+
+
+
+###Block: Cleric
+
+Cantrips				DESC:At 1st level, you know three cantrips of your choice from the cleric spell list. You learn additional cleric cantrips of your choice at higher levels, as shown in the Cantrips Known column of the Cleric table.
+
+Spellcasting Ability		DESC:Spell Save DC %1, Spell Attack Modifier +%2|ClericSpellDC|ClericSpellAttackModifier		DEFINE:ClericSpellDC|0	BONUS:VAR|ClericSpellDC|8+Proficiency_Bonus+WIS	DEFINE:ClericSpellAttackModifier|0	BONUS:VAR|ClericSpellAttackModifier|WIS+Proficiency_Bonus
+
+Channel Divinity			DESC:At 2nd level, you gain the ability to channel divine energy directly from your deity, using that energy to fuel magical effects. You start with two such effects: Turn Undead and an effect determined by your domain. Some domains grant you additional effects as you advance in levels, as noted in the domain description. When you use your Channel Divinity, you choose which effect to create. You must then finish a short or long rest to use your Channel Divinity again. Some Channel Divinity effects require saving throws. When you use such an effect from this class, the DC equals your cleric spell save DC. Beginning at 6th level, you can use your Channel Divinity twice between rests, and beginning at 18th level, you can use it three times between rests. When you finish a short or long rest, you regain your expended uses.
+
+Channel Divinity: Turn Undead	DESC:As an action, you present your holy symbol and speak a prayer censuring the undead. Each undead that can see or hear you within 30 feet of you must make a Wisdom saving throw. If the creature fails its saving throw, it is turned for 1 minute or until it takes any damage. A turned creature must spend its turns trying to move as far away from you as it can, and it can’t willingly move to a space within 30 feet of you. It also can’t take reactions. For its action, it can use only the Dash action or try to escape from an effect that prevents it from moving. If there’s nowhere to move, the creature can use the Dodge action.
+Destroy Undead			DESC:Starting at 5th level, when an undead fails its saving throw against your Turn Undead feature, the creature is instantly destroyed if its challenge rating is at or below a certain threshold, as shown in the Destroy Undead table.
+	ASPECT:NAME|Destroy Undead (CR 1/2)|PREVAREQ:DestroyUndeadCR,0
+	ASPECT:NAME|Destroy Undead (CR %1)|DestroyUndeadCR|PREVARGT:DestroyUndeadCR,0
+	DEFINE:DestroyUndeadCR|0
+
+Divine Intervention		DESC:Beginning at 10th level, you can call on your deity to intervene on your behalf when your need is great. Imploring your deity’s aid requires you to use your action. Describe the assistance you seek, and roll percentile dice. If you roll a number equal to or lower than your cleric level, your deity intervenes. The DM chooses the nature of the intervention; the effect of any cleric spell or cleric domain spell would be appropriate. If your deity intervenes, you can’t use this feature again for 7 days. Otherwise, you can use it again after you finish a long rest. At 20th level, your call for intervention succeeds automatically, no roll required.
+
+

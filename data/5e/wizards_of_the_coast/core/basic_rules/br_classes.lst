@@ -1,6 +1,48 @@
 
 # Basic Classes
-CLASS:Cleric
+CLASS:Cleric	HD:8	TYPE:PC.Base	ABILITY:Internal|AUTOMATIC|Saving Throw ~ Wis|Saving Throw ~ Cha|TYPE=WeaponProfSimple
+
+	AUTO:WEAPONPROF|TYPE=Simple
+CLASS:Cleric	SPELLSTAT:WIS	BONUS:CASTERLEVEL|CL
+
+
+
+###Block
+1	BONUS:ABILITYPOOL|Cleric Cantrip|Cleric_Cantrips
+4	BONUS:ABILITYPOOL|Character Advancement Selection|1
+8	BONUS:ABILITYPOOL|Character Advancement Selection|1
+12	BONUS:ABILITYPOOL|Character Advancement Selection|1
+16	BONUS:ABILITYPOOL|Character Advancement Selection|1
+19	BONUS:ABILITYPOOL|Character Advancement Selection|1
+###Block
+1	CAST:0,2
+2	CAST:0,3
+3	CAST:0,4,2
+4	CAST:0,4,3
+5	CAST:0,4,3,2
+6	CAST:0,4,3,3
+7	CAST:0,4,3,3,1
+8	CAST:0,4,3,3,2
+9	CAST:0,4,3,3,3,1
+10	CAST:0,4,3,3,3,2
+11	CAST:0,4,3,3,3,2,1
+12	CAST:0,4,3,3,3,2,1
+13	CAST:0,4,3,3,3,2,1,1
+14	CAST:0,4,3,3,3,2,1,1
+15	CAST:0,4,3,3,3,2,1,1,1
+16	CAST:0,4,3,3,3,2,1,1,1
+17	CAST:0,4,3,3,3,2,1,1,1,1
+18	CAST:0,4,3,3,3,3,1,1,1,1
+19	CAST:0,4,3,3,3,3,2,1,1,1
+20	CAST:0,4,3,3,3,3,2,2,1,1
+###Block
+1	DEFINE:Cleric_Cantrips|0
+1	BONUS:VAR|Cleric_Cantrips|3+(CL>3)+(CL>9)
+5	BONUS:VAR|DestroyUndeadCR|(CL-5)/3
+
+
+
+
 CLASS:Fighter
 CLASS:Rogue
 CLASS:Wizard

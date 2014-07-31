@@ -91,7 +91,7 @@ SHORTRANGE:30
 # each range increment after the first.
 # Integer value, defaults to zero if tag not present to allow GameModes
 # without range increment bonus/limitations
-RANGEPENALTY:-2
+#RANGEPENALTY:-2
 
 # SQUARESIZE defines the size of a battlemap square in feet.
 SQUARESIZE:5
@@ -105,7 +105,7 @@ SPELLRANGE:LONG|(CASTERLEVEL*40)+400
 #SKILLMULTIPLIER by level (assumes 1 for all levels beyond those in | delimited list)
 #e.g. SKILLMULTIPLIER:2|2|2 would give a x2 mult at levels 1 to 3, and x1 beyond that
 SKILLMULTIPLIER:0
-SPELLBASEDC:10+SPELLLEVEL+BASESPELLSTAT
+SPELLBASEDC:8+Proficiency_Bonus+BASESPELLSTAT
 
 #BONUSFEATLEVELSTARTINTERVAL:level|interval
 #level = first level where you gain an additional feat
@@ -119,7 +119,7 @@ SPELLBASEDC:10+SPELLLEVEL+BASESPELLSTAT
 #level = first level where you gain an additional stat
 # (use more than one of these tags for additional stat)
 #interval = multiples of levels after the start level that you gain an additional stat (0 = only at start)
-BONUSSTATLEVELSTARTINTERVAL:4|4|2
+#BONUSSTATLEVELSTARTINTERVAL:4|4|2
 
 # Calculations for AC. Same as those used on the
 # output sheets with the 'BONUS.' stripped off
@@ -149,10 +149,11 @@ CLASSTYPE:Monster		CRFORMULA:0			ISMONSTER:YES	XPPENALTY:NO
 CLASSTYPE:Companion	CRFORMULA:NONE		ISMONSTER:YES	XPPENALTY:NO
 
 #AC Types
-ACTYPE:Total				ADD:TOTAL
+ACTYPE:Total				ADD:TOTAL		REMOVE:Ability|Armor|ArmorEnhancement|NaturalArmor|Shield|ShieldEnhancement|NaturalArmorEnhancement
 ACTYPE:Flatfooted				ADD:TOTAL		REMOVE:Ability|PRESTAT:1,DEX=10|!PREABILITY:1,CATEGORY=Special Ability,Retain Dex To AC ~ Flat-footed		REMOVE:Dodge|!PREABILITY:1,CATEGORY=Special Ability,Retain Dex To AC ~ Flat-footed
 ACTYPE:Touch				ADD:TOTAL		REMOVE:Armor|ArmorEnhancement|NaturalArmor|Shield|ShieldEnhancement|NaturalArmorEnhancement	ADD:Shield|ShieldEnhancement|PREVARGTEQ:ShieldAddsToTouchAC,1
 ACTYPE:Base					ADD:Base
+# Not Used for AC total
 ACTYPE:Armor				ADD:Armor|ArmorEnhancement
 ACTYPE:ArmorEnhancement			ADD:ArmorEnhancement
 ACTYPE:Shield				ADD:Shield|ShieldEnhancement
