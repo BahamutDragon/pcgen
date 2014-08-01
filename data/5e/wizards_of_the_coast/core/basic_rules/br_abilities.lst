@@ -2,10 +2,28 @@
 Default	CATEGORY:Internal
 	DEFINE:Proficiency_Bonus|0
 	BONUS:VAR|Proficiency_Bonus|(TL+7)/4
+	DEFINE:BlindsightRange|0
+	DEFINE:DarkvisionRange|0
+	DEFINE:TruesightRange|0
 
+Blindsight	CATEGORY:Special Ability			DESC:A creature with blindsight can perceive its surroundings without relying on sight, within a specific radius. Creatures without eyes, such as oozes, and creatures with echolocation or heightened senses, such as bats and true dragons, have this sense.
+Darkvision	CATEGORY:Special Ability			DESC:Many creatures in the worlds of D&D, especially those that dwell underground, have darkvision. Within a specified range, a creature with darkvision can see in darkness as if the darkness were dim light, so areas of darkness are only lightly obscured as far as that creature is concerned. However, the creature can’t discern color in darkness, only shades of gray.
+Truesight	CATEGORY:Special Ability			DESC:A creature with truesight can, out to a specific range, see in normal and magical darkness, see invisible creatures and objects, automatically detect visual illusions and succeed on saving throws against them, and perceive the original form of a shapechanger or a creature that is transformed by magic. Furthermore, the creature can see into the Ethereal Plane.
 
-
-
+# Damage Types
+# Acid			. The corrosive spray of a black dragon’s breath and the dissolving enzymes secreted by a black pudding deal acid damage.
+# Bludgeoning		. Blunt force attacks—hammers, falling, constriction, and the like—deal bludgeoning damage.
+# Cold			. The infernal chill radiating from an ice devil’s spear and the frigid blast of a white dragon’s breath deal cold damage.
+# Fire		. Red dragons breathe fire, and many spells conjure flames to deal fire damage.
+# Force		. Force is pure magical energy focused into a damaging form. Most effects that deal force damage are spells, including magic missile and spiritual weapon.
+# Lightning	. A lightning bolt spell and a blue dragon’s breath deal lightning damage.
+# Necrotic	. Necrotic damage, dealt by certain undead and some spells, withers matter and even the soul.
+# Piercing	. Puncturing and impaling attacks, including spears and monsters’ bites, deal piercing damage.
+# Poison	. Venomous stings and the toxic gas of a green dragon’s breath deal poison damage.
+# Psychic	. Mental abilities such as a mind flayer’s psionic blast deal psychic damage.
+# Radiant	. Radiant damage, dealt by a cleric’s flame strike spell or an angel’s smiting weapon, sears the flesh like fire and overloads the spirit with power.
+# Slashing	. Swords, axes, and monsters’ claws deal slashing damage.
+# Thunder	. A concussive burst of sound, such as the effect of the thunderwave spell, deals thunder damage.
 
 Race Traits ~ Dwarf	CATEGORY:Internal	CATEGORY:Internal	BONUS:ABILITYPOOL|Dwarf Subrace|1	ABILITY:Dwarf Trait|AUTOMATIC|TYPE=Base Dwarf Trait
 	
@@ -194,28 +212,85 @@ CATEGORY=Internal|Default.MOD
 	BONUS:WEAPONPROF=Crossbow (Heavy)|TOHIT|Proficiency_Bonus|TYPE=Class|PREWEAPONPROF:1,Crossbow (Heavy)	
 	BONUS:WEAPONPROF=Longbow|TOHIT|Proficiency_Bonus|TYPE=Class|PREWEAPONPROF:1,Longbow		
 	BONUS:WEAPONPROF=Net|TOHIT|Proficiency_Bonus|TYPE=Class|PREWEAPONPROF:1,Net			
+	BONUS:SKILL|Athletics|Proficiency_Bonus|TYPE=Class|PRECSKILL:1,Athletics		
+	BONUS:SKILL|Acrobatics|Proficiency_Bonus|TYPE=Class|PRECSKILL:1,Acrobatics		
+	BONUS:SKILL|Sleight of Hand|Proficiency_Bonus|TYPE=Class|PRECSKILL:1,Sleight of Hand	
+	BONUS:SKILL|Stealth|Proficiency_Bonus|TYPE=Class|PRECSKILL:1,Stealth		
+	BONUS:SKILL|Arcana|Proficiency_Bonus|TYPE=Class|PRECSKILL:1,Arcana		
+	BONUS:SKILL|History|Proficiency_Bonus|TYPE=Class|PRECSKILL:1,History		
+	BONUS:SKILL|Investigation|Proficiency_Bonus|TYPE=Class|PRECSKILL:1,Investigation	
+	BONUS:SKILL|Nature|Proficiency_Bonus|TYPE=Class|PRECSKILL:1,Nature		
+	BONUS:SKILL|Religion|Proficiency_Bonus|TYPE=Class|PRECSKILL:1,Religion		
+	BONUS:SKILL|Animal Handling|Proficiency_Bonus|TYPE=Class|PRECSKILL:1,Animal Handling	
+	BONUS:SKILL|Insight|Proficiency_Bonus|TYPE=Class|PRECSKILL:1,Insight		
+	BONUS:SKILL|Medicine|Proficiency_Bonus|TYPE=Class|PRECSKILL:1,Medicine		
+	BONUS:SKILL|Perception|Proficiency_Bonus|TYPE=Class|PRECSKILL:1,Perception		
+	BONUS:SKILL|Survival|Proficiency_Bonus|TYPE=Class|PRECSKILL:1,Survival		
+	BONUS:SKILL|Deception|Proficiency_Bonus|TYPE=Class|PRECSKILL:1,Deception		
+	BONUS:SKILL|Intimidation|Proficiency_Bonus|TYPE=Class|PRECSKILL:1,Intimidation	
+	BONUS:SKILL|Performance|Proficiency_Bonus|TYPE=Class|PRECSKILL:1,Performance		
+	BONUS:SKILL|Persuasion|Proficiency_Bonus|TYPE=Class|PRECSKILL:1,Persuasion		
 
-
-
-
-
-
+###Block: Skill Proficiencies
+Athletics		CATEGORY:Internal	CSKILL:Athletics		
+Acrobatics		CATEGORY:Internal	CSKILL:Acrobatics		
+Sleight of Hand	CATEGORY:Internal	CSKILL:Sleight of Hand	
+Stealth		CATEGORY:Internal	CSKILL:Stealth		
+Arcana		CATEGORY:Internal	CSKILL:Arcana		
+History		CATEGORY:Internal	CSKILL:History		
+Investigation	CATEGORY:Internal	CSKILL:Investigation	
+Nature		CATEGORY:Internal	CSKILL:Nature		
+Religion		CATEGORY:Internal	CSKILL:Religion		
+Animal Handling	CATEGORY:Internal	CSKILL:Animal Handling	
+Insight		CATEGORY:Internal	CSKILL:Insight		
+Medicine		CATEGORY:Internal	CSKILL:Medicine		
+Perception		CATEGORY:Internal	CSKILL:Perception		
+Survival		CATEGORY:Internal	CSKILL:Survival		
+Deception		CATEGORY:Internal	CSKILL:Deception		
+Intimidation	CATEGORY:Internal	CSKILL:Intimidation	
+Performance		CATEGORY:Internal	CSKILL:Performance		
+Persuasion		CATEGORY:Internal	CSKILL:Persuasion		
 
 
 ###Block: Cleric
-
-Cantrips				DESC:At 1st level, you know three cantrips of your choice from the cleric spell list. You learn additional cleric cantrips of your choice at higher levels, as shown in the Cantrips Known column of the Cleric table.
-
-Spellcasting Ability		DESC:Spell Save DC %1, Spell Attack Modifier +%2|ClericSpellDC|ClericSpellAttackModifier		DEFINE:ClericSpellDC|0	BONUS:VAR|ClericSpellDC|8+Proficiency_Bonus+WIS	DEFINE:ClericSpellAttackModifier|0	BONUS:VAR|ClericSpellAttackModifier|WIS+Proficiency_Bonus
-
-Channel Divinity			DESC:At 2nd level, you gain the ability to channel divine energy directly from your deity, using that energy to fuel magical effects. You start with two such effects: Turn Undead and an effect determined by your domain. Some domains grant you additional effects as you advance in levels, as noted in the domain description. When you use your Channel Divinity, you choose which effect to create. You must then finish a short or long rest to use your Channel Divinity again. Some Channel Divinity effects require saving throws. When you use such an effect from this class, the DC equals your cleric spell save DC. Beginning at 6th level, you can use your Channel Divinity twice between rests, and beginning at 18th level, you can use it three times between rests. When you finish a short or long rest, you regain your expended uses.
-
-Channel Divinity: Turn Undead	DESC:As an action, you present your holy symbol and speak a prayer censuring the undead. Each undead that can see or hear you within 30 feet of you must make a Wisdom saving throw. If the creature fails its saving throw, it is turned for 1 minute or until it takes any damage. A turned creature must spend its turns trying to move as far away from you as it can, and it can’t willingly move to a space within 30 feet of you. It also can’t take reactions. For its action, it can use only the Dash action or try to escape from an effect that prevents it from moving. If there’s nowhere to move, the creature can use the Dodge action.
-Destroy Undead			DESC:Starting at 5th level, when an undead fails its saving throw against your Turn Undead feature, the creature is instantly destroyed if its challenge rating is at or below a certain threshold, as shown in the Destroy Undead table.
-	ASPECT:NAME|Destroy Undead (CR 1/2)|PREVAREQ:DestroyUndeadCR,0
-	ASPECT:NAME|Destroy Undead (CR %1)|DestroyUndeadCR|PREVARGT:DestroyUndeadCR,0
-	DEFINE:DestroyUndeadCR|0
-
-Divine Intervention		DESC:Beginning at 10th level, you can call on your deity to intervene on your behalf when your need is great. Imploring your deity’s aid requires you to use your action. Describe the assistance you seek, and roll percentile dice. If you roll a number equal to or lower than your cleric level, your deity intervenes. The DM chooses the nature of the intervention; the effect of any cleric spell or cleric domain spell would be appropriate. If your deity intervenes, you can’t use this feature again for 7 days. Otherwise, you can use it again after you finish a long rest. At 20th level, your call for intervention succeeds automatically, no roll required.
+Cantrips					KEY:Cleric ~ Cantrips					CATEGORY:Special Ability	TYPE:Class Features.Cleric Class Feature.SpecialQuality	SOURCEPAGE:p.						DESC:At 1st level, you know three cantrips of your choice from the cleric spell list. You learn additional cleric cantrips of your choice at higher levels, as shown in the Cantrips Known column of the Cleric table.
+Spellcasting Ability			KEY:Cleric ~ Spellcasting Ability			CATEGORY:Special Ability	TYPE:Class Features.Cleric Class Feature.SpecialQuality	SOURCEPAGE:p.					DESC:Spell Save DC %1, Spell Attack Modifier +%2|ClericSpellDC|ClericSpellAttackModifier		DEFINE:ClericSpellDC|0	BONUS:VAR|ClericSpellDC|8+Proficiency_Bonus+WIS	DEFINE:ClericSpellAttackModifier|0	BONUS:VAR|ClericSpellAttackModifier|WIS+Proficiency_Bonus
+Channel Divinity				KEY:Cleric ~ Channel Divinity				CATEGORY:Special Ability	TYPE:Class Features.Cleric Class Feature.SpecialQuality	SOURCEPAGE:p.					DESC:At 2nd level, you gain the ability to channel divine energy directly from your deity, using that energy to fuel magical effects. You start with two such effects: Turn Undead and an effect determined by your domain. Some domains grant you additional effects as you advance in levels, as noted in the domain description. When you use your Channel Divinity, you choose which effect to create. You must then finish a short or long rest to use your Channel Divinity again. Some Channel Divinity effects require saving throws. When you use such an effect from this class, the DC equals your cleric spell save DC. Beginning at 6th level, you can use your Channel Divinity twice between rests, and beginning at 18th level, you can use it three times between rests. When you finish a short or long rest, you regain your expended uses.	ABILITY:Special Ability|AUTOMATIC|Channel Divinity ~ Turn Undead
+Destroy Undead				KEY:Cleric ~ Destroy Undead				CATEGORY:Special Ability	TYPE:Class Features.Cleric Class Feature.SpecialQuality	SOURCEPAGE:p.					DESC:Starting at 5th level, when an undead fails its saving throw against your Turn Undead feature, the creature is instantly destroyed if its challenge rating is at or below a certain threshold, as shown in the Destroy Undead table.	ASPECT:NAME|Destroy Undead (CR 1/2)|PREVAREQ:DestroyUndeadCR,0	ASPECT:NAME|Destroy Undead (CR %1)|DestroyUndeadCR|PREVARGT:DestroyUndeadCR,0	DEFINE:DestroyUndeadCR|0
+Divine Intervention			KEY:Cleric ~ Divine Intervention				CATEGORY:Special Ability	TYPE:Class Features.Cleric Class Feature.SpecialQuality	SOURCEPAGE:p.					DESC:Beginning at 10th level, you can call on your deity to intervene on your behalf when your need is great. Imploring your deity’s aid requires you to use your action. Describe the assistance you seek, and roll percentile dice. If you roll a number equal to or lower than your cleric level, your deity intervenes. The DM chooses the nature of the intervention; the effect of any cleric spell or cleric domain spell would be appropriate. If your deity intervenes, you can’t use this feature again for 7 days. Otherwise, you can use it again after you finish a long rest. At 20th level, your call for intervention succeeds automatically, no roll required.
+#
+Channel Divinity: Turn Undead		KEY:Channel Divinity ~ Turn Undead		CATEGORY:Special Ability	TYPE:Class Features.Cleric Class Feature.Channel Divinity.SpecialQuality	SOURCEPAGE:p.					DESC:As an action, you present your holy symbol and speak a prayer censuring the undead. Each undead that can see or hear you within 30 feet of you must make a Wisdom saving throw. If the creature fails its saving throw, it is turned for 1 minute or until it takes any damage. A turned creature must spend its turns trying to move as far away from you as it can, and it can’t willingly move to a space within 30 feet of you. It also can’t take reactions. For its action, it can use only the Dash action or try to escape from an effect that prevents it from moving. If there’s nowhere to move, the creature can use the Dodge action.
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Cleric Cantrips
+Guidance			KEY:Cleric Cantrip ~ Guidance			TYPE:ClericCantrip	CATEGORY:Internal		SPELLKNOWN:CLASS|Cleric=0|Guidance		
+Light				KEY:Cleric Cantrip ~ Light			TYPE:ClericCantrip	CATEGORY:Internal		SPELLKNOWN:CLASS|Cleric=0|Light			
+Resistance			KEY:Cleric Cantrip ~ Resistance		TYPE:ClericCantrip	CATEGORY:Internal		SPELLKNOWN:CLASS|Cleric=0|Resistance		
+Sacred Flame		KEY:Cleric Cantrip ~ Sacred Flame		TYPE:ClericCantrip	CATEGORY:Internal		SPELLKNOWN:CLASS|Cleric=0|Sacred Flame	
+Spare the Dying		KEY:Cleric Cantrip ~ Spare the Dying	TYPE:ClericCantrip	CATEGORY:Internal		SPELLKNOWN:CLASS|Cleric=0|Spare the Dying	
+Thaumaturgy			KEY:Cleric Cantrip ~ Thaumaturgy		TYPE:ClericCantrip	CATEGORY:Internal		SPELLKNOWN:CLASS|Cleric=0|Thaumaturgy		
+
+# Wizard Cantrips
+Dancing Lights	KEY:Wizard Cantrip ~ Dancing Lights			TYPE:WizardCantrip	CATEGORY:Internal		SPELLKNOWN:CLASS|Wizard=0|Dancing Lights	
+Fire Bolt		KEY:Wizard Cantrip ~ Fire Bolt			TYPE:WizardCantrip	CATEGORY:Internal		SPELLKNOWN:CLASS|Wizard=0|Fire Bolt		
+Light			KEY:Wizard Cantrip ~ Light				TYPE:WizardCantrip	CATEGORY:Internal		SPELLKNOWN:CLASS|Wizard=0|Light			
+Mage Hand		KEY:Wizard Cantrip ~ Mage Hand			TYPE:WizardCantrip	CATEGORY:Internal		SPELLKNOWN:CLASS|Wizard=0|Mage Hand		
+Minor Illusion	KEY:Wizard Cantrip ~ Minor Illusion			TYPE:WizardCantrip	CATEGORY:Internal		SPELLKNOWN:CLASS|Wizard=0|Minor Illusion	
+Prestidigitation	KEY:Wizard Cantrip ~ Prestidigitation		TYPE:WizardCantrip	CATEGORY:Internal		SPELLKNOWN:CLASS|Wizard=0|Prestidigitation	
+Ray of Frost	KEY:Wizard Cantrip ~ Ray of Frost			TYPE:WizardCantrip	CATEGORY:Internal		SPELLKNOWN:CLASS|Wizard=0|Ray of Frost	
+Shocking Grasp	KEY:Wizard Cantrip ~ Shocking Grasp			TYPE:WizardCantrip	CATEGORY:Internal		SPELLKNOWN:CLASS|Wizard=0|Shocking Grasp	
