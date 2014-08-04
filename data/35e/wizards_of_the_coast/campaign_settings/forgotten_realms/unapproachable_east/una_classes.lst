@@ -97,31 +97,32 @@ CLASS:Raumathari Battlemage	STARTSKILLPTS:2	CSKILL:TYPE=Craft|Concentration|Deci
 ##################################################
 
 # Class Name			Hit Dice	Type			Abbreviation	Source Page		Combat bonus										List of Class Spells by Level																																																																																																															Bonus
-CLASS:Runescarred Berserker	HD:10		TYPE:PC.Prestige	ABB:RuB		SOURCEPAGE:p.31	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	SPELLLEVEL:CLASS|Runescarred Berserker=1|Cure Moderate Wounds,Divine Favor,Low-Light Vision,Protection from Chaos,Protection from Evil,Protection from Good,Protection from Law,Resist Energy,See Invisibility,True Strike|Runescarred Berserker=2|Bear's Endurance,Bull's Strength,Cure Serious Wounds,Darkvision,Invisibility,Keen Edge,Protection from Energy|Runescarred Berserker=3|Air Walk,Cure Critical Wounds,Death Ward,Divine Power,Freedom of Movement,Haste,Magic Weapon (Greater)|Runescarred Berserker=4|Invisibility (Greater),Neutralize Poison,Restoration,Righteous Might,Spell Immunity,Stoneskin|Runescarred Berserker=5|Alter Self,Antimagic Field,Dimension Door,Heal,Spell Resistance	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Runescarred Berserker	HD:10		TYPE:PC.Prestige	ABB:RuB		SOURCEPAGE:p.31	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	SPELLLEVEL:CLASS|Runescarred Berserker=1|Cure Moderate Wounds,Divine Favor,Low-Light Vision,Protection from Chaos,Protection from Evil,Protection from Good,Protection from Law,Resist Energy,See Invisibility,True Strike|Runescarred Berserker=2|Bear's Endurance,Bull's Strength,Cure Serious Wounds,Darkvision,Invisibility,Keen Edge,Protection from Energy|Runescarred Berserker=3|Air Walk,Cure Critical Wounds,Death Ward,Divine Power,Freedom of Movement,Haste,Magic Weapon (Greater)|Runescarred Berserker=4|Invisibility (Greater),Neutralize Poison,Restoration,Righteous Might,Spell Immunity,Stoneskin|Runescarred Berserker=5|Alter Self,Antimagic Field,Dimension Door,Heal,Spell Resistance	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	DEFINE:RunescarredBerserkerLVL|0	BONUS:VAR|RunescarredBerserkerLVL|CL
 # Class Name			Required Feat					Multiple Requirements									Required Skill											Var. Must Be Grater	PRETOTALAB
 CLASS:Runescarred Berserker	PREFEAT:3,Iron Will,Survivor,TYPE.Lodge	PREMULT:1,[PREREGION:Rashemen],[PRESKILL:1,Knowledge (Rashemen)=2]	PRESKILL:2,Craft (Scarring)=5,Intimidate=5	PRESKILL:1,Sense Motive=2	PREVARGT:RageTimes,0	PRETOTALAB:7
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Runescarred Berserker	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate|Jump|Listen|Ride|Sense Motive|Swim|Survival
 # Class Name			Spell Stat		Spell Type		Caster level
 CLASS:Runescarred Berserker	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Runescarred Berserker|CL
-1																																		ABILITY:Special Ability|AUTOMATIC|Runescarring
-1									BONUS:VAR|RageTimes|RunescarExtraRage
-1									BONUS:VAR|RunescarExtraRage|1|PREVARGTEQ:RunescarExtraRageLVL,2
-1									BONUS:VAR|RunescarExtraRageLVL|CL=Runescarred Berserker
-1																				DEFINE:RageTimes|0	DEFINE:RunescarExtraRage|0	DEFINE:RunescarExtraRageLVL|0
-1									BONUS:VAR|RunescarExtraRage|1|PREVARGTEQ:RunescarExtraRageLVL,5
-1									BONUS:VAR|RunescarExtraRage|1|PREVARGTEQ:RunescarExtraRageLVL,9
+###Block	
+1	ABILITY:Special Ability|AUTOMATIC|Runescarred Berserker ~ Scribe Runescar	
+2	ABILITY:Special Ability|AUTOMATIC|Runescarred Berserker ~ Extra Rage		
+3	ABILITY:Special Ability|AUTOMATIC|Runescarred Berserker ~ Ritual Scarring	
+4	ABILITY:Special Ability|AUTOMATIC|Runescarred Berserker ~ Spawn of the Frost	
+4	ABILITY:Special Ability|AUTOMATIC|Runescarred Berserker ~ Damage Reduction	
+8	ABILITY:Special Ability|AUTOMATIC|Runescarred Berserker ~ Greater Rage		
+###Block	
 1	KNOWN:0,1
 2	KNOWN:0,2
 3	KNOWN:0,2,1
-4	KNOWN:0,3,2		DR:1/-
+4	KNOWN:0,3,2		
 5	KNOWN:0,3,2,1
 6	KNOWN:0,3,3,2
-7	KNOWN:0,4,3,2,1			BONUS:DR|0|1
+7	KNOWN:0,4,3,2,1	
 8	KNOWN:0,4,3,3,2
 9	KNOWN:0,4,4,3,2,1
-10	KNOWN:0,4,4,3,3,2			BONUS:DR|0|1
-###Block
+10	KNOWN:0,4,4,3,3,2		
+###Block	
 11	PREPCLEVEL:MIN=20
 
 ######################################################################
@@ -157,7 +158,6 @@ CLASS:Telflammar Shadowlord	HD:6		TYPE:PC.Prestige	ABB:Tel		MAXLEVEL:6	SOURCEPAG
 CLASS:Telflammar Shadowlord	PREALIGN:LN,LE,TN,NE,CN,CE	PREFEAT:4,Blind-Fight,Dodge,Mobility,Spring Attack	PRESKILL:2,Hide=10,Move Silently=10	PRETEXT:Must have the Shadow Walker template.	PREVARGTEQ:SneakAttack,2
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Telflammar Shadowlord	STARTSKILLPTS:4	CSKILL:Appraise|Balance|Bluff|Climb|TYPE=Craft|Disguise|Escape Artist|Hide|Jump|Listen|Move Silently|Open Lock|TYPE=Profession|Search|Sleight of Hand|Spot|Tumble|Use Magic Device|Use Rope
-
 # Class Name			List of Class Spells by Level
 CLASS:Telflammer Shadowlord	SPELLLEVEL:CLASS|Telflammer Shadowlord=1|Blindness/Deafness,Chill Touch,Darkness,Darkvision,Invisibility,Knock,Levitate,Shadow Mask,Shadow Spray|Telflammer Shadowlord=2|Air Walk,Blacklight,Displacement,Haste,Invisibility (Greater),Nondetection,Vampiric Touch|Telflammer Shadowlord=3|Confusion,Darkbolt,Detect Scrying,Dimension Door,Invisibility (Mass),Mislead
 # Class Name			Spell Stat		Spell Type		Caster level
