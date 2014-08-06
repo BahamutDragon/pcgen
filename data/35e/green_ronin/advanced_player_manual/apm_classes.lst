@@ -2,7 +2,7 @@
 SOURCELONG:Advanced Player's Manual	SOURCESHORT:APM	SOURCEWEB:http://www.greenronin.com
 
 # Eldritch Weaver
-CLASS:Eldritch Weaver	HD:4	TYPE:Base.PC	SOURCEPAGE:p.17	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Eldritch Weaver	HD:4	TYPE:Base.PC	SOURCEPAGE:p.17	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1		BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 CLASS:Eldritch Weaver	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Decipher Script|Diplomacy|TYPE=Knowledge|TYPE=Profession|Spellcraft|Use Magic Device
 CLASS:Eldritch Weaver	SPELLTYPE:Arcane	SPELLSTAT:INT	MEMORIZE:YES	KNOWNSPELLS:LEVEL=0	BONUS:CASTERLEVEL|Eldritch Weaver|CL
 
@@ -34,7 +34,7 @@ CLASS:Eldritch Weaver	SPELLTYPE:Arcane	SPELLSTAT:INT	MEMORIZE:YES	KNOWNSPELLS:LE
 3	ABILITY:Special Ability|AUTOMATIC|Eldritch Weaver ~ Eldritch Weaving			
 12	ABILITY:Special Ability|AUTOMATIC|Eldritch Weaver ~ Major Thread Power			
 
-CLASS:Evangelist	HD:6	TYPE:Base.PC	SOURCEPAGE:p.21	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Evangelist	HD:6	TYPE:Base.PC	SOURCEPAGE:p.21	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1			BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 CLASS:Evangelist	STARTSKILLPTS:6	CSKILL:Bluff|Climb|Concentration|TYPE=Craft|Decipher Script|Diplomacy|Intimidate|Jump|Knowledge (religion)|TYPE=Perform|TYPE=Profession|Ride|Sleight of Hand|Spellcraft|Sense Motive|Swim|Use Magic Device|Use Rope
 CLASS:Evangelist	SPELLTYPE:Divine	SPELLSTAT:WIS		KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Evangelist|CL
 1	ABILITY:Special Ability|AUTOMATIC|Evangelist ~ Weapon and Armor Proficiency	
@@ -70,7 +70,7 @@ CLASS:Evangelist	SPELLTYPE:Divine	SPELLSTAT:WIS		KNOWNSPELLS:LEVEL=0|LEVEL=1|LEV
 20	CAST:4,4,4,4,4,4,4
 
 
-CLASS:Scout	HD:6	TYPE:Base.PC	SOURCEPAGE:p.25	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Scout	HD:6	TYPE:Base.PC	SOURCEPAGE:p.25	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1		BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 CLASS:Scout	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Diplomacy|Disguise|Escape Artist|Gather Information|Handle Animal|Heal|Hide|Jump|TYPE=Knowledge|Listen|Move Silently|TYPE=Profession|Search|Sense Motive|Spot|Survival|Swim|Tumble|Use Rope
 ###Block:
 1	ABILITY:Special Ability|AUTOMATIC|Scout ~ Weapon and Armor Proficiency	
@@ -85,7 +85,7 @@ CLASS:Scout	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Diplomacy|Disguise|Escape
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Source Page		Define			Combat bonus												Modify VAR																			Bonus
-CLASS:Spellmaster	HD:6		TYPE:Base.PC	ABB:Sm		SOURCEPAGE:p.29	DEFINE:SpellmasterLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|SpellmasterLVL|CL	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Spellmaster	HD:6		TYPE:Base.PC	ABB:Sm		SOURCEPAGE:p.29	DEFINE:SpellmasterLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|SpellmasterLVL|CL	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Spellmaster	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Decipher Script|Diplomacy|TYPE=Knowledge|TYPE=Profession|Spellcraft|Use Magic Device
 # Class Name	Spell Stat		Stat for Bonus Spells	Spell Type		Caster level				Use Spell List
@@ -148,7 +148,7 @@ CLASS:Spellmaster	SPELLSTAT:WIS	BONUSSPELLSTAT:NONE	SPELLTYPE:Arcane	BONUS:CASTE
 20	BONUS:SPELLKNOWN|CLASS=Spellmaster;LEVEL=6|SpellMasterLVL20Known+WIS
 
 
-CLASS:Thanemage	HD:8	TYPE:Base.PC	SOURCEPAGE:p.33	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Thanemage	HD:8	TYPE:Base.PC	SOURCEPAGE:p.33	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 CLASS:Thanemage	STARTSKILLPTS:4	CSKILL:Climb|Concentration|TYPE=Craft|Decipher Script|Handle Animal|Heal|Jump|Knowledge (Arcana)|TYPE=Profession|Ride|Spellcraft|Survival|Swim|Use Rope
 CLASS:Thanemage	SPELLSTAT:INT	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Thanemage|CL	
 ###Block:
@@ -186,7 +186,7 @@ CLASS:Thanemage	SPELLSTAT:INT	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Thanemage|CL
 20	CAST:4,3,3,3,3
 
 
-CLASS:Warpriest	HD:10	TYPE:Base.PC	SOURCEPAGE:p.38	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Warpriest	HD:10	TYPE:Base.PC	SOURCEPAGE:p.38	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1			BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 CLASS:Warpriest	STARTSKILLPTS:2	CSKILL:Climb|Concentration|Handle Animal|Heal|Jump|Knowledge (Religion)|Ride|Spellcraft
 CLASS:Warpriest	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Warpriest|CL	
 ###Block:
