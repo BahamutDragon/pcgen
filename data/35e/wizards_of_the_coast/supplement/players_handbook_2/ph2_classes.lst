@@ -1,16 +1,16 @@
-# CVS $Revision: $ $Author: $ -- Thu Jul 10 13:59:32 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision: $ $Author: $ -- Thu Aug  7 12:47:32 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Player's Handbook II	SOURCESHORT:PH2	SOURCEDATE:2006-05
 
 #Beguiler
 
-# Class Name	Hit Dice	Type			Source Page		Combat bonus												Modify VAR													Bonus
+# Class Name	Hit Dice	Type			Source Page		Combat bonus															Modify VAR													Bonus
 CLASS:Beguiler	HD:6		TYPE:Base.PC	SOURCEPAGE:p.6	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Beguiler	STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Climb|Concentration|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Jump|Knowledge (Arcana)|Knowledge (Local)|Listen|Move Silently|Open Lock|TYPE=Profession|Search|Sense Motive|Sleight of Hand|Speak Language|Spellcraft|Spot|Swim|Tumble|Use Magic Device
+CLASS:Beguiler	STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Climb|Concentration|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Jump|Knowledge (arcana)|Knowledge (Local)|Listen|Move Silently|Open Lock|TYPE=Profession|Search|Sense Motive|Sleight of Hand|Speak Language|Spellcraft|Spot|Swim|Tumble|Use Magic Device
 # Class Name	Spell Stat		Spell Type		Memorize	Automatically Known Spell Levels							Caster level			Use Spell List
 CLASS:Beguiler	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:NO	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6	BONUS:CASTERLEVEL|Beguiler|CL	SPELLLIST:1|Beguiler
 ###Block:
-1	ABILITY:Beguiler Class Feature|AUTOMATIC|Beguiler ~ Weapon and Armor Proficiency|Beguiler ~ Spells|Beguiler ~ Armored Mage|Beguiler ~ Trapfinding
+1	ABILITY:Beguiler Class Feature|AUTOMATIC|Beguiler ~ Armored Mage|Beguiler ~ Spells|Beguiler ~ Trapfinding|Beguiler ~ Weapon and Armor Proficiency
 2	ABILITY:Beguiler Class Feature|AUTOMATIC|Beguiler ~ Cloaked Casting|Beguiler ~ Surprise Casting
 3	ABILITY:Beguiler Class Feature|AUTOMATIC|Beguiler ~ Advanced Learning
 5	ABILITY:Beguiler Class Feature|AUTOMATIC|Beguiler ~ Silent Spell
@@ -44,12 +44,12 @@ CLASS:Beguiler	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:NO	KNOWNSPELLS:LEVEL=0|LE
 
 #CLASS NAME				HITDICE		SOURCEPAGE		TYPE						ABBREVIATION	MAXLEVEL			LANGBONUS				SAVING THROWS																								BASE ATTACK BONUS									DEFINE
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Bonus Languages		Combat bonus											Bonus
-CLASS:Dragon Shaman	HD:10		TYPE:PC.Base	ABB:DrSh		MAXLEVEL:20	SOURCEPAGE:11	LANGBONUS:Draconic	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1			BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")/3)	BONUS:SAVE|BASE.Fortitude,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")/2+2)
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Bonus Languages		Combat bonus															Modify VAR														Bonus
+CLASS:Dragon Shaman	HD:10		TYPE:PC.Base	ABB:DrSh		MAXLEVEL:20	SOURCEPAGE:11	LANGBONUS:Draconic	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")/3)	BONUS:SAVE|BASE.Fortitude,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")/2+2)
 # Class Name		Required AL
 CLASS:Dragon Shaman	PREALIGN:LG,LN,LE,NG,NE,CG,CN,CE
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Dragon Shaman	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Intimidate|Knowledge (Arcana)|Knowledge (Nature)|Search
+CLASS:Dragon Shaman	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Intimidate|Knowledge (arcana)|Knowledge (Nature)|Search
 #ABILITY BLOCK
 1																										ABILITY:Dragon Shaman Class Feature|AUTOMATIC|Dragon Shaman ~ Weapon and Armor Proficiency
 1	BONUS:ABILITYPOOL|DraconicAuras|3	BONUS:VAR|DraconicAura|((CL/5+1))														ABILITY:Dragon Shaman Class Feature|AUTOMATIC|Dragon Shaman ~ Draconic Aura|Dragon Shaman ~ Totem Dragon
@@ -70,7 +70,7 @@ CLASS:Dragon Shaman	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Intimidate|Knowledge
 19																										ABILITY:Dragon Shaman Class Feature|AUTOMATIC|Dragon Shaman ~ Draconic Wings
 20							BONUS:VAR|DragonShamanConeSz|30	BONUS:VAR|DragonShamanLineSz|60
 
-# Class Name	Hit Dice	Type			Abbreviation	Source Page		Combat bonus													Modify VAR																			Bonus
+# Class Name	Hit Dice	Type			Abbreviation	Source Page		Combat bonus																Modify VAR																			Bonus
 CLASS:Duskblade	HD:8		TYPE:Base.PC	ABB:DB		SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|BAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|FamiliarLVL|CL	BONUS:SAVE|BASE.Will,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Duskblade	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher Script|TYPE=Knowledge|TYPE=Profession|Spellcraft
@@ -118,12 +118,12 @@ CLASS:Duskblade	SPELLSTAT:INT	SPELLTYPE:Arcane	SPELLBOOK:YES	BONUS:CASTERLEVEL|D
 19	CAST:6,10,10,9,7,5
 20	CAST:6,10,10,10,8,6
 
-# Class Name	Hit Dice	Type			Abbreviation	Source Page		Combat bonus							Bonus
+# Class Name	Hit Dice	Type			Abbreviation	Source Page		Combat bonus										Bonus
 CLASS:Knight	HD:12		TYPE:Base.PC	ABB:Kni		SOURCEPAGE:PHB II	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Knight	STARTSKILLPTS:2	CSKILL:Climb|Handle Animal|Intimidate|Jump|Knowledge (Nobility and Royalty)|Ride|Swim
 ###Block:
-1	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial|TYPE=ArmorProfHeavy|TYPE=ShieldProf
+1	ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfHeavy|TYPE=ShieldProf|TYPE=WeaponProfMartial
 ###Block:
 1	ABILITY:Knight Class Feature|AUTOMATIC|Knight ~ Weapon and Armor Proficiency
 1	ABILITY:Knight Class Feature|AUTOMATIC|Knight ~ Fighting Challenge|Knight ~ Knight's Challenge|Knight ~ Knight's Code

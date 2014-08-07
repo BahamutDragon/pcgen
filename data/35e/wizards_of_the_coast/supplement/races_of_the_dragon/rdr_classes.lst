@@ -7,13 +7,13 @@
 # Class Name			Hit Dice	Max Level	Source Page		Combat bonus								Bonus
 CLASS:Disciple of the Eye	HD:8		MAXLEVEL:5	SOURCEPAGE:p.75	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name			Required AL			Required Feat				Required Race							Required Skill
-CLASS:Disciple of the Eye	PREALIGN:1,LG,LN,LE	PREFEAT:1,Improved Unarmed Strike	PRERACE:1,RACESUBTYPE=Dragonblood,RACETYPE=Dragon	PRESKILL:2,Concentration=8,Spot=8
+CLASS:Disciple of the Eye	PREALIGN:LN,LG,LN,LE	PREFEAT:1,Improved Unarmed Strike	PRERACE:1,RACESUBTYPE=Dragonblood,RACETYPE=Dragon	PRESKILL:2,Concentration=8,Spot=8
 # Class Name			Skill Pts/Lvl	Class Skill
-CLASS:Disciple of the Eye	STARTSKILLPTS:4	CSKILL:Concentration|Climb|TYPE=Craft|Diplomacy|Gather Information|Hide|Jump|Intimidate|Knowledge (Arcana)|Knowledge (Geography)|Listen|Move Silently|TYPE=Profession|Sense Motive|Spot|Survival|Swim|Tumble
+CLASS:Disciple of the Eye	STARTSKILLPTS:4	CSKILL:Concentration|Climb|TYPE=Craft|Diplomacy|Gather Information|Hide|Jump|Intimidate|Knowledge (arcana)|Knowledge (Geography)|Listen|Move Silently|TYPE=Profession|Sense Motive|Spot|Survival|Swim|Tumble
 ###Block:
 2	BONUS:VAR|DiscipleOfTheEyeNaturalArmorBonus|CL/2
 ###Block:
-1	ABILITY:Disciple of the Eye Class Feature|AUTOMATIC|Disciple of the Eye ~ Fast Movement|Disciple of the Eye ~ Flurry of Blows|Disciple of the Eye ~ Wandering Eyes|Disciple of the Eye ~ Natural Armor Bonus
+1	ABILITY:Disciple of the Eye Class Feature|AUTOMATIC|Disciple of the Eye ~ Fast Movement|Disciple of the Eye ~ Flurry of Blows|Disciple of the Eye ~ Natural Armor Bonus|Disciple of the Eye ~ Wandering Eyes
 2	ABILITY:Disciple of the Eye Class Feature|AUTOMATIC|Disciple of the Eye ~ Frightful Attack
 3	ABILITY:Disciple of the Eye Class Feature|AUTOMATIC|Disciple of the Eye ~ Keen Senses
 4	ABILITY:Disciple of the Eye Class Feature|AUTOMATIC|Disciple of the Eye ~ Glare of the Enraged Dragon
@@ -41,7 +41,7 @@ CLASS:Dragon Devotee	HD:6		MAXLEVEL:5	SOURCEPAGE:p.84	BONUS:COMBAT|BASEAB|classl
 # Class Name		Required Language		Prohibited Race							Required Skill				Prohibited Template			PRETOTALAB
 CLASS:Dragon Devotee	PRELANG:1,Draconic	!PRERACE:1,RACETYPE=Dragon,RACESUBTYPE=Dragonblood	PRESKILL:1,Knowledge (Arcana)=1	!PRETEMPLATE:1,Draconic Template	PRETOTALAB:5
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Dragon Devotee	STARTSKILLPTS:4	CSKILL:Climb|Concentration|Intimidate|Jump|Knowledge (Arcana)|Listen|Sense Motive|Spellcraft|Spot
+CLASS:Dragon Devotee	STARTSKILLPTS:4	CSKILL:Climb|Concentration|Intimidate|Jump|Knowledge (arcana)|Listen|Sense Motive|Spellcraft|Spot
 ###Block
 3	ADD:SPELLCASTER|Sorcerer
 5	ADD:SPELLCASTER|Sorcerer
@@ -60,7 +60,7 @@ CLASS:Dragonheart Mage	PREFEAT:1,Draconic Heritage	PRELANG:1,Draconic	PRESKILL:1
 CLASS:Dragonheart Mage	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|Gather Information|TYPE=Knowledge|Listen|Speak Language|Search|Spellcraft|Spot
 ###Block
 1	ABILITY:Dragonheart Mage Class Feature|AUTOMATIC|Dragonheart Mage ~ Draconic Breath
-2	ABILITY:Dragonheart Mage Class Feature|AUTOMATIC|Dragonheart Mage ~ Spellcasting|Dragonheart Mage ~ Draconic Feat
+2	ABILITY:Dragonheart Mage Class Feature|AUTOMATIC|Dragonheart Mage ~ Draconic Feat|Dragonheart Mage ~ Spellcasting
 ###Block
 2	ADD:SPELLCASTER|ANY
 3	ADD:SPELLCASTER|ANY
@@ -85,9 +85,9 @@ CLASS:Singer of Concordance	HD:6		SOURCEPAGE:p.91	BONUS:COMBAT|BASEAB|classlevel
 # Class Name			Required Deity	Required Race							Required Skill				Req. Spell Type
 CLASS:Singer of Concordance	PREDEITY:1,Io	PRERACE:1,RACESUBTYPE=Dragonblood,RACETYPE=Dragon	PRESKILL:1,Knowledge (Religion)=8	PRESPELLTYPE:1,Divine=3
 # Class Name			Skill Pts/Lvl	Class Skill
-CLASS:Singer of Concordance	STARTSKILLPTS:4	CSKILL:Concentration|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (The Planes)|Knowledge (Religion)|TYPE=Profession|Sense Motive|Spellcraft|Survival
+CLASS:Singer of Concordance	STARTSKILLPTS:4	CSKILL:Concentration|Diplomacy|Heal|Knowledge (arcana)|Knowledge (the planes)|Knowledge (Religion)|TYPE=Profession|Sense Motive|Spellcraft|Survival
 ###Block
-1	ABILITY:Singer of Concordance Class Feature|AUTOMATIC|Singer of Concordance ~ Spellcasting|Singer of Concordance ~ Aspect of Peace
+1	ABILITY:Singer of Concordance Class Feature|AUTOMATIC|Singer of Concordance ~ Aspect of Peace|Singer of Concordance ~ Spellcasting
 2	ABILITY:Singer of Concordance Class Feature|AUTOMATIC|Singer of Concordance ~ Bonus Domain
 3	ABILITY:Singer of Concordance Class Feature|AUTOMATIC|Singer of Concordance ~ Aspect of Refuge
 5	ABILITY:Singer of Concordance Class Feature|AUTOMATIC|Singer of Concordance ~ Aspect of Exclusion
@@ -163,14 +163,14 @@ SUBSTITUTIONLEVEL:5	CAST:0,0
 CLASS:Fighter.MOD
 SUBSTITUTIONCLASS:Kobold Fighter	PRERACE:1,Kobold	SOURCEPAGE:p.109
 # TODO: Remove Heavy Armor Prof
-SUBSTITUTIONLEVEL:1							ABILITY:Kobold Fighter Class Feature|AUTOMATIC|Kobold Fighter ~ Spear Focus|Kobold Fighter ~ Dodge
+SUBSTITUTIONLEVEL:1							ABILITY:Kobold Fighter Class Feature|AUTOMATIC|Kobold Fighter ~ Dodge|Kobold Fighter ~ Spear Focus
 SUBSTITUTIONLEVEL:2	BONUS:ABILITYPOOL|Fighter Feat|-1	ABILITY:Kobold Fighter Class Feature|AUTOMATIC|Kobold Fighter ~ Constitution Boost
 SUBSTITUTIONLEVEL:4	BONUS:ABILITYPOOL|Fighter Feat|-1	ABILITY:Kobold Fighter Class Feature|AUTOMATIC|Kobold Fighter ~ Strength Boost
 
 # Kobold Ranger
 
 # Class Name	Group of Prohibited Spells
-CLASS:Ranger.MOD	PROHIBITSPELL:SPELL.Entangle,Speak with Plants,Spike Growth,Command Plants,Diminish Plants,Plant Growth,Tree Shape,Tree Stride|PREVAREQ:KoboldRangerSpells,1
+CLASS:Ranger.MOD	PROHIBITSPELL:SPELL.Command Plants,Diminish Plants,Entangle,Plant Growth,Speak with Plants,Spike Growth,Tree Shape,Tree Stride|PREVAREQ:KoboldRangerSpells,1
 SUBSTITUTIONCLASS:Kobold Ranger	PRERACE:1,Kobold	SOURCEPAGE:p.109
 #
 SUBSTITUTIONLEVEL:1			ABILITY:Kobold Ranger Class Feature|AUTOMATIC|Kobold Ranger ~ Kobold Favored Enemy

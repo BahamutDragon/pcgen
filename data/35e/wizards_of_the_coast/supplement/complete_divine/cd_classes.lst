@@ -1,9 +1,9 @@
-# CVS $Revision: $ $Author: $ -- Thu Jul 10 14:45:53 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision: $ $Author: $ -- Thu Aug  7 12:47:32 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Complete Divine	SOURCESHORT:CD	SOURCEDATE:2004-05
 
 
-# Class Name	Unique Key		Type					Base class as subclass?	Source Page		Combat bonus								Bonus
-CLASS:Shugenja	KEY:Shugenja	TYPE:Base.PC.Complete Divine	ALLOWBASECLASS:NO		SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1		BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name	Unique Key		Type					Base class as subclass?	Source Page		Combat bonus															Modify VAR													Bonus
+CLASS:Shugenja	KEY:Shugenja	TYPE:Base.PC.Complete Divine	ALLOWBASECLASS:NO		SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Shugenja	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|TYPE=Knowledge|TYPE=Profession|Spellcraft
 # Class Name	Spell Stat		Spell Type		Caster level			Use Spell List
@@ -55,7 +55,7 @@ SUBCLASS:Water Shugenja	COST:0	CHOICE:DESCRIPTOR|Water Shugenja	PROHIBITSPELL:DE
 
 
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus												Modify VAR													Bonus
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus															Modify VAR													Bonus
 CLASS:Contemplative	HD:6		TYPE:PC.Prestige	ABB:Com		MAXLEVEL:10	SOURCEPAGE:p.30	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required Feat						Required Skill				Req. Spell Type
 CLASS:Contemplative	PREFEAT:1,Skill Focus (Knowledge (Religion))	PRESKILL:1,Knowledge (Religion)=13	PRESPELLTYPE:1,Divine=1
@@ -75,12 +75,12 @@ CLASS:Contemplative	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|He
 
 ### Divine Oracle - Added 2007-05-12
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus												Add domain number		Modify VAR													Bonus
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus															Add domain number		Modify VAR													Bonus
 CLASS:Divine Oracle	HD:6		TYPE:PC.Prestige	ABB:Dorc		MAXLEVEL:10	SOURCEPAGE:p.35	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:DOMAIN|NUMBER|1	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required Skill				Required Text
 CLASS:Divine Oracle	PRESKILL:1,Knowledge (Religion)=8	PRETEXT:Must be able to cast two divination spells
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Divine Oracle	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Heal|Intimidate|Knowledge (Arcana)|Knowledge (Religion)|TYPE=Profession|Spellcraft
+CLASS:Divine Oracle	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Heal|Intimidate|Knowledge (arcana)|Knowledge (Religion)|TYPE=Profession|Spellcraft
 1	DOMAIN:Oracle						ADD:SPELLCASTER|ANY	ABILITY:Divine Oracle Class Feature|AUTOMATIC|Divine Oracle ~ Scry Bonus
 2				BONUS:VAR|TrapSenseBonus|1	ADD:SPELLCASTER|ANY	ABILITY:Divine Oracle Class Feature|AUTOMATIC|Divine Oracle ~ Prescient Sense|Divine Oracle ~ Trap Sense
 3									ADD:SPELLCASTER|ANY	ABILITY:Divine Oracle Class Feature|AUTOMATIC|Divine Oracle ~ Divination Enhancement
@@ -95,10 +95,10 @@ CLASS:Divine Oracle	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Heal|Intimid
 
 #CLASS NAME				HITDICE		SOURCEPAGE		TYPE						ABBREVIATION	MAXLEVEL			LANGBONUS	SAVING THROWS																								BASE ATTACK BONUS									DEFINE
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Bonus
-CLASS:Favored Soul	HD:8		TYPE:Base.PC	ABB:FvSl		MAXLEVEL:20	SOURCEPAGE:6	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1			BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus															Modify VAR														Bonus
+CLASS:Favored Soul	HD:8		TYPE:Base.PC	ABB:FvSl		MAXLEVEL:20	SOURCEPAGE:6	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Favored Soul	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Jump|Knowledge (Arcana)|TYPE=Profession|Sense Motive|Spellcraft
+CLASS:Favored Soul	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Jump|Knowledge (arcana)|TYPE=Profession|Sense Motive|Spellcraft
 # Class Name		Spell Stat		Stat for Bonus Spells	Spell Type		Memorize	Caster level				Bonus to DC						Use Spell List
 CLASS:Favored Soul	SPELLSTAT:CHA	BONUSSPELLSTAT:CHA	SPELLTYPE:Divine	MEMORIZE:NO	BONUS:CASTERLEVEL|Favored Soul|CL	BONUS:DC|CLASS.Favored Soul|(WIS-CHA)	SPELLLIST:1|Cleric
 1	CAST:5,3				KNOWN:4,3												ABILITY:Favored Soul Class Feature|AUTOMATIC|Favored Soul ~ Weapon and Armor Proficiency
@@ -124,8 +124,8 @@ CLASS:Favored Soul	SPELLSTAT:CHA	BONUSSPELLSTAT:CHA	SPELLTYPE:Divine	MEMORIZE:NO
 ###Block
 
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											Bonus
-CLASS:Spirit Shaman	HD:8		TYPE:Base.PC	ABB:SprShm		MAXLEVEL:20	SOURCEPAGE:14	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1			BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")/3)
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus															Modify VAR														Bonus
+CLASS:Spirit Shaman	HD:8		TYPE:Base.PC	ABB:SprShm		MAXLEVEL:20	SOURCEPAGE:14	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")/3)
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Spirit Shaman	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Knowledge (Geography)|Knowledge (History)|Knowledge (Local)|Knowledge (Nature)|Listen|TYPE=Profession|Ride|Spellcraft|Spot|Survival|Swim
 # Class Name		Spell Stat		Stat for Bonus Spells	Spell Type		Memorize	Caster level				Bonus to DC					Use Spell List
@@ -155,7 +155,7 @@ CLASS:Spirit Shaman	SPELLSTAT:WIS	BONUSSPELLSTAT:WIS	SPELLTYPE:Divine	MEMORIZE:N
 15	BONUS:VAR|SpiritFormsPerDay|1
 20	BONUS:VAR|SpiritFormsPerDay|1
 ###Block
-1	ABILITY:Spirit Shaman Class Feature|AUTOMATIC|Spirit Shaman ~ Weapon and Armor Proficiency|Spirit Shaman ~ Spirit Guide|Spirit Shaman ~ Wild Empathy
+1	ABILITY:Spirit Shaman Class Feature|AUTOMATIC|Spirit Shaman ~ Spirit Guide|Spirit Shaman ~ Weapon and Armor Proficiency|Spirit Shaman ~ Wild Empathy
 2	ABILITY:Spirit Shaman Class Feature|AUTOMATIC|Spirit Shaman ~ Chastise Spirits
 3	ABILITY:Spirit Shaman Class Feature|AUTOMATIC|Spirit Shaman ~ Detect Spirits
 4	ABILITY:Spirit Shaman Class Feature|AUTOMATIC|Spirit Shaman ~ Blessing of the Spirits
@@ -175,8 +175,8 @@ CLASS:Spirit Shaman	SPELLSTAT:WIS	BONUSSPELLSTAT:WIS	SPELLTYPE:Divine	MEMORIZE:N
 
 #CLASS:Black Flame Zealot					SOURCEPAGE:p.21
 
-# Class Name	Hit Dice	Type			Source Page		Combat bonus								Bonus
-CLASS:Blighter	HD:8		TYPE:Prestige	SOURCEPAGE:p.23	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1			BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Hit Dice	Type			Source Page		Combat bonus															Modify VAR														Bonus
+CLASS:Blighter	HD:8		TYPE:Prestige	SOURCEPAGE:p.23	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Restricted AL		Required Class		PRETOTALAB
 CLASS:Blighter	!PREALIGN:LG,NG,CG	PRECLASS:1,Ex Druid=5	PRETOTALAB:4
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -195,12 +195,12 @@ CLASS:Blighter	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Blighter|CL
 10	CAST:6,5,5,4,4,4,4,3,2,1
 ###Block
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Define				Combat bonus							Modify VAR				Bonus
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Define				Combat bonus										Modify VAR				Bonus
 CLASS:Pious Templar	HD:10		TYPE:PC.Prestige	ABB:Pio		MAXLEVEL:10	SOURCEPAGE:p.50	DEFINE:PiousTemplarLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:VAR|PiousTemplarLVL|CL	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Multiple Requirements												Required Skill				Required Text								PRETOTALAB
-CLASS:Pious Templar	PREMULT:1,[PREFEAT:1,True Believer],[PREFEAT:1,Weapon Focus(DEITYWEAPON),Weapon Focus]	PRESKILL:1,Knowledge (Religion)=4	PRETEXT:Must have Weapon Focus in deity's chosen weapon	PRETOTALAB:5
+CLASS:Pious Templar	PREMULT:1,[PREFEAT:1,True Believer],[PREFEAT:1,Weapon Focus (DEITYWEAPON),Weapon Focus]	PRESKILL:1,Knowledge (Religion)=4	PRETEXT:Must have Weapon Focus in deity's chosen weapon	PRETOTALAB:5
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Pious Templar	STARTSKILLPTS:2	CSKILL:Climb|Concentration|TYPE.Craft|Heal|Jump|Knowledge (Religion)|TYPE.Profession|Swim
+CLASS:Pious Templar	STARTSKILLPTS:2	CSKILL:Climb|Concentration|TYPE=Craft|Heal|Jump|Knowledge (Religion)|TYPE=Profession|Swim
 # Class Name		Spell Stat		Spell Type		Automatically Known Spell Levels				Caster level				Use Spell List
 CLASS:Pious Templar	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Pious Templar|CL	SPELLLIST:1|Paladin
 ###Block
