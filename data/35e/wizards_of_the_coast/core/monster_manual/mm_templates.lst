@@ -254,22 +254,30 @@ Int Bonus +3			VISIBLE:NO				PREVAREQ:INTSCORE,0	BONUS:STAT|INT|3
 
 ###Block: Subrace Support
 # Dwarf
-# Template Name	Unique Key				Challenge Rating	Visible	Level Adjustment	Favored Class		Automatically Gained Language			Bonus Languages											Move			Subrace	Race Subtype		Add Levels				Vision
-Deep			KEY:Deep Dwarf						VISIBLE:NO				FAVOREDCLASS:Fighter	AUTO:LANG|Common|Dwarven			LANGBONUS:Giant,Gnome,Goblin,Orc,Terran,Undercommon								SUBRACE:YES
-Duergar		KEY:Duergar Dwarf						VISIBLE:NO	LEVELADJUSTMENT:1	FAVOREDCLASS:Fighter	AUTO:LANG|Common|Dwarven|Undercommon	LANGBONUS:Draconic,Giant,Goblin,Orc,Terran									SUBRACE:YES
-Mountain		KEY:Mountain Dwarf					VISIBLE:NO				FAVOREDCLASS:Fighter	AUTO:LANG|Common|Dwarven			LANGBONUS:Giant,Gnome,Goblin,Orc,Terran,Undercommon								SUBRACE:YES
+# Template Name	Unique Key				Challenge Rating	Visible	Level Adjustment	Favored Class		Move			Subrace		Race Subtype		Add Levels				Vision
+Deep			KEY:Deep Dwarf						VISIBLE:NO				FAVOREDCLASS:Fighter				SUBRACE:Deep
+Duergar		KEY:Duergar Dwarf						VISIBLE:NO	LEVELADJUSTMENT:1	FAVOREDCLASS:Fighter				SUBRACE:Duergar
+Mountain		KEY:Mountain Dwarf					VISIBLE:NO				FAVOREDCLASS:Fighter				SUBRACE:Mountain
 # Elf
-Aquatic		KEY:Aquatic Elf						VISIBLE:NO				FAVOREDCLASS:Fighter	AUTO:LANG|Common|Elven				LANGBONUS:Draconic,Gnoll,Gnome,Goblin,Orc,Sylvan					MOVE:Swim,40	SUBRACE:YES	RACESUBTYPE:Aquatic						VISION:Superior Low-Light Vision
-Drow			KEY:Drow Elf			CR:1			VISIBLE:NO	LEVELADJUSTMENT:2					AUTO:LANG|Common|Elven|Undercommon		LANGBONUS:Abyssal,Aquan,Draconic,Drow Sign Language,Gnome,Goblin,Kuo-toan				SUBRACE:YES
-Gray			KEY:Gray Elf						VISIBLE:NO				FAVOREDCLASS:Wizard	AUTO:LANG|Common|Elven				LANGBONUS:Draconic,Gnoll,Gnome,Goblin,Orc,Sylvan								SUBRACE:YES
-Wild			KEY:Wild Elf						VISIBLE:NO				FAVOREDCLASS:Sorcerer	AUTO:LANG|Common|Elven				LANGBONUS:Draconic,Gnoll,Gnome,Goblin,Orc,Sylvan								SUBRACE:YES
-Wood			KEY:Wood Elf						VISIBLE:NO				FAVOREDCLASS:Ranger	AUTO:LANG|Common|Elven				LANGBONUS:Draconic,Gnoll,Gnome,Goblin,Orc,Sylvan								SUBRACE:YES
+Aquatic		KEY:Aquatic Elf						VISIBLE:NO				FAVOREDCLASS:Fighter	MOVE:Swim,40	SUBRACE:Aquatic	RACESUBTYPE:Aquatic						VISION:Superior Low-Light Vision
+Drow			KEY:Drow Elf			CR:1			VISIBLE:NO	LEVELADJUSTMENT:2								SUBRACE:Drow
+Gray			KEY:Gray Elf						VISIBLE:NO				FAVOREDCLASS:Wizard				SUBRACE:Gray
+Wild			KEY:Wild Elf						VISIBLE:NO				FAVOREDCLASS:Sorcerer				SUBRACE:Wild
+Wood			KEY:Wood Elf						VISIBLE:NO				FAVOREDCLASS:Ranger				SUBRACE:Wood
 # Gnome
-Svirfneblin		KEY:Svirfneblin Gnome		CR:1			VISIBLE:NO	LEVELADJUSTMENT:3	FAVOREDCLASS:Rogue	AUTO:LANG|Common|Gnome|Undercommon		LANGBONUS:Dwarven,Elven,Giant,Goblin,Orc,Terran									SUBRACE:YES
-Forest		KEY:Forest Gnome						VISIBLE:NO				FAVOREDCLASS:Bard		AUTO:LANG|Common|Gnome				LANGBONUS:Draconic,Dwarven,Elven,Giant,Goblin,Orc								SUBRACE:YES
+Svirfneblin		KEY:Svirfneblin Gnome		CR:1			VISIBLE:NO	LEVELADJUSTMENT:3	FAVOREDCLASS:Rogue				SUBRACE:Svirfneblin
+Forest		KEY:Forest Gnome						VISIBLE:NO				FAVOREDCLASS:Bard					SUBRACE:Forest
 # Halfling
-Tallfellow		KEY:Tallfellow Halfling					VISIBLE:NO				FAVOREDCLASS:Rogue	AUTO:LANG|Common|Halfling|Elven		LANGBONUS:Dwarven,Gnome,Goblin,Orc											SUBRACE:YES
-Deep			KEY:Deep Halfling						VISIBLE:NO				FAVOREDCLASS:Rogue	AUTO:LANG|Common|Halfling|Dwarven		LANGBONUS:Elven,Gnome,Goblin,Orc											SUBRACE:YES
+Tallfellow		KEY:Tallfellow Halfling					VISIBLE:NO				FAVOREDCLASS:Rogue				SUBRACE:Tallfellow
+Deep			KEY:Deep Halfling						VISIBLE:NO				FAVOREDCLASS:Rogue				SUBRACE:Deep
+
+
+###Block: Race Language Support
+Language ~ Bonus (Duergar)			VISIBLE:NO	LANGBONUS:Draconic,Giant,Goblin,Orc,Terran
+Language ~ Bonus (Drow)				VISIBLE:NO	LANGBONUS:Abyssal,Aquan,Draconic,Drow Sign Language,Gnome,Goblin,Kuo-toan
+Language ~ Bonus (Svirfneblin)		VISIBLE:NO	LANGBONUS:Dwarven,Elven,Giant,Goblin,Orc,Terran
+Language ~ Bonus (Tallfellow Halfling)	VISIBLE:NO	LANGBONUS:Dwarven,Gnome,Goblin,Orc	
+Language ~ Bonus (Deep Halfling)		VISIBLE:NO	LANGBONUS:Elven,Gnome,Goblin,Orc	
 
 # Hydra
 Five Headed		KEY:Five Headed ~ Hydra					VISIBLE:NO																															SUBRACE:YES
