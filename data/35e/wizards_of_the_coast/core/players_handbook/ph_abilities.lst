@@ -1,7 +1,8 @@
 # CVS $Revision: $ $Author: $ -- Thu Aug  7 12:47:32 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 
 # Ability Name			Unique Key		SORTKEY	Output Name			Category of Ability		Type					Visible	Define				Bonus to Ability Pool				Modify VAR
-CATEGORY=Internal|Default.MOD																						DEFINE:ThisisThreeFive|0	BONUS:ABILITYPOOL|Region|1|TYPE=Base	BONUS:VAR|ThisisThreeFive|1
+CATEGORY=Internal|Default.MOD																						DEFINE:ThisisThreeFive|0	BONUS:ABILITYPOOL|Region|1|TYPE=Base	BONUS:VAR|ThisisThreeFive|1	DEFINE:RemoveLangCommon|0	DEFINE:RemoveLangDwarven|0	DEFINE:RemoveLangElven|0	DEFINE:RemoveLangGnome|0	DEFINE:RemoveLangHalfling|0	DEFINE:RemoveLangGiant|0			DEFINE:RemoveLangGnoll|0			DEFINE:RemoveLangGoblin|0		DEFINE:RemoveLangOrc|0	DEFINE:RemoveLangTerran|0		DEFINE:RemoveLangUndercommon|0	DEFINE:RemoveLangAbyssal|0		DEFINE:RemoveLangCelestial|0		DEFINE:RemoveLangDraconic|0		DEFINE:RemoveLangInfernal|0		DEFINE:RemoveLangSylvan|0		DEFINE:RemoveLangDruidic|0	
+
 No Region				KEY:Region ~ None	SORTKEY:a	OUTPUTNAME:No Region	CATEGORY:Regional			TYPE:Region				VISIBLE:YES
 
 # Homebrew Samples
@@ -49,12 +50,12 @@ Default Race Traits ~ Dwarf						CATEGORY:Internal															ABILITY:Dwarf R
 Human Base	CATEGORY:Internal	TEMPLATE:Human Base
 
 ###Block: Grants Default Base Race Auto Languages
-Language ~ Auto (Human)		CATEGORY:Internal	TYPE:DefaultAutoLang	AUTO:LANG|Common
-Language ~ Auto (Dwarf)		CATEGORY:Internal	TYPE:DefaultAutoLang	AUTO:LANG|Common|Dwarven
-Language ~ Auto (Elf)		CATEGORY:Internal	TYPE:DefaultAutoLang	AUTO:LANG|Common|Elven
-Language ~ Auto (Half-Orc)	CATEGORY:Internal	TYPE:DefaultAutoLang	AUTO:LANG|Common|Orc
-Language ~ Auto (Gnome)		CATEGORY:Internal	TYPE:DefaultAutoLang	AUTO:LANG|Common|Gnome
-Language ~ Auto (Halfling)	CATEGORY:Internal	TYPE:DefaultAutoLang	AUTO:LANG|Common|Halfling
+Language ~ Auto (Human)		CATEGORY:Internal	TYPE:DefaultAutoLang	ABILITY:Language|AUTOMATIC|Common|PREVAREQ:RemoveLangCommon,0
+Language ~ Auto (Dwarf)		CATEGORY:Internal	TYPE:DefaultAutoLang	ABILITY:Language|AUTOMATIC|Common|PREVAREQ:RemoveLangCommon,0	ABILITY:Language|AUTOMATIC|Dwarven|PREVAREQ:RemoveLangDwarven,0
+Language ~ Auto (Elf)		CATEGORY:Internal	TYPE:DefaultAutoLang	ABILITY:Language|AUTOMATIC|Common|PREVAREQ:RemoveLangCommon,0	ABILITY:Language|AUTOMATIC|Elven|PREVAREQ:RemoveLangElven,0
+Language ~ Auto (Half-Orc)	CATEGORY:Internal	TYPE:DefaultAutoLang	ABILITY:Language|AUTOMATIC|Common|PREVAREQ:RemoveLangCommon,0	ABILITY:Language|AUTOMATIC|Orc|PREVAREQ:RemoveLangOrc,0
+Language ~ Auto (Gnome)		CATEGORY:Internal	TYPE:DefaultAutoLang	ABILITY:Language|AUTOMATIC|Common|PREVAREQ:RemoveLangCommon,0	ABILITY:Language|AUTOMATIC|Gnome|PREVAREQ:RemoveLangGnome,0
+Language ~ Auto (Halfling)	CATEGORY:Internal	TYPE:DefaultAutoLang	ABILITY:Language|AUTOMATIC|Common|PREVAREQ:RemoveLangCommon,0	ABILITY:Language|AUTOMATIC|Halfling|PREVAREQ:RemoveLangHalfling,0
 
 ###Block: Grants Default Base Race Bonus Languages
 Language ~ Bonus (Human)	CATEGORY:Internal	TYPE:DefaultBonusLang	TEMPLATE:Language ~ Bonus (Human)
@@ -63,6 +64,36 @@ Language ~ Bonus (Half-Elf)	CATEGORY:Internal	TYPE:DefaultBonusLang	TEMPLATE:Lan
 Language ~ Bonus (Half-Orc)	CATEGORY:Internal	TYPE:DefaultBonusLang	TEMPLATE:Language ~ Bonus (Half-Orc)
 Language ~ Bonus (Gnome)	CATEGORY:Internal	TYPE:DefaultBonusLang	TEMPLATE:Language ~ Bonus (Gnome)
 Language ~ Bonus (Halfling)	CATEGORY:Internal	TYPE:DefaultBonusLang	TEMPLATE:Language ~ Bonus (Halfling)
+
+###Block: Languages
+Common	CATEGORY:Language	TYPE:Language	AUTO:LANG|Common	
+Dwarven	CATEGORY:Language	TYPE:Language	AUTO:LANG|Dwarven	
+Elven		CATEGORY:Language	TYPE:Language	AUTO:LANG|Elven		
+Gnome		CATEGORY:Language	TYPE:Language	AUTO:LANG|Gnome		
+Halfling	CATEGORY:Language	TYPE:Language	AUTO:LANG|Halfling	
+Giant		CATEGORY:Language	TYPE:Language	AUTO:LANG|Giant		
+Gnoll		CATEGORY:Language	TYPE:Language	AUTO:LANG|Gnoll		
+Goblin	CATEGORY:Language	TYPE:Language	AUTO:LANG|Goblin	
+Orc		CATEGORY:Language	TYPE:Language	AUTO:LANG|Orc		
+Terran	CATEGORY:Language	TYPE:Language	AUTO:LANG|Terran	
+Undercommon	CATEGORY:Language	TYPE:Language	AUTO:LANG|Undercommon	
+Abyssal	CATEGORY:Language	TYPE:Language	AUTO:LANG|Abyssal	
+Celestial	CATEGORY:Language	TYPE:Language	AUTO:LANG|Celestial	
+Draconic	CATEGORY:Language	TYPE:Language	AUTO:LANG|Draconic	
+Infernal	CATEGORY:Language	TYPE:Language	AUTO:LANG|Infernal	
+Sylvan	CATEGORY:Language	TYPE:Language	AUTO:LANG|Sylvan	
+Druidic	CATEGORY:Language	TYPE:Language	AUTO:LANG|Druidic	
+
+
+
+
+
+
+
+
+
+
+
 
 
 ###Block:
