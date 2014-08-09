@@ -19,24 +19,21 @@ Forest		KEY:Gnome ~ Forest		CATEGORY:Internal		TYPE:GnomeSubrace.AltSubraceChoic
 Tallfellow		KEY:Halfling ~ Tallfellow	CATEGORY:Internal		TYPE:HalflingSubrace.AltSubraceChoice	PREMULT:1,[PREABILITY:1,CATEGORY=Internal,Halfling ~ Tallfellow],[!PREABILITY:1,CATEGORY=Internal,TYPE.AltSubraceChoice]																										TEMPLATE:Tallfellow Halfling														ABILITY:Halfling Race Trait|AUTOMATIC|Halfling ~ Racial +2 Save Bonus|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DisableRacialTraits,TYPE.HalflingMoraleSaveBonus	ABILITY:Halfling Race Trait|AUTOMATIC|Halfling ~ Racial +1 Save Bonus|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DisableRacialTraits,TYPE.HalflingSaveBonus	ABILITY:Halfling Race Trait|AUTOMATIC|Halfling ~ Racial Attack Bonus|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DisableRacialTraits,TYPE.HalflingAttackBonus																																																																																																																																																																																																			BONUS:SKILL|Listen,Search,Spot|2|TYPE=Racial							BONUS:STAT|STR|-2|TYPE=Racial	BONUS:STAT|DEX|2|TYPE=Racial																													COST:0	SOURCEPAGE:p.149	ABILITY:Internal|AUTOMATIC|Language ~ Auto (Tallfellow Halfling)|!PREABILITY:1,CATEGORY=Internal,TYPE.AutoLangReplace	ABILITY:Internal|AUTOMATIC|Language ~ Bonus (Tallfellow Halfling)|!PREABILITY:1,CATEGORY=Internal,TYPE.BonusLangReplace
 Deep			KEY:Halfling ~ Deep		CATEGORY:Internal		TYPE:HalflingSubrace.AltSubraceChoice	PREMULT:1,[PREABILITY:1,CATEGORY=Internal,Halfling ~ Deep],[!PREABILITY:1,CATEGORY=Internal,TYPE.AltSubraceChoice]																											TEMPLATE:Deep Halfling															ABILITY:Halfling Race Trait|AUTOMATIC|Halfling ~ Racial +2 Save Bonus|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DisableRacialTraits,TYPE.HalflingMoraleSaveBonus	ABILITY:Halfling Race Trait|AUTOMATIC|Halfling ~ Racial +1 Save Bonus|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DisableRacialTraits,TYPE.HalflingSaveBonus	ABILITY:Halfling Race Trait|AUTOMATIC|Halfling ~ Racial Attack Bonus|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DisableRacialTraits,TYPE.HalflingAttackBonus	ABILITY:Halfling Race Trait|AUTOMATIC|Halfling ~ Racial Skill Bonus|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DisableRacialTraits,TYPE.HalflingSkillBonus																																																																																																																																																																																							BONUS:STAT|STR|-2|TYPE=Racial	BONUS:STAT|DEX|2|TYPE=Racial											BONUS:VAR|DarkvisionRange|60|TYPE=Base												COST:0	SOURCEPAGE:p.150	ABILITY:Internal|AUTOMATIC|Language ~ Auto (Deep Halfling)|!PREABILITY:1,CATEGORY=Internal,TYPE.AutoLangReplace	ABILITY:Internal|AUTOMATIC|Language ~ Bonus (Deep Halfling)|!PREABILITY:1,CATEGORY=Internal,TYPE.BonusLangReplace
 ###Block: Sub Race Support
+# Auto Granted Race Language Support
+Language ~ Auto (Duergar)			CATEGORY:Internal	TYPE:DefaultAutoLang	ABILITY:Language|AUTOMATIC|Common|PREVAREQ:RemoveLangCommon,0	ABILITY:Language|AUTOMATIC|Dwarven|PREVAREQ:RemoveLangDwarven,0	ABILITY:Language|AUTOMATIC|Undercommon|PREVAREQ:RemoveLangUndercommon,0
+Language ~ Auto (Drow)				CATEGORY:Internal	TYPE:DefaultAutoLang	ABILITY:Language|AUTOMATIC|Common|PREVAREQ:RemoveLangCommon,0	ABILITY:Language|AUTOMATIC|Elven|PREVAREQ:RemoveLangElven,0		ABILITY:Language|AUTOMATIC|Undercommon|PREVAREQ:RemoveLangUndercommon,0
+Language ~ Auto (Svirfneblin)			CATEGORY:Internal	TYPE:DefaultAutoLang	ABILITY:Language|AUTOMATIC|Common|PREVAREQ:RemoveLangCommon,0	ABILITY:Language|AUTOMATIC|Gnome|PREVAREQ:RemoveLangGnome,0		ABILITY:Language|AUTOMATIC|Undercommon|PREVAREQ:RemoveLangUndercommon,0
+Language ~ Auto (Tallfellow Halfling)	CATEGORY:Internal	TYPE:DefaultAutoLang	ABILITY:Language|AUTOMATIC|Common|PREVAREQ:RemoveLangCommon,0	ABILITY:Language|AUTOMATIC|Halfling|PREVAREQ:RemoveLangHalfling,0	ABILITY:Language|AUTOMATIC|Elven|PREVAREQ:RemoveLangElven,0
+Language ~ Auto (Deep Halfling)		CATEGORY:Internal	TYPE:DefaultAutoLang	ABILITY:Language|AUTOMATIC|Common|PREVAREQ:RemoveLangCommon,0	ABILITY:Language|AUTOMATIC|Halfling|PREVAREQ:RemoveLangHalfling,0	ABILITY:Language|AUTOMATIC|Dwarven|PREVAREQ:RemoveLangDwarven,0
 
-
-
-
-Language ~ Auto (Duergar)			CATEGORY:Internal	TYPE:DefaultAutoLang	AUTO:LANG|Common|Dwarven|Undercommon
-Language ~ Auto (Drow)				CATEGORY:Internal	TYPE:DefaultAutoLang	AUTO:LANG|Common|Elven|Undercommon
-Language ~ Auto (Svirfneblin)			CATEGORY:Internal	TYPE:DefaultAutoLang	AUTO:LANG|Common|Gnome|Undercommon
-Language ~ Auto (Tallfellow Halfling)	CATEGORY:Internal	TYPE:DefaultAutoLang	AUTO:LANG|Common|Halfling|Elven
-Language ~ Auto (Deep Halfling)		CATEGORY:Internal	TYPE:DefaultAutoLang	AUTO:LANG|Common|Halfling|Dwarven
-
-
+###Block: Bonus Language Support
 Language ~ Bonus (Duergar)			CATEGORY:Internal	TYPE:DefaultBonusLang	TEMPLATE:Language ~ Bonus (Duergar)
 Language ~ Bonus (Drow)				CATEGORY:Internal	TYPE:DefaultBonusLang	TEMPLATE:Language ~ Bonus (Drow)
 Language ~ Bonus (Svirfneblin)		CATEGORY:Internal	TYPE:DefaultBonusLang	TEMPLATE:Language ~ Bonus (Svirfneblin)
 Language ~ Bonus (Tallfellow Halfling)	CATEGORY:Internal	TYPE:DefaultBonusLang	TEMPLATE:Language ~ Bonus (Tallfellow Halfling)	
 Language ~ Bonus (Deep Halfling)		CATEGORY:Internal	TYPE:DefaultBonusLang	TEMPLATE:Language ~ Bonus (Deep Halfling)		
 
-# DWARF
+###Block: DWARF
 # Deep Dwarf
 # Ability Name						Unique Key							Category of Ability		Type																								Visible		Define													Innate Spells																																											Description																																																																																																																																																																																																																																																																																																																																																												Automatically Gained Weapon Prof.				Ability																Modify VAR										Spell Res.	Source Page		Aspects
 Deep Dwarf Racial Traits												CATEGORY:Special Ability
