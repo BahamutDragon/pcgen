@@ -32,7 +32,7 @@ Afflicted Kender (Krynn)	KEY:Kender ~ Afflicted Kender (Krynn)	CATEGORY:Internal
 # Standard Kender
 +1 Racial bonus							KEY:Kender ~ Save Bonus		CATEGORY:Special Ability	TYPE:SpecialQuality.Kender Race Trait	BONUS:SAVE|Fortitude,Reflex,Will|1|TYPE=Racial
 +2 Racial bonus to spot						KEY:Kender ~ Spot Bonus		CATEGORY:Special Ability	TYPE:SpecialQuality.Kender Race Trait	BONUS:SKILL|Spot|2|TYPE=Racial
-+2 Racial bonus to Open Locks and Sleight of Hand	KEY:Kender ~ Thievery Bonus	CATEGORY:Special Ability	TYPE:SpecialQuality.Kender Race Trait	BONUS:SKILL|Open Locks,Sleight of Hand|2|TYPE=Racial
++2 Racial bonus to Open Locks and Sleight of Hand	KEY:Kender ~ Thievery Bonus	CATEGORY:Special Ability	TYPE:SpecialQuality.Kender Race Trait	BONUS:SKILL|Open Lock,Sleight of Hand|2|TYPE=Racial
 Lack of Focus							KEY:Kender ~ Lack of Focus	CATEGORY:Special Ability	TYPE:SpecialQuality.Kender Race Trait	BONUS:SKILL|Concentration|-4
 Taunt									KEY:Kender ~ Taunt		CATEGORY:Special Ability	TYPE:SpecialQuality.Kender Race Trait	
 Fearlessness							KEY:Kender ~ Fearlessness	CATEGORY:Special Ability	TYPE:SpecialQuality.Kender Race Trait	
@@ -49,9 +49,8 @@ Race Traits ~ Irda			CATEGORY:Internal
 Race Traits ~ Ogre (Krynn)		CATEGORY:Internal
 Race Traits ~ Half-Ogre (Krynn)	CATEGORY:Internal
 Race Traits ~ Minotaur (Krynn)	CATEGORY:Internal
-
-
-
+Race Traits ~ Draconian (Aurak)	CATEGORY:Internal
+Race Traits ~ Draconian (Bozak)	CATEGORY:Internal
 
 
 
@@ -67,7 +66,7 @@ Kenderspeak	CATEGORY:Language	AUTO:LANG|Kenderspeak
 
 ###Block: Base Classes
 # Mystic
-Weapon and Armor Proficiency	KEY:Mystic ~ Weapon and Armor Proficiency		CATEGORY:Special Ability	TYPE:SpecialQuality.Mystic Class Feature	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfLight|TYPE=ArmorProfMedium|TYPE=ShieldProf
+Weapon and Armor Proficiency	KEY:Mystic ~ Weapon and Armor Proficiency		CATEGORY:Special Ability	TYPE:SpecialQuality.Mystic Class Feature	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfSimple|TYPE=ArmorProfMedium|TYPE=ShieldProf
 Domain				KEY:Mystic ~ Domain					CATEGORY:Special Ability	TYPE:SpecialQuality.Mystic Class Feature
 
 # Noble
@@ -156,10 +155,10 @@ Read Portents		KEY:Knight of the Thorn ~ Read Portents								CATEGORY:Special A
 Cosmic Understanding	KEY:Knight of the Thorn ~ Cosmic Understanding							CATEGORY:Special Ability	TYPE:SpecialQuality.Knight of the Thorn Class Feature.SpellLike		SOURCEPAGE:p.67
 
 # Steel Legionnaire
-Legion Knowledge					KEY:Steel Legionnaire ~ Legion Knowledge							CATEGORY:Special Ability	TYPE:SpecialQuality.Steel Legionnaire Class Feature.Extraordinary	
-Favored Enemy					KEY:Steel Legionnaire ~ Favored Enemy							CATEGORY:Special Ability	TYPE:SpecialQuality.Steel Legionnaire Class Feature.Extraordinary		BONUS:ABILITYPOOL|Steel Legionnaire Favored Enemy|Steel_LegionaireLVL+1/2	BONUS:ABILITYPOOL|Steel Legionnaire Favored Enemy Bonus|Steel_LegionaireLVL+1/2	
-Reputation						KEY:Steel Legionnaire ~ Reputation								CATEGORY:Special Ability	TYPE:SpecialQuality.Steel Legionnaire Class Feature.Extraordinary	
-Apprentice						KEY:Steel Legionnaire ~ Apprentice								CATEGORY:Special Ability	TYPE:SpecialQuality.Steel Legionnaire Class Feature	
+Legion Knowledge		KEY:Steel Legionnaire ~ Legion Knowledge							CATEGORY:Special Ability	TYPE:SpecialQuality.Steel Legionnaire Class Feature.Extraordinary	
+Favored Enemy		KEY:Steel Legionnaire ~ Favored Enemy							CATEGORY:Special Ability	TYPE:SpecialQuality.Steel Legionnaire Class Feature.Extraordinary		BONUS:ABILITYPOOL|Steel Legionnaire Favored Enemy|Steel_LegionnaireLVL+1/2	BONUS:ABILITYPOOL|Steel Legionnaire Favored Enemy Bonus|Steel_LegionnaireLVL+1/2	
+Reputation			KEY:Steel Legionnaire ~ Reputation								CATEGORY:Special Ability	TYPE:SpecialQuality.Steel Legionnaire Class Feature.Extraordinary	
+Apprentice			KEY:Steel Legionnaire ~ Apprentice								CATEGORY:Special Ability	TYPE:SpecialQuality.Steel Legionnaire Class Feature	
 
 ###Block: Steel Legionnaire Favored Enemy Selections
 Chromatic Dragons		KEY:Favored Enemy ~ Chromatic Dragons		CATEGORY:Special Ability	TYPE:Class Feature.Ranger Class Feature.FavoredEnemy.SteelLegionnaireFavoredEnemy.Extraordinary.SpecialAttack	VISIBLE:YES	DEFINE:FavoredEnemyBonusChromatic_Dragons|0	DESC:Gain a +%1 bonus on Bluff, Listen, Sense Motive, Spot, and Survival checks when using these skills against creatures of this type. Likewise, he gets a +%1 bonus on weapon damage rolls against such creatures.|FavoredEnemyBonusChromatic_Dragons	BONUS:VAR|FavoredEnemyBonusChromatic_Dragons|FavoredEnemyBase	ASPECT:Ability Benefit|+%1|FavoredEnemyBonusChromatic_Dragons
@@ -175,7 +174,6 @@ Dragon-Spawn		KEY:Favored Enemy Bonus ~ Dragon-Spawn		CATEGORY:Special Ability	T
 Goblins			KEY:Favored Enemy Bonus ~ Goblins			CATEGORY:Special Ability	TYPE:FavoredEnemyBonus.SteelLegionnaireFavoredEnemyBonus	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Favored Enemy ~ Goblins			STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|FavoredEnemyBonusGoblins|2
 Minotaurs			KEY:Favored Enemy Bonus ~ Minotaurs			CATEGORY:Special Ability	TYPE:FavoredEnemyBonus.SteelLegionnaireFavoredEnemyBonus	VISIBLE:DISPLAY	PREABILITY:1,CATEGORY=Special Ability,Favored Enemy ~ Minotaurs			STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|FavoredEnemyBonusMinotaurs|2
 
-#			KEY:Steel Legionnaire ~ 						CATEGORY:Special Ability	TYPE:SpecialQuality.Steel Legionnaire Class Feature	
 # Ability Name		Unique Key						Category of Ability		Type												Required Ability											Description
 Black Order			KEY:Wizard of High Sorcery ~ Black Order	CATEGORY:Special Ability	TYPE:WizardOfHighSorceryOrder	PREMULT:2,[PREALIGN:LE,NE,CE],[PREABILITY:1,CATEGORY=Special Ability,Enchanter Learning Bonus,Necromancer Learning Bonus]	BONUS:ABILITYPOOL|Wizard of Black Robes Prohibit School|1
 Red Order			KEY:Wizard of High Sorcery ~ Red Order	CATEGORY:Special Ability	TYPE:WizardOfHighSorceryOrder	PREMULT:2,[PREALIGN:LN,TN,CN],[PREABILITY:1,CATEGORY=Special Ability,Illusionist Learning Bonus,Transmuter Learning Bonus]	BONUS:ABILITYPOOL|Wizard of Red Robes Prohibit School|1
@@ -201,12 +199,12 @@ Magic of Sustenance	KEY:Order Secret ~ Magic of Sustenance	CATEGORY:Special Abil
 Magic of Truth		KEY:Order Secret ~ Magic of Truth		CATEGORY:Special Ability	TYPE:SpecialQuality.Wizard of High Sorcery Order Secret.WhiteOrder	PREABILITY:1,CATEGORY=Special Ability,Wizard of High Sorcery ~ White Order	DESC:Once per day for every two class levels attained, a wizard who knows this secret may Enlarge or Extend any Divination spell she casts. The spell functions as though she had applied the appropriate metamagic feat, but does not use a higher-level spell slot.
 
 ###Block:
-Enhanced Specialization	KEY:Wizard of High Sorcery ~ Enhanced Specialization	CATEGORY:Special Ability	TYPE:Wizard of High Sorcery Class Feature	ABILITY:Special Ability|AUTOMATIC|Enhanced Specialization ~ Abjuration|PREABILITY:1,CATEGORY,Special Ability,Abjurer	ABILITY:Special Ability|AUTOMATIC|Enhanced Specialization ~ Divination|PREABILITY:1,CATEGORY,Special Ability,Diviner	ABILITY:Special Ability|AUTOMATIC|Enhanced Specialization ~ Enchantment|PREABILITY:1,CATEGORY,Special Ability,Enchanter	ABILITY:Special Ability|AUTOMATIC|Enhanced Specialization ~ Illusion|PREABILITY:1,CATEGORY,Special Ability,Illusionist	ABILITY:Special Ability|AUTOMATIC|Enhanced Specialization ~ Necromancy|PREABILITY:1,CATEGORY,Special Ability,Necromancer	ABILITY:Special Ability|AUTOMATIC|Enhanced Specialization ~ Transmutation|PREABILITY:1,CATEGORY,Special Ability,Transmuter	
+Enhanced Specialization	KEY:Wizard of High Sorcery ~ Enhanced Specialization	CATEGORY:Special Ability	TYPE:Wizard of High Sorcery Class Feature	ABILITY:Special Ability|AUTOMATIC|Enhanced Specialization ~ Abjuration|PREABILITY:1,CATEGORY=Special Ability,Abjurer	ABILITY:Special Ability|AUTOMATIC|Enhanced Specialization ~ Divination|PREABILITY:1,CATEGORY=Special Ability,Diviner	ABILITY:Special Ability|AUTOMATIC|Enhanced Specialization ~ Enchantment|PREABILITY:1,CATEGORY=Special Ability,Enchanter	ABILITY:Special Ability|AUTOMATIC|Enhanced Specialization ~ Illusion|PREABILITY:1,CATEGORY=Special Ability,Illusionist	ABILITY:Special Ability|AUTOMATIC|Enhanced Specialization ~ Necromancy|PREABILITY:1,CATEGORY=Special Ability,Necromancer	ABILITY:Special Ability|AUTOMATIC|Enhanced Specialization ~ Transmutation|PREABILITY:1,CATEGORY=Special Ability,Transmuter	
 # Specialization Selection
 Enhanced Specialization	KEY:Enhanced Specialization ~ Abjuration		CATEGORY:Special Ability	BONUS:DC|SCHOOL.Abjuration|1		ASPECT:SaveBonus|+1 bonus on saving throws against spells from Abjuration and spell-like abilities.
 Enhanced Specialization	KEY:Enhanced Specialization ~ Divination		CATEGORY:Special Ability	BONUS:DC|SCHOOL.Divination|1		ASPECT:SaveBonus|+1 bonus on saving throws against spells from Divination and spell-like abilities.
 Enhanced Specialization	KEY:Enhanced Specialization ~ Enchantment		CATEGORY:Special Ability	BONUS:DC|SCHOOL.Enchantment|1		ASPECT:SaveBonus|+1 bonus on saving throws against spells from Enchantment and spell-like abilities.
-Enhanced Specialization	KEY:Enhanced Specialization ~ Illusion		CATEGORY:Special Ability	BONUS:DC|SCHOOL.Illusion|1		ASPECT:SaveBonus|+1 bonus on saving throws against spells from Illusion	 and spell-like abilities.
+Enhanced Specialization	KEY:Enhanced Specialization ~ Illusion		CATEGORY:Special Ability	BONUS:DC|SCHOOL.Illusion|1		ASPECT:SaveBonus|+1 bonus on saving throws against spells from Illusion and spell-like abilities.
 Enhanced Specialization	KEY:Enhanced Specialization ~ Necromancy		CATEGORY:Special Ability	BONUS:DC|SCHOOL.Necromancy|1		ASPECT:SaveBonus|+1 bonus on saving throws against spells from Necromancy and spell-like abilities.
 Enhanced Specialization	KEY:Enhanced Specialization ~ Transmutation	CATEGORY:Special Ability	BONUS:DC|SCHOOL.Transmutation|1	ASPECT:SaveBonus|+1 bonus on saving throws against spells from Transmutation and spell-like abilities.
 #
@@ -270,5 +268,8 @@ Inflamatory Oratory				KEY:Oration ~ Inflamatory Oratory		CATEGORY:Special Abili
 ###Besitary
 Draconian Traits	CATEGORY:Special Ability	ABILITY:Special Ability|AUTOMATIC|Draconian ~ Disease Immunity	ABILITY:Special Ability|AUTOMATIC|Draconian ~ Glide|!PRERACE:1,Draconian (Aurak)	ABILITY:Special Ability|AUTOMATIC|Draconian ~ Inspired by Dragons	ABILITY:Special Ability|AUTOMATIC|Draconian ~ Low Metabolism
 
-
+Draconian ~ Disease Immunity		CATEGORY:Special Ability	TYPE:SpecialQuality
+Draconian ~ Glide				CATEGORY:Special Ability	TYPE:SpecialQuality
+Draconian ~ Inspired by Dragons	CATEGORY:Special Ability	TYPE:SpecialQuality
+Draconian ~ Low Metabolism		CATEGORY:Special Ability	TYPE:SpecialQuality
 
