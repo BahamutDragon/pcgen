@@ -1,7 +1,7 @@
-# CVS $Revision: $ $Author: $ -- Thu Jul 10 14:45:53 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision: $ $Author: $ -- Sun Aug 17 15:41:15 2014 -- reformated by prettylst.pl v1.51 (build 24906)
 
 #
-# Template Name						Visible	Template																																																																		Define					Define a Stat		Required Race									Modify VAR																		Ability														Removable?		Race Subtype
+# Template Name						Visible	Template																																																																		Define					Define Stat			Required Race									Modify VAR																		Ability														Removable?		Race Subtype
 Base Race Type						VISIBLE:NO	TEMPLATE:CHOOSE:Base Race Type ~ Aberration|Base Race Type ~ Animal|Base Race Type ~ Construct|Base Race Type ~ Dragon|Base Race Type ~ Elemental|Base Race Type ~ Fey|Base Race Type ~ Giant|Base Race Type ~ Humanoid|Base Race Type ~ Magical Beast|Base Race Type ~ Monstrous Humanoid|Base Race Type ~ Ooze|Base Race Type ~ Outsider|Base Race Type ~ Plant|Base Race Type ~ Undead|Base Race Type ~ Vermin
 #
 Base Race Type ~ Aberration				VISIBLE:NO																																																																				DEFINE:BaseRaceTypeUnchanged|0					PRERACE:2,RACETYPE=Aberration,TYPE=Aberration				BONUS:VAR|BaseRaceTypeUnchanged|1	BONUS:VAR|BaseRaceTypeUnchanged|-1|PRERACE:1,RACETYPE=Aberration			ABILITY:Internal|AUTOMATIC|Augmented Aberration|PREVAREQ:BaseRaceTypeUnchanged,1
@@ -38,7 +38,7 @@ RaceSubtype ~ Augmented Vermin			VISIBLE:NO																																					
 
 
 # Non-Abilities
-# Template Name						Visible	Template																																																																		Define					Define a Stat		Required Race									Modify VAR																		Ability														Removable?		Race Subtype
+# Template Name						Visible	Template																																																																		Define					Define Stat			Required Race									Modify VAR																		Ability														Removable?		Race Subtype
 Non-Ability ~ Strength					VISIBLE:NO																																																																										DEFINESTAT:NONSTAT|STR
 Non-Ability ~ Dexterity					VISIBLE:NO																																																																										DEFINESTAT:NONSTAT|DEX
 Non-Ability ~ Constitution				VISIBLE:NO																																																																										DEFINESTAT:NONSTAT|CON
@@ -123,7 +123,7 @@ Sahuagin (Mutant)	HANDS:4	PRERACE:1,Sahuagin																											SUBRACE:M
 Troll (Scrag)			PRERACE:1,Troll								BONUS:MOVEADD|TYPE.Walk|-10	ABILITY:Special Ability|AUTOMATIC|Scrag ~ Regenerate in Water		MOVE:Swim,40	SUBRACE:Scrag	RACESUBTYPE:Aquatic
 
 ###Block: (Half-)Celestial/(Half-)Fiends
-# Template Name						Output Name				Visible	Damage Reduction								Level Adjustment	Template																																		Source Page				Define				Define a Stat		Required AL				Required Movement Rate	Prohibited Movement Rate	Required Race																																Prohibited Race						Required Stat	Prohibited Template		Combat bonus					Damage reduction				Misc bonus														Stat bonus														Modify VAR																																							Ability																																						Apply Kit				Move		Clone Movement		Spell Res.			Main Race Type		Race Subtype			Innate Spells
+# Template Name						Output Name				Visible	Damage Reduction								Level Adjustment	Template																																		Source Page				Define				Define Stat			Required AL				Required Movement Rate	Prohibited Movement Rate	Required Race																																Prohibited Race						Required Stat	Prohibited Template		Combat bonus					Bonus DR					Misc bonus														Stat bonus														Modify VAR																																							Ability																																						Apply Kit				Move		Clone Movement		Spell Res.			Main Race Type		Race Subtype			Innate Spells
 Celestial														DR:5/Magic|PRELEVEL:MIN=4	DR:10/Magic|PRELEVEL:MIN=12	LEVELADJUSTMENT:2	TEMPLATE:CHOOSE:Celestial (Animal)|Celestial (Vermin)	TEMPLATE:CHOOSE:Int Bonus +1|Int Bonus +2|Int Bonus +3																	SOURCEPAGE:MonstersB-C.rtf	DEFINE:CelestialSR|0						PREALIGN:LG,NG,CG												PRERACE:1,RACETYPE=Animal,RACETYPE=Aberration,RACETYPE=Dragon,RACETYPE=Fey,RACETYPE=Giant,RACETYPE=Humanoid,RACETYPE=Magical Beast,RACETYPE=Monstrous Humanoid,RACETYPE=Plant,RACETYPE=Vermin														!PRETEMPLATE:1,Incorporeal														BONUS:MISC|CR|1|PRELEVEL:MIN=4	BONUS:MISC|CR|1|PRELEVEL:MIN=8																			BONUS:VAR|AcidResistanceBonus,ColdResistanceBonus,ElectricityResistanceBonus|5+((TL>=8)*5)	BONUS:VAR|SmiteEvil|1	BONUS:VAR|SmiteEvilDamage|min(TL,20)	BONUS:VAR|CelestialSR|min(TL+5,25)	BONUS:VAR|DarkvisionRange|60|TYPE=Base	ABILITY:Special Ability|AUTOMATIC|Resistance to Acid|Resistance to Cold|Resistance to Electricity|Smite Evil																																SR:CelestialSR						RACESUBTYPE:Extraplanar
 Celestial (Animal)										VISIBLE:NO																																																	SOURCEPAGE:MonstersB-C.rtf																								PRERACE:1,TYPE=Animal																																																																																																																																																																																								RACETYPE:Magical Beast	RACESUBTYPE:Augmented Animal
 Celestial (Vermin)										VISIBLE:NO																																																	SOURCEPAGE:MonstersB-C.rtf						DEFINESTAT:STAT|INT															PRERACE:1,TYPE=Vermin																																																																																																																																																																									KIT:1|Vermin Intelligence											RACETYPE:Magical Beast	RACESUBTYPE:Augmented Vermin
@@ -206,7 +206,7 @@ Hybrid Attacks (Large~Dire Wereboar)															VISIBLE:NO																			
 Hybrid Attacks (Huge)																		VISIBLE:NO																																																																																					PRESIZEEQ:H																																																																																																																																																																																																																																																																																				NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,2d4|Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,2d6
 
 ###Block: other templates
-# Template Name	Hit Dice Size	Challenge Rating	Damage Reduction			Level Adjustment	Template																							Source Page				Define				Define a Stat										Required AL		Required Race																									Required Stat	Combat bonus																																															Misc bonus																																							Bonus to skill												Stat bonus														Modify VAR																								Ability																																																																														Automatically Gained Feat									Move		Main Race Type				Race Subtype						Bonus
+# Template Name	Hit Dice Size	Challenge Rating	Damage Reduction			Level Adjustment	Template																							Source Page				Define				Define Stat											Required AL		Required Race																									Required Stat	Combat bonus																																															Misc bonus																																							Bonus to skill												Stat bonus														Modify VAR																								Ability																																																																														Auto Feat												Move		Main Race Type				Race Subtype						Bonus
 Ghost			HITDIE:12		CR:2								LEVELADJUSTMENT:5	TEMPLATE:CHOOSE:Ghost (1 Special Attack)|Ghost (2 Special Attacks)|Ghost (3 Special Attacks)									SOURCEPAGE:MonstersG.rtf	DEFINE:GhostAbilityDC|0																	PRERACE:1,RACETYPE=Aberration,RACETYPE=Animal,RACETYPE=Dragon,RACETYPE=Giant,RACETYPE=Humanoid,RACETYPE=Magical Beast,RACETYPE=Monstrous Humanoid,RACETYPE=Plant	PRESTAT:1,CHA=6	BONUS:COMBAT|AC|max(CHA,1)|TYPE=Deflection																																																																																		BONUS:SKILL|Hide,Listen,Search,Spot|8|TYPE=Racial						BONUS:STAT|CHA|4													BONUS:VAR|TurnResistBonus|4	BONUS:VAR|GhostAbilityDC|10+(TL/2)+CHA	BONUS:VAR|Maneuverability|5									ABILITY:Special Ability|AUTOMATIC|Aerial Maneuverability|Ghost ~ Manifestation|Ghost ~ Rejuvenation|Ghost ~ Turn Resistance																																																																								MOVE:Fly,30	RACETYPE:Undead	RACETYPE:Undead	RACESUBTYPE:Incorporeal	RACESUBTYPE:Incorporeal
 Lich			HITDIE:12		CR:2			DR:15/Bludgeoning and Magic	LEVELADJUSTMENT:4																									SOURCEPAGE:MonstersK-L.rtf	DEFINE:LichAbilityDC|0														PREALIGN:LE,NE,CE																															BONUS:COMBAT|AC|5|TYPE=NaturalArmor																																																																																				BONUS:SKILL|Hide,Listen,Move Silently,Search,Sense Motive,Spot|8|TYPE=Racial		BONUS:STAT|INT,WIS,CHA|2											BONUS:VAR|TurnResistBonus|4	BONUS:VAR|LichAbilityDC|10+(TL/2)+CHA	BONUS:VAR|FearAuraRadius|60	BONUS:VAR|FearAuraDC|LichAbilityDC			ABILITY:Special Ability|AUTOMATIC|Lich ~ Abilities|Lich ~ Damage Reduction|Lich ~ Fear Aura|Lich ~ Immunities|Lich ~ Paralyzing Touch|Lich ~ Skills|Lich ~ Special Attacks|Lich ~ Special Qualities|Lich ~ Spells|Lich ~ Turn Resistance																																																								RACETYPE:Undead	RACETYPE:Undead
 Skeleton		HITDIE:12					DR:5/Bludgeoning						TEMPLATE:CHOOSE:Claw (Fine)|Claw (Diminutive)|Claw (Tiny)|Claw (Small)|Claw (Medium)|Claw (Large)|Claw (Huge)|Claw (Gargantuan)|Claw (Colossal)	SOURCEPAGE:MonstersS.rtf						DEFINESTAT:NONSTAT|INT	DEFINESTAT:NONSTAT|WIS	DEFINESTAT:LOCK|CHA|1	PREALIGN:NE																																BONUS:COMBAT|AC|1|TYPE=NaturalArmor|PRESIZEEQ:S	BONUS:COMBAT|AC|2|TYPE=NaturalArmor|PRESIZEEQ:M	BONUS:COMBAT|AC|2|TYPE=NaturalArmor|PRESIZEEQ:L	BONUS:COMBAT|AC|3|TYPE=NaturalArmor|PRESIZEEQ:H	BONUS:COMBAT|AC|6|TYPE=NaturalArmor|PRESIZEEQ:G	BONUS:COMBAT|AC|10|TYPE=NaturalArmor|PRESIZEEQ:C	BONUS:MISC|CR|1|PREHD:MIN=2	BONUS:MISC|CR|1|PREHD:MIN=4	BONUS:MISC|CR|1|PREHD:MIN=6	BONUS:MISC|CR|1|PREHD:MIN=8	BONUS:MISC|CR|1|PREHD:MIN=10	BONUS:MISC|CR|1|PREHD:MIN=12	BONUS:MISC|CR|1|PREHD:MIN=15	BONUS:MISC|CR|1|PREHD:MIN=18															BONUS:STAT|DEX|2																																						ABILITY:Special Ability|AUTOMATIC|Immunity to Cold																																																																							AUTO:FEAT|Improved Initiative											RACETYPE:Undead	RACETYPE:Undead									BONUS:SAVE|BASE.Fortitude,BASE.Reflex|HD/3	BONUS:SAVE|BASE.Will|HD/2+2
@@ -214,7 +214,7 @@ Vampire		HITDIE:12		CR:2			DR:10/Silver and Magic		LEVELADJUSTMENT:8	TEMPLATE:CH
 Zombie		HITDIE:12					DR:5/Slashing						TEMPLATE:CHOOSE:Slam (Fine)|Slam (Diminutive)|Slam (Tiny)|Slam (Small)|Slam (Medium)|Slam (Large)|Slam (Huge)|Slam (Gargantuan)|Slam (Colossal)	SOURCEPAGE:MonstersT-Z.rtf						DEFINESTAT:NONSTAT|INT	DEFINESTAT:NONSTAT|WIS	DEFINESTAT:LOCK|CHA|1	PREALIGN:NE																																BONUS:COMBAT|AC|1|TYPE=NaturalArmor|PRESIZEEQ:S	BONUS:COMBAT|AC|2|TYPE=NaturalArmor|PRESIZEEQ:M	BONUS:COMBAT|AC|3|TYPE=NaturalArmor|PRESIZEEQ:L	BONUS:COMBAT|AC|4|TYPE=NaturalArmor|PRESIZEEQ:H	BONUS:COMBAT|AC|7|TYPE=NaturalArmor|PRESIZEEQ:G	BONUS:COMBAT|AC|11|TYPE=NaturalArmor|PRESIZEEQ:C	BONUS:MISC|CR|1|PREHD:MIN=4	BONUS:MISC|CR|1|PREHD:MIN=6	BONUS:MISC|CR|1|PREHD:MIN=8	BONUS:MISC|CR|1|PREHD:MIN=11	BONUS:MISC|CR|1|PREHD:MIN=15	BONUS:MISC|CR|1|PREHD:MIN=18																									BONUS:STAT|STR|2	BONUS:STAT|DEX|-2																																			ABILITY:Special Ability|AUTOMATIC|Zombie ~ Single Actions Only																																																																																				RACETYPE:Undead	RACETYPE:Undead									BONUS:SAVE|BASE.Fortitude,BASE.Reflex|HD/3	BONUS:SAVE|BASE.Will|HD/2+2
 
 ###Block: Ghost Abilities - Ghosts get 1d3 extra abilities
-# Template Name			Visible	Source Page				Bonus to Ability Pool
+# Template Name			Visible	Source Page				Bonus Ability Pool
 Ghost (1 Special Attack)	VISIBLE:NO	SOURCEPAGE:MonstersG.rtf	BONUS:ABILITYPOOL|Ghost Ability|1
 Ghost (2 Special Attacks)	VISIBLE:NO	SOURCEPAGE:MonstersG.rtf	BONUS:ABILITYPOOL|Ghost Ability|2
 Ghost (3 Special Attacks)	VISIBLE:NO	SOURCEPAGE:MonstersG.rtf	BONUS:ABILITYPOOL|Ghost Ability|3
@@ -254,37 +254,38 @@ Int Bonus +3			VISIBLE:NO				PREVAREQ:INTSCORE,0	BONUS:STAT|INT|3
 
 ###Block: Subrace Support
 # Dwarf
-# Template Name	Unique Key				Challenge Rating	Visible	Level Adjustment	Favored Class		Move			Subrace		Race Subtype		Add Levels				Vision
-Deep			KEY:Deep Dwarf						VISIBLE:NO				FAVOREDCLASS:Fighter				SUBRACE:Deep
-Duergar		KEY:Duergar Dwarf						VISIBLE:NO	LEVELADJUSTMENT:1	FAVOREDCLASS:Fighter				SUBRACE:Duergar
-Mountain		KEY:Mountain Dwarf					VISIBLE:NO				FAVOREDCLASS:Fighter				SUBRACE:Mountain
+# Template Name	Unique Key			Challenge Rating	Visible	Level Adjustment	Favored Class		Move			Subrace			Race Subtype		Vision
+Deep			KEY:Deep Dwarf					VISIBLE:NO				FAVOREDCLASS:Fighter				SUBRACE:Deep
+Duergar		KEY:Duergar Dwarf					VISIBLE:NO	LEVELADJUSTMENT:1	FAVOREDCLASS:Fighter				SUBRACE:Duergar
+Mountain		KEY:Mountain Dwarf				VISIBLE:NO				FAVOREDCLASS:Fighter				SUBRACE:Mountain
 # Elf
-Aquatic		KEY:Aquatic Elf						VISIBLE:NO				FAVOREDCLASS:Fighter	MOVE:Swim,40	SUBRACE:Aquatic	RACESUBTYPE:Aquatic						VISION:Superior Low-Light Vision
-Drow			KEY:Drow Elf			CR:1			VISIBLE:NO	LEVELADJUSTMENT:2								SUBRACE:Drow
-Gray			KEY:Gray Elf						VISIBLE:NO				FAVOREDCLASS:Wizard				SUBRACE:Gray
-Wild			KEY:Wild Elf						VISIBLE:NO				FAVOREDCLASS:Sorcerer				SUBRACE:Wild
-Wood			KEY:Wood Elf						VISIBLE:NO				FAVOREDCLASS:Ranger				SUBRACE:Wood
+Aquatic		KEY:Aquatic Elf					VISIBLE:NO				FAVOREDCLASS:Fighter	MOVE:Swim,40	SUBRACE:Aquatic		RACESUBTYPE:Aquatic	VISION:Superior Low-Light Vision
+Drow			KEY:Drow Elf		CR:1			VISIBLE:NO	LEVELADJUSTMENT:2								SUBRACE:Drow
+Gray			KEY:Gray Elf					VISIBLE:NO				FAVOREDCLASS:Wizard				SUBRACE:Gray
+Wild			KEY:Wild Elf					VISIBLE:NO				FAVOREDCLASS:Sorcerer				SUBRACE:Wild
+Wood			KEY:Wood Elf					VISIBLE:NO				FAVOREDCLASS:Ranger				SUBRACE:Wood
 # Gnome
-Svirfneblin		KEY:Svirfneblin Gnome		CR:1			VISIBLE:NO	LEVELADJUSTMENT:3	FAVOREDCLASS:Rogue				SUBRACE:Svirfneblin
-Forest		KEY:Forest Gnome						VISIBLE:NO				FAVOREDCLASS:Bard					SUBRACE:Forest
+Svirfneblin		KEY:Svirfneblin Gnome	CR:1			VISIBLE:NO	LEVELADJUSTMENT:3	FAVOREDCLASS:Rogue				SUBRACE:Svirfneblin
+Forest		KEY:Forest Gnome					VISIBLE:NO				FAVOREDCLASS:Bard					SUBRACE:Forest
 # Halfling
-Tallfellow		KEY:Tallfellow Halfling					VISIBLE:NO				FAVOREDCLASS:Rogue				SUBRACE:Tallfellow
-Deep			KEY:Deep Halfling						VISIBLE:NO				FAVOREDCLASS:Rogue				SUBRACE:Deep
+Tallfellow		KEY:Tallfellow Halfling				VISIBLE:NO				FAVOREDCLASS:Rogue				SUBRACE:Tallfellow
+Deep			KEY:Deep Halfling					VISIBLE:NO				FAVOREDCLASS:Rogue				SUBRACE:Deep
 
 
 ###Block: Race Language Support
-Language ~ Bonus (Duergar)			VISIBLE:NO	LANGBONUS:Draconic,Giant,Goblin,Orc,Terran
-Language ~ Bonus (Drow)				VISIBLE:NO	LANGBONUS:Abyssal,Aquan,Draconic,Drow Sign Language,Gnome,Goblin,Kuo-toan
-Language ~ Bonus (Svirfneblin)		VISIBLE:NO	LANGBONUS:Dwarven,Elven,Giant,Goblin,Orc,Terran
-Language ~ Bonus (Tallfellow Halfling)	VISIBLE:NO	LANGBONUS:Dwarven,Gnome,Goblin,Orc	
-Language ~ Bonus (Deep Halfling)		VISIBLE:NO	LANGBONUS:Elven,Gnome,Goblin,Orc	
+# Template Name					Unique Key				Visible	Bonus Languages											Subrace	Add Levels
+Language ~ Bonus (Duergar)								VISIBLE:NO	LANGBONUS:Draconic,Giant,Goblin,Orc,Terran
+Language ~ Bonus (Drow)									VISIBLE:NO	LANGBONUS:Abyssal,Aquan,Draconic,Drow Sign Language,Gnome,Goblin,Kuo-toan
+Language ~ Bonus (Svirfneblin)							VISIBLE:NO	LANGBONUS:Dwarven,Elven,Giant,Goblin,Orc,Terran
+Language ~ Bonus (Tallfellow Halfling)						VISIBLE:NO	LANGBONUS:Dwarven,Gnome,Goblin,Orc
+Language ~ Bonus (Deep Halfling)							VISIBLE:NO	LANGBONUS:Elven,Gnome,Goblin,Orc
 
 # Hydra
-Five Headed		KEY:Five Headed ~ Hydra					VISIBLE:NO																															SUBRACE:YES
-Six Headed		KEY:Six Headed ~ Hydra					VISIBLE:NO																															SUBRACE:YES					ADDLEVEL:Magical Beast|1
-Seven Headed	KEY:Seven Headed ~ Hydra				VISIBLE:NO																															SUBRACE:YES					ADDLEVEL:Magical Beast|2
-Eight Headed	KEY:Eight Headed ~ Hydra				VISIBLE:NO																															SUBRACE:YES					ADDLEVEL:Magical Beast|3
-Nine Headed		KEY:Nine Headed ~ Hydra					VISIBLE:NO																															SUBRACE:YES					ADDLEVEL:Magical Beast|4
-Ten Headed		KEY:Ten Headed ~ Hydra					VISIBLE:NO																															SUBRACE:YES					ADDLEVEL:Magical Beast|5
-Eleven Headed	KEY:Eleven Headed ~ Hydra				VISIBLE:NO																															SUBRACE:YES					ADDLEVEL:Magical Beast|6
-Twelve Headed	KEY:Twelve Headed ~ Hydra				VISIBLE:NO																															SUBRACE:YES					ADDLEVEL:Magical Beast|7
+Five Headed						KEY:Five Headed ~ Hydra		VISIBLE:NO														SUBRACE:YES
+Six Headed						KEY:Six Headed ~ Hydra		VISIBLE:NO														SUBRACE:YES	ADDLEVEL:Magical Beast|1
+Seven Headed					KEY:Seven Headed ~ Hydra	VISIBLE:NO														SUBRACE:YES	ADDLEVEL:Magical Beast|2
+Eight Headed					KEY:Eight Headed ~ Hydra	VISIBLE:NO														SUBRACE:YES	ADDLEVEL:Magical Beast|3
+Nine Headed						KEY:Nine Headed ~ Hydra		VISIBLE:NO														SUBRACE:YES	ADDLEVEL:Magical Beast|4
+Ten Headed						KEY:Ten Headed ~ Hydra		VISIBLE:NO														SUBRACE:YES	ADDLEVEL:Magical Beast|5
+Eleven Headed					KEY:Eleven Headed ~ Hydra	VISIBLE:NO														SUBRACE:YES	ADDLEVEL:Magical Beast|6
+Twelve Headed					KEY:Twelve Headed ~ Hydra	VISIBLE:NO														SUBRACE:YES	ADDLEVEL:Magical Beast|7

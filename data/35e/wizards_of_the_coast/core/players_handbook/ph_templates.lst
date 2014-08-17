@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Thu Jul 10 13:59:32 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision: $ $Author: $ -- Sun Aug 17 15:41:15 2014 -- reformated by prettylst.pl v1.51 (build 24906)
 
 ###Block: Sub Races
 # Human
@@ -19,17 +19,19 @@ Lightfoot		KEY:Lightfoot Halfling	VISIBLE:NO	FAVOREDCLASS:Rogue			SUBRACE:Lightf
 
 
 ###Block: Race Language Support
-Language ~ Bonus (Human)	VISIBLE:NO		LANGBONUS:TYPE=Spoken
-Language ~ Bonus (Dwarf)	VISIBLE:NO		LANGBONUS:Giant,Gnome,Goblin,Orc,Terran,Undercommon
-Language ~ Bonus (Elf)		VISIBLE:NO		LANGBONUS:Draconic,Gnoll,Gnome,Goblin,Orc,Sylvan
-Language ~ Bonus (Half-Elf)	VISIBLE:NO		LANGBONUS:TYPE=Spoken
-Language ~ Bonus (Half-Orc)	VISIBLE:NO		LANGBONUS:Abyssal,Draconic,Giant,Gnoll,Goblin
-Language ~ Bonus (Gnome)	VISIBLE:NO		LANGBONUS:Draconic,Dwarven,Elven,Giant,Goblin,Orc
-Language ~ Bonus (Halfling)	VISIBLE:NO		LANGBONUS:Dwarven,Elven,Gnome,Goblin,Orc
+# Template Name			Visible	Bonus Languages
+Language ~ Bonus (Human)	VISIBLE:NO	LANGBONUS:TYPE=Spoken
+Language ~ Bonus (Dwarf)	VISIBLE:NO	LANGBONUS:Giant,Gnome,Goblin,Orc,Terran,Undercommon
+Language ~ Bonus (Elf)		VISIBLE:NO	LANGBONUS:Draconic,Gnoll,Gnome,Goblin,Orc,Sylvan
+Language ~ Bonus (Half-Elf)	VISIBLE:NO	LANGBONUS:TYPE=Spoken
+Language ~ Bonus (Half-Orc)	VISIBLE:NO	LANGBONUS:Abyssal,Draconic,Giant,Gnoll,Goblin
+Language ~ Bonus (Gnome)	VISIBLE:NO	LANGBONUS:Draconic,Dwarven,Elven,Giant,Goblin,Orc
+Language ~ Bonus (Halfling)	VISIBLE:NO	LANGBONUS:Dwarven,Elven,Gnome,Goblin,Orc
 
 
 ###Block: Wizard Support
-Spellbook						VISIBLE:NO												KIT:1|Wizard Spell Book
+# Template Name	Visible	Apply Kit
+Spellbook		VISIBLE:NO	KIT:1|Wizard Spell Book
 
 ###Block: Timeless Body For Druid and Monk
 # Template Name			Visible		Template																		Minimum Age			Maximum Age			Required Class			Multiple Requirements						Stat bonus
@@ -104,7 +106,7 @@ Inherent Charisma Bonus +5		VISIBLE:NO	BONUS:STAT|CHA|5|TYPE=Inherent
 
 
 ###Block: Awakened Animal
-# Template Name			Visible	Template										Define a Stat		Required Class			Required Race					Add 					Apply Kit			Bonus Languages		Subrace		Main Race Type		Race Subtype			Add Levels
+# Template Name			Visible	Template										Define Stat			Required Class			Required Race					Add 					Apply Kit			Bonus Languages		Subrace		Main Race Type		Race Subtype			Add Levels
 Awakened Animal					TEMPLATE:CHOOSE:Awakened Animal_Standard|Awakened Animal_Will										PRERACE:1,RACETYPE=Animal,TYPE=Animal	ADD:LANGUAGE|TYPE=Spoken	KIT:1|Awakened Animal	LANGBONUS:TYPE=Spoken	SUBRACE:Awakened	RACETYPE:Magical Beast	RACESUBTYPE:Augmented Animal
 Awakened Animal_Standard	VISIBLE:NO																PRECLASS:1,Animal=1																																		ADDLEVEL:Animal|2
 Awakened Animal_Will		VISIBLE:NO																PRECLASS:1,Animal (Will)=1																																	ADDLEVEL:Animal (Will)|2
@@ -167,7 +169,7 @@ Combat Expertise trade off	VISIBLE:NO	CHOOSE:NUMBER|MIN=1|MAX=5|TITLE=Combat Exp
 
 
 ###Block: Normal Animals
-# Template Name					Output Name							Size		Face/Space	Reach		Nb Legs	Nb Hands	Define					Var. Min. Value								Combat bonus					Add to base move				Stat bonus																		Modify VAR														Weapon prof. bonus					Ability																Automatically Gained Feat	Move				Natural Attacks
+# Template Name					Output Name							Size		Face/Space	Reach		Nb Legs	Nb Hands	Define					Var. Min. Value								Combat bonus					Add to base move				Stat bonus																		Modify VAR														Weapon prof. bonus					Ability																Auto Feat				Move				Natural Attacks
 Wild Shape (Ape)													SIZE:L	FACE:10	REACH:10	LEGS:2	HANDS:3	DEFINE:WildshapeConsititution|0	PREVARGTEQ:WildShapeProgression,2,DruidWildShapeLVL,4		BONUS:COMBAT|AC|3|TYPE=NaturalArmor.STACK	BONUS:MOVEADD|TYPE.Walk|30-MOVEBASE	BONUS:STAT|STR|21-STRSCORE.BASE	BONUS:STAT|DEX|15-DEXSCORE.BASE	BONUS:STAT|CON|WildShapeConstitution	BONUS:VAR|WildshapeConstitution|14-CONSCORE.BASE																																					MOVE:Climb,30		NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d6|Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d6
 Wild Shape (Baboon)												SIZE:M	FACE:5	REACH:5	LEGS:2			DEFINE:WildshapeConsititution|0	PREVARGTEQ:WildShapeProgression,1,DruidWildShapeLVL,1		BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:MOVEADD|TYPE.Walk|40-MOVEBASE	BONUS:STAT|STR|11-STRSCORE.BASE	BONUS:STAT|DEX|14-DEXSCORE.BASE	BONUS:STAT|CON|WildShapeConstitution	BONUS:VAR|WildshapeConstitution|12-CONSCORE.BASE							BONUS:WEAPONPROF=Bite|DAMAGE|max(0,(STR/2))																							MOVE:Climb,30		NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d6
 Wild Shape (Badger)												SIZE:S	FACE:5	REACH:5	LEGS:4	HANDS:3	DEFINE:WildshapeConsititution|0	PREVARGTEQ:WildShapeProgression,1,DruidWildShapeLVL,1		BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:MOVEADD|TYPE.Walk|30-MOVEBASE	BONUS:STAT|STR|8-STRSCORE.BASE	BONUS:STAT|DEX|17-DEXSCORE.BASE	BONUS:STAT|CON|WildShapeConstitution	BONUS:VAR|WildshapeConstitution|15-CONSCORE.BASE	BONUS:VAR|RageTimes,RageDuration|1									ABILITY:Special Ability|AUTOMATIC|Badger ~ Rage										AUTO:FEAT|Weapon Finesse	MOVE:Burrow,10		NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d2|Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d3
@@ -231,7 +233,7 @@ Wild Shape (Wolf)													SIZE:M	FACE:5	REACH:5	LEGS:4			DEFINE:WildshapeCon
 Wild Shape (Wolverine)												SIZE:M	FACE:5	REACH:5	LEGS:4	HANDS:3	DEFINE:WildshapeConsititution|0	PREVARGTEQ:WildShapeProgression,1,DruidWildShapeLVL,3		BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:MOVEADD|TYPE.Walk|30-MOVEBASE	BONUS:STAT|STR|14-STRSCORE.BASE	BONUS:STAT|DEX|15-DEXSCORE.BASE	BONUS:STAT|CON|WildShapeConstitution	BONUS:VAR|WildshapeConstitution|19-CONSCORE.BASE	BONUS:VAR|RageTimes,RageDuration|1									ABILITY:Special Ability|AUTOMATIC|Wolverine ~ Rage														MOVE:Burrow,10,Climb,10	NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d4|Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d6
 
 ###Block: Other Animals
-# Template Name					Output Name						Size		Face/Space	Reach		Nb Legs	Nb Hands	Source Page				Define					Var. Min. Value								Combat bonus						Add to base move				Stat bonus																		Modify VAR														Weapon prof. bonus					Ability																Automatically Gained Feat	Move			Natural Attacks
+# Template Name					Output Name						Size		Face/Space	Reach		Nb Legs	Nb Hands	Source Page				Define					Var. Min. Value								Combat bonus						Add to base move				Stat bonus																		Modify VAR														Weapon prof. bonus					Ability																Auto Feat				Move			Natural Attacks
 Wild Shape (Dinosaur (Deinonychus))		OUTPUTNAME:Wild Shape (Deinonychus)		SIZE:L	FACE:10	REACH:5	LEGS:2	HANDS:4	SOURCEPAGE:MonstersDi-Do.rtf	DEFINE:WildshapeConsititution|0	PREVARGTEQ:WildShapeProgression,2,DruidWildShapeLVL,4		BONUS:COMBAT|AC|5|TYPE=NaturalArmor.STACK		BONUS:MOVEADD|TYPE.Walk|60-MOVEBASE	BONUS:STAT|STR|19-STRSCORE.BASE	BONUS:STAT|DEX|15-DEXSCORE.BASE	BONUS:STAT|CON|WildShapeConstitution	BONUS:VAR|WildshapeConstitution|19-CONSCORE.BASE															ABILITY:Special Ability|AUTOMATIC|Deinonychus ~ Pounce																NATURALATTACKS:Talons,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*1,2d6|Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*1,1d3|Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,2d4
 Wild Shape (Dinosaur (Elasmosaurus))	OUTPUTNAME:Wild Shape (Elasmosaurus)	SIZE:H	FACE:15	REACH:10	LEGS:0			SOURCEPAGE:MonstersDi-Do.rtf	DEFINE:WildshapeConsititution|0	PREVARGTEQ:WildShapeProgression,5,DruidWildShapeLVL,10	BONUS:COMBAT|AC|3|TYPE=NaturalArmor.STACK		BONUS:MOVEADD|TYPE.Walk|20-MOVEBASE	BONUS:STAT|STR|26-STRSCORE.BASE	BONUS:STAT|DEX|14-DEXSCORE.BASE	BONUS:STAT|CON|WildShapeConstitution	BONUS:VAR|WildshapeConstitution|22-CONSCORE.BASE							BONUS:WEAPONPROF=Bite|DAMAGE|max(0,(STR/2))																							MOVE:Swim,50	NATURALATTACKS:Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,2d8
 Wild Shape (Dinosaur (Megaraptor))		OUTPUTNAME:Wild Shape (Megaraptor)		SIZE:H	FACE:15	REACH:10	LEGS:2	HANDS:4	SOURCEPAGE:MonstersDi-Do.rtf	DEFINE:WildshapeConsititution|0	PREVARGTEQ:WildShapeProgression,5,DruidWildShapeLVL,8		BONUS:COMBAT|AC|6|TYPE=NaturalArmor.STACK		BONUS:MOVEADD|TYPE.Walk|60-MOVEBASE	BONUS:STAT|STR|21-STRSCORE.BASE	BONUS:STAT|DEX|15-DEXSCORE.BASE	BONUS:STAT|CON|WildShapeConstitution	BONUS:VAR|WildshapeConstitution|21-CONSCORE.BASE															ABILITY:Special Ability|AUTOMATIC|Megaraptor ~ Pounce																	NATURALATTACKS:Talons,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*1,2d8|Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*1,1d4|Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,2d6
@@ -264,7 +266,7 @@ Wild Shape (Tendriculos)								SIZE:H	FACE:15	REACH:15	LEGS:1	HANDS:3	SOURCEPAG
 Wild Shape (Treant)									SIZE:H	FACE:15	REACH:15	LEGS:2			SOURCEPAGE:MonstersT-Z.rtf		DEFINE:WildshapeConsititution|0	PREVARGTEQ:WildShapeProgression,5,DruidWildShapeLVL,7	BONUS:COMBAT|AC|13|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|29-STRSCORE.BASE	BONUS:STAT|DEX|8-DEXSCORE.BASE	BONUS:STAT|CON|WildShapeConstitution	BONUS:VAR|WildshapeConstitution|21-CONSCORE.BASE									ABILITY:Special Ability|AUTOMATIC|Treant ~ Double Damage Against Objects|Treant ~ Trample										MOVE:Walk,30		NATURALATTACKS:Slam,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,2d6
 
 ###Block: Elementals (keep Ex/Su/Sp abilities, feats)
-# Template Name					Output Name							Size		Face/Space	Reach		Nb Legs	Damage Reduction	Define					Var. Min. Value								Combat bonus						Add to base move				Stat bonus																		Modify VAR																				Weapon prof. bonus					Ability																			Automatically Gained Feat																		Move			Natural Attacks
+# Template Name					Output Name							Size		Face/Space	Reach		Nb Legs	Damage Reduction	Define					Var. Min. Value								Combat bonus						Add to base move				Stat bonus																		Modify VAR																				Weapon prof. bonus					Ability																			Auto Feat																					Move			Natural Attacks
 Wild Shape (Elemental (Air Small))		OUTPUTNAME:Wild Shape (Small Air Elemental)	SIZE:S	FACE:5	REACH:5	LEGS:0				DEFINE:WildshapeConsititution|0	PREVARGTEQ:WildShapeProgression,6,DruidWildShapeLVL,2		BONUS:COMBAT|AC|3|TYPE=NaturalArmor.STACK								BONUS:STAT|STR|10-STRSCORE.BASE	BONUS:STAT|DEX|17-DEXSCORE.BASE	BONUS:STAT|CON|WildShapeConstitution	BONUS:VAR|WildshapeConstitution|10-CONSCORE.BASE	BONUS:VAR|Maneuverability|5	BONUS:VAR|DarkvisionRange|60|TYPE=Base	BONUS:WEAPONPROF=Slam|DAMAGE|max(0,(STR/2))	ABILITY:Special Ability|AUTOMATIC|Air Elemental ~ Air Mastery|Air Elemental ~ Whirlwind|Flight Maneuverability		AUTO:FEAT|Flyby Attack|Improved Initiative	AUTO:FEAT|Weapon Finesse										MOVE:Fly,100	NATURALATTACKS:Slam,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,1d4
 Wild Shape (Elemental (Air Medium))		OUTPUTNAME:Wild Shape (Medium Air Elemental)	SIZE:M	FACE:5	REACH:5	LEGS:0				DEFINE:WildshapeConsititution|0	PREVARGTEQ:WildShapeProgression,6,DruidWildShapeLVL,4		BONUS:COMBAT|AC|3|TYPE=NaturalArmor.STACK								BONUS:STAT|STR|12-STRSCORE.BASE	BONUS:STAT|DEX|21-DEXSCORE.BASE	BONUS:STAT|CON|WildShapeConstitution	BONUS:VAR|WildshapeConstitution|14-CONSCORE.BASE	BONUS:VAR|Maneuverability|5	BONUS:VAR|DarkvisionRange|60|TYPE=Base	BONUS:WEAPONPROF=Slam|DAMAGE|max(0,(STR/2))	ABILITY:Special Ability|AUTOMATIC|Air Elemental ~ Air Mastery|Air Elemental ~ Whirlwind|Flight Maneuverability		AUTO:FEAT|Dodge|Flyby Attack|Improved Initiative	AUTO:FEAT|Weapon Finesse									MOVE:Fly,100	NATURALATTACKS:Slam,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,1d6
 Wild Shape (Elemental (Air Large))		OUTPUTNAME:Wild Shape (Large Air Elemental)	SIZE:L	FACE:10	REACH:10	LEGS:0	DR:5/-		DEFINE:WildshapeConsititution|0	PREVARGTEQ:WildShapeProgression,6,DruidWildShapeLVL,8		BONUS:COMBAT|AC|4|TYPE=NaturalArmor.STACK								BONUS:STAT|STR|14-STRSCORE.BASE	BONUS:STAT|DEX|25-DEXSCORE.BASE	BONUS:STAT|CON|WildShapeConstitution	BONUS:VAR|WildshapeConstitution|16-CONSCORE.BASE	BONUS:VAR|Maneuverability|5	BONUS:VAR|DarkvisionRange|60|TYPE=Base									ABILITY:Special Ability|AUTOMATIC|Air Elemental ~ Air Mastery|Air Elemental ~ Whirlwind|Flight Maneuverability		AUTO:FEAT|Combat Reflexes|Dodge|Flyby Attack|Improved Initiative	AUTO:FEAT|Weapon Finesse							MOVE:Fly,100	NATURALATTACKS:Slam,Weapon.Natural.Melee.Finesseable.Bludgeoning,*2,2d6

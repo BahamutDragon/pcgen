@@ -1,8 +1,8 @@
-# CVS $Revision: $ $Author: $ -- Thu Jul 10 13:59:32 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# CVS $Revision: $ $Author: $ -- Sun Aug 17 15:41:15 2014 -- reformated by prettylst.pl v1.51 (build 24906)
 
 
 ###Block:Animal Companion
-# Class of the Master			Type				Hit Dice	Ability																								Automatically Gained Feat			Define							Combat bonus					Stat bonus					Modify VAR
+# Class of the Master			Type				Hit Dice	Ability																								Auto Feat						Define							Combat bonus					Stat bonus					Modify VAR
 FOLLOWER:AnimalCompanionLVL=1		TYPE:Animal Companion			ABILITY:Special Ability|AUTOMATIC|Animal Companion ~ Bonus Tricks|Animal Companion ~ Link|Animal Companion ~ Share Spells|Animal Tricks and Training								DEFINE:BonusTricks|0	DEFINE:SecondAttack|0														BONUS:VAR|BonusTricks|1
 FOLLOWER:AnimalCompanionLVL=3		TYPE:Animal Companion	HD:2		ABILITY:Special Ability|AUTOMATIC|Animal Companion ~ Evasion																														BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:VAR|BonusTricks|1
 FOLLOWER:AnimalCompanionLVL=6		TYPE:Animal Companion	HD:2		ABILITY:Special Ability|AUTOMATIC|Animal Companion ~ Devotion																														BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:VAR|BonusTricks|1
@@ -74,7 +74,7 @@ FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRER
 FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Eagle|PREVARGT:TL,1
 
 ###Block: Special Mount
-# Class of the Master		Type				Hit Dice	Spell Res.	Ability																										Automatically Gained Armor Prof.	Define a Stat			Combat bonus					Add to base move																																					Stat bonus
+# Class of the Master		Type				Hit Dice	Spell Res.	Ability																										Auto Armor Prof				Define Stat				Combat bonus					Add to base move																																					Stat bonus
 FOLLOWER:SpecialMountLVL=5	TYPE:Special Mount	HD:2				ABILITY:Special Ability|AUTOMATIC|Special Mount ~ Empathic Link|Special Mount ~ Improved Evasion|Special Mount ~ Share Saving Throws|Special Mount ~ Share Spells	AUTO:ARMORPROF|ARMORTYPE=Barding	DEFINESTAT:MINVALUE|INT|6	BONUS:COMBAT|AC|4|TYPE=NaturalArmor.STACK																																								BONUS:STAT|STR|1
 FOLLOWER:SpecialMountLVL=8	TYPE:Special Mount	HD:2				ABILITY:Special Ability|AUTOMATIC|Special Mount ~ Improved Speed																							DEFINESTAT:MINVALUE|INT|7	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:MOVEADD|TYPE.Walk|10|PREMOVE:1,Walk=1	BONUS:MOVEADD|TYPE.Swim|10|PREMOVE:1,Swim=1	BONUS:MOVEADD|TYPE.Climb|10|PREMOVE:1,Climb=1	BONUS:MOVEADD|TYPE.Burrow|10|PREMOVE:1,Burrow=1	BONUS:MOVEADD|TYPE.Fly|10|PREMOVE:1,Fly=1	BONUS:STAT|STR|1
 FOLLOWER:SpecialMountLVL=11	TYPE:Special Mount	HD:2				ABILITY:Special Ability|AUTOMATIC|Special Mount ~ Command																								DEFINESTAT:MINVALUE|INT|8	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK																																								BONUS:STAT|STR|1
@@ -93,7 +93,7 @@ FOLLOWER:SpecialMountLVL=5	TYPE:Special Mount	PRERACE:1,Pony (War)			KIT:1|Pony 
 FOLLOWER:SpecialMountLVL=5	TYPE:Special Mount	PRERACE:1,Shark (Large)			KIT:1|Shark (Large) Default
 
 ###Block:Familiar
-# Class of the Master	Type			Spell Res.	Ability																						Copy Masters BAB		Copy Masters Checks	HP formula based on Master	Use Masters skills?	Define a Stat			Combat bonus					Modify VAR
+# Class of the Master	Type			Spell Res.	Ability																						Copy Masters BAB		Copy Masters Checks	HP formula based on Master	Use Masters skills?	Define Stat				Combat bonus					Modify VAR
 FOLLOWER:FamiliarLVL=1	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Familiar ~ Empathic Link	ABILITY:Internal|AUTOMATIC|Familiar ~ Change Race|PREHD:MIN=1|PRERACE:1,%	COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	COPYMASTERHP:max(1,MASTER/2)	USEMASTERSKILL:YES
 FOLLOWER:FamiliarLVL=1	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Familiar ~ Improved Evasion|Familiar ~ Share Spells																										DEFINESTAT:MINVALUE|INT|6	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|MasterLvl|1
 FOLLOWER:FamiliarLVL=3	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Familiar ~ Deliver Touch Spells																														DEFINESTAT:MINVALUE|INT|7	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK	BONUS:VAR|MasterLvl|2
