@@ -353,29 +353,31 @@ CLASS:Sorcerer	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Sorc
 19	CAST:6,6,6,6,6,6,6,6,6,4	KNOWN:9,5,5,4,4,4,3,3,3,2
 20	CAST:6,6,6,6,6,6,6,6,6,6	KNOWN:9,5,5,4,4,4,3,3,3,3
 
-# Class Name	Hit Dice	Type										Class Type		Abbreviation	Source Page		Bonus Languages		Group of Prohibited Spells																																																																																				Define								Combat bonus															Modify VAR			Monster Role	Bonus
-CLASS:Wizard	HD:4		TYPE:PC.Base.Spellcaster.Arcane.NonSpontaneousArcaneCaster	CLASSTYPE:PC	ABB:Wiz		SOURCEPAGE:p.55	LANGBONUS:Draconic	PROHIBITSPELL:SCHOOL.Abjuration|PREVARGTEQ:ProhibitAbjuration,1	PROHIBITSPELL:SCHOOL.Conjuration|PREVARGTEQ:ProhibitConjuration,1	PROHIBITSPELL:SCHOOL.Divination|PREVARGTEQ:ProhibitDivination,1	PROHIBITSPELL:SCHOOL.Enchantment|PREVARGTEQ:ProhibitEnchantment,1	PROHIBITSPELL:SCHOOL.Evocation|PREVARGTEQ:ProhibitEvocation,1	PROHIBITSPELL:SCHOOL.Illusion|PREVARGTEQ:ProhibitIllusion,1	PROHIBITSPELL:SCHOOL.Necromancy|PREVARGTEQ:ProhibitNecromancy,1	PROHIBITSPELL:SCHOOL.Transmutation|PREVARGTEQ:ProhibitTransmutation,1	DEFINE:WizardLVL|0	DEFINE:WizardSpecialist|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|WizardLVL|CL	ROLE:Wizard		BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+
+# Class Name	Hit Dice	Type										Class Type		Abbreviation				Source Page		Bonus Languages		Group of Prohibited Spells																																																																																				Define								Combat bonus															Modify VAR			Monster Role	Bonus
+CLASS:Wizard	HD:4		TYPE:PC.Base.Spellcaster.Arcane.NonSpontaneousArcaneCaster	CLASSTYPE:PC	ABB:Wiz					SOURCEPAGE:p.55	LANGBONUS:Draconic	PROHIBITSPELL:SCHOOL.Abjuration|PREVARGTEQ:ProhibitAbjuration,1	PROHIBITSPELL:SCHOOL.Conjuration|PREVARGTEQ:ProhibitConjuration,1	PROHIBITSPELL:SCHOOL.Divination|PREVARGTEQ:ProhibitDivination,1	PROHIBITSPELL:SCHOOL.Enchantment|PREVARGTEQ:ProhibitEnchantment,1	PROHIBITSPELL:SCHOOL.Evocation|PREVARGTEQ:ProhibitEvocation,1	PROHIBITSPELL:SCHOOL.Illusion|PREVARGTEQ:ProhibitIllusion,1	PROHIBITSPELL:SCHOOL.Necromancy|PREVARGTEQ:ProhibitNecromancy,1	PROHIBITSPELL:SCHOOL.Transmutation|PREVARGTEQ:ProhibitTransmutation,1	DEFINE:WizardLVL|0	DEFINE:WizardSpecialist|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|WizardLVL|CL	ROLE:Wizard		BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3		DEFINE:ProhibitAbjuration|0	DEFINE:ProhibitConjuration|0	DEFINE:ProhibitDivination|0	DEFINE:ProhibitEnchantment|0	DEFINE:ProhibitEvocation|0	DEFINE:ProhibitIllusion|0	DEFINE:ProhibitNecromancy|0	DEFINE:ProhibitTransmutation|0
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Wizard	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher Script|TYPE=Knowledge|TYPE=Profession|Spellcraft
-# Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels	Spellbook		Caster level
-CLASS:Wizard	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			SPELLBOOK:YES	BONUS:CASTERLEVEL|Wizard|CL
-#
-SUBCLASS:Abjurer		COST:2	PROHIBITCOST:1	CHOICE:SCHOOL|Abjuration	BONUS:VAR|WizardSpecialist|1	KNOWNSPELLSFROMSPECIALTY:1
-SUBCLASSLEVEL:1	ABILITY:Wizard Class Feature|AUTOMATIC|Abjurer Learning Bonus
-SUBCLASS:Conjurer		COST:2	PROHIBITCOST:1	CHOICE:SCHOOL|Conjuration	BONUS:VAR|WizardSpecialist|1	KNOWNSPELLSFROMSPECIALTY:1
-SUBCLASSLEVEL:1	ABILITY:Wizard Class Feature|AUTOMATIC|Conjurer Learning Bonus
-SUBCLASS:Diviner		COST:1	PROHIBITCOST:0	CHOICE:SCHOOL|Divination	BONUS:VAR|WizardSpecialist|1	KNOWNSPELLSFROMSPECIALTY:1
-SUBCLASSLEVEL:1	ABILITY:Wizard Class Feature|AUTOMATIC|Diviner Learning Bonus
-SUBCLASS:Enchanter	COST:2	PROHIBITCOST:1	CHOICE:SCHOOL|Enchantment	BONUS:VAR|WizardSpecialist|1	KNOWNSPELLSFROMSPECIALTY:1
-SUBCLASSLEVEL:1	ABILITY:Wizard Class Feature|AUTOMATIC|Enchanter Learning Bonus
-SUBCLASS:Evoker		COST:2	PROHIBITCOST:1	CHOICE:SCHOOL|Evocation		BONUS:VAR|WizardSpecialist|1	KNOWNSPELLSFROMSPECIALTY:1
-SUBCLASSLEVEL:1	ABILITY:Wizard Class Feature|AUTOMATIC|Evoker Learning Bonus
-SUBCLASS:Illusionist	COST:2	PROHIBITCOST:1	CHOICE:SCHOOL|Illusion		BONUS:VAR|WizardSpecialist|1	KNOWNSPELLSFROMSPECIALTY:1
-SUBCLASSLEVEL:1	ABILITY:Wizard Class Feature|AUTOMATIC|Illusionist Learning Bonus
-SUBCLASS:Necromancer	COST:2	PROHIBITCOST:1	CHOICE:SCHOOL|Necromancy	BONUS:VAR|WizardSpecialist|1	KNOWNSPELLSFROMSPECIALTY:1
-SUBCLASSLEVEL:1	ABILITY:Wizard Class Feature|AUTOMATIC|Necromancer Learning Bonus
-SUBCLASS:Transmuter	COST:2	PROHIBITCOST:1	CHOICE:SCHOOL|Transmutation	BONUS:VAR|WizardSpecialist|1	KNOWNSPELLSFROMSPECIALTY:1
-SUBCLASSLEVEL:1	ABILITY:Wizard Class Feature|AUTOMATIC|Transmuter Learning Bonus
+# Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels				Spellbook		Caster level
+CLASS:Wizard	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			MEMORIZE:YES	SPELLBOOK:YES	BONUS:CASTERLEVEL|Wizard|CL
+#	COST bonuses the Number of Choices, PROHIBITCOST designates how expensive the school is to prohibit, 0 is cannot prohibit, and CHOICE:SCHOOL removes the School from Selection
+#SUBCLASS:Wizard Subclass		CHOICE:SCHOOL|Universal	COST:0	BONUS:ABILITYPOOL|Wizard Subclass|1
+SUBCLASS:Abjurer		COST:0	PROHIBITCOST:0	CHOICE:SCHOOL|Abjuration	
+SUBCLASSLEVEL:1	ABILITY:Special Ability|AUTOMATIC|Abjurer
+SUBCLASS:Conjurer		COST:0	PROHIBITCOST:0	CHOICE:SCHOOL|Conjuration	
+SUBCLASSLEVEL:1	ABILITY:Special Ability|AUTOMATIC|Conjurer
+SUBCLASS:Diviner		COST:0	PROHIBITCOST:0	CHOICE:SCHOOL|Divination	
+SUBCLASSLEVEL:1	ABILITY:Special Ability|AUTOMATIC|Diviner
+SUBCLASS:Enchanter	COST:0	PROHIBITCOST:0	CHOICE:SCHOOL|Enchantment	
+SUBCLASSLEVEL:1	ABILITY:Special Ability|AUTOMATIC|Enchanter
+SUBCLASS:Evoker		COST:0	PROHIBITCOST:0	CHOICE:SCHOOL|Evocation		
+SUBCLASSLEVEL:1	ABILITY:Special Ability|AUTOMATIC|Evoker
+SUBCLASS:Illusionist	COST:0	PROHIBITCOST:0	CHOICE:SCHOOL|Illusion		
+SUBCLASSLEVEL:1	ABILITY:Special Ability|AUTOMATIC|Illusionist
+SUBCLASS:Necromancer	COST:0	PROHIBITCOST:0	CHOICE:SCHOOL|Necromancy	
+SUBCLASSLEVEL:1	ABILITY:Special Ability|AUTOMATIC|Necromancer
+SUBCLASS:Transmuter	COST:0	PROHIBITCOST:0	CHOICE:SCHOOL|Transmutation	
+SUBCLASSLEVEL:1	ABILITY:Special Ability|AUTOMATIC|Transmuter
 ###Block:
 1	ABILITY:Wizard Class Feature|AUTOMATIC|Wizard ~ Weapon and Armor Proficiency|!PREABILITY:1,CATEGORY=ACF,TYPE.WizardProficiencies
 1	ABILITY:Wizard Class Feature|AUTOMATIC|Wizard ~ Familiar|!PREABILITY:1,CATEGORY=ACF,TYPE.WizardSummonFamiliar
