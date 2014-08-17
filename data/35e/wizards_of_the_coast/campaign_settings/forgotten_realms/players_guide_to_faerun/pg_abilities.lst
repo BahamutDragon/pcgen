@@ -579,3 +579,13 @@ Spell Resistance			KEY:Shade Template ~ Spell Resistance	CATEGORY:Special Abilit
 Saves					KEY:Shade Template ~ Saves			CATEGORY:Special Ability	TYPE:Shade Template Race Trait.Race Trait.SpecialQuality			DESC:In darkness, shades enjoy a +4 luck bonus on all their saving throws.																																																																																					SOURCEPAGE:p.315
 Abilities				KEY:Shade Template ~ Abilities		CATEGORY:Special Ability	TYPE:Shade Template Race Trait.Race Trait.SpecialQuality			DESC:In darkness, the shade's Constitution and Charisma scores increase by +2.																																																																																				SOURCEPAGE:p.315
 Skills				KEY:Shade Template ~ Skills			CATEGORY:Special Ability	TYPE:Shade Template Race Trait.Race Trait.SpecialQuality			DESC:Shades gain a +4 racial bonus to Listen and Spot checks in darkness, and a +8 racial bonus to Hide and Move Silently checks. They suffer no penalties due to darkness. Otherwise same as the character.																																																															SOURCEPAGE:p.315
+
+
+# Domain Support
+Domain ~ Smite Any Creature	CATEGORY:Special Ability	TYPE:Internal	VISIBLE:YES								BONUS:VAR|SmiteAnyCreature|1	BONUS:VAR|SmiteAnyCreatureDamage|classlevel("Cleric")																				SOURCEPAGE:PGtF										
+
+Smite Any Creature	CATEGORY:Special Ability	TYPE:SpecialAttack.Smite.Supernatural.AttackOption	VISIBLE:YES	DESC:+%1 with one normal melee attack for +%2 extra damage %3/day|SmiteAnyCreatureToHit|SmiteAnyCreatureDamage|SmiteAnyCreature				DEFINE:SmiteAnyCreatureToHit|max(CHA,0)	DEFINE:SmiteAnyCreatureDamage|0	DEFINE:SmiteAnyCreature|0																						SOURCEPAGE:PGtF										
+Craft Domain Skill Focus Choice	CATEGORY:Special Ability	TYPE:CraftDomainChoice																																																																				MULT:YES	CHOOSE:NUMCHOICES=1|SKILL|Craft%	SELECT:1									BONUS:SKILL|LIST|3
+
+Hammer Weapon Focus	KEY:Domain ~ Hammer Weapon Focus	CATEGORY:Special Ability	TYPE:Supernatural.SpecialQuality	VISIBLE:YES								AUTO:WEAPONPROF|%LIST				STACK:NO	MULT:YES	CHOOSE:WEAPONPROFICIENCY|PC[TYPE=Hammer]	SELECT:1	AUTO:FEAT|Weapon Focus(%LIST)													SOURCEPAGE:PGtF										
+
