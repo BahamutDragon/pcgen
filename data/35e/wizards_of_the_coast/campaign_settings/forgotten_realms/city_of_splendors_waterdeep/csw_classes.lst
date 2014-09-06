@@ -1,0 +1,61 @@
+# CVS $Revision: $ $Author: $ -- Sat Sep  6 01:32:54 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+SOURCELONG:City of Splendor Waterdeep	SOURCESHORT:CSW	SOURCEDATE:2005-06
+
+# Class Name			Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page		Define				Combat bonus										Modify VAR					Bonus
+CLASS:Gray Hand Enforcer	HD:10		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:GHE		MAXLEVEL:5	SOURCEPAGE:p.77	DEFINE:GrayHandEnforcerLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:VAR|GrayHandEnforcerLVL|CL	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name			Required AL				Required Feat										Multiple Requirements					Required Skill		Required Text
+CLASS:Gray Hand Enforcer	PREALIGN:LG,NG,CG,LN,TN,CN	PREFEAT:2,Endurance,Toughness	PREFEAT:1,Power Attack,Empower Spell	PREMULT:1,[PRETOTALAB:7],[PRESPELLTYPE:1,ANY=4]	PRESKILL:1,Intimidate=5	PRETEXT:Membership in the Gray Hands
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Gray Hand Enforcer	STARTSKILLPTS:2	CSKILL:Climb|Concentration|Escape Artist|Heal|Intimidate|Jump|Knowledge (Local)|Listen|Ride|Spellcraft|Spot|Swim|Tumble|Use Magic Device|Use Rope
+1	BONUS:VAR|GrayHandEnforcerDamageReduction|(CL/2)+1					ABILITY:Special Ability|AUTOMATIC|Gray Hand Enforcer ~ Weapon and Armor Proficiency|Gray Hand Enforcer ~ Damage Reduction|Gray Hand Enforcer ~ Gray Hand Token
+2	BONUS:VAR|DragonwardStrike|CL/2				ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Gray Hand Enforcer ~ Dragonward Strike
+3										ADD:SPELLCASTER|ANY
+4										ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Gray Hand Enforcer ~ Spell Resistance
+5										ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Gray Hand Enforcer ~ Lord's Boon
+#
+
+# Class Name			Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page		Define		Combat bonus											Modify VAR			Bonus
+CLASS:Knight of the Blue Moon	HD:8		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:KotBM		MAXLEVEL:5	SOURCEPAGE:p.81	DEFINE:KotBMLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:VAR|KotBMLVL|CL	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name			Required Ability							Required AL		Required Deity			Required Feat																				Required Skill										Required Casting Type				Required Text									PRETOTALAB
+CLASS:Knight of the Blue Moon	PREABILITY:1,CATEGORY=Special Ability,Turn Undead	PREALIGN:LG,NG,CG	PREDEITY:1,Selune,Mystra	PREFEAT:2,Craft Magic Arms and Armor,Lunar Magic	PREFEAT:1,Weapon Focus (Mace (Heavy)),Exotic Weapon Proficiency (Shuriken)	PRESKILL:3,Concentration=8,Knowledge (Arcana)=4,Knowledge (Religion)=4	PRESPELLCAST:TYPE=Arcane=1,MEMORIZE=N	PRETEXT:You must be a member of the Knights of the Blue Moon	PRETOTALAB:4
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Knight of the Blue Moon	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Knowledge (Arcana)|Knowledge (Religion)|TYPE=Profession|Ride|Spellcraft|Survival
+##Abilities
+1	BONUS:VAR|SpecialMountLVL|CL	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Knight of the Blue Moon ~ Weapon and Armor Proficiency|Knight of the Blue Moon ~ Moon Blessing|Knight of the Blue Moon ~ Special Mount
+2						ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Knight of the Blue Moon ~ Faerie Fire|Knight of the Blue Moon ~ Lunar Sight
+3						ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Knight of the Blue Moon ~ Divine Moonlight|Knight of the Blue Moon ~ Selune's Foresight
+4						ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Knight of the Blue Moon ~ Weavesight
+5						ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Knight of the Blue Moon ~ Moon Kiss
+#
+
+# Class Name		Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page		Define				Combat bonus											Modify VAR				Bonus
+CLASS:Moonstar Agent	HD:6		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:MsAgt		MAXLEVEL:5	SOURCEPAGE:p.85	DEFINE:MoonstarAgentLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:VAR|MoonstarAgentLVL|CL	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name		Required Ability											Required Feat				Required Skill										Req. Known Spell				Required Text
+CLASS:Moonstar Agent	PREABILITY:1,CATEGORY=Special Ability,Bardic Knowledge,Lore,Harper Knowledge	PREFEAT:2,Investigation,Stealthy	PRESKILL:3,Decipher Script=4,Gather Information=4,Knowledge (History)=8	PRESPELL:2,Disguise Self,Identify	PRETEXT:You must be a member of the Tel Teukiira
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Moonstar Agent	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|TYPE=Craft|Decipher Script|Diplomacy|Disguise|Forgery|Gather Information|Hide|TYPE=Knowledge|Listen|Move Silently|TYPE=Perform|TYPE=Profession|Search|Sense Motive|Speak Language|Spellcraft|Spot|Survival|Use Magic Device
+##Abilities
+1																	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Moonstar Agent ~ Weapon and Armor Proficiency|Moonstar Agent ~ Lore|Moonstar Agent ~ Oghma's Insight
+2																	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Moonstar Agent ~ Laeral's Intuition
+3																	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Moonstar Agent ~ Mystra's Boon
+4																	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Moonstar Agent ~ Khelben's Call
+5	BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE	BONUS:VAR|UncannyDodgeLevel|1	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base
+#
+
+# Class Name		Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page		Define			Combat bonus											Modify VAR				Bonus
+CLASS:Sun Soul Monk	HD:8		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:SnSlMk		MAXLEVEL:10	SOURCEPAGE:p.88	DEFINE:SunSoulMonkLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:VAR|SunSoulMonkLVL|CL	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name		Required AL		Required Check Base	Required Deity				Required Feat								Required Language		Required Skill										Required Text
+CLASS:Sun Soul Monk	PREALIGN:LG,LN	PRECHECKBASE:1,Will=4	PREDEITY:1,Lathander,Selune,Sune	PREFEAT:3,Athletic,Improved Unarmed Strike,Stunning Fist	PRELANG:2,Ignan,Loross	PRESKILL:3,Concenetration=8,Knowledge (Arcana)=4,Knowledge (Religion)=4	PRETEXT:You must be a member of the Order of the Sun Soul
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Sun Soul Monk	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Diplomacy|Escape Artist|Hide|Knowledge (Arcana)|Knowledge (History)|Knowledge (Religion)|Listen|Move Silently|TYPE=Perform|TYPE=Profession|Sense Motive|Spot|Swim|Tumble
+##Abilities
+1	BONUS:UDAM|CLASS.Monk|CL	BONUS:VAR|SunSoulLevel|(CL+classlevel("Monk")+classlevel("Paladin%"))	BONUS:VAR|MonkACLVL,MonkMoveLVL,FlurryLVL|CL	ABILITY:Special Ability|AUTOMATIC|Sun Soul Monk ~ Weapon and Armor Proficiency|Sun Soul Monk ~ Sun Soul|Sun Soul Monk ~ Monk Abilities
+2						BONUS:VAR|SunSoulrayTimes|1																ABILITY:Special Ability|AUTOMATIC|Sun Soul Monk ~ Low-Light Vision|Sun Soul Monk ~ Sun Soulray
+3						BONUS:VAR|FlamingFistTimes|1																ABILITY:Special Ability|AUTOMATIC|Sun Soul Monk ~ Flaming Fists
+4						BONUS:VAR|SunSoulrayTimes|1
+5																										ABILITY:Special Ability|AUTOMATIC|Sun Soul Monk ~ Abundant Step
+6						BONUS:VAR|SunSoulrayTimes,FlamingFistTimes|1
+7																										ABILITY:Special Ability|AUTOMATIC|Sun Soul Monk ~ Greater Sun Soul
+8						BONUS:VAR|SunSoulrayTimes|1																ABILITY:Special Ability|AUTOMATIC|Sun Soul Monk ~ Darkvision
+9						BONUS:VAR|FlamingFistTimes|1
+10																										ABILITY:Special Ability|AUTOMATIC|Sun Soul Monk ~ Sun Soulbeam|Tongue of the Sun and Moon
