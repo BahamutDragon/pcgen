@@ -39,7 +39,7 @@ Two methods exist to get the content onto your system.
    1) The easier method is to use the GITHUB download option (https://github.com/BahamutDragon/pcgen/archive/master.zip)
 Save the zip folder to a valid pcgen recognized data folder of your choice. Unzip the contents. Load PCGen, and enjoy.
 
-   2) The better method is to install GIT and a GIT Client, and then pull the repo into your valid pcgen recognized data folder. This allows easy updates when they happen. (Saves bandwidth since you only download changes, not the whole repo). I use this method to keep my data sync'd with the repo and allows for testable fixes and pushing those to the repo.
+   2) The better method is to install GIT and a GIT Client, and clone the repository to a location outside of the PCGen installation directory. Then open PCGen, go to Tools>Preferences and in the Location tab under the PCGen drop-down, change "PCGen Vendor Data Directory" or "PCGen Homebrew Data Directory" to the directory you cloned the repo into. This allows easy updates when they happen (via a git pull). It also saves bandwidth since you are only download changes, not the whole repo. I use this method to keep my data sync'd with the repo and allows for testable fixes and pushing those to the repo.
 
 ==
 ####Links for Git a client:
