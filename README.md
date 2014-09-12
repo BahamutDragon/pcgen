@@ -55,6 +55,15 @@ Please consult GIT documentation to set up GIT.
 
 If you wish to be a contributor by submitting patches and improvements, then set up your own github account, fork the repo, and set up links to your personal copy. GITHUB has detailed instructions if this interests you.
 
+###How do I contribute? "Pull Request"
+* Please fork this repository on Github.
+* Clone your fork to your local computer.
+* Create a descriptive branch and then 'checkout' that branch to work on.
+* Then make your intended changes within the branch. Once satisfied, commit those changes to GITHUB.
+* Then create a pull request, using the button on Github, from your fork to mine.
+* After review, the changes will either be accepted or rejected. (Rejected means something needs to be adjusted)
+
+
 Any issues regarding the actual content itself, i.e. character creation issues, class missing features, wrong progressions, etc., please open an issue or contact me directly. I do not maintain the actual PCGen program, any concerns about the program should be directed to the correct maintainers on their site.
 
 
