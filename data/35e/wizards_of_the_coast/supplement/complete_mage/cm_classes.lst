@@ -2,7 +2,7 @@
 SOURCELONG:Complete Mage	SOURCESHORT:CM	SOURCEWEB:http://www.wizards.com/default.asp?x=products/dndacc/953847200	SOURCEDATE:2006-10
 
 # Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus										Bonus
-CLASS:Abjurant Champion	HD:10		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:p.50	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Abjurant Champion	HD:10		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:p.50	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required Feat			Req. Spell Type		Required Text																																		PRETOTALAB
 CLASS:Abjurant Champion	PREFEAT:1,Combat Casting	PRESPELLTYPE:1,Arcane=1	PRETEXT:Base Attack Bonus: +5. Feat: Combat Casting. Spellcasting: Must be able to cast 1st-level arcane spells, including at least one abjuration spell. Special: Must be proficient with at least one martial weapon.	PRETOTALAB:5
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -20,7 +20,7 @@ CLASS:Abjurant Champion	STARTSKILLPTS:2	CSKILL:Climb|Concentration|TYPE=Craft|Ha
 5	ABILITY:Abjurant Champion Class Feature|AUTOMATIC|Abjurant Champion ~ Martial Arcanist
 
 # Class Name		Hit Dice	Type			Source Page		Combat bonus															Modify VAR														Bonus
-CLASS:Eldritch Disciple	HD:8		TYPE:PC.Prestige	SOURCEPAGE:p.53	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Eldritch Disciple	HD:8		TYPE:PC.Prestige	SOURCEPAGE:p.53	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required Ability																					PREDEITYALIGN			Required Skill								Req. Spell Type		Required Text
 CLASS:Eldritch Disciple	PREABILITY:1,CATEGORY=Special Ability,TYPE=Least Invocation	PREABILITY:1,CATEGORY=Special Ability,TYPE=Turn Undead,TYPE=Rebuke Undead	PREDEITYALIGN:CG,CN,CE,NE,LE	PRESKILL:2,Knowledge (Religion)=8,Knowledge (The Planes)=4	PRESPELLTYPE:1,Divine=2	PRETEXT:Skills: Knowledge (religion) 8 ranks, Knowledge (the planes) 4 ranks. Spells: Ability to cast 2nd-level divine spells. Invocations: Ability to use least invocations. Special: Ability to turn or rebuke undead, must worship a chaotic or evil deity.
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -45,7 +45,7 @@ CLASS:Eldritch Disciple	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Di
 11	PREPCLEVEL:MIN=20
 
 # Class Name		Hit Dice	Type			Source Page		Combat bonus															Modify VAR														Bonus
-CLASS:Eldritch Theurge	HD:4		TYPE:PC.Prestige	SOURCEPAGE:p.57	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Eldritch Theurge	HD:4		TYPE:PC.Prestige	SOURCEPAGE:p.57	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required Ability								Required Skill								Req. Spell Type		Required Text																																Var. Min. Value
 CLASS:Eldritch Theurge	PREABILITY:1,CATEGORY=Special Ability,TYPE=Least Invocation	PRESKILL:2,Knowledge (Arcana)=8,Knowledge (The Planes)=8	PRESPELLTYPE:1,Arcane=2	PRETEXT:Skills: Knowledge (arcana) 8 ranks, Knowledge (the planes) 8 ranks. Spells: Ability to cast 2nd-level arcane spells. Invocations: Ability to use least invocations. Special: Eldritch blast +2d6.	PREVARGTEQ:EldritchBlastDice,2
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -75,7 +75,7 @@ CLASS:Eldritch Theurge	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Int
 11	PREPCLEVEL:MIN=20
 
 # Class Name			Hit Dice	Type			Ex Class				Source Page		Combat bonus															Modify VAR														Bonus
-CLASS:Enlightened Spirit	HD:6		TYPE:PC.Prestige	EXCLASS:Ex Enlightened Spirit	SOURCEPAGE:p.60	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Enlightened Spirit	HD:6		TYPE:PC.Prestige	EXCLASS:Ex Enlightened Spirit	SOURCEPAGE:p.60	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name			Required AL		Required Skill				Required Text															Var. Min. Value
 CLASS:Enlightened Spirit	PREALIGN:LG,NG,CG	PRESKILL:1,Knowledge (The Planes)=8	PRETEXT:Alignment: Any good. Skills: Knowledge (the planes) 8 ranks. Special: Eldritch blast 3d6.	PREVARGTEQ:EldritchBlastDice,3
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -96,7 +96,7 @@ CLASS:Enlightened Spirit	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|D
 CLASS:Ex Enlightened Spirit	VISIBLE:NO
 
 # Class Name		Hit Dice	Type			Max Level	Ex Class			Source Page		Combat bonus															Modify VAR													Bonus
-CLASS:Holy Scourge	HD:6		TYPE:PC.Prestige	MAXLEVEL:5	EXCLASS:Ex Holy Scourge	SOURCEPAGE:p.64	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Holy Scourge	HD:6		TYPE:PC.Prestige	MAXLEVEL:5	EXCLASS:Ex Holy Scourge	SOURCEPAGE:p.64	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required AL		Required Skill				Required Spell School		Req. Spell Type		Required Text
 CLASS:Holy Scourge	PREALIGN:LG,NG,CG	PRESKILL:1,Knowledge (Religion)=2	PRESPELLSCHOOL:3,Evocation=1	PRESPELLTYPE:1,Arcane=3	PRETEXT:Alignment: Any good. Skills: Knowledge (religion) 2 ranks. Spellcasting: Able to cast three evocation spells, able to cast 3rd-level arcane spells.
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -171,7 +171,7 @@ CLASS:Master Specialist	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher
 #Nightmare spinner
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus															Modify VAR													Bonus
-CLASS:Nightmare Spinner	HD:4		TYPE:PC.Prestige	ABB:NmS		MAXLEVEL:5	SOURCEPAGE:p.74	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Nightmare Spinner	HD:4		TYPE:PC.Prestige	ABB:NmS		MAXLEVEL:5	SOURCEPAGE:p.74	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required Skill						Required Spell Descriptor								Required Sub-school			Req. Spell Type
 CLASS:Nightmare Spinner	PRESKILL:3,Bluff=4,Intimidate=10,Sense Motive=4	PRESPELLDESCRIPTOR:1,Fear=0	PRESPELLDESCRIPTOR:1,Mind-Affecting=0	PRESPELLSCHOOLSUB:1,Illusion=0	PRESPELLTYPE:1,Arcane=3
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -189,7 +189,7 @@ CLASS:Nightmare Spinner	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Decipher Scri
 5	ADD:SPELLCASTER|ANY
 
 # Class Name		Hit Dice	Type			Source Page		Combat bonus															Modify VAR													Bonus
-CLASS:Ultimate Magus	HD:4		TYPE:PC.Prestige	SOURCEPAGE:p.77	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Ultimate Magus	HD:4		TYPE:PC.Prestige	SOURCEPAGE:p.77	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required Class											Required Feat			Required Skill						Req. Spellbook	Required Casting Type	Req. Spell Type		Required Text
 CLASS:Ultimate Magus	PRECLASS:2,TYPE=NonSpontaneousArcaneCaster=2,TYPE=SpontaneousArcaneCaster=1	PREFEAT:1,TYPE=Metamagic	PRESKILL:2,Knowledge (Arcana)=4,Spellcraft=8	PRESPELLBOOK:YES	PRESPELLCAST:MEMORIZE=N	PRESPELLTYPE:1,Arcane=2	PRETEXT:Skills: Knowledge (arcana) 4 ranks, Spellcraft 8 ranks. Feats: Any metamagic feat. Spellcasting: Able to spontaneously cast 1st-level arcane spells, able to prepare and cast 2nd-level arcane spells from a spellbook.
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -253,7 +253,7 @@ CLASS:Unseen Seer	STARTSKILLPTS:6	CSKILL:Bluff|Concentration|Decipher Script|Dip
 11	PREPCLEVEL:MIN=20
 
 # Class Name	Hit Dice	Type			Source Page		Combat bonus															Modify VAR													Bonus
-CLASS:Wild Soul	HD:4		TYPE:PC.Prestige	SOURCEPAGE:p.84	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Wild Soul	HD:4		TYPE:PC.Prestige	SOURCEPAGE:p.84	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Restricted AL		Required Skill							Req. Spell Type		Required Text
 CLASS:Wild Soul	!PREALIGN:LG,LN,LE	PRESKILL:2,Knowledge (Arcana)=8,Knowledge (Nature)=4	PRESPELLTYPE:1,Arcane=2	PRETEXT:Alignment: Any nonlawful. Skills: Knowledge (arcana) 8 ranks, Knowledge (nature) 4 ranks. Special: Must be able to cast 2nd-level arcane spells, must make peaceful contact with a fey creature and peacefully spend at least a day among fey.
 # Class Name	Skill Pts/Lvl	Class Skill

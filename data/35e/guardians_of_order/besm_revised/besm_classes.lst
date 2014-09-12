@@ -1,17 +1,17 @@
 
 
-CLASS:Adventurer	SOURCEPAGE:p.16	HD:4		BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	TYPE:PC		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1		DEFINE:AdventurerLVL|0	BONUS:VAR|AdventurerLVL|CL	DEFINE:BonusCharacterPoints|0	BONUS:VAR|BonusCharacterPoints|5*AdventurerLVL
+CLASS:Adventurer	SOURCEPAGE:p.16	HD:4		BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	TYPE:PC		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1		DEFINE:AdventurerLVL|0	BONUS:VAR|AdventurerLVL|CL	DEFINE:BonusCharacterPoints|0	BONUS:VAR|BonusCharacterPoints|5*AdventurerLVL
 CLASS:Adventurer	CSKILL:TYPE=Non-Combat	STARTSKILLPTS:4
 
 
-CLASS:Dynamic Sorcerer	SOURCEPAGE:p.17	HD:4		BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	TYPE:PC		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1		DEFINE:DynamicSorcererLVL|0	BONUS:VAR|DynamicSorcererLVL|CL	DEFINE:BonusCharacterPoints|0	BONUS:VAR|BonusCharacterPoints|5*DynamicSorcererLVL
+CLASS:Dynamic Sorcerer	SOURCEPAGE:p.17	HD:4		BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	TYPE:PC		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1		DEFINE:DynamicSorcererLVL|0	BONUS:VAR|DynamicSorcererLVL|CL	DEFINE:BonusCharacterPoints|0	BONUS:VAR|BonusCharacterPoints|5*DynamicSorcererLVL
 CLASS:Dynamic Sorcerer	STARTSKILLPTS:4	CSKILL:Concentration|Diplomacy|Knowledge (Arcane)|Knowledge (Foreign Culture)|Knowledge (Occult)|Knowledge (Religion)|Knowledge (Streetwise)|TYPE=Profession|Research|Sleight of Hand|Speak Languages|Spot|Special Ranged Attack
 1	BONUS:ABILITYPOOL|Dynamic Sorcerer Stat|1
 #Choose - Intelligence, Wisdom, or Charisma
 1	BONUS:VAR|DynamicSorcery|(DynamicSorcererLVL+1)/2
 12	BONUS:VAR|EnergyBonus|1+(CL>17)
 
-CLASS:Giant Robot	SOURCEPAGE:p.18	HD:10	TYPE:ConstructOnly.PC	PRETEMPLATE:1,Construct		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1				BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	TYPE:PC	
+CLASS:Giant Robot	SOURCEPAGE:p.18	HD:10	TYPE:ConstructOnly.PC	PRETEMPLATE:1,Construct		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1				BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	TYPE:PC	
 CLASS:Giant Robot	STARTSKILLPTS:4	CSKILL:Computer Use|Drive|Knowledge (Electronics)|Knowledge (Mechanics)|Knowledge (Military Sciences)|Knowledge (Police Sciences)|Powerlifting|Repair|Speak Languages|Heavy Weapons|Melee Attack|Special Ranged Attack|Unarmed Defence
 1	BONUS:VAR|Features|1
 7	BONUS:VAR|Features|1
@@ -36,7 +36,7 @@ CLASS:Giant Robot	STARTSKILLPTS:4	CSKILL:Computer Use|Drive|Knowledge (Electroni
 14	BONUS:VAR|MassiveDamage|1
 10	BONUS:VAR|SizeChange|1
 
-CLASS:Gun Bunny	SOURCEPAGE:p.19	HD:8	TYPE:PC		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE		BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	
+CLASS:Gun Bunny	SOURCEPAGE:p.19	HD:8	TYPE:PC		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0		BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	
 CLASS:Gun Bunny	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|Demolitions|Gamble|Gather Information|Intimidate|Investigate|Jump|Knowledge (Police Sciences)|Listen|Powerlifting|Read Lips|Seduction|Sense Motive|Speak Languages|Sports|Spot|Archery|Gun Combat|Ranged Defence
 1	ABILITY:Special Ability|AUTOMATIC|Improved Initiative Feat
 2	Divine Relationship +1
@@ -59,7 +59,7 @@ CLASS:Gun Bunny	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|Demolitions|Gamble|Ga
 19	Defensive Combat Mastery +1
 20	+2 Character Points, Improved Initiative Feat
 
-CLASS:Hot Rod	HD:8	SOURCEPAGE:p.20		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1					BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Hot Rod	HD:8	SOURCEPAGE:p.20		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1					BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 CLASS:Hot Rod	4	CSKILL:Bluff|Disable Device|Drive|Gamble|Investigate|Knowledge (Area)|Knowledge (Mechanics)|Knowledge (Police Sciences)|Navigate|Pilot|Read Lips|Repair|Ride|Seduction|Sense Motive|Speak Languages|Spot|Gun Combat|Melee Attack|Unarmed Attack|Unarmed Defence
 1	Personal Gear (Car) +1
 2	Mechanical Genius +1

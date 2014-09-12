@@ -4,7 +4,7 @@ SOURCELONG:Magic of Incarnum	SOURCESHORT:MoI	SOURCEDATE:2005-09
 # Date Entered: 2014-01
 
 # Class Name	Hit Dice	Type			Ex Class			Source Page		Define													Combat bonus															Modify VAR																												Bonus
-CLASS:Incarnate	HD:6		TYPE:Base.PC	EXCLASS:Ex Incarnate	SOURCEPAGE:p.20	DEFINE:IncarnateLVL|0	DEFINE:IncarnateMeldshaperLVL|0	DEFINE:IncarnumUser|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|IncarnateLVL|CL	BONUS:VAR|IncarnumUser|1	BONUS:VAR|MeldshaperLVL|CL	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Incarnate	HD:6		TYPE:Base.PC	EXCLASS:Ex Incarnate	SOURCEPAGE:p.20	DEFINE:IncarnateLVL|0	DEFINE:IncarnateMeldshaperLVL|0	DEFINE:IncarnumUser|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|IncarnateLVL|CL	BONUS:VAR|IncarnumUser|1	BONUS:VAR|MeldshaperLVL|CL	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Required AL
 CLASS:Incarnate	PREALIGN:NG,NE,LN,CN
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -36,13 +36,13 @@ CLASS:Incarnate	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Knowledge (arcan
 5	BONUS:VAR|RapidMeldshapingTimes|CL+1/6
 
 # Class Name		Hit Dice	Type			Source Page		Visible	Define									Combat bonus															Modify VAR																										Bonus
-CLASS:Ex Incarnate	HD:6		TYPE:Base.PC	SOURCEPAGE:p.22	VISIBLE:NO	DEFINE:IncarnateLVL|0	DEFINE:IncarnateMeldshaperLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|IncarnateLVL|CL	BONUS:VAR|IncarnateMeldshaperLVL|IncarnateLVL	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Ex Incarnate	HD:6		TYPE:Base.PC	SOURCEPAGE:p.22	VISIBLE:NO	DEFINE:IncarnateLVL|0	DEFINE:IncarnateMeldshaperLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|IncarnateLVL|CL	BONUS:VAR|IncarnateMeldshaperLVL|IncarnateLVL	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Ex Incarnate	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Knowledge (arcana)|Knowledge (Religion)|Knowledge (the planes)|TYPE=Profession|Spellcraft
 1	ABILITY:Incarnate Class Feature|AUTOMATIC|Incarnate ~ Weapon and Armor Proficiency
 
 # Class Name	Hit Dice	Type			Base class as subclass?	Source Page		Define													Combat bonus										Modify VAR																Bonus
-CLASS:Soulborn	HD:10		TYPE:Base.PC	ALLOWBASECLASS:NO		SOURCEPAGE:p.25	DEFINE:SoulbornLVL|0	DEFINE:SoulbornMeldshaperLVL|0	DEFINE:IncarnumUser|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:VAR|SoulbornLVL|CL	BONUS:VAR|IncarnumUser|1	BONUS:VAR|SoulbornMeldshaperLVL|CL/2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Soulborn	HD:10		TYPE:Base.PC	ALLOWBASECLASS:NO		SOURCEPAGE:p.25	DEFINE:SoulbornLVL|0	DEFINE:SoulbornMeldshaperLVL|0	DEFINE:IncarnumUser|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|SoulbornLVL|CL	BONUS:VAR|IncarnumUser|1	BONUS:VAR|SoulbornMeldshaperLVL|CL/2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required AL
 CLASS:Soulborn	PREALIGN:LG,CG,LE,CE
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -68,7 +68,7 @@ SUBCLASS:Chaotic Evil Soulborn	COST:0	PREALIGN:CE	CSKILL:Intimidate
 6	BONUS:VAR|EssentiaPool|(CL-4)/2+(CL>16)+(CL>18)	DEFINE:EssentiaPool|0
 
 # Class Name	Hit Dice	Type			Source Page		Visible	Define									Combat bonus										Modify VAR											Bonus
-CLASS:Ex Soulborn	HD:10		TYPE:Base.PC	SOURCEPAGE:p.27	VISIBLE:NO	DEFINE:SoulbornLVL|0	DEFINE:SoulbornMeldshaperLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:VAR|SoulbornLVL|CL	BONUS:VAR|SoulbornMeldshaperLVL|CL/2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Ex Soulborn	HD:10		TYPE:Base.PC	SOURCEPAGE:p.27	VISIBLE:NO	DEFINE:SoulbornLVL|0	DEFINE:SoulbornMeldshaperLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|SoulbornLVL|CL	BONUS:VAR|SoulbornMeldshaperLVL|CL/2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Ex Soulborn	STARTSKILLPTS:2	CSKILL:Climb|Concentration|TYPE=Craft|Handle Animal|Heal|Jump|Knowledge (arcana)|Knowledge (the planes)|TYPE=Profession|Ride|Spellcraft|Swim
 1	ABILITY:Soulborn Class Feature|AUTOMATIC|Soulborn ~ Weapon and Armor Proficiency
@@ -76,7 +76,7 @@ CLASS:Ex Soulborn	STARTSKILLPTS:2	CSKILL:Climb|Concentration|TYPE=Craft|Handle A
 19	ABILITY:Soulborn Class Feature|AUTOMATIC|Soulborn ~ Timeless Body
 
 # Class Name	Hit Dice	Type			Source Page		Define													Combat bonus															Modify VAR																														Bonus
-CLASS:Totemist	HD:8		TYPE:Base.PC	SOURCEPAGE:p.29	DEFINE:TotemistLVL|0	DEFINE:TotemistMeldshaperLVL|0	DEFINE:IncarnumUser|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|TotemistLVL|CL	BONUS:VAR|IncarnumUser|1	BONUS:VAR|TotemistMeldshaperLVL|CL	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Totemist	HD:8		TYPE:Base.PC	SOURCEPAGE:p.29	DEFINE:TotemistLVL|0	DEFINE:TotemistMeldshaperLVL|0	DEFINE:IncarnumUser|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|TotemistLVL|CL	BONUS:VAR|IncarnumUser|1	BONUS:VAR|TotemistMeldshaperLVL|CL	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Totemist	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Handle Animal|Knowledge (arcana)|Knowledge (Nature)|Knowledge (the planes)|Listen|TYPE=Profession|Ride|Spellcraft|Spot|Survival|Swim
 1	ABILITY:Totemist Class Feature|AUTOMATIC|Totemist ~ Meldshaping|Totemist ~ Weapon and Armor Proficiency
@@ -93,7 +93,7 @@ CLASS:Totemist	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Handle Animal|Kno
 #Incandescent Champion: This good-aligned warrior wields pure incarnum to protect the innocent from the depredations of tyranny.
 
 # Class Name			Hit Dice	Type					Source Page		Visible	Combat bonus															Modify VAR																			Bonus
-CLASS:Incandescent Champion	HD:10		TYPE:PC.Prestige.Incarnum	SOURCEPAGE:p.115	VISIBLE:NO	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|EssentiaPool|CL	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Incandescent Champion	HD:10		TYPE:PC.Prestige.Incarnum	SOURCEPAGE:p.115	VISIBLE:NO	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|EssentiaPool|CL	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name			Required AL		Required Skill			Required Text															Var. Min. Value			PRETOTALAB
 CLASS:Incandescent Champion	PREALIGN:LG,NG,CG	PRESKILL:1,Concentration=4	PRETEXT:Alignment: Any good. Base Attack Bonus: +6. Skills: Concentration 4 ranks. Essentia Pool: 1.	PREVARGTEQ:EssentiaPool,1	PRETOTALAB:6
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -115,7 +115,7 @@ CLASS:Incandescent Champion	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Heal
 #Incarnum Blade: This fierce warrior augments his melee weapon with incarnum to gain extra combat benefits.
 
 # Class Name		Hit Dice	Type					Source Page		Visible	Combat bonus										Bonus
-CLASS:Incarnum Blade	HD:10		TYPE:PC.Prestige.Incarnum	SOURCEPAGE:p.121	VISIBLE:NO	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Incarnum Blade	HD:10		TYPE:PC.Prestige.Incarnum	SOURCEPAGE:p.121	VISIBLE:NO	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Restricted AL	Required Skill			Required Text														PRETOTALAB
 CLASS:Incarnum Blade	!PREALIGN:TN	PRESKILL:1,Concentration=2	PRETEXT:Alignment: Any except neutral. Base Attack Bonus: +5. Skills: Concentration 2 ranks.	PRETOTALAB:5
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -148,7 +148,7 @@ CLASS:Ironsoul Forgemaster	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplo
 #Necrocarnate: This black-hearted meldshaper draws his power from the life energy of others and creates horrific undead from the corpses of his enemies.
 
 # Class Name		Hit Dice	Type					Source Page		Combat bonus															Modify VAR													Bonus
-CLASS:Necrocarnate	HD:6		TYPE:PC.Prestige.Incarnum	SOURCEPAGE:p.132	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Necrocarnate	HD:6		TYPE:PC.Prestige.Incarnum	SOURCEPAGE:p.132	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Required AL		Required Feat			Required Skill										Required Text
 CLASS:Necrocarnate	PREALIGN:LE,NE,CE	PREFEAT:1,Necrocarnum Acolyte	PRESKILL:3,Knowledge (Arcana)=5,Knowledge (Religion)=5,Spellcraft=10	PRETEXT:Alignment: Any evil. Skills: Knowledge (arcana) 5 ranks, Knowledge (religion) 5 ranks, Spellcraft 10 ranks. Feat: Necrocarnum Acolyte. Meldshaping: Ability to shape soulmelds, ability to bind soulmelds to the crown, feet, and hands chakras.
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -169,7 +169,7 @@ CLASS:Necrocarnate	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Intimid
 #Sapphire Hierarch: A member of an order devoted to the mysterious Sapphire Eidolon, this character is a stalwart servant of law who fights chaos wherever it reigns.
 
 # Class Name		Hit Dice	Type					Source Page		Combat bonus															Modify VAR													Bonus
-CLASS:Sapphire Hierarch	HD:6		TYPE:PC.Prestige.Incarnum	SOURCEPAGE:p.136	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Sapphire Hierarch	HD:6		TYPE:PC.Prestige.Incarnum	SOURCEPAGE:p.136	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Required AL		Required Domain	Required Skill								Req. Spell Type		Required Text																																								Var. Min. Value
 CLASS:Sapphire Hierarch	PREALIGN:LG,LN,LE	PREDOMAIN:1,Law	PRESKILL:2,Knowledge (Arcana)=4,Knowledge (Religion)=4	PRESPELLTYPE:1,Divine=2	PRETEXT:Alignment: Lawful. Meldshaping: Ability to shape three soulmelds. Spellcasting: Ability to cast 2nd-level divine spells. Skills: Knowledge (arcana) 4 ranks, Knowledge (religion) 4 ranks. Essentia Pool: 3. Special: Access to the Law domain.	PREVARGTEQ:EssentiaPool,3
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -189,7 +189,7 @@ CLASS:Sapphire Hierarch	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomac
 #Soulcaster: Incarnum-suffused magic is the specialty of this arcane spellcaster.
 
 # Class Name	Hit Dice	Type					Source Page		Combat bonus															Modify VAR													Bonus
-CLASS:Soulcaster	HD:4		TYPE:PC.Prestige.Incarnum	SOURCEPAGE:p.142	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Soulcaster	HD:4		TYPE:PC.Prestige.Incarnum	SOURCEPAGE:p.142	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required Feat				Required Skill				Req. Spell Type		Required Text
 CLASS:Soulcaster	PREFEAT:1,Incarnum Spellshaping	PRESKILL:1,Knowledge (Arcana)=8	PRESPELLTYPE:1,Arcane=2	PRETEXT:Skills: Knowledge (arcana) 8 ranks. Feats: Incarnum Spellshaping. Spellcasting: Ability to cast 2nd-level arcane spells. Meldshaping: Ability to shape three soulmelds; ability to bind a soulmeld to a chakra.
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -206,7 +206,7 @@ CLASS:Soulcaster	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Knowledge (arca
 #Spinemeld Warrior: This noble, fighting skarn can use his arm spines to devastating effect.
 
 # Class Name		Hit Dice	Source Page		Combat bonus										Bonus
-CLASS:Spinemeld Warrior	HD:10		SOURCEPAGE:p.147	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Spinemeld Warrior	HD:10		SOURCEPAGE:p.147	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Required AL		Required Race	Required Text													Var. Min. Value			PRETOTALAB
 CLASS:Spinemeld Warrior	PREALIGN:LG,LN,LE	PRERACE:1,Skarn%	PRETEXT:Race: Skarn. Alignment: Any lawful. Base Attack Bonus: +5. Essentia Pool: 1.	PREVARGTEQ:EssentiaPool,1	PRETOTALAB:5
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -226,7 +226,7 @@ CLASS:Spinemeld Warrior	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Diplomacy|Handle
 #Totem Rager
 
 # Class Name	Hit Dice	Type			Source Page		Combat bonus															Modify VAR														Bonus
-CLASS:Totem Rager	HD:10		TYPE:PC.Prestige	SOURCEPAGE:p.153	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|Base.Fortitude,Base.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|Base.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Totem Rager	HD:10		TYPE:PC.Prestige	SOURCEPAGE:p.153	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|Base.Fortitude,Base.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|Base.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Required Ability									Required Feat		Required Skill				Required Text																										PRETOTALAB
 CLASS:Totem Rager	PREABILITY:2,CATEGORY=Special Ability,TYPE.Rage,TYPE.Totem Chakra	PREFEAT:1,Cobalt Rage	PRESKILL:2,Intimidate=5,Survival=9	PRETEXT:Base Attack Bonus: +5. Skills: Intimidate 5 ranks, Survival 9 ranks. Feat: Cobalt Rage. Special: Ability to bind soulmelds to totem chakra, rage class feature.	PRETOTALAB:5
 # Class Name	Skill Pts/Lvl	Class Skill
