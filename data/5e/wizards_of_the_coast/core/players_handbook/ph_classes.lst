@@ -1,0 +1,193 @@
+# CVS $Revision: $ $Author: $ -- Thu Aug  7 12:47:32 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+
+CLASS:Barbarian	DEFINE:BarbarianLVL|0	BONUS:VAR|BarbarianLVL|CL
+# Class Name	Hit Dice	Type			Max Level	Combat bonus
+CLASS:Barbarian	HD:12		TYPE:PC.BASE	MAXLEVEL:20	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial|TYPE=ShieldProf
+# Class Name	Multiple Requirements
+#CLASS:Barbarian	PREMULT:1,[!PRECLASS:1,TYPE.Base=1],[PRECLASS:1,Barbarian=1]
+# Class Name	Skill Pts/Lvl
+CLASS:Barbarian	STARTSKILLPTS:0
+###Block: Abilities
+1	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Rage|Barbarian ~ Unarmored Defense
+2	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Reckless Attack|Barbarian ~ Danger Sense
+3	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Primal Path
+4	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Ability Score Improvement
+5	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Extra Attack|Barbarian ~ Fast Movement
+7	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Feral Instinct
+9	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Brutal Critical
+11	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Relentless Rage
+15	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Persistent Rage
+18	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Indomitable Might
+20	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Primal Champion
+###Block
+4	BONUS:ABILITYPOOL|Character Advancement Selection|1
+8	BONUS:ABILITYPOOL|Character Advancement Selection|1
+12	BONUS:ABILITYPOOL|Character Advancement Selection|1
+16	BONUS:ABILITYPOOL|Character Advancement Selection|1
+19	BONUS:ABILITYPOOL|Character Advancement Selection|1
+
+
+
+CLASS:Bard
+#Cleric*
+CLASS:Druid
+#Fighter*
+CLASS:Monk
+CLASS:Paladin
+CLASS:Ranger
+#Rogue*
+CLASS:Sorcerer
+CLASS:Warlock
+#Wizard*
+
+
+
+
+
+
+
+
+
+# Basic Classes
+
+# Class Name	Hit Dice	Type			Ability														Bonus to Ability Pool
+CLASS:Cleric	HD:8		TYPE:PC.Base	ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfMedium|TYPE=ShieldProf
+# Class Name	Spell Stat		Caster level
+CLASS:Cleric	SPELLSTAT:WIS	SPELLTYPE:Spell	BONUS:CASTERLEVEL|Cleric|CL
+###Block
+1	BONUS:ABILITYPOOL|Cleric Cantrip|Cleric_Cantrips
+4	BONUS:ABILITYPOOL|Character Advancement Selection|1
+8	BONUS:ABILITYPOOL|Character Advancement Selection|1
+12	BONUS:ABILITYPOOL|Character Advancement Selection|1
+16	BONUS:ABILITYPOOL|Character Advancement Selection|1
+19	BONUS:ABILITYPOOL|Character Advancement Selection|1
+###Block
+1	CAST:0,2
+2	CAST:0,3
+3	CAST:0,4,2
+4	CAST:0,4,3
+5	CAST:0,4,3,2
+6	CAST:0,4,3,3
+7	CAST:0,4,3,3,1
+8	CAST:0,4,3,3,2
+9	CAST:0,4,3,3,3,1
+10	CAST:0,4,3,3,3,2
+11	CAST:0,4,3,3,3,2,1
+12	CAST:0,4,3,3,3,2,1
+13	CAST:0,4,3,3,3,2,1,1
+14	CAST:0,4,3,3,3,2,1,1
+15	CAST:0,4,3,3,3,2,1,1,1
+16	CAST:0,4,3,3,3,2,1,1,1
+17	CAST:0,4,3,3,3,2,1,1,1,1
+18	CAST:0,4,3,3,3,3,1,1,1,1
+19	CAST:0,4,3,3,3,3,2,1,1,1
+20	CAST:0,4,3,3,3,3,2,2,1,1
+###Block
+1								DEFINE:Cleric_Cantrips|0
+1	BONUS:VAR|Cleric_Cantrips|3+(CL>3)+(CL>9)
+5	BONUS:VAR|DestroyUndeadCR|(CL-5)/3
+###Block
+1	ABILITY:Special Ability|AUTOMATIC|Cleric ~ Cantrips
+1	ABILITY:Special Ability|AUTOMATIC|Cleric ~ Spellcasting Ability
+1	ABILITY:Special Ability|AUTOMATIC|Cleric ~ Divine Domain
+2	ABILITY:Special Ability|AUTOMATIC|Cleric ~ Channel Divinity
+5	ABILITY:Special Ability|AUTOMATIC|Cleric ~ Destroy Undead
+10	ABILITY:Special Ability|AUTOMATIC|Cleric ~ Divine Intervention
+
+
+
+# Class Name	Hit Dice	Type			Ability																				Define			Bonus to Ability Pool			Modify VAR
+CLASS:Fighter	HD:10		TYPE:PC.Base	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial|TYPE=ArmorProfMedium|TYPE=ShieldProf	BONUS:VAR|FighterLVL|CL
+###Block
+1	ABILITY:Special Ability|AUTOMATIC|Fighter ~ Fighting Style
+1	ABILITY:Special Ability|AUTOMATIC|Fighter ~ Second Wind
+2	ABILITY:Special Ability|AUTOMATIC|Fighter ~ Action Surge
+3	ABILITY:Special Ability|AUTOMATIC|Fighter ~ Martial Archetype
+4	ABILITY:Special Ability|AUTOMATIC|Fighter ~ Ability Score Improvement
+5	ABILITY:Special Ability|AUTOMATIC|Fighter ~ Extra Attack
+9	ABILITY:Special Ability|AUTOMATIC|Fighter ~ Indomitable
+###Block
+4	BONUS:ABILITYPOOL|Character Advancement Selection|1
+8	BONUS:ABILITYPOOL|Character Advancement Selection|1
+12	BONUS:ABILITYPOOL|Character Advancement Selection|1
+16	BONUS:ABILITYPOOL|Character Advancement Selection|1
+19	BONUS:ABILITYPOOL|Character Advancement Selection|1
+
+
+# Class Name
+CLASS:Rogue	HD:8	TYPE:PC.Base		ABILITY:Internal|AUTOMATIC|Thieves' Tools|TYPE=ArmorProfLight	BONUS:ABILITYPOOL|Rogue Skill|1	DEFINE:RogueLVL|0	BONUS:VAR|RogueLVL|CL
+CLASS:Rogue		AUTO:WEAPONPROF|Crossbow (Hand)|Longsword|Rapier|Shortsword
+###Block
+4	BONUS:ABILITYPOOL|Character Advancement Selection|1
+8	BONUS:ABILITYPOOL|Character Advancement Selection|1
+10	BONUS:ABILITYPOOL|Character Advancement Selection|1
+12	BONUS:ABILITYPOOL|Character Advancement Selection|1
+16	BONUS:ABILITYPOOL|Character Advancement Selection|1
+19	BONUS:ABILITYPOOL|Character Advancement Selection|1
+###Block
+1	ABILITY:Special Ability|AUTOMATIC|Rogue ~ Expertise		
+1	ABILITY:Special Ability|AUTOMATIC|Rogue ~ Sneak Attack	
+1	ABILITY:Special Ability|AUTOMATIC|Rogue ~ Thieves' Cant	
+2	ABILITY:Special Ability|AUTOMATIC|Rogue ~ Cunning Action	
+3	ABILITY:Special Ability|AUTOMATIC|Rogue ~ Roguish Archetype	
+5	ABILITY:Special Ability|AUTOMATIC|Rogue ~ Uncanny Dodge	
+7	ABILITY:Special Ability|AUTOMATIC|Rogue ~ Evasion		
+11	ABILITY:Special Ability|AUTOMATIC|Rogue ~ Reliable Talent	
+14	ABILITY:Special Ability|AUTOMATIC|Rogue ~ Blindsense		
+15	ABILITY:Special Ability|AUTOMATIC|Rogue ~ Slippery Mind	
+18	ABILITY:Special Ability|AUTOMATIC|Rogue ~ Elusive		
+20	ABILITY:Special Ability|AUTOMATIC|Rogue ~ Stroke of Luck	
+
+###Block
+#Tools: Thieves' tools
+
+# Class Name
+CLASS:Wizard		HD:6	TYPE:PC.Base		DEFINE:WizardLVL|0	BONUS:ABILITYPOOL|Wizard Skill|2	BONUS:VAR|WizardLVL|CL
+CLASS:Wizard	
+CLASS:Wizard	SPELLSTAT:INT	SPELLTYPE:Spell	BONUS:CASTERLEVEL|Wizard|CL
+###Block
+4	BONUS:ABILITYPOOL|Character Advancement Selection|1
+8	BONUS:ABILITYPOOL|Character Advancement Selection|1
+12	BONUS:ABILITYPOOL|Character Advancement Selection|1
+16	BONUS:ABILITYPOOL|Character Advancement Selection|1
+19	BONUS:ABILITYPOOL|Character Advancement Selection|1
+###Block
+1	BONUS:ABILITYPOOL|Wizard Cantrip|Wizard_Cantrips
+###Block
+1								DEFINE:Wizard_Cantrips|0
+1	BONUS:VAR|Wizard_Cantrips|3+(CL>3)+(CL>9)
+###Block
+1	ABILITY:Special Ability|AUTOMATIC|Wizard ~ Spellcasting					
+#	ABILITY:Special Ability|AUTOMATIC|Wizard ~ Cantrips						
+#	ABILITY:Special Ability|AUTOMATIC|Wizard ~ Spellbook						
+#	ABILITY:Special Ability|AUTOMATIC|Wizard ~ Preparing and Casting Spells			
+#	ABILITY:Special Ability|AUTOMATIC|Wizard ~ Spellcasting Ability				
+#	ABILITY:Special Ability|AUTOMATIC|Wizard ~ Ritual Casting					
+#	ABILITY:Special Ability|AUTOMATIC|Wizard ~ Spellcasting Focus				
+#	ABILITY:Special Ability|AUTOMATIC|Wizard ~ Learning Spells of 1st Level and Higher	
+1	ABILITY:Special Ability|AUTOMATIC|Wizard ~ Arcane Recovery					
+2	ABILITY:Special Ability|AUTOMATIC|Wizard ~ Arcane Tradition					
+4	ABILITY:Special Ability|AUTOMATIC|Wizard ~ Ability Score Improvement			
+18	ABILITY:Special Ability|AUTOMATIC|Wizard ~ Spell Mastery					
+20	ABILITY:Special Ability|AUTOMATIC|Wizard ~ Signature Spells					
+###Block
+1	CAST:0,2
+2	CAST:0,3
+3	CAST:0,4,2
+4	CAST:0,4,3
+5	CAST:0,4,3,2
+6	CAST:0,4,3,3
+7	CAST:0,4,3,3,1
+8	CAST:0,4,3,3,2
+9	CAST:0,4,3,3,3,1
+10	CAST:0,4,3,3,3,2
+11	CAST:0,4,3,3,3,2,1
+12	CAST:0,4,3,3,3,2,1
+13	CAST:0,4,3,3,3,2,1,1
+14	CAST:0,4,3,3,3,2,1,1
+15	CAST:0,4,3,3,3,2,1,1,1
+16	CAST:0,4,3,3,3,2,1,1,1
+17	CAST:0,4,3,3,3,2,1,1,1,1
+18	CAST:0,4,3,3,3,3,1,1,1,1
+19	CAST:0,4,3,3,3,3,2,1,1,1
+20	CAST:0,4,3,3,3,3,2,2,1,1

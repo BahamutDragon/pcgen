@@ -1,43 +1,43 @@
 
-Default	CATEGORY:Internal	DEFINE:Proficiency_Bonus|0	BONUS:VAR|Proficiency_Bonus|(TL+7)/4	DEFINE:BlindsightRange|0	DEFINE:DarkvisionRange|0	DEFINE:TruesightRange|0
-
-Blindsight	CATEGORY:Special Ability			DESC:A creature with blindsight can perceive its surroundings without relying on sight, within a specific radius. Creatures without eyes, such as oozes, and creatures with echolocation or heightened senses, such as bats and true dragons, have this sense.
-Darkvision	CATEGORY:Special Ability			DESC:Many creatures in the worlds of D&D, especially those that dwell underground, have darkvision. Within a specified range, a creature with darkvision can see in darkness as if the darkness were dim light, so areas of darkness are only lightly obscured as far as that creature is concerned. However, the creature can't discern color in darkness, only shades of gray.
-Truesight	CATEGORY:Special Ability			DESC:A creature with truesight can, out to a specific range, see in normal and magical darkness, see invisible creatures and objects, automatically detect visual illusions and succeed on saving throws against them, and perceive the original form of a shapechanger or a creature that is transformed by magic. Furthermore, the creature can see into the Ethereal Plane.
+Default	CATEGORY:Internal	DEFINE:Proficiency_Bonus|0	BONUS:VAR|Proficiency_Bonus|(TL+7)/4	DEFINE:BlindsightRange|0	DEFINE:DarkvisionRange|0	DEFINE:TruesightRange|0	ABILITY:Special Ability|AUTOMATIC|Blindsight|PREVARGTEQ:BlindsightRange,1		ABILITY:Special Ability|AUTOMATIC|Darkvision|PREVARGTEQ:DarkvisionRange,1		ABILITY:Special Ability|AUTOMATIC|Truesight|PREVARGTEQ:TruesightRange,1	ABILITY:Internal|AUTOMATIC|First Level Proficiencies|PREPCLEVEL:MIN=1
+#
+Blindsight	CATEGORY:Special Ability	VISION:Blindsight (BlindsightRange')		DESC:A creature with blindsight can perceive its surroundings without relying on sight, within a specific radius. Creatures without eyes, such as oozes, and creatures with echolocation or heightened senses, such as bats and true dragons, have this sense.
+Darkvision	CATEGORY:Special Ability	VISION:Darkvision (DarkvisionRange')		DESC:Many creatures in the worlds of D&D, especially those that dwell underground, have darkvision. Within a specified range, a creature with darkvision can see in darkness as if the darkness were dim light, so areas of darkness are only lightly obscured as far as that creature is concerned. However, the creature can't discern color in darkness, only shades of gray.
+Truesight	CATEGORY:Special Ability	VISION:Truesight (TruesightRange')			DESC:A creature with truesight can, out to a specific range, see in normal and magical darkness, see invisible creatures and objects, automatically detect visual illusions and succeed on saving throws against them, and perceive the original form of a shapechanger or a creature that is transformed by magic. Furthermore, the creature can see into the Ethereal Plane.
 
 # Damage Types
-# Acid			. The corrosive spray of a black dragon's breath and the dissolving enzymes secreted by a black pudding deal acid damage.
-# Bludgeoning		. Blunt force attacks—hammers, falling, constriction, and the like—deal bludgeoning damage.
-# Cold			. The infernal chill radiating from an ice devil's spear and the frigid blast of a white dragon's breath deal cold damage.
+# Acid		. The corrosive spray of a black dragon's breath and the dissolving enzymes secreted by a black pudding deal acid damage.
+# Bludgeoning	. Blunt force attacks—hammers, falling, constriction, and the like—deal bludgeoning damage.
+# Cold		. The infernal chill radiating from an ice devil's spear and the frigid blast of a white dragon's breath deal cold damage.
 # Fire		. Red dragons breathe fire, and many spells conjure flames to deal fire damage.
 # Force		. Force is pure magical energy focused into a damaging form. Most effects that deal force damage are spells, including magic missile and spiritual weapon.
-# Lightning	. A lightning bolt spell and a blue dragon's breath deal lightning damage.
-# Necrotic	. Necrotic damage, dealt by certain undead and some spells, withers matter and even the soul.
-# Piercing	. Puncturing and impaling attacks, including spears and monsters' bites, deal piercing damage.
-# Poison	. Venomous stings and the toxic gas of a green dragon's breath deal poison damage.
-# Psychic	. Mental abilities such as a mind flayer's psionic blast deal psychic damage.
-# Radiant	. Radiant damage, dealt by a cleric's flame strike spell or an angel's smiting weapon, sears the flesh like fire and overloads the spirit with power.
-# Slashing	. Swords, axes, and monsters' claws deal slashing damage.
-# Thunder	. A concussive burst of sound, such as the effect of the thunderwave spell, deals thunder damage.
+# Lightning		. A lightning bolt spell and a blue dragon's breath deal lightning damage.
+# Necrotic		. Necrotic damage, dealt by certain undead and some spells, withers matter and even the soul.
+# Piercing		. Puncturing and impaling attacks, including spears and monsters' bites, deal piercing damage.
+# Poison		. Venomous stings and the toxic gas of a green dragon's breath deal poison damage.
+# Psychic		. Mental abilities such as a mind flayer's psionic blast deal psychic damage.
+# Radiant		. Radiant damage, dealt by a cleric's flame strike spell or an angel's smiting weapon, sears the flesh like fire and overloads the spirit with power.
+# Slashing		. Swords, axes, and monsters' claws deal slashing damage.
+# Thunder		. A concussive burst of sound, such as the effect of the thunderwave spell, deals thunder damage.
 
 Race Traits ~ Dwarf	CATEGORY:Internal	BONUS:ABILITYPOOL|Dwarf Subrace|1	ABILITY:Dwarf Trait|AUTOMATIC|TYPE=Base Dwarf Trait
 	
 #Dwarf Traits	CATEGORY:Special Ability	TYPE:Dwarf Trait	
 
 
-Ability Score Increase	KEY:Dwarf ~ Ability Score Increase		CATEGORY:Special Ability	TYPE:Dwarf Trait.Base Dwarf Trait.SpecialQuality	VISIBLE:EXPORT	DESC:Your Constitution score increases by 2.	BONUS:STAT|CON|2|TYPE=Racial
-Darkvision			KEY:Dwarf ~ Darkvision				CATEGORY:Special Ability	TYPE:Dwarf Trait.Base Dwarf Trait.SpecialQuality	VISIBLE:EXPORT	DESC:Accustomed to life underground, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray.	BONUS:VAR|DarkvisionRange|60|TYPE=Base
-Dwarven Resilience	KEY:Dwarf ~ Dwarven Resilience		CATEGORY:Special Ability	TYPE:Dwarf Trait.Base Dwarf Trait.SpecialQuality	VISIBLE:EXPORT	DESC:You have advantage on saving throws against poison, and you have resistance against poison damage (explained in chapter 9).	ASPECT:SaveBonus|advantage on saving throws against poison, and you have resistance against poison damage
+Ability Score Increase	KEY:Dwarf ~ Ability Score Increase		CATEGORY:Special Ability	SOURCEPAGE:p.20	TYPE:Dwarf Trait.Base Dwarf Trait.SpecialQuality	VISIBLE:EXPORT	DESC:Your Constitution score increases by 2.	BONUS:STAT|CON|2|TYPE=Racial
+Darkvision			KEY:Dwarf ~ Darkvision				CATEGORY:Special Ability	SOURCEPAGE:p.20	TYPE:Dwarf Trait.Base Dwarf Trait.SpecialQuality	VISIBLE:EXPORT	DESC:Accustomed to life underground, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray.	BONUS:VAR|DarkvisionRange|60|TYPE=Base
+Dwarven Resilience	KEY:Dwarf ~ Dwarven Resilience		CATEGORY:Special Ability	SOURCEPAGE:p.20	TYPE:Dwarf Trait.Base Dwarf Trait.SpecialQuality	VISIBLE:EXPORT	DESC:You have advantage on saving throws against poison, and you have resistance against poison damage (explained in chapter 9).	ASPECT:SaveBonus|advantage on saving throws against poison, and you have resistance against poison damage
 # Throwing Hammer not found - Light Hammer may be "Thrown".
-Dwarven Combat Training	KEY:Dwarf ~ Dwarven Combat Training		CATEGORY:Special Ability	TYPE:Dwarf Trait.Base Dwarf Trait.SpecialQuality	VISIBLE:EXPORT	DESC:You have proficiency with the battleaxe, handaxe, throwing hammer, and warhammer.	AUTO:WEAPONPROF|Battleaxe|Handaxe|Light Hammer|Warhammer
-Tool Proficiency		KEY:Dwarf ~ Tool Proficiency			CATEGORY:Special Ability	TYPE:Dwarf Trait.Base Dwarf Trait.SpecialQuality	VISIBLE:EXPORT	DESC:You gain proficiency with the artisan's tools of your choice: smith's tools, brewer's supplies, or mason's tools.	BONUS:ABILITYPOOL|Dwarf Artisan's Tool Proficiency|1
-Stonecunning		KEY:Dwarf ~ Stonecunning			CATEGORY:Special Ability	TYPE:Dwarf Trait.Base Dwarf Trait.SpecialQuality	VISIBLE:EXPORT	DESC:Whenever you make an Intelligence (History) check related to the origin of stonework, you are considered proficient in the History skill and add double your proficiency bonus to the check, instead of your normal proficiency bonus.
-Languages			KEY:Dwarf ~ Languages				CATEGORY:Special Ability	TYPE:Dwarf Trait.Base Dwarf Trait.SpecialQuality	VISIBLE:EXPORT	DESC:You can speak, read, and write Common and Dwarvish. Dwarvish is full of hard consonants and guttural sounds, and those characteristics spill over into whatever other language a dwarf might speak.
+Dwarven Combat Training	KEY:Dwarf ~ Dwarven Combat Training		CATEGORY:Special Ability	SOURCEPAGE:p.20	TYPE:Dwarf Trait.Base Dwarf Trait.SpecialQuality	VISIBLE:EXPORT	DESC:You have proficiency with the battleaxe, handaxe, throwing hammer, and warhammer.	AUTO:WEAPONPROF|Battleaxe|Handaxe|Light Hammer|Warhammer
+Tool Proficiency		KEY:Dwarf ~ Tool Proficiency			CATEGORY:Special Ability	SOURCEPAGE:p.20	TYPE:Dwarf Trait.Base Dwarf Trait.SpecialQuality	VISIBLE:EXPORT	DESC:You gain proficiency with the artisan's tools of your choice: smith's tools, brewer's supplies, or mason's tools.	BONUS:ABILITYPOOL|Dwarf Artisan's Tool Proficiency|1
+Stonecunning		KEY:Dwarf ~ Stonecunning			CATEGORY:Special Ability	SOURCEPAGE:p.20	TYPE:Dwarf Trait.Base Dwarf Trait.SpecialQuality	VISIBLE:EXPORT	DESC:Whenever you make an Intelligence (History) check related to the origin of stonework, you are considered proficient in the History skill and add double your proficiency bonus to the check, instead of your normal proficiency bonus.
+Languages			KEY:Dwarf ~ Languages				CATEGORY:Special Ability	SOURCEPAGE:p.20	TYPE:Dwarf Trait.Base Dwarf Trait.SpecialQuality	VISIBLE:EXPORT	DESC:You can speak, read, and write Common and Dwarvish. Dwarvish is full of hard consonants and guttural sounds, and those characteristics spill over into whatever other language a dwarf might speak.
 
 # Tool Proficiency
-Smith's Tools		KEY:Tool Proficiency ~ Smith's Tools	CATEGORY:Special Ability	TYPE:DwarfToolProficiency.SpecialQuality	DESC:Proficient with Artisan Smith's Tools.	
-Brewer's Supplies		KEY:Tool Proficiency ~ Brewer's Supplies	CATEGORY:Special Ability	TYPE:DwarfToolProficiency.SpecialQuality	DESC:Proficient with Artisan Brewer's Supplies.	
-Mason's Tools		KEY:Tool Proficiency ~ Mason's Tools	CATEGORY:Special Ability	TYPE:DwarfToolProficiency.SpecialQuality	DESC:Proficient with Artisan Mason's Tools.	
+Smith's Tools		KEY:Tool Proficiency ~ Smith's Tools	CATEGORY:Special Ability	SOURCEPAGE:p.20	TYPE:DwarfToolProficiency.SpecialQuality	DESC:Proficient with Artisan Smith's Tools.	
+Brewer's Supplies		KEY:Tool Proficiency ~ Brewer's Supplies	CATEGORY:Special Ability	SOURCEPAGE:p.20	TYPE:DwarfToolProficiency.SpecialQuality	DESC:Proficient with Artisan Brewer's Supplies.	
+Mason's Tools		KEY:Tool Proficiency ~ Mason's Tools	CATEGORY:Special Ability	SOURCEPAGE:p.20	TYPE:DwarfToolProficiency.SpecialQuality	DESC:Proficient with Artisan Mason's Tools.	
 
 
 Hill Dwarf			KEY:Dwarf Subrace ~ Hill	TYPE:DwarfSubrace	CATEGORY:Internal	ABILITY:Dwarf Trait|AUTOMATIC|Hill Dwarf ~ Ability Score Increase		ABILITY:Dwarf Trait|AUTOMATIC|Hill Dwarf ~ Dwarven Toughness		
@@ -45,51 +45,57 @@ Mountain Dwarf		KEY:Dwarf Subrace ~ Mountain	TYPE:DwarfSubrace	CATEGORY:Internal
 Gray Dwarf			KEY:Dwarf Subrace ~ Gray	TYPE:DwarfSubrace	CATEGORY:Internal	VISIBLE:NO
 
 
-
 # Hill Dwarf
-Ability Score Increase	KEY:Hill Dwarf ~ Ability Score Increase	CATEGORY:Special Ability	TYPE:Dwarf Trait.Hill Dwarf Trait.SpecialQuality	VISIBLE:EXPORT	DESC:Your Wisdom score increases by 1.		BONUS:STAT|WIS|1|TYPE=Racial
-Dwarven Toughness		KEY:Hill Dwarf ~ Dwarven Toughness		CATEGORY:Special Ability	TYPE:Dwarf Trait.Hill Dwarf Trait.SpecialQuality	VISIBLE:EXPORT	DESC:Your hit point maximum increases by 1, and it increases by 1 every time you gain a level.	BONUS:HP|CURRENTMAX|TL
+Ability Score Increase	KEY:Hill Dwarf ~ Ability Score Increase	CATEGORY:Special Ability	SOURCEPAGE:p.20	TYPE:Dwarf Trait.Hill Dwarf Trait.SpecialQuality	VISIBLE:EXPORT	DESC:Your Wisdom score increases by 1.		BONUS:STAT|WIS|1|TYPE=Racial
+Dwarven Toughness		KEY:Hill Dwarf ~ Dwarven Toughness		CATEGORY:Special Ability	SOURCEPAGE:p.20	TYPE:Dwarf Trait.Hill Dwarf Trait.SpecialQuality	VISIBLE:EXPORT	DESC:Your hit point maximum increases by 1, and it increases by 1 every time you gain a level.	BONUS:HP|CURRENTMAX|TL
 
 # Mountain Dwarf		
-Ability Score Increase	KEY:Mountain Dwarf ~ Ability Score Increase	CATEGORY:Special Ability	TYPE:Dwarf Trait.Mountain Dwarf Trait.SpecialQuality	VISIBLE:EXPORT	DESC:Your Strength score increases by 2.	BONUS:STAT|STR|2|TYPE=Racial
-Dwarven Armor Training	KEY:Mountain Dwarf ~ Dwarven Armor Training	CATEGORY:Special Ability	TYPE:Dwarf Trait.Mountain Dwarf Trait.SpecialQuality	VISIBLE:EXPORT	DESC:You have proficiency with light and medium armor.	ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfMedium
+Ability Score Increase	KEY:Mountain Dwarf ~ Ability Score Increase	CATEGORY:Special Ability	SOURCEPAGE:p.20	TYPE:Dwarf Trait.Mountain Dwarf Trait.SpecialQuality	VISIBLE:EXPORT	DESC:Your Strength score increases by 2.	BONUS:STAT|STR|2|TYPE=Racial
+Dwarven Armor Training	KEY:Mountain Dwarf ~ Dwarven Armor Training	CATEGORY:Special Ability	SOURCEPAGE:p.20	TYPE:Dwarf Trait.Mountain Dwarf Trait.SpecialQuality	VISIBLE:EXPORT	DESC:You have proficiency with light and medium armor.	ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfMedium
 
 
 ###Block: Elf
 Race Traits ~ Elf	CATEGORY:Internal		BONUS:ABILITYPOOL|Elf Subrace|1	ABILITY:Elf Trait|AUTOMATIC|TYPE=Base Elf Trait
 
-Ability Score Increase	KEY:Elf ~ Ability Score Increase	CATEGORY:Special Ability	TYPE:Elf Trait.Base Elf Trait.SpecialQuality	SOURCEPAGE:p.	DESC:Your Dexterity score increases by 2.	BONUS:STAT|DEX|2|TYPE=Racial
-Darkvision			KEY:Elf ~ Darkvision			CATEGORY:Special Ability	TYPE:Elf Trait.Base Elf Trait.SpecialQuality	SOURCEPAGE:p.	DESC:Accustomed to twilit forests and the night sky, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray.
-Keen Senses			KEY:Elf ~ Keen Senses			CATEGORY:Special Ability	TYPE:Elf Trait.Base Elf Trait.SpecialQuality	SOURCEPAGE:p.	DESC:You have proficiency in the Perception skill.
-Fey Ancestry		KEY:Elf ~ Fey Ancestry			CATEGORY:Special Ability	TYPE:Elf Trait.Base Elf Trait.SpecialQuality	SOURCEPAGE:p.	DESC:You have advantage on saving throws against being charmed, and magic can't put you to sleep.
-Trance			KEY:Elf ~ Trance				CATEGORY:Special Ability	TYPE:Elf Trait.Base Elf Trait.SpecialQuality	SOURCEPAGE:p.	DESC:Elves don't need to sleep. Instead, they meditate deeply, remaining semiconscious, for 4 hours a day. (The Common word for such meditation is "trance.") While meditating, you can dream after a fashion; such dreams are actually mental exercises that have become reflexive through years of practice. After resting in this way, you gain the same benefit that a human does from 8 hours of sleep.
-Languages			KEY:Elf ~ Languages			CATEGORY:Special Ability	TYPE:Elf Trait.Base Elf Trait.SpecialQuality	SOURCEPAGE:p.	DESC:You can speak, read, and write Common and Elvish. Elvish is fluid, with subtle intonations and intricate grammar. Elven literature is rich and varied, and their songs and poems are famous among other races. Many bards learn their language so they can add Elvish ballads to their repertoires.
+Ability Score Increase	KEY:Elf ~ Ability Score Increase	CATEGORY:Special Ability	TYPE:Elf Trait.Base Elf Trait.SpecialQuality	SOURCEPAGE:p.23	DESC:Your Dexterity score increases by 2.	BONUS:STAT|DEX|2|TYPE=Racial
+Darkvision			KEY:Elf ~ Darkvision			CATEGORY:Special Ability	TYPE:Elf Trait.Base Elf Trait.SpecialQuality	SOURCEPAGE:p.23	DESC:Accustomed to twilit forests and the night sky, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray.	BONUS:VAR|DarkvisionRange|60|TYPE=Base
+Keen Senses			KEY:Elf ~ Keen Senses			CATEGORY:Special Ability	TYPE:Elf Trait.Base Elf Trait.SpecialQuality	SOURCEPAGE:p.23	DESC:You have proficiency in the Perception skill.	ABILITY:Internal|AUTOMATIC|Perception
+Fey Ancestry		KEY:Elf ~ Fey Ancestry			CATEGORY:Special Ability	TYPE:Elf Trait.Base Elf Trait.SpecialQuality	SOURCEPAGE:p.23	DESC:You have advantage on saving throws against being charmed, and magic can't put you to sleep.
+Trance			KEY:Elf ~ Trance				CATEGORY:Special Ability	TYPE:Elf Trait.Base Elf Trait.SpecialQuality	SOURCEPAGE:p.23	DESC:Elves don't need to sleep. Instead, they meditate deeply, remaining semiconscious, for 4 hours a day. (The Common word for such meditation is "trance.") While meditating, you can dream after a fashion; such dreams are actually mental exercises that have become reflexive through years of practice. After resting in this way, you gain the same benefit that a human does from 8 hours of sleep.
+Languages			KEY:Elf ~ Languages			CATEGORY:Special Ability	TYPE:Elf Trait.Base Elf Trait.SpecialQuality	SOURCEPAGE:p.23	DESC:You can speak, read, and write Common and Elvish. Elvish is fluid, with subtle intonations and intricate grammar. Elven literature is rich and varied, and their songs and poems are famous among other races. Many bards learn their language so they can add Elvish ballads to their repertoires.
 
 # Elf Subrace Selection
 High Elf			KEY:Elf Subrace ~ High	TYPE:ElfSubrace	CATEGORY:Internal	ABILITY:Elf Trait|AUTOMATIC|High Elf ~ Ability Score Increase		ABILITY:Elf Trait|AUTOMATIC|High Elf ~ Elf Weapon Training			ABILITY:Elf Trait|AUTOMATIC|High Elf ~ Cantrip					ABILITY:Elf Trait|AUTOMATIC|High Elf ~ Extra Language			
 Wood Elf			KEY:Elf Subrace ~ Wood	TYPE:ElfSubrace	CATEGORY:Internal	ABILITY:Elf Trait|AUTOMATIC|Wood Elf ~ Ability Score Increase		ABILITY:Elf Trait|AUTOMATIC|Wood Elf ~ Elf Weapon Training			ABILITY:Elf Trait|AUTOMATIC|Wood Elf ~ Fleet of Foot				ABILITY:Elf Trait|AUTOMATIC|Wood Elf ~ Mask of the Wild		
-
+Dark Elf			KEY:Elf Subrace ~ Dark	TYPE:ElfSubrace	CATEGORY:Internal	ABILITY:Elf Trait|AUTOMATIC|Dark Elf ~ Ability Score Increase		ABILITY:Elf Trait|AUTOMATIC|Dark Elf ~ Drow Weapon Training			ABILITY:Elf Trait|AUTOMATIC|Dark Elf ~ Superior Darkvision			ABILITY:Elf Trait|AUTOMATIC|Dark Elf ~ Drow Magic		ABILITY:Elf Trait|AUTOMATIC|Dark Elf ~ Sunlight Sensitivity
 
 # High Elf
-Ability Score Increase	KEY:High Elf ~ Ability Score Increase	CATEGORY:Special Ability	TYPE:Elf Trait.High Elf Trait.SpecialQuality	SOURCEPAGE:p.	DESC:Your Intelligence score increases by 1.	BONUS:STAT|INT|1|TYPE=Racial
-Elf Weapon Training	KEY:High Elf ~ Elf Weapon Training		CATEGORY:Special Ability	TYPE:Elf Trait.High Elf Trait.SpecialQuality	SOURCEPAGE:p.	DESC:You have proficiency with the longsword, shortsword, shortbow, and longbow.	AUTO:WEAPONPROF|Longsword|Shortsword|Shortbow|Longbow
-Cantrip			KEY:High Elf ~ Cantrip				CATEGORY:Special Ability	TYPE:Elf Trait.High Elf Trait.SpecialQuality	SOURCEPAGE:p.	DESC:You know one cantrip of your choice from the wizard spell list. Intelligence is your spellcasting ability for it.
-Extra Language		KEY:High Elf ~ Extra Language			CATEGORY:Special Ability	TYPE:Elf Trait.High Elf Trait.SpecialQuality	SOURCEPAGE:p.	DESC:You can speak, read, and write one extra language of your choice.
+Ability Score Increase	KEY:High Elf ~ Ability Score Increase	CATEGORY:Special Ability	TYPE:Elf Trait.High Elf Trait.SpecialQuality	SOURCEPAGE:p.23	DESC:Your Intelligence score increases by 1.	BONUS:STAT|INT|1|TYPE=Racial
+Elf Weapon Training	KEY:High Elf ~ Elf Weapon Training		CATEGORY:Special Ability	TYPE:Elf Trait.High Elf Trait.SpecialQuality	SOURCEPAGE:p.23	DESC:You have proficiency with the longsword, shortsword, shortbow, and longbow.	AUTO:WEAPONPROF|Longsword|Shortsword|Shortbow|Longbow
+Cantrip			KEY:High Elf ~ Cantrip				CATEGORY:Special Ability	TYPE:Elf Trait.High Elf Trait.SpecialQuality	SOURCEPAGE:p.24	DESC:You know one cantrip of your choice from the wizard spell list. Intelligence is your spellcasting ability for it.
+Extra Language		KEY:High Elf ~ Extra Language			CATEGORY:Special Ability	TYPE:Elf Trait.High Elf Trait.SpecialQuality	SOURCEPAGE:p.24	DESC:You can speak, read, and write one extra language of your choice.
 
 # Wood Elf
-Ability Score Increase	KEY:Wood Elf ~ Ability Score Increase	CATEGORY:Special Ability	TYPE:Elf Trait.Wood Elf Trait.SpecialQuality	SOURCEPAGE:p.	DESC:Your Wisdom score increases by 1.	BONUS:STAT|WIS|1|TYPE=Racial
-Elf Weapon Training	KEY:Wood Elf ~ Elf Weapon Training		CATEGORY:Special Ability	TYPE:Elf Trait.Wood Elf Trait.SpecialQuality	SOURCEPAGE:p.	DESC:You have proficiency with the longsword, shortsword, shortbow, and longbow.	AUTO:WEAPONPROF|Longsword|Shortsword|Shortbow|Longbow
-Fleet of Foot		KEY:Wood Elf ~ Fleet of Foot			CATEGORY:Special Ability	TYPE:Elf Trait.Wood Elf Trait.SpecialQuality	SOURCEPAGE:p.	DESC:Your base walking speed increases to 35 feet.	BONUS:MOVEADD|TYPE.Walk|5
-Mask of the Wild		KEY:Wood Elf ~ Mask of the Wild		CATEGORY:Special Ability	TYPE:Elf Trait.Wood Elf Trait.SpecialQuality	SOURCEPAGE:p.	DESC:You can attempt to hide even when you are only lightly obscured by foliage, heavy rain, falling snow, mist, and other natural phenomena.
+Ability Score Increase	KEY:Wood Elf ~ Ability Score Increase	CATEGORY:Special Ability	TYPE:Elf Trait.Wood Elf Trait.SpecialQuality	SOURCEPAGE:p.24	DESC:Your Wisdom score increases by 1.	BONUS:STAT|WIS|1|TYPE=Racial
+Elf Weapon Training	KEY:Wood Elf ~ Elf Weapon Training		CATEGORY:Special Ability	TYPE:Elf Trait.Wood Elf Trait.SpecialQuality	SOURCEPAGE:p.24	DESC:You have proficiency with the longsword, shortsword, shortbow, and longbow.	AUTO:WEAPONPROF|Longsword|Shortsword|Shortbow|Longbow
+Fleet of Foot		KEY:Wood Elf ~ Fleet of Foot			CATEGORY:Special Ability	TYPE:Elf Trait.Wood Elf Trait.SpecialQuality	SOURCEPAGE:p.24	DESC:Your base walking speed increases to 35 feet.	BONUS:MOVEADD|TYPE.Walk|5
+Mask of the Wild		KEY:Wood Elf ~ Mask of the Wild		CATEGORY:Special Ability	TYPE:Elf Trait.Wood Elf Trait.SpecialQuality	SOURCEPAGE:p.24	DESC:You can attempt to hide even when you are only lightly obscured by foliage, heavy rain, falling snow, mist, and other natural phenomena.
+
+# Dark Elf
+Ability Score Increase	KEY:Dark Elf ~ Ability Score Increase	CATEGORY:Special Ability	TYPE:Elf Trait.Dark Elf Trait.SpecialQuality	SOURCEPAGE:p.24	DESC:Your Charisma score increases by 1.	BONUS:STAT|CHA|1|TYPE=Racial
+Superior Darkvision	KEY:Dark Elf ~ Superior Darkvision		CATEGORY:Special Ability	TYPE:Elf Trait.Dark Elf Trait.SpecialQuality	SOURCEPAGE:p.24	DESC:Your darkvision has a radius of 120 feet.	BONUS:VAR|DarkvisionRange|120|TYPE=Base
+Sunlight Sensitivity	KEY:Dark Elf ~ Sunlight Sensitivity		CATEGORY:Special Ability	TYPE:Elf Trait.Dark Elf Trait.SpecialQuality	SOURCEPAGE:p.24	DESC:You have disadvantage on attack rolls and on Wisdom (Perception) checks that rely on sight when you, the target of your attack, or whatever you are trying to perceive is in direct sunlight.
+Drow Magic			KEY:Dark Elf ~ Drow Magic			CATEGORY:Special Ability	TYPE:Elf Trait.Dark Elf Trait.SpecialQuality	SOURCEPAGE:p.24	DESC:You know the dancing lights cantrip. When you reach 3rd level, you can cast the faerie fire spell once per day. When you reach 5th level, you can also cast the darkness spell once per day. Charisma is your spellcasting ability for these spells.
+Drow Weapon Training	KEY:Dark Elf ~ Drow Weapon Training		CATEGORY:Special Ability	TYPE:Elf Trait.Dark Elf Trait.SpecialQuality	SOURCEPAGE:p.24	DESC:You have proficiency with rapiers, shortswords, and hand crossbows.	AUTO:WEAPONPROF|Rapier|Shortsword|Crossbow (Hand)
 
 
 ###Block: Halfling
 Race Traits ~ Halfling	CATEGORY:Internal	BONUS:ABILITYPOOL|Halfling Subrace|1	ABILITY:Halfling Trait|AUTOMATIC|TYPE=Base Halfling Trait
 
-Lucky						KEY:Halfling ~ Lucky			CATEGORY:Special Ability	TYPE:Halfling Trait.Base Halfling Trait.SpecialQuality	SOURCEPAGE:p.	DESC:When you roll a 1 on an attack roll, ability check, or saving throw, you can reroll the die and must use the new roll.
-Brave						KEY:Halfling ~ Brave			CATEGORY:Special Ability	TYPE:Halfling Trait.Base Halfling Trait.SpecialQuality	SOURCEPAGE:p.	DESC:You have advantage on saving throws against being frightened.
-Halfling Nimbleness			KEY:Halfling ~ Halfling Nimbleness	CATEGORY:Special Ability	TYPE:Halfling Trait.Base Halfling Trait.SpecialQuality	SOURCEPAGE:p.	DESC:You can move through the space of any creature that is of a size larger than yours.
-Languages					KEY:Halfling ~ Languages		CATEGORY:Special Ability	TYPE:Halfling Trait.Base Halfling Trait.SpecialQuality	SOURCEPAGE:p.	DESC:You can speak, read, and write Common and Halfling. The Halfling language isn't secret, but halflings are loath to share it with others. They write very little, so they don't have a rich body of literature. Their oral tradition, however, is very strong. Almost all halflings speak Common to converse with the people in whose lands they dwell or through which they are traveling.
+Lucky						KEY:Halfling ~ Lucky			CATEGORY:Special Ability	TYPE:Halfling Trait.Base Halfling Trait.SpecialQuality	SOURCEPAGE:p.28	DESC:When you roll a 1 on an attack roll, ability check, or saving throw, you can reroll the die and must use the new roll.
+Brave						KEY:Halfling ~ Brave			CATEGORY:Special Ability	TYPE:Halfling Trait.Base Halfling Trait.SpecialQuality	SOURCEPAGE:p.28	DESC:You have advantage on saving throws against being frightened.
+Halfling Nimbleness			KEY:Halfling ~ Halfling Nimbleness	CATEGORY:Special Ability	TYPE:Halfling Trait.Base Halfling Trait.SpecialQuality	SOURCEPAGE:p.28	DESC:You can move through the space of any creature that is of a size larger than yours.
+Languages					KEY:Halfling ~ Languages		CATEGORY:Special Ability	TYPE:Halfling Trait.Base Halfling Trait.SpecialQuality	SOURCEPAGE:p.28	DESC:You can speak, read, and write Common and Halfling. The Halfling language isn't secret, but halflings are loath to share it with others. They write very little, so they don't have a rich body of literature. Their oral tradition, however, is very strong. Almost all halflings speak Common to converse with the people in whose lands they dwell or through which they are traveling.
 
 # Halfing Selection
 Lightfoot			KEY:Halfling Subrace ~ Lightfoot	TYPE:HalflingSubrace	CATEGORY:Internal	ABILITY:Halfling Trait|AUTOMATIC|Lightfoot Halfling ~ Ability Score Increase			ABILITY:Halfling Trait|AUTOMATIC|Lightfoot Halfling ~ Naturally Stealthy		
@@ -97,16 +103,28 @@ Stout				KEY:Halfling Subrace ~ Stout		TYPE:HalflingSubrace	CATEGORY:Internal	AB
 
 
 # Lightfoot
-Ability Score Increase		KEY:Lightfoot Halfling ~ Ability Score Increase				CATEGORY:Special Ability	TYPE:Lightfoot Halfling Trait.Halfling Trait.SpecialQuality	SOURCEPAGE:p.	DESC:Your Charisma score increases by 1.	BONUS:STAT|CHA|1|TYPE=Racial
-Naturally Stealthy		KEY:Lightfoot Halfling ~ Naturally Stealthy				CATEGORY:Special Ability	TYPE:Lightfoot Halfling Trait.Halfling Trait.SpecialQuality	SOURCEPAGE:p.	DESC:You can attempt to hide even when you are obscured only by a creature that is at least one size larger than you.
+Ability Score Increase		KEY:Lightfoot Halfling ~ Ability Score Increase				CATEGORY:Special Ability	TYPE:Lightfoot Halfling Trait.Halfling Trait.SpecialQuality	SOURCEPAGE:p.28	DESC:Your Charisma score increases by 1.	BONUS:STAT|CHA|1|TYPE=Racial
+Naturally Stealthy		KEY:Lightfoot Halfling ~ Naturally Stealthy				CATEGORY:Special Ability	TYPE:Lightfoot Halfling Trait.Halfling Trait.SpecialQuality	SOURCEPAGE:p.28	DESC:You can attempt to hide even when you are obscured only by a creature that is at least one size larger than you.
 
 # Stout
-Ability Score Increase		KEY:Stout Halfling ~ Ability Score Increase				CATEGORY:Special Ability	TYPE:Stout Halfling Trait.Halfling Trait.SpecialQuality	SOURCEPAGE:p.	DESC:Your Constitution score increases by 1.	BONUS:STAT|CON|1|TYPE=Racial
-Stout Resilience			KEY:Stout Halfling ~ Stout Resilience					CATEGORY:Special Ability	TYPE:Stout Halfling Trait.Halfling Trait.SpecialQuality	SOURCEPAGE:p.	DESC:You have advantage on saving throws against poison, and you have resistance against poison damage.
+Ability Score Increase		KEY:Stout Halfling ~ Ability Score Increase				CATEGORY:Special Ability	TYPE:Stout Halfling Trait.Halfling Trait.SpecialQuality	SOURCEPAGE:p.28	DESC:Your Constitution score increases by 1.	BONUS:STAT|CON|1|TYPE=Racial
+Stout Resilience			KEY:Stout Halfling ~ Stout Resilience					CATEGORY:Special Ability	TYPE:Stout Halfling Trait.Halfling Trait.SpecialQuality	SOURCEPAGE:p.28	DESC:You have advantage on saving throws against poison, and you have resistance against poison damage.
 
 
 ###Block: Human
 Race Traits ~ Human	CATEGORY:Internal	BONUS:ABILITYPOOL|Human Rule Selection|1	ABILITY:Human Trait|AUTOMATIC|Human ~ Languages
+
+# Human Ethnicity
+Calishite	KEY:Human Ethnicity ~ Calishite	CATEGORY:Special Ability	TYPE:Human_Ethnicity	SOURCEPAGE:p.30
+Chondathan	KEY:Human Ethnicity ~ Chondathan	CATEGORY:Special Ability	TYPE:Human_Ethnicity	SOURCEPAGE:p.30
+Damaran	KEY:Human Ethnicity ~ Damaran		CATEGORY:Special Ability	TYPE:Human_Ethnicity	SOURCEPAGE:p.31
+Illuskan	KEY:Human Ethnicity ~ Illuskan	CATEGORY:Special Ability	TYPE:Human_Ethnicity	SOURCEPAGE:p.31
+Mulan		KEY:Human Ethnicity ~ Mulan		CATEGORY:Special Ability	TYPE:Human_Ethnicity	SOURCEPAGE:p.31
+Rahemi	KEY:Human Ethnicity ~ Rahemi		CATEGORY:Special Ability	TYPE:Human_Ethnicity	SOURCEPAGE:p.31
+Shou		KEY:Human Ethnicity ~ Shou		CATEGORY:Special Ability	TYPE:Human_Ethnicity	SOURCEPAGE:p.31
+Tethyrian	KEY:Human Ethnicity ~ Tethyrian	CATEGORY:Special Ability	TYPE:Human_Ethnicity	SOURCEPAGE:p.31
+Turami	KEY:Human Ethnicity ~ Turami		CATEGORY:Special Ability	TYPE:Human_Ethnicity	SOURCEPAGE:p.31
+None		KEY:Human Ethnicity ~ None		CATEGORY:Special Ability	TYPE:Human_Ethnicity
 
 #
 Basic Rules Human		TYPE:Human Rule Selection	CATEGORY:Internal	ABILITY:Human Trait|AUTOMATIC|Human ~ Ability Score Increase
@@ -122,6 +140,84 @@ Languages				KEY:Human ~ Languages						CATEGORY:Special Ability	TYPE:Human Trai
 Ability Score Increase		KEY:Variant Human ~ Ability Score Increase		CATEGORY:Special Ability	TYPE:Human Trait.SpecialQuality	SOURCEPAGE:p.	DESC:Two different ability scores of your choice increase by 1.	BONUS:ABILITYPOOL|Ability Score Increase +1|2
 Skills				KEY:Variant Human ~ Skills					CATEGORY:Special Ability	TYPE:Human Trait.SpecialQuality	SOURCEPAGE:p.	DESC:You gain proficiency in one skill of your choice.		BONUS:ABILITYPOOL|Skill Proficiency|1
 Feat					KEY:Variant Human ~ Feat					CATEGORY:Special Ability	TYPE:Human Trait.SpecialQuality	SOURCEPAGE:p.	DESC:You gain one feat of your choice.					BONUS:ABILITYPOOL|Feat|1
+
+
+# Dragonborn
+Race Traits ~ Dragonborn	CATEGORY:Internal	ABILITY:Dragonborn Trait|AUTOMATIC|TYPE=Base Dragonborn Trait	DEFINE:DragonbornBreathWeaponLine|0	DEFINE:DragonbornBreathWeaponCone|0
+
+Ability Score Increase	KEY:Dragonborn ~ Ability Score Increase			CATEGORY:Special Ability	TYPE:Dragonborn Trait.Base Dragonborn Trait.SpecialQuality	SOURCEPAGE:p.36	DESC:Your Strength score increases by 2, and your Charisma score increases by 1.	BONUS:STAT|STR|2|TYPE=Racial	BONUS:STAT|CHA|1|TYPE=Racial
+
+
+# Line
+Black		KEY:Dragonborn Ancestry ~ Black	CATEGORY:Special Ability	TYPE:Dragonborn_Ancestry	BONUS:VAR|DragonbornBreathWeaponLine,DragonbornBreathWeapon_Acid|1|TYPE=Base
+Blue		KEY:Dragonborn Ancestry ~ Blue	CATEGORY:Special Ability	TYPE:Dragonborn_Ancestry	BONUS:VAR|DragonbornBreathWeaponLine,DragonbornBreathWeapon_Lightning|1|TYPE=Base
+Brass		KEY:Dragonborn Ancestry ~ Brass	CATEGORY:Special Ability	TYPE:Dragonborn_Ancestry	BONUS:VAR|DragonbornBreathWeaponLine,DragonbornBreathWeapon_Fire|1|TYPE=Base
+Bronze	KEY:Dragonborn Ancestry ~ Bronze	CATEGORY:Special Ability	TYPE:Dragonborn_Ancestry	BONUS:VAR|DragonbornBreathWeaponLine,DragonbornBreathWeapon_Lightning|1|TYPE=Base
+Copper	KEY:Dragonborn Ancestry ~ Copper	CATEGORY:Special Ability	TYPE:Dragonborn_Ancestry	BONUS:VAR|DragonbornBreathWeaponLine,DragonbornBreathWeapon_Acid|1|TYPE=Base
+# Cone
+Gold		KEY:Dragonborn Ancestry ~ Gold	CATEGORY:Special Ability	TYPE:Dragonborn_Ancestry	BONUS:VAR|DragonbornBreathWeaponCone,DragonbornBreathWeapon_Fire|1|TYPE=Base
+Green		KEY:Dragonborn Ancestry ~ Green	CATEGORY:Special Ability	TYPE:Dragonborn_Ancestry	BONUS:VAR|DragonbornBreathWeaponCone,DragonbornBreathWeapon_Poison|1|TYPE=Base
+Red		KEY:Dragonborn Ancestry ~ Red		CATEGORY:Special Ability	TYPE:Dragonborn_Ancestry	BONUS:VAR|DragonbornBreathWeaponCone,DragonbornBreathWeapon_Fire|1|TYPE=Base
+Silver	KEY:Dragonborn Ancestry ~ Silver	CATEGORY:Special Ability	TYPE:Dragonborn_Ancestry	BONUS:VAR|DragonbornBreathWeaponCone,DragonbornBreathWeapon_Cold|1|TYPE=Base
+White		KEY:Dragonborn Ancestry ~ White	CATEGORY:Special Ability	TYPE:Dragonborn_Ancestry	BONUS:VAR|DragonbornBreathWeaponCone,DragonbornBreathWeapon_Cold|1|TYPE=Base	
+#
+Draconic Ancestry		KEY:Dragonborn ~ Draconic Ancestry					CATEGORY:Special Ability	TYPE:Dragonborn Trait.Base Dragonborn Trait.SpecialQuality	SOURCEPAGE:p.36	DESC:You have draconic ancestry. Choose one type of dragon from the Draconic Ancestry table. Your breath weapon and damage resistance are determined by the dragon type, as shown in the table.		BONUS:ABILITYPOOL|Dragonborn Ancestry|1
+Breath Weapon		KEY:Dragonborn ~ Breath Weapon					CATEGORY:Special Ability	TYPE:Dragonborn Trait.Base Dragonborn Trait.SpecialQuality	SOURCEPAGE:p.36	DESC:You can use your action to exhale destructive energy.	DESC: 5 by 30 ft. line (Dex. save)|DragonbornLineSizeWidth|DragonbornLineSizeLength|PREVAREQ:DragonbornBreathWeaponLine,1	DESC: 15 ft. cone (Dex. save)|DragonbornConeSize|PREVAREQ:DragonbornBreathWeaponCone,1	DESC: Acid. |PREVAREQ:DragonbornBreathWeapon_Acid,1	DESC: Lightning. |PREVAREQ:DragonbornBreathWeapon_Lightning,1	DESC: Poison. |PREVAREQ:DragonbornBreathWeapon_Poison,1	DESC: Fire. |PREVAREQ:DragonbornBreathWeapon_Fire,1	DESC: Cold. |PREVAREQ:DragonbornBreathWeapon_Cold,1	DESC:When you use your breath weapon, each creature in the area of the exhalation must make a saving throw, the type of which is determined by your draconic ancestry. The DC for this saving throw equals 8 + your Constitution modifier + your proficiency bonus. A creature takes %1d6 damage on a failed save, and half as much damage on a successful one. The damage increases to 3d6 at 6th level, 4d6 at 11th level, and 5d6 at 16th level. After you use your breath weapon, you can’t use it again until you complete a short or long rest.|DragonbornBreathWeaponDice	DEFINE:DragonbornConeSize|0	BONUS:VAR|DragonbornConeSize|15	DEFINE:DragonbornLineSizeWidth|0	DEFINE:DragonbornLineSizeLength|0	BONUS:VAR|DragonbornLineSizeWidth|5	BONUS:VAR|DragonbornLineSizeLength|30	DEFINE:DragonbornBreathWeaponDice|0	BONUS:VAR|DragonbornBreathWeaponDice|
+Damage Resistance		KEY:Dragonborn ~ Damage Resistance					CATEGORY:Special Ability	TYPE:Dragonborn Trait.Base Dragonborn Trait.SpecialQuality	SOURCEPAGE:p.36	DESC:You have resistance to the damage type associated with your draconic ancestry.
+Languages			KEY:Dragonborn ~ Languages						CATEGORY:Special Ability	TYPE:Dragonborn Trait.Base Dragonborn Trait.SpecialQuality	SOURCEPAGE:p.36	DESC:You can speak, read, and write Common and Draconic. Draconic is thought to be one of the oldest languages and is often used in the study of magic. The language sounds harsh to most other creatures and includes numerous hard consonants and sibilants.
+
+# Gnome
+Race Traits ~ Gnome	CATEGORY:Internal	ABILITY:Gnome Trait|AUTOMATIC|TYPE=Base Gnome Trait	BONUS:ABILITYPOOL|Gnome Subrace|1
+
+Ability Score Increase	KEY:Gnome ~ Ability Score Increase	CATEGORY:Special Ability	TYPE:Race Trait.Gnome Trait.Base Gnome Trait.SpecialQuality	SOURCEPAGE:p.	DESC:Your Intelligence score increases by 2.	BONUS:STAT|INT|TYPE=Racial
+Darkvision			KEY:Gnome ~ Darkvision			CATEGORY:Special Ability	TYPE:Race Trait.Gnome Trait.Base Gnome Trait.SpecialQuality	SOURCEPAGE:p.	DESC:Accustomed to life underground, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it w ere bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray.
+Languages			KEY:Gnome ~ Languages			CATEGORY:Special Ability	TYPE:Race Trait.Gnome Trait.Base Gnome Trait.SpecialQuality	SOURCEPAGE:p.	DESC:You can speak, read, and write Common and Gnomish. The Gnomish language, which uses the Dwarvish script, is renowned for its technical treatises and its catalogs of knowledge about the natural world.
+Gnome Cunning		KEY:Gnome ~ Gnome Cunning		CATEGORY:Special Ability	TYPE:Race Trait.Gnome Trait.Base Gnome Trait.SpecialQuality		DESC:You have advantage on all Intelligence, Wisdom, and Charisma saving throws against magic.																																																																																																																																																															SOURCEPAGE:p.
+# Subrace
+Forest Gnome		KEY:Gnome ~ Forest			CATEGORY:Internal			TYPE:GnomeSubrace																																																																																																																																																													TEMPLATE:Subrace ~ Forest	ABILITY:Gnome Race Trait|AUTOMATIC|TYPE=ForestGnome Race Trait							BONUS:STAT|DEX|1|TYPE=Racial
+Rock Gnome			KEY:Gnome ~ Rock				CATEGORY:Internal			TYPE:GnomeSubrace																																																																																																																																																													TEMPLATE:Subrace ~ Rock		ABILITY:Gnome Race Trait|AUTOMATIC|TYPE=RockGnome Race Trait								BONUS:STAT|CON|1|TYPE=Racial
+# Forest
+Natural Illusionist	KEY:Gnome ~ Natural Illusionist	CATEGORY:Special Ability	TYPE:Race Trait.Gnome Trait.Forest Gnome Trait.Default.SpecialQuality	DESC:You know the minor illusion cantrip. Intelligence is your magic ability for it.																																																																																																																																																																SOURCEPAGE:p.
+Speak with Small Beasts	KEY:Gnome ~ Speak with Small Beasts	CATEGORY:Special Ability	TYPE:Race Trait.Gnome Trait.Forest Gnome Trait.Default.SpecialQuality	DESC:Through sounds and gestures, you can communicate simple ideas with Small or smaller beasts.																																																																																																																																																														SOURCEPAGE:p.
+# Rock
+Artificer's Lore		KEY:Gnome ~ Artificer's Lore		CATEGORY:Special Ability	TYPE:Race Trait.Gnome Trait.Rock Gnome Trait.Default.SpecialQuality		DESC:You have advantage on Intelligence checks to recall lore about alchemy, magic items, and technological devices.																																																																																																																																																											SOURCEPAGE:p.
+Tinker			KEY:Gnome ~ Tinker			CATEGORY:Special Ability	TYPE:Race Trait.Gnome Trait.Rock Gnome Trait.Default.SpecialQuality		DESC:You have artisan's tools. Using those tools, you can spend 10 minutes to construct a Tiny clockwork device (AC 5, 1 hp). The device ceases to function after 24 hours. You can have up to three such devices active at a time. When you create a device, choose one of the following options. Clockwork Toy: This toy is a clockwork animal or person, such as a frog, mouse, bird, or soldier. When placed on the ground, the toy moves 5 feet across the ground on each of your turns in a random direction. It makes noises as appropriate to the creature it represents. Fire Starter: The device produces a miniature flame, which you can use to light something like a candle, torch, or campfire. Using the device requires your action. Music Box: When opened, this music box plays a single song at a moderate volume. The box stops playing when it reaches the song's end or when it is closed.																												SOURCEPAGE:p.
+# Third subrace not defined.
+
+
+
+###Block: Half-Elf
+# Ability Name		Unique Key				Category of Ability		Type												Description													Multiple?	Choose					Ability											Stat bonus		Source Page
+Race Traits ~ Half-Elf						CATEGORY:Internal	ABILITY:Half-Elf Race Trait|AUTOMATIC|TYPE=Base Half-Elf Trait	BONUS:ABILITYPOOL|Half-Elf Stat Choice|1
+#
+Ability Score Increase	KEY:Half-Elf ~ Ability Score Increase	CATEGORY:Special Ability	TYPE:Race Trait.Half-Elf Trait.Base Half-Elf Trait.SpecialQuality	SOURCEPAGE:p.39	DESC:Your Charisma score increases by 2, and two other ability scores of your choice increase by 1.	BONUS:STAT|CHA|2|TYPE=Racial
+Darkvision			KEY:Half-Elf ~ Darkvision			CATEGORY:Special Ability	TYPE:Race Trait.Half-Elf Trait.Base Half-Elf Trait.SpecialQuality	SOURCEPAGE:p.39	DESC:Thanks to your elf blood, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it w ere bright light, and in darkness as if it were dim light. You can’t discern color in darkness, only shades of gray.	BONUS:VAR|DarkvisionRange|60|TYPE=Base
+Skill Versatility		KEY:Half-Elf ~ Skill Versatility		CATEGORY:Special Ability	TYPE:Race Trait.Half-Elf Trait.Base Half-Elf Trait.SpecialQuality	SOURCEPAGE:p.39	DESC:You gain proficiency in two skills of your choice.	BONUS:ABILITYPOOL|Skill Proficiency|2
+Languages			KEY:Half-Elf ~ Languages			CATEGORY:Special Ability	TYPE:Race Trait.Half-Elf Trait.Base Half-Elf Trait.SpecialQuality	SOURCEPAGE:p.39	DESC:You can speak, read, and write Common, Elvish, and one extra language of your choice.
+Fey Ancestry		KEY:Half-Elf ~ Fey Ancestry			CATEGORY:Special Ability	TYPE:Race Trait.Half-Elf Trait.Base Half-Elf Trait.SpecialQuality	SOURCEPAGE:p.39	DESC:You have advantage on all saving throws against being charmed or put to sleep.
+#
+Half-Elf Stat Choice						CATEGORY:Internal																													MULT:YES	CHOOSE:PCSTAT|CON|DEX|INT|STR|WIS													BONUS:STAT|LIST|1
+
+###Block: Half-Orc
+# Ability Name		Unique Key						Category of Ability		Type												Description										Ability											Source Page
+Race Traits ~ Half-Orc								CATEGORY:Internal		ABILITY:Half-Orc Race Trait|AUTOMATIC|TYPE=Base Half-Orc Trait
+#
+Ability Score Increase	KEY:Half-Orc ~ Ability Score Increase	CATEGORY:Special Ability	TYPE:Race Trait.Half-Orc Trait.Base Half-Orc Trait.SpecialQuality	SOURCEPAGE:p.41	DESC:Your Strength score increases by 2, and your Constitution score increases by 1.	BONUS:STAT|STR|2|TYPE=Racial	BONUS:STAT|CON|1|TYPE=Racial
+Darkvision			KEY:Half-Orc ~ Darkvision			CATEGORY:Special Ability	TYPE:Race Trait.Half-Orc Trait.Base Half-Orc Trait.SpecialQuality	SOURCEPAGE:p.41	DESC:Thanks to your orc blood, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray.
+Menacing			KEY:Half-Orc ~ Menacing				CATEGORY:Special Ability	TYPE:Race Trait.Half-Orc Trait.Base Half-Orc Trait.SpecialQuality	SOURCEPAGE:p.41	DESC:You gain proficiency in the Intimidation skill.	ABILITY:Skill|AUTOMATIC|Intimidation
+Relentless Endurance	KEY:Half-Orc ~ Relentless Endurance		CATEGORY:Special Ability	TYPE:Race Trait.Half-Orc Trait.Base Half-Orc Trait.SpecialQuality	SOURCEPAGE:p.41	DESC:When you are reduced to 0 hit points but not k illed outright, you can drop to 1 hit point instead. You can’t use this feature again until you finish a long rest.
+Savage Attacks		KEY:Half-Orc ~ Savage Attacks			CATEGORY:Special Ability	TYPE:Race Trait.Half-Orc Trait.Base Half-Orc Trait.SpecialQuality	SOURCEPAGE:p.41	DESC:When you score a critical hit with a melee weapon attack, you can roll one of the weapon’s damage dice one additional time and add it to the extra damage of the critical hit.
+Languages			KEY:Half-Orc ~ Languages			CATEGORY:Special Ability	TYPE:Race Trait.Half-Orc Trait.Base Half-Orc Trait.SpecialQuality	SOURCEPAGE:p.41	DESC:You can speak, read, and write Common and Orc . Orc is a harsh, grating language with hard consonants. It has no script of its own but is written in the Dwarvish script.
+
+###Block: Tiefling
+Race Traits ~ Tiefling								CATEGORY:Internal		ABILITY:Tiefling Race Trait|AUTOMATIC|TYPE=Base Tiefling Trait
+#
+Ability Score Increase	KEY:Tiefling ~ Ability Score Increase	CATEGORY:Special Ability	TYPE:Race Trait.Tiefling Trait.Base Tiefling Trait.SpecialQuality	SOURCEPAGE:p.43	DESC:Your Intelligence score increases by 1, and your Charisma score increases by 2.	BONUS:STAT|INT|1|TYPE=Racial	BONUS:STAT|CHA|2|TYPE=Racial
+Darkvision			KEY:Tiefling ~ Darkvision			CATEGORY:Special Ability	TYPE:Race Trait.Tiefling Trait.Base Tiefling Trait.SpecialQuality	SOURCEPAGE:p.43	DESC:Thanks to your infernal heritage, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray.	BONUS:VAR|DarkvisionRange|60|TYPE=Base
+Hellish Resistance	KEY:Tiefling ~ Hellish Resistance		CATEGORY:Special Ability	TYPE:Race Trait.Tiefling Trait.Base Tiefling Trait.SpecialQuality	SOURCEPAGE:p.43	DESC:You have resistance to fire damage.
+Infernal Legacy		KEY:Tiefling ~ Infernal Legacy		CATEGORY:Special Ability	TYPE:Race Trait.Tiefling Trait.Base Tiefling Trait.SpecialQuality	SOURCEPAGE:p.43	DESC:You know the thaumaturgy cantrip. Once you reach 3rd level, you can cast the hellish rebuke spell once per day as a 2nd-level spell. Once you reach 5th level, you can also cast the darkness spell once per day. Charisma is your spellcasting ability for these spells.
+Languages			KEY:Tiefling ~ Languages			CATEGORY:Special Ability	TYPE:Race Trait.Tiefling Trait.Base Tiefling Trait.SpecialQuality	SOURCEPAGE:p.43	DESC:You can speak, read, and write Common and Infernal.
+
 
 +1 Strength		KEY:Ability Score +1 ~ STR	CATEGORY:Internal	TYPE:StatIncrease+1	BONUS:STAT|STR|1	SORTKEY:AbilityScore_1
 +1 Dexterity	KEY:Ability Score +1 ~ DEX	CATEGORY:Internal	TYPE:StatIncrease+1	BONUS:STAT|DEX|1	SORTKEY:AbilityScore_2
@@ -150,6 +246,10 @@ Feat					KEY:Variant Human ~ Feat					CATEGORY:Special Ability	TYPE:Human Trait.
 
 +1 Feat				KEY:Add Feat				CATEGORY:Internal	TYPE:Ability Score Increase
 
+
+Multiclass Spellcaster Spell Slots	CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:1st = %1, 2nd = %2, 3rd = %3, 4th = %4. 5th = %5, 6th = %6, 7th = %7, 8th = %8, 9th = %9|SpellSlotsLVL1|SpellSlotsLVL2|SpellSlotsLVL3|SpellSlotsLVL4|SpellSlotsLVL5|SpellSlotsLVL6|SpellSlotsLVL7|SpellSlotsLVL8|SpellSlotsLVL9	DEFINE:SpellSlotsLVL1|0	DEFINE:SpellSlotsLVL2|0	DEFINE:SpellSlotsLVL3|0	DEFINE:SpellSlotsLVL4|0	DEFINE:SpellSlotsLVL5|0	DEFINE:SpellSlotsLVL6|0	DEFINE:SpellSlotsLVL7|0	DEFINE:SpellSlotsLVL8|0	DEFINE:SpellSlotsLVL9|0	BONUS:VAR|SpellSlotsLVL1|2+(ClassLVL>1)+(ClassLVL>2)	BONUS:VAR|SpellSlotsLVL2|(ClassLVL>2)+(ClassLVL>2)+(ClassLVL>3)	BONUS:VAR|SpellSlotsLVL3|(ClassLVL>4)+(ClassLVL>4)+(ClassLVL>5)	BONUS:VAR|SpellSlotsLVL4|(ClassLVL>6)+(ClassLVL>7)+(ClassLVL>8)	BONUS:VAR|SpellSlotsLVL5|(ClassLVL>8)+(ClassLVL>9)+(ClassLVL>17)	BONUS:VAR|SpellSlotsLVL6|(ClassLVL>10)+(ClassLVL>18)	BONUS:VAR|SpellSlotsLVL7|(ClassLVL>12)+(ClassLVL>19)	BONUS:VAR|SpellSlotsLVL8|(ClassLVL>14)	BONUS:VAR|SpellSlotsLVL9|(ClassLVL>16)
+
+
 ###Block: Shared
 Strength		KEY:Saving Throw ~ Str	BONUS:SAVE|Strength|Proficiency_Bonus|TYPE=Class		CATEGORY:Internal	
 Dexterity		KEY:Saving Throw ~ Dex	BONUS:SAVE|Dexterity|Proficiency_Bonus|TYPE=Class		CATEGORY:Internal
@@ -167,6 +267,25 @@ Medium Armor Proficiency	KEY:Armor Proficiency ~ Medium	TYPE:ArmorProfMedium.Arm
 Heavy Armor Proficiency		KEY:Armor Proficiency ~ Heavy		TYPE:ArmorProfHeavy						CATEGORY:Internal	AUTO:ARMORPROF|ARMORTYPE=HeavyArmor
 Shield Proficiency		KEY:Shield Proficiency			TYPE:ShieldProf							CATEGORY:Internal	AUTO:SHIELDPROF|Shield
 
+###Block: Languages
+# Language	Type
+Common	TYPE:Spoken.Common	CATEGORY:Language	AUTO:LANG|Common	
+Dwarvish	TYPE:Spoken.Dwarvish	CATEGORY:Language	AUTO:LANG|Dwarvish	
+Elvish	TYPE:Spoken.Elvish	CATEGORY:Language	AUTO:LANG|Elvish	
+Giant		TYPE:Spoken.Dwarvish	CATEGORY:Language	AUTO:LANG|Giant		
+Gnomish	TYPE:Spoken.Dwarvish	CATEGORY:Language	AUTO:LANG|Gnomish	
+Goblin	TYPE:Spoken.Dwarvish	CATEGORY:Language	AUTO:LANG|Goblin	
+Halfling	TYPE:Spoken.Common	CATEGORY:Language	AUTO:LANG|Halfling	
+Orc		TYPE:Spoken.Dwarvish	CATEGORY:Language	AUTO:LANG|Orc		
+#Exotic Languages
+Abyssal	TYPE:Spoken.Infernal	CATEGORY:Language	AUTO:LANG|Abyssal	
+Celestial	TYPE:Spoken.Celestial	CATEGORY:Language	AUTO:LANG|Celestial	
+Draconic	TYPE:Spoken.Draconic	CATEGORY:Language	AUTO:LANG|Draconic	
+Deep Speech	TYPE:Spoken.NoScript	CATEGORY:Language	AUTO:LANG|Deep Speech	
+Infernal	TYPE:Spoken.Infernal	CATEGORY:Language	AUTO:LANG|Infernal	
+Primordial	TYPE:Spoken.Dwarvish	CATEGORY:Language	AUTO:LANG|Primordial	
+Sylvan	TYPE:Spoken.Elvish	CATEGORY:Language	AUTO:LANG|Sylvan	
+Undercommon	TYPE:Spoken.Elvish	CATEGORY:Language	AUTO:LANG|Undercommon	
 
 
 #	AUTO:WEAPONPROF|TYPE=Simple
@@ -233,24 +352,46 @@ CATEGORY=Internal|Default.MOD	BONUS:SKILL|Performance|Proficiency_Bonus|TYPE=Cla
 CATEGORY=Internal|Default.MOD	BONUS:SKILL|Persuasion|Proficiency_Bonus|TYPE=Class|PRECSKILL:1,Persuasion		
 
 ###Block: Skill Proficiencies
-Athletics		CATEGORY:Internal	CSKILL:Athletics		
-Acrobatics		CATEGORY:Internal	CSKILL:Acrobatics		
-Sleight of Hand	CATEGORY:Internal	CSKILL:Sleight of Hand	
-Stealth		CATEGORY:Internal	CSKILL:Stealth		
-Arcana		CATEGORY:Internal	CSKILL:Arcana		
-History		CATEGORY:Internal	CSKILL:History		
-Investigation	CATEGORY:Internal	CSKILL:Investigation	
-Nature		CATEGORY:Internal	CSKILL:Nature		
-Religion		CATEGORY:Internal	CSKILL:Religion		
-Animal Handling	CATEGORY:Internal	CSKILL:Animal Handling	
-Insight		CATEGORY:Internal	CSKILL:Insight		
-Medicine		CATEGORY:Internal	CSKILL:Medicine		
-Perception		CATEGORY:Internal	CSKILL:Perception		
-Survival		CATEGORY:Internal	CSKILL:Survival		
-Deception		CATEGORY:Internal	CSKILL:Deception		
-Intimidation	CATEGORY:Internal	CSKILL:Intimidation	
-Performance		CATEGORY:Internal	CSKILL:Performance		
-Persuasion		CATEGORY:Internal	CSKILL:Persuasion		
+Athletics		CATEGORY:Skill	TYPE:Skill Proficiency	CSKILL:Athletics		
+Acrobatics		CATEGORY:Skill	TYPE:Skill Proficiency	CSKILL:Acrobatics		
+Sleight of Hand	CATEGORY:Skill	TYPE:Skill Proficiency	CSKILL:Sleight of Hand	
+Stealth		CATEGORY:Skill	TYPE:Skill Proficiency	CSKILL:Stealth		
+Arcana		CATEGORY:Skill	TYPE:Skill Proficiency	CSKILL:Arcana		
+History		CATEGORY:Skill	TYPE:Skill Proficiency	CSKILL:History		
+Investigation	CATEGORY:Skill	TYPE:Skill Proficiency	CSKILL:Investigation	
+Nature		CATEGORY:Skill	TYPE:Skill Proficiency	CSKILL:Nature		
+Religion		CATEGORY:Skill	TYPE:Skill Proficiency	CSKILL:Religion		
+Animal Handling	CATEGORY:Skill	TYPE:Skill Proficiency	CSKILL:Animal Handling	
+Insight		CATEGORY:Skill	TYPE:Skill Proficiency	CSKILL:Insight		
+Medicine		CATEGORY:Skill	TYPE:Skill Proficiency	CSKILL:Medicine		
+Perception		CATEGORY:Skill	TYPE:Skill Proficiency	CSKILL:Perception		
+Survival		CATEGORY:Skill	TYPE:Skill Proficiency	CSKILL:Survival		
+Deception		CATEGORY:Skill	TYPE:Skill Proficiency	CSKILL:Deception		
+Intimidation	CATEGORY:Skill	TYPE:Skill Proficiency	CSKILL:Intimidation	
+Performance		CATEGORY:Skill	TYPE:Skill Proficiency	CSKILL:Performance		
+Persuasion		CATEGORY:Skill	TYPE:Skill Proficiency	CSKILL:Persuasion		
+
+###Block: Multiclass Support
+First Level Proficiencies	CATEGORY:Internal	TEMPLATE:First Level
+
+###Block: Barbarian Class Feature
+# Ability Name			Unique Key					Category of Ability		Type										Description
+Rage					KEY:Barbarian ~ Rage				CATEGORY:Special Ability	TYPE:Barbarian Class Feature.ClassAbility.SpecialQuality	SOURCEPAGE:p.48	DESC:In battle, you fight with primal ferocity. On your turn, you can enter a rage as a bonus action. While raging, you gain the following benefits if you aren’t wearing heavy armor: You have advantage on Strength checks and Strength saving throws. When you make a melee weapon attack using Strength, you gain a bonus to the damage roll that increases as you gain levels as a barbarian, as shown in the Rage Damage column of the Barbarian table. You have resistance to bludgeoning, piercing, and slashing damage. If you are able to cast spells, you can’t cast them or concentrate on them while raging. Your rage lasts for 1 minute. It ends early if you are knocked unconscious or if your turn ends and you haven’t attacked a hostile creature since your last turn or taken damage since then. You can also end your rage on your turn as a bonus action. Once you have raged the number of times shown for your barbarian level in the Rages column of the Barbarian table, you must finish a long rest before you can rage again.	BONUS:VAR|MeleeStrBonus|RageDamageBonus|PREVAREQ:Raging,1	TEMPBONUS:PC|VAR|Raging|1	DEFINE:Raging|0	DEFINE:RageDamageBonus|0	DEFINE:RageTimes|0		BONUS:VAR|RageTimes|1+(BarbarianLVL>2)+(BarbarianLVL>5)+(BarbarianLVL>11)+(BarbarianLVL>16)	BONUS:VAR|RageDamageBonus|2+(BarbarianLVL>8)+(BarbarianLVL>14)	
+Unarmored Defense			KEY:Barbarian ~ Unarmored Defense		CATEGORY:Special Ability	TYPE:Barbarian Class Feature.ClassAbility.SpecialQuality	SOURCEPAGE:p.48	DESC:While you are not wearing any armor, your Armor Class equals 10 + your Dexterity modifier + your Constitution modifier. You can use a shield and still gain this benefit.
+Reckless Attack			KEY:Barbarian ~ Reckless Attack		CATEGORY:Special Ability	TYPE:Barbarian Class Feature.ClassAbility.SpecialQuality	SOURCEPAGE:p.48	DESC:Starting at 2nd level, you can throw aside all concern for defense to attack with fierce desperation. When you make your first attack on your turn, you can decide to attack recklessly. Doing so gives you advantage on melee weapon attack rolls using Strength during this turn, but attack rolls against you have advantage until your next turn.
+Danger Sense			KEY:Barbarian ~ Danger Sense			CATEGORY:Special Ability	TYPE:Barbarian Class Feature.ClassAbility.SpecialQuality	SOURCEPAGE:p.48	DESC:At 2nd level, you gain an uncanny sense of when things nearby aren’t as they should be, giving you an edge when you dodge away from danger. You have advantage on Dexterity saving throws against effects that you can see, such as traps and spells. To gain this benefit, you can’t be blinded, deafened, or incapacitated.
+Primal Path				KEY:Barbarian ~ Primal Path			CATEGORY:Special Ability	TYPE:Barbarian Class Feature.ClassAbility.SpecialQuality	SOURCEPAGE:p.48	DESC:At 3rd level, you choose a path that shapes the nature of your rage. Choose the Path of the Berserker or the Path of the Totem Warrior, both detailed at the end of the class description. Your choice grants you features at 3rd level and again at 6th, 10th, and 14th levels.
+Ability Score Improvement	KEY:Barbarian ~ Ability Score Improvement	CATEGORY:Special Ability	TYPE:Barbarian Class Feature.ClassAbility.SpecialQuality	SOURCEPAGE:p.49	DESC:When you reach 4th level, and again at 8th, 12th, 16th, and 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can’t increase an ability score above 20 using this feature.
+Extra Attack			KEY:Barbarian ~ Extra Attack			CATEGORY:Special Ability	TYPE:Barbarian Class Feature.ClassAbility.SpecialQuality	SOURCEPAGE:p.49	DESC:Beginning at 5th level, you can attack twice, instead of once, whenever you take the Attack action on your turn.
+Fast Movement			KEY:Barbarian ~ Fast Movement			CATEGORY:Special Ability	TYPE:Barbarian Class Feature.ClassAbility.SpecialQuality	SOURCEPAGE:p.49	DESC:Starting at 5th level, your speed increases by 10 feet while you aren’t wearing heavy armor.
+Feral Instinct			KEY:Barbarian ~ Feral Instinct		CATEGORY:Special Ability	TYPE:Barbarian Class Feature.ClassAbility.SpecialQuality	SOURCEPAGE:p.49	DESC:By 7th level, your instincts are so honed that you have advantage on initiative rolls. Additionally, if you are surprised at the beginning of combat and aren’t incapacitated, you can act normally on your first turn, but only if you enter your rage before doing anything else on that turn.
+Brutal Critical			KEY:Barbarian ~ Brutal Critical		CATEGORY:Special Ability	TYPE:Barbarian Class Feature.ClassAbility.SpecialQuality	SOURCEPAGE:p.49	DESC:Beginning at 9th level, you can roll one additional weapon damage die when determining the extra damage for a critical hit with a melee attack. This increases to two additional dice at 13th level and three additional dice at 17th level.
+Relentless Rage			KEY:Barbarian ~ Relentless Rage		CATEGORY:Special Ability	TYPE:Barbarian Class Feature.ClassAbility.SpecialQuality	SOURCEPAGE:p.49	DESC:Starting at 11th level, your rage can keep you fighting despite grievous w ounds. If you drop to 0 hit points while you’re raging and don’t die outright, you can make a DC 10 Constitution saving throw. If you succeed, you drop to 1 hit point instead. Each time you use this feature after the first, the DC increases by 5. When you finish a short or long rest, the DC resets to 10.
+Persistent Rage			KEY:Barbarian ~ Persistent Rage		CATEGORY:Special Ability	TYPE:Barbarian Class Feature.ClassAbility.SpecialQuality	SOURCEPAGE:p.49	DESC:Beginning at 15th level, your rage is so fierce that it ends early only if you fall unconscious or if you choose to end it.
+Indomitable Might			KEY:Barbarian ~ Indomitable Might		CATEGORY:Special Ability	TYPE:Barbarian Class Feature.ClassAbility.SpecialQuality	SOURCEPAGE:p.49	DESC:Beginning at 18th level, if your total for a Strength check is less than your Strength score, you can use that score in place of the total.
+Primal Champion			KEY:Barbarian ~ Primal Champion		CATEGORY:Special Ability	TYPE:Barbarian Class Feature.ClassAbility.SpecialQuality	SOURCEPAGE:p.49	DESC:At 20th level, you embody the power of the wilds. Your Strength and Constitution scores increase by 4. Your maximum for those scores is now 24.
+
+# Primal Paths
 
 
 ###Block: Cleric
@@ -259,7 +400,7 @@ Spellcasting Ability			KEY:Cleric ~ Spellcasting Ability			CATEGORY:Special Abil
 Divine Domain				KEY:Cleric ~ Divine Domain				CATEGORY:Special Ability	TYPE:Class Features.Cleric Class Feature.SpecialQuality	SOURCEPAGE:p.					DESC:Choose one domain related to your deity: Knowledge, Life, Light, Nature, Tempest, Trickery, or War. The Life domain is detailed at the end of the class description and provides examples of gods associated with it. See the Player's Handbook for details on all the domains. Your choice grants you domain spells and other features when you choose it at 1st level. It also grants you additional ways to use Channel Divinity when you gain that feature at 2nd level, and additional benefits at 6th, 8th, and 17th levels.	BONUS:ABILITYPOOL|Divine Domain|1
 Channel Divinity				KEY:Cleric ~ Channel Divinity				CATEGORY:Special Ability	TYPE:Class Features.Cleric Class Feature.SpecialQuality	SOURCEPAGE:p.					DESC:At 2nd level, you gain the ability to channel divine energy directly from your deity, using that energy to fuel magical effects. You start with two such effects: Turn Undead and an effect determined by your domain. Some domains grant you additional effects as you advance in levels, as noted in the domain description. When you use your Channel Divinity, you choose which effect to create. You must then finish a short or long rest to use your Channel Divinity again. Some Channel Divinity effects require saving throws. When you use such an effect from this class, the DC equals your cleric spell save DC. Beginning at 6th level, you can use your Channel Divinity twice between rests, and beginning at 18th level, you can use it three times between rests. When you finish a short or long rest, you regain your expended uses.	ABILITY:Special Ability|AUTOMATIC|Channel Divinity ~ Turn Undead
 Destroy Undead				KEY:Cleric ~ Destroy Undead				CATEGORY:Special Ability	TYPE:Class Features.Cleric Class Feature.SpecialQuality	SOURCEPAGE:p.					DESC:Starting at 5th level, when an undead fails its saving throw against your Turn Undead feature, the creature is instantly destroyed if its challenge rating is at or below a certain threshold, as shown in the Destroy Undead table.	ASPECT:NAME|Destroy Undead (CR 1/2)|PREVAREQ:DestroyUndeadCR,0	ASPECT:NAME|Destroy Undead (CR %1)|DestroyUndeadCR|PREVARGT:DestroyUndeadCR,0	DEFINE:DestroyUndeadCR|0
-Divine Intervention			KEY:Cleric ~ Divine Intervention				CATEGORY:Special Ability	TYPE:Class Features.Cleric Class Feature.SpecialQuality	SOURCEPAGE:p.					DESC:Beginning at 10th level, you can call on your deity to intervene on your behalf when your need is great. Imploring your deity's aid requires you to use your action. Describe the assistance you seek, and roll percentile dice. If you roll a number equal to or lower than your cleric level, your deity intervenes. The DM chooses the nature of the intervention; the effect of any cleric spell or cleric domain spell would be appropriate. If your deity intervenes, you can't use this feature again for 7 days. Otherwise, you can use it again after you finish a long rest. At 20th level, your call for intervention succeeds automatically, no roll required.
+Divine Intervention			KEY:Cleric ~ Divine Intervention			CATEGORY:Special Ability	TYPE:Class Features.Cleric Class Feature.SpecialQuality	SOURCEPAGE:p.					DESC:Beginning at 10th level, you can call on your deity to intervene on your behalf when your need is great. Imploring your deity's aid requires you to use your action. Describe the assistance you seek, and roll percentile dice. If you roll a number equal to or lower than your cleric level, your deity intervenes. The DM chooses the nature of the intervention; the effect of any cleric spell or cleric domain spell would be appropriate. If your deity intervenes, you can't use this feature again for 7 days. Otherwise, you can use it again after you finish a long rest. At 20th level, your call for intervention succeeds automatically, no roll required.
 #
 Channel Divinity: Turn Undead		KEY:Channel Divinity ~ Turn Undead		CATEGORY:Special Ability	TYPE:Class Features.Cleric Class Feature.Channel Divinity.SpecialQuality	SOURCEPAGE:p.					DESC:As an action, you present your holy symbol and speak a prayer censuring the undead. Each undead that can see or hear you within 30 feet of you must make a Wisdom saving throw. If the creature fails its saving throw, it is turned for 1 minute or until it takes any damage. A turned creature must spend its turns trying to move as far away from you as it can, and it can't willingly move to a space within 30 feet of you. It also can't take reactions. For its action, it can use only the Dash action or try to escape from an effect that prevents it from moving. If there's nowhere to move, the creature can use the Dodge action.
 
@@ -325,6 +466,8 @@ Slippery Mind		KEY:Rogue ~ Slippery Mind				CATEGORY:Special Ability	TYPE:Rogue 
 Elusive			KEY:Rogue ~ Elusive					CATEGORY:Special Ability	TYPE:Rogue Class Feature.SpecialQuality	DESC: Beginning at 18th level, you are so evasive that attackers rarely gain the upper hand against you. No attack roll has advantage against you while you aren't incapacitated.
 Stroke of Luck		KEY:Rogue ~ Stroke of Luck				CATEGORY:Special Ability	TYPE:Rogue Class Feature.SpecialQuality	DESC: At 20th level, you have an uncanny knack for succeeding when you need to. If your attack misses a target within range, you can turn the miss into a hit. Alternatively, if you fail an ability check, you can treat the d20 roll as a 20. Once you use this feature, you can't use it again until you finish a short or long rest.
 
+
+Thieves' Tools		KEY:Thieves' Tools	CATEGORY:Internal
 #
 #Roguish Archetypes	Rogues have many features in common, including their emphasis on perfecting their skills, their precise and deadly approach to combat, and their increasingly quick reflexes. But different rogues steer those talents in varying directions, embodied by the rogue archetypes. Your choice of archetype is a reflection of your focus— not necessarily an indication of your chosen profession, but a description of your preferred techniques.
 Thief				KEY:Roguish Archetype ~ Thief			CATEGORY:Special Ability	TYPE:Rogue Archetype.SpecialQuality	DESC: You hone your skills in the larcenous arts. Burglars, bandits, cutpurses, and other criminals typically follow this archetype, but so do rogues who prefer to think of themselves as professional treasure seekers, explorers, delvers, and investigators. In addition to improving your agility and stealth, you learn skills useful for delving into ancient ruins, reading unfamiliar languages, and using magic items you normally couldn't employ.
