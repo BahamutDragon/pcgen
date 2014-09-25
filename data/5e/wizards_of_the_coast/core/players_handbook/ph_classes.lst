@@ -28,7 +28,7 @@ CLASS:Barbarian	STARTSKILLPTS:0
 
 
 
-CLASS:Bard	SOURCEPAGE:p.51	HD:8		TYPE:PC.BASE	MAXLEVEL:20
+CLASS:Bard	SOURCEPAGE:p.51	HD:8		TYPE:PC.BASE	MAXLEVEL:20	DEFINE:BardLVL|0	BONUS:VAR|BardLVL|CL
 CLASS:Bard	SPELLTYPE:Spell	SPELLSTAT:CHA
 ###Block
 4	BONUS:ABILITYPOOL|Character Advancement Selection|1
@@ -39,59 +39,44 @@ CLASS:Bard	SPELLTYPE:Spell	SPELLSTAT:CHA
 ###Block
 1	KNOWN:2,4
 2	KNOWN:2,5
-3	KNOWN:2,5,1
-4	KNOWN:3,5,2
-5	KNOWN:3,5,2,1
-6	KNOWN:3,5,2,2
-7	KNOWN:3,5,2,2,1
-8	KNOWN:3,5,2,2,2
-9	KNOWN:3,5,2,2,2,1
-10	KNOWN:4,5,2,2,2,3
-11	KNOWN:4,5,2,2,2,3,1
-12	KNOWN:4,5,2,2,2,3,1
-13	KNOWN:4,5,2,2,2,3,1,1
-14	KNOWN:4,5,2,2,2,3,1,3
-15	KNOWN:4,5,2,2,2,3,1,3,1
-16	KNOWN:4,5,2,2,2,3,1,3,1
-17	KNOWN:4,5,2,2,2,3,1,3,1,1
-18	KNOWN:4,5,2,2,2,3,1,3,1,3
-19	KNOWN:4,5,2,2,2,3,1,3,1,3
-20	KNOWN:4,5,2,2,2,3,1,3,1,3
+3	KNOWN:2,5
+4	KNOWN:3,5
+5	KNOWN:3,5
+6	KNOWN:3,5
+7	KNOWN:3,5
+8	KNOWN:3,5
+9	KNOWN:3,5
+10	KNOWN:4,5
+11	KNOWN:4,5
+12	KNOWN:4,5
+13	KNOWN:4,5
+14	KNOWN:4,5
+15	KNOWN:4,5
+16	KNOWN:4,5
+17	KNOWN:4,5
+18	KNOWN:4,5
+19	KNOWN:4,5
+20	KNOWN:4,5
+###Block
+1	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Spellcasting	
+1	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Cantrips	
+1	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Bardic Inspiration			
+2	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Jack of All Trades			
+2	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Song of Rest				
+3	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Bard College				
+3	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Expertise				
+4	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Ability Score Improvement	
+5	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Font of Inspiration		
+6	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Countercharm				
+10	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Magical Secrets			
+20	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Superior Inspiration		
 
-	
-
-
-
-
-
-
-#Cleric*
-CLASS:Druid
-#Fighter*
-CLASS:Monk
-CLASS:Paladin
-CLASS:Ranger
-#Rogue*
-CLASS:Sorcerer
-CLASS:Warlock
-#Wizard*
-
-
-
-
-
-
-
-
-
-# Basic Classes
 
 # Class Name	Hit Dice	Type			Ability														Bonus to Ability Pool
-CLASS:Cleric	HD:8		TYPE:PC.Base	ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfMedium|TYPE=ShieldProf
+CLASS:Cleric	HD:8		TYPE:PC.Base	ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfMedium|TYPE=ShieldProf	DEFINE:ClericLVL|0	BONUS:VAR|ClericLVL|CL
 # Class Name	Spell Stat		Caster level
 CLASS:Cleric	SPELLSTAT:WIS	SPELLTYPE:Spell	BONUS:CASTERLEVEL|Cleric|CL
 ###Block
-1	BONUS:ABILITYPOOL|Cleric Cantrip|Cleric_Cantrips
 4	BONUS:ABILITYPOOL|Character Advancement Selection|1
 8	BONUS:ABILITYPOOL|Character Advancement Selection|1
 12	BONUS:ABILITYPOOL|Character Advancement Selection|1
@@ -119,10 +104,6 @@ CLASS:Cleric	SPELLSTAT:WIS	SPELLTYPE:Spell	BONUS:CASTERLEVEL|Cleric|CL
 19	CAST:0,4,3,3,3,3,2,1,1,1
 20	CAST:0,4,3,3,3,3,2,2,1,1
 ###Block
-1								DEFINE:Cleric_Cantrips|0
-1	BONUS:VAR|Cleric_Cantrips|3+(CL>3)+(CL>9)
-5	BONUS:VAR|DestroyUndeadCR|(CL-5)/3
-###Block
 1	ABILITY:Special Ability|AUTOMATIC|Cleric ~ Cantrips
 1	ABILITY:Special Ability|AUTOMATIC|Cleric ~ Spellcasting Ability
 1	ABILITY:Special Ability|AUTOMATIC|Cleric ~ Divine Domain
@@ -130,6 +111,8 @@ CLASS:Cleric	SPELLSTAT:WIS	SPELLTYPE:Spell	BONUS:CASTERLEVEL|Cleric|CL
 5	ABILITY:Special Ability|AUTOMATIC|Cleric ~ Destroy Undead
 10	ABILITY:Special Ability|AUTOMATIC|Cleric ~ Divine Intervention
 
+
+CLASS:Druid
 
 
 # Class Name	Hit Dice	Type			Ability																				Define			Bonus to Ability Pool			Modify VAR
@@ -148,6 +131,11 @@ CLASS:Fighter	HD:10		TYPE:PC.Base	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMart
 12	BONUS:ABILITYPOOL|Character Advancement Selection|1
 16	BONUS:ABILITYPOOL|Character Advancement Selection|1
 19	BONUS:ABILITYPOOL|Character Advancement Selection|1
+
+
+CLASS:Monk
+CLASS:Paladin
+CLASS:Ranger
 
 
 # Class Name
@@ -176,6 +164,12 @@ CLASS:Rogue		AUTO:WEAPONPROF|Crossbow (Hand)|Longsword|Rapier|Shortsword
 
 ###Block
 #Tools: Thieves' tools
+
+
+CLASS:Sorcerer
+CLASS:Warlock
+
+
 
 # Class Name
 CLASS:Wizard		HD:6	TYPE:PC.Base		DEFINE:WizardLVL|0	BONUS:ABILITYPOOL|Wizard Skill|2	BONUS:VAR|WizardLVL|CL
@@ -227,3 +221,4 @@ CLASS:Wizard	SPELLSTAT:INT	SPELLTYPE:Spell	BONUS:CASTERLEVEL|Wizard|CL
 18	CAST:0,4,3,3,3,3,1,1,1,1
 19	CAST:0,4,3,3,3,3,2,1,1,1
 20	CAST:0,4,3,3,3,3,2,2,1,1
+
