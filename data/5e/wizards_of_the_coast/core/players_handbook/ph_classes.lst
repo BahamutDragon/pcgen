@@ -104,19 +104,19 @@ CLASS:Cleric	SPELLSTAT:WIS	SPELLTYPE:Spell	BONUS:CASTERLEVEL|Cleric|CL
 19	CAST:0,4,3,3,3,3,2,1,1,1
 20	CAST:0,4,3,3,3,3,2,2,1,1
 ###Block
-1	ABILITY:Special Ability|AUTOMATIC|Cleric ~ Cantrips
-1	ABILITY:Special Ability|AUTOMATIC|Cleric ~ Spellcasting Ability
-1	ABILITY:Special Ability|AUTOMATIC|Cleric ~ Divine Domain
-2	ABILITY:Special Ability|AUTOMATIC|Cleric ~ Channel Divinity
-5	ABILITY:Special Ability|AUTOMATIC|Cleric ~ Destroy Undead
-10	ABILITY:Special Ability|AUTOMATIC|Cleric ~ Divine Intervention
+1	ABILITY:Cleric Class Feature|AUTOMATIC|Cleric ~ Cantrips
+1	ABILITY:Cleric Class Feature|AUTOMATIC|Cleric ~ Spellcasting Ability
+1	ABILITY:Cleric Class Feature|AUTOMATIC|Cleric ~ Divine Domain
+2	ABILITY:Cleric Class Feature|AUTOMATIC|Cleric ~ Channel Divinity
+5	ABILITY:Cleric Class Feature|AUTOMATIC|Cleric ~ Destroy Undead
+10	ABILITY:Cleric Class Feature|AUTOMATIC|Cleric ~ Divine Intervention
 
 
 CLASS:Druid
 
 
 # Class Name	Hit Dice	Type			Ability																				Define			Bonus to Ability Pool			Modify VAR
-CLASS:Fighter	HD:10		TYPE:PC.Base	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial|TYPE=ArmorProfMedium|TYPE=ShieldProf	BONUS:VAR|FighterLVL|CL
+CLASS:Fighter	HD:10		TYPE:PC.Base	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial|TYPE=ArmorProfMedium|TYPE=ShieldProf	BONUS:VAR|FighterLVL|CL	DEFINE:FighterLVL|0
 ###Block
 1	ABILITY:Special Ability|AUTOMATIC|Fighter ~ Fighting Style
 1	ABILITY:Special Ability|AUTOMATIC|Fighter ~ Second Wind
@@ -139,7 +139,7 @@ CLASS:Ranger
 
 
 # Class Name
-CLASS:Rogue	HD:8	TYPE:PC.Base		ABILITY:Internal|AUTOMATIC|Thieves' Tools|TYPE=ArmorProfLight	BONUS:ABILITYPOOL|Rogue Skill|1	DEFINE:RogueLVL|0	BONUS:VAR|RogueLVL|CL
+CLASS:Rogue	HD:8	TYPE:PC.Base		ABILITY:Internal|AUTOMATIC|Thieves' Tools|TYPE=ArmorProfLight	BONUS:ABILITYPOOL|Rogue Skill|RogueSkillCount	DEFINE:RogueLVL|0	BONUS:VAR|RogueLVL|CL	DEFINE:RogueSkillCount|0	BONUS:VAR|RogueSkillCount|1
 CLASS:Rogue		AUTO:WEAPONPROF|Crossbow (Hand)|Longsword|Rapier|Shortsword
 ###Block
 4	BONUS:ABILITYPOOL|Character Advancement Selection|1
@@ -184,11 +184,10 @@ CLASS:Wizard	SPELLSTAT:INT	SPELLTYPE:Spell	BONUS:CASTERLEVEL|Wizard|CL
 ###Block
 1	BONUS:ABILITYPOOL|Wizard Cantrip|Wizard_Cantrips
 ###Block
-1								DEFINE:Wizard_Cantrips|0
-1	BONUS:VAR|Wizard_Cantrips|3+(CL>3)+(CL>9)
+1							
 ###Block
 1	ABILITY:Special Ability|AUTOMATIC|Wizard ~ Spellcasting					
-#	ABILITY:Special Ability|AUTOMATIC|Wizard ~ Cantrips						
+1	ABILITY:Special Ability|AUTOMATIC|Wizard ~ Cantrips						
 #	ABILITY:Special Ability|AUTOMATIC|Wizard ~ Spellbook						
 #	ABILITY:Special Ability|AUTOMATIC|Wizard ~ Preparing and Casting Spells			
 #	ABILITY:Special Ability|AUTOMATIC|Wizard ~ Spellcasting Ability				
