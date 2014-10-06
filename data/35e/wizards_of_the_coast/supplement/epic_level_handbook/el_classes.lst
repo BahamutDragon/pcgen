@@ -159,7 +159,7 @@ CLASS:Agent Retriever	HD:6		TYPE:Epic.PC	CLASSTYPE:PC	ABB:Agr		MAXLEVEL:NOLIMIT	
 # Class Name		Required AL		Required Feat	Required Lvl	Required Skill
 CLASS:Agent Retriever	PREALIGN:LG,LN,LE	PREFEAT:1,Track	PRELEVEL:MIN=20	PRESKILL:2,Knowledge (The Planes)=15,Gather Information=24
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Agent Retriever	STARTSKILLPTS:6	CSKILL:Appraise|Decipher Script|Diplomacy|Forgery|Gather Information|Knowledge (arcana)|Knowledge (Geography)|Knowledge (History)|Knowledge (Local)|Knowledge (The Planes)|Listen|Search|Spot|Survival
+CLASS:Agent Retriever	STARTSKILLPTS:6	CSKILL:Appraise|Decipher Script|Diplomacy|Forgery|Gather Information|Knowledge (arcana)|Knowledge (Geography)|Knowledge (History)|TYPE=Knowledge (Local)|Knowledge (The Planes)|Listen|Search|Spot|Survival
 1:REPEATLEVEL:1																		ADD:SPELLCASTER|ANY
 1										BONUS:VAR|ARTracking|10*ceil(CL/5)	DEFINE:ARTracking|0					ABILITY:Special Ability|AUTOMATIC|Agent Retriever Tracking Bonus|Uncanny Location
 2																																						SPELLS:Class|TIMES=((var("CL=Agent Retriever")+3)/5)|CASTERLEVEL=14|Plane Shift,17+CHA
@@ -265,9 +265,9 @@ CLASS:Perfect Wight	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|Diplomac
 # Class Name		Hit Dice	Type			Class Type		Abbreviation	Max Level		Source Page					Bonus
 CLASS:Union Sentinel	HD:10		TYPE:Epic.PC	CLASSTYPE:PC	ABB:Sen		MAXLEVEL:NOLIMIT	SOURCEPAGE:epicprestiegclasses.rtf	
 # Class Name		Required AL		Required Feat						Required Lvl	Required Skill						PRETOTALAB
-CLASS:Union Sentinel	PREALIGN:LG,LN,LE	PREFEAT:3,Alertness,Improved Disarm,Armor Skin	PRELEVEL:MIN=20	PRESKILL:2,Diplomacy=8,Knowledge (Local)=8	PRETOTALAB:21
+CLASS:Union Sentinel	PREALIGN:LG,LN,LE	PREFEAT:3,Alertness,Improved Disarm,Armor Skin	PRELEVEL:MIN=20	PRESKILL:2,Diplomacy=8,TYPE.Knowledge (Local)=8	PRETOTALAB:21
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Union Sentinel	STARTSKILLPTS:2	CSKILL:Diplomacy|Gather Information|Intimidate|Knowledge (Local)|Listen|Search|Sense Motive|Spot|TYPE=Profession
+CLASS:Union Sentinel	STARTSKILLPTS:2	CSKILL:Diplomacy|Gather Information|Intimidate|TYPE=Knowledge (Local)|Listen|Search|Sense Motive|Spot|TYPE=Profession
 1																SPELLS:Class|TIMES=(ceil(var("CL=Union Sentinel")/7))|CASTERLEVEL=15|Sending,15+CHA	SPELLS:Class|TIMES=(ceil(var("CL=Union Sentinel")/3))|CASTERLEVEL=15|Shield of Law,18+CHA
 2																SPELLS:Class|TIMES=((var("CL=Union Sentinel")+4)/6)|CASTERLEVEL=18|Freedom,19+CHA	SPELLS:Class|TIMES=((var("CL=Union Sentinel")+2)/4)|CASTERLEVEL=15|Knock,12+CHA
 3																SPELLS:Class|TIMES=(var("CL=Union Sentinel")/3)|CASTERLEVEL=15|Dimensional Anchor,14+CHA
