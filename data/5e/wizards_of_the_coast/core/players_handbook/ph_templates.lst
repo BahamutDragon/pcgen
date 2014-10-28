@@ -1,26 +1,46 @@
+
+# Determines First Level Class and Benefits for Class.
 First Level	TEMPLATE:CHOOSE:TYPE=FirstLevel
 
-Barbarian	PRECLASS:1,Barbarian=1			TYPE:FirstLevel	ABILITY:Internal|AUTOMATIC|Saving Throw ~ Wis|Saving Throw ~ Cha|TYPE=WeaponProfMartial|TYPE=ArmorProfMedium|TYPE=ShieldProf
-Bard		PRECLASS:1,Bard=1				TYPE:FirstLevel	ABILITY:Internal|AUTOMATIC|Saving Throw ~ Dex|Saving Throw ~ Cha|TYPE=WeaponProfSimple	AUTO:WEAPONPROF|Crossbow (Hand)|Longsword|Rapier|Shortsword	BONUS:ABILITYPOOL|Skill Proficiency|3	BONUS:ABILITYPOOL|Bard Tool Proficiency|2
-
-Cleric	PRECLASS:1,Cleric=1			TYPE:FirstLevel	ABILITY:Internal|AUTOMATIC|Saving Throw ~ Wis|Saving Throw ~ Cha|TYPE=WeaponProfSimple|TYPE=ArmorProfMedium|TYPE=ShieldProf	BONUS:ABILITYPOOL|Cleric Skill|2
-Druid		PRECLASS:1,Druid=1			TYPE:FirstLevel	ABILITY:Internal|AUTOMATIC|Saving Throw ~ Int|Saving Throw ~ Wis|TYPE=ArmorProfMedium|TYPE=ShieldProf	AUTO:WEAPONPROF|Club|Dagger|Dart|Javelin|Mace|Quarterstaff|Scimitar|Sickle|Sling|Spear											BONUS:ABILITYPOOL|Druid Skill|2			
-#Herbalism kit
-
-Fighter	PRECLASS:1,Fighter=1			TYPE:FirstLevel	ABILITY:Internal|AUTOMATIC|Saving Throw ~ Str|Saving Throw ~ Con|TYPE=WeaponProfMartial|TYPE=ArmorProfHeavy|TYPE=ShieldProf	BONUS:ABILITYPOOL|Fighter Skill|2
-Monk		PRECLASS:1,Monk=1				TYPE:FirstLevel	ABILITY:Internal|AUTOMATIC|Saving Throw ~ Str|Saving Throw ~ Dex|TYPE=WeaponProfSimple	AUTO:WEAPONPROF|Shortsword			BONUS:ABILITYPOOL|Monk Skill|2
-#Tools: Choose one type of artisan’s tools or one musical instrument
-
-
-
-Paladin	PRECLASS:1,Paladin=1			TYPE:FirstLevel	ABILITY:Internal|AUTOMATIC|Saving Throw ~ Wis|Saving Throw ~ Cha|TYPE=WeaponProfMartial|TYPE=ArmorProfHeavy|TYPE=ShieldProf	BONUS:ABILITYPOOL|Paladin Skill|2
-Ranger	PRECLASS:1,Ranger=1			TYPE:FirstLevel	
-Rogue		PRECLASS:1,Rogue=1			TYPE:FirstLevel	ABILITY:Internal|AUTOMATIC|Saving Throw ~ Dex|Saving Throw ~ Int|TYPE=WeaponProfSimple|TYPE=ArmorProfLight	BONUS:VAR|RogueSkillCount|3
-Sorcerer	PRECLASS:1,Sorcerer=1			TYPE:FirstLevel	
-Warlock	PRECLASS:1,Warlock=1			TYPE:FirstLevel	
-Wizard	PRECLASS:1,Wizard=1			TYPE:FirstLevel	ABILITY:Internal|AUTOMATIC|Saving Throw ~ Wis|Saving Throw ~ Int	AUTO:WEAPONPROF|Dagger|Dart|Sling|Quarterstaff|Crossbow (Light)	BONUS:ABILITYPOOL|Wizard Skill|2
+###Block: First Level Base Classes
+Barbarian	PRECLASS:1,Barbarian=1	TYPE:FirstLevel	ABILITY:Internal|AUTOMATIC|Saving Throw ~ Wis|Saving Throw ~ Cha|TYPE=WeaponProfMartial|TYPE=ArmorProfMedium|TYPE=ShieldProf																								ABILITY:Internal|AUTOMATIC|Multiclass Allowed|PRESTAT:1,STR=13
+Bard		PRECLASS:1,Bard=1		TYPE:FirstLevel	ABILITY:Internal|AUTOMATIC|Saving Throw ~ Dex|Saving Throw ~ Cha|TYPE=WeaponProfSimple|TYPE=ArmorProfLight	AUTO:WEAPONPROF|Crossbow (Hand)|Longsword|Rapier|Shortsword		BONUS:VAR|BardToolCount|1	BONUS:VAR|BardSkillCount|2						ABILITY:Internal|AUTOMATIC|Multiclass Allowed|PRESTAT:1,CHA=13
+Cleric	PRECLASS:1,Cleric=1	TYPE:FirstLevel	ABILITY:Internal|AUTOMATIC|Saving Throw ~ Wis|Saving Throw ~ Cha|TYPE=WeaponProfSimple|TYPE=ArmorProfMedium|TYPE=ShieldProf	BONUS:ABILITYPOOL|Cleric Skill|2																		ABILITY:Internal|AUTOMATIC|Multiclass Allowed|PRESTAT:1,WIS=13
+Druid		PRECLASS:1,Druid=1	TYPE:FirstLevel	ABILITY:Internal|AUTOMATIC|Saving Throw ~ Int|Saving Throw ~ Wis|TYPE=ArmorProfMedium|TYPE=ShieldProf|Tool Proficiency ~ Herbalism Kit	AUTO:WEAPONPROF|Club|Dagger|Dart|Javelin|Mace|Quarterstaff|Scimitar|Sickle|Sling|Spear	BONUS:ABILITYPOOL|Druid Skill|2	ABILITY:Internal|AUTOMATIC|Multiclass Allowed|PRESTAT:1,WIS=13
+Fighter	PRECLASS:1,Fighter=1	TYPE:FirstLevel	ABILITY:Internal|AUTOMATIC|Saving Throw ~ Str|Saving Throw ~ Con|TYPE=WeaponProfMartial|TYPE=ArmorProfHeavy|TYPE=ShieldProf	BONUS:ABILITYPOOL|Fighter Skill|2																		ABILITY:Internal|AUTOMATIC|Multiclass Allowed|PRESTAT:1,STR=13,DEX=13
+Monk		PRECLASS:1,Monk=1		TYPE:FirstLevel	ABILITY:Internal|AUTOMATIC|Saving Throw ~ Str|Saving Throw ~ Dex|TYPE=WeaponProfSimple	AUTO:WEAPONPROF|Shortsword			BONUS:ABILITYPOOL|Monk Skill|2	BONUS:ABILITYPOOL|Monk Tool Proficiency|1										ABILITY:Internal|AUTOMATIC|Multiclass Allowed|PRESTAT:1,WIS=13
+Paladin	PRECLASS:1,Paladin=1	TYPE:FirstLevel	ABILITY:Internal|AUTOMATIC|Saving Throw ~ Wis|Saving Throw ~ Cha|TYPE=WeaponProfMartial|TYPE=ArmorProfHeavy|TYPE=ShieldProf	BONUS:ABILITYPOOL|Paladin Skill|2																		ABILITY:Internal|AUTOMATIC|Multiclass Allowed|PRESTAT:2,STR=13,CHA=13
+Ranger	PRECLASS:1,Ranger=1	TYPE:FirstLevel	ABILITY:Internal|AUTOMATIC|Saving Throw ~ Str|Saving Throw ~ Dex|TYPE=WeaponProfMartial|TYPE=ArmorProfMedium|TYPE=ShieldProf		BONUS:VAR|RangerSkillCount|2																		ABILITY:Internal|AUTOMATIC|Multiclass Allowed|PRESTAT:2,STR=13,WIS=13
+Rogue		PRECLASS:1,Rogue=1	TYPE:FirstLevel	ABILITY:Internal|AUTOMATIC|Saving Throw ~ Dex|Saving Throw ~ Int|TYPE=WeaponProfSimple|TYPE=ArmorProfLight	AUTO:WEAPONPROF|Crossbow (Hand)|Longsword|Rapier|Shortsword	BONUS:VAR|RogueSkillCount|3												ABILITY:Internal|AUTOMATIC|Multiclass Allowed|PRESTAT:1,DEX=13
+Sorcerer	PRECLASS:1,Sorcerer=1	TYPE:FirstLevel	ABILITY:Internal|AUTOMATIC|Saving Throw ~ Con|Saving Throw ~ Cha	AUTO:WEAPONPROF|Dagger|Dart|Sling|Quarterstaff|Crossbow (Light)	BONUS:ABILITYPOOL|Sorcerer Skill|2																	ABILITY:Internal|AUTOMATIC|Multiclass Allowed|PRESTAT:1,CHA=13
+Warlock	PRECLASS:1,Warlock=1	TYPE:FirstLevel	ABILITY:Internal|AUTOMATIC|Saving Throw ~ Wis|Saving Throw ~ Cha|TYPE=ArmorProfLight|TYPE=WeaponProfSimple	BONUS:ABILITYPOOL|Warlock Skill|2																					ABILITY:Internal|AUTOMATIC|Multiclass Allowed|PRESTAT:1,CHA=13
+Wizard	PRECLASS:1,Wizard=1	TYPE:FirstLevel	ABILITY:Internal|AUTOMATIC|Saving Throw ~ Wis|Saving Throw ~ Int	AUTO:WEAPONPROF|Dagger|Dart|Sling|Quarterstaff|Crossbow (Light)	BONUS:ABILITYPOOL|Wizard Skill|2																	ABILITY:Internal|AUTOMATIC|Multiclass Allowed|PRESTAT:1,INT=13
 
 
+# How to set up Multiclass support for BASE classes. All three of these must be present for Multiclass to work properly.
+#	!PRETEMPLATE1,FirstLevel						
+#	establishes if this is a new character without any classes. This is a paired swap condition with PRECLASS. (See below)
+#	PREABILITY:1,CATEGORY=Internal,<class> Multiclass Allowed
+#	determines if the class qualifies for Multiclass if not first class taken
+#	PRECLASS:1,<class>=1							
+#	takes over after first level is established to allow continued progression in first class. This is a paired swap condition with !PRETEMPLATE. (See above)
+###Block: Multiclass Support	First is this a new character? TYPE.FirstLevel not activated; once switched, we are now Class=1. To allow Multiclass we need to have Prime Class + Desired Class PreReq met.
+#CLASS:Barbarian	PREMULT:1,[!PRETEMPLATE:1,First Level],[PREABILITY:1,CATEGORY=Internal,Multiclass Allowed ~ Barbarian],[PRECLASS:1,Barbarian=1]
+#CLASS:Bard		PREMULT:1,[!PRETEMPLATE:1,First Level],[PREABILITY:1,CATEGORY=Internal,Multiclass Allowed ~ Bard],[PRECLASS:1,Bard=1]
+#CLASS:Cleric	PREMULT:1,[!PRETEMPLATE:1,First Level],[PREABILITY:1,CATEGORY=Internal,Multiclass Allowed ~ Cleric],[PRECLASS:1,Cleric=1]
+#CLASS:Druid	PREMULT:1,[!PRETEMPLATE:1,First Level],[PREABILITY:1,CATEGORY=Internal,Multiclass Allowed ~ Druid],[PRECLASS:1,Druid=1]
+#CLASS:Fighter	PREMULT:1,[!PRETEMPLATE:1,First Level],[PREABILITY:1,CATEGORY=Internal,Multiclass Allowed ~ Fighter],[PRECLASS:1,Fighter=1]
+#CLASS:Monk		PREMULT:1,[!PRETEMPLATE:1,First Level],[PREABILITY:1,CATEGORY=Internal,Multiclass Allowed ~ Monk],[PRECLASS:1,Monk=1]
+#CLASS:Paladin	PREMULT:1,[!PRETEMPLATE:1,First Level],[PREABILITY:1,CATEGORY=Internal,Multiclass Allowed ~ Paladin],[PRECLASS:1,Paladin=1]
+#CLASS:Ranger	PREMULT:1,[!PRETEMPLATE:1,First Level],[PREABILITY:1,CATEGORY=Internal,Multiclass Allowed ~ Ranger],[PRECLASS:1,Ranger=1]
+#CLASS:Rogue	PREMULT:1,[!PRETEMPLATE:1,First Level],[PREABILITY:1,CATEGORY=Internal,Multiclass Allowed ~ Rogue],[PRECLASS:1,Rogue=1]
+#CLASS:Sorcerer	PREMULT:1,[!PRETEMPLATE:1,First Level],[PREABILITY:1,CATEGORY=Internal,Multiclass Allowed ~ Sorcerer],[PRECLASS:1,Sorcerer=1]
+#CLASS:Warlock	PREMULT:1,[!PRETEMPLATE:1,First Level],[PREABILITY:1,CATEGORY=Internal,Multiclass Allowed ~ Warlock],[PRECLASS:1,Warlock=1]
+#CLASS:Wizard	PREMULT:1,[!PRETEMPLATE:1,First Level],[PREABILITY:1,CATEGORY=Internal,Multiclass Allowed ~ Wizard],[PRECLASS:1,Wizard=1]
+
+
+
+# Multi-Class Restrictions:
 #Barbarian Shields, simple weapons, martial weapons
 #Bard Light armor, one skill of your choice, one
 #musical instrument of your choice
@@ -35,9 +55,9 @@ Wizard	PRECLASS:1,Wizard=1			TYPE:FirstLevel	ABILITY:Internal|AUTOMATIC|Saving T
 #weapons, martial weapons
 #Ranger Light armor, medium armor, shields, simple
 #weapons, martial weapons, one skill from the
-#class’s skill list
-#Rogue Light armor, one skill from the class’s skill list,
-#thieves’ tools
+#class's skill list
+#Rogue Light armor, one skill from the class's skill list,
+#thieves' tools
 #Sorcerer —
 #Warlock Light armor, simple weapons
 #Wizard —
