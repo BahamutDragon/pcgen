@@ -2,14 +2,14 @@
 PCGEN
 =
 
-######Updated: 2014-09-08
+######Updated: 2014-11-09
 ==========================
 #####PCGen Data Sets & Homebrew
 
 Hi mates! 
 
 
-This is for my growing collection of PCGen compatible books (Mostly Closed Content). PCGen the program can be found at this link (http://pcgen.org)
+This is for my growing collection of PCGen compatible books (Mostly Closed Content). In order to use these data sets, you will need to download PCGen. The program can be found at this link (http://pcgen.org)
 
 
 To get the most from these sets, you will need to utilize the latest version (unstable if necessary) of pcgen. I try to use the best methods to get results, which will rely on new bug fixes or new features.
@@ -18,7 +18,7 @@ To get the most from these sets, you will need to utilize the latest version (un
 PCGen's main development line is here: http://www.pcgen.org/autobuilds/download.html
 
 
-My goal has been to make sets that are compatible with the existing PCGen book data sets. To achieve that, I attempt to re-use a lot of common pcgen standards to avoid any non-compatibility. To get the best results, you should use the books in this repository. Any non-compatibility issues should be reported. 
+My goal has been to make sets that are compatible with the existing PCGen book data sets. To achieve that, I attempt to re-use a lot of common pcgen standards to avoid any non-compatibility. To get the best results, you should use the books in this repository. Any non-compatibility issues should be reported.
 
 
 The collection of books includes popular D&D 3.5 books, with the complete core rules and a good assortment of popular supplements. I also support other d20 systems and even a few non-d20 systems, a complete listing of systems and the status of the books are kept on the wiki: https://github.com/BahamutDragon/pcgen/wiki/Book-Statuses
@@ -32,7 +32,8 @@ I have a discussion group for homebrewers, please join to share ideas and of cou
 
 ###HOW TO USE THIS CONTENT:
 
-These Book data sets are not meant to be "Installed" using the Install feature in PCGen. Instead, you can drop them as-is into a valid pcgen recognized 'data' folder of your choosing. I highly recommend using 'Vendor Data' (any version of pcgen) or Homebrew Data (new in 6.3) folders outside the main installation, this makes upgrading your pcgen version easier.
+These Book data sets are not meant to be "Installed" using the Install feature in PCGen. Instead, you can drop them as-is into a valid pcgen recognized 'data' folder of your choosing. I highly recommend using 'Vendor Data' (any version of pcgen) or Homebrew Data (new in 6.3) folders outside the main installation, this makes upgrading your pcgen version easier. 
+NOTICE: In order to use ALL of the data sources and the extra game systems, you must copy the system\gameMode folder into your PCGen installation system\gamemode.
 
 Two methods exist to get the content onto your system.
 
@@ -49,7 +50,8 @@ Save the zip folder to a valid pcgen recognized data folder of your choice. Unzi
 ####Link for SVN client 
 * HTTPS: (https://github.com/BahamutDragon/pcgen)
 
-Included in the repository are additional folders that are not DATA content. These will need to be copied to the correct correlating pcgen folders to get the full benefit of additional options such as gamemodes, outputsheets, preview sheets, etc. Leaving tat in the data folder will not cause any issues for pcgen, just know that you will not be able to access the additional content these folders provide if not moved to the correct pcgen recognized locations.
+IMPORTANT - PLEASE READ: Included in the repository are additional folders that are not DATA content. These _will_ need to be copied to the correct correlating pcgen installation folders to get the full benefit of additional options. These options include such things as: gamemodes (Game Systems not already in PCGen), outputsheets (Exported Character Sheet options for those other game systems), preview sheets (Same as outputsheets), etc. Leaving that in the data folder will not cause any issues for pcgen, but, if you do not copy the content into your installed pcgen folder, those additional options WILL NOT be available. 
+NOTE: Restarting PCGen is required when adding new content, otherwise it will not be displayed.
 
 Please consult GIT documentation to set up GIT.
 
