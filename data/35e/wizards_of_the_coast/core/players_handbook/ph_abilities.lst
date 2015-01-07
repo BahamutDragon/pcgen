@@ -2,11 +2,11 @@
 SOURCELONG:Players Handbook	SOURCESHORT:PH	
 
 # Ability Name			Unique Key		SORTKEY	Output Name			Category of Ability		Type							Visible	Define																																																																																									Bonus Ability Pool				Modify VAR				Cost
-CATEGORY=Internal|Default.MOD																								DEFINE:ThisisThreeFive|0	DEFINE:RemoveLangCommon|0	DEFINE:RemoveLangDwarven|0	DEFINE:RemoveLangElven|0	DEFINE:RemoveLangGnome|0	DEFINE:RemoveLangHalfling|0	DEFINE:RemoveLangGiant|0	DEFINE:RemoveLangGnoll|0	DEFINE:RemoveLangGoblin|0	DEFINE:RemoveLangOrc|0	DEFINE:RemoveLangTerran|0	DEFINE:RemoveLangUndercommon|0	DEFINE:RemoveLangAbyssal|0	DEFINE:RemoveLangCelestial|0	DEFINE:RemoveLangDraconic|0	DEFINE:RemoveLangInfernal|0	DEFINE:RemoveLangSylvan|0	DEFINE:RemoveLangDruidic|0	BONUS:ABILITYPOOL|Region|1|TYPE=Base	BONUS:VAR|ThisisThreeFive|1	DEFINE:Pool_FighterFeat|0	DEFINE:Pool_WizardFeat|0
+CATEGORY=Internal|Default.MOD																								DEFINE:ExtraSkillPoint|0	DEFINE:ThisisThreeFive|0	DEFINE:RemoveLangCommon|0	DEFINE:RemoveLangDwarven|0	DEFINE:RemoveLangElven|0	DEFINE:RemoveLangGnome|0	DEFINE:RemoveLangHalfling|0	DEFINE:RemoveLangGiant|0	DEFINE:RemoveLangGnoll|0	DEFINE:RemoveLangGoblin|0	DEFINE:RemoveLangOrc|0	DEFINE:RemoveLangTerran|0	DEFINE:RemoveLangUndercommon|0	DEFINE:RemoveLangAbyssal|0	DEFINE:RemoveLangCelestial|0	DEFINE:RemoveLangDraconic|0	DEFINE:RemoveLangInfernal|0	DEFINE:RemoveLangSylvan|0	DEFINE:RemoveLangDruidic|0	BONUS:ABILITYPOOL|Region|1|TYPE=Base	BONUS:VAR|ThisisThreeFive|1	DEFINE:Pool_FighterFeat|0	DEFINE:Pool_WizardFeat|0
 
 No Region				KEY:Region ~ None	SORTKEY:a	OUTPUTNAME:No Region	CATEGORY:Regional			TYPE:Region						VISIBLE:YES
 
-# Homebrew Samples
+###Block: Homebrew Samples
 Remove Default Auto Language										CATEGORY:Internal			TYPE:LanguageReplacement.AutoLangReplace																																																																																																									COST:0
 Remove Default Bonus Language										CATEGORY:Internal			TYPE:LanguageReplacement.BonusLangReplace																																																																																																									COST:0
 
@@ -90,18 +90,6 @@ Infernal		CATEGORY:Language		TYPE:Language	AUTO:LANG|Infernal
 Sylvan		CATEGORY:Language		TYPE:Language	AUTO:LANG|Sylvan
 Druidic		CATEGORY:Language		TYPE:Language	AUTO:LANG|Druidic
 
-
-
-
-
-
-
-
-
-
-
-
-
 ###Block:
 # Ability Name		Category of Ability	Ability																																																																											Ignore Encumberance
 Race Traits ~ Human	CATEGORY:Internal		ABILITY:Human Subrace|AUTOMATIC|Human ~ Base|!PREABILITY:1,CATEGORY=Internal,TYPE.AltSubraceChoice	ABILITY:Special Ability|AUTOMATIC|Human Racial Traits|PREABILITY:1,CATEGORY=Internal,TYPE.HumanSubrace
@@ -122,9 +110,9 @@ Race Traits ~ Halfling	CATEGORY:Internal		ABILITY:Halfling Subrace|AUTOMATIC|Hal
 Human Racial Traits	KEY:Human Racial Traits	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:EXPORT	DESC:4 extra skill points at 1st level and 1 extra skill point at each additional level.|PREABILITY:1,CATEGORY=Special Ability,Human ~ Skill Bonus	DESC:1 extra feat at 1st level.|PREABILITY:1,CATEGORY=Special Ability,Human ~ Bonus Feat
 
 ###Block: Human - Abilities
-# Ability Name	Unique Key			Category of Ability		Type								Define				Description														Bonus Ability Pool		Modify VAR						Source Page
-Skill Bonus		KEY:Human ~ Skill Bonus	CATEGORY:Special Ability	TYPE:Race Trait.Human Race Trait	DEFINE:HumanSkillPoint|0	DESC:4 extra skill points at 1st level and 1 extra skill point at each additional level.						BONUS:VAR|ExtraSkillPoint|1|TYPE=Base	SOURCEPAGE:p.13
-Feat Bonus		KEY:Human ~ Bonus Feat	CATEGORY:Special Ability	TYPE:Race Trait.Human Race Trait						DESC:1 extra feat at 1st level.										BONUS:ABILITYPOOL|FEAT|1								SOURCEPAGE:p.13
+# Ability Name	Unique Key			Category of Ability		Type						Description														Bonus Ability Pool		Modify VAR						Source Page
+Skill Bonus		KEY:Human ~ Skill Bonus	CATEGORY:Special Ability	TYPE:Race Trait.Human Race Trait	DESC:4 extra skill points at 1st level and 1 extra skill point at each additional level.						BONUS:VAR|ExtraSkillPoint|1|TYPE=Base	SOURCEPAGE:p.13
+Feat Bonus		KEY:Human ~ Bonus Feat	CATEGORY:Special Ability	TYPE:Race Trait.Human Race Trait	DESC:1 extra feat at 1st level.										BONUS:ABILITYPOOL|FEAT|1								SOURCEPAGE:p.13
 
 # COMMENT: TO DO - Race Traits Display needs to be done for remainder of Base Races.
 
@@ -279,9 +267,6 @@ Armor Prof ~ Heavy	CATEGORY:Internal		TYPE:ArmorProfHeavy						SERVESAS:FEAT|Arm
 # Ability Name		Category of Ability	Type						Serves As						Auto Shield Prof
 Shield Prof ~ Tower	CATEGORY:Internal		TYPE:ShieldProfTower			SERVESAS:FEAT|Tower Shield Proficiency	AUTO:SHIELDPROF|SHIELDTYPE=Tower
 Shield Prof			CATEGORY:Internal		TYPE:ShieldProfTower.ShieldProf	SERVESAS:FEAT|Shield Proficiency		AUTO:SHIELDPROF|SHIELDTYPE=Buckler|SHIELDTYPE=Heavy|SHIELDTYPE=Light
-
-
-
 
 ###Block:
 # Barbarian
@@ -767,16 +752,6 @@ Familiar (Default)			KEY:Standard Selection ~ Familiar				CATEGORY:Internal		TYP
 Special Mount (Default)			KEY:Standard Selection ~ Special Mount			CATEGORY:Internal		TYPE:SpecialMountSelection					!PREABILITY:1,CATEGORY=Internal,TYPE.SpecialMountAlternate								COMPANIONLIST:Special Mount|Companion ~ Horse (Warhorse Heavy),Companion ~ Shark (Large)|PRESIZELTEQ:M	COMPANIONLIST:Special Mount|Companion ~ Dog (Riding),Companion ~ Pony (War)|PRESIZELTEQ:S
 # COMMENT: Expanded Selection is in place for Homebrew Users
 Expanded Selection			KEY:Expanded Selection ~ Special Mount			CATEGORY:Internal		TYPE:SpecialMountSelection.SpecialMountAlternate																		COMPANIONLIST:Special Mount|Companion ~ Horse (Warhorse Heavy),Companion ~ Shark (Large)|PRESIZELTEQ:M	COMPANIONLIST:Special Mount|Companion ~ Dog (Riding),Companion ~ Pony (War)|PRESIZELTEQ:S																																																																																																																																																																																																																																																																																																																																																							COST:0
-
-
-
-
-
-
-
-
-
-
 
 
 ###Block: OLD Companion support
