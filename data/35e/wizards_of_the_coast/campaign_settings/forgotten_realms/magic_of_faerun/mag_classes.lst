@@ -34,11 +34,11 @@ CLASS:Gnome Artificer	SPELLSTAT:INT	SPELLTYPE:Mundane	KNOWNSPELLS:LEVEL=0			SPEL
 # Class Name				Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus												Modify VAR													Bonus
 CLASS:Guild Wizard of Waterdeep	HD:4		TYPE:PC.Prestige	ABB:Guw		MAXLEVEL:10	SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name				Required AL				Required Feat														Required Skill											Req. Spell Type		Required Text
-CLASS:Guild Wizard of Waterdeep	PREALIGN:LG,LN,NG,TN,CG,CN	PREFEAT:1,Scribe Scroll	PREFEAT:1,TYPE=Metamagic	PREFEAT:1,Spell Penetration,Spell Focus	PRESKILL:1,Craft (Alchemy)=4	PRESKILL:2,Knowledge (Arcana)=8,Spellcraft=8	PRESPELLTYPE:1,Arcane=3	PRETEXT:Members must pay an initiation fee of 1000 Gp
+CLASS:Guild Wizard of Waterdeep	PREALIGN:LG,LN,NG,TN,CG,CN	PREFEAT:1,Scribe Scroll	PREFEAT:1,TYPE=Metamagic	PREFEAT:1,Spell Penetration,Spell Focus		PRESKILL:1,Craft (Alchemy)=4	PRESKILL:2,Knowledge (Arcana)=8,Spellcraft=8	PRESPELLTYPE:1,Arcane=3	PRETEXT:Members must pay an initiation fee of 1000 Gp
 # Class Name				Skill Pts/Lvl	Class Skill
 CLASS:Guild Wizard of Waterdeep	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Spellcraft
 #
-1																							ADD:SPELLCASTER|ANY						ABILITY:Special Ability|AUTOMATIC|Guild Member(Watchful Order of Magists and Protectors)|Improved Spell Acquisition
+1																							ADD:SPELLCASTER|ANY						ABILITY:Special Ability|AUTOMATIC|Watchful Order of Magists and Protectors ~ Guild Member|Improved Spell Acquisition
 2										BONUS:VAR|SpellpoolLimit|1	BONUS:VAR|GuildWizardOfWaterdeepSpellpoolLVL|CL	ADD:SPELLCASTER|ANY						ABILITY:Special Ability|AUTOMATIC|Guild Wizard of Waterdeep Spellpool|Spellpool
 3	BONUS:ABILITYPOOL|Guild Wizard of Waterdeep Feat|1														ADD:SPELLCASTER|ANY
 4																							ADD:SPELLCASTER|ANY	ADD:LANGUAGE|TYPE=Spoken
@@ -160,7 +160,7 @@ CLASS:Spellfire Channeler	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|
 #
 1	BONUS:VAR|SpellfireChannelerIncreasedStorageLVL|CL	ABILITY:Special Ability|AUTOMATIC|Charged Item Drain|Increased Storage|Spellfire Channeler Increased Storage
 2										ABILITY:Special Ability|AUTOMATIC|Improved Healing
-3																													AUTO:FEAT|Weapon Focus(Spellfire)
+3																													ADD:FEAT|Weapon Focus
 4	BONUS:VAR|SpellfireChannelerRapidBlastLVL|CL		ABILITY:Special Ability|AUTOMATIC|Rapid Blast|Spellfire Channeler Rapid Blast
 5										ABILITY:Special Ability|AUTOMATIC|Permanent Item Drain
 6										ABILITY:Special Ability|AUTOMATIC|Flight (Su/Spellfire)
