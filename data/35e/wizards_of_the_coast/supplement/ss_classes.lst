@@ -38,7 +38,7 @@ CLASS:Djinni Monster Class	STARTSKILLPTS:8	CSKILL:Appraise|Concentration|TYPE.Cr
 3	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude,BASE.Will|1
 3	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE
 3	BONUS:STAT|STR|2
-3	AUTO:FEAT|Dodge
+3	ABILITY:FEAT|AUTOMATIC|Dodge
 #
 # no skill points or HD gained at lvl4
 4	DONOTADD:SKILLPOINTS|HITDIE
@@ -46,7 +46,7 @@ CLASS:Djinni Monster Class	STARTSKILLPTS:8	CSKILL:Appraise|Concentration|TYPE.Cr
 4	NATURALATTACKS:Slam,Weapon.Natural.Melee.Finesseable.Bludgeoning,*1,1d4
 4	BONUS:WEAPONPROF=Slam|DAMAGE|max(0,(STR/2))
 4	ABILITY:Special Ability|AUTOMATIC|Whirlwind ~ Djinni MC
-4	AUTO:FEAT|Improved Initiative
+4	ABILITY:FEAT|AUTOMATIC|Improved Initiative
 #
 # gain 8+int mod skill points
 5	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE
@@ -134,9 +134,9 @@ CLASS:Djinni Monster Class	STARTSKILLPTS:8	CSKILL:Appraise|Concentration|TYPE.Cr
 #CLASS:Air Elemental Monster Class	PRERACE:1,Elemental Monster Class (Air)
 ## Class Name				Skill Pts/Lvl	Class Skill
 #CLASS:Air Elemental Monster Class	STARTSKILLPTS:2	CSKILL:TYPE.Craft|Listen|TYPE.Profession|Spot
-#1										BONUS:CHECKS|BASE.Reflex|2					BONUS:COMBAT|AC|3|TYPE=NaturalArmor.REPLACE															TEMPLATE:Air Elemental 1	AUTO:FEAT|Flyby Attack	AUTO:FEAT|Improved Initiative
-#2			SAB:Air Mastery (Ex)	SAB:Whirlwind (Su)	BONUS:CHECKS|BASE.Reflex|1					BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE									BONUS:STAT|DEX|2										AUTO:FEAT|Weapon Finesse(Slam)
-#3										BONUS:CHECKS|BASE.Will,BASE.Fortitude|1			BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE									BONUS:STAT|CON|2		ADD:FEAT|ANY
+#1										BONUS:CHECKS|BASE.Reflex|2					BONUS:COMBAT|AC|3|TYPE=NaturalArmor.REPLACE															TEMPLATE:Air Elemental 1	ABILITY:FEAT|AUTOMATIC|Flyby Attack	ABILITY:FEAT|AUTOMATIC|Improved Initiative
+#2			SAB:Air Mastery (Ex)	SAB:Whirlwind (Su)	BONUS:CHECKS|BASE.Reflex|1					BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE									BONUS:STAT|DEX|2										ABILITY:FEAT|AUTOMATIC|Weapon Finesse(Slam)
+#3										BONUS:CHECKS|BASE.Will,BASE.Fortitude|1			BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE									BONUS:STAT|CON|2		ADD:ABILITY|FEAT|VIRTUAL|ANY
 #4										BONUS:CHECKS|BASE.Reflex|1																				BONUS:STAT|STR|2					TEMPLATE:Air Elemental 2
 #5																																		BONUS:STAT|CON|2					TEMPLATE:Air Elemental 3
 #6																																		BONUS:STAT|DEX|2
@@ -158,7 +158,7 @@ CLASS:Djinni Monster Class	STARTSKILLPTS:8	CSKILL:Appraise|Concentration|TYPE.Cr
 #1	SAB:Steely Skin (Ex)	BONUS:CHECKS|BASE.Reflex,BASE.Will|2			BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE	BONUS:COMBAT|AC|4|TYPE=NaturalArmor.REPLACE																		TEMPLATE:Annis Hag 1	AUTO:WEAPONPROF|TYPE=Simple
 #2					BONUS:CHECKS|BASE.Reflex,BASE.Will|1			BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE														BONUS:STAT|STR|2					SPELL:Change Self|1|Innate	TEMPLATE:Annis Hag 2
 #3																																		BONUS:STAT|STR,DEX|2									TEMPLATE:Annis Hag 3
-#4					BONUS:CHECKS|BASE.Fortitude|1					BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE						BONUS:STAT|STR|2		ADD:FEAT|ANY
+#4					BONUS:CHECKS|BASE.Fortitude|1					BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE						BONUS:STAT|STR|2		ADD:ABILITY|FEAT|VIRTUAL|ANY
 #5																																		BONUS:STAT|STR,WIS|2									TEMPLATE:Annis Hag 4
 #6					BONUS:CHECKS|BASE.Reflex,BASE.Will|1			BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE														BONUS:STAT|STR|2					SPELL:Fog Cloud|1|Innate
 #7														BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE													BONUS:STAT|STR,CON|2									TEMPLATE:Annis Hag 5
@@ -191,19 +191,19 @@ CLASS:Djinni Monster Class	STARTSKILLPTS:8	CSKILL:Appraise|Concentration|TYPE.Cr
 #CLASS:Astral Deva Monster Class	PRERACE:1,Celestial Monster Class (Astral Deva)
 ## Class Name				Skill Pts/Lvl	Class Skill
 #CLASS:Astral Deva Monster Class	STARTSKILLPTS:8	CSKILL:Concentration|TYPE.Craft|Escape Artist|Hide||Listen|Move Silently|TYPE.Profession|Sense Motive|Spot
-#1					SAB:Good Subtype						BONUS:CHECKS|BASE.Reflex,BASE.Fortitude,BASE.Will|2	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE	BONUS:COMBAT|AC|3|TYPE=NaturalArmor.REPLACE																						TEMPLATE:Astral Deva 1				AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial					ADD:FEAT|1|Three Knowledge Skills MC
-#2													BONUS:CHECKS|BASE.Reflex,BASE.Fortitude,BASE.Will|1	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE																						BONUS:VAR|UncannyDodge|1				TEMPLATE:Astral Deva 2											AUTO:FEAT|Uncanny Dodge
-#3					SAB:Immune to Petrification and Electricity										BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE																											ADD:FEAT|ANY	TEMPLATE:Astral Deva 3
+#1					SAB:Good Subtype						BONUS:CHECKS|BASE.Reflex,BASE.Fortitude,BASE.Will|2	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE	BONUS:COMBAT|AC|3|TYPE=NaturalArmor.REPLACE																						TEMPLATE:Astral Deva 1				AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial					ADD:ABILITY|FEAT|VIRTUAL|1|Three Knowledge Skills MC
+#2													BONUS:CHECKS|BASE.Reflex,BASE.Fortitude,BASE.Will|1	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE																						BONUS:VAR|UncannyDodge|1				TEMPLATE:Astral Deva 2											ABILITY:FEAT|AUTOMATIC|Uncanny Dodge
+#3					SAB:Immune to Petrification and Electricity										BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE																											ADD:ABILITY|FEAT|VIRTUAL|ANY	TEMPLATE:Astral Deva 3
 #4					SAB:Tongues (Ex)						BONUS:CHECKS|BASE.Reflex,BASE.Fortitude,BASE.Will|1	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE									BONUS:STAT|STR,CHA|2										TEMPLATE:Astral Deva 4
 #5																						BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE																	BONUS:STAT|CON|2											TEMPLATE:Astral Deva 5
 #6			DR:5/+1																																									BONUS:STAT|STR,WIS|2										TEMPLATE:Astral Deva 6
-#7													BONUS:CHECKS|BASE.Reflex,BASE.Fortitude,BASE.Will|1	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE														BONUS:VAR|UncannyDodge|1	ADD:FEAT|ANY	TEMPLATE:Astral Deva 7
+#7													BONUS:CHECKS|BASE.Reflex,BASE.Fortitude,BASE.Will|1	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE														BONUS:VAR|UncannyDodge|1	ADD:ABILITY|FEAT|VIRTUAL|ANY	TEMPLATE:Astral Deva 7
 #8	SR:CL+10																																						BONUS:MOVEADD|TYPE.Fly|25	BONUS:STAT|CHA,CON,INT|2									TEMPLATE:Astral Deva 8
 #9																						BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE																	BONUS:STAT|STR|2											TEMPLATE:Astral Deva 9
 #10																						BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE																													TEMPLATE:Astral Deva 10|Astral Deva 11
 #11													BONUS:CHECKS|BASE.Reflex,BASE.Fortitude,BASE.Will|1	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE									BONUS:DR|+1|5						BONUS:STAT|CON,INT,WIS|2
 #12					SAB:Stun (Su)																																						BONUS:STAT|CHA,STR|2										TEMPLATE:Astral Deva 12
-#13																						BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE																			ADD:FEAT|ANY
+#13																						BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE																			ADD:ABILITY|FEAT|VIRTUAL|ANY
 #14																																								BONUS:MOVEADD|TYPE.Fly|25	BONUS:STAT|CON,INT|2										TEMPLATE:Astral Deva 13
 #15													BONUS:CHECKS|BASE.Reflex,BASE.Fortitude,BASE.Will|1	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE																	BONUS:STAT|STR,WIS|2										TEMPLATE:Astral Deva 14
 #16																						BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE																BONUS:STAT|CHA|2											TEMPLATE:Astral Deva 15
@@ -220,15 +220,15 @@ CLASS:Djinni Monster Class	STARTSKILLPTS:8	CSKILL:Appraise|Concentration|TYPE.Cr
 #CLASS:Athach Monster Class	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Jump|Listen|TYPE.Profession|Spot
 #1				BONUS:CHECKS|BASE.Will|2					BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE																								AUTO:ARMORPROF|ARMORTYPE=Light	AUTO:WEAPONPROF|TYPE=Simple
 #2				BONUS:CHECKS|BASE.Will|1					BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE														BONUS:STAT|STR|2					TEMPLATE:Athach 1
-#3	SAB:Poison (Ex)	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|1			BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE														BONUS:STAT|CON|2		ADD:FEAT|ANY	TEMPLATE:Athach 2
+#3	SAB:Poison (Ex)	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|1			BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE														BONUS:STAT|CON|2		ADD:ABILITY|FEAT|VIRTUAL|ANY	TEMPLATE:Athach 2
 #4				BONUS:CHECKS|BASE.Will|1					BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE														BONUS:STAT|STR|2					TEMPLATE:Athach 3
 #5													BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE																				TEMPLATE:Athach 4
-#6				BONUS:CHECKS|BASE.Will,BASE.Reflex,BASE.Fortitude|1	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE														BONUS:STAT|STR|2		ADD:FEAT|ANY
+#6				BONUS:CHECKS|BASE.Will,BASE.Reflex,BASE.Fortitude|1	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE														BONUS:STAT|STR|2		ADD:ABILITY|FEAT|VIRTUAL|ANY
 #7													BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE													BONUS:STAT|CON|2					TEMPLATE:Athach 5
 #8	SAB:Rock Throwing										BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE
-#9				BONUS:CHECKS|BASE.Will|1					BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE													TEMPLATE:Athach 6												AUTO:FEAT|Multiattack
+#9				BONUS:CHECKS|BASE.Will|1					BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE													TEMPLATE:Athach 6												ABILITY:FEAT|AUTOMATIC|Multiattack
 #10																												BONUS:MOVEADD|TYPE.Walk|10	BONUS:STAT|CON|2
-#11				BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|1																							BONUS:STAT|STR|2		ADD:FEAT|ANY	TEMPLATE:Athach 10
+#11				BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|1																							BONUS:STAT|STR|2		ADD:ABILITY|FEAT|VIRTUAL|ANY	TEMPLATE:Athach 10
 #12				BONUS:CHECKS|BASE.Will|1					BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE																					TEMPLATE:Athach 7
 #13																																	BONUS:STAT|STR,DEX|2
 #14													BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE						BONUS:STAT|CON|2
@@ -244,16 +244,16 @@ CLASS:Djinni Monster Class	STARTSKILLPTS:8	CSKILL:Appraise|Concentration|TYPE.Cr
 #CLASS:Avoral Monster Class	PRERACE:1,Celestial Monster Class (Avoral)
 ## Class Name			Skill Pts/Lvl	Class Skill
 #CLASS:Avoral Monster Class	STARTSKILLPTS:8	CSKILL:Concentration|TYPE.Craft|Hide|Listen|Move Silently|Spellcraft|Spot
-#1					SAB:Good subtype													BONUS:CHECKS|BASE.Reflex,BASE.Fortitude,BASE.Will|2	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE																		ADD:FEAT|ANY	TEMPLATE:Avoral 1							AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
+#1					SAB:Good subtype													BONUS:CHECKS|BASE.Reflex,BASE.Fortitude,BASE.Will|2	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE																		ADD:ABILITY|FEAT|VIRTUAL|ANY	TEMPLATE:Avoral 1							AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
 #2	MOVE:Fly,40																		BONUS:CHECKS|BASE.Reflex,BASE.Fortitude,BASE.Will|1	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE																													TEMPLATE:Lesser Avoral 1|Avoral 2
-#3																													BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE									BONUS:STAT|DEX|2							ADD:FEAT|ANY	TEMPLATE:Avoral True Seeing 1|Avoral 3
+#3																													BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE									BONUS:STAT|DEX|2							ADD:ABILITY|FEAT|VIRTUAL|ANY	TEMPLATE:Avoral True Seeing 1|Avoral 3
 #4					SAB:Lay on Hands (Su) % hp/day|LayOnHands	SAB:Animal Telepathy (Su)	SAB:Tongues (Su)										BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE																	BONUS:STAT|STR|2	BONUS:VAR|LayOnHands|CURRENTMAX				TEMPLATE:Avoral 4
 #5																													BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE																BONUS:STAT|INT|2										TEMPLATE:Avoral Powers 1|Avoral 5
 #6			DR:5/+1																																											BONUS:MOVEADD|TYPE.Fly|50	BONUS:STAT|WIS|2										TEMPLATE:Lesser Avoral 2|Avoral 6
 #7					SAB:Fear Aura (Su)													BONUS:CHECKS|BASE.Reflex,BASE.Fortitude,BASE.Will|1	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE									BONUS:STAT|CHA|2										TEMPLATE:Avoral 7
 #8					SAB:Immune to electricity and petrification																																								BONUS:STAT|CON|2										TEMPLATE:Avoral 8|Avoral True Seeing 2
 #9																													BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE																BONUS:STAT|DEX|2										TEMPLATE:Lesser Avoral 3|Avoral Powers 2|Avoral 9
-#10																				BONUS:CHECKS|BASE.Reflex,BASE.Fortitude,BASE.Will|1	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE									BONUS:DR|+1|5						BONUS:STAT|STR|2							ADD:FEAT|ANY
+#10																				BONUS:CHECKS|BASE.Reflex,BASE.Fortitude,BASE.Will|1	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE									BONUS:DR|+1|5						BONUS:STAT|STR|2							ADD:ABILITY|FEAT|VIRTUAL|ANY
 #11																													BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE																BONUS:STAT|INT|2
 #12																																																				BONUS:STAT|WIS|2										TEMPLATE:Avoral True Seeing 3
 #13																													BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE									BONUS:STAT|CHA|2
@@ -265,7 +265,7 @@ CLASS:Djinni Monster Class	STARTSKILLPTS:8	CSKILL:Appraise|Concentration|TYPE.Cr
 #CLASS:Azer Monster Class	PRERACE:1,Azer Monster Class
 ## Class Name			Skill Pts/Lvl	Class Skill
 #CLASS:Azer Monster Class	STARTSKILLPTS:8	CSKILL:Climb|TYPE.Craft|Listen|Profession|Search|Spot
-#1		SAB:Heat (Ex)	SAB:Fire and Lawful subtypes	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude,BASE.Will|2	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE				ADD:FEAT|ANY	TEMPLATE:Azer 1	AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial	AUTO:FEAT|Shield Proficiency
+#1		SAB:Heat (Ex)	SAB:Fire and Lawful subtypes	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude,BASE.Will|2	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE				ADD:ABILITY|FEAT|VIRTUAL|ANY	TEMPLATE:Azer 1	AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial	ABILITY:FEAT|AUTOMATIC|Shield Proficiency
 #2																																		BONUS:STAT|STR|2
 #3										BONUS:CHECKS|BASE.Reflex,BASE.Fortitude,BASE.Will|1	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE							TEMPLATE:Azer 2
 #4	SR:13																																	BONUS:STAT|DEX|2
@@ -279,10 +279,10 @@ CLASS:Djinni Monster Class	STARTSKILLPTS:8	CSKILL:Appraise|Concentration|TYPE.Cr
 #CLASS:Barghest Monster Class	PRERACE:1,Barghest Monster Class
 ## Class Name			Skill Pts/Lvl	Class Skill
 #CLASS:Barghest Monster Class	STARTSKILLPTS:8	CSKILL:Bluff|TYPE.Craft|Hide|Intimidate|Jump|Listen|Move Silently|TYPE.Profession|Spot
-#1			SAB:Feed (Su)		BONUS:CHECKS|BASE.Reflex,BASE.Fortitude,BASE.Will|2	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE								ADD:FEAT|ANY	TEMPLATE:Barghest 1				AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
+#1			SAB:Feed (Su)		BONUS:CHECKS|BASE.Reflex,BASE.Fortitude,BASE.Will|2	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE								ADD:ABILITY|FEAT|VIRTUAL|ANY	TEMPLATE:Barghest 1				AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
 #2			SAB:Alternate Form (Su)	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude,BASE.Will|1	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE												BONUS:STAT|DEX|2					TEMPLATE:Barghest 2|Barghest Scent 1
 #3																																		BONUS:STAT|CHA|2					TEMPLATE:Barghest 3
-#4																BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE				BONUS:STAT|INT|2		ADD:FEAT|ANY
+#4																BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE				BONUS:STAT|INT|2		ADD:ABILITY|FEAT|VIRTUAL|ANY
 #5	DR:5/+1																																							TEMPLATE:Barghest Scent 2
 #6							BONUS:CHECKS|BASE.Reflex,BASE.Fortitude,BASE.Will|1	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE												BONUS:STAT|WIS|2					TEMPLATE:Barghest 4
 #7																BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE																		TEMPLATE:Barghest 5
@@ -298,11 +298,11 @@ CLASS:Djinni Monster Class	STARTSKILLPTS:8	CSKILL:Appraise|Concentration|TYPE.Cr
 #CLASS:Belker Monster Class	PRERACE:1,Belker Monster Class
 ## Class Name			Skill Pts/Lvl	Class Skill
 #CLASS:Belker Monster Class	STARTSKILLPTS:2	CSKILL:TYPE.Craft|Listen|Move Silently|TYPE.Profession|Spot
-#1			SAB:Air subtype					BONUS:CHECKS|BASE.Reflex|2					BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE																								ADD:FEAT|ANY	TEMPLATE:Belker 1
+#1			SAB:Air subtype					BONUS:CHECKS|BASE.Reflex|2					BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE																								ADD:ABILITY|FEAT|VIRTUAL|ANY	TEMPLATE:Belker 1
 #2										BONUS:CHECKS|BASE.Reflex|1					BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE						BONUS:STAT|DEX|2												TEMPLATE:Belker 2
-#3	MOVE:Fly,30	SAB:Smoke form % rounds/day|BelkerSmoke	BONUS:CHECKS|BASE.Fortitude,BASE.Will|1			BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE														BONUS:STAT|STR|2	BONUS:VAR|BelkerSmoke|5	DEFINE:BelkerSmoke|0	ADD:FEAT|ANY
+#3	MOVE:Fly,30	SAB:Smoke form % rounds/day|BelkerSmoke	BONUS:CHECKS|BASE.Fortitude,BASE.Will|1			BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE														BONUS:STAT|STR|2	BONUS:VAR|BelkerSmoke|5	DEFINE:BelkerSmoke|0	ADD:ABILITY|FEAT|VIRTUAL|ANY
 #4																			BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE													BONUS:STAT|DEX|2												TEMPLATE:Belker 3
-#5										BONUS:CHECKS|BASE.Reflex|1					BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE									BONUS:MOVEADD|TYPE.Fly|10																		AUTO:FEAT|Weapon Finesse (Wing)
+#5										BONUS:CHECKS|BASE.Reflex|1					BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE									BONUS:MOVEADD|TYPE.Fly|10																		ABILITY:FEAT|AUTOMATIC|Weapon Finesse (Wing)
 #6																			BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE													BONUS:STAT|CON|2	BONUS:VAR|BelkerSmoke|5								TEMPLATE:Belker 4
 #7																																		BONUS:MOVEADD|TYPE.Fly|10															TEMPLATE:Belker 5
 #8																			BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE													BONUS:STAT|DEX|2
@@ -317,7 +317,7 @@ CLASS:Djinni Monster Class	STARTSKILLPTS:8	CSKILL:Appraise|Concentration|TYPE.Cr
 #CLASS:Centaur Monster Class	PRERACE:1,Centaur Monster Class
 ## Class Name			Skill Pts/Lvl	Class Skill
 #CLASS:Centaur Monster Class	STARTSKILLPTS:2	CSKILL:TYPE.Craft|HIDE|Listen|Move Silently|TYPE.Profession|Spot|Survival
-#1	BONUS:CHECKS|BASE.Reflex,BASE.Will|2	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE										ADD:FEAT|ANY	TEMPLATE:Centaur 1	AUTO:WEAPONPROF|TYPE=Simple|Lance (Heavy)|Longbow (Composite)
+#1	BONUS:CHECKS|BASE.Reflex,BASE.Will|2	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE										ADD:ABILITY|FEAT|VIRTUAL|ANY	TEMPLATE:Centaur 1	AUTO:WEAPONPROF|TYPE=Simple|Lance (Heavy)|Longbow (Composite)
 #2	BONUS:CHECKS|BASE.Reflex,BASE.Will|1	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE														BONUS:STAT|STR,WIS|2				TEMPLATE:Centaur 2
 #3																												BONUS:STAT|STR,CON|2
 #4	BONUS:CHECKS|BASE.Fortitude|1			BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE														BONUS:STAT|STR,DEX|2				TEMPLATE:Centaur 3
@@ -332,11 +332,11 @@ CLASS:Djinni Monster Class	STARTSKILLPTS:8	CSKILL:Appraise|Concentration|TYPE.Cr
 #CLASS:Drider Monster Class	PRERACE:1,Drider Monster Class
 ## Class Name			Skill Pts/Lvl	Class Skill
 #CLASS:Drider Monster Class	STARTSKILLPTS:2	CSKILL:Climb|Concentration|TYPE.Craft|Hide||Listen|Move Silently|TYPE.Profession|Spellcraft|Spot
-#1									BONUS:CHECKS|BASE.Will|2					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE												ADD:FEAT|ANY																																																					ADD:SPELLCASTER|1|Cleric,Sorcerer,Wizard
-#1																																																																																									TEMPLATE:Drider 1	ADD:FEAT|1|TYPE.DriderProf
+#1									BONUS:CHECKS|BASE.Will|2					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE												ADD:ABILITY|FEAT|VIRTUAL|ANY																																																					ADD:SPELLCASTER|1|Cleric,Sorcerer,Wizard
+#1																																																																																									TEMPLATE:Drider 1	ADD:ABILITY|FEAT|VIRTUAL|1|TYPE.DriderProf
 #2						SAB:Poison (Ex)	BONUS:CHECKS|BASE.Will|1																				BONUS:STAT|STR|2																																																						TEMPLATE:Drider 2	ADD:SPELLCASTER|1|ANY
 #3																																	BONUS:STAT|WIS|2					SPELL:Clairaudience/Clairvoyance|1|Innate|Dancing Lights|1|Innate|Darkness|1|Innate|Detect Chaos|1|Innate|Detect Evil|1|Innate|Detect Good|1|Innate|Detect Law|1|Innate|Detect Magic|1|Innate|Discern Lies|1|Innate|Dispel Magic|1|Innate|Faerie Fire|1|Innate|Levitate|1|Innate|Suggestion|1|Innate
-#4									BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|1			BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|DEX|2		ADD:FEAT|ANY																																																					ADD:SPELLCASTER|1|ANY
+#4									BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|1			BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|DEX|2		ADD:ABILITY|FEAT|VIRTUAL|ANY																																																					ADD:SPELLCASTER|1|ANY
 #5									BONUS:CHECKS|BASE.Will|1																				BONUS:STAT|CON|2																																																						TEMPLATE:Drider 3
 #6	SR:4+CL=Drider Monster Class													BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE									BONUS:STAT|WIS,INT|2																																																								ADD:SPELLCASTER|1|ANY
 #7																		BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE								BONUS:STAT|CHA,CON|2																																																					TEMPLATE:Drider 4
@@ -350,7 +350,7 @@ CLASS:Djinni Monster Class	STARTSKILLPTS:8	CSKILL:Appraise|Concentration|TYPE.Cr
 #CLASS:Earth Elemental Monster Class	PRERACE:1,Elemental Monster Class (Earth)
 ## Class Name				Skill Pts/Lvl	Class Skill
 #CLASS:Earth Elemental Monster Class	STARTSKILLPTS:2	CSKILL:TYPE.Craft|Listen|TYPE.Profession|Spot
-#1			SAB:Earth Subtype	SAB:Earth Mastery	SAB:Earth Movement	BONUS:CHECKS|BASE.Fortitude|2					BONUS:COMBAT|AC|3|TYPE=NaturalArmor.REPLACE														TEMPLATE:Earth Elemental 1	AUTO:FEAT|Power Attack
+#1			SAB:Earth Subtype	SAB:Earth Mastery	SAB:Earth Movement	BONUS:CHECKS|BASE.Fortitude|2					BONUS:COMBAT|AC|3|TYPE=NaturalArmor.REPLACE														TEMPLATE:Earth Elemental 1	ABILITY:FEAT|AUTOMATIC|Power Attack
 #2												BONUS:CHECKS|BASE.Fortitude|1					BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE												BONUS:STAT|STR|2
 #3												BONUS:CHECKS|BASE.Reflex,BASE.Will|1			BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE												BONUS:STAT|CON|2	TEMPLATE:Earth Elemental 2
 #4												BONUS:CHECKS|BASE.Fortitude|1					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE				BONUS:STAT|STR|2	TEMPLATE:Earth Elemental 3
@@ -370,20 +370,20 @@ CLASS:Djinni Monster Class	STARTSKILLPTS:8	CSKILL:Appraise|Concentration|TYPE.Cr
 #CLASS:Efreeti Monster Class	PRERACE:1,Genie Monster Class (Efreet)
 ## Class Name			Skill Pts/Lvl	Class Skill
 #CLASS:Efreeti Monster Class	STARTSKILLPTS:8	CSKILL:Bluff|Concentration|TYPE.Craft|Escape Artist|Intimidate|Listen|Move Silently|TYPE.Profession|Sense Motive|Spellcraft|Spot
-#1			SAB:Fire subtype	SAB:Telepathy 100' (Sp)	BONUS:CHECKS|BASE.Reflex,BASE.Will,BASE.Fortitude|2	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE						ADD:FEAT|ANY										TEMPLATE:Efreet 1				AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
+#1			SAB:Fire subtype	SAB:Telepathy 100' (Sp)	BONUS:CHECKS|BASE.Reflex,BASE.Will,BASE.Fortitude|2	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE						ADD:ABILITY|FEAT|VIRTUAL|ANY										TEMPLATE:Efreet 1				AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
 #2			SAB:Heat (Ex)														BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE								SPELL:Detect Magic|1|Innate|Enlarge|1|Innate
 #3										BONUS:CHECKS|BASE.Reflex,BASE.Will,BASE.Fortitude|1	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE		BONUS:STAT|STR|2					SPELL:Produce Flame|0|Innate|Pyrotechnics|0|Innate	TEMPLATE:Efreet 2
 #4	MOVE:Fly,40																																SPELL:Invisibility|1|Innate
-#5																			BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE						ADD:FEAT|ANY										TEMPLATE:Efreet Shift 1|Efreet 3
+#5																			BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE						ADD:ABILITY|FEAT|VIRTUAL|ANY										TEMPLATE:Efreet Shift 1|Efreet 3
 #6																			BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE								SPELL:Gaseous Form|1|Innate					TEMPLATE:Efreet 4
 #7										BONUS:CHECKS|BASE.Reflex,BASE.Will,BASE.Fortitude|1	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE		BONUS:STAT|STR,WIS|2													TEMPLATE:Efreet Shift 2
 #8																																		SPELL:Polymorph self|1|Innate|Wall of fire|1|Innate	TEMPLATE:Efreet 5
 #9																			BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE																		TEMPLATE:Efreet Shift 3|Efreet 6
 #10																			BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|CON,CHA|2													TEMPLATE:Efreet 7
-#11										BONUS:CHECKS|BASE.Reflex,BASE.Will,BASE.Fortitude|1	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE						ADD:FEAT|ANY										TEMPLATE:Efreet Shift 4|Efreet 8
+#11										BONUS:CHECKS|BASE.Reflex,BASE.Will,BASE.Fortitude|1	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE						ADD:ABILITY|FEAT|VIRTUAL|ANY										TEMPLATE:Efreet Shift 4|Efreet 8
 #12																											BONUS:STAT|WIS|2					SPELL:Permanent Image|1|Innate
 #13																			BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE		BONUS:STAT|STR,DEX|2													TEMPLATE:Efreet 9
-#14																																																								AUTO:FEAT|Improved Initiative
+#14																																																								ABILITY:FEAT|AUTOMATIC|Improved Initiative
 #15										BONUS:CHECKS|BASE.Reflex,BASE.Will,BASE.Fortitude|1	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE		BONUS:STAT|DEX,INT|2
 #16																											BONUS:STAT|CHA|2														TEMPLATE:Efreet 10
 #17																			BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE		BONUS:STAT|STR|2
@@ -396,7 +396,7 @@ CLASS:Djinni Monster Class	STARTSKILLPTS:8	CSKILL:Appraise|Concentration|TYPE.Cr
 #CLASS:Ettercap Monster Class	PRERACE:1,Ettercap Monster Class
 ## Class Name			Skill Pts/Lvl	Class Skill
 #CLASS:Ettercap Monster Class	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Hide|Listen|TYPE.Profession|Spot
-#1	SAB:Poison (Ex)			BONUS:CHECKS|BASE.Will|2					BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE												ADD:FEAT|ANY	TEMPLATE:Ettercap 1
+#1	SAB:Poison (Ex)			BONUS:CHECKS|BASE.Will|2					BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE												ADD:ABILITY|FEAT|VIRTUAL|ANY	TEMPLATE:Ettercap 1
 #2	SAB:Web %/day|EttercapWeb																					BONUS:VAR|EttercapWeb|1	DEFINE:EttercapWeb|0				TEMPLATE:Ettercap 2
 #3						BONUS:CHECKS|BASE.Will|1					BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE		BONUS:STAT|CON|2												TEMPLATE:Ettercap 3
 #4																										BONUS:VAR|EttercapWeb|1
@@ -412,9 +412,9 @@ CLASS:Djinni Monster Class	STARTSKILLPTS:8	CSKILL:Appraise|Concentration|TYPE.Cr
 #CLASS:Fire Elemental Monster Class	PRERACE:1,Elemental Monster Class (Fire)
 ## Class Name				Skill Pts/Lvl	Class Skill
 #CLASS:Fire Elemental Monster Class	STARTSKILLPTS:2	CSKILL:TYPE.Craft|Intimidate|Jump|Listen|Search|Spot
-#1			SAB:Water Avoidance	BONUS:CHECKS|BASE.Reflex|2					BONUS:COMBAT|AC|3|TYPE=NaturalArmor.REPLACE											ADD:FEAT|ANY	TEMPLATE:Fire Elemental 1	AUTO:FEAT|Improved Initiative
-#2			SAB:Burn			BONUS:CHECKS|BASE.Reflex|1					BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE									BONUS:STAT|DEX|2									AUTO:FEAT|Weapon Finesse (Slam)
-#3							BONUS:CHECKS|BASE.Will,BASE.Fortitude|1			BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE									BONUS:STAT|CON|2	ADD:FEAT|ANY
+#1			SAB:Water Avoidance	BONUS:CHECKS|BASE.Reflex|2					BONUS:COMBAT|AC|3|TYPE=NaturalArmor.REPLACE											ADD:ABILITY|FEAT|VIRTUAL|ANY	TEMPLATE:Fire Elemental 1	ABILITY:FEAT|AUTOMATIC|Improved Initiative
+#2			SAB:Burn			BONUS:CHECKS|BASE.Reflex|1					BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE									BONUS:STAT|DEX|2									ABILITY:FEAT|AUTOMATIC|Weapon Finesse (Slam)
+#3							BONUS:CHECKS|BASE.Will,BASE.Fortitude|1			BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE									BONUS:STAT|CON|2	ADD:ABILITY|FEAT|VIRTUAL|ANY
 #4							BONUS:CHECKS|BASE.Reflex|1					BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE									BONUS:STAT|STR|2				TEMPLATE:Fire Elemental 2
 #5																															BONUS:STAT|CON|2				TEMPLATE:Fire Elemental 3
 #6																															BONUS:STAT|DEX|2				TEMPLATE:Fire Elemental 4
@@ -433,21 +433,21 @@ CLASS:Djinni Monster Class	STARTSKILLPTS:8	CSKILL:Appraise|Concentration|TYPE.Cr
 #CLASS:Fire Giant Monster Class	PRERACE:1,Giant Monster Class (Fire)
 ## Class Name				Skill Pts/Lvl	Class Skill
 #CLASS:Fire Giant Monster Class	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Jump|Listen|TYPE.Profession|Spot
-#1				BONUS:CHECKS|BASE.Fortitude|2					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE				ADD:FEAT|ANY	TEMPLATE:Fire Giant 1	AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial	AUTO:FEAT|Shield Proficiency
+#1				BONUS:CHECKS|BASE.Fortitude|2					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE				ADD:ABILITY|FEAT|VIRTUAL|ANY	TEMPLATE:Fire Giant 1	AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial	ABILITY:FEAT|AUTOMATIC|Shield Proficiency
 #2				BONUS:CHECKS|BASE.Fortitude|1					BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE
-#3				BONUS:CHECKS|BASE.Reflex,BASE.Will|1			BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE		BONUS:STAT|CON|2	ADD:FEAT|ANY	TEMPLATE:Fire Giant 2
+#3				BONUS:CHECKS|BASE.Reflex,BASE.Will|1			BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE		BONUS:STAT|CON|2	ADD:ABILITY|FEAT|VIRTUAL|ANY	TEMPLATE:Fire Giant 2
 #4													BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|2
 #5	SAB:Rock Throwing	BONUS:CHECKS|BASE.Fortitude|1					BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE		BONUS:STAT|DEX|-2				TEMPLATE:Fire Giant 3
 #6	SAB:Rock catching																		BONUS:STAT|STR|2
 #7													BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|CON|2				TEMPLATE:Fire Giant 4
-#8				BONUS:CHECKS|BASE.Reflex,BASE.Will,BASE.Fortitude|1	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE		BONUS:STAT|STR|2	ADD:FEAT|ANY
+#8				BONUS:CHECKS|BASE.Reflex,BASE.Will,BASE.Fortitude|1	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE		BONUS:STAT|STR|2	ADD:ABILITY|FEAT|VIRTUAL|ANY
 #9													BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE
 #10				BONUS:CHECKS|BASE.Fortitude|1					BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE		BONUS:STAT|STR|2				TEMPLATE:Fire Giant 5
 #11													BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|CON|2				TEMPLATE:Fire Giant 6
-#12																					BONUS:STAT|STR|2	ADD:FEAT|ANY	TEMPLATE:Fire Giant 7
+#12																					BONUS:STAT|STR|2	ADD:ABILITY|FEAT|VIRTUAL|ANY	TEMPLATE:Fire Giant 7
 #13				BONUS:CHECKS|BASE.Fortitude|1					BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE
 #14													BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE		BONUS:STAT|STR|2				TEMPLATE:Fire Giant 8
-#15				BONUS:CHECKS|BASE.Reflex,BASE.Will,BASE.Fortitude|1	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE		BONUS:STAT|CON|2	ADD:FEAT|ANY
+#15				BONUS:CHECKS|BASE.Reflex,BASE.Will,BASE.Fortitude|1	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE		BONUS:STAT|CON|2	ADD:ABILITY|FEAT|VIRTUAL|ANY
 #16																					BONUS:STAT|STR|2				TEMPLATE:Fire Giant 9
 #17																					BONUS:STAT|CON|2
 #18				BONUS:CHECKS|BASE.Fortitude|1					BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE		BONUS:STAT|STR|2				TEMPLATE:Fire Giant 10
@@ -459,7 +459,7 @@ CLASS:Djinni Monster Class	STARTSKILLPTS:8	CSKILL:Appraise|Concentration|TYPE.Cr
 #CLASS:Flamebrother Monster Class	PRERACE:1,Salamander Monster Class (Flamebrother)
 ## Class Name				Skill Pts/Lvl	Class Skill
 #CLASS:Flamebrother Monster Class	STARTSKILLPTS:8	CSKILL:TYPE.Craft|Escape Artist|Hide|Listen|TYPE.Profession|Search|Spot
-#1	SAB:Heat (Ex)	BONUS:CHECKS|BASE.Reflex,BASE.Will,BASE.Fortitude|2	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE	BONUS:COMBAT|AC|3|TYPE=NaturalArmor.REPLACE				ADD:FEAT|ANY	TEMPLATE:Flamebrother 1	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
+#1	SAB:Heat (Ex)	BONUS:CHECKS|BASE.Reflex,BASE.Will,BASE.Fortitude|2	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE	BONUS:COMBAT|AC|3|TYPE=NaturalArmor.REPLACE				ADD:ABILITY|FEAT|VIRTUAL|ANY	TEMPLATE:Flamebrother 1	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
 #2				BONUS:CHECKS|BASE.Reflex,BASE.Will,BASE.Fortitude|1	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE									BONUS:STAT|STR|2
 #3													BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE								BONUS:STAT|CHA|2
 #4	SAB:Constrict (Ex)																									BONUS:STAT|DEX|2				TEMPLATE:Flamebrother 2
@@ -495,18 +495,18 @@ CLASS:Djinni Monster Class	STARTSKILLPTS:8	CSKILL:Appraise|Concentration|TYPE.Cr
 #CLASS:Frost Giant Monster Class	PRERACE:1,Giant Monster Class (Frost)
 ## Class Name				Skill Pts/Lvl	Class Skill
 #CLASS:Frost Giant Monster Class	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Jump|TYPE.Profession|Spot
-#1					BONUS:CHECKS|BASE.Fortitude|2					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE											ADD:FEAT|ANY	TEMPLATE:Frost Giant 1	AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial	AUTO:FEAT|Shield Proficiency
+#1					BONUS:CHECKS|BASE.Fortitude|2					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE											ADD:ABILITY|FEAT|VIRTUAL|ANY	TEMPLATE:Frost Giant 1	AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial	ABILITY:FEAT|AUTOMATIC|Shield Proficiency
 #2					BONUS:CHECKS|BASE.Fortitude|1					BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE
-#3					BONUS:CHECKS|BASE.Reflex,BASE.Will|1			BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE									BONUS:STAT|CON|2	ADD:FEAT|ANY	TEMPLATE:Frost Giant 2
+#3					BONUS:CHECKS|BASE.Reflex,BASE.Will|1			BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE									BONUS:STAT|CON|2	ADD:ABILITY|FEAT|VIRTUAL|ANY	TEMPLATE:Frost Giant 2
 #4														BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE								BONUS:STAT|STR|2
 #5	SAB:Rock Throwing		BONUS:CHECKS|BASE.Fortitude|1					BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE									BONUS:STAT|DEX|-2				TEMPLATE:Frost Giant 3
 #6	SAB:Rock Catching (Ex)																									BONUS:STAT|STR|2
 #7														BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE								BONUS:STAT|CON|2				TEMPLATE:Frost Giant 4
-#8					BONUS:CHECKS|BASE.Reflex,BASE.Will,BASE.Fortitude|1	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE									BONUS:STAT|STR|2	ADD:FEAT|ANY
+#8					BONUS:CHECKS|BASE.Reflex,BASE.Will,BASE.Fortitude|1	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE									BONUS:STAT|STR|2	ADD:ABILITY|FEAT|VIRTUAL|ANY
 #9														BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE
 #10					BONUS:CHECKS|BASE.Fortitude|1					BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE									BONUS:STAT|STR|2				TEMPLATE:Frost Giant 5
 #11														BONUS:COMBAT|AC|8|TYPE=NaturalArmor.REPLACE								BONUS:STAT|CON|2				TEMPLATE:Frost Giant 6
-#12					BONUS:CHECKS|BASE.Reflex,BASE.Will|1																		BONUS:STAT|STR|2	ADD:FEAT|ANY	TEMPLATE:Frost Giant 7
+#12					BONUS:CHECKS|BASE.Reflex,BASE.Will|1																		BONUS:STAT|STR|2	ADD:ABILITY|FEAT|VIRTUAL|ANY	TEMPLATE:Frost Giant 7
 #13					BONUS:CHECKS|BASE.Fortitude|1					BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
 #14														BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE															TEMPLATE:Frost Giant 8
 #15					BONUS:CHECKS|BASE.Reflex,BASE.Will,BASE.Fortitude|1	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE									BONUS:STAT|STR|2
@@ -520,13 +520,13 @@ CLASS:Djinni Monster Class	STARTSKILLPTS:8	CSKILL:Appraise|Concentration|TYPE.Cr
 #CLASS:Ghaele Monster Class	PRERACE:1,Celestial Monster Class (Ghaele)
 ## Class Name			Skill Pts/Lvl	Class Skill
 #CLASS:Ghaele Monster Class	STARTSKILLPTS:8	CSKILL:TYPE.Craft|Intimidate|Jump|Listen|Search|Spot
-#1											SAB:Chaotic and Good subtype									BONUS:CHECKS|BASE.Reflex,BASE.Will,BASE.Fortitude|2	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE																						ADD:FEAT|ANY	TEMPLATE:Ghaele 1			AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial	SPELLLIST:5|Air(Domain)|Animal(Domain)|Chaos(Domain)|Good(Domain)|Plant(Domain)	ADD:SPELLCASTER|1|Cleric
+#1											SAB:Chaotic and Good subtype									BONUS:CHECKS|BASE.Reflex,BASE.Will,BASE.Fortitude|2	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE																						ADD:ABILITY|FEAT|VIRTUAL|ANY	TEMPLATE:Ghaele 1			AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial	SPELLLIST:5|Air(Domain)|Animal(Domain)|Chaos(Domain)|Good(Domain)|Plant(Domain)	ADD:SPELLCASTER|1|Cleric
 #2																								BONUS:CHECKS|BASE.Reflex,BASE.Will,BASE.Fortitude|1	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE									BONUS:STAT|DEX|2														TEMPLATE:Ghaele Lesser 1																						ADD:SPELLCASTER|1|Cleric
-#3				SR:8+CL=Ghaele Monster Class																									BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE									BONUS:STAT|INT|2											ADD:FEAT|ANY	TEMPLATE:Ghaele 2																								ADD:SPELLCASTER|1|Cleric
+#3				SR:8+CL=Ghaele Monster Class																									BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE									BONUS:STAT|INT|2											ADD:ABILITY|FEAT|VIRTUAL|ANY	TEMPLATE:Ghaele 2																								ADD:SPELLCASTER|1|Cleric
 #4																								BONUS:CHECKS|BASE.Reflex,BASE.Will,BASE.Fortitude|1	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE	BONUS:STAT|STR|2																																								ADD:SPELLCASTER|1|Cleric
 #5											SAB:Cold and Acid Resistance %|GhaeleResist	SAB:Electricity Resistance 5										BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE									BONUS:STAT|WIS|2		BONUS:VAR|GhaeleResist|5	DEFINE:GhaeleResist|0				TEMPLATE:Ghaele Lesser 2																						ADD:SPELLCASTER|1|Cleric
 #6											SAB:Protective Aura																																		BONUS:STAT|CHA|2														TEMPLATE:Ghaele Powers 1																						ADD:SPELLCASTER|1|Cleric
-#7	MOVE:Fly,150								SAB:Gaze (Ex)	SAB:Alternate Form (Su)							BONUS:CHECKS|BASE.Reflex,BASE.Will,BASE.Fortitude|1	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE									BONUS:STAT|STR|2											ADD:FEAT|ANY	TEMPLATE:Ghaele 3																								ADD:SPELLCASTER|1|Cleric
+#7	MOVE:Fly,150								SAB:Gaze (Ex)	SAB:Alternate Form (Su)							BONUS:CHECKS|BASE.Reflex,BASE.Will,BASE.Fortitude|1	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE									BONUS:STAT|STR|2											ADD:ABILITY|FEAT|VIRTUAL|ANY	TEMPLATE:Ghaele 3																								ADD:SPELLCASTER|1|Cleric
 #8											SAB:Immune to electricity and petrification																														BONUS:STAT|INT|2														TEMPLATE:Ghaele Lesser 3																						ADD:SPELLCASTER|1|Cleric
 #9																																	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE																	TEMPLATE:Ghaele Powers 2																						ADD:SPELLCASTER|1|Cleric
 #10									DR:5/+1	SAB:Protective Aura																																		BONUS:STAT|WIS|2														TEMPLATE:Ghaele 4																								ADD:SPELLCASTER|1|Cleric
@@ -534,7 +534,7 @@ CLASS:Djinni Monster Class	STARTSKILLPTS:8	CSKILL:Appraise|Concentration|TYPE.Cr
 #12																								BONUS:CHECKS|BASE.Reflex,BASE.Will,BASE.Fortitude|1	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE									BONUS:STAT|INT|2														TEMPLATE:Ghaele Powers 2																						ADD:SPELLCASTER|1|Cleric
 #13																																	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE								BONUS:STAT|STR|2		BONUS:VAR|GhaeleResist|5																																		ADD:SPELLCASTER|1|Cleric
 #14																																																BONUS:STAT|CHA|2														TEMPLATE:Ghaele Greater 1																						ADD:SPELLCASTER|1|Cleric
-#15																																	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE	BONUS:STAT|STR,WIS|2										ADD:FEAT|ANY	TEMPLATE:Ghaele 6																								ADD:SPELLCASTER|1|Cleric
+#15																																	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE	BONUS:STAT|STR,WIS|2										ADD:ABILITY|FEAT|VIRTUAL|ANY	TEMPLATE:Ghaele 6																								ADD:SPELLCASTER|1|Cleric
 #16											SAB:Positive Energy																																		BONUS:STAT|CON|2														TEMPLATE:Ghaele 7																								ADD:SPELLCASTER|1|Cleric
 #17																																	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE																								TEMPLATE:Ghaele Greater 2																						ADD:SPELLCASTER|1|Cleric
 #18																								BONUS:CHECKS|BASE.Reflex,BASE.Will,BASE.Fortitude|1	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE									BONUS:STAT|STR,CHA|2													TEMPLATE:Ghaele 8																								ADD:SPELLCASTER|1|Cleric
@@ -547,7 +547,7 @@ CLASS:Djinni Monster Class	STARTSKILLPTS:8	CSKILL:Appraise|Concentration|TYPE.Cr
 #CLASS:Ghoul Monster Class	PRERACE:1,Ghoul Monster Class
 ## Class Name			Skill Pts/Lvl	Class Skill
 #CLASS:Ghoul Monster Class	STARTSKILLPTS:4	CSKILL:TYPE.Craft|Intimidate|Jump|Listen|Search|Spot
-#1	SAB:Turn resistance +2	BONUS:CHECKS|BASE.Will|2	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE												ADD:FEAT|ANY	TEMPLATE:Ghoul 1
+#1	SAB:Turn resistance +2	BONUS:CHECKS|BASE.Will|2	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE												ADD:ABILITY|FEAT|VIRTUAL|ANY	TEMPLATE:Ghoul 1
 #2	SAB:Paralysis (Ex)		BONUS:CHECKS|BASE.Will|1																BONUS:STAT|DEX,CHA|2				TEMPLATE:Ghoul 2
 #3										BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE	BONUS:STAT|INT,WIS|2
 #4																									BONUS:STAT|CHA|2					TEMPLATE:Ghoul 3
@@ -559,13 +559,13 @@ CLASS:Djinni Monster Class	STARTSKILLPTS:8	CSKILL:Appraise|Concentration|TYPE.Cr
 #CLASS:Green Hag Monster Class	PRERACE:1,Hag Monster Class (Green)
 ## Class Name			Skill Pts/Lvl	Class Skill
 #CLASS:Green Hag Monster Class	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Hide|Listen|TYPE.Profession|Spot
-#1										BONUS:CHECKS|BASE.Will,BASE.Reflex|2			BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE				ADD:FEAT|ANY	TEMPLATE:Green Hag 1|Green Hag Lesser 1		AUTO:WEAPONPROF|TYPE=Simple
+#1										BONUS:CHECKS|BASE.Will,BASE.Reflex|2			BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE				ADD:ABILITY|FEAT|VIRTUAL|ANY	TEMPLATE:Green Hag 1|Green Hag Lesser 1		AUTO:WEAPONPROF|TYPE=Simple
 #2										BONUS:CHECKS|BASE.Will,BASE.Reflex|1			BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE									BONUS:STAT|STR|2
-#3										BONUS:CHECKS|BASE.Fortitude|1					BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE												ADD:FEAT|ANY	TEMPLATE:Green Hag Lesser 2|Green Hag Powers 1
+#3										BONUS:CHECKS|BASE.Fortitude|1					BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE												ADD:ABILITY|FEAT|VIRTUAL|ANY	TEMPLATE:Green Hag Lesser 2|Green Hag Powers 1
 #4							SAB:Weakness (Ex)	BONUS:CHECKS|BASE.Will,BASE.Reflex|1			BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE
 #5																			BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE									BONUS:STAT|STR|2
 #6																			BONUS:COMBAT|AC|3|TYPE=NaturalArmor.REPLACE														TEMPLATE:Green Hag Powers 2
-#7	SR:4+CL=Green Hag Monster Class				BONUS:CHECKS|BASE.Will,BASE.Reflex,BASE.Fortitude|1	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE												ADD:FEAT|ANY	TEMPLATE:Green Hag 2
+#7	SR:4+CL=Green Hag Monster Class				BONUS:CHECKS|BASE.Will,BASE.Reflex,BASE.Fortitude|1	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE												ADD:ABILITY|FEAT|VIRTUAL|ANY	TEMPLATE:Green Hag 2
 #8																																		BONUS:STAT|STR|2				TEMPLATE:Green Hag 3
 #9																			BONUS:COMBAT|AC|3|TYPE=NaturalArmor.REPLACE	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE
 #10																																								TEMPLATE:Green Hag 4
@@ -580,9 +580,9 @@ CLASS:Djinni Monster Class	STARTSKILLPTS:8	CSKILL:Appraise|Concentration|TYPE.Cr
 #CLASS:Griffon Monster Class	PRERACE:1,Griffon Monster Class
 ## Class Name			Skill Pts/Lvl	Class Skill
 #CLASS:Griffon Monster Class	STARTSKILLPTS:2	CSKILL:Jump|Listen|Spot
-#1						BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|2			BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE										ADD:FEAT|ANY	TEMPLATE:Griffon 1
+#1						BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|2			BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE										ADD:ABILITY|FEAT|VIRTUAL|ANY	TEMPLATE:Griffon 1
 #2						BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|1			BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE						BONUS:STAT|DEX,STR|2
-#3	MOVE:Fly,50				BONUS:CHECKS|BASE.Reflex|1					BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE																		ADD:FEAT|ANY	TEMPLATE:Griffon 2
+#3	MOVE:Fly,50				BONUS:CHECKS|BASE.Reflex|1					BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE																		ADD:ABILITY|FEAT|VIRTUAL|ANY	TEMPLATE:Griffon 2
 #4			SAB:Pounce (Ex)	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|1			BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE						BONUS:STAT|STR,CON|2
 #5															BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE														BONUS:STAT|WIS|2					TEMPLATE:Griffon 3
 #6			SAB:Rake (Ex)																														BONUS:STAT|STR,CON|2
@@ -597,8 +597,8 @@ CLASS:Djinni Monster Class	STARTSKILLPTS:8	CSKILL:Appraise|Concentration|TYPE.Cr
 #CLASS:Grig Monster Class	PRERACE:1,Sprite Monster Class (Grig)
 ## Class Name			Skill Pts/Lvl	Class Skill
 #CLASS:Grig Monster Class	STARTSKILLPTS:6	CSKILL:TYPE.Craft|Escape Artist|Hide|Jump|Listen|Move Silently|Perform|TYPE.Profession|Search|Spot
-#1										BONUS:CHECKS|BASE.Will,BASE.Reflex|2																		ADD:FEAT|ANY	TEMPLATE:Grig 1	AUTO:WEAPONPROF|TYPE=Simple|Longbow (Composite)|Shortsword
-#2	SR:13+CL=Grig Monster Class																				BONUS:MOVEADD|TYPE.Fly|20	BONUS:STAT|WIS|2																		AUTO:FEAT|Dodge
+#1										BONUS:CHECKS|BASE.Will,BASE.Reflex|2																		ADD:ABILITY|FEAT|VIRTUAL|ANY	TEMPLATE:Grig 1	AUTO:WEAPONPROF|TYPE=Simple|Longbow (Composite)|Shortsword
+#2	SR:13+CL=Grig Monster Class																				BONUS:MOVEADD|TYPE.Fly|20	BONUS:STAT|WIS|2																		ABILITY:FEAT|AUTOMATIC|Dodge
 #3																	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE						BONUS:STAT|DEX,CON|2
 #4						SAB:Attune fiddle (Su)								BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE						BONUS:STAT|CHA|2					TEMPLATE:Grig 2
 #
@@ -608,13 +608,13 @@ CLASS:Djinni Monster Class	STARTSKILLPTS:8	CSKILL:Appraise|Concentration|TYPE.Cr
 #CLASS:Hamatula Monster Class	PRERACE:1,Devil Monster Class (Hamatula)
 ## Class Name			Skill Pts/Lvl	Class Skill
 #CLASS:Hamatula Monster Class	STARTSKILLPTS:8	CSKILL:Concentration|TYPE.Craft|Hide|Listen|Move Silently|TYPE.Profession|Search|Sense Motive|Spot
-#1									SAB:See in Darkness (Su)	SAB:Evil and Lawful subtype	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|2	BONUS:COMBAT|AC|3|TYPE=NaturalArmor.REPLACE	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE							ADD:FEAT|ANY	TEMPLATE:Hamatula 1				AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
+#1									SAB:See in Darkness (Su)	SAB:Evil and Lawful subtype	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|2	BONUS:COMBAT|AC|3|TYPE=NaturalArmor.REPLACE	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE							ADD:ABILITY|FEAT|VIRTUAL|ANY	TEMPLATE:Hamatula 1				AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
 #2									SAB:Telepathy 100' (Sp)						BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|1	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE																		TEMPLATE:Hamatula 2|Hamatula Lesser 1
-#3									SAB:Summon Baatezu (Sp)															BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE															ADD:FEAT|ANY	TEMPLATE:Hamatula 3
+#3									SAB:Summon Baatezu (Sp)															BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE															ADD:ABILITY|FEAT|VIRTUAL|ANY	TEMPLATE:Hamatula 3
 #4																		BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|1	BONUS:COMBAT|AC|3|TYPE=NaturalArmor.REPLACE	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE				BONUS:STAT|STR|2
 #5							DR:5/+1																			BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE																		TEMPLATE:Hamatula 4|Hamatula Lesser 2
 #6									SAB:Improved Grab (Ex)
-#7									SAB:Impate (Ex)							BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|1	BONUS:COMBAT|AC|3|TYPE=NaturalArmor.REPLACE	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE				BONUS:STAT|INT|2	ADD:FEAT|ANY	TEMPLATE:Hamatula 5|Hamatula Powers 1
+#7									SAB:Impate (Ex)							BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|1	BONUS:COMBAT|AC|3|TYPE=NaturalArmor.REPLACE	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE				BONUS:STAT|INT|2	ADD:ABILITY|FEAT|VIRTUAL|ANY	TEMPLATE:Hamatula 5|Hamatula Powers 1
 #8																																													BONUS:STAT|CON|2				TEMPLATE:Hamatula 6|Hamatula Lesser 3
 #9	SR:9+CL=Hamatula Monster Class																					BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE																		TEMPLATE:Hamatula Greater 1
 #10																											BONUS:COMBAT|AC|3|TYPE=NaturalArmor.REPLACE								BONUS:DR|+1|5							TEMPLATE:Hamatula 7|Hamatula Powers 2
@@ -629,9 +629,9 @@ CLASS:Djinni Monster Class	STARTSKILLPTS:8	CSKILL:Appraise|Concentration|TYPE.Cr
 #CLASS:Harpy Monster Class	PRERACE:1,Harpy Monster Class
 ## Class Name			Skill Pts/Lvl	Class Skill
 #CLASS:Harpy Monster Class	STARTSKILLPTS:2	CSKILL:Bluff|TYPE.Craft|Listen|Perform|TYPE.Profession|Spot
-#1								BONUS:CHECKS|BASE.Reflex,BASE.Will|2			BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE									ADD:FEAT|ANY	TEMPLATE:Harpy 1
+#1								BONUS:CHECKS|BASE.Reflex,BASE.Will|2			BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE									ADD:ABILITY|FEAT|VIRTUAL|ANY	TEMPLATE:Harpy 1
 #2								BONUS:CHECKS|BASE.Reflex,BASE.Will|1			BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE														BONUS:STAT|DEX|2
-#3	MOVE:Fly,40						BONUS:CHECKS|BASE.Fortitude|1					BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE																	ADD:FEAT|ANY	TEMPLATE:Harpy 2
+#3	MOVE:Fly,40						BONUS:CHECKS|BASE.Fortitude|1					BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE																	ADD:ABILITY|FEAT|VIRTUAL|ANY	TEMPLATE:Harpy 2
 #4			SAB:Captivating Song (Su)	BONUS:CHECKS|BASE.Reflex,BASE.Will|1			BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE
 #5																	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE									BONUS:MOVEADD|TYPE.Fly|20
 #6																																											TEMPLATE:Harpy 3
@@ -646,9 +646,9 @@ CLASS:Djinni Monster Class	STARTSKILLPTS:8	CSKILL:Appraise|Concentration|TYPE.Cr
 #CLASS:Hound Archon Monster Class	PRERACE:1,Celestial Monster Class (Hound Archon)
 ## Class Name				Skill Pts/Lvl	Class Skill
 #CLASS:Hound Archon Monster Class	STARTSKILLPTS:8	CSKILL:Concentration|TYPE.Craft|Hide|Jump|Listen|Move Silently|TYPE.Profession|Spot|Survival
-#1			SAB:Good and Lawful subtypes	SAB:Electricity resistance %|HArchElec					BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|2	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE							BONUS:VAR|HArchElec|5	DEFINE:HArchElec|0	ADD:FEAT|ANY															TEMPLATE:Hound Archon 1
+#1			SAB:Good and Lawful subtypes	SAB:Electricity resistance %|HArchElec					BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|2	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE							BONUS:VAR|HArchElec|5	DEFINE:HArchElec|0	ADD:ABILITY|FEAT|VIRTUAL|ANY															TEMPLATE:Hound Archon 1
 #2			SAB:Scent (Ex)														BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|1	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE												BONUS:STAT|CON|2																										TEMPLATE:Hound Archon 2
-#3																												BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE															ADD:FEAT|ANY	SPELL:Aid|1|Innate|Continual Flame|1|Innate|Detect Evil|1|Innate|Message|1|Innate	TEMPLATE:Hound Archon 3
+#3																												BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE															ADD:ABILITY|FEAT|VIRTUAL|ANY	SPELL:Aid|1|Innate|Continual Flame|1|Innate|Detect Evil|1|Innate|Message|1|Innate	TEMPLATE:Hound Archon 3
 #4			SAB:Tongues (Su)																																												BONUS:VAR|HArchElec|5
 #5	DR:5/+1																	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|1	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE																																TEMPLATE:Hound Archon 4
 #6																																																																										TEMPLATE:Hound Archon 5
@@ -665,7 +665,7 @@ CLASS:Djinni Monster Class	STARTSKILLPTS:8	CSKILL:Appraise|Concentration|TYPE.Cr
 ## Class Name		Skill Pts/Lvl	Class Skill
 #CLASS:Imp Monster Class	STARTSKILLPTS:8	CSKILL:TYPE.Craft|Intimidate|Jump|Listen|Search|Spot
 #1							SAB:Poison (Ex)					BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|2	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE																		TEMPLATE:Imp 1
-#2														BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|1	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE														BONUS:STAT|WIS|2	SPELL:Detect Good|0|Innate|Detect Magic|0|Innate				AUTO:FEAT|Weapon Finesse(Sting)
+#2														BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|1	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE														BONUS:STAT|WIS|2	SPELL:Detect Good|0|Innate|Detect Magic|0|Innate				ABILITY:FEAT|AUTOMATIC|Weapon Finesse(Sting)
 #3	MOVE:Fly,30					SAB:Polymorph (Su)														BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE																									TEMPLATE:Imp 2
 #4			DR:5/silver or holy	SAB:Invisibility at will - self only (Sp)										BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE														BONUS:STAT|DEX|2
 #5							SAB:Regeneration 1 (Ex)													BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
@@ -678,13 +678,13 @@ CLASS:Djinni Monster Class	STARTSKILLPTS:8	CSKILL:Appraise|Concentration|TYPE.Cr
 #CLASS:Janni Monster Class	PRERACE:1,Genie Monster Class (Janni)
 ## Class Name			Skill Pts/Lvl	Class Skill
 #CLASS:Janni Monster Class	STARTSKILLPTS:8	CSKILL:Appraise|Concentration|TYPE.Craft|Escape Artist|Listen|Move Silently|TYPE.Profession|Ride|Sense Motive|Spot
-#1													BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|2	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE													ADD:FEAT|ANY	SPELL:Enlarge|2|Innate				TEMPLATE:Janni 1		AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial	AUTO:FEAT|Shield Proficiency
+#1													BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|2	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE													ADD:ABILITY|FEAT|VIRTUAL|ANY	SPELL:Enlarge|2|Innate				TEMPLATE:Janni 1		AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial	ABILITY:FEAT|AUTOMATIC|Shield Proficiency
 #2			SAB:Fire resistance %|JanniFire	SAB:Telepathy 100' (Su)	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|1	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE	BONUS:STAT|WIS|2		BONUS:VAR|JanniFire|5	DEFINE:JanniFire|0				SPELL:Speak with animals|2|Innate
-#3																						BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE	BONUS:STAT|STR|2										ADD:FEAT|ANY								TEMPLATE:Janni 2
+#3																						BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE	BONUS:STAT|STR|2										ADD:ABILITY|FEAT|VIRTUAL|ANY								TEMPLATE:Janni 2
 #4	MOVE:Fly,20																											BONUS:STAT|INT|2													SPELL:Invisibility|3|Innate
 #5													BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|1	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE					BONUS:VAR|JanniFire|5															TEMPLATE:Janni Shift 1
 #6																													BONUS:STAT|STR|2													SPELL:Create food and water|1|Innate
-#7																						BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE																							TEMPLATE:Janni Shift 2															AUTO:FEAT|Improved Initiative
+#7																						BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE																							TEMPLATE:Janni Shift 2															ABILITY:FEAT|AUTOMATIC|Improved Initiative
 #8																													BONUS:STAT|INT,CHA|2
 #9													BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|1	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE	BONUS:STAT|DEX|2																				TEMPLATE:Janni Shift 3
 #10																													BONUS:STAT|WIS|2
@@ -696,10 +696,10 @@ CLASS:Djinni Monster Class	STARTSKILLPTS:8	CSKILL:Appraise|Concentration|TYPE.Cr
 #CLASS:Kyton Monster Class	PRERACE:1,Devil Monster Class (Kyton)
 ## Class Name			Skill Pts/Lvl	Class Skill
 #CLASS:Kyton Monster Class	STARTSKILLPTS:8	CSKILL:Climb|TYPE.Craft|Escape Artist|Listen|TYPE.Profession|Spot
-#1								SAB:Evil and Lawful subtype	SAB:Chain Reach 10'	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|2	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE												ADD:FEAT|ANY	TEMPLATE:Kyton 1	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial|Chain (Spiked)
+#1								SAB:Evil and Lawful subtype	SAB:Chain Reach 10'	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|2	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE												ADD:ABILITY|FEAT|VIRTUAL|ANY	TEMPLATE:Kyton 1	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial|Chain (Spiked)
 #2																	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|1	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE
 #3								SAB:Unnerving Gaze (Su)															BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE								BONUS:STAT|DEX|2
-#4								SAB:Dancing Chains (Su)															BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE												ADD:FEAT|ANY
+#4								SAB:Dancing Chains (Su)															BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE												ADD:ABILITY|FEAT|VIRTUAL|ANY
 #5																										BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE								BONUS:STAT|CON|2				TEMPLATE:Kyton 2
 #6																	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|1	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE									BONUS:STAT|DEX|2
 #7																																															TEMPLATE:Kyton 3
@@ -716,9 +716,9 @@ CLASS:Djinni Monster Class	STARTSKILLPTS:8	CSKILL:Appraise|Concentration|TYPE.Cr
 #CLASS:Lillend Monster Class	PRERACE:1,Lillend Monster Class
 ## Class Name			Skill Pts/Lvl	Class Skill
 #CLASS:Lillend Monster Class	STARTSKILLPTS:8	CSKILL:Appraise|Concentration|TYPE.Craft|Knowledge (Arcana)|Listen|Perform|TYPE.Profession|Spellcraft|Survival
-#1			SAB:Fire resistance %|LillendFire	SAB:Chaotic and Good subtypes	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|2	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE					BONUS:VAR|LillendFire|5												DEFINE:LillendFire|0					ADD:FEAT|ANY															TEMPLATE:Lillend 1			AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
-#2														BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|1	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE									BONUS:STAT|STR,INT|2	BONUS:VAR|BardicMusic|BardMusicLVL	BONUS:VAR|BardMusicLVL|(CL=Lillend Monster Class)/2	DEFINE:BardicMusic|0	DEFINE:BardMusicLVL|0																															AUTO:FEAT|Bardic Music
-#3																							BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE									BONUS:STAT|CHA|2																									ADD:FEAT|ANY															TEMPLATE:Lillend 2|Lillend World 1
+#1			SAB:Fire resistance %|LillendFire	SAB:Chaotic and Good subtypes	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|2	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE					BONUS:VAR|LillendFire|5												DEFINE:LillendFire|0					ADD:ABILITY|FEAT|VIRTUAL|ANY															TEMPLATE:Lillend 1			AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
+#2														BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|1	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE									BONUS:STAT|STR,INT|2	BONUS:VAR|BardicMusic|BardMusicLVL	BONUS:VAR|BardMusicLVL|(CL=Lillend Monster Class)/2	DEFINE:BardicMusic|0	DEFINE:BardMusicLVL|0																															ABILITY:FEAT|AUTOMATIC|Bardic Music
+#3																							BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE									BONUS:STAT|CHA|2																									ADD:ABILITY|FEAT|VIRTUAL|ANY															TEMPLATE:Lillend 2|Lillend World 1
 #4														BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|1	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|2
 #5			SAB:Improved Grab (Ex)	SAB:Constrict (Ex)																													BONUS:STAT|WIS|2																												SPELL:Charm Person|1|Innate|Speak with animals|1|Innate|Speak with plants|1|Innate	TEMPLATE:Lillend 3
 #6	MOVE:Fly,70												BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|1	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE									BONUS:STAT|STR|2																																										TEMPLATE:Lillend 4
@@ -736,7 +736,7 @@ CLASS:Djinni Monster Class	STARTSKILLPTS:8	CSKILL:Appraise|Concentration|TYPE.Cr
 #CLASS:Magmin Monster Class	PRERACE:1,Magmin Monster Class
 ## Class Name			Skill Pts/Lvl	Class Skill
 #CLASS:Magmin Monster Class	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Escape Artist|Jump|TYPE.Profession|Spot
-#1											BONUS:CHECKS|BASE.Reflex|2	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	ADD:FEAT|ANY	TEMPLATE:Magmin 1
+#1											BONUS:CHECKS|BASE.Reflex|2	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	ADD:ABILITY|FEAT|VIRTUAL|ANY	TEMPLATE:Magmin 1
 #2			SAB:Fiery Aura (Su)	SAB:Melt weapons (Ex)																	TEMPLATE:Magmin 2
 #3	DR:5/+1																									TEMPLATE:Magmin 3
 #4											BONUS:CHECKS|BASE.Reflex|1	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE					TEMPLATE:Magmin 4
@@ -748,10 +748,10 @@ CLASS:Djinni Monster Class	STARTSKILLPTS:8	CSKILL:Appraise|Concentration|TYPE.Cr
 #CLASS:Medusa Monster Class	PRERACE:1,Medusa Monster Class
 ## Class Name			Skill Pts/Lvl	Class Skill
 #CLASS:Medusa Monster Class	STARTSKILLPTS:2	CSKILL:Bluff|TYPE.Craft|Disguise|Move Silently|TYPE.Profession|Spot
-#1	SAB:Poison (Ex)		BONUS:CHECKS|BASE.Reflex,BASE.Will|2			BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE												ADD:FEAT|ANY	TEMPLATE:Medusa 1	AUTO:WEAPONPROF|TYPE=Simple|Shortbow
+#1	SAB:Poison (Ex)		BONUS:CHECKS|BASE.Reflex,BASE.Will|2			BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE												ADD:ABILITY|FEAT|VIRTUAL|ANY	TEMPLATE:Medusa 1	AUTO:WEAPONPROF|TYPE=Simple|Shortbow
 #2					BONUS:CHECKS|BASE.Reflex,BASE.Will|1			BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:STAT|INT|2
 #3																													BONUS:STAT|CON|2
-#4					BONUS:CHECKS|BASE.Fortitude|1					BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE												ADD:FEAT|ANY	TEMPLATE:Medusa 2
+#4					BONUS:CHECKS|BASE.Fortitude|1					BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE												ADD:ABILITY|FEAT|VIRTUAL|ANY	TEMPLATE:Medusa 2
 #5														BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE								BONUS:STAT|DEX|2
 #6	SAB:Petrifying Gaze (Su)	BONUS:CHECKS|BASE.Reflex,BASE.Will|1			BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE															TEMPLATE:Medusa 3
 #7														BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE								BONUS:STAT|WIS|2				TEMPLATE:Medusa 4
@@ -765,7 +765,7 @@ CLASS:Djinni Monster Class	STARTSKILLPTS:8	CSKILL:Appraise|Concentration|TYPE.Cr
 #CLASS:Mind Flayer Monster Class	PRERACE:1,Mind Flayer Monster Class
 ## Class Name				Skill Pts/Lvl	Class Skill
 #CLASS:Mind Flayer Monster Class	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE.Craft|Intimidate|Jump|Listen|Search|Spot
-#1											BONUS:CHECKS|BASE.Will|2					BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE					ADD:FEAT|ANY										TEMPLATE:Mind Flayer 1	ADD:FEAT|1|TYPE.TwoKnowledgeMC
+#1											BONUS:CHECKS|BASE.Will|2					BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE					ADD:ABILITY|FEAT|VIRTUAL|ANY										TEMPLATE:Mind Flayer 1	ADD:ABILITY|FEAT|VIRTUAL|1|TYPE.TwoKnowledgeMC
 #2							SAB:Telepathy (Su)																			BONUS:STAT|STR|2
 #3											BONUS:CHECKS|BASE.Will|1					BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE		BONUS:STAT|WIS|2					SPELL:Detect Thoughts|0|Innate|Levitate|0|Innate	TEMPLATE:Mind Flayer 2
 #4							SAB:Mind Blast (Sp)																		BONUS:STAT|CON|2
@@ -787,7 +787,7 @@ CLASS:Djinni Monster Class	STARTSKILLPTS:8	CSKILL:Appraise|Concentration|TYPE.Cr
 #CLASS:Minotaur Monster Class	PRERACE:1,Minotaur Monster Class
 ## Class Name			Skill Pts/Lvl	Class Skill
 #CLASS:Minotaur Monster Class	STARTSKILLPTS:2	CSKILL:TYPE.Craft|Intimidate|Jump|Listen|Search|Spot
-#1	SAB:Charge Gore 2d6																																BONUS:CHECKS|BASE.Reflex,BASE.Will|2			BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE																					TEMPLATE:Minotaur 1			AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial	AUTO:FEAT|Shield Proficiency
+#1	SAB:Charge Gore 2d6																																BONUS:CHECKS|BASE.Reflex,BASE.Will|2			BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE																					TEMPLATE:Minotaur 1			AUTO:ARMORPROF|ARMORTYPE=Light|ARMORTYPE=Medium	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial	ABILITY:FEAT|AUTOMATIC|Shield Proficiency
 #2	SAB:Keen Senses	SAB:Natural Cunning (Cannot get lost)																										BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|1	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE									BONUS:SKILL|Listen,Search,Spot|1	BONUS:STAT|STR|2
 #3	SAB:TODO CLEAR.Charge Gore 2d6	SAB:Charge Gore 2d8																																				BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE														BONUS:STAT|CON|2												TEMPLATE:Minotaur 2
 #4	SAB:TODO CLEAR.Natural Cunning (Cannot get lost)	SAB:Scent %'|ScentRange	SAB:Natural Cunning (Cannot get lost, track enemies)																								BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE									BONUS:SKILL|Listen,Search,Spot|1	BONUS:STAT|STR|2				BONUS:VAR|ScentRange|10	DEFINE:ScentRange|0
@@ -802,10 +802,10 @@ CLASS:Djinni Monster Class	STARTSKILLPTS:8	CSKILL:Appraise|Concentration|TYPE.Cr
 #CLASS:Mummy Monster Class	PRERACE:1,Mummy Monster Class
 ## Class Name			Skill Pts/Lvl	Class Skill
 #CLASS:Mummy Monster Class	STARTSKILLPTS:4	CSKILL:TYPE.Craft|Hide|Listen|Move Silently|TYPE.Profession|Spot
-#1			SAB:Fire Vulnerability (Ex)	BONUS:CHECKS|BASE.Will|2					BONUS:COMBAT|AC|3|TYPE=NaturalArmor.REPLACE					ADD:FEAT|ANY	TEMPLATE:Mummy 1	AUTO:WEAPONPROF|TYPE=Simple
+#1			SAB:Fire Vulnerability (Ex)	BONUS:CHECKS|BASE.Will|2					BONUS:COMBAT|AC|3|TYPE=NaturalArmor.REPLACE					ADD:ABILITY|FEAT|VIRTUAL|ANY	TEMPLATE:Mummy 1	AUTO:WEAPONPROF|TYPE=Simple
 #2								BONUS:CHECKS|BASE.Will|1					BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE		BONUS:STAT|STR|2
 #3			SAB:Resistant to blows (Ex)																		BONUS:STAT|WIS|2
-#4								BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|1			BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|2		ADD:FEAT|ANY
+#4								BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|1			BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|2		ADD:ABILITY|FEAT|VIRTUAL|ANY
 #5			SAB:Mummy Rot (Su)																				BONUS:STAT|CHA|2					TEMPLATE:Mummy 2
 #6								BONUS:CHECKS|BASE.Will|1					BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE		BONUS:STAT|STR|2					TEMPLATE:Mummy 3
 #7	DR:5/-
@@ -822,9 +822,9 @@ CLASS:Djinni Monster Class	STARTSKILLPTS:8	CSKILL:Appraise|Concentration|TYPE.Cr
 #CLASS:Nixie Monster Class	PRERACE:1,Sprite Monster Class (Nixie)
 ## Class Name			Skill Pts/Lvl	Class Skill
 #CLASS:Nixie Monster Class	STARTSKILLPTS:6	CSKILL:Bluff|TYPE.Craft|Escape Artist|Handle Animal|Hide|Listen|Perform|TYPE.Profession|Search|Sense Motive|Spot
-#1		BONUS:CHECKS|BASE.Reflex,BASE.Will|2					ADD:FEAT|ANY	SPELL:Water Breathing|1|Innate	TEMPLATE:Nixie 1	AUTO:WEAPONPROF|TYPE=Simple|Sword (short)
+#1		BONUS:CHECKS|BASE.Reflex,BASE.Will|2					ADD:ABILITY|FEAT|VIRTUAL|ANY	SPELL:Water Breathing|1|Innate	TEMPLATE:Nixie 1	AUTO:WEAPONPROF|TYPE=Simple|Sword (short)
 #2									BONUS:STAT|INT,DEX|2										TEMPLATE:Nixie 2
-#3									BONUS:STAT|WIS|2																					AUTO:FEAT|Dodge
+#3									BONUS:STAT|WIS|2																					ABILITY:FEAT|AUTOMATIC|Dodge
 #4	SR:16								BONUS:STAT|CHA|2											TEMPLATE:Nixie 3
 #
 ##Make copy of class for Merrow variant with spear proficiency instead of greatclub
@@ -835,9 +835,9 @@ CLASS:Djinni Monster Class	STARTSKILLPTS:8	CSKILL:Appraise|Concentration|TYPE.Cr
 #CLASS:Ogre Monster Class	PRERACE:1,Ogre Monster Class
 ## Class Name			Skill Pts/Lvl	Class Skill
 #CLASS:Ogre Monster Class	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Listen|TYPE.Profession|Spot
-#1	BONUS:CHECKS|BASE.Fortitude|2			BONUS:COMBAT|AC|3|TYPE=NaturalArmor.REPLACE														ADD:FEAT|ANY	TEMPLATE:Ogre 1	AUTO:ARMORPROF|ARMORTYPE=Light	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial	AUTO:FEAT|Shield Proficiency
+#1	BONUS:CHECKS|BASE.Fortitude|2			BONUS:COMBAT|AC|3|TYPE=NaturalArmor.REPLACE														ADD:ABILITY|FEAT|VIRTUAL|ANY	TEMPLATE:Ogre 1	AUTO:ARMORPROF|ARMORTYPE=Light	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial	ABILITY:FEAT|AUTOMATIC|Shield Proficiency
 #2	BONUS:CHECKS|BASE.Fortitude|1			BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE									BONUS:STAT|STE,CON|2
-#3	BONUS:CHECKS|BASE.Reflex,BASE.Will|1	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE							ADD:FEAT|ANY
+#3	BONUS:CHECKS|BASE.Reflex,BASE.Will|1	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE							ADD:ABILITY|FEAT|VIRTUAL|ANY
 #4																							BONUS:STAT|STR,CON|2
 #5	BONUS:CHECKS|BASE.Fortitude|1			BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE									BONUS:STAT|STR|2	BONUS:STAT|DEX|-2				TEMPLATE:Ogre 2
 #6								BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE								BONUS:STAT|STR|2
@@ -848,9 +848,9 @@ CLASS:Djinni Monster Class	STARTSKILLPTS:8	CSKILL:Appraise|Concentration|TYPE.Cr
 #CLASS:Merrow Monster Class	PRERACE:1,Ogre Monster Class (Merrow)
 ## Class Name			Skill Pts/Lvl	Class Skill
 #CLASS:Merrow Monster Class	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Listen|TYPE.Profession|Spot
-#1	BONUS:CHECKS|BASE.Fortitude|2			BONUS:COMBAT|AC|3|TYPE=NaturalArmor.REPLACE														ADD:FEAT|ANY	TEMPLATE:Ogre 1	AUTO:ARMORPROF|ARMORTYPE=Light	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial	AUTO:FEAT|Shield Proficiency
+#1	BONUS:CHECKS|BASE.Fortitude|2			BONUS:COMBAT|AC|3|TYPE=NaturalArmor.REPLACE														ADD:ABILITY|FEAT|VIRTUAL|ANY	TEMPLATE:Ogre 1	AUTO:ARMORPROF|ARMORTYPE=Light	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial	ABILITY:FEAT|AUTOMATIC|Shield Proficiency
 #2	BONUS:CHECKS|BASE.Fortitude|1			BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE									BONUS:STAT|STE,CON|2
-#3	BONUS:CHECKS|BASE.Reflex,BASE.Will|1	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE							ADD:FEAT|ANY
+#3	BONUS:CHECKS|BASE.Reflex,BASE.Will|1	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE							ADD:ABILITY|FEAT|VIRTUAL|ANY
 #4																							BONUS:STAT|STR,CON|2
 #5	BONUS:CHECKS|BASE.Fortitude|1			BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE									BONUS:STAT|STR|2	BONUS:STAT|DEX|-2				TEMPLATE:Ogre 2
 #6								BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE								BONUS:STAT|STR|2
@@ -861,10 +861,10 @@ CLASS:Djinni Monster Class	STARTSKILLPTS:8	CSKILL:Appraise|Concentration|TYPE.Cr
 #CLASS:Ogre Mage Monster Class	PRERACE:1,Ogre Mage Monster Class
 ## Class Name			Skill Pts/Lvl	Class Skill
 #CLASS:Ogre Mage Monster Class	STARTSKILLPTS:2	CSKILL:Concentration|TYPE.Craft|Listen|TYPE.Profession|Spellcraft|Spot
-#1							BONUS:CHECKS|BASE.Fortitude|2			BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE												ADD:FEAT|ANY	TEMPLATE:Ogre Mage 1				AUTO:ARMORPROF|ARMORTYPE=Light	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial	AUTO:FEAT|Shield Proficiency
+#1							BONUS:CHECKS|BASE.Fortitude|2			BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE												ADD:ABILITY|FEAT|VIRTUAL|ANY	TEMPLATE:Ogre Mage 1				AUTO:ARMORPROF|ARMORTYPE=Light	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial	ABILITY:FEAT|AUTOMATIC|Shield Proficiency
 #2							BONUS:CHECKS|BASE.Fortitude|1			BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:STAT|CON|2
 #3																													BONUS:STAT|WIS|2					TEMPLATE:Ogre Mage Powers 1|Ogre Mage 2
-#4	MOVE:Fly,40					BONUS:CHECKS|BASE.Reflex,BASE.Will|1	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE									BONUS:STAT|STR,CHA|2	ADD:FEAT|ANY
+#4	MOVE:Fly,40					BONUS:CHECKS|BASE.Reflex,BASE.Will|1	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE									BONUS:STAT|STR,CHA|2	ADD:ABILITY|FEAT|VIRTUAL|ANY
 #5														BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE								BONUS:STAT|INT|2					TEMPLATE:Ogre Mage 3
 #6			SAB:Regeneration (Ex)																														TEMPLATE:Ogre Mage Powers 2
 #7							BONUS:CHECKS|BASE.Fortitude|1			BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|2					TEMPLATE:Ogre Mage 4
@@ -880,8 +880,8 @@ CLASS:Djinni Monster Class	STARTSKILLPTS:8	CSKILL:Appraise|Concentration|TYPE.Cr
 #CLASS:Pixie Monster Class	PRERACE:1,Sprite Monster Class (Pixie)
 ## Class Name			Skill Pts/Lvl	Class Skill
 #CLASS:Pixie Monster Class	STARTSKILLPTS:6	CSKILL:Bluff|Concentration|TYPE.Craft|Escape Artist|Heal|Listen|Move Silently|TYPE.Profession|Ride|Search|Sense Motive|Spot
-#1													BONUS:CHECKS|BASE.Reflex,BASE.Will|2										ADD:FEAT|ANY	SPELL:Dancing lights|1|Innate|Detect chaos|1|Innate|Detect evil|1|Innate|Detect law|1|Innate|Detect good|1|Innate|Entangle|1|Innate|Invisibility|1|Innate	TEMPLATE:Pixie 1	AUTO:WEAPONPROF|TYPE=Simple|Sword (short)|longbow (composite)
-#2	MOVE:Fly,20																							BONUS:STAT|INT,CHA|2	ADD:FEAT|ANY																											TEMPLATE:Pixie 2												AUTO:FEAT|Dodge
+#1													BONUS:CHECKS|BASE.Reflex,BASE.Will|2										ADD:ABILITY|FEAT|VIRTUAL|ANY	SPELL:Dancing lights|1|Innate|Detect chaos|1|Innate|Detect evil|1|Innate|Detect law|1|Innate|Detect good|1|Innate|Entangle|1|Innate|Invisibility|1|Innate	TEMPLATE:Pixie 1	AUTO:WEAPONPROF|TYPE=Simple|Sword (short)|longbow (composite)
+#2	MOVE:Fly,20																							BONUS:STAT|INT,CHA|2	ADD:ABILITY|FEAT|VIRTUAL|ANY																											TEMPLATE:Pixie 2												ABILITY:FEAT|AUTOMATIC|Dodge
 #3																				BONUS:MOVEADD|TYPE.Fly|20	BONUS:STAT|DEX,WIS|2				SPELL:Detect thoughts|1|Innate|Dispel Magic|1|Innate																		TEMPLATE:Pixie 3
 #4				SAB:Natural Invisibility (Su)	SAB:Craft Special Arrows								BONUS:MOVEADD|TYPE.Fly|20	BONUS:STAT|INT,CHA|2
 #5			SR:16																						BONUS:STAT|DEX,WIS|2				SPELL:Confusion|1|Innate|Permanent Image|1|Innate|Polymorph self|1|Innate|Otto's irresistable dance|1|Innate|PRESTAT:1,CHA=20						TEMPLATE:Pixie 4
@@ -892,11 +892,11 @@ CLASS:Djinni Monster Class	STARTSKILLPTS:8	CSKILL:Appraise|Concentration|TYPE.Cr
 #CLASS:Rakshasa Monster Class	PRERACE:1,Rakshasa Monster Class
 ## Class Name			Skill Pts/Lvl	Class Skill
 #CLASS:Rakshasa Monster Class	STARTSKILLPTS:8	CSKILL:Bluff|TYPE.Craft|Disguise|Listen|Move Silently|Perform|TYPE.Profession|Sense Motive|Spot
-#1	SAB:Lawful and Evil subtype	SAB:Vulnerable to blessed crossbow bolts (Su)	SAB:Alternate form	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|2	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE														ADD:FEAT|ANY	TEMPLATE:Rakshasa 1				AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
+#1	SAB:Lawful and Evil subtype	SAB:Vulnerable to blessed crossbow bolts (Su)	SAB:Alternate form	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|2	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE														ADD:ABILITY|FEAT|VIRTUAL|ANY	TEMPLATE:Rakshasa 1				AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
 #2																																	BONUS:STAT|INT|2														TEMPLATE:Rakshasa 2											SPELLLIST:Cleric	ADD:SPELLCASTER|1|Sorcerer
 #3																	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|1	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE	BONUS:STAT|STR|2														TEMPLATE:Rakshasa Powers 1													ADD:SPELLCASTER|1|Sorcerer
 #4	SAB:Spell Immunity - level % spells|RakshasaSpIm																													BONUS:VAR|RakshasaSpIm|1	DEFINE:RakshasaSpIm|0				TEMPLATE:Rakshasa 3
-#5																										BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE	BONUS:STAT|DEX|2											ADD:FEAT|ANY	TEMPLATE:Rakshasa 4														ADD:SPELLCASTER|1|Sorcerer
+#5																										BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE	BONUS:STAT|DEX|2											ADD:ABILITY|FEAT|VIRTUAL|ANY	TEMPLATE:Rakshasa 4														ADD:SPELLCASTER|1|Sorcerer
 #6																																					BONUS:VAR|RakshasaSpIm|1								TEMPLATE:Rakshasa Powers 2|Rakshasa 5
 #7																	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|1	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE	BONUS:STAT|CON,WIS|2																														ADD:SPELLCASTER|1|Sorcerer
 #8																																					BONUS:VAR|RakshasaSpIm|1								TEMPLATE:Rakshasa 6
@@ -913,9 +913,9 @@ CLASS:Djinni Monster Class	STARTSKILLPTS:8	CSKILL:Appraise|Concentration|TYPE.Cr
 #CLASS:Satyr Monster Class	PRERACE:1,Satyr Monster Class
 ## Class Name			Skill Pts/Lvl	Class Skill
 #CLASS:Satyr Monster Class	STARTSKILLPTS:6	CSKILL:Bluff|TYPE.Craft|Hide|Listen|Move Silently|Perform|TYPE.Profession|Spot
-#1					BONUS:CHECKS|BASE.Reflex,BASE.Will|2	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE												ADD:FEAT|ANY	TEMPLATE:Satyr 1	AUTO:WEAPONPROF|TYPE=Simple|shortbow
+#1					BONUS:CHECKS|BASE.Reflex,BASE.Will|2	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE												ADD:ABILITY|FEAT|VIRTUAL|ANY	TEMPLATE:Satyr 1	AUTO:WEAPONPROF|TYPE=Simple|shortbow
 #2					BONUS:CHECKS|BASE.Reflex,BASE.Will|1	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE		BONUS:SKILL|Perform|4|TYPE=Racial
-#3					BONUS:CHECKS|BASE.Fortitude|1											BONUS:SKILL|Hide|4|TYPE=Racial		BONUS:STAT|INT|2		ADD:FEAT|ANY	TEMPLATE:Satyr 2
+#3					BONUS:CHECKS|BASE.Fortitude|1											BONUS:SKILL|Hide|4|TYPE=Racial		BONUS:STAT|INT|2		ADD:ABILITY|FEAT|VIRTUAL|ANY	TEMPLATE:Satyr 2
 #4					BONUS:CHECKS|BASE.Reflex,BASE.Will|1	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE		BONUS:SKILL|Move Silently|4|TYPE=Racial
 #5	SAB:Attune Pipes (Su)																														TEMPLATE:Satyr 3
 #6												BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE															TEMPLATE:Satyr 4
@@ -927,7 +927,7 @@ CLASS:Djinni Monster Class	STARTSKILLPTS:8	CSKILL:Appraise|Concentration|TYPE.Cr
 #CLASS:Sea Hag Monster Class	PRERACE:1,Hag Monster Class (Sea)
 ## Class Name			Skill Pts/Lvl	Class Skill
 #CLASS:Sea Hag Monster Class	STARTSKILLPTS:2	CSKILL:TYPE.Craft|Hide||Listen|Search|Spot
-#1												BONUS:CHECKS|BASE.Reflex,BASE.Will|2	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE					ADD:FEAT|ANY	TEMPLATE:Sea Hag 1	ADD:FEAT|1|TYPE.OneKnowledgeMC
+#1												BONUS:CHECKS|BASE.Reflex,BASE.Will|2	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE					ADD:ABILITY|FEAT|VIRTUAL|ANY	TEMPLATE:Sea Hag 1	ADD:ABILITY|FEAT|VIRTUAL|1|TYPE.OneKnowledgeMC
 #2							SAB:Horrific appearance (Su)
 #3												BONUS:CHECKS|BASE.Reflex,BASE.Will|1	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE	BONUS:STAT|STR,DEX|2
 #4																																									TEMPLATE:Sea Hag 2
@@ -942,11 +942,11 @@ CLASS:Djinni Monster Class	STARTSKILLPTS:8	CSKILL:Appraise|Concentration|TYPE.Cr
 #CLASS:Shadow Monster Class	PRERACE:1,Shadow Monster Class
 ## Class Name			Skill Pts/Lvl	Class Skill
 #CLASS:Shadow Monster Class	STARTSKILLPTS:4	CSKILL:TYPE.Craft|Hide|Listen|TYPE.Profession|Search|Spot
-#1	SAB:Incorporeal Touch (Su)	BONUS:CHECKS|BASE.Will|2													ADD:FEAT|ANY	TEMPLATE:Shadow 1
+#1	SAB:Incorporeal Touch (Su)	BONUS:CHECKS|BASE.Will|2													ADD:ABILITY|FEAT|VIRTUAL|ANY	TEMPLATE:Shadow 1
 #2						BONUS:CHECKS|BASE.Will|1			BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE
 #3																				BONUS:STAT|WIS|2
 #4																				BONUS:STAT|DEX|2				TEMPLATE:Shadow 2
-#5						BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|1											ADD:FEAT|ANY
+#5						BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|1											ADD:ABILITY|FEAT|VIRTUAL|ANY
 #6	SAB:Create Spawn (Su)
 #7	SAB:Turn resistance +2																						TEMPLATE:Shadow 3
 #
@@ -956,18 +956,18 @@ CLASS:Djinni Monster Class	STARTSKILLPTS:8	CSKILL:Appraise|Concentration|TYPE.Cr
 #CLASS:Stone Giant Monster Class	PRERACE:1,Giant Monster Class (Stone)
 ## Class Name				Skill Pts/Lvl	Class Skill
 #CLASS:Stone Giant Monster Class	STARTSKILLPTS:2	CSKILL:Climb|TYPE.Craft|Jump|TYPE.Profession|Spot
-#1	SAB:Earth subtype	BONUS:CHECKS|BASE.Fortitude|2					BONUS:COMBAT|AC|3|TYPE=NaturalArmor.REPLACE											ADD:FEAT|ANY	TEMPLATE:Stone Giant 1	AUTO:ARMORPROF|ARMORTYPE=Light	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial	AUTO:FEAT|Shield Proficiency
+#1	SAB:Earth subtype	BONUS:CHECKS|BASE.Fortitude|2					BONUS:COMBAT|AC|3|TYPE=NaturalArmor.REPLACE											ADD:ABILITY|FEAT|VIRTUAL|ANY	TEMPLATE:Stone Giant 1	AUTO:ARMORPROF|ARMORTYPE=Light	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial	ABILITY:FEAT|AUTOMATIC|Shield Proficiency
 #2				BONUS:CHECKS|BASE.Fortitude|1					BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE									BONUS:STAT|CON|2
-#3				BONUS:CHECKS|BASE.Reflex,BASE.Will|1			BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE									BONUS:STAT|STR|2	ADD:FEAT|ANY	TEMPLATE:Stone Giant 2
+#3				BONUS:CHECKS|BASE.Reflex,BASE.Will|1			BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE									BONUS:STAT|STR|2	ADD:ABILITY|FEAT|VIRTUAL|ANY	TEMPLATE:Stone Giant 2
 #4	SAB:Rock throwing										BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE
 #5				BONUS:CHECKS|BASE.Fortitude|1					BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE									BONUS:STAT|STR|2
 #6	SAB:Rock Catching																															TEMPLATE:Stone Giant 3
 #7													BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE								BONUS:STAT|STR|2
-#8				BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|1	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE									BONUS:STAT|DEX|2	ADD:FEAT|ANY
+#8				BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|1	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE									BONUS:STAT|DEX|2	ADD:ABILITY|FEAT|VIRTUAL|ANY
 #9													BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE															TEMPLATE:Stone Giant 4
 #10				BONUS:CHECKS|BASE.Fortitude|1					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE
 #11																												BONUS:STAT|CON|2				TEMPLATE:Stone Giant 5
-#12				BONUS:CHECKS|BASE.Reflex,BASE.Will|1																		BONUS:STAT|STR|2	ADD:FEAT|ANY
+#12				BONUS:CHECKS|BASE.Reflex,BASE.Will|1																		BONUS:STAT|STR|2	ADD:ABILITY|FEAT|VIRTUAL|ANY
 #13				BONUS:CHECKS|BASE.Fortitude|1					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE	BONUS:STAT|DEX|2				TEMPLATE:Stone Giant 6
 #14													BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE
 #15				BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|1	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE									BONUS:STAT|STR|2				TEMPLATE:Stone Giant 7
@@ -981,10 +981,10 @@ CLASS:Djinni Monster Class	STARTSKILLPTS:8	CSKILL:Appraise|Concentration|TYPE.Cr
 #CLASS:Succubus Monster Class	PRERACE:1,Demon Monster Class (Succubus)
 ## Class Name			Skill Pts/Lvl	Class Skill
 #CLASS:Succubus Monster Class	STARTSKILLPTS:8	CSKILL:Bluff|Concentration|TYPE.Craft|Disguise|Escape Artist|Hide|Listen|Move Silently|TYPE.Profession|Ride|Search|Spot
-#1					SAB:Alternate form (Su)	SAB:Acid, Cold,Electricity and Fire resistance %|SuccubusResist	SAB:Chaotic and Evil subtypes	SAB:Tongues (Su)	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|2	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE				BONUS:VAR|SuccubusResist|5	DEFINE:SuccubusResist|0	ADD:FEAT|ANY	TEMPLATE:Succubus 1				AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial	ADD:FEAT|1|TYPE.OneKnowledgeMC
+#1					SAB:Alternate form (Su)	SAB:Acid, Cold,Electricity and Fire resistance %|SuccubusResist	SAB:Chaotic and Evil subtypes	SAB:Tongues (Su)	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|2	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE				BONUS:VAR|SuccubusResist|5	DEFINE:SuccubusResist|0	ADD:ABILITY|FEAT|VIRTUAL|ANY	TEMPLATE:Succubus 1				AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial	ADD:ABILITY|FEAT|VIRTUAL|1|TYPE.OneKnowledgeMC
 #2					SAB:Telepathy (Su)																					BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|1	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE									BONUS:STAT|INT|2													TEMPLATE:Succubus 2|Succubus Lesser 1
 #3	MOVE:Fly,50			SAB:Alternate form																														BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE								BONUS:STAT|CHA|2
-#4																																					BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE									BONUS:STAT|CON|2										ADD:FEAT|ANY	TEMPLATE:Succubus 3|Succubus Lesser 2
+#4																																					BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE									BONUS:STAT|CON|2										ADD:ABILITY|FEAT|VIRTUAL|ANY	TEMPLATE:Succubus 3|Succubus Lesser 2
 #5																																					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE								BONUS:STAT|INT|2
 #6																												BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|1	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE									BONUS:STAT|CHA|2													TEMPLATE:Succubus 4|Succubus Lesser 3
 #7																																					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE								BONUS:STAT|WIS|2	BONUS:VAR|SuccubusResist|5
@@ -1000,7 +1000,7 @@ CLASS:Djinni Monster Class	STARTSKILLPTS:8	CSKILL:Appraise|Concentration|TYPE.Cr
 #CLASS:Treant Monster Class	PRERACE:1,Treant Monster Class
 ## Class Name			Skill Pts/Lvl	Class Skill
 #CLASS:Treant Monster Class	STARTSKILLPTS:2	CSKILL:TYPE.Craft|Hide|Intimidate|Listen|TYPE.Profession|Sense Motive|Spot|Survival
-#1									BONUS:CHECKS|BASE.Fortitude|2					BONUS:COMBAT|AC|4|TYPE=NaturalArmor.REPLACE																		ADD:FEAT|ANY	TEMPLATE:Treant 1		ADD:FEAT|1|OneKnowledgeMC
+#1									BONUS:CHECKS|BASE.Fortitude|2					BONUS:COMBAT|AC|4|TYPE=NaturalArmor.REPLACE																		ADD:ABILITY|FEAT|VIRTUAL|ANY	TEMPLATE:Treant 1		ADD:ABILITY|FEAT|VIRTUAL|1|OneKnowledgeMC
 #2									BONUS:CHECKS|BASE.Fortitude|1					BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE													BONUS:STAT|STR,CON|2
 #3																																					BONUS:STAT|STR,CON|2						TEMPLATE:Treant 2
 #4									BONUS:CHECKS|BASE.Reflex,BASE.Will|1			BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE					BONUS:STAT|STR,WIS|2
@@ -1019,7 +1019,7 @@ CLASS:Djinni Monster Class	STARTSKILLPTS:8	CSKILL:Appraise|Concentration|TYPE.Cr
 #CLASS:Triton Monster Class	PRERACE:1,Triton Monster Class
 ## Class Name			Skill Pts/Lvl	Class Skill
 #CLASS:Triton Monster Class	STARTSKILLPTS:8	CSKILL:TYPE.Craft|Intimidate|Jump|Listen|Search|Spot
-#1	SAB:Water subtype	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|2	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE				ADD:FEAT|ANY								TEMPLATE:Triton 1	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
+#1	SAB:Water subtype	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|2	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE				ADD:ABILITY|FEAT|VIRTUAL|ANY								TEMPLATE:Triton 1	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
 #2				BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|1	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE									BONUS:STAT|INT|2											TEMPLATE:Triton 2
 #3													BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE																					TEMPLATE:Triton 3
 #4													BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE															SPELL:Summon Nature's Ally III|1|Innate	TEMPLATE:Triton 4
@@ -1031,10 +1031,10 @@ CLASS:Djinni Monster Class	STARTSKILLPTS:8	CSKILL:Appraise|Concentration|TYPE.Cr
 #CLASS:Troll Monster Class	PRERACE:1,Troll Monster Class
 ## Class Name			Skill Pts/Lvl	Class Skill
 #CLASS:Troll Monster Class	STARTSKILLPTS:2	CSKILL:TYPE.Craft|Listen|TYPE.Profession|Spot
-#1	SAB:Scent (Ex)		BONUS:CHECKS|BASE.Fortitude|2					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE					ADD:FEAT|ANY	TEMPLATE:Troll 1	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
+#1	SAB:Scent (Ex)		BONUS:CHECKS|BASE.Fortitude|2					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE					ADD:ABILITY|FEAT|VIRTUAL|ANY	TEMPLATE:Troll 1	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
 #2					BONUS:CHECKS|BASE.Fortitude|1					BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE		BONUS:STAT|DEX,CON|2
 #3														BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|2					TEMPLATE:Troll 2
-#4	SAB:Regeneration (Ex)	BONUS:CHECKS|BASE.Reflex,BASE.Will|1			BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE		BONUS:STAT|CON|2		ADD:FEAT|ANY
+#4	SAB:Regeneration (Ex)	BONUS:CHECKS|BASE.Reflex,BASE.Will|1			BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE		BONUS:STAT|CON|2		ADD:ABILITY|FEAT|VIRTUAL|ANY
 #5														BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|2					TEMPLATE:Troll 3
 #6					BONUS:CHECKS|BASE.Fortitude|1					BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE		BONUS:STAT|CON|2					TEMPLATE:Troll 4
 #7														BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|2					TEMPLATE:Troll 5
@@ -1049,10 +1049,10 @@ CLASS:Djinni Monster Class	STARTSKILLPTS:8	CSKILL:Appraise|Concentration|TYPE.Cr
 #CLASS:Scrag Monster Class	PRERACE:1,Troll Monster Class (Scrag)
 ## Class Name			Skill Pts/Lvl	Class Skill
 #CLASS:Scrag Monster Class	STARTSKILLPTS:2	CSKILL:TYPE.Craft|Listen|TYPE.Profession|Spot
-#1	SAB:Scent (Ex)		BONUS:CHECKS|BASE.Fortitude|2					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE					ADD:FEAT|ANY	TEMPLATE:Troll 1	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
+#1	SAB:Scent (Ex)		BONUS:CHECKS|BASE.Fortitude|2					BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE					ADD:ABILITY|FEAT|VIRTUAL|ANY	TEMPLATE:Troll 1	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
 #2					BONUS:CHECKS|BASE.Fortitude|1					BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE		BONUS:STAT|DEX,CON|2
 #3														BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|2					TEMPLATE:Troll 2
-#4	SAB:Regeneration (Ex)	BONUS:CHECKS|BASE.Reflex,BASE.Will|1			BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE		BONUS:STAT|CON|2		ADD:FEAT|ANY
+#4	SAB:Regeneration (Ex)	BONUS:CHECKS|BASE.Reflex,BASE.Will|1			BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE		BONUS:STAT|CON|2		ADD:ABILITY|FEAT|VIRTUAL|ANY
 #5														BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|2					TEMPLATE:Troll 3
 #6					BONUS:CHECKS|BASE.Fortitude|1					BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE		BONUS:STAT|CON|2					TEMPLATE:Troll 4
 #7														BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:STAT|STR|2					TEMPLATE:Troll 5
@@ -1067,24 +1067,24 @@ CLASS:Djinni Monster Class	STARTSKILLPTS:8	CSKILL:Appraise|Concentration|TYPE.Cr
 #CLASS:Trumpet Archon Monster Class	PRERACE:1,Celestial Monster Class (Trumpet Archon)
 ## Class Name				Skill Pts/Lvl	Class Skill
 #CLASS:Trumpet Archon Monster Class	STARTSKILLPTS:8	CSKILL:Concentration|TYPE.Craft|Escape Artist|Hide|Listen|Move Silently|TYPE.Profession|Sense Motive|Spot
-#1												SAB:Electricity Resistance %|TrumpElec		BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|2	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE													BONUS:VAR|TrumpElec|5	DEFINE:TrumpElec|0	ADD:FEAT|ANY	TEMPLATE:Trumpet Archon 1					AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
+#1												SAB:Electricity Resistance %|TrumpElec		BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|2	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE													BONUS:VAR|TrumpElec|5	DEFINE:TrumpElec|0	ADD:ABILITY|FEAT|VIRTUAL|ANY	TEMPLATE:Trumpet Archon 1					AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
 ## TODO - add spellcaster several times for level 2?!
 #2																																																																																																	ADD:SPELLCASTER|1|Cleric
 #2																																																																																																	ADD:SPELLCASTER|1|Cleric
 #2																																																																																																	ADD:SPELLCASTER|1|Cleric
 #2	MOVE:Fly,40																		BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|1	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE																	BONUS:STAT|WIS|2													TEMPLATE:Trumpet Archon 2												SPELLLIST:5|Air(Domain)|Destruction(Domain)|Law(Domain)|Good(Domain)|War(Domain)	ADD:SPELLCASTER|1|Cleric
-#3												SAB:Tongues (Su)															BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE																	BONUS:STAT|DEX|2										ADD:FEAT|ANY	TEMPLATE:Trumpet Archon Powers 1																									ADD:SPELLCASTER|1|Cleric
+#3												SAB:Tongues (Su)															BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE																	BONUS:STAT|DEX|2										ADD:ABILITY|FEAT|VIRTUAL|ANY	TEMPLATE:Trumpet Archon Powers 1																									ADD:SPELLCASTER|1|Cleric
 #4												SAB:Trumpet (Su)															BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE																				BONUS:VAR|TrumpElec|5								TEMPLATE:Trumpet Archon 3
 #5																				BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|1	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE																	BONUS:STAT|STR,CHA|2												TEMPLATE:Trumpet Archon 4																										ADD:SPELLCASTER|1|Cleric
 #6										DR:5/+1																		BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE												BONUS:MOVEADD|TYPE.Fly|50	BONUS:STAT|INT|2													TEMPLATE:Trumpet Archon 5																										ADD:SPELLCASTER|1|Cleric
 #7																													BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE																				BONUS:VAR|TrumpElec|5								TEMPLATE:Trumpet Archon 6
-#8																				BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|1	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE																	BONUS:STAT|DEX,WIS|2									ADD:FEAT|ANY	TEMPLATE:Trumpet Archon Powers 2|Trumpet Archon 7																						ADD:SPELLCASTER|1|Cleric
+#8																				BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|1	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE																	BONUS:STAT|DEX,WIS|2									ADD:ABILITY|FEAT|VIRTUAL|ANY	TEMPLATE:Trumpet Archon Powers 2|Trumpet Archon 7																						ADD:SPELLCASTER|1|Cleric
 #9			SR:9+CL=Trumpet Archon Monster Class																																																										TEMPLATE:Trumpet Archon Teleport 1|Trumpet Archon 8
 #10												SAB:Immune to electricity and petrification										BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE													BONUS:VAR|TrumpElec|-15								TEMPLATE:Trumpet Archon 9																										ADD:SPELLCASTER|1|Cleric
 #11												SAB:Magic Circle against Evil (Su)																											BONUS:DR|+1|5						BONUS:STAT|CHA|2													TEMPLATE:Trumpet Archon 10
 #12																				BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|1	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE												BONUS:MOVEADD|TYPE.Fly|40																TEMPLATE:Trumpet Archon Teleport 2																									ADD:SPELLCASTER|1|Cleric
 #13																													BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE																															TEMPLATE:Trumpet Archon 11|Trumpet Archon Powers 3
-#14																													BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE																	BONUS:STAT|STR,WIS|2									ADD:FEAT|ANY	TEMPLATE:Trumpet Archon 12																										ADD:SPELLCASTER|1|Cleric
+#14																													BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE																	BONUS:STAT|STR,WIS|2									ADD:ABILITY|FEAT|VIRTUAL|ANY	TEMPLATE:Trumpet Archon 12																										ADD:SPELLCASTER|1|Cleric
 #15																																																				BONUS:STAT|CON,CHA|2
 #16																				BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|1	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE																								TEMPLATE:Trumpet Archon Teleport 3																									ADD:SPELLCASTER|1|Cleric
 #17																																																				BONUS:STAT|STR,INT|2
@@ -1098,9 +1098,9 @@ CLASS:Djinni Monster Class	STARTSKILLPTS:8	CSKILL:Appraise|Concentration|TYPE.Cr
 #CLASS:Umber Hulk Monster Class	PRERACE:1,Umber Hulk Monster Class
 ## Class Name				Skill Pts/Lvl	Class Skill
 #CLASS:Umber Hulk Monster Class	STARTSKILLPTS:2	CSKILL:TYPE.Craft|Intimidate|Jump|Listen|Search|Spot
-#1								BONUS:CHECKS|BASE.Will|2					BONUS:COMBAT|AC|3|TYPE=NaturalArmor.REPLACE				ADD:FEAT|ANY	TEMPLATE:Umber Hulk 1|Umber Hulk 2	AUTO:WEAPONPROF|TYPE=Simple
+#1								BONUS:CHECKS|BASE.Will|2					BONUS:COMBAT|AC|3|TYPE=NaturalArmor.REPLACE				ADD:ABILITY|FEAT|VIRTUAL|ANY	TEMPLATE:Umber Hulk 1|Umber Hulk 2	AUTO:WEAPONPROF|TYPE=Simple
 #2								BONUS:CHECKS|BASE.Will|1					BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE		BONUS:STAT|CON|2
-#3								BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|1			BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE		BONUS:STAT|STR|2	ADD:FEAT|ANY
+#3								BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|1			BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE		BONUS:STAT|STR|2	ADD:ABILITY|FEAT|VIRTUAL|ANY
 #4				SAB:Tremorsense (Ex)										BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE
 #5	MOVE:Burrow,20					BONUS:CHECKS|BASE.Will|1					BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE		BONUS:STAT|CON|2				TEMPLATE:Umber Hulk 3
 #6																															TEMPLATE:Umber Hulk 4
@@ -1119,7 +1119,7 @@ CLASS:Djinni Monster Class	STARTSKILLPTS:8	CSKILL:Appraise|Concentration|TYPE.Cr
 #CLASS:Vrock Monster Class	PRERACE:1,Demon Monster Class (Vrock)
 ## Class Name			Skill Pts/Lvl	Class Skill
 #CLASS:Vrock Monster Class	STARTSKILLPTS:8	CSKILL:Concentration|TYPE.Craft|Hide|Listen|Move Silently|Search|Search|Sense Motive|Spot
-#1										SAB:Acid,Cold,Electricity, and Fire resistance %|VrockResist	SAB:Chaotic and Evil subtypes	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|2	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE					BONUS:VAR|VrockResist|5	DEFINE:VrockResist|0	ADD:FEAT|ANY	TEMPLATE:Vrock 1|Vrock 2	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial	ADD:FEAT|1|TYPE.OneKnowledgeMC
+#1										SAB:Acid,Cold,Electricity, and Fire resistance %|VrockResist	SAB:Chaotic and Evil subtypes	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|2	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE					BONUS:VAR|VrockResist|5	DEFINE:VrockResist|0	ADD:ABILITY|FEAT|VIRTUAL|ANY	TEMPLATE:Vrock 1|Vrock 2	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial	ADD:ABILITY|FEAT|VIRTUAL|1|TYPE.OneKnowledgeMC
 #2																									BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|1	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE									BONUS:STAT|DEX|2													TEMPLATE:Vrock Lesser 1
 #3										SAB:Telepathy (Su)																						BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE	BONUS:STAT|STR|2													TEMPLATE:Vrock 3
 #4										SAB:Rake 2d4																																						BONUS:STAT|CON|2													TEMPLATE:Vrock 4
@@ -1142,9 +1142,9 @@ CLASS:Djinni Monster Class	STARTSKILLPTS:8	CSKILL:Appraise|Concentration|TYPE.Cr
 #CLASS:Water Elemental Monster Class	PRERACE:1,Elemental Monster Class (Water)
 ## Class Name				Skill Pts/Lvl	Class Skill
 #CLASS:Water Elemental Monster Class	STARTSKILLPTS:2	CSKILL:TYPE.Craft|Intimidate|Jump|Listen|Search|Spot
-#1			SAB:Water mastery (Ex)		BONUS:CHECKS|BASE.Fortitude|2					BONUS:COMBAT|AC|3|TYPE=NaturalArmor.REPLACE												ADD:FEAT|ANY	TEMPLATE:Water Elemental 1	AUTO:FEAT|Power Attack
+#1			SAB:Water mastery (Ex)		BONUS:CHECKS|BASE.Fortitude|2					BONUS:COMBAT|AC|3|TYPE=NaturalArmor.REPLACE												ADD:ABILITY|FEAT|VIRTUAL|ANY	TEMPLATE:Water Elemental 1	ABILITY:FEAT|AUTOMATIC|Power Attack
 #2			SAB:Drench (Ex)	SAB:Vortex	BONUS:CHECKS|BASE.Fortitude|1					BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE									BONUS:STAT|STR,CON|2
-#3								BONUS:CHECKS|BASE.Reflex,BASE.Will|1			BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE													ADD:FEAT|ANY	TEMPLATE:Water Elemental 2
+#3								BONUS:CHECKS|BASE.Reflex,BASE.Will|1			BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE													ADD:ABILITY|FEAT|VIRTUAL|ANY	TEMPLATE:Water Elemental 2
 #4																	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.REPLACE	BONUS:COMBAT|BAB|1|TYPE=BASE.REPLACE	BONUS:STAT|STR,CON|2				TEMPLATE:Water Elemental 3
 #5																																BONUS:STAT|STR,DEX|2
 #6																																							TEMPLATE:Water Elemental 4

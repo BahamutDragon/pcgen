@@ -62,7 +62,7 @@ CLASS:Combat Trapsmith	STARTSKILLPTS:6	CSKILL:Appraise|Balance|Climb|Concentrati
 # Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus															Modify VAR														Bonus
 CLASS:Fortune's Friend	HD:6		TYPE:Prestige	MAXLEVEL:5	SOURCEPAGE:p.38	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required Feat		Required Skill			PRETOTALAB
-CLASS:Fortune's Friend	PREFEAT:1,TYPE=Luck	PRESKILL:1,TYPE.Standard=8	PRETOTALAB:3
+CLASS:Fortune's Friend	PREABILITY:1,CATEGORY=FEAT,TYPE=Luck	PRESKILL:1,TYPE.Standard=8	PRETOTALAB:3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Fortune's Friend	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Gather Information|Hide|Jump|Listen|Move Silently|Open Lock|TYPE=Perform|TYPE=Profession|Search|Sleight of Hand|Spot|Swim|Tumble|Use Magic Device|Use Rope
 ###Block:
@@ -106,7 +106,7 @@ CLASS:Gray Guard	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|Disguise|Forgery|Han
 # Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus															Modify VAR													Bonus
 CLASS:Magical Trickster	HD:6		TYPE:Prestige	MAXLEVEL:3	SOURCEPAGE:p.45	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required Ability							Required Feat			Req. Spell Type
-CLASS:Magical Trickster	PREABILITY:2,CATEGORY=Special Ability,TYPE.SkillTrick	PREFEAT:1,TYPE=Metamagic	PRESPELLTYPE:1,ANY=3
+CLASS:Magical Trickster	PREABILITY:2,CATEGORY=Special Ability,TYPE.SkillTrick	PREABILITY:1,CATEGORY=FEAT,TYPE=Metamagic	PRESPELLTYPE:1,ANY=3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Magical Trickster	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Concentration|TYPE=Craft|Diplomacy|Jump|Knowledge (arcana)|Knowledge (religion)|TYPE=Profession|Spellcraft|Tumble|Use Rope
 ###Block:
@@ -123,7 +123,7 @@ CLASS:Magical Trickster	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Concentration|TYPE=Cr
 # Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus															Modify VAR													Bonus
 CLASS:Malconvoker	HD:4		TYPE:Prestige	MAXLEVEL:9	SOURCEPAGE:p.48	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Restricted AL		Required Feat							Required Language			Required Skill						Req. Known Spell
-CLASS:Malconvoker	!PREALIGN:LE,NE,CE	PREFEAT:2,Augment Summoning,Spell Focus (Conjuration)	PRELANG:2,Celestial,Infernal	PRESKILL:2,Bluff=4,Knowledge (The Planes)=4	PRESPELL:1,Summon Monster III
+CLASS:Malconvoker	!PREALIGN:LE,NE,CE	PREABILITY:2,CATEGORY=FEAT,Augment Summoning,Spell Focus (Conjuration)	PRELANG:2,Celestial,Infernal	PRESKILL:2,Bluff=4,Knowledge (The Planes)=4	PRESPELL:1,Summon Monster III
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Malconvoker	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Disguise|Knowledge (arcana)|Knowledge (religion)|Knowledge (The Planes)|TYPE=Profession|Spellcraft
 ###Block:
@@ -175,7 +175,7 @@ CLASS:Master of Masks	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|TYPE=Craft|Disguise|
 # Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus															Modify VAR														Bonus
 CLASS:Mountebank	HD:6		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.57	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Restricted AL		Required Feat		Multiple Requirements
-CLASS:Mountebank	!PREALIGN:LG,LN,LE	PREFEAT:1,Deceitful	PREMULT:2,[PRESKILL:2,Bluff=8,Spellcraft=4],[PRESKILL:1,Knowledge (Arcana)=4,TYPE.Knowledge (Local)=4,Knowledge (Psionics)=4]
+CLASS:Mountebank	!PREALIGN:LG,LN,LE	PREABILITY:1,CATEGORY=FEAT,Deceitful	PREMULT:2,[PRESKILL:2,Bluff=8,Spellcraft=4],[PRESKILL:1,Knowledge (Arcana)=4,TYPE.Knowledge (Local)=4,Knowledge (Psionics)=4]
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Mountebank	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Concentration|Diplomacy|Disguise|Escape Artist|Forgery|Intimidate|Jump|Knowledge (arcana)|Knowledge (local)|Knowledge (Psionics)|Listen|Sense Motive|Sleight of Hand|Spellcraft|Spot|Tumble
 ###Block:
@@ -209,7 +209,7 @@ CLASS:Psibond Agent	STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Climb|Concentr
 # Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus															Modify VAR														Bonus
 CLASS:Spellwarp Sniper	HD:6		TYPE:Prestige	MAXLEVEL:5	SOURCEPAGE:p.64	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required Feat			Multiple Requirements										Required Skill					Req. Spell Type		Required Text
-CLASS:Spellwarp Sniper	PREFEAT:1,Point Blank Shot	PREMULT:1,[PREVARGTEQ:SneakAttackDice,1],[PREVARGTEQ:SuddenStrikeDice,1]	PRESKILL:2,Concentration=8,Spellcraft=8	PRESPELLTYPE:1,ANY=3	PRETEXT:Special: Sneak attack or sudden strike +1d6.
+CLASS:Spellwarp Sniper	PREABILITY:1,CATEGORY=FEAT,Point Blank Shot	PREMULT:1,[PREVARGTEQ:SneakAttackDice,1],[PREVARGTEQ:SuddenStrikeDice,1]	PRESKILL:2,Concentration=8,Spellcraft=8	PRESPELLTYPE:1,ANY=3	PRETEXT:Special: Sneak attack or sudden strike +1d6.
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Spellwarp Sniper	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Hide|Intimidate|Knowledge (arcana)|Move Silently|TYPE=Profession|Spellcraft|Spot
 ###Block:
