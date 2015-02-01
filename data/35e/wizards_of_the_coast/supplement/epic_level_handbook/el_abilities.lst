@@ -101,6 +101,17 @@ Imprisonment	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike		VISIBLE:YES
 # Ability Name	Category of Ability		Type						Visible	Define				Description												Stackable?	Multiple?	Choose							Source Page
 Familiar Spell	CATEGORY:Special Ability	TYPE:SpecialQuality.FamiliarSpell								DESC:Your familiar can cast a spell once per day as a spell-like ability	STACK:NO	MULT:YES	CHOOSE:SPELLS|SPELLTYPE=Arcane[LEVELMAX=8]	SOURCEPAGE:EpicFeats
 
+###Block:
+Additional Rogue Ability		KEY:Epic Rogue ~ Rogue Ability	CATEGORY:Internal	TYPE:EpicRogueSelection	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Rogue Special Ability|1
+Additional Epic Rogue Feat		KEY:Epic Rogue ~ +1 Feat		CATEGORY:Internal	TYPE:EpicRogueSelection	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Epic Rogue Feat|1
+
+Additional Loremaster Ability		KEY:Epic Loremaster ~ Loremaster Ability	CATEGORY:Internal	TYPE:EpicLoremasterSelection	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Loremaster Secret|1
+Additional Epic Loremaster Feat	KEY:Epic Loremaster ~ +1 Feat			CATEGORY:Internal	TYPE:EpicLoremasterSelection	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Epic Loremaster Feat|1
+
+
+
+###Block: Support
+Energy Resistance Tracker		CATEGORY:Internal		BONUS:VAR|AcidResistanceBonus|10*count("ABILITIES","CATEGORY=FEAT","NAME=Energy Resistance (Acid)")|TYPE=EpicEnergyResistanceFeat	BONUS:VAR|ColdResistanceBonus|10*count("ABILITIES","CATEGORY=FEAT","NAME=Energy Resistance (Cold)")|TYPE=EpicEnergyResistanceFeat	BONUS:VAR|ElectricityResistanceBonus|10*count("ABILITIES","CATEGORY=FEAT","NAME=Energy Resistance (Electricity)")|TYPE=EpicEnergyResistanceFeat	BONUS:VAR|FireResistanceBonus|10*count("ABILITIES","CATEGORY=FEAT","NAME=Energy Resistance (Fire)")|TYPE=EpicEnergyResistanceFeat	BONUS:VAR|SonicResistanceBonus|10*count("ABILITIES","CATEGORY=FEAT","NAME=Energy Resistance (Sonic)")|TYPE=EpicEnergyResistanceFeat
 
 
 ###BLock: Temporary fix till abilities brought up to speed
