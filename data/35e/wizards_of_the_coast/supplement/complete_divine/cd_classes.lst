@@ -58,7 +58,7 @@ SUBCLASS:Water Shugenja	COST:0	CHOICE:DESCRIPTOR|Water Shugenja	PROHIBITSPELL:DE
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus															Modify VAR													Bonus
 CLASS:Contemplative	HD:6		TYPE:PC.Prestige	ABB:Com		MAXLEVEL:10	SOURCEPAGE:p.30	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required Feat						Required Skill				Req. Spell Type
-CLASS:Contemplative	PREFEAT:1,Skill Focus (Knowledge (Religion))	PRESKILL:1,Knowledge (Religion)=13	PRESPELLTYPE:1,Divine=1
+CLASS:Contemplative	PREABILITY:1,CATEGORY=FEAT,Skill Focus (Knowledge (Religion))	PRESKILL:1,Knowledge (Religion)=13	PRESPELLTYPE:1,Divine=1
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Contemplative	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Intimidate|Knowledge (Religion)|TYPE=Profession|Sense Motive|Spellcraft
 1	BONUS:DOMAIN|NUMBER|1								ADD:SPELLCASTER|Divine	ABILITY:Contemplative Class Feature|AUTOMATIC|Contemplative ~ Divine Health
@@ -92,8 +92,6 @@ CLASS:Divine Oracle	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Heal|Intimid
 9									ADD:SPELLCASTER|ANY
 10									ADD:SPELLCASTER|ANY	ABILITY:Divine Oracle Class Feature|AUTOMATIC|Divine Oracle ~ Immune to Surprise
 
-
-#CLASS NAME				HITDICE		SOURCEPAGE		TYPE						ABBREVIATION	MAXLEVEL			LANGBONUS	SAVING THROWS																								BASE ATTACK BONUS									DEFINE
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus															Modify VAR														Bonus
 CLASS:Favored Soul	HD:8		TYPE:Base.PC	ABB:FvSl		MAXLEVEL:20	SOURCEPAGE:6	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
@@ -198,7 +196,7 @@ CLASS:Blighter	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Blighter|CL
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Define				Combat bonus										Modify VAR				Bonus
 CLASS:Pious Templar	HD:10		TYPE:PC.Prestige	ABB:Pio		MAXLEVEL:10	SOURCEPAGE:p.50	DEFINE:PiousTemplarLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|PiousTemplarLVL|CL	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Multiple Requirements												Required Skill				Required Text								PRETOTALAB
-CLASS:Pious Templar	PREMULT:1,[PREFEAT:1,True Believer],[PREFEAT:1,Weapon Focus (DEITYWEAPON),Weapon Focus]	PRESKILL:1,Knowledge (Religion)=4	PRETEXT:Must have Weapon Focus in deity's chosen weapon	PRETOTALAB:5
+CLASS:Pious Templar	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,True Believer],[PREABILITY:1,CATEGORY=FEAT,Weapon Focus (DEITYWEAPON),Weapon Focus]	PRESKILL:1,Knowledge (Religion)=4	PRETEXT:Must have Weapon Focus in deity's chosen weapon	PRETOTALAB:5
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Pious Templar	STARTSKILLPTS:2	CSKILL:Climb|Concentration|TYPE=Craft|Heal|Jump|Knowledge (Religion)|TYPE=Profession|Swim
 # Class Name		Spell Stat		Spell Type		Automatically Known Spell Levels				Caster level				Use Spell List

@@ -71,7 +71,7 @@ CLASS:Warmage	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	KNOWNSPELLS:LEVEL=0|LEV
 5	CAST:6,6,4
 6	CAST:6,6,5,3
 7	CAST:6,6,6,4			BONUS:ABILITYPOOL|Warmage Sudden Ability|1
-8	CAST:6,6,6,5,3											BONUS:VAR|ArmoredMagePower|1						AUTO:FEAT|Armor Proficiency (Medium)
+8	CAST:6,6,6,5,3											BONUS:VAR|ArmoredMagePower|1						ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Medium)
 9	CAST:6,6,6,6,4
 10	CAST:6,6,6,6,5,3			BONUS:ABILITYPOOL|Warmage Sudden Ability|1
 11	CAST:6,6,6,6,6,4
@@ -170,7 +170,7 @@ CLASS:Acolyte of the Skin	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Intimi
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus												Modify VAR													Bonus
 CLASS:Alienist	HD:4		TYPE:PC.Prestige	ABB:Ali		MAXLEVEL:10	SOURCEPAGE:p.21	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required AL				Required Feat			Required Skill				Required Spell School		Required Text
-CLASS:Alienist	PREALIGN:NG,TN,NE,CG,CN,CE	PREFEAT:1,Augment Summoning	PRESKILL:1,Knowledge (The Planes)=8	PRESPELLSCHOOL:1,Summoning=3	PRETEXT:Must have peacfull contact with an alienist or a pseudonatural creature
+CLASS:Alienist	PREALIGN:NG,TN,NE,CG,CN,CE	PREABILITY:1,CATEGORY=FEAT,Augment Summoning	PRESKILL:1,Knowledge (The Planes)=8	PRESPELLSCHOOL:1,Summoning=3	PRETEXT:Must have peacfull contact with an alienist or a pseudonatural creature
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Alienist	STARTSKILLPTS:2	CSKILL:Concentration|Gather Information|TYPE=Knowledge|Listen|TYPE=Profession|Spellcraft|Spot
 1							BONUS:VAR|FamiliarLVL|CL	ADD:SPELLCASTER|ANY
@@ -220,7 +220,7 @@ CLASS:Argent Savant	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|TYPE=Knowled
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Define			Combat bonus												Modify VAR													Bonus
 CLASS:Blood Magus	HD:6		TYPE:PC.Prestige	ABB:Blm		MAXLEVEL:10	SOURCEPAGE:p.26	DEFINE:BlmHomunculus|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Required AL					Required Feat				Required Skill			Required Casting Type		Req. Spell Type		Required Text
-CLASS:Blood Magus	PREALIGN:LN,LE,NG,TN,NE,CG,CN,CE	PREFEAT:2,Great Fortitude,Toughness	PRESKILL:1,Concentration=4	PRESPELLCAST:TYPE=Arcane	PRESPELLTYPE:1,Arcane=5	PRETEXT:The character must have been killed, then returned to life
+CLASS:Blood Magus	PREALIGN:LN,LE,NG,TN,NE,CG,CN,CE	PREABILITY:2,CATEGORY=FEAT,Great Fortitude,Toughness	PRESKILL:1,Concentration=4	PRESPELLCAST:TYPE=Arcane	PRESPELLTYPE:1,Arcane=5	PRETEXT:The character must have been killed, then returned to life
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Blood Magus	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Heal|Spellcraft
 1														ADD:SPELLCASTER|Arcane
@@ -251,7 +251,7 @@ CLASS:Blood Magus	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Heal|Spe
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus												Modify VAR													Bonus
 CLASS:Effigy Master	HD:4		TYPE:PC.Prestige	ABB:Efm		MAXLEVEL:5	SOURCEPAGE:p.30	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Required Feat			Required Skill																									Req. Known Spell
-CLASS:Effigy Master	PREFEAT:1,Craft Wondrous Item	PRESKILL:1,Craft (Woodworking)=10,Craft (Leatherworking)=10,Craft (Metalworking)=10	PRESKILL:2,Knowledge (Arcana)=5,Spellcraft=5	PRESKILL:1,Use Magic Device=2	PRESPELL:1,Simulacrum
+CLASS:Effigy Master	PREABILITY:1,CATEGORY=FEAT,Craft Wondrous Item	PRESKILL:1,Craft (Woodworking)=10,Craft (Leatherworking)=10,Craft (Metalworking)=10	PRESKILL:2,Knowledge (Arcana)=5,Spellcraft=5	PRESKILL:1,Use Magic Device=2	PRESPELL:1,Simulacrum
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Effigy Master	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Spellcraft
 1
@@ -269,28 +269,28 @@ CLASS:Effigy Master	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|TYPE=Knowled
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Base class as subclass?	Source Page		Combat bonus												Modify VAR													Bonus
 CLASS:Elemental Savant	HD:4		TYPE:PC.Prestige	ABB:Els		MAXLEVEL:10	ALLOWBASECLASS:NO		SOURCEPAGE:p.32	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Required Feat			Multiple Requirements																				Required Skill										Required Spell Descriptor						Required Text
-CLASS:Elemental Savant	PREFEAT:1,Energy Substitution	PREMULT:1,[PRESPELLDESCRIPTOR:3,Acid=1],[PRESPELLDESCRIPTOR:3,Cold=1],[PRESPELLDESCRIPTOR:3,Electricity=1],[PRESPELLDESCRIPTOR:3,Fire=1]	PRESKILL:1,Knowledge (Arcana)=8	PRESKILL:1,Knowledge (The Planes)=4	PRESPELLDESCRIPTOR:1,Acid=3,Cold=3,Electricity=3,Fire=3	PRETEXT:Must have made a pacific contract with an Elemental or Outsider that has an elemental subtype
+CLASS:Elemental Savant	PREABILITY:1,CATEGORY=FEAT,Energy Substitution	PREMULT:1,[PRESPELLDESCRIPTOR:3,Acid=1],[PRESPELLDESCRIPTOR:3,Cold=1],[PRESPELLDESCRIPTOR:3,Electricity=1],[PRESPELLDESCRIPTOR:3,Fire=1]	PRESKILL:1,Knowledge (Arcana)=8	PRESKILL:1,Knowledge (The Planes)=4	PRESPELLDESCRIPTOR:1,Acid=3,Cold=3,Electricity=3,Fire=3	PRETEXT:Must have made a pacific contract with an Elemental or Outsider that has an elemental subtype
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Elemental Savant	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Knowledge (arcana)|Knowledge (The Planes)|TYPE=Profession|Spellcraft
-SUBCLASS:Air Elemental Savant		COST:1	PROHIBITCOST:0	PREFEAT:1,Energy Substitution (Electricity)
+SUBCLASS:Air Elemental Savant		COST:1	PROHIBITCOST:0	PREABILITY:1,CATEGORY=FEAT,Energy Substitution (Electricity)
 SUBCLASSLEVEL:1	BONUS:VAR|ElectricityResistanceBonus|5
 SUBCLASSLEVEL:4	BONUS:VAR|ElectricityResistanceBonus|5
 SUBCLASSLEVEL:5
 SUBCLASSLEVEL:7	BONUS:VAR|ElectricityResistanceBonus|10
 SUBCLASSLEVEL:10
-SUBCLASS:Earth Elemental Savant	COST:1	PROHIBITCOST:0	PREFEAT:1,Energy Substitution (Acid)
+SUBCLASS:Earth Elemental Savant	COST:1	PROHIBITCOST:0	PREABILITY:1,CATEGORY=FEAT,Energy Substitution (Acid)
 SUBCLASSLEVEL:1	BONUS:VAR|AcidResistanceBonus|5
 SUBCLASSLEVEL:4	BONUS:VAR|AcidResistanceBonus|5
 SUBCLASSLEVEL:5
 SUBCLASSLEVEL:7	BONUS:VAR|AcidResistanceBonus|10
 SUBCLASSLEVEL:10
-SUBCLASS:Fire Elemental Savant	COST:1	PROHIBITCOST:0	PREFEAT:1,Energy Substitution (Fire)
+SUBCLASS:Fire Elemental Savant	COST:1	PROHIBITCOST:0	PREABILITY:1,CATEGORY=FEAT,Energy Substitution (Fire)
 SUBCLASSLEVEL:1	BONUS:VAR|FireResistanceBonus|5
 SUBCLASSLEVEL:4	BONUS:VAR|FireResistanceBonus|5
 SUBCLASSLEVEL:5
 SUBCLASSLEVEL:7	BONUS:VAR|FireResistanceBonus|10
 SUBCLASSLEVEL:10
-SUBCLASS:Water Elemental Savant	COST:1	PROHIBITCOST:0	PREFEAT:1,Energy Substitution (Cold)
+SUBCLASS:Water Elemental Savant	COST:1	PROHIBITCOST:0	PREABILITY:1,CATEGORY=FEAT,Energy Substitution (Cold)
 SUBCLASSLEVEL:1	BONUS:VAR|ColdResistanceBonus|5
 SUBCLASSLEVEL:4	BONUS:VAR|ColdResistanceBonus|5
 SUBCLASSLEVEL:5
@@ -325,7 +325,7 @@ SUBCLASSLEVEL:10
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus												Modify VAR														Bonus
 CLASS:Enlightened Fist	HD:8		TYPE:PC.Prestige	ABB:Enf		MAXLEVEL:10	SOURCEPAGE:p.34	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Required Feat									Required Skill											Required Casting Type		Req. Spell Type
-CLASS:Enlightened Fist	PREFEAT:3,Combat Casting,Improved Unarmed Strike,Stunning Fist	PRESKILL:1,Concentration=8	PRESKILL:2,Knowledge (Arcana)=5,Spellcraft=5	PRESPELLCAST:TYPE=Arcane	PRESPELLTYPE:1,Arcane=3
+CLASS:Enlightened Fist	PREABILITY:3,CATEGORY=FEAT,Combat Casting,Improved Unarmed Strike,Stunning Fist	PRESKILL:1,Concentration=8	PRESKILL:2,Knowledge (Arcana)=5,Spellcraft=5	PRESPELLCAST:TYPE=Arcane	PRESPELLTYPE:1,Arcane=3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Enlightened Fist	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Escape Artist|Hide|Jump|Knowledge (arcana)|Knowledge (Religion)|Listen|Move Silently|TYPE=Profession|Spellcraft|Spot|Swim|Tumble
 1															BONUS:VAR|EnlightnedFistACLVL|CL
@@ -376,7 +376,7 @@ CLASS:Fate Spinner	STARTSKILLPTS:2	CSKILL:Appraise|Concentration|TYPE=Craft|Know
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus												Modify VAR													Bonus
 CLASS:Geometer	HD:4		TYPE:PC.Prestige	ABB:Gem		MAXLEVEL:5	SOURCEPAGE:p.39	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required Feat		Required Skill														Required Casting Type						Req. Spell Type
-CLASS:Geometer	PREFEAT:1,Scribe Scroll	PRESKILL:2,Decipher Script=9,Knowledge (Arcana)=9	PRESKILL:2,Disable Device=4,Search=4	PRESPELLCAST:TYPE=Arcane	PRESPELLCAST:MEMORIZE=Y	PRESPELLTYPE:1,Arcane=3
+CLASS:Geometer	PREABILITY:1,CATEGORY=FEAT,Scribe Scroll	PRESKILL:2,Decipher Script=9,Knowledge (Arcana)=9	PRESKILL:2,Disable Device=4,Search=4	PRESPELLCAST:TYPE=Arcane	PRESPELLCAST:MEMORIZE=Y	PRESPELLTYPE:1,Arcane=3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Geometer	STARTSKILLPTS:2	CSKILL:TYPE=Craft|Ride|Balance|Intimidate|Sense Motive|TYPE=Profession|Gather Information|Use Rope|Appraise
 1	ADD:SPELLCASTER|Arcane
@@ -398,7 +398,7 @@ CLASS:Geometer	STARTSKILLPTS:2	CSKILL:TYPE=Craft|Ride|Balance|Intimidate|Sense M
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus												Modify VAR														Bonus
 CLASS:Green Star Adept	HD:8		TYPE:PC.Prestige	ABB:Gsa		MAXLEVEL:10	SOURCEPAGE:p.41	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Required Feat			Required Skill																								Required Casting Type		Req. Spell Type		Required Text																																				PRETOTALAB
-CLASS:Green Star Adept	PREFEAT:1,Combat Casting	PRESKILL:4,Decipher Script=2,Knowledge (Architecture and Engineering)=2,Knowledge (Geography)=2,Knowledge (History)=2	PRESKILL:1,Knowledge (Arcana)=8	PRESPELLCAST:TYPE=Arcane	PRESPELLTYPE:1,Arcane=1	PRETEXT:Must acquire a piece of Starmetal weighting at least 2 ounces, powder it, and consume by drinking it in a specially prepared infusion. The infusion requires arcane reagents costing 1000Gp and takes one week to prepare.	PRETOTALAB:4
+CLASS:Green Star Adept	PREABILITY:1,CATEGORY=FEAT,Combat Casting	PRESKILL:4,Decipher Script=2,Knowledge (Architecture and Engineering)=2,Knowledge (Geography)=2,Knowledge (History)=2	PRESKILL:1,Knowledge (Arcana)=8	PRESPELLCAST:TYPE=Arcane	PRESPELLTYPE:1,Arcane=1	PRETEXT:Must acquire a piece of Starmetal weighting at least 2 ounces, powder it, and consume by drinking it in a specially prepared infusion. The infusion requires arcane reagents costing 1000Gp and takes one week to prepare.	PRETOTALAB:4
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Green Star Adept	STARTSKILLPTS:2	CSKILL:Appraise|Concentration|TYPE=Craft|Decipher Script|Knowledge (arcana)|Knowledge (Architecture and Engineering)|Knowledge (Geography)|Knowledge (History)|TYPE=Profession|Spellcraft
 ###Block
@@ -428,7 +428,7 @@ CLASS:Green Star Adept	STARTSKILLPTS:2	CSKILL:Appraise|Concentration|TYPE=Craft|
 # Class Name					Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus												Modify VAR													Bonus
 CLASS:Initiate of the Sevenfold Veil	HD:4		TYPE:PC.Prestige	ABB:Isv		MAXLEVEL:7	SOURCEPAGE:p.44	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name					Required Feat														Required Skill												Required Spell School
-CLASS:Initiate of the Sevenfold Veil	PREFEAT:3,Greater Spell Focus (Abjuration),Spell Focus (Abjuration),Skill Focus (Spellcraft)	PRESKILL:2,Knowledge (Arcana)=12,Spellcraft=12	PRESKILL:1,Knowledge (Nature)=4	PRESPELLSCHOOL:2,Abjuration=4	PRESPELLSCHOOL:5,Abjuration=1
+CLASS:Initiate of the Sevenfold Veil	PREABILITY:3,CATEGORY=FEAT,Greater Spell Focus (Abjuration),Spell Focus (Abjuration),Skill Focus (Spellcraft)	PRESKILL:2,Knowledge (Arcana)=12,Spellcraft=12	PRESKILL:1,Knowledge (Nature)=4	PRESPELLSCHOOL:2,Abjuration=4	PRESPELLSCHOOL:5,Abjuration=1
 # Class Name					Skill Pts/Lvl	Class Skill
 CLASS:Initiate of the Sevenfold Veil	STARTSKILLPTS:2	CSKILL:Appraise|Concentration|TYPE=Craft|Decipher Script|TYPE=Knowledge|TYPE=Profession|Spellcraft
 1						BONUS:VAR|InitiateOfTheSevenfoldVeilWardingLVL|CL			ADD:SPELLCASTER|Arcane
@@ -463,7 +463,7 @@ CLASS:Initiate of the Sevenfold Veil	STARTSKILLPTS:2	CSKILL:Appraise|Concentrati
 # Class Name				Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus												Modify VAR													Bonus
 CLASS:Mage of the Arcane Order	HD:4		TYPE:PC.Prestige	ABB:Mao		MAXLEVEL:10	SOURCEPAGE:p.48	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name				Required Feat								Required Skill				Required Casting Type		Req. Spell Type		Required Text
-CLASS:Mage of the Arcane Order	PREFEAT:1,Cooperative Spell	PREFEAT:2,TYPE.Metamagic	PRESKILL:1,Knowledge (Arcana)=8	PRESPELLCAST:TYPE=Arcane	PRESPELLTYPE:1,Arcane=2	PRETEXT:Members must pay an initiation fee of 750 Gp
+CLASS:Mage of the Arcane Order	PREABILITY:1,CATEGORY=FEAT,Cooperative Spell	PREABILITY:2,CATEGORY=FEAT,TYPE.Metamagic	PRESKILL:1,Knowledge (Arcana)=8	PRESPELLCAST:TYPE=Arcane	PRESPELLTYPE:1,Arcane=2	PRETEXT:Members must pay an initiation fee of 750 Gp
 # Class Name				Skill Pts/Lvl	Class Skill
 CLASS:Mage of the Arcane Order	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher Script|TYPE=Knowledge|TYPE=Profession|Speak Language|Spellcraft
 #
@@ -476,7 +476,7 @@ CLASS:Mage of the Arcane Order	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|D
 6															ADD:SPELLCASTER|Arcane	ADD:LANGUAGE|TYPE=Spoken
 7															ADD:SPELLCASTER|Arcane
 8															ADD:SPELLCASTER|Arcane
-9	BONUS:ABILITYPOOL|Metamagic Feat|1									ADD:SPELLCASTER|Arcane	ADD:FEAT|TYPE=Metamagic
+9	BONUS:ABILITYPOOL|Metamagic Feat|1									ADD:SPELLCASTER|Arcane	ADD:ABILITY|FEAT|VIRTUAL|TYPE=Metamagic
 10															ADD:SPELLCASTER|Arcane
 ###Block
 1	ABILITY:Mage of the Arcane Order Class Feature|AUTOMATIC|Mage of the Arcane Order ~ Weapon and Armor Proficiency
@@ -548,7 +548,7 @@ CLASS:Mindbender	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|Diplomacy|Intimidate
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Ex Class				Source Page		Combat bonus												Modify VAR														Bonus
 CLASS:Seeker of the Song	HD:6		TYPE:PC.Prestige	ABB:Ses		MAXLEVEL:10	EXCLASS:Ex Seeker of the Song	SOURCEPAGE:p.56	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name			Required Ability							Required Feat					Required Skill									Required Text
-CLASS:Seeker of the Song	PREABILITY:1,CATEGORY=Special Ability,Bardic Music	PREFEAT:1,Skill Focus (TYPE.Perform)	PRESKILL:1,Knowledge (Arcana)=13	PRESKILL:1,TYPE.Perform=13	PRETEXT:Must have been exposed to the primal music by hearing another Seeker of the Song use a Seeker Music Ability
+CLASS:Seeker of the Song	PREABILITY:1,CATEGORY=Special Ability,Bardic Music	PREABILITY:1,CATEGORY=FEAT,Skill Focus (TYPE.Perform)	PRESKILL:1,Knowledge (Arcana)=13	PRESKILL:1,TYPE.Perform=13	PRETEXT:Must have been exposed to the primal music by hearing another Seeker of the Song use a Seeker Music Ability
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Seeker of the Song	STARTSKILLPTS:4	CSKILL:Climb|Concentration|TYPE=Craft|Diplomacy|Jump|Knowledge (arcana)|Listen|TYPE=Perform|TYPE=Profession|Ride|Sense Motive|Spot|Swim
 1	BONUS:VAR|SeekerMusicLvl|CL	BONUS:VAR|SeekerMusicTimes|CL	DEFINE:SeekerMusicLVL|0	DEFINE:SeekerMusicTimes|0
@@ -619,7 +619,7 @@ CLASS:Sublime Chord	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	SPELLLIST:3|Bard|
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus												Modify VAR														Bonus
 CLASS:Suel Arcanamach	HD:8		TYPE:PC.Prestige	ABB:Sua		MAXLEVEL:10	SOURCEPAGE:p.63	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Required Feat				Required Language			Required Skill										Required Text																									PRETOTALAB
-CLASS:Suel Arcanamach	PREFEAT:2,Combat Casting,Iron Will	PRELANG:1,Ancient Suloise	PRESKILL:3,Concentration=4,Jump=4,Tumble=4	PRESKILL:1,Spellcraft=5	PRETEXT:Must be proficent with at least four martial or exotic weapon. Must read the Grimoire Arcanamacha, or study with a willing instructor who as done so.	PRETOTALAB:6
+CLASS:Suel Arcanamach	PREABILITY:2,CATEGORY=FEAT,Combat Casting,Iron Will	PRELANG:1,Ancient Suloise	PRESKILL:3,Concentration=4,Jump=4,Tumble=4	PRESKILL:1,Spellcraft=5	PRETEXT:Must be proficent with at least four martial or exotic weapon. Must read the Grimoire Arcanamacha, or study with a willing instructor who as done so.	PRETOTALAB:6
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Suel Arcanamach	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Concentration|TYPE=Craft|Disguise|Escape Artist|Hide|Jump|Knowledge (arcana)|Knowledge (History)|Knowledge (The Planes)|Listen|Move Silently|TYPE=Profession|Search|Spellcraft|Spot|Swim|Tumble|Use Rope
 # Class Name		Spell Stat		Spell Type		Memorize	Caster level					Use Spell List
@@ -662,7 +662,7 @@ CLASS:Wayfarer Guide	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|TYPE=Knowle
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus												Modify VAR													Bonus
 CLASS:Wild Mage	HD:4		TYPE:PC.Prestige	ABB:Wil		MAXLEVEL:10	SOURCEPAGE:p.68	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Required AL		Required Feat								Required Skill												Required Casting Type		Req. Spell Type
-CLASS:Wild Mage	PREALIGN:CG,CN,CE	PREFEAT:1,Magical Aptitude	PREFEAT:1,TYPE.Metamagic	PRESKILL:2,Knowledge (The Planes)=4,Use Magic Device=4	PRESKILL:1,Spellcraft=8	PRESPELLCAST:TYPE=Arcane	PRESPELLTYPE:1,Arcane=1
+CLASS:Wild Mage	PREALIGN:CG,CN,CE	PREABILITY:1,CATEGORY=FEAT,Magical Aptitude	PREABILITY:1,CATEGORY=FEAT,TYPE.Metamagic	PRESKILL:2,Knowledge (The Planes)=4,Use Magic Device=4	PRESKILL:1,Spellcraft=8	PRESPELLCAST:TYPE=Arcane	PRESPELLTYPE:1,Arcane=1
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Wild Mage	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Intimidate|TYPE=Knowledge|TYPE=Profession|Spellcraft|Use Magic Device
 1								ADD:SPELLCASTER|Arcane

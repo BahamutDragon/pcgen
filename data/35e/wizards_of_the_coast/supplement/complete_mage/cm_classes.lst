@@ -4,7 +4,7 @@ SOURCELONG:Complete Mage	SOURCESHORT:CM	SOURCEWEB:http://www.wizards.com/default
 # Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus										Bonus
 CLASS:Abjurant Champion	HD:10		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:p.50	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required Feat			Req. Spell Type		Required Text																																		PRETOTALAB
-CLASS:Abjurant Champion	PREFEAT:1,Combat Casting	PRESPELLTYPE:1,Arcane=1	PRETEXT:Base Attack Bonus: +5. Feat: Combat Casting. Spellcasting: Must be able to cast 1st-level arcane spells, including at least one abjuration spell. Special: Must be proficient with at least one martial weapon.	PRETOTALAB:5
+CLASS:Abjurant Champion	PREABILITY:1,CATEGORY=FEAT,Combat Casting	PRESPELLTYPE:1,Arcane=1	PRETEXT:Base Attack Bonus: +5. Feat: Combat Casting. Spellcasting: Must be able to cast 1st-level arcane spells, including at least one abjuration spell. Special: Must be proficient with at least one martial weapon.	PRETOTALAB:5
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Abjurant Champion	STARTSKILLPTS:2	CSKILL:Climb|Concentration|TYPE=Craft|Handle Animal|Intimidate|Jump|Knowledge (Arcana)|Ride|Spellcraft|Swim
 ###Block
@@ -93,7 +93,8 @@ CLASS:Enlightened Spirit	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|D
 11	PREPCLEVEL:MIN=20
 
 # Class Name			Visible
-CLASS:Ex Enlightened Spirit	VISIBLE:NO
+CLASS:Ex Enlightened Spirit	HD:6		VISIBLE:NO	SOURCEPAGE:p.60	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Ex Enlightened Spirit	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Diplomacy|Disguise|Intimidate|Jump|Knowledge (Arcana)|Knowledge (Religion)|Knowledge (The Planes)|TYPE=Profession|Sense Motive|Spellcraft|Use Magic Device
 
 # Class Name		Hit Dice	Type			Max Level	Ex Class			Source Page		Combat bonus															Modify VAR													Bonus
 CLASS:Holy Scourge	HD:6		TYPE:PC.Prestige	MAXLEVEL:5	EXCLASS:Ex Holy Scourge	SOURCEPAGE:p.64	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
@@ -113,12 +114,13 @@ CLASS:Holy Scourge	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Knowledge (Ar
 5	ADD:SPELLCASTER|Arcane
 
 # Class Name		Visible
-CLASS:Ex Holy Scourge	VISIBLE:NO
+CLASS:Ex Holy Scourge	HD:6		VISIBLE:NO	MAXLEVEL:5	SOURCEPAGE:p.64	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Ex Holy Scourge	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Knowledge (Arcana)|Knowledge (Religion)|Knowledge (The Planes)|TYPE=Profession|Spellcraft
 
 # Class Name		Hit Dice	Type			Source Page		Bonus
 CLASS:Lyric Thaumaturge	HD:6		TYPE:PC.Prestige	SOURCEPAGE:p.67	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required Feat			Required Skill											Req. Spell Type		Required Text																															Var. Min. Value
-CLASS:Lyric Thaumaturge	PREFEAT:1,Melodic Casting	PRESKILL:2,Knowledge (Arcana)=6,Spellcraft=6	PRESKILL:1,TYPE.Perform=9	PRESPELLTYPE:1,Arcane=2	PRETEXT:Skills: Knowledge (arcana) 6 ranks, Perform (any) 9 ranks, Spellcraft 6 ranks. Feat: Melodic Casting. Spellcasting: Ability to cast 2nd-level arcane spells. Special: Bardic music 5/day.	PREVARGTEQ:BardicMusicTimes,5
+CLASS:Lyric Thaumaturge	PREABILITY:1,CATEGORY=FEAT,Melodic Casting	PRESKILL:2,Knowledge (Arcana)=6,Spellcraft=6	PRESKILL:1,TYPE.Perform=9	PRESPELLTYPE:1,Arcane=2	PRETEXT:Skills: Knowledge (arcana) 6 ranks, Perform (any) 9 ranks, Spellcraft 6 ranks. Feat: Melodic Casting. Spellcasting: Ability to cast 2nd-level arcane spells. Special: Bardic music 5/day.	PREVARGTEQ:BardicMusicTimes,5
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Lyric Thaumaturge	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|TYPE=Craft|Decipher Script|Diplomacy|TYPE=Knowledge|TYPE=Perform|TYPE=Profession|Sense Motive|Spellcraft|Use Magic Device
 1	ABILITY:Lyric Thaumaturge Class Feature|AUTOMATIC|Lyric Thaumaturge ~ Spellcasting
@@ -143,7 +145,7 @@ CLASS:Lyric Thaumaturge	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|TYPE=Craft|De
 # Class Name		Hit Dice	Type			Source Page		Bonus
 CLASS:Master Specialist	HD:4		TYPE:PC.Prestige	SOURCEPAGE:p.70	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required Feat		Required Skill						Req. Spell Type		Required Text																																	Required Var. value
-CLASS:Master Specialist	PREFEAT:1,Spell Focus	PRESKILL:2,Knowledge (Arcana)=5,Spellcraft=5	PRESPELLTYPE:1,Arcane=2	PRETEXT:Skills: Knowledge (arcana) 5 ranks, Spellcraft 5 ranks. Feat: Spell Focus (school of specialization). Spellcasting: Must be able to cast 2nd-level arcane spells. Special: Must be a specialist wizard.	PREVAREQ:WizardSpecialist,1
+CLASS:Master Specialist	PREABILITY:1,CATEGORY=FEAT,Spell Focus	PRESKILL:2,Knowledge (Arcana)=5,Spellcraft=5	PRESPELLTYPE:1,Arcane=2	PRETEXT:Skills: Knowledge (arcana) 5 ranks, Spellcraft 5 ranks. Feat: Spell Focus (school of specialization). Spellcasting: Must be able to cast 2nd-level arcane spells. Special: Must be a specialist wizard.	PREVAREQ:WizardSpecialist,1
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Master Specialist	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher Script|TYPE=Knowledge|TYPE=Profession|Spellcraft
 1	ABILITY:Master Specialist Class Feature|AUTOMATIC|Master Specialist ~ Spellcasting
@@ -191,7 +193,7 @@ CLASS:Nightmare Spinner	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Decipher Scri
 # Class Name		Hit Dice	Type			Source Page		Combat bonus															Modify VAR													Bonus
 CLASS:Ultimate Magus	HD:4		TYPE:PC.Prestige	SOURCEPAGE:p.77	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required Class											Required Feat			Required Skill						Req. Spellbook	Required Casting Type	Req. Spell Type		Required Text
-CLASS:Ultimate Magus	PRECLASS:2,TYPE=NonSpontaneousArcaneCaster=2,TYPE=SpontaneousArcaneCaster=1	PREFEAT:1,TYPE=Metamagic	PRESKILL:2,Knowledge (Arcana)=4,Spellcraft=8	PRESPELLBOOK:YES	PRESPELLCAST:MEMORIZE=N	PRESPELLTYPE:1,Arcane=2	PRETEXT:Skills: Knowledge (arcana) 4 ranks, Spellcraft 8 ranks. Feats: Any metamagic feat. Spellcasting: Able to spontaneously cast 1st-level arcane spells, able to prepare and cast 2nd-level arcane spells from a spellbook.
+CLASS:Ultimate Magus	PRECLASS:2,TYPE=NonSpontaneousArcaneCaster=2,TYPE=SpontaneousArcaneCaster=1	PREABILITY:1,CATEGORY=FEAT,TYPE=Metamagic	PRESKILL:2,Knowledge (Arcana)=4,Spellcraft=8	PRESPELLBOOK:YES	PRESPELLCAST:MEMORIZE=N	PRESPELLTYPE:1,Arcane=2	PRETEXT:Skills: Knowledge (arcana) 4 ranks, Spellcraft 8 ranks. Feats: Any metamagic feat. Spellcasting: Able to spontaneously cast 1st-level arcane spells, able to prepare and cast 2nd-level arcane spells from a spellbook.
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Ultimate Magus	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher Script|TYPE=Knowledge|TYPE=Profession|Spellcraft|Use Magic Device
 1	ABILITY:Ultimate Magus Class Feature|AUTOMATIC|Ultimate Magus ~ Spellcasting
@@ -236,7 +238,7 @@ CLASS:Unseen Seer	STARTSKILLPTS:6	CSKILL:Bluff|Concentration|Decipher Script|Dip
 5	ABILITY:Unseen Seer Class Feature|AUTOMATIC|Unseen Seer ~ Guarded Mind
 ###Block
 1	BONUS:VAR|UnseenSeerDamageBonusDice|(CL+2)/3
-3	BONUS:VAR|DivinationSpellPowerBonus|classlevel("APPLIEDAS=NONEPIC")/3
+3	BONUS:VAR|DivinationSpellPowerBonus|CL/3
 2	BONUS:VAR|UnseenSeerAdvancedLearningCount|(CL+1)/3				DEFINE:UnseenSeerAdvancedLearningCount|0
 ###Block
 1	ADD:SPELLCASTER|Arcane

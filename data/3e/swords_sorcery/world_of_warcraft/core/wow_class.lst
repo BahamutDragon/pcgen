@@ -66,18 +66,18 @@ CLASS:Warlock Path	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			BONUS:CA
 ###Block:Proficiencies
 1																																		ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|Wizard Weapon Proficiencies
 ###Arcanist Generalizations:
-1																																																	AUTO:FEAT|Scribe Scroll
-5																											ADD:FEAT|TYPE=ItemCreation,TYPE=Metamagic
-10																											ADD:FEAT|TYPE=ItemCreation,TYPE=Metamagic
-15																											ADD:FEAT|TYPE=ItemCreation,TYPE=Metamagic
-20																											ADD:FEAT|TYPE=ItemCreation,TYPE=Metamagic
+1																																																	ABILITY:FEAT|AUTOMATIC|Scribe Scroll
+5																											ADD:ABILITY|FEAT|VIRTUAL|TYPE=ItemCreation,TYPE=Metamagic
+10																											ADD:ABILITY|FEAT|VIRTUAL|TYPE=ItemCreation,TYPE=Metamagic
+15																											ADD:ABILITY|FEAT|VIRTUAL|TYPE=ItemCreation,TYPE=Metamagic
+20																											ADD:ABILITY|FEAT|VIRTUAL|TYPE=ItemCreation,TYPE=Metamagic
 1:REPEATLEVEL:1|SKIP=0|MAX=20																							ADD:SPELLCASTER|Arcanist
 
 
 
 ###Warlock Benefits
 1										SAB:Fel Companion	SAB:+1 DC to Warlock Path Spells
-4										SAB:Summoner (Ex)																																					AUTO:FEAT|Augment Summoning
+4										SAB:Summoner (Ex)																																					ABILITY:FEAT|AUTOMATIC|Augment Summoning
 6										SAB:Summoning Spells Duration Doubled
 8										SAB:Enslave Outsider (Su)
 12										SAB:Demonologist (Ex): +1 caster level to Summoning Spells	BONUS:CASTERLEVEL|SUBSCHOOL.Summoning|1
@@ -175,8 +175,8 @@ CLASS:Druid Path	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVE
 
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|Druid Weapon Proficiencies
-1																AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)
-1																AUTO:FEAT|Shield Proficiency
+1																ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)
+1																ABILITY:FEAT|AUTOMATIC|Shield Proficiency
 ###Block: Wildshape Abilities Block
 #
 # To add effective Druid levels to this ability use BONUS:VAR|DruidWildShape|CL
@@ -192,7 +192,7 @@ CLASS:Druid Path	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVE
 1	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE	PROHIBITSPELL:ALIGNMENT.Lawful|PREDEITYALIGN:CG,CN,CE	PROHIBITSPELL:ALIGNMENT.Lawful|PREDEITYALIGN:CG,CN,CE
 1	PROHIBITSPELL:ALIGNMENT.Chaotic|PREALIGN:LG,LN,LE	PROHIBITSPELL:ALIGNMENT.Chaotic|PREALIGN:LG,LN,LE	PROHIBITSPELL:ALIGNMENT.Chaotic|PREDEITYALIGN:LG,LN,LE	PROHIBITSPELL:ALIGNMENT.Chaotic|PREDEITYALIGN:LG,LN,LE
 ###Block: Turn Plant & Animal stuff
-1	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base			DEFINE:AllowImprovedTurning|1	ADD:FEAT|TYPE=TurnAnimal,TYPE=TurnPlant	ABILITY:Special Ability|AUTOMATIC|Basic Turning
+1	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base			DEFINE:AllowImprovedTurning|1	ADD:ABILITY|FEAT|VIRTUAL|TYPE=TurnAnimal,TYPE=TurnPlant	ABILITY:Special Ability|AUTOMATIC|Basic Turning
 1	BONUS:VAR|TurnLevelBase|CL|TYPE=Level.REPLACE		DEFINE:AllowExtraTurning|1
 1	BONUS:VAR|TurnDamagePlusBase|CL|TYPE=Level.REPLACE
 1	BONUS:VAR|TurnCheckBase|CHA|TYPE=Base
@@ -201,26 +201,26 @@ CLASS:Druid Path	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVE
 10	BONUS:DOMAIN|NUMBER|2	CHOOSE:NUMCHOICES=2|DOMAIN|WoW-Animal (Greater)|WoW-Animal (Lesser)|WoW-Wild (Greater)|WoW-Wild (Lesser)
 20	BONUS:DOMAIN|NUMBER|1	CHOOSE:DOMAIN|WoW-Animal (Greater)|WoW-Wild (Greater)
 ###Block: Normal Progression
-1	CAST:3,1				SAB:Animal Companion (Ex)	BONUS:SKILL|Knowledge (Nature),Survival|2										ABILITY:Special Ability|AUTOMATIC|Wild Empathy	AUTO:FEAT|Brew Potion
+1	CAST:3,1				SAB:Animal Companion (Ex)	BONUS:SKILL|Knowledge (Nature),Survival|2										ABILITY:Special Ability|AUTOMATIC|Wild Empathy	ABILITY:FEAT|AUTOMATIC|Brew Potion
 2	CAST:4,2				SAB:Woodland Stride (Ex)
 3	CAST:4,2,1				SAB:Trackless Step (Ex)
 4	CAST:5,3,2				SAB:Resist Nature's Lure (Ex)
-5	CAST:5,3,2,1															ADD:FEAT|Spell Focus,TYPE=ItemCreation,TYPE=Metamagic
+5	CAST:5,3,2,1															ADD:ABILITY|FEAT|VIRTUAL|Spell Focus,TYPE=ItemCreation,TYPE=Metamagic
 6	CAST:5,3,3,2
 7	CAST:6,4,3,2,1
 8	CAST:6,4,3,3,2
 9	CAST:6,4,4,3,2,1			SAB:Venom Immunity (Ex)
-10	CAST:6,4,4,3,3,2															ADD:FEAT|Spell Focus,TYPE=ItemCreation,TYPE=Metamagic
+10	CAST:6,4,4,3,3,2															ADD:ABILITY|FEAT|VIRTUAL|Spell Focus,TYPE=ItemCreation,TYPE=Metamagic
 11	CAST:6,5,4,4,3,2,1
 12	CAST:6,5,4,4,3,3,2
 13	CAST:6,5,5,4,4,3,2,1		SAB:A Thousand Faces (Su)
 14	CAST:6,5,5,4,4,3,3,2
-15	CAST:6,5,5,5,4,4,3,2,1		SAB:Timeless Body (Ex)									ADD:FEAT|Spell Focus,TYPE=ItemCreation,TYPE=Metamagic
+15	CAST:6,5,5,5,4,4,3,2,1		SAB:Timeless Body (Ex)									ADD:ABILITY|FEAT|VIRTUAL|Spell Focus,TYPE=ItemCreation,TYPE=Metamagic
 16	CAST:6,5,5,5,4,4,3,3,2
 17	CAST:6,5,5,5,5,4,4,3,2,1
 18	CAST:6,5,5,5,5,4,4,3,3,2
 19	CAST:6,5,5,5,5,5,4,4,3,3
-20	CAST:6,5,5,5,5,5,4,4,4,4													ADD:FEAT|Spell Focus,TYPE=ItemCreation,TYPE=Metamagic
+20	CAST:6,5,5,5,5,5,4,4,4,4													ADD:ABILITY|FEAT|VIRTUAL|Spell Focus,TYPE=ItemCreation,TYPE=Metamagic
 
 
 #SPELLLEVEL:CLASS|Healer=0|Cure Minor Wounds|Detect Magic|Detect Poison|Inflict Minor Wounds|Light|Mending|Purify Food and Drink|Read Magic|
