@@ -2,7 +2,7 @@
 PCGEN
 =
 
-######Updated: 2014-11-15
+######Updated: 2015-02-12
 ==========================
 #####PCGen Data Sets & Homebrew
 
@@ -12,12 +12,16 @@ Hi mates!
 This is for my growing collection of PCGen compatible books (Mostly Closed Content).
 
 
-To get the most from these sets, you will need to utilize the latest version (unstable if necessary) of pcgen. I try to use the best methods to get results, which will rely on new bug fixes or new features. You will need to download PCGen. PCGen's main development line is here: 
+To get the most from these sets, you will need the following:
+* PCGen, the program. Links below. You have the option of 6.04.01 or grabbing the autobuilds (6.5.x)
+
+Many of the latest features will require you to utilize the latest version (unstable if necessary) of pcgen. 
+I try to use the best methods to get results, which will rely on new bug fixes or new features. You will need to download PCGen. PCGen's main development line is here: 
 * http://www.pcgen.org/autobuilds/download.html (Latest Updates, fixes and features)
 * http://pcgen.org (The main website)
 
 
-My goal has been to make sets that are compatible with the existing PCGen book data sets. To achieve that, I attempt to re-use a lot of common pcgen standards to avoid any non-compatibility. To get the best results, you should use the books in this repository. Any non-compatibility issues should be reported.
+To get the best results, you should use the core sets and books in this repository. Any non-compatibility issues should be reported.
 
 
 The collection of books includes popular D&D 3.5 books, with the complete core rules and a good assortment of popular supplements. I also support other d20 systems and even a few non-d20 systems, a complete listing of systems and the status of the books are kept on the wiki: https://github.com/BahamutDragon/pcgen/wiki/Book-Statuses
@@ -32,7 +36,7 @@ I have a discussion group for homebrewers, please join to share ideas and of cou
 ###DOWNLOADING THE CONTENT
 Two methods exist to get the content onto your system.
 
-   1) The easier method is to use the GITHUB download option (https://github.com/BahamutDragon/pcgen/archive/master.zip)
+   1) The easier method is to use the GITHUB download option - please note that the download will change based upon branch currently selected, allowing a choice of versions. (Master is the latest version, Branches using the versioning system of pcgen is meant to work with the same version of pcgen)
 Save the zip folder to a valid pcgen recognized data folder of your choice. Unzip the contents. Load PCGen. See 'LOADING THESE SETS' Below:
 
    2) The better method is to install GIT and a GIT Client, and clone the repository to a location outside of the PCGen installation directory. Then open PCGen, go to Tools>Preferences and in the Location tab under the PCGen drop-down, change "PCGen Vendor Data Directory" or "PCGen Homebrew Data Directory" to the directory you cloned the repo into. This allows easy updates when they happen (via a git pull). It also saves bandwidth since you are only download changes, not the whole repo. I use this method to keep my data sync'd with the repo and allows for testable fixes and pushing those to the repo.  See 'LOADING THESE SETS' Below:
