@@ -1,4 +1,5 @@
 
+# Some vars are placeholders for now. Nothing is defined at the moment.
 
 CLASS:Adventurer	SOURCEPAGE:p.16	HD:4		BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	TYPE:PC		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1		DEFINE:AdventurerLVL|0	BONUS:VAR|AdventurerLVL|CL	DEFINE:BonusCharacterPoints|0	BONUS:VAR|BonusCharacterPoints|5*AdventurerLVL
 CLASS:Adventurer	CSKILL:TYPE=Non-Combat	STARTSKILLPTS:4
@@ -7,7 +8,7 @@ CLASS:Adventurer	CSKILL:TYPE=Non-Combat	STARTSKILLPTS:4
 CLASS:Dynamic Sorcerer	SOURCEPAGE:p.17	HD:4		BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	TYPE:PC		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1		DEFINE:DynamicSorcererLVL|0	BONUS:VAR|DynamicSorcererLVL|CL	DEFINE:BonusCharacterPoints|0	BONUS:VAR|BonusCharacterPoints|5*DynamicSorcererLVL
 CLASS:Dynamic Sorcerer	STARTSKILLPTS:4	CSKILL:Concentration|Diplomacy|Knowledge (Arcane)|Knowledge (Foreign Culture)|Knowledge (Occult)|Knowledge (Religion)|Knowledge (Streetwise)|TYPE=Profession|Research|Sleight of Hand|Speak Languages|Spot|Special Ranged Attack
 1	BONUS:ABILITYPOOL|Dynamic Sorcerer Stat|1
-#Choose - Intelligence, Wisdom, or Charisma
+#Choose - Intelligence	Wisdom	or Charisma
 1	BONUS:VAR|DynamicSorcery|(DynamicSorcererLVL+1)/2
 12	BONUS:VAR|EnergyBonus|1+(CL>17)
 
@@ -39,283 +40,281 @@ CLASS:Giant Robot	STARTSKILLPTS:4	CSKILL:Computer Use|Drive|Knowledge (Electroni
 CLASS:Gun Bunny	SOURCEPAGE:p.19	HD:8	TYPE:PC		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0		BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	
 CLASS:Gun Bunny	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|Demolitions|Gamble|Gather Information|Intimidate|Investigate|Jump|Knowledge (Police Sciences)|Listen|Powerlifting|Read Lips|Seduction|Sense Motive|Speak Languages|Sports|Spot|Archery|Gun Combat|Ranged Defence
 1	ABILITY:Special Ability|AUTOMATIC|Improved Initiative Feat
-2	Divine Relationship +1
-3	Massive Damage +1
+2	BONUS:VAR|DivineRelationship|1
+3	BONUS:VAR|MassiveDamage|1
 4	ABILITY:Special Ability|AUTOMATIC|Blind-Shoot Feat
 5	ABILITY:Special Ability|AUTOMATIC|Portable Armoury Feat
 6	ABILITY:Special Ability|AUTOMATIC|Weapons Encyclopaedia Feat
-7	Divine Relationship +1
-8	Judge Opponent Feat, Massive Damage +1
-9	+2 Character Points
-10	Defensive Combat Mastery +1
-11	+2 Character Points
+7	BONUS:VAR|DivineRelationship|1
+8	ABILITY:Special Ability|AUTOMATIC|Judge Opponent Feat		BONUS:VAR|MassiveDamage|1
+9	BONUS:VAR|BonusCharacterPoints|2	
+10	BONUS:VAR|DefensiveCombatMastery|1
+11	BONUS:VAR|BonusCharacterPoints|2	
 12	ABILITY:Special Ability|AUTOMATIC|Steady Hand Feat
-13	Divine Relationship +1, Massive Damage +1
-14	Defensive Combat Mastery +1
-15	+2 Character Points, Accuracy Feat
+13	BONUS:VAR|DivineRelationship|1		BONUS:VAR|MassiveDamage|1
+14	BONUS:VAR|DefensiveCombatMastery|1
+15	BONUS:VAR|BonusCharacterPoints|2	ABILITY:Special Ability|AUTOMATIC|Accuracy Feat
 16	ABILITY:Special Ability|AUTOMATIC|Two-Weapon Fighting Feat
-17	Divine Relationship +1
-18	Massive Damage +1
-19	Defensive Combat Mastery +1
-20	+2 Character Points, Improved Initiative Feat
+17	BONUS:VAR|DivineRelationship|1
+18	BONUS:VAR|MassiveDamage|1
+19	BONUS:VAR|DefensiveCombatMastery|1
+20	BONUS:VAR|BonusCharacterPoints|2	ABILITY:Special Ability|AUTOMATIC|Improved Initiative Feat
 
 CLASS:Hot Rod	HD:8	SOURCEPAGE:p.20		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1					BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 CLASS:Hot Rod	4	CSKILL:Bluff|Disable Device|Drive|Gamble|Investigate|Knowledge (Area)|Knowledge (Mechanics)|Knowledge (Police Sciences)|Navigate|Pilot|Read Lips|Repair|Ride|Seduction|Sense Motive|Speak Languages|Spot|Gun Combat|Melee Attack|Unarmed Attack|Unarmed Defence
-1	Personal Gear (Car) +1
-2	Mechanical Genius +1
-3	Flunkies +1, Item of Power (Car-related) +1
-4	Organisational Ties +1, Personal Gear (Car) +1
-5	+5 Character Points, Divine Relationship +1
-6	Steady Hand Feat
-7	Personal Gear (Car) +1
-8	+2 Aura of Command +1, Wealth +1
-9	+3 Item of Power (Car-related) +1
-10	+5 Character Points, Personal Gear (Car) +1
-11	Flunkies +1, Organisational Ties +1
-12	Mechanical Genius +1
-13	Personal Gear (Car) +1
-14	Improved Initiative Feat, Item of Power (Car-related) +1
-15	3 Character Points, Divine Relationship +1
-16	Aura of Command +1, Personal Gear (Car) +1
-17	Defensive Combat Mastery +1, Wealth +1
-18	Flunkies +1, Organisational Ties +1
-19	Defensive Combat Mastery +1
-20	+5 Character Points, Divine Relationship +1
+1	BONUS:VAR|PersonalGear_Car|1
+2	BONUS:VAR|MechanicalGenius|1
+3	BONUS:VAR|Flunkies|1	BONUS:VAR|ItemOfPower_CarRelated|1
+4	BONUS:VAR|OrganisationTies|1	BONUS:VAR|PersonalGear_Car|1
+5	BONUS:VAR|BonusCharacterPoints|5		BONUS:VAR|DivineRelationship|1
+6	ABILITY:Special Ability|AUTOMATIC|Steady Hand Feat
+7	BONUS:VAR|PersonalGear_Car|1
+8	BONUS:VAR|AuraOfCommand|1		BONUS:VAR|Wealth|1
+9	BONUS:VAR|ItemOfPower_CarRelated|1
+10	BONUS:VAR|BonusCharacterPoints|5	BONUS:VAR|PersonalGear_Car|1
+11	BONUS:VAR|Flunkies|1		BONUS:VAR|OrganisationTies|1
+12	BONUS:VAR|MechanicalGenius|1
+13	BONUS:VAR|PersonalGear_Car|1
+14	ABILITY:Special Ability|AUTOMATIC|Improved Initiative Feat	BONUS:VAR|ItemOfPower_CarRelated|1
+15	BONUS:VAR|BonusCharacterPoints|3		BONUS:VAR|DivineRelationship|1
+16	BONUS:VAR|AuraOfCommand|1	BONUS:VAR|PersonalGear_Car|1
+17	BONUS:VAR|DefensiveCombatMastery|1		BONUS:VAR|Wealth|1
+18	BONUS:VAR|Flunkies|1		BONUS:VAR|OrganisationTies|1
+19	BONUS:VAR|DefensiveCombatMastery|1
+20	BONUS:VAR|BonusCharacterPoints|5		BONUS:VAR|DivineRelationship|1
 
 CLASS:Magical Girl	HD:8		SOURCEPAGE:p.21
-CLASS:Magical Girl	STARTSKILLPTS:2	CSKILL:Balance (Dex), Jump (Str), Knowledge: Arcane (Int), Knowledge: Cultural Arts (Int), Knowledge: Occult (Int), Perform (Cha), Power Usage (Varies), Profession (Int), Speak Languages (Int), Sports (Str, Dex, or Con), Spot (Wis), Swim (Str), Tumble (Dex), Archery, Ranged Defence, Special Ranged Attack, Thrown Weapons
-
-1	Servant +4
-2	Special Attack +1
-3	Item of Power +1
-4	Jumping +1, Rejuvenation +1
-5	+2 Character Points, Flight +1
-6	Item of Power +1
-7	Special Attack +1
-8	+1 Character Point, Rejuvenation +1
-9	Item of Power +1
-10	+2 Character Points
-11	Flight +1
-12	Special Attack +1
-13	Item of Power +1
-14	+1 Character Point, Rejuvenation +1
-15	+3 Character Points, Item of Power +1
-16	Flight +1
-17	Special Attack +1
-18	Item of Power +1
-19	Special Attack +1
-20	+3 Character Points, Rejuvenation +1
+CLASS:Magical Girl	STARTSKILLPTS:2	CSKILL:Balance|Jump|Knowledge (Arcane)|Knowledge (Cultural Arts)|Knowledge (Occult)|Perform|Power Usage|Profession|Speak Languages|Sports|Spot|Swim|Tumble|Archery|Ranged Defence|Special Ranged Attack|Thrown Weapons
+1		BONUS:VAR|Servant|4
+2		BONUS:VAR|SpecialAttack|1
+3		BONUS:VAR|ItemOfPower|1
+4		BONUS:VAR|Jumping|1	BONUS:VAR|Rejuvenation|1
+5		BONUS:VAR|BonusCharacterPoints|2		BONUS:VAR|Flight|1
+6		BONUS:VAR|ItemOfPower|1
+7		BONUS:VAR|SpecialAttack|1
+8		BONUS:VAR|BonusCharacterPoints|1	BONUS:VAR|Rejuvenation|1
+9		BONUS:VAR|ItemOfPower|1
+10		BONUS:VAR|BonusCharacterPoints|2	
+11		BONUS:VAR|Flight|1
+12		BONUS:VAR|SpecialAttack|1
+13		BONUS:VAR|ItemOfPower|1
+14		BONUS:VAR|BonusCharacterPoints|1	BONUS:VAR|Rejuvenation|1
+15		BONUS:VAR|BonusCharacterPoints|3		BONUS:VAR|ItemOfPower|1
+16		BONUS:VAR|Flight|1
+17		BONUS:VAR|SpecialAttack|1
+18		BONUS:VAR|ItemOfPower|1
+19		BONUS:VAR|SpecialAttack|1
+20		BONUS:VAR|BonusCharacterPoints|3	BONUS:VAR|Rejuvenation|1
 
 CLASS:Martial Artist	HD:10	SOURCEPAGE:p.22
-CLASS:Martial Artist	STARTSKILLPTS:2	CSKILL:Balance (Dex), Climb (Str), Controlled Breathing (Con), Craft (Int), Escape Artist (Dex), Jump (Str), Knowledge: Cultural Arts (Int), Knowledge: Occult (Int), Listen (Wis), Medical (Wis), Move Silently (Dex), Perform (Cha), Pick Pocket (Dex), Search (Int), Sense Motive (Wis), Speak Languages (Int), Spot (Wis), Tumble (Dex). Melee Attack, Melee Defence, Special Ranged Attack, Unarmed Attack, Unarmed Defence
+CLASS:Martial Artist	STARTSKILLPTS:2	CSKILL:Balance|Climb|Controlled Breathing|Craft|Escape Artist|Jump|Knowledge (Cultural Arts)|Knowledge (Occult)|Listen|Medical|Move Silently|Perform|Pick Pocket|Search|Sense Motive|Speak Languages|Spot|Tumble|Melee Attack|Melee Defence|Special Ranged Attack|Unarmed Attack|Unarmed Defence
 
-1 +1 +2 +2 +0 Unarmed Attack Skill +2, Unarmed Defence Skill +2
-2 +2 +3 +3 +0 Massive Damage (Unarmed Strikes) +1
-3 +3 +3 +3 +1 Improved Initiative Feat
-4 +4 +4 +4 +1 Judge Opponent Feat
-5 +5 +4 +4 +1 Speed +1
-6 +6/+1 +5 +5 +2 Special Attack +1
-7 +7/+2 +5 +5 +2 Massive Damage (Unarmed Strikes) +1
-8 +8/+3 +6 +6 +2 Defence Combat Mastery +1
-9 +9/+4 +6 +6 +3 Special Attack +1
-10 +10/+5 +7 +7 +3 Improved Initiative Feat
-11 +11/+6/+1 +7 +7 +3 +2 Character Points
-12 +12/+7/+2 +8 +8 +4 Speed +1
-13 +13/+8/+3 +8 +8 +4 Massive Damage (Unarmed Strikes) +1
-14 +14/+9/+4 +9 +9 +4 Special Attack +1
-15 +15/+10/+5 +9 +9 +5 Blind-Fight Feat
-16 +16/+11/+6/+1 +10 +10 +5 +2 Character Points
-17 +17/+12/+7/+2 +10 +10 +5 Special Attack +1
-18 +18/+13/+8/+3 +11 +11 +6 +2 Character Points
-19 +19/+14/+9/+4 +11 +11 +6 Massive Damage (Unarmed Strikes) +1
-20 +20/+15/+10/+5 +12 +12 +6 +1 Character Point, Defence Combat Mastery +1
+1	BONUS:VAR|Unarmed Attack Skill|2	BONUS:VAR|Unarmed Defence Skill|2
+2	BONUS:VAR|Massive Damage (Unarmed Strikes)|1
+3	ABILITY:Special Ability|AUTOMATIC|Improved Initiative Feat
+4	ABILITY:Special Ability|AUTOMATIC|Judge Opponent Feat
+5	BONUS:VAR|Speed|1
+6	BONUS:VAR|SpecialAttack|1
+7	BONUS:VAR|Massive Damage (Unarmed Strikes)|1
+8	BONUS:VAR|Defence Combat Mastery|1
+9	BONUS:VAR|SpecialAttack|1
+10	ABILITY:Special Ability|AUTOMATIC|Improved Initiative Feat
+11	BONUS:VAR|BonusCharacterPoints|2	
+12	BONUS:VAR|Speed|1
+13	BONUS:VAR|Massive Damage (Unarmed Strikes)|1
+14	BONUS:VAR|SpecialAttack|1
+15		ABILITY:Special Ability|AUTOMATIC|Blind-Fight Feat
+16	BONUS:VAR|BonusCharacterPoints|2	
+17	BONUS:VAR|SpecialAttack|1
+18	BONUS:VAR|BonusCharacterPoints|2	
+19	BONUS:VAR|Massive Damage (Unarmed Strikes)|1
+20	BONUS:VAR|BonusCharacterPoints|1		BONUS:VAR|Defence Combat Mastery|1
 
 CLASS:Mecha Pilot	HD:8	SOURCEPAGE:p.23
-CLASS:Mecha Pilot	STARTSKILLPTS:4	Computer Use (Int), Demolitions (Int), Drive (Dex or Int), Knowledge: Electronics (Int), Knowledge: Law (Int), Knowledge: Mechanics (Int), Knowledge: Military Sciences (Int), Knowledge: Police Sciences (Int), Navigate (Int), Pilot (Dex or Int), Repair (Int), Speak Languages (Int), Spot (Wis), Heavy Weapons, Ranged Defence, and Special Ranged Attack.
-1 +0 +2 +0 +0 Own a Big Mecha +1
-2 +1 +3 +0 +0 Personal Gear +1
-3 +2 +3 +1 +1 Aura of Command +1
-4 +3 +4 +1 +1 Own a Big Mecha +1
-5 +3 +4 +1 +1 Organisational Ties +1
-6 +4 +5 +2 +2 Aura of Command +1
-7 +5 +5 +2 +2 +2 Character Points
-8 +6/+1 +6 +2 +2 Own a Big Mecha +1
-9 +6/+1 +6 +3 +3 Aura of Command +1
-10 +7/+2 +7 +3 +3 Organisational Ties +1
-11 +8/+3 +7 +3 +3 +2 Character Points
-12 +9/+4 +8 +4 +4 Own a Big Mecha +1
-13 +9/+4 +8 +4 +4 +2 Character Points
-14 +10/+5 +9 +4 +4 +2 Character Points
-15 +11/+6/+1 +9 +5 +5 Aura of Command +1, Organisational Ties +1
-16 +12/+7/+2 +10 +5 +5 Own a Big Mecha +1
-17 +12/+7/+2 +10 +5 +5 +2 Character Points
-18 +13/+8/+3 +11 +6 +6 Organisational Ties +1
-19 +14/+9/+4 +11 +6 +6 Aura of Command +1
-20 +15/+10/+5 +12 +6 +6 +2 Character Points, Own a Big Mecha +1
+CLASS:Mecha Pilot	STARTSKILLPTS:4	CSKILL:Computer Use|Demolitions|Drive|Knowledge (Electronics)|Knowledge (Law)|Knowledge (Mechanics)|Knowledge (Military Sciences)|Knowledge (Police Sciences)|Navigate|Pilot (Dex or Int)	Repair|Speak Languages|Spot|Heavy Weapons|Ranged Defence|Special Ranged Attack.
+1	BONUS:VAR|OwnABigMecha|1
+2	BONUS:VAR|PersonalGear|1
+3	BONUS:VAR|AuraOfCommand|1
+4	BONUS:VAR|OwnABigMecha|1
+5	BONUS:VAR|OrganisationTies|1
+6	BONUS:VAR|AuraOfCommand|1
+7	BONUS:VAR|BonusCharacterPoints|2	
+8	BONUS:VAR|OwnABigMecha|1
+9	BONUS:VAR|AuraOfCommand|1
+10	BONUS:VAR|OrganisationTies|1
+11	BONUS:VAR|BonusCharacterPoints|2	
+12	BONUS:VAR|OwnABigMecha|1
+13	BONUS:VAR|BonusCharacterPoints|2	
+14	BONUS:VAR|BonusCharacterPoints|2	
+15	BONUS:VAR|AuraOfCommand|1		BONUS:VAR|OrganisationTies|1
+16	BONUS:VAR|OwnABigMecha|1
+17	BONUS:VAR|BonusCharacterPoints|2	
+18	BONUS:VAR|OrganisationTies|1
+19	BONUS:VAR|AuraOfCommand|1
+20	BONUS:VAR|BonusCharacterPoints|2	BONUS:VAR|Own a Big Mecha|1
 
 CLASS:Ninja	HD:8	SOURCEPAGE:p.24
-CLASS:Ninja	STARTSKILLPTS:4	CSKILL:Balance (Dex), Bluff (Cha), Climb (Str), Controlled Breathing (Con), Disguise (Cha), Escape Artist (Dex), Forgery (Int), Gather Information (Cha), Hide (Dex), Intimidate (Cha), Jump (Str), Knowledge: Area (Int), Knowledge: Architecture (Int), Knowledge: Occult (Int), Knowledge: Streetwise (Int), Listen (Wis), Move Silently (Dex), Open Lock (Dex), Pick Pocket (Dex), Poisons (Int), Read Lips (Int), Search (Int), Sense Motive (Wis), Sleight of Hand (Dex), Speak Languages (Int), Spot (Wis), Survival (Wis), Tumble (Dex), Use Rope (Dex), Wilderness Lore (Wis), Wilderness Tracking (Int or Wis), Archery, Melee Attack, Thrown Weapons, Unarmed Attack, Unarmed Defence
-				
-1	+0 +2 +2 +0 Jumping +1, Personal Gear +1
-2	+1 +3 +3 +0 Improved Initiative Feat
-3	+2 +3 +3 +1 Heightened Senses (Hearing) +1, Sneak Attack Feat
-4	+3 +4 +4 +1 Special Movement (Light-Footed) +1
-5	+3 +4 +4 +1 +4 Character Points, Personal Gear +1
-6	+4 +5 +5 +2 Jumping +1
-7	+5 +5 +5 +2 Teleport +1, Sixth Sense (Sense Ki-Energy) +1
-8	+6/+1 +6 +6 +2 Sneak Attack Feat, Environmental Control (Darkness) +1
-9	+6/+1 +6 +6 +3 Speed +1, Heightened Sense (Sight) +1
-10	 +7/+2 +7 +7 +3 +3 Character Points, Improved Initiative Feat
-11	 +8/+3 +7 +7 +3 Jumping +1, Blind-Fight Feat
-12	 +9/+4 +8 +8 +4 Defensive Combat Mastery, Special Movement (Untrackable)
-13	 +9/+4 +8 +8 +4 Sneak Attack Feat
-14	 +10/+5 +9 +9 +4 Sixth Sense (Sense Spirits) +1, Teleport +1
-15	 +11/+6/+1 +9 +9 +5 +2 Character Points, Environmental Control (Silence) +1
-16	 +12/+7/+2 +10 +10 +5 Jumping +1, Special Movement (Cat-Like) +1
-17	 +12/+7/+2 +10 +10 +5 Invisibility +1, Defensive Combat Mastery +1
-18	 +13/+8/+3 +11 +11 +6 Speed +1, Sneak Attack Feat
-19	 +14/+9/+4 +11 +11 +6 Heightened Senses (Smell) +1
-20	 +15/+10/+5 +12 +12 +6 +2 Character Points, Special Movement (Wall-Crawling) +1
+CLASS:Ninja	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|Controlled Breathing|Disguise|Escape Artist|Forgery|Gather Information|Hide|Intimidate|Jump|Knowledge (Area)|Knowledge (Architecture)|Knowledge (Occult)|Knowledge (Streetwise)|Listen|Move Silently|Open Lock|Pick Pocket|Poisons|Read Lips|Search|Sense Motive|Sleight of Hand|Speak Languages|Spot|Survival|Tumble|Use Rope|Wilderness Lore|Wilderness Tracking|Archery|Melee Attack|Thrown Weapons|Unarmed Attack|Unarmed Defence
+1		BONUS:VAR|Jumping|1		BONUS:VAR|PersonalGear|1
+2		ABILITY:Special Ability|AUTOMATIC|Improved Initiative Feat
+3		BONUS:VAR|Heightened Senses (Hearing)|1	ABILITY:Special Ability|AUTOMATIC|Sneak Attack Feat
+4		BONUS:VAR|Special Movement (Light-Footed)|1
+5		BONUS:VAR|BonusCharacterPoints|4		BONUS:VAR|PersonalGear|1
+6		BONUS:VAR|Jumping|1
+7		BONUS:VAR|Teleport|1	BONUS:VAR|Sixth Sense (Sense Ki-Energy)|1
+8		ABILITY:Special Ability|AUTOMATIC|Sneak Attack Feat	BONUS:VAR|Environmental Control (Darkness)|1
+9		BONUS:VAR|Speed|1	BONUS:VAR|Heightened Sense (Sight)|1
+10		BONUS:VAR|BonusCharacterPoints|3	ABILITY:Special Ability|AUTOMATIC|Improved Initiative Feat
+11		BONUS:VAR|Jumping|1	ABILITY:Special Ability|AUTOMATIC|Blind-Fight Feat
+12		BONUS:VAR|Defensive Combat Mastery	Special Movement (Untrackable)
+13		ABILITY:Special Ability|AUTOMATIC|Sneak Attack Feat
+14		BONUS:VAR|Sixth Sense (Sense Spirits)|1	BONUS:VAR|Teleport|1
+15		BONUS:VAR|BonusCharacterPoints|2	BONUS:VAR|Environmental Control (Silence)|1
+16		BONUS:VAR|Jumping|1	BONUS:VAR|Special Movement (Cat-Like)|1
+17		BONUS:VAR|Invisibility|1	BONUS:VAR|DefensiveCombatMastery|1
+18		BONUS:VAR|Speed|1	ABILITY:Special Ability|AUTOMATIC|Sneak Attack Feat
+19		BONUS:VAR|Heightened Senses (Smell)|1
+20		BONUS:VAR|BonusCharacterPoints|2	BONUS:VAR|Special Movement (Wall-Crawling)|1
 
 CLASS:Pet Monster Trainer	SOURCEPAGE:p.25		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE
-CLASS:Pet Monster Trainer	STARTSKILLPTS:4	CSKILL:Disable Device (Int), Gamble (Wis), Handle Animal (Cha), Knowledge: Biological Sciences (Int), Knowledge: Nature) (Int), Medical (Wis), Speak Languages
-1	+0 +0 +2 +0 Pet Monster +1, Animal Friendship +1
-2	+1 +0 +3 +0 +3 Character Points, Train a Cute Monster +1
-3	+1 +1 +3 +1 Pet Monster +1
-4	+2 +1 +4 +1 +3 Character Points
-5	+2 +1 +4 +1 Pet Monster +1, Train a Cute Monster +1
-6	+3 +2 +5 +2 Animal Friendship +1, Telepathy (With Pet Monster) +1
-7	+3 +2 +5 +2 Pet Monster +1
-8	+4 +2 +6 +2 +3 Character Points, Train a Cute Monster +1
-9	+4 +3 +6 +3 Pet Monster +1
-10	 +5 +3 +7 +3 +3 Character Points, Animal Friendship +1
-11	 +5 +3 +7 +3 Pet Monster +1, Train a Cute Monster +1
-12	 +6/+1 +4 +8 +4 Telepathy (With Pet Monster) +1
-13	 +6/+1 +4 +8 +4 Pet Monster +1
-14	 +7/+2 +4 +9 +4 +4 Character Points, Train a Cute Monster +1
-15	 +7/+2 +5 +9 +5 Pet Monster +1, Wealth +1
-16	 +8/+3 +5 +10 +5 +4 Character Points, Animal Friendship +1
-17	 +8/+3 +5 +10 +5 Pet Monster +1, Train a Cute Monster +1
-18	 +9/+4 +6 +11 +6 +4 Character Points, Telepathy (With Pet Monster) +1
-19	 +9/+4 +6 +11 +6 Pet Monster +1
-20	 +10/+5 +6 +12 +6 +5 Character Points, Train a Cute Monster +1
+CLASS:Pet Monster Trainer	STARTSKILLPTS:4	CSKILL:Disable Device|Gamble|Handle Animal|Knowledge (Biological Sciences)|Knowledge (Nature)|Medical|Speak Languages
+1	BONUS:VAR|Pet Monster|1		BONUS:VAR|AnimalFriendship|1
+2	BONUS:VAR|BonusCharacterPoints|3	BONUS:VAR|Train a Cute Monster|1
+3	BONUS:VAR|Pet Monster|1
+4	BONUS:VAR|BonusCharacterPoints|
+5	BONUS:VAR|Pet Monster|1	BONUS:VAR|Train a Cute Monster|1
+6	BONUS:VAR|AnimalFriendship|1	BONUS:VAR|Telepathy (With Pet Monster)|1
+7	BONUS:VAR|Pet Monster|1
+8	BONUS:VAR|BonusCharacterPoints|2	3	BONUS:VAR|Train a Cute Monster|1
+9	BONUS:VAR|Pet Monster|1
+10	BONUS:VAR|BonusCharacterPoints|3		BONUS:VAR|AnimalFriendship|1
+11	BONUS:VAR|Pet Monster|1	BONUS:VAR|Train a Cute Monster|1
+12	BONUS:VAR|Telepathy (With Pet Monster)|1
+13	BONUS:VAR|Pet Monster|1
+14	BONUS:VAR|BonusCharacterPoints|4	BONUS:VAR|Train a Cute Monster|1
+15	BONUS:VAR|Pet Monster|1		BONUS:VAR|Wealth|1
+16	BONUS:VAR|BonusCharacterPoints|4		BONUS:VAR|AnimalFriendship|1
+17	BONUS:VAR|Pet Monster|1	Train a Cute Monster|1
+18	BONUS:VAR|BonusCharacterPoints|4	BONUS:VAR|Telepathy (With Pet Monster)|1
+19	BONUS:VAR|Pet Monster|1
+20		BONUS:VAR|BonusCharacterPoints|5	BONUS:VAR|Train a Cute Monster|1
 
 CLASS:Samurai	HD:10	SOURCEPAGE:p.26
-CLASS:Samurai	STARTSKILLPTS:4	CSKILL:Controlled Breathing (Con), Craft (Int), Diplomacy (Cha), Gather Information (Cha), Intimidate (Cha), Knowledge: Cultural Arts (Int), Knowledge: Domestic Arts, Knowledge: Foreign Culture (Int), Knowledge: Religion (Int), Knowledge: Social Sciences (Int), Knowledge: Streetwise (Int), Listen (Wis), Perform (Cha), Ride (Dex), Search (Int), Sense Motive (Wis), Speak Languages (Int), Spot (Wis), Survival (Wis), Wilderness Tracking (Int or Wis), Archery, Melee Attack, Melee Defence
-1	+1 +0 +0 +2 Improved Initiative Feat
-2	+2 +0 +0 +3 Personal Gear +1, Speed +1
-3	+3 +1 +1 +3 +2 Character Points
-4	+4 +1 +1 +4 Judge Opponent Feat
-5	+5 +1 +1 +4 +3 Character Points, Aura of Command +1
-6	+6/+1 +2 +2 +5 Massive Damage (Sword) +1
-7	+7/+2 +2 +2 +5 Jumping +1, Leap Attack Feat
-8	+8/+3 +2 +2 +6 Heightened Awareness +1
-9	+9/+4 +3 +3 +6 +2 Character Points
-10	 +10/+5 +3 +3 +7 Aura of Command +1, Blind-Fight Feat
-11	 +11/+6/+1 +3 +3 +7 Special Attack +1
-12	 +12/+7/+2 +4 +4 +8 Massive Damage (Sword) +1
-13	 +13/+8/+3 +4 +4 +8 Two-Weapon Fighting Feat
-14	 +14/+9/+4 +4 +4 +9 Jumping +1, Divine Relationship +1
-15	 +15/+10/+5 +5 +5 +9 Aura of Command +1
-16	 +16/+11/+6/+1 +5 +5 +10 Heightened Awareness +1
-17	 +17/+12/+7/+2 +5 +5 +10 +3 Character Points
-18	 +18/+13/+8/+3 +6 +6 +11 Massive Damage (Sword) +1
-19	 +19/+14/+9/+4 +6 +6 +11 Aura of Command +1
-20	 +20/+15/+10/+5 +6 +6 +12 +4 Character Points
+CLASS:Samurai	STARTSKILLPTS:4	CSKILL:Controlled Breathing|Craft|Diplomacy|Gather Information|Intimidate|Knowledge (Cultural Arts)|Knowledge (Domestic Arts)|Knowledge (Foreign Culture)|Knowledge (Religion)|Knowledge (Social Sciences)|Knowledge (Streetwise)|Listen|Perform|Ride|Search|Sense Motive|Speak Languages|Spot|Survival|Wilderness Tracking|Archery	Melee|Attack|Melee Defence
+1		ABILITY:Special Ability|AUTOMATIC|Improved Initiative Feat
+2	BONUS:VAR|PersonalGear|1	Speed|1
+3	BONUS:VAR|BonusCharacterPoints|2	
+4	ABILITY:Special Ability|AUTOMATIC|Judge Opponent Feat
+5	BONUS:VAR|BonusCharacterPoints|3		BONUS:VAR|AuraOfCommand|1
+6	BONUS:VAR|Massive Damage (Sword)|1
+7	BONUS:VAR|Jumping|1	ABILITY:Special Ability|AUTOMATIC|Leap Attack Feat
+8	BONUS:VAR|Heightened Awareness|1
+9	BONUS:VAR|BonusCharacterPoints|2	
+10	BONUS:VAR|AuraOfCommand|1	ABILITY:Special Ability|AUTOMATIC|Blind-Fight Feat
+11	BONUS:VAR|SpecialAttack|1
+12		BONUS:VAR|Massive Damage (Sword)|1
+13	ABILITY:Special Ability|AUTOMATIC|Two-Weapon Fighting Feat
+14	BONUS:VAR|Jumping|1		BONUS:VAR|DivineRelationship|1
+15		BONUS:VAR|AuraOfCommand|1
+16		BONUS:VAR|Heightened Awareness|1
+17	BONUS:VAR|BonusCharacterPoints|
+18		BONUS:VAR|Massive Damage (Sword)|1
+19	BONUS:VAR|AuraOfCommand|1
+20	BONUS:VAR|BonusCharacterPoints|
 
 CLASS:Sentai Member	HD:6	SOURCEPAGE:p.27
-CLASS:Sentai Member	STARTSKILLPTS:4	CSKILL:Balance (Dex), Diplomacy (Cha), Jump (Str), Knowledge: Occult (Int), Perform (Cha), Power Usage (Varies), Speak Languages (Int), Spot (Wis), Tumble (Dex), Melee Attack, Melee Defence
-1 +0 +0 +2 +2 Sixth Sense (Danger to team members) +1, Personal Gear +1
-2 +1 +0 +3 +3 Massive Damage* (Specific Attack) +1
-3 +2 +1 +3 +3 Divine Relationship* +1
-4 +3 +1 +4 +4 Combined Attack +1, Rejuvenation +1
-5 +3 +1 +4 +4 +3 Character Points, Attack Combat Mastery* +1
-6 +4 +2 +5 +5 Art of Distraction* +1
-7 +5 +2 +5 +5 Telepathy (Other Sentai Members) +1
-8 +6/+1 +2 +6 +6 +4 Character Points, Divine Relationship* +1
-9 +6/+1 +3 +6 +6 Attack Combat Mastery* +1, Rejuvenation +1
-10 +7/+2 +3 +7 +7 +3 Character Points, Extra Attacks* +1
-11 +8/+3 +3 +7 +7 Combined Attack +1, Heightened Awareness* +1
-12 +9/+4 +4 +8 +8 Massive Damage* (Specific Attack) +1, Personal Gear +1
-13 +9/+4 +4 +8 +8 Attack Combat Mastery* +1, Divine Relationship* +1
-14 +10/+5 +4 +9 +9 Telepathy (Other Sentai Members) +1
-15 +11/+6/+1 +5 +9 +9 +3 Character Points, Rejuvenation +1
-16 +12/+7/+2 +5 +10 +10 +3 Character Points, Special Movement* +1
-17 +12/+7/+2 +5 +10 +10 +3 Character Points, Attack Combat Mastery* +1
-18 +13/+8/+3 +6 +11 +11 Combined Attack +1, Divine Relationship* +1
-19 +14/+9/+4 +6 +11 +11 +3 Character Points, Rejuvenation +1
-20 +15/+10/+5 +6 +12 +12 +4 Character Points
+CLASS:Sentai Member	STARTSKILLPTS:4	CSKILL:Balance|Diplomacy|Jump|Knowledge (Occult)|Perform|Power Usage|Speak Languages|Spot|Tumble|Melee Attack|Melee Defence
+1	BONUS:VAR|Sixth Sense (Danger to team members)|1		BONUS:VAR|PersonalGear|1
+2	BONUS:VAR|Massive Damage* (Specific Attack)|1
+3	BONUS:VAR|Divine Relationship*|1
+4	BONUS:VAR|Combined Attack|1	BONUS:VAR|Rejuvenation|1
+5	BONUS:VAR|BonusCharacterPoints|3	BONUS:VAR|Attack Combat Mastery*|1
+6	BONUS:VAR|Art of Distraction*|1
+7	BONUS:VAR|Telepathy (Other Sentai Members)|1
+8	BONUS:VAR|BonusCharacterPoints|4	BONUS:VAR|Divine Relationship*|1
+9	BONUS:VAR|Attack Combat Mastery*|1	Rejuvenation|1
+10	BONUS:VAR|BonusCharacterPoints|3	BONUS:VAR|Extra Attacks*|1
+11	BONUS:VAR|Combined Attack|1	BONUS:VAR|Heightened Awareness*|1
+12	BONUS:VAR|Massive Damage* (Specific Attack)|1		BONUS:VAR|PersonalGear|1
+13	BONUS:VAR|Attack Combat Mastery*|1	BONUS:VAR|Divine Relationship*|1
+14	BONUS:VAR|Telepathy (Other Sentai Members)|1
+15	BONUS:VAR|BonusCharacterPoints|3	BONUS:VAR|Rejuvenation|1
+16	BONUS:VAR|BonusCharacterPoints|3	BONUS:VAR|Special Movement*|1
+17	BONUS:VAR|BonusCharacterPoints|3	BONUS:VAR|Attack Combat Mastery*|1
+18	BONUS:VAR|Combined Attack|1	BONUS:VAR|Divine Relationship*|1
+19	BONUS:VAR|BonusCharacterPoints|3	BONUS:VAR|Rejuvenation|1
+20		BONUS:VAR|BonusCharacterPoints|
 
 CLASS:Shapechanger	HD:8	SOURCEPAGE:p.28
-CLASS:Shapechanger	STARTSKILLPTS:2	CSKILL:Balance (Dex), Bluff (Cha), Controlled Breathing, Disguise (Cha), Escape Artist (Dex), Gather Information (Cha), Hide|Jump|Knowledge (Cultural Arts)|Knowledge (Foreign Culture), Move Silently, Powerlifting, Seduction (Cha), Sense Motive (Wis), Sleight of Hand, Speak Languages (Int), Spot
-1	+0 +0 +0 +2 Alternate Form (Cosmetic Changes) Level 0
-2	+1 +0 +0 +3 Elasticity +1
-3	+2 +1 +1 +3 Alternate Form (Full-Powered) +1
-4	+3 +1 +1 +4 +1 Character Point
-5	+3 +1 +1 +4 Regeneration +1
-6	+4 +2 +2 +5 Alternate Form (Full-Powered) +1
-7	+5 +2 +2 +5 +1 Character Point
-8	+6/+1 +2 +2 +6 Elasticity +1
-9	+6/+1 +3 +3 +6 Mimic (All) +1
-10	 +7/+2 +3 +3 +7 Regeneration +1
-11	 +8/+3 +3 +3 +7 +1 Character Point
-12	 +9/+4 +4 +4 +8 Alternate Form (Full-Powered) +1
-13	 +9/+4 +4 +4 +8 Elasticity +1
-14	 +10/+5 +4 +4 +9 Regeneration +1
-15	 +11/+6/+1 +5 +5 +9 Mimic (All) +1
-16	 +12/+7/+2 +5 +5 +10 +1 Character Point
-17	 +12/+7/+2 +5 +5 +10 Elasticity +1
-18	 +13/+8/+3 +6 +6 +11 +1 Character Point
-19	 +14/+9/+4 +6 +6 +11 Alternate Form (Full-Powered) +1
-20	 +15/+10/+5 +6 +6 +12 +2 Character Points
+CLASS:Shapechanger	STARTSKILLPTS:2	CSKILL:Balance|Bluff|Controlled Breathing	Disguise|Escape Artist|Gather Information|Hide|Jump|Knowledge (Cultural Arts)|Knowledge (Foreign Culture)|Move Silently|Powerlifting|Seduction|Sense Motive|Sleight of Hand|Speak Languages|Spot
+1	ABILITY:Special Ability|AUTOMATIC|Alternate Form (Cosmetic Changes) Level 0
+2	BONUS:VAR|Elasticity|1
+3	BONUS:VAR|Alternate Form (Full-Powered)|1
+4	BONUS:VAR|BonusCharacterPoints|1	
+5	BONUS:VAR|Regeneration|1
+6	BONUS:VAR|Alternate Form (Full-Powered)|1
+7	BONUS:VAR|BonusCharacterPoints|1	
+8	BONUS:VAR|Elasticity|1
+9	BONUS:VAR|Mimic (All)|1
+10	BONUS:VAR|Regeneration|1
+11	BONUS:VAR|BonusCharacterPoints|1	
+12	BONUS:VAR|Alternate Form (Full-Powered)|1
+13	BONUS:VAR|Elasticity|1
+14	BONUS:VAR|Regeneration|1
+15	BONUS:VAR|Mimic (All)|1
+16	BONUS:VAR|BonusCharacterPoints|1	
+17	BONUS:VAR|Elasticity|1
+18	BONUS:VAR|BonusCharacterPoints|1	
+19	BONUS:VAR|Alternate Form (Full-Powered)|1
+20	BONUS:VAR|BonusCharacterPoints|2	
 
 CLASS:Student	HD:4	SOURCEPAGE:p.29
-CLASS:Student	STARTSKILLPTS:8	CSKILL:Computer Use (Int), Craft (Int), Decipher Script (Int), Diplomacy (Cha), Gamble (Wis), Knowledge: Area (Int), Knowledge: Architecture (Int), Knowledge: Biological Sciences) (Int), Knowledge: Business (Int), Knowledge: Cultural Arts (Int), Knowledge: Domestic Arts (Int), Knowledge: Foreign Culture (Int), Knowledge: Law (Int), Knowledge: Nature (Int), Knowledge: Physical Sciences (Int), Knowledge: Religion (Int), Knowledge: Social Sciences (Int), Perform (Cha), Profession (Int), Research (Int), Speak Languages (Int), Sports (Str, Dex, or Con), Swim
+CLASS:Student	STARTSKILLPTS:8	CSKILL:Computer Use|Craft|Decipher Script|Diplomacy|Gamble|Knowledge (Area)|Knowledge (Architecture)|Knowledge (Biological Sciences)|Knowledge (Business)|Knowledge (Cultural Arts)|Knowledge (Domestic Arts)|Knowledge (Foreign Culture)|Knowledge (Law)|Knowledge (Nature)|Knowledge (Physical Sciences)|Knowledge (Religion)|Knowledge (Social Sciences)|Perform|Profession|Research|Speak Languages|Sports|Swim
 
-1	+0 +2 +0 +0 Divine Relationship +1, Sixth Sense +1
-2	+1 +3 +0 +0 Flunkies +1, Mind Shield +1
-3	+1 +3 +1 +1 +3 Character Points, Art of Distraction +1, Personal Gear +1
-4	+2 +4 +1 +1 +3 Character Points, Aura of Command +1
-5	+2 +4 +1 +1 Animal Friendship +1, Divine Relationship +1, Flunkies +1
-6	+3 +5 +2 +2 +5 Character Points, Organisational Ties +1
-7	+3 +5 +2 +2 Art of Distraction +1, Personal Gear +1
-8	+4 +6 +2 +2 +5 Character Points, Flunkies +1, Aura of Command +1
-9	+4 +6 +3 +3 Animal Friendship +1, Divine Relationship +1
-10	 +5 +7 +3 +3 +5 Character Points, Special Movement +1
-11	 +5 +7 +3 +3 Flunkies +1, Item of Power +1
-12	 +6/+1 +8 +4 +4 +3 Character Points, Organisational Ties +1
-13	 +6/+1 +8 +4 +4 +4 Character Points, Divine Relationship +1
-14	 +7/+2 +9 +4 +4 Flunkies +1, Mechanical Genius +1
-15	 +7/+2 +9 +5 +5 +3 Character Points, Special Attack +1
-16	 +8/+3 +10 +5 +5 +3 Character Points, Mind Shield +1
-17	 +8/+3 +10 +5 +5 Divine Relationship +1, Flunkies +1
-18	 +9/+4 +11 +6 +6 +4 Character Points, Organisational Ties +1
-19	 +9/+4 +11 +6 +6 +4 Character Points, Mind Shield +1
-20	 +10/+5 +12 +6 +6 +5 Character Points
+1	BONUS:VAR|DivineRelationship|1		BONUS:VAR|SixthSense|1
+2	BONUS:VAR|Flunkies|1		BONUS:VAR|MindShield|1
+3	BONUS:VAR|BonusCharacterPoints|3		BONUS:VAR|ArtOfDistraction|1		BONUS:VAR|PersonalGear|1
+4	BONUS:VAR|BonusCharacterPoints|3		BONUS:VAR|AuraOfCommand|1
+5	BONUS:VAR|AnimalFriendship|1		BONUS:VAR|DivineRelationship|1		BONUS:VAR|Flunkies|1
+6	BONUS:VAR|BonusCharacterPoints|2			BONUS:VAR|OrganisationTies|1
+7	BONUS:VAR|ArtOfDistraction|1		BONUS:VAR|PersonalGear|1
+8	BONUS:VAR|BonusCharacterPoints|2			BONUS:VAR|Flunkies|1		BONUS:VAR|AuraOfCommand|1
+9	BONUS:VAR|AnimalFriendship|1		BONUS:VAR|DivineRelationship|1
+10	BONUS:VAR|BonusCharacterPoints|5		BONUS:VAR|SpecialMovement|1
+11	BONUS:VAR|Flunkies|1		BONUS:VAR|ItemOfPower|1
+12	BONUS:VAR|BonusCharacterPoints|3		BONUS:VAR|OrganisationTies|1
+13	BONUS:VAR|BonusCharacterPoints|4		BONUS:VAR|DivineRelationship|1
+14	BONUS:VAR|Flunkies|1		BONUS:VAR|MechanicalGenius|1
+15	BONUS:VAR|BonusCharacterPoints|3		BONUS:VAR|SpecialAttack|1
+16	BONUS:VAR|BonusCharacterPoints|3		BONUS:VAR|MindShield|1
+17	BONUS:VAR|DivineRelationship|1		BONUS:VAR|Flunkies|1
+18	BONUS:VAR|BonusCharacterPoints|4		BONUS:VAR|OrganisationTies|1
+19	BONUS:VAR|BonusCharacterPoints|4		BONUS:VAR|MindShield|1
+20	BONUS:VAR|BonusCharacterPoints|5
 
 CLASS:Tech Genius	HD:4	SOURCEPAGE:p.30
-CLASS:Tech Genius	STARTSKILLPTS:8	CSKILL:Computer Use (Int), Decipher Script (Int), Demolitions (Int), Disable Device (Int), Drive (Dex or Int), Knowledge: Electronics (Int), Knowledge : Mechanics (Int), Knowledge: Physical Sciences (Int), Profession (Int), Repair (Int), Research (Int), Speak Languages
+CLASS:Tech Genius	STARTSKILLPTS:8	CSKILL:Computer Use|Decipher Script|Demolitions|Disable Device|Drive|Knowledge (Electronics)|Knowledge (Mechanics)|Knowledge (Physical Sciences)|Profession|Repair|Research|Speak Languages
 
-1	+0 +0 +2 +0 Mechanical Genius +1, Personal Gear +1
-2	+1 +0 +3 +0 Flunkies +1
-3	+1 +1 +3 +1 Computer Scanning +1
-4	+2 +1 +4 +1 Item of Power +1, Personal Gear +1
-5	+2 +1 +4 +1 +5 Character Points, Mechanical Genius +1
-6	+3 +2 +5 +2 Flunkies +1, Wealth +1
-7	+3 +2 +5 +2 Personal Gear +1
-8	+4 +2 +6 +2 Item of Power +1, Mechanical Genius +1
-9	+4 +3 +6 +3 Computer Scanning +1
-10	 +5 +3 +7 +3 +3 Character Points, Flunkies +1, Personal Gear +1
-11	 +5 +3 +7 +3 +3 Character Points, Mechanical Genius +1
-12	 +6/+1 +4 +8 +4 Item of Power +1, Wealth +1
-13	 +6/+1 +4 +8 +4 Personal Gear +1
-14	 +7/+2 +4 +9 +4 Flunkies +1, Mechanical Genius +1
-15	 +7/+2 +5 +9 +5 +5 Character Points, Computer Scanning +1
-16	 +8/+3 +5 +10 +5 Item of Power +1, Personal Gear +1
-17	 +8/+3 +5 +10 +5 Mechanical Genius +1
-18	 +9/+4 +6 +11 +6 Flunkies +1, Wealth +1
-19	 +9/+4 +6 +11 +6 +2 Character Points, Item of Power +1
-20	 +10/+5 +6 +12 +6 +4 Character Points
+1	BONUS:VAR|MechanicalGenius|1		BONUS:VAR|PersonalGear|1
+2	BONUS:VAR|Flunkies|1
+3	BONUS:VAR|ComputerScanning|1
+4	BONUS:VAR|ItemOfPower|1		BONUS:VAR|PersonalGear|1
+5	BONUS:VAR|BonusCharacterPoints|5			BONUS:VAR|MechanicalGenius|1
+6	BONUS:VAR|Flunkies|1		BONUS:VAR|Wealth|1
+7	BONUS:VAR|PersonalGear|1
+8	BONUS:VAR|ItemOfPower|1		BONUS:VAR|MechanicalGenius|1
+9	BONUS:VAR|ComputerScanning|1
+10	BONUS:VAR|BonusCharacterPoints|3		BONUS:VAR|Flunkies|1		BONUS:VAR|PersonalGear|1
+11	BONUS:VAR|BonusCharacterPoints|3		BONUS:VAR|MechanicalGenius|1
+12	BONUS:VAR|ItemOfPower|1		BONUS:VAR|Wealth|1
+13	BONUS:VAR|PersonalGear|1
+14	BONUS:VAR|Flunkies|1		BONUS:VAR|MechanicalGenius|1
+15	BONUS:VAR|BonusCharacterPoints|5			BONUS:VAR|ComputerScanning|1
+16	BONUS:VAR|ItemOfPower|1		BONUS:VAR|PersonalGear|1
+17	BONUS:VAR|MechanicalGenius|1
+18	BONUS:VAR|Flunkies|1		BONUS:VAR|Wealth|1
+19	BONUS:VAR|BonusCharacterPoints|2			BONUS:VAR|ItemOfPower|1
+20	BONUS:VAR|BonusCharacterPoints|4
 
 
 
