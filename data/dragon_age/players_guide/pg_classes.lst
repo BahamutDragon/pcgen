@@ -2,7 +2,7 @@
 
 
 # Class Name	Hit Dice	Type
-CLASS:Mage		HD:6		TYPE:PC
+CLASS:Mage		HD:6		TYPE:PC	DEFINE:MageLVL|0	BONUS:VAR|MageLVL|CL
 # Class Name	Multiple Requirements					Required Var. value
 CLASS:Mage		PREMULT:1,[!PRECLASS:1,%],[PRECLASS:1,Mage]	PREVAREQ:AllowMage,1
 ###Block
@@ -11,6 +11,9 @@ CLASS:Mage		PREMULT:1,[!PRECLASS:1,%],[PRECLASS:1,Mage]	PREVAREQ:AllowMage,1
 1	BONUS:ABILITYPOOL|Mage Secondary Ability|(CL+1)/2
 2	BONUS:ABILITYPOOL|Mage Primary Ability|CL/2
 ###Block
+1	BONUS:VAR|POOL_Spell|min(classlevel("Mage")/2,5)
+1	BONUS:VAR|POOL_Mana_Points|min(classlevel("Mage"),10)
+1	BONUS:VAR|Mana_Points_Stat|classlevel("Mage")*MAG
 1	ABILITY:Mage Class Power|AUTOMATIC|Mage ~ Level 1
 2	ABILITY:Mage Class Power|AUTOMATIC|Mage ~ Level 2
 3	ABILITY:Mage Class Power|AUTOMATIC|Mage ~ Level 3
