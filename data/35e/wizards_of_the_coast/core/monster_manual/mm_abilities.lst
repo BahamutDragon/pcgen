@@ -1071,8 +1071,6 @@ Skills					KEY:Girallon ~ Skills						CATEGORY:Special Ability	TYPE:SpecialQuali
 
 # GNOME - Move to top of section
 
-# Goblin
-Skills					KEY:Goblin ~ Skills						CATEGORY:Special Ability	TYPE:SpecialQuality																		VISIBLE:YES																					DESC:Goblins have a +4 racial bonus on Move Silently and Ride checks. Goblin cavalry (mounted on worgs) usually select the Mounted Combat feat in place of the Alertness feat, which reduces their Spot and Listen check modifiers from +3 to +1.
 
 # Golem
 Immunity to Magic				KEY:Golem Shared ~ Immunity to Magic			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																VISIBLE:YES																					DESC:Golems have immunity to most magical and supernatural effects, except when otherwise noted.
@@ -1171,8 +1169,6 @@ Fiery Bite					KEY:Nessian Warhound ~ Fiery Bite				CATEGORY:Special Ability	TYP
 # Hippogriff
 Skills					KEY:Hippogriff ~ Skills						CATEGORY:Special Ability	TYPE:SpecialQuality																		VISIBLE:YES																					DESC:Hippogriffs have a +4 racial bonus on Spot checks.
 
-# Hobgoblin
-Skills					KEY:Hobgoblin ~ Skills						CATEGORY:Special Ability	TYPE:SpecialQuality																		VISIBLE:YES																					DESC:Hobgoblins have a +4 racial bonus on Move Silently checks.
 
 # Homunculus
 Poison					KEY:Homunculus ~ Poison						CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary																VISIBLE:YES																					DESC:Injury, Fortitude DC 13, initial damage sleep for 1 minute, secondary damage sleep for another 5d6 minutes. The save DC is Constitution-based and includes a +2 racial bonus.
@@ -1223,11 +1219,6 @@ Feats						KEY:Zelekhut ~ Feats						CATEGORY:Special Ability	TYPE:SpecialQualit
 Natural Invisibility			KEY:Invisible Stalker ~ Natural Invisibility		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural																VISIBLE:YES																					DESC:This ability is constant, allowing a stalker to remain invisible even when attacking. This ability is inherent and not subject to the invisibility purge spell.
 Improved Tracking				KEY:Invisible Stalker ~ Improved Tracking			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																VISIBLE:YES																					DESC:An invisible stalker is a consummate tracker and makes Spot checks instead of the usual Survival checks to trace a creature's passage.
 
-# Kobold
-Race Traits ~ Kobold												CATEGORY:Internal																																																																																																																																																																																																																																																																																																																																																																																																																																																																														ABILITY:Special Ability|AUTOMATIC|Kobold ~ Light Sensitivity|Kobold ~ Skills
-
-Light Sensitivity				KEY:Kobold ~ Light Sensitivity				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Weakness														VISIBLE:YES																					DESC:Kobolds are dazzled in bright sunlight or within the radius of a daylight spell.
-Skills					KEY:Kobold ~ Skills						CATEGORY:Special Ability	TYPE:SpecialQuality																		VISIBLE:YES																					DESC:Kobolds have a +2 racial bonus on Craft (trapmaking), Profession (miner), and Search checks.
 
 # Kraken
 Improved Grab				KEY:Kraken ~ Improved Grab					CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary																VISIBLE:YES																					DESC:To use this ability, the kraken must hit with an arm or tentacle attack. It can then attempt to start a grapple as a free action without provoking an attack of opportunity. If it wins the grapple check, it establishes a hold and can constrict.
@@ -1566,8 +1557,6 @@ Improved Grab				KEY:Ochre Jelly ~ Improved Grab				CATEGORY:Special Ability	TYP
 Split						KEY:Ochre Jelly ~ Split						CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																VISIBLE:YES																					DESC:Slashing and piercing weapons and electricity attacks deal no damage to an ochre jelly. Instead the creature splits into two identical jellies, each with half of the original's current hit points (round down). A jelly with 10 hit points or less cannot be further split and dies if reduced to 0 it points.
 Skills					KEY:Ochre Jelly ~ Skills					CATEGORY:Special Ability	TYPE:SpecialQuality																		VISIBLE:YES																					DESC:An ochre jelly has a +8 racial bonus on Climb checks and can always choose to take 10 on a Climb check, even if rushed or threatened.
 
-# Orc
-Light Sensitivity				KEY:Orc ~ Light Sensitivity					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Weakness														VISIBLE:YES																					DESC:Orcs are dazzled in bright sunlight or within the radius of a daylight spell.
 
 # Otyugh
 Constrict					KEY:Otyugh ~ Constrict						CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary																VISIBLE:YES																					DESC:An otyugh deals automatic tentacle damage with a successful grapple check.
@@ -2472,3 +2461,26 @@ Telekinesis			CATEGORY:AbilityFocus	TYPE:AbilityFocus
 Trample			CATEGORY:AbilityFocus	TYPE:AbilityFocus
 
 Race Size ~ Long		CATEGORY:Internal					DEFINE:RaceSizeIsLong|0	BONUS:VAR|RaceSizeIsLong|1
+
+###Block:
+Race Traits ~ Goblin		CATEGORY:Internal	ABILITY:Goblin Subrace|AUTOMATIC|Goblin ~ Base|!PREABILITY:1,CATEGORY=Internal,TYPE.AltSubraceChoice
+Race Traits ~ Hobgoblin		CATEGORY:Internal	ABILITY:Hobgoblin Subrace|AUTOMATIC|Hobgoblin ~ Base|!PREABILITY:1,CATEGORY=Internal,TYPE.AltSubraceChoice
+Race Traits ~ Orc			CATEGORY:Internal	ABILITY:Orc Subrace|AUTOMATIC|Orc ~ Base|!PREABILITY:1,CATEGORY=Internal,TYPE.AltSubraceChoice
+
+
+Goblin	KEY:Goblin ~ Base		CATEGORY:Internal	TYPE:GoblinSubrace.GoblinBase		BONUS:STAT|STR|-2|TYPE=Racial	BONUS:STAT|DEX|2|TYPE=Racial	BONUS:STAT|CHA|-2|TYPE=Racial	ABILITY:Goblin Race Trait|AUTOMATIC|Goblin ~ Skills|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DisableRacialTraits,TYPE.GoblinSkillBonus			ABILITY:Internal|AUTOMATIC|Language ~ Auto (Goblin)|Language ~ Auto (Common)|!PREABILITY:1,CATEGORY=Internal,TYPE.AutoLangReplace	ABILITY:Internal|AUTOMATIC|Language ~ Bonus (Draconic)|Language ~ Bonus (Elven)|Language ~ Bonus (Giant)|Language ~ Bonus (Gnoll)|Language ~ Bonus (Orc)|!PREABILITY:1,CATEGORY=Internal,TYPE.BonusLangReplace		
+Hobgoblin	KEY:Hobgoblin ~ Base	CATEGORY:Internal	TYPE:HobgoblinSubrace.HobgoblinBase	BONUS:STAT|DEX|2|TYPE=Racial	BONUS:STAT|CON|2|TYPE=Racial	ABILITY:Hobgoblin Race Trait|AUTOMATIC|Hobgoblin ~ Skills|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DisableRacialTraits,TYPE.HobgoblinSkillBonus	ABILITY:Internal|AUTOMATIC|Language ~ Auto (Goblin)|Language ~ Auto (Common)|!PREABILITY:1,CATEGORY=Internal,TYPE.AutoLangReplace	ABILITY:Internal|AUTOMATIC|Language ~ Bonus (Draconic)Language ~ Bonus (Dwarven)|Language ~ Bonus (Giant)|Language ~ Bonus (Infernal)|Language ~ Bonus (Orc)|!PREABILITY:1,CATEGORY=Internal,TYPE.BonusLangReplace	
+Orc		KEY:Orc ~ Base		CATEGORY:Internal	TYPE:OrcSubrace.OrcBase			BONUS:STAT|STR|4|TYPE=Racial	BONUS:STAT|INT,WIS,CHA|-2|TYPE=Racial	ABILITY:Orc Race Trait|AUTOMATIC|Orc ~ Light Sensitivity|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DisableRacialTraits,TYPE.OrcSkillBonus		ABILITY:Internal|AUTOMATIC|Language ~ Auto (Orc)|Language ~ Auto (Common)|!PREABILITY:1,CATEGORY=Internal,TYPE.AutoLangReplace	ABILITY:Internal|AUTOMATIC|Language ~ Bonus (Dwarven)|Language ~ Bonus (Giant)|Language ~ Bonus (Gnoll)|Language ~ Bonus (Goblin)|Language ~ Bonus (Undercommon)|!PREABILITY:1,CATEGORY=Internal,TYPE.BonusLangReplace	
+																																																																																								
+
+# Goblin
+Skills					KEY:Goblin ~ Skills						CATEGORY:Special Ability	TYPE:SpecialQuality																		VISIBLE:YES																					DESC:Goblins have a +4 racial bonus on Move Silently and Ride checks. Goblin cavalry (mounted on worgs) usually select the Mounted Combat feat in place of the Alertness feat, which reduces their Spot and Listen check modifiers from +3 to +1.	BONUS:SKILL|Move Silently,Ride|4|TYPE=Racial
+# Hobgoblin
+Skills					KEY:Hobgoblin ~ Skills						CATEGORY:Special Ability	TYPE:SpecialQuality																		VISIBLE:YES																					DESC:Hobgoblins have a +4 racial bonus on Move Silently checks.	BONUS:SKILL|Move Silently|4|TYPE=Racial
+# Kobold
+Race Traits ~ Kobold												CATEGORY:Internal																																																																																																																																																																																																																																																																																																																																																																																																																																																																														ABILITY:Special Ability|AUTOMATIC|Kobold ~ Light Sensitivity|Kobold ~ Skills
+
+Light Sensitivity				KEY:Kobold ~ Light Sensitivity				CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Weakness														VISIBLE:YES																					DESC:Kobolds are dazzled in bright sunlight or within the radius of a daylight spell.
+Skills					KEY:Kobold ~ Skills						CATEGORY:Special Ability	TYPE:SpecialQuality																		VISIBLE:YES																					DESC:Kobolds have a +2 racial bonus on Craft (trapmaking), Profession (miner), and Search checks.	BONUS:SKILL|Craft (Trapmaking),Profession (Miner),Search|2|TYPE=Racial
+# Orc
+Light Sensitivity				KEY:Orc ~ Light Sensitivity					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Weakness														VISIBLE:YES																					DESC:Orcs are dazzled in bright sunlight or within the radius of a daylight spell.
