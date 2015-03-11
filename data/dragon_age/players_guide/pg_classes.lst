@@ -2,7 +2,7 @@
 
 
 # Class Name	Hit Dice	Type
-CLASS:Mage		HD:6		TYPE:PC
+CLASS:Mage		HD:6		TYPE:PC	DEFINE:MageLVL|0	BONUS:VAR|MageLVL|CL	MAXLEVEL:20
 # Class Name	Multiple Requirements					Required Var. value
 CLASS:Mage		PREMULT:1,[!PRECLASS:1,%],[PRECLASS:1,Mage]	PREVAREQ:AllowMage,1
 ###Block
@@ -10,7 +10,13 @@ CLASS:Mage		PREMULT:1,[!PRECLASS:1,%],[PRECLASS:1,Mage]	PREVAREQ:AllowMage,1
 ###Block
 1	BONUS:ABILITYPOOL|Mage Secondary Ability|(CL+1)/2
 2	BONUS:ABILITYPOOL|Mage Primary Ability|CL/2
+1	BONUS:ABILITYPOOL|Mage Talent|1
+3	BONUS:ABILITYPOOL|Mage Talent|1
+5	BONUS:ABILITYPOOL|Mage Talent|1
 ###Block
+1	BONUS:VAR|POOL_Spell|min(classlevel("Mage")/2,5)
+1	BONUS:VAR|POOL_Mana_Points|min(classlevel("Mage"),10)
+1	BONUS:VAR|Mana_Points_Stat|classlevel("Mage")*MAG
 1	ABILITY:Mage Class Power|AUTOMATIC|Mage ~ Level 1
 2	ABILITY:Mage Class Power|AUTOMATIC|Mage ~ Level 2
 3	ABILITY:Mage Class Power|AUTOMATIC|Mage ~ Level 3
@@ -21,7 +27,7 @@ CLASS:Mage		PREMULT:1,[!PRECLASS:1,%],[PRECLASS:1,Mage]	PREVAREQ:AllowMage,1
 1:REPEATLEVEL:1	DONOTADD:SKILLPOINTS
 
 # Class Name	Hit Dice	Type
-CLASS:Rogue		HD:6		TYPE:PC
+CLASS:Rogue		HD:6		TYPE:PC		MAXLEVEL:20
 # Class Name	Multiple Requirements					Required Var. value
 CLASS:Rogue		PREMULT:1,[!PRECLASS:1,%],[PRECLASS:1,Rogue]	PREVAREQ:AllowRogue,1
 ###Block
@@ -41,7 +47,7 @@ CLASS:Rogue		PREMULT:1,[!PRECLASS:1,%],[PRECLASS:1,Rogue]	PREVAREQ:AllowRogue,1
 
 
 # Class Name	Hit Dice	Type
-CLASS:Warrior	HD:6		TYPE:PC
+CLASS:Warrior	HD:6		TYPE:PC		MAXLEVEL:20
 # Class Name	Multiple Requirements					Required Var. value
 CLASS:Warrior	PREMULT:1,[!PRECLASS:1,%],[PRECLASS:1,Warrior]	PREVAREQ:AllowWarrior,1
 ###Block
