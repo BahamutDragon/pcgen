@@ -23,7 +23,7 @@ CLASS:Psychic	STARTSKILLPTS:6	CSKILL:Bluff|Concentration|TYPE=Craft|Diplomacy|Ga
 # Class Name	Hit Dice	Type			Abbreviation	Source Page		Combat bonus										Bonus
 CLASS:Beastmaster	HD:8		TYPE:Prestige.PC	ABB:BtMst		SOURCEPAGE:p.10	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Required Feat				Required Skill
-CLASS:Beastmaster	PREFEAT:2,Psychic Ability,Telepathy	PRESKILL:3,Handle Animal=7,Mental Contact=7,Survival=7
+CLASS:Beastmaster	PREABILITY:2,CATEGORY=FEAT,Psychic Ability,Telepathy	PRESKILL:3,Handle Animal=7,Mental Contact=7,Survival=7
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Beastmaster	STARTSKILLPTS:6	CSKILL:Balance|Climb|Concentration|Handle Animal|Hide|Jump|Knowledge (Nature)|Listen|Move Silently|Ride|Spot|Survival|Swim|TYPE=Psychic
 ###Block:
@@ -43,7 +43,7 @@ CLASS:Beastmaster	STARTSKILLPTS:6	CSKILL:Balance|Climb|Concentration|Handle Anim
 # Class Name		Hit Dice	Type			Abbreviation	Source Page		Combat bonus															Bonus
 CLASS:Fire-Starter	HD:6		TYPE:Prestige.PC	ABB:FS		SOURCEPAGE:p.11	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Multiple Requirements														Required Skill
-CLASS:Fire-Starter	PREMULT:1,[PREFEAT:2,Psychic Ability,Psychokinesis],[PREFEAT:1,Wild Talent Psychic(Pyrokinesis)]	PRESKILL:1,TYPE.Pyrokinesis=8
+CLASS:Fire-Starter	PREMULT:1,[PREABILITY:2,CATEGORY=FEAT,Psychic Ability,Psychokinesis],[PREABILITY:1,CATEGORY=FEAT,Wild Talent Psychic(Pyrokinesis)]	PRESKILL:1,TYPE.Pyrokinesis=8
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Fire-Starter	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Intimidate|TYPE=Knowledge|Listen|TYPE=Perform|TYPE=Profession|TYPE=Pyrokinesis|Search|Sense Motive|Spot
 ###Block:
@@ -65,7 +65,7 @@ CLASS:Fire-Starter	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Intimidate|TY
 # Class Name		Hit Dice	Type			Abbreviation	Source Page		Combat bonus										Bonus
 CLASS:Ghost Stalker	HD:8		TYPE:Prestige.PC	ABB:GS		SOURCEPAGE:p.13	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Required Feat					Required Skill
-CLASS:Ghost Stalker	PREFEAT:2,Psychic Ability,Clairsentience	PRESKILL:1,TYPE.Psychic Sense=8
+CLASS:Ghost Stalker	PREABILITY:2,CATEGORY=FEAT,Psychic Ability,Clairsentience	PRESKILL:1,TYPE.Psychic Sense=8
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Ghost Stalker	STARTSKILLPTS:4	CSKILL:Heal|Listen|Knowledge (Spirits)|TYPE=Profession|Search|Spot|Survival|TYPE=Psychic
 1	ABILITY:Ghost Stalker Class Feature|AUTOMATIC|Ghost Stalker ~ Weapon and Armor Proficiency
@@ -86,7 +86,7 @@ CLASS:Ghost Stalker	STARTSKILLPTS:4	CSKILL:Heal|Listen|Knowledge (Spirits)|TYPE=
 # Class Name	Hit Dice	Type			Abbreviation	Source Page		Combat bonus										Bonus
 CLASS:Mind Hunter	HD:8		TYPE:Prestige.PC	ABB:MH		SOURCEPAGE:p.14	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required Check Base	Required Feat	Multiple Requirements								Required Skill				Required Text											PRETOTALAB
-CLASS:Mind Hunter	PRECHECKBASE:1,Will=3	PREFEAT:1,Track	PREMULT:1,[!PREFEAT:1,TYPE.Psychic],[PRECLASS:1,Mind Hunter=1]	PRESKILL:1,Knowledge (Psychic)=3	PRETEXT:Special: Must have overcome a psychic creature in single combat.	PRETOTALAB:5
+CLASS:Mind Hunter	PRECHECKBASE:1,Will=3	PREABILITY:1,CATEGORY=FEAT,Track	PREMULT:1,[!PREABILITY:1,CATEGORY=FEAT,TYPE.Psychic],[PRECLASS:1,Mind Hunter=1]	PRESKILL:1,Knowledge (Psychic)=3	PRETEXT:Special: Must have overcome a psychic creature in single combat.	PRETOTALAB:5
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Mind Hunter	STARTSKILLPTS:6	CSKILL:Climb|Concentration|TYPE=Craft|Hide|Intimidate|Jump|Knowledge (Psychic)|Listen|Move Silently|TYPE=Profession|Search|Sense Motive|Spot|Survival
 ###Block:
@@ -110,15 +110,15 @@ CLASS:Mind Hunter	STARTSKILLPTS:6	CSKILL:Climb|Concentration|TYPE=Craft|Hide|Int
 # Class Name		Hit Dice	Type			Abbreviation	Source Page		Combat bonus															Bonus
 CLASS:Psychic Adept	HD:8		TYPE:PC.Prestige	ABB:Pad		SOURCEPAGE:p.16	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Required Feat						Required Skill
-CLASS:Psychic Adept	PREFEAT:2,Psychic Ability,Psychometabolism	PRESKILL:3,Balance=8,TYPE.PsychicBodyControl=8,Concentration=8
+CLASS:Psychic Adept	PREABILITY:2,CATEGORY=FEAT,Psychic Ability,Psychometabolism	PRESKILL:3,Balance=8,TYPE.PsychicBodyControl=8,Concentration=8
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Psychic Adept	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|Escape Artist|Heal|Hide|Jump|Knowledge (Psychic)|Listen|Move Silently|TYPE=Profession|Search|Sense Motive|Spot|Swim|Tumble|TYPE=Psychic
 1	BONUS:UDAM|CLASS.Monk|CL
 ###Block:
-1	ABILITY:Psychic Adept Class Feature|AUTOMATIC|Psychic Adept ~ Psychic Stamina|Psychic Adept ~ Psychic Strike					AUTO:FEAT|Improved Unarmed Strike|Psychic Stamina
+1	ABILITY:Psychic Adept Class Feature|AUTOMATIC|Psychic Adept ~ Psychic Stamina|Psychic Adept ~ Psychic Strike					ABILITY:FEAT|AUTOMATIC|Improved Unarmed Strike|Psychic Stamina
 2	ABILITY:Psychic Adept Class Feature|AUTOMATIC|Psychic Adept ~ Battlemind
 3	ABILITY:Psychic Adept Class Feature|AUTOMATIC|Psychic Adept ~ Body Equilibrium|Psychic Adept ~ Perfect Balance
-4	ABILITY:Psychic Adept Class Feature|AUTOMATIC|Psychic Adept ~ Mind Over Matter										AUTO:FEAT|Mind Over Matter
+4	ABILITY:Psychic Adept Class Feature|AUTOMATIC|Psychic Adept ~ Mind Over Matter										ABILITY:FEAT|AUTOMATIC|Mind Over Matter
 5	ABILITY:Psychic Adept Class Feature|AUTOMATIC|Psychic Adept ~ Psychic Leap
 6	ABILITY:Psychic Adept Class Feature|AUTOMATIC|Psychic Adept ~ Psychic Speed
 7	ABILITY:Psychic Adept Class Feature|AUTOMATIC|Psychic Adept ~ Improved Body Control
@@ -133,7 +133,7 @@ CLASS:Psychic Adept	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|Escape Ar
 # Class Name		Hit Dice	Type			Abbreviation	Source Page		Combat bonus															Bonus
 CLASS:Psychic Healer	HD:6		TYPE:PC.Prestige	ABB:PsyH		SOURCEPAGE:p.17	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Multiple Requirements															Required Skill
-CLASS:Psychic Healer	PREMULT:1,[PREFEAT:2,Psychic Ability,Psychometabolism],[PREFEAT:1,Wild Talent(Psychic (Psychic Healing))]	PRESKILL:2,Heal=6,TYPE.Psychic Healing=6
+CLASS:Psychic Healer	PREMULT:1,[PREABILITY:2,CATEGORY=FEAT,Psychic Ability,Psychometabolism],[PREABILITY:1,CATEGORY=FEAT,Wild Talent(Psychic (Psychic Healing))]	PRESKILL:2,Heal=6,TYPE.Psychic Healing=6
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Psychic Healer	STARTSKILLPTS:6	CSKILL:Concentration|TYPE=Craft|Intimidate|TYPE=Knowledge|Heal|Listen|TYPE=Profession|Search|Sense Motive|Spot|TYPE=Psychometabolism
 1	ABILITY:Psychic Healer Class Feature|AUTOMATIC|Psychic Healer ~ Weapon and Armor Proficiency

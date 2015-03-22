@@ -62,7 +62,7 @@ CLASS:Athasian Bard	STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Climb|TYPE=Cra
 1																													ABILITY:Special Ability|AUTOMATIC|Athasian Bard ~ Poison Use
 #streetsmart
 2								BONUS:SKILL|Gather Information,Intimidate|2|TYPE=Competence
-3																																									AUTO:FEAT|Quick Draw
+3																																									ABILITY:FEAT|AUTOMATIC|Quick Draw
 4	BONUS:ABILITYPOOL|Bard Trade Secret|CL/4
 5																													ABILITY:Special Ability|AUTOMATIC|Athasian Bard ~ Mental Resistance
 6																		BONUS:VAR|AthasianBardInitiativeBonus|min(3,ceil((CL-5)/5))*2	ABILITY:Special Ability|AUTOMATIC|Athasian Bard ~ Improved Poison Use
@@ -131,7 +131,7 @@ CLASS:Templar	SPELLSTAT:CHA	SPELLTYPE:Divine	MEMORIZE:NO	KNOWNSPELLS:LEVEL=0|LEV
 # Class Name		Hit Dice	Type			Class Type		Abbreviation	Source Page		Save checks bonus								Combat bonus					Monster Role
 CLASS:Arch Defiler	HD:4		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:ArD		SOURCEPAGE:p.85	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	ROLE:Wizard
 # Class Name	Multiple Requirements											Required Skill						Required Spell School																		Req. Spell Type
-CLASS:Arch Defiler	PRESKILL:2,Knowledge (Arcana)=8,Spellcraft=8	PRESPELLTYPE:1,Arcane=3	PREFEAT:2,Agonizing Radius,Great Fortitude	PREFEAT:1,TYPE=Metamagic	PRETEXT:Must be a defiler
+CLASS:Arch Defiler	PRESKILL:2,Knowledge (Arcana)=8,Spellcraft=8	PRESPELLTYPE:1,Arcane=3	PREABILITY:2,CATEGORY=FEAT,Agonizing Radius,Great Fortitude	PREABILITY:1,CATEGORY=FEAT,TYPE=Metamagic	PRETEXT:Must be a defiler
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Arch Defiler	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Decipher Script|Disguise|Intimidate|TYPE=Knowledge|TYPE=Profession|Spellcraft
 #
@@ -152,7 +152,7 @@ CLASS:Arch Defiler	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Deciphe
 # Class Name		Hit Dice	Type			Class Type		Abbreviation	Source Page		Save checks bonus								Combat bonus					Monster Role
 CLASS:Arena Champion	HD:12		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:ArCh		SOURCEPAGE:p.87	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	
 # Class Name	Multiple Requirements											Required Skill						Required Spell School																		Req. Spell Type
-CLASS:Arena Champion	PRESKILL:1,TYPE.Perform=6	PREATT:5	PREFEAT:1,Weapon Focus	PREFEAT:1,Toughness
+CLASS:Arena Champion	PRESKILL:1,TYPE.Perform=6	PREATT:5	PREABILITY:1,CATEGORY=FEAT,Weapon Focus	PREABILITY:1,CATEGORY=FEAT,Toughness
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Arena Champion	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Intimidate|Jump|TYPE=Perform|TYPE=Profession|Sense Motive|Tumble
 #
@@ -161,7 +161,7 @@ CLASS:Arena Champion	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Intim
 ###Block: Arena Champion abilities by level
 1	ABILITY:Special Ability|AUTOMATIC|Crowd Support
 2	ABILITY:Special Ability|AUTOMATIC|Reputation
-3	ADD:FEAT|Weapon Specialization
+3	ADD:ABILITY|FEAT|VIRTUAL|Weapon Specialization
 4	BONUS:ABILITYPOOL|Signature Move|1
 6	ABILITY:Special Ability|AUTOMATIC|Fame
 7	BONUS:ABILITYPOOL|Signature Move|1
@@ -172,7 +172,7 @@ CLASS:Arena Champion	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Intim
 # Class Name		Hit Dice	Type			Class Type		Abbreviation	Source Page		Save checks bonus								Combat bonus					Monster Role
 CLASS:Dune Trader	HD:6		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:DT		SOURCEPAGE:p.90	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|(3*classlevel("APPLIEDAS=NONEPIC"))/4|TYPE=Base.REPLACE	
 # Class Name	Multiple Requirements											Required Skill						Required Spell School																		Req. Spell Type
-CLASS:Dune Trader	PRESKILL:5,Appraise=5,Bluff=5,Diplomacy=7,Profession (Merchant)=2,Sense Motive=5	PREFEAT:1,Trader	PRETEXT:Must be accepted into a merchant house
+CLASS:Dune Trader	PRESKILL:5,Appraise=5,Bluff=5,Diplomacy=7,Profession (Merchant)=2,Sense Motive=5	PREABILITY:1,CATEGORY=FEAT,Trader	PRETEXT:Must be accepted into a merchant house
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Dune Trader	STARTSKILLPTS:8	CSKILL:Appraise|Bluff|TYPE=Craft|Decipher Script|Diplomacy|Disguise|Forgery|Gather Information|Hide|Intimidate|Listen|Move Silently|Open Lock|TYPE=Profession|Ride|Search|Sense Motive|Sleight of Hand|Speak Language|Spot
 #
@@ -219,7 +219,7 @@ CLASS:Elementalist	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Heal|Knowledg
 # Class Name		Hit Dice	Type			Class Type		Abbreviation	Source Page		Save checks bonus								Combat bonus					Monster Role
 CLASS:Grove Master	HD:8		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:GM		SOURCEPAGE:p.96	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	
 # Class Name	Multiple Requirements											Required Skill						Required Spell School																		Req. Spell Type
-CLASS:Grove Master	PRESKILL:3,Knowledge (nature)=10,Survival=5,Hide=4	PRESPELLTYPE:1,Divine=3	PREFEAT:1,Wastelander	PRETEXT:Must gain the trust of a Spirit of the Land
+CLASS:Grove Master	PRESKILL:3,Knowledge (nature)=10,Survival=5,Hide=4	PRESPELLTYPE:1,Divine=3	PREABILITY:1,CATEGORY=FEAT,Wastelander	PRETEXT:Must gain the trust of a Spirit of the Land
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Grove Master	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Disguise|Handle Animal|Heal|Hide|Knowledge (nature)|Listen|Move Silently|TYPE=Profession|Ride|Spellcraft|Spot|Survival
 #
@@ -242,7 +242,7 @@ CLASS:Grove Master	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Dis
 # Class Name		Hit Dice	Type			Class Type		Abbreviation	Source Page		Save checks bonus								Combat bonus					Monster Role
 CLASS:Master Scout	HD:8		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:MS		SOURCEPAGE:p.99	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|3*classlevel("APPLIEDAS=NONEPIC")/4|TYPE=Base.REPLACE	
 # Class Name	Multiple Requirements											Required Skill						Required Spell School																		Req. Spell Type
-CLASS:Master Scout	PRESKILL:1,Survival=8	PREFEAT:2,Track,Wastelander
+CLASS:Master Scout	PRESKILL:1,Survival=8	PREABILITY:2,CATEGORY=FEAT,Track,Wastelander
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Master Scout	STARTSKILLPTS:6	CSKILL:Balance|Climb|TYPE=Craft|Handle Animal|Hide|Jump|Knowledge (nature)|Listen|Move Silently|Spot|Survival|Use Rope
 #
@@ -254,14 +254,14 @@ CLASS:Master Scout	STARTSKILLPTS:6	CSKILL:Balance|Climb|TYPE=Craft|Handle Animal
 3	ABILITY:Special Ability|AUTOMATIC|Master Scout ~ Uncanny Stealth
 4	ABILITY:Special Ability|AUTOMATIC|Master Scout ~ Favored Terrain
 5	ABILITY:Special Ability|AUTOMATIC|Master Scout ~ Swift Tracker
-6	ADD:FEAT|1|Endurance,Great Fortitude,Iron Will,Lightning Reflexes,Mobility,Toughness
+6	ADD:ABILITY|FEAT|VIRTUAL|1|Endurance,Great Fortitude,Iron Will,Lightning Reflexes,Mobility,Toughness
 
 
 
 # Class Name		Hit Dice	Type			Class Type		Abbreviation	Source Page		Save checks bonus								Combat bonus					Monster Role
 CLASS:Poisonmaster	HD:6		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:PM		SOURCEPAGE:p.101	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|3*classlevel("APPLIEDAS=NONEPIC")/4|TYPE=Base.REPLACE	
 # Class Name	Multiple Requirements											Required Skill						Required Spell School																		Req. Spell Type
-CLASS:Poisonmaster	PRESKILL:2,Craft (poisonmaking)=8,Craft (alchemy)=4	PREFEAT:1,Skill Focus (Craft (poisonmaking))
+CLASS:Poisonmaster	PRESKILL:2,Craft (poisonmaking)=8,Craft (alchemy)=4	PREABILITY:1,CATEGORY=FEAT,Skill Focus (Craft (poisonmaking))
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Poisonmaster	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Concentration|TYPE=Craft|Decipher Script|Diplomacy|Disguise|Gather Information|Heal|Hide|Intimidate|Knowledge (nature)|Listen|Move Silently|TYPE=Perform|TYPE=Profession|Sense Motive|Sleight of Hand|Spot
 #
@@ -285,7 +285,7 @@ CLASS:Poisonmaster	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Concentration|TYPE=Craf
 # Class Name		Hit Dice	Type			Class Type		Abbreviation	Source Page		Save checks bonus								Combat bonus					Monster Role
 CLASS:Psiologist	HD:4		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:Pst		SOURCEPAGE:p.104	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	
 # Class Name	Multiple Requirements											Required Skill						Required Spell School																		Req. Spell Type
-CLASS:Psiologist	PREALIGN:1,LG,LN,LE	PRESKILL:2,Knowledge (psionics)=12,Psicraft=12	PREFEAT:3,Psionic Affinity,Skill Focus (Knowledge (psionics)),Skill Focus (Psicraft)	PREFEAT:2,TYPE=MetaPsionic	PRESPELLTYPE:1,Psionic=5	PRETEXT:Must have trained in at least three different psionic academies or schools and must still be a member in good standing in one of them.
+CLASS:Psiologist	PREALIGN:1,LG,LN,LE	PRESKILL:2,Knowledge (psionics)=12,Psicraft=12	PREABILITY:3,CATEGORY=FEAT,Psionic Affinity,Skill Focus (Knowledge (psionics)),Skill Focus (Psicraft)	PREABILITY:2,CATEGORY=FEAT,TYPE=MetaPsionic	PRESPELLTYPE:1,Psionic=5	PRETEXT:Must have trained in at least three different psionic academies or schools and must still be a member in good standing in one of them.
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Psiologist	STARTSKILLPTS:2	CSKILL:Autohypnosis|Bluff|Concentration|Diplomacy|TYPE=Knowledge|Literacy|Psicraft|Sense Motive|Use Psionic Device
 #
@@ -324,7 +324,7 @@ CLASS:Templar Knight	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|Templar Knight ~ Weapon and Armor Proficiency
 ###Block: Templar Knight abilities by level
-1	CAST:0,0			AUTO:FEAT|Secular Authority	ABILITY:Special Ability|AUTOMATIC|Templar Knight ~ Templar Knight Spelllike Abilities|Templar Knight ~ Smite Opponents
+1	CAST:0,0			ABILITY:FEAT|AUTOMATIC|Secular Authority	ABILITY:Special Ability|AUTOMATIC|Templar Knight ~ Templar Knight Spelllike Abilities|Templar Knight ~ Smite Opponents
 2	CAST:0,1			ABILITY:Special Ability|AUTOMATIC|Templar Knight ~ Fearless Presence
 3	CAST:0,1,0			BONUS:ABILITYPOOL|Fighter Feat|CL/3
 4	CAST:0,1,1

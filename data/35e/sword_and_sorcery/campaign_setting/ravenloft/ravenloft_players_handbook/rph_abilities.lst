@@ -1,13 +1,14 @@
 # CVS $Revision: $ $Author: $ -- Thu Aug  7 12:47:32 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 
 # Ability Name			Unique Key								Category of Ability		Type				Visible	Define								Description																	Ability												Modify VAR												Source Page		Aspects
-CATEGORY=Internal|Default.MOD																					DEFINE:Outcast_Rating|0																								ABILITY:Special Ability|AUTOMATIC|Outcast Rating|PREVARGTEQ:Outcast_Rating,1	CATEGORY=Internal|Default.MOD	BONUS:ABILITYPOOL|Region|1|PRECLASS:1,TYPE.Base=1|TYPE=Base
+CATEGORY=Internal|Default.MOD																					DEFINE:Outcast_Rating|0																								ABILITY:Special Ability|AUTOMATIC|Outcast Rating|PREVARGTEQ:Outcast_Rating,1	
+CATEGORY=Internal|Default.MOD	BONUS:ABILITYPOOL|Region|1|PRECLASS:1,TYPE.Base=1|TYPE=Base
 
 
 Outcast Rating												CATEGORY:Special Ability	TYPE:SpecialQuality												DESC:%1|Outcast_Rating																																												ASPECT:NAME|Outcast Rating %1|Outcast_Rating
 
-
-
+Final Rest					CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike
+Shield of Ezra				CATEGORY:Special Ability	TYPE:SpecialQuality
 
 
 Weapon and Armor Proficiency	KEY:Monster Hunter ~ Weapon and Armor Proficiency	CATEGORY:Special Ability																																		ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfMedium|TYPE=WeaponProfSimple
@@ -24,8 +25,8 @@ Studied Foe				KEY:Specialty Hunter ~ Studied Foe				CATEGORY:Special Ability	TY
 
 ###Block:
 # Ability Name							Unique Key										Output Name						Category of Ability		Type									Visible	Define																																			Description																Stackable?	Multiple?	Choose		Template				Automatically Gained Feat					Ability																									Bonus to Ability Pool										Modify VAR																															Source Page
-Specialty Hunter ~ Beast Hunter																						CATEGORY:Internal			TYPE:Specialty Hunter Selection																																																																																ABILITY:Special Ability|AUTOMATIC|Lycanthrope Resistant																	BONUS:ABILITYPOOL|Beast Hunter Courage|1|PREVARGTEQ:SpecialtyHunterLVL,2	BONUS:VAR|LycanthropeResistantBonus|SpecialtyHunterLVL
-Specialty Hunter ~ Ghost Hunter																						CATEGORY:Internal			TYPE:Specialty Hunter Selection																																																																							AUTO:FEAT|Ghostsight|PREVARGTEQ:SpecialtyHunterLVL,2	ABILITY:Special Ability|AUTOMATIC|Basic Turning|Ghost Hunter Turning															BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility					BONUS:VAR|TurnLevelBase|CL+classlevel("Monster Hunter")|TYPE=Level.REPLACE	BONUS:VAR|TurnDamagePlusBase|SpecialtyHunterLVL|TYPE=Level.REPLACE
+Specialty Hunter ~ Beast Hunter																						CATEGORY:Internal			TYPE:Specialty Hunter Selection																																																																																ABILITY:Special Ability|AUTOMATIC|Lycanthrope Resistant																	ABILITY:FEAT|AUTOMATIC|Courage|PREVARGTEQ:SpecialtyHunterLVL,2	BONUS:VAR|LycanthropeResistantBonus|SpecialtyHunterLVL
+Specialty Hunter ~ Ghost Hunter																						CATEGORY:Internal			TYPE:Specialty Hunter Selection																																																																							ABILITY:FEAT|AUTOMATIC|Ghostsight|PREVARGTEQ:SpecialtyHunterLVL,2	ABILITY:Special Ability|AUTOMATIC|Basic Turning|Ghost Hunter Turning													BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility					BONUS:VAR|TurnLevelBase|CL+classlevel("Monster Hunter")|TYPE=Level.REPLACE	BONUS:VAR|TurnDamagePlusBase|SpecialtyHunterLVL|TYPE=Level.REPLACE
 Specialty Hunter ~ Vampire Hunter																						CATEGORY:Internal			TYPE:Specialty Hunter Selection																																																																																ABILITY:Special Ability|AUTOMATIC|Basic Turning|Vampire Hunter Turning	ABILITY:Special Ability|AUTOMATIC|Drain Resistant|PREVARGTEQ:SpecialtyHunterLVL,2	BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility					BONUS:VAR|TurnLevelBase|CL+classlevel("Monster Hunter")|TYPE=Level.REPLACE	BONUS:VAR|TurnDamagePlusBase|SpecialtyHunterLVL|TYPE=Level.REPLACE
 Specialty Hunter ~ Witch Hunter																						CATEGORY:Internal			TYPE:Specialty Hunter Selection																																																																																ABILITY:Special Ability|AUTOMATIC|Scent Arcane	ABILITY:Special Ability|AUTOMATIC|Hexbraker|PREVARGTEQ:SpecialtyHunterLVL,2																			BONUS:VAR|ScentArcaneRadius|max(30,10+5*SpecialtyHunterLVL)
 Specialty Hunter ~ Demon Hunter																						CATEGORY:Internal			TYPE:Specialty Hunter Selection																																																																																ABILITY:Special Ability|AUTOMATIC|Scent Infernal	ABILITY:Special Ability|AUTOMATIC|Censure Demons|PREVARGTEQ:SpecialtyHunterLVL,2																	BONUS:VAR|ScentInfernalRadius|max(30,10+5*SpecialtyHunterLVL)	BONUS:VAR|CensurePowerLVL|SpecialtyHunterLVL|PREVARGTEQ:SpecialtyHunterLVL,2
@@ -36,9 +37,9 @@ Vampire Hunter Turning																								CATEGORY:Special Ability	TYPE:Inte
 Lycanthrope Resistant																								CATEGORY:Special Ability	TYPE:ClassAbility.Supernatural.SpecialQuality		VISIBLE:YES	DEFINE:LycanthropeResistantBonus|0																															DESC:+%1 bonus on saving throws against lycanthropy|LycanthropeResistantBonus																																																																																																	SOURCEPAGE:RLPHB
 Ghost Hunter Turning																								CATEGORY:Special Ability	TYPE:Internal							VISIBLE:NO																																																																																																																		BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base	BONUS:VAR|TurnCheckBase|CHA|TYPE=Base																			SOURCEPAGE:RLPHB
 Basic Turning																									CATEGORY:Special Ability	TYPE:Turning.Internal.ClassAbility				VISIBLE:NO	DEFINE:AllowExtraTurning|0	DEFINE:AllowImprovedTurning|0	DEFINE:TurnTimesBase|0	DEFINE:TurnLevelBase|0	DEFINE:TurnDiceBase|0	DEFINE:TurnDieSizeBase|0	DEFINE:TurnDamagePlusBase|0	DEFINE:TurnCheckBase|0																																																																														BONUS:VAR|AllowExtraTurning,AllowImprovedTurning|1|TYPE=Base	BONUS:VAR|TurnDiceBase|2|TYPE=Base	BONUS:VAR|TurnDieSizeBase|6|TYPE=Base	BONUS:VAR|TurnDamagePlusBase|CHA|TYPE=Stat
-
-
-
+Censure Demons																									CATEGORY:Special Ability	TYPE:SpecialQuality
+Drain Resistant																									CATEGORY:Special Ability	TYPE:SpecialQuality
+Hexbraker																										CATEGORY:Special Ability	TYPE:SpecialQuality
 
 # Studied Foe
 #Studied Foe/Intelligent Corporeal Undead (Other)	KEY:Studied Foe ~ Intelligent Corporeal Undead (Other)		CATEGORY:Special Ability	TYPE:StudiedFoeSelection	DEFINE:xxxStudiedFoeBonus|0	BONUS:VAR|xxxStudiedFoeBonus|StudiedFoeBase	DESC:+%1 on sense motive checks, attack rolls and saving throws vs. xxx|xxxStudiedFoeBonus

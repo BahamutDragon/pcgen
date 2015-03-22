@@ -1,2604 +1,903 @@
-# CVS $Revision: $ $Author: $ -- Fri Oct 11 08:51:03 2013 -- reformated by prettylst.pl v1.50 (build 20400)
+# CVS $Revision: $ $Author: $ -- Thu Feb 12 11:39:05 2015 -- reformated by PCGen PrettyLST v6.04.01
+SOURCELONG:Monster Manual II	SOURCESHORT:MM2	SOURCEDATE:2002-09
 
-STARTPACK:Default ~ Asperi
-STAT:STR=11|DEX=10|CON=11|INT=11|WIS=10|CHA=10
-
-#STAT:STR=13|DEX=12|CON=15|INT=13|WIS=12|CHA=10
-#Skills: Intimidate +7, Listen +10, Spot +10,Wilderness Lore +8
-
-SKILL:Intimidate	RANK:7
-SKILL:Listen	RANK:7
-SKILL:Spot		RANK:7
-SKILL:Survival	RANK:7
-#Feats: Alertness, Flyby Attack
-FEAT:Alertness
-FEAT:Flyby Attack
-ALIGN:NG
+STARTPACK:Fire Bat Familiar	TYPE:Companion	VISIBLE:NO
+RACE:Companion ~ Fire Bat	!PRERACE:1,%
+ALIGN:NE
+SKILL:Hide		RANK:3
+SKILL:Listen	RANK:3
+SKILL:Spot		RANK:3
+ABILITY:CATEGORY=FEAT|Dodge
+ABILITY:CATEGORY=FEAT|Weapon Finesse
+ABILITY:CATEGORY=FEAT|Flyby Attack
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 
 
-STARTPACK:Default Abeil (Vassal ~ Craft)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Abeil (Vassal)]
+STARTPACK:Fiendwurm's Demonic Belch	TYPE:SpecialAttack	VISIBLE:YES	APPLY:INSTANT	EQUIPBUY:0
+SELECT:roll("1d100")
+GEAR:Jovoc	OPTION:1,50
+GEAR:Quasit	OPTION:51,75
+GEAR:Vrock	OPTION:76,100
+#
+# STARTPACK:Beholder Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Beholder]
+# RACE:Beholder	!PRERACE:1,%
+# NAME:Beholder
+# STAT:STR=10|DEX=10|CHA=10|CON=10|INT=10|WIS=10
+STARTPACK:Abeil (Vassal) Default	TYPE:DefaultMonster.MonstrousHumanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Abeil (Vassal)]
 RACE:Abeil (Vassal)	!PRERACE:1,%
-NAME:Abeil (Vassal)
-STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=11
-SKILL:TYPE.Craft	RANK:4	COUNT:1
-SKILL:Listen	RANK:1
-SKILL:Search	RANK:1
-SKILL:Survival	RANK:2
-FEAT:Dodge
-GEAR:Flail		SIZE:PC	LOCATION:Carried
-GEAR:Javelin	SIZE:PC	LOCATION:Carried
+NAME:Vassal Abeil
+STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
 
-STARTPACK:Default Abeil (Vassal ~ Knowledge)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Abeil (Vassal)]
-RACE:Abeil (Vassal)	!PRERACE:1,%
-NAME:Abeil (Vassal)
-STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=11
-SKILL:TYPE.Knowledge	RANK:4	COUNT:1
-SKILL:Listen		RANK:1
-SKILL:Search		RANK:1
-SKILL:Survival		RANK:2
-FEAT:Dodge
-GEAR:Flail		SIZE:PC	LOCATION:Carried
-GEAR:Javelin	SIZE:PC	LOCATION:Carried
-
-STARTPACK:Default Abeil (Soldier)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Abeil (Soldier)]
+STARTPACK:Abeil (Soldier) Default	TYPE:DefaultMonster.MonstrousHumanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Abeil (Soldier)]
 RACE:Abeil (Soldier)	!PRERACE:1,%
-NAME:Abeil (Soldier)
+NAME:Soldier Abeil
 STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
-SKILL:Listen		RANK:2
-SKILL:Sense Motive	RANK:2
-SKILL:Spot			RANK:2
-SKILL:Survival		RANK:3
-FEAT:Dodge
-FEAT:Alertness
-FEAT:Flyby Attack
-GEAR:Ranseur			SIZE:PC	LOCATION:Carried
-GEAR:Abeil Soldier's Longbow	SIZE:PC	LOCATION:Carried
 
-STARTPACK:Default Abeil (Queen)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Abeil (Queen)]
+STARTPACK:Abeil (Queen) Default	TYPE:DefaultMonster.MonstrousHumanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Abeil (Queen)]
 RACE:Abeil (Queen)	!PRERACE:1,%
-NAME:Abeil (Queen)
+NAME:Queen Abeil
 STAT:STR=10|DEX=11|CON=10|INT=11|WIS=11|CHA=10
-SKILL:Concentration				RANK:10
-SKILL:Diplomacy					RANK:4
-SKILL:Intimidate					RANK:10
-SKILL:Knowledge (Nobility and Royalty)	RANK:10
-SKILL:Knowledge (Nature)			RANK:10
-SKILL:Listen					RANK:8
-SKILL:Sense Motive				RANK:8
-SKILL:Spot						RANK:3
-SKILL:Survival					RANK:10
-FEAT:Dodge
-FEAT:Flyby Attack
-FEAT:Improved Initiative
-FEAT:TYPE=ItemCreation
-FEAT:TYPE=Metamagic
-GEAR:Sickle				SIZE:PC	LOCATION:Carried
-GEAR:Abeil Queen's Longbow	SIZE:PC	LOCATION:Carried
 
-STARTPACK:Default Ash Rat	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ash Rat]
+STARTPACK:Ash Rat Default	TYPE:DefaultMonster.MonstrousHumanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ash Rat]
 RACE:Ash Rat	!PRERACE:1,%
 NAME:Ash Rat
-STAT:STR=11|DEX=10|CON=11|INT=11|WIS=10|CHA=10
-SKILL:Climb			RANK:1
-SKILL:Hide			RANK:4
-SKILL:Move Silently	RANK:1
-FEAT:Improved Initiative
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
 
-STARTPACK:Default Asperi	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Asperi]
+STARTPACK:Asperi Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Asperi]
 RACE:Asperi	!PRERACE:1,%
 NAME:Asperi
 STAT:STR=11|DEX=10|CON=11|INT=11|WIS=10|CHA=10
-SKILL:Intimidate	RANK:7
-SKILL:Listen	RANK:5
-SKILL:Spot		RANK:6
-SKILL:Survival	RANK:7
-FEAT:Alertness
-FEAT:Flyby Attack
 
-STARTPACK:Default Automaton Pulveriser	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Automaton (Pulverizer)]
-RACE:Automaton (Pulverizer)	!PRERACE:1,%
-NAME:Automaton (Pulverizer)
-STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
-
-STARTPACK:Default Automaton Hammerer	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Automaton (Hammerer)]
-RACE:Automaton (Hammerer)	!PRERACE:1,%
-NAME:Automaton (Hammerer)
-STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=10
-
-STARTPACK:Default Avolakia	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Avolakia]
+STARTPACK:Avolakia Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Avolakia]
 RACE:Avolakia	!PRERACE:1,%
 NAME:Avolakia
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
-SKILL:Bluff			RANK:13
-SKILL:Concentration	RANK:13
-SKILL:Diplomacy		RANK:17
-SKILL:Intimidate		RANK:2
-SKILL:Sense Motive	RANK:13
-SKILL:Spellcraft		RANK:13
-FEAT:Combat Casting
-FEAT:Combat Reflexes
-FEAT:Dodge
-FEAT:Quicken Spell-Like Ability
 
-STARTPACK:Default Banshee	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Banshee]
+STARTPACK:Banshee Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Banshee]
 RACE:Banshee	!PRERACE:1,%
 NAME:Banshee
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
-SKILL:Balance			RANK:2
-SKILL:Hide				RANK:29
-SKILL:Jump				RANK:2
-SKILL:Knowledge (Nature)	RANK:29
-SKILL:Knowledge (Religion)	RANK:29
-SKILL:Listen			RANK:29
-SKILL:Search			RANK:29
-SKILL:Spot				RANK:29
-SKILL:Tumble			RANK:29
-FEAT:Alertness
-FEAT:Blind-Fight
-FEAT:Combat Expertise
-FEAT:Combat Reflexes
-FEAT:Dodge
-FEAT:Improved Critical(Incorporeal Touch)
-FEAT:Improved Initiative
-FEAT:Mobility
-FEAT:Spring Attack
 
-STARTPACK:Default Bladeling	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Bladeling]
+STARTPACK:Bladeling Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Bladeling]
 RACE:Bladeling	!PRERACE:1,%
 NAME:Bladeling
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
-SKILL:Bluff				RANK:4
-SKILL:Climb				RANK:4
-SKILL:Craft (Weaponsmithing)	RANK:4
-SKILL:Hide				RANK:4
-SKILL:Jump				RANK:4
-SKILL:Knowledge (The Planes)	RANK:4
-SKILL:Listen			RANK:4
-SKILL:Spot				RANK:4
-FEAT:Improved Initiative
-GEAR:Longsword	SIZE:PC	LOCATION:Carried
 
-STARTPACK:Default Blood Ape	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Blood Ape]
+STARTPACK:Blood Ape Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Blood Ape]
 RACE:Blood Ape	!PRERACE:1,%
 NAME:Blood Ape
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
-SKILL:Climb		RANK:2
-SKILL:Listen	RANK:3
-SKILL:Spot		RANK:2
-FEAT:Improved Bull Rush
-FEAT:Power Attack
 
-STARTPACK:Default Boggle	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Boggle]
+STARTPACK:Boggle Default	TYPE:DefaultMonster.MonstrousHumanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Boggle]
 RACE:Boggle	!PRERACE:1,%
 NAME:Boggle
 STAT:STR=10|DEX=11|CON=11|INT=11|WIS=10|CHA=10
-SKILL:Climb			RANK:0
-SKILL:Escape Artist	RANK:1
-SKILL:Hide			RANK:5
-SKILL:Move Silently	RANK:1
-SKILL:Sleight of Hand	RANK:2
-FEAT:Improved Initiative
-FEAT:Stealthy
 
-STARTPACK:Default Naga (Bone)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Naga (Bone)]
+STARTPACK:Bogun Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Bogun]
+RACE:Bogun	!PRERACE:1,%
+NAME:Bogun
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=11
+
+STARTPACK:Bone Naga Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Naga (Bone)]
 RACE:Naga (Bone)	!PRERACE:1,%
-NAME:Naga (Bone)
+NAME:Bone Naga
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
-SKILL:Bluff			RANK:18
-SKILL:Concentration	RANK:18
-SKILL:Diplomacy		RANK:0
-SKILL:Hide			RANK:18
-SKILL:Intimidate		RANK:18
-SKILL:Listen		RANK:18
-SKILL:Sense Motive	RANK:18
-SKILL:Spellcraft		RANK:18
-SKILL:Spot			RANK:18
-FEAT:Combat Casting
-FEAT:Dodge
-FEAT:Improved Initiative
-FEAT:Lightning Reflexes
-FEAT:TYPE=Metamagic
-FEAT:Naga Spell Focus
 
-STARTPACK:Default Braxat	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Braxat]
+STARTPACK:Ooze (Bone) Default	TYPE:DefaultMonster.Ooze	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ooze (Bone)]
+RACE:Ooze (Bone)	!PRERACE:1,%
+NAME:Bone Ooze
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+
+STARTPACK:Braxat Default	TYPE:DefaultMonster.MonstrousHumanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Braxat]
 RACE:Braxat	!PRERACE:1,%
 NAME:Braxat
 STAT:STR=11|DEX=10|CON=10|INT=11|WIS=10|CHA=11
-SKILL:Intimidate	RANK:11
-SKILL:Jump		RANK:7
-SKILL:Listen	RANK:11
-SKILL:Spot		RANK:12
-SKILL:Survival	RANK:11
-FEAT:Improved Bull Rush
-FEAT:Improved Disarm
-FEAT:Improved Trip
-FEAT:Weapon Focus(Greatclub)
-GEAR:Greatclub	SIZE:PC	LOCATION:Carried
 
-STARTPACK:Default Breathdrinker	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Breathdrinker]
+STARTPACK:Breathdrinker Default	TYPE:DefaultMonster.Elemental	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Breathdrinker]
 RACE:Breathdrinker	!PRERACE:1,%
 NAME:Breathdrinker
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
-SKILL:Hide			RANK:10
-SKILL:Move Silently	RANK:8
-SKILL:Search		RANK:11
-SKILL:Spot			RANK:8
-SKILL:Survival		RANK:8
-FEAT:Flyby Attack
-FEAT:Improved Initiative
-FEAT:Track
 
-STARTPACK:Default Bronze Serpent	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Bronze Serpent]
+STARTPACK:Bronze Serpent Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Bronze Serpent]
 RACE:Bronze Serpent	!PRERACE:1,%
 NAME:Bronze Serpent
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=11
-SKILL:Climb	RANK:0
 
-STARTPACK:Default Catoblepas	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Catoblepas]
+STARTPACK:Catoblepas Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Catoblepas]
 RACE:Catoblepas	!PRERACE:1,%
 NAME:Catoblepas
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
-SKILL:Jump		RANK:2
-SKILL:Listen	RANK:2
-SKILL:Spot		RANK:2
-SKILL:Survival	RANK:3
-FEAT:Improved Bull Rush
-FEAT:Improved Overrun
-FEAT:Power Attack
 
-STARTPACK:Default Cervidal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Cervidal]
-RACE:Cervidal	!PRERACE:1,%
-NAME:Cervidal
+STARTPACK:Guardinal (Cervidal) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Guardinal (Cervidal)]
+RACE:Guardinal (Cervidal)	!PRERACE:1,%
+NAME:Guardinal Cervidal
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
-SKILL:Balance			RANK:6
-SKILL:Concentration		RANK:7
-SKILL:Heal				RANK:7
-SKILL:Intimidate			RANK:7
-SKILL:Jump				RANK:7
-SKILL:Knowledge (The Planes)	RANK:6
-SKILL:Listen			RANK:7
-SKILL:Spellcraft			RANK:6
-SKILL:Spot				RANK:7
-FEAT:Multiattack
-FEAT:Power Attack
 
-STARTPACK:Default Lupinal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Lupinal]
-RACE:Lupinal	!PRERACE:1,%
-NAME:Lupinal
+STARTPACK:Guardinal (Lupinal) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Guardinal (Lupinal)]
+RACE:Guardinal (Lupinal)	!PRERACE:1,%
+NAME:Guardinal Lupinal
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=11
-SKILL:Balance		RANK:11
-SKILL:Climb			RANK:11
-SKILL:Concentration	RANK:11
-SKILL:Diplomacy		RANK:11
-SKILL:Hide			RANK:11
-SKILL:Jump			RANK:7
-SKILL:Listen		RANK:11
-SKILL:Move Silently	RANK:11
-SKILL:Spot			RANK:11
-SKILL:Survival		RANK:11
-SKILL:Tumble		RANK:8
-FEAT:Alertness
-FEAT:Power Attack
-FEAT:Track
 
-STARTPACK:Default Chain Golem	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Golem (Chain)]
+STARTPACK:Chain Golem Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Golem (Chain)]
 RACE:Golem (Chain)	!PRERACE:1,%
-NAME:Golem (Chain)
+NAME:Chain Golem
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 
-STARTPACK:Default Chaos Rock	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Roc (Chaos)]
+STARTPACK:Roc (Chaos) Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Roc (Chaos)]
 RACE:Roc (Chaos)	!PRERACE:1,%
-NAME:Roc (Chaos)
+NAME:Chaos Roc
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
-SKILL:Listen	RANK:2
-SKILL:Spot		RANK:20
-SKILL:Survival	RANK:18
-FEAT:Ability Focus
-FEAT:Alertness
-FEAT:Blind-Fight
-FEAT:Combat Reflexes
-FEAT:Dodge
-FEAT:Flyby Attack
-FEAT:Hover
-FEAT:Iron Will
-FEAT:Mobility
-FEAT:Power Attack
-FEAT:Snatch
-FEAT:Wingover
 
-STARTPACK:Default Cloaked Ape	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Cloaked Ape]
+STARTPACK:Cloaked Ape Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Cloaked Ape]
 RACE:Cloaked Ape	!PRERACE:1,%
 NAME:Cloaked Ape
 STAT:STR=11|DEX=10|CON=10|INT=11|WIS=10|CHA=11
-SKILL:Climb		RANK:1
-SKILL:Listen	RANK:1
-SKILL:Spot		RANK:1
-SKILL:Survival	RANK:2
-SKILL:Tumble	RANK:2
-FEAT:Alertness
-FEAT:Flyby Attack
 
-STARTPACK:Default Clockwork Horror (Electrum)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Clockwork Horror (Electrum)]
+STARTPACK:Electrum Clockwork Horror Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Closkwork Horror (Electrum)]
 RACE:Clockwork Horror (Electrum)	!PRERACE:1,%
-NAME:Clockwork Horror (Electrum)
+NAME:Electrum Clockwork Horror
 STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
-SKILL:Climb	RANK:7
-FEAT:Point Blank Shot
-FEAT:Precise Shot
 
-STARTPACK:Default Clockwork Horror (Gold)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Clockwork Horror (Gold)]
+STARTPACK:Gold Clockwork Horror Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Closkwork Horror (Gold)]
 RACE:Clockwork Horror (Gold)	!PRERACE:1,%
-NAME:Clockwork Horror (Gold)
+NAME:Gold Clockwork Horror
 STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
-SKILL:Climb	RANK:11
-FEAT:Cleave
-FEAT:Improved Sunder
-FEAT:Power Attack
 
-STARTPACK:Default Clockwork Horror (Platinum)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Clockwork Horror (Platinum)]
+STARTPACK:Platinum Clockwork Horror Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Closkwork Horror (Platinum)]
 RACE:Clockwork Horror (Platinum)	!PRERACE:1,%
-NAME:Clockwork Horror (Platinum)
+NAME:Platinum Clockwork Horror
 STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
-SKILL:Climb			RANK:15
-SKILL:Hide			RANK:15
-SKILL:Move Silently	RANK:15
-FEAT:Cleave
-FEAT:Combat Reflexes
-FEAT:Great Cleave
-FEAT:Improved Sunder
-FEAT:Power Attack
 
-STARTPACK:Default Clockwork Horror (Adamantine)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Clockwork Horror (Adamantine)]
+STARTPACK:Adamantine Clockwork Horror Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Closkwork Horror (Adamantine)]
 RACE:Clockwork Horror (Adamantine)	!PRERACE:1,%
-NAME:Clockwork Horror (Adamantine)
+NAME:Adamantine Clockwork Horror
 STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
-SKILL:Balance		RANK:19
-SKILL:Climb			RANK:19
-SKILL:Jump			RANK:19
-SKILL:Hide			RANK:19
-SKILL:Move Silently	RANK:19
-FEAT:Cleave
-FEAT:Combat Reflexes
-FEAT:Great Cleave
-FEAT:Improved Initiative
-FEAT:Improved Sunder
-FEAT:Power Attack
 
-STARTPACK:Default Cloud Ray	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Cloud Ray]
+STARTPACK:Cloud Ray Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Cloud Ray]
 RACE:Cloud Ray	!PRERACE:1,%
 NAME:Cloud Ray
-STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
-SKILL:Hide		RANK:11
-SKILL:Listen	RANK:11
-SKILL:Spot		RANK:11
-FEAT:Alertness
-FEAT:Cleave
-FEAT:Dodge
-FEAT:Flyby Attack
-FEAT:Great Cleave
-FEAT:Hover
-FEAT:Improved Initiative
-FEAT:Mobility
-FEAT:Power Attack
-FEAT:Snatch
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=11|CHA=11
 
-STARTPACK:Default Corollax	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Corollax]
+STARTPACK:Corollax Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Corollax]
 RACE:Corollax	!PRERACE:1,%
 NAME:Corollax
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
-SKILL:Listen	RANK:2
-SKILL:Spot		RANK:2
-FEAT:Weapon Finesse
 
-STARTPACK:Default Corpse Gatherer	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Corpse Gatherer]
+STARTPACK:Corpse Gatherer Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Corpse Gatherer]
 RACE:Corpse Gatherer	!PRERACE:1,%
 NAME:Corpse Gatherer
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
-SKILL:Climb		RANK:15
-SKILL:Jump		RANK:14
-SKILL:Listen	RANK:30
-SKILL:Search	RANK:30
-SKILL:Spot		RANK:30
-FEAT:Blind-Fight
-FEAT:Cleave
-FEAT:Great Cleave
-FEAT:Great Fortitude
-FEAT:Improved Bull Rush
-FEAT:Improved Critical(Slam)
-FEAT:Improved Initiative
-FEAT:Improved Overrun
-FEAT:Improved Sunder
-FEAT:Power Attack
-FEAT:Weapon Focus(Slam)
 
-STARTPACK:Default Crimson Death	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Crimson Death]
+STARTPACK:Crimson Death Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Crimson Death]
 RACE:Crimson Death	!PRERACE:1,%
 NAME:Crimson Death
 STAT:STR=10|DEX=11|CON=10|INT=11|WIS=11|CHA=10
-SKILL:Concentration		RANK:16
-SKILL:Hide				RANK:19
-SKILL:Knowledge (Nature)	RANK:16
-SKILL:Knowledge (Religion)	RANK:16
-SKILL:Listen			RANK:16
-SKILL:Search			RANK:17
-SKILL:Spot				RANK:16
 
-STARTPACK:Default Darktentacles	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Darktentacles]
+STARTPACK:Darktentacles Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Darktentacles]
 RACE:Darktentacles	!PRERACE:1,%
 NAME:Darktentacles
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
-SKILL:Concentration	RANK:8
-SKILL:Hide			RANK:12
-SKILL:Listen		RANK:8
-SKILL:Move Silently	RANK:12
-SKILL:Spot			RANK:8
-FEAT:Combat Reflexes
-FEAT:Multidexterity
-FEAT:Multiweapon Fighting
-FEAT:Stealthy
 
-STARTPACK:Default Deathbringer	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Deathbringer]
+STARTPACK:Deathbringer Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Deathbringer]
 RACE:Deathbringer	!PRERACE:1,%
 NAME:Deathbringer
 STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
-SKILL:Intimidate		RANK:29
-SKILL:Jump			RANK:31
-SKILL:Listen		RANK:33
-SKILL:Move Silently	RANK:27
-SKILL:Spot			RANK:33
-FEAT:Blind-Fight
-FEAT:Cleave
-FEAT:Combat Reflexes
-FEAT:Great Cleave
-FEAT:Improved Bull Rush
-FEAT:Improved Critical(Flail)
-FEAT:Improved Sunder
-FEAT:Power Attack
-FEAT:Two-Weapon Defense
-FEAT:Two-Weapon Fighting
-FEAT:Weapon Focus(Flail)
-GEAR:Flail		SIZE:PC	LOCATION:Carried
-GEAR:Flail		SIZE:PC	LOCATION:Carried
-GEAR:Banded Mail	SIZE:PC	LOCATION:Carried
 
-STARTPACK:Default Demon (Abyssal Maw)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demon (Abyssal Maw)]
+STARTPACK:Demon (Abyssal Maw) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demon (Abyssal Maw)]
 RACE:Demon (Abyssal Maw)	!PRERACE:1,%
-NAME:Demon (Abyssal Maw)
+NAME:Abyssal Maw
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
-SKILL:Climb		RANK:5
-SKILL:Intimidate	RANK:5
-SKILL:Jump		RANK:5
-SKILL:Listen	RANK:5
-SKILL:Spot		RANK:5
-SKILL:Swim		RANK:5
-FEAT:Alertness
 
-STARTPACK:Default Demon (Abyssal Skulker)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demon (Abyssal Skulker)]
+STARTPACK:Demon (Abyssal Skulker) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demon (Abyssal Skulker)]
 RACE:Demon (Abyssal Skulker)	!PRERACE:1,%
-NAME:Demon (Abyssal Skulker)
+NAME:Abyssal Skulker
 STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
-SKILL:Bluff			RANK:5
-SKILL:Climb			RANK:5
-SKILL:Diplomacy		RANK:2
-SKILL:Hide			RANK:9
-SKILL:Intimidate		RANK:7
-SKILL:Jump			RANK:5
-SKILL:Listen		RANK:5
-SKILL:Move Silently	RANK:5
-SKILL:Spot			RANK:5
-SKILL:Survival		RANK:5
-FEAT:Weapon Finesse
 
-STARTPACK:Default Demon (Abyssal Ravager)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demon (Abyssal Ravager)]
+STARTPACK:Demon (Abyssal Ravager) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demon (Abyssal Ravager)]
 RACE:Demon (Abyssal Ravager)	!PRERACE:1,%
-NAME:Demon (Abyssal Ravager)
+NAME:Abyssal Sravager
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
-SKILL:Jump			RANK:6
-SKILL:Listen		RANK:6
-SKILL:Move Silently	RANK:6
-SKILL:Sense Motive	RANK:6
-SKILL:Spot			RANK:6
-SKILL:Survival		RANK:6
-FEAT:Track
-FEAT:Weapon Focus(Sting)
 
-STARTPACK:Default Demon (Jovoc)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demon (Jovoc)]
+STARTPACK:Demon (Jovoc) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demon (Jovoc)]
 RACE:Demon (Jovoc)	!PRERACE:1,%
-NAME:Demon (Jovoc)
+NAME:Jovoc
 STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
-SKILL:Hide			RANK:11
-SKILL:Listen		RANK:7
-SKILL:Move Silently	RANK:7
-SKILL:Search		RANK:5
-SKILL:Sense Motive	RANK:7
-SKILL:Spot			RANK:7
-FEAT:Toughness
-FEAT:Toughness
 
-STARTPACK:Default Demon (Palrethee)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demon (Palrethee)]
+STARTPACK:Demon (Palrethee) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demon (Palrethee)]
 RACE:Demon (Palrethee)	!PRERACE:1,%
-NAME:Demon (Palrethee)
+NAME:Palrethee
 STAT:STR=11|DEX=10|CON=10|INT=11|WIS=10|CHA=11
-SKILL:Bluff				RANK:11
-SKILL:Diplomacy			RANK:11
-SKILL:Hide				RANK:11
-SKILL:Intimidate			RANK:2
-SKILL:Knowledge (Arcana)	RANK:11
-SKILL:Listen			RANK:11
-SKILL:Sense Motive		RANK:11
-SKILL:Search			RANK:11
-SKILL:Spellcraft			RANK:11
-SKILL:Spot				RANK:11
-FEAT:Combat Expertise
-FEAT:Dodge
-FEAT:Weapon Focus(Longsword)
 
-STARTPACK:Default Demon (Zovvut)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demon (Zovvut)]
+STARTPACK:Demon (Zovvut) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demon (Zovvut)]
 RACE:Demon (Zovvut)	!PRERACE:1,%
-NAME:Demon (Zovvut)
+NAME:Zovvut
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
-SKILL:Bluff			RANK:13
-SKILL:Concentration	RANK:13
-SKILL:Diplomacy		RANK:10
-SKILL:Hide			RANK:13
-SKILL:Intimidate		RANK:9
-SKILL:Listen		RANK:13
-SKILL:Move Silently	RANK:13
-SKILL:Search		RANK:12
-SKILL:Sense Motive	RANK:13
-SKILL:Spellcraft		RANK:13
-SKILL:Spot			RANK:13
-FEAT:Alertness
-FEAT:Dodge
-FEAT:Mobility
-FEAT:Spring Attack
 
-STARTPACK:Default Demon (Jarilith)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demon (Jarilith)]
+STARTPACK:Demon (Jarilith) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demon (Jarilith)]
 RACE:Demon (Jarilith)	!PRERACE:1,%
-NAME:Demon (Jarilith)
+NAME:Jarilith
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
-SKILL:Balance		RANK:6
-SKILL:Climb			RANK:7
-SKILL:Concentration	RANK:13
-SKILL:Hide			RANK:9
-SKILL:Jump			RANK:7
-SKILL:Listen		RANK:13
-SKILL:Move Silently	RANK:13
-SKILL:Search		RANK:4
-SKILL:Spot			RANK:13
-FEAT:Improved Bull Rush
-FEAT:Multiattack
-FEAT:Power Attack
-FEAT:Weapon Focus(Claw)
 
-STARTPACK:Default Demon (Kelvezu)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demon (Kelvezu)]
+STARTPACK:Demon (Kelvezu) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Demon (Kelvezu)]
 RACE:Demon (Kelvezu)	!PRERACE:1,%
-NAME:Demon (Kelvezu)
+NAME:Kelvezu
 STAT:STR=11|DEX=11|CON=10|INT=11|WIS=10|CHA=10
-SKILL:Bluff				RANK:15
-SKILL:Concentration		RANK:15
-SKILL:Diplomacy			RANK:8
-SKILL:Hide				RANK:15
-SKILL:Intimidate			RANK:9
-SKILL:Knowledge (The Planes)	RANK:15
-SKILL:Listen			RANK:15
-SKILL:Move Silently		RANK:15
-SKILL:Search			RANK:15
-SKILL:Sense Motive		RANK:15
-SKILL:Sleight of Hand		RANK:1
-SKILL:Spellcraft			RANK:15
-SKILL:Spot				RANK:15
-FEAT:Greater Two-Weapon Fighting
-FEAT:Improved Feint
-FEAT:Improved Initiative
-FEAT:Improved Two-Weapon Fighting
-FEAT:Two-Weapon Fighting
 
-STARTPACK:Default Desmodu	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Desmodu]
+STARTPACK:Desmodu Default	TYPE:DefaultMonster.MonstrousHumanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Desmodu]
 RACE:Desmodu	!PRERACE:1,%
 NAME:Desmodu
 STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=11
-SKILL:Balance		RANK:8
-SKILL:Climb			RANK:4
-SKILL:Handle Animal	RANK:8
-SKILL:Jump			RANK:8
-SKILL:Listen		RANK:6
-SKILL:Move Silently	RANK:6
-SKILL:Ride			RANK:6
-SKILL:Spot			RANK:6
-SKILL:Tumble		RANK:8
-SKILL:Use Rope		RANK:6
-FEAT:Combat Expertise
-FEAT:Combat Reflexes
-FEAT:Great Fortitude
-FEAT:Multiattack
-FEAT:Quick Draw
-GEAR:Desmodu's Notbora			SIZE:PC	LOCATION:Carried
-GEAR:Desmodu's Studded Leather	SIZE:PC	LOCATION:Equipped
-GEAR:Desmodu's Longbow			SIZE:PC	LOCATION:Carried
-GEAR:Desmodu's Heavy Lance		SIZE:PC	LOCATION:Carried
 
-STARTPACK:Default Desmodu (Hunting Bat)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Desmodu (Hunting Bat)]
+STARTPACK:Desmodu Hunting Bat Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Desmodu (Hunting Bat)]
 RACE:Desmodu (Hunting Bat)	!PRERACE:1,%
-NAME:Desmodu (Hunting Bat)
+NAME:Hunting Bat
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=11
-SKILL:Hide			RANK:1
-SKILL:Listen		RANK:2
-SKILL:Move Silently	RANK:2
-SKILL:Spot			RANK:2
-FEAT:Dodge
-FEAT:Weapon Finesse
 
-STARTPACK:Default Desmodu (Guard Bat)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Desmodu (Guard Bat)]
+STARTPACK:Desmodu Guard Bat Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Desmodu (Guard Bat)]
 RACE:Desmodu (Guard Bat)	!PRERACE:1,%
-NAME:Desmodu (Guard Bat)
+NAME:Guard Bat
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=11
-SKILL:Listen		RANK:2
-SKILL:Move Silently	RANK:3
-SKILL:Spot			RANK:2
-FEAT:Mobility
-FEAT:Spring Attack
 
-STARTPACK:Default Desmodu (War Bat)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Desmodu (War Bat)]
+STARTPACK:Desmodu War Bat Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Desmodu (War Bat)]
 RACE:Desmodu (War Bat)	!PRERACE:1,%
-NAME:Desmodu (War Bat)
+NAME:War Bat
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=11
-SKILL:Listen		RANK:4
-SKILL:Move Silently	RANK:5
-SKILL:Spot			RANK:4
-FEAT:Alertness
-FEAT:Dodge
-FEAT:Flyby Attack
-FEAT:Power Attack
 
-STARTPACK:Default Devil (Advespa)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devil (Advespa)]
+STARTPACK:Devil (Advespa) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devil (Advespa)]
 RACE:Devil (Advespa)	!PRERACE:1,%
-NAME:Devil (Advespa)
+NAME:Advespa
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
-SKILL:Balance		RANK:7
-SKILL:Hide			RANK:7
-SKILL:Jump			RANK:0
-SKILL:Listen		RANK:7
-SKILL:Move Silently	RANK:7
-SKILL:Search		RANK:6
-SKILL:Spot			RANK:7
-SKILL:Tumble		RANK:7
-FEAT:Flyby Attack
-FEAT:Improved Initiative
 
-STARTPACK:Default Devil (Amnizu)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devil (Amnizu)]
+STARTPACK:Devil (Amnizu) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devil (Amnizu)]
 RACE:Devil (Amnizu)	!PRERACE:1,%
-NAME:Devil (Amnizu)
+NAME:Amnizu
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
-SKILL:Balance			RANK:11
-SKILL:Concentration		RANK:12
-SKILL:Diplomacy			RANK:12
-SKILL:Hide				RANK:12
-SKILL:Jump				RANK:0
-SKILL:Knowledge (The Planes)	RANK:12
-SKILL:Search			RANK:11
-SKILL:Sense Motive		RANK:12
-SKILL:Spellcraft			RANK:12
-SKILL:Spot				RANK:12
-SKILL:Swim				RANK:12
-SKILL:Tumble			RANK:12
-FEAT:Combat Casting
-FEAT:Combat Expertise
-FEAT:Improved Initiative
-FEAT:Quicken Spell-Like Ability(Fireball)
 
-STARTPACK:Default Devil (Malebranche)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devil (Malebranche)]
+STARTPACK:Devil (Malebranche) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Devil (Malebranche)]
 RACE:Devil (Malebranche)	!PRERACE:1,%
-NAME:Devil (Malebranche)
+NAME:Malebranche
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
-SKILL:Balance		RANK:2
-SKILL:Bluff			RANK:19
-SKILL:Climb			RANK:3
-SKILL:Diplomacy		RANK:0
-SKILL:Intimidate		RANK:19
-SKILL:Jump			RANK:18
-SKILL:Listen		RANK:19
-SKILL:Move Silently	RANK:19
-SKILL:Search		RANK:18
-SKILL:Spot			RANK:19
-SKILL:Tumble		RANK:19
-FEAT:Cleave
-FEAT:Flyby Attack
-FEAT:Great Cleave
-FEAT:Improved Sunder
-FEAT:Multiattack
-FEAT:Power Attack
 
-STARTPACK:Default Dinosaur (Cryptolidus)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dinosaur (Cryptolidus)]
-RACE:Dinosaur (Cryptolidus)	!PRERACE:1,%
-NAME:Dinosaur (Cryptolidus)
-STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
-SKILL:Hide		RANK:2
-SKILL:Listen	RANK:1
-SKILL:Spot		RANK:1
-SKILL:Swim		RANK:0
-FEAT:Alertness
-FEAT:Dodge
+STARTPACK:Dragon (Amethyst) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Amethyst)]
+RACE:Dragon (Amethyst)	!PRERACE:1,%
+NAME:Amethyst Dragon
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 
-STARTPACK:Default Dinosaur (Allosaurus)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dinosaur (Allosaurus)]
-RACE:Dinosaur (Allosaurus)	!PRERACE:1,%
-NAME:Dinosaur (Allosaurus)
-STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
-SKILL:Listen	RANK:6
-SKILL:Spot		RANK:7
-FEAT:Alertness
-FEAT:Run
-FEAT:Toughness
+STARTPACK:Dragon (Crystal) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Crystal)]
+RACE:Dragon (Crystal)	!PRERACE:1,%
+NAME:Crystal Dragon
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 
-STARTPACK:Default Dinosaur (Ankylosaurus)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dinosaur (Ankylosaurus)]
-RACE:Dinosaur (Ankylosaurus)	!PRERACE:1,%
-NAME:Dinosaur (Ankylosaurus)
-STAT:STR=11|DEX=11|CON=10|INT=11|WIS=11|CHA=10
-SKILL:Listen	RANK:6
-SKILL:Spot		RANK:6
-FEAT:Alertness
-FEAT:Great Fortitude
-FEAT:Toughness		COUNT:2
+STARTPACK:Dragon (Emerald) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Emerald)]
+RACE:Dragon (Emerald)	!PRERACE:1,%
+NAME:Emerald Dragon
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 
+STARTPACK:Dragon (Sapphire) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Sapphire)]
+RACE:Dragon (Sapphire)	!PRERACE:1,%
+NAME:Sapphire Dragon
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 
-STARTPACK:Default Dinosaur (Quetzalcoatlus)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dinosaur (Quetzalcoatlus)]
-RACE:Dinosaur (Quetzalcoatlus)	!PRERACE:1,%
-NAME:Dinosaur (Quetzalcoatlus)
-STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
-SKILL:Listen	RANK:0
-SKILL:Spot		RANK:13
-FEAT:Alertness
-FEAT:Flyby Attack
-FEAT:Snatch
-FEAT:Wingover
+STARTPACK:Dragon (Topaz) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Topaz)]
+RACE:Dragon (Topaz)	!PRERACE:1,%
+NAME:Topaz Dragon
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 
-STARTPACK:Default Dinosaur (Seismosaurus)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dinosaur (Seismosaurus)]
-RACE:Dinosaur (Seismosaurus)	!PRERACE:1,%
-NAME:Dinosaur (Seismosaurus)
-STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=10
-SKILL:Listen	RANK:0
-SKILL:Spot		RANK:13
-FEAT:Alertness
-FEAT:Awesome Blow
-FEAT:Diehard
-FEAT:Endurance
-FEAT:Improved Bull Rush
-FEAT:Power Attack
-FEAT:Run
-FEAT:Toughness		COUNT:4
-
-STARTPACK:Default Dinosaur (Spinosaurus)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dinosaur (Spinosaurus)]
-RACE:Dinosaur (Spinosaurus)	!PRERACE:1,%
-NAME:Dinosaur (Spinosaurus)
-STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=10
-SKILL:Listen	RANK:10
-SKILL:Spot		RANK:9
-FEAT:Alertness
-FEAT:Run
-FEAT:Toughness	COUNT:4
-FEAT:Track
-
-STARTPACK:Default Dire Animal (Dire Horse)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dire Animal (Dire Horse)]
-RACE:Dire Animal (Dire Horse)	!PRERACE:1,%
-NAME:Dire Animal (Dire Horse)
-STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
-SKILL:Listen	RANK:6
-SKILL:Spot		RANK:6
-FEAT:Endurance
-FEAT:Run
-FEAT:Toughness
-
-STARTPACK:Default Dire Animal (Dire Elk)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dire Animal (Dire Elk)]
-RACE:Dire Animal (Dire Elk)	!PRERACE:1,%
-NAME:Dire Animal (Dire Elk)
-STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
-SKILL:Hide		RANK:0
-SKILL:Listen	RANK:8
-SKILL:Spot		RANK:7
-FEAT:Alertness
-FEAT:Diehard
-FEAT:Endurance
-FEAT:Power Attack
-FEAT:Toughness
-
-STARTPACK:Default Dire Animal (Dire Elephant)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dire Animal (Dire Elephant)]
-RACE:Dire Animal (Dire Elephant)	!PRERACE:1,%
-NAME:Dire Animal (Dire Elephant)
-STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
-SKILL:Listen	RANK:12
-SKILL:Spot		RANK:11
-FEAT:Alertness
-FEAT:Endurance
-FEAT:Improved Bull Rush
-FEAT:Iron Will
-FEAT:Power Attack
-FEAT:Skill Focus(Listen)
-FEAT:Weapon Focus(Gore)
-
-STARTPACK:Default Dire Animal (Dire Toad)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dire Animal (Dire Toad)]
-RACE:Dire Animal (Dire Toad)	!PRERACE:1,%
-NAME:Dire Animal (Dire Toad)
-STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
-SKILL:Hide		RANK:2
-SKILL:Jump		RANK:2
-SKILL:Listen	RANK:0
-SKILL:Spot		RANK:2
-FEAT:Alertness
-FEAT:Weapon Finesse
-
-STARTPACK:Default Dire Animal (Dire Hawk)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dire Animal (Dire Hawk)]
-RACE:Dire Animal (Dire Hawk)	!PRERACE:1,%
-NAME:Dire Animal (Dire Hawk)
-STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
-SKILL:Listen		RANK:3
-SKILL:Move Silently	RANK:2
-SKILL:Spot			RANK:3
-FEAT:Alertness
-FEAT:Weapon Finesse
-
-STARTPACK:Default Dire Animal (Dire Snake)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dire Animal (Dire Snake)]
-RACE:Dire Animal (Dire Snake)	!PRERACE:1,%
-NAME:Dire Animal (Dire Snake)
-STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
-SKILL:Balance	RANK:0
-SKILL:Climb		RANK:4
-SKILL:Hide		RANK:0
-SKILL:Listen	RANK:1
-SKILL:Spot		RANK:1
-FEAT:Alertness
-FEAT:Endurance
-FEAT:Toughness
-
-STARTPACK:Default Dread Guard	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dread Guard]
+STARTPACK:Dread Guard Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dread Guard]
 RACE:Dread Guard	!PRERACE:1,%
 NAME:Dread Guard
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
-SKILL:Spot	RANK:8
-FEAT:Cleave
-FEAT:Power Attack
-GEAR:Longsword				SIZE:PC	LOCATION:Carried
-GEAR:Dread Guard's Banded Mail	SIZE:PC	LOCATION:Carried
-GEAR:Dread Guard's Small Shield	SIZE:PC	LOCATION:Carried
 
-STARTPACK:Default Dune Stalker	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dune Stalker]
+STARTPACK:Dune Stalker Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dune Stalker]
 RACE:Dune Stalker	!PRERACE:1,%
 NAME:Dune Stalker
 STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=11
-SKILL:Balance			RANK:9
-SKILL:Climb				RANK:9
-SKILL:Hide				RANK:9
-SKILL:Intimidate			RANK:0
-SKILL:Jump				RANK:2
-SKILL:Knowledge (Nature)	RANK:8
-SKILL:Listen			RANK:9
-SKILL:Move Silently		RANK:9
-SKILL:Search			RANK:8
-SKILL:Spot				RANK:9
-SKILL:Survival			RANK:2
-SKILL:Tumble			RANK:9
-FEAT:Alertness
-FEAT:Combat Expertise
-FEAT:Improved Initiative
 
-STARTPACK:Default Effigy	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Effigy]
+STARTPACK:Effigy Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Effigy]
 RACE:Effigy	!PRERACE:1,%
 NAME:Effigy
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
-SKILL:Balance		RANK:2
-SKILL:Escape Artist	RANK:30
-SKILL:Hide			RANK:30
-SKILL:Intimidate		RANK:30
-SKILL:Jump			RANK:2
-SKILL:Listen		RANK:30
-SKILL:Search		RANK:30
-SKILL:Spot			RANK:30
-SKILL:Tumble		RANK:30
-FEAT:Alertness
-FEAT:Blind-Fight
-FEAT:Combat Expertise
-FEAT:Great Fortitude
-FEAT:Improved Critical(Incorporeal touch)
-FEAT:Improved Initiative
-FEAT:Iron Will
-FEAT:Lightning Reflexes
-FEAT:Run
-FEAT:Weapon Focus(Incorporeal Touch)
 
-STARTPACK:Default Elemental Weird (Air Weird)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental Weird (Air Weird)]
+STARTPACK:Elemental Weird (Air Weird) Default	TYPE:DefaultMonster.Elemental	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental Weird (Air Weird)]
 RACE:Elemental Weird (Air Weird)	!PRERACE:1,%
-NAME:Elemental Weird (Air Weird)
+NAME:Air Weird
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
-SKILL:Concentration	RANK:18
-SKILL:Diplomacy		RANK:18
-SKILL:Intimidate		RANK:18
-SKILL:TYPE.Knowledge	RANK:18	COUNT:3
-SKILL:Listen		RANK:0
-SKILL:Sense Motive	RANK:18
-SKILL:Spot			RANK:0
-FEAT:Alertness
-FEAT:Empower Spell
-FEAT:Great Fortitude
-FEAT:Improved Initiative
-FEAT:Lightning Reflexes
-FEAT:Maximize Spell
 
-STARTPACK:Default Elemental Weird (Earth Weird)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental Weird (Earth Weird)]
+STARTPACK:Elemental Weird (Earth Weird) Default	TYPE:DefaultMonster.Elemental	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental Weird (Earth Weird)]
 RACE:Elemental Weird (Earth Weird)	!PRERACE:1,%
-NAME:Elemental Weird (Earth Weird)
+NAME:Earth Weird
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
-SKILL:Concentration	RANK:18
-SKILL:Diplomacy		RANK:18
-SKILL:Intimidate		RANK:18
-SKILL:TYPE.Knowledge	RANK:18	COUNT:3
-SKILL:Listen		RANK:0
-SKILL:Sense Motive	RANK:18
-SKILL:Spot			RANK:0
-FEAT:Alertness
-FEAT:Empower Spell
-FEAT:Great Fortitude
-FEAT:Improved Initiative
-FEAT:Lightning Reflexes
-FEAT:Maximize Spell
 
-STARTPACK:Default Elemental Weird (Fire Weird)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental Weird (Fire Weird)]
+STARTPACK:Elemental Weird (Fire Weird) Default	TYPE:DefaultMonster.Elemental	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental Weird (Fire Weird)]
 RACE:Elemental Weird (Fire Weird)	!PRERACE:1,%
-NAME:Elemental Weird (Fire Weird)
+NAME:Fire Weird
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
-SKILL:Concentration	RANK:18
-SKILL:Diplomacy		RANK:18
-SKILL:Intimidate		RANK:18
-SKILL:TYPE.Knowledge	RANK:18	COUNT:3
-SKILL:Listen		RANK:0
-SKILL:Sense Motive	RANK:18
-SKILL:Spot			RANK:0
-FEAT:Alertness
-FEAT:Empower Spell
-FEAT:Great Fortitude
-FEAT:Improved Initiative
-FEAT:Lightning Reflexes
-FEAT:Maximize Spell
 
-STARTPACK:Default Elemental Weird (Water Weird)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental Weird (Water Weird)]
-RACE:Elemental Weird (Water Weird)	!PRERACE:1,%
-NAME:Elemental Weird (Water Weird)
+STARTPACK:Elemental Weird (Fire Weird) Default	TYPE:DefaultMonster.Elemental	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Elemental Weird (Fire Weird)]
+RACE:Elemental Weird (Fire Weird)	!PRERACE:1,%
+NAME:Fire Weird
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
-SKILL:Concentration	RANK:18
-SKILL:Diplomacy		RANK:18
-SKILL:Intimidate		RANK:18
-SKILL:TYPE.Knowledge	RANK:18	COUNT:3
-SKILL:Listen		RANK:0
-SKILL:Sense Motive	RANK:18
-SKILL:Spot			RANK:0
-FEAT:Alertness
-FEAT:Empower Spell
-FEAT:Great Fortitude
-FEAT:Improved Initiative
-FEAT:Lightning Reflexes
-FEAT:Maximize Spell
 
-STARTPACK:Default Doppelganger (Ethereal)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Doppelganger (Ethereal)]
+STARTPACK:Ether Scarab Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ether Scarab]
+RACE:Ether Scarab	!PRERACE:1,%
+NAME:Ether Scarab
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=11|CHA=10
+
+STARTPACK:Ethereal Doppelganger Default	TYPE:DefaultMonster.MonstrousHumanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Doppelganger (Ethereal)]
 RACE:Doppelganger (Ethereal)	!PRERACE:1,%
-NAME:Doppelganger (Ethereal)
+NAME:Ethereal Doppelganger
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
-SKILL:Bluff			RANK:12
-SKILL:Diplomacy		RANK:15
-SKILL:Disguise		RANK:23
-SKILL:Intimidate		RANK:14
-SKILL:Listen		RANK:10
-SKILL:Sense Motive	RANK:11
-SKILL:Spot			RANK:12
-FEAT:Alertness
-FEAT:Blind-Fight
-FEAT:Combat Expertise
-FEAT:Dodge
-FEAT:Improved Initiative
-FEAT:Mobility
-FEAT:Weapon Finesse
 
-STARTPACK:Default Ethereal Slayer	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ethereal Slayer]
+STARTPACK:Ethereal Slayer Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ethereal Slayer]
 RACE:Ethereal Slayer	!PRERACE:1,%
 NAME:Ethereal Slayer
 STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
-SKILL:Hide			RANK:19
-SKILL:Jump			RANK:19
-SKILL:Listen		RANK:19
-SKILL:Move Silently	RANK:19
-SKILL:Spot			RANK:19
-FEAT:Alertness
-FEAT:Dodge
-FEAT:Improved Initiative
-FEAT:Mobility
-FEAT:Weapon Finesse
-FEAT:Weapon Focus(Claw)
 
-STARTPACK:Default Famine Spirit	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Famine Spirit]
+STARTPACK:Famine Spirit Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Famine Spirit]
 RACE:Famine Spirit	!PRERACE:1,%
 NAME:Famine Spirit
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
-SKILL:Balance	RANK:35
-SKILL:Climb		RANK:35
-SKILL:Jump		RANK:35
-SKILL:Listen	RANK:35
-SKILL:Search	RANK:35
-SKILL:Spot		RANK:35
-FEAT:Blind-Fight
-FEAT:Cleave
-FEAT:Combat Expertise
-FEAT:Great Cleave
-FEAT:Improved Bull Rush
-FEAT:Improved Critical(Bite)
-FEAT:Improved Initiative
-FEAT:Improved Sunder
-FEAT:Improved Trip
-FEAT:Multiattack
-FEAT:Power Attack
 
-STARTPACK:Default Felldrake (Crested)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Felldrake (Crested)]
+STARTPACK:Crested Felldrake Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Felldrake (Crested)]
 RACE:Felldrake (Crested)	!PRERACE:1,%
-NAME:Felldrake (Crested)
+NAME:Crested Felldrake
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=11
-SKILL:Hide		RANK:5
-SKILL:Jump		RANK:2
-SKILL:Listen	RANK:5
-SKILL:Spot		RANK:5
-FEAT:Alertness
 
-STARTPACK:Default Felldrake (Spitting)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Felldrake (Spitting)]
+STARTPACK:Spitting Felldrake Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Felldrake (Spitting)]
 RACE:Felldrake (Spitting)	!PRERACE:1,%
-NAME:Felldrake (Spitting)
+NAME:Spitting Felldrake
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11
-SKILL:Hide		RANK:4
-SKILL:Jump		RANK:6
-SKILL:Listen	RANK:6
-SKILL:Spot		RANK:6
-FEAT:Alertness
-FEAT:Weapon Focus(Horn)
 
-STARTPACK:Default Felldrake (Horned)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Felldrake (Horned)]
+STARTPACK:Horned Felldrake Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Felldrake (Horned)]
 RACE:Felldrake (Horned)	!PRERACE:1,%
-NAME:Felldrake (Horned)
-STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11
-SKILL:Hide		RANK:9
-SKILL:Jump		RANK:6
-SKILL:Listen	RANK:7
-SKILL:Spot		RANK:7
-FEAT:Alertness
-FEAT:Weapon Focus(Horn)
+NAME:Horned Felldrake
+STAT:STR=11|DEX=10|CON=11|INT=11|WIS=10|CHA=10
 
-STARTPACK:Default Fiendwurm	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fiendwurm]
+STARTPACK:Fiendwurm Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fiendwurm]
 RACE:Fiendwurm	!PRERACE:1,%
 NAME:Fiendwurm
 STAT:STR=10|DEX=11|CON=11|INT=11|WIS=10|CHA=10
-SKILL:Listen	RANK:14
-SKILL:Spot		RANK:13
-FEAT:Alertness
-FEAT:Cleave
-FEAT:Dodge
-FEAT:Great Cleave
-FEAT:Improved Initiative
-FEAT:Improved Overrun
-FEAT:Mobility
-FEAT:Power Attack
-FEAT:Spring Attack
 
-STARTPACK:Default Fihyr	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fihyr]
+STARTPACK:Fihyr Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fihyr]
 RACE:Fihyr	!PRERACE:1,%
 NAME:Fihyr
 STAT:STR=11|DEX=10|CON=10|INT=11|WIS=10|CHA=11
-SKILL:Hide			RANK:2
-SKILL:Move Silently	RANK:2
-SKILL:Spot			RANK:1
-FEAT:Stealthy
-FEAT:Skill Focus(Spot)
 
-STARTPACK:Default Fihyr (Great)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fihyr (Great)]
+STARTPACK:Great Fihyr Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fihyr (Great)]
 RACE:Fihyr (Great)	!PRERACE:1,%
-NAME:Fihyr (Great)
+NAME:Great Fihyr
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=11
-SKILL:Hide			RANK:19
-SKILL:Move Silently	RANK:19
-SKILL:Open Lock		RANK:19
-SKILL:Spot			RANK:19
-FEAT:Dodge
-FEAT:Great Fortitude
-FEAT:Improved Initiative
-FEAT:Iron Will
-FEAT:Lightning Reflexes
-FEAT:Mobility
 
-STARTPACK:Default Giant (Firbolg)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant (Firbolg)]
+STARTPACK:Firbolg Default	TYPE:DefaultMonster.Giant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant (Firbolg)]
 RACE:Giant (Firbolg)	!PRERACE:1,%
-NAME:Giant (Firbolg)
+NAME:Firbolg
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
-SKILL:Knowledge (Nature)	RANK:18
-SKILL:Move Silently		RANK:16
-SKILL:Spot				RANK:16
-SKILL:Survival			RANK:18
-FEAT:Deflect Arrows
-FEAT:Dodge
-FEAT:Improved Unarmed Strike
-FEAT:Mobility
-FEAT:Spring Attack
-GEAR:Greatsword				SIZE:PC	LOCATION:Carried
-GEAR:Firbolg's Studded Leather	SIZE:PC	LOCATION:Carried
 
-STARTPACK:Default Fire Bat	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fire Bat]
+STARTPACK:Fire Bat Default	TYPE:DefaultMonster.Elemental	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fire Bat]
 RACE:Fire Bat	!PRERACE:1,%
 NAME:Fire Bat
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
-SKILL:Hide		RANK:3
-SKILL:Listen	RANK:7
-SKILL:Spot		RANK:7
-FEAT:Dodge
-FEAT:Flyby Attack
-FEAT:Weapon Finesse
 
-STARTPACK:Fire Bat Familiar	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fire Bat]
-RACE:Fire Bat	!PRERACE:1,%
-ALIGN:NE
-STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
-SKILL:Hide		RANK:3
-SKILL:Listen	RANK:7
-SKILL:Spot		RANK:7
-FEAT:Dodge
-FEAT:Flyby Attack
-FEAT:Weapon Finesse
-
-STARTPACK:Default Flesh Jelly	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Flesh Jelly]
+STARTPACK:Flesh Jelly Default	TYPE:DefaultMonster.Ooze	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Flesh Jelly]
 RACE:Flesh Jelly	!PRERACE:1,%
 NAME:Flesh Jelly
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
 
-STARTPACK:Default Giant (Fomorian)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant (Fomorian)]
-RACE:Giant (Fomorian)	!PRERACE:1,%
-NAME:Giant (Fomorian)
+STARTPACK:Fomorian Default	TYPE:DefaultMonster.Giant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Fomorian]
+RACE:Fomorian	!PRERACE:1,%
+NAME:Fomorian
 STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=11
-SKILL:Listen		RANK:0
-SKILL:Move Silently	RANK:18
-SKILL:Spot			RANK:18
-FEAT:Alertness
-FEAT:Cleave
-FEAT:Great Cleave
-FEAT:Power Attack
-FEAT:Track
-GEAR:Flail	SIZE:PC	LOCATION:Carried
-GEAR:Hide	SIZE:PC	LOCATION:Carried
 
-STARTPACK:Default Forest Sloth	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Forest Sloth]
+STARTPACK:Forest Sloth Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Forest Sloth]
 RACE:Forest Sloth	!PRERACE:1,%
 NAME:Forest Sloth
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=11
-SKILL:Climb			RANK:0
-SKILL:Listen		RANK:8
-SKILL:Move Silently	RANK:1
-SKILL:Spot			RANK:4
-FEAT:Alertness
-FEAT:Improved Bull Rush
-FEAT:Improved Overrun
-FEAT:Power Attack
-FEAT:Track
 
-STARTPACK:Default Salamander (Frost)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Salamander (Frost)]
+STARTPACK:Frost Salamander Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Salamander (Frost)]
 RACE:Salamander (Frost)	!PRERACE:1,%
-NAME:Salamander (Frost)
+NAME:Frost Salamander
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
-SKILL:Climb			RANK:4
-SKILL:Hide			RANK:8
-SKILL:Listen		RANK:1
-SKILL:Move Silently	RANK:7
-SKILL:Spot			RANK:1
-FEAT:Alertness
-FEAT:Blind-Fight
-FEAT:Improved Critical(Claw)
-FEAT:Multiattack
-FEAT:Stealthy
 
-STARTPACK:Default Galeb Duhr	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Galeb Duhr]
+STARTPACK:Galeb Duhr Default	TYPE:DefaultMonster.Elemental	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Galeb Duhr]
 RACE:Galeb Duhr	!PRERACE:1,%
 NAME:Galeb Duhr
-STAT:STR=11|DEX=11|CON=10|INT=11|WIS=10|CHA=11
-SKILL:Concentration		RANK:4
-SKILL:Diplomacy			RANK:0
-SKILL:Knowledge (Geography)	RANK:4
-SKILL:Perform (Sing)		RANK:7
-SKILL:Sense Motive		RANK:6
-FEAT:Combat Casting
-FEAT:Iron Will
-FEAT:Negotiator
+STAT:STR=11|DEX=11|CON=10|INT=11|WIS=10|CHA=10
 
-STARTPACK:Default Gambol	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gambol]
+STARTPACK:Gambol Default	TYPE:DefaultMonster.Elemental	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gambol]
 RACE:Gambol	!PRERACE:1,%
 NAME:Gambol
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=11
-SKILL:Balance	RANK:2
-SKILL:Climb		RANK:6
-SKILL:Jump		RANK:2
-SKILL:Tumble	RANK:11
-FEAT:Dodge
-FEAT:Lightning Reflexes
-FEAT:Multiattack
 
-STARTPACK:Default Giant (Forest)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant (Forest)]
+STARTPACK:Giant (Forest) Default	TYPE:DefaultMonster.Giant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant (Forest)]
 RACE:Giant (Forest)	!PRERACE:1,%
-NAME:Giant (Forest)
+NAME:Forest Giant
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=11
-SKILL:Diplomacy		RANK:2
-SKILL:Hide			RANK:8
-SKILL:Listen		RANK:16
-SKILL:Sense Motive	RANK:16
-SKILL:Spot			RANK:16
-FEAT:Far Shot
-FEAT:Improved Initiative
-FEAT:Point Blank Shot
-FEAT:Precise Shot
-FEAT:Rapid Shot
-GEAR:Greatclub			SIZE:PC	LOCATION:Carried
-GEAR:Forest Giant's Longbow	SIZE:PC	LOCATION:Carried
 
-STARTPACK:Default Giant (Sun)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant (Sun)]
+STARTPACK:Giant (Sun) Default	TYPE:DefaultMonster.Giant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant (Sun)]
 RACE:Giant (Sun)	!PRERACE:1,%
-NAME:Giant (Sun)
+NAME:Sun Giant
 STAT:STR=11|DEX=10|CON=11|INT=11|WIS=10|CHA=10
-SKILL:Handle Animal	RANK:13
-SKILL:Hide			RANK:3
-SKILL:Listen		RANK:13
-SKILL:Ride			RANK:3
-SKILL:Spot			RANK:13
-FEAT:Alertness
-FEAT:Combat Casting
-FEAT:Mounted Combat
-FEAT:Point Blank Shot
-FEAT:Precise Shot
-GEAR:Longspear	SIZE:PC	LOCATION:Carried
 
-STARTPACK:Default Giant (Ocean)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant (Ocean)]
+STARTPACK:Giant (Ocean) Default	TYPE:DefaultMonster.Giant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant (Ocean)]
 RACE:Giant (Ocean)	!PRERACE:1,%
-NAME:Giant (Ocean)
+NAME:Ocean Giant
 STAT:STR=11|DEX=11|CON=10|INT=11|WIS=10|CHA=10
-SKILL:Diplomacy		RANK:2
-SKILL:Listen		RANK:14
-SKILL:Sense Motive	RANK:14
-SKILL:Spot			RANK:14
-SKILL:Swim			RANK:4
-FEAT:Combat Reflexes
-FEAT:Endurance
-FEAT:Far Shot
-FEAT:Improved Initiative
-FEAT:Point Blank Shot
-FEAT:Precise Shot
-FEAT:Shot on the Run
-GEAR:Trident	SIZE:PC	LOCATION:Carried
 
-STARTPACK:Default Glimmerskin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Glimmerskin]
+STARTPACK:Giant (Mountain) Default	TYPE:DefaultMonster.Giant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Giant (Mountain)]
+RACE:Giant (Mountain)	!PRERACE:1,%
+NAME:Mountain Giant
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=11
+
+STARTPACK:Glimmerskin Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Glimmerskin]
 RACE:Glimmerskin	!PRERACE:1,%
 NAME:Glimmerskin
 STAT:STR=10|DEX=11|CON=10|INT=11|WIS=11|CHA=10
-SKILL:Bluff				RANK:15
-SKILL:Diplomacy			RANK:15
-SKILL:Intimidate			RANK:10
-SKILL:Knowledge (Arcana)	RANK:15
-SKILL:Knowledge (The Planes)	RANK:15
-SKILL:Search			RANK:13
-SKILL:Sense Motive		RANK:15
-SKILL:Spellcraft			RANK:9
-SKILL:Spot				RANK:15
-FEAT:Cleave
-FEAT:Great Cleave
-FEAT:Improved Bull Rush
-FEAT:Improved Sunder
-FEAT:Power Attack
 
-STARTPACK:Default Golem (Stained Glass)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Golem (Stained Glass)]
+STARTPACK:Golem (Stained Glass) Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Golem (Stained Glass)]
 RACE:Golem (Stained Glass)	!PRERACE:1,%
 NAME:Golem (Stained Glass)
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=11
-SKILL:Hide	RANK:0
-FEAT:Blind-Fight
-FEAT:Cleave
-FEAT:Great Cleave
-FEAT:Power Attack
-FEAT:Skill Focus(Hide)
 
-STARTPACK:Default Golem (Brass)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Golem (Brass)]
+STARTPACK:Golem (Brass) Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Golem (Brass)]
 RACE:Golem (Brass)	!PRERACE:1,%
 NAME:Golem (Brass)
 STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
-SKILL:Survival	RANK:0
-FEAT:Blind-Fight
-FEAT:Cleave
-FEAT:Great Cleave
-FEAT:Power Attack
-FEAT:Skill Focus(Hide)
 
-STARTPACK:Default Golem (Dragonflesh)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Golem (Dragonflesh)]
+STARTPACK:Golem (Dragonflesh) Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Golem (Dragonflesh)]
 RACE:Golem (Dragonflesh)	!PRERACE:1,%
 NAME:Golem (Dragonflesh)
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
-SKILL:Listen	RANK:19
-SKILL:Spot		RANK:18
-FEAT:Alertness
-FEAT:Cleave
-FEAT:Great Cleave
-FEAT:Hover
-FEAT:Improved Bull Rush
-FEAT:Improved Overrun
-FEAT:Improved Sunder
-FEAT:Power Attack
-FEAT:Toughness		COUNT:2
-FEAT:Wingover
 
-STARTPACK:Default Gravecrawler	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gravecrawler]
+STARTPACK:Gravecrawler Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gravecrawler]
 RACE:Gravecrawler	!PRERACE:1,%
 NAME:Gravecrawler
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
-SKILL:Balance			RANK:2
-SKILL:Bluff				RANK:14
-SKILL:Diplomacy			RANK:14
-SKILL:Escape Artist		RANK:16
-SKILL:Gather Information	RANK:2
-SKILL:Hide				RANK:28
-SKILL:Intimidate			RANK:0
-SKILL:Jump				RANK:0
-SKILL:Knowledge (History)	RANK:28
-SKILL:Knowledge (Local)		RANK:28
-SKILL:Knowledge (Religion)	RANK:28
-SKILL:Listen			RANK:14
-SKILL:Sense Motive		RANK:14
-SKILL:Spot				RANK:0
-SKILL:Tumble			RANK:14
-FEAT:Alertness
-FEAT:Blind-Fight
-FEAT:Combat Reflexes
-FEAT:Dodge
-FEAT:Improved Critical(Bite)
-FEAT:Iron Will
-FEAT:Mobility
-FEAT:Negotiator
-FEAT:Spring Attack
 
-STARTPACK:Default Gravorg	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gravorg]
+STARTPACK:Gravorg Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Gravorg]
 RACE:Gravorg	!PRERACE:1,%
 NAME:Gravorg
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
-SKILL:Climb		RANK:12
-SKILL:Hide		RANK:0
-SKILL:Listen	RANK:2
-SKILL:Spot		RANK:2
-FEAT:Ability Focus
-FEAT:Alertness
-FEAT:Improved Initiative
-FEAT:Power Attack
 
-STARTPACK:Default Greenvise	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Greenvise]
-RACE:Greenvise	!PRERACE:1,%
-NAME:Greenvise
-STAT:STR=11|DEX=10|CON=10|INT=11|WIS=11|CHA=10
-SKILL:Hide	RANK:10
-FEAT:Cleave
-FEAT:Improved Initiative
-FEAT:Power Attack
-
-STARTPACK:Default Grell	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Grell]
+STARTPACK:Grell Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Grell]
 RACE:Grell	!PRERACE:1,%
 NAME:Grell
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
-SKILL:Hide			RANK:4
-SKILL:Listen		RANK:4
-SKILL:Move Silently	RANK:4
-SKILL:Spot			RANK:4
-FEAT:Flyby Attack
-FEAT:Stealthy
 
-STARTPACK:Default Grimalkin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Grimalkin]
+STARTPACK:Grimalkin Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Grimalkin]
 RACE:Grimalkin	!PRERACE:1,%
 NAME:Grimalkin
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
-SKILL:Climb			RANK:0
-SKILL:Hide			RANK:1
-SKILL:Jump			RANK:2
-SKILL:Listen		RANK:1
-SKILL:Move Silently	RANK:1
-SKILL:Spot			RANK:1
-FEAT:Acrobatic
-FEAT:Improved Initiative
 
-STARTPACK:Default Grizzly Mastodon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Grizzly Mastodon]
+STARTPACK:Grizzly Mastodon Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Grizzly Mastodon]
 RACE:Grizzly Mastodon	!PRERACE:1,%
 NAME:Grizzly Mastodon
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=11
-SKILL:Listen	RANK:7
-SKILL:Spot		RANK:7
-FEAT:Alertness
-FEAT:Endurance
-FEAT:Improved Bull Rush
-FEAT:Power Attack
-FEAT:Toughness		COUNT:2
 
-STARTPACK:Default Half Fiend (Durzagon)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Half Fiend (Durzagon)]
+STARTPACK:Half Fiend (Durzagon) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Half Fiend (Durzagon)]
 RACE:Half Fiend (Durzagon)	!PRERACE:1,%
-NAME:Half Fiend (Durzagon)
+NAME:Durzagon
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
-SKILL:Appraise			RANK:8
-SKILL:Bluff				RANK:8
-SKILL:Craft (Metalworking)	RANK:6
-SKILL:Craft (Stoneworking)	RANK:6
-SKILL:Diplomacy			RANK:8
-SKILL:Intimidate			RANK:2
-SKILL:Listen			RANK:8
-SKILL:Move Silently		RANK:8
-SKILL:Search			RANK:8
-SKILL:Sense Motive		RANK:8
-SKILL:Spot				RANK:8
-FEAT:Improved Initiative
-FEAT:Power Attack
 
-STARTPACK:Default Dragon (Hellfire Wyrm)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Hellfire Wyrm)]
+STARTPACK:Dragon (Hellfire Wyrm) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Hellfire Wyrm)]
 RACE:Dragon (Hellfire Wyrm)	!PRERACE:1,%
-NAME:Dragon (Hellfire Wyrm)
+NAME:Hellfire Wyrm
 STAT:STR=11|DEX=10|CON=11|INT=11|WIS=10|CHA=10
-SKILL:Bluff				RANK:26
-SKILL:Diplomacy			RANK:26
-SKILL:Intimidate			RANK:26
-SKILL:Jump				RANK:26
-SKILL:Knowledge (Arcana)	RANK:26
-SKILL:Knowledge (History)	RANK:26
-SKILL:Knowledge (Religion)	RANK:26
-SKILL:Knowledge (The Planes)	RANK:26
-SKILL:Listen			RANK:26
-SKILL:Search			RANK:24
-SKILL:Spellcraft			RANK:26
-SKILL:Spot				RANK:26
-FEAT:Cleave
-FEAT:Flyby Attack
-FEAT:Hover
-FEAT:Improved Initiative
-FEAT:Power Attack
-FEAT:Quicken Spell-Like Ability
-FEAT:Snatch
-FEAT:Wingover
 
-STARTPACK:Default Hook Horror	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hook Horror]
+STARTPACK:Hook Horror Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Hook Horror]
 RACE:Hook Horror	!PRERACE:1,%
 NAME:Hook Horror
 STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
-SKILL:Climb		RANK:5
-SKILL:Hide		RANK:0
-SKILL:Jump		RANK:4
-SKILL:Listen	RANK:4
-FEAT:Cleave
-FEAT:Improved Trip
-FEAT:Power Attack
-FEAT:Skill Focus(Listen)
 
-STARTPACK:Default Immoth	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Immoth]
+STARTPACK:Immoth Default	TYPE:DefaultMonster.Elemental	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Immoth]
 RACE:Immoth	!PRERACE:1,%
 NAME:Immoth
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
-SKILL:Climb	RANK:13
-SKILL:Hide	RANK:13
-SKILL:Jump	RANK:13
-SKILL:Spot	RANK:13
-SKILL:Swim	RANK:12
-FEAT:Cleave
-FEAT:Combat Casting
-FEAT:Combat Reflexes
-FEAT:Power Attack
+# GEAR:Ice Rune	QTY:roll("3d4+2")
 
-STARTPACK:Default Ixitxachitl	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ixitxachitl]
+STARTPACK:Ixitxachitl Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ixitxachitl]
 RACE:Ixitxachitl	!PRERACE:1,%
 NAME:Ixitxachitl
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
-SKILL:Hide				RANK:4
-SKILL:Knowledge (Nature)	RANK:2
-SKILL:Listen			RANK:2
-SKILL:Spot				RANK:2
-SKILL:Swim				RANK:4
-SKILL:Tumble			RANK:2
-FEAT:Dodge
 
-STARTPACK:Default Ixitxachitl (Vampiric)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ixitxachitl (Vampiric)]
+STARTPACK:Ixitxachitl (Vampiric) Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ixitxachitl (Vampiric)]
 RACE:Ixitxachitl (Vampiric)	!PRERACE:1,%
-NAME:Ixitxachitl (Vampiric)
+NAME:Vampiric Ixitxachitl
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
-SKILL:Hide				RANK:3
-SKILL:Knowledge (Nature)	RANK:3
-SKILL:Listen			RANK:3
-SKILL:Spot				RANK:3
-SKILL:Swim				RANK:4
-SKILL:Tumble			RANK:3
-FEAT:Dodge
 
-STARTPACK:Default Jermlaine	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Jermlaine]
+STARTPACK:Jahi Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Jahi]
+RACE:Jahi	!PRERACE:1,%
+NAME:Jahi
+STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
+
+STARTPACK:Jermlaine Default	TYPE:DefaultMonster.Fey	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Jermlaine]
 RACE:Jermlaine	!PRERACE:1,%
 NAME:Jermlaine
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
-SKILL:Craft (Trapmaking)	RANK:3
-SKILL:Hide				RANK:3
-SKILL:Listen			RANK:3
-SKILL:Move Silently		RANK:3
-SKILL:Spot				RANK:3
-FEAT:Alertness
 
-STARTPACK:Default Jaggernaut	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Jaggernaut]
-RACE:Jaggernaut	!PRERACE:1,%
-NAME:Jaggernaut
-STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
-
-STARTPACK:Default Julajimus	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Julajimus]
+STARTPACK:Julajimus Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Julajimus]
 RACE:Julajimus	!PRERACE:1,%
 NAME:Julajimus
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
-SKILL:Climb		RANK:9
-SKILL:Disguise	RANK:12
-SKILL:Intimidate	RANK:10
-SKILL:Jump		RANK:9
-SKILL:Listen	RANK:10
-SKILL:Spot		RANK:10
-FEAT:Cleave
-FEAT:Great Cleave
-FEAT:Improved Initiative
-FEAT:Improved Bull Rush
-FEAT:Power Attack
-FEAT:Skill Focus(Disguise)
 
-STARTPACK:Default Kopru	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Kopru]
+STARTPACK:Kopru Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Kopru]
 RACE:Kopru	!PRERACE:1,%
 NAME:Kopru
 STAT:STR=11|DEX=10|CON=11|INT=11|WIS=10|CHA=10
-SKILL:Concentration	RANK:8
-SKILL:Escape Artist	RANK:6
-SKILL:Move Silently	RANK:4
-SKILL:Search		RANK:3
-SKILL:Swim			RANK:4
-FEAT:Iron Will
-FEAT:Multiattack
-FEAT:Skill Focus(Escape Artist)
 
-STARTPACK:Default Leechwalker	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Leechwalker]
+STARTPACK:Leechwalger Default	TYPE:DefaultMonster.Vermin	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Leech Walker]
 RACE:Leechwalker	!PRERACE:1,%
 NAME:Leechwalker
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 
-STARTPACK:Default Animal (Eagle/Legendary)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Legendary Animal (Eagle)]
-RACE:Legendary Animal (Eagle)	!PRERACE:1,%
+STARTPACK:Legendary Animal (Legendary Eagle) Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Legendary Animal (Legendary Eagle)]
+RACE:Legendary Animal (Legendary Eagle)	!PRERACE:1,%
 NAME:Legendary Eagle
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=11
-SKILL:Listen	RANK:7
-SKILL:Spot		RANK:8
-FEAT:Alertness
-FEAT:Flyby Attack
-FEAT:Hover
-FEAT:Skill Focus(Spot)
-FEAT:Weapon Finesse
 
-STARTPACK:Default Animal (Ape/Legendary)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Legendary Animal (Ape)]
-RACE:Legendary Animal (Ape)	!PRERACE:1,%
+STARTPACK:Legendary Animal (Legendary Ape) Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Legendary Animal (Legendary Ape)]
+RACE:Legendary Animal (Legendary Ape)	!PRERACE:1,%
 NAME:Legendary Ape
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
-SKILL:Climb			RANK:5
-SKILL:Listen		RANK:0
-SKILL:Move Silently	RANK:8
-SKILL:Spot			RANK:7
-FEAT:Alertness
-FEAT:Endurance
-FEAT:Toughness	COUNT:2
-FEAT:Track
 
-STARTPACK:Default Animal (Wolf/Legendary)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Legendary Animal (Wolf)]
-RACE:Legendary Animal (Wolf)	!PRERACE:1,%
+STARTPACK:Legendary Animal (Legendary Wolf) Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Legendary Animal (Legendary Wolf)]
+RACE:Legendary Animal (Legendary Wolf)	!PRERACE:1,%
 NAME:Legendary Wolf
-STAT:STR=11|DEX=10|CON=11|INT=11|WIS=10|CHA=11
-SKILL:Hide			RANK:1
-SKILL:Listen		RANK:6
-SKILL:Move Silently	RANK:2
-SKILL:Spot			RANK:6
-SKILL:Survival		RANK:2
-FEAT:Alertness
-FEAT:Endurance
-FEAT:Stealthy
-FEAT:Track
-FEAT:Weapon Finesse
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
 
-STARTPACK:Default Animal (Snake/Legendary)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Legendary Animal (Snake)]
-RACE:Legendary Animal (Snake)	!PRERACE:1,%
+STARTPACK:Legendary Animal (Legendary Snake) Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Legendary Animal (Legendary Snake)]
+RACE:Legendary Animal (Legendary Snake)	!PRERACE:1,%
 NAME:Legendary Snake
 STAT:STR=11|DEX=10|CON=10|INT=11|WIS=10|CHA=11
-SKILL:Balance	RANK:4
-SKILL:Climb		RANK:14
-SKILL:Hide		RANK:3
-SKILL:Listen	RANK:3
-SKILL:Spot		RANK:3
-SKILL:Swim		RANK:8
-FEAT:Alertness
-FEAT:Athletic
-FEAT:Endurance
-FEAT:Toughness	COUNT:3
 
-STARTPACK:Default Animal (Horse/Legendary)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Legendary Animal (Horse)]
-RACE:Legendary Animal (Horse)	!PRERACE:1,%
+STARTPACK:Legendary Animal (Legendary Horse) Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Legendary Animal (Legendary Horse)]
+RACE:Legendary Animal (Legendary Horse)	!PRERACE:1,%
 NAME:Legendary Horse
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
-SKILL:Listen	RANK:3
-SKILL:Spot		RANK:3
-FEAT:Endurance
-FEAT:Improved Overrun
-FEAT:Power Attack
-FEAT:Run
-FEAT:Toughness		COUNT:3
 
-STARTPACK:Default Animal (Bear/Legendary)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Legendary Animal (Bear)]
-RACE:Legendary Animal (Bear)	!PRERACE:1,%
+STARTPACK:Legendary Animal (Legendary Bear) Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Legendary Animal (Legendary Bear)]
+RACE:Legendary Animal (Legendary Bear)	!PRERACE:1,%
 NAME:Legendary Bear
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11
-SKILL:Listen	RANK:8
-SKILL:Spot		RANK:8
-SKILL:Swim		RANK:7
-FEAT:Cleave
-FEAT:Great Cleave
-FEAT:Power Attack
-FEAT:Endurance
-FEAT:Improved Overrun
-FEAT:Power Attack
-FEAT:Run
-FEAT:Track
 
-STARTPACK:Default Animal (Shark/Legendary)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Legendary Animal (Shark)]
-RACE:Legendary Animal (Shark)	!PRERACE:1,%
+STARTPACK:Legendary Animal (Legendary Tiger) Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Legendary Animal (Legendary Tiger)]
+RACE:Legendary Animal (Legendary Tiger)	!PRERACE:1,%
+NAME:Legendary Tiger
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=11
+
+STARTPACK:Legendary Animal (Legendary Shark) Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Legendary Animal (Legendary Shark)]
+RACE:Legendary Animal (Legendary Shark)	!PRERACE:1,%
 NAME:Legendary Shark
-STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11
-SKILL:Listen	RANK:17
-SKILL:Spot		RANK:16
-SKILL:Swim		RANK:8
-FEAT:Improved Critical(Bite)
-FEAT:Toughness			COUNT:9
-FEAT:Weapon Focus(Bite)
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
 
-STARTPACK:Default Loxo	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Loxo]
+STARTPACK:Leviathan Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Leviathan]
+RACE:Leviathan	!PRERACE:1,%
+NAME:Leviathan
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+
+STARTPACK:Dragon (Grey Linnorm) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Grey Linnorm)]
+RACE:Dragon (Grey Linnorm)	!PRERACE:1,%
+NAME:Grey Linnorm
+STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
+
+STARTPACK:Dragon (Dread Linnorm) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Dread Linnorm)]
+RACE:Dragon (Dread Linnorm)	!PRERACE:1,%
+NAME:Dread Linnorm
+STAT:STR=10|DEX=11|CON=11|INT=11|WIS=10|CHA=11
+
+STARTPACK:Dragon (Corpse Tearer Linnorm) Default	TYPE:DefaultMonster.Dragon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dragon (Corpse Tearer Linnorm)]
+RACE:Dragon (Corpse Tearer Linnorm)	!PRERACE:1,%
+NAME:Corpse Tearer Linnorm
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
+
+STARTPACK:Loxo Default	TYPE:DefaultMonster.MonstrousHumanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Loxo]
 RACE:Loxo	!PRERACE:1,%
 NAME:Loxo
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
-SKILL:Climb		RANK:1
-SKILL:Listen	RANK:5
-SKILL:Spot		RANK:5
-SKILL:Survival	RANK:5
-FEAT:Great Fortitude
-FEAT:Power Attack
 
-STARTPACK:Default Marrash	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Marrash]
+STARTPACK:Marrash Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Marrash]
 RACE:Marrash	!PRERACE:1,%
 NAME:Marrash
 STAT:STR=11|DEX=10|CON=11|INT=11|WIS=10|CHA=10
-SKILL:Balance			RANK:8
-SKILL:Jump				RANK:8
-SKILL:Knowledge (The Planes)	RANK:10
-SKILL:Listen			RANK:10
-SKILL:Search			RANK:8
-SKILL:Spot				RANK:10
-SKILL:Tumble			RANK:8
-FEAT:Dodge
-FEAT:Point Blank Shot
-FEAT:Precise Shot
-GEAR:Marrash's Longbow	SIZE:PC	LOCATION:Carried
 
-STARTPACK:Default Meenlock	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Meenlock]
+STARTPACK:Meenlock Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Meenlock]
 RACE:Meenlock	!PRERACE:1,%
 NAME:Meenlock
 STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
-SKILL:Hide			RANK:3
-SKILL:Listen		RANK:2
-SKILL:Move Silently	RANK:4
-SKILL:Spot			RANK:1
-SKILL:Survival		RANK:4
-FEAT:Alertness
-FEAT:Track
 
-STARTPACK:Default Megalodon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Megalodon]
+STARTPACK:Megalodon Default	TYPE:DefaultMonster.Animal	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Megalodon]
 RACE:Megalodon	!PRERACE:1,%
 NAME:Megalodon
-STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
-SKILL:Listen	RANK:9
-SKILL:Spot		RANK:9
-SKILL:Swim		RANK:6
-FEAT:Improved Critical(Bite)
-FEAT:Toughness			COUNT:7
-FEAT:Weapon Focus(Bite)
+STAT:STR=11|DEX=11|CON=10|INT=11|WIS=10|CHA=10
 
-STARTPACK:Default Megapede	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Megapede]
-RACE:Megapede	!PRERACE:1,%
-NAME:Megapede
-STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
-
-STARTPACK:Default Moonbeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Moonbeast]
+STARTPACK:Moonbeast Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Moonbeast]
 RACE:Moonbeast	!PRERACE:1,%
 NAME:Moonbeast
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
-SKILL:Climb		RANK:8
-SKILL:Listen	RANK:10
-SKILL:Search	RANK:0
-SKILL:Spot		RANK:7
-FEAT:Ability Focus
-FEAT:Alertness
-FEAT:Cleave
-FEAT:Combat Reflexes
-FEAT:Great Cleave
-FEAT:Iron Will
-FEAT:Power Attack
 
-STARTPACK:Default Mooncalf	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mooncalf]
+STARTPACK:Mooncalf Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mooncalf]
 RACE:Mooncalf	!PRERACE:1,%
 NAME:Mooncalf
 STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=11
-SKILL:Concentration		RANK:18
-SKILL:Hide				RANK:18
-SKILL:Knowledge (Arcana)	RANK:18
-SKILL:Knowledge (History)	RANK:18
-SKILL:Listen			RANK:18
-SKILL:Spellcraft			RANK:18
-SKILL:Spot				RANK:18
-FEAT:Alertness
-FEAT:Blind-Fight
-FEAT:Combat Expertise
-FEAT:Improved Critical(Tentacle Rake)
-FEAT:Improved Initiative
-FEAT:Improved Trip
 
-STARTPACK:Default Moonrat	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Moonrat]
+STARTPACK:Moonrat Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Moonrat]
 RACE:Moonrat	!PRERACE:1,%
 NAME:Moonrat
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
-SKILL:Balance		RANK:0
-SKILL:Climb			RANK:0
-SKILL:Hide			RANK:1
-SKILL:Move Silently	RANK:3
-FEAT:Iron Will
 
-STARTPACK:Default Morkoth	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Morkoth]
+STARTPACK:Morkoth Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Morkoth]
 RACE:Morkoth	!PRERACE:1,%
 NAME:Morkoth
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
-SKILL:Hide				RANK:10
-SKILL:Knowledge (Arcana)	RANK:10
-SKILL:Listen			RANK:10
-SKILL:Spellcraft			RANK:10
-SKILL:Spot				RANK:10
-SKILL:Swim				RANK:0
-FEAT:Blind-Fight
-FEAT:Dodge
-FEAT:Improved Initiative
 
-STARTPACK:Default Mudmaw	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mudmaw]
+STARTPACK:Mudmaw Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Mudmaw]
 RACE:Mudmaw	!PRERACE:1,%
 NAME:Mudmaw
 STAT:STR=11|DEX=10|CON=11|INT=11|WIS=10|CHA=10
-SKILL:Hide		RANK:9
-SKILL:Survival	RANK:2
-SKILL:Swim		RANK:4
-FEAT:Improved Initiative
-FEAT:Iron Will
-FEAT:Track
 
-STARTPACK:Default Myconid (Junior Worker)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Myconid (Junior Worker)]
-RACE:Myconid (Junior Worker)	!PRERACE:1,%
-NAME:Myconid (Junior Worker)
+STARTPACK:Myconid Default	TYPE:DefaultMonster.Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Myconid]
+RACE:Myconid	!PRERACE:1,%
+NAME:Myconid
 STAT:STR=10|DEX=11|CON=11|INT=11|WIS=10|CHA=10
-SKILL:Knowledge (Nature)	RANK:1
-SKILL:Listen			RANK:0
-SKILL:Profession (Farmer)	RANK:2
-SKILL:Spot				RANK:0
-SKILL:Survival			RANK:2
-FEAT:Alertness
 
-STARTPACK:Default Myconid (Average Worker)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Myconid (Average Worker)]
-RACE:Myconid (Average Worker)	!PRERACE:1,%
-NAME:Myconid (Average Worker)
+STARTPACK:Myconid Junior Worker	TYPE:Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Myconid]
+RACE:Myconid	!PRERACE:1,%
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=11
-SKILL:Knowledge (Nature)	RANK:2
-SKILL:Listen			RANK:0
-SKILL:Profession (Farmer)	RANK:4
-SKILL:Spot				RANK:0
-SKILL:Sense Motive		RANK:2
-SKILL:Survival			RANK:2
-FEAT:Alertness
 
-STARTPACK:Default Myconid (Elder Worker)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Myconid (Elder Worker)]
-RACE:Myconid (Elder Worker)	!PRERACE:1,%
-NAME:Myconid (Elder Worker)
+STARTPACK:Myconid Average Worker	TYPE:Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Myconid]	PRETEMPLATE:1,Myconid ~ Average Worker
+RACE:Myconid	!PRERACE:1,%
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=11
+
+STARTPACK:Myconid Elder Worker	TYPE:Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Myconid]	PRETEMPLATE:1,Myconid ~ Elder Worker
+RACE:Myconid	!PRERACE:1,%
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
-SKILL:Knowledge (Nature)	RANK:3
-SKILL:Listen			RANK:0
-SKILL:Profession (Farmer)	RANK:4
-SKILL:Spot				RANK:0
-SKILL:Sense Motive		RANK:2
-SKILL:Survival			RANK:3
-FEAT:Alertness
-FEAT:Toughness
 
-STARTPACK:Default Myconid (Guard)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Myconid (Guard)]
-RACE:Myconid (Guard)	!PRERACE:1,%
-NAME:Myconid (Guard)
-STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
-SKILL:Intimidate			RANK:3
-SKILL:Knowledge (Nature)	RANK:3
-SKILL:Listen			RANK:0
-SKILL:Profession (Farmer)	RANK:4
-SKILL:Spot				RANK:0
-SKILL:Sense Motive		RANK:2
-SKILL:Survival			RANK:2
-FEAT:Alertness
-FEAT:Weapon Focus(Spore)
+STARTPACK:Myconid Guard	TYPE:Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Myconid]	PRETEMPLATE:1,Myconid ~ Guard
+RACE:Myconid	!PRERACE:1,%
+STAT:STR=10|DEX=10|CON=11|INT=11|WIS=11|CHA=10
 
-STARTPACK:Default Myconid (Circle Leader)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Myconid (Circle Leader)]
-RACE:Myconid (Circle Leader)	!PRERACE:1,%
-NAME:Myconid (Circle Leader)
+STARTPACK:Myconid Circle Leader	TYPE:Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Myconid]	PRETEMPLATE:1,Myconid ~ Circle Leader
+RACE:Myconid	!PRERACE:1,%
 STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=11
-SKILL:Diplomacy			RANK:2
-SKILL:Intimidate			RANK:3
-SKILL:Knowledge (Nature)	RANK:3
-SKILL:Listen			RANK:0
-SKILL:Profession (Farmer)	RANK:4
-SKILL:Sense Motive		RANK:3
-SKILL:Survival			RANK:3
-FEAT:Alertness
-FEAT:Weapon Focus(Spore)
 
-STARTPACK:Default Myconid (Sovereign)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Myconid (Sovereign)]
-RACE:Myconid (Sovereign)	!PRERACE:1,%
-NAME:Myconid (Sovereign)
+STARTPACK:Myconid Sovereign	TYPE:Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Myconid]	PRETEMPLATE:1,Myconid ~ Sovereign
+RACE:Myconid	!PRERACE:1,%
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
-SKILL:Intimidate			RANK:3
-SKILL:Knowledge (Nature)	RANK:3
-SKILL:Listen			RANK:2
-SKILL:Move Silently		RANK:6
-SKILL:Profession (Farmer)	RANK:5
-SKILL:Profession (Herbalist)	RANK:4
-SKILL:Sense Motive		RANK:3
-SKILL:Spot				RANK:2
-SKILL:Survival			RANK:3
-FEAT:Alertness
-FEAT:Toughness
-FEAT:Weapon Focus(Spore)
 
-STARTPACK:Default Needlefolk	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Needlefolk]
+STARTPACK:Needlefolk Default	TYPE:DefaultMonster.Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Needlefolk]
 RACE:Needlefolk	!PRERACE:1,%
 NAME:Needlefolk
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
-SKILL:Hide			RANK:6
-SKILL:Listen		RANK:2
-SKILL:Move Silently	RANK:0
-SKILL:Spot			RANK:2
-FEAT:Alertness
-FEAT:Stealthy
 
-STARTPACK:Default Neogi (Spawn)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Neogi (Spawn)]
-RACE:Neogi (Spawn)	!PRERACE:1,%
-NAME:Neogi (Spawn)
+STARTPACK:Neogi Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Neogi]
+RACE:Neogi	!PRERACE:1,%
+NAME:Neogi
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
-SKILL:Balance		RANK:1
-SKILL:Climb			RANK:0
-SKILL:Jump			RANK:1
-SKILL:Move Silently	RANK:1
-FEAT:Weapon Finesse
 
-STARTPACK:Default Neogi (Adult)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Neogi (Adult)]
-RACE:Neogi (Adult)	!PRERACE:1,%
-NAME:Neogi (Adult)
+STARTPACK:Neogi Adult	TYPE:Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Neogi]	PRETEMPLATE:1,Neogi ~ Adult
+RACE:Neogi	!PRERACE:1,%
 STAT:STR=10|DEX=11|CON=11|INT=11|WIS=10|CHA=10
-SKILL:Balance		RANK:7
-SKILL:Climb			RANK:8
-SKILL:Disable Device	RANK:5
-SKILL:Intimidate		RANK:6
-SKILL:Jump			RANK:7
-SKILL:Move Silently	RANK:6
-FEAT:Dodge
-FEAT:Mobility
 
-STARTPACK:Default Neogi (Great Old Master)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Neogi (Great Old Master)]
-RACE:Neogi (Great Old Master)	!PRERACE:1,%
-NAME:Neogi (Great Old Master)
-STAT:STR=10|DEX=10|CON=10|INT=10|WIS=11|CHA=11
-
-STARTPACK:Default Nethersight Mastiff	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Nethersight Mastiff]
+STARTPACK:Nethersight Mastiff Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Nethersight Mastiff]
 RACE:Nethersight Mastiff	!PRERACE:1,%
 NAME:Nethersight Mastiff
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
-SKILL:Jump		RANK:11
-SKILL:Listen	RANK:4
-SKILL:Spot		RANK:3
-SKILL:Survival	RANK:3
-FEAT:Alertness
-FEAT:Improved Initiative
-FEAT:Iron Will
-FEAT:Track
 
-STARTPACK:Default Nightmare Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Nightmare Beast]
+STARTPACK:Nightmare Beast Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Nightmare Beast]
 RACE:Nightmare Beast	!PRERACE:1,%
 NAME:Nightmare Beast
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
-SKILL:Jump	RANK:15
-SKILL:Spot	RANK:9
-FEAT:Cleave
-FEAT:Improved Critical(Tusk)
-FEAT:Improved Bull Rush
-FEAT:Improved Overrun
-FEAT:Multiattack
-FEAT:Power Attack
 
-STARTPACK:Default Nimblewright	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Nimblewright]
+STARTPACK:Nimblerwright Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Nimblewright]
 RACE:Nimblewright	!PRERACE:1,%
 NAME:Nimblewright
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=11
-SKILL:Balance	RANK:2
-SKILL:Jump		RANK:15
-SKILL:Tumble	RANK:13
-FEAT:Dodge
-FEAT:Improved Disarm
-FEAT:Mobility
-FEAT:Spring Attack
 
-STARTPACK:Default Ocean Strider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ocean Strider]
+STARTPACK:Ocean Strider Default	TYPE:DefaultMonster.Fey	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ocean Strider]
 RACE:Ocean Strider	!PRERACE:1,%
 NAME:Ocean Strider
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
-SKILL:Hide				RANK:17
-SKILL:Intimidate			RANK:33
-SKILL:Jump				RANK:33
-SKILL:Knowledge (Nature)	RANK:32
-SKILL:Listen			RANK:33
-SKILL:Search			RANK:33
-SKILL:Spot				RANK:33
-SKILL:Survival			RANK:33
-SKILL:Swim				RANK:33
-FEAT:Alertness
-FEAT:Blind-Fight
-FEAT:Cleave
-FEAT:Combat Expertise
-FEAT:Dodge
-FEAT:Improved Initiative
-FEAT:Improved Sunder
-FEAT:Mobility
-FEAT:Power Attack
-FEAT:Spring Attack
-FEAT:Whirlwind Attack
 
-STARTPACK:Default Orcwort (Wortling)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Orcwort (Wortling)]
+STARTPACK:Orcwort (Wortling) Default	TYPE:DefaultMonster.Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Orcwort (Wortling)]
 RACE:Orcwort (Wortling)	!PRERACE:1,%
-NAME:Orcwort (Wortling)
+NAME:Wortling
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
-SKILL:Climb			RANK:0
-SKILL:Hide			RANK:3
-SKILL:Move Silently	RANK:3
-FEAT:Improved Initiative
-FEAT:Stealthy
 
-STARTPACK:Default Orcwort	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Orcwort]
+STARTPACK:Orcwort Default	TYPE:DefaultMonster.Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Orcwort]
 RACE:Orcwort	!PRERACE:1,%
 NAME:Orcwort
 STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
-SKILL:Hide			RANK:35
-SKILL:Move Silently	RANK:35
-FEAT:Awesome Blow
-FEAT:Blind-Fight
-FEAT:Cleave
-FEAT:Endurance
-FEAT:Great Cleave
-FEAT:Improved Bull Rush
-FEAT:Improved Initiative
-FEAT:Improved Sunder
-FEAT:Iron Will
-FEAT:Power Attack
-FEAT:Stealthy
 
-STARTPACK:Default Ormyrr	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ormyrr]
+STARTPACK:Ormyrr Default	TYPE:DefaultMonster.Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ormyrr]
 RACE:Ormyrr	!PRERACE:1,%
 NAME:Ormyrr
-STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
-SKILL:Knowledge (Arcana)	RANK:7
-SKILL:Listen			RANK:5
-SKILL:Spellcraft			RANK:8
-SKILL:Swim				RANK:0
-FEAT:Alertness
-FEAT:Combat Reflexes
-FEAT:Multiweapon Fighting
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=10
 
-STARTPACK:Default Phase Wasp	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Phase Wasp]
+STARTPACK:Phase Wasp Default	TYPE:DefaultMonster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Phase Wasp]
 RACE:Phase Wasp	!PRERACE:1,%
 NAME:Phase Wasp
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
-SKILL:Listen	RANK:2
-SKILL:Spot		RANK:2
-SKILL:Survival	RANK:1
-FEAT:Alertness
 
-STARTPACK:Default Phoenix	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Phoenix]
+STARTPACK:Phoenix Default	TYPE:DefaultMonster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Phoenix]
 RACE:Phoenix	!PRERACE:1,%
 NAME:Phoenix
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
-SKILL:Concentration		RANK:23
-SKILL:Diplomacy			RANK:23
-SKILL:Knowledge (Arcana)	RANK:23
-SKILL:Knowledge (History)	RANK:23
-SKILL:Spellcraft			RANK:23
-SKILL:Spot				RANK:23
-FEAT:Empower Spell
-FEAT:Enlarge Spell
-FEAT:Extend Spell
-FEAT:Flyby Attack
-FEAT:Heighten Spell
-FEAT:Improved Critical(Claw)
-FEAT:Maximize Spell
 
-STARTPACK:Default Planetouched (Chaond Warrior)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Planetouched (Chaond Warrior)]
-RACE:Planetouched (Chaond Warrior)	!PRERACE:1,%
-NAME:Planetouched (Chaond Warrior)
-STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
-SKILL:Escape Artist	RANK:1
-SKILL:Jump			RANK:4
-SKILL:Move Silently	RANK:2
-SKILL:Tumble		RANK:1
-FEAT:Dodge
-GEAR:Sickle	SIZE:PC	LOCATION:Carried
-GEAR:Dart	SIZE:PC	LOCATION:Carried
-
-STARTPACK:Default Planetouched (Zenythri Warrior)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Planetouched (Zenythri Warrior)]
-RACE:Planetouched (Zenythri Warrior)	!PRERACE:1,%
-NAME:Planetouched (Zenythri Warrior)
-STAT:STR=11|DEX=11|CON=10|INT=10|WIS=11|CHA=10
-SKILL:Balance	RANK:3
-SKILL:Search	RANK:4
-SKILL:Survival	RANK:2
-FEAT:Weapon Focus(Scimitar)
-GEAR:Scimitar	SIZE:PC	LOCATION:Carried
-
-STARTPACK:Default Psurlon (Average)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Psurlon (Average)]
-RACE:Psurlon (Average)	!PRERACE:1,%
-NAME:Psurlon (Average)
+STARTPACK:Planetouched (Chaond) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Planetouched (Chaond)]
+RACE:Planetouched (Chaond)	!PRERACE:1,%
+NAME:Chaond
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=11
-SKILL:Balance			RANK:10
-SKILL:Concentration		RANK:10
-SKILL:Escape Artist		RANK:10
-SKILL:Heal				RANK:10
-SKILL:Knowledge (Arcana)	RANK:10
-SKILL:Spellcraft			RANK:10
-FEAT:Combat Casting
-FEAT:Dodge
-FEAT:Improved Initiative
 
-STARTPACK:Default Psurlon (Elder)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Psurlon (Elder)]
-RACE:Psurlon (Elder)	!PRERACE:1,%
-NAME:Psurlon (Elder)
-STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
-SKILL:Balance			RANK:15
-SKILL:Concentration		RANK:15
-SKILL:Escape Artist		RANK:15
-SKILL:Heal				RANK:15
-SKILL:Knowledge (Arcana)	RANK:15
-SKILL:Knowledge (The Planes)	RANK:15
-SKILL:Spellcraft			RANK:15
-FEAT:Combat Casting
-FEAT:Combat Expertise
-FEAT:Dodge
-FEAT:Improved Initiative
-FEAT:Mobility
+STARTPACK:Planetouched (Zenythri) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Planetouched (Zenythri)]
+RACE:Planetouched (Zenythri)	!PRERACE:1,%
+NAME:Zenythri
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=11
 
-STARTPACK:Default Psurlon (Giant)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Psurlon (Giant)]
-RACE:Psurlon (Giant)	!PRERACE:1,%
-NAME:Psurlon (Giant)
-STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=11
-SKILL:Balance		RANK:21
-SKILL:Concentration	RANK:21
-SKILL:Escape Artist	RANK:21
-SKILL:Heal			RANK:21
-SKILL:Spellcraft		RANK:21
-FEAT:Combat Casting
-FEAT:Combat Expertise
-FEAT:Great Fortitude
-FEAT:Improved Initiative
-FEAT:Iron Will
-FEAT:Lightning Reflexes
-FEAT:Multiattack
+STARTPACK:Psurlon Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Psurlon]
+RACE:Psurlon	!PRERACE:1,%
+NAME:Psurlon
+STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=11
 
-STARTPACK:Default Ragewind	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ragewind]
+STARTPACK:Ragewind Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Ragewind]
 RACE:Ragewind	!PRERACE:1,%
 NAME:Ragewind
 STAT:STR=11|DEX=10|CON=10|INT=11|WIS=11|CHA=10
-SKILL:Balance	RANK:2
-SKILL:Hide		RANK:34
-SKILL:Jump		RANK:2
-SKILL:Listen	RANK:34
-SKILL:Search	RANK:34
-SKILL:Spot		RANK:34
-SKILL:Tumble	RANK:34
-FEAT:Blind-Fight
-FEAT:Combat Expertise
-FEAT:Combat Reflexes
-FEAT:Dodge
-FEAT:Flyby Attack
-FEAT:Improved Disarm
-FEAT:Improved Trip
-FEAT:Mobility
-FEAT:Power Attack
-FEAT:Spring Attack
-FEAT:Whirlwind Attack
 
-STARTPACK:Default Raggamoffyn (Tatterdemanimal)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Raggamoffyn (Tatterdemanimal)]
+STARTPACK:Raggamoffyn (Tatterdemanimal) Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Raggamoffyn (Tatterdemanimal)]
 RACE:Raggamoffyn (Tatterdemanimal)	!PRERACE:1,%
-NAME:Raggamoffyn (Tatterdemanimal)
+NAME:Tatterdemanimal Raggamoffyn
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
-SKILL:Hide			RANK:4
-SKILL:Move Silently	RANK:4
-FEAT:Stealthy
 
-STARTPACK:Default Raggamoffyn (Common)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Raggamoffyn (Common)]
+STARTPACK:Raggamoffyn (Common) Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Raggamoffyn (Common)]
 RACE:Raggamoffyn (Common)	!PRERACE:1,%
-NAME:Raggamoffyn (Common)
+NAME:Common Raggamoffyn
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
-SKILL:Hide			RANK:6
-SKILL:Move Silently	RANK:6
-FEAT:Stealthy
-FEAT:Dodge
 
-STARTPACK:Default Raggamoffyn (Guttersnipe)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Raggamoffyn (Guttersnipe)]
+STARTPACK:Raggamoffyn (Guttersnipe) Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Raggamoffyn (Guttersnipe)]
 RACE:Raggamoffyn (Guttersnipe)	!PRERACE:1,%
-NAME:Raggamoffyn (Guttersnipe)
+NAME:Guttersnipe Raggamoffyn
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
-SKILL:Hide			RANK:9
-SKILL:Move Silently	RANK:9
-FEAT:Stealthy
-FEAT:Dodge
-FEAT:Mobility
 
-STARTPACK:Default Raggamoffyn (Shrapnyl)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Raggamoffyn (Shrapnyl)]
+STARTPACK:Raggamoffyn (Shrapnyl) Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Raggamoffyn (Shrapnyl)]
 RACE:Raggamoffyn (Shrapnyl)	!PRERACE:1,%
-NAME:Raggamoffyn (Shrapnyl)
+NAME:Shrapnyl Raggamoffyn
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
-SKILL:Hide			RANK:11
-SKILL:Move Silently	RANK:11
-FEAT:Cleave
-FEAT:Great Cleave
-FEAT:Improved Sunder
-FEAT:Power Attack
-FEAT:Stealthy
 
-STARTPACK:Default Rampager	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Rampager]
+STARTPACK:Rampager Default	TYPE:DefaultMonster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Rampager]
 RACE:Rampager	!PRERACE:1,%
 NAME:Rampager
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
-SKILL:Spot	RANK:17
-FEAT:Awesome Blow
-FEAT:Cleave
-FEAT:Great Cleave
-FEAT:Improved Bull Rush
-FEAT:Power Attack
 
-STARTPACK:Default Reason Stealer	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Reason Stealer]
+STARTPACK:Reason Stealer Default	TYPE:DefaultMonster.Ooze	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Reason Stealer]
 RACE:Reason Stealer	!PRERACE:1,%
 NAME:Reason Stealer
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 
-STARTPACK:Default Red Sundew	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Red Sundew]
+STARTPACK:Red Sundew Default	TYPE:DefaultMonster.Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Red Sundew]
 RACE:Red Sundew	!PRERACE:1,%
 NAME:Red Sundew
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
-SKILL:Hide	RANK:18
-FEAT:Cleave
-FEAT:Great Cleave
-FEAT:Improved Bull Rush
-FEAT:Improved Overrun
-FEAT:Improved Sunder
-FEAT:Power Attack
-FEAT:Skill Focus(Hide)
 
-STARTPACK:Default Rogue Eidolon	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Eidolon (Rogue)]
+STARTPACK:Eidolon (Rogue) Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Eidolon (Rogue)]
 RACE:Eidolon (Rogue)	!PRERACE:1,%
-NAME:Eidolon (rogue)
+NAME:Rogue Eidolon
 STAT:STR=11|DEX=11|CON=10|INT=10|WIS=10|CHA=11
-SKILL:Jump	RANK:12
-FEAT:Cleave
-FEAT:Improved Bull Rush
-FEAT:Improved Sunder
-FEAT:Power Attack
 
-STARTPACK:Default Rukarazyll	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Rukarazyll]
+STARTPACK:Rukarazyll Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Rukarazyll]
 RACE:Rukarazyll	!PRERACE:1,%
 NAME:Rukarazyll
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
-SKILL:Balance			RANK:15
-SKILL:Bluff				RANK:15
-SKILL:Climb				RANK:0
-SKILL:Concentration		RANK:15
-SKILL:Diplomacy			RANK:4
-SKILL:Disguise			RANK:15
-SKILL:Escape Artist		RANK:7
-SKILL:Forgery			RANK:7
-SKILL:Hide				RANK:15
-SKILL:Intimidate			RANK:15
-SKILL:Jump				RANK:15
-SKILL:Knowledge (Religion)	RANK:8
-SKILL:Search			RANK:15
-SKILL:Sense Motive		RANK:15
-SKILL:Spellcraft			RANK:8
-SKILL:Spot				RANK:15
-SKILL:Tumble			RANK:15
-FEAT:Combat Expertise
-FEAT:Improved Disarm
-FEAT:Improved Feint
-FEAT:Improved Trip
-FEAT:Weapon Finesse
 
-STARTPACK:Default Runic Guardian	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Runic Guardian]
+STARTPACK:Runic Guardian Default	TYPE:DefaultMonster.Construct	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Runic Guardian]
 RACE:Runic Guardian	!PRERACE:1,%
 NAME:Runic Guardian
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 
-STARTPACK:Default Shadow Spider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Shadow Spider]
+STARTPACK:Shadow Spider Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Shadow Spider]
 RACE:Shadow Spider	!PRERACE:1,%
 NAME:Shadow Spider
 STAT:STR=10|DEX=11|CON=10|INT=11|WIS=11|CHA=10
-SKILL:Climb		RANK:4
-SKILL:Hide		RANK:4
-SKILL:Listen	RANK:4
-SKILL:Spot		RANK:4
-FEAT:Improved Initiative
-FEAT:Improved Overrun
-FEAT:Lightning Reflexes
-FEAT:Multiattack
-FEAT:Power Attack
 
-STARTPACK:Default Sirine	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sirine]
+STARTPACK:Sirine Default	TYPE:DefaultMonster.Fey	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sirine]
 RACE:Sirine	!PRERACE:1,%
 NAME:Sirine
 STAT:STR=10|DEX=10|CON=11|INT=11|WIS=10|CHA=11
-SKILL:Concentration	RANK:7
-SKILL:Heal			RANK:7
-SKILL:Hide			RANK:7
-SKILL:Perform (Dance)	RANK:7
-SKILL:Perform (Sing)	RANK:7
-SKILL:Swim			RANK:7
-SKILL:Survival		RANK:7
-FEAT:Combat Expertise
-FEAT:Dodge
-GEAR:Sword (Short)	SIZE:PC	LOCATION:Carried
 
-STARTPACK:Default Spawn of Kyuss	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Spawn of Kyuss]
+STARTPACK:Spawn of Kyuss Default	TYPE:DefaultMonster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Spawn of Kyuss]
 RACE:Spawn of Kyuss	!PRERACE:1,%
 NAME:Spawn of Kyuss
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
-SKILL:Hide			RANK:3
-SKILL:Jump			RANK:3
-SKILL:Move Silently	RANK:4
-SKILL:Spot			RANK:3
-FEAT:Stealthy
-FEAT:Toughness
 
-STARTPACK:Default Spell Weaver	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Spell Weaver]
+STARTPACK:Spell Weaver Default	TYPE:DefaultMonster.MonstrousHumanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Spell Weaver]
 RACE:Spell Weaver	!PRERACE:1,%
 NAME:Spell Weaver
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=10
-SKILL:Knowledge (Arcana)	RANK:13
-SKILL:Knowledge (The Planes)	RANK:13
-SKILL:Listen			RANK:13
-SKILL:Spellcraft			RANK:13
-SKILL:Spot				RANK:13
-SKILL:Use Magic Device		RANK:13
-FEAT:Empower Spell
-FEAT:Enlarge Spell
-FEAT:Extend Spell
-FEAT:Heighten Spell
 
-STARTPACK:Default Spellgaunt	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Spellgaunt]
+STARTPACK:Spellgaunt Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Spellgaunt]
 RACE:Spellgaunt	!PRERACE:1,%
 NAME:Spellgaunt
+STAT:STR=10|DEX=10|CON=10|INT=11|WIS=11|CHA=11
+
+STARTPACK:Spirit of the Land Default	TYPE:DefaultMonster.Fey	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Spirit of the Land]
+RACE:Spirit of the Land	!PRERACE:1,%
+NAME:Spirit of the Land
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
-SKILL:Balance	RANK:14
-SKILL:Climb		RANK:0
-SKILL:Hide		RANK:9
-SKILL:Jump		RANK:10
-SKILL:Spot		RANK:14
-FEAT:Combat Expertise
-FEAT:Dodge
-FEAT:Improved Disarm
-FEAT:Improved Trip
-FEAT:Multiattack
-FEAT:Weapon Focus(Bite)
 
-STARTPACK:Default Spirit of the Land	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Spellgaunt]
-
-STARTPACK:Default Stone Spike	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Stone Spike]
+STARTPACK:Stone Spike Default	TYPE:DefaultMonster.Elemental	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Stone Spike]
 RACE:Stone Spike	!PRERACE:1,%
 NAME:Stone Spike
 STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
-SKILL:Listen	RANK:4
-SKILL:Spot		RANK:2
-FEAT:Alertness
-FEAT:Power Attack
 
-STARTPACK:Default Swamplight Lynx	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Swamplight Lynx]
+STARTPACK:Swamplight Lynx Default	TYPE:DefaultMonster.MagicalBeast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Swamplight Lynx]
 RACE:Swamplight Lynx	!PRERACE:1,%
 NAME:Swamplight Lynx
 STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
-SKILL:Hide			RANK:4
-SKILL:Jump			RANK:1
-SKILL:Listen		RANK:4
-SKILL:Move Silently	RANK:8
-SKILL:Spot			RANK:5
-FEAT:Alertness
-FEAT:Dodge
-FEAT:Improved Initiative
-FEAT:Run
 
-STARTPACK:Default Sylph	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sylph]
+STARTPACK:Sylph Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sylph]
 RACE:Sylph	!PRERACE:1,%
 NAME:Sylph
 STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
-SKILL:Balance			RANK:6
-SKILL:Concentration		RANK:6
-SKILL:Escape Artist		RANK:6
-SKILL:Hide				RANK:6
-SKILL:Jump				RANK:2
-SKILL:Knowledge (Nature)	RANK:6
-SKILL:Listen			RANK:6
-SKILL:Move Silently		RANK:6
-SKILL:Spot				RANK:6
-SKILL:Survival			RANK:6
-SKILL:Tumble			RANK:6
-FEAT:Combat Casting
-FEAT:Empower Spell
 
-STARTPACK:Default Tempest	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Tempest (monster)]
-RACE:Tempest (monster)	!PRERACE:1,%
+STARTPACK:Tempest Default	TYPE:DefaultMonster.Elemental	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Tempest]
+RACE:Tempest	!PRERACE:1,%
 NAME:Tempest
 STAT:STR=11|DEX=10|CON=10|INT=10|WIS=11|CHA=11
-SKILL:Concentration	RANK:9
-SKILL:Listen		RANK:9
-SKILL:Spot			RANK:9
-FEAT:Alertness
-FEAT:Awesome Blow
-FEAT:Cleave
-FEAT:Empower Spell-Like Ability
-FEAT:Endurance
-FEAT:Great Cleave
-FEAT:Improved Bull Rush
-FEAT:Power Attack
-FEAT:Quicken Spell-Like Ability
 
-STARTPACK:Default Teratomorph	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Teratomorph]
+STARTPACK:Teratomorph Default	TYPE:DefaultMonster.Ooze	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Teratomorph]
 RACE:Teratomorph	!PRERACE:1,%
 NAME:Teratomorph
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
 
-STARTPACK:Default Twig Blight	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Twig Blight]
+STARTPACK:Thri-Kreen Default	TYPE:DefaultMonster.MonstrousHumanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Thri-Kreen]
+RACE:Thri-Kreen	!PRERACE:1,%
+NAME:Thri-Kreen
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=10|CHA=11
+
+STARTPACK:Twig Blight Default	TYPE:DefaultMonster.Plant	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Twig Blight]
 RACE:Twig Blight	!PRERACE:1,%
 NAME:Twig Blight
 STAT:STR=10|DEX=11|CON=10|INT=11|WIS=11|CHA=10
-SKILL:Hide			RANK:1
-SKILL:Listen		RANK:1
-SKILL:Move Silently	RANK:1
-SKILL:Spot			RANK:1
-FEAT:Stealthy
 
-STARTPACK:Default Vaporighu	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Vaporighu]
+STARTPACK:Vaporighu Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Vaporighu]
 RACE:Vaporighu	!PRERACE:1,%
 NAME:Vaporighu
-STAT:STR=10|DEX=11|CON=10|INT=11|WIS=11|CHA=10
-SKILL:Balance			RANK:13
-SKILL:Bluff				RANK:13
-SKILL:Concentration		RANK:13
-SKILL:Diplomacy			RANK:2
-SKILL:Intimidate			RANK:13
-SKILL:Knowledge (Arcana)	RANK:13
-SKILL:Knowledge (The Planes)	RANK:13
-SKILL:Listen			RANK:13
-SKILL:Spellcraft			RANK:13
-SKILL:Spot				RANK:13
-FEAT:Improved Bull Rush
-FEAT:Improved Critical(Slam)
-FEAT:Persuasive
-FEAT:Power Attack
+STAT:STR=11|DEX=11|CON=10|INT=11|WIS=10|CHA=10
 
-STARTPACK:Default Windghost	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Windghost]
+STARTPACK:Windghost Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Windghost]
 RACE:Windghost	!PRERACE:1,%
 NAME:Windghost
-STAT:STR=10|DEX=11|CON=10|INT=11|WIS=11|CHA=10
-SKILL:Hide				RANK:21
-SKILL:Knowledge (Arcana)	RANK:19
-SKILL:Listen			RANK:21
-SKILL:Spot				RANK:21
-FEAT:Alertness
-FEAT:Combat Reflexes
-FEAT:Flyby Attack
-FEAT:Improved Critical(Bite)
-FEAT:Improved Initiative
-FEAT:Lightning Reflexes
-FEAT:Weapon Focus(Bite)
+STAT:STR=10|DEX=11|CON=10|INT=11|WIS=10|CHA=11
 
-STARTPACK:Default Wyste	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Wyste]
+STARTPACK:Wyste Default	TYPE:DefaultMonster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Wyste]
 RACE:Wyste	!PRERACE:1,%
 NAME:Wyste
 STAT:STR=10|DEX=11|CON=10|INT=11|WIS=11|CHA=10
-SKILL:Listen	RANK:4
-SKILL:Spot		RANK:4
-SKILL:Swim		RANK:0
-FEAT:Alertness
-FEAT:Improved Critical(Bite)
 
-STARTPACK:Default Yak Folk	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Yak Folk]
+STARTPACK:Yak Folk Default	TYPE:DefaultMonster.MonstrousHumanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Yak Folk]
 RACE:Yak Folk	!PRERACE:1,%
 NAME:Yak Folk
-STAT:STR=10|DEX=11|CON=11|INT=11|WIS=10|CHA=10
-SKILL:Disguise			RANK:8
-SKILL:Heal				RANK:8
-SKILL:Knowledge (Arcana)	RANK:8
-SKILL:Use Magic Device		RANK:8
-FEAT:Power Attack
-FEAT:Weapon Focus(Quarterstaff)
-GEAR:Quarterstaff	SIZE:PC	LOCATION:Carried
-GEAR:Falchion	SIZE:PC	LOCATION:Carried
+STAT:STR=10|DEX=11|CON=11|INT=10|WIS=11|CHA=10
 
-STARTPACK:Default Yugoloth (Marraenoloth)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Yugoloth (Marraenoloth)]
+STARTPACK:Yugoloth (Marraenoloth) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Yugoloth (Marraenoloth)]
 RACE:Yugoloth (Marraenoloth)	!PRERACE:1,%
-NAME:Yugoloth (Marraenoloth)
+NAME:Yugoloth (MArraenoloth)
 STAT:STR=11|DEX=11|CON=10|INT=11|WIS=10|CHA=10
-SKILL:Appraise			RANK:12
-SKILL:Balance			RANK:13
-SKILL:Bluff				RANK:13
-SKILL:Diplomacy			RANK:8
-SKILL:Intimidate			RANK:8
-SKILL:Knowledge (The Planes)	RANK:13
-SKILL:Listen			RANK:9
-SKILL:Profession (Boater)	RANK:13
-SKILL:Spot				RANK:9
-SKILL:Survival			RANK:13
-SKILL:Swim				RANK:13
-FEAT:Alertness
-FEAT:Combat Casting
-FEAT:Dodge
-FEAT:Mobility
 
-STARTPACK:Default Yugoloth (Arcanoloth)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Yugoloth (Arcanoloth)]
-RACE:Yugoloth (Arcanoloth)	!PRERACE:1,%
-NAME:Yugoloth (Arcanoloth)
+STARTPACK:Yugoloth (Arcanaloth) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Yugoloth (Arcanaloth)]
+RACE:Yugoloth (Arcanaloth)	!PRERACE:1,%
+NAME:Yugoloth (Arcanaloth)
 STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=11
-SKILL:Bluff				RANK:15
-SKILL:Concentration		RANK:15
-SKILL:Diplomacy			RANK:15
-SKILL:Gather Information	RANK:15
-SKILL:Intimidate			RANK:15
-SKILL:Knowledge (Arcana)	RANK:15
-SKILL:Knowledge (The Planes)	RANK:15
-SKILL:Listen			RANK:15
-SKILL:Profession (Scribe)	RANK:15
-SKILL:Search			RANK:15
-SKILL:Sense Motive		RANK:15
-SKILL:Spellcraft			RANK:15
-SKILL:Spot				RANK:15
-FEAT:Combat Casting
-FEAT:Empower Spell
-FEAT:Improved Initiative
-FEAT:Iron Will
-FEAT:Spell Focus(Abjuration)
 
-STARTPACK:Default Yugoloth (Yagnoloth)	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Yugoloth (Yagnoloth)]
+STARTPACK:Yugoloth (Yagnoloth) Default	TYPE:DefaultMonster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Yugoloth (Yagnoloth)]
 RACE:Yugoloth (Yagnoloth)	!PRERACE:1,%
 NAME:Yugoloth (Yagnoloth)
 STAT:STR=10|DEX=10|CON=11|INT=11|WIS=11|CHA=10
-SKILL:Bluff				RANK:13
-SKILL:Climb				RANK:13
-SKILL:Concentration		RANK:13
-SKILL:Diplomacy			RANK:13
-SKILL:Intimidate			RANK:13
-SKILL:Jump				RANK:13
-SKILL:Knowledge (The Planes)	RANK:13
-SKILL:Listen			RANK:13
-SKILL:Sense Motive		RANK:13
-SKILL:Spot				RANK:13
-FEAT:Cleave
-FEAT:Great Cleave
-FEAT:Power Attack
-FEAT:Weapon Focus(Claw)
 
-#
-#
+STARTPACK:Razor Boar Default	TYPE:DefaultMonster.Magical Beast	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Razor Boar]
+RACE:Razor Boar	!PRERACE:1,%
+NAME:Razor Boar
+STAT:STR=11|DEX=11|CON=11|INT=10|WIS=10|CHA=11
 
-STARTPACK:Dire Animal (Dire Hawk) Companion	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dire Animal (Dire Hawk)]
-RACE:Dire Animal (Dire Hawk)	!PRERACE:1,%
-STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
-SKILL:Listen		RANK:3
-SKILL:Move Silently	RANK:2
-SKILL:Spot			RANK:3
-FEAT:Alertness
-FEAT:Weapon Finesse
-
-STARTPACK:Dire Animal (Dire Toad) Companion	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dire Animal (Dire Toad)]
-RACE:Dire Animal (Dire Toad)	!PRERACE:1,%
-STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
-SKILL:Hide		RANK:2
-SKILL:Jump		RANK:2
-SKILL:Listen	RANK:0
-SKILL:Spot		RANK:2
-FEAT:Alertness
-FEAT:Weapon Finesse
-
-STARTPACK:Dinosaur (Allosaurus) Companion	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dinosaur (Allosaurus)]
-RACE:Dinosaur (Allosaurus)	!PRERACE:1,%
-STAT:STR=10|DEX=10|CON=11|INT=10|WIS=11|CHA=11
-SKILL:Listen	RANK:6
-SKILL:Spot		RANK:7
-FEAT:Alertness
-FEAT:Run
-FEAT:Toughness
-
-STARTPACK:Dire Animal (Dire Horse) Companion	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dire Animal (Dire Horse)]
-RACE:Dire Animal (Dire Horse)	!PRERACE:1,%
-STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
-SKILL:Listen	RANK:6
-SKILL:Spot		RANK:6
-FEAT:Endurance
-FEAT:Run
-FEAT:Toughness
-
-STARTPACK:Dire Animal (Dire Snake) Companion	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dire Animal (Dire Snake)]
-RACE:Dire Animal (Dire Snake)	!PRERACE:1,%
-STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
-SKILL:Balance	RANK:0
-SKILL:Climb		RANK:4
-SKILL:Hide		RANK:0
-SKILL:Listen	RANK:1
-SKILL:Spot		RANK:1
-FEAT:Alertness
-FEAT:Endurance
-FEAT:Toughness
-
-STARTPACK:Dinosaur (Ankylosaurus) Companion	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dinosaur (Ankylosaurus)]
-RACE:Dinosaur (Ankylosaurus)	!PRERACE:1,%
-STAT:STR=11|DEX=11|CON=10|INT=11|WIS=11|CHA=10
-SKILL:Listen	RANK:6
-SKILL:Spot		RANK:6
-FEAT:Alertness
-FEAT:Great Fortitude
-FEAT:Toughness		COUNT:2
-
-STARTPACK:Dire Animal (Dire Elk) Companion	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dire Animal (Dire Elk)]
-RACE:Dire Animal (Dire Elk)	!PRERACE:1,%
-STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
-SKILL:Hide		RANK:0
-SKILL:Listen	RANK:8
-SKILL:Spot		RANK:7
-FEAT:Alertness
-FEAT:Diehard
-FEAT:Endurance
-FEAT:Power Attack
-FEAT:Toughness
-
-STARTPACK:Dire Animal (Dire Elephant) Companion	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dire Animal (Dire Elephant)]
-RACE:Dire Animal (Dire Elephant)	!PRERACE:1,%
-STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
-SKILL:Listen	RANK:12
-SKILL:Spot		RANK:11
-FEAT:Alertness
-FEAT:Endurance
-FEAT:Improved Bull Rush
-FEAT:Iron Will
-FEAT:Power Attack
-FEAT:Skill Focus(Listen)
-FEAT:Weapon Focus(Gore)
-
-STARTPACK:Grizzly Mastodon Companion	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Grizzly Mastodon]
-RACE:Grizzly Mastodon	!PRERACE:1,%
-STAT:STR=11|DEX=10|CON=11|INT=10|WIS=11|CHA=11
-SKILL:Listen	RANK:7
-SKILL:Spot		RANK:7
-FEAT:Alertness
-FEAT:Endurance
-FEAT:Improved Bull Rush
-FEAT:Power Attack
-FEAT:Toughness		COUNT:2
-
-STARTPACK:Dinosaur (Quetzalcoatlus) Comnpanion	VISIBLE:NO	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Dinosaur (Quetzalcoatlus)]
-RACE:Dinosaur (Quetzalcoatlus)	!PRERACE:1,%
-STAT:STR=10|DEX=11|CON=10|INT=10|WIS=11|CHA=11
-SKILL:Listen	RANK:0
-SKILL:Spot		RANK:13
-FEAT:Alertness
-FEAT:Flyby Attack
-FEAT:Snatch
-FEAT:Wingover
+STARTPACK:Scorpionfolk Default	TYPE:DefaultMonster.Monstrous Humanoid	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Razor Boar]
+RACE:Scorpionfolk	!PRERACE:1,%
+NAME:Scorpionfolk
+STAT:STR=11|DEX=10|CON=11|INT=10|WIS=10|CHA=11

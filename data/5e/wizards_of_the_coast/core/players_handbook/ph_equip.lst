@@ -1,5 +1,8 @@
 # CVS $Revision: $ $Author: $ -- Thu Aug  7 12:47:32 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 
+Coin (Gold)		COST:1	TYPE:Coin.Money
+Coin (Silver)	COST:0.1	TYPE:Coin.Money
+Coin (Copper)	COST:0.01	TYPE:Coin.Money
 
 # Light Armor	Dex Mod -/+ no max
 # Equipment Name	Required Armor Proficiency		Required Shield Proficiency	Type				Cost		Weight	Maximum DEX Bonus	Combat bonus											Add to base move							Quality and value
@@ -28,29 +31,29 @@ Shield								PROFICIENCY:SHIELD|Shield	TYPE:Shield						COST:10	WT:6					BONUS:
 # Simple Melee Weapons
 # Equipment Name	Unique Key			Required Weapon Proficiency		Type											Cost		Weight	Damage	Modifier			Range
 Club			KEY:Club			PROFICIENCY:WEAPON|Club			TYPE:Weapon.Melee.Weapon_Melee.Bludgeoning.Light						COST:0.1	WT:2		DAMAGE:1d4
-Dagger		KEY:Dagger			PROFICIENCY:WEAPON|Dagger		TYPE:Weapon.Melee.Weapon_Thrown.Piercing.Finesse.Light.Thrown.Ranged.Increment3	COST:2	WT:1		DAMAGE:1d4					RANGE:20		QUALITY:RangeLongMult|3
+Dagger		KEY:Dagger			PROFICIENCY:WEAPON|Dagger		TYPE:Weapon.Melee.Weapon_Thrown.Piercing.Finesse.Light.Thrown.Ranged.Increment3	COST:2	WT:1		DAMAGE:1d4					RANGE:20		QUALITY:RangeLongMult|3	QUALITY:ShortRange|20	QUALITY:LongRange|60
 #MODIFY:RangeLongMult|SET|3
 
 Greatclub		KEY:Greatclub		PROFICIENCY:WEAPON|Greatclub		TYPE:Weapon.Melee.Weapon_Melee.Bludgeoning.Two-Handed					COST:.2	WT:10		DAMAGE:1d8
-Handaxe		KEY:Handaxe			PROFICIENCY:WEAPON|Handaxe		TYPE:Weapon.Melee.Weapon_Thrown.Slashing.Light.Thrown.Ranged.Axe				COST:5	WT:2		DAMAGE:1d6					RANGE:20	QUALITY:RangeLongMult|3
-Javelin		KEY:Javelin			PROFICIENCY:WEAPON|Javelin		TYPE:Weapon.Melee.Weapon_Thrown.Piercing.Thrown.Ranged.Increment3			COST:.5	WT:2		DAMAGE:1d6					RANGE:30	QUALITY:RangeLongMult|4	SPROP:Range 30, Long 90
+Handaxe		KEY:Handaxe			PROFICIENCY:WEAPON|Handaxe		TYPE:Weapon.Melee.Weapon_Thrown.Slashing.Light.Thrown.Ranged.Axe				COST:5	WT:2		DAMAGE:1d6					RANGE:20	QUALITY:RangeLongMult|3	QUALITY:ShortRange|20	QUALITY:LongRange|60
+Javelin		KEY:Javelin			PROFICIENCY:WEAPON|Javelin		TYPE:Weapon.Melee.Weapon_Thrown.Piercing.Thrown.Ranged.Increment3			COST:.5	WT:2		DAMAGE:1d6					RANGE:30	QUALITY:RangeLongMult|4	SPROP:Range 30, Long 120	QUALITY:ShortRange|30	QUALITY:LongRange|120
 #MODIFY:RangeLongMult|SET|3
-Light Hammer	KEY:Light Hammer		PROFICIENCY:WEAPON|Light Hammer	TYPE:Weapon.Melee.Weapon_Thrown.Bludgeoning.Light.Thrown.Ranged.Increment3	COST:2	WT:2		DAMAGE:1d4					RANGE:20	QUALITY:RangeLongMult|3
+Light Hammer	KEY:Light Hammer		PROFICIENCY:WEAPON|Light Hammer	TYPE:Weapon.Melee.Weapon_Thrown.Bludgeoning.Light.Thrown.Ranged.Increment3	COST:2	WT:2		DAMAGE:1d4					RANGE:20	QUALITY:RangeLongMult|3	QUALITY:ShortRange|20	QUALITY:LongRange|60
 #MODIFY:RangeLongMult|SET|3
 Mace			KEY:Mace			PROFICIENCY:WEAPON|Mace			TYPE:Weapon.Melee.Weapon_Melee.Bludgeoning							COST:5	WT:4		DAMAGE:1d6
 Quarterstaff	KEY:Quarterstaff		PROFICIENCY:WEAPON|Quarterstaff	TYPE:Weapon.Melee.Weapon_Melee.Bludgeoning.Versatile					COST:.2	WT:4		DAMAGE:1d6	EQMOD:VERSATILE_D8
 Sickle		KEY:Sickle			PROFICIENCY:WEAPON|Sickle		TYPE:Weapon.Melee.Weapon_Melee.Slashing.Light						COST:1	WT:2		DAMAGE:1d4
-Spear			KEY:Spear			PROFICIENCY:WEAPON|Spear		TYPE:Weapon.Melee.Weapon_Thrown.Piercing.Thrown.Ranged.Versatile.Increment3	COST:1	WT:3		DAMAGE:1d6	QUALITY:RangeLongMult|3	RANGE:20
+Spear			KEY:Spear			PROFICIENCY:WEAPON|Spear		TYPE:Weapon.Melee.Weapon_Thrown.Piercing.Thrown.Ranged.Versatile.Increment3	COST:1	WT:3		DAMAGE:1d6	QUALITY:RangeLongMult|3	RANGE:20	QUALITY:ShortRange|20	QUALITY:LongRange|60
 #MODIFY:RangeLongMult|SET|3
 Unarmed Strike	KEY:Unarmed Strike	PROFICIENCY:WEAPON|Unarmed Strike	TYPE:Weapon.Melee.Weapon_Melee.Bludgeoning							COST:0	WT:0		DAMAGE:1
 # Simple Ranged Weapons
-Crossbow, Light	KEY:Crossbow (Light)	PROFICIENCY:WEAPON|Crossbow (Light)	TYPE:Weapon.Ranged.Weapon_Ranged.Piercing.Increment4							COST:25	WT:5		DAMAGE:1d8	QUALITY:RangeLongMult|4	RANGE:80
+Crossbow, Light	KEY:Crossbow (Light)	PROFICIENCY:WEAPON|Crossbow (Light)	TYPE:Weapon.Ranged.Weapon_Ranged.Piercing.Increment4		BONUS:WEAPON|TOHIT|RangedToHitBonus					COST:25	WT:5		DAMAGE:1d8	QUALITY:RangeLongMult|4	RANGE:80	QUALITY:ShortRange|80	QUALITY:LongRange|240
 #MODIFY:RangeLongMult|SET|4
-Dart			KEY:Dart			PROFICIENCY:WEAPON|Dart			TYPE:Weapon.Ranged.Weapon_Ranged.Piercing.Increment3							COST:.05	WT:0.25	DAMAGE:1d4	QUALITY:RangeLongMult|3	RANGE:20
+Dart			KEY:Dart			PROFICIENCY:WEAPON|Dart			TYPE:Weapon.Ranged.Weapon_Ranged.Piercing.Increment3		BONUS:WEAPON|TOHIT|RangedToHitBonus					COST:.05	WT:0.25	DAMAGE:1d4	QUALITY:RangeLongMult|3	RANGE:20	QUALITY:ShortRange|20	QUALITY:LongRange|60
 #MODIFY:RangeLongMult|SET|3
-Shortbow		KEY:Shortbow		PROFICIENCY:WEAPON|Shortbow		TYPE:Weapon.Ranged.Weapon_Ranged.Piercing.Increment4							COST:25	WT:2		DAMAGE:1d6	QUALITY:RangeLongMult|4	RANGE:30
+Shortbow		KEY:Shortbow		PROFICIENCY:WEAPON|Shortbow		TYPE:Weapon.Ranged.Weapon_Ranged.Piercing.Increment4		BONUS:WEAPON|TOHIT|RangedToHitBonus					COST:25	WT:2		DAMAGE:1d6	QUALITY:RangeLongMult|4	RANGE:30	QUALITY:ShortRange|30	QUALITY:LongRange|120
 #MODIFY:RangeLongMult|SET|4
-Sling			KEY:Sling			PROFICIENCY:WEAPON|Sling		TYPE:Weapon.Ranged.Weapon_Ranged.Bludgeoning.Increment4						COST:.1	WT:0		DAMAGE:1d4	QUALITY:RangeLongMult|4	RANGE:30
+Sling			KEY:Sling			PROFICIENCY:WEAPON|Sling		TYPE:Weapon.Ranged.Weapon_Ranged.Bludgeoning.Increment4	BONUS:WEAPON|TOHIT|RangedToHitBonus					COST:.1	WT:0		DAMAGE:1d4	QUALITY:RangeLongMult|4	RANGE:30	QUALITY:ShortRange|30	QUALITY:LongRange|120
 #MODIFY:RangeLongMult|SET|4
 
 # Martial Melee Weapons
@@ -68,21 +71,21 @@ Pike			KEY:Pike			PROFICIENCY:WEAPON|Pike			TYPE:Weapon.Melee.Weapon_Melee.Pierc
 Rapier		KEY:Rapier			PROFICIENCY:WEAPON|Rapier		TYPE:Weapon.Melee.Weapon_Melee.Piercing							COST:25	WT:2		DAMAGE:1d8
 Scimitar		KEY:Scimitar		PROFICIENCY:WEAPON|Scimitar		TYPE:Weapon.Melee.Weapon_Melee.Slashing							COST:25	WT:3		DAMAGE:1d6
 Shortsword		KEY:Shortsword		PROFICIENCY:WEAPON|Shortsword		TYPE:Weapon.Melee.Weapon_Melee.Piercing							COST:10	WT:2		DAMAGE:1d6
-Trident		KEY:Trident			PROFICIENCY:WEAPON|Trident		TYPE:Weapon.Melee.Weapon_Melee.Piercing.Increment3							COST:5	WT:4		DAMAGE:1d8	QUALITY:RangeLongMult|3	RANGE:20
+Trident		KEY:Trident			PROFICIENCY:WEAPON|Trident		TYPE:Weapon.Melee.Weapon_Melee.Piercing.Increment3							COST:5	WT:4		DAMAGE:1d8	QUALITY:RangeLongMult|3	RANGE:20	QUALITY:ShortRange|20	QUALITY:LongRange|60
 #MODIFY:RangeLongMult|SET|3
 War Pick		KEY:War Pick		PROFICIENCY:WEAPON|War Pick		TYPE:Weapon.Melee.Weapon_Melee.Piercing							COST:5	WT:2		DAMAGE:1d8
 Warhammer		KEY:Warhammer		PROFICIENCY:WEAPON|Warhammer		TYPE:Weapon.Melee.Weapon_Melee.Bludgeoning							COST:15	WT:2		DAMAGE:1d8
 Whip			KEY:Whip			PROFICIENCY:WEAPON|Whip			TYPE:Weapon.Melee.Weapon_Melee.Slashing							COST:2	WT:3		DAMAGE:1d4
 # Martial Ranged Weapons
-Blowgun		KEY:Blowgun			PROFICIENCY:WEAPON|Blowgun		TYPE:Weapon.Ranged.Weapon_Ranged.Piercing.Increment4							COST:10	WT:1		DAMAGE:1	QUALITY:RangeLongMult|4	RANGE:25
+Blowgun		KEY:Blowgun			PROFICIENCY:WEAPON|Blowgun		TYPE:Weapon.Ranged.Weapon_Ranged.Piercing.Increment4		BONUS:WEAPON|TOHIT|RangedToHitBonus					COST:10	WT:1		DAMAGE:1	QUALITY:RangeLongMult|4	RANGE:25	QUALITY:ShortRange|25	QUALITY:LongRange|100
 #MODIFY:RangeLongMult|SET|4
-Crossbow, Hand	KEY:Crossbow (Hand)	PROFICIENCY:WEAPON|Crossbow (Hand)	TYPE:Weapon.Ranged.Weapon_Ranged.Piercing.Increment4							COST:75	WT:3		DAMAGE:1d6	QUALITY:RangeLongMult|4	RANGE:30
+Crossbow, Hand	KEY:Crossbow (Hand)	PROFICIENCY:WEAPON|Crossbow (Hand)	TYPE:Weapon.Ranged.Weapon_Ranged.Piercing.Increment4		BONUS:WEAPON|TOHIT|RangedToHitBonus					COST:75	WT:3		DAMAGE:1d6	QUALITY:RangeLongMult|4	RANGE:30	QUALITY:ShortRange|30	QUALITY:LongRange|120
 #MODIFY:RangeLongMult|SET|4
-Crossbow, Heavy	KEY:Crossbow (Heavy)	PROFICIENCY:WEAPON|Crossbow (Heavy)	TYPE:Weapon.Ranged.Weapon_Ranged.Piercing.Increment4							COST:50	WT:18		DAMAGE:1d10	QUALITY:RangeLongMult|4	RANGE:100
+Crossbow, Heavy	KEY:Crossbow (Heavy)	PROFICIENCY:WEAPON|Crossbow (Heavy)	TYPE:Weapon.Ranged.Weapon_Ranged.Piercing.Increment4		BONUS:WEAPON|TOHIT|RangedToHitBonus					COST:50	WT:18		DAMAGE:1d10	QUALITY:RangeLongMult|4	RANGE:100	QUALITY:ShortRange|100	QUALITY:LongRange|400
 #MODIFY:RangeLongMult|SET|4
-Longbow		KEY:Longbow			PROFICIENCY:WEAPON|Longbow		TYPE:Weapon.Ranged.Weapon_Ranged.Piercing.Increment4							COST:50	WT:2		DAMAGE:1d8	QUALITY:RangeLongMult|4	RANGE:150
+Longbow		KEY:Longbow			PROFICIENCY:WEAPON|Longbow		TYPE:Weapon.Ranged.Weapon_Ranged.Piercing.Increment4		BONUS:WEAPON|TOHIT|RangedToHitBonus					COST:50	WT:2		DAMAGE:1d8	QUALITY:RangeLongMult|4	RANGE:150	QUALITY:ShortRange|150	QUALITY:LongRange|600
 #MODIFY:RangeLongMult|SET|4
-Net			KEY:Net			PROFICIENCY:WEAPON|Net			TYPE:Weapon.Ranged.Weapon_Ranged.Increment3									COST:1	WT:3	QUALITY:RangeLongMult|3	RANGE:5
+Net			KEY:Net			PROFICIENCY:WEAPON|Net			TYPE:Weapon.Ranged.Weapon_Ranged.Increment3			BONUS:WEAPON|TOHIT|RangedToHitBonus						COST:1	WT:3	QUALITY:RangeLongMult|3	RANGE:5	QUALITY:ShortRange|5	QUALITY:LongRange|15
 #MODIFY:RangeLongMult|SET|3
 
 
@@ -142,9 +145,9 @@ Hammer						TYPE:Gear	COST:1	WT:3
 Hammer, sledge	KEY:Hammer (Sledge)	TYPE:Gear	COST:2	WT:10
 Healer's kit					TYPE:Gear	COST:5	WT:3
 # Holy Symbol
-Amulet						TYPE:Gear.Holy Symbol	COST:5	WT:1
-Emblem						TYPE:Gear.Holy Symbol	COST:5	WT:0
-Reliquary						TYPE:Gear.Holy Symbol	COST:5	WT:2
+Holy Symbol (Amulet)						TYPE:Gear.Holy Symbol	COST:5	WT:1
+Holy Symbol (Emblem)						TYPE:Gear.Holy Symbol	COST:5	WT:0
+Holy Symbol (Reliquary)						TYPE:Gear.Holy Symbol	COST:5	WT:2
 Holy water (flask)				TYPE:Gear	COST:25	WT:1
 #
 Hourglass						TYPE:Gear	COST:25	WT:1
@@ -216,12 +219,12 @@ Weaver's Tools			TYPE:Gear.Artisan's Tools	COST:1	WT:5
 Woodcarver's Tools		TYPE:Gear.Artisan's Tools	COST:1	WT:5
 Disguise Kit			TYPE:Gear.Artisan's Tools	COST:25	WT:3
 Forgery Kit				TYPE:Gear.Artisan's Tools	COST:15	WT:5
+Herbalism Kit			TYPE:Gear.Artisan's Tools	COST:5	WT:3
 # Gaming Set
 Dice Set				TYPE:Gear.Gaming Set		COST:0.1	WT:0
 Dragonchess Set			TYPE:Gear.Gaming Set		COST:1	WT:0.5
 Playing Card Set			TYPE:Gear.Gaming Set		COST:5	WT:0
 Three-Dragon Ante Set		TYPE:Gear.Gaming Set		COST:1	WT:0
-Herbalism Kit			TYPE:Gear.Gaming Set		COST:5	WT:3
 # Musical Instrument
 Bagpipes				TYPE:Gear.Musical Instrument	COST:30	WT:6
 Drum					TYPE:Gear.Musical Instrument	COST:6	WT:3
@@ -248,6 +251,56 @@ Explorer's Pack		TYPE:Gear	COST:10	SPROP:Includes a backpack, a bedroll, a mess 
 Priest's Pack		TYPE:Gear	COST:19	SPROP:Includes a backpack, a blanket, 10 candles, a tinderbox, an alms box, 2 blocks of incense, a censer, vestments, 2 days of rations, and a waterskin.
 Scholar's Pack		TYPE:Gear	COST:40	SPROP:Includes a backpack, a book of lore, a bottle of ink, an ink pen, 10 sheets of parchment, a little bag of sand, and a small knife.
 
+# Background Specific Equipment, no actual price given
+Dice Set.COPY=Set of weighted dice
+Playing Card Set.COPY=Deck of marked cards
+Signet ring.COPY=Signet ring of an imaginary duke
+
+Stoppered bottles filled with colored liquid	BASEQTY:10	TYPE:Gear.ConArtist
+Set of weighted dice.MOD							TYPE:Gear.ConArtist
+Deck of marked cards.MOD							TYPE:Gear.ConArtist
+Signet ring of an imaginary duke.MOD					TYPE:Gear.ConArtist	
+
+Clothes (Common).COPY=Clothes (Common/Dark)
+Clothes (Common/Dark).MOD	SPROP:Includes hood
+
+Pouch.COPY=Belt Pouch
+
+Favor of Admirer (Love letter)
+Favor of Admirer (Lock of hair)
+Favor of Admirer (Tricket)
+
+Animal Trophy
+Stick of Incense
+Prayer Book
+Prayer Wheel
+Vestments
+
+Ink (1 ounce bottle).COPY=bottle of black ink
+Ink pen.COPY=Quill
+
+letter from a dead colleague	SPROP:posing a question you have not yet been able to answer
+Quill
+small knife
+bottle of black ink
+
+Lucky Charm
+Dice Set.COPY=Bone Dice
+
+Enemy Trophy
+Insignia of Rank
+
+City Map
+Pet Mouse
+Token of Parents
+
+Blanket.COPY=Winter Blanket
+Scroll of Pedigree
+Belt Pouch.COPY=Purse
+
+Guild Introduction Letter
+Notes
+Scroll Case
 
 
 
