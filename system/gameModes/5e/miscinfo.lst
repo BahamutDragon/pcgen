@@ -1,8 +1,3 @@
-# COMMENT: Just copying the 35e gamemofe folder till more info comes out
-# Current Ver: $Revision: 19784 $
-# Last Editor: $Author: zaister $
-# Last Edited: $Date: 2013-03-30 14:12:21 -0700 (Sat, 30 Mar 2013) $
-#
 # message displayed when experience added allows character to advance a level
 LEVELMSG:Congratulations, you can advance with that much experience!
 #
@@ -56,20 +51,20 @@ SHOWCLASSDEFENSE:No
 #
 # Whether or not the game mode displays these tabs
 #
-TAB:CLASS		NAME:in_class		CONTEXT:tabpages\tabclasses.html
-TAB:DESCRIPTION	NAME:in_descrip		CONTEXT:tabpages\tabdescription.html
-TAB:DOMAINS		NAME:in_domains		CONTEXT:tabpages\tabdomains.html
-TAB:FEATS		NAME:in_feats		CONTEXT:tabpages\tabfeatsandabilities.html
-TAB:INVENTORY	NAME:in_inventory		CONTEXT:tabpages\tabinventory.html
-TAB:RACE		NAME:in_race		CONTEXT:tabpages\tabraces.html
-TAB:SKILLS		NAME:in_skills		CONTEXT:tabpages\tabskills.html
-TAB:SPELLS		NAME:in_spells		CONTEXT:tabpages\tabspells.html
-TAB:SUMMARY		NAME:in_summary		CONTEXT:tabpages\tabsummary.html
+TAB:CLASS		NAME:in_class				CONTEXT:tabpages\tabclasses.html
+TAB:DESCRIPTION	NAME:in_descrip				CONTEXT:tabpages\tabdescription.html
+TAB:DOMAINS		NAME:in_domains				CONTEXT:tabpages\tabdomains.html
+TAB:FEATS		NAME:in_feats				CONTEXT:tabpages\tabfeatsandabilities.html
+TAB:INVENTORY	NAME:in_inventory				CONTEXT:tabpages\tabinventory.html
+TAB:RACE		NAME:in_race				CONTEXT:tabpages\tabraces.html
+TAB:SKILLS		NAME:in_skills		VISIBLE:NO	CONTEXT:tabpages\tabskills.html
+TAB:SPELLS		NAME:in_spells				CONTEXT:tabpages\tabspells.html
+TAB:SUMMARY		NAME:in_summary				CONTEXT:tabpages\tabsummary.html
 # Inventory subpanels
-TAB:PURCHASE	NAME:in_purchase		CONTEXT:tabpages\tabinventory.html
-TAB:EQUIPPING	NAME:in_InfoEquipping	CONTEXT:tabpages\tabinventory.html
-TAB:COMPANIONS	NAME:in_companions	CONTEXT:tabpages\tabcompanions.html
-TAB:TEMPMOD		NAME:in_InfoTempMod	CONTEXT:tabpages\tabtemporarybonuses.html
+TAB:PURCHASE	NAME:in_purchase				CONTEXT:tabpages\tabinventory.html
+TAB:EQUIPPING	NAME:in_InfoEquipping			CONTEXT:tabpages\tabinventory.html
+TAB:COMPANIONS	NAME:in_companions			CONTEXT:tabpages\tabcompanions.html
+TAB:TEMPMOD		NAME:in_InfoTempMod			CONTEXT:tabpages\tabtemporarybonuses.html
 #
 # Menu entry (under Settings-->Campaign), and tool tip displayed for said entry
 # use & for mnemonic, && for & (MENUENTRY only)
@@ -218,41 +213,41 @@ WEAPONNONPROFPENALTY:0
 #									Object Size difference
 # 											Damage multiplier: hands = multiplier
 WIELDCATEGORY:Light		HANDS:1		FINESSABLE:Yes		SIZEDIFF:-1	DAMAGEMULT:1=1,2=1
-WIELDCATEGORY:OneHanded		HANDS:1					SIZEDIFF:0	DAMAGEMULT:1=1,2=1.5
-WIELDCATEGORY:TwoHanded		HANDS:2					SIZEDIFF:1	DAMAGEMULT:2=1.5
-WIELDCATEGORY:TooSmall		HANDS:999
-WIELDCATEGORY:TooLarge		HANDS:999
+WIELDCATEGORY:OneHanded		HANDS:1					SIZEDIFF:0	DAMAGEMULT:1=1,2=1
+WIELDCATEGORY:TwoHanded		HANDS:2					SIZEDIFF:1	DAMAGEMULT:2=1
+#WIELDCATEGORY:TooSmall		HANDS:999
+#WIELDCATEGORY:TooLarge		HANDS:999
 WIELDCATEGORY:Unusable		HANDS:999
 WIELDCATEGORY:None		HANDS:0
 
 # Light weapon vs PC size changes
-WIELDCATEGORY:Light		PREVARLTEQ:EQUIP.SIZE.INT,PC.SIZE.INT-1	SWITCH:TooSmall
+#WIELDCATEGORY:Light		PREVARLTEQ:EQUIP.SIZE.INT,PC.SIZE.INT-1	SWITCH:TooSmall
 WIELDCATEGORY:Light		PREVAREQ:EQUIP.SIZE.INT,PC.SIZE.INT+1	SWITCH:OneHanded
 WIELDCATEGORY:Light		PREVAREQ:EQUIP.SIZE.INT,PC.SIZE.INT+2	SWITCH:TwoHanded
-WIELDCATEGORY:Light		PREVARGTEQ:EQUIP.SIZE.INT,PC.SIZE.INT+3	SWITCH:TooLarge
+#WIELDCATEGORY:Light		PREVARGTEQ:EQUIP.SIZE.INT,PC.SIZE.INT+3	SWITCH:TooLarge
 
 # OneHanded weapon vs PC size changes
-WIELDCATEGORY:OneHanded		PREVARLTEQ:EQUIP.SIZE.INT,PC.SIZE.INT-2	SWITCH:TooSmall
+#WIELDCATEGORY:OneHanded		PREVARLTEQ:EQUIP.SIZE.INT,PC.SIZE.INT-2	SWITCH:TooSmall
 WIELDCATEGORY:OneHanded		PREVAREQ:EQUIP.SIZE.INT,PC.SIZE.INT-1	SWITCH:Light
 WIELDCATEGORY:OneHanded		PREVAREQ:EQUIP.SIZE.INT,PC.SIZE.INT+1	SWITCH:TwoHanded
-WIELDCATEGORY:OneHanded		PREVARGTEQ:EQUIP.SIZE.INT,PC.SIZE.INT+2	SWITCH:TooLarge
+#WIELDCATEGORY:OneHanded		PREVARGTEQ:EQUIP.SIZE.INT,PC.SIZE.INT+2	SWITCH:TooLarge
 
 # TwoHanded weapon vs PC size changes
-WIELDCATEGORY:TwoHanded		PREVARLTEQ:EQUIP.SIZE.INT,PC.SIZE.INT-3	SWITCH:TooSmall
+#WIELDCATEGORY:TwoHanded		PREVARLTEQ:EQUIP.SIZE.INT,PC.SIZE.INT-3	SWITCH:TooSmall
 WIELDCATEGORY:TwoHanded		PREVAREQ:EQUIP.SIZE.INT,PC.SIZE.INT-2	SWITCH:Light
 WIELDCATEGORY:TwoHanded		PREVAREQ:EQUIP.SIZE.INT,PC.SIZE.INT-1	SWITCH:OneHanded
-WIELDCATEGORY:TwoHanded		PREVARGTEQ:EQUIP.SIZE.INT,PC.SIZE.INT+1	SWITCH:TooLarge
+#WIELDCATEGORY:TwoHanded		PREVARGTEQ:EQUIP.SIZE.INT,PC.SIZE.INT+1	SWITCH:TooLarge
 
 #
 # Wield Category Steps
 #  This is used when figuring bonuses that allow you to wield Larger or Smaller size weapons
 #WCSTEPSFORMULA:EQUIP.SIZE.INT-PC.SIZE.INT
 
-WIELDCATEGORY:TooSmall		UP:Light|OneHanded|TwoHanded					ZERO:Light
+#WIELDCATEGORY:TooSmall		UP:Light|OneHanded|TwoHanded					ZERO:Light
 WIELDCATEGORY:Light		UP:OneHanded|TwoHanded
 WIELDCATEGORY:OneHanded		UP:TwoHanded			DOWN:Light
 WIELDCATEGORY:TwoHanded						DOWN:OneHanded|Light
-WIELDCATEGORY:TooLarge						DOWN:TwoHanded|OneHanded|Light	ZERO:TwoHanded
+#WIELDCATEGORY:TooLarge						DOWN:TwoHanded|OneHanded|Light	ZERO:TwoHanded
 
 #
 # Dice rolling methods for character creation
