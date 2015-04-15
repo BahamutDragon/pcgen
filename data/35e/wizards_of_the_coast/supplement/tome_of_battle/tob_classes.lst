@@ -56,11 +56,10 @@ CLASS:Warblade	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Dip
 # Class Name	Spell Stat		Spell Stat Bonus		Spell Type		Memorize	Caster level
 CLASS:Warblade	SPELLSTAT:WIS	BONUSSPELLSTAT:NONE	SPELLTYPE:Martial	MEMORIZE:NO	BONUS:CASTERLEVEL|Warblade|WarbladeInitiatorManeuverLVL
 ###Block:
-1	BONUS:VAR|WarbladeManueversKnown|(WarbladeLVL+5/2)+(CL>1)			DEFINE:WarbladeManueversKnown|0
-1	BONUS:VAR|WarbladeStancesKnown|1+(CL>2)+(CL>9)+(CL>15)			DEFINE:WarbladeStancesKnown|0
+1	BONUS:VAR|WarbladeManueversKnown|((WarbladeLVL+5)/2)+(CL>1)			DEFINE:WarbladeManueversKnown|0
+1	BONUS:VAR|WarbladeStancesKnown|1+(CL>3)+(CL>9)+(CL>15)			DEFINE:WarbladeStancesKnown|0
 1	BONUS:VAR|WarbladeReadiedManuevers|3+(CL>3)+(CL>9)+(CL>14)+(CL>19)	DEFINE:WarbladeReadiedManuevers|0
-1	BONUS:VAR|WarbladeInitiatorLVL|WarbladeLVL+(WarbladeLVL-TL/2)		DEFINE:WarbladeInitiatorLVL|0
-1	BONUS:VAR|WarbladeInitiatorManeuverLVL|(1+WarbladeInitiatorLVL)/2		DEFINE:WarbladeInitiatorManeuverLVL|0
+1	BONUS:VAR|WarbladeInitiatorManeuverLVL|(1+WarbladeLVL)/2		DEFINE:WarbladeInitiatorManeuverLVL|0
 1	BONUS:VAR|FighterLVL|(WarbladeLVL-2)
 ###Block:
 1								ABILITY:Special Ability|AUTOMATIC|Fighter Level Advanced Feat Tracker
