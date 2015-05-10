@@ -18,24 +18,16 @@ CLASS:Barbarian	PREMULT:1,[!PRETEMPLATE:1,First Level],[PREABILITY:1,CATEGORY=In
 18	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Indomitable Might
 20	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Primal Champion
 ###Block
-4	BONUS:ABILITYPOOL|Character Advancement Selection|2
-8	BONUS:ABILITYPOOL|Character Advancement Selection|2
-12	BONUS:ABILITYPOOL|Character Advancement Selection|2
-16	BONUS:ABILITYPOOL|Character Advancement Selection|2
-19	BONUS:ABILITYPOOL|Character Advancement Selection|2
+4	BONUS:VAR|POOL_Character_Advancement_Selection|2*((BarbarianLVL>=4)+(BarbarianLVL>=8)+(BarbarianLVL>=12)+(BarbarianLVL>=16)+(BarbarianLVL>=19))
 
 
-CLASS:Bard	SOURCEPAGE:p.51	HD:8		TYPE:PC.BASE	MAXLEVEL:20	DEFINE:BardLVL|0	BONUS:VAR|BardLVL|CL	DEFINE:BardSkillCount|0	DEFINE:BardToolCount|0	BONUS:VAR|BardSkillCount|1	BONUS:VAR|BardToolCount|1	ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfLight	BONUS:ABILITYPOOL|Skill Proficiency|BardSkillCount	BONUS:ABILITYPOOL|Bard Tool Proficiency|BardToolCount
+CLASS:Bard	SOURCEPAGE:p.51	HD:8		TYPE:PC.BASE	MAXLEVEL:20	DEFINE:BardLVL|0	BONUS:VAR|BardLVL|CL	DEFINE:POOL_Bard_Skill|0	DEFINE:BardToolCount|0	BONUS:VAR|POOL_Bard_Skill|1	BONUS:VAR|BardToolCount|1	ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfLight	BONUS:ABILITYPOOL|Skill Proficiency|BardSkillCount	BONUS:ABILITYPOOL|Bard Tool Proficiency|BardToolCount
 CLASS:Bard	BONUS:VAR|SpellCasterTotalLVL|BardLVL	BONUS:VAR|SpellCasterClassCount|1
 CLASS:Bard	PREMULT:1,[!PRETEMPLATE:1,First Level],[PREABILITY:1,CATEGORY=Internal,Multiclass Allowed ~ Bard],[PRECLASS:1,Bard=1]
 CLASS:Bard	SPELLTYPE:Arcane	SPELLSTAT:CHA	BONUS:CASTERLEVEL|Bard|CL
 1:REPEATLEVEL:1	DONOTADD:SKILLPOINTS
 ###Block
-4	BONUS:ABILITYPOOL|Character Advancement Selection|2
-8	BONUS:ABILITYPOOL|Character Advancement Selection|2
-12	BONUS:ABILITYPOOL|Character Advancement Selection|2
-16	BONUS:ABILITYPOOL|Character Advancement Selection|2
-19	BONUS:ABILITYPOOL|Character Advancement Selection|2
+4	BONUS:VAR|POOL_Character_Advancement_Selection|2*((BardLVL>=4)+(BardLVL>=8)+(BardLVL>=12)+(BardLVL>=16)+(BardLVL>=19))
 ###Block
 1	CAST:1,1
 2	CAST:1,1
@@ -100,11 +92,7 @@ CLASS:Cleric	PREMULT:1,[!PRETEMPLATE:1,First Level],[PREABILITY:1,CATEGORY=Inter
 CLASS:Cleric	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Cleric|CL
 1:REPEATLEVEL:1	DONOTADD:SKILLPOINTS
 ###Block
-4	BONUS:ABILITYPOOL|Character Advancement Selection|2
-8	BONUS:ABILITYPOOL|Character Advancement Selection|2
-12	BONUS:ABILITYPOOL|Character Advancement Selection|2
-16	BONUS:ABILITYPOOL|Character Advancement Selection|2
-19	BONUS:ABILITYPOOL|Character Advancement Selection|2
+4	BONUS:VAR|POOL_Character_Advancement_Selection|2*((ClericLVL>=4)+(ClericLVL>=8)+(ClericLVL>=12)+(ClericLVL>=16)+(ClericLVL>=19))
 ###Block
 1	CAST:0,2
 2	CAST:0,3
@@ -140,11 +128,7 @@ CLASS:Druid	PREMULT:1,[!PRETEMPLATE:1,First Level],[PREABILITY:1,CATEGORY=Intern
 CLASS:Druid	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Druid|CL
 1:REPEATLEVEL:1	DONOTADD:SKILLPOINTS
 ###Block
-4	BONUS:ABILITYPOOL|Character Advancement Selection|2
-8	BONUS:ABILITYPOOL|Character Advancement Selection|2
-12	BONUS:ABILITYPOOL|Character Advancement Selection|2
-16	BONUS:ABILITYPOOL|Character Advancement Selection|2
-19	BONUS:ABILITYPOOL|Character Advancement Selection|2
+4	BONUS:VAR|POOL_Character_Advancement_Selection|2*((DruidLVL>=4)+(DruidLVL>=8)+(DruidLVL>=12)+(DruidLVL>=16)+(DruidLVL>=19))
 ###Block
 1	CAST:0,2
 2	CAST:0,3
@@ -194,11 +178,7 @@ CLASS:Fighter	SPELLSTAT:INT	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Fighter|CL	SPELLL
 5	ABILITY:Fighter Class Feature|AUTOMATIC|Fighter ~ Extra Attack
 9	ABILITY:Fighter Class Feature|AUTOMATIC|Fighter ~ Indomitable
 ###Block
-4	BONUS:ABILITYPOOL|Character Advancement Selection|2
-8	BONUS:ABILITYPOOL|Character Advancement Selection|2
-12	BONUS:ABILITYPOOL|Character Advancement Selection|2
-16	BONUS:ABILITYPOOL|Character Advancement Selection|2
-19	BONUS:ABILITYPOOL|Character Advancement Selection|2
+4	BONUS:VAR|POOL_Character_Advancement_Selection|2*((FighterLVL>=4)+(FighterLVL>=8)+(FighterLVL>=12)+(FighterLVL>=16)+(FighterLVL>=19))
 ###Block
 3	CAST:0
 4	CAST:0
@@ -231,11 +211,7 @@ CLASS:Monk	HD:8		TYPE:PC.Base	DEFINE:MonkLVL|0	BONUS:VAR|MonkLVL|CL	ABILITY:Inte
 CLASS:Monk	PREMULT:1,[!PRETEMPLATE:1,First Level],[PREABILITY:1,CATEGORY=Internal,Multiclass Allowed ~ Monk],[PRECLASS:1,Monk=1]
 1:REPEATLEVEL:1	DONOTADD:SKILLPOINTS
 ###Block
-4	BONUS:ABILITYPOOL|Character Advancement Selection|2
-8	BONUS:ABILITYPOOL|Character Advancement Selection|2
-12	BONUS:ABILITYPOOL|Character Advancement Selection|2
-16	BONUS:ABILITYPOOL|Character Advancement Selection|2
-19	BONUS:ABILITYPOOL|Character Advancement Selection|2
+4	BONUS:VAR|POOL_Character_Advancement_Selection|2*((MonkLVL>=4)+(MonkLVL>=8)+(MonkLVL>=12)+(MonkLVL>=16)+(MonkLVL>=19))
 ###Block
 1	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Unarmored Defense			
 1	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Martial Arts				
@@ -263,11 +239,7 @@ CLASS:Paladin	PREMULT:1,[!PRETEMPLATE:1,First Level],[PREABILITY:1,CATEGORY=Inte
 CLASS:Paladin	SPELLSTAT:CHA	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Paladin|CL
 1:REPEATLEVEL:1	DONOTADD:SKILLPOINTS
 ###Block
-4	BONUS:ABILITYPOOL|Character Advancement Selection|2
-8	BONUS:ABILITYPOOL|Character Advancement Selection|2
-12	BONUS:ABILITYPOOL|Character Advancement Selection|2
-16	BONUS:ABILITYPOOL|Character Advancement Selection|2
-19	BONUS:ABILITYPOOL|Character Advancement Selection|2
+4	BONUS:VAR|POOL_Character_Advancement_Selection|2*((PaladinLVL>=4)+(PaladinLVL>=8)+(PaladinLVL>=12)+(PaladinLVL>=16)+(PaladinLVL>=19))
 ###Block
 1	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Divine Sense			
 1	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Lay on Hands			
@@ -285,12 +257,6 @@ CLASS:Paladin	SPELLSTAT:CHA	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Paladin|CL
 10	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Aura of Courage			
 11	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Improved Divine Smite		
 14	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Cleansing Touch			
-###Block
-4	BONUS:ABILITYPOOL|Character Advancement Selection|2
-8	BONUS:ABILITYPOOL|Character Advancement Selection|2
-12	BONUS:ABILITYPOOL|Character Advancement Selection|2
-16	BONUS:ABILITYPOOL|Character Advancement Selection|2
-19	BONUS:ABILITYPOOL|Character Advancement Selection|2
 ###Block
 2	CAST:0,2
 3	CAST:0,3
@@ -313,16 +279,12 @@ CLASS:Paladin	SPELLSTAT:CHA	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Paladin|CL
 20	CAST:0,4,3,3,2
 
 
-CLASS:Ranger	HD:10		TYPE:PC.Base	DEFINE:RangerLVL|0	BONUS:VAR|RangerLVL|CL	BONUS:ABILITYPOOL|Ranger Skill|3	DEFINE:RangerSkillCount|0	BONUS:VAR|RangerSkillCount|1	BONUS:VAR|SpellCasterTotalLVL|RangerLVL/2	BONUS:VAR|SpellCasterClassCount|1
+CLASS:Ranger	HD:10		TYPE:PC.Base	DEFINE:RangerLVL|0	BONUS:VAR|RangerLVL|CL	DEFINE:POOL_Ranger_Skill|0	BONUS:VAR|POOL_Ranger_Skill|1	BONUS:VAR|SpellCasterTotalLVL|RangerLVL/2	BONUS:VAR|SpellCasterClassCount|1
 CLASS:Ranger	PREMULT:1,[!PRETEMPLATE:1,First Level],[PREABILITY:1,CATEGORY=Internal,Multiclass Allowed ~ Ranger],[PRECLASS:1,Ranger=1]
 CLASS:Ranger	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Ranger|CL
 1:REPEATLEVEL:1	DONOTADD:SKILLPOINTS
 ###Block
-4	BONUS:ABILITYPOOL|Character Advancement Selection|2
-8	BONUS:ABILITYPOOL|Character Advancement Selection|2
-12	BONUS:ABILITYPOOL|Character Advancement Selection|2
-16	BONUS:ABILITYPOOL|Character Advancement Selection|2
-19	BONUS:ABILITYPOOL|Character Advancement Selection|2
+4	BONUS:VAR|POOL_Character_Advancement_Selection|2*((RangerLVL>=4)+(RangerLVL>=8)+(RangerLVL>=12)+(RangerLVL>=16)+(RangerLVL>=19))
 ###Block
 1	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Favored Enemy			
 1	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Natural Explorer			
@@ -338,12 +300,6 @@ CLASS:Ranger	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Ranger|CL
 14	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Vanish				
 18	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Feral Senses			
 20	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Foe Slayer				
-###Block
-4	BONUS:ABILITYPOOL|Character Advancement Selection|2
-8	BONUS:ABILITYPOOL|Character Advancement Selection|2
-12	BONUS:ABILITYPOOL|Character Advancement Selection|2
-16	BONUS:ABILITYPOOL|Character Advancement Selection|2
-19	BONUS:ABILITYPOOL|Character Advancement Selection|2
 ###Block
 2	CAST:0,2
 3	CAST:0,3
@@ -387,17 +343,12 @@ CLASS:Ranger	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Ranger|CL
 
 
 # Class Name
-CLASS:Rogue	HD:8	TYPE:PC.Base		ABILITY:Internal|AUTOMATIC|Tool Proficiency ~ Thieves' Tools|TYPE=ArmorProfLight	BONUS:ABILITYPOOL|Rogue Skill|RogueSkillCount	DEFINE:RogueLVL|0	BONUS:VAR|RogueLVL|CL	DEFINE:RogueSkillCount|0	BONUS:VAR|RogueSkillCount|1
+CLASS:Rogue	HD:8	TYPE:PC.Base		ABILITY:Internal|AUTOMATIC|Tool Proficiency ~ Thieves' Tools|TYPE=ArmorProfLight	DEFINE:RogueLVL|0	BONUS:VAR|RogueLVL|CL	DEFINE:POOL_Rogue_Skill|0	BONUS:VAR|POOL_Rogue_Skill|1
 CLASS:Rogue	PREMULT:1,[!PRETEMPLATE:1,First Level],[PREABILITY:1,CATEGORY=Internal,Multiclass Allowed ~ Rogue],[PRECLASS:1,Rogue=1]
 CLASS:Rogue	SPELLSTAT:INT	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Rogue|CL	SPELLLIST:1|Wizard
 1:REPEATLEVEL:1	DONOTADD:SKILLPOINTS
 ###Block
-4	BONUS:ABILITYPOOL|Character Advancement Selection|2
-8	BONUS:ABILITYPOOL|Character Advancement Selection|2
-10	BONUS:ABILITYPOOL|Character Advancement Selection|2
-12	BONUS:ABILITYPOOL|Character Advancement Selection|2
-16	BONUS:ABILITYPOOL|Character Advancement Selection|2
-19	BONUS:ABILITYPOOL|Character Advancement Selection|2
+4	BONUS:VAR|POOL_Character_Advancement_Selection|2*((RogueLVL>=4)+(RogueLVL>=8)+(RogueLVL>=12)+(RogueLVL>=16)+(RogueLVL>=19))
 ###Block
 1	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Expertise		
 1	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Sneak Attack	
@@ -446,11 +397,7 @@ CLASS:Sorcerer	SPELLSTAT:CHA	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Sorcerer|CL
 4	ABILITY:Sorcerer Class Feature|AUTOMATIC|Sorcerer ~ Ability Score Improvement	
 20	ABILITY:Sorcerer Class Feature|AUTOMATIC|Sorcerer ~ Sorcerous Restoration	
 ###Block
-4	BONUS:ABILITYPOOL|Character Advancement Selection|2
-8	BONUS:ABILITYPOOL|Character Advancement Selection|2
-12	BONUS:ABILITYPOOL|Character Advancement Selection|2
-16	BONUS:ABILITYPOOL|Character Advancement Selection|2
-19	BONUS:ABILITYPOOL|Character Advancement Selection|2
+4	BONUS:VAR|POOL_Character_Advancement_Selection|2*((SorcererLVL>=4)+(SorcererLVL>=8)+(SorcererLVL>=12)+(SorcererLVL>=16)+(SorcererLVL>=19))
 ###Block
 1	CAST:0,2
 2	CAST:0,3
@@ -490,11 +437,7 @@ CLASS:Warlock	SPELLSTAT:CHA	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Warlock|CL
 11	ABILITY:Warlock Class Feature|AUTOMATIC|Warlock ~ Mystic Arcanum			
 20	ABILITY:Warlock Class Feature|AUTOMATIC|Warlock ~ Eldritch Master			
 ###Block
-4	BONUS:ABILITYPOOL|Character Advancement Selection|2
-8	BONUS:ABILITYPOOL|Character Advancement Selection|2
-12	BONUS:ABILITYPOOL|Character Advancement Selection|2
-16	BONUS:ABILITYPOOL|Character Advancement Selection|2
-19	BONUS:ABILITYPOOL|Character Advancement Selection|2
+4	BONUS:VAR|POOL_Character_Advancement_Selection|2*((WarlockLVL>=4)+(WarlockLVL>=8)+(WarlockLVL>=12)+(WarlockLVL>=16)+(WarlockLVL>=19))
 # CAST - 5e CAST is used to trigger when they can use spells. Slots is another display.
 1	CAST:1,1
 2	CAST:1,1
@@ -545,13 +488,7 @@ CLASS:Wizard	PREMULT:1,[!PRETEMPLATE:1,First Level],[PREABILITY:1,CATEGORY=Inter
 CLASS:Wizard	SPELLSTAT:INT	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Wizard|CL
 1:REPEATLEVEL:1	DONOTADD:SKILLPOINTS
 ###Block
-4	BONUS:ABILITYPOOL|Character Advancement Selection|2
-8	BONUS:ABILITYPOOL|Character Advancement Selection|2
-12	BONUS:ABILITYPOOL|Character Advancement Selection|2
-16	BONUS:ABILITYPOOL|Character Advancement Selection|2
-19	BONUS:ABILITYPOOL|Character Advancement Selection|2
-###Block
-1	BONUS:ABILITYPOOL|Wizard Cantrip|Wizard_Cantrips
+4	BONUS:VAR|POOL_Character_Advancement_Selection|2*((WizardLVL>=4)+(WizardLVL>=8)+(WizardLVL>=12)+(WizardLVL>=16)+(WizardLVL>=19))
 ###Block
 1	ABILITY:Special Ability|AUTOMATIC|Wizard ~ Spellcasting					
 1	ABILITY:Special Ability|AUTOMATIC|Wizard ~ Cantrips						
