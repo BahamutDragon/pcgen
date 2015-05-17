@@ -1036,7 +1036,7 @@
 									&#x2713;
 								</xsl:if>
 								<xsl:choose>
-								<xsl:when test="base &gt;  0">
+								<xsl:when test="base &gt; 0">
 									&#x25A0;
 								</xsl:when>
 								<xsl:otherwise>
