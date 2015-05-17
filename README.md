@@ -2,40 +2,43 @@
 PCGEN
 =
 
-######Updated: 2014-11-15
+######Updated: 2015-03-13
 ==========================
 #####PCGen Data Sets & Homebrew
 
 Hi mates!
 
 
-This is for my growing collection of PCGen compatible books (Mostly Closed Content).
+This is for my growing collection of PCGen compatible books and game systems.
 
 
-To get the most from these sets, you will need to utilize the latest version (unstable if necessary) of pcgen. I try to use the best methods to get results, which will rely on new bug fixes or new features. You will need to download PCGen. PCGen's main development line is here: 
+To get the most from these sets, you will need the following:
+* PCGen, the program. Links below. 
+
+You have the option of a production release, such as 6.04.01 or grabbing the current development release and/or autobuilds such as 6.05.x
+
+Many of the latest features will require you to utilize the latest version (unstable if necessary) of pcgen. 
+I try to use the latest fixes and improvements found in the development line, if you grab the master branch be sure to use the latest developmental version of PCGen. 
 * http://www.pcgen.org/autobuilds/download.html (Latest Updates, fixes and features)
 * http://pcgen.org (The main website)
 
 
-My goal has been to make sets that are compatible with the existing PCGen book data sets. To achieve that, I attempt to re-use a lot of common pcgen standards to avoid any non-compatibility. To get the best results, you should use the books in this repository. Any non-compatibility issues should be reported.
+To get the optimal results and least amount of conflicts, you should use the core sets and books available in this repository. 
 
 
-The collection of books includes popular D&D 3.5 books, with the complete core rules and a good assortment of popular supplements. I also support other d20 systems and even a few non-d20 systems, a complete listing of systems and the status of the books are kept on the wiki: https://github.com/BahamutDragon/pcgen/wiki/Book-Statuses
+Status of the books are here: https://github.com/BahamutDragon/pcgen/wiki/Book-Statuses
 
 
-I will attempt to code up what is requested within reason and whatever my own group needs. I am looking to other like-minded individuals who are willing to collaborate to grow this collection of books. I would certainly appreciate any help from fellow homebrewers. Any experience level is welcome. I can always use help testing the books, or if you have a little knowledge, going in and coding in the minor and major things. I ask that you attempt to follow the pcgen standards for a uniform appearance.
-
-
-I have a discussion group for homebrewers, please join to share ideas and of course make requests -- http://games.groups.yahoo.com/group/bd_games/
+I have a discussion group for homebrewers, please join to share ideas and of course make requests. I post about once a month on current projects or ideas. -- http://games.groups.yahoo.com/group/bd_games/
 
 
 ###DOWNLOADING THE CONTENT
 Two methods exist to get the content onto your system.
 
-   1) The easier method is to use the GITHUB download option (https://github.com/BahamutDragon/pcgen/archive/master.zip)
-Save the zip folder to a valid pcgen recognized data folder of your choice. Unzip the contents. Load PCGen. See 'LOADING THESE SETS' Below:
+   1) The easier method is to use the GITHUB download option - please note that the download will change based upon branch currently selected, allowing a choice of versions. (Master is for the latest version whether alpha, beta, rc or production, Branches that are using the versioning system of pcgen is meant to work with the same version of pcgen, example 6.04.01 branch is designed to be compatible with PCGen version 6.04.01)
+Save the zip folder to a valid pcgen recognized data folder of your choice. Unzip the contents. Load PCGen. See 'LOADING THESE SETS' Below.
 
-   2) The better method is to install GIT and a GIT Client, and clone the repository to a location outside of the PCGen installation directory. Then open PCGen, go to Tools>Preferences and in the Location tab under the PCGen drop-down, change "PCGen Vendor Data Directory" or "PCGen Homebrew Data Directory" to the directory you cloned the repo into. This allows easy updates when they happen (via a git pull). It also saves bandwidth since you are only download changes, not the whole repo. I use this method to keep my data sync'd with the repo and allows for testable fixes and pushing those to the repo.  See 'LOADING THESE SETS' Below:
+   2) The better method is to install GIT and a GIT Client, and clone the repository to a location outside of the PCGen installation directory. Then open PCGen, go to Tools>Preferences and in the Location tab under the PCGen drop-down, change the folder path of "PCGen Vendor Data Directory" or "PCGen Homebrew Data Directory" to the directory you cloned the repo into. This allows easy updates when they happen (via a git pull). It also saves bandwidth since you are only downloading changes, not the whole repository. I found this is the method to keep my data sync'd with the repo and allows for testable fixes and pushing those to the repo.  See 'LOADING THESE SETS' Below.
 
 ==
 ####Links for Git a client:
@@ -47,11 +50,11 @@ Save the zip folder to a valid pcgen recognized data folder of your choice. Unzi
 
 ==
 ###HOW TO USE THIS CONTENT:
-These Book data sets are not meant to be "Installed" using the Install feature in PCGen. Instead, you can drop them as-is into a valid pcgen recognized 'data' folder of your choosing. I highly recommend using 'Vendor Data' (any version of pcgen) or Homebrew Data (new in 6.3) folders outside the main installation, this makes upgrading your pcgen version easier. 
-NOTICE: In order to use ALL of the data sources and the extra game systems, you must copy the system\gameMode folder into your PCGen installation system\gamemode.
+These Book data sets are not meant to be "Installed" using the Install feature in PCGen. Instead, you can place them as-is into a valid pcgen recognized 'data' folder of your choosing. I highly recommend using 'Vendor Data' (any version of pcgen) or Homebrew Data (new in 6.3) folders outside the main installation, this makes upgrading your pcgen version easier. 
+NOTICE: In order to use ALL of the data sources and the extra game systems, you must copy the 'system\gameMode' folder into your PCGen installation 'system\gamemode'.
 
-IMPORTANT - PLEASE READ: Included in the repository are additional folders that are not DATA content. These _will_ need to be copied to the correct correlating pcgen installation folders to get the full benefit of additional options. These options include such things as: gamemodes (Game Systems not already in PCGen), outputsheets (Exported Character Sheet options for those other game systems), preview sheets (Same as outputsheets), etc. Leaving that in the data folder will not cause any issues for pcgen, but, if you do not copy the content into your installed pcgen folder, those additional options WILL NOT be available. 
-NOTE: Restarting PCGen is required when adding new content, otherwise it will not be displayed.
+IMPORTANT - PLEASE READ: Included in the repository are additional folders that are not DATA content. These _will_ need to be copied to the correct correlating pcgen installation folders to get the full benefit of additional options. These options include such things as: gamemodes (Game Systems not already included in your PCGen installation), outputsheets (Exported Character Sheet options for those other game systems), preview sheets (Same as outputsheets), etc. Leaving that in the data folder will not cause any issues for pcgen, but, if you do not copy the content into your installed pcgen folder, those additional options ''will not'' be available. Also note, if those items are updated, you will need to re-copy and paste them to the correct location to apply the new changes.
+NOTE: Content is only discovered and processed when the PCGen program starts up. In order to make use of new content, you will have restart PCGen if already started.
 
 ####LOADING THE SETS:
 PCGen's default basic set loaders will not load these custom homebrew sets.
@@ -73,16 +76,16 @@ If you wish to be a contributor by submitting patches and improvements, then set
 * Clone your fork to your local computer.
 * Create a descriptive branch and then 'checkout' that branch to work on.
 * Then make your intended changes within the branch. Once satisfied, commit those changes to GITHUB.
-* Then create a pull request, using the button on Github, from your fork to mine.
-* After review, the changes will either be accepted or rejected. (Rejected means something needs to be adjusted)
+* Then create a pull request, using the button on Github, from your fork to mine. GITHUB will detect recent branch uploads and changes with a prompt to do a pull request.
+* Pull Requests will be included after a review, unless there is a problem.
 
 
-Any issues regarding the actual content itself, i.e. character creation issues, class missing features, wrong progressions, etc., please open an issue or contact me directly. I do not maintain the actual PCGen program, any concerns about the program should be directed to the correct maintainers on their site.
+Any issues regarding the actual content itself, i.e. character creation issues, class missing features, wrong progressions, etc., please open an issue or contact me directly. However, I do not maintain the actual PCGen program, any concerns about the program should be directed to the correct maintainers on their site.
 
 
-To stay notified of any changes, you can 'WATCH' this repo (option at the top in GITHUB), or follow my personal rss feed <https://github.com/BahamutDragon.atom>
+To stay notified of any changes, you can 'WATCH' this repo (option at the top in GITHUB) or choose to follow me. 
 
-I welcome feedback to know the sets provided are handy. Please report any issues you find. I fix items quickly when possible.
+I welcome feedback to know the sets provided are handy. Please report any issues you find, if it does not work, it is likely a bug.
 
 Best,
 
