@@ -1,0 +1,826 @@
+
+# Per Tom - SCOPE List:
+# GLOBAL		//Used everywhere
+# EQUIPMENT		//Equip File
+# EQUIPMENT.PART	//Equipment Parts - for heads of weapons
+# Considerations for:
+# CHECK		// Saving Throws
+# STAT		// Attributes (Strength, Dexterity, Constitution, etc.)
+# CLASS		// Class File
+# SKILL		// Skill File
+# SPELL		// Spell File
+# ABILITYPOOL	// ABILITYCATEGORY File?
+
+
+# CONFUSION POINT:
+#	LOCAL:SKILL|VAR=
+#	VAR= is assumed if nothing else is placed there
+
+# New Tag Directory
+# GROUP:x|x|x
+# PREBOOL:x
+# PREBOOL:context("w",x) = True
+
+# Game System Vars -
+# Attributes
+#'LOCAL:STAT|Value' is the SAME AS 'LOCAL:STAT|VAR=Value' VAR= is assumed.
+LOCAL:STAT|Value						EXPLANATION:D20 System - Sets the Value of a given "Stat"
+LOCAL:STAT|Mod						EXPLANATION:D20 System - Sets the Mod'ifier' of a given "Stat"
+
+# New Scope: CHECK
+LOCAL:CHECK|VAR=Save			EXPLANATION:D20 System - Sets a local Save for each check in the system (Check is PCGen term for a Saving Throw)
+LOCAL:CHECK|VAR=Save.Base		EXPLANATION:D20 System - Sets a local Save base for each check in the system (Base is modified by Classes)
+LOCAL:CHECK|VAR=Save.Stat		EXPLANATION:D20 System - Sets a local Save stat for each check in the system (Stat is the MOD value)
+LOCAL:CHECK|VAR=Save.Bonus		EXPLANATION:D20 System - Sets a local Save bonus for each check in the system (Anything else affecting the save)
+LOCAL:CHECK|VAR=Save.Racial		EXPLANATION:D20 System - Sets a local Save racial for each check in the system (Anything else affecting the save)
+LOCAL:CHECK|VAR=Save.Epic		EXPLANATION:D20 System - Sets a local Save for each check in the system (Epic using systems only NOT FOR PF!)
+
+# Globally accessed
+GLOBAL:VAR=STRSCORE
+GLOBAL:VAR=STR				
+GLOBAL:VAR=LOADSCORE			EXPLANATION:Ideally this should be called "LOAD" to match the gamemode term
+#
+GLOBAL:VAR=DEXSCORE
+GLOBAL:VAR=DEX
+#
+GLOBAL:VAR=CONSCORE
+GLOBAL:VAR=CON
+#
+GLOBAL:VAR=INTSCORE
+GLOBAL:VAR=INT
+#
+GLOBAL:VAR=WISSCORE
+GLOBAL:VAR=WIS
+#
+GLOBAL:VAR=CHASCORE
+GLOBAL:VAR=CHA
+#
+GLOBAL:VAR=HP			EXPLANATION:Total HP PC possess
+#
+GLOBAL:VAR=WoundPoints		EXPLANATION:Alternative HP System - Sets Woundpoints
+GLOBAL:VAR=AltHP			EXPLANATION:Alternative HP System - Sets 'Alt'ernative 'HP' value
+
+
+Reach	EXPLANATION:Race Reach
+Hands	EXPLANATION:# of hands you have
+Legs	EXPLANATION:# of Legs you have
+
+
+# Class Specific Local
+LOCAL:CLASS|SkillPool		EXPLANATION:Grants each class a "SkillPool"
+LOCAL:CLASS|ECL			EXPLANATION:Sets the "Effective Class Level" for each Class defined automatically as the existing class level. Then you can use this  --  getLocalVar("CLASS","Barbarian",ECL)
+
+LOCAL:CLASS|BAB.ProgressionSpeed
+
+
+#BONUS:SPELLCASTMULT|CLASS=Wizard;LEVEL=1|2
+#becomes:
+#MODIFYOTHER:CLASS|Wizard|Cast.1|MULTIPLY|2|PRIORITY=500
+
+# Each Class gets a Cast.# assigned
+LOCAL:CLASS|Cast.0		EXPLANATION: *(see below)
+LOCAL:CLASS|Cast.1		EXPLANATION: *(see below)
+LOCAL:CLASS|Cast.2		EXPLANATION: *(see below)
+LOCAL:CLASS|Cast.3		EXPLANATION: *(see below)
+LOCAL:CLASS|Cast.4		EXPLANATION: *(see below)
+LOCAL:CLASS|Cast.5		EXPLANATION: *(see below)
+LOCAL:CLASS|Cast.6		EXPLANATION: *(see below)
+LOCAL:CLASS|Cast.7		EXPLANATION: *(see below)
+LOCAL:CLASS|Cast.8		EXPLANATION: *(see below)
+LOCAL:CLASS|Cast.9		EXPLANATION: *(see below)
+
+# Each Class gets a Known.# assigned
+LOCAL:CLASS|Known.0		EXPLANATION: *(see below)
+LOCAL:CLASS|Known.1		EXPLANATION: *(see below)
+LOCAL:CLASS|Known.2		EXPLANATION: *(see below)
+LOCAL:CLASS|Known.3		EXPLANATION: *(see below)
+LOCAL:CLASS|Known.4		EXPLANATION: *(see below)
+LOCAL:CLASS|Known.5		EXPLANATION: *(see below)
+LOCAL:CLASS|Known.6		EXPLANATION: *(see below)
+LOCAL:CLASS|Known.7		EXPLANATION: *(see below)
+LOCAL:CLASS|Known.8		EXPLANATION: *(see below)
+LOCAL:CLASS|Known.9		EXPLANATION: *(see below)
+
+
+
+
+#CLASS:Fighter <> MODIFY:Bravery|SOLVE|max(classlevel())
+#CLASS:SomeOtherClass <> MODIFY:Bravery|MAX|classlevel()
+
+
+
+# Class Level Trackers
+
+# Class Extras
+LOCAL:CLASS|VAR=MaxLevel		EXPLANATION:This sets the Maximum Level on the Class - this is a local var and may be used on each class to have a Maxmimum defined level. CONVERSION NOTE: This should replace 'MAXLEVEL' see discussion below:
+# Tom Discussion:  MAXLEVEL can be a local var to each class, thats a tag we can remove
+# [20:49] Tom Parker: maybe
+# [20:49] Tom Parker: the code needs to know about it today though
+# [20:49] Andrew: it controls the maxlevel of any given class, can be replaced with a PREBOOL
+# [20:50] Tom Parker: maybe
+# [20:50] Tom Parker: The one thing we're going to have to watch out for is usability
+# [20:50] Tom Parker: right now it produces an error message about max levels being reached
+# [20:50] Tom Parker: with PREBOOL it would say not qualified, a more general error
+# [20:50] Andrew: I wouldn't know, never maxed out before. 
+# [20:50] Tom Parker: so PREBOOL may need an explanation or some such attached to it somehow
+# [20:52] Andrew: hm
+# [20:52] Tom Parker: The problem there becomes translation
+# [20:52] Andrew: newtag to display a message then, so we avoid those for now.
+# [20:52] Tom Parker: we don't want it to be on PREBOOL itself
+# [20:53] Tom Parker: more like PREBOOL:REASON1|...formula...
+# [20:53] Tom Parker: and then REASON1 is the index of some sort to get the actual string
+# [20:53] Andrew: Ah, that sounds good
+# [20:53] Tom Parker: that's more of an i18n question that we will want to solve consistently with that plan
+# [20:54] Andrew: i18n - yeah
+
+
+# Cleric Items
+GLOBAL:VAR=DomainLVL			EXPLANATION:Determines the Level of domain powers		
+GLOBAL:VAR=ClericDomainCount		EXPLANATION:Determines how many Domains a Cleric may have				
+GLOBAL:VAR=Domain				EXPLANATION:PLACEHOLDER - Domain was BONUS:DOMAIN|NUMBER|x		
+
+GLOBAL:VAR=TwoHandDamageDivisor	EXPLANATION:OS uses this to do TwoHandedDamage calculation, which doesn't make sense since we have DAMAGEMULT doing the same thing!
+GLOBAL:VAR=OffHandLightBonus		EXPLANATION:OS uses this to do Light Bonus calculation
+
+
+#Vars File:
+GLOBAL:VAR=BaseAB				EXPLANATION:D20 System - Sets the "Base Attack Bonus" value for character.
+GLOBAL:VAR=BaseAB.Step			EXPLANATION:D20 System - Sets the "Base Attack Bonus" step - a Step is the interval between the first attack and each proceeding attack. This is called an attack iteration. Most classes are limited to 4 attacks in total, except the monk which gets 7 unarmed strikes.
+
+EQUIPMENT.PART:VAR|AB.1			EXPLANATION:Sets the AB (AttackBonus) for the 1st attack
+EQUIPMENT.PART:VAR|AB.2			EXPLANATION:Sets the AB (AttackBonus) for the 2nd attack
+EQUIPMENT.PART:VAR|AB.3			EXPLANATION:Sets the AB (AttackBonus) for the 3rd attack
+EQUIPMENT.PART:VAR|AB.4			EXPLANATION:Sets the AB (AttackBonus) for the 4th attack
+EQUIPMENT.PART:VAR|AB.5			EXPLANATION:Sets the AB (AttackBonus) for the 5th attack
+EQUIPMENT.PART:VAR|AB.6			EXPLANATION:Sets the AB (AttackBonus) for the 6th attack
+EQUIPMENT.PART:VAR|AB.7			EXPLANATION:Sets the AB (AttackBonus) for the 7th attack
+
+EQUIPMENT.PART:ToHit.ModTotal		EXPLANATION:Sets the ToHit.ModTotal
+
+EQUIPMENT.PART:VAR|ToHit.1		EXPLANATION:Sets the ToHit for attack 1	
+EQUIPMENT.PART:VAR|ToHit.2		EXPLANATION:Sets the ToHit for attack 2	
+EQUIPMENT.PART:VAR|ToHit.3		EXPLANATION:Sets the ToHit for attack 3	
+EQUIPMENT.PART:VAR|ToHit.4		EXPLANATION:Sets the ToHit for attack 4	
+EQUIPMENT.PART:VAR|ToHit.5		EXPLANATION:Sets the ToHit for attack 5	
+EQUIPMENT.PART:VAR|ToHit.6		EXPLANATION:Sets the ToHit for attack 6  //For Flurry of Blows [PF]
+EQUIPMENT.PART:VAR|ToHit.7		EXPLANATION:Sets the ToHit for attack 7  //For Flurry of Blows [PF]
+EQUIPMENT.PART:VAR|ToHit.8		EXPLANATION:Sets the ToHit for attack 8  //For Haste/Speed
+EQUIPMENT.PART:VAR|ToHit.9		EXPLANATION:Sets the ToHit for attack 9  //For Spear Wind
+EQUIPMENT.PART:VAR|ToHit.10		EXPLANATION:Sets the ToHit for attack 10 //For Eclipse
+EQUIPMENT.PART:VAR|ToHit.11		EXPLANATION:Sets the ToHit for attack 11 //For Eclipse (Haste/Speed/Spear Wind)
+EQUIPMENT.PART:VAR|ToHit.12		EXPLANATION:Sets the ToHit for attack 12 //For Eclipse (Haste/Speed/Spear Wind)
+
+# Equipment: If Equipment is supposed to be local in it's scope, is "LOCAL:x" necessary?
+LOCAL:EQUIPMENT.PART|VAR=CritMult			EXPLANATION:Sets up Equipment to have "CritMult" which sets a Critical Multiplier value for each part of the equipment (FORMAT: #/xY, with Y the value). (In d20, a weapon may have Two "Heads" and have unique values for either head.
+LOCAL:EQUIPMENT.PART|VAR=CritRange		EXPLANATION:Sets up Equipment to have "CritRange" which sets a Critical Range value for each part of the equipment (FORMAT: Y/x#, with Y being a 20, 19-20, 18-20, etc.) (In d20, a weapon may have Two "Heads" and have unique values for either head.
+LOCAL:EQUIPMENT.PART|VAR=Reach			EXPLANATION:Equipment Reach
+LOCAL:EQUIPMENT|VAR=WT				EXPLANATION:Equipment may only have one Weight, abbreviated "WT" for fast use.
+LOCAL:EQUIPMENT|VAR=COST				EXPLANATION:Equipment may have one Cost or "Price".
+
+
+# BOOLEAN - Flags & Rules
+GLOBAL:RULE=DAMAGE_VW
+GLOBAL:RULE=USE_CMB
+
+GLOBAL:FLAG=Tall				EXPLANATION:Set T/F whether a Race is TALL or not (not = long) - SIZE dictates BASE value for REACH and FACE, 
+FLAG=RacialVision				EXPLANATION:Sets 'Flag' (Boolean) called 'RacialVision'
+
+# Class Archetype Flags
+# Barbarian
+FLAG|BarbarianRage
+FLAG|BarbarianFastMovement
+FLAG|BarbarianRagePowers
+FLAG|BarbarianTrapSense
+FLAG|BarbarianDamageReduction
+FLAG|BarbarianGreaterRage
+FLAG|BarbarianIndomitableWill
+FLAG|BarbarianTirelessRage
+FLAG|BarbarianMightyRage
+
+# Cleric
+FLAG|ClericClassSkills	
+FLAG|ClericChannelEnergy
+FLAG|ClericOrisons
+FLAG|ClericSpontaneousCasting
+
+# Fighter
+FLAG|FighterClassSkills	
+FLAG|FighterProficiencies
+FLAG|FighterWeaponProficiencies
+FLAG|FighterHeavyArmorProficiency
+FLAG|FighterMediumArmorProficiency
+FLAG|FighterLightArmorProficiency
+FLAG|FighterShieldProficiency
+FLAG|FighterTowerShieldProficiency
+FLAG|FighterBonusFeats
+FLAG|FighterBravery
+FLAG|FighterArmorTraining_ALL
+FLAG|FighterWeaponTraining_ALL
+FLAG|FighterArmorMastery
+FLAG|FighterWeaponMastery		EXPLANATION:Sets 'Flag' called 'FighterWeaponMastery'
+
+
+# Monk
+FLAG|MonkAlignment			EXPLANATION:This opposite value allows a MONK to have any ALIGNMENT and not become an Ex-Class
+FLAG|MonkFlurryOfBlows
+FLAG|MonkBonusFeats
+FLAG|MonkACBonus
+FLAG|MonkStunningFist
+FLAG|MonkEvasion
+FLAG|MonkFastMovement
+FLAG|MonkManeuverTraining
+FLAG|MonkStillMind
+FLAG|MonkKiPool
+FLAG|MonkSlowFall
+FLAG|MonkHighJump
+FLAG|MonkPurityOfBody
+FLAG|MonkWholenessOfBody
+FLAG|MonkImprovedEvasion
+FLAG|MonkDiamondBody
+FLAG|MonkAbundantStep
+FLAG|MonkDiamondSoul
+FLAG|MonkQuiveringPalm
+FLAG|MonkTongueOfTheSunAndMoon
+FLAG|MonkTimelessBody
+FLAG|MonkEmptyBody
+FLAG|MonkPerfectSelf
+
+# Wizard
+FLAG|WizardClassSkills
+FLAG|WizardArcaneSchool
+FLAG|WizardWeaponProficiencies
+FLAG|WizardWeaponProficiencies
+FLAG|WizardScribeScroll
+FLAG|WizardArcaneBond
+FLAG|WizardCantrips
+FLAG|WizardBonusFeats
+
+
+
+# MODIFYOTHER:ABILITY=Archetype|GROUP=FighterWeaponMastery|FighterWeaponMastery|SET|True
+# Global set to one if the flag is turned on
+# MODIFY:ABILITYPOOL=Weapon Mastery|SET|if(context("FLAG",FighterWeaponMastery),1,0)
+
+
+#GLOBAL:ABILITYPOOL|Weapon Mastery
+ABILITYPOOL|Weapon Mastery		EXPLANATION:Sets up ABILITYPOOL "Weapon Mastery"
+#In effect the following puts the flag on all Abilities of the given Group
+# Other items could set the flag individually even if they are not an Archetype
+
+
+#################
+# Note that this method of having separate SETs on each object is probably preferable to calling a count() function as you showed... it will resolve a lot faster, since it will deterministically know the SET had no effect on the results if it's already True.  A count() would have to be checked each time to see if new Abilities were added to the PC, so it will be a lot slower.
+# I'd note as well that the FLAG concept then can replace a lot of your variables that you change from 0 to 1 and use a TYPE= controlled bonus to ensure that multiple grants can't ever make it more than one (in case you need to decrement it back to zero).  You're hacking integers to do a Boolean function and the new system allows you to really, truly, use a Boolean because that is what you are really doing... and just have a higher priority if you need to force it back to FALSE.
+# Power and clarity... good things.
+#####################
+
+
+
+#On PRExxx:
+
+#PREBOOL:context("AREA",Face==5,5)
+#PREBOOL:context("x",yz)
+# x = valid defined VARTYPE
+# y = Define Value in the designated VARTYPE
+# z = any valid formula symbol and value
+# <   Less Than
+# >   Greater Than
+# >=  Greater Than or Equal to
+# <=  Less Than or Equal to
+# ==  Is equal to
+# !=  Is not equal to
+# &&  Logical AND
+# II  Logical OR
+
+#context drops into "AREA" and then you run a Boolean comparison for Face equaling 5,5... if the Boolean returns TRUE the PRExxx passes, if not, then not.
+#This can then capture ANYTHING in the formula environment just by writing it as a Boolean formula... and with functions like count() and others that will undoubtedly be created, you may find yourself liking to use PREBOOL rather than other PRExxx
+
+
+
+
+
+# Skill is a LOCAL designation, it does not have "PART". A Single Skill is composed of the following components:
+# Rank, Bonus, Stat, and Total. This matches our output display
+LOCAL:SKILL|VAR=MaxRank		EXPLANATION:Each skill has a 'Rank' that is increased for a skill point pool
+LOCAL:SKILL|VAR=Rank		EXPLANATION:Each skill has a 'Rank' that is increased for a skill point pool
+LOCAL:SKILL|VAR=Bonus		EXPLANATION:Each skill has a 'Bonus' modifier displayed on the Sheet - 
+LOCAL:SKILL|VAR=Stat		EXPLANATION:Each skill has a 'Stat' that modifies it's final value
+LOCAL:SKILL|VAR=Total		EXPLANATION:Each skill has a 'Total' value
+LOCAL:SKILL|VAR=Grantors	EXPLANATION:Each skill has a 'Grantors' value that tracks how many classes have the given skill as a "Class" skill.
+
+# Stat is an interesting value - KEYSTAT: determines what is display, however, some classes alter which stat is used. OS should have a method to alter this display.
+
+
+# Bonus "Types" we need to track -- Pending Tom's input to handle stacking rules.
+LOCAL:SKILL|VAR=Bonus.Morale
+LOCAL:SKILL|VAR=Bonus.Competence
+LOCAL:SKILL|VAR=Bonus.Enhancement
+LOCAL:SKILL|VAR=Bonus.Trait
+LOCAL:SKILL|VAR=Bonus.Class			EXPLANATION:Class is for Pathfinder - it grants a +3 to the skill IF the skill is designated as a class skill
+
+
+# Global VARS:
+CMB.Stat
+
+
+
+
+# Skill Focus Feat should use this:
+# MODIFYOTHER:SKILL|%LIST|SkillTotal|SOLVE|value()+if(Rank>10,6,3)|PRIORITY=10000
+
+# Var file
+
+
+#SomeFeat
+#	MODIFYOTHER:SKILL|%LIST|Grantors|ADD|1
+#	MODIFYOTHER:SKILL|%LIST|SkillTotal|SOLVE|value()+if(Grantors>=1,1,0)|PRIORITY=10000
+
+
+#	MODIFYOTHER:SKILL|%LIST|SkillTotal|SOLVE|value()+if(Grantors>1,1,0)|PRIORITY=10000
+
+
+
+
+#TOM QUESTION: I want this applied to ALL skills only, is local the right method or do I need to define it differently? Brings another question, if I define something as local, is it shared in all scopes?
+# Reasoning: Rules allow some companions to bypass certain skills, and using the same name to keep this clean would be appreciated
+LOCAL:SKILL|FLAG=AnimalCompanionSkill	EXPLANATION:Method to restrict skills from animal companions. 
+
+###Block: AC Stuff
+# AC is an abstract value made up of many different bonuses. PCGen has a Character sheet that allows the player to see where each modifier is coming from
+# For fast reference.
+# Total is the highest value achievable by the PC
+# Flatfoored is a circumstance based value that applies only when the PC is caught flatfooted.
+# Touch is a value used for a special attack called "Touch Attack" this is used by Creatures with a power (touch) or a spell (ranged touch)
+# The system has multiple bonuses that do not stack, only a highest granted wins.
+
+
+
+# These all display on the OS
+AC.Total				EXPLANATION:OS Display - Total AC values 'AC.x' are included
+# Circumstance Displays
+AC.Flatfooted			EXPLANATION:The value of the AC (When Flatfooted) - LOST STAT & Dodge unless Special Ability
+AC.Touch				EXPLANATION:The value of the AC (Versus Touch) - Only includes Stat, Deflection. Shield if Special Ability
+#
+AC.TouchMisc			EXPLANATION:Special AC value that only affects the Touch value... Probably not required any longer	
+AC.Base				EXPLANATION:OS Display - Base AC value (d20 is 10)
+AC.Armor				EXPLANATION:OS Display - Armor Value + Enhancement Value
+AC.ArmorEnhancement		EXPLANATION:Armor Enhancement value - this adds to Armor Value for total.
+AC.Shield				EXPLANATION:OS Display - Shield Value + Shield Enhancement Value
+AC.ShieldEnhancement		EXPLANATION:Shield Enhancement Value - this is added to the Shield Display
+AC.Ability				EXPLANATION:OS Display - Value for Stat
+AC.Size				EXPLANATION:OS Display - Value from Size deviation from Medium
+AC.NaturalArmor			EXPLANATION:OS Display - Natural Armor + NaturalArmorEnhancement
+AC.NaturalArmorEnhancement	EXPLANATION:Natural Armor Enhancement Value - this is added to the Natural Armor Display
+AC.Dodge				EXPLANATION:OS Display - Dodge Value
+AC.Deflection			EXPLANATION:OS Display - Deflection Value
+AC.Misc				EXPLANATION:OS Display - Anything else
+AC.Circumstance			EXPLANATION:OS Display - Circumstance Value
+AC.Insight				EXPLANATION:OS Display - Insight Value
+AC.Morale				EXPLANATION:OS Display - Morale Value
+AC.Profane				EXPLANATION:OS Display - Proface Value
+AC.Sacred				EXPLANATION:OS Display - Sacred Value
+AC.CMD				EXPLANATION:Special defense
+AC.ClassDefense			EXPLANATION:Class Defense value - not applicable in pathfinder
+
+# Since TouchMisc should only add to the Touch, and not the total AC I'm deviating from the standard and using Remove in the Total.
+#Flatfooted				ADD:TOTAL		REMOVE:TouchMisc	REMOVE:Ability|PRESTAT:1,DEX=10|!PREABILITY:1,CATEGORY=Special Ability,Retain Dex To AC ~ Flat-footed		REMOVE:Dodge|!PREABILITY:1,CATEGORY=Special Ability,Retain Dex To AC ~ Flat-footed
+#Touch				ADD:TOTAL		REMOVE:Armor|ArmorEnhancement|Shield|ShieldEnhancement|NaturalArmor|NaturalArmorEnhancement	ADD:Shield|ShieldEnhancement|PREVARGTEQ:ShieldAddsToTouchAC,1
+
+#TouchMisc				ADD:TouchMisc
+#Base					ADD:Base
+#Armor				ADD:Armor|ArmorEnhancement
+#ArmorEnhancement			ADD:ArmorEnhancement
+#Shield				ADD:Shield|ShieldEnhancement
+#ShieldEnhancement		ADD:ShieldEnhancement
+#Ability				ADD:Ability
+#Size					ADD:Size
+#NaturalArmor			ADD:NaturalArmor|NaturalArmorEnhancement
+#NaturalArmorEnhancement	ADD:NaturalArmorEnhancement
+#Dodge				ADD:Dodge
+#Deflection				ADD:Deflection
+#Misc					ADD:TOTAL		REMOVE:Base|Armor|ArmorEnhancement|Shield|ShieldEnhancement|Ability|Size|NaturalArmor|NaturalArmorEnhancement|Dodge|Deflection|TouchMisc
+#Circumstance			ADD:Circumstance
+#Insight				ADD:Insight
+#Morale				ADD:Morale
+#Profane				ADD:Profane
+#Sacred				ADD:Sacred
+#CMD					ADD:Circumstance|Deflection|Dodge|Insight|Luck|Morale|Profane|Sacred
+#ClassDefense			ADD:ClassDefense
+
+
+LOCAL:EQUIPMENT.PART|PlusCost.Weapon
+LOCAL:EQUIPMENT.PART|PlusCost.Armor
+LOCAL:EQUIPMENT.PART|PlusCost.Shield
+
+###BLOCK: Class Feature Variables
+# Barbarian
+RagePowersLVL			
+RagePowersPrereqLVL		
+BarbarianTrapSenseLVL		
+BarbarianDR				
+BarbarianDRLVL			
+# Rage Powers
+IncreasedDRCount						
+GuardedStanceACBonus	
+GuardedStanceDuration
+PowerfulBlowDamageBonus					
+RagingClimberBonus						
+RagingLeaperBonus						
+RagingSwimmerBonus						
+RenewedVigorDice	
+RenewedVigorBonus	
+RollingDodgeACBonus	
+RollingDodgeDuration	
+StrengthSurgeBonus						
+SuperstitionSaveBonus					
+SurpriseAccuracyAttackBonus				
+SwiftFootCount							
+TerrifyingHowlDC						
+# Bard
+BardicKnowledgeSkillBonus	
+BardicKnowledgeLVL	
+BardicPerformanceDuration	
+BardicPerformanceLVL	
+VersatilePerformanceLVL						
+LoreMasterTimes	
+LoreMasterLVL			
+JackOfAllTradesLVL							
+# Bardic Music
+FascinateCreatures	
+FascinateDC	
+InspireCourageBonus					
+InspireCompetenceBonus				
+SuggestionDC						
+InspireGreatnessAllies				
+SoothingPerformanceLVL				
+FrighteningTuneDC					
+InspireHeroicsAllies					
+MassSuggestionDC					
+DeadlyPerformanceDC					
+
+# Cleric
+DomainLVL
+DomainPowerTimes
+DomainAbilityTriggerLVL
+ClericChannelEnergyLVL
+ClericChannelEnergyTimes
+ClericChannelPositiveEnergyDC	
+ClericChannelPositiveEnergyDice	
+ClericChannelPositiveEnergyDieSize	
+ClericChannelPositiveEnergyLVL	
+ClericChannelNegativeEnergyDC	
+ClericChannelNegativeEnergyDice	
+ClericChannelNegativeEnergyDieSize	
+ClericChannelNegativeEnergyLVL	
+
+DomainAirLVL	
+DomainAirAbilityTriggerLVL	
+DomainAirDC	
+DomainAirTimes													
+
+DomainAnimalLVL	
+DomainAnimalDC	
+DomainAnimalTimes	
+DomainAnimalAbilityTriggerLVL										
+
+DomainArtificeLVL	
+DomainArtificeDC	
+DomainArtificeTimes	
+DomainArtificeAbilityTriggerLVL									
+
+DomainChaosLVL	
+DomainChaosDC	
+DomainChaosTimes	
+DomainChaosAbilityTriggerLVL											
+
+DomainCharmLVL	
+DomainCharmDC	
+DomainCharmTimes	
+DomainCharmAbilityTriggerLVL											
+
+DomainCommunityLVL	
+DomainCommunityDC	
+DomainCommunityTimes	
+DomainCommunityAbilityTriggerLVL									
+
+DomainDarknessLVL	
+DomainDarknessDC	
+DomainDarknessTimes	
+DomainDarknessAbilityTriggerLVL									
+
+DomainDeathLVL	
+DomainDeathDC	
+DomainDeathTimes	
+DomainDeathAbilityTriggerLVL											
+
+DomainDestructionLVL	
+DomainDestructionDC	
+DomainDestructionTimes	
+DomainDestructionAbilityTriggerLVL							
+
+DomainEarthLVL	
+DomainEarthDC	
+DomainEarthTimes	
+DomainEarthAbilityTriggerLVL											
+
+DomainEvilLVL	
+DomainEvilDC	
+DomainEvilTimes	
+DomainEvilAbilityTriggerLVL											
+
+DomainFireLVL	
+DomainFireDC	
+DomainFireTimes	
+DomainFireAbilityTriggerLVL											
+
+DomainGloryLVL	
+DomainGloryDC	
+DomainGloryTimes	
+DomainGloryAbilityTriggerLVL											
+
+DomainGoodLVL	
+DomainGoodDC	
+DomainGoodTimes	
+DomainGoodAbilityTriggerLVL											
+
+DomainHealingLVL	
+DomainHealingDC	
+DomainHealingTimes	
+DomainHealingAbilityTriggerLVL									
+
+DomainKnowledgeLVL	
+DomainKnowledgeDC	
+DomainKnowledgeTimes	
+DomainKnowledgeAbilityTriggerLVL									
+
+DomainLawLVL	
+DomainLawDC	
+DomainLawTimes	
+DomainLawAbilityTriggerLVL													
+
+DomainLiberationLVL	
+DomainLiberationDC	
+DomainLiberationTimes	
+DomainLiberationAbilityTriggerLVL							
+
+DomainLuckLVL	
+DomainLuckDC	
+DomainLuckTimes	
+DomainLuckAbilityTriggerLVL											
+
+DomainMadnessLVL	
+DomainMadnessDC	
+DomainMadnessTimes	
+DomainMadnessAbilityTriggerLVL									
+
+DomainMagicLVL	
+DomainMagicDC	
+DomainMagicTimes	
+DomainMagicAbilityTriggerLVL											
+
+DomainNobilityLVL	
+DomainNobilityDC	
+DomainNobilityTimes	
+DomainNobilityAbilityTriggerLVL									
+
+DomainPlantLVL	
+DomainPlantDC	
+DomainPlantTimes	
+DomainPlantAbilityTriggerLVL											
+
+DomainProtectionSaveBonus	
+DomainProtectionLVL	
+DomainProtectionDC	
+DomainProtectionTimes	
+DomainProtectionAbilityTriggerLVL	
+
+DomainReposeLVL	
+DomainReposeDC	
+DomainReposeTimes	
+DomainReposeAbilityTriggerLVL										
+
+DomainRuneLVL	
+DomainRuneDC	
+DomainRuneTimes	
+DomainRuneAbilityTriggerLVL											
+
+DomainStrengthLVL	
+DomainStrengthDC	
+DomainStrengthTimes	
+DomainStrengthAbilityTriggerLVL									
+
+DomainSunLVL	
+DomainSunDC	
+DomainSunTimes	
+DomainSunAbilityTriggerLVL													
+
+DomainTravelLVL	
+DomainTravelDC	
+DomainTravelTimes	
+DomainTravelAbilityTriggerLVL										
+
+DomainTrickeryLVL	
+DomainTrickeryDC	
+DomainTrickeryTimes	
+DomainTrickeryAbilityTriggerLVL									
+
+DomainWarLVL	
+DomainWarDC	
+DomainWarTimes	
+DomainWarAbilityTriggerLVL													
+
+DomainWaterLVL	
+DomainWaterDC	
+DomainWaterTimes	
+DomainWaterAbilityTriggerLVL											
+
+DomainWeatherLVL	
+DomainWeatherDC	
+DomainWeatherTimes	
+DomainWeatherAbilityTriggerLVL									
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Monk
+FlurryOfBlows
+KiPoolWis
+MonkFeatQualify
+
+DEFINE:LightningArcTimes|0									
+DEFINE:DomainAirResistanceBonus|0								
+DEFINE:SpeakWithAnimalsRounds|0								
+DEFINE:AnimalCompanionMasterLVL|0								
+DEFINE:ArtificersTouchTimes|0									
+DEFINE:DancingWeaponTimes|0									
+DEFINE:TouchofChaosTimes|0									
+DEFINE:ChaosBladeTimes|0									
+DEFINE:DazingTouchTimes|0									
+DEFINE:CharmCharmingSmileRounds|0								
+DEFINE:CalmingTouchTimes|0									
+DEFINE:UnityTimes|0										
+DEFINE:TouchofDarknessTimes|0									
+DEFINE:EyesOfDarknessRounds|0									
+DEFINE:BleedingTouchTimes|0									
+DEFINE:DestructiveSmiteTimes|0								
+DEFINE:DestructiveAuraRounds|0								
+DEFINE:AcidDartTimes|0										
+DEFINE:DomainEarthResistanceBonus|0								
+DEFINE:TouchofEvilTimes|0									
+DEFINE:ScytheOfEvilTimes|0									
+DEFINE:FireBoltTimes|0										
+DEFINE:DomainFireResistanceBonus|0								
+DEFINE:TouchofGloryTimes|0									
+DEFINE:GloryDivinePresenceRounds|0								
+DEFINE:TouchofGoodTimes|0									
+DEFINE:HolyLanceTimes|0										
+DEFINE:RebukeDeathTimes|0									
+DEFINE:LoreKeeperDomainSkillBonus|0								
+DEFINE:RemoteViewingRounds|0									
+DEFINE:TouchofLawTimes|0									
+DEFINE:StaffOfOrderTimes|0									
+DEFINE:LiberationRounds|0									
+DEFINE:FreedomsCallRounds|0									
+DEFINE:BitofLuckTimes|0										
+DEFINE:GoodFortuneTimes|0									
+DEFINE:VisionofMadnessTimes|0									
+DEFINE:AuraOfMadnessRounds|0									
+DEFINE:HandoftheAcolyteTimes|0								
+DEFINE:DispellingTouchTimes|0									
+DEFINE:WoodenFistRounds|0									
+DEFINE:BrambleArmorRounds|0									
+DEFINE:ResistantTouchTimes|0									
+DEFINE:AuraOfProtectionRounds|0								
+DEFINE:GentleRestTimes|0									
+DEFINE:WardAgainstDeathRounds|0								
+DEFINE:BlastRuneTimes|0										
+DEFINE:StrengthSurgeTimes|0									
+DEFINE:MightOfTheGodsRounds|0									
+DEFINE:SunNimbusOfLightRounds|0								
+DEFINE:AgileFeetTimes|0										
+DEFINE:TravelDimensionalHop|0									
+DEFINE:CopycatTimes|0										
+DEFINE:TrickeryMastersIllusionDC|0	
+DEFINE:TrickeryMastersIllusionRounds|0	
+DEFINE:BattleRageTimes|0									
+DEFINE:WeaponMasterRounds|0									
+DEFINE:IcicleTimes|0										
+DEFINE:DomainWaterResistanceBonus|0								
+DEFINE:StormBurstTimes|0									
+DEFINE:WeatherLightningLordTimes|0								
+
+# Druid
+DEFINE:AnimalCompanionLVL|0	DEFINE:AnimalCompanionMasterLVL|0	
+DEFINE:AnimalCompanionGranted|0						
+DEFINE:DruidAirAllowed|0	DEFINE:DruidAnimalAllowed|0	DEFINE:DruidEarthAllowed|0	DEFINE:DruidFireAllowed|0	DEFINE:DruidPlantAllowed|0	DEFINE:DruidWaterAllowed|0	DEFINE:DruidWeatherAllowed|0  
+DEFINE:DomainAirLVL|0	DEFINE:DomainAirAbilityTriggerLVL|0	DEFINE:DomainAirDC|0	DEFINE:DomainAirTimes|0																		
+DEFINE:DomainAnimalLVL|0	DEFINE:DomainAnimalDC|0	DEFINE:DomainAnimalTimes|0	DEFINE:DomainAnimalAbilityTriggerLVL|0															
+DEFINE:DomainEarthLVL|0	DEFINE:DomainEarthDC|0	DEFINE:DomainEarthTimes|0	DEFINE:DomainEarthAbilityTriggerLVL|0																
+DEFINE:DomainFireLVL|0	DEFINE:DomainFireDC|0	DEFINE:DomainFireTimes|0	DEFINE:DomainFireAbilityTriggerLVL|0																
+DEFINE:DomainPlantLVL|0	DEFINE:DomainPlantDC|0	DEFINE:DomainPlantTimes|0	DEFINE:DomainPlantAbilityTriggerLVL|0																
+DEFINE:DomainWaterLVL|0	DEFINE:DomainWaterDC|0	DEFINE:DomainWaterTimes|0	DEFINE:DomainWaterAbilityTriggerLVL|0																
+DEFINE:DomainWeatherLVL|0	DEFINE:DomainWeatherDC|0	DEFINE:DomainWeatherTimes|0	DEFINE:DomainWeatherAbilityTriggerLVL|0														
+DEFINE:WildShapeTimes|0	DEFINE:WildShapeDuration|0	DEFINE:WildShapeProgression|0	
+DEFINE:DruidWildShape|0	
+
+DEFINE:PoisonSaveDC|0
+
+# Fighter
+DEFINE:FighterWeaponQualifyLVL|0									
+DEFINE:WeapSpecQualify|0	DEFINE:WeaponSpecQualifyLVL|0					
+DEFINE:DisruptiveQualify|0	DEFINE:DisruptiveQualifyLVL|0					
+DEFINE:GreatShieldFocusQualify|0	DEFINE:GreatShieldFocusQualifyLVL|0			
+DEFINE:GreatWeapFocusQualify|0	DEFINE:GreatWeapFocusQualifyLVL|0			
+DEFINE:SpellbreakerQualify|0	DEFINE:SpellbreakerQualifyLVL|0				
+DEFINE:GreatWeapSpecQualify|0	DEFINE:GreatWeapSpecQualifyLVL|0				
+DEFINE:PenetratingStrikeQualify|0	DEFINE:PenetratingStrikeQualifyLVL|0		
+DEFINE:CriticalMasteryQualify|0	DEFINE:CriticalMasteryQualifyLVL|0			
+DEFINE:GreatPenetratingStrikeQualify|0	DEFINE:GreatPenetratingStrikeQualifyLVL|0	
+DEFINE:Bravery|0	DEFINE:BraveryLVL|0	DEFINE:ArmorTraining|0	DEFINE:ArmorTrainingLVL|0	DEFINE:ArmorTrainingTier|0
+DEFINE:WeaponTrainingBase|0	DEFINE:FighterWeaponTrainingLVL|0	
+DEFINE:WeaponTrainingTierOne|0	
+DEFINE:WeaponTrainingTierTwo|0	
+DEFINE:WeaponTrainingTierThree|0	
+DEFINE:WeaponTrainingFour|0		
+DEFINE:WeaponTrainingAxes|0        
+DEFINE:WeaponTrainingBladesHeavy|0 
+DEFINE:WeaponTrainingBladesLight|0 
+DEFINE:WeaponTrainingBows|0        
+DEFINE:WeaponTrainingClose|0       
+DEFINE:WeaponTrainingCrossbows|0   
+DEFINE:WeaponTrainingDouble|0      
+DEFINE:WeaponTrainingFlails|0      
+DEFINE:WeaponTrainingHammers|0     
+DEFINE:WeaponTrainingMonk|0        
+DEFINE:WeaponTrainingNatural|0     
+DEFINE:WeaponTrainingPoleArms|0    
+DEFINE:WeaponTrainingSpears|0      
+DEFINE:WeaponTrainingThrown|0      
+
+DEFINE:MonkBonusFeatLVL|0												
+DEFINE:MonkACBonus|0	DEFINE:MonkACLVL|0	DEFINE:MonkACWisBonus|0					
+DEFINE:FlurryLVL|0	DEFINE:FlurryExtraAttacks|0	DEFINE:FlurryBABBonus|0	DEFINE:MonkBAB|0	
+DEFINE:StunningFistMonkLVL|0												
+DEFINE:MonkFastMovementLVL|0	DEFINE:MonkFastMovementBonus|0						
+DEFINE:ManeuverTrainingLVL|0	DEFINE:ManeuverTrainingBAB|0							
+																
+																
+DEFINE:SlowFall|0	DEFINE:SlowFallLVL|0										
+DEFINE:HighJumpLVL|0	DEFINE:HighJumpBonus|0									
+																
+DEFINE:WholenessOfBody|0	DEFINE:WholenessOfBodyLVL|0							
+																
+DEFINE:AbundantStepCasterLVL|0	DEFINE:AbundantStepLVL|0						
+DEFINE:DiamondSoul|0	DEFINE:DiamondSoulLVL|0									
+DEFINE:QuiveringPalmDuration|0	DEFINE:QuiveringPalmDC|0	DEFINE:QuiveringPalmLVL|0	
+DEFINE:KiPoints|0	DEFINE:KiPoolLVL|0
+DEFINE:KiPool|0
+DEFINE:MonkBonusFeatCount|0
+# Paladin
+DEFINE:DetectEvilLVL|0																				
+DEFINE:SmiteEvilTimes|0	DEFINE:SmiteEvilAttackBonus|0	DEFINE:SmiteEvilDamageBonus|0	DEFINE:SmiteEvilACBonus|0	DEFINE:SmiteEvilLVL|0	
+DEFINE:DivineGrace|0																				
+DEFINE:LayOnHandsTimes|0	DEFINE:LayOnHandsDice|0	DEFINE:LayOnHandsLVL|0											
+																							
+DEFINE:Mercies|0	DEFINE:MercyLVL|0																		
+DEFINE:PaladinChannelDC|0	DEFINE:PaladinChannelDice|0	DEFINE:PaladinChannelDieSize|0	DEFINE:PaladinChannelLVL|0			
+DEFINE:HolyChampionCasterLevel|0	DEFINE:HolyChampionLVL|0													
+DEFINE:DivineBondLVL|0	DEFINE:DivineBondTimes|0							
+DEFINE:CelestialSpiritDuration|0	DEFINE:CelestialSpiritBonus|0					
+DEFINE:SpecialMountLVL|0	DEFINE:SpecialMountSpellLevel|0	DEFINE:SpecialMountSR|0	
+DEFINE:MasterHunterLVL|0	DEFINE:MasterHunterDC|0
+DEFINE:TrackLVL|0	DEFINE:TrackBonus|0
+DEFINE:CombatStyleLVL|0	DEFINE:RangerDefaultCombatStyle|0	DEFINE:RangerBonusFeatCount|0				
+DEFINE:RangerFavoredEnemyLVL|0	DEFINE:RangerFavoredEnemyCount|0	DEFINE:FavoredEnemyBonusCount|0	
+DEFINE:RangerFavoredTerrainLVL|0													
+
+
+
+
+
+
+
+
+
+
+
+
+
+
