@@ -29,7 +29,7 @@ CLASS:Bardic Sage	ABB:BrdSge		SOURCEPAGE:p.49		HD:6		TYPE:Base.PC	CLASSTYPE:PC		
 CLASS:Bardic Sage	PREALIGN:NG,TN,NE	!PRECLASS:1,Bard=1,Divine Bard=1,Savage Bard=1
 CLASS:Bardic Sage	STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Climb|Concentration|TYPE=Craft|Decipher Script|Diplomacy|Disguise|Escape Artist|Gather Information|Hide|Jump|TYPE=Knowledge|Listen|Move Silently|TYPE=Perform|TYPE=Profession|Sense Motive|Sleight of Hand|Speak Language|Spellcraft|Swim|Tumble|Use Magic Device
 # Class Name		Spell Stat		Spell Stat Bonus		Caster level				Bonus DC					Use Spell List
-CLASS:Bardic Sage	SPELLSTAT:INT	BONUSSPELLSTAT:CHA	BONUS:CASTERLEVEL|Bardic Sage|BardLVL	DEFINE:BardLVL|0	BONUS:VAR|BardLVL|CL		SPELLLIST:2|Bard|Bardic Sage
+CLASS:Bardic Sage	SPELLSTAT:INT	BONUSSPELLSTAT:CHA	BONUS:CASTERLEVEL|Bardic Sage|BardLVL	DEFINE:BardLVL|0	BONUS:VAR|BardLVL|CL+CasterLevelBonus		SPELLLIST:2|Bard|Bardic Sage
 # BONUS:DC|CLASS.Bardic Sage|CHA-INT
 ###Block:
 1	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Weapon and Armor Proficiency|!PREABILITY:1,CATEGORY=ACF,TYPE.BardProficiencies
@@ -94,7 +94,7 @@ CLASS:Divine Bard	ABB:DvnBrd		SOURCEPAGE:p.50		HD:6		TYPE:Base.PC	CLASSTYPE:PC		
 CLASS:Divine Bard	!PRECLASS:1,Bard=1,Bardic Sage=1,Savage Bard=1
 CLASS:Divine Bard		STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Climb|Concentration|TYPE=Craft|Decipher Script|Diplomacy|Disguise|Escape Artist|Gather Information|Hide|Jump|TYPE=Knowledge|Listen|Move Silently|TYPE=Perform|TYPE=Profession|Sense Motive|Sleight of Hand|Speak Language|Spellcraft|Swim|Tumble|Use Magic Device
 # Class Name		Spell Stat		Spell Stat Bonus		Spell Type		Caster level				Bonus DC					Use Spell List
-CLASS:Divine Bard		SPELLSTAT:WIS	BONUSSPELLSTAT:CHA	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Divine Bard|BardLVL	DEFINE:BardLVL|0	BONUS:VAR|BardLVL|CL	SPELLLIST:2|Bard|Divine Bard
+CLASS:Divine Bard		SPELLSTAT:WIS	BONUSSPELLSTAT:CHA	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Divine Bard|BardLVL	DEFINE:BardLVL|0	BONUS:VAR|BardLVL|CL+CasterLevelBonus	SPELLLIST:2|Bard|Divine Bard
 # BONUS:DC|CLASS.Divine Bard|CHA-WIS
 ###Block:
 1	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Weapon and Armor Proficiency|!PREABILITY:1,CATEGORY=ACF,TYPE.BardProficiencies
@@ -144,7 +144,7 @@ CLASS:Savage Bard	PREALIGN:CG,CN,CE	!PRECLASS:1,Bard=1,Bardic Sage=1,Divine Bard
 # Class Name		Remove Class Skill						Class Skill
 CLASS:Savage Bard	STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Climb|Concentration|TYPE=Craft|Diplomacy|Disguise|Escape Artist|Gather Information|Hide|Jump|TYPE=Knowledge|Listen|Move Silently|TYPE=Perform|TYPE=Profession|Sense Motive|Sleight of Hand|Spellcraft|Swim|Tumble|Use Magic Device|Survival
 # Class Name		Caster level				Use Spell List
-CLASS:Savage Bard	BONUS:CASTERLEVEL|Savage Bard|BardLVL	DEFINE:BardLVL|0	BONUS:VAR|BardLVL|CL	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	ROLE:Bard
+CLASS:Savage Bard	BONUS:CASTERLEVEL|Savage Bard|BardLVL	DEFINE:BardLVL|0	BONUS:VAR|BardLVL|CL+CasterLevelBonus	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	ROLE:Bard
 ###Block: Illiteracy
 # (Copy this line and include the hidden feat for any other Illiterate class.)
 #	Currently, this does not take into account the removal using Skill points.
@@ -201,7 +201,7 @@ CLASS:Cleric (Cloistered Cleric)	HD:6		TYPE:Base.PC.Variant	CLASSTYPE:PC	ABB:Clr
 # Class Name				Skill Pts/Lvl	Class Skill
 CLASS:Cleric (Cloistered Cleric)	STARTSKILLPTS:6	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|TYPE=Knowledge|TYPE=Profession|Spellcraft|Decipher Script|Speak Language
 # Class Name				Spell Stat		Spell Type		Automatically Known Spell Levels											Caster level
-CLASS:Cleric (Cloistered Cleric)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Cleric (Cloistered Cleric)|CL
+CLASS:Cleric (Cloistered Cleric)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Cleric (Cloistered Cleric)|CL+CasterLevelBonus
 ###Block:Proficiencies
 1								ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfLight|TYPE=WeaponProfSimple
 1								ABILITY:Special Ability|AUTOMATIC|Cloistered Cleric ~ Lore
@@ -251,7 +251,7 @@ CLASS:Druid (Druidic Avenger)	PREALIGN:LN,NG,TN,NE,CN
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Druid (Druidic Avenger)	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Handle Animal|Heal|Knowledge (Nature)|Listen|TYPE=Profession|Ride|Spellcraft|Spot|Survival|Swim|Intimidate
 # Class Name			Spell Stat		Spell Type		Automatically Known Spell Levels											Caster level
-CLASS:Druid (Druidic Avenger)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Druid|CL
+CLASS:Druid (Druidic Avenger)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Druid|CL+CasterLevelBonus
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|Druid ~ Weapon and Armor Proficiency|!PREABILITY:1,CATEGORY=ACF,TYPE.DruidProficiencies
 ###Block: Wildshape Abilities Block
@@ -337,7 +337,7 @@ CLASS:Paladin of Freedom	PREALIGN:CG	!PRECLASS:1,Paladin=1,Paladin of Slaughter=
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Paladin of Freedom	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Handle Animal|Heal|Knowledge (Nobility and Royalty)|Knowledge (Religion)|TYPE=Profession|Ride|Sense Motive
 # Class Name			Spell Stat		Spell Type		Automatically Known Spell Levels				Craft Level Mult.	Caster level									Use Spell List
-CLASS:Paladin of Freedom	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	ITEMCREATE:0.5	BONUS:CASTERLEVEL|Paladin|CL/2|PRECLASS:1,Paladin of Freedom=4	SPELLLIST:1|Paladin
+CLASS:Paladin of Freedom	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	ITEMCREATE:0.5	BONUS:CASTERLEVEL|Paladin|CL+CasterLevelBonus/2|PRECLASS:1,Paladin of Freedom=4	SPELLLIST:1|Paladin
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|Paladin ~ Weapon and Armor Proficiency
 ###Block: Prohibited Spells
@@ -375,7 +375,7 @@ CLASS:Paladin of Slaughter	PREALIGN:CE	!PRECLASS:1,Paladin=1,Paladin of Freedom=
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Paladin of Slaughter	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Handle Animal|Heal|Intimidate|Knowledge (Nobility and Royalty)|Knowledge (Religion)|TYPE=Profession|Ride|Sense Motive
 # Class Name			Spell Stat		Spell Type		Automatically Known Spell Levels				Craft Level Mult.	Caster level											Use Spell List
-CLASS:Paladin of Slaughter	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	ITEMCREATE:0.5	BONUS:CASTERLEVEL|Paladin of Slaughter|CL/2|PRECLASS:1,Paladin of Slaughter=4	SPELLLIST:1|Paladin of Slaughter
+CLASS:Paladin of Slaughter	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	ITEMCREATE:0.5	BONUS:CASTERLEVEL|Paladin of Slaughter|CL+CasterLevelBonus/2|PRECLASS:1,Paladin of Slaughter=4	SPELLLIST:1|Paladin of Slaughter
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|Paladin ~ Weapon and Armor Proficiency
 ###Block: Level progression
@@ -407,7 +407,7 @@ CLASS:Paladin of Tyranny	PREALIGN:LE	!PRECLASS:1,Paladin=1,Paladin of Freedom=1,
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Paladin of Tyranny	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nobility and Royalty)|Knowledge (Religion)|TYPE=Profession|Ride|Sense Motive
 # Class Name			Spell Stat		Spell Type		Automatically Known Spell Levels				Craft Level Mult.	Caster level											Use Spell List
-CLASS:Paladin of Tyranny	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	ITEMCREATE:0.5	BONUS:CASTERLEVEL|Paladin of Tyranny|CL/2|PRECLASS:1,Paladin of Tyranny=4	SPELLLIST:1|Paladin of Tyranny
+CLASS:Paladin of Tyranny	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	ITEMCREATE:0.5	BONUS:CASTERLEVEL|Paladin of Tyranny|CL+CasterLevelBonus/2|PRECLASS:1,Paladin of Tyranny=4	SPELLLIST:1|Paladin of Tyranny
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|Paladin ~ Weapon and Armor Proficiency
 ###Block: Prohibited Spells
@@ -440,7 +440,7 @@ CLASS:Ranger (Planar Ranger)	HD:8		TYPE:Base.PC	CLASSTYPE:PC	ABB:Rgr		MAXLEVEL:2
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Ranger (Planar Ranger)	STARTSKILLPTS:6	CSKILL:Climb|Concentration|TYPE=Craft|Handle Animal|Heal|Hide|Jump|Knowledge (Geography)|Listen|Move Silently|TYPE=Profession|Ride|Search|Spot|Survival|Swim|Use Rope|Knowledge (the planes)|Speak Language
 # Class Name			Spell Stat		Spell Type		Automatically Known Spell Levels				Craft Level Mult.	Caster level												Use Spell List
-CLASS:Ranger (Planar Ranger)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	ITEMCREATE:0.5	BONUS:CASTERLEVEL|Ranger (Planar Ranger)|CL/2|PRECLASS:1,Ranger (Planar Ranger)=4	SPELLLIST:1|Ranger
+CLASS:Ranger (Planar Ranger)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	ITEMCREATE:0.5	BONUS:CASTERLEVEL|Ranger (Planar Ranger)|CL+CasterLevelBonus/2|PRECLASS:1,Ranger (Planar Ranger)=4	SPELLLIST:1|Ranger
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|Ranger ~ Weapon and Armor Proficiency|!PREABILITY:1,CATEGORY=ACF,TYPE.RangerProficiencies
 ###Block:
@@ -487,7 +487,7 @@ CLASS:Ranger (Urban Ranger)	HD:8		TYPE:Base.PC	CLASSTYPE:PC	ABB:Rgr		MAXLEVEL:20
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Ranger (Urban Ranger)	STARTSKILLPTS:6	CSKILL:Climb|Concentration|TYPE=Craft|Handle Animal|Heal|Hide|Jump|Knowledge (Geography)|Listen|Move Silently|TYPE=Profession|Ride|Search|Spot|Swim|Use Rope|Gather Information|Knowledge (Local)|Sense Motive
 # Class Name			Spell Stat		Spell Type		Automatically Known Spell Levels				Craft Level Mult.	Caster level																							Use Spell List
-CLASS:Ranger (Urban Ranger)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	ITEMCREATE:0.5	BONUS:CASTERLEVEL|Ranger (Urban Ranger)|CL/2|PRECLASS:1,Ranger (Urban Ranger)=4	BONUS:CASTERLEVEL|Ranger|CL/2|PRECLASS:1,Ranger (Urban Ranger)=4	SPELLLIST:2|Ranger|Ranger (Urban Ranger)
+CLASS:Ranger (Urban Ranger)	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	ITEMCREATE:0.5	BONUS:CASTERLEVEL|Ranger (Urban Ranger)|CL/2|PRECLASS:1,Ranger (Urban Ranger)=4	BONUS:CASTERLEVEL|Ranger|CL+CasterLevelBonus/2|PRECLASS:1,Ranger (Urban Ranger)=4	SPELLLIST:2|Ranger|Ranger (Urban Ranger)
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|Ranger ~ Weapon and Armor Proficiency|!PREABILITY:1,CATEGORY=ACF,TYPE.RangerProficiencies
 ###Block: Removed from Urban Ranger
@@ -569,7 +569,7 @@ CLASS:Battle Sorcerer	HD:8		TYPE:Base.PC	CLASSTYPE:PC	ABB:Sor		MAXLEVEL:20	SOURC
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Battle Sorcerer	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Knowledge (arcana)|TYPE=Profession|Spellcraft|Intimidate
 # Class Name		Spell Stat		Spell Type		Memorize	Caster level					Use Spell List
-CLASS:Battle Sorcerer	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Battle Sorcerer|CL	SPELLLIST:1|Sorcerer
+CLASS:Battle Sorcerer	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Battle Sorcerer|CL+CasterLevelBonus	SPELLLIST:1|Sorcerer
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|Sorcerer ~ Weapon and Armor Proficiency|!PREABILITY:1,CATEGORY=ACF,TYPE.SorcererProficiencies
 1	ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfLight
@@ -625,7 +625,7 @@ CLASS:Cleric (Spontaneous)	HD:8		TYPE:Base.PC.Variant	CLASSTYPE:PC	MAXLEVEL:20	S
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Cleric (Spontaneous)	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Knowledge (arcana)|Knowledge (History)|Knowledge (Religion)|Knowledge (the planes)|TYPE=Profession|Spellcraft
 # Class Name			Spell Stat		Spell Type		Caster level					Use Spell List
-CLASS:Cleric (Spontaneous)	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Cleric (Spontaneous)|CL	SPELLLIST:1|Cleric
+CLASS:Cleric (Spontaneous)	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Cleric (Spontaneous)|CL+CasterLevelBonus	SPELLLIST:1|Cleric
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|Cleric ~ Weapon and Armor Proficiency|!PREABILITY:1,CATEGORY=ACF,TYPE.ClericProficiences
 ###Block:
@@ -741,7 +741,7 @@ CLASS:Druid (Spontaneous)	PREALIGN:LN,NG,TN,NE,CN
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Druid (Spontaneous)	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nature)|Listen|TYPE=Profession|Ride|Spellcraft|Spot|Survival|Swim
 # Class Name			Spell Stat		Spell Type		Caster level					Use Spell List
-CLASS:Druid (Spontaneous)	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Druid (Spontaneous)|CL	SPELLLIST:1|Druid
+CLASS:Druid (Spontaneous)	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Druid (Spontaneous)|CL+CasterLevelBonus	SPELLLIST:1|Druid
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|Druid ~ Weapon and Armor Proficiency|!PREABILITY:1,CATEGORY=ACF,TYPE.DruidProficiencies
 ###Block: Wildshape Abilities Block
@@ -1114,7 +1114,7 @@ CLASS:Spellcaster	STARTSKILLPTS:6
 # Class Name			Class Skill
 CLASS:GC_Divine Spellcaster	CSKILL:TYPE=Craft|TYPE=Knowledge|TYPE=Profession
 # Class Name			Spell Stat		Caster level						Use Spell List
-CLASS:GC_Divine Spellcaster	SPELLSTAT:WIS	BONUS:CASTERLEVEL|GC_Divine Spellcaster|CL	SPELLLIST:4|Cleric|Druid|Sorcerer|Wizard
+CLASS:GC_Divine Spellcaster	SPELLSTAT:WIS	BONUS:CASTERLEVEL|GC_Divine Spellcaster|CL+CasterLevelBonus	SPELLLIST:4|Cleric|Druid|Sorcerer|Wizard
 ###Block:
 1	ADD:CLASSSKILLS|4|ANY
 ###Block:
@@ -1172,7 +1172,7 @@ CLASS:Spellcaster	PREMULT:1,[!PRECLASS:1,%=1],[PRECLASS:1,TYPE.GenericClass=1]
 CLASS:Spellcaster	STARTSKILLPTS:2
 
 # Class Name			Spell Stat		Caster level						Use Spell List
-CLASS:GC_Arcane Spellcaster	SPELLSTAT:INT	BONUS:CASTERLEVEL|GC_Arcane Spellcaster|CL	SPELLLIST:4|Cleric|Druid|Sorcerer|Wizard
+CLASS:GC_Arcane Spellcaster	SPELLSTAT:INT	BONUS:CASTERLEVEL|GC_Arcane Spellcaster|CL+CasterLevelBonus	SPELLLIST:4|Cleric|Druid|Sorcerer|Wizard
 ###Block:
 1	ADD:CLASSSKILLS|4|ANY
 ###Block:

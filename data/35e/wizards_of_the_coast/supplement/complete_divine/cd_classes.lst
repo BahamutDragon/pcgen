@@ -7,7 +7,7 @@ CLASS:Shugenja	KEY:Shugenja	TYPE:Base.PC.Complete Divine	ALLOWBASECLASS:NO		SOUR
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Shugenja	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|TYPE=Knowledge|TYPE=Profession|Spellcraft
 # Class Name	Spell Stat		Spell Type		Caster level			Use Spell List
-CLASS:Shugenja	SPELLSTAT:CHA	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Shugenja|CL	SPELLLIST:1|Shugenja
+CLASS:Shugenja	SPELLSTAT:CHA	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Shugenja|CL+CasterLevelBonus	SPELLLIST:1|Shugenja
 #
 SUBCLASS:Air Shugenja	COST:0	CHOICE:DESCRIPTOR|Air Shugenja	PROHIBITSPELL:DESCRIPTOR.Earth Shugenja	DEFINE:AirShugenja|0	ABILITY:Shugenja Class Feature|AUTOMATIC|Shugenja ~ Element Focus (Air)
 SUBCLASS:Earth Shugenja	COST:0	CHOICE:DESCRIPTOR|Earth Shugenja	PROHIBITSPELL:DESCRIPTOR.Air Shugenja	DEFINE:EarthShugenja|0	ABILITY:Shugenja Class Feature|AUTOMATIC|Shugenja ~ Element Focus (Earth)
@@ -98,7 +98,7 @@ CLASS:Favored Soul	HD:8		TYPE:Base.PC	ABB:FvSl		MAXLEVEL:20	SOURCEPAGE:6	BONUS:C
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Favored Soul	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Jump|Knowledge (arcana)|TYPE=Profession|Sense Motive|Spellcraft
 # Class Name		Spell Stat		Spell Stat Bonus		Spell Type		Memorize	Caster level				Bonus DC						Use Spell List
-CLASS:Favored Soul	SPELLSTAT:CHA	BONUSSPELLSTAT:CHA	SPELLTYPE:Divine	MEMORIZE:NO	BONUS:CASTERLEVEL|Favored Soul|CL	BONUS:DC|CLASS.Favored Soul|(WIS-CHA)	SPELLLIST:1|Cleric
+CLASS:Favored Soul	SPELLSTAT:CHA	BONUSSPELLSTAT:CHA	SPELLTYPE:Divine	MEMORIZE:NO	BONUS:CASTERLEVEL|Favored Soul|CL	BONUS:DC|CL+CasterLevelBonusASS.Favored Soul|(WIS-CHA)	SPELLLIST:1|Cleric
 1	CAST:5,3				KNOWN:4,3												ABILITY:Favored Soul Class Feature|AUTOMATIC|Favored Soul ~ Weapon and Armor Proficiency
 2	CAST:6,4				KNOWN:5,3
 3	CAST:6,5				KNOWN:5,4												ABILITY:Favored Soul Class Feature|AUTOMATIC|Favored Soul ~ Weapon Focus
@@ -127,7 +127,7 @@ CLASS:Spirit Shaman	HD:8		TYPE:Base.PC	ABB:SprShm		MAXLEVEL:20	SOURCEPAGE:14	BON
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Spirit Shaman	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Knowledge (Geography)|Knowledge (History)|Knowledge (Local)|Knowledge (Nature)|Listen|TYPE=Profession|Ride|Spellcraft|Spot|Survival|Swim
 # Class Name		Spell Stat		Spell Stat Bonus		Spell Type		Memorize	Caster level				Bonus DC					Use Spell List
-CLASS:Spirit Shaman	SPELLSTAT:WIS	BONUSSPELLSTAT:WIS	SPELLTYPE:Divine	MEMORIZE:NO	BONUS:CASTERLEVEL|Spirit Shaman|CL	BONUS:DC|CLASS.SpiritShaman|CHA-WIS	SPELLLIST:1|Druid
+CLASS:Spirit Shaman	SPELLSTAT:WIS	BONUSSPELLSTAT:WIS	SPELLTYPE:Divine	MEMORIZE:NO	BONUS:CASTERLEVEL|Spirit Shaman|CL	BONUS:DC|CL+CasterLevelBonusASS.SpiritShaman|CHA-WIS	SPELLLIST:1|Druid
 1	CAST:3,2				KNOWN:3,1
 2	CAST:4,3				KNOWN:3,2
 3	CAST:5,4,2				KNOWN:3,2,1
@@ -180,7 +180,7 @@ CLASS:Blighter	!PREALIGN:LG,NG,CG	PRECLASS:1,Ex Druid=5	PRETOTALAB:4
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Blighter	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nature)|Listen|Profession (Herbalist)|Spellcraft|Spot|Survival|Swim
 # Class Name	Spell Stat		Spell Type		Caster level
-CLASS:Blighter	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Blighter|CL
+CLASS:Blighter	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Blighter|CL+CasterLevelBonus
 1	CAST:4,2
 2	CAST:5,3,0
 3	CAST:5,3,1,0
@@ -200,7 +200,7 @@ CLASS:Pious Templar	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,True Believer],[PREABI
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Pious Templar	STARTSKILLPTS:2	CSKILL:Climb|Concentration|TYPE=Craft|Heal|Jump|Knowledge (Religion)|TYPE=Profession|Swim
 # Class Name		Spell Stat		Spell Type		Automatically Known Spell Levels				Caster level				Use Spell List
-CLASS:Pious Templar	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Pious Templar|CL	SPELLLIST:1|Paladin
+CLASS:Pious Templar	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Pious Templar|CL+CasterLevelBonus	SPELLLIST:1|Paladin
 ###Block
 1	ABILITY:Pious Templar Class Feature|AUTOMATIC|Pious Templar ~ Mettle
 2	ABILITY:Pious Templar Class Feature|AUTOMATIC|Pious Templar ~ Smite
