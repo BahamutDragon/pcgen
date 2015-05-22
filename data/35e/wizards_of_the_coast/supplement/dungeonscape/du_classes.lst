@@ -1,2 +1,29 @@
 # CVS $Revision: $ $Author: $ -- Sun Sep  7 00:28:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:Dungeonscape	SOURCESHORT:Du	SOURCEWEB:www.wizards.com
+# Class Name	Hit Dice	Type			Class Type			Abbreviation	Source Page		Define			Combat bonus															Modify VAR																			Bonus
+CLASS:Trapsmith	HD:6		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:TrS		SOURCEPAGE:p.180	DEFINE:TrapsmithLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|TrapsmithLVL|CL	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Required AL		Required Skill
+CLASS:Trapsmith	PRESKILL:4,Craft(Trapmaking)=8,Disable Device=8,Search=8,Open Lock=5	PREABILITY:Trapfinding
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Trapsmith	STARTSKILLPTS:6	CSKILL:Appraise|TYPE=Craft|Disable Device|Escape Artist|Knowledge (Architecture and Engineering)|Listen|Open Lock|Profession|Search|Sleight of Hand|Spot|Use Magic Device|Use Rope
+# Class Name	Spell Stat		Spell Type		Memorize	Caster level
+CLASS:Trapsmith	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Trapsmith|CL
+###Block:
+1	ABILITY:Trapsmith Class Feature|AUTOMATIC|Trapsmith ~ Booby Traps
+1	ABILITY:Trapsmith Class Feature|AUTOMATIC|Trapsmith ~ Master Disarmer
+2	ABILITY:Trapsmith Class Feature|AUTOMATIC|Trapsmith ~ Arrow Proof
+2	ABILITY:Trapsmith Class Feature|AUTOMATIC|Trapsmith ~ Quick Fingers
+3	ABILITY:Trapsmith Class Feature|AUTOMATIC|Trapsmith ~ Unweave
+4	ABILITY:Trapsmith Class Feature|AUTOMATIC|Trapsmith ~ Dance Through Danger
+4	ABILITY:Trapsmith Class Feature|AUTOMATIC|Trapsmith ~ Spell Proof
+5	ABILITY:Trapsmith Class Feature|AUTOMATIC|Trapsmith ~ Avoid Disaster
+###Block:
+1	CAST:0,1		KNOWN:0,2
+2	CAST:0,2		KNOWN:0,3
+3	CAST:0,2,1		KNOWN:0,3,2
+4	CAST:0,3,2		KNOWN:0,4,3
+5	CAST:0,3,2,1	KNOWN:0,4,3,2
+###Block:
+1	BONUS:VAR|TrapSenseBonus|(CL+1)/2
+###Block:
+11	PREPCLEVEL:MIN=20
