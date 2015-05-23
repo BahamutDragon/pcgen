@@ -57,7 +57,7 @@ CLASS:Hexblade	!PREALIGN:LG,NG,CG
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Hexblade	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Diplomacy|Intimidate|Knowledge (arcana)|TYPE=Profession|Ride|Spellcraft
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
-CLASS:Hexblade	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Hexblade|CL/2|PRECLASS:1,Hexblade=4
+CLASS:Hexblade	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Hexblade|CL+CasterLevelBonus/2|PRECLASS:1,Hexblade=4
 1	ABILITY:Hexblade Class Feature|AUTOMATIC|Hexblade ~ Weapon and Armor Proficiency
 1	ABILITY:Hexblade Class Feature|AUTOMATIC|Hexblade ~ Hexblade's Curse
 2	ABILITY:Hexblade Class Feature|AUTOMATIC|Hexblade ~ Arcane Resistance
@@ -142,7 +142,7 @@ CLASS:Ex Samurai	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Intim
 16	ABILITY:Samurai Class Feature|AUTOMATIC|Samurai ~ Greater Two Swords as One
 
 # Class Name		Hit Dice	Type				Abbreviation	Max Level	Source Page		Combat bonus										Bonus
-CLASS:Swashbuckler	HD:10		TYPE:Base.PC.Martial	ABB:SwB		MAXLEVEL:20	SOURCEPAGE:p.11	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Swashbuckler	HD:10		TYPE:Base.PC.Martial	ABB:SwB	DEFINE:SwashbucklerLVL|0	BONUS:VAR|SwashbucklerLVL|CL	MAXLEVEL:20	SOURCEPAGE:p.11	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Swashbuckler	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Diplomacy|Escape Artist|Jump|TYPE=Profession|Sense Motive|Swim|Tumble|Use Rope
 1	ABILITY:Swashbuckler Class Feature|AUTOMATIC|Swashbuckler ~ Weapon and Armor Proficiency|!PREABILITY:1,CATEGORY=ACF,TYPE.SwashbucklerProficiencies
@@ -157,10 +157,7 @@ CLASS:Swashbuckler	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Diploma
 14	ABILITY:Swashbuckler Class Feature|AUTOMATIC|Swashbuckler ~ Weakening Critical
 17	ABILITY:Swashbuckler Class Feature|AUTOMATIC|Swashbuckler ~ Slippery Mind
 19	ABILITY:Swashbuckler Class Feature|AUTOMATIC|Swashbuckler ~ Wounding Critical
-###Block
-2	BONUS:VAR|SwashbucklerGraceLVL|CL
-3	BONUS:VAR|InsightfulStrikeBonus|max(0,INT)
-5	BONUS:VAR|SwashbucklerDodgeLVL|CL
+
 
 ###Block: @VARIANT Classes - Paladin and Ranger
 
@@ -449,7 +446,7 @@ CLASS:Hunter of the Dead	PREABILITY:1,CATEGORY=Special Ability,Turn Undead	PREAL
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Hunter of the Dead	STARTSKILLPTS:2	CSKILL:Concentration|Heal|Knowledge (Religion)|TYPE=Profession|Ride|Search
 # Class Name			Spell Stat		Spell Type		Automatically Known Spell Levels				Spellbook		Caster level
-CLASS:Hunter of the Dead	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	SPELLBOOK:NO	BONUS:CASTERLEVEL|Hunter of the Dead|CL
+CLASS:Hunter of the Dead	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	SPELLBOOK:NO	BONUS:CASTERLEVEL|Hunter of the Dead|CL+CasterLevelBonus
 1	CAST:0,0
 2	CAST:0,1
 3	CAST:0,1,0
@@ -542,7 +539,7 @@ CLASS:Knight of the Chalice	PREALIGN:LG	PRESKILL:2,Knowledge (The Planes)=5,Know
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Knight of the Chalice	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Intimidate|Knowledge (The Planes)|Knowledge (Religion)|TYPE=Profession|Sense Motive
 # Class Name			Spell Stat		Spell Type		Automatically Known Spell Levels				Spellbook		Caster level
-CLASS:Knight of the Chalice	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	SPELLBOOK:NO	BONUS:CASTERLEVEL|Knight of the Chalice|CL
+CLASS:Knight of the Chalice	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	SPELLBOOK:NO	BONUS:CASTERLEVEL|Knight of the Chalice|CL+CasterLevelBonus
 1	ABILITY:Knight of the Chalice Class Feature|AUTOMATIC|Knight of the Chalice ~ Weapon and Armor Proficiency
 1	ABILITY:Knight of the Chalice Class Feature|AUTOMATIC|Knight of the Chalice ~ Fiendslaying
 2	ABILITY:Knight of the Chalice Class Feature|AUTOMATIC|Knight of the Chalice ~ Censure Demons|Knight of the Chalice ~ Courage of Heaven

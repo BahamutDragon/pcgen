@@ -2,7 +2,7 @@
 
 
 # Class Name	Hit Dice	Type			Source Page		Define			Combat bonus										Modify VAR				Bonus
-CLASS:Crusader	HD:10		TYPE:PC.Base	SOURCEPAGE:p.8	DEFINE:CrusaderLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|CrusaderLVL|CL	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Crusader	HD:10		TYPE:PC.Base	SOURCEPAGE:p.8	DEFINE:CrusaderLVL|0	BONUS:VAR|InitiatorClass|1	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|CrusaderLVL|CL	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3		
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Crusader	STARTSKILLPTS:4	CSKILL:Balance|Concentration|TYPE=Craft|Diplomacy|Intimidate|Jump|Knowledge (History)|Knowledge (Religion)|Martial Lore|Ride
 # Class Name	Spell Stat		Spell Stat Bonus		Spell Type		Memorize	Caster level
@@ -16,28 +16,26 @@ CLASS:Crusader	SPELLSTAT:WIS	BONUSSPELLSTAT:NONE	SPELLTYPE:Martial	MEMORIZE:NO	B
 10	ABILITY:Crusader Class Feature|AUTOMATIC|Crusader ~ Die Hard
 12	ABILITY:Crusader Class Feature|AUTOMATIC|Crusader ~ Mettle
 ###Block:
-1								BONUS:VAR|SteelyResolveBonus|5+(5*(CL/4))
-6								BONUS:VAR|SmiteTimes|(CL+6)/12
-1								BONUS:VAR|CrusaderManueversKnown|(CL+9)/2					DEFINE:CrusaderManueversKnown|0
-1								BONUS:VAR|CrusaderStancesKnown|(CL+10)/6					DEFINE:CrusaderStancesKnown|0
-1								BONUS:VAR|CrusaderReadiedManuevers|(CL/10)+5				DEFINE:CrusaderReadiedManuevers|0
-1								BONUS:VAR|CrusaderInitiatorLVL|CrusaderLVL+(CrusaderLVL-TL/2)	DEFINE:CrusaderInitiatorLVL|0
-1								BONUS:VAR|CrusaderInitiatorManeuverLVL|(1+CrusaderInitiatorLVL)/2	DEFINE:CrusaderInitiatorManeuverLVL|0
+1								BONUS:VAR|SteelyResolveBonus|5+(5*(CrusaderLVL/4))
+6								BONUS:VAR|SmiteTimes|(CrusaderLVL+6)/12
+1								BONUS:VAR|CrusaderManueversKnown|(CrusaderInitiatorLVL+9)/2					DEFINE:CrusaderManueversKnown|0
+1								BONUS:VAR|CrusaderStancesKnown|(CrusaderInitiatorLVL+10)/6					DEFINE:CrusaderStancesKnown|0
+1								BONUS:VAR|CrusaderReadiedManuevers|(CrusaderInitiatorLVL/10)+5				DEFINE:CrusaderReadiedManuevers|0
+1								BONUS:VAR|CrusaderInitiatorLVL|CrusaderLVL	DEFINE:CrusaderInitiatorLVL|0
 #Block:
 1:REPEATLEVEL:1	KNOWN:0,0,0,0,0,0,0,0,0,0
 
 # Class Name	Hit Dice	Type			Source Page		Define			Combat bonus															Modify VAR																			Bonus
-CLASS:Swordsage	HD:8		TYPE:PC.Base	SOURCEPAGE:p.15	DEFINE:SwordsageLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|SwordsageLVL|CL	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Swordsage	HD:8		TYPE:PC.Base	SOURCEPAGE:p.15	DEFINE:SwordsageLVL|0	BONUS:VAR|InitiatorClass|1	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|SwordsageLVL|CL	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|InitiatorManueverLVL|CL
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Swordsage	STARTSKILLPTS:6	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Heal|Hide|Intimidate|Jump|Knowledge (History)|Knowledge (Local)|Knowledge (Nature)|Knowledge (Nobility and Royalty)|Listen|Martial Lore|Move Silently|TYPE=Profession|Ride|Sense Motive|Swim|Tumble
 # Class Name	Spell Stat		Spell Stat Bonus		Spell Type		Memorize	Caster level
 CLASS:Swordsage	SPELLSTAT:WIS	BONUSSPELLSTAT:NONE	SPELLTYPE:Martial	MEMORIZE:NO	BONUS:CASTERLEVEL|Swordsage|SwordsageInitiatorManeuverLVL
 ###Block:
-1	BONUS:VAR|SwordsageManueversKnown|5+CL						DEFINE:SwordsageManueversKnown|0
-1	BONUS:VAR|SwordsageStancesKnown|1+(CL>1)+(CL>4)+(CL>8)+(CL>13)+(CL>19)	DEFINE:SwordsageStancesKnown|0
+1	BONUS:VAR|SwordsageManueversKnown|5+SwordsageInitiatorLVL						DEFINE:SwordsageManueversKnown|0
+1	BONUS:VAR|SwordsageStancesKnown|1+(SwordsageInitiatorLVL>1)+(SwordsageInitiatorLVL>4)+(SwordsageInitiatorLVL>8)+(SwordsageInitiatorLVL>13)+(SwordsageInitiatorLVL>19)	DEFINE:SwordsageStancesKnown|0
 1	BONUS:VAR|SwordsageReadiedManuevers|4						DEFINE:SwordsageReadiedManuevers|0
-1	BONUS:VAR|SwordsageInitiatorLVL|SwordsageLVL+(SwordsageLVL-TL/2)		DEFINE:SwordsageInitiatorLVL|0
-1	BONUS:VAR|SwordsageInitiatorManeuverLVL|(1+SwordsageInitiatorLVL)/2	DEFINE:SwordsageInitiatorManeuverLVL|0
+1	BONUS:VAR|SwordsageInitiatorLVL|SwordsageLVL		DEFINE:SwordsageInitiatorLVL|0
 1	BONUS:VAR|QuickToActBonus|1+(CL/5)							DEFINE:QuickToActBonus|0
 ###Block:
 1								ABILITY:Swordsage Class Feature|AUTOMATIC|Swordsage ~ Discipline Focus|Swordsage ~ Maneuvers|Swordsage ~ Maneuvers Readied|Swordsage ~ Quick to Act|Swordsage ~ Stances Known|Swordsage ~ Weapon and Armor Proficiency
@@ -50,16 +48,16 @@ CLASS:Swordsage	SPELLSTAT:WIS	BONUSSPELLSTAT:NONE	SPELLTYPE:Martial	MEMORIZE:NO	
 1:REPEATLEVEL:1	KNOWN:0,0,0,0,0,0,0,0,0,0
 
 # Class Name	Hit Dice	Type			Source Page		Define			Combat bonus										Modify VAR				Bonus
-CLASS:Warblade	HD:12		TYPE:PC.Base	SOURCEPAGE:p.20	DEFINE:WarbladeLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|WarbladeLVL|CL	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Warblade	HD:12		TYPE:PC.Base	SOURCEPAGE:p.20	DEFINE:WarbladeLVL|0	BONUS:VAR|InitiatorClass|1	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|WarbladeLVL|CL	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|InitiatorManueverLVL|CL
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Warblade	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Diplomacy|Intimidate|Jump|Knowledge (History)|Knowledge (Local)|Martial Lore|Swim|Tumble
 # Class Name	Spell Stat		Spell Stat Bonus		Spell Type		Memorize	Caster level
-CLASS:Warblade	SPELLSTAT:WIS	BONUSSPELLSTAT:NONE	SPELLTYPE:Martial	MEMORIZE:NO	BONUS:CASTERLEVEL|Warblade|WarbladeInitiatorManeuverLVL
+CLASS:Warblade	SPELLSTAT:WIS	BONUSSPELLSTAT:NONE	SPELLTYPE:Martial	MEMORIZE:NO	BONUS:CASTERLEVEL|Warblade|InitiatorManueverLVL
 ###Block:
-1	BONUS:VAR|WarbladeManueversKnown|((WarbladeLVL+5)/2)+(CL>1)			DEFINE:WarbladeManueversKnown|0
-1	BONUS:VAR|WarbladeStancesKnown|1+(CL>3)+(CL>9)+(CL>15)			DEFINE:WarbladeStancesKnown|0
-1	BONUS:VAR|WarbladeReadiedManuevers|3+(CL>3)+(CL>9)+(CL>14)+(CL>19)	DEFINE:WarbladeReadiedManuevers|0
-1	BONUS:VAR|WarbladeInitiatorManeuverLVL|(1+WarbladeLVL)/2		DEFINE:WarbladeInitiatorManeuverLVL|0
+1	BONUS:VAR|WarbladeManueversKnown|((WarbladeInitiatorLVL+5)/2)+(WarbladeInitiatorLVL>1)			DEFINE:WarbladeManueversKnown|0
+1	BONUS:VAR|WarbladeStancesKnown|1+(WarbladeInitiatorLVL>3)+(WarbladeInitiatorLVL>9)+(WarbladeInitiatorLVL>15)			DEFINE:WarbladeStancesKnown|0
+1	BONUS:VAR|WarbladeReadiedManuevers|3+(WarbladeInitiatorLVL>3)+(WarbladeInitiatorLVL>9)+(WarbladeInitiatorLVL>14)+(WarbladeInitiatorLVL>19)	DEFINE:WarbladeReadiedManuevers|0
+1	BONUS:VAR|WarbladeInitiatorLVL|WarbladeLVL		DEFINE:WarbladeInitiatorLVL|0
 1	BONUS:VAR|FighterLVL|(WarbladeLVL-2)
 ###Block:
 1								ABILITY:Special Ability|AUTOMATIC|Fighter Level Advanced Feat Tracker
@@ -152,11 +150,12 @@ CLASS:Eternal Blade	STARTSKILLPTS:2	CSKILL:Climb|Concentration|Diplomacy|Handle 
 11	PREPCLEVEL:MIN=20
 
 # Class Name		Hit Dice	Type			Source Page		Combat bonus										Bonus
-CLASS:Jade Phoenix Mage	HD:6		TYPE:Prestige.PC	SOURCEPAGE:p.113	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Jade Phoenix Mage	HD:6		TYPE:Prestige.PC	SOURCEPAGE:p.113	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	DEFINE:Jade_Phoenix_MageLVL|0	BONUS:VAR|Jade_Phoenix_MageLVL|CL	BONUS:VAR|HighestInitiatorLVL|Jade_Phoenix_MageLVL
 # Class Name		Required Ability							Restricted AL		Multiple Requirements																		Required Skill														Req. Spell Type		Required Text
 CLASS:Jade Phoenix Mage	PREABILITY:1,CATEGORY=Special Ability,TYPE.Stance	!PREALIGN:LE,NE,CE	PREMULT:2,[PREABILITY:2,CATEGORY=Special Ability,TYPE.Martial Maneuver],[PREABILITY:1,CATEGORY=Special Ability,TYPE.Strike]	PRESKILL:4,Concentration=9,Knowledge (Arcana)=2,Knowledge (History)=2,Knowledge (Religion)=2	PRESPELLTYPE:1,Arcane=2	PRETEXT:Alignment: Any nonevil. Skills: Concentration 9 ranks, Knowledge (arcana) 2 ranks, Knowledge (history) 2 ranks, Knowledge (religion) 2 ranks. Martial Maneuvers: Must know at least two martial maneuvers, including one strike. Martial Stances: Must know at least one martial stance. Spells: Ability to cast 2nd-level arcane spells.
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Jade Phoenix Mage	STARTSKILLPTS:2	CSKILL:Climb|Concentration|Diplomacy|Handle Animal|Intimidate|Jump|Martial Lore|Ride|Sense Motive|Tumble
+CLASS:Jade Phoenix Mage	SPELLSTAT:WIS	BONUSSPELLSTAT:NONE	SPELLTYPE:Martial	MEMORIZE:NO	BONUS:CASTERLEVEL|Jade Phoenix Mage|InitiatorManueverLVL
 ###Block:
 1	ABILITY:Jade Phoenix Mage Class Feature|AUTOMATIC|Jade Phoenix Mage ~ Maneuvers|Jade Phoenix Mage ~ Spellcasting|Jade Phoenix Mage ~ Stances Known
 1	ABILITY:Jade Phoenix Mage Class Feature|AUTOMATIC|Jade Phoenix Mage ~ Arcane Wrath|Jade Phoenix Mage ~ Rite of Waking
@@ -166,8 +165,10 @@ CLASS:Jade Phoenix Mage	STARTSKILLPTS:2	CSKILL:Climb|Concentration|Diplomacy|Han
 8	ABILITY:Jade Phoenix Mage Class Feature|AUTOMATIC|Jade Phoenix Mage ~ Quickening Strike
 10	ABILITY:Jade Phoenix Mage Class Feature|AUTOMATIC|Jade Phoenix Mage ~ Emerald Immolation
 ###Block:
-2:REPEATLEVEL:1|MAX=5	ADD:SPELLCASTER|ANY
-7:REPEATLEVEL:1|MAX=10	ADD:SPELLCASTER|ANY
+2:REPEATLEVEL:1|MAX=5	ADD:SPELLCASTER|Arcane
+7:REPEATLEVEL:1|MAX=10	ADD:SPELLCASTER|Arcane
+#Block:
+1:REPEATLEVEL:1	KNOWN:0,0,0,0,0,0,0,0,0,0
 ###Block:
 11	PREPCLEVEL:MIN=20
 
