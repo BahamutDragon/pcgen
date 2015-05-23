@@ -142,7 +142,7 @@ CLASS:Ex Samurai	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Intim
 16	ABILITY:Samurai Class Feature|AUTOMATIC|Samurai ~ Greater Two Swords as One
 
 # Class Name		Hit Dice	Type				Abbreviation	Max Level	Source Page		Combat bonus										Bonus
-CLASS:Swashbuckler	HD:10		TYPE:Base.PC.Martial	ABB:SwB		MAXLEVEL:20	SOURCEPAGE:p.11	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Swashbuckler	HD:10		TYPE:Base.PC.Martial	ABB:SwB	DEFINE:SwashbucklerLVL|0	BONUS:VAR|SwashbucklerLVL|CL	MAXLEVEL:20	SOURCEPAGE:p.11	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Swashbuckler	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Diplomacy|Escape Artist|Jump|TYPE=Profession|Sense Motive|Swim|Tumble|Use Rope
 1	ABILITY:Swashbuckler Class Feature|AUTOMATIC|Swashbuckler ~ Weapon and Armor Proficiency|!PREABILITY:1,CATEGORY=ACF,TYPE.SwashbucklerProficiencies
@@ -157,10 +157,7 @@ CLASS:Swashbuckler	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Diploma
 14	ABILITY:Swashbuckler Class Feature|AUTOMATIC|Swashbuckler ~ Weakening Critical
 17	ABILITY:Swashbuckler Class Feature|AUTOMATIC|Swashbuckler ~ Slippery Mind
 19	ABILITY:Swashbuckler Class Feature|AUTOMATIC|Swashbuckler ~ Wounding Critical
-###Block
-2	BONUS:VAR|SwashbucklerGraceLVL|CL
-3	BONUS:VAR|InsightfulStrikeBonus|max(0,INT)
-5	BONUS:VAR|SwashbucklerDodgeLVL|CL
+
 
 ###Block: @VARIANT Classes - Paladin and Ranger
 
