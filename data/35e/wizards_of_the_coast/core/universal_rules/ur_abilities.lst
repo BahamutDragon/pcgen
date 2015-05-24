@@ -38,10 +38,78 @@ LEVEL_ADJUSTMENT_4	CATEGORY:Internal		VISIBLE:NO																															T
 LEVEL_ADJUSTMENT_5	CATEGORY:Internal		VISIBLE:NO																															TEMPLATE:LEVEL_ADJUSTMENT_5
 LEVEL_ADJUSTMENT_6	CATEGORY:Internal		VISIBLE:NO																															TEMPLATE:LEVEL_ADJUSTMENT_6
 
+###Block:
 SOURCELONG:Universal Rules	SOURCESHORT:UR	SOURCEDATE:2003-09
 
-Default			CATEGORY:Internal				DEFINE:DarkvisionRange|0	DEFINE:HasLowlightVision|0	DEFINE:FirstLevelFeatTaken|0	DEFINE:FirstLevelFeatAllowed|0	DEFINE:ClassBABPoor|0	DEFINE:ClassBABModerate|0	DEFINE:ClassBABFull|0	DEFINE:UseAlternateBABProgression|0				ABILITY:Special Ability|AUTOMATIC|Low-Light Vision|PREVARGTEQ:HasLowlightVision,1	ABILITY:Special Ability|AUTOMATIC|Darkvision|PREVARGTEQ:DarkvisionRange,1	ABILITY:Internal|AUTOMATIC|Defines	ABILITY:Special Ability|AUTOMATIC|Aerial Maneuverability|PREMOVE:1,Fly=1	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base	BONUS:COMBAT|REACH|-5|PREVAREQ:RaceSizeIsLong,1|PRESIZEGTEQ:L	BONUS:COMBAT|REACH|-5|PREVAREQ:RaceSizeIsLong,1|PRESIZEGTEQ:C	BONUS:COMBAT|BASEAB|ClassBABPoor*1/2|TYPE=ClassBABPoor|PREVAREQ:UseFractionalBAB,1	BONUS:COMBAT|BASEAB|ClassBABModerate*3/4|TYPE=ClassBABModerate|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|FirstLevelFeatTaken|count("ABILITIES","CATEGORY=FEAT","NATURE=Normal","TYPE=FirstLevel")	BONUS:VAR|FirstLevelFeatAllowed|1	BONUS:VAR|FirstLevelFeatAllowed|1|PRERACE:1,Human	BONUS:VAR|DC_CHA|10+(HD/2)+CHA		BONUS:VAR|DC_CON|10+(HD/2)+CON		BONUS:VAR|DC_INT|10+(HD/2)+INT		BONUS:VAR|DC_WIS|10+(HD/2)+WIS		BONUS:VAR|DC_STR|10+(HD/2)+STR		BONUS:VAR|DC_DEX|10+(HD/2)+DEX		DEFINE:DC_CHA|0	DEFINE:DC_CON|0	DEFINE:DC_INT|0	DEFINE:DC_WIS|0	DEFINE:DC_STR|0	DEFINE:DC_DEX|0	DEFINE:AC_NaturalArmor|0	BONUS:COMBAT|AC|AC_NaturalArmor|TYPE=NaturalArmor	DEFINE:CasterLevelBonus|0
-	
+Default			CATEGORY:Internal				DEFINE:DarkvisionRange|0	DEFINE:HasLowlightVision|0	DEFINE:FirstLevelFeatTaken|0	DEFINE:FirstLevelFeatAllowed|0	DEFINE:ClassBABPoor|0	DEFINE:ClassBABModerate|0	DEFINE:ClassBABFull|0	DEFINE:UseAlternateBABProgression|0				ABILITY:Special Ability|AUTOMATIC|Low-Light Vision|PREVARGTEQ:HasLowlightVision,1	ABILITY:Special Ability|AUTOMATIC|Darkvision|PREVARGTEQ:DarkvisionRange,1	ABILITY:Internal|AUTOMATIC|Defines	ABILITY:Special Ability|AUTOMATIC|Aerial Maneuverability|PREMOVE:1,Fly=1	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base	BONUS:COMBAT|REACH|-5|PREVAREQ:RaceSizeIsLong,1|PRESIZEGTEQ:L	BONUS:COMBAT|REACH|-5|PREVAREQ:RaceSizeIsLong,1|PRESIZEGTEQ:C	BONUS:COMBAT|BASEAB|ClassBABPoor*1/2|TYPE=ClassBABPoor|PREVAREQ:UseFractionalBAB,1	BONUS:COMBAT|BASEAB|ClassBABModerate*3/4|TYPE=ClassBABModerate|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|FirstLevelFeatTaken|count("ABILITIES","CATEGORY=FEAT","NATURE=Normal","TYPE=FirstLevel")	BONUS:VAR|FirstLevelFeatAllowed|1	BONUS:VAR|FirstLevelFeatAllowed|1|PRERACE:1,Human	BONUS:VAR|DC_CHA|10+(HD/2)+CHA		BONUS:VAR|DC_CON|10+(HD/2)+CON		BONUS:VAR|DC_INT|10+(HD/2)+INT		BONUS:VAR|DC_WIS|10+(HD/2)+WIS		BONUS:VAR|DC_STR|10+(HD/2)+STR		BONUS:VAR|DC_DEX|10+(HD/2)+DEX		DEFINE:DC_CHA|0	DEFINE:DC_CON|0	DEFINE:DC_INT|0	DEFINE:DC_WIS|0	DEFINE:DC_STR|0	DEFINE:DC_DEX|0	DEFINE:CasterLevelBonus|0
+
+# Armor Values - How things would look before this formula parser if doing by hand.
+# 
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Base|10|TYPE=Base
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Total|AC_Base+AC_Output_Natural_Armor+AC_Armor+AC_Shield+AC_Ability+AC_Size+AC_Dodge+AC_Deflection+AC_Misc+AC_Circumstance+AC_Insight+AC_Morale+AC_Profane+AC_Sacred+AC_Class_Defense
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Flatfooted|AC_Total-AC_Ability-AC_Dodge
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Flatfooted|AC_Ability|PRESTAT:1,DEX=10|PREABILITY:1,CATEGORY=Special Ability,Retain Dex To AC ~ Flat-footed
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Flatfooted|AC_Dodge|PREABILITY:1,CATEGORY=Special Ability,Retain Dex To AC ~ Flat-footed
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Touch|AC_Total-AC_Armor-AC_Armor_Enhancement-AC_Natural_Armor-AC_Shield-AC_Shield_Enhancement-AC_Natural_Armor_Enhancement	
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Touch|AC_Shield|PREVARGTEQ:ShieldAddsToTouchAC,1
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Misc|AC_Total-AC_Base-AC_Armor-AC_Shield-AC_Ability-AC_Size-AC_Natural_Armor-AC_Natural_Armor_Enhancement-AC_Dodge-AC_Deflection-AC_Shield_Enhancement-AC_Armor_Enhancement
+#
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Output_Natural_Armor|max(AC_Natural_Armor,0)+AC_Natural_Armor_Enhancement
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Ability_Score|min(AC_Ability_Score_Bonus, min(Max_Ability_Score_Bonus__Encumbrance,Max_Ability_Score_Bonus__Equipment))|TYPE=Ability
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Ability_Score_Bonus|DEX	
+CATEGORY=Internal|Default.MOD		BONUS:VAR|Max_Ability_Score_Bonus__Encumbrance|MXDXEN
+CATEGORY=Internal|Default.MOD		BONUS:VAR|Max_Ability_Score_Bonus__Equipment|MODEQUIPMAXDEX
+
+
+# Replace
+#CATEGORY=Internal|Default.MOD	BONUS:COMBAT|AC|AC_Natural_Armor_Enhancement|TYPE=NaturalArmorEnhancement
+#	
+
+#CATEGORY=Internal|Default.MOD	DEFINE:AC_Armor|0				BONUS:COMBAT|AC|AC_Base|TYPE=Base				BONUS:COMBAT|AC|AC_Armor|TYPE=Armor	BONUS:VAR|AC_Armor|AC_Armor_Enhancement
+#CATEGORY=Internal|Default.MOD	DEFINE:AC_Armor_Enhancement|0		BONUS:COMBAT|AC|AC_Total|TYPE=Total				BONUS:COMBAT|AC|AC_Armor_Enhancement|TYPE=ArmorEnhancement
+#CATEGORY=Internal|Default.MOD	DEFINE:AC_Shield|0			BONUS:COMBAT|AC|AC_Flatfooted|TYPE=Flatfooted		BONUS:COMBAT|AC|AC_Shield|TYPE=Shield	BONUS:VAR|AC_Shield|AC_Shield_Enhancement
+#CATEGORY=Internal|Default.MOD	DEFINE:AC_Shield_Enhancement|0	BONUS:COMBAT|AC|AC_Touch|TYPE=Touch				BONUS:COMBAT|AC|AC_Shield_Enhancement|TYPE=ShieldEnhancement
+#												BONUS:COMBAT|AC|AC_Misc|TYPE=Misc			
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Ability_Score_Bonus__Encumbrance|0
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Ability_Score_Bonus__Equipment|0
+
+
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Base|0		
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Total|0		
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Flatfooted|0	
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Touch|0		
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Misc|0		
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Ability_Score|0		
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Ability_Score_Bonus|0		
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Output_Natural_Armor|0
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Natural_Armor|0	
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Natural_Armor_Enhancement|0
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Size|0			
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Dodge|0			
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Deflection|0		
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Circumstance|0	
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Insight|0		
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Morale|0		
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Profane|0		
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Sacred|0		
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Class_Defense|0	
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Armor|0			
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Armor_Enhancement|0	
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Shield|0		
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Shield_Enhancement|0
+
+
+CATEGORY=Internal|Default.MOD		BONUS:COMBAT|AC|AC_Output_Natural_Armor|TYPE=NaturalArmor	
+#CATEGORY=Internal|Default.MOD		BONUS:COMBAT|AC|AC_Ability|TYPE=Ability
+#CATEGORY=Internal|Default.MOD		BONUS:COMBAT|AC|AC_Size|TYPE=Size
+#CATEGORY=Internal|Default.MOD		BONUS:COMBAT|AC|AC_Dodge|TYPE=Dodge
+#CATEGORY=Internal|Default.MOD		BONUS:COMBAT|AC|AC_Deflection|TYPE=Deflection
+#CATEGORY=Internal|Default.MOD		BONUS:COMBAT|AC|AC_Circumstance|TYPE=Circumstance
+#CATEGORY=Internal|Default.MOD		BONUS:COMBAT|AC|AC_Insight|TYPE=Insight
+#CATEGORY=Internal|Default.MOD		BONUS:COMBAT|AC|AC_Morale|TYPE=Morale
+#CATEGORY=Internal|Default.MOD		BONUS:COMBAT|AC|AC_Profane|TYPE=Profane
+#CATEGORY=Internal|Default.MOD		BONUS:COMBAT|AC|AC_Sacred|TYPE=Sacred
+#CATEGORY=Internal|Default.MOD		BONUS:COMBAT|AC|AC_Class_Defense|TYPE=ClassDefense
 
 #	BONUS:COMBAT|BASEAB|ClassMasterBAB|PREVAREQ:UseFractionalBAB,1	DEFINE:ClassMasterBAB|0	BONUS:VAR|ClassMasterBAB|(ClassBABPoor*1/2)+(ClassBABModerate*3/4)
 #	BONUS:COMBAT|BASEAB|ClassMasterBAB|PRERULE:Use Fractional BAB
