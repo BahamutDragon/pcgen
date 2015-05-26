@@ -92,6 +92,9 @@
 			<#t></@loop></shortform>
 			<!-- CLASSLIST is not extracted because we can derive it from the information above -->
 		</classes>
+		<deity>
+			<name>${pcstring('DEITY')}</name>
+		</deity>
 		<description>${pcstring('DESC')}</description>
 		<experience>
 			<current>${pcstring('EXP.CURRENT')}</current>
