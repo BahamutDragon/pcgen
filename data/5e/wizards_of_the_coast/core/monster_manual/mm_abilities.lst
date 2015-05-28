@@ -1,5 +1,11 @@
 SOURCELONG:Monster Manual	SOURCESHORT:MM
 
+###Block: Familiar Support
+Pseudodragon Familiar	CATEGORY:Special Ability	TYPE:Familiar_Special	ABILITY:Internal|AUTOMATIC|Familiar	COMPANIONLIST:Familiar|Pseudodragon
+Quasit Familiar		CATEGORY:Special Ability	TYPE:Familiar_Special	ABILITY:Internal|AUTOMATIC|Familiar	COMPANIONLIST:Familiar|Quasit
+Homunculus Familiar	CATEGORY:Special Ability	TYPE:Familiar_Special	ABILITY:Internal|AUTOMATIC|Familiar	COMPANIONLIST:Familiar|Homunculus
+
+Familiar	CATEGORY:Internal	FOLLOWERS:Familiar|1
 
 ###Block: Internal Master Race Traits
 Race Trait ~ Aarakocra	SOURCEPAGE:p.12			CATEGORY:Internal												ABILITY:Special Ability|AUTOMATIC|TYPE=Aarakocra Race Trait				
@@ -184,7 +190,7 @@ Race Trait ~ Spectator	SOURCEPAGE:p.30		CATEGORY:Internal											ABILITY:Spec
 # Race Trait ~ Hobgoblin	SOURCEPAGE:p.186		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Hobgoblin Race Trait				
 # Race Trait ~ Hobgoblin Captain	SOURCEPAGE:p.186		CATEGORY:Internal									ABILITY:Special Ability|AUTOMATIC|TYPE=Hobgoblin Captain Race Trait			
 # Race Trait ~ Hobgoblin Warlord	SOURCEPAGE:p.187		CATEGORY:Internal									ABILITY:Special Ability|AUTOMATIC|TYPE=Hobgoblin Warlord Race Trait			
-# Race Trait ~ Homunculus	SOURCEPAGE:p.188		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Homunculus Race Trait				
+Race Trait ~ Homunculus	SOURCEPAGE:p.188		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Homunculus Race Trait				
 # Race Trait ~ Hook Horror	SOURCEPAGE:p.189		CATEGORY:Internal										ABILITY:Special Ability|AUTOMATIC|TYPE=Hook Horror Race Trait				
 # Race Trait ~ Hydra	SOURCEPAGE:p.190		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Hydra Race Trait				
 # Race Trait ~ Intellect Devourer	SOURCEPAGE:p.191		CATEGORY:Internal									ABILITY:Special Ability|AUTOMATIC|TYPE=Intellect Devourer Race Trait			
@@ -258,7 +264,7 @@ Race Trait ~ Spectator	SOURCEPAGE:p.30		CATEGORY:Internal											ABILITY:Spec
 # Race Trait ~ Peryton	SOURCEPAGE:p.251		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Peryton Race Trait				
 # Race Trait ~ Piercer	SOURCEPAGE:p.252		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Piercer Race Trait				
 # Race Trait ~ Pixie	SOURCEPAGE:p.253		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Pixie Race Trait				
-# Race Trait ~ Pseudodragon	SOURCEPAGE:p.254		CATEGORY:Internal										ABILITY:Special Ability|AUTOMATIC|TYPE=Pseudodragon Race Trait				
+Race Trait ~ Pseudodragon	SOURCEPAGE:p.254		CATEGORY:Internal										ABILITY:Special Ability|AUTOMATIC|TYPE=Pseudodragon Race Trait	ABILITY:SKILL|Perception|Stealth			
 # Race Trait ~ Purple Worm	SOURCEPAGE:p.255		CATEGORY:Internal										ABILITY:Special Ability|AUTOMATIC|TYPE=Purple Worm Race Trait				
 # Race Trait ~ Quaggoth	SOURCEPAGE:p.256		CATEGORY:Internal											ABILITY:Special Ability|AUTOMATIC|TYPE=Quaggoth Race Trait				
 # Race Trait ~ Quaggoth Thonot	SOURCEPAGE:p.256		CATEGORY:Internal										ABILITY:Special Ability|AUTOMATIC|TYPE=Quaggoth Thonot Race Trait				
@@ -654,8 +660,9 @@ Spell Reflection		KEY:Spectator ~ Spell Reflection			CATEGORY:Special Ability	TY
 #Nalfeshnee	SOURCEPAGE:p.62									
 
 
-#Quasit	SOURCEPAGE:p.63									
+# Quasit	SOURCEPAGE:p.63									
 
+Familiar	KEY:Quasit ~ Familiar			CATEGORY:Special Ability	TYPE:Quasit Race Trait.SpecialQuality	SOURCEPAGE:p.63	DESC:The quasit can serve another creature as a familiar, forming a telepathic bond with its willing master. While the two are bonded, the master can sense what the quasit senses as long as they are within 1 mile of each other. While the quasit is within 10 feet of its master, the master shares the quasit's Magic Resistance trait. At any time and for any reason, the quasit can end its service as a familiar, ending the telepathic bond.
 
 #Shadow Demon	SOURCEPAGE:p.64								
 
@@ -687,8 +694,9 @@ Spell Reflection		KEY:Spectator ~ Spell Reflection			CATEGORY:Special Ability	TY
 #lee Devil	SOURCEPAGE:p.75									
 
 
-#Imp	SOURCEPAGE:p.76										
+# Imp	SOURCEPAGE:p.76										
 
+Familiar	KEY:Imp ~ Familiar			CATEGORY:Special Ability	TYPE:Imp Race Trait.SpecialQuality	SOURCEPAGE:p.69	DESC:The imp can enter into a contract to serve another creature as a familiar, forming a telepathic bond with its willing master. While the two are bonded, the master can sense what the imp senses as long as they are within l mile of each other. While the imp is within 10 feet of its master, the master shares the imp's Magic Resistance trait. If its master violates the terms of the contract, the imp can end its service as a familiar, ending the telepathic bond.
 
 #Lemure	SOURCEPAGE:p.76									
 
@@ -1066,7 +1074,8 @@ Spell Reflection		KEY:Spectator ~ Spell Reflection			CATEGORY:Special Ability	TY
 
 
 #Homunculus	SOURCEPAGE:p.188									
-
+Telepathic Bond	KEY:Homunculus ~ Telepathic Bond			CATEGORY:Special Ability	TYPE:Homunculus Race Trait.SpecialQuality	SOURCEPAGE:p.	DESC:While the homunculus is on the same plane of existence as its master, it can magically convey what it senses to its master, and the two can communicate telepathically.
+Languages	KEY:Homunculus ~ Languages			CATEGORY:Special Ability	TYPE:Homunculus Race Trait.SpecialQuality	SOURCEPAGE:p.	DESC:understands the languages of its creator but can't speak
 
 #Hook Horror	SOURCEPAGE:p.189									
 
@@ -1287,8 +1296,15 @@ Spell Reflection		KEY:Spectator ~ Spell Reflection			CATEGORY:Special Ability	TY
 #Pixie	SOURCEPAGE:p.253									
 
 
-#Pseudodragon	SOURCEPAGE:p.254								
+# Pseudodragon	SOURCEPAGE:p.254								
+Languages		KEY:Pseudodragon ~ Languages			CATEGORY:Special Ability	TYPE:Pseudodragon Race Trait.SpecialQuality	SOURCEPAGE:p.254	DESC:understands Common and Draconic but can't speak.	ABILITY:Language|AUTOMATIC|Common|Draconic
+Keen Senses		KEY:Pseudodragon ~ Keen Senses		CATEGORY:Special Ability	TYPE:Pseudodragon Race Trait.SpecialQuality	SOURCEPAGE:p.254	DESC:The pseudodragon has advantage on Wisdom (Perception) checks that rely on sight, hearing, or smell.
+Magic Resistance	KEY:Pseudodragon ~ Magic Resistance		CATEGORY:Special Ability	TYPE:Pseudodragon Race Trait.SpecialQuality	SOURCEPAGE:p.254	DESC:The pseudodragon has advantage on saving throws against spells and other magical effects.
+Limited Telepathy	KEY:Pseudodragon ~ Limited Telepathy	CATEGORY:Special Ability	TYPE:Pseudodragon Race Trait.SpecialQuality	SOURCEPAGE:p.254	DESC:The pseudodragon can magically communicate simple ideas, emotions, and images telepathically with any creature within 100 feet of it that can understand a language.
+Familiar		KEY:Pseudodragon ~ Familiar			CATEGORY:Special Ability	TYPE:Pseudodragon Race Trait.SpecialQuality	SOURCEPAGE:p.254	DESC:The pseudodragon can serve another creature as a familiar, forming a magic, telepathic bond with that willing companion. While the two are bonded, the companion can sense what the pseudodragon senses as long as they are within 1 mile of each other. While the pseudodragon is within 10 feet of its companion, the companion shares the pseudodragon's Magic Resistance trait. At any time and for any reason, the pseudodragon can end its service as a familiar, ending the telepathic bond.
 
+
+Familiar (Pseudodragon)		CATEGORY:Internal																							ASPECT:SaveBonus|Advantage on saving throws against spells and other magical effects, while the pseudodragon is within 10 feet of its companion.
 
 #Purple Worm	SOURCEPAGE:p.255								
 
@@ -1875,12 +1891,21 @@ Spell Reflection		KEY:Spectator ~ Spell Reflection			CATEGORY:Special Ability	TY
 
 
 
-#                                                                                           
+
+# Dragon Facts
+# Base Speed is 30 when Wyrmling, increases to 40 for Young+
+# Burrow is half Base
+# Fly is Double base
+# Swim matches base
+# AC is always one of the following regardless of Dex modifier
+# 22, 19, 18, 17
+# Black, Blue,
+# 21, 19, 18, 17
+# Green
+# 20, 18, 17, 16
 
 
-
-
-#
+# Black has +2 Dex
 
 
 
