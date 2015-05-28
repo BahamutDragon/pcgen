@@ -142,11 +142,11 @@ CLASSTYPE:Monster		CRFORMULA:0			ISMONSTER:YES	XPPENALTY:NO
 CLASSTYPE:Companion	CRFORMULA:NONE		ISMONSTER:YES	XPPENALTY:NO
 
 #AC Types
-ACTYPE:Total				ADD:TOTAL		REMOVE:Ability|Armor|ArmorEnhancement|NaturalArmor|Shield|ShieldEnhancement|NaturalArmorEnhancement
+ACTYPE:Total				ADD:TOTAL		
 ACTYPE:Flatfooted				ADD:TOTAL		REMOVE:Ability|PRESTAT:1,DEX=10|!PREABILITY:1,CATEGORY=Special Ability,Retain Dex To AC ~ Flat-footed		REMOVE:Dodge|!PREABILITY:1,CATEGORY=Special Ability,Retain Dex To AC ~ Flat-footed
 ACTYPE:Touch				ADD:TOTAL		REMOVE:Armor|ArmorEnhancement|NaturalArmor|Shield|ShieldEnhancement|NaturalArmorEnhancement	ADD:Shield|ShieldEnhancement|PREVARGTEQ:ShieldAddsToTouchAC,1
 ACTYPE:Base					ADD:Base
-# Not Used for AC total
+#
 ACTYPE:Armor				ADD:Armor|ArmorEnhancement
 ACTYPE:ArmorEnhancement			ADD:ArmorEnhancement
 ACTYPE:Shield				ADD:Shield|ShieldEnhancement
@@ -157,30 +157,25 @@ ACTYPE:NaturalArmor			ADD:NaturalArmor|NaturalArmorEnhancement
 ACTYPE:NaturalArmorEnhancement	ADD:NaturalArmorEnhancement
 ACTYPE:Dodge				ADD:Dodge
 ACTYPE:Deflection				ADD:Deflection
-ACTYPE:Misc					ADD:TOTAL		REMOVE:Base|Armor|Shield|Ability|Size|NaturalArmor|NaturalArmorEnhancement|Dodge|Deflection|ShieldEnhancement|ArmorEnhancement
 ACTYPE:Circumstance			ADD:Circumstance
 ACTYPE:Insight				ADD:Insight
 ACTYPE:Morale				ADD:Morale
 ACTYPE:Profane				ADD:Profane
 ACTYPE:Sacred				ADD:Sacred
 ACTYPE:ClassDefense			ADD:ClassDefense
+ACTYPE:Misc					ADD:TOTAL		REMOVE:Base|Armor|Shield|Ability|Size|NaturalArmor|NaturalArmorEnhancement|Dodge|Deflection|ShieldEnhancement|ArmorEnhancement
 
 # Damage die changes on size
-BASEDICE:1d2	UP:1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6,8d6,12d6	DOWN:1,0
-BASEDICE:1d3	UP:1d4,1d6,1d8,2d6,3d6,4d6,6d6,8d6,12d6		DOWN:1d2,1,0
-BASEDICE:1d4	UP:1d6,1d8,2d6,3d6,4d6,6d6,8d6,12d6			DOWN:1d3,1d2,1,0
-BASEDICE:1d6	UP:1d8,2d6,3d6,4d6,6d6,8d6,12d6			DOWN:1d4,1d3,1d2,1
-BASEDICE:1d8	UP:2d6,3d6,4d6,6d6,8d6,12d6				DOWN:1d6,1d4,1d3,1d2
-BASEDICE:1d10	UP:2d8,3d8,4d8,6d8,8d8,12d8				DOWN:1d8,1d6,1d4,1d3
-BASEDICE:1d12	UP:3d6,4d6,6d6,8d6,12d6					DOWN:1d10,1d8,1d6,1d4
-BASEDICE:2d4	UP:2d6,3d6,4d6,6d6,8d6,12d6				DOWN:1d6,1d4,1d3,1d2
-BASEDICE:2d6	UP:3d6,4d6,6d6,8d6,12d6					DOWN:1d10,1d8,1d6,1d4
-BASEDICE:2d8	UP:3d8,4d8,6d8,8d8,12d8					DOWN:2d6,1d10,1d8,1d6
-BASEDICE:2d10	UP:4d8,6d8,8d8,12d8					DOWN:2d8,2d6,1d10,1d8
-BASEDICE:3d6	UP:4d6,6d6,8d6,12d6					DOWN:2d6,1d10,1d8,1d6,1d4
+BASEDICE:1d2	UP:2d2,3d2,4d2
+BASEDICE:1d3	UP:2d3,3d3,4d3
+BASEDICE:1d4	UP:2d4,3d4,4d4
+BASEDICE:1d6	UP:2d6,3d6,4d6
+BASEDICE:1d8	UP:2d8,3d8,4d8
+BASEDICE:1d10	UP:2d10,3d10,4d10
+BASEDICE:1d12	UP:2d12,3d12,4d12
 
 # Penalty to attacks for different sized weapons
-EQSIZEPENALTY:35 Size Penalty		BONUS:WEAPON|TOHIT|(PC.SIZE.INT-EQUIP.SIZE.INT)*-2|PREVARGT:PC.SIZE.INT,EQUIP.SIZE.INT|!PRETYPE:2,Melee,Natural|TYPE=DifferentEQSizePenalty	BONUS:WEAPON|TOHIT|(EQUIP.SIZE.INT-PC.SIZE.INT)*-2|PREVARGT:EQUIP.SIZE.INT,PC.SIZE.INT|!PRETYPE:2,Melee,Natural|TYPE=DifferentEQSizePenalty
+#EQSIZEPENALTY:35 Size Penalty		BONUS:WEAPON|TOHIT|(PC.SIZE.INT-EQUIP.SIZE.INT)*-2|PREVARGT:PC.SIZE.INT,EQUIP.SIZE.INT|!PRETYPE:2,Melee,Natural|TYPE=DifferentEQSizePenalty	BONUS:WEAPON|TOHIT|(EQUIP.SIZE.INT-PC.SIZE.INT)*-2|PREVARGT:EQUIP.SIZE.INT,PC.SIZE.INT|!PRETYPE:2,Melee,Natural|TYPE=DifferentEQSizePenalty
 
 # Long and Short weapon damage types
 WEAPONTYPE:Bludgeoning|B
@@ -303,7 +298,7 @@ OUTPUTSHEET:DEFAULT.TXT|csheet_plain.TXT
 DIESIZES:1,2,3,MIN=4,6,8,10,MAX=12,20,100,1000
 
 # Types which automatic resizing is activated on
-RESIZABLEEQUIPTYPE:Shield|Weapon|Armor|Ammunition|Resizable
+#RESIZABLEEQUIPTYPE:Shield|Weapon|Armor|Ammunition|Resizable
 
 # Character Types:
 CHARACTERTYPE:PC|NPC

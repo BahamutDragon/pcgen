@@ -1,7 +1,9 @@
 
+CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Size Tracker	DEFINE:AC_Natural_Armor|0	BONUS:COMBAT|AC|max(AC_Natural_Armor,0)|TYPE=NaturalArmor
 
-Monster	CATEGORY:Internal	ABILITY:Internal|AUTOMATIC|Creature Hit Die Size Rule|Creature Proficiency Bonus Rule
+Monster	CATEGORY:Internal	ABILITY:Internal|AUTOMATIC|Creature Hit Die Size Rule|Creature Proficiency Bonus Rule|Oversized Manufactured Weapon
 
+# MM page 7
 Creature Hit Die Size Rule	CATEGORY:Internal		ABILITY:Internal|AUTOMATIC|Set Hit Die ~ d4|PRESIZEEQ:T	ABILITY:Internal|AUTOMATIC|Set Hit Die ~ d6|PRESIZEEQ:S	ABILITY:Internal|AUTOMATIC|Set Hit Die ~ d8|PRESIZEEQ:M	ABILITY:Internal|AUTOMATIC|Set Hit Die ~ d10|PRESIZEEQ:L	ABILITY:Internal|AUTOMATIC|Set Hit Die ~ d12|PRESIZEEQ:H	ABILITY:Internal|AUTOMATIC|Set Hit Die ~ d20|PRESIZEEQ:G
 
 Set Hit Die ~ d4		CATEGORY:Internal	TEMPLATE:Set Hit Die ~ d4	
@@ -11,5 +13,24 @@ Set Hit Die ~ d10		CATEGORY:Internal	TEMPLATE:Set Hit Die ~ d10
 Set Hit Die ~ d12		CATEGORY:Internal	TEMPLATE:Set Hit Die ~ d12
 Set Hit Die ~ d20		CATEGORY:Internal	TEMPLATE:Set Hit Die ~ d20
 
-
+# MM page 
 Creature Proficiency Bonus Rule	CATEGORY:Internal	BONUS:VAR|Proficiency_Bonus|2|TYPE=Base	BONUS:VAR|Proficiency_Bonus|(CR-1)/4
+# DMG page 278 - Oversized Weapons by Large or larger creatures
+Oversized Manufactured Weapon		CATEGORY:Internal	BONUS:WEAPONPROF=TYPE.Manufactured|DAMAGESIZE|OversizeManufacturedMultiplier	DEFINE:OversizeManufacturedMultiplier|0	BONUS:VAR|OversizeManufacturedMultiplier|max(BaseSize-3,0)
+
+
+Size Tracker						CATEGORY:Internal				DEFINE:BaseSize|0	DEFINE:CurrentSize|0	DEFINE:SizeIncrease|0	DEFINE:SizeDecrease|0	ABILITY:Internal|AUTOMATIC|Base Size ~ Tiny|PREBASESIZEEQ:Tiny	ABILITY:Internal|AUTOMATIC|Base Size ~ Small|PREBASESIZEEQ:Small	ABILITY:Internal|AUTOMATIC|Base Size ~ Medium|PREBASESIZEEQ:Medium	ABILITY:Internal|AUTOMATIC|Base Size ~ Large|PREBASESIZEEQ:Large	ABILITY:Internal|AUTOMATIC|Base Size ~ Huge|PREBASESIZEEQ:Huge	ABILITY:Internal|AUTOMATIC|Base Size ~ Gargantuan|PREBASESIZEEQ:Gargantuan	ABILITY:Internal|AUTOMATIC|Current Size ~ Tiny|PRESIZEEQ:T	ABILITY:Internal|AUTOMATIC|Current Size ~ Small|PRESIZEEQ:S	ABILITY:Internal|AUTOMATIC|Current Size ~ Medium|PRESIZEEQ:M	ABILITY:Internal|AUTOMATIC|Current Size ~ Large|PRESIZEEQ:L	ABILITY:Internal|AUTOMATIC|Current Size ~ Huge|PRESIZEEQ:H	ABILITY:Internal|AUTOMATIC|Current Size ~ Gargantuan|PRESIZEEQ:G	BONUS:VAR|SizeIncrease|CurrentSize-BaseSize	BONUS:VAR|SizeDecrease|BaseSize-CurrentSize
+#
+Current Size ~ Tiny					CATEGORY:Internal		BONUS:VAR|CurrentSize|1	
+Current Size ~ Small					CATEGORY:Internal		BONUS:VAR|CurrentSize|2
+Current Size ~ Medium					CATEGORY:Internal		BONUS:VAR|CurrentSize|3
+Current Size ~ Large					CATEGORY:Internal		BONUS:VAR|CurrentSize|4
+Current Size ~ Huge					CATEGORY:Internal		BONUS:VAR|CurrentSize|5
+Current Size ~ Gargantuan				CATEGORY:Internal		BONUS:VAR|CurrentSize|6
+#
+Base Size ~ Tiny						CATEGORY:Internal		BONUS:VAR|BaseSize|1
+Base Size ~ Small						CATEGORY:Internal		BONUS:VAR|BaseSize|2
+Base Size ~ Medium					CATEGORY:Internal		BONUS:VAR|BaseSize|3
+Base Size ~ Large						CATEGORY:Internal		BONUS:VAR|BaseSize|4
+Base Size ~ Huge						CATEGORY:Internal		BONUS:VAR|BaseSize|5
+Base Size ~ Gargantuan					CATEGORY:Internal		BONUS:VAR|BaseSize|6
