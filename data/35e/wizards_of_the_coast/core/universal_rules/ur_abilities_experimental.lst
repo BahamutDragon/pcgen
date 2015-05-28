@@ -1,0 +1,98 @@
+
+
+# Armor Values - Based upon discussion with Andrew. This model closely matches what he has.
+# Display Values
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Output_Base|AC_Base
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Output_Total|AC_Total
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Output_Flatfooted|AC_Flatfooted
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Output_Touch|AC_Touch
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Output_Misc|AC_Misc
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Output_Natural_Armor|max(AC_Natural_Armor,0)+AC_Natural_Armor_Enhancement
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Output_Ability_Score|AC_Ability_Score|TYPE=Ability
+
+# Formula Values
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Base|10|TYPE=Base
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Total|AC_Base+AC_Output_Natural_Armor+AC_Armor+AC_Shield+AC_Ability+AC_Size+AC_Dodge+AC_Deflection+AC_Misc+AC_Circumstance+AC_Insight+AC_Morale+AC_Profane+AC_Sacred+AC_Class_Defense
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Flatfooted|AC_Total-AC_Ability-AC_Dodge
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Flatfooted|AC_Ability|PRESTAT:1,DEX=10|PREABILITY:1,CATEGORY=Special Ability,Retain Dex To AC ~ Flat-footed
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Flatfooted|AC_Dodge|PREABILITY:1,CATEGORY=Special Ability,Retain Dex To AC ~ Flat-footed
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Touch|AC_Total-AC_Armor-AC_Armor_Enhancement-AC_Natural_Armor-AC_Shield-AC_Shield_Enhancement-AC_Natural_Armor_Enhancement	
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Touch|AC_Shield|PREVARGTEQ:ShieldAddsToTouchAC,1
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Misc|AC_Total-AC_Base-AC_Armor-AC_Shield-AC_Ability-AC_Size-AC_Natural_Armor-AC_Natural_Armor_Enhancement-AC_Dodge-AC_Deflection-AC_Shield_Enhancement-AC_Armor_Enhancement
+#
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Ability_Score|min(AC_Ability_Score_Bonus, min(Max_Ability_Score_Bonus__Encumbrance,Max_Ability_Score_Bonus__Equipment))|TYPE=Ability
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Ability_Score_Bonus|DEX	
+CATEGORY=Internal|Default.MOD		BONUS:VAR|Max_Ability_Score_Bonus__Encumbrance|MXDXEN
+CATEGORY=Internal|Default.MOD		BONUS:VAR|Max_Ability_Score_Bonus__Equipment|MODEQUIPMAXDEX
+
+
+# Replace
+#CATEGORY=Internal|Default.MOD	BONUS:COMBAT|AC|AC_Natural_Armor_Enhancement|TYPE=NaturalArmorEnhancement
+#	
+
+#CATEGORY=Internal|Default.MOD	DEFINE:AC_Armor|0				BONUS:COMBAT|AC|AC_Base|TYPE=Base				BONUS:COMBAT|AC|AC_Armor|TYPE=Armor	BONUS:VAR|AC_Armor|AC_Armor_Enhancement
+#CATEGORY=Internal|Default.MOD	DEFINE:AC_Armor_Enhancement|0		BONUS:COMBAT|AC|AC_Total|TYPE=Total				BONUS:COMBAT|AC|AC_Armor_Enhancement|TYPE=ArmorEnhancement
+#CATEGORY=Internal|Default.MOD	DEFINE:AC_Shield|0			BONUS:COMBAT|AC|AC_Flatfooted|TYPE=Flatfooted		BONUS:COMBAT|AC|AC_Shield|TYPE=Shield	BONUS:VAR|AC_Shield|AC_Shield_Enhancement
+#CATEGORY=Internal|Default.MOD	DEFINE:AC_Shield_Enhancement|0	BONUS:COMBAT|AC|AC_Touch|TYPE=Touch				BONUS:COMBAT|AC|AC_Shield_Enhancement|TYPE=ShieldEnhancement
+#												BONUS:COMBAT|AC|AC_Misc|TYPE=Misc			
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Ability_Score_Bonus__Encumbrance|0
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Ability_Score_Bonus__Equipment|0
+
+# These adjust the numbers
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Base|0		
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Total|0		
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Flatfooted|0	
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Touch|0		
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Misc|0		
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Ability_Score|0		
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Ability_Score_Bonus|0		
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Natural_Armor|0	
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Natural_Armor_Enhancement|0
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Size|0			
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Dodge|0			
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Deflection|0		
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Circumstance|0	
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Insight|0		
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Morale|0		
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Profane|0		
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Sacred|0		
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Class_Defense|0	
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Armor|0			
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Armor_Enhancement|0	
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Shield|0		
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Shield_Enhancement|0
+
+
+# These display the final numbers
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Output_Base|0		
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Output_Total|0		
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Output_Flatfooted|0	
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Output_Touch|0		
+
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Output_Armor|0			
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Output_Shield|0		
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Output_Dodge|0			
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Output_Natural_Armor|0
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Output_Size|0			
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Output_Deflection|0		
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Output_Circumstance|0	
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Output_Insight|0		
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Output_Morale|0		
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Output_Profane|0		
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Output_Sacred|0		
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Output_Class_Defense|0	
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Output_Ability_Score|0		
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Output_Misc|0		
+
+
+#CATEGORY=Internal|Default.MOD		BONUS:COMBAT|AC|AC_Output_Ability|TYPE=Ability
+#CATEGORY=Internal|Default.MOD		BONUS:COMBAT|AC|AC_Output_Size|TYPE=Size
+#CATEGORY=Internal|Default.MOD		BONUS:COMBAT|AC|AC_Output_Dodge|TYPE=Dodge
+#CATEGORY=Internal|Default.MOD		BONUS:COMBAT|AC|AC_Output_Deflection|TYPE=Deflection
+#CATEGORY=Internal|Default.MOD		BONUS:COMBAT|AC|AC_Output_Circumstance|TYPE=Circumstance
+#CATEGORY=Internal|Default.MOD		BONUS:COMBAT|AC|AC_Output_Insight|TYPE=Insight
+#CATEGORY=Internal|Default.MOD		BONUS:COMBAT|AC|AC_Output_Morale|TYPE=Morale
+#CATEGORY=Internal|Default.MOD		BONUS:COMBAT|AC|AC_Output_Profane|TYPE=Profane
+#CATEGORY=Internal|Default.MOD		BONUS:COMBAT|AC|AC_Output_Sacred|TYPE=Sacred
+#CATEGORY=Internal|Default.MOD		BONUS:COMBAT|AC|AC_Output_Class_Defense|TYPE=ClassDefense
+
