@@ -44,7 +44,7 @@ CLASS:Wizard.MOD	CSKILL:Bluff|Disguise|Literacy
 
 
 # Class Name		Hit Dice	Type			Class Type		Abbreviation	Source Page		Save checks bonus								Combat bonus					Monster Role
-CLASS:Athasian Bard	HD:6		TYPE:Base.PC	CLASSTYPE:PC	ABB:Brd		SOURCEPAGE:p.28	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	ROLE:Bard
+CLASS:Athasian Bard	HD:6		TYPE:Base.PC	FACT:ClassType|PC	FACT:Abb|Brd		SOURCEPAGE:p.28	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	ROLE:Bard
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Athasian Bard	STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Climb|TYPE=Craft|Decipher Script|Diplomacy|Disguise|Escape Artist|Forgery|Gather Information|Heal|Hide|Intimidate|Jump|TYPE=Knowledge|Listen|Move Silently|TYPE=Perform|TYPE=Profession|Ride|Search|Sense Motive|Sleight of Hand|Speak Language|Tumble|Use Magic Device|Use Psionic Device|Use Rope
 #
@@ -76,7 +76,7 @@ CLASS:Athasian Bard	STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Climb|TYPE=Cra
 
 
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Source Page		Save checks bonus											Combat bonus					Monster Role
-CLASS:Gladiator	HD:12		TYPE:Base.PC	CLASSTYPE:PC	ABB:Gld		SOURCEPAGE:p.42	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	ROLE:Combat
+CLASS:Gladiator	HD:12		TYPE:Base.PC	FACT:ClassType|PC	FACT:Abb|Gld		SOURCEPAGE:p.42	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	ROLE:Combat
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Gladiator	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Intimidate|Jump|TYPE=Perform|TYPE=Profession|Sense Motive|Spot|Tumble
 ###Block:Proficiencies
@@ -97,9 +97,9 @@ CLASS:Gladiator	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Intimidate
 19																						ABILITY:Special Ability|AUTOMATIC|Gladiator ~ Improved Parry|!PREABILITY:1,CATEGORY=ACF,TYPE=GladiatorImprovedParry
 
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Add domain number
-CLASS:Templar	HD:6		TYPE:Base.PC	CLASSTYPE:PC	ABB:Tpr		MAXLEVEL:20	BONUS:DOMAIN|NUMBER|2
+CLASS:Templar	HD:6		TYPE:Base.PC	FACT:ClassType|PC	FACT:Abb|Tpr		MAXLEVEL:20	BONUS:DOMAIN|NUMBER|2
 # Class Name	Spell Stat		Spell Type		Memorize	Automatically Known Spell Levels											Caster level
-CLASS:Templar	SPELLSTAT:CHA	SPELLTYPE:Divine	MEMORIZE:NO	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Templar|CL
+CLASS:Templar	SPELLSTAT:CHA	FACT:SpellType|Divine	MEMORIZE:NO	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Templar|CL
 ###Block: first level abilities
 1	DEFINE:TemplarSecularAuthorityLvl|0	BONUS:VAR|TemplarSecularAuthorityLvl|CL	ABILITY:Special Ability|AUTOMATIC|Secular Aptitude|Assume Domain|Sigil
 ###Block: Turn Undead stuff
@@ -129,7 +129,7 @@ CLASS:Templar	SPELLSTAT:CHA	SPELLTYPE:Divine	MEMORIZE:NO	KNOWNSPELLS:LEVEL=0|LEV
 20	CAST:6,6,6,6,6,6,6,6,6,5
 
 # Class Name		Hit Dice	Type			Class Type		Abbreviation	Source Page		Save checks bonus								Combat bonus					Monster Role
-CLASS:Arch Defiler	HD:4		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:ArD		SOURCEPAGE:p.85	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	ROLE:Wizard
+CLASS:Arch Defiler	HD:4		TYPE:PC.Prestige	FACT:ClassType|Prestige	FACT:Abb|ArD		SOURCEPAGE:p.85	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	ROLE:Wizard
 # Class Name	Multiple Requirements											Required Skill						Required Spell School																		Req. Spell Type
 CLASS:Arch Defiler	PRESKILL:2,Knowledge (Arcana)=8,Spellcraft=8	PRESPELLTYPE:1,Arcane=3	PREABILITY:2,CATEGORY=FEAT,Agonizing Radius,Great Fortitude	PREABILITY:1,CATEGORY=FEAT,TYPE=Metamagic	PRETEXT:Must be a defiler
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -150,7 +150,7 @@ CLASS:Arch Defiler	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Deciphe
 10	ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Metamagic Raze
 
 # Class Name		Hit Dice	Type			Class Type		Abbreviation	Source Page		Save checks bonus								Combat bonus					Monster Role
-CLASS:Arena Champion	HD:12		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:ArCh		SOURCEPAGE:p.87	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	
+CLASS:Arena Champion	HD:12		TYPE:PC.Prestige	FACT:ClassType|Prestige	FACT:Abb|ArCh		SOURCEPAGE:p.87	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	
 # Class Name	Multiple Requirements											Required Skill						Required Spell School																		Req. Spell Type
 CLASS:Arena Champion	PRESKILL:1,TYPE.Perform=6	PREATT:5	PREABILITY:1,CATEGORY=FEAT,Weapon Focus	PREABILITY:1,CATEGORY=FEAT,Toughness
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -170,7 +170,7 @@ CLASS:Arena Champion	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Intim
 10	ABILITY:Special Ability|AUTOMATIC|Finishing Move
 
 # Class Name		Hit Dice	Type			Class Type		Abbreviation	Source Page		Save checks bonus								Combat bonus					Monster Role
-CLASS:Dune Trader	HD:6		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:DT		SOURCEPAGE:p.90	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|(3*classlevel("APPLIEDAS=NONEPIC"))/4|TYPE=Base.REPLACE	
+CLASS:Dune Trader	HD:6		TYPE:PC.Prestige	FACT:ClassType|Prestige	FACT:Abb|DT		SOURCEPAGE:p.90	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|(3*classlevel("APPLIEDAS=NONEPIC"))/4|TYPE=Base.REPLACE	
 # Class Name	Multiple Requirements											Required Skill						Required Spell School																		Req. Spell Type
 CLASS:Dune Trader	PRESKILL:5,Appraise=5,Bluff=5,Diplomacy=7,Profession (Merchant)=2,Sense Motive=5	PREABILITY:1,CATEGORY=FEAT,Trader	PRETEXT:Must be accepted into a merchant house
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -191,7 +191,7 @@ CLASS:Dune Trader	STARTSKILLPTS:8	CSKILL:Appraise|Bluff|TYPE=Craft|Decipher Scri
 
 
 # Class Name		Hit Dice	Type			Class Type		Abbreviation	Source Page		Save checks bonus								Combat bonus					Monster Role
-CLASS:Elementalist	HD:8		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:El		SOURCEPAGE:p.93	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	
+CLASS:Elementalist	HD:8		TYPE:PC.Prestige	FACT:ClassType|Prestige	FACT:Abb|El		SOURCEPAGE:p.93	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	
 # Class Name	Multiple Requirements											Required Skill						Required Spell School																		Req. Spell Type
 CLASS:Elementalist	PRESKILL:2,Knowledge (religion)=8,Knowledge (the planes)=5	PRESPELLTYPE:1,Divine=3	PRETEXT:Must worship a patron element
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -217,7 +217,7 @@ CLASS:Elementalist	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Heal|Knowledg
 10	ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Element Immunity
 
 # Class Name		Hit Dice	Type			Class Type		Abbreviation	Source Page		Save checks bonus								Combat bonus					Monster Role
-CLASS:Grove Master	HD:8		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:GM		SOURCEPAGE:p.96	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	
+CLASS:Grove Master	HD:8		TYPE:PC.Prestige	FACT:ClassType|Prestige	FACT:Abb|GM		SOURCEPAGE:p.96	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	
 # Class Name	Multiple Requirements											Required Skill						Required Spell School																		Req. Spell Type
 CLASS:Grove Master	PRESKILL:3,Knowledge (nature)=10,Survival=5,Hide=4	PRESPELLTYPE:1,Divine=3	PREABILITY:1,CATEGORY=FEAT,Wastelander	PRETEXT:Must gain the trust of a Spirit of the Land
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -240,7 +240,7 @@ CLASS:Grove Master	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Dis
 
 
 # Class Name		Hit Dice	Type			Class Type		Abbreviation	Source Page		Save checks bonus								Combat bonus					Monster Role
-CLASS:Master Scout	HD:8		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:MS		SOURCEPAGE:p.99	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|3*classlevel("APPLIEDAS=NONEPIC")/4|TYPE=Base.REPLACE	
+CLASS:Master Scout	HD:8		TYPE:PC.Prestige	FACT:ClassType|Prestige	FACT:Abb|MS		SOURCEPAGE:p.99	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|3*classlevel("APPLIEDAS=NONEPIC")/4|TYPE=Base.REPLACE	
 # Class Name	Multiple Requirements											Required Skill						Required Spell School																		Req. Spell Type
 CLASS:Master Scout	PRESKILL:1,Survival=8	PREABILITY:2,CATEGORY=FEAT,Track,Wastelander
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -259,7 +259,7 @@ CLASS:Master Scout	STARTSKILLPTS:6	CSKILL:Balance|Climb|TYPE=Craft|Handle Animal
 
 
 # Class Name		Hit Dice	Type			Class Type		Abbreviation	Source Page		Save checks bonus								Combat bonus					Monster Role
-CLASS:Poisonmaster	HD:6		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:PM		SOURCEPAGE:p.101	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|3*classlevel("APPLIEDAS=NONEPIC")/4|TYPE=Base.REPLACE	
+CLASS:Poisonmaster	HD:6		TYPE:PC.Prestige	FACT:ClassType|Prestige	FACT:Abb|PM		SOURCEPAGE:p.101	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|3*classlevel("APPLIEDAS=NONEPIC")/4|TYPE=Base.REPLACE	
 # Class Name	Multiple Requirements											Required Skill						Required Spell School																		Req. Spell Type
 CLASS:Poisonmaster	PRESKILL:2,Craft (poisonmaking)=8,Craft (alchemy)=4	PREABILITY:1,CATEGORY=FEAT,Skill Focus (Craft (poisonmaking))
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -283,7 +283,7 @@ CLASS:Poisonmaster	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Concentration|TYPE=Craf
 
 
 # Class Name		Hit Dice	Type			Class Type		Abbreviation	Source Page		Save checks bonus								Combat bonus					Monster Role
-CLASS:Psiologist	HD:4		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:Pst		SOURCEPAGE:p.104	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	
+CLASS:Psiologist	HD:4		TYPE:PC.Prestige	FACT:ClassType|Prestige	FACT:Abb|Pst		SOURCEPAGE:p.104	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	
 # Class Name	Multiple Requirements											Required Skill						Required Spell School																		Req. Spell Type
 CLASS:Psiologist	PREALIGN:1,LG,LN,LE	PRESKILL:2,Knowledge (psionics)=12,Psicraft=12	PREABILITY:3,CATEGORY=FEAT,Psionic Affinity,Skill Focus (Knowledge (psionics)),Skill Focus (Psicraft)	PREABILITY:2,CATEGORY=FEAT,TYPE=MetaPsionic	PRESPELLTYPE:1,Psionic=5	PRETEXT:Must have trained in at least three different psionic academies or schools and must still be a member in good standing in one of them.
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -306,13 +306,13 @@ CLASS:Psiologist	STARTSKILLPTS:2	CSKILL:Autohypnosis|Bluff|Concentration|Diploma
 
 
 # Class Name		Hit Dice	Type			Class Type		Abbreviation	Source Page		Save checks bonus								Combat bonus					Monster Role
-CLASS:Templar Knight	HD:10		TYPE:PC.Prestige	CLASSTYPE:Prestige	ABB:TK		SOURCEPAGE:p.107	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will,BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
+CLASS:Templar Knight	HD:10		TYPE:PC.Prestige	FACT:ClassType|Prestige	FACT:Abb|TK		SOURCEPAGE:p.107	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will,BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
 # Class Name	Multiple Requirements											Required Skill						Required Spell School																		Req. Spell Type
 CLASS:Templar Knight	PREATT:5	PRESKILL:1,Diplomacy=2	PREWEAPONPROF:1,TYPE.Martial	PRETEXT:Must be accepted into the templarate.
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Templar Knight	STARTSKILLPTS:2	CSKILL:Bluff|Climb|Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Intimidate|Jump|Knowledge (religion)|Knowledge (warcraft)|Literacy|TYPE=Profession|Ride|Sense Motive|Spellcraft
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels											Caster level
-CLASS:Templar Knight	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Templar Knight|CL
+CLASS:Templar Knight	SPELLSTAT:WIS	FACT:SpellType|Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Templar Knight|CL
 ###Block: Spell list
 1	SPELLLEVEL:CLASS|Templar Knight=1|Cause Fear,Command,Cure Light Wounds,Detect Magic,Divine Favor,Doom,Entropic Shield,Inflict Light Wounds,Magic Weapon,Shield Of Faith,True Strike
 1	SPELLLEVEL:CLASS|Templar Knight=2|Bear's Endurance,Bull's Strength,Cure Moderate Wounds,Death Knell,Hold Person,Inflict Moderate Wounds,Rage,Resist Energy
