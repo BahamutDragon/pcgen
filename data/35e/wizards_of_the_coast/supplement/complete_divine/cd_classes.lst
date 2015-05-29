@@ -7,7 +7,7 @@ CLASS:Shugenja	KEY:Shugenja	TYPE:Base.PC.Complete Divine	ALLOWBASECLASS:NO		SOUR
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Shugenja	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|TYPE=Knowledge|TYPE=Profession|Spellcraft
 # Class Name	Spell Stat		Spell Type		Caster level			Use Spell List
-CLASS:Shugenja	SPELLSTAT:CHA	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Shugenja|CL+Caster_Level_Bonus	SPELLLIST:1|Shugenja
+CLASS:Shugenja	SPELLSTAT:CHA	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Shugenja|Caster_Level_BL_Stripped_Shugenja	DEFINE:Caster_Level_BL_Stripped_Shugenja|0	BONUS:VAR|Caster_Level_BL_Stripped_Shugenja|Caster_Level_Shugenja-CasterLevelBLShugenja	BONUS:VAR|Caster_Level_Shugenja|CL+Caster_Level_Bonus+CasterLevelBLShugenja	DEFINE:CasterLevelBLShugenja|0	BONUS:VAR|CasterLevelBL_x_Shugenja|charbonusto("PCLEVEL","Shugenja")	BONUS:VAR|Caster_Level_Highest__Divine|Caster_Level_Shugenja|TYPE=Base	SPELLLIST:1|Shugenja
 #
 SUBCLASS:Air Shugenja	COST:0	CHOICE:DESCRIPTOR|Air Shugenja	PROHIBITSPELL:DESCRIPTOR.Earth Shugenja	DEFINE:AirShugenja|0	ABILITY:Shugenja Class Feature|AUTOMATIC|Shugenja ~ Element Focus (Air)
 SUBCLASS:Earth Shugenja	COST:0	CHOICE:DESCRIPTOR|Earth Shugenja	PROHIBITSPELL:DESCRIPTOR.Air Shugenja	DEFINE:EarthShugenja|0	ABILITY:Shugenja Class Feature|AUTOMATIC|Shugenja ~ Element Focus (Earth)
@@ -180,7 +180,7 @@ CLASS:Blighter	!PREALIGN:LG,NG,CG	PRECLASS:1,Ex Druid=5	PRETOTALAB:4
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Blighter	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nature)|Listen|Profession (Herbalist)|Spellcraft|Spot|Survival|Swim
 # Class Name	Spell Stat		Spell Type		Caster level
-CLASS:Blighter	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Blighter|CL+Caster_Level_Bonus
+CLASS:Blighter	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Blighter|Caster_Level_BL_Stripped_Blighter	DEFINE:Caster_Level_BL_Stripped_Blighter|0	BONUS:VAR|Caster_Level_BL_Stripped_Blighter|Caster_Level_Blighter-CasterLevelBLBlighter	BONUS:VAR|Caster_Level_Blighter|CL+Caster_Level_Bonus+CasterLevelBLBlighter	DEFINE:CasterLevelBLBlighter|0	BONUS:VAR|CasterLevelBL_x_Blighter|charbonusto("PCLEVEL","Blighter")	BONUS:VAR|Caster_Level_Highest__Divine|Caster_Level_Blighter|TYPE=Base
 1	CAST:4,2
 2	CAST:5,3,0
 3	CAST:5,3,1,0

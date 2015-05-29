@@ -29,7 +29,7 @@ CLASS:Warlock	PREALIGN:LE,NE,CE,CG,CN
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Warlock	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Disguise|Intimidate|Jump|Knowledge (arcana)|Knowledge (The Planes)|Knowledge (Religion)|TYPE=Profession|Sense Motive|Spellcraft|Use Magic Device
 # Class Name	Caster level
-CLASS:Warlock	BONUS:CASTERLEVEL|Warlock|CL+CasterLevelBonus
+CLASS:Warlock	BONUS:CASTERLEVEL|Warlock|Caster_Level_BL_Stripped_Warlock	DEFINE:Caster_Level_BL_Stripped_Warlock|0	BONUS:VAR|Caster_Level_BL_Stripped_Warlock|Caster_Level_Warlock-CasterLevelBLWarlock	BONUS:VAR|Caster_Level_Warlock|CL+Caster_Level_Bonus+CasterLevelBLWarlock	DEFINE:CasterLevelBLWarlock|0	BONUS:VAR|CasterLevelBL_x_Warlock|charbonusto("PCLEVEL","Warlock")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Warlock|TYPE=Base
 ###Block
 1				BONUS:ABILITYPOOL|Warlock Least Invocation|1														BONUS:VAR|WarlockEldritchBlastLVL|CL	BONUS:VAR|WarlockInvocationLVL|CL
 2				BONUS:ABILITYPOOL|Warlock Least Invocation|1														BONUS:VAR|DetectMagicWillLVL|CL
@@ -62,7 +62,7 @@ CLASS:Warmage	HD:6		TYPE:Base.PC	ABB:Wrm		MAXLEVEL:20	SOURCEPAGE:p.10	BONUS:COMB
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Warmage	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Intimidate|Knowledge (arcana)|Knowledge (History)|TYPE=Profession|Spellcraft
 # Class Name	Spell Stat		Spell Type		Memorize	Automatically Known Spell Levels											Caster level
-CLASS:Warmage	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Warmage|CL+CasterLevelBonus
+CLASS:Warmage	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Warmage|Caster_Level_BL_Stripped_Warmage	DEFINE:Caster_Level_BL_Stripped_Warmage|0	BONUS:VAR|Caster_Level_BL_Stripped_Warmage|Caster_Level_Warmage-CasterLevelBLWarmage	BONUS:VAR|Caster_Level_Warmage|CL+Caster_Level_Bonus+CasterLevelBLWarmage	DEFINE:CasterLevelBLWarmage|0	BONUS:VAR|CasterLevelBL_x_Warmage|charbonusto("PCLEVEL","Warmage")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Warmage|TYPE=Base
 ###Block
 1	CAST:5,3												BONUS:VAR|ArmoredMagePower|1	BONUS:VAR|WarmageEdgeLVL|CL
 2	CAST:6,4
@@ -102,7 +102,7 @@ CLASS:Wu Jen	PREALIGN:NG,TN,NE,CG,CN,CE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Wu Jen	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Spellcraft
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels	Spellbook		Caster level
-CLASS:Wu Jen	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			SPELLBOOK:YES	BONUS:CASTERLEVEL|Wu Jen|CL+CasterLevelBonus
+CLASS:Wu Jen	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			SPELLBOOK:YES	BONUS:CASTERLEVEL|Wu Jen|Caster_Level_BL_Stripped_Wu_Jen	DEFINE:Caster_Level_BL_Stripped_Wu_Jen|0	BONUS:VAR|Caster_Level_BL_Stripped_Wu_Jen|Caster_Level_Wu_Jen-CasterLevelBLWu_Jen	BONUS:VAR|Caster_Level_Wu_Jen|CL+Caster_Level_Bonus+CasterLevelBLWu_Jen	DEFINE:CasterLevelBLWu_Jen|0	BONUS:VAR|CasterLevelBL_x_Wu_Jen|charbonusto("PCLEVEL","Wu Jen")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Wu_Jen|TYPE=Base
 ###Block
 1	CAST:3,1				BONUS:ABILITYPOOL|Metamagic Feat|1	BONUS:ABILITYPOOL|Taboo|1
 2	CAST:4,2
@@ -587,13 +587,13 @@ CLASS:Ex Seeker of the Song	STARTSKILLPTS:4	CSKILL:Climb|Concentration|TYPE=Craf
 1	ABILITY:Seeker of the Song Class Feature|AUTOMATIC|Seeker of the Song ~ Note of Solitude|PRESKILL:1,TYPE.Perform=23|PREVARGTEQ:SeekerMusicLvl,10
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus												Modify VAR													Bonus
-CLASS:Sublime Chord	HD:6		TYPE:PC.Prestige	ABB:Sub		MAXLEVEL:10	SOURCEPAGE:p.60	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Sublime Chord	HD:6		TYPE:PC.Prestige	ABB:Sub		MAXLEVEL:10	SOURCEPAGE:p.60	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|PREVAREQ:UseAlternateBABProgression,0		DEFINE:Sublime_ChordLVL|0	BONUS:VAR|Sublime_ChordLVL|CL	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Required Ability							Required Skill																				Required Casting Type		Req. Spell Type
 CLASS:Sublime Chord	PREABILITY:1,CATEGORY=Special Ability,TYPE.Bardic Music	PRESKILL:2,Knowledge (Arcana)=13,Listen=13	PRESKILL:1,TYPE.Perform=10	PRESKILL:2,Profession (Astrologer)=6,Spellcraft=6	PRESPELLCAST:TYPE=Arcane	PRESPELLTYPE:1,Arcane=3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Sublime Chord	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Decipher Script|Diplomacy|TYPE=Knowledge|Listen|TYPE=Perform|TYPE=Profession|Search|Speak Language|Spellcraft|Spot
 # Class Name		Spell Stat		Spell Type		Memorize	Use Spell List
-CLASS:Sublime Chord	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	SPELLLIST:3|Bard|Sorcerer|Wizard	BONUS:CASTERLEVEL|Sublime Chord|CL	DEFINE:Sublime_ChordLVL|0	BONUS:VAR|Sublime_ChordLVL|CL+CasterLevelBonus
+CLASS:Sublime Chord	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	SPELLLIST:3|Bard|Sorcerer|Wizard	BONUS:CASTERLEVEL|Sublime Chord|Caster_Level_BL_Stripped_Sublime_Chord	DEFINE:Caster_Level_BL_Stripped_Sublime_Chord|0	BONUS:VAR|Caster_Level_BL_Stripped_Sublime_Chord|Caster_Level_Sublime_Chord-CasterLevelBLSublime_Chord	BONUS:VAR|Caster_Level_Sublime_Chord|CL+Caster_Level_Bonus+CasterLevelBLSublime_Chord	DEFINE:CasterLevelBLSublime_Chord|0	BONUS:VAR|CasterLevelBL_x_Sublime_Chord|charbonusto("PCLEVEL","Sublime Chord")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Sublime_Chord|TYPE=Base
 1	BONUS:VAR|BardicKnowledgeLvl|CL
 1	BONUS:VAR|SublimeMusicLvl|CL										DEFINE:SublimeMusicLvl|0
 ###Block:
@@ -623,7 +623,7 @@ CLASS:Suel Arcanamach	PREABILITY:2,CATEGORY=FEAT,Combat Casting,Iron Will	PRELAN
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Suel Arcanamach	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Concentration|TYPE=Craft|Disguise|Escape Artist|Hide|Jump|Knowledge (arcana)|Knowledge (History)|Knowledge (The Planes)|Listen|Move Silently|TYPE=Profession|Search|Spellcraft|Spot|Swim|Tumble|Use Rope
 # Class Name		Spell Stat		Spell Type		Memorize	Caster level					Use Spell List
-CLASS:Suel Arcanamach	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Suel Arcanamach|CL+CasterLevelBonus	SPELLLIST:1|Wizard
+CLASS:Suel Arcanamach	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Suel Arcanamach|Caster_Level_BL_Stripped_Suel Arcanamach	DEFINE:Caster_Level_BL_Stripped_Suel_Arcanamach|0	BONUS:VAR|Caster_Level_BL_Stripped_Suel_Arcanamach|Caster_Level_Suel_Arcanamach-CasterLevelBLSuel_Arcanamach	BONUS:VAR|Caster_Level_Suel_Arcanamach|CL+Caster_Level_Bonus+CasterLevelBLSuel_Arcanamach	DEFINE:CasterLevelBLSuel_Arcanamach|0	BONUS:VAR|CasterLevelBL_x_Suel_Arcanamach|charbonusto("PCLEVEL","Suel Arcanamach")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Suel_Arcanamach|TYPE=Base	SPELLLIST:1|Wizard
 1	CAST:0,1		KNOWN:0,1		BONUS:VAR|SuelArcanamachIgnoreSpellFailureLVL|CL
 2	CAST:0,1,0		KNOWN:0,2,1		BONUS:VAR|SuelArcanamachDispellingStrikeLVL|CL
 3	CAST:0,2,1		KNOWN:0,2,2
