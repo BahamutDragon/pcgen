@@ -6,7 +6,7 @@ CLASS:Psion		HD:4		TYPE:Base.Psionic.PC	CLASSTYPE:PC	ALLOWBASECLASS:NO		SOURCEPA
 # Class Name	Skill Pts/Lvl
 CLASS:Psion		STARTSKILLPTS:2
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
-CLASS:Psion		SPELLSTAT:INT	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Psion|CL+CasterLevelBonus
+CLASS:Psion		SPELLSTAT:INT	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Psion|Caster_Level_BL_Stripped_Psion	DEFINE:Caster_Level_BL_Stripped_Psion|0	BONUS:VAR|Caster_Level_BL_Stripped_Psion|Caster_Level_Psion-CasterLevelBLPsion	BONUS:VAR|Caster_Level_Psion|CL+Caster_Level_Bonus+CasterLevelBLPsion	DEFINE:CasterLevelBLPsion|0	BONUS:VAR|CasterLevelBL_x_Psion|charbonusto("PCLEVEL","Psion")	BONUS:VAR|Caster_Level_Highest__Psionic|Caster_Level_Psion|TYPE=Base
 ###COMMENT:
 SUBCLASS:Egoist		COST:0	PROHIBITCOST:0	SPELLLIST:1|Psion	CSKILL:Concentration|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Psicraft|Autohypnosis|Balance|Heal
 SUBCLASS:Kineticist	COST:0	PROHIBITCOST:0	SPELLLIST:1|Psion	CSKILL:Concentration|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Psicraft|Autohypnosis|Disable Device|Intimidate
@@ -56,7 +56,7 @@ CLASS:Psychic Warrior	HD:8		TYPE:Base.Psionic.PC	CLASSTYPE:PC	SOURCEPAGE:p.	BONU
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Psychic Warrior	STARTSKILLPTS:2	CSKILL:Autohypnosis|Climb|Concentration|TYPE=Craft|Jump|Knowledge (Psionics)|TYPE=Profession|Ride|Search|Swim
 # Class Name		Spell Stat		Spell Type		Memorize	Caster level
-CLASS:Psychic Warrior	SPELLSTAT:WIS	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Psychic Warrior|CL+CasterLevelBonus
+CLASS:Psychic Warrior	SPELLSTAT:WIS	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Psychic Warrior|Caster_Level_BL_Stripped_Psychic Warrior	DEFINE:Caster_Level_BL_Stripped_Psychic Warrior|0	BONUS:VAR|Caster_Level_BL_Stripped_Psychic Warrior|Caster_Level_Psychic Warrior-CasterLevelBLPsychic Warrior	BONUS:VAR|Caster_Level_Psychic Warrior|CL+Caster_Level_Bonus+CasterLevelBLPsychic Warrior	DEFINE:CasterLevelBLPsychic Warrior|0	BONUS:VAR|CasterLevelBL_x_Psychic Warrior|charbonusto("PCLEVEL","Psychic Warrior")	BONUS:VAR|Caster_Level_Highest__Psionic|Caster_Level_Psychic Warrior|TYPE=Base
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|Psychic Warrior ~ Weapon and Armor Proficiency
 ###Block: Psionic subtype, BasePowerPoints, BonusPowerPoints
@@ -119,7 +119,7 @@ CLASS:Wilder	HD:6		TYPE:Base.Psionic.PC	CLASSTYPE:PC	SOURCEPAGE:p.	BONUS:COMBAT|
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Wilder	STARTSKILLPTS:4	CSKILL:Autohypnosis|Balance|Bluff|Climb|Concentration|TYPE=Craft|Escape Artist|Intimidate|Jump|Knowledge (Psionics)|Listen|TYPE=Profession|Psicraft|Sense Motive|Spot|Swim|Tumble
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
-CLASS:Wilder	SPELLSTAT:CHA	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Wilder|CL+CasterLevelBonus
+CLASS:Wilder	SPELLSTAT:CHA	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Wilder|Caster_Level_BL_Stripped_Wilder	DEFINE:Caster_Level_BL_Stripped_Wilder|0	BONUS:VAR|Caster_Level_BL_Stripped_Wilder|Caster_Level_Wilder-CasterLevelBLWilder	BONUS:VAR|Caster_Level_Wilder|CL+Caster_Level_Bonus+CasterLevelBLWilder	DEFINE:CasterLevelBLWilder|0	BONUS:VAR|CasterLevelBL_x_Wilder|charbonusto("PCLEVEL","Wilder")	BONUS:VAR|Caster_Level_Highest__Psionic|Caster_Level_Wilder|TYPE=Base
 ###Block:Proficiencies
 1	ABILITY:Wilder Class Feature|AUTOMATIC|Wilder ~ Weapon and Armor Proficiency
 ###Block: Psionic subtype, BasePowerPoints, BonusPowerPoints
@@ -161,22 +161,22 @@ CLASS:Wilder	SPELLSTAT:CHA	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Wilde
 ###Block: Monster Support
 
 # Class Name		Caster level				Use Spell List
-CLASS:Egoist (Psion)	BONUS:CASTERLEVEL|Egoist (Psion)|CL+CasterLevelBonus	SPELLLIST:1|Egoist|Psion	VISIBLE:NO
+CLASS:Egoist (Psion)	BONUS:CASTERLEVEL|Egoist|Caster_Level_BL_Stripped_Egoist	DEFINE:Caster_Level_BL_Stripped_Egoist|0	BONUS:VAR|Caster_Level_BL_Stripped_Egoist|Caster_Level_Egoist-CasterLevelBLEgoist	BONUS:VAR|Caster_Level_Egoist|CL+Caster_Level_Bonus+CasterLevelBLEgoist	DEFINE:CasterLevelBLEgoist|0	BONUS:VAR|CasterLevelBL_x_Egoist|charbonusto("PCLEVEL","Egoist (Psion)")	BONUS:VAR|Caster_Level_Highest__Psionic|Caster_Level_Egoist|TYPE=Base	SPELLLIST:1|Egoist|Psion	VISIBLE:NO
 
 # Class Name			Caster level					Use Spell List
-CLASS:Kineticist (Psion)	BONUS:CASTERLEVEL|Kineticist (Psion)|CL+CasterLevelBonus	SPELLLIST:2|Kineticist|Psion	VISIBLE:NO
+CLASS:Kineticist	BONUS:CASTERLEVEL|Kineticist|Caster_Level_BL_Stripped_Kineticist	DEFINE:Caster_Level_BL_Stripped_Kineticist|0	BONUS:VAR|Caster_Level_BL_Stripped_Kineticist|Caster_Level_Kineticist-CasterLevelBLKineticist	BONUS:VAR|Caster_Level_Kineticist|CL+Caster_Level_Bonus+CasterLevelBLKineticist	DEFINE:CasterLevelBLKineticist|0	BONUS:VAR|CasterLevelBL_x_Kineticist|charbonusto("PCLEVEL","Kineticist (Psion)")	BONUS:VAR|Caster_Level_Highest__Psionic|Caster_Level_Kineticist|TYPE=Base	SPELLLIST:2|Kineticist|Psion	VISIBLE:NO
 
 # Class Name		Caster level				Use Spell List
-CLASS:Nomad (Psion)	BONUS:CASTERLEVEL|Nomad (Psion)|CL+CasterLevelBonus	SPELLLIST:2|Nomad|Psion	VISIBLE:NO
+CLASS:Nomad (Psion)	BONUS:CASTERLEVEL|Nomad|Caster_Level_BL_Stripped_Nomad	DEFINE:Caster_Level_BL_Stripped_Nomad|0	BONUS:VAR|Caster_Level_BL_Stripped_Nomad|Caster_Level_Nomad-CasterLevelBLNomad	BONUS:VAR|Caster_Level_Nomad|CL+Caster_Level_Bonus+CasterLevelBLNomad	DEFINE:CasterLevelBLNomad|0	BONUS:VAR|CasterLevelBL_x_Nomad|charbonusto("PCLEVEL","Nomad (Psion)")	BONUS:VAR|Caster_Level_Highest__Psionic|Caster_Level_Nomad|TYPE=Base	SPELLLIST:2|Nomad|Psion	VISIBLE:NO
 
 # Class Name		Caster level				Use Spell List
-CLASS:Seer (Psion)	BONUS:CASTERLEVEL|Seer (Psion)|CL+CasterLevelBonus	SPELLLIST:2|Psion|Seer	VISIBLE:NO
+CLASS:Seer (Psion)	BONUS:CASTERLEVEL|Seer|Caster_Level_BL_Stripped_Seer	DEFINE:Caster_Level_BL_Stripped_Seer|0	BONUS:VAR|Caster_Level_BL_Stripped_Seer|Caster_Level_Seer-CasterLevelBLSeer	BONUS:VAR|Caster_Level_Seer|CL+Caster_Level_Bonus+CasterLevelBLSeer	DEFINE:CasterLevelBLSeer|0	BONUS:VAR|CasterLevelBL_x_Seer|charbonusto("PCLEVEL","Seer (Psion)")	BONUS:VAR|Caster_Level_Highest__Psionic|Caster_Level_Seer|TYPE=Base	SPELLLIST:2|Psion|Seer	VISIBLE:NO
 
 # Class Name		Caster level				Use Spell List
-CLASS:Shaper (Psion)	BONUS:CASTERLEVEL|Shaper (Psion)|CL+CasterLevelBonus	SPELLLIST:2|Psion|Shaper	VISIBLE:NO
+CLASS:Shaper (Psion)	BONUS:CASTERLEVEL|Shaper|Caster_Level_BL_Stripped_Shaper	DEFINE:Caster_Level_BL_Stripped_Shaper|0	BONUS:VAR|Caster_Level_BL_Stripped_Shaper|Caster_Level_Shaper-CasterLevelBLShaper	BONUS:VAR|Caster_Level_Shaper|CL+Caster_Level_Bonus+CasterLevelBLShaper	DEFINE:CasterLevelBLShaper|0	BONUS:VAR|CasterLevelBL_x_Shaper|charbonusto("PCLEVEL","Shaper (Psion)")	BONUS:VAR|Caster_Level_Highest__Psionic|Caster_Level_Shaper|TYPE=Base	SPELLLIST:2|Psion|Shaper	VISIBLE:NO
 
 # Class Name		Caster level					Use Spell List
-CLASS:Telepath (Psion)	BONUS:CASTERLEVEL|Telepath (Psion)|CL+CasterLevelBonus	SPELLLIST:2|Psion|Telepath	VISIBLE:NO
+CLASS:Telepath (Psion)	BONUS:CASTERLEVEL|Telepath|Caster_Level_BL_Stripped_Telepath	DEFINE:Caster_Level_BL_Stripped_Telepath|0	BONUS:VAR|Caster_Level_BL_Stripped_Telepath|Caster_Level_Telepath-CasterLevelBLTelepath	BONUS:VAR|Caster_Level_Telepath|CL+Caster_Level_Bonus+CasterLevelBLTelepath	DEFINE:CasterLevelBLTelepath|0	BONUS:VAR|CasterLevelBL_x_Telepath|charbonusto("PCLEVEL","Telepath (Psion)")	BONUS:VAR|Caster_Level_Highest__Psionic|Caster_Level_Telepath|TYPE=Base	SPELLLIST:2|Psion|Telepath	VISIBLE:NO
 
 # Class Name		Hit Dice	Type					Class Type			Abbreviation	Max Level	Source Page		Combat bonus															Modify VAR																							Bonus
 CLASS:Cerebremancer	HD:4		TYPE:PC.Prestige.Psionic	CLASSTYPE:Prestige	ABB:Cer		MAXLEVEL:10	SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|PsiCrystalLVL|CL|PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
@@ -222,7 +222,7 @@ CLASS:Psionic Fist	PREABILITY:1,CATEGORY=Special Ability,Still Mind	PREABILITY:1
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Psionic Fist	STARTSKILLPTS:4	CSKILL:Autohypnosis|Concentration|TYPE=Craft|Escape Artist|Hide|Jump|Knowledge (Psionics)|Listen|Move Silently|Psicraft|Sense Motive|Spot|Tumble
 # Class Name		Spell Stat		Spell Type		Memorize	Caster level				Use Spell List
-CLASS:Psionic Fist	SPELLSTAT:WIS	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Psionic Fist|CL+CasterLevelBonus	SPELLLIST:1|psychic warrior
+CLASS:Psionic Fist	SPELLSTAT:WIS	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|Psionic Fist|Caster_Level_BL_Stripped_Psionic_Fist	DEFINE:Caster_Level_BL_Stripped_Psionic_Fist|0	BONUS:VAR|Caster_Level_BL_Stripped_Psionic_Fist|Caster_Level_Psionic_Fist-CasterLevelBLPsionic_Fist	BONUS:VAR|Caster_Level_Psionic_Fist|CL+Caster_Level_Bonus+CasterLevelBLPsionic_Fist	DEFINE:CasterLevelBLPsionic_Fist|0	BONUS:VAR|CasterLevelBL_x_Psionic_Fist|charbonusto("PCLEVEL","Psionic Fist")	BONUS:VAR|Caster_Level_Highest__Psionic|Caster_Level_Psionic_Fist|TYPE=Base	SPELLLIST:1|psychic warrior
 ###Block: Psionic subtype, BasePowerPoints, BonusPowerPoints
 1	BONUS:VAR|PsionicFistML|CL	BONUS:VAR|PsionicFistML|var("BL=Psionic Fist")																												DEFINE:PsionicFistML|0	TEMPLATE:Psionic
 1	BONUS:VAR|BasePowerPoints|1	BONUS:VAR|BasePowerPoints|2|PREVARGTEQ:PsionicFistML,2	BONUS:VAR|BasePowerPoints|3|PREVARGTEQ:PsionicFistML,3	BONUS:VAR|BasePowerPoints|4|PREVARGTEQ:PsionicFistML,4
@@ -343,7 +343,7 @@ CLASS:War Mind	!PREALIGN:CG,CN,CE	PRESKILL:2,Knowledge (History)=2,Knowledge (Ps
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:War Mind	STARTSKILLPTS:2	CSKILL:Autohypnosis|Concentration|Intimidate|Knowledge (History)|Knowledge (Psionics)|Psicraft
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level			Use Spell List
-CLASS:War Mind	SPELLSTAT:WIS	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|War Mind|CL+CasterLevelBonus	SPELLLIST:1|psychic warrior
+CLASS:War Mind	SPELLSTAT:WIS	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|War Mind|Caster_Level_BL_Stripped_War_Mind	DEFINE:Caster_Level_BL_Stripped_War_Mind|0	BONUS:VAR|Caster_Level_BL_Stripped_War_Mind|Caster_Level_War_Mind-CasterLevelBLWar_Mind	BONUS:VAR|Caster_Level_War_Mind|CL+Caster_Level_Bonus+CasterLevelBLWar_Mind	DEFINE:CasterLevelBLWar_Mind|0	BONUS:VAR|CasterLevelBL_x_War_Mind|charbonusto("PCLEVEL","War Mind")	BONUS:VAR|Caster_Level_Highest__Psionic|Caster_Level_War_Mind|TYPE=Base	SPELLLIST:1|psychic warrior
 ###Block: Psionic subtype, BasePowerPoints, BonusPowerPoints
 1	BONUS:VAR|WarMindML|CL	BONUS:VAR|WarMindML|var("BL=War Mind")																										DEFINE:WarMindML|0	TEMPLATE:Psionic
 1	BONUS:VAR|BasePowerPoints|2	BONUS:VAR|BasePowerPoints|3|PREVARGTEQ:WarMindML,2	BONUS:VAR|BasePowerPoints|4|PREVARGTEQ:WarMindML,3	BONUS:VAR|BasePowerPoints|5|PREVARGTEQ:WarMindML,4
@@ -366,7 +366,7 @@ CLASS:War Mind	SPELLSTAT:WIS	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|War
 # Class Name	Hit Dice	Type				Visible
 CLASS:PsiSpell	HD:4		TYPE:Base.Psionic.PC	VISIBLE:NO
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level			Use Spell List
-CLASS:PsiSpell	SPELLSTAT:CHA	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|PsiSpell|CL+CasterLevelBonus	SPELLLIST:2|Psion|PsiSpell
+CLASS:PsiSpell	SPELLSTAT:CHA	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|PsiSpell|Caster_Level_BL_Stripped_PsiSpell	DEFINE:Caster_Level_BL_Stripped_PsiSpell|0	BONUS:VAR|Caster_Level_BL_Stripped_PsiSpell|Caster_Level_PsiSpell-CasterLevelBLPsiSpell	BONUS:VAR|Caster_Level_PsiSpell|CL+Caster_Level_Bonus+CasterLevelBLPsiSpell	DEFINE:CasterLevelBLPsiSpell|0	BONUS:VAR|CasterLevelBL_x_PsiSpell|charbonusto("PCLEVEL","PsiSpell")	BONUS:VAR|Caster_Level_Highest__Psionic|Caster_Level_PsiSpell|TYPE=Base	SPELLLIST:2|Psion|PsiSpell
 
 
 
