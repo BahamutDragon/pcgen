@@ -305,6 +305,29 @@
 			ARMOR CLASS
 	  ====================================
 	  ====================================-->
+	<#if (pchasvar("Use_AC_Output"))>	<#--	Preformula Parser Support Request	-->
+	<armor_class>
+		<total>${pcstring('VAR.AC_Output_Total.INTVAL')}</total>
+		<listing>${pcstring('BONUS.COMBAT.AC.LISTING')}</listing>
+		<flat>${pcstring('VAR.AC_Output_Flatfooted.INTVAL')}</flat>
+		<touch>${pcstring('VAR.AC_Output_Touch.INTVAL')}</touch>
+		<base>${pcstring('VAR.AC_Output_Base.INTVAL')}</base>
+		<armor_bonus>${pcstring('VAR.AC_Output_Armor.INTVAL')}</armor_bonus>
+		<shield_bonus>${pcstring('VAR.AC_Output_Shield.INTVAL')}</shield_bonus>
+		<stat_mod>${pcstring('VAR.AC_Output_Ability.INTVAL')}</stat_mod>
+		<size_mod>${pcstring('VAR.AC_Output_Size.INTVAL')}</size_mod>
+		<natural>${pcstring('VAR.AC_Output_Natural_Armor.INTVAL')}</natural>
+		<deflection>${pcstring('VAR.AC_Output_Deflection.INTVAL')}</deflection>
+		<dodge>${pcstring('VAR.AC_Output_Dodge.INTVAL')}</dodge>
+		<dodge_bonus>${pcstring('VAR.AC_Output_Dodge.INTVAL')}</dodge_bonus>	<#--	Why is this repeated?	-->
+		<class_bonus>${pcstring('VAR.AC_Output_ClassDefense.INTVAL')}</class_bonus>
+		<misc>${pcstring('VAR.AC_Output_Misc.INTVAL')}</misc>
+		<insight>${pcstring('VAR.AC_Output_Insight.INTVAL')}</insight>
+		<morale>${pcstring('VAR.AC_Output_Morale.INTVAL')}</morale>
+		<sacred>${pcstring('VAR.AC_Output_Sacred.INTVAL')}</sacred>
+		<profane>${pcstring('VAR.AC_Output_Profane.INTVAL')}</profane>
+	</armor_class>
+	<#else>
 	<armor_class>
 		<total>${pcstring('AC.Total')}</total>
 		<listing>${pcstring('BONUS.COMBAT.AC.LISTING')}</listing>
@@ -318,7 +341,7 @@
 		<natural>${pcstring('AC.NaturalArmor')}</natural>
 		<deflection>${pcstring('AC.Deflection')}</deflection>
 		<dodge>${pcstring('AC.Dodge')}</dodge>
-		<dodge_bonus>${pcstring('AC.Dodge')}</dodge_bonus>
+		<dodge_bonus>${pcstring('AC.Dodge')}</dodge_bonus>	<#--	Why is this repeated?	-->
 		<class_bonus>${pcstring('AC.ClassDefense')}</class_bonus>
 		<#if (gamemodename = "Modern" || gamemodename = "Darwins_World_2" || gamemodename = "Sidewinder") >
 		<equipment_bonus>${pcstring('AC.Equipment')}</equipment_bonus>
@@ -328,11 +351,14 @@
 		<morale>${pcstring('AC.Morale')}</morale>
 		<sacred>${pcstring('AC.Sacred')}</sacred>
 		<profane>${pcstring('AC.Profane')}</profane>
+	</armor_class>
+	</#if>
+	<armor_class>
 		<miss_chance/>
 		<max_dex>${pcstring('MAXDEX')}</max_dex>
 		<spell_failure>${pcstring('SPELLFAILURE')}</spell_failure>
 		<check_penalty>${pcstring('ACCHECK')}</check_penalty>
-		<spell_resistance></spell_resistance>
+		<spell_resistance>${pcstring('SR')}</spell_resistance>
 	</armor_class>
 	<!--
 	  ====================================
