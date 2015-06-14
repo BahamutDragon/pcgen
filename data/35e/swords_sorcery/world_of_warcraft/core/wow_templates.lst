@@ -1,21 +1,32 @@
-# CVS $Revision: $ $Author: $ -- Sat Jun 13 22:21:29 2015 -- reformated by prettylst.pl v1.39 (build 8180)
+# CVS $Revision: $ $Author: $ -- Sun Jun 14 11:03:13 2015 -- reformated by prettylst.pl v1.39 (build 8180)
 SOURCELONG:World of Warcraft	SOURCESHORT:WoW	SOURCEDATE:2006-11
 
 #Templates
 
 ##MAGISTER'S ITEM SET
-# Template Name			Special ABility																								Required Template				Caster level					Stat bonus
+# Template Name										Unique Key				Visible	Template					Special ABility																								Define						Required Domain				Required Template				Prohibited Template				Caster level					Stat bonus		Modify VAR										Type
 MAG_BELT
 MAG_BOOTS
-MAG_BELT (Conjuration)		SAB:All Conjuration spells cast as if 1 level higher																								BONUS:CASTERLEVEL|SCHOOL.Conjuration|1
-MAG_BELT (Evocation)		SAB:All Evocation spells cast as if 1 level higher																								BONUS:CASTERLEVEL|SCHOOL.Evocation|1
-MAG_BELT (Divination)		SAB:All Divination spells cast as if 1 level higher																								BONUS:CASTERLEVEL|SCHOOL.Divination|1
-MAG_BELT (Abjuration)		SAB:All Abjuration spells cast as if 1 level higher																								BONUS:CASTERLEVEL|SCHOOL.Abjuration|1
-MAG_BELT (Illusion)		SAB:All Illusion spells cast as if 1 level higher																								BONUS:CASTERLEVEL|SCHOOL.Illusion|1
-MAG_BELT (Enchantment)		SAB:All Enchantment spells cast as if 1 level higher																								BONUS:CASTERLEVEL|SCHOOL.Enchantment|1
-MAG_BELT (Necromancy)		SAB:All Necromancy spells cast as if 1 level higher																								BONUS:CASTERLEVEL|SCHOOL.Necromancy|1
-MAG_BELT (Transmutation)	SAB:All Transmutation spells cast as if 1 level higher																							BONUS:CASTERLEVEL|SCHOOL.Transmutation|1
+MAG_BELT (Conjuration)																						SAB:All Conjuration spells cast as if 1 level higher																																												BONUS:CASTERLEVEL|SCHOOL.Conjuration|1
+MAG_BELT (Evocation)																						SAB:All Evocation spells cast as if 1 level higher																																												BONUS:CASTERLEVEL|SCHOOL.Evocation|1
+MAG_BELT (Divination)																						SAB:All Divination spells cast as if 1 level higher																																												BONUS:CASTERLEVEL|SCHOOL.Divination|1
+MAG_BELT (Abjuration)																						SAB:All Abjuration spells cast as if 1 level higher																																												BONUS:CASTERLEVEL|SCHOOL.Abjuration|1
+MAG_BELT (Illusion)																						SAB:All Illusion spells cast as if 1 level higher																																												BONUS:CASTERLEVEL|SCHOOL.Illusion|1
+MAG_BELT (Enchantment)																						SAB:All Enchantment spells cast as if 1 level higher																																												BONUS:CASTERLEVEL|SCHOOL.Enchantment|1
+MAG_BELT (Necromancy)																						SAB:All Necromancy spells cast as if 1 level higher																																												BONUS:CASTERLEVEL|SCHOOL.Necromancy|1
+MAG_BELT (Transmutation)																					SAB:All Transmutation spells cast as if 1 level higher																																											BONUS:CASTERLEVEL|SCHOOL.Transmutation|1
 
-2-item				SAB:Fire resistance 5	SAB:Detect Magic at will	SAB:+1 resistance bonus on saving throws											PRETEMPLATE:2,MAG_BELT,MAG_BOOTS
-4-item				SAB:+2 enhancement bonus to Intelligence	SAB:Cold resistance 5	SAB:+3 resistance bonus on saving throws	SAB:See Invisibility on command once per day														BONUS:STAT|INT|2
-6-item				SAB:Wearer may cast one spell per day of up to 4th level as though affected by the maximize feat.																							BONUS:STAT|INT|2
+2-item																								SAB:Fire resistance 5	SAB:Detect Magic at will	SAB:+1 resistance bonus on saving throws																								PRETEMPLATE:2,MAG_BELT,MAG_BOOTS
+4-item																								SAB:+2 enhancement bonus to Intelligence	SAB:Cold resistance 5	SAB:+3 resistance bonus on saving throws	SAB:See Invisibility on command once per day																																		BONUS:STAT|INT|2
+6-item																								SAB:Wearer may cast one spell per day of up to 4th level as though affected by the maximize feat.																																											BONUS:STAT|INT|2
+
+First Domain Taken														VISIBLE:NO	TEMPLATE:CHOOSE:TYPE=FirstDomain
+#
+Animal											KEY:First Domain ~ Animal	VISIBLE:NO																																								PREDOMAIN:1,WoW Domain ~ Animal																								BONUS:VAR|Greater_Domain_Allowed_Animal|1|PRECLASS:1,Healer=10	TYPE:FirstDomain DEFINE:Greater_Domain_Allowed_Animal|0
+Wild												KEY:First Domain ~ Wild		VISIBLE:NO																																	DEFINE:Greater_Domain_Allowed_Wild|0	PREDOMAIN:1,WoW Domain ~ Wild																									BONUS:VAR|Greater_Domain_Allowed_Wild|1|PRECLASS:1,Healer=10	TYPE:FirstDomain
+
+
+Second Domain Taken    VISIBLE:NO TEMPLATE:CHOOSE:TYPE=SecondDomain
+#
+Animal											KEY:First Domain ~ Animal	VISIBLE:NO																																	DEFINE:Greater_Domain_Allowed_Animal|0	PREDOMAIN:1,WoW Domain ~ Animal							!PRETEMPLATE:1,First Domain ~ Animal											BONUS:VAR|Greater_Domain_Allowed_Animal|1|PRECLASS:1,Healer=20	TYPE:SecondDomain
+Wild												KEY:First Domain ~ Wild		VISIBLE:NO																																	DEFINE:Greater_Domain_Allowed_Wild|0	PREDOMAIN:1,WoW Domain ~ Wild								!PRETEMPLATE:1,First Domain ~ Wild												BONUS:VAR|Greater_Domain_Allowed_Wild|1|PRECLASS:1,Healer=20	TYPE:SecondDomain
