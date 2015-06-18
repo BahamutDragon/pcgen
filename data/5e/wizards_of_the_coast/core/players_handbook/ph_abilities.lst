@@ -2,7 +2,7 @@
 Default	CATEGORY:Internal	DEFINE:Proficiency_Bonus|0	BONUS:VAR|Proficiency_Bonus|(TL+7)/4	DEFINE:BlindsightRange|0	DEFINE:DarkvisionRange|0	DEFINE:TruesightRange|0	DEFINE:SpellCasterTotalLVL|0	DEFINE:SpellCasterClassCount|0	ABILITY:Special Ability|AUTOMATIC|Blindsight|PREVARGTEQ:BlindsightRange,1		ABILITY:Special Ability|AUTOMATIC|Darkvision|PREVARGTEQ:DarkvisionRange,1		ABILITY:Special Ability|AUTOMATIC|Truesight|PREVARGTEQ:TruesightRange,1	ABILITY:Internal|AUTOMATIC|First Level Proficiencies|PREPCLEVEL:MIN=1	BONUS:ABILITYPOOL|Background|1|PRECLASS:1,TYPE.Base=1	BONUS:VAR|POOL_Background_Bond|1|PREABILITY:1,CATEGORY=Special Ability,TYPE.Background Selection|!PREABILITY:1,CATEGORY=Special Ability,TYPE.Bond	ABILITY:Special Ability|AUTOMATIC|Spellcaster Spell Slots|PREVARGTEQ:SpellCasterClassCount,1	ABILITY:Special Ability|AUTOMATIC|Passive Perception	ABILITY:SkillExport|AUTOMATIC|TYPE=SkillExport	DEFINE:POOL_Barbarian_Skill|0		DEFINE:POOL_Cleric_Skill|0		DEFINE:POOL_Druid_Skill|0		DEFINE:POOL_Fighter_Skill|0		DEFINE:POOL_Monk_Skill|0		DEFINE:POOL_Paladin_Skill|0	DEFINE:POOL_Ranger_Skill|0	DEFINE:POOL_Rogue_Skill|0	DEFINE:POOL_Sorcerer_Skill|0	DEFINE:POOL_Warlock_Skill|0	DEFINE:POOL_Wizard_Skill|0	DEFINE:POOL_Character_Advancement_Selection|0	DEFINE:POOL_Language|0	
 
 # Default
-CATEGORY=Internal|Default.MOD									DEFINE:Use_AC_Output|0					BONUS:VAR|Use_AC_Output|1	ABILITY:Internal|AUTOMATIC|AC Tracker
+CATEGORY=Internal|Default.MOD									DEFINE:Use_AC_Output|0					BONUS:VAR|Use_AC_Output|1	ABILITY:Internal|AUTOMATIC|AC Tracker	DEFINE:POOL_Expertise|0
 
 AC Tracker				CATEGORY:Internal	ABILITY:Armor Class Method|AUTOMATIC|AC Tracker ~ Default|!PREABILITY:1,CATEGORY=Special Ability,TYPE.AC_Tracker_Choice	
 #
@@ -329,6 +329,10 @@ Undercommon	CATEGORY:Language	AUTO:LANG|Undercommon	TYPE:Language.Spoken.Elvish
 ###Block: Homebrew support - Language Support for languages not included
 Choose Language	CATEGORY:Language	TYPE:Language.Spoken.Choice	ASPECT:Language|%1|%LIST	CHOOSE:USERINPUT|TITLE=Write in Language	MULT:YES
 
+#-----------------------------------------#
+#		 Proficiencies			#
+#-----------------------------------------#
+
 
 # Handles the Proficiency Bonus for Classes, to avoid the inherent overlap PCGen will allow if the tag is not an exact match.
 ###Block: Weapon Proficiency Bonus
@@ -419,6 +423,69 @@ Intimidation	ASPECT:KEYSTAT|CHA	VISIBLE:EXPORT	CATEGORY:SkillExport	TYPE:SkillEx
 Performance		ASPECT:KEYSTAT|CHA	VISIBLE:EXPORT	CATEGORY:SkillExport	TYPE:SkillExport	DEFINE:SKILL_Performance|0	DEFINE:SkillProf_Performance|0	BONUS:VAR|SKILL_Performance|CHA+SkillProf_Performance	ASPECT:AbilityMod|%1|CHA	ASPECT:Total|%1|SKILL_Performance		ASPECT:ProfBonus|%1|SkillProf_Performance
 Persuasion		ASPECT:KEYSTAT|CHA	VISIBLE:EXPORT	CATEGORY:SkillExport	TYPE:SkillExport	DEFINE:SKILL_Persuasion|0	DEFINE:SkillProf_Persuasion|0	BONUS:VAR|SKILL_Persuasion|CHA+SkillProf_Persuasion	ASPECT:AbilityMod|%1|CHA	ASPECT:Total|%1|SKILL_Persuasion		ASPECT:ProfBonus|%1|SkillProf_Persuasion
 
+###Block: Expertise Support
+Athletics		KEY:Expertise ~ Athletics		CATEGORY:Special Ability	TYPE:Expertise	PREABILITY:1,CATEGORY=Skill,Athletics					BONUS:VAR|SkillProf_Athletics|Proficiency_Bonus|TYPE=Expertise
+Acrobatics		KEY:Expertise ~ Acrobatics		CATEGORY:Special Ability	TYPE:Expertise	PREABILITY:1,CATEGORY=Skill,Acrobatics					BONUS:VAR|SkillProf_Acrobatics|Proficiency_Bonus|TYPE=Expertise
+Sleight of Hand	KEY:Expertise ~ Sleight of Hand	CATEGORY:Special Ability	TYPE:Expertise	PREABILITY:1,CATEGORY=Skill,Sleight of Hand				BONUS:VAR|SkillProf_Sleight_of_Hand|Proficiency_Bonus|TYPE=Expertise
+Stealth		KEY:Expertise ~ Stealth			CATEGORY:Special Ability	TYPE:Expertise	PREABILITY:1,CATEGORY=Skill,Stealth						BONUS:VAR|SkillProf_Stealth|Proficiency_Bonus|TYPE=Expertise
+Arcana		KEY:Expertise ~ Arcana			CATEGORY:Special Ability	TYPE:Expertise	PREABILITY:1,CATEGORY=Skill,Arcana						BONUS:VAR|SkillProf_Arcana|Proficiency_Bonus|TYPE=Expertise
+History		KEY:Expertise ~ History			CATEGORY:Special Ability	TYPE:Expertise	PREABILITY:1,CATEGORY=Skill,History						BONUS:VAR|SkillProf_History|Proficiency_Bonus|TYPE=Expertise
+Investigation	KEY:Expertise ~ Investigation		CATEGORY:Special Ability	TYPE:Expertise	PREABILITY:1,CATEGORY=Skill,Investigation					BONUS:VAR|SkillProf_Investigation|Proficiency_Bonus|TYPE=Expertise
+Nature		KEY:Expertise ~ Nature			CATEGORY:Special Ability	TYPE:Expertise	PREABILITY:1,CATEGORY=Skill,Nature						BONUS:VAR|SkillProf_Nature|Proficiency_Bonus|TYPE=Expertise
+Religion		KEY:Expertise ~ Religion		CATEGORY:Special Ability	TYPE:Expertise	PREABILITY:1,CATEGORY=Skill,Religion					BONUS:VAR|SkillProf_Religion|Proficiency_Bonus|TYPE=Expertise
+Animal Handling	KEY:Expertise ~ Animal Handling	CATEGORY:Special Ability	TYPE:Expertise	PREABILITY:1,CATEGORY=Skill,Animal Handling				BONUS:VAR|SkillProf_Animal_Handling|Proficiency_Bonus|TYPE=Expertise
+Insight		KEY:Expertise ~ Insight			CATEGORY:Special Ability	TYPE:Expertise	PREABILITY:1,CATEGORY=Skill,Insight						BONUS:VAR|SkillProf_Insight|Proficiency_Bonus|TYPE=Expertise
+Medicine		KEY:Expertise ~ Medicine		CATEGORY:Special Ability	TYPE:Expertise	PREABILITY:1,CATEGORY=Skill,Medicine					BONUS:VAR|SkillProf_Medicine|Proficiency_Bonus|TYPE=Expertise
+Perception		KEY:Expertise ~ Perception		CATEGORY:Special Ability	TYPE:Expertise	PREABILITY:1,CATEGORY=Skill,Perception					BONUS:VAR|SkillProf_Perception|Proficiency_Bonus|TYPE=Expertise
+Survival		KEY:Expertise ~ Survival		CATEGORY:Special Ability	TYPE:Expertise	PREABILITY:1,CATEGORY=Skill,Survival					BONUS:VAR|SkillProf_Survival|Proficiency_Bonus|TYPE=Expertise
+Deception		KEY:Expertise ~ Deception		CATEGORY:Special Ability	TYPE:Expertise	PREABILITY:1,CATEGORY=Skill,Deception					BONUS:VAR|SkillProf_Deception|Proficiency_Bonus|TYPE=Expertise
+Intimidation	KEY:Expertise ~ Intimidation		CATEGORY:Special Ability	TYPE:Expertise	PREABILITY:1,CATEGORY=Skill,Intimidation					BONUS:VAR|SkillProf_Intimidation|Proficiency_Bonus|TYPE=Expertise
+Performance		KEY:Expertise ~ Performance		CATEGORY:Special Ability	TYPE:Expertise	PREABILITY:1,CATEGORY=Skill,Performance					BONUS:VAR|SkillProf_Performance|Proficiency_Bonus|TYPE=Expertise
+Persuasion		KEY:Expertise ~ Persuasion		CATEGORY:Special Ability	TYPE:Expertise	PREABILITY:1,CATEGORY=Skill,Persuasion					BONUS:VAR|SkillProf_Persuasion|Proficiency_Bonus|TYPE=Expertise
+# Skill
+Thieves' Tools	KEY:Expertise ~ Thieves' Tools	CATEGORY:Special Ability	TYPE:Expertise	PREABILITY:1,CATEGORY=Internal,Tool Proficiency ~ Thieves' Tools	BONUS:VAR|ProfBonus_Thieves_Tools|Proficiency_Bonus|TYPE=Expertise
+
+
+###Block: Tool Proficiency
+Tool Proficiency ~ Alchemist's Supplies		DEFINE:ProfBonus_Alchemists_Supplies|0	TYPE:Tool Proficiency.Tool Proficiency Artisan's Tools	CATEGORY:Internal	BONUS:VAR|ProfBonus_Alchemists_Supplies|Proficiency_Bonus		ASPECT:SkillBonus|+%1 Alchemist's Supplies|ProfBonus_Alchemists_Supplies		
+Tool Proficiency ~ Brewer's Supplies		DEFINE:ProfBonus_Brewers_Supplies|0		TYPE:Tool Proficiency.Tool Proficiency Artisan's Tools	CATEGORY:Internal	BONUS:VAR|ProfBonus_Brewers_Supplies|Proficiency_Bonus		ASPECT:SkillBonus|+%1 Brewer's Supplies|ProfBonus_Brewers_Supplies		
+Tool Proficiency ~ Calligrapher's Supplies	DEFINE:ProfBonus_Calligraphers_Supplies|0	TYPE:Tool Proficiency.Tool Proficiency Artisan's Tools	CATEGORY:Internal	BONUS:VAR|ProfBonus_Calligraphers_Supplies|Proficiency_Bonus	ASPECT:SkillBonus|+%1 Calligrapher's Supplies|ProfBonus_Calligraphers_Supplies	
+Tool Proficiency ~ Carpenter's Tools		DEFINE:ProfBonus_Carpenters_Tools|0		TYPE:Tool Proficiency.Tool Proficiency Artisan's Tools	CATEGORY:Internal	BONUS:VAR|ProfBonus_Carpenters_Tools|Proficiency_Bonus		ASPECT:SkillBonus|+%1 Carpenter's Tools|ProfBonus_Carpenters_Tools		
+Tool Proficiency ~ Cartographer's Tools		DEFINE:ProfBonus_Cartographers_Tools|0	TYPE:Tool Proficiency.Tool Proficiency Artisan's Tools	CATEGORY:Internal	BONUS:VAR|ProfBonus_Cartographers_Tools|Proficiency_Bonus		ASPECT:SkillBonus|+%1 Cartographer's Tools|ProfBonus_Cartographers_Tools		
+Tool Proficiency ~ Cobbler's Tools			DEFINE:ProfBonus_Cobblers_Tools|0		TYPE:Tool Proficiency.Tool Proficiency Artisan's Tools	CATEGORY:Internal	BONUS:VAR|ProfBonus_Cobblers_Tools|Proficiency_Bonus			ASPECT:SkillBonus|+%1 Cobbler's Tools|ProfBonus_Cobblers_Tools		
+Tool Proficiency ~ Cook's Utensils			DEFINE:ProfBonus_Cooks_Utensils|0		TYPE:Tool Proficiency.Tool Proficiency Artisan's Tools	CATEGORY:Internal	BONUS:VAR|ProfBonus_Cooks_Utensils|Proficiency_Bonus			ASPECT:SkillBonus|+%1 Cook's Utensils|ProfBonus_Cooks_Utensils		
+Tool Proficiency ~ Glassblower's Tools		DEFINE:ProfBonus_Glassblowers_Tools|0	TYPE:Tool Proficiency.Tool Proficiency Artisan's Tools	CATEGORY:Internal	BONUS:VAR|ProfBonus_Glassblowers_Tools|Proficiency_Bonus		ASPECT:SkillBonus|+%1 Glassblower's Tools|ProfBonus_Glassblowers_Tools		
+Tool Proficiency ~ Jeweler's Tools			DEFINE:ProfBonus_Jewelers_Tools|0		TYPE:Tool Proficiency.Tool Proficiency Artisan's Tools	CATEGORY:Internal	BONUS:VAR|ProfBonus_Jewelers_Tools|Proficiency_Bonus			ASPECT:SkillBonus|+%1 Jeweler's Tools|ProfBonus_Jewelers_Tools		
+Tool Proficiency ~ Leatherworker's Tools		DEFINE:ProfBonus_Leatherworkers_Tools|0	TYPE:Tool Proficiency.Tool Proficiency Artisan's Tools	CATEGORY:Internal	BONUS:VAR|ProfBonus_Leatherworkers_Tools|Proficiency_Bonus		ASPECT:SkillBonus|+%1 Leatherworker's Tools|ProfBonus_Leatherworkers_Tools	
+Tool Proficiency ~ Mason's Tools			DEFINE:ProfBonus_Masons_Tools|0		TYPE:Tool Proficiency.Tool Proficiency Artisan's Tools	CATEGORY:Internal	BONUS:VAR|ProfBonus_Masons_Tools|Proficiency_Bonus			ASPECT:SkillBonus|+%1 Mason's Tools|ProfBonus_Masons_Tools			
+Tool Proficiency ~ Painter's Supplies		DEFINE:ProfBonus_Painters_Supplies|0	TYPE:Tool Proficiency.Tool Proficiency Artisan's Tools	CATEGORY:Internal	BONUS:VAR|ProfBonus_Painters_Supplies|Proficiency_Bonus		ASPECT:SkillBonus|+%1 Painter's Supplies|ProfBonus_Painters_Supplies		
+Tool Proficiency ~ Potter's Tools			DEFINE:ProfBonus_Potters_Tools|0		TYPE:Tool Proficiency.Tool Proficiency Artisan's Tools	CATEGORY:Internal	BONUS:VAR|ProfBonus_Potters_Tools|Proficiency_Bonus			ASPECT:SkillBonus|+%1 Potter's Tools|ProfBonus_Potters_Tools			
+Tool Proficiency ~ Smith's Tools			DEFINE:ProfBonus_Smiths_Tools|0		TYPE:Tool Proficiency.Tool Proficiency Artisan's Tools	CATEGORY:Internal	BONUS:VAR|ProfBonus_Smiths_Tools|Proficiency_Bonus			ASPECT:SkillBonus|+%1 Smith's Tools|ProfBonus_Smiths_Tools			
+Tool Proficiency ~ Tinker's Tools			DEFINE:ProfBonus_Tinkers_Tools|0		TYPE:Tool Proficiency.Tool Proficiency Artisan's Tools	CATEGORY:Internal	BONUS:VAR|ProfBonus_Tinkers_Tools|Proficiency_Bonus			ASPECT:SkillBonus|+%1 Tinker's Tools|ProfBonus_Tinkers_Tools			
+Tool Proficiency ~ Weaver's Tools			DEFINE:ProfBonus_Weavers_Tools|0		TYPE:Tool Proficiency.Tool Proficiency Artisan's Tools	CATEGORY:Internal	BONUS:VAR|ProfBonus_Weavers_Tools|Proficiency_Bonus			ASPECT:SkillBonus|+%1 Weaver's Tools|ProfBonus_Weavers_Tools			
+Tool Proficiency ~ Woodcarver's Tools		DEFINE:ProfBonus_Woodcarvers_Tools|0	TYPE:Tool Proficiency.Tool Proficiency Artisan's Tools	CATEGORY:Internal	BONUS:VAR|ProfBonus_Woodcarvers_Tools|Proficiency_Bonus		ASPECT:SkillBonus|+%1 Woodcarver's Tools|ProfBonus_Woodcarvers_Tools		
+Tool Proficiency ~ Disguise Kit			DEFINE:ProfBonus_Disguise_Kit|0		TYPE:Tool Proficiency							CATEGORY:Internal	BONUS:VAR|ProfBonus_Disguise_Kit|Proficiency_Bonus			ASPECT:SkillBonus|+%1 Disguise Kit|ProfBonus_Disguise_Kit			
+Tool Proficiency ~ Forgery Kit			DEFINE:ProfBonus_Forgery_Kit|0		TYPE:Tool Proficiency							CATEGORY:Internal	BONUS:VAR|ProfBonus_Forgery_Kit|Proficiency_Bonus			ASPECT:SkillBonus|+%1 Forgery Kit|ProfBonus_Forgery_Kit			
+Tool Proficiency ~ Dice Set				DEFINE:ProfBonus_Dice_Set|0			TYPE:Tool Proficiency.Tool Proficiency Gaming Set		CATEGORY:Internal	BONUS:VAR|ProfBonus_Dice_Set|Proficiency_Bonus				ASPECT:SkillBonus|+%1 Dice Set|ProfBonus_Dice_Set			
+Tool Proficiency ~ Dragonchess Set			DEFINE:ProfBonus_Dragonchess_Set|0		TYPE:Tool Proficiency.Tool Proficiency Gaming Set		CATEGORY:Internal	BONUS:VAR|ProfBonus_Dragonchess_Set|Proficiency_Bonus			ASPECT:SkillBonus|+%1 Dragonchess Set|ProfBonus_Dragonchess_Set		
+Tool Proficiency ~ Playing Card Set			DEFINE:ProfBonus_Playing_Card_Set|0		TYPE:Tool Proficiency.Tool Proficiency Gaming Set		CATEGORY:Internal	BONUS:VAR|ProfBonus_Playing_Card_Set|Proficiency_Bonus		ASPECT:SkillBonus|+%1 Playing Card Set|ProfBonus_Playing_Card_Set		
+Tool Proficiency ~ Three-Dragon Ante Set		DEFINE:ProfBonus_Three-Dragon_Ante_Set|0	TYPE:Tool Proficiency.Tool Proficiency Gaming Set		CATEGORY:Internal	BONUS:VAR|ProfBonus_Three_Dragon_Ante_Set|Proficiency_Bonus		ASPECT:SkillBonus|+%1 Three-Dragon Ante Set|ProfBonus_Three_Dragon_Ante_Set	
+Tool Proficiency ~ Bagpipes				DEFINE:ProfBonus_Bagpipes|0			TYPE:Tool Proficiency.Tool Proficiency Musical Instrument	CATEGORY:Internal	BONUS:VAR|ProfBonus_Bagpipes|Proficiency_Bonus				ASPECT:SkillBonus|+%1 Bagpipes|ProfBonus_Bagpipes			
+Tool Proficiency ~ Drum					DEFINE:ProfBonus_Drum|0				TYPE:Tool Proficiency.Tool Proficiency Musical Instrument	CATEGORY:Internal	BONUS:VAR|ProfBonus_Drum|Proficiency_Bonus				ASPECT:SkillBonus|+%1 Drum|ProfBonus_Drum				
+Tool Proficiency ~ Dulcimer				DEFINE:ProfBonus_Dulcimer|0			TYPE:Tool Proficiency.Tool Proficiency Musical Instrument	CATEGORY:Internal	BONUS:VAR|ProfBonus_Dulcimer|Proficiency_Bonus				ASPECT:SkillBonus|+%1 Dulcimer|ProfBonus_Dulcimer			
+Tool Proficiency ~ Flute				DEFINE:ProfBonus_Flute|0			TYPE:Tool Proficiency.Tool Proficiency Musical Instrument	CATEGORY:Internal	BONUS:VAR|ProfBonus_Flute|Proficiency_Bonus				ASPECT:SkillBonus|+%1 Flute|ProfBonus_Flute				
+Tool Proficiency ~ Lute					DEFINE:ProfBonus_Lute|0				TYPE:Tool Proficiency.Tool Proficiency Musical Instrument	CATEGORY:Internal	BONUS:VAR|ProfBonus_Lute|Proficiency_Bonus				ASPECT:SkillBonus|+%1 Lute|ProfBonus_Lute				
+Tool Proficiency ~ Lyre					DEFINE:ProfBonus_Lyre|0				TYPE:Tool Proficiency.Tool Proficiency Musical Instrument	CATEGORY:Internal	BONUS:VAR|ProfBonus_Lyre|Proficiency_Bonus				ASPECT:SkillBonus|+%1 Lyre|ProfBonus_Lyre				
+Tool Proficiency ~ Horn					DEFINE:ProfBonus_Horn|0				TYPE:Tool Proficiency.Tool Proficiency Musical Instrument	CATEGORY:Internal	BONUS:VAR|ProfBonus_Horn|Proficiency_Bonus				ASPECT:SkillBonus|+%1 Horn|ProfBonus_Horn				
+Tool Proficiency ~ Pan flute				DEFINE:ProfBonus_Pan_flute|0			TYPE:Tool Proficiency.Tool Proficiency Musical Instrument	CATEGORY:Internal	BONUS:VAR|ProfBonus_Pan_flute|Proficiency_Bonus				ASPECT:SkillBonus|+%1 Pan flute|ProfBonus_Pan_flute			
+Tool Proficiency ~ Shawm				DEFINE:ProfBonus_Shawm|0			TYPE:Tool Proficiency.Tool Proficiency Musical Instrument	CATEGORY:Internal	BONUS:VAR|ProfBonus_Shawm|Proficiency_Bonus				ASPECT:SkillBonus|+%1 Shawm|ProfBonus_Shawm				
+Tool Proficiency ~ Viol					DEFINE:ProfBonus_Viol|0				TYPE:Tool Proficiency.Tool Proficiency Musical Instrument	CATEGORY:Internal	BONUS:VAR|ProfBonus_Viol|Proficiency_Bonus				ASPECT:SkillBonus|+%1 Viol|ProfBonus_Viol				
+Tool Proficiency ~ Herbalism Kit			DEFINE:ProfBonus_Herbalism_Kit|0		TYPE:Tool Proficiency							CATEGORY:Internal	BONUS:VAR|ProfBonus_Herbalism_Kit|Proficiency_Bonus			ASPECT:SkillBonus|+%1 Herbalism Kit|ProfBonus_Herbalism_Kit			
+Tool Proficiency ~ Navigator's Tools		DEFINE:ProfBonus_Navigators_Tools|0		TYPE:Tool Proficiency							CATEGORY:Internal	BONUS:VAR|ProfBonus_Navigators_Tools|Proficiency_Bonus		ASPECT:SkillBonus|+%1 Navigator's Tools|ProfBonus_Navigators_Tools		
+Tool Proficiency ~ Poisoner's Kit			DEFINE:ProfBonus_Poisoners_Kit|0		TYPE:Tool Proficiency							CATEGORY:Internal	BONUS:VAR|ProfBonus_Poisoners_Kit|Proficiency_Bonus			ASPECT:SkillBonus|+%1 Poisoner's Kit|ProfBonus_Poisoners_Kit			
+Tool Proficiency ~ Thieves' Tools			DEFINE:ProfBonus_Thieves_Tools|0		TYPE:Tool Proficiency							CATEGORY:Internal	BONUS:VAR|ProfBonus_Thieves_Tools|Proficiency_Bonus			ASPECT:SkillBonus|+%1 Thieves' Tools|ProfBonus_Thieves_Tools			
+Tool Proficiency ~ Vehicles (Land)			DEFINE:ProfBonus_Vehicles_(Land)|0		TYPE:Tool Proficiency							CATEGORY:Internal	BONUS:VAR|ProfBonus_Vehicles_(Land)|Proficiency_Bonus			ASPECT:SkillBonus|+%1 Vehicles (Land)|ProfBonus_Vehicles_(Land)		
+Tool Proficiency ~ Vehicles (Water)			DEFINE:ProfBonus_Vehicles_(Water)|0		TYPE:Tool Proficiency							CATEGORY:Internal	BONUS:VAR|ProfBonus_Vehicles_(Water)|Proficiency_Bonus		ASPECT:SkillBonus|+%1 Vehicles (Water)|ProfBonus_Vehicles_(Water)		
 
 
 ###Block: Multiclass Support
@@ -482,7 +549,7 @@ Bardic Inspiration		KEY:Bard ~ Bardic Inspiration			CATEGORY:Special Ability	SOR
 Jack of All Trades		KEY:Bard ~ Jack of All Trades			CATEGORY:Special Ability	SORTKEY:Class	TYPE:Bard Class Feature.SpecialQuality	SOURCEPAGE:p.54	DESC:Starting at 2nd level, you can add half your proficiency bonus, rounded down, to any ability check you make that doesn't already include your proficiency bonus.
 Song of Rest			KEY:Bard ~ Song of Rest				CATEGORY:Special Ability	SORTKEY:Class	TYPE:Bard Class Feature.SpecialQuality	SOURCEPAGE:p.54	DESC:Beginning at 2nd level, you can use soothing music or oration to help revitalize your wounded allies during a short rest. If you or any friendly creatures who can hear your performance regain hit points at the end of the short rest, each of those creatures regains an extra 1d6 hit points. A creature regains the extra hit points only if it spends one or more Hit Dice at the end of the short rest. The extra hit points increase when you reach certain levels in this class: to 1d8 at 9th level, to 1d10 at 13th level, and to 1d12 at 17th level.
 Bard College			KEY:Bard ~ Bard College				CATEGORY:Special Ability	SORTKEY:Class	TYPE:Bard Class Feature.SpecialQuality	SOURCEPAGE:p.54	DESC:At 3rd level, you delve into the advanced techniques of a bard college of your choice: the College of Lore or the College of Valor, both detailed at the end of the class description. Your choice grants you features at 3rd level and again at 6th and 14th level.	BONUS:ABILITYPOOL|Bard College|1
-Expertise				KEY:Bard ~ Expertise				CATEGORY:Special Ability	SORTKEY:Class	TYPE:Bard Class Feature.SpecialQuality	SOURCEPAGE:p.54	DESC:At 3rd level, choose two of your skill proficiencies. Your proficiency bonus is doubled for any ability check you make that uses either of the chosen proficiencies. At 10th level, you can choose another two skill proficiencies to gain this benefit.
+Expertise				KEY:Bard ~ Expertise				CATEGORY:Special Ability	SORTKEY:Class	TYPE:Bard Class Feature.SpecialQuality	SOURCEPAGE:p.54	DESC:At 3rd level, choose two of your skill proficiencies. Your proficiency bonus is doubled for any ability check you make that uses either of the chosen proficiencies. At 10th level, you can choose another two skill proficiencies to gain this benefit.	BONUS:VAR|POOL_Expertise|2*((BardLVL>=3)+(BardLVL>=10))
 Ability Score Improvement	KEY:Bard ~ Ability Score Improvement	CATEGORY:Special Ability	SORTKEY:Class	TYPE:Bard Class Feature.SpecialQuality	SOURCEPAGE:p.54	DESC:When you reach 4th level, and again at 8th, 12th, 16th, and 19th level, you can increase one ability score of your choice by 2, or you can increase two ability s cores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature.	BONUS:VAR|POOL_Character_Advancement_Selection|2*((BardLVL>=4)+(BardLVL>=8)+(BardLVL>=12)+(BardLVL>=16)+(BardLVL>=19))
 Font of Inspiration		KEY:Bard ~ Font of Inspiration		CATEGORY:Special Ability	SORTKEY:Class	TYPE:Bard Class Feature.SpecialQuality	SOURCEPAGE:p.54	DESC:Beginning when you reach 5th level, you regain all of your expended uses of Bardic Inspiration when you finish a short or long rest.
 Countercharm			KEY:Bard ~ Countercharm				CATEGORY:Special Ability	SORTKEY:Class	TYPE:Bard Class Feature.SpecialQuality	SOURCEPAGE:p.54	DESC:At 6th level, you gain the ability to use musical notes or words of power to disrupt mind-influencing effects. As an action, you can start a performance that lasts until the end of your next turn. During that time, you and any friendly creatures within 30 feet of you have advantage on saving throws against being frightened or charmed. A creature must be able to hear you to gain this benefit. The performance ends early if you are incapacitated or silenced or if you voluntarily end it (no action required).
@@ -1114,7 +1181,7 @@ Ranger Remove Spell LVL 4	CATEGORY:Spell	TYPE:RangerRemoveSpellLVL4.RangerRemove
 Ranger Remove Spell LVL 5	CATEGORY:Spell	TYPE:RangerRemoveSpellLVL5																BONUS:SPELLKNOWN|CLASS=Ranger;LEVEL=5|-1	CHOOSE:NOCHOICE	MULT:YES	STACK:YES
 
 ###Block: Rogue
-Expertise				KEY:Rogue ~ Expertise				CATEGORY:Special Ability	SORTKEY:Class	TYPE:Rogue Class Feature.SpecialQuality	SOURCEPAGE:p.96	DESC:At 1st level, choose two of your skill proficiencies, or one of your skill proficiencies and your proficiency with thieves' tools. Your proficiency bonus is doubled for any ability check you make that uses either of the chosen proficiencies. At 6th level, you can choose two more of your proficiencies (in skills or with thieves' tools) to gain this benefit.
+Expertise				KEY:Rogue ~ Expertise				CATEGORY:Special Ability	SORTKEY:Class	TYPE:Rogue Class Feature.SpecialQuality	SOURCEPAGE:p.96	DESC:At 1st level, choose two of your skill proficiencies, or one of your skill proficiencies and your proficiency with thieves' tools. Your proficiency bonus is doubled for any ability check you make that uses either of the chosen proficiencies. At 6th level, you can choose two more of your proficiencies (in skills or with thieves' tools) to gain this benefit.		BONUS:VAR|POOL_Expertise|2*((RogueLVL>=1)+(RogueLVL>=6))
 Sneak Attack			KEY:Rogue ~ Sneak Attack			CATEGORY:Special Ability	SORTKEY:Class	TYPE:Rogue Class Feature.SpecialQuality	SOURCEPAGE:p.96	DESC:Beginning at 1st level, you know how to strike subtly and exploit a foe's distraction. Once per turn, you can deal an extra 1d6 damage to one creature you hit with an attack if you have advantage on the attack roll. The attack must use a finesse or a ranged weapon. You don't need advantage on the attack roll if another enemy of the target is within 5 feet of it, that enemy isn't incapacitated, and you don't have disadvantage on the attack roll. The amount of the extra damage increases as you gain levels in this class, as shown in the Sneak Attack column of the Rogue table.
 Thieves' Cant			KEY:Rogue ~ Thieves' Cant			CATEGORY:Special Ability	SORTKEY:Class	TYPE:Rogue Class Feature.SpecialQuality	SOURCEPAGE:p.96	DESC:During your rogue training you learned thieves' cant, a secret mix of dialect, jargon, and code that allows you to hide messages in seemingly normal conversation. Only another creature that knows thieves' cant understands such messages. It takes four times longer to convey such a message than it does to speak the same idea plainly. In addition, you understand a set of secret signs and symbols used to convey short, simple messages, such as whether an area is dangerous or the territory of a thieves' guild, whether loot is nearby, or whether the people in an area are easy marks or will provide a safe house for thieves on the run.
 Cunning Action			KEY:Rogue ~ Cunning Action			CATEGORY:Special Ability	SORTKEY:Class	TYPE:Rogue Class Feature.SpecialQuality	SOURCEPAGE:p.96	DESC:Starting at 2nd level, your quick thinking and agility allow you to move and act quickly. You can take a bonus action on each of your turns in combat. This action can be used only to take the Dash, Disengage, or Hide action.
@@ -1529,55 +1596,6 @@ Prestidigitation	KEY:Wizard Cantrip ~ Prestidigitation		TYPE:Wizard Cantrip	CATE
 Ray of Frost	KEY:Wizard Cantrip ~ Ray of Frost			TYPE:Wizard Cantrip	CATEGORY:Internal	SPELLKNOWN:CLASS|Wizard=0|Ray of Frost		
 Shocking Grasp	KEY:Wizard Cantrip ~ Shocking Grasp			TYPE:Wizard Cantrip	CATEGORY:Internal	SPELLKNOWN:CLASS|Wizard=0|Shocking Grasp	
 True Strike		KEY:Wizard Cantrip ~ True Strike			TYPE:Wizard Cantrip	CATEGORY:Internal	SPELLKNOWN:CLASS|Wizard=0|True Strike		
-
-#-----------------------------------------#
-#		 Proficiencies			#
-#-----------------------------------------#
-
-
-###Block: Tool Proficiency
-Tool Proficiency ~ Alchemist's Supplies		TYPE:Tool Proficiency.Tool Proficiency Artisan's Tools	CATEGORY:Internal	ASPECT:SkillBonus|+%1 Alchemist's Supplies|Proficiency_Bonus	
-Tool Proficiency ~ Brewer's Supplies		TYPE:Tool Proficiency.Tool Proficiency Artisan's Tools	CATEGORY:Internal	ASPECT:SkillBonus|+%1 Brewer's Supplies|Proficiency_Bonus	
-Tool Proficiency ~ Calligrapher's Supplies	TYPE:Tool Proficiency.Tool Proficiency Artisan's Tools	CATEGORY:Internal	ASPECT:SkillBonus|+%1 Calligrapher's Supplies|Proficiency_Bonus	
-Tool Proficiency ~ Carpenter's Tools		TYPE:Tool Proficiency.Tool Proficiency Artisan's Tools	CATEGORY:Internal	ASPECT:SkillBonus|+%1 Carpenter's Tools|Proficiency_Bonus	
-Tool Proficiency ~ Cartographer's Tools		TYPE:Tool Proficiency.Tool Proficiency Artisan's Tools	CATEGORY:Internal	ASPECT:SkillBonus|+%1 Cartographer's Tools|Proficiency_Bonus	
-Tool Proficiency ~ Cobbler's Tools			TYPE:Tool Proficiency.Tool Proficiency Artisan's Tools	CATEGORY:Internal	ASPECT:SkillBonus|+%1 Cobbler's Tools|Proficiency_Bonus	
-Tool Proficiency ~ Cook's Utensils			TYPE:Tool Proficiency.Tool Proficiency Artisan's Tools	CATEGORY:Internal	ASPECT:SkillBonus|+%1 Cook's Utensils|Proficiency_Bonus	
-Tool Proficiency ~ Glassblower's Tools		TYPE:Tool Proficiency.Tool Proficiency Artisan's Tools	CATEGORY:Internal	ASPECT:SkillBonus|+%1 Glassblower's Tools|Proficiency_Bonus	
-Tool Proficiency ~ Jeweler's Tools			TYPE:Tool Proficiency.Tool Proficiency Artisan's Tools	CATEGORY:Internal	ASPECT:SkillBonus|+%1 Jeweler's Tools|Proficiency_Bonus	
-Tool Proficiency ~ Leatherworker's Tools		TYPE:Tool Proficiency.Tool Proficiency Artisan's Tools	CATEGORY:Internal	ASPECT:SkillBonus|+%1 Leatherworker's Tools|Proficiency_Bonus	
-Tool Proficiency ~ Mason's Tools			TYPE:Tool Proficiency.Tool Proficiency Artisan's Tools	CATEGORY:Internal	ASPECT:SkillBonus|+%1 Mason's Tools|Proficiency_Bonus	
-Tool Proficiency ~ Painter's Supplies		TYPE:Tool Proficiency.Tool Proficiency Artisan's Tools	CATEGORY:Internal	ASPECT:SkillBonus|+%1 Painter's Supplies|Proficiency_Bonus	
-Tool Proficiency ~ Potter's Tools			TYPE:Tool Proficiency.Tool Proficiency Artisan's Tools	CATEGORY:Internal	ASPECT:SkillBonus|+%1 Potter's Tools|Proficiency_Bonus	
-Tool Proficiency ~ Smith's Tools			TYPE:Tool Proficiency.Tool Proficiency Artisan's Tools	CATEGORY:Internal	ASPECT:SkillBonus|+%1 Smith's Tools|Proficiency_Bonus	
-Tool Proficiency ~ Tinker's Tools			TYPE:Tool Proficiency.Tool Proficiency Artisan's Tools	CATEGORY:Internal	ASPECT:SkillBonus|+%1 Tinker's Tools|Proficiency_Bonus	
-Tool Proficiency ~ Weaver's Tools			TYPE:Tool Proficiency.Tool Proficiency Artisan's Tools	CATEGORY:Internal	ASPECT:SkillBonus|+%1 Weaver's Tools|Proficiency_Bonus	
-Tool Proficiency ~ Woodcarver's Tools		TYPE:Tool Proficiency.Tool Proficiency Artisan's Tools	CATEGORY:Internal	ASPECT:SkillBonus|+%1 Woodcarver's Tools|Proficiency_Bonus	
-Tool Proficiency ~ Disguise Kit			TYPE:Tool Proficiency							CATEGORY:Internal	ASPECT:SkillBonus|+%1 Disguise Kit|Proficiency_Bonus	
-Tool Proficiency ~ Forgery Kit			TYPE:Tool Proficiency							CATEGORY:Internal	ASPECT:SkillBonus|+%1 Forgery Kit|Proficiency_Bonus	
-Tool Proficiency ~ Dice Set				TYPE:Tool Proficiency.Tool Proficiency Gaming Set		CATEGORY:Internal	ASPECT:SkillBonus|+%1 Dice Set|Proficiency_Bonus		
-Tool Proficiency ~ Dragonchess Set			TYPE:Tool Proficiency.Tool Proficiency Gaming Set		CATEGORY:Internal	ASPECT:SkillBonus|+%1 Dragonchess Set|Proficiency_Bonus		
-Tool Proficiency ~ Playing Card Set			TYPE:Tool Proficiency.Tool Proficiency Gaming Set		CATEGORY:Internal	ASPECT:SkillBonus|+%1 Playing Card Set|Proficiency_Bonus		
-Tool Proficiency ~ Three-Dragon Ante Set		TYPE:Tool Proficiency.Tool Proficiency Gaming Set		CATEGORY:Internal	ASPECT:SkillBonus|+%1 Three-Dragon Ante Set|Proficiency_Bonus		
-Tool Proficiency ~ Bagpipes				TYPE:Tool Proficiency.Tool Proficiency Musical Instrument	CATEGORY:Internal	ASPECT:SkillBonus|+%1 Bagpipes|Proficiency_Bonus	
-Tool Proficiency ~ Drum					TYPE:Tool Proficiency.Tool Proficiency Musical Instrument	CATEGORY:Internal	ASPECT:SkillBonus|+%1 Drum|Proficiency_Bonus	
-Tool Proficiency ~ Dulcimer				TYPE:Tool Proficiency.Tool Proficiency Musical Instrument	CATEGORY:Internal	ASPECT:SkillBonus|+%1 Dulcimer|Proficiency_Bonus	
-Tool Proficiency ~ Flute				TYPE:Tool Proficiency.Tool Proficiency Musical Instrument	CATEGORY:Internal	ASPECT:SkillBonus|+%1 Flute|Proficiency_Bonus	
-Tool Proficiency ~ Lute					TYPE:Tool Proficiency.Tool Proficiency Musical Instrument	CATEGORY:Internal	ASPECT:SkillBonus|+%1 Lute|Proficiency_Bonus	
-Tool Proficiency ~ Lyre					TYPE:Tool Proficiency.Tool Proficiency Musical Instrument	CATEGORY:Internal	ASPECT:SkillBonus|+%1 Lyre|Proficiency_Bonus	
-Tool Proficiency ~ Horn					TYPE:Tool Proficiency.Tool Proficiency Musical Instrument	CATEGORY:Internal	ASPECT:SkillBonus|+%1 Horn|Proficiency_Bonus	
-Tool Proficiency ~ Pan flute				TYPE:Tool Proficiency.Tool Proficiency Musical Instrument	CATEGORY:Internal	ASPECT:SkillBonus|+%1 Pan flute|Proficiency_Bonus	
-Tool Proficiency ~ Shawm				TYPE:Tool Proficiency.Tool Proficiency Musical Instrument	CATEGORY:Internal	ASPECT:SkillBonus|+%1 Shawm|Proficiency_Bonus	
-Tool Proficiency ~ Viol					TYPE:Tool Proficiency.Tool Proficiency Musical Instrument	CATEGORY:Internal	ASPECT:SkillBonus|+%1 Viol|Proficiency_Bonus	
-Tool Proficiency ~ Herbalism Kit			TYPE:Tool Proficiency							CATEGORY:Internal	ASPECT:SkillBonus|+%1 Herbalism Kit|Proficiency_Bonus		
-Tool Proficiency ~ Navigator's Tools		TYPE:Tool Proficiency							CATEGORY:Internal	ASPECT:SkillBonus|+%1 Navigator's Tools|Proficiency_Bonus				
-Tool Proficiency ~ Poisoner's Kit			TYPE:Tool Proficiency							CATEGORY:Internal	ASPECT:SkillBonus|+%1 Poisoner's Kit|Proficiency_Bonus				
-Tool Proficiency ~ Thieves' Tools			TYPE:Tool Proficiency							CATEGORY:Internal	ASPECT:SkillBonus|+%1 Thieves' Tools|Proficiency_Bonus				
-
-Tool Proficiency ~ Vehicles (Land)			TYPE:Tool Proficiency							CATEGORY:Internal	ASPECT:SkillBonus|+%1 Vehicles (Land)|Proficiency_Bonus				
-Tool Proficiency ~ Vehicles (Water)			TYPE:Tool Proficiency							CATEGORY:Internal	ASPECT:SkillBonus|+%1 Vehicles (Water)|Proficiency_Bonus				
-
-
 
 ###Block: Backgrounds
 No Background	CATEGORY:Special Ability					SORTKEY:Background_0	TYPE:Background									
