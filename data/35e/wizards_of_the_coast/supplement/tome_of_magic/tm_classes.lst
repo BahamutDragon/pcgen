@@ -95,3 +95,93 @@ CLASS:Shadowcaster	SPELLSTAT:INT	SPELLTYPE:Shadow Magic	MEMORIZE:NO	BONUS:CASTER
 18	CAST:0,3,3,3,2,2,2,1,1,1
 19	CAST:0,3,3,3,2,2,2,1,1,1
 20	CAST:0,3,3,3,2,2,2,1,1,1
+
+
+###Block: Prestige Classes
+
+# Pact Magic Prestige Classes
+CLASS:Anima Mage	HD:4	TYPE:Prestige	SOURCEPAGE:p.50	DEFINE:AnimaMageLVL|0	BONUS:VAR|AnimaMageLVL|CL
+CLASS:Anima Mage	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	
+CLASS:Anima Mage	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+CLASS:Anima Mage	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Anima Mage	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Anima Mage	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Anima Mage	!PREALIGN:LG,NG,CG	PRESKILL:2,Intimidate=4,Knowledge (the Planes)=4	PREABILITY:1,CATEGORY=FEAT,TYPE.Metamagic	PREVARGTEQ:BinderMaxVestigeLVL,2	PRESPELLTYPE:1,Arcane=2	PRETEXT:Alignment: Any nongood Skills: Intimidate 4 ranks, Knowledge (the planes) 4 ranks Feat: Any metamagic feat Spellcasting: Ability to cast 2nd-level arcane spells Special: Ability to bind a 2nd-level vestige
+CLASS:Anima Mage	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Decipher Script|Diplomacy|Intimidate|TYPE=Knowledge|TYPE=Profession|Spellcraft
+###Block
+1:REPEATLEVEL:1	ADD:SPELLCASTER|Arcane
+###Block
+1	ABILITY:Anima Mage Class Feature|AUTOMATIC|Anima Mage ~ Soul Binding Bonus		
+1	ABILITY:Anima Mage Class Feature|AUTOMATIC|Anima Mage ~ Spellcasting			
+2	ABILITY:Anima Mage Class Feature|AUTOMATIC|Anima Mage ~ Exploit Vestige		
+3	ABILITY:Anima Mage Class Feature|AUTOMATIC|Anima Mage ~ Vestigial Awareness	
+5	ABILITY:Anima Mage Class Feature|AUTOMATIC|Anima Mage ~ Vestige Metamagic		
+10	ABILITY:Anima Mage Class Feature|AUTOMATIC|Anima Mage ~ Vestige Casting		
+
+
+# Knight of the Sacred Seal
+# Scion of Dantalion
+# CLASS:Knight of the Sacred Seal	HD:	TYPE:Base.PC.Prestige.Monster	SOURCEPAGE:p.	DEFINE:Knight of the Sacred SealLVL|0	BONUS:VAR|Knight of the Sacred SealLVL|CL
+# CLASS:Knight of the Sacred Seal	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	
+# CLASS:Knight of the Sacred Seal	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+# 		BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	
+# CLASS:Knight of the Sacred Seal	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")
+# CLASS:Knight of the Sacred Seal	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")
+# CLASS:Knight of the Sacred Seal	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")
+
+# CLASS:Knight of the Sacred Seal	PRETEXT:
+# CLASS:Knight of the Sacred Seal	STARTSKILLPTS:	CSKILL:
+# CLASS:Knight of the Sacred Seal	BONUS:CASTERLEVEL|Knight of the Sacred Seal|CL+CasterLevelBonus	SPELLTYPE:	SPELLSTAT:	MEMORIZE:
+# 	ADD:SPELLCASTER|
+###Block	ABILITY:Knight of the Sacred Seal Class Feature|AUTOMATIC|
+
+# CLASS:Scion of Dantalion	HD:	TYPE:Base.PC.Prestige.Monster	SOURCEPAGE:p.	DEFINE:Scion of DantalionLVL|0	BONUS:VAR|Scion of DantalionLVL|CL
+# CLASS:Scion of Dantalion	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	
+# CLASS:Scion of Dantalion	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+# 		BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	
+# CLASS:Scion of Dantalion	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")
+# CLASS:Scion of Dantalion	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")
+# CLASS:Scion of Dantalion	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")
+# 
+# CLASS:Scion of Dantalion	PRETEXT:
+# CLASS:Scion of Dantalion	STARTSKILLPTS:	CSKILL:
+# CLASS:Scion of Dantalion	BONUS:CASTERLEVEL|Scion of Dantalion|CL+CasterLevelBonus	SPELLTYPE:	SPELLSTAT:	MEMORIZE:
+# 	ADD:SPELLCASTER|
+###Block
+# 	ABILITY:Scion of Dantalion Class Feature|AUTOMATIC|
+
+CLASS:Tenebrous Apostate	MAXLEVEL:5	HD:8	TYPE:Prestige	SOURCEPAGE:p.63	DEFINE:TenebrousApostateLVL|0	BONUS:VAR|TenebrousApostateLVL|CL
+CLASS:Tenebrous Apostate	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	
+CLASS:Tenebrous Apostate	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	
+CLASS:Tenebrous Apostate	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Tenebrous Apostate	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Tenebrous Apostate	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Tenebrous Apostate	!PREALIGN:LG,CG,NG	PRESKILL:2,Knowledge (Religion)=5,Knowledge (the Planes)=8	PREABILITY:1,CATEGORY=Special Ability,TYPE.Turn Undead,TYPE.Rebuke Undead	PREVARGTEQ:BinderMaxVestigeLVL,4	PRETEXT:Alignment: Any nongood Skills: Knowledge (religion) 5 ranks, Knowledge (the planes) 8 ranks Special: Ability to bind Tenebrous Special: Ability to turn or rebuke undead Special: Must worship Tenebrous as a god
+CLASS:Tenebrous Apostate	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Diplomacy|Gather Information|Intimidate|Knowledge (arcana)|Knowledge (history)|Knowledge (the planes)|Knowledge (religion)|TYPE=Profession|Sense Motive
+###Block
+2:REPEATLEVEL:1	ADD:SPELLCASTER|Divine
+###Block
+1	ABILITY:Tenebrous Apostate Class Feature|AUTOMATIC|Tenebrous Apostate ~ Spellcasting		
+2	ABILITY:Tenebrous Apostate Class Feature|AUTOMATIC|Tenebrous Apostate ~ Soul Binding		
+1	ABILITY:Tenebrous Apostate Class Feature|AUTOMATIC|Tenebrous Apostate ~ Eternal Bondage		
+1	ABILITY:Tenebrous Apostate Class Feature|AUTOMATIC|Tenebrous Apostate ~ Tenebrous's Rebuke	
+2	ABILITY:Tenebrous Apostate Class Feature|AUTOMATIC|Tenebrous Apostate ~ Visage of the Dead	
+3	ABILITY:Tenebrous Apostate Class Feature|AUTOMATIC|Tenebrous Apostate ~ Destroy/Empower Undead	
+4	ABILITY:Tenebrous Apostate Class Feature|AUTOMATIC|Tenebrous Apostate ~ Umbral Body		
+5	ABILITY:Tenebrous Apostate Class Feature|AUTOMATIC|Tenebrous Apostate ~ Blast of the Void	
+
+# CLASS:Witch Slayer	HD:	TYPE:Base.PC.Prestige.Monster	SOURCEPAGE:p.	DEFINE:Witch SlayerLVL|0	BONUS:VAR|Witch SlayerLVL|CL
+# CLASS:Witch Slayer	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	
+# CLASS:Witch Slayer	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+# 		BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	
+# CLASS:Witch Slayer	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")
+# CLASS:Witch Slayer	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")
+# CLASS:Witch Slayer	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")
+# 
+# CLASS:Witch Slayer	PRETEXT:
+# CLASS:Witch Slayer	STARTSKILLPTS:	CSKILL:
+# CLASS:Witch Slayer	BONUS:CASTERLEVEL|Witch Slayer|CL+CasterLevelBonus	SPELLTYPE:	SPELLSTAT:	MEMORIZE:
+# 	ADD:SPELLCASTER|
+###Block
+# 	ABILITY:Witch Slayer Class Feature|AUTOMATIC|
+
