@@ -118,37 +118,43 @@ CLASS:Anima Mage	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Decipher 
 5	ABILITY:Anima Mage Class Feature|AUTOMATIC|Anima Mage ~ Vestige Metamagic		
 10	ABILITY:Anima Mage Class Feature|AUTOMATIC|Anima Mage ~ Vestige Casting		
 
-
 # Knight of the Sacred Seal
-# Scion of Dantalion
-# CLASS:Knight of the Sacred Seal	HD:	TYPE:Base.PC.Prestige.Monster	SOURCEPAGE:p.	DEFINE:Knight of the Sacred SealLVL|0	BONUS:VAR|Knight of the Sacred SealLVL|CL
-# CLASS:Knight of the Sacred Seal	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	
-# CLASS:Knight of the Sacred Seal	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
-# 		BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	
-# CLASS:Knight of the Sacred Seal	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")
-# CLASS:Knight of the Sacred Seal	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")
-# CLASS:Knight of the Sacred Seal	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")
-
-# CLASS:Knight of the Sacred Seal	PRETEXT:
-# CLASS:Knight of the Sacred Seal	STARTSKILLPTS:	CSKILL:
-# CLASS:Knight of the Sacred Seal	BONUS:CASTERLEVEL|Knight of the Sacred Seal|CL+CasterLevelBonus	SPELLTYPE:	SPELLSTAT:	MEMORIZE:
-# 	ADD:SPELLCASTER|
-###Block	ABILITY:Knight of the Sacred Seal Class Feature|AUTOMATIC|
-
-# CLASS:Scion of Dantalion	HD:	TYPE:Base.PC.Prestige.Monster	SOURCEPAGE:p.	DEFINE:Scion of DantalionLVL|0	BONUS:VAR|Scion of DantalionLVL|CL
-# CLASS:Scion of Dantalion	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	
-# CLASS:Scion of Dantalion	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
-# 		BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	
-# CLASS:Scion of Dantalion	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")
-# CLASS:Scion of Dantalion	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")
-# CLASS:Scion of Dantalion	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")
-# 
-# CLASS:Scion of Dantalion	PRETEXT:
-# CLASS:Scion of Dantalion	STARTSKILLPTS:	CSKILL:
-# CLASS:Scion of Dantalion	BONUS:CASTERLEVEL|Scion of Dantalion|CL+CasterLevelBonus	SPELLTYPE:	SPELLSTAT:	MEMORIZE:
-# 	ADD:SPELLCASTER|
+CLASS:Knight of the Sacred Seal	MAXLEVEL:5	HD:10	TYPE:Prestige	SOURCEPAGE:p.54	DEFINE:KnightoftheSacredSealLVL|0	BONUS:VAR|KnightoftheSacredSealLVL|CL
+CLASS:Knight of the Sacred Seal	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
+CLASS:Knight of the Sacred Seal	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Knight of the Sacred Seal	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Knight of the Sacred Seal	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Knight of the Sacred Seal	!PREALIGN:CG,CN,CE	PRETOTALAB:4	PREMULT:1,[PRESKILL:2,Knowledge (Arcane)=5,Knowledge (Religion)=5],[PRESKILL:1,Knowledge (the Planes)=5]	PREABILITY:1,CATEGORY=FEAT,Weapon Focus	PREABILITY:1,CATEGORY=Special Ability,TYPE.Soul Binding	PRETEXT:Alignment: Any nonchaotic Base Attack Bonus: +4 Skills: Knowledge (arcana), Knowledge (religion), or Knowledge (the planes) 5 ranks Feat: Weapon Focus (any weapon) Special: Soul binding class feature
+CLASS:Knight of the Sacred Seal	STARTSKILLPTS:2	CSKILL:Bluff|Climb|Concentration|TYPE=Craft|Diplomacy|Intimidate|Jump|Knowledge (arcana)|Knowledge (religion)|Knowledge (the planes)|TYPE=Profession|Ride|Sense Motive|Swim
 ###Block
-# 	ABILITY:Scion of Dantalion Class Feature|AUTOMATIC|
+1	ABILITY:Knight of the Sacred Seal Class Feature|AUTOMATIC|Knight of the Sacred Seal ~ Weapon and Armor Proficiency	
+1	ABILITY:Knight of the Sacred Seal Class Feature|AUTOMATIC|Knight of the Sacred Seal ~ Soul Binding				
+1	ABILITY:Knight of the Sacred Seal Class Feature|AUTOMATIC|Knight of the Sacred Seal ~ Aligned Strike				
+1	ABILITY:Knight of the Sacred Seal Class Feature|AUTOMATIC|Knight of the Sacred Seal ~ Patron Vestige				
+2	ABILITY:Knight of the Sacred Seal Class Feature|AUTOMATIC|Knight of the Sacred Seal ~ Vestige's Protection			
+3	ABILITY:Knight of the Sacred Seal Class Feature|AUTOMATIC|Knight of the Sacred Seal ~ Vestige's Protection Aura		
+4	ABILITY:Knight of the Sacred Seal Class Feature|AUTOMATIC|Knight of the Sacred Seal ~ Vestige's Power				
+5	ABILITY:Knight of the Sacred Seal Class Feature|AUTOMATIC|Knight of the Sacred Seal ~ Apotheosis				
+5	ABILITY:Knight of the Sacred Seal Class Feature|AUTOMATIC|Knight of the Sacred Seal ~ Vestige's Surge				
+1	ABILITY:Knight of the Sacred Seal Class Feature|AUTOMATIC|Knight of the Sacred Seal ~ Multiclass Note				
+
+# Scion of Dantalion
+CLASS:Scion of Dantalion	MAXLEVEL:5	HD:8	TYPE:Prestige	SOURCEPAGE:p.59	DEFINE:ScionofDantalionLVL|0	BONUS:VAR|ScionofDantalionLVL|CL
+CLASS:Scion of Dantalion	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	
+CLASS:Scion of Dantalion	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	
+CLASS:Scion of Dantalion	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Scion of Dantalion	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Scion of Dantalion	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Scion of Dantalion	PRERACE:1,Half-elf,half-orc,human	PRESKILL:1,Knowledge (nobility and royalty)=2	PRETEXT:Race: Half-elf, half-orc, or human Skill: Knowledge (nobility and royalty) 2 ranks Special: Ability to bind Dantalion
+CLASS:Scion of Dantalion	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Diplomacy|Gather Information|Intimidate|TYPE=Knowledge|TYPE=Profession|Sense Motive|Speak Language
+###Block
+1	ABILITY:Scion of Dantalion Class Feature|AUTOMATIC|Scion of Dantalion ~ Soul Binding			
+1	ABILITY:Scion of Dantalion Class Feature|AUTOMATIC|Scion of Dantalion ~ Favored of Dantalion		
+1	ABILITY:Scion of Dantalion Class Feature|AUTOMATIC|Scion of Dantalion ~ Scholarship of Dantalion	
+2	ABILITY:Scion of Dantalion Class Feature|AUTOMATIC|Scion of Dantalion ~ Improved Read Thoughts		
+2	ABILITY:Scion of Dantalion Class Feature|AUTOMATIC|Scion of Dantalion ~ Swift Awe of Dantalion		
+3	ABILITY:Scion of Dantalion Class Feature|AUTOMATIC|Scion of Dantalion ~ Overwhelming Thoughts		
+4	ABILITY:Scion of Dantalion Class Feature|AUTOMATIC|Scion of Dantalion ~ Dantalion's Glare		
 
 CLASS:Tenebrous Apostate	MAXLEVEL:5	HD:8	TYPE:Prestige	SOURCEPAGE:p.63	DEFINE:TenebrousApostateLVL|0	BONUS:VAR|TenebrousApostateLVL|CL
 CLASS:Tenebrous Apostate	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	
@@ -170,18 +176,17 @@ CLASS:Tenebrous Apostate	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|D
 4	ABILITY:Tenebrous Apostate Class Feature|AUTOMATIC|Tenebrous Apostate ~ Umbral Body		
 5	ABILITY:Tenebrous Apostate Class Feature|AUTOMATIC|Tenebrous Apostate ~ Blast of the Void	
 
-# CLASS:Witch Slayer	HD:	TYPE:Base.PC.Prestige.Monster	SOURCEPAGE:p.	DEFINE:Witch SlayerLVL|0	BONUS:VAR|Witch SlayerLVL|CL
-# CLASS:Witch Slayer	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	
-# CLASS:Witch Slayer	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
-# 		BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	
-# CLASS:Witch Slayer	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")
-# CLASS:Witch Slayer	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")
-# CLASS:Witch Slayer	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")
-# 
-# CLASS:Witch Slayer	PRETEXT:
-# CLASS:Witch Slayer	STARTSKILLPTS:	CSKILL:
-# CLASS:Witch Slayer	BONUS:CASTERLEVEL|Witch Slayer|CL+CasterLevelBonus	SPELLTYPE:	SPELLSTAT:	MEMORIZE:
-# 	ADD:SPELLCASTER|
+CLASS:Witch Slayer	MAXLEVEL:5	HD:8	TYPE:Prestige	SOURCEPAGE:p.67	DEFINE:WitchSlayerLVL|0	BONUS:VAR|WitchSlayerLVL|CL
+CLASS:Witch Slayer	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
+CLASS:Witch Slayer	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Witch Slayer	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Witch Slayer	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Witch Slayer	PRETOTALAB:5	PRESKILL:2,Knowledge (religion)=4,Sense Motive=4	PRETEXT:Base Attack Bonus: +5 Skills: Knowledge (religion) 4 ranks, Sense Motive 4 ranks Special: Must have fought a binder or possessed creature
+CLASS:Witch Slayer	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|TYPE=Craft|Decipher Script|Gather Information|Intimidate|Knowledge (arcana)|Knowledge (history)|Knowledge (local)|Knowledge (religion)|Knowledge (the planes)|Listen|TYPE=Profession|Search|Sense Motive|Spellcraft|Spot|Survival
 ###Block
-# 	ABILITY:Witch Slayer Class Feature|AUTOMATIC|
-
+1	ABILITY:Witch Slayer Class Feature|AUTOMATIC|Witch Slayer ~ Smite Spirit Sharer	
+2	ABILITY:Witch Slayer Class Feature|AUTOMATIC|Witch Slayer ~ Mettle			
+3	ABILITY:Witch Slayer Class Feature|AUTOMATIC|Witch Slayer ~ Locate Possession	
+4	ABILITY:Witch Slayer Class Feature|AUTOMATIC|Witch Slayer ~ Slippery Mind		
+5	ABILITY:Witch Slayer Class Feature|AUTOMATIC|Witch Slayer ~ Momentary Disjunction	
+1	ABILITY:Witch Slayer Class Feature|AUTOMATIC|Witch Slayer ~ Multiclass Note		
