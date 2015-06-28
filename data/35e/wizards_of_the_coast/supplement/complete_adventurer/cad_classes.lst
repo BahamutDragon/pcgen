@@ -28,18 +28,20 @@ CLASS:Scout		HD:8		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.10	DEFINE:ScoutLVL|0	BO
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Scout		STARTSKILLPTS:8	CSKILL:Balance|Climb|TYPE=Craft|Escape Artist|Hide|Jump|Knowledge (Dungeoneering)|Knowledge (Geography)|Knowledge (Nature)|Listen|Move Silently|Ride|Search|Sense Motive|Speak Language|Spot|Survival|Swim|Tumble|Use Rope|Disable Device
 ###Block:
-1	ABILITY:Scout Class Feature|AUTOMATIC|Scout ~ Weapon and Armor Proficiency
-1	ABILITY:Scout Class Feature|AUTOMATIC|Scout ~ Skirmish|Scout ~ Trapfinding
-2	ABILITY:Scout Class Feature|AUTOMATIC|Scout ~ Battle Fortitude|Scout ~ Uncanny Dodge
-3	ABILITY:Scout Class Feature|AUTOMATIC|Scout ~ Fast Movement|Scout ~ Trackless Step
-4	ABILITY:Scout Class Feature|AUTOMATIC|Scout ~ Bonus Feats
-5	ABILITY:Scout Class Feature|AUTOMATIC|Scout ~ Evasion
-6	ABILITY:Scout Class Feature|AUTOMATIC|Scout ~ Flawless Stride
-8	ABILITY:Scout Class Feature|AUTOMATIC|Scout ~ Camouflage
-10	ABILITY:Scout Class Feature|AUTOMATIC|Scout ~ Blindsense
-14	ABILITY:Scout Class Feature|AUTOMATIC|Scout ~ Hide in Plain Sight
-18	ABILITY:Scout Class Feature|AUTOMATIC|Scout ~ Free Movement
-20	ABILITY:Scout Class Feature|AUTOMATIC|Scout ~ Blindsight
+1	ABILITY:Scout Class Feature|AUTOMATIC|Scout ~ Weapon and Armor Proficiency|!PREABILITY:1,CATEGORY=ACF,TYPE.ScoutProficiencies
+1	ABILITY:Scout Class Feature|AUTOMATIC|Scout ~ Skirmish|Scout ~ Trapfinding|!PREABILITY:1,CATEGORY=ACF,TYPE.ScoutTrapfinding
+2	ABILITY:Scout Class Feature|AUTOMATIC|Scout ~ Battle Fortitude|!PREABILITY:1,CATEGORY=ACF,TYPE.ScoutBattleFortitude
+2	ABILITY:Scout Class Feature|AUTOMATIC|Scout ~ Uncanny Dodge|!PREABILITY:1,CATEGORY=ACF,TYPE.ScoutUncannyDodge
+3	ABILITY:Scout Class Feature|AUTOMATIC|Scout ~ Fast Movement|!PREABILITY:1,CATEGORY=ACF,TYPE.ScoutFastMovement
+3	ABILITY:Scout Class Feature|AUTOMATIC|Scout ~ Trackless Step|!PREABILITY:1,CATEGORY=ACF,TYPE.ScoutTracklessStep
+4	ABILITY:Scout Class Feature|AUTOMATIC|Scout ~ Bonus Feats|!PREABILITY:1,CATEGORY=ACF,TYPE.ScoutBonusFeats
+5	ABILITY:Scout Class Feature|AUTOMATIC|Scout ~ Evasion|!PREABILITY:1,CATEGORY=ACF,TYPE.ScoutEvasion
+6	ABILITY:Scout Class Feature|AUTOMATIC|Scout ~ Flawless Stride|!PREABILITY:1,CATEGORY=ACF,TYPE.ScoutFlawlessStride
+8	ABILITY:Scout Class Feature|AUTOMATIC|Scout ~ Camouflage|!PREABILITY:1,CATEGORY=ACF,TYPE.ScoutCamouflage
+10	ABILITY:Scout Class Feature|AUTOMATIC|Scout ~ Blindsense|!PREABILITY:1,CATEGORY=ACF,TYPE.ScoutBlindsense
+14	ABILITY:Scout Class Feature|AUTOMATIC|Scout ~ Hide in Plain Sight|!PREABILITY:1,CATEGORY=ACF,TYPE.ScoutHideinPlainSight
+18	ABILITY:Scout Class Feature|AUTOMATIC|Scout ~ Free Movement|!PREABILITY:1,CATEGORY=ACF,TYPE.ScoutFreeMovement
+20	ABILITY:Scout Class Feature|AUTOMATIC|Scout ~ Blindsight|!PREABILITY:1,CATEGORY=ACF,TYPE.ScoutBlindsight
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Group of Prohibited Spells														Define			Combat bonus															Modify VAR																			Bonus
 CLASS:Spellthief	HD:6		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.13	PROHIBITSPELL:SCHOOL.Conjuration	PROHIBITSPELL:SCHOOL.Evocation	PROHIBITSPELL:SCHOOL.Necromancy	DEFINE:SpellthiefLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|SpellthiefLVL|CL	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
