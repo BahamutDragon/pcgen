@@ -97,18 +97,18 @@ CLASS:Soulknife	STARTSKILLPTS:4	CSKILL:Autohypnosis|Climb|Concentration|TYPE=Cra
 ###Block:Proficiency
 1	ABILITY:Soulknife Class Feature|AUTOMATIC|Soulknife ~ Weapon and Armor Proficiency
 1	ABILITY:Soulknife Class Feature|AUTOMATIC|Soulknife ~ Mind Blade
-1	ABILITY:Soulknife Class Feature|AUTOMATIC|Soulknife ~ Weapon Focus (Mind Blade)|PREVARGTEQ:SoulknifeClassFeatureLVL,1
-1	ABILITY:Soulknife Class Feature|AUTOMATIC|Soulknife ~ Wild Talent|PREVARGTEQ:SoulknifeClassFeatureLVL,1
-1	ABILITY:Soulknife Class Feature|AUTOMATIC|Soulknife ~ Throw Mind Blade|PREVARGTEQ:SoulknifeClassFeatureLVL,2
-1	ABILITY:Soulknife Class Feature|AUTOMATIC|Soulknife ~ Psychic Strike|PREVARGTEQ:SoulknifeClassFeatureLVL,33
-1	ABILITY:Soulknife Class Feature|AUTOMATIC|Soulknife ~ Free Draw|PREVARGTEQ:SoulknifeClassFeatureLVL,5
-1	ABILITY:Soulknife Class Feature|AUTOMATIC|Soulknife ~ Shape Mind Blade|PREVARGTEQ:SoulknifeClassFeatureLVL,5
-1	ABILITY:Soulknife Class Feature|AUTOMATIC|Soulknife ~ Mind Blade Enhancement|PREVARGTEQ:SoulknifeClassFeatureLVL,6
-1	ABILITY:Soulknife Class Feature|AUTOMATIC|Soulknife ~ Speed of Thought|PREVARGTEQ:SoulknifeClassFeatureLVL,6
-1	ABILITY:Soulknife Class Feature|AUTOMATIC|Soulknife ~ Bladewind|PREVARGTEQ:SoulknifeClassFeatureLVL,9
-1	ABILITY:Soulknife Class Feature|AUTOMATIC|Soulknife ~ Greater Weapon Focus (Mind Blade)|PREVARGTEQ:SoulknifeClassFeatureLVL,9
-1	ABILITY:Soulknife Class Feature|AUTOMATIC|Soulknife ~ Knife to the Soul|PREVARGTEQ:SoulknifeClassFeatureLVL,13
-1	ABILITY:Soulknife Class Feature|AUTOMATIC|Soulknife ~ Multiple Throw|PREVARGTEQ:SoulknifeClassFeatureLVL,17
+1	ABILITY:Soulknife Class Feature|AUTOMATIC|Soulknife ~ Weapon Focus (Mind Blade)
+1	ABILITY:Soulknife Class Feature|AUTOMATIC|Soulknife ~ Wild Talent
+2	ABILITY:Soulknife Class Feature|AUTOMATIC|Soulknife ~ Throw Mind Blade
+3	ABILITY:Soulknife Class Feature|AUTOMATIC|Soulknife ~ Psychic Strike
+5	ABILITY:Soulknife Class Feature|AUTOMATIC|Soulknife ~ Free Draw
+5	ABILITY:Soulknife Class Feature|AUTOMATIC|Soulknife ~ Shape Mind Blade
+6	ABILITY:Soulknife Class Feature|AUTOMATIC|Soulknife ~ Mind Blade Enhancement
+6	ABILITY:Soulknife Class Feature|AUTOMATIC|Soulknife ~ Speed of Thought
+9	ABILITY:Soulknife Class Feature|AUTOMATIC|Soulknife ~ Bladewind
+9	ABILITY:Soulknife Class Feature|AUTOMATIC|Soulknife ~ Greater Weapon Focus (Mind Blade)
+13	ABILITY:Soulknife Class Feature|AUTOMATIC|Soulknife ~ Knife to the Soul
+17	ABILITY:Soulknife Class Feature|AUTOMATIC|Soulknife ~ Multiple Throw
 ###Block: Mind Blade abilities by effective level; to add a PrC's class level to SK for
 #  mind blade powers, use BONUS:VAR|MndBladeECL|x in the PrC's class level line setup
 ###Block: Class Info
@@ -202,7 +202,6 @@ CLASS:Elocator	HD:6		TYPE:PC.Prestige.Psionic	CLASSTYPE:Prestige	ABB:Elo		MAXLEV
 CLASS:Elocator	PREABILITY:2,CATEGORY=FEAT,Mobility,Spring Attack	PRESKILL:1,Concentration=8	PRESPELLTYPE:1,Psionic=1	PRETOTALAB:3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Elocator	STARTSKILLPTS:6	CSKILL:Autohypnosis|Balance|Climb|Concentration|TYPE=Craft|Disable Device|Escape Artist|Gather Information|Hide|Jump|TYPE=KnowledgeLocal|Knowledge (Psionics)|Listen|Move Silently|Open Lock|TYPE=Perform|TYPE=Profession|Psicraft|Search|Sense Motive|Sleight of Hand|Spot|Swim|Tumble|Use Psionic Device|Use Rope
-###Block: Psionic Variables
 ###Block: Class Info
 1														ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Scorn Earth															ABILITY:FEAT|AUTOMATIC|Sidestep Charge
 2								BONUS:VAR|OpportunisticStrike|2					ABILITY:Special Ability|AUTOMATIC|Opportunistic Strike
@@ -214,6 +213,8 @@ CLASS:Elocator	STARTSKILLPTS:6	CSKILL:Autohypnosis|Balance|Climb|Concentration|T
 8								BONUS:VAR|OpportunisticStrike|2
 9														ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Dimension Spring Attack
 10														ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Accelerated Action
+###Block
+11	PREPCLEVEL:MIN=20
 
 # Class Name		Hit Dice	Type					Class Type			Abbreviation	Max Level	Source Page		Combat bonus															Modify VAR																								Bonus
 CLASS:Psionic Fist	HD:6		TYPE:PC.Prestige.Psionic	CLASSTYPE:Prestige	ABB:PFi		MAXLEVEL:10	SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|PsiCrystalLVL|CL|PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
@@ -229,7 +230,6 @@ CLASS:Psionic Fist	SPELLSTAT:WIS	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL
 1	BONUS:VAR|BasePowerPoints|5|PREVARGTEQ:PsionicFistML,5	BONUS:VAR|BasePowerPoints|8|PREVARGTEQ:PsionicFistML,6	BONUS:VAR|BasePowerPoints|8|PREVARGTEQ:PsionicFistML,7	BONUS:VAR|BasePowerPoints|12|PREVARGTEQ:PsionicFistML,8
 1	BONUS:VAR|BasePowerPoints|12|PREVARGTEQ:PsionicFistML,9	BONUS:VAR|BasePowerPoints|16|PREVARGTEQ:PsionicFistML,10
 1	BONUS:VAR|BonusPowerPoints|(WIS*PsionicFistML)/2|TYPE=PsionicFistBonusPP
-
 ###Block:Monk Abilities
 1						BONUS:VAR|MonkACLVL|CL		ABILITY:Special Ability|AUTOMATIC|Monk ~ AC Bonus
 1						BONUS:VAR|MonkMoveLVL|CL	ABILITY:Special Ability|AUTOMATIC|Monk ~ Fast Movement
@@ -245,27 +245,38 @@ CLASS:Psionic Fist	SPELLSTAT:WIS	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL
 8	KNOWN:0,2,2,2,2
 9	KNOWN:0,2,2,2,2,1
 10	KNOWN:0,2,2,2,2,2	BONUS:ABILITYPOOL|Psionic Fist Feat|1
+###Block
+11	PREPCLEVEL:MIN=20
 
 
-# Class Name	Hit Dice	Type					Class Type			Abbreviation	Max Level	Source Page		Combat bonus										Modify VAR									Bonus
-CLASS:Slayer	HD:8		TYPE:PC.Prestige.Psionic	CLASSTYPE:Prestige	ABB:Sla		MAXLEVEL:10	SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|PsiCrystalLVL|CL|PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
-# Class Name	Required Feat	Required Skill					Required Template		PRETOTALAB
-CLASS:Slayer	PREABILITY:1,CATEGORY=FEAT,Track	PRESKILL:1,Knowledge (Dungeoneering)=4	PRETEMPLATE:1,Psionic	PRETOTALAB:4
-# Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Slayer	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Knowledge (Dungeoneering)|Listen|Psicraft|Sense Motive|Spot|Survival
-###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|Slayer ~ Weapon and Armor Proficiency
-###Block: Class Info
-1											ABILITY:Special Ability|AUTOMATIC|Sense Favored Enemy|Slayer Favored Enemy
-2	BONUS:VAR|BrainNausea|15+CL		ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Brain Nausea
-3							ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Lucid Buffer
-4	BONUS:VAR|SlayerFavoredEnemy|2	ADD:SPELLCASTER|Psionic
-5							ADD:SPELLCASTER|Psionic
-6							ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Cerebral Blind
-7	BONUS:VAR|SlayerFavoredEnemy|2	ADD:SPELLCASTER|Psionic
-8							ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Breech Power Resistance
-9							ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Cerebral Immunity
-10	BONUS:VAR|SlayerFavoredEnemy|2	ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Blast Feedback
+# Class Name		Hit Dice	Type					Class Type			Abbreviation	Max Level	Source Page		Combat bonus										Modify VAR									Bonus
+CLASS:Illithid Slayer	HD:8		TYPE:PC.Prestige.Psionic	CLASSTYPE:Prestige	ABB:IlSl		MAXLEVEL:10	SOURCEPAGE:p.146	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|PsiCrystalLVL|CL|PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	DEFINE:Illithid_SlayerLVL|0	BONUS:VAR|Illithid_SlayerLVL|classlevel	
+# Class Name		Required Feat				Required Skill					Required Template		PRETOTALAB
+CLASS:Illithid Slayer	PREABILITY:1,CATEGORY=FEAT,Track	PRESKILL:1,Knowledge (Dungeoneering)=4	PRETEMPLATE:1,Psionic	PRETOTALAB:4
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Illithid Slayer	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Knowledge (Dungeoneering)|Listen|Psicraft|Sense Motive|Spot|Survival
+###Block:
+1	ABILITY:Illithid Slayer Class Feature|AUTOMATIC|Illithid Slayer ~ Weapon and Armor Proficiency
+1	ABILITY:Illithid Slayer Class Feature|AUTOMATIC|Illithid Slayer ~ Favored Enemy (Illithid)	
+1	ABILITY:Illithid Slayer Class Feature|AUTOMATIC|Illithid Slayer ~ Illithid Sense			
+2	ABILITY:Illithid Slayer Class Feature|AUTOMATIC|Illithid Slayer ~ Brain Nausea			
+3	ABILITY:Illithid Slayer Class Feature|AUTOMATIC|Illithid Slayer ~ Lucid Buffer			
+6	ABILITY:Illithid Slayer Class Feature|AUTOMATIC|Illithid Slayer ~ Cerebral Blind			
+8	ABILITY:Illithid Slayer Class Feature|AUTOMATIC|Illithid Slayer ~ Breech Power Resistance		
+9	ABILITY:Illithid Slayer Class Feature|AUTOMATIC|Illithid Slayer ~ Cerebral Immunity			
+10	ABILITY:Illithid Slayer Class Feature|AUTOMATIC|Illithid Slayer ~ Blast Feedback			
+###Block
+2	ADD:SPELLCASTER|Psionic
+3	ADD:SPELLCASTER|Psionic
+4	ADD:SPELLCASTER|Psionic
+5	ADD:SPELLCASTER|Psionic
+6	ADD:SPELLCASTER|Psionic
+7	ADD:SPELLCASTER|Psionic
+8	ADD:SPELLCASTER|Psionic
+9	ADD:SPELLCASTER|Psionic
+10	ADD:SPELLCASTER|Psionic
+###Block
+11	PREPCLEVEL:MIN=20
 
 # Class Name	Hit Dice	Type					Class Type			Abbreviation	Max Level	Source Page		Combat bonus															Modify VAR																							Bonus
 CLASS:Metamind	HD:4		TYPE:PC.Prestige.Psionic	CLASSTYPE:Prestige	ABB:MMd		MAXLEVEL:10	SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|PsiCrystalLVL|CL|PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
@@ -280,6 +291,8 @@ CLASS:Metamind	STARTSKILLPTS:2	CSKILL:Autohypnosis|Bluff|Concentration|TYPE=Craf
 6	BONUS:VAR|CogPsiCrystal|2				ADD:SPELLCASTER|Psionic
 8	BONUS:VAR|CogPsiCrystal|2				ADD:SPELLCASTER|Psionic
 10									ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Font of Power
+###Block
+11	PREPCLEVEL:MIN=20
 
 # Class Name		Hit Dice	Type					Class Type			Abbreviation	Max Level	Source Page		Combat bonus															Modify VAR																							Bonus
 CLASS:Psion Uncarnate	HD:4		TYPE:PC.Prestige.Psionic	CLASSTYPE:Prestige	ABB:PUn		MAXLEVEL:10	SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|PsiCrystalLVL|CL|PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
@@ -298,6 +311,8 @@ CLASS:Psion Uncarnate	STARTSKILLPTS:2	CSKILL:Autohypnosis|Bluff|Concentration|TY
 8										ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Uncarnate Bridge
 9	BONUS:VAR|UncarnateIncorporealTouch|1			ADD:SPELLCASTER|Psionic
 10														ABILITY:Special Ability|AUTOMATIC|Uncarnate
+###Block
+11	PREPCLEVEL:MIN=20
 
 # Class Name		Hit Dice	Type					Class Type			Abbreviation	Max Level	Source Page		Combat bonus															Modify VAR																								Bonus
 CLASS:Pyrokineticist	HD:8		TYPE:PC.Prestige.Psionic	CLASSTYPE:Prestige	ABB:Pyr		MAXLEVEL:10	SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|PsiCrystalLVL|CL|PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
@@ -317,6 +332,8 @@ CLASS:Pyrokineticist	STARTSKILLPTS:2	CSKILL:Climb|Concentration|TYPE=Craft|Intim
 8							ABILITY:Special Ability|AUTOMATIC|Greater Weapon Afire
 9	BONUS:VAR|HeatDeathDC|14+CHA		ABILITY:Special Ability|AUTOMATIC|Heat Death
 10	BONUS:VAR|ConflagrationDC|15+CHA	ABILITY:Special Ability|AUTOMATIC|Conflagration
+###Block
+11	PREPCLEVEL:MIN=20
 
 # Class Name	Hit Dice	Type					Class Type			Abbreviation	Max Level	Source Page		Combat bonus															Modify VAR													Bonus
 CLASS:Thrallherd	HD:4		TYPE:PC.Prestige.Psionic	CLASSTYPE:Prestige	ABB:Thr		MAXLEVEL:10	SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
@@ -335,6 +352,8 @@ CLASS:Thrallherd	STARTSKILLPTS:2	CSKILL:Autohypnosis|Bluff|Concentration|TYPE=Cr
 8																ADD:SPELLCASTER|Psionic
 9																ADD:SPELLCASTER|Psionic	ABILITY:Special Ability|AUTOMATIC|Thrallherd Superior Dominate
 10																				ABILITY:Special Ability|AUTOMATIC|Twofold Master
+###Block
+11	PREPCLEVEL:MIN=20
 
 # Class Name	Hit Dice	Type					Class Type			Abbreviation	Max Level	Source Page		Combat bonus										Modify VAR									Bonus
 CLASS:War Mind	HD:10		TYPE:PC.Prestige.Psionic	CLASSTYPE:Prestige	ABB:WMnd		MAXLEVEL:10	SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|PsiCrystalLVL|CL|PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
@@ -345,39 +364,31 @@ CLASS:War Mind	STARTSKILLPTS:2	CSKILL:Autohypnosis|Concentration|Intimidate|Know
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level			Use Spell List
 CLASS:War Mind	SPELLSTAT:WIS	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|War Mind|Caster_Level_BL_Stripped_War_Mind	DEFINE:Caster_Level_BL_Stripped_War_Mind|0	BONUS:VAR|Caster_Level_BL_Stripped_War_Mind|Caster_Level_War_Mind-CasterLevelBLWar_Mind	BONUS:VAR|Caster_Level_War_Mind|CL+Caster_Level_Bonus+CasterLevelBLWar_Mind	DEFINE:CasterLevelBLWar_Mind|0	BONUS:VAR|CasterLevelBL_x_War_Mind|charbonusto("PCLEVEL","War Mind")	BONUS:VAR|Caster_Level_Highest__Psionic|Caster_Level_War_Mind|TYPE=Base	SPELLLIST:1|Psychic Warrior
 ###Block: Psionic subtype, BasePowerPoints, BonusPowerPoints
-1	BONUS:VAR|WarMindML|CL	BONUS:VAR|WarMindML|var("BL=War Mind")																										DEFINE:WarMindML|0	TEMPLATE:Psionic
-1	BONUS:VAR|BasePowerPoints|2	BONUS:VAR|BasePowerPoints|3|PREVARGTEQ:WarMindML,2	BONUS:VAR|BasePowerPoints|4|PREVARGTEQ:WarMindML,3	BONUS:VAR|BasePowerPoints|5|PREVARGTEQ:WarMindML,4
-1	BONUS:VAR|BasePowerPoints|6|PREVARGTEQ:WarMindML,5	BONUS:VAR|BasePowerPoints|8|PREVARGTEQ:WarMindML,6	BONUS:VAR|BasePowerPoints|9|PREVARGTEQ:WarMindML,7	BONUS:VAR|BasePowerPoints|10|PREVARGTEQ:WarMindML,8
-1	BONUS:VAR|BasePowerPoints|11|PREVARGTEQ:WarMindML,9	BONUS:VAR|BasePowerPoints|12|PREVARGTEQ:WarMindML,10
-1	BONUS:VAR|BonusPowerPoints|(WIS*WarMindML)/2|TYPE=WarMindBonusPP
+1	ABILITY:War Mind Class Feature|AUTOMATIC|War Mind
+1	ABILITY:War Mind Class Feature|AUTOMATIC|War Mind ~ Chain of Personal Superiority	
+2	ABILITY:War Mind Class Feature|AUTOMATIC|War Mind ~ Chain of Defensive Posture		
+3	ABILITY:War Mind Class Feature|AUTOMATIC|War Mind ~ Enduring Body				
+5	ABILITY:War Mind Class Feature|AUTOMATIC|War Mind ~ Sweeping Strike			
+10	ABILITY:War Mind Class Feature|AUTOMATIC|War Mind ~ Chain of Overwhelming Force	
 ###Block: Class Info
-1	KNOWN:0,1							BONUS:VAR|SuperiorityChain|2	ABILITY:Special Ability|AUTOMATIC|Chain of Personal Superiority
-2	KNOWN:0,2							BONUS:VAR|DefensivePosture|2	ABILITY:Special Ability|AUTOMATIC|Chain of Defensive Posture
-3	KNOWN:0,2		DR:1/-									ABILITY:Special Ability|AUTOMATIC|Enduring Body
+1	KNOWN:0,1							BONUS:VAR|SuperiorityChain|2
+2	KNOWN:0,2							BONUS:VAR|DefensivePosture|2
+3	KNOWN:0,2													
 4	KNOWN:0,2,1
-5	KNOWN:0,2,1												ABILITY:Special Ability|AUTOMATIC|Sweeping Strike
+5	KNOWN:0,2,1												
 6	KNOWN:0,2,1,1			BONUS:DR|-|1
 7	KNOWN:0,2,1,1						BONUS:VAR|SuperiorityChain|2
 8	KNOWN:0,2,1,1,1						BONUS:VAR|DefensivePosture|2
 9	KNOWN:0,2,1,1,1			BONUS:DR|-|1
-10	KNOWN:0,2,1,1,1,1											ABILITY:Special Ability|AUTOMATIC|Chain of Overwhelming Force
+10	KNOWN:0,2,1,1,1,1											
+###Block
+11	PREPCLEVEL:MIN=20
 
 
 # Class Name	Hit Dice	Type				Visible
 CLASS:PsiSpell	HD:4		TYPE:Base.Psionic.PC	VISIBLE:NO
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level			Use Spell List
 CLASS:PsiSpell	SPELLSTAT:CHA	SPELLTYPE:Psionic	MEMORIZE:NO	BONUS:CASTERLEVEL|PsiSpell|Caster_Level_BL_Stripped_PsiSpell	DEFINE:Caster_Level_BL_Stripped_PsiSpell|0	BONUS:VAR|Caster_Level_BL_Stripped_PsiSpell|Caster_Level_PsiSpell-CasterLevelBLPsiSpell	BONUS:VAR|Caster_Level_PsiSpell|CL+Caster_Level_Bonus+CasterLevelBLPsiSpell	DEFINE:CasterLevelBLPsiSpell|0	BONUS:VAR|CasterLevelBL_x_PsiSpell|charbonusto("PCLEVEL","PsiSpell")	BONUS:VAR|Caster_Level_Highest__Psionic|Caster_Level_PsiSpell|TYPE=Base	SPELLLIST:2|Psion|PsiSpell
-
-
-
-
-
-
-
-
-
-
-
 
 #
 # End
