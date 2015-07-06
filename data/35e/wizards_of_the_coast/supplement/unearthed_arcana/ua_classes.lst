@@ -565,38 +565,27 @@ CLASS:Rogue (Wilderness Rogue)	STARTSKILLPTS:8	CSKILL:Balance|Bluff|Climb|TYPE=C
 ###Battle Sorcerer
 
 # Class Name		Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Combat bonus															Modify VAR														Monster Role	Bonus
-CLASS:Battle Sorcerer	HD:8		TYPE:Base.PC	CLASSTYPE:PC	ABB:Sor		MAXLEVEL:20	SOURCEPAGE:p.56	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	ROLE:Sorcerer	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Battle Sorcerer	HD:8		TYPE:Base.PC	CLASSTYPE:PC	ABB:Sor		MAXLEVEL:20	SOURCEPAGE:p.56	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	ROLE:Sorcerer	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	SERVESAS:CLASS|Sorcerer
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Battle Sorcerer	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Knowledge (arcana)|TYPE=Profession|Spellcraft|Intimidate
 # Class Name		Spell Stat		Spell Type		Memorize	Caster level					Use Spell List
 CLASS:Battle Sorcerer	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Battle Sorcerer|CL+CasterLevelBonus	SPELLLIST:1|Sorcerer
 ###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|Sorcerer ~ Weapon and Armor Proficiency|!PREABILITY:1,CATEGORY=ACF,TYPE.SorcererProficiencies
-1	ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfLight
-
+1	ABILITY:Sorcerer Class Feature|AUTOMATIC|Battle Sorcerer ~ Weapon and Armor Proficiency|!PREABILITY:1,CATEGORY=ACF,TYPE.SorcererProficiencies
+1	ABILITY:Sorcerer Class Feature|AUTOMATIC|Sorcerer ~ Familiar|!PREABILITY:1,CATEGORY=Special Ability,TYPE.SorcererSummonFamiliar
 ###Block: Familiar
-1	BONUS:VAR|FamiliarLVL|CL|!PREABILITY:1,CATEGORY=Special Ability,TYPE.SorcererSummonFamiliar	ABILITY:Special Ability|AUTOMATIC|Sorcerer ~ Familiar|!PREABILITY:1,CATEGORY=Special Ability,TYPE.SorcererSummonFamiliar
+1	BONUS:VAR|FamiliarLVL|CL|!PREABILITY:1,CATEGORY=Special Ability,TYPE.SorcererSummonFamiliar
 ###Block:
-1	BONUS:SPELLCAST|CLASS=Sorcerer;LEVEL=0|-1
-1	BONUS:SPELLCAST|CLASS=Sorcerer;LEVEL=1|-1
-1	BONUS:SPELLCAST|CLASS=Sorcerer;LEVEL=2|-1
-1	BONUS:SPELLCAST|CLASS=Sorcerer;LEVEL=3|-1
-1	BONUS:SPELLCAST|CLASS=Sorcerer;LEVEL=4|-1
-1	BONUS:SPELLCAST|CLASS=Sorcerer;LEVEL=5|-1
-1	BONUS:SPELLCAST|CLASS=Sorcerer;LEVEL=6|-1
-1	BONUS:SPELLCAST|CLASS=Sorcerer;LEVEL=7|-1
-1	BONUS:SPELLCAST|CLASS=Sorcerer;LEVEL=8|-1
-1	BONUS:SPELLCAST|CLASS=Sorcerer;LEVEL=9|-1
-1								BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=0|-1
-1								BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=1|-1
-1								BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=2|-1
-1								BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=3|-1
-1								BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=4|-1
-1								BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=5|-1
-1								BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=6|-1
-1								BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=7|-1
-1								BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=8|-1
-1								BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=9|-1
+1	BONUS:SPELLCAST|CLASS=Sorcerer;LEVEL=0|-1	BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=0|-1
+1	BONUS:SPELLCAST|CLASS=Sorcerer;LEVEL=1|-1	BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=1|-1
+1	BONUS:SPELLCAST|CLASS=Sorcerer;LEVEL=2|-1	BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=2|-1
+1	BONUS:SPELLCAST|CLASS=Sorcerer;LEVEL=3|-1	BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=3|-1
+1	BONUS:SPELLCAST|CLASS=Sorcerer;LEVEL=4|-1	BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=4|-1
+1	BONUS:SPELLCAST|CLASS=Sorcerer;LEVEL=5|-1	BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=5|-1
+1	BONUS:SPELLCAST|CLASS=Sorcerer;LEVEL=6|-1	BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=6|-1
+1	BONUS:SPELLCAST|CLASS=Sorcerer;LEVEL=7|-1	BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=7|-1
+1	BONUS:SPELLCAST|CLASS=Sorcerer;LEVEL=8|-1	BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=8|-1
+1	BONUS:SPELLCAST|CLASS=Sorcerer;LEVEL=9|-1	BONUS:SPELLKNOWN|CLASS=Sorcerer;LEVEL=9|-1
 ###Block: Level progression
 1	CAST:5,3				KNOWN:4,2
 2	CAST:6,4				KNOWN:5,2
@@ -620,21 +609,16 @@ CLASS:Battle Sorcerer	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	BONUS:CASTERLEV
 20	CAST:6,6,6,6,6,6,6,6,6,6	KNOWN:9,5,5,4,4,4,3,3,3,3
 
 
-# Class Name			Hit Dice	Type				Class Type		Max Level	Source Page		Bonus Languages					Combat bonus															Add domain number		Modify VAR														Monster Role	Bonus																						Serves As
-CLASS:Cleric (Spontaneous)	HD:8		TYPE:Base.PC.Variant	CLASSTYPE:PC	MAXLEVEL:20	SOURCEPAGE:p.64	LANGBONUS:Abyssal,Celestial,Infernal	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:DOMAIN|NUMBER|2	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	ROLE:Cleric		BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	SERVESAS:CLASS|Cleric
+# Class Name			Hit Dice	Type				Class Type		Max Level	Source Page		Bonus Languages					Group of Prohibited Spells																																																						Combat bonus																	Add domain number		Modify VAR														Monster Role	Bonus																						Serves As
+CLASS:Cleric (Spontaneous)	HD:8		TYPE:Base.PC.Variant	CLASSTYPE:PC	MAXLEVEL:20	SOURCEPAGE:p.64	LANGBONUS:Abyssal,Celestial,Infernal	PROHIBITSPELL:ALIGNMENT.Chaotic|PREMULT:1,[PREALIGN:LG,LN,LE],[PREDEITYALIGN:LG,LN,LE]	PROHIBITSPELL:ALIGNMENT.Evil|PREMULT:1,[PREALIGN:LG,NG,CG],[PREDEITYALIGN:LG,NG,CG]	PROHIBITSPELL:ALIGNMENT.Good|PREMULT:1,[PREALIGN:LE,NE,CE],[PREDEITYALIGN:LE,NE,CE]	PROHIBITSPELL:ALIGNMENT.Lawful|PREMULT:1,[PREALIGN:CG,CN,CE],[PREDEITYALIGN:CG,CN,CE]	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:DOMAIN|NUMBER|2	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	ROLE:Cleric		BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	SERVESAS:CLASS|Cleric
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Cleric (Spontaneous)	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Knowledge (arcana)|Knowledge (History)|Knowledge (Religion)|Knowledge (the planes)|TYPE=Profession|Spellcraft
 # Class Name			Spell Stat		Spell Type		Caster level					Use Spell List
 CLASS:Cleric (Spontaneous)	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Cleric (Spontaneous)|CL+CasterLevelBonus	SPELLLIST:1|Cleric
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|Cleric ~ Weapon and Armor Proficiency|!PREABILITY:1,CATEGORY=ACF,TYPE.ClericProficiences
-###Block:
 1	ABILITY:Special Ability|AUTOMATIC|Cleric ~ Turn or Rebuke Undead
-###Block: Spell Alignment Restrictions
-1	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE	PROHIBITSPELL:ALIGNMENT.Good|PREDEITYALIGN:LE,NE,CE
-1	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG	PROHIBITSPELL:ALIGNMENT.Evil|PREDEITYALIGN:LG,NG,CG
-1	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE	PROHIBITSPELL:ALIGNMENT.Lawful|PREDEITYALIGN:CG,CN,CE
-1	PROHIBITSPELL:ALIGNMENT.Chaotic|PREALIGN:LG,LN,LE	PROHIBITSPELL:ALIGNMENT.Chaotic|PREDEITYALIGN:LG,LN,LE
+###Block:
 ###Block: Aura strength
 1	BONUS:VAR|AlignmentAuraBase|CL	DEFINE:AlignmentAuraBase|0
 ###Block:
@@ -687,49 +671,49 @@ CLASS:Cleric (Spontaneous)	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Cler
 19	KNOWN:9,5,5,4,4,4,3,3,3,2
 20	KNOWN:9,5,5,4,4,4,3,3,3,3
 ###Block: Domain Support
-#Air
+# Air
 1	SPELLKNOWN:CLASS|Cleric (Spontaneous)=1|Obscuring Mist|Cleric (Spontaneous)=2|Wind Wall|Cleric (Spontaneous)=3|Gaseous Form|Cleric (Spontaneous)=4|Air Walk|Cleric (Spontaneous)=5|Control Winds|Cleric (Spontaneous)=6|Chain Lightning|Cleric (Spontaneous)=7|Control Weather|Cleric (Spontaneous)=8|Whirlwind|Cleric (Spontaneous)=9|Elemental Swarm|PREDOMAIN:1,Air
-#Animal
+# Animal
 1	SPELLKNOWN:CLASS|Cleric (Spontaneous)=1|Calm Animals|Cleric (Spontaneous)=2|Hold Animal|Cleric (Spontaneous)=3|Dominate Animal|Cleric (Spontaneous)=4|Summon Nature's Ally IV|Cleric (Spontaneous)=5|Commune with Nature|Cleric (Spontaneous)=6|Antilife Shell|Cleric (Spontaneous)=7|Animal Shapes|Cleric (Spontaneous)=8|Summon Nature's Ally VIII|Cleric (Spontaneous)=9|Shapechange|PREDOMAIN:1,Animal
-#Chaos
+# Chaos
 1	SPELLKNOWN:CLASS|Cleric (Spontaneous)=1|Protection from Law|Cleric (Spontaneous)=2|Shatter|Cleric (Spontaneous)=3|Magic Circle against Law|Cleric (Spontaneous)=4|Chaos Hammer|Cleric (Spontaneous)=5|Dispel Law|Cleric (Spontaneous)=6|Animate Objects|Cleric (Spontaneous)=7|Word of Chaos|Cleric (Spontaneous)=8|Cloak of Chaos|Cleric (Spontaneous)=9|Summon Monster IX|PREDOMAIN:1,Chaos
-#Death
+# Death
 1	SPELLKNOWN:CLASS|Cleric (Spontaneous)=1|Cause Fear|Cleric (Spontaneous)=2|Death Knell|Cleric (Spontaneous)=3|Animate Dead|Cleric (Spontaneous)=4|Death Ward|Cleric (Spontaneous)=5|Slay Living|Cleric (Spontaneous)=6|Create Undead|Cleric (Spontaneous)=7|Destruction|Cleric (Spontaneous)=8|Create Greater Undead|Cleric (Spontaneous)=9|Wail of the Banshee|PREDOMAIN:1,Death
-#Destruction
+# Destruction
 1	SPELLKNOWN:CLASS|Cleric (Spontaneous)=1|Inflict Light Wounds|Cleric (Spontaneous)=2|Shatter|Cleric (Spontaneous)=3|Contagion|Cleric (Spontaneous)=4|Inflict Critical Wounds|Cleric (Spontaneous)=5|Inflict Light Wounds (Mass)|Cleric (Spontaneous)=6|Harm|Cleric (Spontaneous)=7|Disintegrate|Cleric (Spontaneous)=8|Earthquake|Cleric (Spontaneous)=9|Implosion|PREDOMAIN:1,Destruction
-#Earth
+# Earth
 1	SPELLKNOWN:CLASS|Cleric (Spontaneous)=1|Magic Stone|Cleric (Spontaneous)=2|Soften Earth and Stone|Cleric (Spontaneous)=3|Stone Shape|Cleric (Spontaneous)=4|Spike Stones|Cleric (Spontaneous)=5|Wall of Stone|Cleric (Spontaneous)=6|Stoneskin|Cleric (Spontaneous)=7|Earthquake|Cleric (Spontaneous)=8|Iron Body|Cleric (Spontaneous)=9|Elemental Swarm|PREDOMAIN:1,Earth
-#Evil
+# Evil
 1	SPELLKNOWN:CLASS|Cleric (Spontaneous)=1|Protection from Good|Cleric (Spontaneous)=2|Desecrate|Cleric (Spontaneous)=3|Magic Circle against Good|Cleric (Spontaneous)=4|Unholy Blight|Cleric (Spontaneous)=5|Dispel Good|Cleric (Spontaneous)=6|Create Undead|Cleric (Spontaneous)=7|Blasphemy|Cleric (Spontaneous)=8|Unholy Aura|Cleric (Spontaneous)=9|Summon Monster IX|PREDOMAIN:1,Evil
-#Fire
+# Fire
 1	SPELLKNOWN:CLASS|Cleric (Spontaneous)=1|Burning Hands|Cleric (Spontaneous)=2|Produce Flame|Cleric (Spontaneous)=3|Resist Energy|Cleric (Spontaneous)=4|Wall of Fire|Cleric (Spontaneous)=5|Fire Shield|Cleric (Spontaneous)=6|Fire Seeds|Cleric (Spontaneous)=7|Fire Storm|Cleric (Spontaneous)=8|Incendiary Cloud|Cleric (Spontaneous)=9|Elemental Swarm|PREDOMAIN:1,Fire
-#Good
+# Good
 1	SPELLKNOWN:CLASS|Cleric (Spontaneous)=1|Protection from Evil|Cleric (Spontaneous)=2|Aid|Cleric (Spontaneous)=3|Magic Circle against Evil|Cleric (Spontaneous)=4|Holy Smite|Cleric (Spontaneous)=5|Dispel Evil|Cleric (Spontaneous)=6|Blade Barrier|Cleric (Spontaneous)=7|Holy Word|Cleric (Spontaneous)=8|Holy Aura|Cleric (Spontaneous)=9|Summon Monster IX|PREDOMAIN:1,Good
-#Healing
+# Healing
 1	SPELLKNOWN:CLASS|Cleric (Spontaneous)=1|Cure Light Wounds|Cleric (Spontaneous)=2|Cure Moderate Wounds|Cleric (Spontaneous)=3|Cure Serious Wounds|Cleric (Spontaneous)=4|Cure Critical Wounds|Cleric (Spontaneous)=5|Cure Light Wounds (Mass)|Cleric (Spontaneous)=6|Heal|Cleric (Spontaneous)=7|Regenerate|Cleric (Spontaneous)=8|Cure Critical Wounds (Mass)|Cleric (Spontaneous)=9|Heal (Mass)|PREDOMAIN:1,Healing
-#Knowledge
+# Knowledge
 1	SPELLKNOWN:CLASS|Cleric (Spontaneous)=1|Detect Secret Doors|Cleric (Spontaneous)=2|Detect Thoughts|Cleric (Spontaneous)=3|Clairaudience/Clairvoyance|Cleric (Spontaneous)=4|Divination|Cleric (Spontaneous)=5|True Seeing|Cleric (Spontaneous)=6|Find the Path|Cleric (Spontaneous)=7|Legend Lore|Cleric (Spontaneous)=8|Discern Location|Cleric (Spontaneous)=9|Foresight|PREDOMAIN:1,Knowledge
-#Law
+# Law
 1	SPELLKNOWN:CLASS|Cleric (Spontaneous)=1|Protection from Chaos|Cleric (Spontaneous)=2|Calm Emotions|Cleric (Spontaneous)=3|Magic Circle against Chaos|Cleric (Spontaneous)=4|Order's Wrath|Cleric (Spontaneous)=5|Dispel Chaos|Cleric (Spontaneous)=6|Hold Monster|Cleric (Spontaneous)=7|Dictum|Cleric (Spontaneous)=8|Shield of Law|Cleric (Spontaneous)=9|Summon Monster IX|PREDOMAIN:1,Law
-#Luck
+# Luck
 1	SPELLKNOWN:CLASS|Cleric (Spontaneous)=1|Entropic Shield|Cleric (Spontaneous)=2|Aid|Cleric (Spontaneous)=3|Protection from Energy|Cleric (Spontaneous)=4|Freedom of Movement|Cleric (Spontaneous)=5|Break Enchantment|Cleric (Spontaneous)=6|Mislead|Cleric (Spontaneous)=7|Spell Turning|Cleric (Spontaneous)=8|Moment of Prescience|Cleric (Spontaneous)=9|Miracle|PREDOMAIN:1,Luck
-#Magic
+# Magic
 1	SPELLKNOWN:CLASS|Cleric (Spontaneous)=1|Magic Aura|Cleric (Spontaneous)=2|Identify|Cleric (Spontaneous)=3|Dispel Magic|Cleric (Spontaneous)=4|Imbue with Spell Ability|Cleric (Spontaneous)=5|Spell Resistance|Cleric (Spontaneous)=6|Antimagic Field|Cleric (Spontaneous)=7|Spell Turning|Cleric (Spontaneous)=8|Protection from Spells|Cleric (Spontaneous)=9|Mage's Disjunction|PREDOMAIN:1,Magic
-#Plant
+# Plant
 1	SPELLKNOWN:CLASS|Cleric (Spontaneous)=1|Entangle|Cleric (Spontaneous)=2|Barkskin|Cleric (Spontaneous)=3|Plant Growth|Cleric (Spontaneous)=4|Command Plants|Cleric (Spontaneous)=5|Wall of Thorns|Cleric (Spontaneous)=6|Repel Wood|Cleric (Spontaneous)=7|Animate Plants|Cleric (Spontaneous)=8|Control Plants|Cleric (Spontaneous)=9|Shambler|PREDOMAIN:1,Plant
-#Protection
+# Protection
 1	SPELLKNOWN:CLASS|Cleric (Spontaneous)=1|Sanctuary|Cleric (Spontaneous)=2|Shield Other|Cleric (Spontaneous)=3|Protection from Energy|Cleric (Spontaneous)=4|Spell Immunity|Cleric (Spontaneous)=5|Spell Resistance|Cleric (Spontaneous)=6|Antimagic Field|Cleric (Spontaneous)=7|Repulsion|Cleric (Spontaneous)=8|Mind Blank|Cleric (Spontaneous)=9|Prismatic Sphere|PREDOMAIN:1,Protection
-#Strength
+# Strength
 1	SPELLKNOWN:CLASS|Cleric (Spontaneous)=1|Enlarge Person|Cleric (Spontaneous)=2|Bull's Strength|Cleric (Spontaneous)=3|Magic Vestment|Cleric (Spontaneous)=4|Spell Immunity|Cleric (Spontaneous)=5|Righteous Might|Cleric (Spontaneous)=6|Stoneskin|Cleric (Spontaneous)=7|Grasping Hand|Cleric (Spontaneous)=8|Clenched Fist|Cleric (Spontaneous)=9|Crushing Hand|PREDOMAIN:1,Strength
-#Sun
+# Sun
 1	SPELLKNOWN:CLASS|Cleric (Spontaneous)=1|Endure Elements|Cleric (Spontaneous)=2|Heat Metal|Cleric (Spontaneous)=3|Searing Light|Cleric (Spontaneous)=4|Fire Shield|Cleric (Spontaneous)=5|Flame Strike|Cleric (Spontaneous)=6|Fire Seeds|Cleric (Spontaneous)=7|Sunbeam|Cleric (Spontaneous)=8|Sunburst|Cleric (Spontaneous)=9|Prismatic Sphere|PREDOMAIN:1,Sun
-#Travel
+# Travel
 1	SPELLKNOWN:CLASS|Cleric (Spontaneous)=1|Longstrider|Cleric (Spontaneous)=2|Locate Object|Cleric (Spontaneous)=3|Fly|Cleric (Spontaneous)=4|Dimension Door|Cleric (Spontaneous)=5|Teleport|Cleric (Spontaneous)=6|Find the Path|Cleric (Spontaneous)=7|Teleport (Greater)|Cleric (Spontaneous)=8|Phase Door|Cleric (Spontaneous)=9|Astral Projection|PREDOMAIN:1,Travel
-#Trickery
+# Trickery
 1	SPELLKNOWN:CLASS|Cleric (Spontaneous)=1|Disguise Self|Cleric (Spontaneous)=2|Invisibility|Cleric (Spontaneous)=3|Nondetection|Cleric (Spontaneous)=4|Confusion|Cleric (Spontaneous)=5|False Vision|Cleric (Spontaneous)=6|Mislead|Cleric (Spontaneous)=7|Screen|Cleric (Spontaneous)=8|Polymorph Any Object|Cleric (Spontaneous)=9|Time Stop|PREDOMAIN:1,Trickery
-#War
+# War
 1	SPELLKNOWN:CLASS|Cleric (Spontaneous)=1|Magic Weapon|Cleric (Spontaneous)=2|Spiritual Weapon|Cleric (Spontaneous)=3|Magic Vestment|Cleric (Spontaneous)=4|Divine Power|Cleric (Spontaneous)=5|Flame Strike|Cleric (Spontaneous)=6|Blade Barrier|Cleric (Spontaneous)=7|Power Word Blind|Cleric (Spontaneous)=8|Power Word Stun|Cleric (Spontaneous)=9|Power Word Kill|PREDOMAIN:1,War
-#Water
+# Water
 1	SPELLKNOWN:CLASS|Cleric (Spontaneous)=1|Obscuring Mist|Cleric (Spontaneous)=2|Fog Cloud|Cleric (Spontaneous)=3|Water Breathing|Cleric (Spontaneous)=4|Control Water|Cleric (Spontaneous)=5|Ice Storm|Cleric (Spontaneous)=6|Cone of Cold|Cleric (Spontaneous)=7|Acid Fog|Cleric (Spontaneous)=8|Horrid Wilting|Cleric (Spontaneous)=9|Elemental Swarm|PREDOMAIN:1,Water
 
 
@@ -745,9 +729,7 @@ CLASS:Druid (Spontaneous)	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Druid
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|Druid ~ Weapon and Armor Proficiency|!PREABILITY:1,CATEGORY=ACF,TYPE.DruidProficiencies
 ###Block: Wildshape Abilities Block
-#
 # To add effective Druid levels to this ability use BONUS:VAR|DruidWildShape|CL
-#
 1	BONUS:VAR|DruidWildShape|CL
 1	BONUS:VAR|WildEmpathyBonus|CL	BONUS:VAR|AnimalCompanionLVL|CL
 ###Block: Spell Alignment Restrictions
