@@ -62,6 +62,23 @@
 			</xsl:call-template>
 		</xsl:if>
 	</xsl:template>
+	<!--
+====================================
+====================================
+	TEMPLATE - Race Traits
+====================================
+====================================-->
+	<xsl:template match="race_traits">
+		<xsl:if test="count(race_trait) &gt; 0">
+			<xsl:call-template name="bold.list">
+				<xsl:with-param name="attribute" select="'race_traits'" />
+				<xsl:with-param name="title" select="'Race Traits'" />
+				<xsl:with-param name="list" select="race_trait"/>
+				<xsl:with-param name="name.tag" select="'name'"/>
+				<xsl:with-param name="desc.tag" select="'description'"/>
+			</xsl:call-template>
+		</xsl:if>
+	</xsl:template>
 	<!--	
 ====================================
 ====================================

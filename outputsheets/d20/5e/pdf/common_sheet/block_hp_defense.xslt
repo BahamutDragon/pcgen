@@ -1032,18 +1032,15 @@
 											<xsl:message>Test</xsl:message>
 						<fo:table-cell>
 							<fo:block text-align="center" font-size="6pt" font-family="ZapfDingbats">		<!-- Investigate how to make this work; nothing is appearing -->
-								<xsl:if test="/saving_throw/base >0">
-									&#x2713;
-								</xsl:if>
 								<xsl:choose>
-								<xsl:when test="base &gt; 0">
+								<xsl:when test="/character/basics/saving_throws/saving_throw/base &gt; 1">
 									&#x25A0;
 								</xsl:when>
 								<xsl:otherwise>
 									&#x274F;
 								</xsl:otherwise>
 								</xsl:choose>
-
+	<!--		&#x2713;	-->
 							</fo:block>
 						</fo:table-cell>
 						<fo:table-cell/>
