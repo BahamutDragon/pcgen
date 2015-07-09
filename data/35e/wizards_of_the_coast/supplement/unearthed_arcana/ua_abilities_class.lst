@@ -408,12 +408,12 @@ Tainted Strike			KEY:Tainted Warrior ~ Tainted Strike			CATEGORY:Special Ability
 
 
 ###Block: Gestalt
-Use Gestalt (Simple version)	PREMULT:1,[!PRECLASS:1,ANY=1],[PRECLASS:1,Gestalt=1]			CATEGORY:Internal	TYPE:MiscOptions	BONUS:VAR|POOL_Gestalt_Class|2|PREMULT:1,[!PRECLASS:1,ANY=1],[PRECLASS:1,Gestalt=1]	DEFINE:POOL_Gestalt_Class|0	ABILITY:Class|AUTOMATIC|Gestalt|PREMULT:1,[!PRECLASS:1,ANY=1],[PRECLASS:1,Gestalt=1]
-Use Gestalt (Complex version)	!PREABILITY:1,CATEGORY=Internal,Use Gestalt (Simple version)	CATEGORY:Internal	TYPE:MiscOptions																				ABILITY:Class|AUTOMATIC|Gestalt	ABILITY:Internal|AUTOMATIC|Gestalt Class Leveling
+Use Gestalt (Simple version)	PREMULT:1,[!PRECLASS:1,ANY=1],[PRECLASS:1,Gestalt=1]			COST:0	CATEGORY:Internal	TYPE:MiscOptions	BONUS:VAR|POOL_Gestalt_Class|2|PREMULT:1,[!PRECLASS:1,ANY=1],[PRECLASS:1,Gestalt=1]	DEFINE:POOL_Gestalt_Class|0	ABILITY:Class|AUTOMATIC|Gestalt|PREMULT:1,[!PRECLASS:1,ANY=1],[PRECLASS:1,Gestalt=1]
+Use Gestalt (Complex version)	!PREABILITY:1,CATEGORY=Internal,Use Gestalt (Simple version)	COST:0	CATEGORY:Internal	TYPE:MiscOptions																				ABILITY:Class|AUTOMATIC|Gestalt	ABILITY:Gestalt Class Leveling|AUTOMATIC|Gestalt Leveling
 
 
 Gestalt		CATEGORY:Class	ABILITY:Internal|AUTOMATIC|Gestalt HD ~ 6|PREVAREQ:Class_HD,6	ABILITY:Internal|AUTOMATIC|Gestalt HD ~ 8|PREVAREQ:Class_HD,8	ABILITY:Internal|AUTOMATIC|Gestalt HD ~ 10|PREVAREQ:Class_HD,10	ABILITY:Internal|AUTOMATIC|Gestalt HD ~ 12|PREVAREQ:Class_HD,12
-Gestalt Leveling	CATEGORY:Internal	TYPE:Gestalt Class Leveling	VISIBLE:NO
+Gestalt Leveling	CATEGORY:Internal	TYPE:Gestalt Leveling	VISIBLE:NO
 
 # Base calculations
 Barbarian		KEY:Gestalt Base ~ Barbarian	CATEGORY:Internal		TYPE:Gestalt Base.Martial.Barbarian	DEFINE:BarbarianLVL|0	BONUS:VAR|Gestalt_SkillPts|4|TYPE=Class	BONUS:VAR|Class_HD|12|TYPE=Class	BONUS:VAR|Class_BAB|BarbarianLVL|TYPE=Class	BONUS:SAVE|BASE.Fortitude|BarbarianLVL/2+2|TYPE=Class	BONUS:SAVE|BASE.Reflex|BarbarianLVL/3|TYPE=Class	BONUS:SAVE|BASE.Will|BarbarianLVL/3|TYPE=Class							CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate|Jump|Listen|Ride|Survival|Swim
@@ -443,17 +443,17 @@ Sorcerer		KEY:Gestalt ~ Sorcerer		CATEGORY:Internal		TYPE:GestaltClass.Martial.S
 Wizard		KEY:Gestalt ~ Wizard		CATEGORY:Internal		TYPE:GestaltClass.Martial.Wizard		DEFINE:WizardLVL|0	BONUS:VAR|WizardLVL|GestaltLVL		ABILITY:Internal|AUTOMATIC|Gestalt Base ~ Wizard	
 
 # Leveling Version
-Barbarian		KEY:Gestalt Leveling ~ Barbarian	!PRECLASS:1,Barbarian=1	CATEGORY:Internal	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	TYPE:Gestalt Leveling.Martial.Barbarian	DEFINE:BarbarianLVL|0	BONUS:VAR|BarbarianLVL|1						ABILITY:Internal|AUTOMATIC|Gestalt Base ~ Barbarian	
-Bard			KEY:Gestalt Leveling ~ Bard		!PRECLASS:1,Bard=1	CATEGORY:Internal	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	TYPE:Gestalt Leveling.Martial.Bard		DEFINE:BardLVL|0		BONUS:VAR|BardLVL|1		ADD:SPELLCASTER|Bard		ABILITY:Internal|AUTOMATIC|Gestalt Base ~ Bard		
-Cleric		KEY:Gestalt Leveling ~ Cleric		!PRECLASS:1,Cleric=1	CATEGORY:Internal	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	TYPE:Gestalt Leveling.Martial.Cleric	DEFINE:ClericLVL|0	BONUS:VAR|ClericLVL|1		ADD:SPELLCASTER|Cleric		ABILITY:Internal|AUTOMATIC|Gestalt Base ~ Cleric	
-Druid			KEY:Gestalt Leveling ~ Druid		!PRECLASS:1,Druid=1	CATEGORY:Internal	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	TYPE:Gestalt Leveling.Martial.Druid		DEFINE:DruidLVL|0		BONUS:VAR|DruidLVL|1		ADD:SPELLCASTER|Druid		ABILITY:Internal|AUTOMATIC|Gestalt Base ~ Druid	
-Fighter		KEY:Gestalt Leveling ~ Fighter	!PRECLASS:1,Fighter=1	CATEGORY:Internal	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	TYPE:Gestalt Leveling.Martial.Fighter	DEFINE:FighterLVL|0	BONUS:VAR|FighterLVL|1							ABILITY:Internal|AUTOMATIC|Gestalt Base ~ Fighter	
-Monk			KEY:Gestalt Leveling ~ Monk		!PRECLASS:1,Monk=1	CATEGORY:Internal	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	TYPE:Gestalt Leveling.Martial.Monk		DEFINE:MonkLVL|0		BONUS:VAR|MonkLVL|1							ABILITY:Internal|AUTOMATIC|Gestalt Base ~ Monk		
-Paladin		KEY:Gestalt Leveling ~ Paladin	!PRECLASS:1,Paladin=1	CATEGORY:Internal	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	TYPE:Gestalt Leveling.Martial.Paladin	DEFINE:PaladinLVL|0	BONUS:VAR|PaladinLVL|1		ADD:SPELLCASTER|Paladin		ABILITY:Internal|AUTOMATIC|Gestalt Base ~ Paladin	
-Ranger		KEY:Gestalt Leveling ~ Ranger		!PRECLASS:1,Ranger=1	CATEGORY:Internal	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	TYPE:Gestalt Leveling.Martial.Ranger	DEFINE:RangerLVL|0	BONUS:VAR|RangerLVL|1		ADD:SPELLCASTER|Ranger		ABILITY:Internal|AUTOMATIC|Gestalt Base ~ Ranger	
-Rogue			KEY:Gestalt Leveling ~ Rogue		!PRECLASS:1,Rogue=1	CATEGORY:Internal	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	TYPE:Gestalt Leveling.Martial.Rogue		DEFINE:RogueLVL|0		BONUS:VAR|RogueLVL|1							ABILITY:Internal|AUTOMATIC|Gestalt Base ~ Rogue	
-Sorcerer		KEY:Gestalt Leveling ~ Sorcerer	!PRECLASS:1,Sorcerer=1	CATEGORY:Internal	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	TYPE:Gestalt Leveling.Martial.Sorcerer	DEFINE:SorcererLVL|0	BONUS:VAR|SorcererLVL|1		ADD:SPELLCASTER|Sorcerer	ABILITY:Internal|AUTOMATIC|Gestalt Base ~ Sorcerer	
-Wizard		KEY:Gestalt Leveling ~ Wizard		!PRECLASS:1,Wizard=1	CATEGORY:Internal	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	TYPE:Gestalt Leveling.Martial.Wizard	DEFINE:WizardLVL|0	BONUS:VAR|WizardLVL|1		ADD:SPELLCASTER|Wizard		ABILITY:Internal|AUTOMATIC|Gestalt Base ~ Wizard	
+Barbarian		KEY:Gestalt Leveling ~ Barbarian	COST:0	!PRECLASS:1,Barbarian=1	CATEGORY:Internal	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	TYPE:Gestalt Leveling.Martial.Barbarian	DEFINE:BarbarianLVL|0	BONUS:VAR|BarbarianLVL|1						ABILITY:Internal|AUTOMATIC|Gestalt Base ~ Barbarian	
+Bard			KEY:Gestalt Leveling ~ Bard		COST:0	!PRECLASS:1,Bard=1	CATEGORY:Internal	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	TYPE:Gestalt Leveling.Martial.Bard		DEFINE:BardLVL|0		BONUS:VAR|BardLVL|1		ADD:SPELLCASTER|Bard		ABILITY:Internal|AUTOMATIC|Gestalt Base ~ Bard		
+Cleric		KEY:Gestalt Leveling ~ Cleric		COST:0	!PRECLASS:1,Cleric=1	CATEGORY:Internal	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	TYPE:Gestalt Leveling.Martial.Cleric	DEFINE:ClericLVL|0	BONUS:VAR|ClericLVL|1		ADD:SPELLCASTER|Cleric		ABILITY:Internal|AUTOMATIC|Gestalt Base ~ Cleric	
+Druid			KEY:Gestalt Leveling ~ Druid		COST:0	!PRECLASS:1,Druid=1	CATEGORY:Internal	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	TYPE:Gestalt Leveling.Martial.Druid		DEFINE:DruidLVL|0		BONUS:VAR|DruidLVL|1		ADD:SPELLCASTER|Druid		ABILITY:Internal|AUTOMATIC|Gestalt Base ~ Druid	
+Fighter		KEY:Gestalt Leveling ~ Fighter	COST:0	!PRECLASS:1,Fighter=1	CATEGORY:Internal	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	TYPE:Gestalt Leveling.Martial.Fighter	DEFINE:FighterLVL|0	BONUS:VAR|FighterLVL|1							ABILITY:Internal|AUTOMATIC|Gestalt Base ~ Fighter	
+Monk			KEY:Gestalt Leveling ~ Monk		COST:0	!PRECLASS:1,Monk=1	CATEGORY:Internal	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	TYPE:Gestalt Leveling.Martial.Monk		DEFINE:MonkLVL|0		BONUS:VAR|MonkLVL|1							ABILITY:Internal|AUTOMATIC|Gestalt Base ~ Monk		
+Paladin		KEY:Gestalt Leveling ~ Paladin	COST:0	!PRECLASS:1,Paladin=1	CATEGORY:Internal	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	TYPE:Gestalt Leveling.Martial.Paladin	DEFINE:PaladinLVL|0	BONUS:VAR|PaladinLVL|1		ADD:SPELLCASTER|Paladin		ABILITY:Internal|AUTOMATIC|Gestalt Base ~ Paladin	
+Ranger		KEY:Gestalt Leveling ~ Ranger		COST:0	!PRECLASS:1,Ranger=1	CATEGORY:Internal	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	TYPE:Gestalt Leveling.Martial.Ranger	DEFINE:RangerLVL|0	BONUS:VAR|RangerLVL|1		ADD:SPELLCASTER|Ranger		ABILITY:Internal|AUTOMATIC|Gestalt Base ~ Ranger	
+Rogue			KEY:Gestalt Leveling ~ Rogue		COST:0	!PRECLASS:1,Rogue=1	CATEGORY:Internal	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	TYPE:Gestalt Leveling.Martial.Rogue		DEFINE:RogueLVL|0		BONUS:VAR|RogueLVL|1							ABILITY:Internal|AUTOMATIC|Gestalt Base ~ Rogue	
+Sorcerer		KEY:Gestalt Leveling ~ Sorcerer	COST:0	!PRECLASS:1,Sorcerer=1	CATEGORY:Internal	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	TYPE:Gestalt Leveling.Martial.Sorcerer	DEFINE:SorcererLVL|0	BONUS:VAR|SorcererLVL|1		ADD:SPELLCASTER|Sorcerer	ABILITY:Internal|AUTOMATIC|Gestalt Base ~ Sorcerer	
+Wizard		KEY:Gestalt Leveling ~ Wizard		COST:0	!PRECLASS:1,Wizard=1	CATEGORY:Internal	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	TYPE:Gestalt Leveling.Martial.Wizard	DEFINE:WizardLVL|0	BONUS:VAR|WizardLVL|1		ADD:SPELLCASTER|Wizard		ABILITY:Internal|AUTOMATIC|Gestalt Base ~ Wizard	
 
 
 ###Block: Class Features
