@@ -645,7 +645,7 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
 
 <!-- Add Martial Arts and Natural Attack Block Here -->
 
-<!-- START Unarmed Attack Table -->
+<!-- START Unarmed Attack Table
    <table cellpadding="0" cellspacing="0" border="0" width="100%" summary="Unarmed Attack">
     <tr>
      <td align="center" height="25" bgcolor="black" rowspan="2" width="40%"><font style="font-size:10pt" color="white"><b>UNARMED</b></font></td>
@@ -661,7 +661,7 @@ ${pcstring('VAR.CMD_Trip.INTVAL')}
      <td align="center" bgcolor="white" class="border"><font style="font-size:8pt" color="black"><b>${pcstring('REACH')}<br /></b></font></td>
     </tr>
    </table>
-   <font style="font-size:2pt"><br /></font>
+   <font style="font-size:2pt"><br /></font>	 -->
 <!-- STOP Unarmed Attack Table -->
 
 

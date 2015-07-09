@@ -1388,7 +1388,15 @@
 	<special_attacks>
 	<@abilityBlock category="Special Ability" nature="ALL" hidden=false typeName="SpecialAttack" nodeName="special_attack" />
 	</special_attacks>
-
+	<!--
+	  ====================================
+	  ====================================
+			Race Traits
+	  ====================================
+	  ====================================-->
+	<race_traits>
+	<@abilityBlock category="Special Ability" nature="ALL" hidden=false typeName="Race Trait" nodeName="race_trait" />
+	</race_traits>
 
 	<!--
 	====================================
