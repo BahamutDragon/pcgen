@@ -1,10 +1,173 @@
 
 
-CLASS:Arachnomancer
-CLASS:Cavestalker
-CLASS:Demonbinder
-CLASS:Dread Fang of Lolth
-CLASS:Insidious Corruptor
-CLASS:Kinslayer
+CLASS:Arachnomancer	MAXLEVEL:8
+CLASS:Arachnomancer	HD:6	TYPE:Prestige	SOURCEPAGE:p.65	DEFINE:ArachnomancerLVL|0	BONUS:VAR|ArachnomancerLVL|CL
+CLASS:Arachnomancer	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	
+CLASS:Arachnomancer	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	
+CLASS:Arachnomancer	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Arachnomancer	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Arachnomancer	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Arachnomancer	PRETEXT:Alignment: Any evil. Skills: Climb 4 ranks, Knowledge (nature) 4 ranks, Knowledge (religion) 8 ranks. Feat: Verminfriend (see page 53). Spells: Ability to cast spider climb, summon swarm, or web as an arcane spell.	PREALIGN:LE,NE,CE	PRESKILL:3,Climb=4,Knowledge (nature)=4,Knowledge (religion)=8	PREABILITY:1,CATEGORY=FEAT,Verminfriend	PRESPELL:1,Spider Climb,Summon Swarm,Web
+CLASS:Arachnomancer	STARTSKILLPTS:4	CSKILL:Climb|Concentration|Craft|Handle Animal|Hide|Jump|Knowledge (dungeoneering)|Knowledge (nature)|Knowledge (religion)|Move Silently|Spellcraft|Spot|Survival
+1	ADD:SPELLCASTER|ANY
+3	ADD:SPELLCASTER|ANY
+4	ADD:SPELLCASTER|ANY
+6	ADD:SPELLCASTER|ANY
+7	ADD:SPELLCASTER|ANY
+###Block
+1	ABILITY:Arachnomancer Class Feature|AUTOMATIC|Arachnomancer ~ Spellcasting		
+1	ABILITY:Arachnomancer Class Feature|AUTOMATIC|Arachnomancer ~ Poison Save Bonus	
+1	ABILITY:Arachnomancer Class Feature|AUTOMATIC|Arachnomancer ~ Handle Spiders		
+1	ABILITY:Arachnomancer Class Feature|AUTOMATIC|Arachnomancer ~ Spider Domain		
+2	ABILITY:Arachnomancer Class Feature|AUTOMATIC|Arachnomancer ~ Spider Shape		
+3	ABILITY:Arachnomancer Class Feature|AUTOMATIC|Arachnomancer ~ Tremorsense		
+4	ABILITY:Arachnomancer Class Feature|AUTOMATIC|Arachnomancer ~ Webwalking		
+7	ABILITY:Arachnomancer Class Feature|AUTOMATIC|Arachnomancer ~ Climb Speed		
 
 
+CLASS:Cavestalker	HD:8	TYPE:Prestige	SOURCEPAGE:p.68	DEFINE:CavestalkerLVL|0	BONUS:VAR|CavestalkerLVL|CL
+CLASS:Cavestalker	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	
+CLASS:Cavestalker	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Cavestalker	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Cavestalker	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Cavestalker	PRETEXT:Skills: Knowledge (dungeoneering) 4 ranks, Survival 8 ranks. Feats: Track. Base Attack Bonus: +2. Special: The candidate must have natural darkvision to allow successful navigation of Underdark tunnels.	PREVISION:1,Darkvision=1	PRETOTALAB:2	PREABILITY:1,CATEGORY=FEAT,Track	PRESKILL:2,Knowledge (dungeoneering)=4,Survival=8
+CLASS:Cavestalker	STARTSKILLPTS:4	CSKILL:Balance|Climb|Heal|Hide|Jump|Knowledge (dungeoneering)|Knowledge (geography)|Knowledge (Underdark local)|Listen|Move Silently|Profession|Search|Sense Motive|Spot|Swim|Survival|Use Rope
+###Block
+11	PREPCLEVEL:MIN=20
+###Block
+1	ABILITY:Cavestalker Class Feature|AUTOMATIC|Cavestalker ~ Advanced Spelunker		
+2	ABILITY:Cavestalker Class Feature|AUTOMATIC|Cavestalker ~ Underdark Affinity		
+2	ABILITY:Cavestalker Class Feature|AUTOMATIC|Cavestalker ~ Hide of Stone			
+3	ABILITY:Cavestalker Class Feature|AUTOMATIC|Cavestalker ~ Lesser Cavesense			
+4	ABILITY:Cavestalker Class Feature|AUTOMATIC|Cavestalker ~ Exotic Combat Style		
+5	ABILITY:Cavestalker Class Feature|AUTOMATIC|Cavestalker ~ Expert Spelunker			
+6	ABILITY:Cavestalker Class Feature|AUTOMATIC|Cavestalker ~ Gaseous Form			
+7	ABILITY:Cavestalker Class Feature|AUTOMATIC|Cavestalker ~ Improved Exotic Combat Style	
+8	ABILITY:Cavestalker Class Feature|AUTOMATIC|Cavestalker ~ Greater Cavesense			
+9	ABILITY:Cavestalker Class Feature|AUTOMATIC|Cavestalker ~ Void in Space			
+10	ABILITY:Cavestalker Class Feature|AUTOMATIC|Cavestalker ~ Master Spelunker			
+
+
+CLASS:Demonbinder	HD:4	TYPE:Prestige	SOURCEPAGE:p.72	DEFINE:DemonbinderLVL|0	BONUS:VAR|DemonbinderLVL|CL
+CLASS:Demonbinder	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	
+CLASS:Demonbinder	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+CLASS:Demonbinder	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Demonbinder	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Demonbinder	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Demonbinder	PRETEXT:Race: Drow. Alignment: Chaotic evil. Skills: Bluff 4 ranks, Knowledge (the planes) 8 ranks, Sense Motive 4 ranks. Language: Abyssal. Invocations: Baleful utterance plus any two others.
+CLASS:Demonbinder	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|Disguise|Intimidate|Knowledge (arcana)|Knowledge (the planes)|Knowledge (religion)|Sense Motive|Spellcraft|Use Magic Device
+2:REPEATLEVEL:1	ADD:SPELLCASTER|ANY
+###Block
+11	PREPCLEVEL:MIN=20
+###Block
+1	ABILITY:Demonbinder Class Feature|AUTOMATIC|Demonbinder ~ Invocations Known			
+1	ABILITY:Demonbinder Class Feature|AUTOMATIC|Demonbinder ~ Damnation Points			
+1	ABILITY:Demonbinder Class Feature|AUTOMATIC|Demonbinder ~ Demonbind				
+2	ABILITY:Demonbinder Class Feature|AUTOMATIC|Demonbinder ~ Damage Reduction			
+3	ABILITY:Demonbinder Class Feature|AUTOMATIC|Demonbinder ~ Resistance to Electricity	
+7	ABILITY:Demonbinder Class Feature|AUTOMATIC|Demonbinder ~ Immunity to Poison		
+9	ABILITY:Demonbinder Class Feature|AUTOMATIC|Demonbinder ~ Immunity to Electricity		
+
+
+CLASS:Dread Fang of Lolth	HD:8	TYPE:Prestige	SOURCEPAGE:p.76	DEFINE:Dread_Fang_of_LolthLVL|0	BONUS:VAR|Dread_Fang_of_LolthLVL|CL
+CLASS:Dread Fang of Lolth	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	
+CLASS:Dread Fang of Lolth	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Dread Fang of Lolth	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Dread Fang of Lolth	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Dread Fang of Lolth	PRETEXT:Alignment: Lawful evil. Race: Drow. Base Attack Bonus: +5. Skills: Hide 4 ranks, Listen 2 ranks, Move Silently 4 ranks, Spot 2 ranks. Special: Evasion. Special: Sneak attack +2d6.
+CLASS:Dread Fang of Lolth	STARTSKILLPTS:4	CSKILL:Balance|Climb|Escape Artist|Hide|Intimidate|Jump|Listen|Move Silently|Spot|Tumble
+###Block
+11	PREPCLEVEL:MIN=20
+###Block
+1	ABILITY:Dread Fang of Lolth Class Feature|AUTOMATIC|Dread Fang Of Lolth ~ Lolth's Will			
+1	ABILITY:Dread Fang of Lolth Class Feature|AUTOMATIC|Dread Fang Of Lolth ~ Lolth's Whispers		
+1	ABILITY:Dread Fang of Lolth Class Feature|AUTOMATIC|Dread Fang Of Lolth ~ Sudden Strike			
+2	ABILITY:Dread Fang of Lolth Class Feature|AUTOMATIC|Dread Fang Of Lolth ~ Poison Use			
+2	ABILITY:Dread Fang of Lolth Class Feature|AUTOMATIC|Dread Fang Of Lolth ~ Team Maneuverability		
+3	ABILITY:Dread Fang of Lolth Class Feature|AUTOMATIC|Dread Fang Of Lolth ~ Uncanny Dodge			
+4	ABILITY:Dread Fang of Lolth Class Feature|AUTOMATIC|Dread Fang Of Lolth ~ Improved Evasion		
+4	ABILITY:Dread Fang of Lolth Class Feature|AUTOMATIC|Dread Fang Of Lolth ~ Team Defense			
+6	ABILITY:Dread Fang of Lolth Class Feature|AUTOMATIC|Dread Fang Of Lolth ~ Spider Bite			
+7	ABILITY:Dread Fang of Lolth Class Feature|AUTOMATIC|Dread Fang Of Lolth ~ Opportunist			
+9	ABILITY:Dread Fang of Lolth Class Feature|AUTOMATIC|Dread Fang Of Lolth ~ Improved Uncanny Dodge	
+10	ABILITY:Dread Fang of Lolth Class Feature|AUTOMATIC|Dread Fang Of Lolth ~ Ambush				
+
+# Eye Of Lolth
+CLASS:Eye Of Lolth	HD:6	TYPE:Prestige	SOURCEPAGE:p.80	DEFINE:Eye_Of_LolthLVL|0	BONUS:VAR|Eye_Of_LolthLVL|CL
+CLASS:Eye Of Lolth	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	
+CLASS:Eye Of Lolth	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	
+CLASS:Eye Of Lolth	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Eye Of Lolth	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Eye Of Lolth	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Eye Of Lolth	PRETEXT:Race: Drow. Skills: Hide 8 ranks, Knowledge (religion) 4 ranks, Listen 8 ranks, Spot 8 ranks. Feats: Cautious Attack (see page 47). Domain: Trickery. Special: Evasion. Special: Sneak attack +2d6 or skirmish +2d6.
+CLASS:Eye Of Lolth	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Disguise|Gather Information|Hide|Intimidate|Knowledge (local)|Knowledge (religion)|Listen|Move Silently|Search|Sense Motive|Spot
+2	ADD:SPELLCASTER|Divine
+4	ADD:SPELLCASTER|Divine
+6	ADD:SPELLCASTER|Divine
+8	ADD:SPELLCASTER|Divine
+10	ADD:SPELLCASTER|Divine
+###Block
+11	PREPCLEVEL:MIN=20
+###Block
+1	ABILITY:Eye Of Lolth Class Feature|AUTOMATIC|Eye Of Lolth ~ Spellcasting		
+1	ABILITY:Eye Of Lolth Class Feature|AUTOMATIC|Eye Of Lolth ~ Aura of Truth		
+1	ABILITY:Eye Of Lolth Class Feature|AUTOMATIC|Eye Of Lolth ~ Blindsense			
+1	ABILITY:Eye Of Lolth Class Feature|AUTOMATIC|Eye Of Lolth ~ Lolth's Vision		
+2	ABILITY:Eye Of Lolth Class Feature|AUTOMATIC|Eye Of Lolth ~ Sneak Attack		
+3	ABILITY:Eye Of Lolth Class Feature|AUTOMATIC|Eye Of Lolth ~ Teamwork Observation	
+6	ABILITY:Eye Of Lolth Class Feature|AUTOMATIC|Eye Of Lolth ~ Hide in Plain Sight	
+6	ABILITY:Eye Of Lolth Class Feature|AUTOMATIC|Eye Of Lolth ~ Team Sense			
+9	ABILITY:Eye Of Lolth Class Feature|AUTOMATIC|Eye Of Lolth ~ Team Stealth		
+10	ABILITY:Eye Of Lolth Class Feature|AUTOMATIC|Eye Of Lolth ~ Vanish			
+
+CLASS:Insidious Corruptor	HD:6	TYPE:Prestige	SOURCEPAGE:p.83	DEFINE:Insidious_CorruptorLVL|0	BONUS:VAR|Insidious_CorruptorLVL|CL
+CLASS:Insidious Corruptor	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	
+CLASS:Insidious Corruptor	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+CLASS:Insidious Corruptor	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Insidious Corruptor	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Insidious Corruptor	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Insidious Corruptor	PRETEXT:Race: Drow. Alignment: Any evil. Skills: Bluff 9 ranks, Diplomacy 4 ranks, Sense Motive 4 ranks. Feats: Persuasive. Spells: Ability to cast dominate person.
+CLASS:Insidious Corruptor	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Diplomacy|Disguise|Forgery|Gather Information|Intimidate|Knowledge (arcana)|Knowledge (local)|Listen|Search|Sense Motive|Spellcraft|Spot
+2	ADD:SPELLCASTER|ANY
+4	ADD:SPELLCASTER|ANY
+6	ADD:SPELLCASTER|ANY
+8	ADD:SPELLCASTER|ANY
+10	ADD:SPELLCASTER|ANY
+###Block
+11	PREPCLEVEL:MIN=20
+###Block
+1	ABILITY:Insidious Corruptor Class Feature|AUTOMATIC|Insidious Corruptor ~ Spellcasting			
+1	ABILITY:Insidious Corruptor Class Feature|AUTOMATIC|Insidious Corruptor ~ Claws of Influence		
+1	ABILITY:Insidious Corruptor Class Feature|AUTOMATIC|Insidious Corruptor ~ Manipulate Senses		
+2	ABILITY:Insidious Corruptor Class Feature|AUTOMATIC|Insidious Corruptor ~ Probe Thoughts			
+3	ABILITY:Insidious Corruptor Class Feature|AUTOMATIC|Insidious Corruptor ~ Manipulation			
+4	ABILITY:Insidious Corruptor Class Feature|AUTOMATIC|Insidious Corruptor ~ Minion				
+5	ABILITY:Insidious Corruptor Class Feature|AUTOMATIC|Insidious Corruptor ~ Swift Enchantment		
+6	ABILITY:Insidious Corruptor Class Feature|AUTOMATIC|Insidious Corruptor ~ Irresistible Charm		
+7	ABILITY:Insidious Corruptor Class Feature|AUTOMATIC|Insidious Corruptor ~ Greater Manipulation		
+8	ABILITY:Insidious Corruptor Class Feature|AUTOMATIC|Insidious Corruptor ~ Greater Minions			
+9	ABILITY:Insidious Corruptor Class Feature|AUTOMATIC|Insidious Corruptor ~ Irresistible Compulsion	
+10	ABILITY:Insidious Corruptor Class Feature|AUTOMATIC|Insidious Corruptor ~ Master Manipulator		
+
+CLASS:Kinslayer	HD:8	TYPE:Prestige	SOURCEPAGE:p.87	DEFINE:KinslayerLVL|0	BONUS:VAR|KinslayerLVL|CL
+CLASS:Kinslayer	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	
+CLASS:Kinslayer	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Kinslayer	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Kinslayer	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Kinslayer	PRETEXT:Race: Drow. Feats: Endurance, Diehard, Unspeakable Vow*, Vow of Vengeance*. * See page 56.
+CLASS:Kinslayer	STARTSKILLPTS:4	CSKILL:Bluff|Disguise|Hide|Intimidate|Jump|Knowledge (geography)|Knowledge (history)|Listen|Move Silently|Search|Sense Motive|Spot|Survival
+###Block
+11	PREPCLEVEL:MIN=20
+###Block
+1	ABILITY:Kinslayer Class Feature|AUTOMATIC|Kinslayer ~ Mettle			
+1	ABILITY:Kinslayer Class Feature|AUTOMATIC|Kinslayer ~ Rage			
+1	ABILITY:Kinslayer Class Feature|AUTOMATIC|Kinslayer ~ Surge of Hate		
+2	ABILITY:Kinslayer Class Feature|AUTOMATIC|Kinslayer ~ Inured to Sunlight	
+2	ABILITY:Kinslayer Class Feature|AUTOMATIC|Kinslayer ~ Smite Elves		
+3	ABILITY:Kinslayer Class Feature|AUTOMATIC|Kinslayer ~ Elf Bane		
+4	ABILITY:Kinslayer Class Feature|AUTOMATIC|Kinslayer ~ Shameful Strike	
+6	ABILITY:Kinslayer Class Feature|AUTOMATIC|Kinslayer ~ Deny Elf Magic	
+7	ABILITY:Kinslayer Class Feature|AUTOMATIC|Kinslayer ~ Disguise Heritage	
+8	ABILITY:Kinslayer Class Feature|AUTOMATIC|Kinslayer ~ Fey Bane		
+10	ABILITY:Kinslayer Class Feature|AUTOMATIC|Kinslayer ~ Vengeful Strike	
+10	ABILITY:Kinslayer Class Feature|AUTOMATIC|Kinslayer ~ Lolth's Curse		
