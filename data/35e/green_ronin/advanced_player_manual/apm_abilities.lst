@@ -215,7 +215,11 @@ Slow for Medium size										KEY:Race Build Options ~ Slow for Medium size			CA
 -2 to any ability score										KEY:Race Build Options ~ -2 to any ability score		CATEGORY:Special Ability	COST:0	TYPE:SpecialQuality.Race_Build_Option.Additional Race Points	DESC:Implemented	CHOOSE:PCSTAT|ALL	BONUS:STAT|%LIST|-2	MULT:YES	BONUS:VAR|Race_Build_Point_Acquired|6
 
 
-Impose Favored Class on Race			KEY:Race Build Options ~ Impose Favored Class on Race	CATEGORY:Special Ability	COST:0	TYPE:SpecialQuality.Race_Build_Option		BONUS:VAR|Race_Build_Point_Acquired|5	 CHOOSE:TEMPLATE|TYPE=FavoredClass	MULT:YES	STACK:NO	
+Impose Favored Class on Race			KEY:Race Build Options ~ Impose Favored Class on Race	CATEGORY:Special Ability	COST:0	TYPE:SpecialQuality.Race_Build_Option		BONUS:VAR|Race_Build_Point_Acquired|5	DEFINE:POOL_Favored_Class_Selection|0	BONUS:VAR|POOL_Favored_Class_Selection|1
+#
+Select Any Class for Favored Class			CATEGORY:Special Ability	TYPE:Favored Class Selection	CHOOSE:CLASS|TYPE=Base			MULT:YES	STACK:NO	
+Select Coded Classes to Apply Favored Class	CATEGORY:Special Ability	TYPE:Favored Class Selection	CHOOSE:TEMPLATE|TYPE=FavoredClass	MULT:YES	STACK:NO	TEMPLATE:%LIST
+
 
 # Human-Specific Options
 Adaptive Learning		PRERACE:1,Human	KEY:Race Build Options  ~ Adaptive Learning	CATEGORY:Special Ability	COST:0	TYPE:SpecialQuality.Race_Build_Option.Extraordinary	BONUS:VAR|RaceBuild_AbilityListPoints|4		DESC:(Cost 4) The character can select any four skills to treat as class skills.	CSKILL:LIST	CHOOSE:SKILL|TYPE=Base	MULT:YES
@@ -259,8 +263,8 @@ Exotic Weapon Familiarity (Nunchaku)				CATEGORY:Internal	TYPE:Exotic Weapon Fam
 Exotic Weapon Familiarity (Sai)					CATEGORY:Internal	TYPE:Exotic Weapon Familiarity		CHANGEPROF:Sai=Martial
 Exotic Weapon Familiarity (Siangham)				CATEGORY:Internal	TYPE:Exotic Weapon Familiarity		CHANGEPROF:Siangham=Martial
 #- One-Handed
-Exotic Weapon Familiarity (Sword (Bastard))			CATEGORY:Internal	TYPE:Exotic Weapon Familiarity		CHANGEPROF:Sword (Bastard)=Martial
-Exotic Weapon Familiarity (Waraxe (Dwarven))			CATEGORY:Internal	TYPE:Exotic Weapon Familiarity		CHANGEPROF:Waraxe (Dwarven)=Martial
+Exotic Weapon Familiarity (Sword (Bastard))			CATEGORY:Internal	TYPE:Exotic Weapon Familiarity		CHANGEPROF:Sword (Bastard)=Martial		BONUS:VAR|BastardSwordExoticUse|1
+Exotic Weapon Familiarity (Waraxe (Dwarven))			CATEGORY:Internal	TYPE:Exotic Weapon Familiarity		CHANGEPROF:Waraxe (Dwarven)=Martial		BONUS:VAR|DwarvenWaraxeExoticUse|1
 Exotic Weapon Familiarity (Whip)					CATEGORY:Internal	TYPE:Exotic Weapon Familiarity		CHANGEPROF:Whip=Martial
 #- Two-Handed
 Exotic Weapon Familiarity (Axe (Orc Double))			CATEGORY:Internal	TYPE:Exotic Weapon Familiarity		CHANGEPROF:Axe (Orc Double)=Martial
@@ -278,3 +282,4 @@ Exotic Weapon Familiarity (Net)					CATEGORY:Internal	TYPE:Exotic Weapon Familia
 Exotic Weapon Familiarity (Shuriken)				CATEGORY:Internal	TYPE:Exotic Weapon Familiarity		CHANGEPROF:Shuriken=Martial
 #
 Exotic Weapon Familiarity (Request Support)		KEY:EWF ~ Support	CATEGORY:Internal	TYPE:Exotic Weapon Familiarity		CHOOSE:WEAPONPROFICIENCY|TYPE=Exotic	MULT:YES	STACK:NO	DESC:Fill-in the desired weapon. Contact Bahamut for further actual weapon support.
+
