@@ -14,7 +14,10 @@ Set Hit Die ~ d12		CATEGORY:Internal	TEMPLATE:Set Hit Die ~ d12
 Set Hit Die ~ d20		CATEGORY:Internal	TEMPLATE:Set Hit Die ~ d20
 
 # MM page 
-Creature Proficiency Bonus Rule	CATEGORY:Internal	BONUS:VAR|Proficiency_Bonus|2|TYPE=Base	BONUS:VAR|Proficiency_Bonus|(CR-1)/4
+Creature Proficiency Bonus Rule	CATEGORY:Internal	BONUS:VAR|Proficiency_Bonus|2+max((CR-1)/4),0|TYPE=Base	BONUS:COMBAT|TOHIT.Natural|Proficiency_Bonus+max(DEX,STR)
+
+# Creatures appear to use the better of STR or DEX for the hit bonus. Psuedodragon has +4 (2 from Prof Bonus, +2 Dex)
+
 # DMG page 278 - Oversized Weapons by Large or larger creatures
 Oversized Manufactured Weapon		CATEGORY:Internal	BONUS:WEAPONPROF=TYPE.Manufactured|DAMAGESIZE|OversizeManufacturedMultiplier	DEFINE:OversizeManufacturedMultiplier|0	BONUS:VAR|OversizeManufacturedMultiplier|max(BaseSize-3,0)
 
