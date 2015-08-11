@@ -191,6 +191,11 @@ Woodland Stride				KEY:Wilderness Rogue ~ Woodland Stride		CATEGORY:Special Abil
 Camouflage					KEY:Rogue Ability ~ Camouflage			CATEGORY:Special Ability	TYPE:RogueAbilities																				PRECLASS:1,Rogue (Wilderness Rogue)=10
 Hide in Plain Sight			KEY:Rogue Ability ~ Hide in Plain Sight		CATEGORY:Special Ability	TYPE:RogueAbilities																				PRECLASS:1,Rogue (Wilderness Rogue)=10
 
+###Block:
+Weapon and Armor Proficiency		KEY:Battle Sorcerer ~ Weapon and Armor Proficiency	ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfLight	CATEGORY:Special Ability	TYPE:Sorcerer Class Feature.SpecialQuality	BONUS:VAR|POOL_Battle_Sorcerer_Weapon|1	DEFINE:POOL_Battle_Sorcerer_Weapon|0	DESC:At 1st level, a battle sorcerer gains proficiency with any light or one-handed martial weapon of the character's choice. She also gains proficiency with light armor.
+#
+Battle Sorcerer Weapon Proficiency	CATEGORY:Internal	TYPE:Battle Sorcerer Weapon Proficiency	CHOOSE:WEAPONPROFICIENCY|TYPE=light,TYPE=martial|TYPE=onehanded,TYPE=martial|EQUIPMENT[TYPE=light,TYPE=martial]|EQUIPMENT[TYPE=onehanded,TYPE=martial]	MULT:YES	STACK:NO	AUTO:WEAPONPROF|%LIST	DESC:gains proficiency with any light or one-handed martial weapon of the character's choice
+#	CHOOSE:WEAPONPROFICIENCY|TYPE=light,TYPE=martial|TYPE=onehanded,TYPE=martial|EQUIPMENT[TYPE=light,TYPE=martial]|EQUIPMENT[TYPE=onehanded,TYPE=martial]|EQUIPMENT[WIELD=OneHanded,TYPE=martial]|EQUIPMENT[WIELD=Light,TYPE=martial]	
 ###Block: Alternate Class Features
 # Ability Name			Unique Key					SORTKEY		Category of Ability	Type																			Define										Description																																																																Auto Feat						Virtual Feat																																																									Ability																										Bonus Ability Pool					Combat bonus					Add to base move																		Modify VAR																																								Damage Reduction		Cost
 Favored Enemy Barbarian		KEY:Barbarian ~ Favored Enemy		SORTKEY:Barbarian	CATEGORY:ACF		TYPE:ACF.BarbarianRage.BarbarianGreaterRage.BarbarianIndomitableWill.BarbarianTirelessRage.BarbarianMightyRage	DEFINE:RangerFavoredEnemyLVL|0	DEFINE:RangerCombatTreeTier|0	DESC:A barbarian who prefers crafty hunting over pure ferocity might choose to exchange his rage ability for certain ranger class features. Gain: Favored enemy (as ranger); archery combat style, improved archery combat style, and archery combat style mastery (as ranger). Lose: Rage, greater rage, indomitable will, tireless rage, mighty rage.															VFEAT:Rapid Shot|PREMULT:2,[PREVARGTEQ:RangerCombatTreeTier,1],[!PREEQUIP:1,TYPE=Armor.Medium,TYPE=Armor.Heavy]	VFEAT:Manyshot|PREMULT:2,[PREVARGTEQ:RangerCombatTreeTier,2],[!PREEQUIP:1,TYPE=Armor.Medium,TYPE=Armor.Heavy]	VFEAT:Improved Precise Shot|PREMULT:2,[PREVARGTEQ:RangerCombatTreeTier,3],[!PREEQUIP:1,TYPE=Armor.Medium,TYPE=Armor.Heavy]	ABILITY:Special Ability|AUTOMATIC|Combat Style ~ Archery|Ranger ~ Favored Enemy																																																	BONUS:VAR|RangerFavoredEnemyLVL|BarbarianLVL	BONUS:VAR|FavoredEnemyCount|RangerFavoredEnemyLVL/5+1	BONUS:VAR|FavoredEBonuses|RangerFavoredEnemyLVL/5	BONUS:VAR|RangerCombatTreeTier|(BarbarianLVL+3)/5											COST:0
@@ -400,3 +405,176 @@ Weapon and Armor Proficiency	KEY:Tainted Warrior ~ Weapon and Armor Proficiency	
 Taint Suppression			KEY:Tainted Warrior ~ Taint Suppression			CATEGORY:Special Ability	TYPE:Tainted WarriorClassFeature.SpecialQuality									DESC:By definition, a tainted warrior is overwhelmed with taint, but this taint is not immediately obvious to onlookers. A tainted sorcerer's taint manifests in mental effects-delirium, anger, and cruelty-and in internal physical effects. If a tainted warrior is split open, the internal corruption is obvious: His body is full of vile liquids and distorted growths, even internal limbs. If a tainted warrior enters a tainted area, his corruption immediately manifests externally as well. Barring these two conditions, it is impossible to detect a tainted warrior based on appearance. A tainted warrior no longer applies his taint score as a penalty to his Constitution, and only applies one-half his taint score as a penalty to his Wisdom.
 Damage Reduction			KEY:Tainted Warrior ~ Damage Reduction			CATEGORY:Special Ability	TYPE:Tainted WarriorClassFeature.SpecialQuality.Extraordinary	DEFINE:TaintedWarriorDR|0	DESC:At 2nd level, a tainted warrior gains damage reduction 1/good. The value of the character's damage reduction increases by 1 point at every even-numbered level thereafter.																																																																																																																																																																																																																																																																																BONUS:VAR|TaintedWarriorDR|TaintedWarriorLVL/2		DR:TaintedWarriorDR/6
 Tainted Strike			KEY:Tainted Warrior ~ Tainted Strike			CATEGORY:Special Ability	TYPE:Tainted WarriorClassFeature.SpecialQuality.Extraordinary	DEFINE:TaintedStrikeTimes|0	DESC:A tainted warrior of 3rd level or higher can infuse a melee attack with the power of his taint. The character adds his taint score to the damage dealt by the melee attack, and the target's taint score increases by 1. If a tainted warrior strikes a creature immune to the effects of taint (such as an undead creature or a creature with the evil subtype), the tainted strike has no effect. A tainted warrior can use this ability once per day upon attaining 3rd level and one additional time per day for every four levels gained thereafter.																																																																																																																																																																																																																			BONUS:VAR|TaintedStrikeTimes|(TaintedWarriorLVL+1)/4					ASPECT:NAME|Tainted Strike %1/day|TaintedStrikeTimes
+
+
+###Block: Gestalt
+Use Gestalt (Simple version)	PREMULT:1,[!PRECLASS:1,ANY=1],[PRECLASS:1,Gestalt=1]			COST:0	CATEGORY:Internal	TYPE:MiscOptions	DEFINE:Class_HD|0	DEFINE:Gestalt_SkillPts|0	BONUS:VAR|POOL_Gestalt_Class|2|PREMULT:1,[!PRECLASS:1,ANY=1],[PRECLASS:1,Gestalt=1]	DEFINE:POOL_Gestalt_Class|0	ABILITY:Class|AUTOMATIC|Gestalt|PREMULT:1,[!PRECLASS:1,ANY=1],[PRECLASS:1,Gestalt=1]
+Use Gestalt (Complex version)	!PREABILITY:1,CATEGORY=Internal,Use Gestalt (Simple version)	COST:0	CATEGORY:Internal	TYPE:MiscOptions	DEFINE:Class_HD|0	DEFINE:Gestalt_SkillPts|0																			ABILITY:Class|AUTOMATIC|Gestalt	ABILITY:Gestalt Class Leveling|AUTOMATIC|Gestalt Leveling
+
+
+Gestalt		CATEGORY:Class		ABILITY:Internal|AUTOMATIC|Gestalt HD ~ 6|PREVAREQ:Class_HD,6	ABILITY:Internal|AUTOMATIC|Gestalt HD ~ 8|PREVAREQ:Class_HD,8	ABILITY:Internal|AUTOMATIC|Gestalt HD ~ 10|PREVAREQ:Class_HD,10	ABILITY:Internal|AUTOMATIC|Gestalt HD ~ 12|PREVAREQ:Class_HD,12
+Gestalt Leveling	CATEGORY:Internal	TYPE:Gestalt Leveling	VISIBLE:NO
+
+# Base calculations
+Barbarian		KEY:Gestalt Base ~ Barbarian	CATEGORY:Internal		TYPE:Gestalt Base.Martial.Barbarian	DEFINE:BarbarianLVL|0	BONUS:VAR|Gestalt_SkillPts|4|TYPE=Class	BONUS:VAR|Class_HD|12|TYPE=Class	BONUS:VAR|Class_BAB|BarbarianLVL|TYPE=Class	BONUS:SAVE|BASE.Fortitude|BarbarianLVL/2+2|TYPE=Class	BONUS:SAVE|BASE.Reflex|BarbarianLVL/3|TYPE=Class	BONUS:SAVE|BASE.Will|BarbarianLVL/3|TYPE=Class							CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate|Jump|Listen|Ride|Survival|Swim
+Bard			KEY:Gestalt Base ~ Bard		CATEGORY:Internal		TYPE:Gestalt Base.Martial.Bard	DEFINE:BardLVL|0		BONUS:VAR|Gestalt_SkillPts|6|TYPE=Class	BONUS:VAR|Class_HD|8|TYPE=Class	BONUS:VAR|Class_BAB|BardLVL*3/4|TYPE=Class	BONUS:SAVE|BASE.Fortitude|BardLVL/3|TYPE=Class		BONUS:SAVE|BASE.Reflex|BardLVL/2+2|TYPE=Class		BONUS:SAVE|BASE.Will|BardLVL/2+2|TYPE=Class		BONUS:PCLEVEL|Bard|1		CSKILL:Appraise|Balance|Bluff|Climb|Concentration|TYPE=Craft|Decipher Script|Diplomacy|Disguise|Escape Artist|Gather Information|Hide|Jump|TYPE=Knowledge|Listen|Move Silently|TYPE=Perform|TYPE=Profession|Sense Motive|Sleight of Hand|Speak Language|Spellcraft|Swim|Tumble|Use Magic Device
+Cleric		KEY:Gestalt Base ~ Cleric	CATEGORY:Internal		TYPE:Gestalt Base.Martial.Cleric	DEFINE:ClericLVL|0	BONUS:VAR|Gestalt_SkillPts|2|TYPE=Class	BONUS:VAR|Class_HD|8|TYPE=Class	BONUS:VAR|Class_BAB|ClericLVL*3/4|TYPE=Class	BONUS:SAVE|BASE.Fortitude|ClericLVL/2+2|TYPE=Class	BONUS:SAVE|BASE.Reflex|ClericLVL/3|TYPE=Class		BONUS:SAVE|BASE.Will|ClericLVL/2+2|TYPE=Class		BONUS:PCLEVEL|Cleric|1		CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (History)|Knowledge (Religion)|Knowledge (The Planes)|TYPE=Profession|Spellcraft
+Druid			KEY:Gestalt Base ~ Druid	CATEGORY:Internal		TYPE:Gestalt Base.Martial.Druid	DEFINE:DruidLVL|0		BONUS:VAR|Gestalt_SkillPts|4|TYPE=Class	BONUS:VAR|Class_HD|8|TYPE=Class	BONUS:VAR|Class_BAB|DruidLVL*3/4|TYPE=Class	BONUS:SAVE|BASE.Fortitude|DruidLVL/2+2|TYPE=Class	BONUS:SAVE|BASE.Reflex|DruidLVL/3|TYPE=Class		BONUS:SAVE|BASE.Will|DruidLVL/2+2|TYPE=Class		BONUS:PCLEVEL|Druid|1		CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nature)|Listen|TYPE=Profession|Ride|Spellcraft|Spot|Survival|Swim
+Fighter		KEY:Gestalt Base ~ Fighter	CATEGORY:Internal		TYPE:Gestalt Base.Martial.Fighter	DEFINE:FighterLVL|0	BONUS:VAR|Gestalt_SkillPts|2|TYPE=Class	BONUS:VAR|Class_HD|10|TYPE=Class	BONUS:VAR|Class_BAB|FighterLVL|TYPE=Class		BONUS:SAVE|BASE.Fortitude|FighterLVL/2+2|TYPE=Class	BONUS:SAVE|BASE.Reflex|FighterLVL/3|TYPE=Class		BONUS:SAVE|BASE.Will|FighterLVL/3|TYPE=Class							CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate|Jump|Ride|Swim
+Monk			KEY:Gestalt Base ~ Monk		CATEGORY:Internal		TYPE:Gestalt Base.Martial.Monk	DEFINE:MonkLVL|0		BONUS:VAR|Gestalt_SkillPts|4|TYPE=Class	BONUS:VAR|Class_HD|8|TYPE=Class	BONUS:VAR|Class_BAB|MonkLVL*3/4|TYPE=Class	BONUS:SAVE|BASE.Fortitude|MonkLVL/2+2|TYPE=Class	BONUS:SAVE|BASE.Reflex|MonkLVL/2+2|TYPE=Class		BONUS:SAVE|BASE.Will|MonkLVL/2+2|TYPE=Class							CSKILL:Balance|Climb|Concentration|TYPE=Craft|Diplomacy|Escape Artist|Hide|Jump|Knowledge (Arcana)|Knowledge (Religion)|Listen|Move Silently|TYPE=Perform|TYPE=Profession|Sense Motive|Spot|Swim|Tumble
+Paladin		KEY:Gestalt Base ~ Paladin	CATEGORY:Internal		TYPE:Gestalt Base.Martial.Paladin	DEFINE:PaladinLVL|0	BONUS:VAR|Gestalt_SkillPts|2|TYPE=Class	BONUS:VAR|Class_HD|10|TYPE=Class	BONUS:VAR|Class_BAB|PaladinLVL|TYPE=Class		BONUS:SAVE|BASE.Fortitude|PaladinLVL/2+2|TYPE=Class	BONUS:SAVE|BASE.Reflex|PaladinLVL/3|TYPE=Class		BONUS:SAVE|BASE.Will|PaladinLVL/3|TYPE=Class		BONUS:PCLEVEL|Paladin|1		CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nobility and Royalty)|Knowledge (Religion)|TYPE=Profession|Ride|Sense Motive
+Ranger		KEY:Gestalt Base ~ Ranger	CATEGORY:Internal		TYPE:Gestalt Base.Martial.Ranger	DEFINE:RangerLVL|0	BONUS:VAR|Gestalt_SkillPts|6|TYPE=Class	BONUS:VAR|Class_HD|8|TYPE=Class	BONUS:VAR|Class_BAB|RangerLVL|TYPE=Class		BONUS:SAVE|BASE.Fortitude|RangerLVL/2+2|TYPE=Class	BONUS:SAVE|BASE.Reflex|RangerLVL/3|TYPE=Class		BONUS:SAVE|BASE.Will|RangerLVL/3|TYPE=Class		BONUS:PCLEVEL|Ranger|1		CSKILL:Climb|Concentration|TYPE=Craft|Handle Animal|Heal|Hide|Jump|Knowledge (Dungeoneering)|Knowledge (Geography)|Knowledge (Nature)|Listen|Move Silently|TYPE=Profession|Ride|Search|Spot|Survival|Swim|Use Rope
+Rogue			KEY:Gestalt Base ~ Rogue	CATEGORY:Internal		TYPE:Gestalt Base.Martial.Rogue	DEFINE:RogueLVL|0		BONUS:VAR|Gestalt_SkillPts|8|TYPE=Class	BONUS:VAR|Class_HD|6|TYPE=Class	BONUS:VAR|Class_BAB|RogueLVL*3/4|TYPE=Class	BONUS:SAVE|BASE.Fortitude|RogueLVL/3|TYPE=Class		BONUS:SAVE|BASE.Reflex|RogueLVL/2+2|TYPE=Class		BONUS:SAVE|BASE.Will|RogueLVL/3|TYPE=Class							CSKILL:Appraise|Balance|Bluff|Climb|TYPE=Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Intimidate|Jump|TYPE=KnowledgeLocal|Listen|Move Silently|Open Lock|TYPE=Perform|TYPE=Profession|Search|Sense Motive|Sleight of Hand|Spot|Swim|Tumble|Use Magic Device|Use Rope
+Sorcerer		KEY:Gestalt Base ~ Sorcerer	CATEGORY:Internal		TYPE:Gestalt Base.Martial.Sorcerer	DEFINE:SorcererLVL|0	BONUS:VAR|Gestalt_SkillPts|2|TYPE=Class	BONUS:VAR|Class_HD|4|TYPE=Class	BONUS:VAR|Class_BAB|SorcererLVL*1/2|TYPE=Class	BONUS:SAVE|BASE.Fortitude|SorcererLVL/3|TYPE=Class	BONUS:SAVE|BASE.Reflex|SorcererLVL/3|TYPE=Class		BONUS:SAVE|BASE.Will|SorcererLVL/2+2|TYPE=Class		BONUS:PCLEVEL|Sorcerer|1	CSKILL:Bluff|Concentration|TYPE=Craft|Knowledge (Arcana)|TYPE=Profession|Spellcraft		
+Wizard		KEY:Gestalt Base ~ Wizard	CATEGORY:Internal		TYPE:Gestalt Base.Martial.Wizard	DEFINE:WizardLVL|0	BONUS:VAR|Gestalt_SkillPts|2|TYPE=Class	BONUS:VAR|Class_HD|4|TYPE=Class	BONUS:VAR|Class_BAB|WizardLVL*1/2|TYPE=Class	BONUS:SAVE|BASE.Fortitude|WizardLVL/3|TYPE=Class	BONUS:SAVE|BASE.Reflex|WizardLVL/3|TYPE=Class		BONUS:SAVE|BASE.Will|WizardLVL/2+2|TYPE=Class		BONUS:PCLEVEL|Wizard|1		CSKILL:Concentration|TYPE=Craft|Decipher Script|TYPE=Knowledge|TYPE=Profession|Spellcraft
+
+
+# Ability - Simple Version (Select two classes and they automatically level with Gestalt Class)
+Barbarian		KEY:Gestalt ~ Barbarian		CATEGORY:Internal		TYPE:GestaltClass.Martial.Barbarian		DEFINE:BarbarianLVL|0	BONUS:VAR|BarbarianLVL|GestaltLVL		ABILITY:Internal|AUTOMATIC|Gestalt Base ~ Barbarian	
+Bard			KEY:Gestalt ~ Bard		CATEGORY:Internal		TYPE:GestaltClass.Martial.Bard		DEFINE:BardLVL|0		BONUS:VAR|BardLVL|GestaltLVL			ABILITY:Internal|AUTOMATIC|Gestalt Base ~ Bard		
+Cleric		KEY:Gestalt ~ Cleric		CATEGORY:Internal		TYPE:GestaltClass.Martial.Cleric		DEFINE:ClericLVL|0	BONUS:VAR|ClericLVL|GestaltLVL		ABILITY:Internal|AUTOMATIC|Gestalt Base ~ Cleric	
+Druid			KEY:Gestalt ~ Druid		CATEGORY:Internal		TYPE:GestaltClass.Martial.Druid		DEFINE:DruidLVL|0		BONUS:VAR|DruidLVL|GestaltLVL			ABILITY:Internal|AUTOMATIC|Gestalt Base ~ Druid		
+Fighter		KEY:Gestalt ~ Fighter		CATEGORY:Internal		TYPE:GestaltClass.Martial.Fighter		DEFINE:FighterLVL|0	BONUS:VAR|FighterLVL|GestaltLVL		ABILITY:Internal|AUTOMATIC|Gestalt Base ~ Fighter	
+Monk			KEY:Gestalt ~ Monk		CATEGORY:Internal		TYPE:GestaltClass.Martial.Monk		DEFINE:MonkLVL|0		BONUS:VAR|MonkLVL|GestaltLVL			ABILITY:Internal|AUTOMATIC|Gestalt Base ~ Monk		
+Paladin		KEY:Gestalt ~ Paladin		CATEGORY:Internal		TYPE:GestaltClass.Martial.Paladin		DEFINE:PaladinLVL|0	BONUS:VAR|PaladinLVL|GestaltLVL		ABILITY:Internal|AUTOMATIC|Gestalt Base ~ Paladin	
+Ranger		KEY:Gestalt ~ Ranger		CATEGORY:Internal		TYPE:GestaltClass.Martial.Ranger		DEFINE:RangerLVL|0	BONUS:VAR|RangerLVL|GestaltLVL		ABILITY:Internal|AUTOMATIC|Gestalt Base ~ Ranger	
+Rogue			KEY:Gestalt ~ Rogue		CATEGORY:Internal		TYPE:GestaltClass.Martial.Rogue		DEFINE:RogueLVL|0		BONUS:VAR|RogueLVL|GestaltLVL			ABILITY:Internal|AUTOMATIC|Gestalt Base ~ Rogue		
+Sorcerer		KEY:Gestalt ~ Sorcerer		CATEGORY:Internal		TYPE:GestaltClass.Martial.Sorcerer		DEFINE:SorcererLVL|0	BONUS:VAR|SorcererLVL|GestaltLVL		ABILITY:Internal|AUTOMATIC|Gestalt Base ~ Sorcerer	
+Wizard		KEY:Gestalt ~ Wizard		CATEGORY:Internal		TYPE:GestaltClass.Martial.Wizard		DEFINE:WizardLVL|0	BONUS:VAR|WizardLVL|GestaltLVL		ABILITY:Internal|AUTOMATIC|Gestalt Base ~ Wizard	
+
+# Leveling Version
+Barbarian		KEY:Gestalt Leveling ~ Barbarian	COST:0	!PRECLASS:1,Barbarian=1	CATEGORY:Internal	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	TYPE:Gestalt Leveling.Martial.Barbarian	DEFINE:BarbarianLVL|0	BONUS:VAR|BarbarianLVL|1						ABILITY:Internal|AUTOMATIC|Gestalt Base ~ Barbarian	
+Bard			KEY:Gestalt Leveling ~ Bard		COST:0	!PRECLASS:1,Bard=1	CATEGORY:Internal	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	TYPE:Gestalt Leveling.Martial.Bard		DEFINE:BardLVL|0		BONUS:VAR|BardLVL|1		ADD:SPELLCASTER|Bard		ABILITY:Internal|AUTOMATIC|Gestalt Base ~ Bard		
+Cleric		KEY:Gestalt Leveling ~ Cleric		COST:0	!PRECLASS:1,Cleric=1	CATEGORY:Internal	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	TYPE:Gestalt Leveling.Martial.Cleric	DEFINE:ClericLVL|0	BONUS:VAR|ClericLVL|1		ADD:SPELLCASTER|Cleric		ABILITY:Internal|AUTOMATIC|Gestalt Base ~ Cleric	
+Druid			KEY:Gestalt Leveling ~ Druid		COST:0	!PRECLASS:1,Druid=1	CATEGORY:Internal	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	TYPE:Gestalt Leveling.Martial.Druid		DEFINE:DruidLVL|0		BONUS:VAR|DruidLVL|1		ADD:SPELLCASTER|Druid		ABILITY:Internal|AUTOMATIC|Gestalt Base ~ Druid	
+Fighter		KEY:Gestalt Leveling ~ Fighter	COST:0	!PRECLASS:1,Fighter=1	CATEGORY:Internal	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	TYPE:Gestalt Leveling.Martial.Fighter	DEFINE:FighterLVL|0	BONUS:VAR|FighterLVL|1							ABILITY:Internal|AUTOMATIC|Gestalt Base ~ Fighter	
+Monk			KEY:Gestalt Leveling ~ Monk		COST:0	!PRECLASS:1,Monk=1	CATEGORY:Internal	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	TYPE:Gestalt Leveling.Martial.Monk		DEFINE:MonkLVL|0		BONUS:VAR|MonkLVL|1							ABILITY:Internal|AUTOMATIC|Gestalt Base ~ Monk		
+Paladin		KEY:Gestalt Leveling ~ Paladin	COST:0	!PRECLASS:1,Paladin=1	CATEGORY:Internal	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	TYPE:Gestalt Leveling.Martial.Paladin	DEFINE:PaladinLVL|0	BONUS:VAR|PaladinLVL|1		ADD:SPELLCASTER|Paladin		ABILITY:Internal|AUTOMATIC|Gestalt Base ~ Paladin	
+Ranger		KEY:Gestalt Leveling ~ Ranger		COST:0	!PRECLASS:1,Ranger=1	CATEGORY:Internal	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	TYPE:Gestalt Leveling.Martial.Ranger	DEFINE:RangerLVL|0	BONUS:VAR|RangerLVL|1		ADD:SPELLCASTER|Ranger		ABILITY:Internal|AUTOMATIC|Gestalt Base ~ Ranger	
+Rogue			KEY:Gestalt Leveling ~ Rogue		COST:0	!PRECLASS:1,Rogue=1	CATEGORY:Internal	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	TYPE:Gestalt Leveling.Martial.Rogue		DEFINE:RogueLVL|0		BONUS:VAR|RogueLVL|1							ABILITY:Internal|AUTOMATIC|Gestalt Base ~ Rogue	
+Sorcerer		KEY:Gestalt Leveling ~ Sorcerer	COST:0	!PRECLASS:1,Sorcerer=1	CATEGORY:Internal	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	TYPE:Gestalt Leveling.Martial.Sorcerer	DEFINE:SorcererLVL|0	BONUS:VAR|SorcererLVL|1		ADD:SPELLCASTER|Sorcerer	ABILITY:Internal|AUTOMATIC|Gestalt Base ~ Sorcerer	
+Wizard		KEY:Gestalt Leveling ~ Wizard		COST:0	!PRECLASS:1,Wizard=1	CATEGORY:Internal	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	TYPE:Gestalt Leveling.Martial.Wizard	DEFINE:WizardLVL|0	BONUS:VAR|WizardLVL|1		ADD:SPELLCASTER|Wizard		ABILITY:Internal|AUTOMATIC|Gestalt Base ~ Wizard	
+
+
+###Block: Class Features
+# Barbarian
+CATEGORY=Internal|Gestalt Base ~ Barbarian.MOD	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Weapon and Armor Proficiency|!PREABILITY:1,CATEGORY=ACF,TYPE.BarbarianProficiencies|PREVARGTEQ:BarbarianLVL,1	
+CATEGORY=Internal|Gestalt Base ~ Barbarian.MOD	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Fast Movement|!PREABILITY:1,CATEGORY=ACF,TYPE.BarbarianFastMovement|PREVARGTEQ:BarbarianLVL,1	
+CATEGORY=Internal|Gestalt Base ~ Barbarian.MOD	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Illiteracy|PREVAREQ:TL,IlliteracyLVL|PREVARGTEQ:BarbarianLVL,1	
+CATEGORY=Internal|Gestalt Base ~ Barbarian.MOD	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Rage|!PREABILITY:1,CATEGORY=ACF,TYPE.BarbarianRage|PREVARGTEQ:BarbarianLVL,1		
+CATEGORY=Internal|Gestalt Base ~ Barbarian.MOD	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Uncanny Dodge|!PREABILITY:1,CATEGORY=ACF,TYPE.BarbarianUncannyDodge|PREVARGTEQ:BarbarianLVL,2	
+CATEGORY=Internal|Gestalt Base ~ Barbarian.MOD	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Trap Sense|!PREABILITY:1,CATEGORY=ACF,TYPE.BarbarianTrapSense|PREVARGTEQ:BarbarianLVL,3	
+CATEGORY=Internal|Gestalt Base ~ Barbarian.MOD	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Improved Uncanny Dodge|!PREABILITY:1,CATEGORY=ACF,TYPE.BarbarianImprovedUncannyDodge|PREVARGTEQ:BarbarianLVL,5		
+CATEGORY=Internal|Gestalt Base ~ Barbarian.MOD	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Damage Reduction|!PREABILITY:1,CATEGORY=ACF,TYPE.BarbarianDamageReduction|PREVARGTEQ:BarbarianLVL,7	
+CATEGORY=Internal|Gestalt Base ~ Barbarian.MOD	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Greater Rage|!PREABILITY:1,CATEGORY=ACF,TYPE.BarbarianGreaterRage|PREVARGTEQ:BarbarianLVL,11
+CATEGORY=Internal|Gestalt Base ~ Barbarian.MOD	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Indomitable Will|!PREABILITY:1,CATEGORY=ACF,TYPE.BarbarianIndomitableWill|PREVARGTEQ:BarbarianLVL,14
+CATEGORY=Internal|Gestalt Base ~ Barbarian.MOD	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Tireless Rage|!PREABILITY:1,CATEGORY=ACF,TYPE.BarbarianTirelessRage|PREVARGTEQ:BarbarianLVL,17
+CATEGORY=Internal|Gestalt Base ~ Barbarian.MOD	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Mighty Rage|!PREABILITY:1,CATEGORY=ACF,TYPE.BarbarianMightyRage|PREVARGTEQ:BarbarianLVL,20
+# Bard
+CATEGORY=Internal|Gestalt Base ~ Bard.MOD	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Weapon and Armor Proficiency|!PREABILITY:1,CATEGORY=ACF,TYPE.BardProficiencies|PREVARGTEQ:BardLVL,1
+CATEGORY=Internal|Gestalt Base ~ Bard.MOD	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Bardic Knowledge|!PREABILITY:1,CATEGORY=ACF,TYPE.BardBardicKnowledge|PREVARGTEQ:BardLVL,1
+CATEGORY=Internal|Gestalt Base ~ Bard.MOD	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Bardic Music|!PREABILITY:1,CATEGORY=ACF,TYPE.BardBardicMusic|PREVARGTEQ:BardLVL,1
+# Cleric
+CATEGORY=Internal|Gestalt Base ~ Cleric.MOD		ABILITY:Cleric Class Feature|AUTOMATIC|Cleric ~ Weapon and Armor Proficiency|!PREABILITY:1,CATEGORY=ACF,TYPE.ClericProficiences|PREVARGTEQ:ClericLVL,1
+CATEGORY=Internal|Gestalt Base ~ Cleric.MOD		ABILITY:Cleric Class Feature|AUTOMATIC|Cleric ~ Aura|!PREABILITY:1,CATEGORY=ACF,TYPE.ClericAura|PREVARGTEQ:ClericLVL,1
+CATEGORY=Internal|Gestalt Base ~ Cleric.MOD		ABILITY:Cleric Class Feature|AUTOMATIC|Cleric ~ Spells|PREVARGTEQ:ClericLVL,1
+CATEGORY=Internal|Gestalt Base ~ Cleric.MOD		ABILITY:Cleric Class Feature|AUTOMATIC|Cleric ~ Spontaneous Casting|!PREABILITY:1,CATEGORY=ACF,TYPE.ClericSpontaneousCasting|PREVARGTEQ:ClericLVL,1
+CATEGORY=Internal|Gestalt Base ~ Cleric.MOD		ABILITY:Cleric Class Feature|AUTOMATIC|Cleric ~ Turn or Rebuke Undead|!PREABILITY:1,CATEGORY=ACF,TYPE.ClericTurnUndead|PREVARGTEQ:ClericLVL,1
+# Druid
+CATEGORY=Internal|Gestalt Base ~ Druid.MOD	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ Weapon and Armor Proficiency|!PREABILITY:1,CATEGORY=ACF,TYPE.DruidProficiencies|PREVARGTEQ:DruidLVL,1	
+CATEGORY=Internal|Gestalt Base ~ Druid.MOD	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ Spells|PREVARGTEQ:DruidLVL,1	
+CATEGORY=Internal|Gestalt Base ~ Druid.MOD	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ Spontaneous Casting|!PREABILITY:1,CATEGORY=ACF,TYPE.DruidSpontaneousCasting|PREVARGTEQ:DruidLVL,1	
+CATEGORY=Internal|Gestalt Base ~ Druid.MOD	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ Animal Companion|!PREABILITY:1,CATEGORY=ACF,TYPE.DruidAnimalCompanion|PREVARGTEQ:DruidLVL,1	
+CATEGORY=Internal|Gestalt Base ~ Druid.MOD	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ Nature Sense|!PREABILITY:1,CATEGORY=ACF,TYPE.DruidNatureSense|PREVARGTEQ:DruidLVL,1	
+CATEGORY=Internal|Gestalt Base ~ Druid.MOD	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ Wild Empathy|!PREABILITY:1,CATEGORY=ACF,TYPE.DruidWildEmpathy|PREVARGTEQ:DruidLVL,1	
+CATEGORY=Internal|Gestalt Base ~ Druid.MOD	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ Woodland Stride|!PREABILITY:1,CATEGORY=ACF,TYPE.DruidWoodlandStride|PREVARGTEQ:DruidLVL,2	
+CATEGORY=Internal|Gestalt Base ~ Druid.MOD	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ Trackless Step|!PREABILITY:1,CATEGORY=ACF,TYPE.DruidTracklessStep|PREVARGTEQ:DruidLVL,3	
+CATEGORY=Internal|Gestalt Base ~ Druid.MOD	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ Resist Nature's Lure|!PREABILITY:1,CATEGORY=ACF,TYPE.DruidResistNaturesLure|PREVARGTEQ:DruidLVL,4	
+CATEGORY=Internal|Gestalt Base ~ Druid.MOD	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ Wild Shape|!PREABILITY:1,CATEGORY=ACF,TYPE.DruidWildShape|PREVARGTEQ:DruidLVL,5	
+CATEGORY=Internal|Gestalt Base ~ Druid.MOD	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ Venom Immunity|!PREABILITY:1,CATEGORY=ACF,TYPE.DruidVenomImmunity|PREVARGTEQ:DruidLVL,9	
+CATEGORY=Internal|Gestalt Base ~ Druid.MOD	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ A Thousand Faces|!PREABILITY:1,CATEGORY=ACF,TYPE.DruidAThousandFaces|PREVARGTEQ:DruidLVL,13	
+CATEGORY=Internal|Gestalt Base ~ Druid.MOD	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ Timeless Body|!PREABILITY:1,CATEGORY=ACF,TYPE.DruidTimelessBody|PREVARGTEQ:DruidLVL,15	
+# Fighter
+CATEGORY=Internal|Gestalt Base ~ Fighter.MOD	ABILITY:Fighter Class Feature|AUTOMATIC|Fighter ~ Weapon and Armor Proficiency|!PREABILITY:1,CATEGORY=ACF,TYPE.FighterProficiencies|PREVARGTEQ:FighterLVL,1	
+CATEGORY=Internal|Gestalt Base ~ Fighter.MOD	ABILITY:Fighter Class Feature|AUTOMATIC|Fighter ~ Bonus Feats|!PREABILITY:1,CATEGORY=ACF,TYPE.FighterBonusFeat,TYPE.FighterBonusFeats|PREVARGTEQ:FighterLVL,1	
+CATEGORY=Internal|Gestalt Base ~ Fighter.MOD	ABILITY:Special Ability|AUTOMATIC|Fighter Level Advanced Feat Tracker|PREVARGTEQ:FighterLVL,1	
+CATEGORY=Internal|Gestalt Base ~ Fighter.MOD	ABILITY:Special Ability|AUTOMATIC|Weapon Specialization Qualify|!PREABILITY:1,CATEGORY=ACF,TYPE.FighterWeaponSpecialization|PREVARGTEQ:FighterLVL,1	
+CATEGORY=Internal|Gestalt Base ~ Fighter.MOD	ABILITY:Special Ability|AUTOMATIC|Greater Weapon Focus Qualify|!PREABILITY:1,CATEGORY=ACF,TYPE.FighterGreaterWeaponFocus|PREVARGTEQ:FighterLVL,1	
+CATEGORY=Internal|Gestalt Base ~ Fighter.MOD	ABILITY:Special Ability|AUTOMATIC|Greater Weapon Specialization Qualify|!PREABILITY:1,CATEGORY=ACF,TYPE.FighterGreaterWeaponSpecialization|PREVARGTEQ:FighterLVL,1	
+# Monk
+CATEGORY=Internal|Gestalt Base ~ Monk.MOD	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Weapon and Armor Proficiency|!PREABILITY:1,CATEGORY=ACF,TYPE.MonkProficiencies|PREVARGTEQ:MonkLVL,1	
+CATEGORY=Internal|Gestalt Base ~ Monk.MOD	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ AC Bonus|!PREABILITY:1,CATEGORY=ACF,TYPE.MonkACBonus|PREVARGTEQ:MonkLVL,1	
+CATEGORY=Internal|Gestalt Base ~ Monk.MOD	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Flurry of Blows|!PREABILITY:1,CATEGORY=ACF,TYPE.MonkFlurryOfBlows|PREVARGTEQ:MonkLVL,1	
+CATEGORY=Internal|Gestalt Base ~ Monk.MOD	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Unarmed Strike|!PREABILITY:1,CATEGORY=ACF,TYPE.MonkUnarmedStrike|PREVARGTEQ:MonkLVL,1	
+CATEGORY=Internal|Gestalt Base ~ Monk.MOD	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Bonus Feat|!PREABILITY:1,CATEGORY=ACF,TYPE.MonkBonusFeats|PREVARGTEQ:MonkLVL,1	
+CATEGORY=Internal|Gestalt Base ~ Monk.MOD	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Evasion|!PREABILITY:1,CATEGORY=ACF,TYPE.MonkEvasion|PREVARGTEQ:MonkLVL,1	
+CATEGORY=Internal|Gestalt Base ~ Monk.MOD	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Fast Movement|!PREABILITY:1,CATEGORY=ACF,TYPE.MonkFastMovement|PREVARGTEQ:MonkLVL,1	
+CATEGORY=Internal|Gestalt Base ~ Monk.MOD	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Still Mind|!PREABILITY:1,CATEGORY=ACF,TYPE.MonkStillMind|PREVARGTEQ:MonkLVL,3	
+CATEGORY=Internal|Gestalt Base ~ Monk.MOD	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Ki Strike|!PREABILITY:1,CATEGORY=ACF,TYPE.MonkKiStrike|PREVARGTEQ:MonkLVL,4	
+CATEGORY=Internal|Gestalt Base ~ Monk.MOD	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Slow Fall|!PREABILITY:1,CATEGORY=ACF,TYPE.MonkSlowFall|PREVARGTEQ:MonkLVL,4	
+CATEGORY=Internal|Gestalt Base ~ Monk.MOD	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Purity of Body|!PREABILITY:1,CATEGORY=ACF,TYPE.MonkPurityOfBody|PREVARGTEQ:MonkLVL,5	
+CATEGORY=Internal|Gestalt Base ~ Monk.MOD	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Wholeness of Body|!PREABILITY:1,CATEGORY=ACF,TYPE.MonkWholenessOfBody|PREVARGTEQ:MonkLVL,7	
+CATEGORY=Internal|Gestalt Base ~ Monk.MOD	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Improved Evasion|!PREABILITY:1,CATEGORY=ACF,TYPE.MonkImprovedEvasion|PREVARGTEQ:MonkLVL,9	
+CATEGORY=Internal|Gestalt Base ~ Monk.MOD	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Diamond Body|!PREABILITY:1,CATEGORY=ACF,TYPE.MonkDiamondBody|PREVARGTEQ:MonkLVL,11	
+CATEGORY=Internal|Gestalt Base ~ Monk.MOD	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Abundant Step|!PREABILITY:1,CATEGORY=ACF,TYPE.MonkAbundantStep|PREVARGTEQ:MonkLVL,12	
+CATEGORY=Internal|Gestalt Base ~ Monk.MOD	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Diamond Soul|!PREABILITY:1,CATEGORY=ACF,TYPE.MonkDiamondSoul|PREVARGTEQ:MonkLVL,13	
+CATEGORY=Internal|Gestalt Base ~ Monk.MOD	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Quivering Palm|!PREABILITY:1,CATEGORY=ACF,TYPE.MonkQuiveringPalm|PREVARGTEQ:MonkLVL,15	
+CATEGORY=Internal|Gestalt Base ~ Monk.MOD	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Timeless Body|!PREABILITY:1,CATEGORY=ACF,TYPE.MonkTimelessBody|PREVARGTEQ:MonkLVL,17	
+CATEGORY=Internal|Gestalt Base ~ Monk.MOD	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Tongue of the Sun and Moon|!PREABILITY:1,CATEGORY=ACF,TYPE.MonkTongueOfTheSunAndMoon|PREVARGTEQ:MonkLVL,17	
+CATEGORY=Internal|Gestalt Base ~ Monk.MOD	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Empty Body|!PREABILITY:1,CATEGORY=ACF,TYPE.MonkEmptyBody|PREVARGTEQ:MonkLVL,19	
+CATEGORY=Internal|Gestalt Base ~ Monk.MOD	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Perfect Self|!PREABILITY:1,CATEGORY=ACF,TYPE.MonkPerfectSelf|PREVARGTEQ:MonkLVL,20	
+# Paladin
+CATEGORY=Internal|Gestalt Base ~ Paladin.MOD	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Weapon and Armor Proficiency|!PREABILITY:1,CATEGORY=ACF,TYPE.PaladinProficiencies|PREVARGTEQ:PaladinLVL,1	
+CATEGORY=Internal|Gestalt Base ~ Paladin.MOD	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Aura of Good|!PREABILITY:1,CATEGORY=ACF,TYPE.PaladinAuraOfGood|PREVARGTEQ:PaladinLVL,1	
+CATEGORY=Internal|Gestalt Base ~ Paladin.MOD	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Detect Evil|!PREABILITY:1,CATEGORY=ACF,TYPE.PaladinDetectEvil|PREVARGTEQ:PaladinLVL,1	
+CATEGORY=Internal|Gestalt Base ~ Paladin.MOD	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Smite Evil|!PREABILITY:1,CATEGORY=ACF,TYPE.PaladinSmiteEvil|PREVARGTEQ:PaladinLVL,1	
+CATEGORY=Internal|Gestalt Base ~ Paladin.MOD	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Divine Grace|!PREABILITY:1,CATEGORY=ACF,TYPE.PaladinDivineGrave|PREVARGTEQ:PaladinLVL,2	
+CATEGORY=Internal|Gestalt Base ~ Paladin.MOD	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Lay on Hands|!PREABILITY:1,CATEGORY=ACF,TYPE.PaladinLayOnHands|PREVARGTEQ:PaladinLVL,2	
+CATEGORY=Internal|Gestalt Base ~ Paladin.MOD	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Aura of Courage|!PREABILITY:1,CATEGORY=ACF,TYPE.PaladinAuraOfCourage|PREVARGTEQ:PaladinLVL,3	
+CATEGORY=Internal|Gestalt Base ~ Paladin.MOD	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Divine Health|!PREABILITY:1,CATEGORY=ACF,TYPE.PaladinDivineHealth|PREVARGTEQ:PaladinLVL,3	
+CATEGORY=Internal|Gestalt Base ~ Paladin.MOD	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Turn Undead|!PREABILITY:1,CATEGORY=ACF,TYPE.PaladinTurnUndead|PREVARGTEQ:PaladinLVL,4	
+CATEGORY=Internal|Gestalt Base ~ Paladin.MOD	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Special Mount|!PREABILITY:1,CATEGORY=ACF,TYPE.PaladinSpecialMount|PREVARGTEQ:PaladinLVL,5	
+CATEGORY=Internal|Gestalt Base ~ Paladin.MOD	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Remove Disease|!PREABILITY:1,CATEGORY=ACF,TYPE.PaladinRemoveDisease|PREVARGTEQ:PaladinLVL,6	
+# Ranger
+CATEGORY=Internal|Gestalt Base ~ Ranger.MOD	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Weapon and Armor Proficiency|!PREABILITY:1,CATEGORY=ACF,TYPE.RangerProficiencies|PREVARGTEQ:RangerLVL,1	
+CATEGORY=Internal|Gestalt Base ~ Ranger.MOD	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Favored Enemy|!PREABILITY:1,CATEGORY=ACF,TYPE.RangerFavoredEnemy|PREVARGTEQ:RangerLVL,1	
+CATEGORY=Internal|Gestalt Base ~ Ranger.MOD	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Track|!PREABILITY:1,CATEGORY=ACF,TYPE.RangerTrack|PREVARGTEQ:RangerLVL,1	
+CATEGORY=Internal|Gestalt Base ~ Ranger.MOD	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Wild Empathy|!PREABILITY:1,CATEGORY=ACF,TYPE.RangerWildEmpathy|PREVARGTEQ:RangerLVL,1	
+CATEGORY=Internal|Gestalt Base ~ Ranger.MOD	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Combat Style|!PREABILITY:1,CATEGORY=ACF,TYPE.RangerCombatTree|PREVARGTEQ:RangerLVL,2	
+CATEGORY=Internal|Gestalt Base ~ Ranger.MOD	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Endurance|!PREABILITY:1,CATEGORY=ACF,TYPE.RangerEndurance|PREVARGTEQ:RangerLVL,3	
+CATEGORY=Internal|Gestalt Base ~ Ranger.MOD	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Animal Companion|!PREABILITY:1,CATEGORY=ACF,TYPE.RangerAnimalCompanion|PREVARGTEQ:RangerLVL,4	
+CATEGORY=Internal|Gestalt Base ~ Ranger.MOD	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Improved Combat Style|!PREABILITY:1,CATEGORY=ACF,TYPE.RangerImprovedCombatStyle|PREVARGTEQ:RangerLVL,6	
+CATEGORY=Internal|Gestalt Base ~ Ranger.MOD	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Woodland Stride|!PREABILITY:1,CATEGORY=ACF,TYPE.RangerWoodlandStride|PREVARGTEQ:RangerLVL,7	
+CATEGORY=Internal|Gestalt Base ~ Ranger.MOD	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Swift Tracker|!PREABILITY:1,CATEGORY=ACF,TYPE.RangerSwiftTracker|PREVARGTEQ:RangerLVL,8	
+CATEGORY=Internal|Gestalt Base ~ Ranger.MOD	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Evasion|!PREABILITY:1,CATEGORY=ACF,TYPE.RangerEvasion|PREVARGTEQ:RangerLVL,9	
+CATEGORY=Internal|Gestalt Base ~ Ranger.MOD	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Combat Style Mastery|!PREABILITY:1,CATEGORY=ACF,TYPE.RangerCombatStyleMastery|PREVARGTEQ:RangerLVL,11	
+CATEGORY=Internal|Gestalt Base ~ Ranger.MOD	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Camouflage|!PREABILITY:1,CATEGORY=ACF,TYPE.RangerCamouflage|PREVARGTEQ:RangerLVL,13	
+CATEGORY=Internal|Gestalt Base ~ Ranger.MOD	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Hide in Plain Sight|!PREABILITY:1,CATEGORY=ACF,TYPE.RangerHideInPlainSight|PREVARGTEQ:RangerLVL,17	
+# Rogue
+CATEGORY=Internal|Gestalt Base ~ Rogue.MOD	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Weapon and Armor Proficiency|!PREABILITY:1,CATEGORY=ACF,TYPE.RogueProficiencies|PREVARGTEQ:RogueLVL,1	
+CATEGORY=Internal|Gestalt Base ~ Rogue.MOD	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Sneak Attack|!PREABILITY:1,CATEGORY=ACF,TYPE.RogueSneakAttack|PREVARGTEQ:RogueLVL,1	
+CATEGORY=Internal|Gestalt Base ~ Rogue.MOD	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Trapfinding|!PREABILITY:1,CATEGORY=ACF,TYPE.RogueTrapfinding|PREVARGTEQ:RogueLVL,1	
+CATEGORY=Internal|Gestalt Base ~ Rogue.MOD	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Evasion|!PREABILITY:1,CATEGORY=ACF,TYPE.RogueEvasion|PREVARGTEQ:RogueLVL,2	
+CATEGORY=Internal|Gestalt Base ~ Rogue.MOD	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Trap Sense|!PREABILITY:1,CATEGORY=ACF,TYPE.RogueTrapSense|PREVARGTEQ:RogueLVL,3	
+CATEGORY=Internal|Gestalt Base ~ Rogue.MOD	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Uncanny Dodge|!PREABILITY:1,CATEGORY=ACF,TYPE.RogueUncannyDodge|PREVARGTEQ:RogueLVL,4	
+CATEGORY=Internal|Gestalt Base ~ Rogue.MOD	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Improved Uncanny Dodge|!PREABILITY:1,CATEGORY=ACF,TYPE.RogueImprovedUncannyDodge|PREVARGTEQ:RogueLVL,8	
+CATEGORY=Internal|Gestalt Base ~ Rogue.MOD	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Special Abilities|!PREABILITY:1,CATEGORY=ACF,TYPE.RogueSpecialAbilities|PREVARGTEQ:RogueLVL,10	
+# Sorcerer
+CATEGORY=Internal|Gestalt Base ~ Sorcerer.MOD	ABILITY:Sorcerer Class Feature|AUTOMATIC|Sorcerer ~ Weapon and Armor Proficiency|!PREABILITY:1,CATEGORY=ACF,TYPE.SorcererProficiencies|PREVARGTEQ:SorcererLVL,1	
+CATEGORY=Internal|Gestalt Base ~ Sorcerer.MOD	ABILITY:Sorcerer Class Feature|AUTOMATIC|Sorcerer ~ Familiar|!PREABILITY:1,CATEGORY=ACF,TYPE.SorcererFamiliar|PREVARGTEQ:SorcererLVL,1	
+CATEGORY=Internal|Gestalt Base ~ Sorcerer.MOD	ABILITY:Sorcerer Class Feature|AUTOMATIC|Sorcerer ~ Spells|PREVARGTEQ:SorcererLVL,1	
+# Wizard
+CATEGORY=Internal|Gestalt Base ~ Wizard.MOD	ABILITY:Wizard Class Feature|AUTOMATIC|Wizard ~ Weapon and Armor Proficiency|!PREABILITY:1,CATEGORY=ACF,TYPE.WizardProficiencies|PREVARGTEQ:WizardLVL,1	
+CATEGORY=Internal|Gestalt Base ~ Wizard.MOD	ABILITY:Wizard Class Feature|AUTOMATIC|Wizard ~ Familiar|!PREABILITY:1,CATEGORY=ACF,TYPE.WizardSummonFamiliar|PREVARGTEQ:WizardLVL,1	
+CATEGORY=Internal|Gestalt Base ~ Wizard.MOD	ABILITY:Wizard Class Feature|AUTOMATIC|Wizard ~ Scribe Scroll|!PREABILITY:1,CATEGORY=ACF,TYPE.WizardScribeScroll|PREVARGTEQ:WizardLVL,1	
+CATEGORY=Internal|Gestalt Base ~ Wizard.MOD	ABILITY:Wizard Class Feature|AUTOMATIC|Wizard ~ Bonus Feats|!PREABILITY:1,CATEGORY=ACF,TYPE.WizardBonusFeats|PREVARGTEQ:WizardLVL,5	
+CATEGORY=Internal|Gestalt Base ~ Wizard.MOD	ABILITY:Wizard Class Feature|AUTOMATIC|Wizard ~ Spellbooks|PREVARGTEQ:WizardLVL,1	
+
+###Block: HD
+Gestalt HD ~ 6	TEMPLATE:Set HD to 6	CATEGORY:Internal
+Gestalt HD ~ 8	TEMPLATE:Set HD to 8	CATEGORY:Internal
+Gestalt HD ~ 10	TEMPLATE:Set HD to 10	CATEGORY:Internal
+Gestalt HD ~ 12	TEMPLATE:Set HD to 12	CATEGORY:Internal
+
+
+

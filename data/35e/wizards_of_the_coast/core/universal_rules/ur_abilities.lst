@@ -43,6 +43,12 @@ SOURCELONG:Universal Rules	SOURCESHORT:UR	SOURCEDATE:2003-09
 
 Default			CATEGORY:Internal				DEFINE:DarkvisionRange|0	DEFINE:HasLowlightVision|0	DEFINE:FirstLevelFeatTaken|0	DEFINE:FirstLevelFeatAllowed|0	DEFINE:ClassBABPoor|0	DEFINE:ClassBABModerate|0	DEFINE:ClassBABFull|0	DEFINE:UseAlternateBABProgression|0				ABILITY:Special Ability|AUTOMATIC|Low-Light Vision|PREVARGTEQ:HasLowlightVision,1	ABILITY:Special Ability|AUTOMATIC|Darkvision|PREVARGTEQ:DarkvisionRange,1	ABILITY:Internal|AUTOMATIC|Defines	ABILITY:Special Ability|AUTOMATIC|Aerial Maneuverability|PREMOVE:1,Fly=1	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base	BONUS:COMBAT|REACH|-5|PREVAREQ:RaceSizeIsLong,1|PRESIZEGTEQ:L	BONUS:COMBAT|REACH|-5|PREVAREQ:RaceSizeIsLong,1|PRESIZEGTEQ:C	BONUS:COMBAT|BASEAB|ClassBABPoor*1/2|TYPE=ClassBABPoor|PREVAREQ:UseFractionalBAB,1	BONUS:COMBAT|BASEAB|ClassBABModerate*3/4|TYPE=ClassBABModerate|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|FirstLevelFeatTaken|count("ABILITIES","CATEGORY=FEAT","NATURE=Normal","TYPE=FirstLevel")	BONUS:VAR|FirstLevelFeatAllowed|1	BONUS:VAR|FirstLevelFeatAllowed|1|PRERACE:1,Human	BONUS:VAR|DC_CHA|10+(HD/2)+CHA		BONUS:VAR|DC_CON|10+(HD/2)+CON		BONUS:VAR|DC_INT|10+(HD/2)+INT		BONUS:VAR|DC_WIS|10+(HD/2)+WIS		BONUS:VAR|DC_STR|10+(HD/2)+STR		BONUS:VAR|DC_DEX|10+(HD/2)+DEX		DEFINE:DC_CHA|0	DEFINE:DC_CON|0	DEFINE:DC_INT|0	DEFINE:DC_WIS|0	DEFINE:DC_STR|0	DEFINE:DC_DEX|0	DEFINE:Caster_Level_Bonus|0
 
+CATEGORY=Internal|Default.MOD		DEFINE:AcidResistanceBonus|0				ABILITY:Special Ability|AUTOMATIC|Resistance to Acid|PREVARGTEQ:AcidResistanceBonus,1		
+CATEGORY=Internal|Default.MOD		DEFINE:ColdResistanceBonus|0				ABILITY:Special Ability|AUTOMATIC|Resistance to Cold|PREVARGTEQ:ColdResistanceBonus,1		
+CATEGORY=Internal|Default.MOD		DEFINE:FireResistanceBonus|0				ABILITY:Special Ability|AUTOMATIC|Resistance to Fire|PREVARGTEQ:FireResistanceBonus,1		
+CATEGORY=Internal|Default.MOD		DEFINE:ElectricityResistanceBonus|0			ABILITY:Special Ability|AUTOMATIC|Resistance to Electricity|PREVARGTEQ:ElectricityResistanceBonus,1
+CATEGORY=Internal|Default.MOD		DEFINE:SonicResistanceBonus|0				ABILITY:Special Ability|AUTOMATIC|Resistance to Sonic|PREVARGTEQ:SonicResistanceBonus,1
+
 #	BONUS:COMBAT|BASEAB|ClassMasterBAB|PREVAREQ:UseFractionalBAB,1	DEFINE:ClassMasterBAB|0	BONUS:VAR|ClassMasterBAB|(ClassBABPoor*1/2)+(ClassBABModerate*3/4)
 #	BONUS:COMBAT|BASEAB|ClassMasterBAB|PRERULE:Use Fractional BAB
 
@@ -181,7 +187,10 @@ SOURCELONG:Monster Manual	SOURCESHORT:MM
 
 ###Block:
 # Ability Name	Category of Ability	Template			Ability
-Creature Type	CATEGORY:Internal		TEMPLATE:Base Race Type	ABILITY:Special Ability|AUTOMATIC|Aberration Type|PRERACE:1,RACETYPE=Aberration	ABILITY:Special Ability|AUTOMATIC|Animal Type|PRERACE:1,RACETYPE=Animal	ABILITY:Special Ability|AUTOMATIC|Construct Type|PRERACE:1,RACETYPE=Construct	ABILITY:Special Ability|AUTOMATIC|Dragon Type|PRERACE:1,RACETYPE=Dragon	ABILITY:Special Ability|AUTOMATIC|Elemental Type|PRERACE:1,RACETYPE=Elemental	ABILITY:Special Ability|AUTOMATIC|Fey Type|PRERACE:1,RACETYPE=Fey	ABILITY:Special Ability|AUTOMATIC|Giant Type|PRERACE:1,RACETYPE=Giant	ABILITY:Special Ability|AUTOMATIC|Humanoid Type|PRERACE:1,RACETYPE=Humanoid	ABILITY:Special Ability|AUTOMATIC|Magical Beast Type|PRERACE:1,RACETYPE=Magical Beast	ABILITY:Special Ability|AUTOMATIC|Monstrous Humanoid Type|PRERACE:1,RACETYPE=Monstrous Humanoid	ABILITY:Special Ability|AUTOMATIC|Ooze Type|PRERACE:1,RACETYPE=Ooze	ABILITY:Special Ability|AUTOMATIC|Outsider Type|PRERACE:1,RACETYPE=Outsider	ABILITY:Special Ability|AUTOMATIC|Plant Type|PRERACE:1,RACETYPE=Plant	ABILITY:Special Ability|AUTOMATIC|Undead Type|PRERACE:1,RACETYPE=Undead	ABILITY:Special Ability|AUTOMATIC|Vermin Type|PRERACE:1,RACETYPE=Vermin	ABILITY:Special Ability|AUTOMATIC|Air Subtype|PRERACE:1,RACESUBTYPE=Air	ABILITY:Special Ability|AUTOMATIC|Angel Subtype|PRERACE:1,RACESUBTYPE=Angel	ABILITY:Special Ability|AUTOMATIC|Aquatic Subtype|PRERACE:1,RACESUBTYPE=Aquatic	ABILITY:Special Ability|AUTOMATIC|Archon Subtype|PRERACE:1,RACESUBTYPE=Archon	ABILITY:Special Ability|AUTOMATIC|Augmented Subtype|PRERACE:1,RACESUBTYPE=Augmented	ABILITY:Special Ability|AUTOMATIC|Chaotic Subtype|PRERACE:1,RACESUBTYPE=Chaotic	ABILITY:Special Ability|AUTOMATIC|Cold Subtype|PRERACE:1,RACESUBTYPE=Cold	ABILITY:Special Ability|AUTOMATIC|Tanar'ri Subtype|PRERACE:1,RACESUBTYPE=Tanar'ri	ABILITY:Special Ability|AUTOMATIC|Baatezu Subtype|PRERACE:1,RACESUBTYPE=Baatezu	ABILITY:Special Ability|AUTOMATIC|Earth Subtype|PRERACE:1,RACESUBTYPE=Earth	ABILITY:Special Ability|AUTOMATIC|Evil Subtype|PRERACE:1,RACESUBTYPE=Evil	ABILITY:Special Ability|AUTOMATIC|Extraplanar Subtype|PRERACE:1,RACESUBTYPE=Extraplanar	ABILITY:Special Ability|AUTOMATIC|Fire Subtype|PRERACE:1,RACESUBTYPE=Fire	ABILITY:Special Ability|AUTOMATIC|Goblinoid Subtype|PRERACE:1,RACESUBTYPE=Goblinoid	ABILITY:Special Ability|AUTOMATIC|Good Subtype|PRERACE:1,RACESUBTYPE=Good	ABILITY:Special Ability|AUTOMATIC|Incorporeal Subtype|PRERACE:1,RACESUBTYPE=Incorporeal	ABILITY:Special Ability|AUTOMATIC|Lawful Subtype|PRERACE:1,RACESUBTYPE=Lawful	ABILITY:Special Ability|AUTOMATIC|Mephit Subtype|PRERACE:1,RACESUBTYPE=Mephit	ABILITY:Special Ability|AUTOMATIC|Native Subtype|PRERACE:1,RACESUBTYPE=Native	ABILITY:Special Ability|AUTOMATIC|Reptilian Subtype|PRERACE:1,RACESUBTYPE=Reptilian	ABILITY:Special Ability|AUTOMATIC|Shapechanger Subtype|PRERACE:1,RACESUBTYPE=Shapechanger	ABILITY:Special Ability|AUTOMATIC|Swarm Subtype|PRERACE:1,RACESUBTYPE=Swarm	ABILITY:Special Ability|AUTOMATIC|Water Subtype|PRERACE:1,RACESUBTYPE=Water	ABILITY:Special Ability|AUTOMATIC|Mindless|PRERACE:1,RACESUBTYPE=Mindless	ABILITY:Special Ability|AUTOMATIC|Type Output ~ Aberration|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACETYPE=Aberration]	ABILITY:Special Ability|AUTOMATIC|Type Output ~ Animal|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACETYPE=Animal]	ABILITY:Special Ability|AUTOMATIC|Type Output ~ Construct|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACETYPE=Construct]	ABILITY:Special Ability|AUTOMATIC|Type Output ~ Dragon|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACETYPE=Dragon]	ABILITY:Special Ability|AUTOMATIC|Type Output ~ Elemental|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACETYPE=Elemental]	ABILITY:Special Ability|AUTOMATIC|Type Output ~ Fey|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACETYPE=Fey]	ABILITY:Special Ability|AUTOMATIC|Type Output ~ Giant|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACETYPE=Giant]	ABILITY:Special Ability|AUTOMATIC|Type Output ~ Humanoid|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACETYPE=Humanoid]	ABILITY:Special Ability|AUTOMATIC|Type Output ~ Magical Beast|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACETYPE=Magical Beast]	ABILITY:Special Ability|AUTOMATIC|Type Output ~ Monstrous Humanoid|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACETYPE=Monstrous Humanoid]	ABILITY:Special Ability|AUTOMATIC|Type Output ~ Ooze|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACETYPE=Ooze]	ABILITY:Special Ability|AUTOMATIC|Type Output ~ Outsider|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACETYPE=Outsider]	ABILITY:Special Ability|AUTOMATIC|Type Output ~ Plant|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACETYPE=Plant]	ABILITY:Special Ability|AUTOMATIC|Type Output ~ Undead|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACETYPE=Undead]	ABILITY:Special Ability|AUTOMATIC|Type Output ~ Vermin|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACETYPE=Vermin]	ABILITY:Special Ability|AUTOMATIC|Subtype Output ~ Air|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Air]	ABILITY:Special Ability|AUTOMATIC|Subtype Output ~ Angel|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Angel]	ABILITY:Special Ability|AUTOMATIC|Subtype Output ~ Aquatic|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Aquatic]	ABILITY:Special Ability|AUTOMATIC|Subtype Output ~ Archon|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Archon]	ABILITY:Special Ability|AUTOMATIC|Subtype Output ~ Augmented|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Augmented]	ABILITY:Special Ability|AUTOMATIC|Subtype Output ~ Chaotic|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Chaotic]	ABILITY:Special Ability|AUTOMATIC|Subtype Output ~ Cold|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Cold]	ABILITY:Special Ability|AUTOMATIC|Subtype Output ~ Earth|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Earth]	ABILITY:Special Ability|AUTOMATIC|Subtype Output ~ Evil|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Evil]	ABILITY:Special Ability|AUTOMATIC|Subtype Output ~ Extraplanar|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Extraplanar]	ABILITY:Special Ability|AUTOMATIC|Subtype Output ~ Fire|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Fire]	ABILITY:Special Ability|AUTOMATIC|Subtype Output ~ Goblinoid|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Goblinoid]	ABILITY:Special Ability|AUTOMATIC|Subtype Output ~ Good|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Good]	ABILITY:Special Ability|AUTOMATIC|Subtype Output ~ Incorporeal|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Incorporeal]	ABILITY:Special Ability|AUTOMATIC|Subtype Output ~ Lawful|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Lawful]	ABILITY:Special Ability|AUTOMATIC|Subtype Output ~ Native|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Native]	ABILITY:Special Ability|AUTOMATIC|Subtype Output ~ Reptilian|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Reptilian]	ABILITY:Special Ability|AUTOMATIC|Subtype Output ~ Shapechanger|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Shapechanger]	ABILITY:Special Ability|AUTOMATIC|Subtype Output ~ Swarm|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Swarm]	ABILITY:Special Ability|AUTOMATIC|Subtype Output ~ Water|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Water]	ABILITY:Special Ability|AUTOMATIC|Subtype Output ~ Tanar'ri|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Tanar'ri]	ABILITY:Special Ability|AUTOMATIC|Subtype Output ~ Baatezu|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Baatezu]	ABILITY:Special Ability|AUTOMATIC|Dragonblood Subtype|PRERACE:1,RACESUBTYPE=Dragonblood	ABILITY:Special Ability|AUTOMATIC|Subtype Output ~ Dragonblood|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Dragonblood]	ABILITY:Special Ability|AUTOMATIC|Subtype Output ~ Symbiont|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Symbiont]	ABILITY:Special Ability|AUTOMATIC|Symbiont SubType|PRERACE:1,RACESUBTYPE=Symbiont
+Creature Type	CATEGORY:Internal		TEMPLATE:Base Race Type	ABILITY:Special Ability|AUTOMATIC|Aberration Type|PRERACE:1,RACETYPE=Aberration	ABILITY:Special Ability|AUTOMATIC|Animal Type|PRERACE:1,RACETYPE=Animal	ABILITY:Special Ability|AUTOMATIC|Construct Type|PRERACE:1,RACETYPE=Construct	ABILITY:Special Ability|AUTOMATIC|Dragon Type|PRERACE:1,RACETYPE=Dragon	
+CATEGORY=Internal|Creature Type.MOD						ABILITY:Special Ability|AUTOMATIC|Elemental Type|PRERACE:1,RACETYPE=Elemental	ABILITY:Special Ability|AUTOMATIC|Fey Type|PRERACE:1,RACETYPE=Fey	ABILITY:Special Ability|AUTOMATIC|Giant Type|PRERACE:1,RACETYPE=Giant	ABILITY:Special Ability|AUTOMATIC|Humanoid Type|PRERACE:1,RACETYPE=Humanoid	ABILITY:Special Ability|AUTOMATIC|Magical Beast Type|PRERACE:1,RACETYPE=Magical Beast	ABILITY:Special Ability|AUTOMATIC|Monstrous Humanoid Type|PRERACE:1,RACETYPE=Monstrous Humanoid	ABILITY:Special Ability|AUTOMATIC|Ooze Type|PRERACE:1,RACETYPE=Ooze	ABILITY:Special Ability|AUTOMATIC|Outsider Type|PRERACE:1,RACETYPE=Outsider	ABILITY:Special Ability|AUTOMATIC|Plant Type|PRERACE:1,RACETYPE=Plant	ABILITY:Special Ability|AUTOMATIC|Undead Type|PRERACE:1,RACETYPE=Undead	ABILITY:Special Ability|AUTOMATIC|Vermin Type|PRERACE:1,RACETYPE=Vermin	
+CATEGORY=Internal|Creature Type.MOD						ABILITY:Special Ability|AUTOMATIC|Air Subtype|PRERACE:1,RACESUBTYPE=Air	ABILITY:Special Ability|AUTOMATIC|Angel Subtype|PRERACE:1,RACESUBTYPE=Angel	ABILITY:Special Ability|AUTOMATIC|Aquatic Subtype|PRERACE:1,RACESUBTYPE=Aquatic	ABILITY:Special Ability|AUTOMATIC|Archon Subtype|PRERACE:1,RACESUBTYPE=Archon	ABILITY:Special Ability|AUTOMATIC|Augmented Subtype|PRERACE:1,RACESUBTYPE=Augmented	ABILITY:Special Ability|AUTOMATIC|Chaotic Subtype|PRERACE:1,RACESUBTYPE=Chaotic	ABILITY:Special Ability|AUTOMATIC|Cold Subtype|PRERACE:1,RACESUBTYPE=Cold	ABILITY:Special Ability|AUTOMATIC|Tanar'ri Subtype|PRERACE:1,RACESUBTYPE=Tanar'ri	ABILITY:Special Ability|AUTOMATIC|Baatezu Subtype|PRERACE:1,RACESUBTYPE=Baatezu	ABILITY:Special Ability|AUTOMATIC|Earth Subtype|PRERACE:1,RACESUBTYPE=Earth	ABILITY:Special Ability|AUTOMATIC|Evil Subtype|PRERACE:1,RACESUBTYPE=Evil
+CATEGORY=Internal|Creature Type.MOD						ABILITY:Special Ability|AUTOMATIC|Extraplanar Subtype|PRERACE:1,RACESUBTYPE=Extraplanar	ABILITY:Special Ability|AUTOMATIC|Fire Subtype|PRERACE:1,RACESUBTYPE=Fire	ABILITY:Special Ability|AUTOMATIC|Goblinoid Subtype|PRERACE:1,RACESUBTYPE=Goblinoid	ABILITY:Special Ability|AUTOMATIC|Good Subtype|PRERACE:1,RACESUBTYPE=Good	ABILITY:Special Ability|AUTOMATIC|Incorporeal Subtype|PRERACE:1,RACESUBTYPE=Incorporeal	ABILITY:Special Ability|AUTOMATIC|Lawful Subtype|PRERACE:1,RACESUBTYPE=Lawful	ABILITY:Special Ability|AUTOMATIC|Mephit Subtype|PRERACE:1,RACESUBTYPE=Mephit	ABILITY:Special Ability|AUTOMATIC|Native Subtype|PRERACE:1,RACESUBTYPE=Native	ABILITY:Special Ability|AUTOMATIC|Reptilian Subtype|PRERACE:1,RACESUBTYPE=Reptilian	ABILITY:Special Ability|AUTOMATIC|Shapechanger Subtype|PRERACE:1,RACESUBTYPE=Shapechanger	ABILITY:Special Ability|AUTOMATIC|Swarm Subtype|PRERACE:1,RACESUBTYPE=Swarm	ABILITY:Special Ability|AUTOMATIC|Water Subtype|PRERACE:1,RACESUBTYPE=Water	ABILITY:Special Ability|AUTOMATIC|Mindless|PRERACE:1,RACESUBTYPE=Mindless	ABILITY:Special Ability|AUTOMATIC|Type Output ~ Aberration|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACETYPE=Aberration]	ABILITY:Special Ability|AUTOMATIC|Type Output ~ Animal|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACETYPE=Animal]	ABILITY:Special Ability|AUTOMATIC|Type Output ~ Construct|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACETYPE=Construct]	ABILITY:Special Ability|AUTOMATIC|Type Output ~ Dragon|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACETYPE=Dragon]	ABILITY:Special Ability|AUTOMATIC|Type Output ~ Elemental|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACETYPE=Elemental]	ABILITY:Special Ability|AUTOMATIC|Type Output ~ Fey|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACETYPE=Fey]	ABILITY:Special Ability|AUTOMATIC|Type Output ~ Giant|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACETYPE=Giant]	ABILITY:Special Ability|AUTOMATIC|Type Output ~ Humanoid|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACETYPE=Humanoid]	ABILITY:Special Ability|AUTOMATIC|Type Output ~ Magical Beast|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACETYPE=Magical Beast]	ABILITY:Special Ability|AUTOMATIC|Type Output ~ Monstrous Humanoid|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACETYPE=Monstrous Humanoid]	ABILITY:Special Ability|AUTOMATIC|Type Output ~ Ooze|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACETYPE=Ooze]	ABILITY:Special Ability|AUTOMATIC|Type Output ~ Outsider|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACETYPE=Outsider]	ABILITY:Special Ability|AUTOMATIC|Type Output ~ Plant|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACETYPE=Plant]	ABILITY:Special Ability|AUTOMATIC|Type Output ~ Undead|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACETYPE=Undead]	ABILITY:Special Ability|AUTOMATIC|Type Output ~ Vermin|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACETYPE=Vermin]	ABILITY:Special Ability|AUTOMATIC|Subtype Output ~ Air|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Air]	ABILITY:Special Ability|AUTOMATIC|Subtype Output ~ Angel|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Angel]	ABILITY:Special Ability|AUTOMATIC|Subtype Output ~ Aquatic|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Aquatic]	ABILITY:Special Ability|AUTOMATIC|Subtype Output ~ Archon|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Archon]	ABILITY:Special Ability|AUTOMATIC|Subtype Output ~ Augmented|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Augmented]	ABILITY:Special Ability|AUTOMATIC|Subtype Output ~ Chaotic|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Chaotic]	ABILITY:Special Ability|AUTOMATIC|Subtype Output ~ Cold|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Cold]	ABILITY:Special Ability|AUTOMATIC|Subtype Output ~ Earth|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Earth]	ABILITY:Special Ability|AUTOMATIC|Subtype Output ~ Evil|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Evil]	ABILITY:Special Ability|AUTOMATIC|Subtype Output ~ Extraplanar|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Extraplanar]	ABILITY:Special Ability|AUTOMATIC|Subtype Output ~ Fire|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Fire]	ABILITY:Special Ability|AUTOMATIC|Subtype Output ~ Goblinoid|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Goblinoid]	ABILITY:Special Ability|AUTOMATIC|Subtype Output ~ Good|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Good]	ABILITY:Special Ability|AUTOMATIC|Subtype Output ~ Incorporeal|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Incorporeal]	ABILITY:Special Ability|AUTOMATIC|Subtype Output ~ Lawful|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Lawful]	ABILITY:Special Ability|AUTOMATIC|Subtype Output ~ Native|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Native]	ABILITY:Special Ability|AUTOMATIC|Subtype Output ~ Reptilian|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Reptilian]	ABILITY:Special Ability|AUTOMATIC|Subtype Output ~ Shapechanger|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Shapechanger]	ABILITY:Special Ability|AUTOMATIC|Subtype Output ~ Swarm|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Swarm]	ABILITY:Special Ability|AUTOMATIC|Subtype Output ~ Water|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Water]	ABILITY:Special Ability|AUTOMATIC|Subtype Output ~ Tanar'ri|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Tanar'ri]	ABILITY:Special Ability|AUTOMATIC|Subtype Output ~ Baatezu|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Baatezu]	ABILITY:Special Ability|AUTOMATIC|Dragonblood Subtype|PRERACE:1,RACESUBTYPE=Dragonblood	ABILITY:Special Ability|AUTOMATIC|Subtype Output ~ Dragonblood|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Dragonblood]	ABILITY:Special Ability|AUTOMATIC|Subtype Output ~ Symbiont|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Symbiont]	ABILITY:Special Ability|AUTOMATIC|Symbiont SubType|PRERACE:1,RACESUBTYPE=Symbiont
 
 ###Block: Creature Race Traits
 # Ability Name		Category of Ability		Type			Define											Template					Ability																													Combat bonus											Bonus to HP													Bonus to skill				Modify VAR																										Vision		Source Page
@@ -216,7 +225,7 @@ Extraplanar Subtype	CATEGORY:Special Ability	TYPE:SubRaceType
 Fire Subtype		CATEGORY:Special Ability	TYPE:SubRaceType																			ABILITY:Special Ability|AUTOMATIC|Immunity to Fire|Vulnerability to Cold
 Goblinoid Subtype		CATEGORY:Special Ability	TYPE:SubRaceType
 Good Subtype		CATEGORY:Special Ability	TYPE:SubRaceType
-Incorporeal Subtype	CATEGORY:Special Ability	TYPE:SubRaceType	DEFINE:CanNotGrapple|0																																													BONUS:COMBAT|AC|max(1,CHA)|TYPE=Deflection	BONUS:COMBAT|TOHIT.MELEE|DEX																					BONUS:VAR|CanNotGrapple|1
+Incorporeal Subtype	CATEGORY:Special Ability	TYPE:SubRaceType	DEFINE:CanNotGrapple|0	DEFINE:IncorporealDeflectionBonus|0																																												BONUS:COMBAT|AC|IncorporealDeflectionBonus|TYPE=Deflection	BONUS:COMBAT|TOHIT.MELEE|DEX																					BONUS:VAR|CanNotGrapple|1	BONUS:VAR|IncorporealDeflectionBonus|max(1,CHA)
 Lawful Subtype		CATEGORY:Special Ability	TYPE:SubRaceType
 Mephit Subtype		CATEGORY:Special Ability	TYPE:SubRaceType																			ABILITY:Special Ability|AUTOMATIC|Mephit ~ Breath Weapon|Mephit ~ Fast Healing|Mephit ~ Natural Weapons|Mephit ~ Spell-Like Abilities|Mephit ~ Summon Mephit
 Native Subtype		CATEGORY:Special Ability	TYPE:SubRaceType
@@ -315,8 +324,9 @@ Tremorsense					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Visio
 Keen Scent					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Vision	DEFINE:KeenScentRange|0		DESC:Range %1 ft.|KeenScentRange																																																																																																																																																																																																																																																													VISION:Keen Scent (KeenScentRange)			ASPECT:Vision|Keen Scent %1 ft.|KeenScentRange
 See Etheral					CATEGORY:Special Ability	TYPE:SpecialQuality.Vision			DEFINE:SeeEtheralRange|0	DESC:Range %1 ft.|SeeEtheralRange																																																																																																																																																																																																																																																													VISION:See Etheral (SeeEtheralRange)		ASPECT:Vision|See Etheral %1 ft.|SeeEtheralRange
 See Invisibility				CATEGORY:Special Ability	TYPE:SpecialQuality.Vision			DEFINE:SeeInvisibilityRange|0	DESC:Range %1 ft.|SeeInvisibilityRange																																																																																																																																																																																																																																																												VISION:See Invisibility (SeeInvisibilityRange)	ASPECT:Vision|See Invisibility %1 ft.|SeeInvisibilityRange
+Superior Low-Light Vision		CATEGORY:Special Ability	TYPE:SpecialQuality.Vision
 #
-Resistance to Mind-Affecting		CATEGORY:Special Ability	TYPE:SpecialQuality
+Resistance to Mind-Affecting		CATEGORY:Special Ability	TYPE:SpecialQuality	
 Resistance to Paralysis			CATEGORY:Special Ability	TYPE:SpecialQuality
 Resistance to Poison			CATEGORY:Special Ability	TYPE:SpecialQuality
 Resistance to Sleep			CATEGORY:Special Ability	TYPE:SpecialQuality
@@ -574,18 +584,18 @@ Martial Weapons		KEY:Outsider House Rule ~ Martial Weapons											CATEGORY:Sp
 
 Frightful Presence																		CATEGORY:Special Ability	TYPE:SpecialAttack																		DESC:Range %1, DC %2|FrightfulPresenceRange|FrightfulPresenceDC
 
-
+Hide in Plain Sight	KEY:Hide in Plain Sight	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary		DESC:Use the Hide skill even while being observed (except in natural daylight, the area of a daylight spell, or a similar effect).
 #Block: Universal Defines
 
 
 
 ###Block: Standard Immunities
 # Ability Name		Category of Ability		Type								Visible	Description						Aspects
-Immunity to Acid		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:YES	DESC:You never take Acid damage		ASPECT:Immunity|Acid
-Immunity to Cold		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:YES	DESC:You never take Cold damage		ASPECT:Immunity|Cold
-Immunity to Fire		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:YES	DESC:You never take Fire damage		ASPECT:Immunity|Fire
-Immunity to Electricity	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:YES	DESC:You never take Electricity damage	ASPECT:Immunity|Electricity
-Immunity to Sonic		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity	VISIBLE:YES	DESC:You never take Sonic damage		ASPECT:Immunity|Sonic
+Immunity to Acid		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity.ImmunityEnergySelection	VISIBLE:YES	DESC:You never take Acid damage		ASPECT:Immunity|Acid
+Immunity to Cold		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity.ImmunityEnergySelection	VISIBLE:YES	DESC:You never take Cold damage		ASPECT:Immunity|Cold
+Immunity to Fire		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity.ImmunityEnergySelection	VISIBLE:YES	DESC:You never take Fire damage		ASPECT:Immunity|Fire
+Immunity to Electricity	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity.ImmunityEnergySelection	VISIBLE:YES	DESC:You never take Electricity damage	ASPECT:Immunity|Electricity
+Immunity to Sonic		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Immunity.ImmunityEnergySelection	VISIBLE:YES	DESC:You never take Sonic damage		ASPECT:Immunity|Sonic
 
 ###Block: Standard Immunities - Magic Item Additions
 # Ability Name		Unique Key					Category of Ability		Type							Visible	Description						Aspects
@@ -639,12 +649,12 @@ Immunity to Ability Drain			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraor
 
 
 ###Block: Resistances
-# Ability Name			Category of Ability		Visible	Define					Ability
-Resistance to Acid		CATEGORY:Special Ability	VISIBLE:NO	DEFINE:AcidResistanceBonus|0		ABILITY:Special Ability|VIRTUAL|Resistance to Acid Output|!PREABILITY:1,CATEGORY=Special Ability,Immunity to Acid,Vulnerability to Acid
-Resistance to Cold		CATEGORY:Special Ability	VISIBLE:NO	DEFINE:ColdResistanceBonus|0		ABILITY:Special Ability|VIRTUAL|Resistance to Cold Output|!PREABILITY:1,CATEGORY=Special Ability,Immunity to Cold,Vulnerability to Cold
-Resistance to Fire		CATEGORY:Special Ability	VISIBLE:NO	DEFINE:FireResistanceBonus|0		ABILITY:Special Ability|VIRTUAL|Resistance to Fire Output|!PREABILITY:1,CATEGORY=Special Ability,Immunity to Fire,Vulnerability to Fire
-Resistance to Electricity	CATEGORY:Special Ability	VISIBLE:NO	DEFINE:ElectricityResistanceBonus|0	ABILITY:Special Ability|VIRTUAL|Resistance to Electricity Output|!PREABILITY:1,CATEGORY=Special Ability,Immunity to Electricity,Vulnerability to Electricity
-Resistance to Sonic		CATEGORY:Special Ability	VISIBLE:NO	DEFINE:SonicResistanceBonus|0		ABILITY:Special Ability|VIRTUAL|Resistance to Sonic Output|!PREABILITY:1,CATEGORY=Special Ability,Immunity to Sonic,Vulnerability to Sonic
+# Ability Name			Category of Ability			Visible	Define					Ability
+Resistance to Acid		CATEGORY:Special Ability	TYPE:ResistanceSelection	VISIBLE:NO	DEFINE:AcidResistanceBonus|0		ABILITY:Special Ability|VIRTUAL|Resistance to Acid Output|!PREABILITY:1,CATEGORY=Special Ability,Immunity to Acid,Vulnerability to Acid
+Resistance to Cold		CATEGORY:Special Ability	TYPE:ResistanceSelection	VISIBLE:NO	DEFINE:ColdResistanceBonus|0		ABILITY:Special Ability|VIRTUAL|Resistance to Cold Output|!PREABILITY:1,CATEGORY=Special Ability,Immunity to Cold,Vulnerability to Cold
+Resistance to Fire		CATEGORY:Special Ability	TYPE:ResistanceSelection	VISIBLE:NO	DEFINE:FireResistanceBonus|0		ABILITY:Special Ability|VIRTUAL|Resistance to Fire Output|!PREABILITY:1,CATEGORY=Special Ability,Immunity to Fire,Vulnerability to Fire
+Resistance to Electricity	CATEGORY:Special Ability	TYPE:ResistanceSelection	VISIBLE:NO	DEFINE:ElectricityResistanceBonus|0	ABILITY:Special Ability|VIRTUAL|Resistance to Electricity Output|!PREABILITY:1,CATEGORY=Special Ability,Immunity to Electricity,Vulnerability to Electricity
+Resistance to Sonic		CATEGORY:Special Ability	TYPE:ResistanceSelection	VISIBLE:NO	DEFINE:SonicResistanceBonus|0		ABILITY:Special Ability|VIRTUAL|Resistance to Sonic Output|!PREABILITY:1,CATEGORY=Special Ability,Immunity to Sonic,Vulnerability to Sonic
 
 ###Block: Resistances Output
 # Ability Name				Output Name						Category of Ability		Type								Visible	Description																			Aspects
@@ -673,6 +683,150 @@ Telepathic Bond					CATEGORY:Special Ability	TYPE:SpecialQuality
 
 Resistance to Fear				CATEGORY:Special Ability	VISIBLE:NO	DEFINE:FearResistanceBonus|0		ABILITY:Special Ability|VIRTUAL|Resistance to Fear Output|!PREABILITY:1,CATEGORY=Special Ability,Immunity to Fear,Vulnerability to Fear
 Resistance to Fear Output			OUTPUTNAME:Resistance to Fear			CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Resistance	VISIBLE:YES	DESC:You add +%1 to save against Fear effects|FearResistanceBonus					ASPECT:Resistance|Fear	ASPECT:Ability Benefit|+%1|FearResistanceBonus
+
+###Block: Weapon of the Deity
+Weapon of the Deity	CATEGORY:Special Ability	TYPE:SpecialAttack
+
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Abbathor: +1 returning dagger
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Aerdrie Faenya: +1 shock quarterstaff
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Akadi: +1 screaming* heavy flail
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Angharradh: +1 spell storing longspear
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Anhur: +1 defending falchion
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Arvoreen: +1 defending short sword
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Auril: +1 frost battleaxe
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Azuth: +1 spell storing quarterstaff
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Baervan Wildwanderer: +1 shock halfspear
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Bahgtru: +1 keen spiked gauntlet
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Bane: +1 shock morningstar
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Baravar Cloakshadow: +1 ghost touch dagger
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Berronar Truesilver: +1 mighty cleaving heavy mace
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Beshaba: +1 keen scourge
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Brandobaris: +1 returning dagger
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Callarduran Smoothhands: +1 defending battleaxe
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Chauntea: +1 keen scythe
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Clangeddin Silverbeard: +1 throwing battleaxe
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Corellon Larethian: +1 keen longsword
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Cyric: +1 flaming longsword
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Cyrrollalee: +1 mighty cleaving quarterstaff
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Deep Duerra: +1 screaming* battleaxe
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Deep Sashelas: +1 frost trident
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Deneir: +1 spell storing dagger
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Dugmaren Brightmantle: +1 keen short sword
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Dumathoin: +1 mighty cleaving maul
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Eilistraee: +1 flaming bastard sword
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Eldath: +1 mighty cleaving light mace
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Erevan Ilesere: +1 keen short sword
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Fenmarel Mestarine: +1 throwing dagger
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Finder Wyvernspur: +1 screaming* bastard sword
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Flandal Steelskin: +1 flaming warhammer
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Gaerdal Ironhand: +1 screaming* warhammer
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Garagos: +1 keen longsword
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Gargauth: +1 returning dagger
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Garl Glittergold: +1 keen battleaxe
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Geb: +1 mighty cleaving quarterstaff
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Ghaunadaur: +1 corrosive* warhammer
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Gond: +1 shock warhammer
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Gorm Gulthyn: +1 flaming dwarven waraxe
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Grumbar: +1 mighty cleaving warhammer
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Gruumsh: +1 returning shortspear or longspear
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Gwaeron Windstrom: +1 flaming greatsword
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Haela Brightaxe: +1 flaming greatsword
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Hanali Celanil: +1 defending dagger
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Hathor: +1 keen short sword
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Helm: +1 defending bastard sword
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Hoar: +1 shock javelin
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Horus-Re: +1 flaming khopesh
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Ilmater: +1 shock unarmed strike
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Ilneval: +1 keen longsword
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Isis: +1 spell storing punch dagger
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Istishia: +1 shock warhammer
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Jergal: +1 ghost touch scythe
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Kelemvor: +1 keen bastard sword
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Kiaransalee: +1 corrosive* dagger
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Kossuth: +1 flaming spiked chain
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Labelas Enoreth: +1 frost quarterstaff
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Laduguer: +1 defending warhammer
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Lathander: +1 flaming light mace
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Lliira: Three +1 returning shuriken
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Lolth: +1 keen dagger
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Loviatar: +1 shock scourge
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Lurue: +1 keen shortspear
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Luthic: +1 ghost touch claw bracer
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Malar: +1 keen claw bracer
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Marthammor Duin: +1 shock heavy mace
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Mask: +1 frost longsword
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Mielikki: +1 frost scimitar
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Milil: +1 keen rapier
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Moradin: +1 mighty cleaving warhammer
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Mystra: Three +1 returning chakram
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Nephthys: +1 defending whip
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Nobanion: +1 screaming* heavy pick
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Oghma: +1 mighty cleaving longsword
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Osiris: +1 ghost touch light flail
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Red Knight: +1 screaming* longsword
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Rillifane Rallathil: +1 mighty cleaving quarterstaff
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Savras: +1 defending dagger
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Sebek: +1 keen longspear, shortspear, or halfspear
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Segojan Earthcaller: +1 mighty cleaving club
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Sehanine Moonbow: +1 ghost touch quarterstaff
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Selûne: +1 shock heavy mace
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Selvetarm: +1 corrosive* heavy mace
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Set: +1 venomous* longspear, shortspear, or halfspear
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Shar: +1 returning chakram
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Sharess: +1 keen claw bracer
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Shargaas: +1 defending short sword
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Sharindlar: +1 shock whip
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Shaundakul: +1 warning* greatsword
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Sheela Peryroyl: +1 screaming* quarterstaff
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Shevarash: +1 keen longbow
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Shiallia: +1 mighty cleaving quarterstaff
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Siamorphe: +1 flaming light mace
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Silvanus: +1 shock maul
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Solonor Thelandira: +1 distance longbow
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Sune: +1 flaming whip
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Talona: +1 venomous* unarmed strike
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Talos: +1 shock shortspear
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Tempus: +1 mighty cleaving battleaxe
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Thard Harr: +1 keen claw bracer
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Thoth: +1 spell storing quarterstaff
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Tiamat: +1 keen heavy pick
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Torm: +1 screaming* greatsword
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Tymora: Three +1 returning shuriken
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Tyr: +1 keen longsword
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Ubtao: +1 keen heavy pick
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Ulutiu: +1 frost longspear
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Umberlee: +1 shock trident
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Urdlen: +1 keen claw bracer
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Urogalan: +1 mighty cleaving dire flail
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Uthgar: +1 keen battleaxe
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Valkur: +1 spell storing cutlass
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Velsharoon: +1 frost spiked gauntlet
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Vergadain: +1 keen longsword
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Vhaeraun: +1 shock short sword
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Waukeen: +1 flaming nunchaku
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Yondalla: +1 defending short sword 
+CATEGORY=Special Ability|Weapon of the Deity.MOD	DESC:&nl;Yurtrus: +1 shock unarmed strike
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+###Block: SpellLike hold over
 
 # SpellLike
 # PH Spells
