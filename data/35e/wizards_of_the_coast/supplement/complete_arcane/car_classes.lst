@@ -29,22 +29,8 @@ CLASS:Warlock	PREALIGN:LE,NE,CE,CG,CN
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Warlock	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Disguise|Intimidate|Jump|Knowledge (arcana)|Knowledge (The Planes)|Knowledge (Religion)|TYPE=Profession|Sense Motive|Spellcraft|Use Magic Device
 # Class Name	Caster level
-CLASS:Warlock	BONUS:CASTERLEVEL|Warlock|Caster_Level_BL_Stripped_Warlock	DEFINE:Caster_Level_BL_Stripped_Warlock|0	BONUS:VAR|Caster_Level_BL_Stripped_Warlock|Caster_Level_Warlock-CasterLevelBLWarlock	BONUS:VAR|Caster_Level_Warlock|CL+Caster_Level_Bonus+CasterLevelBLWarlock	DEFINE:CasterLevelBLWarlock|0	BONUS:VAR|CasterLevelBL_x_Warlock|charbonusto("PCLEVEL","Warlock")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Warlock|TYPE=Base
-###Block
-1				BONUS:ABILITYPOOL|Warlock Least Invocation|1														BONUS:VAR|WarlockEldritchBlastLVL|CL	BONUS:VAR|WarlockInvocationLVL|CL
-2				BONUS:ABILITYPOOL|Warlock Least Invocation|1														BONUS:VAR|DetectMagicWillLVL|CL
-3	DR:0/Cold Iron																	BONUS:DR|Cold Iron|(CL+1)/4
-4				BONUS:ABILITYPOOL|Warlock Least Invocation|1
-6				BONUS:ABILITYPOOL|Warlock Lesser Invocation|1
-8				BONUS:ABILITYPOOL|Warlock Lesser Invocation|1
-10				BONUS:ABILITYPOOL|Warlock Lesser Invocation|1	BONUS:ABILITYPOOL|Warlock Energy Resistance|2						BONUS:VAR|WarlockEnergyResistanceLVL|CL
-11				BONUS:ABILITYPOOL|Warlock Greater Invocation|1
-12
-13				BONUS:ABILITYPOOL|Warlock Greater Invocation|1
-15				BONUS:ABILITYPOOL|Warlock Greater Invocation|1
-16				BONUS:ABILITYPOOL|Warlock Dark Invocation|1
-18				BONUS:ABILITYPOOL|Warlock Dark Invocation|1
-20				BONUS:ABILITYPOOL|Warlock Dark Invocation|1
+CLASS:Warlock	SPELLTYPE:Arcane	SPELLSTAT:CHA	BONUSSPELLSTAT:NONE	MEMORIZE:NO	BONUS:CASTERLEVEL|Warlock|Caster_Level_Warlock	DEFINE:Caster_Level_Bonus|0	DEFINE:CasterLevelBLWarlock|0		DEFINE:Caster_Level_Warlock|0	BONUS:VAR|Caster_Level_Warlock|WarlockLVL+Caster_Level_Bonus	BONUS:VAR|CasterLevelBLWarlock|charbonusto("PCLEVEL","Warlock")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Warlock+CasterLevelBLWarlock|TYPE=Base
+1:REPEATLEVEL:1	CAST:0,0,0,0,0,0,0,0,0,0	KNOWN:0,0,0,0,0,0,0,0,0,0
 ###Block
 1	ABILITY:Warlock Class Feature|AUTOMATIC|Warlock ~ Weapon and Armor Proficiency|!PREABILITY:1,CATEGORY=ACF,TYPE.WarlockProficiencies
 1	ABILITY:Warlock Class Feature|AUTOMATIC|Warlock ~ Invocations|!PREABILITY:1,CATEGORY=ACF,TYPE.WarlockInvocations
@@ -64,26 +50,26 @@ CLASS:Warmage	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Intimidate|Knowled
 # Class Name	Spell Stat		Spell Type		Memorize	Automatically Known Spell Levels											Caster level
 CLASS:Warmage	SPELLSTAT:CHA	FACT:SpellType|Arcane	MEMORIZE:NO	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Warmage|Caster_Level_BL_Stripped_Warmage	DEFINE:Caster_Level_BL_Stripped_Warmage|0	BONUS:VAR|Caster_Level_BL_Stripped_Warmage|Caster_Level_Warmage-CasterLevelBLWarmage	BONUS:VAR|Caster_Level_Warmage|CL+Caster_Level_Bonus+CasterLevelBLWarmage	DEFINE:CasterLevelBLWarmage|0	BONUS:VAR|CasterLevelBL_x_Warmage|charbonusto("PCLEVEL","Warmage")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Warmage|TYPE=Base
 ###Block
-1	CAST:5,3												BONUS:VAR|ArmoredMagePower|1	BONUS:VAR|WarmageEdgeLVL|CL
+1	CAST:5,3
 2	CAST:6,4
-3	CAST:6,5				BONUS:ABILITYPOOL|Advanced Learning|(CL+4)/5
+3	CAST:6,5
 4	CAST:6,6,3
 5	CAST:6,6,4
 6	CAST:6,6,5,3
-7	CAST:6,6,6,4			BONUS:ABILITYPOOL|Warmage Sudden Ability|1
-8	CAST:6,6,6,5,3											BONUS:VAR|ArmoredMagePower|1						ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Medium)
+7	CAST:6,6,6,4
+8	CAST:6,6,6,5,3
 9	CAST:6,6,6,6,4
-10	CAST:6,6,6,6,5,3			BONUS:ABILITYPOOL|Warmage Sudden Ability|1
+10	CAST:6,6,6,6,5,3
 11	CAST:6,6,6,6,6,4
 12	CAST:6,6,6,6,6,5,3
 13	CAST:6,6,6,6,6,6,4
 14	CAST:6,6,6,6,6,6,5,3
-15	CAST:6,6,6,6,6,6,6,4		BONUS:ABILITYPOOL|Warmage Sudden Ability|1
+15	CAST:6,6,6,6,6,6,6,4
 16	CAST:6,6,6,6,6,6,6,5,3
 17	CAST:6,6,6,6,6,6,6,6,4
 18	CAST:6,6,6,6,6,6,6,6,5,3
 19	CAST:6,6,6,6,6,6,6,6,6,4
-20	CAST:6,6,6,6,6,6,6,6,6,5	BONUS:ABILITYPOOL|Warmage Sudden Ability|1
+20	CAST:6,6,6,6,6,6,6,6,6,5
 ###Block
 1	ABILITY:Warmage Class Feature|AUTOMATIC|Warmage ~ Weapon and Armor Proficiency
 1	ABILITY:Warmage Class Feature|AUTOMATIC|Warmage ~ Spells

@@ -226,3 +226,62 @@ Favored Class ~ Duskblade		CATEGORY:Internal	TYPE:Favored Class	TEMPLATE:Favored
 Favored Class ~ Beguiler		CATEGORY:Internal	TYPE:Favored Class	TEMPLATE:Favored Class ~ Beguiler			
 Favored Class ~ Dragon Shaman		CATEGORY:Internal	TYPE:Favored Class	TEMPLATE:Favored Class ~ Dragon Shaman		
 Favored Class ~ Knight			CATEGORY:Internal	TYPE:Favored Class	TEMPLATE:Favored Class ~ Knight			
+
+###Block
+
+Beguiler			KEY:Gestalt Base ~ Beguiler		CATEGORY:Internal		TYPE:Gestalt Base.Martial.Beguiler		DEFINE:BeguilerLVL|0			BONUS:VAR|Gestalt_SkillPts|6|TYPE=Class	BONUS:VAR|Class_HD|6|TYPE=Class	BONUS:VAR|Class_BAB|BeguilerLVL*1/2|TYPE=Class	BONUS:SAVE|BASE.Fortitude|BeguilerLVL/3|TYPE=Class	BONUS:SAVE|BASE.Reflex|BeguilerLVL/3|TYPE=Class	BONUS:SAVE|BASE.Will|BeguilerLVL/2+2|TYPE=Class	BONUS:PCLEVEL|Beguiler|1	CSKILL:Appraise|Balance|Bluff|Climb|Concentration|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Jump|Knowledge (Arcana)|TYPE=KnowledgeLocal|Listen|Move Silently|Open Lock|TYPE=Profession|Search|Sense Motive|Sleight of Hand|Speak Language|Spellcraft|Spot|Swim|Tumble|Use Magic Device
+Dragon Shaman		KEY:Gestalt Base ~ Dragon Shaman	CATEGORY:Internal		TYPE:Gestalt Base.Martial.Dragon Shaman	DEFINE:DragonShamanLVL|0		BONUS:VAR|Gestalt_SkillPts|2|TYPE=Class	BONUS:VAR|Class_HD|10|TYPE=Class	BONUS:VAR|Class_BAB|DragonShamanLVL*3/4|TYPE=Class	BONUS:SAVE|BASE.Fortitude|DragonShamanLVL/2+2|TYPE=Class	BONUS:SAVE|BASE.Reflex|DragonShamanLVL/3|TYPE=Class	BONUS:SAVE|BASE.Will|DragonShamanLVL/2+2|TYPE=Class	CSKILL:Climb|TYPE=Craft|Intimidate|Knowledge (arcana)|Knowledge (Nature)|Search
+Duskblade			KEY:Gestalt Base ~ Duskblade		CATEGORY:Internal		TYPE:Gestalt Base.Martial.Duskblade		DEFINE:DuskbladeLVL|0			BONUS:VAR|Gestalt_SkillPts|2|TYPE=Class		BONUS:VAR|Class_HD|8|TYPE=Class	BONUS:VAR|Class_BAB|DuskbladeLVL|TYPE=Class	BONUS:SAVE|BASE.Fortitude|DuskbladeLVL/2+2|TYPE=Class	BONUS:SAVE|BASE.Reflex|DuskbladeLVL/3|TYPE=Class	BONUS:SAVE|BASE.Will|DuskbladeLVL/2+2|TYPE=Class	BONUS:PCLEVEL|Duskblade|1	CSKILL:Climb|Concentration|TYPE=Craft|Decipher Script|Jump|TYPE=Knowledge|Ride|Sense Motive|Spellcraft|Swim
+Knight			KEY:Gestalt Base ~ Knight		CATEGORY:Internal		TYPE:Gestalt Base.Martial.Knight		DEFINE:KnightLVL|0			BONUS:VAR|Gestalt_SkillPts|2|TYPE=Class	BONUS:VAR|Class_HD|12|TYPE=Class	BONUS:VAR|Class_BAB|KnightLVL|TYPE=Class	BONUS:SAVE|BASE.Fortitude|KnightLVL/3|TYPE=Class	BONUS:SAVE|BASE.Reflex|KnightLVL/3|TYPE=Class	BONUS:SAVE|BASE.Will|KnightLVL/2+2|TYPE=Class	CSKILL:Climb|Handle Animal|Intimidate|Jump|Knowledge (Nobility and Royalty)|Ride|Swim
+
+Beguiler			KEY:Gestalt ~ Beguiler			CATEGORY:Internal		TYPE:GestaltClass.Martial.Beguiler			DEFINE:BeguilerLVL|0		BONUS:VAR|BeguilerLVL|GestaltLVL		ABILITY:Internal|AUTOMATIC|Gestalt Base ~ Beguiler			
+Dragon Shaman		KEY:Gestalt ~ Dragon Shaman		CATEGORY:Internal		TYPE:GestaltClass.Martial.Dragon Shaman		DEFINE:DragonShamanLVL|0	BONUS:VAR|DragonShamanLVL|GestaltLVL	ABILITY:Internal|AUTOMATIC|Gestalt Base ~ Dragon Shaman	
+Duskblade			KEY:Gestalt ~ Duskblade			CATEGORY:Internal		TYPE:GestaltClass.Martial.Duskblade			DEFINE:DuskbladeLVL|0		BONUS:VAR|DuskbladeLVL|GestaltLVL		ABILITY:Internal|AUTOMATIC|Gestalt Base ~ Duskblade			
+Knight			KEY:Gestalt ~ Knight			CATEGORY:Internal		TYPE:GestaltClass.Martial.Knight			DEFINE:KnightLVL|0		BONUS:VAR|KnightLVL|GestaltLVL		ABILITY:Internal|AUTOMATIC|Gestalt Base ~ Knight			
+
+Beguiler			KEY:Gestalt Leveling ~ Beguiler			COST:0	!PRECLASS:1,Beguiler=1		CATEGORY:Internal	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	TYPE:Gestalt Leveling.Martial.Beguiler			DEFINE:BeguilerLVL|0	BONUS:VAR|BeguilerLVL|1		ADD:SPELLCASTER|Beguiler	ABILITY:Internal|AUTOMATIC|Gestalt Base ~ Beguiler			
+Dragon Shaman		KEY:Gestalt Leveling ~ Dragon Shaman		COST:0	!PRECLASS:1,Dragon Shaman=1	CATEGORY:Internal	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	TYPE:Gestalt Leveling.Martial.Dragon Shaman	DEFINE:DragonShamanLVL|0	BONUS:VAR|DragonShamanLVL|1						ABILITY:Internal|AUTOMATIC|Gestalt Base ~ Dragon Shaman		
+Duskblade			KEY:Gestalt Leveling ~ Duskblade			COST:0	!PRECLASS:1,Duskblade=1		CATEGORY:Internal	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	TYPE:Gestalt Leveling.Martial.Duskblade			DEFINE:DuskbladeLVL|0	BONUS:VAR|DuskbladeLVL|1	ADD:SPELLCASTER|Duskblade	ABILITY:Internal|AUTOMATIC|Gestalt Base ~ Duskblade			
+Knight			KEY:Gestalt Leveling ~ Knight				COST:0	!PRECLASS:1,Knight=1		CATEGORY:Internal	CHOOSE:NOCHOICE	MULT:YES	STACK:YES	TYPE:Gestalt Leveling.Martial.Knight			DEFINE:KnightLVL|0	BONUS:VAR|KnightLVL|1							ABILITY:Internal|AUTOMATIC|Gestalt Base ~ Knight			
+
+###Block: Class Features
+CATEGORY=Internal|Gestalt Base ~ Beguiler.MOD	ABILITY:Beguiler Class Feature|AUTOMATIC|Beguiler ~ Armored Mage|Beguiler ~ Spells|Beguiler ~ Trapfinding|Beguiler ~ Weapon and Armor Proficiency|PREVARGTEQ:BeguilerLVL,1	
+CATEGORY=Internal|Gestalt Base ~ Beguiler.MOD	ABILITY:Beguiler Class Feature|AUTOMATIC|Beguiler ~ Cloaked Casting|Beguiler ~ Surprise Casting|PREVARGTEQ:BeguilerLVL,2	
+CATEGORY=Internal|Gestalt Base ~ Beguiler.MOD	ABILITY:Beguiler Class Feature|AUTOMATIC|Beguiler ~ Advanced Learning|PREVARGTEQ:BeguilerLVL,3	
+CATEGORY=Internal|Gestalt Base ~ Beguiler.MOD	ABILITY:Beguiler Class Feature|AUTOMATIC|Beguiler ~ Silent Spell|PREVARGTEQ:BeguilerLVL,5	
+CATEGORY=Internal|Gestalt Base ~ Beguiler.MOD	ABILITY:Beguiler Class Feature|AUTOMATIC|Beguiler ~ Still Spell|PREVARGTEQ:BeguilerLVL,10	
+
+CATEGORY=Internal|Gestalt Base ~ Dragon Shaman.MOD	ABILITY:Dragon Shaman Class Feature|AUTOMATIC|Dragon Shaman ~ Weapon and Armor Proficiency|PREVARGTEQ:DragonShamanLVL,1	
+CATEGORY=Internal|Gestalt Base ~ Dragon Shaman.MOD	ABILITY:Dragon Shaman Class Feature|AUTOMATIC|Dragon Shaman ~ Draconic Aura|Dragon Shaman ~ Totem Dragon|PREVARGTEQ:DragonShamanLVL,1	
+CATEGORY=Internal|Gestalt Base ~ Dragon Shaman.MOD	ABILITY:Dragon Shaman Class Feature|AUTOMATIC|Dragon Shaman ~ Skill Focus|PREVARGTEQ:DragonShamanLVL,2	
+CATEGORY=Internal|Gestalt Base ~ Dragon Shaman.MOD	ABILITY:Dragon Shaman Class Feature|AUTOMATIC|Dragon Shaman ~ Draconic Adaptation1|PREVARGTEQ:DragonShamanLVL,3	
+CATEGORY=Internal|Gestalt Base ~ Dragon Shaman.MOD	ABILITY:Dragon Shaman Class Feature|AUTOMATIC|Dragon Shaman ~ Breath Weapon|Dragon Shaman ~ Draconic Resolve|PREVARGTEQ:DragonShamanLVL,4	
+CATEGORY=Internal|Gestalt Base ~ Dragon Shaman.MOD	ABILITY:Dragon Shaman Class Feature|AUTOMATIC|Dragon Shaman ~ Touch of Vitality1|PREVARGTEQ:DragonShamanLVL,6	
+CATEGORY=Internal|Gestalt Base ~ Dragon Shaman.MOD	ABILITY:Dragon Shaman Class Feature|AUTOMATIC|Dragon Shaman ~ Natural Armor|PREVARGTEQ:DragonShamanLVL,7	
+CATEGORY=Internal|Gestalt Base ~ Dragon Shaman.MOD	ABILITY:Dragon Shaman Class Feature|AUTOMATIC|Dragon Shaman ~ Energy Immunity|PREVARGTEQ:DragonShamanLVL,9	
+CATEGORY=Internal|Gestalt Base ~ Dragon Shaman.MOD	ABILITY:Dragon Shaman Class Feature|AUTOMATIC|Dragon Shaman ~ Touch of Vitality2|PREVARGTEQ:DragonShamanLVL,11
+CATEGORY=Internal|Gestalt Base ~ Dragon Shaman.MOD	ABILITY:Dragon Shaman Class Feature|AUTOMATIC|Dragon Shaman ~ Draconic Adaptation2|PREVARGTEQ:DragonShamanLVL,13
+CATEGORY=Internal|Gestalt Base ~ Dragon Shaman.MOD	ABILITY:Dragon Shaman Class Feature|AUTOMATIC|Dragon Shaman ~ Commune with Dragon Spirit|PREVARGTEQ:DragonShamanLVL,14
+CATEGORY=Internal|Gestalt Base ~ Dragon Shaman.MOD	ABILITY:Dragon Shaman Class Feature|AUTOMATIC|Dragon Shaman ~ Draconic Wings|PREVARGTEQ:DragonShamanLVL,19
+
+CATEGORY=Internal|Gestalt Base ~ Duskblade.MOD	ABILITY:Duskblade Class Feature|AUTOMATIC|Duskblade ~ Weapon and Armor Proficiency|PREVARGTEQ:DuskbladeLVL,1
+CATEGORY=Internal|Gestalt Base ~ Duskblade.MOD	ABILITY:Duskblade Class Feature|AUTOMATIC|Duskblade ~ Arcane Attunement|PREVARGTEQ:DuskbladeLVL,1
+CATEGORY=Internal|Gestalt Base ~ Duskblade.MOD	ABILITY:Duskblade Class Feature|AUTOMATIC|Duskblade ~ Armored Mage|PREVARGTEQ:DuskbladeLVL,1
+CATEGORY=Internal|Gestalt Base ~ Duskblade.MOD	ABILITY:Duskblade Class Feature|AUTOMATIC|Duskblade ~ Combat Casting|PREVARGTEQ:DuskbladeLVL,2
+CATEGORY=Internal|Gestalt Base ~ Duskblade.MOD	ABILITY:Duskblade Class Feature|AUTOMATIC|Duskblade ~ Arcane Channeling|PREVARGTEQ:DuskbladeLVL,3
+CATEGORY=Internal|Gestalt Base ~ Duskblade.MOD	ABILITY:Duskblade Class Feature|AUTOMATIC|Duskblade ~ Quick Cast|PREVARGTEQ:DuskbladeLVL,5
+CATEGORY=Internal|Gestalt Base ~ Duskblade.MOD	ABILITY:Duskblade Class Feature|AUTOMATIC|Duskblade ~ Spell Power|PREVARGTEQ:DuskbladeLVL,6
+
+CATEGORY=Internal|Gestalt Base ~ Knight.MOD		ABILITY:Knight Class Feature|AUTOMATIC|Knight ~ Weapon and Armor Proficiency|PREVARGTEQ:KnightLVL,1	
+CATEGORY=Internal|Gestalt Base ~ Knight.MOD		ABILITY:Knight Class Feature|AUTOMATIC|Knight ~ Fighting Challenge|Knight ~ Knight's Challenge|Knight ~ Knight's Code|PREVARGTEQ:KnightLVL,1	
+CATEGORY=Internal|Gestalt Base ~ Knight.MOD		ABILITY:Knight Class Feature|AUTOMATIC|Knight ~ Shield Block|Knight ~ Mounted Combat|PREVARGTEQ:KnightLVL,2	
+CATEGORY=Internal|Gestalt Base ~ Knight.MOD		ABILITY:Knight Class Feature|AUTOMATIC|Knight ~ Bulwark of Defense|PREVARGTEQ:KnightLVL,3	
+CATEGORY=Internal|Gestalt Base ~ Knight.MOD		ABILITY:Knight Class Feature|AUTOMATIC|Knight ~ Armor Mastery|Knight ~ Test of Mettle|PREVARGTEQ:KnightLVL,4	
+CATEGORY=Internal|Gestalt Base ~ Knight.MOD		ABILITY:Knight Class Feature|AUTOMATIC|Knight ~ Vigilant Defender|Knight ~ Bonus Feat|PREVARGTEQ:KnightLVL,5	
+CATEGORY=Internal|Gestalt Base ~ Knight.MOD		ABILITY:Knight Class Feature|AUTOMATIC|Knight ~ Shield Ally|PREVARGTEQ:KnightLVL,6	
+CATEGORY=Internal|Gestalt Base ~ Knight.MOD		ABILITY:Knight Class Feature|AUTOMATIC|Knight ~ Call to Battle|PREVARGTEQ:KnightLVL,8	
+CATEGORY=Internal|Gestalt Base ~ Knight.MOD		ABILITY:Knight Class Feature|AUTOMATIC|Knight ~ Daunting Challenge|PREVARGTEQ:KnightLVL,12	
+CATEGORY=Internal|Gestalt Base ~ Knight.MOD		ABILITY:Knight Class Feature|AUTOMATIC|Knight ~ Improved Shield Ally|PREVARGTEQ:KnightLVL,14	
+CATEGORY=Internal|Gestalt Base ~ Knight.MOD		ABILITY:Knight Class Feature|AUTOMATIC|Knight ~ Bond of Loyalty|PREVARGTEQ:KnightLVL,16	
+CATEGORY=Internal|Gestalt Base ~ Knight.MOD		ABILITY:Knight Class Feature|AUTOMATIC|Knight ~ Impetuous Endurance|PREVARGTEQ:KnightLVL,17	
+CATEGORY=Internal|Gestalt Base ~ Knight.MOD		ABILITY:Knight Class Feature|AUTOMATIC|Knight ~ Loyal Beyond Death|PREVARGTEQ:KnightLVL,20	
