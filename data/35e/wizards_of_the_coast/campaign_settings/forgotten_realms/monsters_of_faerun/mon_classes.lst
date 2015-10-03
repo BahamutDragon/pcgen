@@ -4,13 +4,14 @@ SOURCELONG:Monster Compendium: Monsters of Faerun	SOURCESHORT:mon	SOURCEDATE:200
 ###Block: Prestige Classes
 
 # Class Name			Hit Dice	Type				Abbreviation	Max Level	Source Page		Combat bonus															Modify VAR													Bonus
-CLASS:Beholder Mage (MoF)	HD:4		TYPE:Monster.Prestige	ABB:BeHM		MAXLEVEL:10	SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Beholder Mage (MoF)	HD:4		TYPE:Monster.Prestige	FACT:Abb|BeHM		MAXLEVEL:10	SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name			Required Race				Required Text
 CLASS:Beholder Mage (MoF)	PRERACE:1,RACESUBTYPE:Beholder	PRETEXT:Lose or put out central magic eye.
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Beholder Mage (MoF)	STARTSKILLPTS:2	CSKILL:Craft (Alchemy)|Appraise|Concentration|Decipher Script|TYPE=Knowledge|Speak Language|Spellcraft|Use Magic Device
 # Class Name			Spell Stat		Spell Type		Spellbook		Caster level
-CLASS:Beholder Mage (MoF)	SPELLSTAT:INT	SPELLTYPE:Arcane	SPELLBOOK:YES	BONUS:CASTERLEVEL|Beholder Mage (MoF)|Caster_Level_Beholder_Mage	DEFINE:Caster_Level_Beholder_Mage|0	BONUS:VAR|Caster_Level_Beholder_Mage|CL+Caster_Level_Bonus	DEFINE:CasterLevelBLBeholder_Mage|0	BONUS:VAR|CasterLevelBLBeholder_Mage|charbonusto("PCLEVEL","Beholder Mage (MoF)")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Beholder_Mage+CasterLevelBLBeholder_Mage|TYPE=Base
+CLASS:Beholder Mage (MoF)	SFACT:SpellType|Arcane
+CLASS:Beholder Mage (MoF)	SPELLSTAT:INT		SPELLBOOK:YES	BONUS:CASTERLEVEL|Beholder Mage (MoF)|Caster_Level_Beholder_Mage	DEFINE:Caster_Level_Beholder_Mage|0	BONUS:VAR|Caster_Level_Beholder_Mage|CL+Caster_Level_Bonus	DEFINE:CasterLevelBLBeholder_Mage|0	BONUS:VAR|CasterLevelBLBeholder_Mage|charbonusto("PCLEVEL","Beholder Mage (MoF)")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Beholder_Mage+CasterLevelBLBeholder_Mage|TYPE=Base
 1	CAST:6,3									ABILITY:Special Ability|AUTOMATIC|Sacrifice Eyestalk
 2	CAST:6,5,3
 3	CAST:6,6,5,3			BONUS:VAR|FamiliarLVL|CL	ABILITY:Special Ability|AUTOMATIC|Summon Familiar

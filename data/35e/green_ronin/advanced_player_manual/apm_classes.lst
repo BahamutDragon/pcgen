@@ -8,7 +8,9 @@ CLASS:Eldritch Weaver	HD:4		TYPE:Base.PC	SOURCEPAGE:p.17	BONUS:COMBAT|BASEAB|cla
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Eldritch Weaver	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Decipher Script|Diplomacy|TYPE=Knowledge|TYPE=Profession|Spellcraft|Use Magic Device
 # Class Name		Spell Stat		Spell Type		Memorize		Automatically Known Spell Levels	Caster level
-CLASS:Eldritch Weaver	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:YES	KNOWNSPELLS:LEVEL=0			BONUS:CASTERLEVEL|Eldritch Weaver|Caster_Level_Eldritch_Weaver	DEFINE:Caster_Level_Eldritch_Weaver|0	BONUS:VAR|Caster_Level_Eldritch_Weaver|CL+Caster_Level_Bonus	DEFINE:CasterLevelBLEldritch_Weaver|0	BONUS:VAR|CasterLevelBLEldritch_Weaver|charbonusto("PCLEVEL","Eldritch_Weaver")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Eldritch_Weaver+CasterLevelBLEldritch_Weaver|TYPE=Base
+CLASS:Eldritch Weaver	FACT:SpellType|Arcane	
+CLASS:Eldritch Weaver	SPELLSTAT:INT		MEMORIZE:YES	KNOWNSPELLS:LEVEL=0			BONUS:CASTERLEVEL|Eldritch Weaver|Caster_Level_Eldritch_Weaver	DEFINE:Caster_Level_Eldritch_Weaver|0	BONUS:VAR|Caster_Level_Eldritch_Weaver|CL+Caster_Level_Bonus	DEFINE:CasterLevelBLEldritch_Weaver|0	BONUS:VAR|CasterLevelBLEldritch_Weaver|charbonusto("PCLEVEL","Eldritch_Weaver")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Eldritch_Weaver+CasterLevelBLEldritch_Weaver|TYPE=Base
+
 ###Block:
 1	CAST:5,1
 2	CAST:6,2
@@ -42,7 +44,7 @@ CLASS:Evangelist	HD:6		TYPE:Base.PC	SOURCEPAGE:p.21	BONUS:COMBAT|BASEAB|classlev
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Evangelist	STARTSKILLPTS:6	CSKILL:Bluff|Climb|Concentration|TYPE=Craft|Decipher Script|Diplomacy|Intimidate|Jump|Knowledge (Religion)|TYPE=Perform|TYPE=Profession|Ride|Sleight of Hand|Spellcraft|Sense Motive|Swim|Use Magic Device|Use Rope
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels											Caster level
-CLASS:Evangelist	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Evangelist|Caster_Level_BL_Stripped_Evangelist	DEFINE:Caster_Level_BL_Stripped_Evangelist|0	BONUS:VAR|Caster_Level_BL_Stripped_Evangelist|Caster_Level_Evangelist-CasterLevelBLEvangelist	BONUS:VAR|Caster_Level_Evangelist|CL+Caster_Level_Bonus+CasterLevelBLEvangelist	DEFINE:CasterLevelBLEvangelist|0	BONUS:VAR|CasterLevelBL_x_Evangelist|charbonusto("PCLEVEL","Evangelist")	BONUS:VAR|Caster_Level_Highest__Divine|Caster_Level_Evangelist|TYPE=Base
+CLASS:Evangelist	SPELLSTAT:WIS	FACT:SpellType|Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Evangelist|Caster_Level_BL_Stripped_Evangelist	DEFINE:Caster_Level_BL_Stripped_Evangelist|0	BONUS:VAR|Caster_Level_BL_Stripped_Evangelist|Caster_Level_Evangelist-CasterLevelBLEvangelist	BONUS:VAR|Caster_Level_Evangelist|CL+Caster_Level_Bonus+CasterLevelBLEvangelist	DEFINE:CasterLevelBLEvangelist|0	BONUS:VAR|CasterLevelBL_x_Evangelist|charbonusto("PCLEVEL","Evangelist")	BONUS:VAR|Caster_Level_Highest__Divine|Caster_Level_Evangelist|TYPE=Base
 1	ABILITY:Evangelist Class Feature|AUTOMATIC|Evangelist ~ Weapon and Armor Proficiency
 1	ABILITY:Evangelist Class Feature|AUTOMATIC|Evangelist ~ Aura
 1	ABILITY:Evangelist Class Feature|AUTOMATIC|Evangelist ~ Divine Touch
@@ -93,11 +95,11 @@ CLASS:Scout		STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Diplomacy|Disguise|Escap
 
 
 # Class Name	Hit Dice	Type			Abbreviation	Source Page		Define			Combat bonus															Modify VAR																			Bonus
-CLASS:Spellmaster	HD:6		TYPE:Base.PC	ABB:Sm		SOURCEPAGE:p.29	DEFINE:SpellmasterLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|SpellmasterLVL|CL	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Spellmaster	HD:6		TYPE:Base.PC	FACT:Abb|Sm		SOURCEPAGE:p.29	DEFINE:SpellmasterLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|SpellmasterLVL|CL	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Spellmaster	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Decipher Script|Diplomacy|TYPE=Knowledge|TYPE=Profession|Spellcraft|Use Magic Device
 # Class Name	Spell Stat		Stat for Bonus Spells	Spell Type		Caster level				Use Spell List
-CLASS:Spellmaster	SPELLSTAT:WIS	BONUSSPELLSTAT:NONE	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Spellmaster|Caster_Level_BL_Stripped_Spellmaster	DEFINE:Caster_Level_BL_Stripped_Spellmaster|0	BONUS:VAR|Caster_Level_BL_Stripped_Spellmaster|Caster_Level_Spellmaster-CasterLevelBLSpellmaster	BONUS:VAR|Caster_Level_Spellmaster|CL+Caster_Level_Bonus+CasterLevelBLSpellmaster	DEFINE:CasterLevelBLSpellmaster|0	BONUS:VAR|CasterLevelBL_x_Spellmaster|charbonusto("PCLEVEL","Spellmaster")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Spellmaster|TYPE=Base	SPELLLIST:8|Bard|Cleric|Druid|Evangelist|Paladin|Ranger|Sorcerer|Warpriest
+CLASS:Spellmaster	SPELLSTAT:WIS	BONUSSPELLSTAT:NONE	FACT:SpellType|Arcane	BONUS:CASTERLEVEL|Spellmaster|Caster_Level_BL_Stripped_Spellmaster	DEFINE:Caster_Level_BL_Stripped_Spellmaster|0	BONUS:VAR|Caster_Level_BL_Stripped_Spellmaster|Caster_Level_Spellmaster-CasterLevelBLSpellmaster	BONUS:VAR|Caster_Level_Spellmaster|CL+Caster_Level_Bonus+CasterLevelBLSpellmaster	DEFINE:CasterLevelBLSpellmaster|0	BONUS:VAR|CasterLevelBL_x_Spellmaster|charbonusto("PCLEVEL","Spellmaster")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Spellmaster|TYPE=Base	SPELLLIST:8|Bard|Cleric|Druid|Evangelist|Paladin|Ranger|Sorcerer|Warpriest
 ###Block
 1	ABILITY:Spellmaster Class Feature|AUTOMATIC|Spellmaster ~ Weapon and Armor Proficiencies
 1	ABILITY:Spellmaster Class Feature|AUTOMATIC|Spellmaster ~ Hold Spell
@@ -161,7 +163,7 @@ CLASS:Thanemage	HD:8		TYPE:Base.PC	SOURCEPAGE:p.33	BONUS:COMBAT|BASEAB|classleve
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Thanemage	STARTSKILLPTS:4	CSKILL:Climb|Concentration|TYPE=Craft|Decipher Script|Handle Animal|Heal|Jump|Knowledge (arcana)|TYPE=Profession|Ride|Spellcraft|Survival|Swim|Use Rope
 # Class Name	Spell Stat		Spell Type		Caster level
-CLASS:Thanemage	SPELLSTAT:INT	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Thanemage|Caster_Level_BL_Stripped_Thanemage	DEFINE:Caster_Level_BL_Stripped_Thanemage|0	BONUS:VAR|Caster_Level_BL_Stripped_Thanemage|Caster_Level_Thanemage-CasterLevelBLThanemage	BONUS:VAR|Caster_Level_Thanemage|CL+Caster_Level_Bonus+CasterLevelBLThanemage	DEFINE:CasterLevelBLThanemage|0	BONUS:VAR|CasterLevelBL_x_Thanemage|charbonusto("PCLEVEL","Thanemage")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Thanemage|TYPE=Base
+CLASS:Thanemage	SPELLSTAT:INT	FACT:SpellType|Arcane	BONUS:CASTERLEVEL|Thanemage|Caster_Level_BL_Stripped_Thanemage	DEFINE:Caster_Level_BL_Stripped_Thanemage|0	BONUS:VAR|Caster_Level_BL_Stripped_Thanemage|Caster_Level_Thanemage-CasterLevelBLThanemage	BONUS:VAR|Caster_Level_Thanemage|CL+Caster_Level_Bonus+CasterLevelBLThanemage	DEFINE:CasterLevelBLThanemage|0	BONUS:VAR|CasterLevelBL_x_Thanemage|charbonusto("PCLEVEL","Thanemage")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Thanemage|TYPE=Base
 ###Block
 1	ABILITY:Thanemage Class Feature|AUTOMATIC|Thanemage ~ Weapon and Armor Proficiency
 1	ABILITY:Thanemage Class Feature|AUTOMATIC|Thanemage ~ Apprentice Ability
@@ -202,7 +204,7 @@ CLASS:Warpriest	HD:10		TYPE:Base.PC	SOURCEPAGE:p.38	BONUS:COMBAT|BASEAB|classlev
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Warpriest	STARTSKILLPTS:2	CSKILL:Climb|Concentration|Handle Animal|Heal|Jump|Knowledge (Religion)|Ride|Spellcraft
 # Class Name	Spell Stat		Spell Type		Caster level
-CLASS:Warpriest	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Warpriest|Caster_Level_BL_Stripped_Warpriest	DEFINE:Caster_Level_BL_Stripped_Warpriest|0	BONUS:VAR|Caster_Level_BL_Stripped_Warpriest|Caster_Level_Warpriest-CasterLevelBLWarpriest	BONUS:VAR|Caster_Level_Warpriest|CL+Caster_Level_Bonus+CasterLevelBLWarpriest	DEFINE:CasterLevelBLWarpriest|0	BONUS:VAR|CasterLevelBL_x_Warpriest|charbonusto("PCLEVEL","Warpriest")	BONUS:VAR|Caster_Level_Highest__Divine|Caster_Level_Warpriest|TYPE=Base
+CLASS:Warpriest	SPELLSTAT:WIS	FACT:SpellType|Divine	BONUS:CASTERLEVEL|Warpriest|Caster_Level_BL_Stripped_Warpriest	DEFINE:Caster_Level_BL_Stripped_Warpriest|0	BONUS:VAR|Caster_Level_BL_Stripped_Warpriest|Caster_Level_Warpriest-CasterLevelBLWarpriest	BONUS:VAR|Caster_Level_Warpriest|CL+Caster_Level_Bonus+CasterLevelBLWarpriest	DEFINE:CasterLevelBLWarpriest|0	BONUS:VAR|CasterLevelBL_x_Warpriest|charbonusto("PCLEVEL","Warpriest")	BONUS:VAR|Caster_Level_Highest__Divine|Caster_Level_Warpriest|TYPE=Base
 ###Block
 1	ABILITY:Warpriest Class Feature|AUTOMATIC|Warpriest ~ Weapon and Armor Proficiency
 1	ABILITY:Warpriest Class Feature|AUTOMATIC|Warpriest ~ Aura

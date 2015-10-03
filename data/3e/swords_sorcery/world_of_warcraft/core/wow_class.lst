@@ -2,10 +2,10 @@
 SOURCELONG:World of Warcraft	SOURCESHORT:WoW	SOURCEDATE:2006-11
 
 # Class Name	Hit Dice	Type			Abbreviation	Automatically Gained Language	Save checks bonus											Combat bonus
-CLASS:Arcanist	HD:4		TYPE:Base.PC	ABB:Arc		AUTO:LANG|Literacy		BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|CL|PREVAREQ:UseFractionalBAB,1	
+CLASS:Arcanist	HD:4		TYPE:Base.PC	FACT:Abb|Arc		AUTO:LANG|Literacy		BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|CL|PREVAREQ:UseFractionalBAB,1	
 
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels	Caster level
-CLASS:Arcanist	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			BONUS:CASTERLEVEL|Arcanist|CL
+CLASS:Arcanist	SPELLSTAT:INT	FACT:SpellType|Arcane	KNOWNSPELLS:LEVEL=0			BONUS:CASTERLEVEL|Arcanist|CL
 1	CAST:3,1
 2	CAST:4,2
 3	CAST:4,2,1
@@ -28,10 +28,10 @@ CLASS:Arcanist	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			BONUS:CASTER
 20	CAST:4,4,4,4,4,4,4,4,4,4
 
 # Class Name	Hit Dice	Type			Abbreviation	Automatically Gained Language	Save checks bonus											Combat bonus
-CLASS:Mage Path	HD:4		TYPE:Base.PC	ABB:Arc		AUTO:LANG|Literacy		BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|CL|PREVAREQ:UseFractionalBAB,1	
+CLASS:Mage Path	HD:4		TYPE:Base.PC	FACT:Abb|Arc		AUTO:LANG|Literacy		BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|CL|PREVAREQ:UseFractionalBAB,1	
 
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels	Caster level
-CLASS:Mage Path	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			BONUS:CASTERLEVEL|Mage Path|CL
+CLASS:Mage Path	SPELLSTAT:INT	FACT:SpellType|Arcane	KNOWNSPELLS:LEVEL=0			BONUS:CASTERLEVEL|Mage Path|CL
 1	CAST:3,1
 2	CAST:4,2
 3	CAST:4,2,1
@@ -56,12 +56,12 @@ CLASS:Mage Path	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			BONUS:CASTE
 #Arcanist in WOW get d6 but this is for a Wizard norm campaign.
 
 # Class Name		Hit Dice	Type			Abbreviation	Automatically Gained Language	Save checks bonus											Combat bonus
-CLASS:Warlock Path	HD:4		TYPE:Base.PC	ABB:WarPth		AUTO:LANG|Literacy		BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|CL|PREVAREQ:UseFractionalBAB,1	
+CLASS:Warlock Path	HD:4		TYPE:Base.PC	FACT:Abb|WarPth		AUTO:LANG|Literacy		BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|CL|PREVAREQ:UseFractionalBAB,1	
 
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Warlock Path	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Craft (Trade Skill)|Decipher Script|Knowledge (Arcana)|TYPE=Knowledge|TYPE=Profession|Speak Languages|Spellcraft|Diplomacy|Intimidate
 # Class Name		Spell Stat		Spell Type		Automatically Known Spell Levels	Caster level
-CLASS:Warlock Path	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			BONUS:CASTERLEVEL|Warlock Path|CL
+CLASS:Warlock Path	SPELLSTAT:INT	FACT:SpellType|Arcane	KNOWNSPELLS:LEVEL=0			BONUS:CASTERLEVEL|Warlock Path|CL
 #SPELLLIST:2|Arcanist|Warlock Path
 ###Block:Proficiencies
 1																																		ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|Wizard Weapon Proficiencies
@@ -142,14 +142,14 @@ CLASS:Warlock Path	SPELLSTAT:INT	SPELLTYPE:Arcane	KNOWNSPELLS:LEVEL=0			BONUS:CA
 #Dark Metmorphosis
 
 # Class Name	Hit Dice	Type			Abbreviation	Ex Class		Source Page			Bonus Languages	Define				Automatically Gained Language	Save checks bonus											Combat bonus					Add domain number		Modify VAR
-CLASS:Druid Path	HD:8		TYPE:Base.PC	ABB:DotW		EXCLASS:Ex Druid	SOURCEPAGE:ClassesI.rtf	LANGBONUS:Sylvan	DEFINE:AnimalCompanionLVL|0	AUTO:LANG|Druidic|Literacy	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1	
+CLASS:Druid Path	HD:8		TYPE:Base.PC	FACT:Abb|DotW		EXCLASS:Ex Druid	SOURCEPAGE:ClassesI.rtf	LANGBONUS:Sylvan	DEFINE:AnimalCompanionLVL|0	AUTO:LANG|Druidic|Literacy	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1	
 	BONUS:DOMAIN|NUMBER|1	BONUS:VAR|AnimalCompanionLVL|CL
 # Class Name	Required AL
 CLASS:Druid Path	PREALIGN:LN,NG,TN,NE,CN
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Druid Path	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|TYPE=Craft|Craft (Trade Skill)|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (Religion)|Knowledge (The Planes)|Listen|TYPE=Profession|Speak Languages|Spellcraft|Handle Animal|Knowledge (Nature)|Stealth|Survival
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels											Caster level				Use Spell List
-CLASS:Druid Path	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Druid Path|CL	SPELLLIST:2|Druid Path|Healer
+CLASS:Druid Path	SPELLSTAT:WIS	FACT:SpellType|Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Druid Path|CL	SPELLLIST:2|Druid Path|Healer
 ###Healer Spells convert
 1	SPELLLEVEL:CLASS|Druid Path=0|Cure Minor Wounds,Detect Magic,Detect Poison,Inflict Minor Wounds,Light,Mending,Purify Food and Drink,Read Magic
 1	SPELLLEVEL:CLASS|Druid Path=1|Bane,Bless,Comprehend Languages,Cure Light Wounds,Detect Chaos,Detect Evil,Detect Good,Detect Law,Detect Undead,Doom,Endure Elements,Identify,Inflict Light Wounds,Protection from Chaos,Protection from Evil,Protection from Good,Protection from Law,Remove Fear
@@ -250,4 +250,4 @@ CLASS:Druid Path	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVE
 
 
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels											Caster level
-CLASS:Healer	SPELLSTAT:WIS	SPELLTYPE:Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Healer|CL
+CLASS:Healer	SPELLSTAT:WIS	FACT:SpellType|Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Healer|CL
