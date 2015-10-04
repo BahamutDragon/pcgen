@@ -4,6 +4,28 @@ SOURCELONG:Players Handbook	SOURCESHORT:PH
 # Ability Name			Unique Key		SORTKEY	Output Name			Category of Ability		Type							Visible	Define																																																																																									Bonus Ability Pool				Modify VAR				Cost
 CATEGORY=Internal|Default.MOD																								DEFINE:ExtraSkillPoint|0	DEFINE:ThisisThreeFive|0	DEFINE:RemoveLangCommon|0	DEFINE:RemoveLangDwarven|0	DEFINE:RemoveLangElven|0	DEFINE:RemoveLangGnome|0	DEFINE:RemoveLangHalfling|0	DEFINE:RemoveLangGiant|0	DEFINE:RemoveLangGnoll|0	DEFINE:RemoveLangGoblin|0	DEFINE:RemoveLangOrc|0	DEFINE:RemoveLangTerran|0	DEFINE:RemoveLangUndercommon|0	DEFINE:RemoveLangAbyssal|0	DEFINE:RemoveLangCelestial|0	DEFINE:RemoveLangDraconic|0	DEFINE:RemoveLangInfernal|0	DEFINE:RemoveLangSylvan|0	DEFINE:RemoveLangDruidic|0	BONUS:ABILITYPOOL|Region|1|TYPE=Base	BONUS:VAR|ThisisThreeFive|1	DEFINE:Pool_FighterFeat|0	DEFINE:Pool_WizardFeat|0	DEFINE:FamiliarBonus|0	BONUS:VAR|FamiliarBonus|1|TYPE=Base		BONUS:VAR|BastardSwordExoticUse|1|PREABILITY:1,CATEGORY=FEAT,Exotic Weapon Proficiency (Sword (Bastard))	BONUS:VAR|DwarvenWaraxeExoticUse|1|PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Exotic Weapon Proficiency (Waraxe (Dwarven))],[PREABILITY:1,CATEGORY=Special Ability,Dwarf ~ Weapon Familiarity]		DEFINE:BastardSwordExoticUse|0	DEFINE:DwarvenWaraxeExoticUse|0		DEFINE:RemoveDefaultFavoredClass|0
 
+CATEGORY=Internal|Default.MOD	DEFINE:SynergySkillBonus|0	BONUS:VAR|SynergySkillBonus|2|TYPE=Base
+
+CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Skill Synergy ~ Bluff|PRESKILL:1,Bluff=5					
+CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Skill Synergy ~ Handle Animal|PRESKILL:1,Handle Animal=5				
+CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Skill Synergy ~ Jump|PRESKILL:1,Jump=5					
+CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Skill Synergy ~ Knowledge (Arcana)|PRESKILL:1,Knowledge (Arcana)=5			
+CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Skill Synergy ~ Knowledge (Local)|PRESKILL:1,Knowledge (Local)=5			
+CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Skill Synergy ~ Knowledge (Nobility and Royalty)|PRESKILL:1,Knowledge (Nobility and Royalty)=5
+CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Skill Synergy ~ Sense Motive|PRESKILL:1,Sense Motive=5				
+CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Skill Synergy ~ Survival|PRESKILL:1,Survival=5				
+CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Skill Synergy ~ Tumble|PRESKILL:1,Tumble=5					
+
+Skill Synergy ~ Bluff						CATEGORY:Internal		BONUS:SKILL|Sleight of Hand,Diplomacy,Intimidate|SynergySkillBonus|TYPE=Synergy.STACK
+Skill Synergy ~ Handle Animal					CATEGORY:Internal		BONUS:SKILL|Ride|SynergySkillBonus|TYPE=Synergy.STACK
+Skill Synergy ~ Jump						CATEGORY:Internal		BONUS:SKILL|Tumble|SynergySkillBonus|TYPE=Synergy.STACK
+Skill Synergy ~ Knowledge (Arcana)				CATEGORY:Internal		BONUS:SKILL|Spellcraft|SynergySkillBonus|TYPE=Synergy.STACK
+Skill Synergy ~ Knowledge (Local)				CATEGORY:Internal		BONUS:SKILL|Gather Information|SynergySkillBonus|TYPE=Synergy.STACK
+Skill Synergy ~ Knowledge (Nobility and Royalty)	CATEGORY:Internal		BONUS:SKILL|Diplomacy|SynergySkillBonus|TYPE=Synergy.STACK
+Skill Synergy ~ Sense Motive					CATEGORY:Internal		BONUS:SKILL|Diplomacy|SynergySkillBonus|TYPE=Synergy.STACK
+Skill Synergy ~ Survival					CATEGORY:Internal		BONUS:SKILL|Knowledge (Nature)|SynergySkillBonus|TYPE=Synergy.STACK
+Skill Synergy ~ Tumble						CATEGORY:Internal		BONUS:SKILL|Balance,Jump|SynergySkillBonus|TYPE=Synergy.STACK
+
 
 
 No Region				KEY:Region ~ None	SORTKEY:a	OUTPUTNAME:No Region	CATEGORY:Regional			TYPE:Region						VISIBLE:YES
@@ -252,7 +274,7 @@ Improved Evasion		CATEGORY:Special Ability	TYPE:Class Feature.ImprovedEvasion.Ev
 # Ability Name	Category of Ability		Type				Define																	Description							Bonus to Situation																								Modify VAR																																									Aspects
 Sneak Attack	CATEGORY:Special Ability	TYPE:SpecialAttack	DEFINE:SneakAttackDieSize|0	DEFINE:SneakAttackDice|0									DESC:+%1d%2|SneakAttackDice|SneakAttackDieSize																												BONUS:VAR|SneakAttackDieSize|6|TYPE=Base																																				ASPECT:NAME|Sneak Attack +%1d%2|SneakAttackDice|SneakAttackDieSize
 Trap Sense		CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:TrapSenseBonus|0																																																																																												ASPECT:NAME|Trap Sense +%1|TrapSenseBonus	ASPECT:SaveBonus|+%1 bonus on Reflex saves made to avoid traps and a +%1 dodge bonus to AC against attacks made by traps.|TrapSenseBonus	DESC:Character has an intuitive sense that alerts him to danger from traps, giving him a +%1 bonus on Reflex saves made to avoid traps and a +%1 dodge bonus to AC against attacks made by traps.|TrapSenseBonus	VISIBLE:EXPORT
-Wild Empathy	CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:WildEmpathyBonus|0	DEFINE:WildEmpathyAnimalBonus|0	DEFINE:WildEmpathyMagicalBeastBonus|0									BONUS:SITUATION|Diplomacy=Wild Empathy (Animals)|WildEmpathyAnimalBonus	BONUS:SITUATION|Diplomacy=Wild Empathy (Magical Beasts)|WildEmpathyMagicalBeastBonus	BONUS:VAR|WildEmpathyAnimalBonus,WildEmpathyMagicalBeastBonus|WildEmpathyBonus	BONUS:VAR|WildEmpathyMagicalBeastBonus|-4	BONUS:VAR|WildEmpathyBonus|CHA	BONUS:VAR|WildEmpathyBonus|SynergyBonus|PRESKILL:1,Handle Animal=5|TYPE=Synergy.STACK	ASPECT:NAME|Wild Empathy +%1|WildEmpathyBonus	ASPECT:SkillBonus|Wild Empathy is +%1 for Animals and +%2 for Magical Beasts|WildEmpathyAnimalBonus|WildEmpathyMagicalBeastBonus
+Wild Empathy	CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:WildEmpathyBonus|0	DEFINE:WildEmpathyAnimalBonus|0	DEFINE:WildEmpathyMagicalBeastBonus|0									BONUS:SITUATION|Diplomacy=Wild Empathy (Animals)|WildEmpathyAnimalBonus	BONUS:SITUATION|Diplomacy=Wild Empathy (Magical Beasts)|WildEmpathyMagicalBeastBonus	BONUS:VAR|WildEmpathyAnimalBonus,WildEmpathyMagicalBeastBonus|WildEmpathyBonus	BONUS:VAR|WildEmpathyMagicalBeastBonus|-4	BONUS:VAR|WildEmpathyBonus|CHA	BONUS:VAR|WildEmpathyBonus|SynergySkillBonus|PRESKILL:1,Handle Animal=5|TYPE=Synergy.STACK	ASPECT:NAME|Wild Empathy +%1|WildEmpathyBonus	ASPECT:SkillBonus|Wild Empathy is +%1 for Animals and +%2 for Magical Beasts|WildEmpathyAnimalBonus|WildEmpathyMagicalBeastBonus
 #
 
 ###Block: Shared

@@ -31,7 +31,6 @@ CLASS:Eldritch Disciple	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Di
 5	ABILITY:Eldritch Disciple Class Feature|AUTOMATIC|Eldritch Disciple ~ Eldritch Spellweave
 10	ABILITY:Eldritch Disciple Class Feature|AUTOMATIC|Eldritch Disciple ~ Timeless Body
 ###Block
-# COMMENT: TODO +1 level of existing invocation-using class each level
 2	ADD:SPELLCASTER|Divine
 3	ADD:SPELLCASTER|Divine
 4	ADD:SPELLCASTER|Divine
@@ -45,7 +44,7 @@ CLASS:Eldritch Disciple	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Di
 11	PREPCLEVEL:MIN=20
 
 # Class Name		Hit Dice	Type			Source Page		Combat bonus															Modify VAR														Bonus
-CLASS:Eldritch Theurge	HD:4		TYPE:PC.Prestige	SOURCEPAGE:p.57	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Eldritch Theurge	HD:4		TYPE:PC.Prestige	SOURCEPAGE:p.57	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	DEFINE:EldritchTheurgeLVL|0	BONUS:VAR|EldritchTheurgeLVL|CL
 # Class Name		Required Ability								Required Skill								Req. Spell Type		Required Text																																Var. Min. Value
 CLASS:Eldritch Theurge	PREABILITY:1,CATEGORY=Special Ability,TYPE=Least Invocation	PRESKILL:2,Knowledge (Arcana)=8,Knowledge (The Planes)=8	PRESPELLTYPE:1,Arcane=2	PRETEXT:Skills: Knowledge (arcana) 8 ranks, Knowledge (the planes) 8 ranks. Spells: Ability to cast 2nd-level arcane spells. Invocations: Ability to use least invocations. Special: Eldritch blast +2d6.	PREVARGTEQ:EldritchBlastDice,2
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -57,9 +56,6 @@ CLASS:Eldritch Theurge	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Int
 3	ABILITY:Eldritch Theurge Class Feature|AUTOMATIC|Eldritch Theurge ~ Spellblast
 5	ABILITY:Eldritch Theurge Class Feature|AUTOMATIC|Eldritch Theurge ~ Eldritch Spellweave
 10	ABILITY:Eldritch Theurge Class Feature|AUTOMATIC|Eldritch Theurge ~ Greatreach Blast
-###Block
-2	BONUS:VAR|FiendishResilienceBonus|(CL+4)/6
-1	BONUS:VAR|DRColdIron|(CL+2)/3
 ###Block
 1	ADD:SPELLCASTER|Arcane
 2	ADD:SPELLCASTER|Arcane
