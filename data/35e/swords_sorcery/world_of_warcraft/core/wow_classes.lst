@@ -1,0 +1,113 @@
+# CVS $Revision: $ $Author: $ -- Sat Jun 13 15:30:20 2015 -- reformated by prettylst.pl v1.39 (build 8180)
+SOURCELONG:World of Warcraft	SOURCESHORT:WoW	SOURCEDATE:2006-11
+
+###Block: Racial Levels
+CLASS:Ironforge Dwarf	MAXLEVEL:3
+CLASS:Ironforge Dwarf	HD:8	TYPE:Monster	SOURCEPAGE:p.35	DEFINE:IronforgeDwarfLVL|0	BONUS:VAR|IronforgeDwarfLVL|CL
+CLASS:Ironforge Dwarf	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	
+CLASS:Ironforge Dwarf	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	
+CLASS:Ironforge Dwarf	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Ironforge Dwarf	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")+1/3
+CLASS:Ironforge Dwarf	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Ironforge Dwarf	PRETEXT:Dwarf, Ironforge	PRERACE:1,Dwarf	PREABILITY:1,CATEGORY=Internal,Dwarf ~ Ironforge
+CLASS:Ironforge Dwarf	STARTSKILLPTS:2	CSKILL:Appraise|Climb|TYPE=Craft|Concentration|Listen|Search|Sense Motive|Spot
+###Block
+1	ABILITY:Ironforge Dwarf Racial Level|AUTOMATIC|Ironforge Dwarf ~ Level 1
+1	ABILITY:Ironforge Dwarf Racial Level|AUTOMATIC|Ironforge Dwarf ~ Level 2
+1	ABILITY:Ironforge Dwarf Racial Level|AUTOMATIC|Ironforge Dwarf ~ Level 3
+
+# High Elf
+CLASS:High Elf	MAXLEVEL:3
+CLASS:High Elf	HD:8	TYPE:Monster	SOURCEPAGE:p.37	DEFINE:HighElfLVL|0	BONUS:VAR|HighElfLVL|CL
+CLASS:High Elf	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	
+CLASS:High Elf	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	
+CLASS:High Elf	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:High Elf	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")+1/3
+CLASS:High Elf	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+
+CLASS:High Elf	PRETEXT:Elf, High	PRERACE:1,Elf	PREABILITY:1,CATEGORY=Internal,Elf ~ High
+CLASS:High Elf	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Knowledge (arcana)|Listen|Sense Motive|Spellcraft|Spot
+###Block
+1	ABILITY:High Elf Racial Level|AUTOMATIC|High Elf ~ Level 1
+2	ABILITY:High Elf Racial Level|AUTOMATIC|High Elf ~ Level 2
+3	ABILITY:High Elf Racial Level|AUTOMATIC|High Elf ~ Level 3
+
+# Night Elf
+CLASS:Night Elf	MAXLEVEL:3
+CLASS:Night Elf	HD:8	TYPE:Monster	SOURCEPAGE:p.39	DEFINE:NightElfLVL|0	BONUS:VAR|NightElfLVL|CL
+CLASS:Night Elf	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	
+CLASS:Night Elf	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	
+CLASS:Night Elf	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Night Elf	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")+1/3
+CLASS:Night Elf	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Night Elf	PRETEXT:Elf, Night	PRERACE:1,Elf	PREABILITY:1,CATEGORY=Internal,Elf ~ Night
+CLASS:Night Elf	STARTSKILLPTS:2	CSKILL:Climb|Concentration|Handle Animal|Listen|Sense Motive|Spellcraft|Spot|Stealth|Survival
+###Block
+1	ABILITY:Night Elf Racial Level|AUTOMATIC|Night Elf ~ Level 1
+2	ABILITY:Night Elf Racial Level|AUTOMATIC|Night Elf ~ Level 2
+3	ABILITY:Night Elf Racial Level|AUTOMATIC|Night Elf ~ Level 3
+
+
+
+
+###Block: Base Classes
+CLASS:Arcanist	MAXLEVEL:20
+CLASS:Arcanist	HD:6	TYPE:Base.PC	SOURCEPAGE:p.56	DEFINE:ArcanistLVL|0	BONUS:VAR|ArcanistLVL|CL
+CLASS:Arcanist	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	
+CLASS:Arcanist	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+CLASS:Arcanist	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Arcanist	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Arcanist	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Arcanist	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Craft (trade skill)|Decipher Script|TYPE=Knowledge|Profession|Speak Language|Spellcraft
+CLASS:Arcanist	SPELLTYPE:Arcane	SPELLSTAT:INT	MEMORIZE:YES
+CLASS:Arcanist	BONUS:CASTERLEVEL|Arcanist|Caster_Level_Arcanist	DEFINE:Caster_Level_Arcanist|0	BONUS:VAR|Caster_Level_Arcanist|CL+Caster_Level_Bonus	DEFINE:CasterLevelBLArcanist|0	BONUS:VAR|CasterLevelBLArcanist|charbonusto("PCLEVEL","Arcanist")	
+CLASS:Arcanist	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Arcanist+CasterLevelBLArcanist|TYPE=Base
+SUBCLASS:Mage		CSKILL:Diplomacy|Sense Motive
+SUBCLASS:Necromancer	CSKILL:Bluff
+SUBCLASSLEVEL:1	ADD:CLASSSKILL|Disguise,Forgery
+SUBCLASS:Warlock		CSKILL:Diplomacy|Intimidate
+###Block
+1	ABILITY:Class|AUTOMATIC|Arcanist
+###Block
+1	ABILITY:Arcanist Class Feature|AUTOMATIC|Arcanist ~ Arcane Corruption	
+1	ABILITY:Arcanist Class Feature|AUTOMATIC|Arcanist ~ Arcane Path		
+1	ABILITY:Arcanist Class Feature|AUTOMATIC|Arcanist ~ Scribe Scroll		
+1	ABILITY:Arcanist Class Feature|AUTOMATIC|Arcanist ~ Bonus Feat		
+
+
+###Block:
+1	CAST:3,1
+2	CAST:4,2
+3	CAST:4,2,1
+4	CAST:4,3,2
+5	CAST:4,3,2,1
+6	CAST:4,3,3,2
+7	CAST:4,4,3,2,1
+8	CAST:4,4,3,3,2
+9	CAST:4,4,4,3,2,1
+10	CAST:4,4,4,3,3,2
+11	CAST:4,4,4,4,3,2,1
+12	CAST:4,4,4,4,3,3,2
+13	CAST:4,4,4,4,4,3,2,1
+14	CAST:4,4,4,4,4,3,3,2
+15	CAST:4,4,4,4,4,4,3,2,1
+16	CAST:4,4,4,4,4,4,3,3,2
+17	CAST:4,4,4,4,4,4,4,3,2,1
+18	CAST:4,4,4,4,4,4,4,3,3,2
+19	CAST:4,4,4,4,4,4,4,4,3,3
+20	CAST:4,4,4,4,4,4,4,4,4,4
+
+
+
+
+
+# Multiclass option:
+
+
+CLASS:Barbarian
+CLASS:Healer
+CLASS:Paladin
+CLASS:Rogue
+CLASS:Scout
+CLASS:Tinker
+CLASS:Warrior
