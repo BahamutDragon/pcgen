@@ -47,11 +47,55 @@ CLASS:Night Elf	STARTSKILLPTS:2	CSKILL:Climb|Concentration|Handle Animal|Listen|
 2	ABILITY:Night Elf Racial Level|AUTOMATIC|Night Elf ~ Level 2
 3	ABILITY:Night Elf Racial Level|AUTOMATIC|Night Elf ~ Level 3
 
+# Tauren
+CLASS:Tauren	MAXLEVEL:3
+CLASS:Tauren	HD:10	TYPE:Monster	SOURCEPAGE:p.48	DEFINE:TaurenLVL|0	BONUS:VAR|TaurenLVL|CL
+CLASS:Tauren	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	
+CLASS:Tauren	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	
+CLASS:Tauren	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Tauren	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Tauren	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Tauren	PRETEXT:Tauren	PRERACE:1,Tauren
+CLASS:Tauren	STARTSKILLPTS:2	CSKILL:Climb|Concentration|Handle Animal|Listen|Sense Motive|Spellcraft|Spot|Survival
+###Block
+1	ABILITY:Tauren Racial Level|AUTOMATIC|Tauren ~ Level 1
+2	ABILITY:Tauren Racial Level|AUTOMATIC|Tauren ~ Level 2
+3	ABILITY:Tauren Racial Level|AUTOMATIC|Tauren ~ Level 3
+# Levels stack with HIGHEST DIVINE
+
+
+# Jungle Troll
+CLASS:Jungle Troll	MAXLEVEL:3
+CLASS:Jungle Troll	HD:8	TYPE:Monster	SOURCEPAGE:p.51	DEFINE:JungleTrollLVL|0	BONUS:VAR|JungleTrollLVL|CL
+CLASS:Jungle Troll	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	
+CLASS:Jungle Troll	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Jungle Troll	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Jungle Troll	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Jungle Troll	PRETEXT:Jungle Troll	PRERACE:1,Troll	PREABILITY:1,CATEGORY=Internal,Troll ~ Jungle
+CLASS:Jungle Troll	STARTSKILLPTS:2	CSKILL:Balance|Climb|Jump|Listen|Spot|Stealth|Survival|Swim|Tumble
+###Block
+1	ABILITY:Jungle Troll Racial Level|AUTOMATIC|Jungle Troll ~ Level 1
+2	ABILITY:Jungle Troll Racial Level|AUTOMATIC|Jungle Troll ~ Level 2
+3	ABILITY:Jungle Troll Racial Level|AUTOMATIC|Jungle Troll ~ Level 3
+
+# Forsaken
+CLASS:Forsaken	MAXLEVEL:3
+CLASS:Forsaken	HD:8	TYPE:Monster	SOURCEPAGE:p.51	DEFINE:ForsakenLVL|0	BONUS:VAR|ForsakenLVL|CL
+CLASS:Forsaken	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	
+CLASS:Forsaken	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Forsaken	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Forsaken	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Forsaken	PRETEXT:Forsaken	PRERACE:1,Troll	PREABILITY:1,CATEGORY=Internal,Troll ~ Jungle
+CLASS:Forsaken	STARTSKILLPTS:2	CSKILL:Balance|Climb|Jump|Listen|Spot|Stealth|Survival|Swim|Tumble
+###Block
+1	ABILITY:Forsaken Racial Level|AUTOMATIC|Forsaken ~ Level 1
+2	ABILITY:Forsaken Racial Level|AUTOMATIC|Forsaken ~ Level 2
+3	ABILITY:Forsaken Racial Level|AUTOMATIC|Forsaken ~ Level 3
 
 
 
 ###Block: Base Classes
-CLASS:Arcanist	MAXLEVEL:20
+CLASS:Arcanist	MAXLEVEL:20	ABB:Arc
 CLASS:Arcanist	HD:6	TYPE:Base.PC	SOURCEPAGE:p.56	DEFINE:ArcanistLVL|0	BONUS:VAR|ArcanistLVL|CL
 CLASS:Arcanist	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	
 CLASS:Arcanist	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
@@ -73,8 +117,6 @@ SUBCLASS:Warlock		CSKILL:Diplomacy|Intimidate
 1	ABILITY:Arcanist Class Feature|AUTOMATIC|Arcanist ~ Arcane Path		
 1	ABILITY:Arcanist Class Feature|AUTOMATIC|Arcanist ~ Scribe Scroll		
 1	ABILITY:Arcanist Class Feature|AUTOMATIC|Arcanist ~ Bonus Feat		
-
-
 ###Block:
 1	CAST:3,1
 2	CAST:4,2
@@ -98,16 +140,214 @@ SUBCLASS:Warlock		CSKILL:Diplomacy|Intimidate
 20	CAST:4,4,4,4,4,4,4,4,4,4
 
 
+CLASS:Barbarian	ABB:Brb
+CLASS:Barbarian	MAXLEVEL:20
+CLASS:Barbarian	HD:12	TYPE:Base.PC	SOURCEPAGE:p.62	DEFINE:BarbarianLVL|0	BONUS:VAR|BarbarianLVL|CL
+CLASS:Barbarian	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	
+CLASS:Barbarian	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Barbarian	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Barbarian	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Barbarian	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Craft (trade skill)|Handle Animal|Intimidate|Jump|Listen|Ride|Survival|Swim
+###Block:
+1	ABILITY:Class|AUTOMATIC|Barbarian
+###Block
+1	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Weapon and Armor Proficiency	
+1	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Fast Movement				
+1	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Illiteracy				
+1	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Rage					
+2	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Uncanny Dodge				
+3	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Trap Sense				
+5	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Improved Uncanny Dodge		
+7	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Damage Reduction			
+11	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Greater Rage				
+14	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Indomitable Will			
+17	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Tireless Rage				
+20	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Mighty Rage				
+
+CLASS:Healer	ABB:Hlr
+CLASS:Healer	MAXLEVEL:20
+CLASS:Healer	HD:	TYPE:Base.PC.Prestige.Monster	SOURCEPAGE:p.65	DEFINE:HealerLVL|0	BONUS:VAR|HealerLVL|CL
+CLASS:Healer	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	
+CLASS:Healer	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	
+CLASS:Healer	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Healer	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Healer	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Healer	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|TYPE=Craft|Craft (trade skill)|Diplomacy|Heal|Knowledge (arcana)|Knowledge (religion)|Knowledge (the planes)|Listen|TYPE=Profession|Speak Language|Spellcraft
+CLASS:Healer	SPELLTYPE:DIVINE	SPELLSTAT:WIS	MEMORIZE:NO
+CLASS:Healer	BONUS:CASTERLEVEL|Healer|Caster_Level_Healer	DEFINE:Caster_Level_Healer|0	BONUS:VAR|Caster_Level_Healer|CL+Caster_Level_Bonus	DEFINE:CasterLevelBLHealer|0	BONUS:VAR|CasterLevelBLHealer|charbonusto("PCLEVEL","Healer")	
+CLASS:Healer	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Healer+CasterLevelBLHealer|TYPE=Base
+SUBCLASS:Druid	CSKILL:Handle Animal|Knowledge (nature)|Stealth|Survival
+SUBCLASS:Priest	CSKILL:Gather Information|Sense Motive
+SUBCLASS:Shaman	CSKILL:Intimidate|Knowledge (nature)|Survival
+###Block:
+1	ABILITY:Class|AUTOMATIC|Healer
+###Block:
+1	CAST:3,1
+2	CAST:4,2
+3	CAST:4,2,1
+4	CAST:5,3,2
+5	CAST:5,3,2,1
+6	CAST:5,3,3,2
+7	CAST:6,4,3,2,1
+8	CAST:6,4,3,3,2
+9	CAST:6,4,4,3,2,1
+10	CAST:6,4,4,3,3,2
+11	CAST:6,5,4,4,3,2,1
+12	CAST:6,5,4,4,3,3,2
+13	CAST:6,5,5,4,4,3,2,1
+14	CAST:6,5,5,4,4,3,3,2
+15	CAST:6,5,5,5,4,4,3,2,1
+16	CAST:6,5,5,5,4,4,3,3,2
+17	CAST:6,5,5,5,5,4,4,3,2,1
+18	CAST:6,5,5,5,5,4,4,3,3,2
+19	CAST:6,5,5,5,5,5,4,4,3,3
+20	CAST:6,5,5,5,5,5,4,4,4,4
+
+CLASS:Hunter	ABB:Hnt
+CLASS:Hunter	MAXLEVEL:20
+CLASS:Hunter	HD:8	TYPE:Base.PC.Prestige.Monster	SOURCEPAGE:p.73	DEFINE:HunterLVL|0	BONUS:VAR|HunterLVL|CL
+CLASS:Hunter	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
+CLASS:Hunter	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Hunter	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Hunter	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Hunter	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Craft (trade skill)|Handle Animal|Heal|Jump|Knowledge (nature)|Listen|TYPE=Profession|Search|Spot|Stealth|Survival|Swim|Use Rope
+###Block
+1	ABILITY:Hunter Class Feature|AUTOMATIC|Hunter ~ Weapon and Armor Proficiency	
+1	ABILITY:Hunter Class Feature|AUTOMATIC|Hunter ~ Animal Empathy			
+1	ABILITY:Hunter Class Feature|AUTOMATIC|Hunter ~ Sting				
+1	ABILITY:Hunter Class Feature|AUTOMATIC|Hunter ~ Serpent Sting			
+3	ABILITY:Hunter Class Feature|AUTOMATIC|Hunter ~ Aspects				
+5	ABILITY:Hunter Class Feature|AUTOMATIC|Hunter ~ Tame Animal			
+7	ABILITY:Hunter Class Feature|AUTOMATIC|Hunter ~ Eagle Eye				
+14	ABILITY:Hunter Class Feature|AUTOMATIC|Hunter ~ Tame Magical Beast		
+
+CLASS:Paladin	ABB:Pld
+CLASS:Paladin	MAXLEVEL:20
+CLASS:Paladin	HD:10	TYPE:Base.PC.Prestige.Monster	SOURCEPAGE:p.77	DEFINE:PaladinLVL|0	BONUS:VAR|PaladinLVL|CL
+CLASS:Paladin	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
+CLASS:Paladin	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Paladin	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Paladin	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Paladin	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Craft (trade skill)|Diplomacy|Handle Animal|Heal|Knowledge (military tactics)|Knowledge (nobility and royalty)|Knowledge (religion)|TYPE=Profession|Profession (military commander)|Ride|Sense Motive
+CLASS:Paladin	SPELLTYPE:Divine	SPELLSTAT:WIS	MEMORIZE:NO
+CLASS:Paladin	BONUS:CASTERLEVEL|Paladin|Caster_Level_Paladin	DEFINE:Caster_Level_Paladin|0	BONUS:VAR|Caster_Level_Paladin|(CL/2)+Caster_Level_Bonus|PRECLASS:1,Paladin=4	DEFINE:CasterLevelBLPaladin|0	BONUS:VAR|CasterLevelBLPaladin|charbonusto("PCLEVEL","Paladin")	
+CLASS:Paladin	BONUS:VAR|Caster_Level_Highest__Divine|Caster_Level_Paladin+CasterLevelBLPaladin|TYPE=Base
+###Block
+1	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Weapon and Armor Proficiency	
+1	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Aura of Good				
+1	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Detect Undead				
+1	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Holy Strike				
+2	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Divine Grace				
+3	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Auras					
+3	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Divine Health				
+4	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Turn Undead				
+4	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Lay on Hands				
+4	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Spells					
+5	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Crusader Strike				
+7	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Fist of Justice				
+1	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Code of Conduct				
+1	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Associates				
+###Block:
+4	CAST:0,0
+5	CAST:0,0
+6	CAST:0,1
+7	CAST:0,1
+8	CAST:0,1,0
+9	CAST:0,1,0
+10	CAST:0,1,1
+11	CAST:0,1,1,0
+12	CAST:0,1,1,1
+13	CAST:0,1,1,1
+14	CAST:0,2,1,1,0
+15	CAST:0,2,1,1,1
+16	CAST:0,2,2,1,1
+17	CAST:0,2,2,2,1
+18	CAST:0,3,2,2,1
+19	CAST:0,3,3,3,2
+20	CAST:0,3,3,3,3
+
+CLASS:Rogue	ABB:Rog
+CLASS:Rogue	MAXLEVEL:20
+CLASS:Rogue	HD:6	TYPE:Base.PC.Prestige.Monster	SOURCEPAGE:p.80	DEFINE:RogueLVL|0	BONUS:VAR|RogueLVL|CL
+CLASS:Rogue	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	
+CLASS:Rogue	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	
+CLASS:Rogue	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Rogue	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Rogue	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Rogue	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE=Craft|Craft (trade skill)|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Intimidate|Jump|Knowledge (local)|Listen|Open Lock|TYPE=Perform|TYPE=Profession|Search|Sense Motive|Sleight of Hand|Spot|Stealth|Swim|Tumble|Use Magic Device|Use Rope
+###Block	
+1	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Weapon and Armor Proficiency	
+1	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Backstab				
+1	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Trapfinding				
+2	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Evasion				
+3	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Trap Sense				
+4	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Uncanny Dodge			
+8	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Improved Uncanny Dodge		
+3	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Special Abilities			
 
 
+CLASS:Scout	ABB:Sct
+CLASS:Scout	MAXLEVEL:20
+CLASS:Scout	HD:8	TYPE:Base.PC.Prestige.Monster	SOURCEPAGE:p.93	DEFINE:ScoutLVL|0	BONUS:VAR|ScoutLVL|CL
+CLASS:Scout	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	
+CLASS:Scout	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	
+CLASS:Scout	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Scout	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Scout	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Scout	STARTSKILLPTS:6	CSKILL:Climb|TYPE=Craft|Craft (trade skill)|Heal|Jump|Knowledge (military tactics)|Knowledge (nature)|Listen|TYPE=Profession|Search|Spot|Stealth|Survival|Swim|Use Rope
+###Block	
+1	ABILITY:Scout Class Feature|AUTOMATIC|Scout ~ Weapon and Armor Proficiency	
+1	ABILITY:Scout Class Feature|AUTOMATIC|Scout ~ Track					
+1	ABILITY:Scout Class Feature|AUTOMATIC|Scout ~ Nature Sense			
+2	ABILITY:Scout Class Feature|AUTOMATIC|Scout ~ Wild Healing			
+3	ABILITY:Scout Class Feature|AUTOMATIC|Scout ~ Woodland Stride			
+4	ABILITY:Scout Class Feature|AUTOMATIC|Scout ~ Trackless Step			
+4	ABILITY:Scout Class Feature|AUTOMATIC|Scout ~ Uncanny Dodge			
+5	ABILITY:Scout Class Feature|AUTOMATIC|Scout ~ Trap Sense				
+6	ABILITY:Scout Class Feature|AUTOMATIC|Scout ~ Locate Object			
+7	ABILITY:Scout Class Feature|AUTOMATIC|Scout ~ Improved Uncanny Dodge		
+8	ABILITY:Scout Class Feature|AUTOMATIC|Scout ~ Swift Tracker			
+9	ABILITY:Scout Class Feature|AUTOMATIC|Scout ~ Venom Immunity			
+11	ABILITY:Scout Class Feature|AUTOMATIC|Scout ~ Locate Creature			
+12	ABILITY:Scout Class Feature|AUTOMATIC|Scout ~ Evasion				
+13	ABILITY:Scout Class Feature|AUTOMATIC|Scout ~ Commune with Nature		
+16	ABILITY:Scout Class Feature|AUTOMATIC|Scout ~ Find the Path			
+20	ABILITY:Scout Class Feature|AUTOMATIC|Scout ~ Wind Walk				
 
-# Multiclass option:
 
+CLASS:Tinker	ABB:Tkr
+CLASS:Tinker	MAXLEVEL:20
+CLASS:Tinker	HD:6	TYPE:Base.PC	SOURCEPAGE:p.86	DEFINE:TinkerLVL|0	BONUS:VAR|TinkerLVL|CL
+CLASS:Tinker	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	
+CLASS:Tinker	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	
+CLASS:Tinker	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Tinker	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3+2
+CLASS:Tinker	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Tinker	STARTSKILLPTS:8	CSKILL:Appraise|Concentration|TYPE=Craft|Craft (technological device)|Craft (trade skill)|Decipher Script|Disable Device|Forgery|TYPE=Tinker Knowledge|Open Lock|TYPE=Profession|Search|Use Magic Device|Use Technological Device
+#  (all taken individually, except arcana and religion)
+###Block 	
+1	ABILITY:Tinker Class Feature|AUTOMATIC|Tinker ~ Weapon and Armor Proficiency	
+1	ABILITY:Tinker Class Feature|AUTOMATIC|Tinker ~ Bonus Feats			
+2	ABILITY:Tinker Class Feature|AUTOMATIC|Tinker ~ Packrat				
+2	ABILITY:Tinker Class Feature|AUTOMATIC|Tinker ~ Scavenge				
+3	ABILITY:Tinker Class Feature|AUTOMATIC|Tinker ~ Cobble				
+4	ABILITY:Tinker Class Feature|AUTOMATIC|Tinker ~ Bomb Bouncing			
+4	ABILITY:Tinker Class Feature|AUTOMATIC|Tinker ~ Evasion				
+5	ABILITY:Tinker Class Feature|AUTOMATIC|Tinker ~ Coolness Under Fire		
+6	ABILITY:Tinker Class Feature|AUTOMATIC|Tinker ~ Energy Resistance		
+14	ABILITY:Tinker Class Feature|AUTOMATIC|Tinker ~ Improved Evasion			
 
-CLASS:Barbarian
-CLASS:Healer
-CLASS:Paladin
-CLASS:Rogue
-CLASS:Scout
-CLASS:Tinker
-CLASS:Warrior
+CLASS:Warrior	ABB:War
+CLASS:Warrior	MAXLEVEL:20
+CLASS:Warrior	HD:10	TYPE:Base.PC.Prestige.Monster	SOURCEPAGE:p.88	DEFINE:WarriorLVL|0	BONUS:VAR|WarriorLVL|CL
+CLASS:Warrior	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	
+CLASS:Warrior	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Warrior	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Warrior	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Warrior	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Craft (trade skill)|Handle Animal|Intimidate|Jump|Knowledge (military tactics)|Profession (military commander)|Ride|Swim
+###Block
+1	ABILITY:Warrior Class Feature|AUTOMATIC|Warrior ~ Weapon and Armor Proficiency	
+1	ABILITY:Warrior Class Feature|AUTOMATIC|Warrior ~ Bonus Feats				
+
+###Block: Prestige Classes
+# inprogress
