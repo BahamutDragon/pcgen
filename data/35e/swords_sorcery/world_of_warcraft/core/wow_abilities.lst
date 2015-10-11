@@ -826,27 +826,20 @@ Skill Synergy ~ Sense Motive					CATEGORY:Internal		BONUS:SKILL|Diplomacy|Synerg
 Skill Synergy ~ Survival					CATEGORY:Internal		BONUS:SKILL|Knowledge (Nature)|SynergySkillBonus|TYPE=Synergy.STACK
 Skill Synergy ~ Tumble						CATEGORY:Internal		BONUS:SKILL|Balance,Jump|SynergySkillBonus|TYPE=Synergy.STACK
 
-###Block: Weapon Proficiencies
-# Ability Name				Category of Ability		Type					Visible	Serves As						Auto Weapon Prof
-All Automatic Proficiencies		CATEGORY:Special Ability	TYPE:Special.ClassAbility	VISIBLE:NO								AUTO:WEAPONPROF|Unarmed Strike|Spells (Ray)|Spells (Touch)
-#ABILITY:Natural Attack|AUTOMATIC|Natural Attack ~ Shield Bash|PREEQUIP:1,TYPE=Shield
-All Martial Weapon Proficiencies	CATEGORY:Special Ability	TYPE:Special.ClassAbility	VISIBLE:NO	SERVESAS:FEAT|Martial Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Martial
-Bard Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special.ClassAbility	VISIBLE:NO								AUTO:WEAPONPROF|Longsword|Rapier|Sap|Sword (Short)|Shortbow|Whip|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardWeaponProficiencies
-
 ###Block: Proficiency Master Groups - Cut Down on Cross Referencing
-# Ability Name		Category of Ability	Type										Serves As						Auto Weapon Prof
-Weapon Prof ~ Auto	CATEGORY:Internal		TYPE:WeaponProfAuto.WeaponProfSimple.WeaponProfMartial								AUTO:WEAPONPROF|TYPE=Auto|Unarmed Strike|Spells (Ray)|Spells (Touch)
-Weapon Prof ~ Simple	CATEGORY:Internal		TYPE:WeaponProfSimple.WeaponProfMartial				SERVESAS:FEAT|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Simple
-Weapon Prof ~ Martial	CATEGORY:Internal		TYPE:WeaponProfMartial							SERVESAS:FEAT|Martial Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Martial
-Weapon Prof ~ Firearms	CATEGORY:Internal		TYPE:WeaponProfFirearms							SERVESAS:FEAT|Exotic Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Firearms
+# Ability Name		Category of Ability	Type										Serves As								Auto Weapon Prof
+Weapon Prof ~ Auto	CATEGORY:Internal		TYPE:WeaponProfMartial.WeaponProfSimple.WeaponProfAuto										AUTO:WEAPONPROF|TYPE=Auto|Unarmed Strike|Spells (Ray)|Spells (Touch)
+Weapon Prof ~ Simple	CATEGORY:Internal		TYPE:WeaponProfMartial.WeaponProfSimple				SERVESAS:ABILITY=FEAT|Simple Weapon Proficiency		AUTO:WEAPONPROF|TYPE=Simple
+Weapon Prof ~ Martial	CATEGORY:Internal		TYPE:WeaponProfMartial							SERVESAS:ABILITY=FEAT|Martial Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Martial
+Weapon Prof ~ Firearms	CATEGORY:Internal		TYPE:WeaponProfFirearms							SERVESAS:ABILITY=FEAT|Exotic Weapon Proficiency		AUTO:WEAPONPROF|TYPE=Firearms
 
 ###Block: Armor Types
-# Ability Name		Category of Ability	Type									Serves As						Auto Armor Prof
-Armor Prof ~ Light	CATEGORY:Internal		TYPE:ArmorProfLight.ArmorProfMedium.ArmorProfHeavy	SERVESAS:FEAT|Armor Proficiency (Light)	AUTO:ARMORPROF|ARMORTYPE=Light
-Armor Prof ~ Medium	CATEGORY:Internal		TYPE:ArmorProfMedium.ArmorProfHeavy				SERVESAS:FEAT|Armor Proficiency (Medium)	AUTO:ARMORPROF|ARMORTYPE=Medium
-Armor Prof ~ Heavy	CATEGORY:Internal		TYPE:ArmorProfHeavy						SERVESAS:FEAT|Armor Proficiency (Heavy)	AUTO:ARMORPROF|ARMORTYPE=Heavy
+# Ability Name		Category of Ability	Type									Serves As								Auto Armor Prof
+Armor Prof ~ Light	CATEGORY:Internal		TYPE:ArmorProfHeavy.ArmorProfMedium.ArmorProfLight	SERVESAS:ABILITY=FEAT|Armor Proficiency (Light)		AUTO:ARMORPROF|ARMORTYPE=Light
+Armor Prof ~ Medium	CATEGORY:Internal		TYPE:ArmorProfHeavy.ArmorProfMedium				SERVESAS:ABILITY=FEAT|Armor Proficiency (Medium)	AUTO:ARMORPROF|ARMORTYPE=Medium
+Armor Prof ~ Heavy	CATEGORY:Internal		TYPE:ArmorProfHeavy						SERVESAS:ABILITY=FEAT|Armor Proficiency (Heavy)		AUTO:ARMORPROF|ARMORTYPE=Heavy
 ###Block: Shield Types
-# Ability Name		Category of Ability	Type						Serves As						Auto Shield Prof
-Shield Prof ~ Tower	CATEGORY:Internal		TYPE:ShieldProfTower			SERVESAS:FEAT|Tower Shield Proficiency	AUTO:SHIELDPROF|SHIELDTYPE=Tower
-Shield Prof			CATEGORY:Internal		TYPE:ShieldProfTower.ShieldProf	SERVESAS:FEAT|Shield Proficiency		AUTO:SHIELDPROF|SHIELDTYPE=Buckler|SHIELDTYPE=Heavy|SHIELDTYPE=Light
+# Ability Name		Category of Ability	Type						Serves As							Auto Shield Prof
+Shield Prof			CATEGORY:Internal		TYPE:ShieldProfTower.ShieldProf	SERVESAS:ABILITY=FEAT|Shield Proficiency		AUTO:SHIELDPROF|SHIELDTYPE=Buckler|SHIELDTYPE=Heavy|SHIELDTYPE=Light
+Shield Prof ~ Tower	CATEGORY:Internal		TYPE:ShieldProfTower			SERVESAS:ABILITY=FEAT|Tower Shield Proficiency	AUTO:SHIELDPROF|SHIELDTYPE=Tower
 
