@@ -60,6 +60,133 @@ LEVEL_ADJUSTMENT_7							VISIBLE:NO	LEVELADJUSTMENT:7
 LEVEL_ADJUSTMENT_8							VISIBLE:NO	LEVELADJUSTMENT:8
 LEVEL_ADJUSTMENT_9							VISIBLE:NO	LEVELADJUSTMENT:9
 
+
+# Non-Abilities
+# Template Name						Visible	Template																																																																		Define					Define Stat			Required Race									Modify VAR																		Ability														Removable?		Race Subtype
+Non-Ability ~ Strength					VISIBLE:NO																																																																										DEFINESTAT:NONSTAT|STR
+Non-Ability ~ Dexterity					VISIBLE:NO																																																																										DEFINESTAT:NONSTAT|DEX
+Non-Ability ~ Constitution				VISIBLE:NO																																																																										DEFINESTAT:NONSTAT|CON
+Non-Ability ~ Intelligence				VISIBLE:NO																																																																										DEFINESTAT:NONSTAT|INT
+Non-Ability ~ Wisdom					VISIBLE:NO																																																																										DEFINESTAT:NONSTAT|WIS
+Non-Ability ~ Charisma					VISIBLE:NO																																																																										DEFINESTAT:NONSTAT|CHA
+
+###Block: Dragon Support
+
+###Block: Generic Size Chart
+# Template Name	Size
+F			SIZE:F
+D			SIZE:D
+T			SIZE:T
+S			SIZE:S
+M			SIZE:M
+L			SIZE:L
+H			SIZE:H
+C			SIZE:C
+C+			SIZE:P
+
+# Template Name						Visible	Template																																																																		Define					Define Stat			Required Race									Modify VAR																		Ability														Removable?		Race Subtype
+Base Race Type						VISIBLE:NO	TEMPLATE:CHOOSE:Base Race Type ~ Aberration|Base Race Type ~ Animal|Base Race Type ~ Construct|Base Race Type ~ Dragon|Base Race Type ~ Elemental|Base Race Type ~ Fey|Base Race Type ~ Giant|Base Race Type ~ Humanoid|Base Race Type ~ Magical Beast|Base Race Type ~ Monstrous Humanoid|Base Race Type ~ Ooze|Base Race Type ~ Outsider|Base Race Type ~ Plant|Base Race Type ~ Undead|Base Race Type ~ Vermin
+###Block:
+Base Race Type ~ Aberration				VISIBLE:NO	DEFINE:BaseRaceTypeUnchanged|0					PRERACE:2,RACETYPE=Aberration,TYPE=Aberration				BONUS:VAR|BaseRaceTypeUnchanged|1	BONUS:VAR|BaseRaceTypeUnchanged|-1|PRERACE:1,RACETYPE=Aberration			ABILITY:Internal|AUTOMATIC|Augmented Aberration|PREVAREQ:BaseRaceTypeUnchanged,1
+Base Race Type ~ Animal					VISIBLE:NO	DEFINE:BaseRaceTypeUnchanged|0					PRERACE:2,RACETYPE=Animal,TYPE=Animal					BONUS:VAR|BaseRaceTypeUnchanged|1	BONUS:VAR|BaseRaceTypeUnchanged|-1|PRERACE:1,RACETYPE=Animal			ABILITY:Internal|AUTOMATIC|Augmented Animal|PREVAREQ:BaseRaceTypeUnchanged,1
+Base Race Type ~ Construct				VISIBLE:NO	DEFINE:BaseRaceTypeUnchanged|0					PRERACE:2,RACETYPE=Construct,TYPE=Construct				BONUS:VAR|BaseRaceTypeUnchanged|1	BONUS:VAR|BaseRaceTypeUnchanged|-1|PRERACE:1,RACETYPE=Construct			ABILITY:Internal|AUTOMATIC|Augmented Construct|PREVAREQ:BaseRaceTypeUnchanged,1
+Base Race Type ~ Dragon					VISIBLE:NO	DEFINE:BaseRaceTypeUnchanged|0					PRERACE:2,RACETYPE=Dragon,TYPE=Dragon					BONUS:VAR|BaseRaceTypeUnchanged|1	BONUS:VAR|BaseRaceTypeUnchanged|-1|PRERACE:1,RACETYPE=Dragon			ABILITY:Internal|AUTOMATIC|Augmented Dragon|PREVAREQ:BaseRaceTypeUnchanged,1
+Base Race Type ~ Elemental				VISIBLE:NO	DEFINE:BaseRaceTypeUnchanged|0					PRERACE:2,RACETYPE=Elemental,TYPE=Elemental				BONUS:VAR|BaseRaceTypeUnchanged|1	BONUS:VAR|BaseRaceTypeUnchanged|-1|PRERACE:1,RACETYPE=Elemental			ABILITY:Internal|AUTOMATIC|Augmented Elemental|PREVAREQ:BaseRaceTypeUnchanged,1
+Base Race Type ~ Fey					VISIBLE:NO	DEFINE:BaseRaceTypeUnchanged|0					PRERACE:2,RACETYPE=Fey,TYPE=Fey						BONUS:VAR|BaseRaceTypeUnchanged|1	BONUS:VAR|BaseRaceTypeUnchanged|-1|PRERACE:1,RACETYPE=Fey				ABILITY:Internal|AUTOMATIC|Augmented Fey|PREVAREQ:BaseRaceTypeUnchanged,1
+Base Race Type ~ Giant					VISIBLE:NO	DEFINE:BaseRaceTypeUnchanged|0					PRERACE:2,RACETYPE=Giant,TYPE=Giant						BONUS:VAR|BaseRaceTypeUnchanged|1	BONUS:VAR|BaseRaceTypeUnchanged|-1|PRERACE:1,RACETYPE=Giant				ABILITY:Internal|AUTOMATIC|Augmented Giant|PREVAREQ:BaseRaceTypeUnchanged,1
+Base Race Type ~ Humanoid				VISIBLE:NO	DEFINE:BaseRaceTypeUnchanged|0					PRERACE:2,RACETYPE=Humanoid,TYPE=Humanoid					BONUS:VAR|BaseRaceTypeUnchanged|1	BONUS:VAR|BaseRaceTypeUnchanged|-1|PRERACE:1,RACETYPE=Humanoid			ABILITY:Internal|AUTOMATIC|Augmented Humanoid|PREVAREQ:BaseRaceTypeUnchanged,1
+Base Race Type ~ Magical Beast			VISIBLE:NO	DEFINE:BaseRaceTypeUnchanged|0					PRERACE:2,RACETYPE=Magical Beast,TYPE=Magical Beast			BONUS:VAR|BaseRaceTypeUnchanged|1	BONUS:VAR|BaseRaceTypeUnchanged|-1|PRERACE:1,RACETYPE=Magical Beast		ABILITY:Internal|AUTOMATIC|Augmented Magical Beast|PREVAREQ:BaseRaceTypeUnchanged,1
+Base Race Type ~ Monstrous Humanoid			VISIBLE:NO	DEFINE:BaseRaceTypeUnchanged|0					PRERACE:2,RACETYPE=Monstrous Humanoid,TYPE=Monstrous Humanoid	BONUS:VAR|BaseRaceTypeUnchanged|1	BONUS:VAR|BaseRaceTypeUnchanged|-1|PRERACE:1,RACETYPE=Monstrous Humanoid	ABILITY:Internal|AUTOMATIC|Augmented Monstrous Humanoid|PREVAREQ:BaseRaceTypeUnchanged,1
+Base Race Type ~ Ooze					VISIBLE:NO	DEFINE:BaseRaceTypeUnchanged|0					PRERACE:2,RACETYPE=Ooze,TYPE=Ooze						BONUS:VAR|BaseRaceTypeUnchanged|1	BONUS:VAR|BaseRaceTypeUnchanged|-1|PRERACE:1,RACETYPE=Ooze				ABILITY:Internal|AUTOMATIC|Augmented Ooze|PREVAREQ:BaseRaceTypeUnchanged,1
+Base Race Type ~ Outsider				VISIBLE:NO	DEFINE:BaseRaceTypeUnchanged|0					PRERACE:2,RACETYPE=Outsider,TYPE=Outsider					BONUS:VAR|BaseRaceTypeUnchanged|1	BONUS:VAR|BaseRaceTypeUnchanged|-1|PRERACE:1,RACETYPE=Outsider			ABILITY:Internal|AUTOMATIC|Augmented Outsider|PREVAREQ:BaseRaceTypeUnchanged,1
+Base Race Type ~ Plant					VISIBLE:NO	DEFINE:BaseRaceTypeUnchanged|0					PRERACE:2,RACETYPE=Plant,TYPE=Plant						BONUS:VAR|BaseRaceTypeUnchanged|1	BONUS:VAR|BaseRaceTypeUnchanged|-1|PRERACE:1,RACETYPE=Plant				ABILITY:Internal|AUTOMATIC|Augmented Plant|PREVAREQ:BaseRaceTypeUnchanged,1
+Base Race Type ~ Undead					VISIBLE:NO	DEFINE:BaseRaceTypeUnchanged|0					PRERACE:2,RACETYPE=Undead,TYPE=Undead					BONUS:VAR|BaseRaceTypeUnchanged|1	BONUS:VAR|BaseRaceTypeUnchanged|-1|PRERACE:1,RACETYPE=Undead			ABILITY:Internal|AUTOMATIC|Augmented Undead|PREVAREQ:BaseRaceTypeUnchanged,1
+Base Race Type ~ Vermin					VISIBLE:NO	DEFINE:BaseRaceTypeUnchanged|0					PRERACE:2,RACETYPE=Vermin,TYPE=Vermin					BONUS:VAR|BaseRaceTypeUnchanged|1	BONUS:VAR|BaseRaceTypeUnchanged|-1|PRERACE:1,RACETYPE=Vermin			ABILITY:Internal|AUTOMATIC|Augmented Vermin|PREVAREQ:BaseRaceTypeUnchanged,1
+###Block:
+RaceSubtype ~ Augmented Aberration			VISIBLE:NO	REMOVABLE:YES	RACESUBTYPE:Augmented Aberration
+RaceSubtype ~ Augmented Animal			VISIBLE:NO	REMOVABLE:YES	RACESUBTYPE:Augmented Animal
+RaceSubtype ~ Augmented Construct			VISIBLE:NO	REMOVABLE:YES	RACESUBTYPE:Augmented Construct
+RaceSubtype ~ Augmented Dragon			VISIBLE:NO	REMOVABLE:YES	RACESUBTYPE:Augmented Dragon
+RaceSubtype ~ Augmented Elemental			VISIBLE:NO	REMOVABLE:YES	RACESUBTYPE:Augmented Elemental
+RaceSubtype ~ Augmented Fey				VISIBLE:NO	REMOVABLE:YES	RACESUBTYPE:Augmented Fey
+RaceSubtype ~ Augmented Giant				VISIBLE:NO	REMOVABLE:YES	RACESUBTYPE:Augmented Giant
+RaceSubtype ~ Augmented Humanoid			VISIBLE:NO	REMOVABLE:YES	RACESUBTYPE:Augmented Humanoid
+RaceSubtype ~ Augmented Magical Beast		VISIBLE:NO	REMOVABLE:YES	RACESUBTYPE:Augmented Magical Beast
+RaceSubtype ~ Augmented Monstrous Humanoid	VISIBLE:NO	REMOVABLE:YES	RACESUBTYPE:Augmented Monstrous Humanoid
+RaceSubtype ~ Augmented Ooze				VISIBLE:NO	REMOVABLE:YES	RACESUBTYPE:Augmented Ooze
+RaceSubtype ~ Augmented Outsider			VISIBLE:NO	REMOVABLE:YES	RACESUBTYPE:Augmented Outsider
+RaceSubtype ~ Augmented Plant				VISIBLE:NO	REMOVABLE:YES	RACESUBTYPE:Augmented Plant
+RaceSubtype ~ Augmented Undead			VISIBLE:NO	REMOVABLE:YES	RACESUBTYPE:Augmented Undead
+RaceSubtype ~ Augmented Vermin			VISIBLE:NO	REMOVABLE:YES	RACESUBTYPE:Augmented Vermin
+
+
+# Favored Class
+Arcanist		KEY:Favored Class ~ Arcanist			VISIBLE:NO	TYPE:FavoredClass		FAVOREDCLASS:Arcanist
+Mage			KEY:Favored Class ~ Mage			VISIBLE:NO	TYPE:FavoredClass		FAVOREDCLASS:Arcanist.Mage	
+Necromancer		KEY:Favored Class ~ Necromancer		VISIBLE:NO	TYPE:FavoredClass		FAVOREDCLASS:Arcanist.Necromancer	
+Warlock		KEY:Favored Class ~ Warlock			VISIBLE:NO	TYPE:FavoredClass		FAVOREDCLASS:Arcanist.Warlock	
+
+
+Healer		KEY:Favored Class ~ Healer			VISIBLE:NO	TYPE:FavoredClass		FAVOREDCLASS:Healer	
+Druid			KEY:Favored Class ~ Druid			VISIBLE:NO	TYPE:FavoredClass		FAVOREDCLASS:Healer.Druid	
+Priest		KEY:Favored Class ~ Priest			VISIBLE:NO	TYPE:FavoredClass		FAVOREDCLASS:Healer.Priest	
+Shaman		KEY:Favored Class ~ Shaman			VISIBLE:NO	TYPE:FavoredClass		FAVOREDCLASS:Healer.Shaman	
+
+Barbarian		KEY:Favored Class ~ Barbarian			VISIBLE:NO	TYPE:FavoredClass		FAVOREDCLASS:Barbarian	
+Barbarian		KEY:Favored Class ~ Barbarian			VISIBLE:NO	TYPE:FavoredClass		FAVOREDCLASS:Barbarian	
+Paladin		KEY:Favored Class ~ Paladin			VISIBLE:NO	TYPE:FavoredClass		FAVOREDCLASS:Paladin		
+Rogue			KEY:Favored Class ~ Rogue			VISIBLE:NO	TYPE:FavoredClass		FAVOREDCLASS:Rogue			
+#
+No Favored Class	KEY:Favored Class ~ HIGHESTLEVELCLASS	VISIBLE:NO	TYPE:FavoredClass		FAVOREDCLASS:HIGHESTLEVELCLASS
+
+###Block: Sub Races
+# Human
+# Template Name	Unique Key			Visible	Subrace		Race Subtype
+Human			KEY:Human Base		VISIBLE:NO	
+# Dwarf
+Ironforge		KEY:Ironforge Dwarf	VISIBLE:NO	SUBRACE:Ironforge
+# Elf
+High			KEY:High Elf		VISIBLE:NO	SUBRACE:High
+Night			KEY:Night Elf		VISIBLE:NO	SUBRACE:Night
+# Gnome
+Jungle		KEY:Jungle Troll		VISIBLE:NO	SUBRACE:Jungle
+
+
+###Block: Race Language Support
+# Template Name			Visible	Bonus Languages
+Language ~ Bonus (Ironforge Dwarf)	VISIBLE:NO	LANGBONUS:Gnome,Goblin,Orc,Thalassian
+Language ~ Bonus (High Elf)		VISIBLE:NO	LANGBONUS:Darnassian,Dwarven,Goblin,Kalimdoran,Orcish
+Language ~ Bonus (Night Elf)		VISIBLE:NO	LANGBONUS:Goblin,Low Common,Orcish,Thalassian
+Language ~ Bonus (Gnome)		VISIBLE:NO	LANGBONUS:Dwarven,Goblin,Thalassian
+Language ~ Bonus (Goblin)		VISIBLE:NO	LANGBONUS:TYPE=Spoken
+Language ~ Bonus (Human)		VISIBLE:NO	LANGBONUS:TYPE=Spoken
+Language ~ Bonus (Orc)			VISIBLE:NO	LANGBONUS:Goblin,Low Common,Taur-ahe
+Language ~ Bonus (Tauren)		VISIBLE:NO	LANGBONUS:Goblin,Low Common,Orcish
+Language ~ Bonus (Jungle Troll)	VISIBLE:NO	LANGBONUS:Goblin,Orc,Taur-ahe
+Language ~ Bonus (Forsaken)		VISIBLE:NO	LANGBONUS:Goblin,Low Common,Orc,Thalassian
+
+
+
+
+
+###Block: Dragon Age - Warcraft has different system
+# Template Name	Subrace
+Wyrmling		SUBRACE:YES
+Very Young		SUBRACE:YES
+Young			SUBRACE:YES
+Juvenile		SUBRACE:YES
+Young Adult		SUBRACE:YES
+Adult			SUBRACE:YES
+Mature Adult	SUBRACE:YES
+Old			SUBRACE:YES
+Very Old		SUBRACE:YES
+Ancient		SUBRACE:YES
+Wyrm			SUBRACE:YES
+Great Wyrm		SUBRACE:YES
+
+
+
+
 War Trained																BONUS:VAR|AnimalWarTrained|1	DEFINE:AnimalWarTrained|0
 
 ###Block: Support for 3rd party sources that use TEMPLATE
@@ -97,8 +224,8 @@ Extraplanar			VISIBLE:NO																	RACESUBTYPE:Extraplanar
 Native			VISIBLE:NO								PRERACE:1,RACETYPE=Outsider					RACESUBTYPE:Native
 
 Mindless			VISIBLE:NO	ABILITY:Special Ability|AUTOMATIC|Mindless
-Psionic					VISIBLE:EXPORT																																																																																																																																																																																																																																																									ABILITY:Special Ability|AUTOMATIC|Psionic										SUBRACE:Psionic					RACESUBTYPE:Psionic
-Psionic Power Points Progression	VISIBLE:NO																				DEFINE:PsionML|0																																									BONUS:VAR|BasePowerPoints|2	BONUS:VAR|BasePowerPoints|4|PREVARGTEQ:PsionML,2	BONUS:VAR|BasePowerPoints|5|PREVARGTEQ:PsionML,3	BONUS:VAR|BasePowerPoints|6|PREVARGTEQ:PsionML,4	BONUS:VAR|BasePowerPoints|8|PREVARGTEQ:PsionML,5	BONUS:VAR|BasePowerPoints|10|PREVARGTEQ:PsionML,6	BONUS:VAR|BasePowerPoints|11|PREVARGTEQ:PsionML,7	BONUS:VAR|BasePowerPoints|12|PREVARGTEQ:PsionML,8	BONUS:VAR|BasePowerPoints|14|PREVARGTEQ:PsionML,9	BONUS:VAR|BasePowerPoints|16|PREVARGTEQ:PsionML,10	BONUS:VAR|BasePowerPoints|18|PREVARGTEQ:PsionML,11	BONUS:VAR|BasePowerPoints|20|PREVARGTEQ:PsionML,12	BONUS:VAR|BasePowerPoints|21|PREVARGTEQ:PsionML,13	BONUS:VAR|BasePowerPoints|23|PREVARGTEQ:PsionML,14	BONUS:VAR|BasePowerPoints|25|PREVARGTEQ:PsionML,15	BONUS:VAR|BasePowerPoints|26|PREVARGTEQ:PsionML,16	BONUS:VAR|BasePowerPoints|29|PREVARGTEQ:PsionML,17	BONUS:VAR|BasePowerPoints|30|PREVARGTEQ:PsionML,18	BONUS:VAR|BasePowerPoints|31|PREVARGTEQ:PsionML,19	BONUS:VAR|BasePowerPoints|32|PREVARGTEQ:PsionML,20	BONUS:VAR|BonusPowerPoints|(INT*PsionML)/2|TYPE=PsionBonusPP
+#Psionic					VISIBLE:EXPORT																																																																																																																																																																																																																																																									ABILITY:Special Ability|AUTOMATIC|Psionic										SUBRACE:Psionic					RACESUBTYPE:Psionic
+#Psionic Power Points Progression	VISIBLE:NO																				DEFINE:PsionML|0																																									BONUS:VAR|BasePowerPoints|2	BONUS:VAR|BasePowerPoints|4|PREVARGTEQ:PsionML,2	BONUS:VAR|BasePowerPoints|5|PREVARGTEQ:PsionML,3	BONUS:VAR|BasePowerPoints|6|PREVARGTEQ:PsionML,4	BONUS:VAR|BasePowerPoints|8|PREVARGTEQ:PsionML,5	BONUS:VAR|BasePowerPoints|10|PREVARGTEQ:PsionML,6	BONUS:VAR|BasePowerPoints|11|PREVARGTEQ:PsionML,7	BONUS:VAR|BasePowerPoints|12|PREVARGTEQ:PsionML,8	BONUS:VAR|BasePowerPoints|14|PREVARGTEQ:PsionML,9	BONUS:VAR|BasePowerPoints|16|PREVARGTEQ:PsionML,10	BONUS:VAR|BasePowerPoints|18|PREVARGTEQ:PsionML,11	BONUS:VAR|BasePowerPoints|20|PREVARGTEQ:PsionML,12	BONUS:VAR|BasePowerPoints|21|PREVARGTEQ:PsionML,13	BONUS:VAR|BasePowerPoints|23|PREVARGTEQ:PsionML,14	BONUS:VAR|BasePowerPoints|25|PREVARGTEQ:PsionML,15	BONUS:VAR|BasePowerPoints|26|PREVARGTEQ:PsionML,16	BONUS:VAR|BasePowerPoints|29|PREVARGTEQ:PsionML,17	BONUS:VAR|BasePowerPoints|30|PREVARGTEQ:PsionML,18	BONUS:VAR|BasePowerPoints|31|PREVARGTEQ:PsionML,19	BONUS:VAR|BasePowerPoints|32|PREVARGTEQ:PsionML,20	BONUS:VAR|BonusPowerPoints|(INT*PsionML)/2|TYPE=PsionBonusPP
 
 
 #
