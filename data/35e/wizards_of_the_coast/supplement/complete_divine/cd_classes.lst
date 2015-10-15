@@ -204,7 +204,7 @@ CLASS:Church Inquisitor	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC"
 CLASS:Church Inquisitor	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 CLASS:Church Inquisitor	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 CLASS:Church Inquisitor	PRETEXT:Alignment: Lawful good or lawful neutral. Base Save Bonus: Will +3. Skills: Knowledge (arcana) 4 ranks, Knowledge (religion) 4 ranks, Spellcraft 4 ranks. Spells: Able to cast zone of truth as a divine spell. Special: Must be a member of a lawful good church or religious order, and must have already uncovered some corruption within that organization.
-CLASS:Church Inquisitor	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Decipher Script|Diplomacy |Gather Information|Intimidate|Knowledge (arcana)|Knowledge (local)|Knowledge (the planes)|Knowledge (religion)|Search|Sense Motive|Spellcraft|Spot
+CLASS:Church Inquisitor	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Decipher Script|Diplomacy|Gather Information|Intimidate|Knowledge (arcana)|Knowledge (local)|Knowledge (the planes)|Knowledge (religion)|Search|Sense Motive|Spellcraft|Spot
 1:REPEATLEVEL:1	ADD:SPELLCASTER|Divine
 ###Block
 11	PREPCLEVEL:MIN=20	PRECAMPAIGN:1,INCLUDES=Epic Level Handbook
@@ -231,9 +231,9 @@ CLASS:Consecrated Harrier	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")
 CLASS:Consecrated Harrier	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 CLASS:Consecrated Harrier	PRETEXT:Alignment: Any lawful. Base Attack Bonus: +5. Skills: Disguise 5 ranks, Gather Information 5 ranks. Feat: Track. Special: The candidate must accept an assignment from her church to locate and destroy some specifi c, individual enemy of the church. A character who fails must wait a year and a day before applying again. If she succeeds, the church accepts her as a consecrated harrier and she may gain levels in the class.
 CLASS:Consecrated Harrier	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Diplomacy|Disguise|Gather Information|Intimidate|Knowledge (local)|TYPE=Profession|Ride|Search|Use Rope
-CLASS:Consecrated Harrier	SPELLTYPE:	SPELLSTAT:	MEMORIZE:
+CLASS:Consecrated Harrier	SPELLTYPE:Divine	SPELLSTAT:WIS	MEMORIZE:NO
 CLASS:Consecrated Harrier	BONUS:CASTERLEVEL|Consecrated Harrier|Caster_Level_ConsecratedHarrier	DEFINE:Caster_Level_ConsecratedHarrier|0	BONUS:VAR|Caster_Level_ConsecratedHarrier|CL+Caster_Level_Bonus	DEFINE:CasterLevelBLConsecratedHarrier|0	BONUS:VAR|CasterLevelBLConsecratedHarrier|charbonusto("PCLEVEL","Consecrated Harrier")	
-CLASS:Consecrated Harrier	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_ConsecratedHarrier+CasterLevelBLConsecratedHarrier|TYPE=Base
+CLASS:Consecrated Harrier	BONUS:VAR|Caster_Level_Highest__Divine|Caster_Level_ConsecratedHarrier+CasterLevelBLConsecratedHarrier|TYPE=Base
 ###Block
 1	CAST:0,0
 2	CAST:0,1
@@ -267,16 +267,16 @@ CLASS:Contemplative	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|He
 10												ADD:SPELLCASTER|Divine	ABILITY:Contemplative Class Feature|AUTOMATIC|Contemplative ~ Mystic Union
 
 
-# Divine Crusader						SOURCEPAGE:33
-CLASS:Divine Crusader	MAXLEVEL:20
-CLASS:Divine Crusader	HD:	TYPE:Prestige	SOURCEPAGE:p.	DEFINE:DivineCrusaderLVL|0	BONUS:VAR|DivineCrusaderLVL|CL
+# Divine Crusader
+CLASS:Divine Crusader	MAXLEVEL:10
+CLASS:Divine Crusader	HD:8	TYPE:Prestige	SOURCEPAGE:p.33	DEFINE:DivineCrusaderLVL|0	BONUS:VAR|DivineCrusaderLVL|CL
 CLASS:Divine Crusader	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	
 CLASS:Divine Crusader	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	
 CLASS:Divine Crusader	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
 CLASS:Divine Crusader	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 CLASS:Divine Crusader	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 CLASS:Divine Crusader	PRETEXT:Alignment: Must match chosen deity. Base Attack Bonus: +7. Skill: Knowledge (religion) 2 ranks. Feat: Weapon Focus (in chosen deity’s favored weapon).
-CLASS:Divine Crusader	STARTSKILLPTS:2	CSKILL:Climb (Str)|Concentration (Con)|Craft (Int)|Diplomacy (Cha)|Intimidate (Cha)|Jump (Str)|Knowledge (religion) (Int)|Ride (Dex)|Swim
+CLASS:Divine Crusader	STARTSKILLPTS:2	CSKILL:Climb|Concentration|TYPE=Craft|Diplomacy|Intimidate|Jump|Knowledge (religion)|Ride|Swim
 CLASS:Divine Crusader	SPELLTYPE:Divine	SPELLSTAT:WIS	MEMORIZE:NO
 CLASS:Divine Crusader	BONUS:CASTERLEVEL|Divine Crusader|Caster_Level_DivineCrusader	DEFINE:Caster_Level_DivineCrusader|0	BONUS:VAR|Caster_Level_DivineCrusader|CL+Caster_Level_Bonus	DEFINE:CasterLevelBLDivineCrusader|0	BONUS:VAR|CasterLevelBLDivineCrusader|charbonusto("PCLEVEL","Divine Crusader")	
 CLASS:Divine Crusader	BONUS:VAR|Caster_Level_Highest__Divine|Caster_Level_DivineCrusader+CasterLevelBLDivineCrusader|TYPE=Base
@@ -350,7 +350,7 @@ CLASS:Evangelist	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
 CLASS:Evangelist	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 CLASS:Evangelist	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 CLASS:Evangelist	PRETEXT:Alignment: An evangelist has the same alignment restrictions as a cleric of a particular deity. Skills: Bluff 8 ranks, Gather Information 5 ranks, Knowledge (religion) 5 ranks, Perform (oratory) 6 ranks, Sense Motive 5 ranks. Feats: Negotiator or Persuasive.
-CLASS:Evangelist	STARTSKILLPTS:6	CSKILL:Bluff|TYPE=Craft|Diplomacy|Disguise|Escape Artist|Intimidate|TYPE=Knowledge |Listen|TYPE=Perform|TYPE=Profession|Sense Motive|Speak Language
+CLASS:Evangelist	STARTSKILLPTS:6	CSKILL:Bluff|TYPE=Craft|Diplomacy|Disguise|Escape Artist|Intimidate|TYPE=Knowledge|Listen|TYPE=Perform|TYPE=Profession|Sense Motive|Speak Language
 ###Block	
 1	ABILITY:Evangelist Class Feature|AUTOMATIC|Evangelist ~ Weapon and Armor Proficiency	
 1	ABILITY:Evangelist Class Feature|AUTOMATIC|Evangelist ~ Great Orator				
@@ -389,7 +389,7 @@ CLASS:Holy Liberator	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2
 CLASS:Holy Liberator	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 CLASS:Holy Liberator	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 CLASS:Holy Liberator	PRETEXT:Alignment: Chaotic good. Base Attack Bonus: +5. Skills: Diplomacy 5 ranks, Sense Motive 5 ranks. Feat: Iron Will.
-CLASS:Holy Liberator	STARTSKILLPTS:2	CSKILL:Concentration|Craft|Diplomacy|Handle Animal|Heal|Intimidate|Knowledge (religion)|Profession|Ride|Sense Motive
+CLASS:Holy Liberator	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Intimidate|Knowledge (religion)|TYPE=Profession|Ride|Sense Motive
 CLASS:Holy Liberator	SPELLTYPE:Divine	SPELLSTAT:WIS	MEMORIZE:NO
 CLASS:Holy Liberator	BONUS:CASTERLEVEL|Holy Liberator|Caster_Level_HolyLiberator	DEFINE:Caster_Level_HolyLiberator|0	BONUS:VAR|Caster_Level_HolyLiberator|CL+Caster_Level_Bonus	DEFINE:CasterLevelBLHolyLiberator|0	BONUS:VAR|CasterLevelBLHolyLiberator|charbonusto("PCLEVEL","Holy Liberator")	
 CLASS:Holy Liberator	BONUS:VAR|Caster_Level_Highest__Divine|Caster_Level_HolyLiberator+CasterLevelBLHolyLiberator|TYPE=Base
@@ -500,16 +500,16 @@ CLASS:Radiant Servant of Pelor	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|D
 8	ABILITY:Radiant Servant of Pelor Class Feature|AUTOMATIC|Radiant Servant Of Pelor ~ Positive Energy Burst		
 10	ABILITY:Radiant Servant of Pelor Class Feature|AUTOMATIC|Radiant Servant Of Pelor ~ Supreme Healing			
 
-# Rainbow Warrior
-CLASS:Rainbow Warrior	MAXLEVEL:10
-CLASS:Rainbow Warrior	HD:4	TYPE:Prestige	SOURCEPAGE:p.54	DEFINE:RainbowWarriorLVL|0	BONUS:VAR|RainbowWarriorLVL|CL
-CLASS:Rainbow Warrior	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	
-CLASS:Rainbow Warrior	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
-CLASS:Rainbow Warrior	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
-CLASS:Rainbow Warrior	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
-CLASS:Rainbow Warrior	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
-CLASS:Rainbow Warrior	PRETEXT:Alignment: Any nonevil and nonchaotic. Skill: Knowledge (arcana) 4 ranks. Spells: Able to cast 3rd-level arcane spells. Special: Must fi nd the hidden jungle temples of the couatls.
-CLASS:Rainbow Warrior	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Knowledge (arcana)|Knowledge (the planes)|TYPE=Profession|Sense Motive|Spellcraft
+# Rainbow Servant
+CLASS:Rainbow Servant	MAXLEVEL:10
+CLASS:Rainbow Servant	HD:4	TYPE:Prestige	SOURCEPAGE:p.54	DEFINE:RainbowServantLVL|0	BONUS:VAR|RainbowServantLVL|CL
+CLASS:Rainbow Servant	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	
+CLASS:Rainbow Servant	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+CLASS:Rainbow Servant	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Rainbow Servant	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Rainbow Servant	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Rainbow Servant	PRETEXT:Alignment: Any nonevil and nonchaotic. Skill: Knowledge (arcana) 4 ranks. Spells: Able to cast 3rd-level arcane spells. Special: Must fi nd the hidden jungle temples of the couatls.
+CLASS:Rainbow Servant	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Knowledge (arcana)|Knowledge (the planes)|TYPE=Profession|Sense Motive|Spellcraft
 2	ADD:SPELLCASTER|Arcane
 3	ADD:SPELLCASTER|Arcane
 5	ADD:SPELLCASTER|Arcane
@@ -519,14 +519,14 @@ CLASS:Rainbow Warrior	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|
 ###Block
 11	PREPCLEVEL:MIN=20
 ###Block	
-1	ABILITY:Rainbow Warrior Class Feature|AUTOMATIC|Rainbow Servant ~ Weapon and Armor Proficiency	
-1	ABILITY:Rainbow Warrior Class Feature|AUTOMATIC|Rainbow Servant ~ Detect Evil				
-1	ABILITY:Rainbow Warrior Class Feature|AUTOMATIC|Rainbow Servant ~ Extra Domain				
-2	ABILITY:Rainbow Warrior Class Feature|AUTOMATIC|Rainbow Servant ~ Spells per Day/Spells Known	
-4	ABILITY:Rainbow Warrior Class Feature|AUTOMATIC|Rainbow Servant ~ Grow Wings				
-7	ABILITY:Rainbow Warrior Class Feature|AUTOMATIC|Rainbow Servant ~ Detect Chaos				
-10	ABILITY:Rainbow Warrior Class Feature|AUTOMATIC|Rainbow Servant ~ Cleric Spell Access			
-10	ABILITY:Rainbow Warrior Class Feature|AUTOMATIC|Rainbow Servant ~ Detect Thoughts			
+1	ABILITY:Rainbow Servant Class Feature|AUTOMATIC|Rainbow Servant ~ Weapon and Armor Proficiency	
+1	ABILITY:Rainbow Servant Class Feature|AUTOMATIC|Rainbow Servant ~ Detect Evil				
+1	ABILITY:Rainbow Servant Class Feature|AUTOMATIC|Rainbow Servant ~ Extra Domain				
+2	ABILITY:Rainbow Servant Class Feature|AUTOMATIC|Rainbow Servant ~ Spells per Day/Spells Known	
+4	ABILITY:Rainbow Servant Class Feature|AUTOMATIC|Rainbow Servant ~ Grow Wings				
+7	ABILITY:Rainbow Servant Class Feature|AUTOMATIC|Rainbow Servant ~ Detect Chaos				
+10	ABILITY:Rainbow Servant Class Feature|AUTOMATIC|Rainbow Servant ~ Cleric Spell Access			
+10	ABILITY:Rainbow Servant Class Feature|AUTOMATIC|Rainbow Servant ~ Detect Thoughts			
 
 # Sacred Exorcist
 CLASS:Sacred Exorcist	MAXLEVEL:10
@@ -620,7 +620,7 @@ CLASS:Shining Blade of Heironeous	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDA
 CLASS:Shining Blade of Heironeous	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 CLASS:Shining Blade of Heironeous	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 CLASS:Shining Blade of Heironeous	PRETEXT:Alignment: Lawful good. Base Attack Bonus: +7. Base Save Bonus: Will +3. Skill: Knowledge (religion) 7 ranks. Spells: Able to cast 1st-level divine spells Special: Must have Heironeous as a patron deity.
-CLASS:Shining Blade of Heironeous	STARTSKILLPTS:2	CSKILL:Concentration (Con), Craft (Int), Diplomacy (Cha), Heal (Wis), Knowledge (religion) (Int), Profession (Wis), and Spellcraft
+CLASS:Shining Blade of Heironeous	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Knowledge (religion)|TYPE=Profession|Spellcraft
 2:REPEATLEVEL:2	ADD:SPELLCASTER|Divine
 ###Block
 11	PREPCLEVEL:MIN=20
@@ -701,10 +701,9 @@ CLASS:Ur-Priest	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVA
 CLASS:Ur-Priest	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
 CLASS:Ur-Priest	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 CLASS:Ur-Priest	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
-
 CLASS:Ur-Priest	PRETEXT:Alignment: Any evil. Base Save Bonus: Fort +3, Will +3. Skills: Bluff 6 ranks, Knowledge (arcana) 5 ranks, Knowledge (the planes) 5 ranks, Knowledge (religion) 8 ranks, Spellcraft 8 ranks. Feats: Iron Will, Spell Focus (evil). Special: The character must have no ability to cast divine spells. If such spellcasting ability was previously possessed (as with an ex-cleric), that ability is forever forsaken. The character must be trained by another ur-priest.
 CLASS:Ur-Priest	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Knowledge (arcana)|Knowledge (the planes)|Knowledge (religion)|TYPE=Profession|Spellcraft
-CLASS:Ur-Priest	SPELLTYPE:	SPELLSTAT:	MEMORIZE:
+CLASS:Ur-Priest	SPELLTYPE:Divine	SPELLSTAT:WIS	MEMORIZE:NO
 CLASS:Ur-Priest	BONUS:CASTERLEVEL|Ur-Priest|Caster_Level_UrPriest	DEFINE:Caster_Level_UrPriest|0	BONUS:VAR|Caster_Level_UrPriest|CL+Caster_Level_Bonus	DEFINE:CasterLevelBLUrPriest|0	BONUS:VAR|CasterLevelBLUrPriest|charbonusto("PCLEVEL","Ur-Priest")	
 CLASS:Ur-Priest	BONUS:VAR|Caster_Level_Highest__Divine|Caster_Level_UrPriest+CasterLevelBLUrPriest|TYPE=Base
 ###Block
