@@ -18,34 +18,34 @@ CLASS:Amethist Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spo
 1																		BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Kineticist")+classlevel("Kineticist")))	DEFINE:DragonCL|0
 1	VISION:Blindsense (60')|Darkvision (120')|Keen Senses	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
 ###Block: Breath Weapon and other SA's
-1	BONUS:VAR|BreathWeaponDamageDie|6	DEFINE:BreathWeaponLine|max((SIZE-1)*20,30)	DEFINE:BreathWeaponDice|(2*DragonAge)	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Line of Concussive Force
+1	BONUS:VAR|BreathWeaponDamageDie|6	DEFINE:BreathWeaponLine|0	BONUS:VAR|BreathWeaponLine|max((SIZE-1)*20,30)	DEFINE:BreathWeaponDice|0	BONUS:VAR|BreathWeaponDice|(2*DragonAge)	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Line of Concussive Force
 1	BONUS:VAR|FireResistanceBonus|15																ABILITY:Special Ability|AUTOMATIC|Planar Travel	ABILITY:Special Ability|AUTOMATIC|Resistance to Fire
 1																						ABILITY:Special Ability|AUTOMATIC|Immunity To Paralysis
 1																						ABILITY:Special Ability|AUTOMATIC|Immunity To Sleep
 ###Block: Frightful Presence
 1	BONUS:VAR|FrightfulPresRange|DragonAge*30|PREVARGTEQ:DragonAge,5	ABILITY:Special Ability|AUTOMATIC|Frightful Presence
 ###Block: Normal Progression
-1								BONUS:VAR|ForceResistantBonus|4			BONUS:VAR|DragonAge|1					ABILITY:Special Ability|AUTOMATIC|Amethyst Dragon ~ Force Resistant	ABILITY:Special Ability|AUTOMATIC|Immunity To Poison
-9		DR:5/Magic													BONUS:VAR|DragonAge|2
-12																BONUS:VAR|DragonAge|3
+1								BONUS:VAR|ForceResistantBonus|4			BONUS:VAR|DragonAge|1|TYPE=Base					ABILITY:Special Ability|AUTOMATIC|Amethyst Dragon ~ Force Resistant	ABILITY:Special Ability|AUTOMATIC|Immunity To Poison
+9		DR:5/Magic													BONUS:VAR|DragonAge|2|TYPE=Base
+12																BONUS:VAR|DragonAge|3|TYPE=Base
 ###TODO: livello 15 ADD:SPELLCASTER|1|Psion.Kineticist[Psychokinesis]
-15																BONUS:VAR|DragonAge|4	ADD:SPELLCASTER|Psion	ABILITY:Special Ability|AUTOMATIC|Amethyst Dragon ~ Stomp
+15																BONUS:VAR|DragonAge|4|TYPE=Base	ADD:SPELLCASTER|Psion	ABILITY:Special Ability|AUTOMATIC|Amethyst Dragon ~ Stomp
 17				BONUS:PCLEVEL|Psion|1
-18	SR:19			BONUS:PCLEVEL|Psion|1									BONUS:VAR|DragonAge|5
+18	SR:19			BONUS:PCLEVEL|Psion|1									BONUS:VAR|DragonAge|5|TYPE=Base
 20				BONUS:PCLEVEL|Psion|1
-21	SR:21			BONUS:PCLEVEL|Psion|1	BONUS:VAR|DragonAmethistExplosiveGemLVL|CL	BONUS:VAR|DragonAge|6					ABILITY:Special Ability|AUTOMATIC|Amethyst Dragon ~ Explosive Gem						SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Invisibility,13+CHA
+21	SR:21			BONUS:PCLEVEL|Psion|1	BONUS:VAR|DragonAmethistExplosiveGemLVL|CL	BONUS:VAR|DragonAge|6|TYPE=Base					ABILITY:Special Ability|AUTOMATIC|Amethyst Dragon ~ Explosive Gem						SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Invisibility,13+CHA
 23				BONUS:PCLEVEL|Psion|1
-24	SR:22	DR:10/Magic	BONUS:PCLEVEL|Psion|1									BONUS:VAR|DragonAge|7
+24	SR:22	DR:10/Magic	BONUS:PCLEVEL|Psion|1									BONUS:VAR|DragonAge|7|TYPE=Base
 26				BONUS:PCLEVEL|Psion|1
-27	SR:24			BONUS:PCLEVEL|Psion|1									BONUS:VAR|DragonAge|8					ABILITY:Special Ability|AUTOMATIC|Amethyst Dragon ~ Body Equilibrium
+27	SR:24			BONUS:PCLEVEL|Psion|1									BONUS:VAR|DragonAge|8|TYPE=Base					ABILITY:Special Ability|AUTOMATIC|Amethyst Dragon ~ Body Equilibrium
 29				BONUS:PCLEVEL|Psion|1
-30	SR:25	DR:15/Magic	BONUS:PCLEVEL|Psion|1									BONUS:VAR|DragonAge|9
+30	SR:25	DR:15/Magic	BONUS:PCLEVEL|Psion|1									BONUS:VAR|DragonAge|9|TYPE=Base
 32				BONUS:PCLEVEL|Psion|1
-33	SR:27			BONUS:PCLEVEL|Psion|1									BONUS:VAR|DragonAge|10																							SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Suggestion,13+CHA
+33	SR:27			BONUS:PCLEVEL|Psion|1									BONUS:VAR|DragonAge|10|TYPE=Base																							SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Suggestion,13+CHA
 35				BONUS:PCLEVEL|Psion|1
-36	SR:29	DR:20/Magic	BONUS:PCLEVEL|Psion|1									BONUS:VAR|DragonAge|11
+36	SR:29	DR:20/Magic	BONUS:PCLEVEL|Psion|1									BONUS:VAR|DragonAge|11|TYPE=Base
 38				BONUS:PCLEVEL|Psion|1
-39	SR:31			BONUS:PCLEVEL|Psion|1									BONUS:VAR|DragonAge|12					ABILITY:Special Ability|AUTOMATIC|Amethyst Dragon ~ Amethyst Telekinesis
+39	SR:31			BONUS:PCLEVEL|Psion|1									BONUS:VAR|DragonAge|12|TYPE=Base					ABILITY:Special Ability|AUTOMATIC|Amethyst Dragon ~ Amethyst Telekinesis
 #
 # Class Name 1	Hit Dice (HD)	Type (TYPE:)	Abbreviation (ABB)	Max Level (MAXLEVEL)	Source Page (SOURCEPAGE)	Save checks bonus (Fortitude) (	BONUS:SAVE)	Save checks bonus (Reflex)	Save checks bonus (Will)	Combat bonus	EXCLASS	FINE
 # Class Name req	Requirements	FINE
@@ -61,32 +61,32 @@ CLASS:Crystal Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot
 1																		BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Telepath")+classlevel("Telepath")))	DEFINE:DragonCL|0
 1	VISION:Blindsense (60')|Darkvision (120')|Keen Senses	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
 ###Block: Breath Weapon and other SA's
-1	BONUS:VAR|BreathWeaponDamageDie|6	DEFINE:BreathWeaponCone|max((SIZE-1)*10,15)	DEFINE:BreathWeaponDice|(2*DragonAge)	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Brilliant Light
+1	BONUS:VAR|BreathWeaponDamageDie|6	DEFINE:BreathWeaponCone|0	BONUS:VAR|BreathWeaponCone|max((SIZE-1)*10,15)	DEFINE:BreathWeaponDice|0	BONUS:VAR|BreathWeaponDice|(2*DragonAge)	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Brilliant Light
 1	BONUS:VAR|FireResistanceBonus|15																ABILITY:Special Ability|AUTOMATIC|Planar Travel	ABILITY:Special Ability|AUTOMATIC|Resistance to Fire
 1																						ABILITY:Special Ability|AUTOMATIC|Immunity To Paralysis
 1																						ABILITY:Special Ability|AUTOMATIC|Immunity To Sleep
 ###Block: Frightful Presence
 1	BONUS:VAR|FrightfulPresRange|DragonAge*30|PREVARGTEQ:DragonAge,5	ABILITY:Special Ability|AUTOMATIC|Frightful Presence
 ###Block: Normal Progression
-1							BONUS:VAR|DragonAge|1					ABILITY:Special Ability|AUTOMATIC|Immunity To Cold
-8							BONUS:VAR|DragonAge|2
-11							BONUS:VAR|DragonAge|3
-14							BONUS:VAR|DragonAge|4
-17	DR:5/Magic					BONUS:VAR|DragonAge|5
+1							BONUS:VAR|DragonAge|1|TYPE=Base					ABILITY:Special Ability|AUTOMATIC|Immunity To Cold
+8							BONUS:VAR|DragonAge|2|TYPE=Base
+11							BONUS:VAR|DragonAge|3|TYPE=Base
+14							BONUS:VAR|DragonAge|4|TYPE=Base
+17	DR:5/Magic					BONUS:VAR|DragonAge|5|TYPE=Base
 ###TODO: livello 20 ADD:SPELLCASTER|1|Psion.Telepath[Telepathy]
-20			BONUS:PCLEVEL|Psion|4	BONUS:VAR|DragonAge|6	ADD:SPELLCASTER|Psion										SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Charm Person,11+CHA
+20			BONUS:PCLEVEL|Psion|4	BONUS:VAR|DragonAge|6|TYPE=Base	ADD:SPELLCASTER|Psion										SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Charm Person,11+CHA
 22			BONUS:PCLEVEL|Psion|1
-23	DR:10/Magic	BONUS:PCLEVEL|Psion|1	BONUS:VAR|DragonAge|7
+23	DR:10/Magic	BONUS:PCLEVEL|Psion|1	BONUS:VAR|DragonAge|7|TYPE=Base
 25			BONUS:PCLEVEL|Psion|1
-26			BONUS:PCLEVEL|Psion|1	BONUS:VAR|DragonAge|8														SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Color Spray,11+CHA
+26			BONUS:PCLEVEL|Psion|1	BONUS:VAR|DragonAge|8|TYPE=Base														SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Color Spray,11+CHA
 28			BONUS:PCLEVEL|Psion|1
-29	DR:15/Magic	BONUS:PCLEVEL|Psion|1	BONUS:VAR|DragonAge|9
+29	DR:15/Magic	BONUS:PCLEVEL|Psion|1	BONUS:VAR|DragonAge|9|TYPE=Base
 31			BONUS:PCLEVEL|Psion|1
-32			BONUS:PCLEVEL|Psion|1	BONUS:VAR|DragonAge|10														SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Dominate Person,15+CHA
+32			BONUS:PCLEVEL|Psion|1	BONUS:VAR|DragonAge|10|TYPE=Base														SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Dominate Person,15+CHA
 34			BONUS:PCLEVEL|Psion|1
-35	DR:15/Magic	BONUS:PCLEVEL|Psion|1	BONUS:VAR|DragonAge|11
+35	DR:15/Magic	BONUS:PCLEVEL|Psion|1	BONUS:VAR|DragonAge|11|TYPE=Base
 37			BONUS:PCLEVEL|Psion|1
-38			BONUS:PCLEVEL|Psion|1	BONUS:VAR|DragonAge|12														SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Control Winds,15+CHA
+38			BONUS:PCLEVEL|Psion|1	BONUS:VAR|DragonAge|12|TYPE=Base														SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Control Winds,15+CHA
 #
 
 # Class Name		Hit Dice	Type			Max Level		Source Page		Save checks bonus															Combat bonus
@@ -98,36 +98,36 @@ CLASS:Emerald Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot
 1																		BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Seer")+classlevel("Seer")))	DEFINE:DragonCL|0
 1	VISION:Blindsense (60')|Darkvision (120')|Keen Senses	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
 ###Block: Breath Weapon and other SA's
-1	BONUS:VAR|BreathWeaponDamageDie|6	DEFINE:BreathWeaponCone|max((SIZE-1)*10,15)	DEFINE:BreathWeaponDice|(2*DragonAge)	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Keening Energy
+1	BONUS:VAR|BreathWeaponDamageDie|6	DEFINE:BreathWeaponCone|0	BONUS:VAR|BreathWeaponCone|max((SIZE-1)*10,15)	DEFINE:BreathWeaponDice|0	BONUS:VAR|BreathWeaponDice|(2*DragonAge)	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Keening Energy
 1	BONUS:VAR|FireResistanceBonus|15																ABILITY:Special Ability|AUTOMATIC|Planar Travel	ABILITY:Special Ability|AUTOMATIC|Resistance to Fire
 1																						ABILITY:Special Ability|AUTOMATIC|Immunity To Paralysis
 1																						ABILITY:Special Ability|AUTOMATIC|Immunity To Sleep
 ###Block: Frightful Presence
 1	BONUS:VAR|FrightfulPresRange|DragonAge*30|PREVARGTEQ:DragonAge,5	ABILITY:Special Ability|AUTOMATIC|Frightful Presence
 ###Block: Normal Progression
-1							BONUS:VAR|DragonAge|1					ABILITY:Special Ability|AUTOMATIC|Immunity To Sonic
+1							BONUS:VAR|DragonAge|1|TYPE=Base					ABILITY:Special Ability|AUTOMATIC|Immunity To Sonic
 6																														SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=DragonCL|Object Reading,12+CHA
-9							BONUS:VAR|DragonAge|2
+9							BONUS:VAR|DragonAge|2|TYPE=Base
 ###TODO: livello 12 ADD:SPELLCASTER|1|Psion.Seer[Clairsentience]
-12							BONUS:VAR|DragonAge|3	ADD:SPELLCASTER|Psion																SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Invisibility (Greater),15+CHA
+12							BONUS:VAR|DragonAge|3|TYPE=Base	ADD:SPELLCASTER|Psion																SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Invisibility (Greater),15+CHA
 14			BONUS:PCLEVEL|Psion|1
-15			BONUS:PCLEVEL|Psion|1	BONUS:VAR|DragonAge|4																				SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Fog Cloud,15+CHA
+15			BONUS:PCLEVEL|Psion|1	BONUS:VAR|DragonAge|4|TYPE=Base																				SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Fog Cloud,15+CHA
 17			BONUS:PCLEVEL|Psion|1
-18	DR:5/Magic	BONUS:PCLEVEL|Psion|1	BONUS:VAR|DragonAge|5
+18	DR:5/Magic	BONUS:PCLEVEL|Psion|1	BONUS:VAR|DragonAge|5|TYPE=Base
 20			BONUS:PCLEVEL|Psion|1
-21			BONUS:PCLEVEL|Psion|1	BONUS:VAR|DragonAge|6																				SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=DragonCL|Legend Lore,15+CHA
+21			BONUS:PCLEVEL|Psion|1	BONUS:VAR|DragonAge|6|TYPE=Base																				SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=DragonCL|Legend Lore,15+CHA
 23			BONUS:PCLEVEL|Psion|1
-24	DR:10/Magic	BONUS:PCLEVEL|Psion|1	BONUS:VAR|DragonAge|7
+24	DR:10/Magic	BONUS:PCLEVEL|Psion|1	BONUS:VAR|DragonAge|7|TYPE=Base
 26			BONUS:PCLEVEL|Psion|1
-27			BONUS:PCLEVEL|Psion|1	BONUS:VAR|DragonAge|8																				SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Nondetection,13+CHA	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Clairaudience/Clairvoyance,13+CHA
+27			BONUS:PCLEVEL|Psion|1	BONUS:VAR|DragonAge|8|TYPE=Base																				SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Nondetection,13+CHA	SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Clairaudience/Clairvoyance,13+CHA
 29			BONUS:PCLEVEL|Psion|1
-30	DR:15/Magic	BONUS:PCLEVEL|Psion|1	BONUS:VAR|DragonAge|9
+30	DR:15/Magic	BONUS:PCLEVEL|Psion|1	BONUS:VAR|DragonAge|9|TYPE=Base
 32			BONUS:PCLEVEL|Psion|1
-33			BONUS:PCLEVEL|Psion|1	BONUS:VAR|DragonAge|10																				SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Control Sound,12+CHA
+33			BONUS:PCLEVEL|Psion|1	BONUS:VAR|DragonAge|10|TYPE=Base																				SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Control Sound,12+CHA
 35			BONUS:PCLEVEL|Psion|1
-36	DR:20/Magic	BONUS:PCLEVEL|Psion|1	BONUS:VAR|DragonAge|11
+36	DR:20/Magic	BONUS:PCLEVEL|Psion|1	BONUS:VAR|DragonAge|11|TYPE=Base
 38			BONUS:PCLEVEL|Psion|1
-39			BONUS:PCLEVEL|Psion|1	BONUS:VAR|DragonAge|12					ABILITY:Special Ability|AUTOMATIC|Emerald Dragon ~ Shield Of Prudence
+39			BONUS:PCLEVEL|Psion|1	BONUS:VAR|DragonAge|12|TYPE=Base					ABILITY:Special Ability|AUTOMATIC|Emerald Dragon ~ Shield Of Prudence
 #
 
 # Class Name		Hit Dice	Type			Max Level		Source Page		Save checks bonus															Combat bonus
@@ -139,34 +139,34 @@ CLASS:Sapphire Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spo
 1																		BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Nomad")+classlevel("Nomad")))	DEFINE:DragonCL|0
 1	VISION:Blindsense (60')|Darkvision (120')|Keen Senses	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
 ###Block: Breath Weapon and other SA's
-1							DEFINE:BreathWeaponCone|max((SIZE-1)*10,15)	DEFINE:BreathWeaponDice|(2*DragonAge)	DEFINE:BreathWeaponDamageDie|6	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Sonic Energy
+1							DEFINE:BreathWeaponCone|0	BONUS:VAR|BreathWeaponCone|max((SIZE-1)*10,15)	DEFINE:BreathWeaponDice|0	BONUS:VAR|BreathWeaponDice|(2*DragonAge)	DEFINE:BreathWeaponDamageDie|0	BONUS:VAR|BreathWeaponDamageDie|6	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Sonic Energy
 1	BONUS:VAR|FireResistanceBonus|15																						ABILITY:Special Ability|AUTOMATIC|Planar Travel	ABILITY:Special Ability|AUTOMATIC|Resistance to Fire
 1																												ABILITY:Special Ability|AUTOMATIC|Immunity To Paralysis
 1																												ABILITY:Special Ability|AUTOMATIC|Immunity To Sleep
 ###Block: Frightful Presence
 1	BONUS:VAR|FrightfulPresRange|DragonAge*30|PREVARGTEQ:DragonAge,5	ABILITY:Special Ability|AUTOMATIC|Frightful Presence
 ###Block: Normal Progression
-1							BONUS:VAR|DragonAge|1					ABILITY:Special Ability|AUTOMATIC|Immunity To Electricity	ABILITY:Special Ability|AUTOMATIC|Spider Climb
-5							BONUS:VAR|DragonAge|2
-8							BONUS:VAR|DragonAge|3
+1							BONUS:VAR|DragonAge|1|TYPE=Base					ABILITY:Special Ability|AUTOMATIC|Immunity To Electricity	ABILITY:Special Ability|AUTOMATIC|Spider Climb
+5							BONUS:VAR|DragonAge|2|TYPE=Base
+8							BONUS:VAR|DragonAge|3|TYPE=Base
 ###TODO: livello 11 ADD:SPELLCASTER|1|Psion.Nomad[Psychoportation]
-11							BONUS:VAR|DragonAge|4	ADD:SPELLCASTER|Psion
+11							BONUS:VAR|DragonAge|4|TYPE=Base	ADD:SPELLCASTER|Psion
 13			BONUS:PCLEVEL|Psion|1
-14			BONUS:PCLEVEL|Psion|1	BONUS:VAR|DragonAge|5					ABILITY:Special Ability|AUTOMATIC|Sapphire Dragon ~ Sense Psychoportation
+14			BONUS:PCLEVEL|Psion|1	BONUS:VAR|DragonAge|5|TYPE=Base					ABILITY:Special Ability|AUTOMATIC|Sapphire Dragon ~ Sense Psychoportation
 16			BONUS:PCLEVEL|Psion|1
-17	DR:5/Magic	BONUS:PCLEVEL|Psion|1	BONUS:VAR|DragonAge|6
+17	DR:5/Magic	BONUS:PCLEVEL|Psion|1	BONUS:VAR|DragonAge|6|TYPE=Base
 19			BONUS:PCLEVEL|Psion|1
-20			BONUS:PCLEVEL|Psion|1	BONUS:VAR|DragonAge|7																							SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Skate,11+CHA	SPELLS:Innate|TIMES=2|CASTERLEVEL=DragonCL|Stone Shape,14+CHA
+20			BONUS:PCLEVEL|Psion|1	BONUS:VAR|DragonAge|7|TYPE=Base																							SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Skate,11+CHA	SPELLS:Innate|TIMES=2|CASTERLEVEL=DragonCL|Stone Shape,14+CHA
 22			BONUS:PCLEVEL|Psion|1
-23	DR:10/Magic	BONUS:PCLEVEL|Psion|1	BONUS:VAR|DragonAge|8
+23	DR:10/Magic	BONUS:PCLEVEL|Psion|1	BONUS:VAR|DragonAge|8|TYPE=Base
 25			BONUS:PCLEVEL|Psion|1
-26			BONUS:PCLEVEL|Psion|1	BONUS:VAR|DragonAge|9																							SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Teleport,15+CHA
+26			BONUS:PCLEVEL|Psion|1	BONUS:VAR|DragonAge|9|TYPE=Base																							SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Teleport,15+CHA
 28			BONUS:PCLEVEL|Psion|1
-29	DR:15/Magic	BONUS:PCLEVEL|Psion|1	BONUS:VAR|DragonAge|10
+29	DR:15/Magic	BONUS:PCLEVEL|Psion|1	BONUS:VAR|DragonAge|10|TYPE=Base
 31			BONUS:PCLEVEL|Psion|1
-32			BONUS:PCLEVEL|Psion|1	BONUS:VAR|DragonAge|11																							SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Wall of Stone,15+CHA
+32			BONUS:PCLEVEL|Psion|1	BONUS:VAR|DragonAge|11|TYPE=Base																							SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Wall of Stone,15+CHA
 34			BONUS:PCLEVEL|Psion|1
-35	DR:20/Magic	BONUS:PCLEVEL|Psion|1	BONUS:VAR|DragonAge|12
+35	DR:20/Magic	BONUS:PCLEVEL|Psion|1	BONUS:VAR|DragonAge|12|TYPE=Base
 37			BONUS:PCLEVEL|Psion|1
 38			BONUS:PCLEVEL|Psion|1																											SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Move Earth,16+CHA
 #
@@ -180,33 +180,33 @@ CLASS:Topaz Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|C
 1																		BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Egoist")+classlevel("Egoist")))	DEFINE:DragonCL|0
 1	VISION:Blindsense (60')|Darkvision (120')|Keen Senses	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
 ###Block: Breath Weapon and other SA's
-1							DEFINE:BreathWeaponCone|max((SIZE-1)*10,15)	DEFINE:BreathWeaponDice|(2*DragonAge)	DEFINE:BreathWeaponDamageDie|6	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Dehydratation
+1							DEFINE:BreathWeaponCone|0	BONUS:VAR|BreathWeaponCone|max((SIZE-1)*10,15)	DEFINE:BreathWeaponDice|0	BONUS:VAR|BreathWeaponDice|(2*DragonAge)	DEFINE:BreathWeaponDamageDie|0	BONUS:VAR|BreathWeaponDamageDie|6	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Dehydratation
 1	BONUS:VAR|FireResistanceBonus|15																						ABILITY:Special Ability|AUTOMATIC|Planar Travel	ABILITY:Special Ability|AUTOMATIC|Resistance to Fire
 1																												ABILITY:Special Ability|AUTOMATIC|Immunity To Paralysis
 1																												ABILITY:Special Ability|AUTOMATIC|Immunity To Sleep
 ###Block: Frightful Presence
 1	BONUS:VAR|FrightfulPresRange|DragonAge*30|PREVARGTEQ:DragonAge,5	ABILITY:Special Ability|AUTOMATIC|Frightful Presence
 ###Block: Normal Progression
-1					BONUS:VAR|DragonAge|1					ABILITY:Special Ability|AUTOMATIC|Immunity To Cold	ABILITY:Special Ability|AUTOMATIC|Water Breathing
-7					BONUS:VAR|DragonAge|2
-10					BONUS:VAR|DragonAge|3
-13					BONUS:VAR|DragonAge|4
+1					BONUS:VAR|DragonAge|1|TYPE=Base					ABILITY:Special Ability|AUTOMATIC|Immunity To Cold	ABILITY:Special Ability|AUTOMATIC|Water Breathing
+7					BONUS:VAR|DragonAge|2|TYPE=Base
+10					BONUS:VAR|DragonAge|3|TYPE=Base
+13					BONUS:VAR|DragonAge|4|TYPE=Base
 ###TODO: livello 16 ADD:SPELLCASTER|1|Psion.Egoist[Psychometabolism]
-16	BONUS:PCLEVEL|Psion|2	BONUS:VAR|DragonAge|5	ADD:SPELLCASTER|Psion																			SPELLS:Innate|TIMES=2|CASTERLEVEL=DragonCL|Feather Fall,11+CHA
+16	BONUS:PCLEVEL|Psion|2	BONUS:VAR|DragonAge|5|TYPE=Base	ADD:SPELLCASTER|Psion																			SPELLS:Innate|TIMES=2|CASTERLEVEL=DragonCL|Feather Fall,11+CHA
 18	BONUS:PCLEVEL|Psion|1
-19	BONUS:PCLEVEL|Psion|1	BONUS:VAR|DragonAge|6
+19	BONUS:PCLEVEL|Psion|1	BONUS:VAR|DragonAge|6|TYPE=Base
 21	BONUS:PCLEVEL|Psion|1
-22	BONUS:PCLEVEL|Psion|1	BONUS:VAR|DragonAge|7																							SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Fog Cloud,12+CHA
+22	BONUS:PCLEVEL|Psion|1	BONUS:VAR|DragonAge|7|TYPE=Base																							SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Fog Cloud,12+CHA
 24	BONUS:PCLEVEL|Psion|1
-25	BONUS:PCLEVEL|Psion|1	BONUS:VAR|DragonAge|8
+25	BONUS:PCLEVEL|Psion|1	BONUS:VAR|DragonAge|8|TYPE=Base
 27	BONUS:PCLEVEL|Psion|1
-28	BONUS:PCLEVEL|Psion|1	BONUS:VAR|DragonAge|9																							SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Control Air,12+CHA
+28	BONUS:PCLEVEL|Psion|1	BONUS:VAR|DragonAge|9|TYPE=Base																							SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Control Air,12+CHA
 30	BONUS:PCLEVEL|Psion|1
-31	BONUS:PCLEVEL|Psion|1	BONUS:VAR|DragonAge|10
+31	BONUS:PCLEVEL|Psion|1	BONUS:VAR|DragonAge|10|TYPE=Base
 33	BONUS:PCLEVEL|Psion|1
-34	BONUS:PCLEVEL|Psion|1	BONUS:VAR|DragonAge|11																							SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Control Weather,17+CHA
+34	BONUS:PCLEVEL|Psion|1	BONUS:VAR|DragonAge|11|TYPE=Base																							SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Control Weather,17+CHA
 36	BONUS:PCLEVEL|Psion|1
-37	BONUS:PCLEVEL|Psion|1	BONUS:VAR|DragonAge|12
+37	BONUS:PCLEVEL|Psion|1	BONUS:VAR|DragonAge|12|TYPE=Base
 39	BONUS:PCLEVEL|Psion|1
 40	BONUS:PCLEVEL|Psion|1																											SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Shapechange,19+CHA
 #
@@ -219,22 +219,22 @@ CLASS:Grey Linnorm	PRERACE:1,Linnorm (Grey)	PRERACETYPE:Dragon
 CLASS:Grey Linnorm	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Bluff|Concentration|Diplomacy|Intimidate|Knowledge (arcana)|Listen|Search|Sense Motive|Spellcraft|Spot|Swim
 1	VISION:Keen Senses
 ###Block: Breath Weapon and other SA's
-1							DEFINE:BreathWeaponCone|max((SIZE-1)*10,15)	DEFINE:BreathWeaponDice|DragonAge/2	DEFINE:BreathWeaponDamageDie|8	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Acid
-1							DEFINE:BreathWeaponLine|max((SIZE-1)*20,30)													ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Line of Acid
+1							DEFINE:BreathWeaponCone|0	BONUS:VAR|BreathWeaponCone|max((SIZE-1)*10,15)	DEFINE:BreathWeaponDice|0	BONUS:VAR|BreathWeaponDice|DragonAge/2	DEFINE:BreathWeaponDamageDie|0	BONUS:VAR|BreathWeaponDamageDie|8	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Acid
+1							DEFINE:BreathWeaponLine|0	BONUS:VAR|BreathWeaponLine|max((SIZE-1)*20,30)													ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Line of Acid
 1	BONUS:VAR|CrushBonusDamage|STR/2*3	DEFINE:CrushDice|2	DEFINE:CrushDamageDie|8													ABILITY:Special Ability|AUTOMATIC|Dragon ~ Crush
 ###Block: Normal Progression
-1									BONUS:VAR|DragonAge|1	ADD:SPELLCASTER|Cleric	SPELLLIST:2|DOMAIN.Destruction|DOMAIN.Evil
-2	BONUS:PCLEVEL|Cleric|1					BONUS:VAR|DragonAge|2
-3	BONUS:PCLEVEL|Cleric|1					BONUS:VAR|DragonAge|3
-4	BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Cleric|1	BONUS:VAR|DragonAge|4
-5	BONUS:PCLEVEL|Cleric|1					BONUS:VAR|DragonAge|5
-6	BONUS:PCLEVEL|Cleric|1					BONUS:VAR|DragonAge|6
-7	BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Cleric|1	BONUS:VAR|DragonAge|7
-8	BONUS:PCLEVEL|Cleric|1					BONUS:VAR|DragonAge|8
-9	BONUS:PCLEVEL|Cleric|1					BONUS:VAR|DragonAge|9
-10	BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Cleric|1	BONUS:VAR|DragonAge|10
-11	BONUS:PCLEVEL|Cleric|1					BONUS:VAR|DragonAge|11
-12	BONUS:PCLEVEL|Cleric|1					BONUS:VAR|DragonAge|12
+1									BONUS:VAR|DragonAge|1|TYPE=Base	ADD:SPELLCASTER|Cleric	SPELLLIST:2|DOMAIN.Destruction|DOMAIN.Evil
+2	BONUS:PCLEVEL|Cleric|1					BONUS:VAR|DragonAge|2|TYPE=Base
+3	BONUS:PCLEVEL|Cleric|1					BONUS:VAR|DragonAge|3|TYPE=Base
+4	BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Cleric|1	BONUS:VAR|DragonAge|4|TYPE=Base
+5	BONUS:PCLEVEL|Cleric|1					BONUS:VAR|DragonAge|5|TYPE=Base
+6	BONUS:PCLEVEL|Cleric|1					BONUS:VAR|DragonAge|6|TYPE=Base
+7	BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Cleric|1	BONUS:VAR|DragonAge|7|TYPE=Base
+8	BONUS:PCLEVEL|Cleric|1					BONUS:VAR|DragonAge|8|TYPE=Base
+9	BONUS:PCLEVEL|Cleric|1					BONUS:VAR|DragonAge|9|TYPE=Base
+10	BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Cleric|1	BONUS:VAR|DragonAge|10|TYPE=Base
+11	BONUS:PCLEVEL|Cleric|1					BONUS:VAR|DragonAge|11|TYPE=Base
+12	BONUS:PCLEVEL|Cleric|1					BONUS:VAR|DragonAge|12|TYPE=Base
 13	BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Cleric|1
 #
 
@@ -246,24 +246,24 @@ CLASS:Dread Linnorm	PRERACE:1,Linnorm (Dread)	PRERACETYPE:Dragon
 CLASS:Dread Linnorm	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Bluff|Concentration|Diplomacy|Intimidate|Knowledge (arcana)|Listen|Search|Spellcraft|Spot|Swim
 1	VISION:Keen Senses
 ###Block: Breath Weapon and other SA's
-1							DEFINE:BreathWeaponCone|max((SIZE-1)*10,15)	DEFINE:BreathWeaponDice|DragonAge	DEFINE:BreathWeaponDamageDie|6	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Cold
+1							DEFINE:BreathWeaponCone|0	BONUS:VAR|BreathWeaponCone|max((SIZE-1)*10,15)	DEFINE:BreathWeaponDice|0	BONUS:VAR|BreathWeaponDice|DragonAge	DEFINE:BreathWeaponDamageDie|0	BONUS:VAR|BreathWeaponDamageDie|6	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Cold
 1																											ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Fire
-1							DEFINE:BreathWeaponLine|max((SIZE-1)*20,30)													ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Line of Cold
+1							DEFINE:BreathWeaponLine|0	BONUS:VAR|BreathWeaponLine|max((SIZE-1)*20,30)													ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Line of Cold
 1																											ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Line of Fire
 1	BONUS:VAR|CrushBonusDamage|STR/2*3	DEFINE:CrushDice|4	DEFINE:CrushDamageDie|8													ABILITY:Special Ability|AUTOMATIC|Dragon ~ Crush
 ###Block: Normal Progression
-1						BONUS:VAR|DragonAge|1	ADD:SPELLCASTER|Sorcerer
-2	BONUS:PCLEVEL|Sorcerer|1	BONUS:VAR|DragonAge|2
-3	BONUS:PCLEVEL|Sorcerer|1	BONUS:VAR|DragonAge|3
-4	BONUS:PCLEVEL|Sorcerer|1	BONUS:VAR|DragonAge|4
-5	BONUS:PCLEVEL|Sorcerer|1	BONUS:VAR|DragonAge|5
-6	BONUS:PCLEVEL|Sorcerer|1	BONUS:VAR|DragonAge|6
-7						BONUS:VAR|DragonAge|7
-8	BONUS:PCLEVEL|Sorcerer|1	BONUS:VAR|DragonAge|8
-9	BONUS:PCLEVEL|Sorcerer|1	BONUS:VAR|DragonAge|9
-10	BONUS:PCLEVEL|Sorcerer|1	BONUS:VAR|DragonAge|10
-11	BONUS:PCLEVEL|Sorcerer|1	BONUS:VAR|DragonAge|11
-12	BONUS:PCLEVEL|Sorcerer|1	BONUS:VAR|DragonAge|12
+1						BONUS:VAR|DragonAge|1|TYPE=Base	ADD:SPELLCASTER|Sorcerer
+2	BONUS:PCLEVEL|Sorcerer|1	BONUS:VAR|DragonAge|2|TYPE=Base
+3	BONUS:PCLEVEL|Sorcerer|1	BONUS:VAR|DragonAge|3|TYPE=Base
+4	BONUS:PCLEVEL|Sorcerer|1	BONUS:VAR|DragonAge|4|TYPE=Base
+5	BONUS:PCLEVEL|Sorcerer|1	BONUS:VAR|DragonAge|5|TYPE=Base
+6	BONUS:PCLEVEL|Sorcerer|1	BONUS:VAR|DragonAge|6|TYPE=Base
+7						BONUS:VAR|DragonAge|7|TYPE=Base
+8	BONUS:PCLEVEL|Sorcerer|1	BONUS:VAR|DragonAge|8|TYPE=Base
+9	BONUS:PCLEVEL|Sorcerer|1	BONUS:VAR|DragonAge|9|TYPE=Base
+10	BONUS:PCLEVEL|Sorcerer|1	BONUS:VAR|DragonAge|10|TYPE=Base
+11	BONUS:PCLEVEL|Sorcerer|1	BONUS:VAR|DragonAge|11|TYPE=Base
+12	BONUS:PCLEVEL|Sorcerer|1	BONUS:VAR|DragonAge|12|TYPE=Base
 13	BONUS:PCLEVEL|Sorcerer|1
 15	BONUS:PCLEVEL|Sorcerer|1
 16	BONUS:PCLEVEL|Sorcerer|1
@@ -281,24 +281,24 @@ CLASS:Corpse Tearer Linnorm	PRERACE:1,Linnorm (Corpse Tearer)	PRERACETYPE:Dragon
 CLASS:Corpse Tearer Linnorm	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Bluff|Concentration|Diplomacy|Hide|Intimidate|Knowledge (arcana)|Listen|Search|Sense Motive|Spellcraft|Spot|Swim
 1	VISION:Keen Senses
 ###Block: Breath Weapon and other SA's
-1	BONUS:VAR|BreathWeaponDuration|DragonAge	DEFINE:BreathWeaponCone|max((SIZE-1)*10,15)	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Paralyzing Gas
+1	BONUS:VAR|BreathWeaponDuration|DragonAge	DEFINE:BreathWeaponCone|0	BONUS:VAR|BreathWeaponCone|max((SIZE-1)*10,15)	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Paralyzing Gas
 1																ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Disease
-1								DEFINE:BreathWeaponLine|max((SIZE-1)*20,30)	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Line of Paralyzing Gas
+1								DEFINE:BreathWeaponLine|0	BONUS:VAR|BreathWeaponLine|max((SIZE-1)*20,30)	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Line of Paralyzing Gas
 1																ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Line of Disease
 1	BONUS:VAR|CrushBonusDamage|STR/2*3		DEFINE:CrushDice|4	DEFINE:CrushDamageDie|6	ABILITY:Special Ability|AUTOMATIC|Dragon ~ Crush
 ###Block: Normal Progression
-1									BONUS:VAR|DragonAge|1	ADD:SPELLCASTER|Cleric	SPELLLIST:2|DOMAIN.Destruction|DOMAIN.Evil
-2									BONUS:VAR|DragonAge|2
-3	BONUS:PCLEVEL|Cleric|1					BONUS:VAR|DragonAge|3
-4									BONUS:VAR|DragonAge|4
-5	BONUS:PCLEVEL|Cleric|1					BONUS:VAR|DragonAge|5
-6									BONUS:VAR|DragonAge|6
-7	BONUS:PCLEVEL|Cleric|1					BONUS:VAR|DragonAge|7
-8									BONUS:VAR|DragonAge|8
-9	BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Cleric|1	BONUS:VAR|DragonAge|9
-10									BONUS:VAR|DragonAge|10
-11	BONUS:PCLEVEL|Cleric|1					BONUS:VAR|DragonAge|11
-12									BONUS:VAR|DragonAge|12
+1									BONUS:VAR|DragonAge|1|TYPE=Base	ADD:SPELLCASTER|Cleric	SPELLLIST:2|DOMAIN.Destruction|DOMAIN.Evil
+2									BONUS:VAR|DragonAge|2|TYPE=Base
+3	BONUS:PCLEVEL|Cleric|1					BONUS:VAR|DragonAge|3|TYPE=Base
+4									BONUS:VAR|DragonAge|4|TYPE=Base
+5	BONUS:PCLEVEL|Cleric|1					BONUS:VAR|DragonAge|5|TYPE=Base
+6									BONUS:VAR|DragonAge|6|TYPE=Base
+7	BONUS:PCLEVEL|Cleric|1					BONUS:VAR|DragonAge|7|TYPE=Base
+8									BONUS:VAR|DragonAge|8|TYPE=Base
+9	BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Cleric|1	BONUS:VAR|DragonAge|9|TYPE=Base
+10									BONUS:VAR|DragonAge|10|TYPE=Base
+11	BONUS:PCLEVEL|Cleric|1					BONUS:VAR|DragonAge|11|TYPE=Base
+12									BONUS:VAR|DragonAge|12|TYPE=Base
 13	BONUS:PCLEVEL|Cleric|1
 15	BONUS:PCLEVEL|Cleric|1
 17	BONUS:PCLEVEL|Cleric|1
@@ -310,7 +310,7 @@ CLASS:Corpse Tearer Linnorm	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Bluff|Conce
 27	BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Cleric|1
 
 
-SOURCELONG:Monster Manual 2	SOURCESHORT:MM2	SOURCEWEB:http://www.gozzilioni.net
+SOURCELONG:Monster Manual 2	SOURCESHORT:MM2
 #
 
 # Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus														Combat bonus
