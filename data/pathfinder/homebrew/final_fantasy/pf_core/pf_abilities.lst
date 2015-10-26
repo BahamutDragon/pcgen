@@ -1,0 +1,52 @@
+###Block: Favored Class Bonuses
+# Ability Name			Unique Key						Category of Ability		Type															Visible		Define																						Description																																																																																																																																																																																																																																																Stackable?	Multiple?	Choose														Ability												Bonus Ability Pool				Combat bonus			Bonus to HP			Save bonus						Bonus to skill rank	Stat bonus													Modify VAR																											Source Page		Aspects																Temporary Bonus
+Bonus Hit Point			KEY:Favored Class Bonus ~ Hit Point		CATEGORY:Special Ability	TYPE:FavoredClassBonus												VISIBLE:DISPLAY																																																																																																																																																																																																																																																																									STACK:YES	MULT:YES	CHOOSE:NOCHOICE																																						BONUS:HP|CURRENTMAX|1
+Bonus Skill Rank			KEY:Favored Class Bonus ~ Skill Rank	CATEGORY:Special Ability	TYPE:FavoredClassBonus												VISIBLE:DISPLAY																																																																																																																																																																																																																																																																									STACK:YES	MULT:YES	CHOOSE:SKILL|TYPE=Charisma|TYPE=Dexterity|TYPE=Intelligence|TYPE=Strength|TYPE=Wisdom																																					BONUS:SKILLRANK|LIST|1
+
+###Block: Weapon Proficiencies
+# Ability Name				Category of Ability		Type					Visible	Serves As						Auto Weapon Prof																				Ability
+All Automatic Proficiencies		CATEGORY:Special Ability	TYPE:Special.ClassFeatures	VISIBLE:NO								AUTO:WEAPONPROF|Unarmed Strike|Spells (Ray)|Spells (Touch)													ABILITY:FEAT|AUTOMATIC|CMB Output
+#ABILITY:Natural Attack|AUTOMATIC|Natural Attack ~ Shield Bash|PREEQUIP:1,TYPE=Shield
+All Martial Weapon Proficiencies	CATEGORY:Special Ability	TYPE:Special.ClassFeatures	VISIBLE:NO	SERVESAS:FEAT|Martial Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Martial
+Bard Weapon Proficiencies		CATEGORY:Special Ability	TYPE:Special.ClassFeatures	VISIBLE:NO								AUTO:WEAPONPROF|Longsword|Rapier|Sap|Sword (Short)|Shortbow|Whip|!PREABILITY:1,CATEGORY=Archetype,TYPE.BardWeaponProficiencies
+###Block: Specific Weapons for Classes
+# Ability Name			Category of Ability	Auto Weapon Prof
+Weapon Proficiencies ~ Bard	CATEGORY:Internal		AUTO:WEAPONPROF|Longsword|Rapier|Sap|Sword (Short)|Shortbow|Whip|TYPE=Auto
+Weapon Proficiencies ~ Cleric	CATEGORY:Internal		AUTO:WEAPONPROF|DEITYWEAPONS
+Weapon Proficiencies ~ Druid	CATEGORY:Internal		AUTO:WEAPONPROF|Club|Dagger|Dart|Quarterstaff|Scimitar|Scythe|Sickle|Shortspear|Sling|Spear|TYPE=Auto
+Weapon Proficiencies ~ Monk	CATEGORY:Internal		AUTO:WEAPONPROF|Club|Crossbow (Light)|Crossbow (Heavy)|Dagger|Handaxe|Javelin|Kama|Nunchaku|Quarterstaff|Sai|Shortspear|Sword (Short)|Shuriken|Siangham|Sling|Spear|Flurry of Blows|TYPE=Auto
+Weapon Proficiencies ~ Rogue	CATEGORY:Internal		AUTO:WEAPONPROF|Crossbow (Hand)|Rapier|Sap|Shortbow|Sword (Short)|TYPE=Auto
+Weapon Proficiencies ~ Wizard	CATEGORY:Internal		AUTO:WEAPONPROF|Club|Dagger|Crossbow (Heavy)|Crossbow (Light)|Quarterstaff|TYPE=Auto
+
+###Block: Proficiency Master Groups - Cut Down on Cross Referencing
+# Ability Name		Category of Ability	Type										Serves As						Auto Weapon Prof			Ability
+Weapon Prof ~ Auto	CATEGORY:Internal		TYPE:WeaponProfAuto.WeaponProfSimple.WeaponProfMartial								AUTO:WEAPONPROF|TYPE=Auto	ABILITY:FEAT|AUTOMATIC|CMB Output
+Weapon Prof ~ Simple	CATEGORY:Internal		TYPE:WeaponProfSimple.WeaponProfMartial				SERVESAS:FEAT|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Simple
+Weapon Prof ~ Martial	CATEGORY:Internal		TYPE:WeaponProfMartial							SERVESAS:FEAT|Martial Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Martial
+###Block: Armor Types
+# Ability Name		Category of Ability	Type									Serves As						Auto Armor Prof
+Armor Prof ~ Light	CATEGORY:Internal		TYPE:ArmorProfLight.ArmorProfMedium.ArmorProfHeavy	SERVESAS:FEAT|Armor Proficiency (Light)	AUTO:ARMORPROF|ARMORTYPE=ArmorProfLight
+Armor Prof ~ Medium	CATEGORY:Internal		TYPE:ArmorProfMedium.ArmorProfHeavy				SERVESAS:FEAT|Armor Proficiency (Medium)	AUTO:ARMORPROF|ARMORTYPE=ArmorProfMedium
+Armor Prof ~ Heavy	CATEGORY:Internal		TYPE:ArmorProfHeavy						SERVESAS:FEAT|Armor Proficiency (Heavy)	AUTO:ARMORPROF|ARMORTYPE=ArmorProfHeavy
+###Block: Shield Types
+# Ability Name		Category of Ability	Type						Serves As						Auto Shield Prof
+Shield Prof ~ Tower	CATEGORY:Internal		TYPE:ShieldProfTower			SERVESAS:FEAT|Tower Shield Proficiency	AUTO:SHIELDPROF|SHIELDTYPE=Tower
+Shield Prof			CATEGORY:Internal		TYPE:ShieldProfTower.ShieldProf	SERVESAS:FEAT|Shield Proficiency		AUTO:SHIELDPROF|Buckler|Shield (Heavy)|Shield (Light)|SHIELDTYPE=Buckler|SHIELDTYPE=Heavy|SHIELDTYPE=Light
+
+###Block: CMB output and basic setup
+# Ability Name	Category of Ability	Type			Visible	Define		Ability					Modify VAR
+CMB Output		CATEGORY:FEAT		TYPE:Internal	VISIBLE:NO	DEFINE:USECMB|0	ABILITY:Internal|AUTOMATIC|CMB	BONUS:VAR|USECMB|1
+
+CMB			CATEGORY:Internal
+###Block: CMB Definitions
+# Ability Name			Define																Modify VAR
+CATEGORY=Internal|CMB.MOD	DEFINE:CMB|0	DEFINE:CMD|0	DEFINE:CMB_STAT|0	DEFINE:CMD_ACMod|0	DEFINE:CM_SizeMod|0	BONUS:VAR|CMB_STAT|STR|TYPE=Stat|PRESIZEGT:T	BONUS:VAR|CMB_STAT|DEX|TYPE=Stat|PRESIZELTEQ:T|PREVAREQ:DisableCMDDex,0	BONUS:VAR|CMB_STAT|CHA|TYPE=Stat|PRESIZELTEQ:T|PREVAREQ:UseCHAForCMDStat,1
+CATEGORY=Internal|CMB.MOD	DEFINE:CMB_BAB|0	DEFINE:CMD_BAB|0												BONUS:VAR|CMB_BAB|BAB	BONUS:VAR|CMD_BAB|BAB
+CATEGORY=Internal|CMB.MOD																		BONUS:VAR|CM_SizeMod|-8|PRESIZEEQ:F	BONUS:VAR|CM_SizeMod|-4|PRESIZEEQ:D	BONUS:VAR|CM_SizeMod|-2|PRESIZEEQ:T	BONUS:VAR|CM_SizeMod|-1|PRESIZEEQ:S	BONUS:VAR|CM_SizeMod|1|PRESIZEEQ:L	BONUS:VAR|CM_SizeMod|2|PRESIZEEQ:H	BONUS:VAR|CM_SizeMod|4|PRESIZEEQ:G	BONUS:VAR|CM_SizeMod|8|PRESIZEEQ:C
+CATEGORY=Internal|CMB.MOD																		BONUS:VAR|CMB|CMB_BAB+CMB_STAT+CM_SizeMod	BONUS:VAR|CMD|10+CMD_BAB+STR+DEX+CM_SizeMod+var("AC.CMD")
+CATEGORY=Internal|CMB.MOD	DEFINE:CMB_BullRush|0	DEFINE:CMD_BullRush|0										BONUS:VAR|CMB_BullRush|CMB	BONUS:VAR|CMD_BullRush|CMD
+CATEGORY=Internal|CMB.MOD	DEFINE:CMB_Disarm|0	DEFINE:CMD_Disarm|0										BONUS:VAR|CMB_Disarm|CMB	BONUS:VAR|CMD_Disarm|CMD
+CATEGORY=Internal|CMB.MOD	DEFINE:CMB_Grapple|0	DEFINE:CMD_Grapple|0										BONUS:VAR|CMB_Grapple|CMB	BONUS:VAR|CMD_Grapple|CMD	BONUS:VAR|CMB_Grapple|1|PREABILITY:1,CATEGORY=FEAT,Weapon Focus (Grapple)	BONUS:VAR|CMB_Grapple|1|PREABILITY:1,CATEGORY=FEAT,Greater Weapon Focus (Grapple)
+CATEGORY=Internal|CMB.MOD	DEFINE:CMB_Overrun|0	DEFINE:CMD_Overrun|0										BONUS:VAR|CMB_Overrun|CMB	BONUS:VAR|CMD_Overrun|CMD
+CATEGORY=Internal|CMB.MOD	DEFINE:CMB_Sunder|0	DEFINE:CMD_Sunder|0										BONUS:VAR|CMB_Sunder|CMB	BONUS:VAR|CMD_Sunder|CMD
+CATEGORY=Internal|CMB.MOD	DEFINE:CMB_Trip|0	DEFINE:CMD_Trip|0												BONUS:VAR|CMB_Trip|CMB	BONUS:VAR|CMD_Trip|CMD	BONUS:VAR|CMD_Trip|(var("LEGS")-2)*2|PRELEGSGT:2
