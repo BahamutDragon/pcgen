@@ -247,24 +247,36 @@ CLASS:Consecrated Harrier	BONUS:VAR|Caster_Level_Highest__Divine|Caster_Level_Co
 10	CAST:0,2,2,2,1
 ###Block
 11	PREPCLEVEL:MIN=20
-###Block	ABILITY:Consecrated Harrier Class Feature|AUTOMATIC|
+###Block	
+1	ABILITY:Consecrated Harrier Class Feature|AUTOMATIC|Consecrated Harrier ~ Weapon and Armor Proficiency	
+1	ABILITY:Consecrated Harrier Class Feature|AUTOMATIC|Consecrated Harrier ~ Spells per Day				
+1	ABILITY:Consecrated Harrier Class Feature|AUTOMATIC|Consecrated Harrier ~ Blessing of Scripture			
+1	ABILITY:Consecrated Harrier Class Feature|AUTOMATIC|Consecrated Harrier ~ Detect Chaos				
+2	ABILITY:Consecrated Harrier Class Feature|AUTOMATIC|Consecrated Harrier ~ Sanctified Sight			
+3	ABILITY:Consecrated Harrier Class Feature|AUTOMATIC|Consecrated Harrier ~ Dispel Magic				
+4	ABILITY:Consecrated Harrier Class Feature|AUTOMATIC|Consecrated Harrier ~ Crushing Despair			
+6	ABILITY:Consecrated Harrier Class Feature|AUTOMATIC|Consecrated Harrier ~ False Vision				
+8	ABILITY:Consecrated Harrier Class Feature|AUTOMATIC|Consecrated Harrier ~ Implacable Hunt				
+10	ABILITY:Consecrated Harrier Class Feature|AUTOMATIC|Consecrated Harrier ~ Faultless Hunt				
+1	ABILITY:Consecrated Harrier Class Feature|AUTOMATIC|Consecrated Harrier ~ Code of Conduct				
+1	ABILITY:Consecrated Harrier Class Feature|AUTOMATIC|Consecrated Harrier ~ Multiclass Note				
+
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus															Modify VAR													Bonus
-CLASS:Contemplative	HD:6		TYPE:PC.Prestige	ABB:Com		MAXLEVEL:10	SOURCEPAGE:p.30	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Contemplative	HD:6		TYPE:PC.Prestige	ABB:Com	DEFINE:ContemplativeLVL|0	BONUS:VAR|ContemplativeLVL|CL		BONUS:DOMAIN|NUMBER|1+(ContemplativeLVL>=6)	MAXLEVEL:10	SOURCEPAGE:p.30	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required Feat						Required Skill				Req. Spell Type
 CLASS:Contemplative	PREABILITY:1,CATEGORY=FEAT,Skill Focus (Knowledge (Religion))	PRESKILL:1,Knowledge (Religion)=13	PRESPELLTYPE:1,Divine=1
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Contemplative	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Intimidate|Knowledge (Religion)|TYPE=Profession|Sense Motive|Spellcraft
-1	BONUS:DOMAIN|NUMBER|1								ADD:SPELLCASTER|Divine	ABILITY:Contemplative Class Feature|AUTOMATIC|Contemplative ~ Divine Health
-2												ADD:SPELLCASTER|Divine	ABILITY:Contemplative Class Feature|AUTOMATIC|Contemplative ~ Slippery Mind
-3					BONUS:VAR|DivineWholenessHealing|4*CL	ADD:SPELLCASTER|Divine	ABILITY:Contemplative Class Feature|AUTOMATIC|Contemplative ~ Divine Wholeness
-4												ADD:SPELLCASTER|Divine
-5												ADD:SPELLCASTER|Divine	ABILITY:Contemplative Class Feature|AUTOMATIC|Contemplative ~ Divine Body
-6	BONUS:DOMAIN|NUMBER|1								ADD:SPELLCASTER|Divine
-7					BONUS:VAR|DivineSoulSR|CL			ADD:SPELLCASTER|Divine	ABILITY:Contemplative Class Feature|AUTOMATIC|Contemplative ~ Divine Soul
-8												ADD:SPELLCASTER|Divine
-9												ADD:SPELLCASTER|Divine	ABILITY:Contemplative Class Feature|AUTOMATIC|Contemplative ~ Eternal Body
-10												ADD:SPELLCASTER|Divine	ABILITY:Contemplative Class Feature|AUTOMATIC|Contemplative ~ Mystic Union
+1:REPEATLEVEL:1	ADD:SPELLCASTER|ANY
+###Block
+1	ABILITY:Contemplative Class Feature|AUTOMATIC|Contemplative ~ Divine Health
+2	ABILITY:Contemplative Class Feature|AUTOMATIC|Contemplative ~ Slippery Mind
+3	ABILITY:Contemplative Class Feature|AUTOMATIC|Contemplative ~ Divine Wholeness
+5	ABILITY:Contemplative Class Feature|AUTOMATIC|Contemplative ~ Divine Body
+7	ABILITY:Contemplative Class Feature|AUTOMATIC|Contemplative ~ Divine Soul
+9	ABILITY:Contemplative Class Feature|AUTOMATIC|Contemplative ~ Eternal Body
+10	ABILITY:Contemplative Class Feature|AUTOMATIC|Contemplative ~ Mystic Union
 
 
 # Divine Crusader
@@ -305,21 +317,21 @@ CLASS:Divine Crusader	BONUS:VAR|Caster_Level_Highest__Divine|Caster_Level_Divine
 10	ABILITY:Divine Crusader Class Feature|AUTOMATIC|Divine Crusader ~ Perfect Self				
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus															Add domain number		Modify VAR													Bonus
-CLASS:Divine Oracle	HD:6		TYPE:PC.Prestige	ABB:Dorc		MAXLEVEL:10	SOURCEPAGE:p.35	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:DOMAIN|NUMBER|1	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Divine Oracle	HD:6		TYPE:PC.Prestige	ABB:Dorc	DEFINE:DivineOracleLVL|0	BONUS:VAR|DivineOracleLVL|CL	MAXLEVEL:10	SOURCEPAGE:p.35	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:DOMAIN|NUMBER|1	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required Skill				Required Text
 CLASS:Divine Oracle	PRESKILL:1,Knowledge (Religion)=8	PRETEXT:Must be able to cast two divination spells
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Divine Oracle	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Heal|Intimidate|Knowledge (arcana)|Knowledge (Religion)|TYPE=Profession|Spellcraft
-1	DOMAIN:Oracle						ADD:SPELLCASTER|ANY	ABILITY:Divine Oracle Class Feature|AUTOMATIC|Divine Oracle ~ Scry Bonus
-2				BONUS:VAR|TrapSenseBonus|1	ADD:SPELLCASTER|ANY	ABILITY:Divine Oracle Class Feature|AUTOMATIC|Divine Oracle ~ Prescient Sense|Divine Oracle ~ Trap Sense
-3									ADD:SPELLCASTER|ANY	ABILITY:Divine Oracle Class Feature|AUTOMATIC|Divine Oracle ~ Divination Enhancement
-4				BONUS:VAR|UncannyDodgeLVL|1	ADD:SPELLCASTER|ANY	ABILITY:Divine Oracle Class Feature|AUTOMATIC|Divine Oracle ~ Uncanny Dodge
-5				BONUS:VAR|TrapSenseBonus|1	ADD:SPELLCASTER|ANY
-6				BONUS:VAR|UncannyDodgeLVL|1	ADD:SPELLCASTER|ANY	ABILITY:Divine Oracle Class Feature|AUTOMATIC|Divine Oracle ~ Improved Uncanny Dodge
-7									ADD:SPELLCASTER|ANY
-8				BONUS:VAR|TrapSenseBonus|1	ADD:SPELLCASTER|ANY
-9									ADD:SPELLCASTER|ANY
-10									ADD:SPELLCASTER|ANY	ABILITY:Divine Oracle Class Feature|AUTOMATIC|Divine Oracle ~ Immune to Surprise
+1:REPEATLEVEL:1	ADD:SPELLCASTER|ANY
+###Block
+1	DOMAIN:Oracle
+###Block
+1	ABILITY:Divine Oracle Class Feature|AUTOMATIC|Divine Oracle ~ Scry Bonus
+2	ABILITY:Divine Oracle Class Feature|AUTOMATIC|Divine Oracle ~ Prescient Sense|Divine Oracle ~ Trap Sense
+3	ABILITY:Divine Oracle Class Feature|AUTOMATIC|Divine Oracle ~ Divination Enhancement
+4	ABILITY:Divine Oracle Class Feature|AUTOMATIC|Divine Oracle ~ Uncanny Dodge
+6	ABILITY:Divine Oracle Class Feature|AUTOMATIC|Divine Oracle ~ Improved Uncanny Dodge
+10	ABILITY:Divine Oracle Class Feature|AUTOMATIC|Divine Oracle ~ Immune to Surprise
 
 # Entropomancer
 CLASS:Entropomancer	MAXLEVEL:10
@@ -701,7 +713,7 @@ CLASS:Ur-Priest	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVA
 CLASS:Ur-Priest	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
 CLASS:Ur-Priest	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 CLASS:Ur-Priest	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
-CLASS:Ur-Priest	PRETEXT:Alignment: Any evil. Base Save Bonus: Fort +3, Will +3. Skills: Bluff 6 ranks, Knowledge (arcana) 5 ranks, Knowledge (the planes) 5 ranks, Knowledge (religion) 8 ranks, Spellcraft 8 ranks. Feats: Iron Will, Spell Focus (evil). Special: The character must have no ability to cast divine spells. If such spellcasting ability was previously possessed (as with an ex-cleric), that ability is forever forsaken. The character must be trained by another ur-priest.
+CLASS:Ur-Priest	PRETEXT:Alignment: Any evil. Base Save Bonus: Fort +3, Will +3. Skills: Bluff 6 ranks, Knowledge (arcana) 5 ranks, Knowledge (the planes) 5 ranks, Knowledge (religion) 8 ranks, Spellcraft 8 ranks. Feats: Iron Will, Spell Focus (evil) [Spell Focus school of "Evil" does not exist]. Special: The character must have no ability to cast divine spells. If such spellcasting ability was previously possessed (as with an ex-cleric), that ability is forever forsaken. The character must be trained by another ur-priest.	PREALIGN:LE,NE,CE	PRECHECKBASE:2,Fortitude=3,Will=3	PRESKILL:5,Bluff=6,Knowledge (arcana)=5,Knowledge (the planes)=5,Knowledge (religion)=8,Spellcraft=8	PREABILITY:1,CATEGORY=FEAT,Iron Will
 CLASS:Ur-Priest	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Knowledge (arcana)|Knowledge (the planes)|Knowledge (religion)|TYPE=Profession|Spellcraft
 CLASS:Ur-Priest	SPELLTYPE:Divine	SPELLSTAT:WIS	MEMORIZE:NO	SPELLLIST:1|Cleric
 CLASS:Ur-Priest	BONUS:CASTERLEVEL|Ur-Priest|Caster_Level_UrPriest	DEFINE:Caster_Level_UrPriest|0	BONUS:VAR|Caster_Level_UrPriest|CL+Caster_Level_Bonus	DEFINE:CasterLevelBLUrPriest|0	BONUS:VAR|CasterLevelBLUrPriest|charbonusto("PCLEVEL","Ur-Priest")
@@ -764,7 +776,6 @@ CLASS:Warpriest	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.RE
 CLASS:Warpriest	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
 CLASS:Warpriest	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 CLASS:Warpriest	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
-
 CLASS:Warpriest	PRETEXT:Base Attack Bonus: +5. Skills: Diplomacy 8 ranks, Sense Motive 5 ranks. Feat: Combat Casting. Spells: Able to cast at least one divine spell from one of the following domains' spell lists: Destruction, Protection, Strength, or War. A character who can cast at least one spell from a domain counts as having access for this purpose. Special: Ability to turn or rebuke undead.
 CLASS:Warpriest	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Knowledge (history)|Ride|Sense Motive|Spellcraft|Swim
 2:REPEATLEVEL:2	ADD:SPELLCASTER|Divine
