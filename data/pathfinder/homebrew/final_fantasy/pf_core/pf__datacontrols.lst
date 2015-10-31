@@ -1,0 +1,82 @@
+# Created January, 2015 Tom Parker
+# This file represents a conversion mechanism for items that were previously
+# stand-alone tokens, but are now handled internally as FACT or FACTSET.
+#
+# This file does not need to be referenced by a set of data or game mode
+# unless that data uses a data control file (DATACONTROL: in a PCC file)
+#
+# Once a dataset takes on the responsibility of a DATACONTROL file, then it 
+# MUST include these entries (or something near equivalent [additional
+# SELECT-ability would be legal]) in one of the DATACONTROL files.
+
+# This MUST be included if you enable the datacontrol file....
+
+FACTDEF:ABILITY|AppliedName	DATAFORMAT:String		VISIBLE:YES
+
+FACTDEF:CLASS|Abb			DATAFORMAT:String		VISIBLE:YES
+FACTDEF:CLASS|ClassType		DATAFORMAT:String		VISIBLE:YES
+FACTDEF:CLASS|SpellType		DATAFORMAT:String		VISIBLE:YES	SELECTABLE:YES
+
+FACTDEF:DEITY|Symbol			DATAFORMAT:String		VISIBLE:YES
+FACTDEF:DEITY|Worshippers		DATAFORMAT:String		VISIBLE:YES
+FACTDEF:DEITY|Title			DATAFORMAT:String		VISIBLE:YES
+FACTDEF:DEITY|Appearance		DATAFORMAT:String		VISIBLE:YES
+
+FACTDEF:EQUIPMENT|RateOfFire	DATAFORMAT:String		VISIBLE:YES
+
+FACTDEF:TEMPLATE|AppliedName	DATAFORMAT:String		VISIBLE:YES
+
+FACTSETDEF:DEITY|Pantheon		DATAFORMAT:String		VISIBLE:YES	SELECTABLE:YES
+FACTSETDEF:DEITY|Race			DATAFORMAT:String		VISIBLE:YES
+
+
+# This is my attempt to implement the FACT system to replicate the deprecated PRETYPE to determine whether a given race is initially allowed traits
+FACTDEF:RACE|IsPC				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:IsPC		EXPLANATION:Determines whether a race is a PC to begin with.
+FACTDEF:RACE|IsCompanion		DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:IsPC		EXPLANATION:Determines whether a race is a Companion to begin with.
+
+FACTDEF:RACE|Hands			DATAFORMAT:Number		VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:IsPC		EXPLANATION:Determines base race ~ Hands.
+FACTDEF:RACE|Legs				DATAFORMAT:Number		VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:IsPC		EXPLANATION:Determines base race ~ Legs.
+
+FACTDEF:RACE|BaseMove_Walk		DATAFORMAT:Number		VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:IsPC		EXPLANATION:Determines base race ~ Movement Walk.
+FACTDEF:RACE|BaseMove_Fly		DATAFORMAT:Number		VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:IsPC		EXPLANATION:Determines base race ~ Movement Fly.
+FACTDEF:RACE|BaseMove_Climb		DATAFORMAT:Number		VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:IsPC		EXPLANATION:Determines base race ~ Movement Climb.
+FACTDEF:RACE|BaseMove_Swim		DATAFORMAT:Number		VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:IsPC		EXPLANATION:Determines base race ~ Movement Swim.
+FACTDEF:RACE|BaseMove_Burrow		DATAFORMAT:Number		VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:IsPC		EXPLANATION:Determines base race ~ Movement Burrow.
+
+FACTDEF:ABILITY|IsPC			DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:IsPC		EXPLANATION:Determines whether a race is a PC to begin with.
+
+
+
+
+
+###Block: RACE "TYPE" replacement
+# Currently we use PRERACETYPE - A CLASS tag only - to allow a changed creature RACETYPE to still access their original racial HD class.
+# This transition aims to remove that reliance. Switching to a simple Boolean based upon the starting racetype "FACT"
+FACTDEF:RACE|RACETYPE								DATAFORMAT:String	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:RaceType							EXPLANATION:Determines what the 'RACE TYPE' is.
+
+#	FACTDEF:RACE|Aberration							DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Aberration							EXPLANATION:Determines whether the race started as - Aberration		
+#	FACTDEF:RACE|Animal								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Animal							EXPLANATION:Determines whether the race started as - Animal			
+#	FACTDEF:RACE|Construct							DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Construct							EXPLANATION:Determines whether the race started as - Construct		
+#	FACTDEF:RACE|Dragon								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Dragon							EXPLANATION:Determines whether the race started as - Dragon			
+#	FACTDEF:RACE|Fey								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Fey								EXPLANATION:Determines whether the race started as - Fey			
+#	FACTDEF:RACE|Humanoid							DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Humanoid							EXPLANATION:Determines whether the race started as - Humanoid		
+#	FACTDEF:RACE|Magical_Beast						DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Magical_Beast						EXPLANATION:Determines whether the race started as - Magical_Beast	
+#	FACTDEF:RACE|Monstrous_Humanoid						DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Monstrous_Humanoid					EXPLANATION:Determines whether the race started as - Monstrous_Humanoid	
+#	FACTDEF:RACE|Ooze								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Ooze								EXPLANATION:Determines whether the race started as - Ooze			
+#	FACTDEF:RACE|Outsider							DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Outsider							EXPLANATION:Determines whether the race started as - Outsider		
+#	FACTDEF:RACE|Plant								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Plant								EXPLANATION:Determines whether the race started as - Plant			
+#	FACTDEF:RACE|Undead								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Undead							EXPLANATION:Determines whether the race started as - Undead			
+#	FACTDEF:RACE|Vermin								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Vermin							EXPLANATION:Determines whether the race started as - Vermin			
+#FACTDEF:RACETYPE|Aberration								DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:RACETYPE					EXPLANATION:Determines whether the race started as - Rage			
+
+###Block: Racial Traits
+FACTDEF:ABILITY|Dwarf_Trait_DefensiveTraining				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Racial Traits			EXPLANATION:removing racial traits
+FACTDEF:ABILITY|Dwarf_Trait_Greed						DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Racial Traits			EXPLANATION:removing racial traits
+FACTDEF:ABILITY|Dwarf_Trait_Hatred						DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Racial Traits			EXPLANATION:removing racial traits
+FACTDEF:ABILITY|Dwarf_Trait_Hardy						DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Racial Traits			EXPLANATION:removing racial traits
+FACTDEF:ABILITY|Dwarf_Trait_Stability					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Racial Traits			EXPLANATION:removing racial traits
+FACTDEF:ABILITY|Dwarf_Trait_Stonecunning					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Racial Traits			EXPLANATION:removing racial traits
+FACTDEF:ABILITY|Dwarf_Trait_Steady						DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Racial Traits			EXPLANATION:removing racial traits
+FACTDEF:ABILITY|Dwarf_Trait_WeaponFamiliarity				DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Racial Traits			EXPLANATION:removing racial traits
+FACTDEF:ABILITY|Dwarf_Trait_Darkvision					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Racial Traits			EXPLANATION:removing racial traits
+FACTDEF:ABILITY|Dwarf_Trait_Language					DATAFORMAT:BOOLEAN	VISIBLE:YES	SELECTABLE:NO	REQUIRED:NO	DISPLAYNAME:Racial Traits			EXPLANATION:removing racial traits
