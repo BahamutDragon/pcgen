@@ -5,6 +5,7 @@
 # Ability File:
 	Racial Traits Internals now enabled and point to Racial Traits
 		Racial Traits entered, not implemented
+			Gria implemented
 	Favored Class abilities set up, not implemented.
 		Need to review if KEY naming scheme will work.
 	Class Features entered
