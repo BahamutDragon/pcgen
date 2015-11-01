@@ -1,5 +1,29 @@
 
 
+# Hellbreaker	
+CLASS:Hellbreaker	MAXLEVEL:10
+CLASS:Hellbreaker	HD:6	TYPE:Base.PC.Prestige.Monster	SOURCEPAGE:p.86	DEFINE:HellbreakerLVL|0	BONUS:VAR|HellbreakerLVL|CL
+CLASS:Hellbreaker	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	
+CLASS:Hellbreaker	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	
+CLASS:Hellbreaker	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Hellbreaker	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Hellbreaker	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Hellbreaker	PRETEXT:Alignment: Any chaotic. Skills: Bluff 8 ranks, Knowledge (the planes) 4 ranks, Sense Motive 8 ranks. Language: Infernal. Feats: Combat Expertise, Improved Feint, Undo Resistance*. Special: Sneak attack +2d6, skirmish +2d6, or sudden strike +2d6.
+CLASS:Hellbreaker	STARTSKILLPTS:6	CSKILL:Appraise|Bluff|Escape Artist|Gather Information|Hide|Intimidate|Knowledge (the planes)|Listen|Move Silently|Search|Sense Motive|Spot|Tumble
+###Block
+11	PREPCLEVEL:MIN=20
+###Block	
+1	ABILITY:Hellbreaker Class Feature|AUTOMATIC|Hellbreaker ~ Mantle of Darkness		
+1	ABILITY:Hellbreaker Class Feature|AUTOMATIC|Hellbreaker ~ Telepathic Static			
+2	ABILITY:Hellbreaker Class Feature|AUTOMATIC|Hellbreaker ~ Steal Spell-Like Ability	
+3	ABILITY:Hellbreaker Class Feature|AUTOMATIC|Hellbreaker ~ Sneak Attack			
+4	ABILITY:Hellbreaker Class Feature|AUTOMATIC|Hellbreaker ~ Stowaway				
+5	ABILITY:Hellbreaker Class Feature|AUTOMATIC|Hellbreaker ~ Neutralize Spell-Like Ability	
+7	ABILITY:Hellbreaker Class Feature|AUTOMATIC|Hellbreaker ~ Foil Summoning			
+8	ABILITY:Hellbreaker Class Feature|AUTOMATIC|Hellbreaker ~ Steal Supernatural Ability	
+10	ABILITY:Hellbreaker Class Feature|AUTOMATIC|Hellbreaker ~ Plane Hop				
+
+
 CLASS:Hellfire Warlock	MAXLEVEL:3
 CLASS:Hellfire Warlock	HD:6	TYPE:Prestige	SOURCEPAGE:p.89	DEFINE:HellfireWarlockLVL|0	BONUS:VAR|HellfireWarlockLVL|CL
 CLASS:Hellfire Warlock	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	
@@ -9,13 +33,59 @@ CLASS:Hellfire Warlock	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 CLASS:Hellfire Warlock	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 CLASS:Hellfire Warlock	PRETEXT:Skills: Intimidate 6 ranks, Knowledge (the planes) 12 ranks, Spellcraft 6 ranks. Language: Infernal. Warlock Invocation: Must know brimstone blast or hellrime blast.	PRESKILL:3,Intimidate=6,Knowledge (the planes)=12,Spellcraft=6	PRELANG:1,Infernal	PREABILITY:1,CATEGORY=Special Ability,Invocation ~ Brimstone Blast,Invocation ~ Hellrime Blast
 CLASS:Hellfire Warlock	STARTSKILLPTS:2	CSKILL:Concentration|Disguise|Intimidate|Knowledge (arcana)|Knowledge (the planes)|Knowledge (religion)|Spellcraft|Use Magic Device
-CLASS:Hellfire Warlock	SPELLTYPE:	SPELLSTAT:	MEMORIZE:
-CLASS:Hellfire Warlock	BONUS:CASTERLEVEL|Hellfire Warlock|Caster_Level_HellfireWarlock	DEFINE:Caster_Level_HellfireWarlock|0	BONUS:VAR|Caster_Level_HellfireWarlock|CL+Caster_Level_Bonus	DEFINE:CasterLevelBLHellfireWarlock|0	BONUS:VAR|CasterLevelBLHellfireWarlock|charbonusto("PCLEVEL","Hellfire Warlock")	
-CLASS:Hellfire Warlock	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_HellfireWarlock+CasterLevelBLHellfireWarlock|TYPE=Base
-#1:REPEATLEVEL:1	ADD:SPELLCASTER|Invocation
 ###Block
 1	ABILITY:Hellfire Warlock Class Feature|AUTOMATIC|Hellfire Warlock ~ Hellfire Blast		
 1	ABILITY:Hellfire Warlock Class Feature|AUTOMATIC|Hellfire Warlock ~ Invoking			
 2	ABILITY:Hellfire Warlock Class Feature|AUTOMATIC|Hellfire Warlock ~ Resistance to Fire 10	
 2	ABILITY:Hellfire Warlock Class Feature|AUTOMATIC|Hellfire Warlock ~ Hellfire Infusion		
 3	ABILITY:Hellfire Warlock Class Feature|AUTOMATIC|Hellfire Warlock ~ Hellfire Shield		
+
+
+# Hellreaver	
+CLASS:Hellreaver	MAXLEVEL:10
+CLASS:Hellreaver	HD:10	TYPE:Base.PC.Prestige.Monster	SOURCEPAGE:p.92	DEFINE:HellreaverLVL|0	BONUS:VAR|HellreaverLVL|CL
+CLASS:Hellreaver	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
+CLASS:Hellreaver	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Hellreaver	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Hellreaver	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Hellreaver	PRETEXT:Alignment: Any good. Base Attack Bonus: +5. Skills: Knowledge (the planes) 4 ranks. Feats: Power Attack. Special: Must slay an outsider with the evil subtype.
+CLASS:Hellreaver	STARTSKILLPTS:2	CSKILL:TYPE=Craft|Intimidate|Knowledge (religion)|Knowledge (the planes)|Listen|Sense Motive|Spot
+###Block
+11	PREPCLEVEL:MIN=20
+###Block	
+1	ABILITY:Hellreaver Class Feature|AUTOMATIC|Hellreaver ~ Holy Fury			
+1	ABILITY:Hellreaver Class Feature|AUTOMATIC|Hellreaver ~ Furious Strike		
+2	ABILITY:Hellreaver Class Feature|AUTOMATIC|Hellreaver ~ Divine Succor		
+3	ABILITY:Hellreaver Class Feature|AUTOMATIC|Hellreaver ~ Divine Resolve		
+3	ABILITY:Hellreaver Class Feature|AUTOMATIC|Hellreaver ~ Divine Shield		
+4	ABILITY:Hellreaver Class Feature|AUTOMATIC|Hellreaver ~ Mettle				
+5	ABILITY:Hellreaver Class Feature|AUTOMATIC|Hellreaver ~ Heroic Sacrifice		
+6	ABILITY:Hellreaver Class Feature|AUTOMATIC|Hellreaver ~ Call to Judgment		
+7	ABILITY:Hellreaver Class Feature|AUTOMATIC|Hellreaver ~ Improved Divine Resolve	
+7	ABILITY:Hellreaver Class Feature|AUTOMATIC|Hellreaver ~ Improved Divine Shield	
+10	ABILITY:Hellreaver Class Feature|AUTOMATIC|Hellreaver ~ Divine Retribution		
+
+# Soulguard		
+CLASS:Soulguard	MAXLEVEL:20
+CLASS:Soulguard	HD:8	TYPE:Base.PC.Prestige.Monster	SOURCEPAGE:p.95	DEFINE:SoulguardLVL|0	BONUS:VAR|SoulguardLVL|CL
+CLASS:Soulguard	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	
+CLASS:Soulguard	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	
+CLASS:Soulguard	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Soulguard	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Soulguard	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Soulguard	PRETEXT:Alignment: Lawful good or lawful neutral. Skills: Intimidate 4 ranks, Knowledge (religion) 9 ranks, Knowledge (the planes) 4 ranks. Language: Infernal. Feat: Iron Will. Spellcasting: Ability to cast 1st-level divine spells.
+CLASS:Soulguard	STARTSKILLPTS:4	CSKILL:Concentration|Decipher Script|Diplomacy|Gather Information|Intimidate|Knowledge (religion)|Knowledge (the planes)|Sense Motive|Spellcraft
+2:REPEATLEVEL:1	ADD:SPELLCASTER|Divine
+###Block
+11	PREPCLEVEL:MIN=20
+###Block	
+2	ABILITY:Soulguard Class Feature|AUTOMATIC|Soulguard ~ Spellcasting			
+1	ABILITY:Soulguard Class Feature|AUTOMATIC|Soulguard ~ Pierce Deception		
+2	ABILITY:Soulguard Class Feature|AUTOMATIC|Soulguard ~ Divine Rebuke			
+2	ABILITY:Soulguard Class Feature|AUTOMATIC|Soulguard ~ Immunity to Charm		
+3	ABILITY:Soulguard Class Feature|AUTOMATIC|Soulguard ~ Dispel Evil			
+4	ABILITY:Soulguard Class Feature|AUTOMATIC|Soulguard ~ Absolution			
+5	ABILITY:Soulguard Class Feature|AUTOMATIC|Soulguard ~ Immunity to Compulsion	
+8	ABILITY:Soulguard Class Feature|AUTOMATIC|Soulguard ~ Resistance Aura
+10	ABILITY:Soulguard Class Feature|AUTOMATIC|Soulguard ~ Dimensional Anchor
+1	ABILITY:Soulguard Class Feature|AUTOMATIC|Soulguard ~ Multiclass Note		
