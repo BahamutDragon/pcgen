@@ -1,26 +1,47 @@
 
 # Datacontrol file:
-	Placeholders, not usable.
+	Race Booleans set up
 
-# Ability File:
-	Racial Traits Internals now enabled and point to Racial Traits
-		Racial Traits entered, not implemented
-			Gria implemented
-	Favored Class abilities set up, not implemented.
-		Need to review if KEY naming scheme will work.
-	Class Features entered
-		Not implemented
-	Created _unstable for in progress work - classes.
+# Ability File: Split into separate files for now, to facilitate easier editing.
+	Ability:
+		Internals
+	Var:
+		Internals for swapping (race and class)
+	Race:
+		Racial Traits Internals now enabled and point to Racial Traits
+			Racial Traits entered, not implemented
+				Implemented:
+				Gria racial traits
+				Movement Modes
+				Stats
+		Favored Class abilities set up, not implemented.
+			Need to review if KEY naming scheme will work.
+	Class:
+		Class Features entered
+			Red Mage implemented
+		Created _unstable for in progress work - classes.
+	Archetype:
+		Raw, unusable
 
 
 # Abilitycategory File:
 	All Racial Traits, Heritages, and Classes have a proper pool.
 
 # Class File:
-	Class placeholders entered - unusable format still
+	Classes entered
+		Granted Progression
+			Archer
+			Red Mage
+		Left to do:
+			Remaining classes
 
 # Equip File:
-	Empty
+	Completed:
+		Weapons
+		Armor
+		General
+	To do:
+		Switch cost to "gil" values
 
 # Feat File (Ability)
 	Feats entered
@@ -28,7 +49,7 @@
 		Not implemented
 
 # Language File:
-	Empty
+	Completed, all races accounted for.
 
 # Race File: 
 	Races complete
