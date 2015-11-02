@@ -1,5 +1,48 @@
 # CVS $Revision: $ $Author: $ -- Thu Jul 10 13:59:32 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 
+
+CLASS:Archivist	MAXLEVEL:20
+CLASS:Archivist	HD:6	TYPE:Base.PC	SOURCEPAGE:p.82	DEFINE:ArchivistLVL|0	BONUS:VAR|ArchivistLVL|CL
+CLASS:Archivist	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	
+CLASS:Archivist	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+CLASS:Archivist	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Archivist	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Archivist	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Archivist	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Decipher Script|Diplomacy|Gather Information|Heal|TYPE=Knowledge|TYPE=Profession|Search|Spellcraft
+CLASS:Archivist	SPELLTYPE:Divine	SPELLSTAT:INT	MEMORIZE:YES	SPELLLIST:9|Cleric|Druid|Paladin|Ranger|Death Delver|Shugenja|Favored Soul|Spirit Shaman|Blackguard
+CLASS:Archivist	BONUS:CASTERLEVEL|Archivist|Caster_Level_Archivist	DEFINE:Caster_Level_Archivist|0	BONUS:VAR|Caster_Level_Archivist|CL+Caster_Level_Bonus	DEFINE:CasterLevelBLArchivist|0	BONUS:VAR|CasterLevelBLArchivist|charbonusto("PCLEVEL","Archivist")	
+CLASS:Archivist	BONUS:VAR|Caster_Level_Highest__Divine|Caster_Level_Archivist+CasterLevelBLArchivist|TYPE=Base
+###Block
+1	CAST:3,2
+2	CAST:4,3
+3	CAST:4,3,2
+4	CAST:4,4,3
+5	CAST:4,4,3,2
+6	CAST:4,5,4,3
+7	CAST:4,5,4,3,2
+8	CAST:4,5,5,4,3
+9	CAST:4,5,5,4,3,2
+10	CAST:4,5,5,5,4,3
+11	CAST:4,5,5,5,4,3,2
+12	CAST:4,5,5,5,5,4,3
+13	CAST:4,5,5,5,5,4,3,2
+14	CAST:4,5,5,5,5,5,4,3
+15	CAST:4,5,5,5,5,5,4,3,2
+16	CAST:4,5,5,5,5,5,5,4,3
+17	CAST:4,5,5,5,5,5,5,4,3,2
+18	CAST:4,5,5,5,5,5,5,5,4,3
+19	CAST:4,5,5,5,5,5,5,5,4,4
+20	CAST:4,5,5,5,5,5,5,5,5,5
+###Block	
+1	ABILITY:Archivist Class Feature|AUTOMATIC|Archivist ~ Weapon and Armor Proficiency	
+1	ABILITY:Archivist Class Feature|AUTOMATIC|Archivist ~ Spellcasting				
+1	ABILITY:Archivist Class Feature|AUTOMATIC|Archivist ~ Prayerbook				
+1	ABILITY:Archivist Class Feature|AUTOMATIC|Archivist ~ Dark Knowledge			
+1	ABILITY:Archivist Class Feature|AUTOMATIC|Archivist ~ Scribe Scroll				
+2	ABILITY:Archivist Class Feature|AUTOMATIC|Archivist ~ Lore Mastery				
+4	ABILITY:Archivist Class Feature|AUTOMATIC|Archivist ~ Still Mind				
+10	ABILITY:Archivist Class Feature|AUTOMATIC|Archivist ~ Bonus Feat				
+
 # Class Name		Hit Dice	Type			Source Page		Define				Combat bonus								Modify VAR					Bonus
 CLASS:Dread Necromancer	HD:6		TYPE:Base.PC	SOURCEPAGE:p.84	DEFINE:DreadNecromancerLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|DreadNecromancerLVL|CL	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Restricted AL
@@ -24,11 +67,6 @@ CLASS:Dread Necromancer	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	KNOWNSPELLS:L
 19	ABILITY:Dread Necromancer Class Feature|AUTOMATIC|Dread Necromancer ~ Craft Wondrous Item
 20	ABILITY:Dread Necromancer Class Feature|AUTOMATIC|Dread Necromancer ~ Lich Transformation
 ###Block
-2	BONUS:VAR|DreadNecromancerDR|2
-7	BONUS:VAR|DreadNecromancerDR|2
-11	BONUS:VAR|DreadNecromancerDR|2
-15	BONUS:VAR|DreadNecromancerDR|2
-###Block
 1	CAST:3
 2	CAST:4
 3	CAST:5
@@ -49,3 +87,183 @@ CLASS:Dread Necromancer	SPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO	KNOWNSPELLS:L
 18	CAST:6,6,6,6,6,6,6,5,3
 19	CAST:6,6,6,6,6,6,6,6,4
 20	CAST:6,6,6,6,6,6,6,6,5
+
+# Corrupt Avenger
+CLASS:Corrupt Avenger	MAXLEVEL:10
+CLASS:Corrupt Avenger	HD:12	TYPE:Prestige	SOURCEPAGE:p.88	DEFINE:CorruptAvengerLVL|0	BONUS:VAR|CorruptAvengerLVL|CL
+CLASS:Corrupt Avenger	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
+CLASS:Corrupt Avenger	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Corrupt Avenger	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Corrupt Avenger	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Corrupt Avenger	PRETEXT:Alignment: Non-evil Base attack bonus: +6 Taint: Moderate corruption	!PREALIGN:LE,NE,CE	PRETOTALAB:6
+CLASS:Corrupt Avenger	STARTSKILLPTS:2	CSKILL:Bluff|Climb|Concentration|Diplomacy|Intimidate|Jump|Knowledge (local)|Listen|Ride|Sense Motive|Spot|Survival
+CLASS:Corrupt Avenger	SPELLTYPE:Arcane	SPELLSTAT:CHA	MEMORIZE:YES
+CLASS:Corrupt Avenger	BONUS:CASTERLEVEL|Corrupt Avenger|Caster_Level_CorruptAvenger	DEFINE:Caster_Level_CorruptAvenger|0	BONUS:VAR|Caster_Level_CorruptAvenger|CL+Caster_Level_Bonus	DEFINE:CasterLevelBLCorruptAvenger|0	BONUS:VAR|CasterLevelBLCorruptAvenger|charbonusto("PCLEVEL","Corrupt Avenger")	
+CLASS:Corrupt Avenger	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_CorruptAvenger+CasterLevelBLCorruptAvenger|TYPE=Base
+###Block
+1	CAST:0,0
+2	CAST:0,1
+3	CAST:0,1,0
+4	CAST:0,1,1
+5	CAST:0,1,1,0
+6	CAST:0,1,1,1
+7	CAST:0,2,1,1,0
+8	CAST:0,2,1,1,1
+9	CAST:0,2,2,1,1
+10	CAST:0,2,2,2,1
+###Block
+11	PREPCLEVEL:MIN=20
+###Block	ABILITY:Corrupt Avenger Class Feature|AUTOMATIC|
+# Fallen Abilites
+#1	ABILITY:Corrupt Avenger Class Feature|AUTOMATIC|Corrupt Avenger ~ Lay on Hands|PRECLASS:1,Ex Paladin=3
+#5	ABILITY:Corrupt Avenger Class Feature|AUTOMATIC|Corrupt Avenger ~ Fiendish Summoning|PRECLASS:1,Ex Paladin=7
+#5	ABILITY:Corrupt Avenger Class Feature|AUTOMATIC|Corrupt Avenger ~ Undead Companion|PRECLASS:1,Ex Paladin=9
+1	ABILITY:Corrupt Avenger Class Feature|AUTOMATIC|Corrupt Avenger ~ Spellcasting		
+1	ABILITY:Corrupt Avenger Class Feature|AUTOMATIC|Corrupt Avenger ~ Armored Casting	
+1	ABILITY:Corrupt Avenger Class Feature|AUTOMATIC|Corrupt Avenger ~ Detect Sworn Foe	
+1	ABILITY:Corrupt Avenger Class Feature|AUTOMATIC|Corrupt Avenger ~ Sworn Foe		
+1	ABILITY:Corrupt Avenger Class Feature|AUTOMATIC|Corrupt Avenger ~ Taint Suppression	
+2	ABILITY:Corrupt Avenger Class Feature|AUTOMATIC|Corrupt Avenger ~ Tainted Strike	
+3	ABILITY:Corrupt Avenger Class Feature|AUTOMATIC|Corrupt Avenger ~ Grim Resolve		
+5	ABILITY:Corrupt Avenger Class Feature|AUTOMATIC|Corrupt Avenger ~ Frightful Fury	
+9	ABILITY:Corrupt Avenger Class Feature|AUTOMATIC|Corrupt Avenger ~ Unnerving Fury	
+
+# Death Delver
+CLASS:Death Delver	MAXLEVEL:10
+CLASS:Death Delver	HD:8	TYPE:Prestige	SOURCEPAGE:p.93	DEFINE:DeathDelverLVL|0	BONUS:VAR|DeathDelverLVL|CL
+CLASS:Death Delver	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	
+CLASS:Death Delver	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	
+CLASS:Death Delver	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Death Delver	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Death Delver	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Death Delver	PRETEXT:Saving Throws: Base Will Save +2 Skills: Concentration ranks, Heal 2 ranks, Knowledge (religion) 4 ranks Special: Must have had at least one near-death experience (fallen below 0 hit points and lived)	PRECHECKBASE:1,Will=2	PRESKILL:3,Concentration=8,Heal=2,Knowledge (Religion)=4
+CLASS:Death Delver	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Gather Information|Knowledge (arcana)|Knowledge (religion)|Listen|TYPE=Profession|Search|Spellcraft|Spot
+CLASS:Death Delver	SPELLTYPE:Divine	SPELLSTAT:WIS	MEMORIZE:NO
+CLASS:Death Delver	BONUS:CASTERLEVEL|Death Delver|Caster_Level_DeathDelver	DEFINE:Caster_Level_DeathDelver|0	BONUS:VAR|Caster_Level_DeathDelver|CL+Caster_Level_Bonus	DEFINE:CasterLevelBLDeathDelver|0	BONUS:VAR|CasterLevelBLDeathDelver|charbonusto("PCLEVEL","Death Delver")	
+CLASS:Death Delver	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_DeathDelver+CasterLevelBLDeathDelver|TYPE=Base
+###Block
+1	CAST:0,0
+2	CAST:0,1
+3	CAST:0,1,0
+4	CAST:0,1,1
+5	CAST:0,1,1,0
+6	CAST:0,1,1,1
+7	CAST:0,2,1,1,0
+8	CAST:0,2,1,1,1
+9	CAST:0,2,2,1,1
+10	CAST:0,2,2,2,1
+###Block
+11	PREPCLEVEL:MIN=20
+###Block	ABILITY:Death Delver Class Feature|AUTOMATIC|
+1	ABILITY:Death Delver Class Feature|AUTOMATIC|Death Delver ~ Spellcasting		
+1	ABILITY:Death Delver Class Feature|AUTOMATIC|Death Delver ~ Deathsense			
+1	ABILITY:Death Delver Class Feature|AUTOMATIC|Death Delver ~ Rebuke Undead		
+2	ABILITY:Death Delver Class Feature|AUTOMATIC|Death Delver ~ Deadened Soul		
+2	ABILITY:Death Delver Class Feature|AUTOMATIC|Death Delver ~ Spontaneous Casting	
+3	ABILITY:Death Delver Class Feature|AUTOMATIC|Death Delver ~ Death Ward			
+4	ABILITY:Death Delver Class Feature|AUTOMATIC|Death Delver ~ Diehard			
+5	ABILITY:Death Delver Class Feature|AUTOMATIC|Death Delver ~ Fear Aura			
+7	ABILITY:Death Delver Class Feature|AUTOMATIC|Death Delver ~ Cheat Death		
+8	ABILITY:Death Delver Class Feature|AUTOMATIC|Death Delver ~ Mantle of Life		
+10	ABILITY:Death Delver Class Feature|AUTOMATIC|Death Delver ~ Nine Lives			
+
+# Dread Witch
+CLASS:Dread Witch	MAXLEVEL:5
+CLASS:Dread Witch	HD:4	TYPE:Prestige	SOURCEPAGE:p.98	DEFINE:DreadWitchLVL|0	BONUS:VAR|DreadWitchLVL|CL
+CLASS:Dread Witch	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	
+CLASS:Dread Witch	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+CLASS:Dread Witch	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Dread Witch	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Dread Witch	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Dread Witch	PRETEXT:Saving Throws: Base Will save +4 Skills: Knowledge (arcana) 3 ranks Spellcasting: Ability to cast cause fear and scare Special: Must have suffered at least one fear effect against which she failed her save.	PRESKILL:1,Knowledge (Arcana)=3	PRECHECKBASE:1,Will=4
+CLASS:Dread Witch	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Intimidate|Knowledge (arcana)|Knowledge (the planes)|TYPE=Profession|Spellcraft
+###Block
+2:REPEATLEVEL:1	ADD:SPELLCASTER|ANY
+###Block	
+1	ABILITY:Dread Witch Class Feature|AUTOMATIC|Dread Witch ~ Spellcasting		
+1	ABILITY:Dread Witch Class Feature|AUTOMATIC|Dread Witch ~ Master of Terror		
+1	ABILITY:Dread Witch Class Feature|AUTOMATIC|Dread Witch ~ Unnatural Will		
+2	ABILITY:Dread Witch Class Feature|AUTOMATIC|Dread Witch ~ Absorb Fear			
+3	ABILITY:Dread Witch Class Feature|AUTOMATIC|Dread Witch ~ Fearful Empowerment	
+4	ABILITY:Dread Witch Class Feature|AUTOMATIC|Dread Witch ~ Delay Fear			
+4	ABILITY:Dread Witch Class Feature|AUTOMATIC|Dread Witch ~ Greater Master of Terror
+5	ABILITY:Dread Witch Class Feature|AUTOMATIC|Dread Witch ~ Horrific Aura		
+5	ABILITY:Dread Witch Class Feature|AUTOMATIC|Dread Witch ~ Refl ective Fear		
+
+# Fiend-Blooded
+CLASS:Fiend-Blooded	MAXLEVEL:10
+CLASS:Fiend-Blooded	HD:4	TYPE:Prestige	SOURCEPAGE:p.102	DEFINE:FiendBloodedLVL|0	BONUS:VAR|FiendBloodedLVL|CL
+CLASS:Fiend-Blooded	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	
+CLASS:Fiend-Blooded	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+CLASS:Fiend-Blooded	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Fiend-Blooded	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Fiend-Blooded	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Fiend-Blooded	PRETEXT:Race: Any humanoid race (cannot already be a half-fiend); Alignment: Any nongood alignment Skills: Concentration ranks, Knowledge (arcana) ranks, Knowledge (the planes) ranks; Feats: Blood Calls to Blood*, Eschew Materials; Spellcasting: Must be able to cast 2nd-level arcane spells without preparation	PRERACE:1,RACETYPE=Humanoid	!PRETEMPLATE:1,Half-Fiend	!PREALIGN:LG,NG,CG	PREABILITY:1,CATEGORY=FEAT,lood Calls to Blood,Eschew Materials	PRESKILL:3,Concentration=8,Knowledge (arcana)=8,Knowledge (the planes)=8
+CLASS:Fiend-Blooded	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|Intimidate|Knowledge (arcana)|Knowledge (the planes)|Spellcraft
+###Block
+1:REPEATLEVEL:1|SKIP=0|MAX=9	ADD:SPELLCASTER|ANY
+###Block
+11	PREPCLEVEL:MIN=20
+###Block	
+1	ABILITY:Fiend-Blooded Class Feature|AUTOMATIC|Fiend-Blooded ~ Spellcasting		
+1	ABILITY:Fiend-Blooded Class Feature|AUTOMATIC|Fiend-Blooded ~ Fiendish Companion	
+1	ABILITY:Fiend-Blooded Class Feature|AUTOMATIC|Fiend-Blooded ~ Fiendish Heritage	
+2	ABILITY:Fiend-Blooded Class Feature|AUTOMATIC|Fiend-Blooded ~ Fiendish Sorcery	
+3	ABILITY:Fiend-Blooded Class Feature|AUTOMATIC|Fiend-Blooded ~ Blood of Fiends		
+4	ABILITY:Fiend-Blooded Class Feature|AUTOMATIC|Fiend-Blooded ~ Smiting Spell		
+10	ABILITY:Fiend-Blooded Class Feature|AUTOMATIC|Fiend-Blooded ~ Fiendish Exaltation	
+
+
+# Purifier of the Hallowed Doctrine
+CLASS:Purifier of the Hallowed Doctrine	MAXLEVEL:10
+CLASS:Purifier of the Hallowed Doctrine	HD:8	TYPE:Prestige	SOURCEPAGE:p.108	DEFINE:PurifierOfTheHallowedDoctrineLVL|0	BONUS:VAR|PurifierOfTheHallowedDoctrineLVL|CL
+CLASS:Purifier of the Hallowed Doctrine	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	
+CLASS:Purifier of the Hallowed Doctrine	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	
+CLASS:Purifier of the Hallowed Doctrine	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Purifier of the Hallowed Doctrine	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Purifier of the Hallowed Doctrine	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Purifier of the Hallowed Doctrine	PRETEXT:Alignment: Any good alignment or true neutral; Skills: Knowledge (arcana) 4 ranks, Knowledge (religion) 8 ranks; Feats: Pure Soul*; Special: Ability to turn undead	PREABILITY:1,CATEGORY=Special Ability,TYPE.Turn Undead	PRESKILL:2,Knowledge (Arcana)=4,Knowledge (Religion)=8	PREABILITY:1,CATEGORY=FEAT,Pure Soul	PREALIGN:LG,NG,CG,TN
+CLASS:Purifier of the Hallowed Doctrine	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Knowledge (arcana)|Knowledge (history)|Knowledge (religion)|Knowledge (the planes)|TYPE=Profession|Spellcraft
+###Block
+1:REPEATLEVEL:2	ADD:SPELLCASTER|Divine
+###Block
+11	PREPCLEVEL:MIN=20
+###Block	
+1	ABILITY:Purifier of the Hallowed Doctrine Class Feature|AUTOMATIC|Purifier Of The Hallowed Doctrine ~ Tainted Creatures	
+1	ABILITY:Purifier of the Hallowed Doctrine Class Feature|AUTOMATIC|Purifier Of The Hallowed Doctrine ~ Spellcasting		
+1	ABILITY:Purifier of the Hallowed Doctrine Class Feature|AUTOMATIC|Purifier Of The Hallowed Doctrine ~ Aura of Purity	
+1	ABILITY:Purifier of the Hallowed Doctrine Class Feature|AUTOMATIC|Purifier Of The Hallowed Doctrine ~ Detect Taint		
+1	ABILITY:Purifier of the Hallowed Doctrine Class Feature|AUTOMATIC|Purifier Of The Hallowed Doctrine ~ Turn Undead		
+2	ABILITY:Purifier of the Hallowed Doctrine Class Feature|AUTOMATIC|Purifier Of The Hallowed Doctrine ~ Lay on Hands		
+3	ABILITY:Purifier of the Hallowed Doctrine Class Feature|AUTOMATIC|Purifier Of The Hallowed Doctrine ~ Smite Taint		
+4	ABILITY:Purifier of the Hallowed Doctrine Class Feature|AUTOMATIC|Purifier Of The Hallowed Doctrine ~ Aura of Sanctity	
+5	ABILITY:Purifier of the Hallowed Doctrine Class Feature|AUTOMATIC|Purifier Of The Hallowed Doctrine ~ Turn Tainted		
+6	ABILITY:Purifier of the Hallowed Doctrine Class Feature|AUTOMATIC|Purifier Of The Hallowed Doctrine ~ Purify Soul		
+7	ABILITY:Purifier of the Hallowed Doctrine Class Feature|AUTOMATIC|Purifier Of The Hallowed Doctrine ~ Cleansing Flame	
+8	ABILITY:Purifier of the Hallowed Doctrine Class Feature|AUTOMATIC|Purifier Of The Hallowed Doctrine ~ Shield of Purity	
+
+# Tainted Scholar
+CLASS:Tainted Scholar	MAXLEVEL:10
+CLASS:Tainted Scholar	HD:6	TYPE:Prestige	SOURCEPAGE:p.113	DEFINE:TaintedScholarLVL|0	BONUS:VAR|TaintedScholarLVL|CL
+CLASS:Tainted Scholar	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	
+CLASS:Tainted Scholar	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+CLASS:Tainted Scholar	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Tainted Scholar	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Tainted Scholar	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Tainted Scholar	PRETEXT:Skills: Concentration ranks, Knowledge (arcana) 4 ranks; Spellcasting: Ability to cast 1st-level arcane spells or use least invocations (warlock); Taint: Moderate or greater depravity
+CLASS:Tainted Scholar	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher Script|Intimidate|TYPE=Knowledge|Spellcraft
+###Block
+1:REPEATLEVEL:1	ADD:SPELLCASTER|Arcane
+###Block
+11	PREPCLEVEL:MIN=20
+###Block	
+1	ABILITY:Tainted Scholar Class Feature|AUTOMATIC|Tainted Scholar ~ Spellcasting		
+1	ABILITY:Tainted Scholar Class Feature|AUTOMATIC|Tainted Scholar ~ Blood Component	
+1	ABILITY:Tainted Scholar Class Feature|AUTOMATIC|Tainted Scholar ~ Level Advancement	
+1	ABILITY:Tainted Scholar Class Feature|AUTOMATIC|Tainted Scholar ~ Tainted Spellcasting
+1	ABILITY:Tainted Scholar Class Feature|AUTOMATIC|Tainted Scholar ~ Taint Suppression	
+2	ABILITY:Tainted Scholar Class Feature|AUTOMATIC|Tainted Scholar ~ Secret			
+3	ABILITY:Tainted Scholar Class Feature|AUTOMATIC|Tainted Scholar ~ Lore			
+5	ABILITY:Tainted Scholar Class Feature|AUTOMATIC|Tainted Scholar ~ Outre Lore		
+7	ABILITY:Tainted Scholar Class Feature|AUTOMATIC|Tainted Scholar ~ Aberrant Lore		
+9	ABILITY:Tainted Scholar Class Feature|AUTOMATIC|Tainted Scholar ~ Heretical Lore	
