@@ -1,3 +1,10 @@
+# Game Support
+	Materia is available in two forms.
+		1) Equipment which you can have in your inventory.
+		2) An Equipment Modifier applied to a legal item.
+
+
+
 
 # Datacontrol file:
 	Race Booleans set up
