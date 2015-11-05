@@ -166,7 +166,7 @@ CLASS:Druid	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|
 # Class Name	Hit Dice	Type			Ability																				Define			Bonus to Ability Pool			Modify VAR
 CLASS:Fighter	HD:10		TYPE:PC.Base	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial|TYPE=ArmorProfMedium|TYPE=ShieldProf	BONUS:VAR|FighterLVL|CL	DEFINE:FighterLVL|0
 CLASS:Fighter	PREMULT:1,[!PRETEMPLATE:1,First Level],[PREABILITY:1,CATEGORY=Internal,Multiclass Allowed ~ Fighter],[PRECLASS:1,Fighter=1]
-CLASS:Fighter	SPELLSTAT:INT	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Fighter|CL	SPELLLIST:2|Fighter|Wizard	MEMORIZE:YES
+CLASS:Fighter	SPELLSTAT:INT	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Fighter|CL	SPELLLIST:1|Fighter		MEMORIZE:NO
 ###Block
 1:REPEATLEVEL:1	DONOTADD:SKILLPOINTS
 ###Block
@@ -178,32 +178,45 @@ CLASS:Fighter	SPELLSTAT:INT	SPELLTYPE:Arcane	BONUS:CASTERLEVEL|Fighter|CL	SPELLL
 5	ABILITY:Fighter Class Feature|AUTOMATIC|Fighter ~ Extra Attack
 9	ABILITY:Fighter Class Feature|AUTOMATIC|Fighter ~ Indomitable
 ###Block
-3	CAST:0
-4	CAST:0
-5	CAST:0
-6	CAST:0
-7	CAST:0
-8	CAST:0
-9	CAST:0
-10	CAST:0
-11	CAST:0
-12	CAST:0
-13	CAST:0
-14	CAST:0
-15	CAST:0
-16	CAST:0
-17	CAST:0
-18	CAST:0
-19	CAST:0
-20	CAST:0
-###Block abjuration and evocation
-1	PROHIBITSPELL:SCHOOL.Divination
-1	PROHIBITSPELL:SCHOOL.Illusion
-1	PROHIBITSPELL:SCHOOL.Necromancy
-1	PROHIBITSPELL:SCHOOL.Enchantment
-1	PROHIBITSPELL:SCHOOL.Conjuration
-1	PROHIBITSPELL:SCHOOL.Transmutation
-
+3	CAST:0,1
+4	CAST:0,1
+5	CAST:0,1
+6	CAST:0,1
+7	CAST:0,1,1
+8	CAST:0,1,1
+9	CAST:0,1,1
+10	CAST:0,1,1
+11	CAST:0,1,1
+12	CAST:0,1,1
+13	CAST:0,1,1,1
+14	CAST:0,1,1,1
+15	CAST:0,1,1,1
+16	CAST:0,1,1,1
+17	CAST:0,1,1,1
+18	CAST:0,1,1,1
+19	CAST:0,1,1,1,1
+20	CAST:0,1,1,1,1
+3	BONUS:SPELLCAST|CLASS=Fighter;LEVEL=1|1|PREABILITY:1,CATEGORY=Special Ability,Eldritch Knight ~ Spellcasting
+3	BONUS:SPELLCAST|CLASS=Fighter;LEVEL=1|-1|PREABILITY:1,CATEGORY=Special Ability,TYPE.Martial Archetype
+7	BONUS:SPELLCAST|CLASS=Fighter;LEVEL=2|1|PREABILITY:1,CATEGORY=Special Ability,Eldritch Knight ~ Spellcasting
+7	BONUS:SPELLCAST|CLASS=Fighter;LEVEL=2|-1|PREABILITY:1,CATEGORY=Special Ability,TYPE.Martial Archetype
+13	BONUS:SPELLCAST|CLASS=Fighter;LEVEL=3|1|PREABILITY:1,CATEGORY=Special Ability,Eldritch Knight ~ Spellcasting
+13	BONUS:SPELLCAST|CLASS=Fighter;LEVEL=3|-1|PREABILITY:1,CATEGORY=Special Ability,TYPE.Martial Archetype
+19	BONUS:SPELLCAST|CLASS=Fighter;LEVEL=4|1|PREABILITY:1,CATEGORY=Special Ability,Eldritch Knight ~ Spellcasting
+19	BONUS:SPELLCAST|CLASS=Fighter;LEVEL=4|-1|PREABILITY:1,CATEGORY=Special Ability,TYPE.Martial Archetype
+3	BONUS:SPELLKNOWN|CLASS=Fighter;LEVEL=1|2|PREABILITY:1,CATEGORY=Special Ability,Eldritch Knight ~ Spellcasting
+4	BONUS:SPELLKNOWN|CLASS=Fighter;LEVEL=1|1|PREABILITY:1,CATEGORY=Special Ability,Eldritch Knight ~ Spellcasting
+7	BONUS:SPELLKNOWN|CLASS=Fighter;LEVEL=2|1|PREABILITY:1,CATEGORY=Special Ability,Eldritch Knight ~ Spellcasting
+8	BONUS:SPELLKNOWN|CLASS=Fighter;LEVEL=1|-1|PREABILITY:1,CATEGORY=Special Ability,Eldritch Knight ~ Spellcasting	BONUS:SPELLKNOWN|CLASS=Fighter;LEVEL=2|1|PREABILITY:1,CATEGORY=Special Ability,Eldritch Knight ~ Spellcasting
+9	BONUS:SPELLKNOWN|CLASS=Fighter;LEVEL=1|-1|PREABILITY:1,CATEGORY=Special Ability,Eldritch Knight ~ Spellcasting	BONUS:SPELLKNOWN|CLASS=Fighter;LEVEL=2|1|PREABILITY:1,CATEGORY=Special Ability,Eldritch Knight ~ Spellcasting
+10	BONUS:SPELLKNOWN|CLASS=Fighter;LEVEL=1|-1|PREABILITY:1,CATEGORY=Special Ability,Eldritch Knight ~ Spellcasting	BONUS:SPELLKNOWN|CLASS=Fighter;LEVEL=2|2|PREABILITY:1,CATEGORY=Special Ability,Eldritch Knight ~ Spellcasting
+11	BONUS:SPELLKNOWN|CLASS=Fighter;LEVEL=2|1|PREABILITY:1,CATEGORY=Special Ability,Eldritch Knight ~ Spellcasting
+13	BONUS:SPELLKNOWN|CLASS=Fighter;LEVEL=3|1|PREABILITY:1,CATEGORY=Special Ability,Eldritch Knight ~ Spellcasting
+15	BONUS:SPELLKNOWN|CLASS=Fighter;LEVEL=2|-1|PREABILITY:1,CATEGORY=Special Ability,Eldritch Knight ~ Spellcasting	BONUS:SPELLKNOWN|CLASS=Fighter;LEVEL=3|1|PREABILITY:1,CATEGORY=Special Ability,Eldritch Knight ~ Spellcasting
+16	BONUS:SPELLKNOWN|CLASS=Fighter;LEVEL=2|-1|PREABILITY:1,CATEGORY=Special Ability,Eldritch Knight ~ Spellcasting	BONUS:SPELLKNOWN|CLASS=Fighter;LEVEL=3|2|PREABILITY:1,CATEGORY=Special Ability,Eldritch Knight ~ Spellcasting
+17	BONUS:SPELLKNOWN|CLASS=Fighter;LEVEL=2|-1|PREABILITY:1,CATEGORY=Special Ability,Eldritch Knight ~ Spellcasting	BONUS:SPELLKNOWN|CLASS=Fighter;LEVEL=3|1|PREABILITY:1,CATEGORY=Special Ability,Eldritch Knight ~ Spellcasting
+18	BONUS:SPELLKNOWN|CLASS=Fighter;LEVEL=2|-1|PREABILITY:1,CATEGORY=Special Ability,Eldritch Knight ~ Spellcasting	BONUS:SPELLKNOWN|CLASS=Fighter;LEVEL=3|1|PREABILITY:1,CATEGORY=Special Ability,Eldritch Knight ~ Spellcasting
+19	BONUS:SPELLKNOWN|CLASS=Fighter;LEVEL=4|1|PREABILITY:1,CATEGORY=Special Ability,Eldritch Knight ~ Spellcasting
 
 CLASS:Monk	HD:8		TYPE:PC.Base	DEFINE:MonkLVL|0	BONUS:VAR|MonkLVL|CL	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfSimple	AUTO:WEAPONPROF|Shortsword
 CLASS:Monk	PREMULT:1,[!PRETEMPLATE:1,First Level],[PREABILITY:1,CATEGORY=Internal,Multiclass Allowed ~ Monk],[PRECLASS:1,Monk=1]
