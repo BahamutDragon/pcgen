@@ -30,6 +30,7 @@ CLASS:High Elf	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Knowled
 1	ABILITY:High Elf Racial Level|AUTOMATIC|High Elf ~ Level 1
 2	ABILITY:High Elf Racial Level|AUTOMATIC|High Elf ~ Level 2
 3	ABILITY:High Elf Racial Level|AUTOMATIC|High Elf ~ Level 3
+# High elf levels stack with an arcane spellcasting class level for purposes of determining caster level for spells. If the high elf has two arcane spellcasting classes, add the racial levels to the higher of the two. This increase in caster level stacks with that provided by the increased caster level ability.
 
 # Night Elf
 CLASS:Night Elf	MAXLEVEL:3
@@ -60,7 +61,7 @@ CLASS:Tauren	STARTSKILLPTS:2	CSKILL:Climb|Concentration|Handle Animal|Listen|Sen
 1	ABILITY:Tauren Racial Level|AUTOMATIC|Tauren ~ Level 1
 2	ABILITY:Tauren Racial Level|AUTOMATIC|Tauren ~ Level 2
 3	ABILITY:Tauren Racial Level|AUTOMATIC|Tauren ~ Level 3
-# Levels stack with HIGHEST DIVINE
+# Tauren levels stack with a divine spellcasting class level for purposes of determining caster level for spells. If the tauren has two divine spellcasting classes, add the racial levels to the higher of the two.
 
 
 # Jungle Troll
@@ -76,6 +77,7 @@ CLASS:Jungle Troll	STARTSKILLPTS:2	CSKILL:Balance|Climb|Jump|Listen|Spot|Stealth
 1	ABILITY:Jungle Troll Racial Level|AUTOMATIC|Jungle Troll ~ Level 1
 2	ABILITY:Jungle Troll Racial Level|AUTOMATIC|Jungle Troll ~ Level 2
 3	ABILITY:Jungle Troll Racial Level|AUTOMATIC|Jungle Troll ~ Level 3
+# Jungle troll levels stack with a divine spellcasting class level for purposes of determining caster level for spells. If the jungle troll has two divine spellcasting classes, add the racial levels to the higher of the two.
 
 # Forsaken
 CLASS:Forsaken	MAXLEVEL:3
@@ -107,7 +109,7 @@ CLASS:Arcanist	BONUS:CASTERLEVEL|Arcanist|Caster_Level_Arcanist	DEFINE:Caster_Le
 CLASS:Arcanist	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Arcanist+CasterLevelBLArcanist|TYPE=Base
 SUBCLASS:Mage		CSKILL:Diplomacy|Sense Motive
 SUBCLASS:Necromancer	CSKILL:Bluff
-SUBCLASSLEVEL:1		ADD:CLASSSKILL|Disguise,Forgery
+SUBCLASSLEVEL:1		ADD:CLASSSKILLS|1|Disguise,Forgery
 SUBCLASS:Warlock		CSKILL:Diplomacy|Intimidate
 ###Block
 1	ABILITY:Class|AUTOMATIC|Arcanist
@@ -210,6 +212,8 @@ CLASS:Hunter	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
 CLASS:Hunter	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
 CLASS:Hunter	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 CLASS:Hunter	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Craft (trade skill)|Handle Animal|Heal|Jump|Knowledge (nature)|Listen|TYPE=Profession|Search|Spot|Stealth|Survival|Swim|Use Rope
+###Block:
+1	ABILITY:Class|AUTOMATIC|Hunter
 ###Block
 1	ABILITY:Hunter Class Feature|AUTOMATIC|Hunter ~ Weapon and Armor Proficiency	
 1	ABILITY:Hunter Class Feature|AUTOMATIC|Hunter ~ Animal Empathy			
@@ -231,6 +235,8 @@ CLASS:Paladin	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Craft (trade skill
 CLASS:Paladin	SPELLTYPE:Divine	SPELLSTAT:WIS	MEMORIZE:NO
 CLASS:Paladin	BONUS:CASTERLEVEL|Paladin|Caster_Level_Paladin	DEFINE:Caster_Level_Paladin|0	BONUS:VAR|Caster_Level_Paladin|(CL/2)+Caster_Level_Bonus|PRECLASS:1,Paladin=4	DEFINE:CasterLevelBLPaladin|0	BONUS:VAR|CasterLevelBLPaladin|charbonusto("PCLEVEL","Paladin")	
 CLASS:Paladin	BONUS:VAR|Caster_Level_Highest__Divine|Caster_Level_Paladin+CasterLevelBLPaladin|TYPE=Base
+###Block:
+1	ABILITY:Class|AUTOMATIC|Paladin
 ###Block
 1	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Weapon and Armor Proficiency	
 1	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Aura of Good				
@@ -274,6 +280,8 @@ CLASS:Rogue	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
 CLASS:Rogue	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
 CLASS:Rogue	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 CLASS:Rogue	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE=Craft|Craft (trade skill)|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Intimidate|Jump|Knowledge (local)|Listen|Open Lock|TYPE=Perform|TYPE=Profession|Search|Sense Motive|Sleight of Hand|Spot|Stealth|Swim|Tumble|Use Magic Device|Use Rope
+###Block:
+1	ABILITY:Class|AUTOMATIC|Rogue
 ###Block	
 1	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Weapon and Armor Proficiency	
 1	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Backstab				
@@ -294,6 +302,8 @@ CLASS:Scout	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
 CLASS:Scout	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
 CLASS:Scout	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 CLASS:Scout	STARTSKILLPTS:6	CSKILL:Climb|TYPE=Craft|Craft (trade skill)|Heal|Jump|Knowledge (military tactics)|Knowledge (nature)|Listen|TYPE=Profession|Search|Spot|Stealth|Survival|Swim|Use Rope
+###Block:
+1	ABILITY:Class|AUTOMATIC|Scout
 ###Block	
 1	ABILITY:Scout Class Feature|AUTOMATIC|Scout ~ Weapon and Armor Proficiency	
 1	ABILITY:Scout Class Feature|AUTOMATIC|Scout ~ Track					
@@ -324,6 +334,8 @@ CLASS:Tinker	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3+2
 CLASS:Tinker	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 CLASS:Tinker	STARTSKILLPTS:8	CSKILL:Appraise|Concentration|TYPE=Craft|Craft (technological device)|Craft (trade skill)|Decipher Script|Disable Device|Forgery|TYPE=Tinker Knowledge|Open Lock|TYPE=Profession|Search|Use Magic Device|Use Technological Device
 #  (all taken individually, except arcana and religion)
+###Block:
+1	ABILITY:Class|AUTOMATIC|Tinker
 ###Block 	
 1	ABILITY:Tinker Class Feature|AUTOMATIC|Tinker ~ Weapon and Armor Proficiency	
 1	ABILITY:Tinker Class Feature|AUTOMATIC|Tinker ~ Bonus Feats			
@@ -344,6 +356,8 @@ CLASS:Warrior	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
 CLASS:Warrior	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 CLASS:Warrior	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 CLASS:Warrior	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Craft (trade skill)|Handle Animal|Intimidate|Jump|Knowledge (military tactics)|Profession (military commander)|Ride|Swim
+###Block:
+1	ABILITY:Class|AUTOMATIC|Warrior
 ###Block
 1	ABILITY:Warrior Class Feature|AUTOMATIC|Warrior ~ Weapon and Armor Proficiency	
 1	ABILITY:Warrior Class Feature|AUTOMATIC|Warrior ~ Bonus Feats				
@@ -358,7 +372,7 @@ CLASS:Archmage of Kirin Tor	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONE
 CLASS:Archmage of Kirin Tor	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 CLASS:Archmage of Kirin Tor	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 CLASS:Archmage of Kirin Tor	PRETEXT:Skills: Knowledge (arcana) 15 ranks, Spellcraft 15 ranks. Feats: Skill Focus (Spellcraft), Spell Focus in two schools of magic. Spells: Ability to cast 7th-level arcane spells, knowledge of 5th-level or higher spells from at least five schools. Special: Arcanists following the path of the necromancer or the warlock are not welcome in the Kirin Tor. In fact, they are lucky to escape the wrath of the archmages alive.
-CLASS:Archmage of Kirin Tor	STARTSKILLPTS:2	CSKILL:Concentration|Craft (alchemy)|TYPE=Knowledge|TYPE=Profession|Search|Spellcraft
+CLASS:Archmage of Kirin Tor	STARTSKILLPTS:2	CSKILL:Concentration|Craft (Alchemy)|TYPE=Knowledge|TYPE=Profession|Search|Spellcraft
 ###Block
 1:REPEATLEVEL:1	ADD:SPELLCASTER|Arcane
 ###Block	
@@ -521,29 +535,29 @@ CLASS:Gladiator	STARTSKILLPTS:2	CSKILL:Bluff|Climb|TYPE=Craft|Intimidate|Jump|Kn
 7	ABILITY:Gladiator Class Feature|AUTOMATIC|Gladiator ~ Spring Attack				
 10	ABILITY:Gladiator Class Feature|AUTOMATIC|Gladiator ~ Whirlwind Attack			
 
-CLASS:Infilitrator	ABB:Inf
-CLASS:Infilitrator	MAXLEVEL:10
-CLASS:Infilitrator	HD:6	TYPE:Prestige	SOURCEPAGE:p.106	DEFINE:InfilitratorLVL|0	BONUS:VAR|InfilitratorLVL|CL
-CLASS:Infilitrator	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	
-CLASS:Infilitrator	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	
-CLASS:Infilitrator	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
-CLASS:Infilitrator	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
-CLASS:Infilitrator	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
-CLASS:Infilitrator	PRETEXT:Affiliation: Alliance only. Skills: All of the following skills must have a minimum of 5 ranks, and at least two must have a minimum of 8 ranks: Bluff, Diplomacy, Disguise, Gather Information, Listen and Sense Motive.	PRESKILL:6,Bluff=5,Diplomacy=5,Disguise=5,Gather Information=5,Listen=5,Sense Motive=5	PRESKILL:2,Bluff=8,Diplomacy=8,Disguise=8,Gather Information=8,Listen=8,Sense Motive=8
-CLASS:Infilitrator	STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Climb|TYPE=Craft|Decipher Script|Diplomacy|Disguise|Escape Artist|Forgery|Gather Information|Intimidate|Jump|Listen|Open Lock|TYPE=Perform|TYPE=Profession|Search|Sense Motive|Sleight of Hand|Speak Language|Spot|Stealth|Swim|Tumble|Use Magic Device|Use Rope|Use Technological Device
+CLASS:Infiltrator	ABB:Inf
+CLASS:Infiltrator	MAXLEVEL:10
+CLASS:Infiltrator	HD:6	TYPE:Prestige	SOURCEPAGE:p.106	DEFINE:InfiltratorLVL|0	BONUS:VAR|InfiltratorLVL|CL
+CLASS:Infiltrator	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	
+CLASS:Infiltrator	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	
+CLASS:Infiltrator	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Infiltrator	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Infiltrator	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Infiltrator	PRETEXT:Affiliation: Alliance only. Skills: All of the following skills must have a minimum of 5 ranks, and at least two must have a minimum of 8 ranks: Bluff, Diplomacy, Disguise, Gather Information, Listen and Sense Motive.	PRESKILL:6,Bluff=5,Diplomacy=5,Disguise=5,Gather Information=5,Listen=5,Sense Motive=5	PRESKILL:2,Bluff=8,Diplomacy=8,Disguise=8,Gather Information=8,Listen=8,Sense Motive=8
+CLASS:Infiltrator	STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Climb|TYPE=Craft|Decipher Script|Diplomacy|Disguise|Escape Artist|Forgery|Gather Information|Intimidate|Jump|Listen|Open Lock|TYPE=Perform|TYPE=Profession|Search|Sense Motive|Sleight of Hand|Speak Language|Spot|Stealth|Swim|Tumble|Use Magic Device|Use Rope|Use Technological Device
 ###Block
-1	ABILITY:Infilitrator Class Feature|AUTOMATIC|Infiltrator ~ Weapon and Armor Proficiency	
-1	ABILITY:Infilitrator Class Feature|AUTOMATIC|Infiltrator ~ Canny Defense			
-1	ABILITY:Infilitrator Class Feature|AUTOMATIC|Infiltrator ~ Connections				
-2	ABILITY:Infilitrator Class Feature|AUTOMATIC|Infiltrator ~ Smooth Talker			
-2	ABILITY:Infilitrator Class Feature|AUTOMATIC|Infiltrator ~ Uncanny Dodge			
-3	ABILITY:Infilitrator Class Feature|AUTOMATIC|Infiltrator ~ Flawless Disguise			
-4	ABILITY:Infilitrator Class Feature|AUTOMATIC|Infiltrator ~ Suggestion				
-5	ABILITY:Infilitrator Class Feature|AUTOMATIC|Infiltrator ~ Improved Uncanny Dodge		
-5	ABILITY:Infilitrator Class Feature|AUTOMATIC|Infiltrator ~ Improvisation			
-7	ABILITY:Infilitrator Class Feature|AUTOMATIC|Infiltrator ~ Slippery Mind			
-8	ABILITY:Infilitrator Class Feature|AUTOMATIC|Infiltrator ~ Hide in Plain Sight		
-10	ABILITY:Infilitrator Class Feature|AUTOMATIC|Infiltrator ~ Dominate				
+1	ABILITY:Infiltrator Class Feature|AUTOMATIC|Infiltrator ~ Weapon and Armor Proficiency	
+1	ABILITY:Infiltrator Class Feature|AUTOMATIC|Infiltrator ~ Canny Defense			
+1	ABILITY:Infiltrator Class Feature|AUTOMATIC|Infiltrator ~ Connections				
+2	ABILITY:Infiltrator Class Feature|AUTOMATIC|Infiltrator ~ Smooth Talker			
+2	ABILITY:Infiltrator Class Feature|AUTOMATIC|Infiltrator ~ Uncanny Dodge			
+3	ABILITY:Infiltrator Class Feature|AUTOMATIC|Infiltrator ~ Flawless Disguise			
+4	ABILITY:Infiltrator Class Feature|AUTOMATIC|Infiltrator ~ Suggestion				
+5	ABILITY:Infiltrator Class Feature|AUTOMATIC|Infiltrator ~ Improved Uncanny Dodge		
+5	ABILITY:Infiltrator Class Feature|AUTOMATIC|Infiltrator ~ Improvisation			
+7	ABILITY:Infiltrator Class Feature|AUTOMATIC|Infiltrator ~ Slippery Mind			
+8	ABILITY:Infiltrator Class Feature|AUTOMATIC|Infiltrator ~ Hide in Plain Sight		
+10	ABILITY:Infiltrator Class Feature|AUTOMATIC|Infiltrator ~ Dominate				
 
 CLASS:Mounted Warrior	ABB:Mow
 CLASS:Mounted Warrior	MAXLEVEL:20
@@ -595,4 +609,198 @@ CLASS:Soldier	HD:8		TYPE:Base.NPC	CLASSTYPE:NPC	ABB:Sol		MAXLEVEL:20	SOURCEPAGE:
 CLASS:Soldier	STARTSKILLPTS:2	CSKILL:Climb|Handle Animal|Intimidate|Jump|Ride|Swim
 ###Block: 
 1	ABILITY:Soldier Class Feature|AUTOMATIC|Soldier ~ Weapon and Armor Proficiency
+
+
+###Block: Racial Levels for Monsters
+
+# Used from the PCGen RSRD Version - no changes needed at this time.
+
+# Class Name	Hit Dice	Type			Class Type		Max Level		Source Page		Combat bonus															Modify VAR														Bonus
+CLASS:Aberration	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.290	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Reg. Race Type
+CLASS:Aberration	PRERACETYPE:Aberration
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Aberration	STARTSKILLPTS:2	MODTOSKILLS:YES
+
+# Class Name	Hit Dice	Type			Class Type		Max Level		Source Page		Combat bonus															Modify VAR														Bonus
+CLASS:Animal	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.290	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Prohibited Class			Reg. Race Type
+CLASS:Animal	!PRECLASS:1,Animal (Will)=1	PRERACETYPE:Animal
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Animal	STARTSKILLPTS:2	MODTOSKILLS:YES
+
+# Class Name		Output Name		Hit Dice	Type			Class Type		Max Level		Source Page		Combat bonus															Modify VAR														Bonus
+CLASS:Animal (Will)	OUTPUTNAME:Animal	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.290	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name		Prohibited Class		Reg. Race Type
+CLASS:Animal (Will)	!PRECLASS:1,Animal=1	PRERACETYPE:Animal
+# Class Name		Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Animal (Will)	STARTSKILLPTS:2	MODTOSKILLS:YES
+
+# Class Name	Hit Dice	Type			Class Type		Max Level		Source Page		Combat bonus															Modify VAR														Bonus
+CLASS:Construct	HD:10		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.290	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Reg. Race Type
+CLASS:Construct	PRERACETYPE:Construct
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Construct	STARTSKILLPTS:2	MODTOSKILLS:YES
+
+# Class Name			Output Name			Hit Dice	Type			Class Type		Max Level		Source Page		Levels per Feat	Combat bonus															Modify VAR														Bonus
+CLASS:Construct (Mindless)	OUTPUTNAME:Construct	HD:10		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.290	LEVELSPERFEAT:0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name			Reg. Race Type
+CLASS:Construct (Mindless)	PRERACETYPE:Construct
+# Class Name			Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Construct (Mindless)	STARTSKILLPTS:0	MODTOSKILLS:NO
+
+# Class Name	Hit Dice	Type			Class Type		Max Level		Source Page		Define			Combat bonus										Modify VAR			Bonus
+CLASS:Dragon	HD:12		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.290	DEFINE:DragonLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|DragonLVL|CL	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name	Required Var. value			Reg. Race Type
+CLASS:Dragon	PREVAREQ:DragonAdvancementCap,0	PRERACETYPE:Dragon
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES
+
+# Class Name	Hit Dice	Type			Class Type		Max Level		Source Page		Combat bonus															Modify VAR														Bonus
+CLASS:Elemental	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.290	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2|PRERACE:1,RACESUBTYPE=Air,RACESUBTYPE=Fire	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3|PRERACE:1,RACESUBTYPE=Air,RACESUBTYPE=Fire	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2|PRERACE:1,RACESUBTYPE=Earth,RACESUBTYPE=Water	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PRERACE:1,RACESUBTYPE=Earth,RACESUBTYPE=Water
+# Class Name	Reg. Race Type
+CLASS:Elemental	PRERACETYPE:Elemental
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Elemental	STARTSKILLPTS:2	MODTOSKILLS:YES
+
+# Class Name			Output Name			Hit Dice	Type			Class Type		Max Level		Source Page		Combat bonus															Modify VAR														Bonus
+CLASS:Elemental (Air/Fire)	OUTPUTNAME:Elemental	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.290	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name			Reg. Race Type
+CLASS:Elemental (Air/Fire)	PRERACETYPE:Elemental
+# Class Name			Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Elemental (Air/Fire)	STARTSKILLPTS:2	MODTOSKILLS:YES
+
+# Class Name			Output Name			Hit Dice	Type			Class Type		Max Level		Source Page		Combat bonus															Modify VAR														Bonus
+CLASS:Elemental (Earth/Water)	OUTPUTNAME:Elemental	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.290	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name			Reg. Race Type
+CLASS:Elemental (Earth/Water)	PRERACETYPE:Elemental
+# Class Name			Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Elemental (Earth/Water)	STARTSKILLPTS:2	MODTOSKILLS:YES
+
+# Class Name			Hit Dice	Type			Class Type		Max Level		Source Page		Levels per Feat	Combat bonus															Modify VAR														Bonus
+CLASS:Elemental (Mindless)	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.290	LEVELSPERFEAT:0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2|PRERACE:1,RACESUBTYPE=Air,RACESUBTYPE=Fire	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3|PRERACE:1,RACESUBTYPE=Air,RACESUBTYPE=Fire	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2|PRERACE:1,RACESUBTYPE=Earth,RACESUBTYPE=Water	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PRERACE:1,RACESUBTYPE=Earth,RACESUBTYPE=Water
+# Class Name			Reg. Race Type
+CLASS:Elemental (Mindless)	PRERACETYPE:Elemental
+# Class Name			Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Elemental (Mindless)	STARTSKILLPTS:0	MODTOSKILLS:NO
+
+# Class Name	Hit Dice	Type			Class Type		Max Level		Source Page		Ability													Combat bonus															Modify VAR													Bonus
+CLASS:Fey		HD:6		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.290		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Reg. Race Type
+CLASS:Fey		PRERACETYPE:Fey
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Fey		STARTSKILLPTS:6	MODTOSKILLS:YES
+#	ABILITY:Special Ability|AUTOMATIC|Fey Proficiencies|PREVAREQ:NoTypeProficiencies,0
+
+# Class Name	Hit Dice	Type			Class Type		Max Level		Source Page		Ability														Combat bonus															Modify VAR														Bonus
+CLASS:Giant		HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.290		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Reg. Race Type
+CLASS:Giant		PRERACETYPE:Giant
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Giant		STARTSKILLPTS:2	MODTOSKILLS:YES
+#	ABILITY:Special Ability|AUTOMATIC|Giant Proficiencies|PREVAREQ:NoTypeProficiencies,0
+
+# Class Name	Hit Dice	Type			Class Type		Max Level		Source Page		Ability														Combat bonus															Modify VAR														Bonus
+CLASS:Humanoid	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.290		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Prohibited Class							Reg. Race Type
+CLASS:Humanoid	!PRECLASS:1,Humanoid (Fortitude)=1,Humanoid (Will)=1	PRERACETYPE:Humanoid
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Humanoid	STARTSKILLPTS:2	MODTOSKILLS:YES
+#	ABILITY:Special Ability|AUTOMATIC|Humanoid Proficiencies|PREVAREQ:NoTypeProficiencies,0
+
+# Class Name			Output Name			Hit Dice	Type			Class Type		Max Level		Source Page		Ability														Combat bonus															Modify VAR														Bonus
+CLASS:Humanoid (Fortitude)	OUTPUTNAME:Humanoid	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.290		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name			Prohibited Class					Reg. Race Type
+CLASS:Humanoid (Fortitude)	!PRECLASS:1,Humanoid=1,Humanoid (Will)=1	PRERACETYPE:Humanoid
+# Class Name			Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Humanoid (Fortitude)	STARTSKILLPTS:2	MODTOSKILLS:YES
+#	ABILITY:Special Ability|AUTOMATIC|Humanoid Proficiencies|PREVAREQ:NoTypeProficiencies,0
+
+# Class Name		Output Name			Hit Dice	Type			Class Type		Max Level		Source Page		Ability														Combat bonus															Modify VAR														Bonus
+CLASS:Humanoid (Will)	OUTPUTNAME:Humanoid	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.290		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name		Prohibited Class						Reg. Race Type
+CLASS:Humanoid (Will)	!PRECLASS:1,Humanoid=1,Humanoid (Fortitude)=1	PRERACETYPE:Humanoid
+# Class Name		Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Humanoid (Will)	STARTSKILLPTS:2	MODTOSKILLS:YES
+#	ABILITY:Special Ability|AUTOMATIC|Humanoid Proficiencies|PREVAREQ:NoTypeProficiencies,0
+
+# Class Name		Hit Dice	Type			Class Type		Max Level		Source Page		Combat bonus										Bonus
+CLASS:Magical Beast	HD:10		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.290	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name		Reg. Race Type
+CLASS:Magical Beast	PRERACETYPE:Magical Beast
+# Class Name		Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Magical Beast	STARTSKILLPTS:2	MODTOSKILLS:YES
+
+# Class Name			Hit Dice	Type			Class Type		Max Level		Source Page		Ability																Combat bonus										Bonus
+CLASS:Monstrous humanoid	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.290		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name			Reg. Race Type
+CLASS:Monstrous humanoid	PRERACETYPE:Monstrous humanoid
+# Class Name			Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Monstrous humanoid	STARTSKILLPTS:2	MODTOSKILLS:YES
+#	ABILITY:Special Ability|AUTOMATIC|Monstrous Humanoid Proficiencies|PREVAREQ:NoTypeProficiencies,0
+
+# Class Name	Hit Dice	Type			Class Type		Max Level		Source Page		Levels per Feat	Combat bonus															Modify VAR														Bonus
+CLASS:Ooze		HD:10		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.290	LEVELSPERFEAT:0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Reg. Race Type
+CLASS:Ooze		PRERACETYPE:Ooze
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Ooze		STARTSKILLPTS:0	MODTOSKILLS:NO
+
+# Class Name			Output Name		Hit Dice	Type			Class Type		Max Level		Source Page		Combat bonus															Modify VAR														Bonus
+CLASS:Ooze (Intelligent)	OUTPUTNAME:Ooze	HD:10		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.290	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name			Reg. Race Type
+CLASS:Ooze (Intelligent)	PRERACETYPE:Ooze
+# Class Name			Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Ooze (Intelligent)	STARTSKILLPTS:2	MODTOSKILLS:YES
+
+# Class Name	Hit Dice	Type			Class Type		Max Level		Source Page		Ability														Combat bonus										Bonus
+CLASS:Outsider	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.290		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name	Reg. Race Type
+CLASS:Outsider	PRERACETYPE:Outsider
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Outsider	STARTSKILLPTS:8	MODTOSKILLS:YES
+#ABILITY:Special Ability|AUTOMATIC|Outsider Proficiencies|PREVAREQ:NoTypeProficiencies,0
+
+# Class Name	Hit Dice	Type			Class Type		Max Level		Source Page		Combat bonus															Modify VAR														Bonus
+CLASS:Plant		HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.290	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Reg. Race Type
+CLASS:Plant		PRERACETYPE:Plant
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Plant		STARTSKILLPTS:2	MODTOSKILLS:YES
+
+# Class Name		Output Name		Hit Dice	Type			Class Type		Max Level		Source Page		Levels per Feat	Combat bonus															Modify VAR														Bonus
+CLASS:Plant (Mindless)	OUTPUTNAME:Plant	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.290	LEVELSPERFEAT:0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name		Reg. Race Type
+CLASS:Plant (Mindless)	PRERACETYPE:Plant
+# Class Name		Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Plant (Mindless)	STARTSKILLPTS:0	MODTOSKILLS:NO
+
+# Class Name	Hit Dice	Type			Class Type		Max Level		Source Page		Ability														Combat bonus															Modify VAR													Bonus
+CLASS:Undead	HD:12		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.290		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Reg. Race Type
+CLASS:Undead	PRERACETYPE:Undead
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Undead	STARTSKILLPTS:4	MODTOSKILLS:YES
+#	ABILITY:Special Ability|AUTOMATIC|Undead Proficiencies|PREVAREQ:NoTypeProficiencies,0
+# Class Name		Output Name		Hit Dice	Type			Class Type		Max Level		Source Page		Levels per Feat	Ability														Combat bonus															Modify VAR													Bonus
+CLASS:Undead (Mindless)	OUTPUTNAME:Undead	HD:12		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.290	LEVELSPERFEAT:0		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name		Reg. Race Type
+CLASS:Undead (Mindless)	PRERACETYPE:Undead
+# Class Name		Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Undead (Mindless)	STARTSKILLPTS:0	MODTOSKILLS:NO
+#	ABILITY:Special Ability|AUTOMATIC|Undead Proficiencies|PREVAREQ:NoTypeProficiencies,0
+# Class Name	Hit Dice	Type			Class Type		Max Level		Source Page		Levels per Feat	Combat bonus															Modify VAR														Bonus
+CLASS:Vermin	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.290	LEVELSPERFEAT:0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Reg. Race Type
+CLASS:Vermin	PRERACETYPE:Vermin
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Vermin	STARTSKILLPTS:0	MODTOSKILLS:NO
+
+# Class Name			Output Name		Hit Dice	Type			Class Type		Max Level		Source Page		Combat bonus															Modify VAR														Bonus
+CLASS:Vermin (Intelligent)	OUTPUTNAME:Vermin	HD:8		TYPE:Monster	CLASSTYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.290	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name			Reg. Race Type
+CLASS:Vermin (Intelligent)	PRERACETYPE:Vermin
+# Class Name			Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Vermin (Intelligent)	STARTSKILLPTS:2	MODTOSKILLS:YES
 
