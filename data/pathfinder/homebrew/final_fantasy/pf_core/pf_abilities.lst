@@ -6,24 +6,28 @@ CATEGORY=Internal|Default.MOD	DEFINE:Walk|0	DEFINE:BaseMove_Walk|0	DEFINE:BonusM
 CATEGORY=Internal|Default.MOD	DEFINE:Fly|0	DEFINE:BaseMove_Fly|0	DEFINE:BonusMove_Fly|0	
 CATEGORY=Internal|Default.MOD	DEFINE:Swim|0	DEFINE:BaseMove_Swim|0	DEFINE:BonusMove_Swim|0	
 CATEGORY=Internal|Default.MOD	DEFINE:Climb|0	DEFINE:BaseMove_Climb|0	DEFINE:BonusMove_Climb|0	
+CATEGORY=Internal|Default.MOD	DEFINE:Burrow|0	DEFINE:BaseMove_Burrow|0	DEFINE:BonusMove_Burrow|0	
 
 ###Block - Display Abilities / adds movement modes
 CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Movement ~ Walk|PREVARGTEQ:Walk,1
 CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Movement ~ Fly|PREVARGTEQ:Fly,1
 CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Movement ~ Swim|PREVARGTEQ:Swim,1
 CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Movement ~ Climb|PREVARGTEQ:Climb,1
+CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Movement ~ Burrow|PREVARGTEQ:Burrow,1
 
 ###Block - Bonus to Movement
 CATEGORY=Internal|Default.MOD	BONUS:VAR|Walk|BaseMove_Walk+BonusMove_Walk	
 CATEGORY=Internal|Default.MOD	BONUS:VAR|Fly|BaseMove_Fly+BonusMove_Fly		
 CATEGORY=Internal|Default.MOD	BONUS:VAR|Swim|BaseMove_Swim+BonusMove_Swim	
 CATEGORY=Internal|Default.MOD	BONUS:VAR|Climb|BaseMove_Climb+BonusMove_Climb	
+CATEGORY=Internal|Default.MOD	BONUS:VAR|Burrow|BaseMove_Burrow+BonusMove_Burrow	
 
 ###Block - Display Abilities / Also trigger when to display a movement mode.
 Movement ~ Walk	CATEGORY:Internal	DESC:Total = %1, Base is %2, and Bonus is %3|Walk|BaseMove_Walk|BonusMove_Walk		BONUS:MOVEADD|TYPE.Walk|Walk		
 Movement ~ Fly	CATEGORY:Internal	DESC:Total = %1, Base is %2, and Bonus is %3|Fly|BaseMove_Fly|BonusMove_Fly			BONUS:MOVEADD|TYPE.Fly|Fly		ABILITY:Special Ability|AUTOMATIC|Flight Maneuverability
 Movement ~ Swim	CATEGORY:Internal	DESC:Total = %1, Base is %2, and Bonus is %3|Swim|BaseMove_Swim|BonusMove_Swim		BONUS:MOVEADD|TYPE.Swim|Swim		
 Movement ~ Climb	CATEGORY:Internal	DESC:Total = %1, Base is %2, and Bonus is %3|Climb|BaseMove_Climb|BonusMove_Climb		BONUS:MOVEADD|TYPE.Climb|Climb	
+Movement ~ Burrow	CATEGORY:Internal	DESC:Total = %1, Base is %2, and Bonus is %3|Burrow|BaseMove_Burrow|BonusMove_Burrow	BONUS:MOVEADD|TYPE.Burrow|Burrow	
 
 
 Size Tracking		CATEGORY:Internal
@@ -34,6 +38,128 @@ Size ~ Small/Medium	CATEGORY:Internal	TEMPLATE:Size ~ Small/Medium
 
 
 
+# Armor Values - Based upon discussion with Andrew. This model closely matches what he has.
+# Base is just a base Value. 
+# Total is derived from all other values.
+# Flatfooted is derived from Total minus exclusions
+
+# Display Values
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Output_Base|AC_Base
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Output_Total|AC_Total
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Output_Flatfooted|AC_Flatfooted
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Output_Touch|AC_Touch
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Output_Misc|AC_Misc
+#
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Output_Natural_Armor|max(AC_Natural_Armor,0)+AC_Natural_Armor_Enhancement
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Output_Ability_Score|AC_Ability_Score|TYPE=Ability
+
+# Armor and Shield will incorporate their bonuses into one complete package with the new system.
+# Currently, due to multiple stacking issues, Armor and Shield will remain old-system.
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Output_Armor|AC_Armor		
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Output_Shield|AC_Shield		
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Output_Dodge|AC_Dodge		
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Output_Size|AC_Size			
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Output_Deflection|max(AC_Deflection,0)		
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Output_Circumstance|AC_Circumstance	
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Output_Insight|max(AC_Insight,0)		
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Output_Morale|AC_Morale		
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Output_Profane|AC_Profane		
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Output_Sacred|AC_Sacred		
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Output_Class_Defense|AC_Class_Defense	
+
+# Formula Values
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Base|10|TYPE=Base
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Total|AC_Base+AC_Output_Natural_Armor+AC_Armor+AC_Shield+AC_Ability+AC_Size+AC_Dodge+AC_Deflection+AC_Misc+AC_Circumstance+AC_Insight+AC_Morale+AC_Profane+AC_Sacred+AC_Class_Defense
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Flatfooted|AC_Total-AC_Ability-AC_Dodge
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Flatfooted|AC_Ability|PRESTAT:1,DEX=10|PREABILITY:1,CATEGORY=Special Ability,Retain Dex To AC ~ Flat-footed
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Flatfooted|AC_Dodge|PREABILITY:1,CATEGORY=Special Ability,Retain Dex To AC ~ Flat-footed
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Touch|AC_Total-AC_Armor-AC_Armor_Enhancement-AC_Natural_Armor-AC_Shield-AC_Shield_Enhancement-AC_Natural_Armor_Enhancement	
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Touch|AC_Shield|PREVARGTEQ:ShieldAddsToTouchAC,1
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Misc|AC_Output_Total-AC_Output_Base-AC_Output_Armor-AC_Output_Shield-AC_Output_Ability-AC_Output_Size-AC_Output_Natural_Armor-AC_Output_Dodge-AC_Output_Deflection
+#
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Ability_Score|min(AC_Ability_Score_Bonus, min(Max_Ability_Score_Bonus__Encumbrance,Max_Ability_Score_Bonus__Equipment))|TYPE=Ability
+CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Ability_Score_Bonus|DEX	
+CATEGORY=Internal|Default.MOD		BONUS:VAR|Max_Ability_Score_Bonus__Encumbrance|MXDXEN
+CATEGORY=Internal|Default.MOD		BONUS:VAR|Max_Ability_Score_Bonus__Equipment|MODEQUIPMAXDEX
+
+
+#CATEGORY=Internal|Default.MOD		BONUS:COMBAT|AC|AC_Armor|TYPE=Armor	BONUS:VAR|AC_Armor|AC_Armor_Enhancement
+#CATEGORY=Internal|Default.MOD		BONUS:COMBAT|AC|AC_Armor_Enhancement|TYPE=ArmorEnhancement
+#CATEGORY=Internal|Default.MOD		BONUS:COMBAT|AC|AC_Shield|TYPE=Shield	BONUS:VAR|AC_Shield|AC_Shield_Enhancement
+#CATEGORY=Internal|Default.MOD		BONUS:COMBAT|AC|AC_Shield_Enhancement|TYPE=ShieldEnhancement
+#							BONUS:COMBAT|AC|AC_Misc|TYPE=Misc			
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Ability_Score_Bonus__Encumbrance|0
+CATEGORY=Internal|Default.MOD	DEFINE:Max_Ability_Score_Bonus__Equipment|0
+
+# These adjust the numbers
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Base|0		
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Total|0		
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Flatfooted|0	
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Touch|0		
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Misc|0		
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Ability_Score|0		
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Ability_Score_Bonus|0		
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Natural_Armor|0	
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Natural_Armor_Enhancement|0
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Size|0			
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Dodge|0			
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Deflection|0		
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Circumstance|0	
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Insight|0		
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Morale|0		
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Profane|0		
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Sacred|0		
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Class_Defense|0	
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Armor|0			
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Armor_Enhancement|0	
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Shield|0		
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Shield_Enhancement|0
+
+
+# These display the final numbers
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Output_Base|0		
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Output_Total|0		
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Output_Flatfooted|0	
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Output_Touch|0		
+
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Output_Armor|0			
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Output_Shield|0		
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Output_Dodge|0			
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Output_Natural_Armor|0
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Output_Size|0			
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Output_Deflection|0		
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Output_Circumstance|0	
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Output_Insight|0		
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Output_Morale|0		
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Output_Profane|0		
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Output_Sacred|0		
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Output_Class_Defense|0	
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Output_Ability_Score|0		
+CATEGORY=Internal|Default.MOD	DEFINE:AC_Output_Misc|0		
+
+###Block - Bonus Combat Entries
+CATEGORY=Internal|Default.MOD		BONUS:COMBAT|AC|AC_Output_Ability|TYPE=Ability
+CATEGORY=Internal|Default.MOD		BONUS:COMBAT|AC|AC_Output_Size|TYPE=Size
+CATEGORY=Internal|Default.MOD		BONUS:COMBAT|AC|AC_Output_Dodge|TYPE=Dodge
+CATEGORY=Internal|Default.MOD		BONUS:COMBAT|AC|AC_Output_Deflection|TYPE=Deflection
+CATEGORY=Internal|Default.MOD		BONUS:COMBAT|AC|AC_Output_Circumstance|TYPE=Circumstance
+CATEGORY=Internal|Default.MOD		BONUS:COMBAT|AC|AC_Output_Insight|TYPE=Insight
+CATEGORY=Internal|Default.MOD		BONUS:COMBAT|AC|AC_Output_Morale|TYPE=Morale
+CATEGORY=Internal|Default.MOD		BONUS:COMBAT|AC|AC_Output_Profane|TYPE=Profane
+CATEGORY=Internal|Default.MOD		BONUS:COMBAT|AC|AC_Output_Sacred|TYPE=Sacred
+CATEGORY=Internal|Default.MOD		BONUS:COMBAT|AC|AC_Output_Class_Defense|TYPE=ClassDefense
+CATEGORY=Internal|Default.MOD		BONUS:COMBAT|AC|AC_Output_Natural_Armor|TYPE=NaturalArmor
+
+
+###Block: Caster Level Tracking
+CATEGORY=Internal|Default.MOD	DEFINE:Caster_Level_Highest|0
+CATEGORY=Internal|Default.MOD	DEFINE:Caster_Level_Highest__Arcane|0
+CATEGORY=Internal|Default.MOD	DEFINE:Caster_Level_Highest__Divine|0
+#
+CATEGORY=Internal|Default.MOD	DEFINE:Caster_Level_Highest__Psionic|0
+CATEGORY=Internal|Default.MOD	DEFINE:Caster_Level_Highest__Initiator|0
+
+CATEGORY=Internal|Default.MOD	BONUS:VAR|Caster_Level_Highest|max(Caster_Level_Highest__Arcane,Caster_Level_Highest__Divine)
 
 
 ###BLOCK: GM AWARD
