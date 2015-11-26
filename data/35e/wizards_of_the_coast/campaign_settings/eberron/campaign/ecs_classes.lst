@@ -4,10 +4,12 @@
 # Class Name	Hit Dice	Type			Source Page		Define			Combat bonus															Modify VAR																			Bonus
 CLASS:Artificer	HD:6		TYPE:Base.PC	SOURCEPAGE:p.29	DEFINE:ArtificerLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ArtificerLVL|CL	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Artificer	STARTSKILLPTS:4	CSKILL:Appraise|Concentration|TYPE=Craft|Disable Device|Knowledge (arcana)|KNOWLEDGE (ARCHITECTURE AND ENGINEERING)|Knowledge (The Planes)|Open Lock|TYPE=Profession|Search|Spellcraft|Use Magic Device
+CLASS:Artificer	STARTSKILLPTS:4	CSKILL:Appraise|Concentration|TYPE=Craft|Disable Device|Knowledge (arcana)|Knowledge (Architecture and Engineering)|Knowledge (The Planes)|Open Lock|TYPE=Profession|Search|Spellcraft|Use Magic Device
 # Class Name	Spell Stat		Spell Type			Caster level
-CLASS:Artificer	FACT:SpellType|Arcane
-CLASS:Artificer	SPELLSTAT:INT	BONUS:CASTERLEVEL|Artificer|Caster_Level_Artificer	DEFINE:Caster_Level_Artificer|0	BONUS:VAR|Caster_Level_Artificer|CL+Caster_Level_Bonus	DEFINE:CasterLevelBLArtificer|0	BONUS:VAR|CasterLevelBLArtificer|charbonusto("PCLEVEL","Artificer")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Artificer+CasterLevelBLArtificer|TYPE=Base
+CLASS:Artificer	FACT:SpellType|Infusion
+CLASS:Artificer	SPELLSTAT:INT	BONUS:CASTERLEVEL|Artificer|Caster_Level_Artificer	DEFINE:Caster_Level_Artificer|0	BONUS:VAR|Caster_Level_Artificer|CL+Caster_Level_Bonus	DEFINE:CasterLevelBLArtificer|0	BONUS:VAR|CasterLevelBLArtificer|charbonusto("PCLEVEL","Artificer")	
+CLASS:Artificer	BONUS:VAR|Caster_Level_Highest__Infusion|Caster_Level_Artificer+CasterLevelBLArtificer|TYPE=Base
+###Block:
 1	ABILITY:Artificer Class Feature|AUTOMATIC|Artificer ~ Weapon and Armor Proficiency
 1	ABILITY:Artificer Class Feature|AUTOMATIC|Artificer ~ Infusions
 1	ABILITY:Artificer Class Feature|AUTOMATIC|Artificer ~ Craft Reserve
