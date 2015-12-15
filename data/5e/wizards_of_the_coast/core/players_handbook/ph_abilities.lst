@@ -490,7 +490,19 @@ Tool Proficiency ~ Vehicles (Water)			DEFINE:ProfBonus_Vehicles_(Water)|0		TYPE:
 ###Block: Multiclass Support
 First Level Proficiencies	CATEGORY:Internal	TEMPLATE:First Level
 
-
+###Block: Class
+Barbarian	CATEGORY:CLASS	DEFINE:POOL_Barbarian_Skill|0		ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial|TYPE=ShieldProf
+Bard		CATEGORY:CLASS	DEFINE:POOL_Bard_Skill|0	DEFINE:POOL_Bard_Magical_Secrets|0	DEFINE:BardToolCount|0	BONUS:VAR|POOL_Bard_Skill|1	BONUS:VAR|BardToolCount|1	ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfLight	BONUS:ABILITYPOOL|Skill Proficiency|BardSkillCount	BONUS:ABILITYPOOL|Bard Tool Proficiency|BardToolCount
+Cleric	CATEGORY:CLASS	ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfMedium|TYPE=ShieldProf
+Druid		CATEGORY:CLASS	ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfMedium|TYPE=ShieldProf
+Fighter	CATEGORY:CLASS	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial|TYPE=ArmorProfMedium|TYPE=ShieldProf
+Monk		CATEGORY:CLASS	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMonk	AUTO:WEAPONPROF|Shortsword
+Paladin	CATEGORY:CLASS	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial|TYPE=ArmorProfMedium|TYPE=ShieldProf
+Ranger	CATEGORY:CLASS	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial|TYPE=ArmorProfMedium|TYPE=ShieldProf		DEFINE:POOL_Ranger_Skill|0	BONUS:VAR|POOL_Ranger_Skill|1
+Rogue		CATEGORY:CLASS	ABILITY:Internal|AUTOMATIC|Tool Proficiency ~ Thieves' Tools|TYPE=ArmorProfLight	DEFINE:RogueLVL|0	BONUS:VAR|RogueLVL|CL	DEFINE:POOL_Rogue_Skill|0	BONUS:VAR|POOL_Rogue_Skill|1
+Sorcerer	CATEGORY:CLASS
+Warlock	CATEGORY:CLASS	ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfLight|TYPE=WeaponProfSimple
+Wizard	CATEGORY:CLASS
 
 
 
@@ -1108,9 +1120,6 @@ Swamp		KEY:Circle Spell ~ Swamp		CATEGORY:Spell	TYPE:Druid Circle Spells			SPELL
 Underdark	KEY:Circle Spell ~ Underdark		CATEGORY:Spell	TYPE:Druid Circle Spells			SPELLLEVEL:CLASS|Druid=2|Spider Climb,Web|PRECLASS:1,Druid=3		SPELLLEVEL:CLASS|Druid=3|Gaseous Form,Stinking Cloud|PRECLASS:1,Druid=5		SPELLLEVEL:CLASS|Druid=4|Greater Invisibility,Stone Shape|PRECLASS:1,Druid=7		SPELLLEVEL:CLASS|Druid=5|Cloudkill,Insect Plague|PRECLASS:1,Druid=9	SPELLKNOWN:CLASS|Druid=2|Spider Climb,Web|PRECLASS:1,Druid=3	SPELLKNOWN:CLASS|Druid=3|Gaseous Form,Stinking Cloud|PRECLASS:1,Druid=5	SPELLKNOWN:CLASS|Druid=4|Greater Invisibility,Stone Shape|PRECLASS:1,Druid=7	SPELLKNOWN:CLASS|Druid=5|Cloudkill,Insect Plague|PRECLASS:1,Druid=9
 
 ###Block - Fighter
-Fighter	CATEGORY:Class	
-
-###Block
 CATEGORY=Class|Fighter.MOD	ABILITY:Fighter Class Feature|AUTOMATIC|Fighter ~ Fighting Style|PREVARGTEQ:FighterLVL,1
 CATEGORY=Class|Fighter.MOD	ABILITY:Fighter Class Feature|AUTOMATIC|Fighter ~ Second Wind|PREVARGTEQ:FighterLVL,1
 CATEGORY=Class|Fighter.MOD	ABILITY:Fighter Class Feature|AUTOMATIC|Fighter ~ Action Surge|PREVARGTEQ:FighterLVL,2
