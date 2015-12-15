@@ -490,7 +490,19 @@ Tool Proficiency ~ Vehicles (Water)			DEFINE:ProfBonus_Vehicles_(Water)|0		TYPE:
 ###Block: Multiclass Support
 First Level Proficiencies	CATEGORY:Internal	TEMPLATE:First Level
 
-
+###Block: Class
+Barbarian	CATEGORY:CLASS	DEFINE:POOL_Barbarian_Skill|0		ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial|TYPE=ShieldProf
+Bard		CATEGORY:CLASS	DEFINE:POOL_Bard_Skill|0	DEFINE:POOL_Bard_Magical_Secrets|0	DEFINE:BardToolCount|0	BONUS:VAR|POOL_Bard_Skill|1	BONUS:VAR|BardToolCount|1	ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfLight	BONUS:ABILITYPOOL|Skill Proficiency|BardSkillCount	BONUS:ABILITYPOOL|Bard Tool Proficiency|BardToolCount
+Cleric	CATEGORY:CLASS	ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfMedium|TYPE=ShieldProf
+Druid		CATEGORY:CLASS	ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfMedium|TYPE=ShieldProf
+Fighter	CATEGORY:CLASS	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial|TYPE=ArmorProfMedium|TYPE=ShieldProf
+Monk		CATEGORY:CLASS	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMonk	AUTO:WEAPONPROF|Shortsword
+Paladin	CATEGORY:CLASS	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial|TYPE=ArmorProfMedium|TYPE=ShieldProf
+Ranger	CATEGORY:CLASS	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial|TYPE=ArmorProfMedium|TYPE=ShieldProf		DEFINE:POOL_Ranger_Skill|0	BONUS:VAR|POOL_Ranger_Skill|1
+Rogue		CATEGORY:CLASS	ABILITY:Internal|AUTOMATIC|Tool Proficiency ~ Thieves' Tools|TYPE=ArmorProfLight	DEFINE:RogueLVL|0	BONUS:VAR|RogueLVL|CL	DEFINE:POOL_Rogue_Skill|0	BONUS:VAR|POOL_Rogue_Skill|1
+Sorcerer	CATEGORY:CLASS
+Warlock	CATEGORY:CLASS	ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfLight|TYPE=WeaponProfSimple
+Wizard	CATEGORY:CLASS
 
 
 
@@ -955,7 +967,7 @@ Zone of Truth				KEY:Bard Magical Secret ~ Zone of Truth							CATEGORY:Internal
 
 ###Block: Cleric
 Cantrips					KEY:Cleric ~ Cantrips				CATEGORY:Special Ability	SORTKEY:Class	TYPE:Class Features.Cleric Class Feature.SpecialQuality				SOURCEPAGE:p.58					DESC:At 1st level, you know three cantrips of your choice from the cleric spell list. You learn additional cleric cantrips of your choice at higher levels, as shown in the Cantrips Known column of the Cleric table.		DEFINE:POOL_Cleric_Cantrip|0	BONUS:VAR|POOL_Cleric_Cantrip|3+(ClericLVL>=4)+(ClericLVL>=10)	
-Spellcasting Ability			KEY:Cleric ~ Spellcasting Ability		CATEGORY:Special Ability	SORTKEY:Class	TYPE:Class Features.Cleric Class Feature.SpecialQuality				SOURCEPAGE:p.58					DESC:Spell Save DC %1, Spell Attack Modifier +%2|ClericSpellDC|ClericSpellAttackModifier		DEFINE:ClericSpellDC|0	BONUS:VAR|ClericSpellDC|8+Proficiency_Bonus+WIS	DEFINE:ClericSpellAttackModifier|0	BONUS:VAR|ClericSpellAttackModifier|WIS+Proficiency_Bonus
+Spellcasting Ability			KEY:Cleric ~ Spellcasting Ability		CATEGORY:Special Ability	SORTKEY:Class	TYPE:Class Features.Cleric Class Feature.SpecialQuality				SOURCEPAGE:p.58					DESC:Spell Save DC %1, Spell Attack Modifier +%2|ClericSpellDC|ClericSpellAttackModifier		DEFINE:ClericSpellDC|0	BONUS:VAR|ClericSpellDC|8+Proficiency_Bonus+WIS	DEFINE:ClericSpellAttackModifier|0	BONUS:VAR|ClericSpellAttackModifier|WIS+Proficiency_Bonus		BONUS:SPELLCAST|Class=Cleric;Level=1|WIS|PREVAREQ:ClericMaxSpellLevel,1	BONUS:SPELLCAST|Class=Cleric;Level=2|WIS|PREVAREQ:ClericMaxSpellLevel,2	BONUS:SPELLCAST|Class=Cleric;Level=3|WIS|PREVAREQ:ClericMaxSpellLevel,3	BONUS:SPELLCAST|Class=Cleric;Level=4|WIS|PREVAREQ:ClericMaxSpellLevel,4	BONUS:SPELLCAST|Class=Cleric;Level=5|WIS|PREVAREQ:ClericMaxSpellLevel,5	BONUS:SPELLCAST|Class=Cleric;Level=6|WIS|PREVAREQ:ClericMaxSpellLevel,6	BONUS:SPELLCAST|Class=Cleric;Level=7|WIS|PREVAREQ:ClericMaxSpellLevel,7	BONUS:SPELLCAST|Class=Cleric;Level=8|WIS|PREVAREQ:ClericMaxSpellLevel,8	BONUS:SPELLCAST|Class=Cleric;Level=9|WIS|PREVARGTEQ:ClericMaxSpellLevel,9	DEFINE:ClericMaxSpellLevel|0	BONUS:VAR|ClericMaxSpellLevel|(ClericLVL+1)/2
 Divine Domain				KEY:Cleric ~ Divine Domain			CATEGORY:Special Ability	SORTKEY:Class	TYPE:Class Features.Cleric Class Feature.SpecialQuality				SOURCEPAGE:p.58					DESC:Choose one domain related to your deity: Knowledge, Life, Light, Nature, Tempest, Trickery, or War. The Life domain is detailed at the end of the class description and provides examples of gods associated with it. See the Player's Handbook for details on all the domains. Your choice grants you domain spells and other features when you choose it at 1st level. It also grants you additional ways to use Channel Divinity when you gain that feature at 2nd level, and additional benefits at 6th, 8th, and 17th levels.	BONUS:ABILITYPOOL|Divine Domain|1
 Channel Divinity				KEY:Cleric ~ Channel Divinity			CATEGORY:Special Ability	SORTKEY:Class	TYPE:Class Features.Cleric Class Feature.SpecialQuality				SOURCEPAGE:p.58					DESC:At 2nd level, you gain the ability to channel divine energy directly from your deity, using that energy to fuel magical effects. You start with two such effects: Turn Undead and an effect determined by your domain. Some domains grant you additional effects as you advance in levels, as noted in the domain description. When you use your Channel Divinity, you choose which effect to create. You must then finish a short or long rest to use your Channel Divinity again. Some Channel Divinity effects require saving throws. When you use such an effect from this class, the DC equals your cleric spell save DC. You can use your Channel Divinity %1 times between rests. When you finish a short or long rest, you regain your expended uses.|1+((ClericLVL>=6)+(ClericLVL>=18))	ABILITY:Special Ability|AUTOMATIC|Channel Divinity ~ Turn Undead
 Ability Score Improvement		KEY:Cleric ~ Ability Score Improvement	CATEGORY:Special Ability	SORTKEY:Class	TYPE:Class Features.Cleric Class Feature.SpecialQuality				SOURCEPAGE:p.59					DESC:When you reach 4th level, and again at 8th, 12th, 16th, and 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature.	BONUS:VAR|POOL_Character_Advancement_Selection|2*((ClericLVL>=4)+(ClericLVL>=8)+(ClericLVL>=12)+(ClericLVL>=16)+(ClericLVL>=19))
@@ -1108,9 +1120,6 @@ Swamp		KEY:Circle Spell ~ Swamp		CATEGORY:Spell	TYPE:Druid Circle Spells			SPELL
 Underdark	KEY:Circle Spell ~ Underdark		CATEGORY:Spell	TYPE:Druid Circle Spells			SPELLLEVEL:CLASS|Druid=2|Spider Climb,Web|PRECLASS:1,Druid=3		SPELLLEVEL:CLASS|Druid=3|Gaseous Form,Stinking Cloud|PRECLASS:1,Druid=5		SPELLLEVEL:CLASS|Druid=4|Greater Invisibility,Stone Shape|PRECLASS:1,Druid=7		SPELLLEVEL:CLASS|Druid=5|Cloudkill,Insect Plague|PRECLASS:1,Druid=9	SPELLKNOWN:CLASS|Druid=2|Spider Climb,Web|PRECLASS:1,Druid=3	SPELLKNOWN:CLASS|Druid=3|Gaseous Form,Stinking Cloud|PRECLASS:1,Druid=5	SPELLKNOWN:CLASS|Druid=4|Greater Invisibility,Stone Shape|PRECLASS:1,Druid=7	SPELLKNOWN:CLASS|Druid=5|Cloudkill,Insect Plague|PRECLASS:1,Druid=9
 
 ###Block - Fighter
-Fighter	CATEGORY:Class	
-
-###Block
 CATEGORY=Class|Fighter.MOD	ABILITY:Fighter Class Feature|AUTOMATIC|Fighter ~ Fighting Style|PREVARGTEQ:FighterLVL,1
 CATEGORY=Class|Fighter.MOD	ABILITY:Fighter Class Feature|AUTOMATIC|Fighter ~ Second Wind|PREVARGTEQ:FighterLVL,1
 CATEGORY=Class|Fighter.MOD	ABILITY:Fighter Class Feature|AUTOMATIC|Fighter ~ Action Surge|PREVARGTEQ:FighterLVL,2
