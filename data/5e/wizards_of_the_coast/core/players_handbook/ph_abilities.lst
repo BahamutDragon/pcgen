@@ -1579,7 +1579,7 @@ Impostor			KEY:Assassin ~ Impostor				CATEGORY:Special Ability	SORTKEY:Class	TYP
 Death Strike		KEY:Assassin ~ Death Strike			CATEGORY:Special Ability	SORTKEY:Class	TYPE:Rogue Class Feature.SpecialQuality	SOURCEPAGE:p.97	DESC:Starting at 17th level, you become a master of instant death. When you attack and hit a creature that is surprised, it must make a Constitution saving throw (DC 8 + your Dexterity modifier + your proficiency bonus). On a failed save, double the damage of your attack against the creature.
 
 # Arcane Trickster
-Spellcasting		KEY:Arcane Trickster ~ Spellcasting				CATEGORY:Special Ability	SORTKEY:Class	TYPE:Rogue Class Feature.SpecialQuality	SOURCEPAGE:p.98	BONUS:SPELLKNOWN|CLASS=Rogue;LEVEL=1|3	BONUS:SPELLKNOWN|CLASS=Rogue;LEVEL=1|1|PRECLASS:1,Rogue=4			BONUS:ABILITYPOOL|Rogue Spell Known Selection|RogueLVL-6|PRECLASS:1,Rogue=7	BONUS:ABILITYPOOL|Rogue Spell Known Replacement|RogueLVL-6|PRECLASS:1,Rogue=7	DEFINE:RogueRemoveSpellLVL|0	BONUS:ABILITYPOOL|Rogue Remove Spell Known|RogueRemoveSpellLVL	BONUS:SPELLCAST|CLASS=Rogue;LEVEL=1|1|PRECLASS:1,Rogue=3	BONUS:SPELLCAST|CLASS=Rogue;LEVEL=2|1|PRECLASS:1,Rogue=7	BONUS:SPELLCAST|CLASS=Rogue;LEVEL=3|1|PRECLASS:1,Rogue=13	BONUS:SPELLCAST|CLASS=Rogue;LEVEL=4|1|PRECLASS:1,Rogue=19		BONUS:VAR|POOL_Arcane_Trickster_Cantrip|2+(FighterLVL>=10)	DEFINE:POOL_Arcane_Trickster_Cantrip|0	ABILITY:Arcane Trickster Cantrip|AUTOMATIC|Wizard Cantrip ~ Mage Hand
+Spellcasting		KEY:Arcane Trickster ~ Spellcasting				CATEGORY:Special Ability	SORTKEY:Class	TYPE:Rogue Class Feature.SpecialQuality	SOURCEPAGE:p.98	BONUS:VAR|POOL_Arcane_Trickster_Cantrip|2+(RogueLVL>=10)	DEFINE:POOL_Arcane_Trickster_Cantrip|0	ABILITY:Arcane Trickster Cantrip|AUTOMATIC|Wizard Cantrip ~ Mage Hand
 Mage Hand Legerdemain	KEY:Arcane Trickster ~ Mage Hand Legerdemain		CATEGORY:Special Ability	SORTKEY:Class	TYPE:Rogue Class Feature.SpecialQuality	SOURCEPAGE:p.98	DESC:Starting at 3rd level, when you cast mage hand, you can make the spectral hand invisible, and you can perform the following additional tasks with it: * You can stow one object the hand is holding in a container worn or carried by another creature. * You can retrieve an object in a container worn or carried by another creature. * You can use thieves' tools to pick locks and disarm traps at range. You can perform one of these tasks without being noticed by a creature if you succeed on a Dexterity (Sleight of Hand) check contested by the creature's Wisdom (Perception) check. In addition, you can use the bonus action granted by your Cunning Action to control the hand.
 Magical Ambush		KEY:Arcane Trickster ~ Magical Ambush			CATEGORY:Special Ability	SORTKEY:Class	TYPE:Rogue Class Feature.SpecialQuality	SOURCEPAGE:p.98	DESC:Starting at 9th level, if you are hidden from a creature when you cast a spell on it, the creature has disadvantage on any saving throw it makes against the spell this turn.
 Versatile Trickster	KEY:Arcane Trickster ~ Versatile Trickster		CATEGORY:Special Ability	SORTKEY:Class	TYPE:Rogue Class Feature.SpecialQuality	SOURCEPAGE:p.98	DESC:At 13th level, you gain the ability to distract targets with your mage hand. As a bonus action on your turn, you can designate a creature within 5 feet of the spectral hand created by the spell. Doing so gives you advantage on attack rolls against that creature until the end of the turn.
@@ -1592,23 +1592,23 @@ CATEGORY=Class|Rogue.MOD	BONUS:SPELLCAST|CLASS=Rogue;LEVEL=3|-1|PREABILITY:1,CAT
 CATEGORY=Class|Rogue.MOD	BONUS:SPELLCAST|CLASS=Rogue;LEVEL=4|-1|PREABILITY:1,CATEGORY=Special Ability,TYPE.Roguish Archetype|PREVARGTEQ:RogueLVL,19	
 
 ###Block:
-CATEGORY=Special Ability|Arcane Trickster ~ Spellcasting.MOD		BONUS:SPELLCAST|CLASS=Rogue;LEVEL=1|1|PREVARGTEQ:RogueLVL,3		
-CATEGORY=Special Ability|Arcane Trickster ~ Spellcasting.MOD		BONUS:SPELLCAST|CLASS=Rogue;LEVEL=2|1|PREVARGTEQ:RogueLVL,7		
-CATEGORY=Special Ability|Arcane Trickster ~ Spellcasting.MOD		BONUS:SPELLCAST|CLASS=Rogue;LEVEL=3|1|PREVARGTEQ:RogueLVL,13		
-CATEGORY=Special Ability|Arcane Trickster ~ Spellcasting.MOD		BONUS:SPELLCAST|CLASS=Rogue;LEVEL=4|1|PREVARGTEQ:RogueLVL,19		
-CATEGORY=Special Ability|Arcane Trickster ~ Spellcasting.MOD		BONUS:SPELLKNOWN|CLASS=Rogue;LEVEL=1|2|PREVARGTEQ:RogueLVL,3		
+CATEGORY=Special Ability|Arcane Trickster ~ Spellcasting.MOD		BONUS:SPELLCAST|CLASS=Rogue;LEVEL=1|SpellSlotsLVL1|PREVARGTEQ:RogueLVL,3		
+CATEGORY=Special Ability|Arcane Trickster ~ Spellcasting.MOD		BONUS:SPELLCAST|CLASS=Rogue;LEVEL=2|SpellSlotsLVL2|PREVARGTEQ:RogueLVL,7		
+CATEGORY=Special Ability|Arcane Trickster ~ Spellcasting.MOD		BONUS:SPELLCAST|CLASS=Rogue;LEVEL=3|SpellSlotsLVL3|PREVARGTEQ:RogueLVL,13		
+CATEGORY=Special Ability|Arcane Trickster ~ Spellcasting.MOD		BONUS:SPELLCAST|CLASS=Rogue;LEVEL=4|SpellSlotsLVL4|PREVARGTEQ:RogueLVL,19		
+CATEGORY=Special Ability|Arcane Trickster ~ Spellcasting.MOD		BONUS:SPELLKNOWN|CLASS=Rogue;LEVEL=1|3|PREVARGTEQ:RogueLVL,3		
 CATEGORY=Special Ability|Arcane Trickster ~ Spellcasting.MOD		BONUS:SPELLKNOWN|CLASS=Rogue;LEVEL=1|1|PREVARGTEQ:RogueLVL,4		
 CATEGORY=Special Ability|Arcane Trickster ~ Spellcasting.MOD		BONUS:SPELLKNOWN|CLASS=Rogue;LEVEL=2|1|PREVARGTEQ:RogueLVL,7		
-CATEGORY=Special Ability|Arcane Trickster ~ Spellcasting.MOD		BONUS:SPELLKNOWN|CLASS=Rogue;LEVEL=2|1|PREVARGTEQ:RogueLVL,11		
-CATEGORY=Special Ability|Arcane Trickster ~ Spellcasting.MOD		BONUS:SPELLKNOWN|CLASS=Rogue;LEVEL=3|1|PREVARGTEQ:RogueLVL,13		
-CATEGORY=Special Ability|Arcane Trickster ~ Spellcasting.MOD		BONUS:SPELLKNOWN|CLASS=Rogue;LEVEL=4|1|PREVARGTEQ:RogueLVL,19		
 CATEGORY=Special Ability|Arcane Trickster ~ Spellcasting.MOD		BONUS:SPELLKNOWN|CLASS=Rogue;LEVEL=2|1|PREVARGTEQ:RogueLVL,8		
 CATEGORY=Special Ability|Arcane Trickster ~ Spellcasting.MOD		BONUS:SPELLKNOWN|CLASS=Rogue;LEVEL=2|1|PREVARGTEQ:RogueLVL,9		
 CATEGORY=Special Ability|Arcane Trickster ~ Spellcasting.MOD		BONUS:SPELLKNOWN|CLASS=Rogue;LEVEL=2|2|PREVARGTEQ:RogueLVL,10		
+CATEGORY=Special Ability|Arcane Trickster ~ Spellcasting.MOD		BONUS:SPELLKNOWN|CLASS=Rogue;LEVEL=2|1|PREVARGTEQ:RogueLVL,11		
+CATEGORY=Special Ability|Arcane Trickster ~ Spellcasting.MOD		BONUS:SPELLKNOWN|CLASS=Rogue;LEVEL=3|1|PREVARGTEQ:RogueLVL,13		
 CATEGORY=Special Ability|Arcane Trickster ~ Spellcasting.MOD		BONUS:SPELLKNOWN|CLASS=Rogue;LEVEL=3|1|PREVARGTEQ:RogueLVL,15		
 CATEGORY=Special Ability|Arcane Trickster ~ Spellcasting.MOD		BONUS:SPELLKNOWN|CLASS=Rogue;LEVEL=3|2|PREVARGTEQ:RogueLVL,16		
 CATEGORY=Special Ability|Arcane Trickster ~ Spellcasting.MOD		BONUS:SPELLKNOWN|CLASS=Rogue;LEVEL=3|1|PREVARGTEQ:RogueLVL,17		
 CATEGORY=Special Ability|Arcane Trickster ~ Spellcasting.MOD		BONUS:SPELLKNOWN|CLASS=Rogue;LEVEL=3|1|PREVARGTEQ:RogueLVL,18		
+CATEGORY=Special Ability|Arcane Trickster ~ Spellcasting.MOD		BONUS:SPELLKNOWN|CLASS=Rogue;LEVEL=4|1|PREVARGTEQ:RogueLVL,19		
 CATEGORY=Special Ability|Arcane Trickster ~ Spellcasting.MOD		BONUS:SPELLKNOWN|CLASS=Rogue;LEVEL=1|-1|PREVARGTEQ:RogueLVL,8			
 CATEGORY=Special Ability|Arcane Trickster ~ Spellcasting.MOD		BONUS:SPELLKNOWN|CLASS=Rogue;LEVEL=1|-1|PREVARGTEQ:RogueLVL,9			
 CATEGORY=Special Ability|Arcane Trickster ~ Spellcasting.MOD		BONUS:SPELLKNOWN|CLASS=Rogue;LEVEL=1|-1|PREVARGTEQ:RogueLVL,10		
@@ -1616,63 +1616,6 @@ CATEGORY=Special Ability|Arcane Trickster ~ Spellcasting.MOD		BONUS:SPELLKNOWN|C
 CATEGORY=Special Ability|Arcane Trickster ~ Spellcasting.MOD		BONUS:SPELLKNOWN|CLASS=Rogue;LEVEL=2|-1|PREVARGTEQ:RogueLVL,16		
 CATEGORY=Special Ability|Arcane Trickster ~ Spellcasting.MOD		BONUS:SPELLKNOWN|CLASS=Rogue;LEVEL=2|-1|PREVARGTEQ:RogueLVL,17		
 CATEGORY=Special Ability|Arcane Trickster ~ Spellcasting.MOD		BONUS:SPELLKNOWN|CLASS=Rogue;LEVEL=2|-1|PREVARGTEQ:RogueLVL,18		
-
-
-
-
-
-
-# Rogue Spells Known
-Rogue Known Level 7	CATEGORY:Spell	TYPE:RogueKnownSelection											MULT:YES	STACK:YES	CHOOSE:NUMCHOICES=1|ABILITYSELECTION|Spell|TYPE=RogueSpellLVL2	ABILITY:Spell|AUTOMATIC|%LIST	
-Rogue Known Level 8	CATEGORY:Spell	TYPE:RogueKnownSelection		PREABILITY:1,CATEGORY=Spell,Rogue Known Level 7		MULT:YES	STACK:YES	CHOOSE:NUMCHOICES=1|ABILITYSELECTION|Spell|TYPE=RogueSpellLVL2	ABILITY:Spell|AUTOMATIC|%LIST	
-Rogue Known Level 10	CATEGORY:Spell	TYPE:RogueKnownSelection		PREABILITY:1,CATEGORY=Spell,Rogue Known Level 8		MULT:YES	STACK:YES	CHOOSE:NUMCHOICES=1|ABILITYSELECTION|Spell|TYPE=RogueSpellLVL2	ABILITY:Spell|AUTOMATIC|%LIST	
-Rogue Known Level 11	CATEGORY:Spell	TYPE:RogueKnownSelection		PREABILITY:1,CATEGORY=Spell,Rogue Known Level 10	MULT:YES	STACK:YES	CHOOSE:NUMCHOICES=1|ABILITYSELECTION|Spell|TYPE=RogueSpellLVL2	ABILITY:Spell|AUTOMATIC|%LIST	
-Rogue Known Level 13	CATEGORY:Spell	TYPE:RogueKnownSelection		PREABILITY:1,CATEGORY=Spell,Rogue Known Level 11	MULT:YES	STACK:YES	CHOOSE:NUMCHOICES=1|ABILITYSELECTION|Spell|TYPE=RogueSpellLVL3	ABILITY:Spell|AUTOMATIC|%LIST	
-Rogue Known Level 14	CATEGORY:Spell	TYPE:RogueKnownSelection		PREABILITY:1,CATEGORY=Spell,Rogue Known Level 13	MULT:YES	STACK:YES	CHOOSE:NUMCHOICES=1|ABILITYSELECTION|Spell|TYPE=RogueSpellLVL3	ABILITY:Spell|AUTOMATIC|%LIST	
-Rogue Known Level 16	CATEGORY:Spell	TYPE:RogueKnownSelection		PREABILITY:1,CATEGORY=Spell,Rogue Known Level 14	MULT:YES	STACK:YES	CHOOSE:NUMCHOICES=1|ABILITYSELECTION|Spell|TYPE=RogueSpellLVL3	ABILITY:Spell|AUTOMATIC|%LIST	
-Rogue Known Level 19	CATEGORY:Spell	TYPE:RogueKnownSelection		PREABILITY:1,CATEGORY=Spell,Rogue Known Level 16	MULT:YES	STACK:YES	CHOOSE:NUMCHOICES=1|ABILITYSELECTION|Spell|TYPE=RogueSpellLVL4	ABILITY:Spell|AUTOMATIC|%LIST	
-Rogue Known Level 20	CATEGORY:Spell	TYPE:RogueKnownSelection		PREABILITY:1,CATEGORY=Spell,Rogue Known Level 19	MULT:YES	STACK:YES	CHOOSE:NUMCHOICES=1|ABILITYSELECTION|Spell|TYPE=RogueSpellLVL4	ABILITY:Spell|AUTOMATIC|%LIST	
-#
-Rogue Spell LVL 1	CATEGORY:Spell	TYPE:RogueSpellLVL1.RogueSpellLVL2.RogueSpellLVL3.RogueSpellLVL4	BONUS:SPELLKNOWN|CLASS=Rogue;LEVEL=1|1	CHOOSE:NOCHOICE	MULT:YES	STACK:YES
-Rogue Spell LVL 2	CATEGORY:Spell	TYPE:RogueSpellLVL2.RogueSpellLVL3.RogueSpellLVL4			BONUS:SPELLKNOWN|CLASS=Rogue;LEVEL=2|1	CHOOSE:NOCHOICE	MULT:YES	STACK:YES
-Rogue Spell LVL 3	CATEGORY:Spell	TYPE:RogueSpellLVL3.RogueSpellLVL4						BONUS:SPELLKNOWN|CLASS=Rogue;LEVEL=3|1	CHOOSE:NOCHOICE	MULT:YES	STACK:YES
-Rogue Spell LVL 4	CATEGORY:Spell	TYPE:RogueSpellLVL4								BONUS:SPELLKNOWN|CLASS=Rogue;LEVEL=4|1	CHOOSE:NOCHOICE	MULT:YES	STACK:YES
-#
-No Rogue Replacement		CATEGORY:Spell																		MULT:YES	STACK:YES	CHOOSE:NOCHOICE																	BONUS:VAR|RogueRemoveSpellLVL|-1				
-Rogue Replace Known Level 7	CATEGORY:Spell	TYPE:RogueReplaceKnownSelection		PREABILITY:1,CATEGORY=Spell,Rogue Replace Known Level 6	MULT:YES	STACK:YES	CHOOSE:NUMCHOICES=1|ABILITYSELECTION|Spell|TYPE=RogueSpellLVL2|No Rogue Replacement	ABILITY:Spell|AUTOMATIC|%LIST	BONUS:VAR|RogueRemoveSpellLVL|1
-Rogue Replace Known Level 8	CATEGORY:Spell	TYPE:RogueReplaceKnownSelection		PREABILITY:1,CATEGORY=Spell,Rogue Replace Known Level 7	MULT:YES	STACK:YES	CHOOSE:NUMCHOICES=1|ABILITYSELECTION|Spell|TYPE=RogueSpellLVL2|No Rogue Replacement	ABILITY:Spell|AUTOMATIC|%LIST	BONUS:VAR|RogueRemoveSpellLVL|1
-Rogue Replace Known Level 9	CATEGORY:Spell	TYPE:RogueReplaceKnownSelection		PREABILITY:1,CATEGORY=Spell,Rogue Replace Known Level 8	MULT:YES	STACK:YES	CHOOSE:NUMCHOICES=1|ABILITYSELECTION|Spell|TYPE=RogueSpellLVL2|No Rogue Replacement	ABILITY:Spell|AUTOMATIC|%LIST	BONUS:VAR|RogueRemoveSpellLVL|1
-Rogue Replace Known Level 10	CATEGORY:Spell	TYPE:RogueReplaceKnownSelection		PREABILITY:1,CATEGORY=Spell,Rogue Replace Known Level 9	MULT:YES	STACK:YES	CHOOSE:NUMCHOICES=1|ABILITYSELECTION|Spell|TYPE=RogueSpellLVL2|No Rogue Replacement	ABILITY:Spell|AUTOMATIC|%LIST	BONUS:VAR|RogueRemoveSpellLVL|1
-Rogue Replace Known Level 11	CATEGORY:Spell	TYPE:RogueReplaceKnownSelection		PREABILITY:1,CATEGORY=Spell,Rogue Replace Known Level 10	MULT:YES	STACK:YES	CHOOSE:NUMCHOICES=1|ABILITYSELECTION|Spell|TYPE=RogueSpellLVL2|No Rogue Replacement	ABILITY:Spell|AUTOMATIC|%LIST	BONUS:VAR|RogueRemoveSpellLVL|1
-Rogue Replace Known Level 12	CATEGORY:Spell	TYPE:RogueReplaceKnownSelection		PREABILITY:1,CATEGORY=Spell,Rogue Replace Known Level 11	MULT:YES	STACK:YES	CHOOSE:NUMCHOICES=1|ABILITYSELECTION|Spell|TYPE=RogueSpellLVL2|No Rogue Replacement	ABILITY:Spell|AUTOMATIC|%LIST	BONUS:VAR|RogueRemoveSpellLVL|1
-Rogue Replace Known Level 13	CATEGORY:Spell	TYPE:RogueReplaceKnownSelection		PREABILITY:1,CATEGORY=Spell,Rogue Replace Known Level 12	MULT:YES	STACK:YES	CHOOSE:NUMCHOICES=1|ABILITYSELECTION|Spell|TYPE=RogueSpellLVL3|No Rogue Replacement	ABILITY:Spell|AUTOMATIC|%LIST	BONUS:VAR|RogueRemoveSpellLVL|1
-Rogue Replace Known Level 14	CATEGORY:Spell	TYPE:RogueReplaceKnownSelection		PREABILITY:1,CATEGORY=Spell,Rogue Replace Known Level 13	MULT:YES	STACK:YES	CHOOSE:NUMCHOICES=1|ABILITYSELECTION|Spell|TYPE=RogueSpellLVL3|No Rogue Replacement	ABILITY:Spell|AUTOMATIC|%LIST	BONUS:VAR|RogueRemoveSpellLVL|1
-Rogue Replace Known Level 15	CATEGORY:Spell	TYPE:RogueReplaceKnownSelection		PREABILITY:1,CATEGORY=Spell,Rogue Replace Known Level 14	MULT:YES	STACK:YES	CHOOSE:NUMCHOICES=1|ABILITYSELECTION|Spell|TYPE=RogueSpellLVL3|No Rogue Replacement	ABILITY:Spell|AUTOMATIC|%LIST	BONUS:VAR|RogueRemoveSpellLVL|1
-Rogue Replace Known Level 16	CATEGORY:Spell	TYPE:RogueReplaceKnownSelection		PREABILITY:1,CATEGORY=Spell,Rogue Replace Known Level 15	MULT:YES	STACK:YES	CHOOSE:NUMCHOICES=1|ABILITYSELECTION|Spell|TYPE=RogueSpellLVL3|No Rogue Replacement	ABILITY:Spell|AUTOMATIC|%LIST	BONUS:VAR|RogueRemoveSpellLVL|1
-Rogue Replace Known Level 17	CATEGORY:Spell	TYPE:RogueReplaceKnownSelection		PREABILITY:1,CATEGORY=Spell,Rogue Replace Known Level 16	MULT:YES	STACK:YES	CHOOSE:NUMCHOICES=1|ABILITYSELECTION|Spell|TYPE=RogueSpellLVL3|No Rogue Replacement	ABILITY:Spell|AUTOMATIC|%LIST	BONUS:VAR|RogueRemoveSpellLVL|1
-Rogue Replace Known Level 18	CATEGORY:Spell	TYPE:RogueReplaceKnownSelection		PREABILITY:1,CATEGORY=Spell,Rogue Replace Known Level 17	MULT:YES	STACK:YES	CHOOSE:NUMCHOICES=1|ABILITYSELECTION|Spell|TYPE=RogueSpellLVL3|No Rogue Replacement	ABILITY:Spell|AUTOMATIC|%LIST	BONUS:VAR|RogueRemoveSpellLVL|1
-Rogue Replace Known Level 19	CATEGORY:Spell	TYPE:RogueReplaceKnownSelection		PREABILITY:1,CATEGORY=Spell,Rogue Replace Known Level 18	MULT:YES	STACK:YES	CHOOSE:NUMCHOICES=1|ABILITYSELECTION|Spell|TYPE=RogueSpellLVL4|No Rogue Replacement	ABILITY:Spell|AUTOMATIC|%LIST	BONUS:VAR|RogueRemoveSpellLVL|1
-Rogue Replace Known Level 20	CATEGORY:Spell	TYPE:RogueReplaceKnownSelection		PREABILITY:1,CATEGORY=Spell,Rogue Replace Known Level 19	MULT:YES	STACK:YES	CHOOSE:NUMCHOICES=1|ABILITYSELECTION|Spell|TYPE=RogueSpellLVL4|No Rogue Replacement	ABILITY:Spell|AUTOMATIC|%LIST	BONUS:VAR|RogueRemoveSpellLVL|1
-#
-Rogue Remove Known Level 7	CATEGORY:Spell	TYPE:RogueRemoveKnownSelection												MULT:YES	STACK:YES	CHOOSE:NUMCHOICES=1|ABILITYSELECTION|Spell|TYPE=RogueRemoveSpellLVL2	ABILITY:Spell|AUTOMATIC|%LIST	
-Rogue Remove Known Level 8	CATEGORY:Spell	TYPE:RogueRemoveKnownSelection		PREABILITY:1,CATEGORY=Spell,Rogue Remove Known Level 7	MULT:YES	STACK:YES	CHOOSE:NUMCHOICES=1|ABILITYSELECTION|Spell|TYPE=RogueRemoveSpellLVL2	ABILITY:Spell|AUTOMATIC|%LIST	
-Rogue Remove Known Level 9	CATEGORY:Spell	TYPE:RogueRemoveKnownSelection		PREABILITY:1,CATEGORY=Spell,Rogue Remove Known Level 8	MULT:YES	STACK:YES	CHOOSE:NUMCHOICES=1|ABILITYSELECTION|Spell|TYPE=RogueRemoveSpellLVL2	ABILITY:Spell|AUTOMATIC|%LIST	
-Rogue Remove Known Level 10	CATEGORY:Spell	TYPE:RogueRemoveKnownSelection		PREABILITY:1,CATEGORY=Spell,Rogue Remove Known Level 9	MULT:YES	STACK:YES	CHOOSE:NUMCHOICES=1|ABILITYSELECTION|Spell|TYPE=RogueRemoveSpellLVL2	ABILITY:Spell|AUTOMATIC|%LIST	
-Rogue Remove Known Level 11	CATEGORY:Spell	TYPE:RogueRemoveKnownSelection		PREABILITY:1,CATEGORY=Spell,Rogue Remove Known Level 10	MULT:YES	STACK:YES	CHOOSE:NUMCHOICES=1|ABILITYSELECTION|Spell|TYPE=RogueRemoveSpellLVL2	ABILITY:Spell|AUTOMATIC|%LIST	
-Rogue Remove Known Level 12	CATEGORY:Spell	TYPE:RogueRemoveKnownSelection		PREABILITY:1,CATEGORY=Spell,Rogue Remove Known Level 11	MULT:YES	STACK:YES	CHOOSE:NUMCHOICES=1|ABILITYSELECTION|Spell|TYPE=RogueRemoveSpellLVL2	ABILITY:Spell|AUTOMATIC|%LIST	
-Rogue Remove Known Level 13	CATEGORY:Spell	TYPE:RogueRemoveKnownSelection		PREABILITY:1,CATEGORY=Spell,Rogue Remove Known Level 12	MULT:YES	STACK:YES	CHOOSE:NUMCHOICES=1|ABILITYSELECTION|Spell|TYPE=RogueRemoveSpellLVL3	ABILITY:Spell|AUTOMATIC|%LIST	
-Rogue Remove Known Level 14	CATEGORY:Spell	TYPE:RogueRemoveKnownSelection		PREABILITY:1,CATEGORY=Spell,Rogue Remove Known Level 13	MULT:YES	STACK:YES	CHOOSE:NUMCHOICES=1|ABILITYSELECTION|Spell|TYPE=RogueRemoveSpellLVL3	ABILITY:Spell|AUTOMATIC|%LIST	
-Rogue Remove Known Level 15	CATEGORY:Spell	TYPE:RogueRemoveKnownSelection		PREABILITY:1,CATEGORY=Spell,Rogue Remove Known Level 14	MULT:YES	STACK:YES	CHOOSE:NUMCHOICES=1|ABILITYSELECTION|Spell|TYPE=RogueRemoveSpellLVL3	ABILITY:Spell|AUTOMATIC|%LIST	
-Rogue Remove Known Level 16	CATEGORY:Spell	TYPE:RogueRemoveKnownSelection		PREABILITY:1,CATEGORY=Spell,Rogue Remove Known Level 15	MULT:YES	STACK:YES	CHOOSE:NUMCHOICES=1|ABILITYSELECTION|Spell|TYPE=RogueRemoveSpellLVL3	ABILITY:Spell|AUTOMATIC|%LIST	
-Rogue Remove Known Level 17	CATEGORY:Spell	TYPE:RogueRemoveKnownSelection		PREABILITY:1,CATEGORY=Spell,Rogue Remove Known Level 16	MULT:YES	STACK:YES	CHOOSE:NUMCHOICES=1|ABILITYSELECTION|Spell|TYPE=RogueRemoveSpellLVL3	ABILITY:Spell|AUTOMATIC|%LIST	
-Rogue Remove Known Level 18	CATEGORY:Spell	TYPE:RogueRemoveKnownSelection		PREABILITY:1,CATEGORY=Spell,Rogue Remove Known Level 17	MULT:YES	STACK:YES	CHOOSE:NUMCHOICES=1|ABILITYSELECTION|Spell|TYPE=RogueRemoveSpellLVL3	ABILITY:Spell|AUTOMATIC|%LIST	
-Rogue Remove Known Level 19	CATEGORY:Spell	TYPE:RogueRemoveKnownSelection		PREABILITY:1,CATEGORY=Spell,Rogue Remove Known Level 18	MULT:YES	STACK:YES	CHOOSE:NUMCHOICES=1|ABILITYSELECTION|Spell|TYPE=RogueRemoveSpellLVL4	ABILITY:Spell|AUTOMATIC|%LIST	
-Rogue Remove Known Level 20	CATEGORY:Spell	TYPE:RogueRemoveKnownSelection		PREABILITY:1,CATEGORY=Spell,Rogue Remove Known Level 19	MULT:YES	STACK:YES	CHOOSE:NUMCHOICES=1|ABILITYSELECTION|Spell|TYPE=RogueRemoveSpellLVL4	ABILITY:Spell|AUTOMATIC|%LIST	
-#
-Rogue Remove Spell LVL 1	CATEGORY:Spell	TYPE:RogueRemoveSpellLVL1.RogueRemoveSpellLVL2.RogueRemoveSpellLVL3.RogueRemoveSpellLVL4	BONUS:SPELLKNOWN|CLASS=Rogue;LEVEL=1|-1	CHOOSE:NOCHOICE	MULT:YES	STACK:YES
-Rogue Remove Spell LVL 2	CATEGORY:Spell	TYPE:RogueRemoveSpellLVL2.RogueRemoveSpellLVL3.RogueRemoveSpellLVL4				BONUS:SPELLKNOWN|CLASS=Rogue;LEVEL=2|-1	CHOOSE:NOCHOICE	MULT:YES	STACK:YES
-Rogue Remove Spell LVL 3	CATEGORY:Spell	TYPE:RogueRemoveSpellLVL3.RogueRemoveSpellLVL4								BONUS:SPELLKNOWN|CLASS=Rogue;LEVEL=3|-1	CHOOSE:NOCHOICE	MULT:YES	STACK:YES
-Rogue Remove Spell LVL 4	CATEGORY:Spell	TYPE:RogueRemoveSpellLVL4											BONUS:SPELLKNOWN|CLASS=Rogue;LEVEL=4|-1	CHOOSE:NOCHOICE	MULT:YES	STACK:YES
 
 ###Block: Sorcerer
 Spell Casting			KEY:Sorcerer ~ Spell Casting			CATEGORY:Special Ability	SORTKEY:Class	TYPE:Sorcerer Class Feature.SpecialQuality	SOURCEPAGE:p.101	DESC:An event in your past, or in the life of a parent or ancestor, left an indelible mark on you, infusing you with arcane magic. This font of magic, whatever its origin, fuels your spells. See chapter 10 for the general rules of spellcasting and chapter 11 for the sorcerer spell list. Spell save DC %1; Spell attack modifier +%2|8+Proficiency_Bonus+CHA|Proficiency_Bonus+CHA
