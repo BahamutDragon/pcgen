@@ -96,9 +96,27 @@ CLASS:Shadowcaster	SPELLSTAT:INT	SPELLTYPE:Shadow Magic	MEMORIZE:NO	BONUS:CASTER
 19	CAST:0,3,3,3,2,2,2,1,1,1
 20	CAST:0,3,3,3,2,2,2,1,1,1
 
+CLASS:Truennamer	MAXLEVEL:20
+CLASS:Truennamer	HD:6	TYPE:Base.PC	SOURCEPAGE:p.198	DEFINE:TruennamerLVL|0	BONUS:VAR|TruennamerLVL|CL
+CLASS:Truennamer	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	
+CLASS:Truennamer	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	
+CLASS:Truennamer	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Truennamer	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Truennamer	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Truennamer	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Perform (oratory)|TYPE=Knowledge|Truespeak|Use Magic Device
+###Block	
+1	ABILITY:Truennamer Class Feature|AUTOMATIC|Truenamer ~ Weapon and Armor Proficiency	
+1	ABILITY:Truennamer Class Feature|AUTOMATIC|Truenamer ~ Known Personal Truename		
+1	ABILITY:Truennamer Class Feature|AUTOMATIC|Truenamer ~ Utterances				
+1	ABILITY:Truennamer Class Feature|AUTOMATIC|Truenamer ~ Knowledge Focus			
+6	ABILITY:Truennamer Class Feature|AUTOMATIC|Truenamer ~ Truename Research			
+9	ABILITY:Truennamer Class Feature|AUTOMATIC|Truenamer ~ See the Named				
+13	ABILITY:Truennamer Class Feature|AUTOMATIC|Truenamer ~ Sending					
+17	ABILITY:Truennamer Class Feature|AUTOMATIC|Truenamer ~ Speak unto the Masses		
+20	ABILITY:Truennamer Class Feature|AUTOMATIC|Truenamer ~ Say My Name and I Am There	
 
 ###Block: Prestige Classes
-
+# COMMENT: Adaptation allows this to be open to any spellcaster.
 # Pact Magic Prestige Classes
 CLASS:Anima Mage	HD:4	TYPE:Prestige	SOURCEPAGE:p.50	DEFINE:AnimaMageLVL|0	BONUS:VAR|AnimaMageLVL|CL
 CLASS:Anima Mage	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	
@@ -106,10 +124,10 @@ CLASS:Anima Mage	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ
 CLASS:Anima Mage	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
 CLASS:Anima Mage	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 CLASS:Anima Mage	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
-CLASS:Anima Mage	!PREALIGN:LG,NG,CG	PRESKILL:2,Intimidate=4,Knowledge (the Planes)=4	PREABILITY:1,CATEGORY=FEAT,TYPE.Metamagic	PREVARGTEQ:BinderMaxVestigeLVL,2	PRESPELLTYPE:1,Arcane=2	PRETEXT:Alignment: Any nongood Skills: Intimidate 4 ranks, Knowledge (the planes) 4 ranks Feat: Any metamagic feat Spellcasting: Ability to cast 2nd-level arcane spells Special: Ability to bind a 2nd-level vestige
+CLASS:Anima Mage	!PREALIGN:LG,NG,CG	PRESKILL:2,Intimidate=4,Knowledge (the Planes)=4	PREABILITY:1,CATEGORY=FEAT,TYPE.Metamagic	PREVARGTEQ:BinderMaxVestigeLVL,2	PRESPELLTYPE:1,Arcane=2,Divine=2,Psionic=2	PRETEXT:Alignment: Any nongood Skills: Intimidate 4 ranks, Knowledge (the planes) 4 ranks Feat: Any metamagic feat Spellcasting: Ability to cast 2nd-level arcane spells Special: Ability to bind a 2nd-level vestige
 CLASS:Anima Mage	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Decipher Script|Diplomacy|Intimidate|TYPE=Knowledge|TYPE=Profession|Spellcraft
 ###Block
-1:REPEATLEVEL:1	ADD:SPELLCASTER|Arcane
+1:REPEATLEVEL:1	ADD:SPELLCASTER|ANY
 ###Block
 1	ABILITY:Anima Mage Class Feature|AUTOMATIC|Anima Mage ~ Soul Binding Bonus		
 1	ABILITY:Anima Mage Class Feature|AUTOMATIC|Anima Mage ~ Spellcasting			
