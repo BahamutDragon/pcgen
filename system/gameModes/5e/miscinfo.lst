@@ -1,8 +1,3 @@
-# COMMENT: Just copying the 35e gamemofe folder till more info comes out
-# Current Ver: $Revision: 19784 $
-# Last Editor: $Author: zaister $
-# Last Edited: $Date: 2013-03-30 14:12:21 -0700 (Sat, 30 Mar 2013) $
-#
 # message displayed when experience added allows character to advance a level
 LEVELMSG:Congratulations, you can advance with that much experience!
 #
@@ -56,20 +51,20 @@ SHOWCLASSDEFENSE:No
 #
 # Whether or not the game mode displays these tabs
 #
-TAB:CLASS		NAME:in_class		CONTEXT:tabpages\tabclasses.html
-TAB:DESCRIPTION	NAME:in_descrip		CONTEXT:tabpages\tabdescription.html
-TAB:DOMAINS		NAME:in_domains		CONTEXT:tabpages\tabdomains.html
-TAB:FEATS		NAME:in_feats		CONTEXT:tabpages\tabfeatsandabilities.html
-TAB:INVENTORY	NAME:in_inventory		CONTEXT:tabpages\tabinventory.html
-TAB:RACE		NAME:in_race		CONTEXT:tabpages\tabraces.html
-TAB:SKILLS		NAME:in_skills		CONTEXT:tabpages\tabskills.html
-TAB:SPELLS		NAME:in_spells		CONTEXT:tabpages\tabspells.html
-TAB:SUMMARY		NAME:in_summary		CONTEXT:tabpages\tabsummary.html
+TAB:CLASS		NAME:in_class				CONTEXT:tabpages\tabclasses.html
+TAB:DESCRIPTION	NAME:in_descrip				CONTEXT:tabpages\tabdescription.html
+TAB:DOMAINS		NAME:in_domains				CONTEXT:tabpages\tabdomains.html
+TAB:FEATS		NAME:in_feats				CONTEXT:tabpages\tabfeatsandabilities.html
+TAB:INVENTORY	NAME:in_inventory				CONTEXT:tabpages\tabinventory.html
+TAB:RACE		NAME:in_race				CONTEXT:tabpages\tabraces.html
+TAB:SKILLS		NAME:in_skills		VISIBLE:NO	CONTEXT:tabpages\tabskills.html
+TAB:SPELLS		NAME:in_spells				CONTEXT:tabpages\tabspells.html
+TAB:SUMMARY		NAME:in_summary				CONTEXT:tabpages\tabsummary.html
 # Inventory subpanels
-TAB:PURCHASE	NAME:in_purchase		CONTEXT:tabpages\tabinventory.html
-TAB:EQUIPPING	NAME:in_InfoEquipping	CONTEXT:tabpages\tabinventory.html
-TAB:COMPANIONS	NAME:in_companions	CONTEXT:tabpages\tabcompanions.html
-TAB:TEMPMOD		NAME:in_InfoTempMod	CONTEXT:tabpages\tabtemporarybonuses.html
+TAB:PURCHASE	NAME:in_purchase				CONTEXT:tabpages\tabinventory.html
+TAB:EQUIPPING	NAME:in_InfoEquipping			CONTEXT:tabpages\tabinventory.html
+TAB:COMPANIONS	NAME:in_companions			CONTEXT:tabpages\tabcompanions.html
+TAB:TEMPMOD		NAME:in_InfoTempMod			CONTEXT:tabpages\tabtemporarybonuses.html
 #
 # Menu entry (under Settings-->Campaign), and tool tip displayed for said entry
 # use & for mnemonic, && for & (MENUENTRY only)
@@ -147,11 +142,11 @@ CLASSTYPE:Monster		CRFORMULA:0			ISMONSTER:YES	XPPENALTY:NO
 CLASSTYPE:Companion	CRFORMULA:NONE		ISMONSTER:YES	XPPENALTY:NO
 
 #AC Types
-ACTYPE:Total				ADD:TOTAL		REMOVE:Ability|Armor|ArmorEnhancement|NaturalArmor|Shield|ShieldEnhancement|NaturalArmorEnhancement
+ACTYPE:Total				ADD:TOTAL		
 ACTYPE:Flatfooted				ADD:TOTAL		REMOVE:Ability|PRESTAT:1,DEX=10|!PREABILITY:1,CATEGORY=Special Ability,Retain Dex To AC ~ Flat-footed		REMOVE:Dodge|!PREABILITY:1,CATEGORY=Special Ability,Retain Dex To AC ~ Flat-footed
 ACTYPE:Touch				ADD:TOTAL		REMOVE:Armor|ArmorEnhancement|NaturalArmor|Shield|ShieldEnhancement|NaturalArmorEnhancement	ADD:Shield|ShieldEnhancement|PREVARGTEQ:ShieldAddsToTouchAC,1
 ACTYPE:Base					ADD:Base
-# Not Used for AC total
+#
 ACTYPE:Armor				ADD:Armor|ArmorEnhancement
 ACTYPE:ArmorEnhancement			ADD:ArmorEnhancement
 ACTYPE:Shield				ADD:Shield|ShieldEnhancement
@@ -162,30 +157,26 @@ ACTYPE:NaturalArmor			ADD:NaturalArmor|NaturalArmorEnhancement
 ACTYPE:NaturalArmorEnhancement	ADD:NaturalArmorEnhancement
 ACTYPE:Dodge				ADD:Dodge
 ACTYPE:Deflection				ADD:Deflection
-ACTYPE:Misc					ADD:TOTAL		REMOVE:Base|Armor|Shield|Ability|Size|NaturalArmor|NaturalArmorEnhancement|Dodge|Deflection|ShieldEnhancement|ArmorEnhancement
 ACTYPE:Circumstance			ADD:Circumstance
 ACTYPE:Insight				ADD:Insight
 ACTYPE:Morale				ADD:Morale
 ACTYPE:Profane				ADD:Profane
 ACTYPE:Sacred				ADD:Sacred
 ACTYPE:ClassDefense			ADD:ClassDefense
+ACTYPE:Misc					ADD:TOTAL		REMOVE:Base|Armor|Shield|Ability|Size|NaturalArmor|NaturalArmorEnhancement|Dodge|Deflection|ShieldEnhancement|ArmorEnhancement
 
 # Damage die changes on size
-BASEDICE:1d2	UP:1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6,8d6,12d6	DOWN:1,0
-BASEDICE:1d3	UP:1d4,1d6,1d8,2d6,3d6,4d6,6d6,8d6,12d6		DOWN:1d2,1,0
-BASEDICE:1d4	UP:1d6,1d8,2d6,3d6,4d6,6d6,8d6,12d6			DOWN:1d3,1d2,1,0
-BASEDICE:1d6	UP:1d8,2d6,3d6,4d6,6d6,8d6,12d6			DOWN:1d4,1d3,1d2,1
-BASEDICE:1d8	UP:2d6,3d6,4d6,6d6,8d6,12d6				DOWN:1d6,1d4,1d3,1d2
-BASEDICE:1d10	UP:2d8,3d8,4d8,6d8,8d8,12d8				DOWN:1d8,1d6,1d4,1d3
-BASEDICE:1d12	UP:3d6,4d6,6d6,8d6,12d6					DOWN:1d10,1d8,1d6,1d4
-BASEDICE:2d4	UP:2d6,3d6,4d6,6d6,8d6,12d6				DOWN:1d6,1d4,1d3,1d2
-BASEDICE:2d6	UP:3d6,4d6,6d6,8d6,12d6					DOWN:1d10,1d8,1d6,1d4
-BASEDICE:2d8	UP:3d8,4d8,6d8,8d8,12d8					DOWN:2d6,1d10,1d8,1d6
-BASEDICE:2d10	UP:4d8,6d8,8d8,12d8					DOWN:2d8,2d6,1d10,1d8
-BASEDICE:3d6	UP:4d6,6d6,8d6,12d6					DOWN:2d6,1d10,1d8,1d6,1d4
+BASEDICE:1		UP:2d1,3d1,4d1
+BASEDICE:1d2	UP:2d2,3d2,4d2
+BASEDICE:1d3	UP:2d3,3d3,4d3
+BASEDICE:1d4	UP:2d4,3d4,4d4
+BASEDICE:1d6	UP:2d6,3d6,4d6
+BASEDICE:1d8	UP:2d8,3d8,4d8
+BASEDICE:1d10	UP:2d10,3d10,4d10
+BASEDICE:1d12	UP:2d12,3d12,4d12
 
 # Penalty to attacks for different sized weapons
-EQSIZEPENALTY:35 Size Penalty		BONUS:WEAPON|TOHIT|(PC.SIZE.INT-EQUIP.SIZE.INT)*-2|PREVARGT:PC.SIZE.INT,EQUIP.SIZE.INT|!PRETYPE:2,Melee,Natural|TYPE=DifferentEQSizePenalty	BONUS:WEAPON|TOHIT|(EQUIP.SIZE.INT-PC.SIZE.INT)*-2|PREVARGT:EQUIP.SIZE.INT,PC.SIZE.INT|!PRETYPE:2,Melee,Natural|TYPE=DifferentEQSizePenalty
+#EQSIZEPENALTY:35 Size Penalty		BONUS:WEAPON|TOHIT|(PC.SIZE.INT-EQUIP.SIZE.INT)*-2|PREVARGT:PC.SIZE.INT,EQUIP.SIZE.INT|!PRETYPE:2,Melee,Natural|TYPE=DifferentEQSizePenalty	BONUS:WEAPON|TOHIT|(EQUIP.SIZE.INT-PC.SIZE.INT)*-2|PREVARGT:EQUIP.SIZE.INT,PC.SIZE.INT|!PRETYPE:2,Melee,Natural|TYPE=DifferentEQSizePenalty
 
 # Long and Short weapon damage types
 WEAPONTYPE:Bludgeoning|B
@@ -202,10 +193,6 @@ WEAPONTYPE:Psychic|Psy
 WEAPONTYPE:Radiant|Ra
 WEAPONTYPE:Thunder|Th
 
-
-
-
-
 # Weapon proficiency categories
 WEAPONCATEGORY:Simple
 WEAPONCATEGORY:Martial
@@ -218,41 +205,41 @@ WEAPONNONPROFPENALTY:0
 #									Object Size difference
 # 											Damage multiplier: hands = multiplier
 WIELDCATEGORY:Light		HANDS:1		FINESSABLE:Yes		SIZEDIFF:-1	DAMAGEMULT:1=1,2=1
-WIELDCATEGORY:OneHanded		HANDS:1					SIZEDIFF:0	DAMAGEMULT:1=1,2=1.5
-WIELDCATEGORY:TwoHanded		HANDS:2					SIZEDIFF:1	DAMAGEMULT:2=1.5
-WIELDCATEGORY:TooSmall		HANDS:999
-WIELDCATEGORY:TooLarge		HANDS:999
+WIELDCATEGORY:OneHanded		HANDS:1					SIZEDIFF:0	DAMAGEMULT:1=1,2=1
+WIELDCATEGORY:TwoHanded		HANDS:2					SIZEDIFF:1	DAMAGEMULT:2=1
+#WIELDCATEGORY:TooSmall		HANDS:999
+#WIELDCATEGORY:TooLarge		HANDS:999
 WIELDCATEGORY:Unusable		HANDS:999
 WIELDCATEGORY:None		HANDS:0
 
 # Light weapon vs PC size changes
-WIELDCATEGORY:Light		PREVARLTEQ:EQUIP.SIZE.INT,PC.SIZE.INT-1	SWITCH:TooSmall
+#WIELDCATEGORY:Light		PREVARLTEQ:EQUIP.SIZE.INT,PC.SIZE.INT-1	SWITCH:TooSmall
 WIELDCATEGORY:Light		PREVAREQ:EQUIP.SIZE.INT,PC.SIZE.INT+1	SWITCH:OneHanded
 WIELDCATEGORY:Light		PREVAREQ:EQUIP.SIZE.INT,PC.SIZE.INT+2	SWITCH:TwoHanded
-WIELDCATEGORY:Light		PREVARGTEQ:EQUIP.SIZE.INT,PC.SIZE.INT+3	SWITCH:TooLarge
+#WIELDCATEGORY:Light		PREVARGTEQ:EQUIP.SIZE.INT,PC.SIZE.INT+3	SWITCH:TooLarge
 
 # OneHanded weapon vs PC size changes
-WIELDCATEGORY:OneHanded		PREVARLTEQ:EQUIP.SIZE.INT,PC.SIZE.INT-2	SWITCH:TooSmall
+#WIELDCATEGORY:OneHanded		PREVARLTEQ:EQUIP.SIZE.INT,PC.SIZE.INT-2	SWITCH:TooSmall
 WIELDCATEGORY:OneHanded		PREVAREQ:EQUIP.SIZE.INT,PC.SIZE.INT-1	SWITCH:Light
 WIELDCATEGORY:OneHanded		PREVAREQ:EQUIP.SIZE.INT,PC.SIZE.INT+1	SWITCH:TwoHanded
-WIELDCATEGORY:OneHanded		PREVARGTEQ:EQUIP.SIZE.INT,PC.SIZE.INT+2	SWITCH:TooLarge
+#WIELDCATEGORY:OneHanded		PREVARGTEQ:EQUIP.SIZE.INT,PC.SIZE.INT+2	SWITCH:TooLarge
 
 # TwoHanded weapon vs PC size changes
-WIELDCATEGORY:TwoHanded		PREVARLTEQ:EQUIP.SIZE.INT,PC.SIZE.INT-3	SWITCH:TooSmall
+#WIELDCATEGORY:TwoHanded		PREVARLTEQ:EQUIP.SIZE.INT,PC.SIZE.INT-3	SWITCH:TooSmall
 WIELDCATEGORY:TwoHanded		PREVAREQ:EQUIP.SIZE.INT,PC.SIZE.INT-2	SWITCH:Light
 WIELDCATEGORY:TwoHanded		PREVAREQ:EQUIP.SIZE.INT,PC.SIZE.INT-1	SWITCH:OneHanded
-WIELDCATEGORY:TwoHanded		PREVARGTEQ:EQUIP.SIZE.INT,PC.SIZE.INT+1	SWITCH:TooLarge
+#WIELDCATEGORY:TwoHanded		PREVARGTEQ:EQUIP.SIZE.INT,PC.SIZE.INT+1	SWITCH:TooLarge
 
 #
 # Wield Category Steps
 #  This is used when figuring bonuses that allow you to wield Larger or Smaller size weapons
 #WCSTEPSFORMULA:EQUIP.SIZE.INT-PC.SIZE.INT
 
-WIELDCATEGORY:TooSmall		UP:Light|OneHanded|TwoHanded					ZERO:Light
+#WIELDCATEGORY:TooSmall		UP:Light|OneHanded|TwoHanded					ZERO:Light
 WIELDCATEGORY:Light		UP:OneHanded|TwoHanded
 WIELDCATEGORY:OneHanded		UP:TwoHanded			DOWN:Light
 WIELDCATEGORY:TwoHanded						DOWN:OneHanded|Light
-WIELDCATEGORY:TooLarge						DOWN:TwoHanded|OneHanded|Light	ZERO:TwoHanded
+#WIELDCATEGORY:TooLarge						DOWN:TwoHanded|OneHanded|Light	ZERO:TwoHanded
 
 #
 # Dice rolling methods for character creation
@@ -293,16 +280,22 @@ ABILITYCATEGORY:Internal	VISIBLE:NO		EDITABLE:NO		EDITPOOL:NO		FRACTIONALPOOL:NO
 ABILITYCATEGORY:Natural Attack	VISIBLE:NO		EDITABLE:NO		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Natural Attack					
 
 
-PREVIEWDIR:d20/fantasy
-PREVIEWSHEET:Standard.htm
+PREVIEWDIR:d20/5e
+PREVIEWSHEET:Standard.htm.ftl
 INFOSHEET:SUMMARY|preview/summary/35e_info.html
 INFOSHEET:SKILLS|preview/skills/35e_skills.html
 
+
+OUTPUTSHEET:DIRECTORY|d20/5e
+OUTPUTSHEET:DEFAULT.PDF|csheet_fantasy_std_blue.xslt
+OUTPUTSHEET:DEFAULT.HTM|csheet_fantasy_std.htm
+OUTPUTSHEET:DEFAULT.TXT|csheet_plain.TXT
+
 # DIESIZES values are used by the HITEDIE tag to bump up/down HD per level.
-DIESIZES:1,2,3,MIN=4,6,8,10,MAX=12,20,100,1000 
+DIESIZES:1,2,3,MIN=4,6,8,10,MAX=12,20,100,1000
 
 # Types which automatic resizing is activated on
-RESIZABLEEQUIPTYPE:Shield|Weapon|Armor|Ammunition|Resizable
+RESIZABLEEQUIPTYPE:Resizable
 
 # Character Types:
 CHARACTERTYPE:PC|NPC

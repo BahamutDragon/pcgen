@@ -3,7 +3,7 @@ CAMPAIGN:Player's Guide to Faerun
 KEY:Player's Guide to Faerun
 RANK:3
 GAMEMODE:35e|Bahamut35e
-PRECAMPAIGN:1,Dungeons & Dragons - Core Books
+PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core35e
 GENRE:Fantasy
 BOOKTYPE:Setting
 SETTING:Fantasy
@@ -19,10 +19,6 @@ INFOTEXT:The Players Guide to Faerun is the crucial book that updates the Forgot
 INFOTEXT:So both books are defined as one source, to avoid much complication
 INFOTEXT:And the Spell Compendium is such a major source of spells, it's easier to define that as necessary, than to try and replicate so much of it here
 
-
-#
-#Player's Guide to Faerun
-#
 # NOTE - where appropriate (spells & equip) have seperate files for each of the appropriate source books
 
 ###Block: Forgotten Realms Campaign Setting Specific Materials not updated by PG
@@ -33,11 +29,14 @@ PCC:frcs/_frcs.pcc
 ###Block: PG files
 ABILITY:pg_abilities.lst
 ABILITYCATEGORY:pg_abilitycategories.lst
+BIOSET:pg_biosettings.lst
 CLASS:pg_classes.lst
+CLASS:pg_classes_epic.lst|PRECAMPAIGN:1,INCLUDES=Epic Level Handbook
 DEITY:pg_deities.lst
 DOMAIN:pg_domains.lst
 EQUIPMENT:pg_equip.lst
-FEAT:pg_feats.lst
+ABILITY:pg_feats.lst
+ABILITY:pg_feats_epic.lst|PRECAMPAIGN:2,INCLUDES=Epic Level Handbook,INCLUDES=Magic of Faerun
 KIT:pg_kits.lst
 LANGUAGE:pg_languages.lst
 WEAPONPROF:pg_profs_weapon.lst
@@ -46,11 +45,19 @@ SKILL:pg_skills.lst
 SPELL:pg_spells.lst
 TEMPLATE:pg_templates.lst
 
-
-
-
-#SPELL:../../../supplement/sandstorm/sa_spells.lst|(INCLUDE:Surelife)
-
+HIDETYPE:SKILL|KnowledgeLocal
 
 #FORWARDREF:FEAT|Tenacious Magic,Mind Over Body,Fleet of Foot
 #FORWARDREF:SKILL|Knowledge (Tactics)
+
+INFOTEXT:Supports 6.4.1
+# ENTRY DATE: 2015-01 (Unknown)
+# LST MONKEY: Bahamut
+# RELEASE REVIEW #
+# BETA:
+# RELEASE:
+# Built for PCGen Version: 6.04.01
+# Updated to work with version: -
+# MINVER:6.4
+# MINDEVVER:6.04.1
+# COMMENTS:

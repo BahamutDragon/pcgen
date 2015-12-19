@@ -20,11 +20,11 @@ Weapon Proficiencies ~ Soldier	CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	
 # Ability Name					Category of Ability	Type				Define				Automatically Gained Feat																											Ability										Bonus to Ability Pool																			Combat bonus								Bonus to HP			Bonus to skill rank								Modify VAR					Weapon prof. bonus
 Heroic PC Tracker					CATEGORY:Internal						DEFINE:HeroicLVL|0																																																																		BONUS:COMBAT|INITIATIVE|skillinfo("TOTAL", "Initiative")					BONUS:SKILLRANK|TYPE.Standard|HeroicLevels/2|TYPE=HeroicLevels							BONUS:WEAPONPROF=TYPE.Weapon|DAMAGE|HeroicLevels/2|TYPE=HeroicLevels	BONUS:ABILITYPOOL|Force-Using Tradition|1
 #
-First Class Level ~ Jedi			CATEGORY:Internal		TYPE:StartingClass	DEFINE:SkillTrainingCount|0	AUTO:FEAT|Force Sensitivity|Weapon Proficiency (Lightsabers)|Weapon Proficiency (Simple Weapons)															ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	BONUS:ABILITYPOOL|Jedi Skill Training|SkillTrainingCount																							BONUS:HP|CURRENTMAX|20												BONUS:VAR|SkillTrainingCount|max(0,INT+2)
-First Class Level ~ Noble			CATEGORY:Internal		TYPE:StartingClass	DEFINE:SkillTrainingCount|0	AUTO:FEAT|Weapon Proficiency (Pistols)|Weapon Proficiency (Simple Weapons)	AUTO:FEAT|Linguist|PRESTAT:1,INT=13													ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	BONUS:ABILITYPOOL|Noble Skill Training|SkillTrainingCount																							BONUS:HP|CURRENTMAX|12												BONUS:VAR|SkillTrainingCount|max(0,INT+6)
-First Class Level ~ Scoundrel			CATEGORY:Internal		TYPE:StartingClass	DEFINE:SkillTrainingCount|0	AUTO:FEAT|Weapon Proficiency (Pistols)|Point Blank Shot|Weapon Proficiency (Simple Weapons)																ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	BONUS:ABILITYPOOL|Scoundrel Skill Training|SkillTrainingCount																						BONUS:HP|CURRENTMAX|12												BONUS:VAR|SkillTrainingCount|max(0,INT+4)
-First Class Level ~ Scout			CATEGORY:Internal		TYPE:StartingClass	DEFINE:SkillTrainingCount|0	AUTO:FEAT|Weapon Proficiency (Pistols)|Weapon Proficiency (Rifles)|Weapon Proficiency (Simple Weapons)	AUTO:FEAT|Shake It Off|PREFEAT:1,Skill Training (Endurance)|PRESTAT:1,CON=13	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	BONUS:ABILITYPOOL|Scout Skill Training|SkillTrainingCount																							BONUS:HP|CURRENTMAX|16												BONUS:VAR|SkillTrainingCount|max(0,INT+5)
-First Class Level ~ Soldier			CATEGORY:Internal		TYPE:StartingClass	DEFINE:SkillTrainingCount|0	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Weapon Proficiency (Pistols)|Weapon Proficiency (Rifles)|Weapon Proficiency (Simple Weapons)						ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	BONUS:ABILITYPOOL|Soldier Skill Training|SkillTrainingCount																							BONUS:HP|CURRENTMAX|20												BONUS:VAR|SkillTrainingCount|max(0,INT+3)
+First Class Level ~ Jedi			CATEGORY:Internal		TYPE:StartingClass	DEFINE:SkillTrainingCount|0	ABILITY:FEAT|AUTOMATIC|Force Sensitivity|Weapon Proficiency (Lightsabers)|Weapon Proficiency (Simple Weapons)															ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	BONUS:ABILITYPOOL|Jedi Skill Training|SkillTrainingCount																							BONUS:HP|CURRENTMAX|20												BONUS:VAR|SkillTrainingCount|max(0,INT+2)
+First Class Level ~ Noble			CATEGORY:Internal		TYPE:StartingClass	DEFINE:SkillTrainingCount|0	ABILITY:FEAT|AUTOMATIC|Weapon Proficiency (Pistols)|Weapon Proficiency (Simple Weapons)	ABILITY:FEAT|AUTOMATIC|Linguist|PRESTAT:1,INT=13													ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	BONUS:ABILITYPOOL|Noble Skill Training|SkillTrainingCount																							BONUS:HP|CURRENTMAX|12												BONUS:VAR|SkillTrainingCount|max(0,INT+6)
+First Class Level ~ Scoundrel			CATEGORY:Internal		TYPE:StartingClass	DEFINE:SkillTrainingCount|0	ABILITY:FEAT|AUTOMATIC|Weapon Proficiency (Pistols)|Point Blank Shot|Weapon Proficiency (Simple Weapons)																ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	BONUS:ABILITYPOOL|Scoundrel Skill Training|SkillTrainingCount																						BONUS:HP|CURRENTMAX|12												BONUS:VAR|SkillTrainingCount|max(0,INT+4)
+First Class Level ~ Scout			CATEGORY:Internal		TYPE:StartingClass	DEFINE:SkillTrainingCount|0	ABILITY:FEAT|AUTOMATIC|Weapon Proficiency (Pistols)|Weapon Proficiency (Rifles)|Weapon Proficiency (Simple Weapons)	ABILITY:FEAT|AUTOMATIC|Shake It Off|PREABILITY:1,CATEGORY=FEAT,Skill Training (Endurance)|PRESTAT:1,CON=13	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	BONUS:ABILITYPOOL|Scout Skill Training|SkillTrainingCount																							BONUS:HP|CURRENTMAX|16												BONUS:VAR|SkillTrainingCount|max(0,INT+5)
+First Class Level ~ Soldier			CATEGORY:Internal		TYPE:StartingClass	DEFINE:SkillTrainingCount|0	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)|Weapon Proficiency (Pistols)|Weapon Proficiency (Rifles)|Weapon Proficiency (Simple Weapons)						ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	BONUS:ABILITYPOOL|Soldier Skill Training|SkillTrainingCount																							BONUS:HP|CURRENTMAX|20												BONUS:VAR|SkillTrainingCount|max(0,INT+3)
 #
 CATEGORY=Internal|Heroic PC Tracker.MOD																																																								BONUS:ABILITYPOOL|Jedi Multiclass Selection|1|PREPCLEVEL:MIN=2|PRECLASS:1,Jedi=1|!PRETEMPLATE:1,First Level ~ Jedi
 CATEGORY=Internal|Heroic PC Tracker.MOD																																																								BONUS:ABILITYPOOL|Noble Multiclass Selection|1|PREPCLEVEL:MIN=2|PRECLASS:1,Noble=1|!PRETEMPLATE:1,First Level ~ Noble
@@ -200,7 +200,7 @@ Resist the Dark Side		CATEGORY:Talent		TYPE:JediTalent.Talent.JediSentinelTalent
 Block					CATEGORY:Talent		TYPE:JediTalent.Talent.LightsaberCombatTalent															DESC:As a reaction, you may negate a melee attack by making a successful Use the Force check. The DC of the skill check is equal to the result of the attack roll you wish to negate, and you take a cumulative -5 penalty on your Use the Force check for every time you have used Block or Deflect since the beginning of your last turn. You must have a lightsaber drawn and ignited to use this talent, and you must be aware of the attack and not flat-footed.												SOURCEPAGE:p.
 Deflect					CATEGORY:Talent		TYPE:JediTalent.Talent.LightsaberCombatTalent															DESC:As a reaction, you may negate a ranged attack by making a successful Use the Force check. The DC of the skill check is equal to the result of the attack roll you wish to negate, and you take a cumulative -5 penalty on your Use the Force check for every time you have used Block or Deflect since the beginning of your last turn. You must have a lightsaber drawn and ignited to use this talent, and you must be aware of the attack and not flat-footed.												SOURCEPAGE:p.
 Lightsaber Defense			CATEGORY:Talent		TYPE:JediTalent.Talent.LightsaberCombatTalent																																																																																																						SOURCEPAGE:p.
-Weapon Specialization ~ Lightsabers	CATEGORY:Talent		TYPE:JediTalent.Talent.LightsaberCombatTalent								PREFEAT:1,Weapon Focus (Lightsabers)																																																																													BONUS:WEAPONPROF=Lightsaber|DAMAGE|2|TYPE=WeaponSpecialization	SOURCEPAGE:p.
+Weapon Specialization ~ Lightsabers	CATEGORY:Talent		TYPE:JediTalent.Talent.LightsaberCombatTalent								PREABILITY:1,CATEGORY=FEAT,Weapon Focus (Lightsabers)																																																																													BONUS:WEAPONPROF=Lightsaber|DAMAGE|2|TYPE=WeaponSpecialization	SOURCEPAGE:p.
 Lightsaber Throw			CATEGORY:Talent		TYPE:JediTalent.Talent.LightsaberCombatTalent																																																																																																						SOURCEPAGE:p.
 Redirect Shot				CATEGORY:Talent		TYPE:JediTalent.Talent.LightsaberCombatTalent	PREABILITY:1,CATEGORY=Talent,Deflect																																																																																															SOURCEPAGE:p.	PRETOTALAB:5
 
@@ -317,8 +317,8 @@ Tough as Nails			CATEGORY:Talent		TYPE:SoldierTalent.Talent.CommandoTalent						
 
 # Weapon Specialist Talent Tree
 Devastating Attack		CATEGORY:Talent		TYPE:SoldierTalent.Talent.WeaponSpecialistTalent																																					SOURCEPAGE:p.
-Penetrating Attack		CATEGORY:Talent		TYPE:SoldierTalent.Talent.WeaponSpecialistTalent									PREFEAT:1,Weapon Focus																									SOURCEPAGE:p.
-Weapon Specialization		CATEGORY:Talent		TYPE:SoldierTalent.Talent.WeaponSpecialistTalent									PREFEAT:1,Weapon Focus	STACK:NO	MULT:YES	CHOOSE:WEAPONPROFICIENCY|FEAT=Weapon Focus	SELECT:1	BONUS:WEAPONPROF=%LIST|DAMAGE|2|TYPE=WeaponSpecialization	SOURCEPAGE:p.
+Penetrating Attack		CATEGORY:Talent		TYPE:SoldierTalent.Talent.WeaponSpecialistTalent									PREABILITY:1,CATEGORY=FEAT,Weapon Focus																									SOURCEPAGE:p.
+Weapon Specialization		CATEGORY:Talent		TYPE:SoldierTalent.Talent.WeaponSpecialistTalent									PREABILITY:1,CATEGORY=FEAT,Weapon Focus	STACK:NO	MULT:YES	CHOOSE:WEAPONPROFICIENCY|FEAT=Weapon Focus	SELECT:1	BONUS:WEAPONPROF=%LIST|DAMAGE|2|TYPE=WeaponSpecialization	SOURCEPAGE:p.
 
 ###Block: Ace Pilot Talent Trees
 
@@ -377,10 +377,10 @@ Impel Ally II			CATEGORY:Talent		TYPE:Talent.MastermindTalent.CrimeLordTalent	PR
 # Ability Name					Category of Ability	Type									Required Ability										Required Feat									Multiple?	Choose							Selections	Automatically Gained Weapon Prof.	Weapon prof. bonus			Source Page
 Controlled Burst				CATEGORY:Talent		TYPE:Talent.EliteTrooperTalent.WeaponMasterTalent																																																SOURCEPAGE:p.
 Exotic Weapon Mastery				CATEGORY:Talent		TYPE:Talent.EliteTrooperTalent.WeaponMasterTalent																																				AUTO:WEAPONPROF|TYPE=Exotic								SOURCEPAGE:p.
-Greater Devastating Attack			CATEGORY:Talent		TYPE:Talent.EliteTrooperTalent.WeaponMasterTalent													PREFEAT:3,Greater Weapon Focus,Devastating,Weapon Focus																										SOURCEPAGE:p.
-Greater Penetrating Attack			CATEGORY:Talent		TYPE:Talent.EliteTrooperTalent.WeaponMasterTalent													PREFEAT:3,Greater Weapon Focus,Penetrating Attack,Weapon Focus																									SOURCEPAGE:p.
-Greater Weapon Focus				CATEGORY:Talent		TYPE:Talent.EliteTrooperTalent.WeaponMasterTalent													PREFEAT:1,Weapon Focus								MULT:YES	CHOOSE:WEAPONPROFICIENCY|FEAT=Weapon Focus	SELECT:1							BONUS:WEAPONPROF=%LIST|TOHIT|1	SOURCEPAGE:p.
-Greater Weapon Specialization			CATEGORY:Talent		TYPE:Talent.EliteTrooperTalent.WeaponMasterTalent	PREABILITY:2,CATEGORY=Talent,Greater Weapon Focus,Weapon Specialization	PREFEAT:1,Weapon Focus								MULT:YES	CHOOSE:ABILITYSELECTION|Talent|Weapon Specialization	SELECT:1							BONUS:WEAPONPROF=%LIST|DAMAGE|2	SOURCEPAGE:p.
+Greater Devastating Attack			CATEGORY:Talent		TYPE:Talent.EliteTrooperTalent.WeaponMasterTalent													PREABILITY:3,CATEGORY=FEAT,Greater Weapon Focus,Devastating,Weapon Focus																										SOURCEPAGE:p.
+Greater Penetrating Attack			CATEGORY:Talent		TYPE:Talent.EliteTrooperTalent.WeaponMasterTalent													PREABILITY:3,CATEGORY=FEAT,Greater Weapon Focus,Penetrating Attack,Weapon Focus																									SOURCEPAGE:p.
+Greater Weapon Focus				CATEGORY:Talent		TYPE:Talent.EliteTrooperTalent.WeaponMasterTalent													PREABILITY:1,CATEGORY=FEAT,Weapon Focus								MULT:YES	CHOOSE:WEAPONPROFICIENCY|FEAT=Weapon Focus	SELECT:1							BONUS:WEAPONPROF=%LIST|TOHIT|1	SOURCEPAGE:p.
+Greater Weapon Specialization			CATEGORY:Talent		TYPE:Talent.EliteTrooperTalent.WeaponMasterTalent	PREABILITY:2,CATEGORY=Talent,Greater Weapon Focus,Weapon Specialization	PREABILITY:1,CATEGORY=FEAT,Weapon Focus								MULT:YES	CHOOSE:ABILITYSELECTION|Talent|Weapon Specialization	SELECT:1							BONUS:WEAPONPROF=%LIST|DAMAGE|2	SOURCEPAGE:p.
 Multiattack Proficiency (Heavy Weapons)		CATEGORY:Talent		TYPE:Talent.EliteTrooperTalent.WeaponMasterTalent																																																SOURCEPAGE:p.
 Multiattack Proficiency (Rifles)		CATEGORY:Talent		TYPE:Talent.EliteTrooperTalent.WeaponMasterTalent																																																SOURCEPAGE:p.
 
@@ -461,7 +461,7 @@ Dark Side Adept			CATEGORY:Talent		TYPE:Talent.SithApprenticeTalent.SithTalent		
 Dark Side Master		CATEGORY:Talent		TYPE:Talent.SithApprenticeTalent.SithTalent	PREABILITY:1,CATEGORY=Talent,Dark Side Adept													SOURCEPAGE:p.
 Force Deception			CATEGORY:Talent		TYPE:Talent.SithApprenticeTalent.SithTalent																					SOURCEPAGE:p.
 Improved Dark Healing		CATEGORY:Talent		TYPE:Talent.SithApprenticeTalent.SithTalent	PREABILITY:1,CATEGORY=Talent,Dark Healing														SOURCEPAGE:p.
-Wicked Strike			CATEGORY:Talent		TYPE:Talent.SithApprenticeTalent.SithTalent									PREFEAT:2,Weapon Focus (Lightsaber),Weapon Specialization (Lightsaber)	SOURCEPAGE:p.
+Wicked Strike			CATEGORY:Talent		TYPE:Talent.SithApprenticeTalent.SithTalent									PREABILITY:2,CATEGORY=FEAT,Weapon Focus (Lightsaber),Weapon Specialization (Lightsaber)	SOURCEPAGE:p.
 
 ###Block: Force Support
 # Ability Name			Category of Ability		Type				Define			Description			Bonus to Ability Pool						Modify VAR																					Source Page
@@ -507,42 +507,42 @@ Vital Transfer		CATEGORY:Special Ability	TYPE:ForcePower.SpecialQuality.LightSid
 ###Block: Force Talent Trees
 # Alter Talent Tree
 # Ability Name			Category of Ability	Type							Required Feat			Multiple Requirements														Required Stat	Source Page
-Discipline Strike		CATEGORY:Talent		TYPE:ForceTalent.Talent.AlterTalent		PREFEAT:1,Force Sensitivity																					SOURCEPAGE:p.
-Telekinetic Power		CATEGORY:Talent		TYPE:ForceTalent.Talent.AlterTalent		PREFEAT:1,Force Sensitivity																					SOURCEPAGE:p.
-Telekinetic Savant		CATEGORY:Talent		TYPE:ForceTalent.Talent.AlterTalent		PREFEAT:1,Force Sensitivity																					SOURCEPAGE:p.
+Discipline Strike		CATEGORY:Talent		TYPE:ForceTalent.Talent.AlterTalent		PREABILITY:1,CATEGORY=FEAT,Force Sensitivity																					SOURCEPAGE:p.
+Telekinetic Power		CATEGORY:Talent		TYPE:ForceTalent.Talent.AlterTalent		PREABILITY:1,CATEGORY=FEAT,Force Sensitivity																					SOURCEPAGE:p.
+Telekinetic Savant		CATEGORY:Talent		TYPE:ForceTalent.Talent.AlterTalent		PREABILITY:1,CATEGORY=FEAT,Force Sensitivity																					SOURCEPAGE:p.
 
 # Control Talent Tree
-Damage Reduction 10		CATEGORY:Talent		TYPE:ForceTalent.Talent.ControlTalent	PREFEAT:1,Force Sensitivity																					SOURCEPAGE:p.
-Equilibrium			CATEGORY:Talent		TYPE:ForceTalent.Talent.ControlTalent	PREFEAT:1,Force Sensitivity																					SOURCEPAGE:p.
-Force Focus			CATEGORY:Talent		TYPE:ForceTalent.Talent.ControlTalent	PREFEAT:1,Force Sensitivity																					SOURCEPAGE:p.
-Force Recovery			CATEGORY:Talent		TYPE:ForceTalent.Talent.ControlTalent						PREMULT:2,[PREFEAT:1,Force Sensitivity],[PREABILITY:1,CATEGORY=Talent,Equilibrium]						SOURCEPAGE:p.
+Damage Reduction 10		CATEGORY:Talent		TYPE:ForceTalent.Talent.ControlTalent	PREABILITY:1,CATEGORY=FEAT,Force Sensitivity																					SOURCEPAGE:p.
+Equilibrium			CATEGORY:Talent		TYPE:ForceTalent.Talent.ControlTalent	PREABILITY:1,CATEGORY=FEAT,Force Sensitivity																					SOURCEPAGE:p.
+Force Focus			CATEGORY:Talent		TYPE:ForceTalent.Talent.ControlTalent	PREABILITY:1,CATEGORY=FEAT,Force Sensitivity																					SOURCEPAGE:p.
+Force Recovery			CATEGORY:Talent		TYPE:ForceTalent.Talent.ControlTalent						PREMULT:2,[PREABILITY:1,CATEGORY=FEAT,Force Sensitivity],[PREABILITY:1,CATEGORY=Talent,Equilibrium]						SOURCEPAGE:p.
 
 # Dark Side Talent Tree
-Power of the Dark Side		CATEGORY:Talent		TYPE:ForceTalent.Talent.DarkSideTalent	PREFEAT:1,Force Sensitivity																					SOURCEPAGE:p.
-Dark Presence			CATEGORY:Talent		TYPE:ForceTalent.Talent.DarkSideTalent						PREMULT:2,[PREFEAT:1,Force Sensitivity],[PREABILITY:1,CATEGORY=Talent,Power of the Dark Side]	PRESTAT:1,CHA=13	SOURCEPAGE:p.
-Revenge				CATEGORY:Talent		TYPE:ForceTalent.Talent.DarkSideTalent						PREMULT:2,[PREFEAT:1,Force Sensitivity],[PREABILITY:1,CATEGORY=Talent,Power of the Dark Side]				SOURCEPAGE:p.
-Swift Power			CATEGORY:Talent		TYPE:ForceTalent.Talent.DarkSideTalent						PREMULT:2,[PREFEAT:1,Force Sensitivity],[PREABILITY:1,CATEGORY=Talent,Power of the Dark Side]				SOURCEPAGE:p.
+Power of the Dark Side		CATEGORY:Talent		TYPE:ForceTalent.Talent.DarkSideTalent	PREABILITY:1,CATEGORY=FEAT,Force Sensitivity																					SOURCEPAGE:p.
+Dark Presence			CATEGORY:Talent		TYPE:ForceTalent.Talent.DarkSideTalent						PREMULT:2,[PREABILITY:1,CATEGORY=FEAT,Force Sensitivity],[PREABILITY:1,CATEGORY=Talent,Power of the Dark Side]	PRESTAT:1,CHA=13	SOURCEPAGE:p.
+Revenge				CATEGORY:Talent		TYPE:ForceTalent.Talent.DarkSideTalent						PREMULT:2,[PREABILITY:1,CATEGORY=FEAT,Force Sensitivity],[PREABILITY:1,CATEGORY=Talent,Power of the Dark Side]				SOURCEPAGE:p.
+Swift Power			CATEGORY:Talent		TYPE:ForceTalent.Talent.DarkSideTalent						PREMULT:2,[PREABILITY:1,CATEGORY=FEAT,Force Sensitivity],[PREABILITY:1,CATEGORY=Talent,Power of the Dark Side]				SOURCEPAGE:p.
 
 # Sense Talent Tree
-Force Perception		CATEGORY:Talent		TYPE:ForceTalent.Talent.SenseTalent		PREFEAT:1,Force Sensitivity																					SOURCEPAGE:p.
-Force Pilot			CATEGORY:Talent		TYPE:ForceTalent.Talent.SenseTalent		PREFEAT:1,Force Sensitivity																					SOURCEPAGE:p.
-Foresight			CATEGORY:Talent		TYPE:ForceTalent.Talent.SenseTalent							PREMULT:2,[PREFEAT:1,Force Sensitivity],[PREABILITY:1,CATEGORY=Talent,Force Perception]					SOURCEPAGE:p.
-Gauge Force Potential		CATEGORY:Talent		TYPE:ForceTalent.Talent.SenseTalent							PREMULT:2,[PREFEAT:1,Force Sensitivity],[PREABILITY:1,CATEGORY=Talent,Force Perception]					SOURCEPAGE:p.
-Visions				CATEGORY:Talent		TYPE:ForceTalent.Talent.SenseTalent							PREMULT:2,[PREFEAT:1,Force Sensitivity],[PREABILITY:1,CATEGORY=Talent,Farseeing]						SOURCEPAGE:p.
+Force Perception		CATEGORY:Talent		TYPE:ForceTalent.Talent.SenseTalent		PREABILITY:1,CATEGORY=FEAT,Force Sensitivity																					SOURCEPAGE:p.
+Force Pilot			CATEGORY:Talent		TYPE:ForceTalent.Talent.SenseTalent		PREABILITY:1,CATEGORY=FEAT,Force Sensitivity																					SOURCEPAGE:p.
+Foresight			CATEGORY:Talent		TYPE:ForceTalent.Talent.SenseTalent							PREMULT:2,[PREABILITY:1,CATEGORY=FEAT,Force Sensitivity],[PREABILITY:1,CATEGORY=Talent,Force Perception]					SOURCEPAGE:p.
+Gauge Force Potential		CATEGORY:Talent		TYPE:ForceTalent.Talent.SenseTalent							PREMULT:2,[PREABILITY:1,CATEGORY=FEAT,Force Sensitivity],[PREABILITY:1,CATEGORY=Talent,Force Perception]					SOURCEPAGE:p.
+Visions				CATEGORY:Talent		TYPE:ForceTalent.Talent.SenseTalent							PREMULT:2,[PREABILITY:1,CATEGORY=FEAT,Force Sensitivity],[PREABILITY:1,CATEGORY=Talent,Farseeing]						SOURCEPAGE:p.
 
 ###Block: Other Tradition Force Talents
 # Jensaarai Defender Talent Tree
 # Ability Name			Category of Ability	Type								Required Feat			Multiple Requirements													Required Text			Source Page
-Attune Armor			CATEGORY:Talent		TYPE:ForceTalent.Talent.JensaaraiDefenderTalent	PREFEAT:1,Force Sensitivity																	PRETEXT:Jensaarai Defender	SOURCEPAGE:p.
-Force Cloak			CATEGORY:Talent		TYPE:ForceTalent.Talent.JensaaraiDefenderTalent	PREFEAT:1,Force Sensitivity																	PRETEXT:Jensaarai Defender	SOURCEPAGE:p.
-Force Cloak Mastery		CATEGORY:Talent		TYPE:ForceTalent.Talent.JensaaraiDefenderTalent						PREMULT:2,[PREFEAT:1,Force Sensitivity],[PREABILITY:1,CATEGORY=Talent,Force Cloak]			PRETEXT:Jensaarai Defender	SOURCEPAGE:p.
-Linked Defense			CATEGORY:Talent		TYPE:ForceTalent.Talent.JensaaraiDefenderTalent	PREFEAT:1,Force Sensitivity																	PRETEXT:Jensaarai Defender	SOURCEPAGE:p.
+Attune Armor			CATEGORY:Talent		TYPE:ForceTalent.Talent.JensaaraiDefenderTalent	PREABILITY:1,CATEGORY=FEAT,Force Sensitivity																	PRETEXT:Jensaarai Defender	SOURCEPAGE:p.
+Force Cloak			CATEGORY:Talent		TYPE:ForceTalent.Talent.JensaaraiDefenderTalent	PREABILITY:1,CATEGORY=FEAT,Force Sensitivity																	PRETEXT:Jensaarai Defender	SOURCEPAGE:p.
+Force Cloak Mastery		CATEGORY:Talent		TYPE:ForceTalent.Talent.JensaaraiDefenderTalent						PREMULT:2,[PREABILITY:1,CATEGORY=FEAT,Force Sensitivity],[PREABILITY:1,CATEGORY=Talent,Force Cloak]			PRETEXT:Jensaarai Defender	SOURCEPAGE:p.
+Linked Defense			CATEGORY:Talent		TYPE:ForceTalent.Talent.JensaaraiDefenderTalent	PREABILITY:1,CATEGORY=FEAT,Force Sensitivity																	PRETEXT:Jensaarai Defender	SOURCEPAGE:p.
 
 # Dathomiri Witch Talent Tree
-Adept Spellcaster		CATEGORY:Talent		TYPE:ForceTalent.Talent.DathomiriWitchTalent	PREFEAT:1,Force Sensitivity																	PRETEXT:Dathomiri Witch		SOURCEPAGE:p.
-Charm Beast			CATEGORY:Talent		TYPE:ForceTalent.Talent.DathomiriWitchTalent	PREFEAT:1,Force Sensitivity																	PRETEXT:Dathomiri Witch		SOURCEPAGE:p.
-Command Beast			CATEGORY:Talent		TYPE:ForceTalent.Talent.DathomiriWitchTalent						PREMULT:2,[PREFEAT:1,Force Sensitivity],[PREABILITY:1,CATEGORY=Talent,Charm Beast]		PRETEXT:Dathomiri Witch		SOURCEPAGE:p.
-Flight				CATEGORY:Talent		TYPE:ForceTalent.Talent.DathomiriWitchTalent						PREMULT:2,[PREFEAT:1,Force Sensitivity],[PREABILITY:1,CATEGORY=Talent,Adept Spellcaster]	PRETEXT:Dathomiri Witch		SOURCEPAGE:p.
+Adept Spellcaster		CATEGORY:Talent		TYPE:ForceTalent.Talent.DathomiriWitchTalent	PREABILITY:1,CATEGORY=FEAT,Force Sensitivity																	PRETEXT:Dathomiri Witch		SOURCEPAGE:p.
+Charm Beast			CATEGORY:Talent		TYPE:ForceTalent.Talent.DathomiriWitchTalent	PREABILITY:1,CATEGORY=FEAT,Force Sensitivity																	PRETEXT:Dathomiri Witch		SOURCEPAGE:p.
+Command Beast			CATEGORY:Talent		TYPE:ForceTalent.Talent.DathomiriWitchTalent						PREMULT:2,[PREABILITY:1,CATEGORY=FEAT,Force Sensitivity],[PREABILITY:1,CATEGORY=Talent,Charm Beast]		PRETEXT:Dathomiri Witch		SOURCEPAGE:p.
+Flight				CATEGORY:Talent		TYPE:ForceTalent.Talent.DathomiriWitchTalent						PREMULT:2,[PREABILITY:1,CATEGORY=FEAT,Force Sensitivity],[PREABILITY:1,CATEGORY=Talent,Adept Spellcaster]	PRETEXT:Dathomiri Witch		SOURCEPAGE:p.
 
 ###Block: Force Techniques
 # Ability Name			Category of Ability	Type				Source Page
@@ -600,7 +600,7 @@ Supreme Stability		KEY:Hutt ~ Supreme Stability		CATEGORY:Special Ability	TYPE:S
 Skills			KEY:Hutt ~ Skills				CATEGORY:Special Ability	TYPE:Species Trait.Hutt Species Trait.SpecialQuality		DESC:A Hutt may reroll a Persuasion check, keeping the better result.																																																			SOURCEPAGE:p.285
 
 # Neimoidian
-Conditional Bonus Feat	KEY:Neimoidian ~ Conditional Bonus Feat		CATEGORY:Special Ability	TYPE:Species Trait.Neimoidian Species Trait.SpecialQuality	DESC:Neimoidians with Deception as a trained skill gain Skill Focus (Deception) as a bonus feat.																													AUTO:FEAT|Skill Focus (Deception)|PREFEAT:1,Skill Training (Deception)						SOURCEPAGE:p.285
+Conditional Bonus Feat	KEY:Neimoidian ~ Conditional Bonus Feat		CATEGORY:Special Ability	TYPE:Species Trait.Neimoidian Species Trait.SpecialQuality	DESC:Neimoidians with Deception as a trained skill gain Skill Focus (Deception) as a bonus feat.																													ABILITY:FEAT|AUTOMATIC|Skill Focus (Deception)|PREABILITY:1,CATEGORY=FEAT,Skill Training (Deception)						SOURCEPAGE:p.285
 Skills			KEY:Neimoidian ~ Skills				CATEGORY:Special Ability	TYPE:Species Trait.Neimoidian Species Trait.SpecialQuality	DESC:A Neimoidian may reroll a Deception check but must keep the second result.																																																	SOURCEPAGE:p.285
 
 # Yuuzhan Vong

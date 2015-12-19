@@ -1,24 +1,29 @@
 # CVS $Revision: $ $Author: $ -- Thu Aug  7 12:47:32 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 
+Coin (Platinum)	COST:10	WT:0.02	TYPE:Coin.Money
+Coin (Gold)		COST:1	WT:0.02	TYPE:Coin.Money
+Coin (Electrum)	COST:0.5	WT:0.02	TYPE:Coin.Money
+Coin (Silver)	COST:0.01	WT:0.02	TYPE:Coin.Money
+Coin (Copper)	COST:0.0001	WT:0.02	TYPE:Coin.Money
 
 # Light Armor	Dex Mod -/+ no max
-# Equipment Name	Required Armor Proficiency		Required Shield Proficiency	Type				Cost		Weight	Maximum DEX Bonus	Combat bonus											Add to base move							Quality and value
-Padded		PROFICIENCY:ARMOR|Padded							TYPE:Armor.LightArmor	COST:5	WT:8					BONUS:COMBAT|AC|11|TYPE=Base	BONUS:COMBAT|AC|DEX|TYPE=Base.STACK												QUALITY:Stealth|Disadvantage
-Leather		PROFICIENCY:ARMOR|Leather							TYPE:Armor.LightArmor	COST:10	WT:10					BONUS:COMBAT|AC|11|TYPE=Base	BONUS:COMBAT|AC|DEX|TYPE=Base.STACK
-Studded leather	PROFICIENCY:ARMOR|Studded leather						TYPE:Armor.LightArmor	COST:45	WT:13					BONUS:COMBAT|AC|12|TYPE=Base	BONUS:COMBAT|AC|DEX|TYPE=Base.STACK
-# Medium Armor	Dex Mod -/+ highest is +2
-Hide			PROFICIENCY:ARMOR|Hide								TYPE:Armor.MediumArmor	COST:10	WT:12		MAXDEX:2		BONUS:COMBAT|AC|12|TYPE=Base	BONUS:COMBAT|AC|min(DEX,2)|TYPE=Base.STACK
-Chain shirt		PROFICIENCY:ARMOR|Chain shirt							TYPE:Armor.MediumArmor	COST:50	WT:20		MAXDEX:2		BONUS:COMBAT|AC|13|TYPE=Base	BONUS:COMBAT|AC|min(DEX,2)|TYPE=Base.STACK
-Scale mail		PROFICIENCY:ARMOR|Scale mail							TYPE:Armor.MediumArmor	COST:50	WT:45		MAXDEX:2		BONUS:COMBAT|AC|14|TYPE=Base	BONUS:COMBAT|AC|min(DEX,2)|TYPE=Base.STACK										QUALITY:Stealth|Disadvantage
-Breastplate		PROFICIENCY:ARMOR|Breastplate							TYPE:Armor.MediumArmor	COST:400	WT:20		MAXDEX:2		BONUS:COMBAT|AC|14|TYPE=Base	BONUS:COMBAT|AC|min(DEX,2)|TYPE=Base.STACK
-Half plate		PROFICIENCY:ARMOR|Half plate							TYPE:Armor.MediumArmor	COST:750	WT:40		MAXDEX:2		BONUS:COMBAT|AC|15|TYPE=Base	BONUS:COMBAT|AC|min(DEX,2)|TYPE=Base.STACK										QUALITY:Stealth|Disadvantage
-# Heavy Armor	No Dex Modifier at all
-Ring mail		PROFICIENCY:ARMOR|Ring mail							TYPE:Armor.HeavyArmor	COST:30	WT:40		MAXDEX:0		BONUS:COMBAT|AC|14|TYPE=Base																		QUALITY:Stealth|Disadvantage
-Chain mail		PROFICIENCY:ARMOR|Chain mail							TYPE:Armor.HeavyArmor	COST:75	WT:55		MAXDEX:0		BONUS:COMBAT|AC|16|TYPE=Base									BONUS:MOVEADD|TYPE.Walk|-10|PREVARLT:STRSCORE,13	QUALITY:Stealth|Disadvantage
-Splint		PROFICIENCY:ARMOR|Splint							TYPE:Armor.HeavyArmor	COST:200	WT:60		MAXDEX:0		BONUS:COMBAT|AC|17|TYPE=Base									BONUS:MOVEADD|TYPE.Walk|-10|PREVARLT:STRSCORE,15	QUALITY:Stealth|Disadvantage
-Plate			PROFICIENCY:ARMOR|Plate								TYPE:Armor.HeavyArmor	COST:1500	WT:65		MAXDEX:0		BONUS:COMBAT|AC|18|TYPE=Base									BONUS:MOVEADD|TYPE.Walk|-10|PREVARLT:STRSCORE,15	QUALITY:Stealth|Disadvantage
+# Equipment Name	Required Armor Proficiency		Required Shield Proficiency	Type							Cost		Weight	Maximum DEX Bonus	Combat bonus				Add to base move							Quality and value
+Padded		PROFICIENCY:ARMOR|Padded							TYPE:Armor.LightArmor.Padded			COST:5	WT:8					BONUS:COMBAT|AC|1|TYPE=Armor	BONUS:VAR|AC_Armor|1										QUALITY:Stealth|Disadvantage	ABILITY:Internal|AUTOMATIC|Skill Disadvantage ~ Stealth
+Leather		PROFICIENCY:ARMOR|Leather							TYPE:Armor.LightArmor.Leather			COST:10	WT:10					BONUS:COMBAT|AC|1|TYPE=Armor	BONUS:VAR|AC_Armor|1
+Studded Leather	PROFICIENCY:ARMOR|Studded Leather						TYPE:Armor.LightArmor.Studded Leather	COST:45	WT:13					BONUS:COMBAT|AC|2|TYPE=Armor	BONUS:VAR|AC_Armor|2
+# Medium Armor	Dex Mod -/+ highest is +2																													
+Hide			PROFICIENCY:ARMOR|Hide								TYPE:Armor.MediumArmor.Hide			COST:10	WT:12		MAXDEX:2		BONUS:COMBAT|AC|2|TYPE=Armor	BONUS:VAR|AC_Armor|2
+Chain Shirt		PROFICIENCY:ARMOR|Chain Shirt							TYPE:Armor.MediumArmor.Chain Shirt		COST:50	WT:20		MAXDEX:2		BONUS:COMBAT|AC|3|TYPE=Armor	BONUS:VAR|AC_Armor|3
+Scale Mail		PROFICIENCY:ARMOR|Scale Mail							TYPE:Armor.MediumArmor.Scale Mail		COST:50	WT:45		MAXDEX:2		BONUS:COMBAT|AC|4|TYPE=Armor	BONUS:VAR|AC_Armor|4										QUALITY:Stealth|Disadvantage	ABILITY:Internal|AUTOMATIC|Skill Disadvantage ~ Stealth
+Breastplate		PROFICIENCY:ARMOR|Breastplate							TYPE:Armor.MediumArmor.Breastplate		COST:400	WT:20		MAXDEX:2		BONUS:COMBAT|AC|4|TYPE=Armor	BONUS:VAR|AC_Armor|4
+Half Plate		PROFICIENCY:ARMOR|Half Plate							TYPE:Armor.MediumArmor.Half Plate		COST:750	WT:40		MAXDEX:2		BONUS:COMBAT|AC|5|TYPE=Armor	BONUS:VAR|AC_Armor|5										QUALITY:Stealth|Disadvantage	ABILITY:Internal|AUTOMATIC|Skill Disadvantage ~ Stealth
+# Heavy Armor	No Dex Modifier at all																														
+Ring Mail		PROFICIENCY:ARMOR|Ring Mail							TYPE:Armor.HeavyArmor.Ring Mail		COST:30	WT:40		MAXDEX:0		BONUS:COMBAT|AC|4|TYPE=Armor	BONUS:VAR|AC_Armor|4										QUALITY:Stealth|Disadvantage	ABILITY:Internal|AUTOMATIC|Skill Disadvantage ~ Stealth
+Chain Mail		PROFICIENCY:ARMOR|Chain Mail							TYPE:Armor.HeavyArmor.Chain Mail		COST:75	WT:55		MAXDEX:0		BONUS:COMBAT|AC|6|TYPE=Armor	BONUS:VAR|AC_Armor|6	BONUS:MOVEADD|TYPE.Walk|-10|PREVARLT:STRSCORE,13	QUALITY:Stealth|Disadvantage	ABILITY:Internal|AUTOMATIC|Skill Disadvantage ~ Stealth
+Splint		PROFICIENCY:ARMOR|Splint							TYPE:Armor.HeavyArmor.Splint			COST:200	WT:60		MAXDEX:0		BONUS:COMBAT|AC|7|TYPE=Armor	BONUS:VAR|AC_Armor|7	BONUS:MOVEADD|TYPE.Walk|-10|PREVARLT:STRSCORE,15	QUALITY:Stealth|Disadvantage	ABILITY:Internal|AUTOMATIC|Skill Disadvantage ~ Stealth
+Plate			PROFICIENCY:ARMOR|Plate								TYPE:Armor.HeavyArmor.Plate			COST:1500	WT:65		MAXDEX:0		BONUS:COMBAT|AC|8|TYPE=Armor	BONUS:VAR|AC_Armor|8	BONUS:MOVEADD|TYPE.Walk|-10|PREVARLT:STRSCORE,15	QUALITY:Stealth|Disadvantage	ABILITY:Internal|AUTOMATIC|Skill Disadvantage ~ Stealth
 # Shield
-Shield								PROFICIENCY:SHIELD|Shield					COST:10	WT:6					BONUS:COMBAT|AC|2|TYPE=Base.STACK	BONUS:COMBAT|AC|2|TYPE=Shield
+Shield								PROFICIENCY:SHIELD|Shield	TYPE:Shield						COST:10	WT:6					BONUS:COMBAT|AC|2|TYPE=Shield	BONUS:VAR|AC_Shield|2
 
 # need a disable trigger for Dex on the OS.
 # Need the new parser - RangeLongMult will determine final long range value. Set base.xml file in game system folder. Alter range output by type - Increment3, Increment4
@@ -27,62 +32,63 @@ Shield								PROFICIENCY:SHIELD|Shield					COST:10	WT:6					BONUS:COMBAT|AC|2|T
 
 # Simple Melee Weapons
 # Equipment Name	Unique Key			Required Weapon Proficiency		Type											Cost		Weight	Damage	Modifier			Range
-Club			KEY:Club			PROFICIENCY:WEAPON|Club			TYPE:Weapon.Melee.Weapon_Melee.Bludgeoning.Light						COST:0.1	WT:2		DAMAGE:1d4
-Dagger		KEY:Dagger			PROFICIENCY:WEAPON|Dagger		TYPE:Weapon.Melee.Weapon_Thrown.Piercing.Finesse.Light.Thrown.Ranged.Increment3	COST:2	WT:1		DAMAGE:1d4					RANGE:20		QUALITY:RangeLongMult|3
+Club			KEY:Club			PROFICIENCY:WEAPON|Club			SIZE:M	TYPE:Weapon.Resizable.Melee.Manufactured.Weapon_Melee.Bludgeoning.Light.Monk			CRITRANGE:1			COST:0.1	WT:2		DAMAGE:1d4
+Dagger		KEY:Dagger			PROFICIENCY:WEAPON|Dagger		SIZE:M	TYPE:Weapon.Resizable.Melee.Manufactured.Weapon_Finesse.Piercing.Finesse.Light.Thrown.Ranged.Increment3.Monk	COST:2	WT:1	CRITRANGE:1	DAMAGE:1d4					RANGE:20		QUALITY:RangeLongMult|3	QUALITY:ShortRange|20	QUALITY:LongRange|60
+Unarmed Strike (Monk)		KEY:Unarmed Strike (Monk)			PROFICIENCY:WEAPON|Unarmed Strike (monk)		SIZE:M	TYPE:Weapon.Monk.Resizable.Melee.Bludgeoning.Unarmed.Weapon_Melee	COST:0	WT:0	CRITRANGE:1	DAMAGE:1d4
 #MODIFY:RangeLongMult|SET|3
 
-Greatclub		KEY:Greatclub		PROFICIENCY:WEAPON|Greatclub		TYPE:Weapon.Melee.Weapon_Melee.Bludgeoning.Two-Handed					COST:.2	WT:10		DAMAGE:1d8
-Handaxe		KEY:Handaxe			PROFICIENCY:WEAPON|Handaxe		TYPE:Weapon.Melee.Weapon_Thrown.Slashing.Light.Thrown.Ranged				COST:5	WT:2		DAMAGE:1d6					RANGE:20	QUALITY:RangeLongMult|3
+Greatclub		KEY:Greatclub		PROFICIENCY:WEAPON|Greatclub		SIZE:M	TYPE:Weapon.Resizable.Melee.Manufactured.Weapon_Melee.Bludgeoning.Two-Handed			CRITRANGE:1		COST:.2	WT:10		DAMAGE:1d8	WIELD:TwoHanded
+Handaxe		KEY:Handaxe			PROFICIENCY:WEAPON|Handaxe		SIZE:M	TYPE:Weapon.Resizable.Melee.Manufactured.Weapon_Thrown.Slashing.Light.Thrown.Ranged.Axe.Monk			CRITRANGE:1	COST:5	WT:2		DAMAGE:1d6					RANGE:20	QUALITY:RangeLongMult|3	QUALITY:ShortRange|20	QUALITY:LongRange|60
+Javelin		KEY:Javelin			PROFICIENCY:WEAPON|Javelin		SIZE:M	TYPE:Weapon.Resizable.Melee.Manufactured.Weapon_Thrown.Piercing.Thrown.Ranged.Increment3.Monk		CRITRANGE:1	COST:.5	WT:2		DAMAGE:1d6					RANGE:30	QUALITY:RangeLongMult|4	SPROP:Range 30, Long 120	QUALITY:ShortRange|30	QUALITY:LongRange|120
 #MODIFY:RangeLongMult|SET|3
-Javelin		KEY:Javelin			PROFICIENCY:WEAPON|Javelin		TYPE:Weapon.Melee.Weapon_Thrown.Piercing.Thrown.Ranged.Increment4			COST:.5	WT:2		DAMAGE:1d6					RANGE:30	QUALITY:RangeLongMult|4
-Light Hammer	KEY:Light Hammer		PROFICIENCY:WEAPON|Light Hammer	TYPE:Weapon.Melee.Weapon_Thrown.Bludgeoning.Light.Thrown.Ranged.Increment3	COST:2	WT:2		DAMAGE:1d4					RANGE:20	QUALITY:RangeLongMult|3
+Light Hammer	KEY:Light Hammer		PROFICIENCY:WEAPON|Light Hammer	SIZE:M	TYPE:Weapon.Resizable.Melee.Manufactured.Weapon_Thrown.Bludgeoning.Light.Thrown.Ranged.Increment3.Monk	COST:2	WT:2	CRITRANGE:1	DAMAGE:1d4					RANGE:20	QUALITY:RangeLongMult|3	QUALITY:ShortRange|20	QUALITY:LongRange|60
 #MODIFY:RangeLongMult|SET|3
-Mace			KEY:Mace			PROFICIENCY:WEAPON|Mace			TYPE:Weapon.Melee.Weapon_Melee.Bludgeoning							COST:5	WT:4		DAMAGE:1d6
-Quarterstaff	KEY:Quarterstaff		PROFICIENCY:WEAPON|Quarterstaff	TYPE:Weapon.Melee.Weapon_Melee.Bludgeoning.Versatile					COST:.2	WT:4		DAMAGE:1d6	EQMOD:VERSATILE_D8
-Sickle		KEY:Sickle			PROFICIENCY:WEAPON|Sickle		TYPE:Weapon.Melee.Weapon_Melee.Slashing.Light						COST:1	WT:2		DAMAGE:1d4
-Spear			KEY:Spear			PROFICIENCY:WEAPON|Spear		TYPE:Weapon.Melee.Weapon_Thrown.Piercing.Thrown.Ranged.Versatile.Increment3	COST:1	WT:3		DAMAGE:1d6	QUALITY:RangeLongMult|3	RANGE:20
+Mace			KEY:Mace			PROFICIENCY:WEAPON|Mace			SIZE:M	TYPE:Weapon.Resizable.Melee.Manufactured.Weapon_Melee.Bludgeoning.Monk				WIELD:OneHanded			COST:5	WT:4	CRITRANGE:1	DAMAGE:1d6
+Quarterstaff	KEY:Quarterstaff		PROFICIENCY:WEAPON|Quarterstaff	SIZE:M	TYPE:Weapon.Resizable.Melee.Manufactured.Weapon_Melee.Bludgeoning.Versatile.Monk					COST:.2	WT:4	CRITRANGE:1	DAMAGE:1d6	EQMOD:VERSATILE_D8
+Sickle		KEY:Sickle			PROFICIENCY:WEAPON|Sickle		SIZE:M	TYPE:Weapon.Resizable.Melee.Manufactured.Weapon_Melee.Slashing.Light.Monk						COST:1	WT:2	CRITRANGE:1	DAMAGE:1d4
+Spear			KEY:Spear			PROFICIENCY:WEAPON|Spear		SIZE:M	TYPE:Weapon.Resizable.Melee.Manufactured.Weapon_Thrown.Piercing.Thrown.Ranged.Versatile.Increment3.Monk	COST:1	WT:3	CRITRANGE:1	DAMAGE:1d6	QUALITY:RangeLongMult|3	RANGE:20	QUALITY:ShortRange|20	QUALITY:LongRange|60
 #MODIFY:RangeLongMult|SET|3
-Unarmed Strike	KEY:Unarmed Strike	PROFICIENCY:WEAPON|Unarmed Strike	TYPE:Weapon.Melee.Weapon_Melee.Bludgeoning							COST:0	WT:0		DAMAGE:1
+Unarmed Strike	KEY:Unarmed Strike	PROFICIENCY:WEAPON|Unarmed Strike	SIZE:M	TYPE:Weapon.Resizable.Melee.Natural.Simple.Unarmed.Weapon_Melee.Bludgeoning			CRITRANGE:1				COST:0	WT:0		DAMAGE:1
 # Simple Ranged Weapons
-Crossbow, Light	KEY:Crossbow (Light)	PROFICIENCY:WEAPON|Crossbow (Light)	TYPE:Weapon.Ranged.Weapon_Ranged.Piercing.Increment4							COST:25	WT:5		DAMAGE:1d8	QUALITY:RangeLongMult|4	RANGE:80
+Crossbow, Light	KEY:Crossbow (Light)	PROFICIENCY:WEAPON|Crossbow (Light)	SIZE:M	TYPE:Weapon.Resizable.Ranged.Manufactured.Weapon_Ranged.Piercing.Increment4.Container	CONTAINS:UNLIM|Crossbow Bolt			CRITRANGE:1				COST:25	WT:5		DAMAGE:1d8	QUALITY:RangeLongMult|4	RANGE:80	QUALITY:ShortRange|80	QUALITY:LongRange|240
 #MODIFY:RangeLongMult|SET|4
-Dart			KEY:Dart			PROFICIENCY:WEAPON|Dart			TYPE:Weapon.Ranged.Weapon_Ranged.Piercing.Increment3							COST:.05	WT:0.25	DAMAGE:1d4	QUALITY:RangeLongMult|3	RANGE:20
+Dart			KEY:Dart			PROFICIENCY:WEAPON|Dart			SIZE:M	TYPE:Weapon.Resizable.Ranged.Manufactured.Weapon_Finesse.Piercing.Increment3				CRITRANGE:1			COST:.05	WT:0.25	DAMAGE:1d4	QUALITY:RangeLongMult|3	RANGE:20	QUALITY:ShortRange|20	QUALITY:LongRange|60
 #MODIFY:RangeLongMult|SET|3
-Shortbow		KEY:Shortbow		PROFICIENCY:WEAPON|Shortbow		TYPE:Weapon.Ranged.Weapon_Ranged.Piercing.Increment4							COST:25	WT:2		DAMAGE:1d6	QUALITY:RangeLongMult|4	RANGE:30
+Shortbow		KEY:Shortbow		PROFICIENCY:WEAPON|Shortbow		SIZE:M	TYPE:Weapon.Resizable.Ranged.Manufactured.Weapon_Ranged.Piercing.Increment4.Container	CONTAINS:UNLIM|Arrow			CRITRANGE:1				COST:25	WT:2		DAMAGE:1d6	QUALITY:RangeLongMult|4	RANGE:30	QUALITY:ShortRange|30	QUALITY:LongRange|120
 #MODIFY:RangeLongMult|SET|4
-Sling			KEY:Sling			PROFICIENCY:WEAPON|Sling		TYPE:Weapon.Ranged.Weapon_Ranged.Bludgeoning.Increment4						COST:.1	WT:0		DAMAGE:1d4	QUALITY:RangeLongMult|4	RANGE:30
+Sling			KEY:Sling			PROFICIENCY:WEAPON|Sling		SIZE:M	TYPE:Weapon.Resizable.Ranged.Manufactured.Weapon_Ranged.Bludgeoning.Increment4.Container	CONTAINS:UNLIM|Sling Bullet			CRITRANGE:1			COST:.1	WT:0		DAMAGE:1d4	QUALITY:RangeLongMult|4	RANGE:30	QUALITY:ShortRange|30	QUALITY:LongRange|120
 #MODIFY:RangeLongMult|SET|4
 
 # Martial Melee Weapons
-Battleaxe		KEY:Battleaxe		PROFICIENCY:WEAPON|Battleaxe		TYPE:Weapon.Melee.Weapon_Melee.Slashing							COST:10	WT:4		DAMAGE:1d8
-Flail			KEY:Flail			PROFICIENCY:WEAPON|Flail		TYPE:Weapon.Melee.Weapon_Melee.Bludgeoning							COST:10	WT:2		DAMAGE:1d8
-Glaive		KEY:Glaive			PROFICIENCY:WEAPON|Glaive		TYPE:Weapon.Melee.Weapon_Melee.Slashing							COST:20	WT:6		DAMAGE:1d10
-Greataxe		KEY:Greataxe		PROFICIENCY:WEAPON|Greataxe		TYPE:Weapon.Melee.Weapon_Melee.Slashing							COST:30	WT:7		DAMAGE:1d12
-Greatsword		KEY:Greatsword		PROFICIENCY:WEAPON|Greatsword		TYPE:Weapon.Melee.Weapon_Melee.Slashing							COST:50	WT:6		DAMAGE:2d6
-Halberd		KEY:Halberd			PROFICIENCY:WEAPON|Halberd		TYPE:Weapon.Melee.Weapon_Melee.Slashing							COST:20	WT:6		DAMAGE:1d10
-Lance			KEY:Lance			PROFICIENCY:WEAPON|Lance		TYPE:Weapon.Melee.Weapon_Melee.Piercing							COST:10	WT:6		DAMAGE:1d12
-Longsword		KEY:Longsword		PROFICIENCY:WEAPON|Longsword		TYPE:Weapon.Melee.Weapon_Melee.Slashing							COST:15	WT:3		DAMAGE:1d8
-Maul			KEY:Maul			PROFICIENCY:WEAPON|Maul			TYPE:Weapon.Melee.Weapon_Melee.Bludgeoning							COST:10	WT:10		DAMAGE:2d6
-Morningstar		KEY:Morningstar		PROFICIENCY:WEAPON|Morningstar	TYPE:Weapon.Melee.Weapon_Melee.Piercing							COST:15	WT:4		DAMAGE:1d8
-Pike			KEY:Pike			PROFICIENCY:WEAPON|Pike			TYPE:Weapon.Melee.Weapon_Melee.Piercing							COST:5	WT:18		DAMAGE:1d10
-Rapier		KEY:Rapier			PROFICIENCY:WEAPON|Rapier		TYPE:Weapon.Melee.Weapon_Melee.Piercing							COST:25	WT:2		DAMAGE:1d8
-Scimitar		KEY:Scimitar		PROFICIENCY:WEAPON|Scimitar		TYPE:Weapon.Melee.Weapon_Melee.Slashing							COST:25	WT:3		DAMAGE:1d6
-Shortsword		KEY:Shortsword		PROFICIENCY:WEAPON|Shortsword		TYPE:Weapon.Melee.Weapon_Melee.Piercing							COST:10	WT:2		DAMAGE:1d6
-Trident		KEY:Trident			PROFICIENCY:WEAPON|Trident		TYPE:Weapon.Melee.Weapon_Melee.Piercing.Increment3							COST:5	WT:4		DAMAGE:1d8	QUALITY:RangeLongMult|3	RANGE:20
+Battleaxe		KEY:Battleaxe		PROFICIENCY:WEAPON|Battleaxe		SIZE:M	TYPE:Weapon.Resizable.Melee.Manufactured.Weapon_Melee.Slashing.Axe		SIZE:M	WIELD:OneHanded		CRITRANGE:1			COST:10	WT:4		DAMAGE:1d8
+Flail			KEY:Flail			PROFICIENCY:WEAPON|Flail		SIZE:M	TYPE:Weapon.Resizable.Melee.Manufactured.Weapon_Melee.Bludgeoning		SIZE:M		WIELD:OneHanded		CRITRANGE:1		COST:10	WT:2		DAMAGE:1d8
+Glaive		KEY:Glaive			PROFICIENCY:WEAPON|Glaive		SIZE:M	TYPE:Weapon.Resizable.Melee.Manufactured.Weapon_Melee.Slashing		SIZE:M	WIELD:TwoHanded				CRITRANGE:1	COST:20	WT:6		DAMAGE:1d10
+Greataxe		KEY:Greataxe		PROFICIENCY:WEAPON|Greataxe		SIZE:M	TYPE:Weapon.Resizable.Melee.Manufactured.Weapon_Melee.Slashing.Axe		SIZE:M	WIELD:TwoHanded		CRITRANGE:1				COST:30	WT:7		DAMAGE:1d12
+Greatsword		KEY:Greatsword		PROFICIENCY:WEAPON|Greatsword		SIZE:M	TYPE:Weapon.Resizable.Melee.Manufactured.Weapon_Melee.Slashing			SIZE:M	WIELD:TwoHanded	CRITRANGE:1				COST:50	WT:6		DAMAGE:2d6
+Halberd		KEY:Halberd			PROFICIENCY:WEAPON|Halberd		SIZE:M	TYPE:Weapon.Resizable.Melee.Manufactured.Weapon_Melee.Slashing		SIZE:M	WIELD:TwoHanded				CRITRANGE:1		COST:20	WT:6		DAMAGE:1d10
+Lance			KEY:Lance			PROFICIENCY:WEAPON|Lance		SIZE:M	TYPE:Weapon.Resizable.Melee.Manufactured.Weapon_Melee.Piercing			SIZE:M	WIELD:OneHanded		CRITRANGE:1		COST:10	WT:6		DAMAGE:1d12
+Longsword		KEY:Longsword		PROFICIENCY:WEAPON|Longsword		SIZE:M	TYPE:Weapon.Resizable.Melee.Manufactured.Weapon_Melee.Slashing					WIELD:OneHanded	CRITRANGE:1		COST:15	WT:3		DAMAGE:1d8	SIZE:M
+Maul			KEY:Maul			PROFICIENCY:WEAPON|Maul			SIZE:M	TYPE:Weapon.Resizable.Melee.Manufactured.Weapon_Melee.Bludgeoning		SIZE:M	WIELD:TwoHanded		CRITRANGE:1				COST:10	WT:10		DAMAGE:2d6	SIZE:M
+Morningstar		KEY:Morningstar		PROFICIENCY:WEAPON|Morningstar	SIZE:M	TYPE:Weapon.Resizable.Melee.Manufactured.Weapon_Melee.Piercing				WIELD:OneHanded		CRITRANGE:1	COST:15	WT:4		DAMAGE:1d8	SIZE:M
+Pike			KEY:Pike			PROFICIENCY:WEAPON|Pike			SIZE:M	TYPE:Weapon.Resizable.Melee.Manufactured.Weapon_Melee.Piercing		WIELD:TwoHanded				CRITRANGE:1		COST:5	WT:18		DAMAGE:1d10	SIZE:M
+Rapier		KEY:Rapier			PROFICIENCY:WEAPON|Rapier		SIZE:M	TYPE:Weapon.Resizable.Melee.Manufactured.Weapon_Finesse.Piercing				WIELD:OneHanded		CRITRANGE:1	COST:25	WT:2		DAMAGE:1d8	SIZE:M
+Scimitar		KEY:Scimitar		PROFICIENCY:WEAPON|Scimitar		SIZE:M	TYPE:Weapon.Resizable.Melee.Manufactured.Weapon_Finesse.Slashing				WIELD:OneHanded	CRITRANGE:1		COST:25	WT:3		DAMAGE:1d6	SIZE:M
+Shortsword		KEY:Shortsword		PROFICIENCY:WEAPON|Shortsword		SIZE:M	TYPE:Weapon.Resizable.Melee.Manufactured.Weapon_Finesse.Piercing.Monk				WIELD:OneHanded	CRITRANGE:1		COST:10	WT:2		DAMAGE:1d6	SIZE:M
+Trident		KEY:Trident			PROFICIENCY:WEAPON|Trident		SIZE:M	TYPE:Weapon.Resizable.Melee.Manufactured.Weapon_Melee.Piercing.Increment3		WIELD:OneHanded			CRITRANGE:1		COST:5	WT:4		DAMAGE:1d8	SIZE:M	QUALITY:RangeLongMult|3	RANGE:20	QUALITY:ShortRange|20	QUALITY:LongRange|60
 #MODIFY:RangeLongMult|SET|3
-War Pick		KEY:War Pick		PROFICIENCY:WEAPON|War Pick		TYPE:Weapon.Melee.Weapon_Melee.Piercing							COST:5	WT:2		DAMAGE:1d8
-Warhammer		KEY:Warhammer		PROFICIENCY:WEAPON|Warhammer		TYPE:Weapon.Melee.Weapon_Melee.Bludgeoning							COST:15	WT:2		DAMAGE:1d8
-Whip			KEY:Whip			PROFICIENCY:WEAPON|Whip			TYPE:Weapon.Melee.Weapon_Melee.Slashing							COST:2	WT:3		DAMAGE:1d4
+War Pick		KEY:War Pick		PROFICIENCY:WEAPON|War Pick		SIZE:M	TYPE:Weapon.Resizable.Melee.Manufactured.Weapon_Melee.Piercing				WIELD:OneHanded		CRITRANGE:1	COST:5	WT:2		DAMAGE:1d8	SIZE:M
+Warhammer		KEY:Warhammer		PROFICIENCY:WEAPON|Warhammer		SIZE:M	TYPE:Weapon.Resizable.Melee.Manufactured.Weapon_Melee.Bludgeoning				WIELD:OneHanded	CRITRANGE:1		COST:15	WT:2		DAMAGE:1d8	SIZE:M
+Whip			KEY:Whip			PROFICIENCY:WEAPON|Whip			SIZE:M	TYPE:Weapon.Resizable.Melee.Manufactured.Weapon_Finesse.Slashing				WIELD:OneHanded		CRITRANGE:1	COST:2	WT:3		DAMAGE:1d4	SIZE:M
 # Martial Ranged Weapons
-Blowgun		KEY:Blowgun			PROFICIENCY:WEAPON|Blowgun		TYPE:Weapon.Ranged.Weapon_Ranged.Piercing.Increment4							COST:10	WT:1		DAMAGE:1	QUALITY:RangeLongMult|4	RANGE:25
+Blowgun		KEY:Blowgun			PROFICIENCY:WEAPON|Blowgun		SIZE:M	TYPE:Weapon.Resizable.Ranged.Manufactured.Weapon_Ranged.Piercing.Increment4.Container	CONTAINS:UNLIM|Blowgun Needle	CRITRANGE:1		SIZE:M				COST:10	WT:1		DAMAGE:1	QUALITY:RangeLongMult|4	RANGE:25	QUALITY:ShortRange|25	QUALITY:LongRange|100
 #MODIFY:RangeLongMult|SET|4
-Crossbow, Hand	KEY:Crossbow (Hand)	PROFICIENCY:WEAPON|Crossbow (Hand)	TYPE:Weapon.Ranged.Weapon_Ranged.Piercing.Increment4							COST:75	WT:3		DAMAGE:1d6	QUALITY:RangeLongMult|4	RANGE:30
+Crossbow, Hand	KEY:Crossbow (Hand)	PROFICIENCY:WEAPON|Crossbow (Hand)	SIZE:M	TYPE:Weapon.Resizable.Ranged.Manufactured.Weapon_Ranged.Piercing.Increment4.Container	CONTAINS:UNLIM|Crossbow Bolt	CRITRANGE:1		SIZE:M				COST:75	WT:3		DAMAGE:1d6	QUALITY:RangeLongMult|4	RANGE:30	QUALITY:ShortRange|30	QUALITY:LongRange|120
 #MODIFY:RangeLongMult|SET|4
-Crossbow, Heavy	KEY:Crossbow (Heavy)	PROFICIENCY:WEAPON|Crossbow (Heavy)	TYPE:Weapon.Ranged.Weapon_Ranged.Piercing.Increment4							COST:50	WT:18		DAMAGE:1d10	QUALITY:RangeLongMult|4	RANGE:100
+Crossbow, Heavy	KEY:Crossbow (Heavy)	PROFICIENCY:WEAPON|Crossbow (Heavy)	SIZE:M	TYPE:Weapon.Resizable.Ranged.Manufactured.Weapon_Ranged.Piercing.Increment4.Container	CONTAINS:UNLIM|Crossbow Bolt	CRITRANGE:1		SIZE:M				COST:50	WT:18		DAMAGE:1d10	QUALITY:RangeLongMult|4	RANGE:100	QUALITY:ShortRange|100	QUALITY:LongRange|400		WIELD:TwoHanded
 #MODIFY:RangeLongMult|SET|4
-Longbow		KEY:Longbow			PROFICIENCY:WEAPON|Longbow		TYPE:Weapon.Ranged.Weapon_Ranged.Piercing.Increment4							COST:50	WT:2		DAMAGE:1d8	QUALITY:RangeLongMult|4	RANGE:150
+Longbow		KEY:Longbow			PROFICIENCY:WEAPON|Longbow		SIZE:M	TYPE:Weapon.Resizable.Ranged.Manufactured.Weapon_Ranged.Piercing.Increment4.Container	CONTAINS:UNLIM|Arrow		CRITRANGE:1		SIZE:M			COST:50	WT:2		DAMAGE:1d8	QUALITY:RangeLongMult|4	RANGE:150	QUALITY:ShortRange|150	QUALITY:LongRange|600		WIELD:TwoHanded
 #MODIFY:RangeLongMult|SET|4
-Net			KEY:Net			PROFICIENCY:WEAPON|Net			TYPE:Weapon.Ranged.Weapon_Ranged.Increment3									COST:1	WT:3	QUALITY:RangeLongMult|3	RANGE:5
+Net			KEY:Net			PROFICIENCY:WEAPON|Net			SIZE:M	TYPE:Weapon.Resizable.Ranged.Manufactured.Weapon_Ranged.Increment3					SIZE:M		CRITRANGE:1			COST:1	WT:3	QUALITY:RangeLongMult|3	RANGE:5	QUALITY:ShortRange|5	QUALITY:LongRange|15
 #MODIFY:RangeLongMult|SET|3
 
 
@@ -104,81 +110,81 @@ Rod		TYPE:Gear.Arcane Focus	COST:10	WT:2
 Staff		TYPE:Gear.Arcane Focus	COST:5	WT:4
 Wand		TYPE:Gear.Arcane Focus	COST:10	WT:1
 #
-Backpack				TYPE:Gear	COST:2	WT:5
+Backpack										TYPE:Gear.Container	CONTAINS:30	COST:2	WT:5
 Ball bearings (bag of 1,000)	KEY:Ball bearings (bag of 1000)	TYPE:Gear	COST:1	WT:2
 Barrel										TYPE:Gear	COST:2	WT:70
-Basket										TYPE:Gear	COST:0.4	WT:2
+Basket										TYPE:Gear.Container	CONTAINS:UNLIM|Any	COST:0.4	WT:2
 Bedroll										TYPE:Gear	COST:1	WT:7
 Bell											TYPE:Gear	COST:1	WT:0
 Blanket										TYPE:Gear	COST:0.5	WT:3
 Block and tackle									TYPE:Gear	COST:1	WT:5
 Book											TYPE:Gear	COST:25	WT:5
-Bottle, glass		KEY:Bottle (Glass)				TYPE:Gear	COST:2	WT:2
+Bottle, glass			KEY:Bottle (Glass)				TYPE:Gear	COST:2	WT:2
 Bucket										TYPE:Gear	COST:0.05	WT:2
 Caltrops (bag of 20)								TYPE:Gear	COST:1	WT:2
 Candle										TYPE:Gear	COST:0.01	WT:0
-Case, crossbow bolt	KEY:Case (Crossbow Bolt)	TYPE:Gear	COST:1	WT:1
-Case, map or scroll	KEY:Case (Map or Scroll)	TYPE:Gear	COST:1	WT:1
-Chain (10 feet)	TYPE:Gear	COST:5	WT:10
-Chalk (1 piece)	TYPE:Gear	COST:0.01	WT:0
-Chest	TYPE:Gear	COST:5	WT:25
-Climber's kit	TYPE:Gear	COST:25	WT:12
+Case, crossbow bolt	KEY:Case (Crossbow Bolt)	TYPE:Gear.Container	CONTAINS:UNLIM|Total=10|Paper=10|Documents=10|Scroll=10	COST:1	WT:1
+Case, map or scroll	KEY:Case (Map or Scroll)	TYPE:Gear.Container	CONTAINS:UNLIM|Total=10|Paper=10|Documents=10|Scroll=10	COST:1	WT:1
+Chain (10 feet)							TYPE:Gear	COST:5	WT:10
+Chalk (1 piece)							TYPE:Gear	COST:0.01	WT:0
+Chest									TYPE:Gear.Container	CONTAINS:300	COST:5	WT:25
+Climber's kit							TYPE:Gear	COST:25	WT:12
 Clothes, Common		KEY:Clothes (Common)		TYPE:Gear.Clothing	COST:0.5	WT:3
 Clothes, Costume		KEY:Clothes (Costume)		TYPE:Gear.Clothing	COST:5	WT:4
 Clothes, Fine		KEY:Clothes (Fine)		TYPE:Gear.Clothing	COST:15	WT:6
 Clothes, Traveler's	KEY:Clothes (Traveler's)	TYPE:Gear.Clothing	COST:2	WT:4
-Component pouch			TYPE:Gear	COST:25	WT:2
-Crowbar	TYPE:Gear	COST:2	WT:5
+Component pouch					TYPE:Gear	COST:25	WT:2
+Crowbar						TYPE:Gear	COST:2	WT:5
 # Druidic Focus
-Sprig of mistletoe	TYPE:Gear.Druidic Focus	COST:1	WT:0
-Totem				TYPE:Gear.Druidic Focus	COST:1	WT:0
-Wooden staff		TYPE:Gear.Druidic Focus	COST:5	WT:4
-Yew wand			TYPE:Gear.Druidic Focus	COST:10	WT:1
+Sprig of mistletoe				TYPE:Gear.Druidic Focus	COST:1	WT:0
+Totem							TYPE:Gear.Druidic Focus	COST:1	WT:0
+Wooden staff					TYPE:Gear.Druidic Focus	COST:5	WT:4
+Yew wand						TYPE:Gear.Druidic Focus	COST:10	WT:1
 #
-Fishing tackle	TYPE:Gear	COST:1	WT:4
-Flask or tankard	TYPE:Gear	COST:0.02	WT:1
-Grappling hook	TYPE:Gear	COST:2	WT:4
-Hammer	TYPE:Gear	COST:1	WT:3
+Fishing tackle					TYPE:Gear	COST:1	WT:4
+Flask or tankard					TYPE:Gear	COST:0.02	WT:1
+Grappling hook					TYPE:Gear	COST:2	WT:4
+Hammer						TYPE:Gear	COST:1	WT:3
 Hammer, sledge	KEY:Hammer (Sledge)	TYPE:Gear	COST:2	WT:10
-Healer's kit	TYPE:Gear	COST:5	WT:3
+Healer's kit					TYPE:Gear	COST:5	WT:3
 # Holy Symbol
-Amulet	TYPE:Gear.Holy Symbol	COST:5	WT:1
-Emblem	TYPE:Gear.Holy Symbol	COST:5	WT:0
-Reliquary	TYPE:Gear.Holy Symbol	COST:5	WT:2
-Holy water (flask)	TYPE:Gear	COST:25	WT:1
+Holy Symbol (Amulet)						TYPE:Gear.Holy Symbol	COST:5	WT:1
+Holy Symbol (Emblem)						TYPE:Gear.Holy Symbol	COST:5	WT:0
+Holy Symbol (Reliquary)						TYPE:Gear.Holy Symbol	COST:5	WT:2
+Holy water (flask)				TYPE:Gear	COST:25	WT:1
 #
-Hourglass	TYPE:Gear	COST:25	WT:1
-Hunting trap	TYPE:Gear	COST:5	WT:25
-Ink (1 ounce bottle)	TYPE:Gear	COST:10	WT:0
-Ink pen	TYPE:Gear	COST:0.02	WT:0
-Jug or pitcher	TYPE:Gear	COST:0.02	WT:4
-Ladder (10-foot)	TYPE:Gear	COST:0.1	WT:25
-Lamp	TYPE:Gear	COST:0.5	WT:1
+Hourglass						TYPE:Gear	COST:25	WT:1
+Hunting trap					TYPE:Gear	COST:5	WT:25
+Ink (1 ounce bottle)				TYPE:Gear	COST:10	WT:0
+Ink pen						TYPE:Gear	COST:0.02	WT:0
+Jug or pitcher					TYPE:Gear	COST:0.02	WT:4
+Ladder (10-foot)					TYPE:Gear	COST:0.1	WT:25
+Lamp							TYPE:Gear	COST:0.5	WT:1
 Lantern, bullseye	KEY:Lantern (Bullseye)	TYPE:Gear	COST:10	WT:2
 Lantern, hooded	KEY:Lantern (Hooded)	TYPE:Gear	COST:5	WT:2
-Lock	TYPE:Gear	COST:10	WT:1
-Magnifying glass	TYPE:Gear	COST:100	WT:0
-Manacles	TYPE:Gear	COST:2	WT:6
-Mess kit	TYPE:Gear	COST:0.2	WT:1
+Lock							TYPE:Gear	COST:10	WT:1
+Magnifying glass					TYPE:Gear	COST:100	WT:0
+Manacles						TYPE:Gear	COST:2	WT:6
+Mess kit						TYPE:Gear	COST:0.2	WT:1
 Mirror, steel	KEY:Mirror (Steel)	TYPE:Gear	COST:5	WT:0.5
-Oil (flask)	TYPE:Gear	COST:0.1	WT:1
-Paper (one sheet)	TYPE:Gear	COST:0.2	WT:0
-Parchment (one sheet)	TYPE:Gear	COST:0.1	WT:0
-Perfume (vial)	TYPE:Gear	COST:5	WT:0
+Oil (flask)						TYPE:Gear	COST:0.1	WT:1
+Paper (one sheet)					TYPE:Gear.Paper	COST:0.2	WT:0
+Parchment (one sheet)				TYPE:Gear.Paper	COST:0.1	WT:0
+Perfume (vial)					TYPE:Gear	COST:5	WT:0
 Pick, miner's	KEY:Pick (Miner's)	TYPE:Gear	COST:2	WT:10
-Piton	TYPE:Gear	COST:0.05	WT:0.25
+Piton							TYPE:Gear	COST:0.05	WT:0.25
 Poison, basic (vial)	KEY:Poison (Basic/Vial)	TYPE:Gear	COST:100	WT:0
-Pole (10-foot)	TYPE:Gear	COST:0.05	WT:7
+Pole (10-foot)					TYPE:Gear	COST:0.05	WT:7
 Pot, iron			KEY:Pot (Iron)	TYPE:Gear	COST:2	WT:10
-Potion of healing	TYPE:Gear	COST:50	WT:0.5
-Pouch	TYPE:Gear	COST:0.5	WT:1
-Quiver	TYPE:Gear	COST:1	WT:1
+Potion of healing					TYPE:Gear	COST:50	WT:0.5
+Pouch							TYPE:Gear.Container	CONTAINS:6	COST:0.5	WT:1
+Quiver						TYPE:Gear.Container	CONTAINS:UNLIM|Any	COST:1	WT:1
 Ram, portable	KEY:Ram (Portable)	TYPE:Gear	COST:4	WT:35
-Rations (1 day)	TYPE:Gear	COST:0.5	WT:2
-Robes	TYPE:Gear	COST:1	WT:4
+Rations (1 day)					TYPE:Gear	COST:0.5	WT:2
+Robes							TYPE:Gear	COST:1	WT:4
 Rope, hempen (50 feet)	KEY:Rope (Hempen/50)	TYPE:Gear	COST:1	WT:10
 Rope, silk (50 feet)	KEY:Rope (Silk/50)	TYPE:Gear	COST:10	WT:5
-Sack	TYPE:Gear	COST:0.01		WT:0.5
+Sack							TYPE:Gear.Container	CONTAINS:30	COST:0.01		WT:0.5
 Scale, merchant's	KEY:Scale (Merchant's)	TYPE:Gear	COST:5	WT:3
 Sealing wax	TYPE:Gear	COST:0.5	WT:0
 Shovel	TYPE:Gear	COST:2	WT:5
@@ -216,12 +222,12 @@ Weaver's Tools			TYPE:Gear.Artisan's Tools	COST:1	WT:5
 Woodcarver's Tools		TYPE:Gear.Artisan's Tools	COST:1	WT:5
 Disguise Kit			TYPE:Gear.Artisan's Tools	COST:25	WT:3
 Forgery Kit				TYPE:Gear.Artisan's Tools	COST:15	WT:5
+Herbalism Kit			TYPE:Gear.Artisan's Tools	COST:5	WT:3
 # Gaming Set
 Dice Set				TYPE:Gear.Gaming Set		COST:0.1	WT:0
 Dragonchess Set			TYPE:Gear.Gaming Set		COST:1	WT:0.5
 Playing Card Set			TYPE:Gear.Gaming Set		COST:5	WT:0
 Three-Dragon Ante Set		TYPE:Gear.Gaming Set		COST:1	WT:0
-Herbalism Kit			TYPE:Gear.Gaming Set		COST:5	WT:3
 # Musical Instrument
 Bagpipes				TYPE:Gear.Musical Instrument	COST:30	WT:6
 Drum					TYPE:Gear.Musical Instrument	COST:6	WT:3
@@ -241,10 +247,102 @@ Thieves' Tools			TYPE:Gear				COST:25	WT:1	SPROP:+%|Proficiency_Bonus|PREABILITY
 
 #Equipment Packs	The starting equipment you get from your class includes a collection of useful adventuring gear, put together in a pack. The contents of these packs are listed here. If you are buying your starting equipment, you can purchase a pack for the price shown, which might be cheaper than buying the items individually.
 Burglar's Pack		TYPE:Gear	COST:16	SPROP:Includes a backpack, a bag of 1,000 ball bearings, 10 feet of string, a bell, 5 candles, a crowbar, a hammer, 10 pitons, a hooded lantern, 2 flasks of oil, 5 days rations, a tinderbox, and a waterskin. The pack also has 50 feet of hempen rope strapped to the side of it.
-Diplomat's Pack		TYPE:Gear	COST:39	SPROP:Includes a chest, 2 cases for maps and scrolls, a set of fine clothes, a bottle o f ink, an ink pen, a lamp, 2 flasks of oil, 5 sheets of paper, a vial of perfume, sealing wax, and soap.
+Diplomat's Pack		TYPE:Gear	COST:39	SPROP:Includes a chest, 2 cases for maps and scrolls, a set of fine clothes, a bottle of ink, an ink pen, a lamp, 2 flasks of oil, 5 sheets of paper, a vial of perfume, sealing wax, and soap.
 Dungeoneer's Pack		TYPE:Gear	COST:12	SPROP:Includes a backpack, a crowbar, a hammer, 10 pitons, 10 torches, a tinderbox, 10 days of rations, and a waterskin. The pack also has 50 feet of hempen rope strapped to the side of it.
-Entertainer's Pack	TYPE:Gear	COST:40	SPROP:Includes a backpack, a bedroll, 2 costumes, 5 candles, 5 days o f rations, a waterskin, and a disguise kit.
+Entertainer's Pack	TYPE:Gear	COST:40	SPROP:Includes a backpack, a bedroll, 2 costumes, 5 candles, 5 days of rations, a waterskin, and a disguise kit.
 Explorer's Pack		TYPE:Gear	COST:10	SPROP:Includes a backpack, a bedroll, a mess kit, a tinderbox, 10 torches, 10 days of rations, and a waterskin. The pack also has 50 feet of hempen rope strapped to the side of it.
 Priest's Pack		TYPE:Gear	COST:19	SPROP:Includes a backpack, a blanket, 10 candles, a tinderbox, an alms box, 2 blocks of incense, a censer, vestments, 2 days of rations, and a waterskin.
 Scholar's Pack		TYPE:Gear	COST:40	SPROP:Includes a backpack, a book of lore, a bottle of ink, an ink pen, 10 sheets of parchment, a little bag of sand, and a small knife.
 
+# Background Specific Equipment, no actual price given
+Dice Set.COPY=Set of weighted dice
+Playing Card Set.COPY=Deck of marked cards
+Signet ring.COPY=Signet ring of an imaginary duke
+
+Stoppered bottles filled with colored liquid	BASEQTY:10	TYPE:Gear.ConArtist
+Set of weighted dice.MOD							TYPE:Gear.ConArtist
+Deck of marked cards.MOD							TYPE:Gear.ConArtist
+Signet ring of an imaginary duke.MOD					TYPE:Gear.ConArtist	
+
+Clothes (Common).COPY=Clothes (Common/Dark)
+Clothes (Common/Dark).MOD	SPROP:Includes hood
+
+Pouch.COPY=Belt Pouch
+
+Favor of Admirer (Love letter)
+Favor of Admirer (Lock of hair)
+Favor of Admirer (Tricket)
+
+Animal Trophy
+Stick of Incense
+Prayer Book
+Prayer Wheel
+Vestments
+
+Ink (1 ounce bottle).COPY=bottle of black ink
+Ink pen.COPY=Quill
+
+letter from a dead colleague	SPROP:posing a question you have not yet been able to answer
+Quill
+small knife
+bottle of black ink
+
+Lucky Charm
+Dice Set.COPY=Bone Dice
+
+Enemy Trophy
+Insignia of Rank
+
+City Map
+Pet Mouse
+Token of Parents
+
+Blanket.COPY=Winter Blanket
+Scroll of Pedigree
+Belt Pouch.COPY=Purse
+
+Guild Introduction Letter
+Notes
+Scroll Case
+
+
+
+###Block: Add item identifiers for expansion
+Club.MOD			TYPE:Club
+Dagger.MOD			TYPE:Dagger
+Greatclub.MOD		TYPE:Greatclub.Club
+Handaxe.MOD			TYPE:Handaxe.Axe
+Javelin.MOD			TYPE:Javelin
+Light Hammer.MOD		TYPE:Light Hammer.Hammer
+Mace.MOD			TYPE:Mace
+Quarterstaff.MOD		TYPE:Quarterstaff
+Sickle.MOD			TYPE:Sickle
+Spear.MOD			TYPE:Spear
+Unarmed Strike.MOD	TYPE:Unarmed Strike
+Crossbow (Light).MOD	TYPE:Crossbow.Light Crossbow
+Dart.MOD			TYPE:Dart
+Shortbow.MOD		TYPE:Shortbow.Bow
+Sling.MOD			TYPE:Sling
+Battleaxe.MOD		TYPE:Battleaxe.Axe
+Flail.MOD			TYPE:Flail
+Glaive.MOD			TYPE:Glaive
+Greataxe.MOD		TYPE:Greataxe.Axe
+Greatsword.MOD		TYPE:Greatsword.Sword
+Halberd.MOD			TYPE:Halberd
+Lance.MOD			TYPE:Lance
+Longsword.MOD		TYPE:Longsword.Sword
+Maul.MOD			TYPE:Maul.Hammer
+Morningstar.MOD		TYPE:Morningstar
+Pike.MOD			TYPE:Pike
+Rapier.MOD			TYPE:Rapier.Sword
+Scimitar.MOD		TYPE:Scimitar.Sword
+Shortsword.MOD		TYPE:Shortsword.Sword
+Trident.MOD			TYPE:Trident
+War Pick.MOD		TYPE:War Pick
+Warhammer.MOD		TYPE:Warhammer.Hammer
+Whip.MOD			TYPE:Whip
+Blowgun.MOD			TYPE:Blowgun
+Crossbow (Hand).MOD	TYPE:Hand Crossbow.Crossbow
+Crossbow (Heavy).MOD	TYPE:Heavy Crossbow.Crossbow
+Longbow.MOD			TYPE:Longbow.Bow
+Net.MOD			TYPE:Net

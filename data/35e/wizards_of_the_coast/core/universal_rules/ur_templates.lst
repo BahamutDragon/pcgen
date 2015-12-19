@@ -44,7 +44,7 @@ War Trained																BONUS:VAR|AnimalWarTrained|1	DEFINE:AnimalWarTrained|
 
 ###Block: Support for 3rd party sources that use TEMPLATE
 # Template Name		Visible	Template				Required AL	Required Race			Var. Max. Value		Race Subtype			Hit Dice
-Aberration			VISIBLE:NO
+Aberration			VISIBLE:NO																		
 Animal			VISIBLE:NO						PREALIGN:TN						PREVARLTEQ:INTSCORE,2
 Dragon			VISIBLE:NO
 Elemental			VISIBLE:NO
@@ -76,6 +76,9 @@ Water				VISIBLE:NO																	RACESUBTYPE:Water
 Extraplanar			VISIBLE:NO																	RACESUBTYPE:Extraplanar
 Native			VISIBLE:NO								PRERACE:1,RACETYPE=Outsider					RACESUBTYPE:Native
 
+Mindless			VISIBLE:NO	ABILITY:Special Ability|AUTOMATIC|Mindless
+Psionic					VISIBLE:EXPORT																																																																																																																																																																																																																																																									ABILITY:Special Ability|AUTOMATIC|Psionic										SUBRACE:Psionic					RACESUBTYPE:Psionic
+Psionic Power Points Progression	VISIBLE:NO																				DEFINE:PsionML|0																																									BONUS:VAR|BasePowerPoints|2	BONUS:VAR|BasePowerPoints|4|PREVARGTEQ:PsionML,2	BONUS:VAR|BasePowerPoints|5|PREVARGTEQ:PsionML,3	BONUS:VAR|BasePowerPoints|6|PREVARGTEQ:PsionML,4	BONUS:VAR|BasePowerPoints|8|PREVARGTEQ:PsionML,5	BONUS:VAR|BasePowerPoints|10|PREVARGTEQ:PsionML,6	BONUS:VAR|BasePowerPoints|11|PREVARGTEQ:PsionML,7	BONUS:VAR|BasePowerPoints|12|PREVARGTEQ:PsionML,8	BONUS:VAR|BasePowerPoints|14|PREVARGTEQ:PsionML,9	BONUS:VAR|BasePowerPoints|16|PREVARGTEQ:PsionML,10	BONUS:VAR|BasePowerPoints|18|PREVARGTEQ:PsionML,11	BONUS:VAR|BasePowerPoints|20|PREVARGTEQ:PsionML,12	BONUS:VAR|BasePowerPoints|21|PREVARGTEQ:PsionML,13	BONUS:VAR|BasePowerPoints|23|PREVARGTEQ:PsionML,14	BONUS:VAR|BasePowerPoints|25|PREVARGTEQ:PsionML,15	BONUS:VAR|BasePowerPoints|26|PREVARGTEQ:PsionML,16	BONUS:VAR|BasePowerPoints|29|PREVARGTEQ:PsionML,17	BONUS:VAR|BasePowerPoints|30|PREVARGTEQ:PsionML,18	BONUS:VAR|BasePowerPoints|31|PREVARGTEQ:PsionML,19	BONUS:VAR|BasePowerPoints|32|PREVARGTEQ:PsionML,20	BONUS:VAR|BonusPowerPoints|(INT*PsionML)/2|TYPE=PsionBonusPP
 
 
 #
@@ -136,3 +139,168 @@ Dragon Attacks (Large)						VISIBLE:NO	NATURALATTACKS:Bite,Weapon.Natural.Weapon
 Dragon Attacks (Huge)						VISIBLE:NO	NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,2d8	NATURALATTACKS:Claws,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing.Slashing,*2,2d6|Wings,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*2,1d8|Tail Slap,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,2d6
 Dragon Attacks (Gargantuan)					VISIBLE:NO	NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,4d6	NATURALATTACKS:Claws,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing.Slashing,*2,2d8|Wings,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*2,2d6|Tail Slap,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,2d8
 Dragon Attacks (Colossal)					VISIBLE:NO	NATURALATTACKS:Bite,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,4d8	NATURALATTACKS:Claws,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Piercing.Slashing,*2,4d6|Wings,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*2,2d8|Tail Slap,Weapon.Natural.Weapon Group Natural.Melee.Finesseable.Bludgeoning,*1,4d6
+
+###Block: Templates for Homebrew Support and Customizations:
+# Template Name					Main Race Type
+Assign Race Type ~ Aberration			RACETYPE:Aberration
+Assign Race Type ~ Animal			RACETYPE:Animal
+Assign Race Type ~ Construct			RACETYPE:Construct
+Assign Race Type ~ Dragon			RACETYPE:Dragon
+Assign Race Type ~ Elemental			RACETYPE:Elemental
+Assign Race Type ~ Fey				RACETYPE:Fey
+Assign Race Type ~ Giant			RACETYPE:Giant
+Assign Race Type ~ Humanoid			RACETYPE:Humanoid
+Assign Race Type ~ Magical Beast		RACETYPE:Magical Beast
+Assign Race Type ~ Monstrous Humanoid	RACETYPE:Monstrous Humanoid
+Assign Race Type ~ Ooze				RACETYPE:Ooze
+Assign Race Type ~ Outsider			RACETYPE:Outsider
+Assign Race Type ~ Plant			RACETYPE:Plant
+Assign Race Type ~ Undead			RACETYPE:Undead
+Assign Race Type ~ Vermin			RACETYPE:Vermin
+
+###Block: Assign Creature Subtypes
+# Template Name			Required Race			Race Subtype
+Assign Subtype ~ Air							RACESUBTYPE:Air
+Assign Subtype ~ Angel							RACESUBTYPE:Angel
+Assign Subtype ~ Aquatic						RACESUBTYPE:Aquatic
+Assign Subtype ~ Archon							RACESUBTYPE:Archon
+Assign Subtype ~ Augmented						RACESUBTYPE:Augmented
+Assign Subtype ~ Chaotic						RACESUBTYPE:Chaotic
+Assign Subtype ~ Cold							RACESUBTYPE:Cold
+Assign Subtype ~ Earth							RACESUBTYPE:Earth
+Assign Subtype ~ Evil							RACESUBTYPE:Evil
+Assign Subtype ~ Extraplanar						RACESUBTYPE:Extraplanar
+Assign Subtype ~ Fire							RACESUBTYPE:Fire
+Assign Subtype ~ Goblinoid						RACESUBTYPE:Goblinoid
+Assign Subtype ~ Good							RACESUBTYPE:Good
+Assign Subtype ~ Incorporeal						RACESUBTYPE:Incorporeal
+Assign Subtype ~ Lawful							RACESUBTYPE:Lawful
+Assign Subtype ~ Native		PRERACE:1,RACETYPE=Outsider	RACESUBTYPE:Native
+Assign Subtype ~ Reptilian						RACESUBTYPE:Reptilian
+Assign Subtype ~ Shapechanger						RACESUBTYPE:Shapechanger
+Assign Subtype ~ Swarm							RACESUBTYPE:Swarm
+Assign Subtype ~ Water							RACESUBTYPE:Water
+
+Assign Subtype ~ Baatezu						RACESUBTYPE:Baatezu
+Assign Subtype ~ Human							RACESUBTYPE:Human
+#Assign Subtype ~ Human							RACESUBTYPE:Human
+
+
+###Block:
+Level Adjustment +1	LEVELADJUSTMENT:1
+Level Adjustment +2	LEVELADJUSTMENT:2
+Level Adjustment +3	LEVELADJUSTMENT:3
+Level Adjustment +4	LEVELADJUSTMENT:4
+Level Adjustment +5	LEVELADJUSTMENT:5
+Level Adjustment +6	LEVELADJUSTMENT:6
+Level Adjustment +7	LEVELADJUSTMENT:7
+Level Adjustment +8	LEVELADJUSTMENT:8
+Level Adjustment +9	LEVELADJUSTMENT:9
+
+Add Hit Die Level 1	VISIBLE:NO	TEMPLATE:CHOOSE:Add 1 Levels of Aberration|Add 1 Levels of Animal|Add 1 Levels of Construct|Add 1 Levels of Dragon|Add 1 Levels of Elemental|Add 1 Levels of Fey|Add 1 Levels of Giant|Add 1 Levels of Humanoid|Add 1 Levels of Magical Beast|Add 1 Levels of Monstrous Humanoid|Add 1 Levels of Ooze|Add 1 Levels of Outsider|Add 1 Levels of Plant|Add 1 Levels of Undead|Add 1 Levels of Vermin
+Add Hit Die Level 2	VISIBLE:NO	TEMPLATE:CHOOSE:Add 2 Levels of Aberration|Add 2 Levels of Animal|Add 2 Levels of Construct|Add 2 Levels of Dragon|Add 2 Levels of Elemental|Add 2 Levels of Fey|Add 2 Levels of Giant|Add 2 Levels of Humanoid|Add 2 Levels of Magical Beast|Add 2 Levels of Monstrous Humanoid|Add 2 Levels of Ooze|Add 2 Levels of Outsider|Add 2 Levels of Plant|Add 2 Levels of Undead|Add 2 Levels of Vermin
+Add Hit Die Level 3	VISIBLE:NO	TEMPLATE:CHOOSE:Add 3 Levels of Aberration|Add 3 Levels of Animal|Add 3 Levels of Construct|Add 3 Levels of Dragon|Add 3 Levels of Elemental|Add 3 Levels of Fey|Add 3 Levels of Giant|Add 3 Levels of Humanoid|Add 3 Levels of Magical Beast|Add 3 Levels of Monstrous Humanoid|Add 3 Levels of Ooze|Add 3 Levels of Outsider|Add 3 Levels of Plant|Add 3 Levels of Undead|Add 3 Levels of Vermin
+Add Hit Die Level 4	VISIBLE:NO	TEMPLATE:CHOOSE:Add 4 Levels of Aberration|Add 4 Levels of Animal|Add 4 Levels of Construct|Add 4 Levels of Dragon|Add 4 Levels of Elemental|Add 4 Levels of Fey|Add 4 Levels of Giant|Add 4 Levels of Humanoid|Add 4 Levels of Magical Beast|Add 4 Levels of Monstrous Humanoid|Add 4 Levels of Ooze|Add 4 Levels of Outsider|Add 4 Levels of Plant|Add 4 Levels of Undead|Add 4 Levels of Vermin
+Add Hit Die Level 5	VISIBLE:NO	TEMPLATE:CHOOSE:Add 5 Levels of Aberration|Add 5 Levels of Animal|Add 5 Levels of Construct|Add 5 Levels of Dragon|Add 5 Levels of Elemental|Add 5 Levels of Fey|Add 5 Levels of Giant|Add 5 Levels of Humanoid|Add 5 Levels of Magical Beast|Add 5 Levels of Monstrous Humanoid|Add 5 Levels of Ooze|Add 5 Levels of Outsider|Add 5 Levels of Plant|Add 5 Levels of Undead|Add 5 Levels of Vermin
+Add Hit Die Level 6	VISIBLE:NO	TEMPLATE:CHOOSE:Add 6 Levels of Aberration|Add 6 Levels of Animal|Add 6 Levels of Construct|Add 6 Levels of Dragon|Add 6 Levels of Elemental|Add 6 Levels of Fey|Add 6 Levels of Giant|Add 6 Levels of Humanoid|Add 6 Levels of Magical Beast|Add 6 Levels of Monstrous Humanoid|Add 6 Levels of Ooze|Add 6 Levels of Outsider|Add 6 Levels of Plant|Add 6 Levels of Undead|Add 6 Levels of Vermin
+
+Add 1 Levels of Aberration		VISIBLE:NO	PRERACE:1,RACETYPE=Aberration			ADDLEVEL:Aberration|1		
+Add 1 Levels of Animal			VISIBLE:NO	PRERACE:1,RACETYPE=Animal				ADDLEVEL:Animal|1				
+Add 1 Levels of Construct		VISIBLE:NO	PRERACE:1,RACETYPE=Construct				ADDLEVEL:Construct|1				
+Add 1 Levels of Dragon			VISIBLE:NO	PRERACE:1,RACETYPE=Dragon				ADDLEVEL:Dragon|1			
+Add 1 Levels of Elemental		VISIBLE:NO	PRERACE:1,RACETYPE=Elemental				ADDLEVEL:Elemental|1				
+Add 1 Levels of Fey			VISIBLE:NO	PRERACE:1,RACETYPE=Fey					ADDLEVEL:Fey|1					
+Add 1 Levels of Giant			VISIBLE:NO	PRERACE:1,RACETYPE=Giant				ADDLEVEL:Giant|1				
+Add 1 Levels of Humanoid		VISIBLE:NO	PRERACE:1,RACETYPE=Humanoid				ADDLEVEL:Humanoid|1			
+Add 1 Levels of Magical Beast		VISIBLE:NO	PRERACE:1,RACETYPE=Magical Beast			ADDLEVEL:Magical Beast|1		
+Add 1 Levels of Monstrous Humanoid	VISIBLE:NO	PRERACE:1,RACETYPE=Monstrous Humanoid		ADDLEVEL:Monstrous Humanoid|1	
+Add 1 Levels of Ooze			VISIBLE:NO	PRERACE:1,RACETYPE=Ooze				ADDLEVEL:Ooze|1					
+Add 1 Levels of Outsider		VISIBLE:NO	PRERACE:1,RACETYPE=Outsider				ADDLEVEL:Outsider|1				
+Add 1 Levels of Plant			VISIBLE:NO	PRERACE:1,RACETYPE=Plant				ADDLEVEL:Plant|1					
+Add 1 Levels of Undead			VISIBLE:NO	PRERACE:1,RACETYPE=Undead				ADDLEVEL:Undead|1				
+Add 1 Levels of Vermin			VISIBLE:NO	PRERACE:1,RACETYPE=Vermin				ADDLEVEL:Vermin|1				
+
+Add 2 Levels of Aberration		VISIBLE:NO	PRERACE:1,RACETYPE=Aberration			ADDLEVEL:Aberration|2		
+Add 2 Levels of Animal			VISIBLE:NO	PRERACE:1,RACETYPE=Animal				ADDLEVEL:Animal|2				
+Add 2 Levels of Construct		VISIBLE:NO	PRERACE:1,RACETYPE=Construct				ADDLEVEL:Construct|2				
+Add 2 Levels of Dragon			VISIBLE:NO	PRERACE:1,RACETYPE=Dragon				ADDLEVEL:Dragon|2			
+Add 2 Levels of Elemental		VISIBLE:NO	PRERACE:1,RACETYPE=Elemental				ADDLEVEL:Elemental|2				
+Add 2 Levels of Fey			VISIBLE:NO	PRERACE:1,RACETYPE=Fey					ADDLEVEL:Fey|2					
+Add 2 Levels of Giant			VISIBLE:NO	PRERACE:1,RACETYPE=Giant				ADDLEVEL:Giant|2				
+Add 2 Levels of Humanoid		VISIBLE:NO	PRERACE:1,RACETYPE=Humanoid				ADDLEVEL:Humanoid|2			
+Add 2 Levels of Magical Beast		VISIBLE:NO	PRERACE:1,RACETYPE=Magical Beast			ADDLEVEL:Magical Beast|2		
+Add 2 Levels of Monstrous Humanoid	VISIBLE:NO	PRERACE:1,RACETYPE=Monstrous Humanoid		ADDLEVEL:Monstrous Humanoid|2	
+Add 2 Levels of Ooze			VISIBLE:NO	PRERACE:1,RACETYPE=Ooze				ADDLEVEL:Ooze|2					
+Add 2 Levels of Outsider		VISIBLE:NO	PRERACE:1,RACETYPE=Outsider				ADDLEVEL:Outsider|2				
+Add 2 Levels of Plant			VISIBLE:NO	PRERACE:1,RACETYPE=Plant				ADDLEVEL:Plant|2					
+Add 2 Levels of Undead			VISIBLE:NO	PRERACE:1,RACETYPE=Undead				ADDLEVEL:Undead|2				
+Add 2 Levels of Vermin			VISIBLE:NO	PRERACE:1,RACETYPE=Vermin				ADDLEVEL:Vermin|2				
+
+Add 3 Levels of Aberration		VISIBLE:NO	PRERACE:1,RACETYPE=Aberration			ADDLEVEL:Aberration|3		
+Add 3 Levels of Animal			VISIBLE:NO	PRERACE:1,RACETYPE=Animal				ADDLEVEL:Animal|3				
+Add 3 Levels of Construct		VISIBLE:NO	PRERACE:1,RACETYPE=Construct				ADDLEVEL:Construct|3				
+Add 3 Levels of Dragon			VISIBLE:NO	PRERACE:1,RACETYPE=Dragon				ADDLEVEL:Dragon|3			
+Add 3 Levels of Elemental		VISIBLE:NO	PRERACE:1,RACETYPE=Elemental				ADDLEVEL:Elemental|3				
+Add 3 Levels of Fey			VISIBLE:NO	PRERACE:1,RACETYPE=Fey					ADDLEVEL:Fey|3					
+Add 3 Levels of Giant			VISIBLE:NO	PRERACE:1,RACETYPE=Giant				ADDLEVEL:Giant|3				
+Add 3 Levels of Humanoid		VISIBLE:NO	PRERACE:1,RACETYPE=Humanoid				ADDLEVEL:Humanoid|3			
+Add 3 Levels of Magical Beast		VISIBLE:NO	PRERACE:1,RACETYPE=Magical Beast			ADDLEVEL:Magical Beast|3		
+Add 3 Levels of Monstrous Humanoid	VISIBLE:NO	PRERACE:1,RACETYPE=Monstrous Humanoid		ADDLEVEL:Monstrous Humanoid|3	
+Add 3 Levels of Ooze			VISIBLE:NO	PRERACE:1,RACETYPE=Ooze				ADDLEVEL:Ooze|3					
+Add 3 Levels of Outsider		VISIBLE:NO	PRERACE:1,RACETYPE=Outsider				ADDLEVEL:Outsider|3				
+Add 3 Levels of Plant			VISIBLE:NO	PRERACE:1,RACETYPE=Plant				ADDLEVEL:Plant|3					
+Add 3 Levels of Undead			VISIBLE:NO	PRERACE:1,RACETYPE=Undead				ADDLEVEL:Undead|3				
+Add 3 Levels of Vermin			VISIBLE:NO	PRERACE:1,RACETYPE=Vermin				ADDLEVEL:Vermin|3				
+
+Add 4 Levels of Aberration		VISIBLE:NO	PRERACE:1,RACETYPE=Aberration			ADDLEVEL:Aberration|4		
+Add 4 Levels of Animal			VISIBLE:NO	PRERACE:1,RACETYPE=Animal				ADDLEVEL:Animal|4				
+Add 4 Levels of Construct		VISIBLE:NO	PRERACE:1,RACETYPE=Construct				ADDLEVEL:Construct|4				
+Add 4 Levels of Dragon			VISIBLE:NO	PRERACE:1,RACETYPE=Dragon				ADDLEVEL:Dragon|4			
+Add 4 Levels of Elemental		VISIBLE:NO	PRERACE:1,RACETYPE=Elemental				ADDLEVEL:Elemental|4				
+Add 4 Levels of Fey			VISIBLE:NO	PRERACE:1,RACETYPE=Fey					ADDLEVEL:Fey|4					
+Add 4 Levels of Giant			VISIBLE:NO	PRERACE:1,RACETYPE=Giant				ADDLEVEL:Giant|4				
+Add 4 Levels of Humanoid		VISIBLE:NO	PRERACE:1,RACETYPE=Humanoid				ADDLEVEL:Humanoid|4			
+Add 4 Levels of Magical Beast		VISIBLE:NO	PRERACE:1,RACETYPE=Magical Beast			ADDLEVEL:Magical Beast|4		
+Add 4 Levels of Monstrous Humanoid	VISIBLE:NO	PRERACE:1,RACETYPE=Monstrous Humanoid		ADDLEVEL:Monstrous Humanoid|4	
+Add 4 Levels of Ooze			VISIBLE:NO	PRERACE:1,RACETYPE=Ooze				ADDLEVEL:Ooze|4					
+Add 4 Levels of Outsider		VISIBLE:NO	PRERACE:1,RACETYPE=Outsider				ADDLEVEL:Outsider|4				
+Add 4 Levels of Plant			VISIBLE:NO	PRERACE:1,RACETYPE=Plant				ADDLEVEL:Plant|4					
+Add 4 Levels of Undead			VISIBLE:NO	PRERACE:1,RACETYPE=Undead				ADDLEVEL:Undead|4				
+Add 4 Levels of Vermin			VISIBLE:NO	PRERACE:1,RACETYPE=Vermin				ADDLEVEL:Vermin|4				
+
+Add 5 Levels of Aberration		VISIBLE:NO	PRERACE:1,RACETYPE=Aberration			ADDLEVEL:Aberration|5		
+Add 5 Levels of Animal			VISIBLE:NO	PRERACE:1,RACETYPE=Animal				ADDLEVEL:Animal|5				
+Add 5 Levels of Construct		VISIBLE:NO	PRERACE:1,RACETYPE=Construct				ADDLEVEL:Construct|5				
+Add 5 Levels of Dragon			VISIBLE:NO	PRERACE:1,RACETYPE=Dragon				ADDLEVEL:Dragon|5			
+Add 5 Levels of Elemental		VISIBLE:NO	PRERACE:1,RACETYPE=Elemental				ADDLEVEL:Elemental|5				
+Add 5 Levels of Fey			VISIBLE:NO	PRERACE:1,RACETYPE=Fey					ADDLEVEL:Fey|5					
+Add 5 Levels of Giant			VISIBLE:NO	PRERACE:1,RACETYPE=Giant				ADDLEVEL:Giant|5				
+Add 5 Levels of Humanoid		VISIBLE:NO	PRERACE:1,RACETYPE=Humanoid				ADDLEVEL:Humanoid|5			
+Add 5 Levels of Magical Beast		VISIBLE:NO	PRERACE:1,RACETYPE=Magical Beast			ADDLEVEL:Magical Beast|5		
+Add 5 Levels of Monstrous Humanoid	VISIBLE:NO	PRERACE:1,RACETYPE=Monstrous Humanoid		ADDLEVEL:Monstrous Humanoid|5	
+Add 5 Levels of Ooze			VISIBLE:NO	PRERACE:1,RACETYPE=Ooze				ADDLEVEL:Ooze|5					
+Add 5 Levels of Outsider		VISIBLE:NO	PRERACE:1,RACETYPE=Outsider				ADDLEVEL:Outsider|5				
+Add 5 Levels of Plant			VISIBLE:NO	PRERACE:1,RACETYPE=Plant				ADDLEVEL:Plant|5					
+Add 5 Levels of Undead			VISIBLE:NO	PRERACE:1,RACETYPE=Undead				ADDLEVEL:Undead|5				
+Add 5 Levels of Vermin			VISIBLE:NO	PRERACE:1,RACETYPE=Vermin				ADDLEVEL:Vermin|5				
+
+Add 6 Levels of Aberration		VISIBLE:NO	PRERACE:1,RACETYPE=Aberration			ADDLEVEL:Aberration|6		
+Add 6 Levels of Animal			VISIBLE:NO	PRERACE:1,RACETYPE=Animal				ADDLEVEL:Animal|6				
+Add 6 Levels of Construct		VISIBLE:NO	PRERACE:1,RACETYPE=Construct				ADDLEVEL:Construct|6				
+Add 6 Levels of Dragon			VISIBLE:NO	PRERACE:1,RACETYPE=Dragon				ADDLEVEL:Dragon|6			
+Add 6 Levels of Elemental		VISIBLE:NO	PRERACE:1,RACETYPE=Elemental				ADDLEVEL:Elemental|6				
+Add 6 Levels of Fey			VISIBLE:NO	PRERACE:1,RACETYPE=Fey					ADDLEVEL:Fey|6					
+Add 6 Levels of Giant			VISIBLE:NO	PRERACE:1,RACETYPE=Giant				ADDLEVEL:Giant|6				
+Add 6 Levels of Humanoid		VISIBLE:NO	PRERACE:1,RACETYPE=Humanoid				ADDLEVEL:Humanoid|6			
+Add 6 Levels of Magical Beast		VISIBLE:NO	PRERACE:1,RACETYPE=Magical Beast			ADDLEVEL:Magical Beast|6		
+Add 6 Levels of Monstrous Humanoid	VISIBLE:NO	PRERACE:1,RACETYPE=Monstrous Humanoid		ADDLEVEL:Monstrous Humanoid|6	
+Add 6 Levels of Ooze			VISIBLE:NO	PRERACE:1,RACETYPE=Ooze				ADDLEVEL:Ooze|6					
+Add 6 Levels of Outsider		VISIBLE:NO	PRERACE:1,RACETYPE=Outsider				ADDLEVEL:Outsider|6				
+Add 6 Levels of Plant			VISIBLE:NO	PRERACE:1,RACETYPE=Plant				ADDLEVEL:Plant|6					
+Add 6 Levels of Undead			VISIBLE:NO	PRERACE:1,RACETYPE=Undead				ADDLEVEL:Undead|6				
+Add 6 Levels of Vermin			VISIBLE:NO	PRERACE:1,RACETYPE=Vermin				ADDLEVEL:Vermin|6				
+
+
+
+
+

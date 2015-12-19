@@ -120,22 +120,12 @@ Not Used		USEUNTRAINED:NO	TYPE:Innuedo					VISIBLE:EXPORT
 Knowledge (History).MOD		BONUS:VAR|BardicKnowledge|2|PRESKILL:1,Knowledge (History)=5
 Knowledge (Religion).MOD	BONUS:VAR|TurnCheckUndead|2|PRESKILL:1,Knowledge (Religion)=5
 
-###Block: Synergy
-# Skill Name					Bonus to skill
-Bluff.MOD						BONUS:SKILL|Sleight of Hand,Diplomacy,Intimidate|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Bluff=5
-Handle Animal.MOD					BONUS:SKILL|Ride|SynergyBonus|PRESKILL:1,Handle Animal=5|TYPE=Synergy.STACK
-Jump.MOD						BONUS:SKILL|Tumble|SynergyBonus|PRESKILL:1,Jump=5|TYPE=Synergy.STACK
-Knowledge (Arcana).MOD				BONUS:SKILL|Spellcraft|SynergyBonus|PRESKILL:1,Knowledge (Arcana)=5|TYPE=Synergy.STACK
-Knowledge (Local).MOD				BONUS:SKILL|Gather Information|SynergyBonus|PRESKILL:1,Knowledge (Local)=5|TYPE=Synergy.STACK
-Knowledge (Nobility and Royalty).MOD	BONUS:SKILL|Diplomacy|SynergyBonus|PRESKILL:1,Knowledge (Nobility and Royalty)=5|TYPE=Synergy.STACK
-Sense Motive.MOD					BONUS:SKILL|Diplomacy|SynergyBonus|PRESKILL:1,Sense Motive=5|TYPE=Synergy.STACK
-Survival.MOD					BONUS:SKILL|Knowledge (Nature)|SynergyBonus|PRESKILL:1,Survival=5|TYPE=Synergy.STACK
-Tumble.MOD						BONUS:SKILL|Balance,Jump|SynergyBonus|PRESKILL:1,Tumble=5|TYPE=Synergy.STACK
+# Synergy does not work correctly inside of skills. Moved to ability where it correctly performs.
 
 ###Block: Movement
 # Skill Name	Bonus to skill
-Climb.MOD		BONUS:SKILL|Climb|8|PREMOVE:1,Climb=1|TYPE=Racial
-Swim.MOD		BONUS:SKILL|Swim|8|PREMOVE:1,Swim=1|TYPE=Racial
+Climb.MOD		BONUS:SKILL|Climb|8|TYPE=Racial|PREMOVE:1,Climb=1
+Swim.MOD		BONUS:SKILL|Swim|8|TYPE=Racial|PREMOVE:1,Swim=1
 Jump.MOD		BONUS:SKILL|Jump|max(floor((var("MOVE[Walk]")-30)/10)*4,0)|TYPE=Speed.STACK
 Jump.MOD		BONUS:SKILL|Jump|min(ceil((var("MOVE[Walk]")-30)/10)*6,0)|TYPE=Speed.STACK
 
@@ -162,18 +152,18 @@ Ride.MOD				TEMPDESC:If you are riding bareback, or attempt to ride a creature t
 
 ###Block: Skill Situation Support .MODs
 # Skill Name						Bonus to Situation
-Bluff.MOD							BONUS:SITUATION|Disguise=Act in character|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Bluff=5
-Decipher Script.MOD					BONUS:SITUATION|Use Magic Device=Scroll|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Decipher Script=5
-Escape Artist.MOD						BONUS:SITUATION|Use Rope=Bind someone|SynergyBonus|PRESKILL:1,Escape Artist=5|TYPE=Synergy.STACK
-Knowledge (Architecture and Engineering).MOD	BONUS:SITUATION|Search=Secret doors and hidden compartments|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Knowledge (Architecture and Engineering)=5
-Knowledge (Dungeoneering).MOD				BONUS:SITUATION|Survival=Underground|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Knowledge (Dungeoneering)=5
-Knowledge (Geography).MOD				BONUS:SITUATION|Survival=Lost/Natural hazards|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Knowledge (Geography)=5
-Knowledge (Nature).MOD					BONUS:SITUATION|Survival=Natural environments|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Knowledge (Nature)=5
-Knowledge (The Planes).MOD				BONUS:SITUATION|Survival=The Planes|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Knowledge (The Planes)=5
-Search.MOD							BONUS:SITUATION|Survival=Find or follow tracks|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Search=5
-Spellcraft.MOD						BONUS:SITUATION|Use Magic Device=Scroll|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Spellcraft=5
-Use Magic Device.MOD					BONUS:SITUATION|Spellcraft=Decipher spell on scroll|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Use Magic Device=5
-Use Rope.MOD						BONUS:SITUATION|Climb=Using a rope,Escape Artist=Escape from rope bonds|SynergyBonus|TYPE=Synergy.STACK|PRESKILL:1,Use Rope=5
+Bluff.MOD							BONUS:SITUATION|Disguise=Act in character|SynergySkillBonus|TYPE=Synergy.STACK|PRESKILL:1,Bluff=5
+Decipher Script.MOD					BONUS:SITUATION|Use Magic Device=Scroll|SynergySkillBonus|TYPE=Synergy.STACK|PRESKILL:1,Decipher Script=5
+Escape Artist.MOD						BONUS:SITUATION|Use Rope=Bind someone|SynergySkillBonus|PRESKILL:1,Escape Artist=5|TYPE=Synergy.STACK
+Knowledge (Architecture and Engineering).MOD	BONUS:SITUATION|Search=Secret doors and hidden compartments|SynergySkillBonus|TYPE=Synergy.STACK|PRESKILL:1,Knowledge (Architecture and Engineering)=5
+Knowledge (Dungeoneering).MOD				BONUS:SITUATION|Survival=Underground|SynergySkillBonus|TYPE=Synergy.STACK|PRESKILL:1,Knowledge (Dungeoneering)=5
+Knowledge (Geography).MOD				BONUS:SITUATION|Survival=Lost/Natural hazards|SynergySkillBonus|TYPE=Synergy.STACK|PRESKILL:1,Knowledge (Geography)=5
+Knowledge (Nature).MOD					BONUS:SITUATION|Survival=Natural environments|SynergySkillBonus|TYPE=Synergy.STACK|PRESKILL:1,Knowledge (Nature)=5
+Knowledge (The Planes).MOD				BONUS:SITUATION|Survival=The Planes|SynergySkillBonus|TYPE=Synergy.STACK|PRESKILL:1,Knowledge (The Planes)=5
+Search.MOD							BONUS:SITUATION|Survival=Find or follow tracks|SynergySkillBonus|TYPE=Synergy.STACK|PRESKILL:1,Search=5
+Spellcraft.MOD						BONUS:SITUATION|Use Magic Device=Scroll|SynergySkillBonus|TYPE=Synergy.STACK|PRESKILL:1,Spellcraft=5
+Use Magic Device.MOD					BONUS:SITUATION|Spellcraft=Decipher spell on scroll|SynergySkillBonus|TYPE=Synergy.STACK|PRESKILL:1,Use Magic Device=5
+Use Rope.MOD						BONUS:SITUATION|Climb=Using a rope,Escape Artist=Escape from rope bonds|SynergySkillBonus|TYPE=Synergy.STACK|PRESKILL:1,Use Rope=5
 
 ###Block: New Situation Tag
 # Skill Name		Situational Skill
