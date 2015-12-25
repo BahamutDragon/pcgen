@@ -4,14 +4,18 @@ Default	CATEGORY:Internal	DEFINE:Proficiency_Bonus|0	BONUS:VAR|Proficiency_Bonus
 # Default
 CATEGORY=Internal|Default.MOD									DEFINE:Use_AC_Output|0					BONUS:VAR|Use_AC_Output|1	ABILITY:Internal|AUTOMATIC|AC Tracker	DEFINE:POOL_Expertise|0
 
-AC Tracker				CATEGORY:Internal	ABILITY:Armor Class Method|AUTOMATIC|AC Tracker ~ Default|!PREABILITY:1,CATEGORY=Special Ability,TYPE.AC_Tracker_Choice	
+AC Tracker				CATEGORY:Internal	ABILITY:Armor Class Method|AUTOMATIC|AC Tracker ~ Default|!PREABILITY:1,CATEGORY=Special Ability,TYPE.AC_Tracker_SelectionMade	
+
+CATEGORY=Internal|AC Tracker.MOD	DEFINE:POOL_AC_Tracker|0	BONUS:VAR|POOL_AC_Tracker|1|!PREABILITY:1,CATEGORY=Special Ability,TYPE.AC_Tracker_Choice
+
 #
 Base AC 10 + DEX or Armor	KEY:AC Tracker ~ Default	CATEGORY:Special Ability	TYPE:AC_Tracker						BONUS:VAR|AC_Total|AC_Base+AC_Armor+AC_Shield						DESC:This is the standard Method	BONUS:VAR|DisableDexForAC|1|PREEQUIP:1,TYPE.HeavyArmor
 #
-Mage Armor + DEX			KEY:AC Tracker ~ Mage Armor	CATEGORY:Special Ability	TYPE:AC_Tracker.AC_Tracker_Choice	COST:0	!PREABILITY:1,CATEGORY=Special Ability,TYPE.AC_Tracker_Choice																BONUS:VAR|AC_Base|3
-Barbarian Unarmored Defense	KEY:AC Tracker ~ Barbarian	CATEGORY:Special Ability	TYPE:AC_Tracker.AC_Tracker_Choice	COST:0	PREMULT:2,[!PREABILITY:1,CATEGORY=Special Ability,TYPE.AC_Tracker_Choice],[PREABILITY:1,CATEGORY=Special Ability,Barbarian ~ Unarmored Defense]			BONUS:VAR|AC_Total|AC_Shield		BONUS:VAR|AC_Ability_Score_Bonus|CON
-Monk Unarmored Defense		KEY:AC Tracker ~ Monk		CATEGORY:Special Ability	TYPE:AC_Tracker.AC_Tracker_Choice	COST:0	PREMULT:2,[!PREABILITY:1,CATEGORY=Special Ability,TYPE.AC_Tracker_Choice],[PREABILITY:1,CATEGORY=Special Ability,Monk ~ Unarmored Defense]			BONUS:VAR|AC_Ability_Score_Bonus|WIS
-Sorcerer Draconic Resilience	KEY:AC Tracker ~ Sorcerer	CATEGORY:Special Ability	TYPE:AC_Tracker.AC_Tracker_Choice	COST:0	PREMULT:2,[!PREABILITY:1,CATEGORY=Special Ability,TYPE.AC_Tracker_Choice],[PREABILITY:1,CATEGORY=Special Ability,Draconic Bloodline ~ Draconic Resilience]	BONUS:VAR|AC_Base|3|!PREEQUIP:1,TYPE.Armor
+Default				KEY:AC Tracker ~ No Choice	CATEGORY:Special Ability	TYPE:AC_Tracker.AC_Tracker_Choice					COST:0	
+Mage Armor + DEX			KEY:AC Tracker ~ Mage Armor	CATEGORY:Special Ability	TYPE:AC_Tracker.AC_Tracker_Choice.AC_Tracker_SelectionMade	COST:0	!PREABILITY:1,CATEGORY=Special Ability,TYPE.AC_Tracker_Choice																BONUS:VAR|AC_Base|3
+Barbarian Unarmored Defense	KEY:AC Tracker ~ Barbarian	CATEGORY:Special Ability	TYPE:AC_Tracker.AC_Tracker_Choice.AC_Tracker_SelectionMade	COST:0	PREMULT:2,[!PREABILITY:1,CATEGORY=Special Ability,TYPE.AC_Tracker_Choice],[PREABILITY:1,CATEGORY=Special Ability,Barbarian ~ Unarmored Defense]			BONUS:VAR|AC_Total|AC_Shield		BONUS:VAR|AC_Ability_Score_Bonus|CON
+Monk Unarmored Defense		KEY:AC Tracker ~ Monk		CATEGORY:Special Ability	TYPE:AC_Tracker.AC_Tracker_Choice.AC_Tracker_SelectionMade	COST:0	PREMULT:2,[!PREABILITY:1,CATEGORY=Special Ability,TYPE.AC_Tracker_Choice],[PREABILITY:1,CATEGORY=Special Ability,Monk ~ Unarmored Defense]			BONUS:VAR|AC_Ability_Score_Bonus|WIS
+Sorcerer Draconic Resilience	KEY:AC Tracker ~ Sorcerer	CATEGORY:Special Ability	TYPE:AC_Tracker.AC_Tracker_Choice.AC_Tracker_SelectionMade	COST:0	PREMULT:2,[!PREABILITY:1,CATEGORY=Special Ability,TYPE.AC_Tracker_Choice],[PREABILITY:1,CATEGORY=Special Ability,Draconic Bloodline ~ Draconic Resilience]	BONUS:VAR|AC_Base|3|!PREEQUIP:1,TYPE.Armor
 
 #
 CATEGORY=Internal|Default.MOD	DEFINESTAT:MAXVALUE|STR|max(20,MaxStatSTR)	DEFINE:MaxStatSTR|0	DEFINE:MaxStatNPC|0	BONUS:VAR|MaxStatSTR|Existing_Cap	DEFINE:Existing_Cap|0	BONUS:VAR|Existing_Cap|max(20,MaxStatNPC)
