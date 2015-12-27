@@ -23,9 +23,9 @@
 # Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Define							Save SAVE bonus									Combat bonus
 CLASS:Draegloth	HD:10		TYPE:Monster	FACT:ClassType|Monster	FACT:Abb|Draeg		MAXLEVEL:10	SOURCEPAGE:10	DEFINE:DraeglothLVL|0	BONUS:VAR|DraeglothLVL|CL	DEFINE:DraeglothHD|0	BONUS:VAR|DraeglothHD|1	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|DraeglothHD/2+2	BONUS:COMBAT|BASEAB|1
 # Class Name	Required AL		Required Race
-CLASS:Draegloth	PREALIGN:	PRERACE:1,Draegloth
+CLASS:Draegloth	PREALIGN:LE,NE,CE	PRERACE:1,Draegloth
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Draegloth	STARTSKILLPTS:8	CSKILL:Climb|Concentration|TYPE=Craft|Hide|Jump|Knowledge (Arcana)|Knowledge (The Planes)|Knowledge (Religion)|Listen|Move Silently|Search|Spellcraft|Spot|Survival
+CLASS:Draegloth	STARTSKILLPTS:8	CSKILL:Climb|Concentration|TYPE=Craft|Hide|Jump|Knowledge (arcana)|Knowledge (The Planes)|Knowledge (Religion)|Listen|Move Silently|Search|Spellcraft|Spot|Survival
 1																												ABILITY:Special Ability|AUTOMATIC|Draegloth ~ Dancing Lights|Draegloth ~ Energy Resistance|Draegloth ~ Feats|Draegloth ~ Natural Attacks|Draegloth ~ Weapon and Armor Proficiency
 2																												ABILITY:Special Ability|AUTOMATIC|Draegloth ~ Darkness|Draegloth ~ Faerie Fire|Draegloth ~ Natural Armor
 4																												ABILITY:Special Ability|AUTOMATIC|Draegloth ~ Desecrate
@@ -47,7 +47,7 @@ CLASS:Draegloth	STARTSKILLPTS:8	CSKILL:Climb|Concentration|TYPE=Craft|Hide|Jump|
 # Class Name			Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page		Define		Save SAVE bonus											Combat bonus
 CLASS:Black Blood Cultist	HD:12		TYPE:PC.Prestige	FACT:ClassType|Prestige	FACT:Abb|BBC		MAXLEVEL:10	SOURCEPAGE:44	DEFINE:BlackBloodCultistLVL|0	BONUS:VAR|BlackBloodCultistLVL|CL	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
 # Class Name			Required Ability					Required AL		Required Feat					Required Skill
-CLASS:Black Blood Cultist	PREABILITY:1,CATEGORY=Special Ability,Rage	PREALIGN:	PREABILITY:2,CATEGORY=FEAT,Improved Unarmed Strike,Track	PRESKILL:2,Knowledge (Nature)=2,Survival=8
+CLASS:Black Blood Cultist	PREABILITY:1,CATEGORY=Special Ability,Rage	PREALIGN:CE,CN,NE	PREABILITY:2,CATEGORY=FEAT,Improved Unarmed Strike,Track	PRESKILL:2,Knowledge (Nature)=2,Survival=8
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Black Blood Cultist	STARTSKILLPTS:4	CSKILL:Climb|Handle Animal|Hide|Intimidate|Jump|Knowledge (Nature)|Listen|Move Silently|Search|Spot|Survival|Swim
 1	BONUS:DR|Silver|1	BONUS:VAR|BarbRageTimesLVL,BarbRagePowerLVL|CL	ABILITY:Special Ability|AUTOMATIC|Black Blood Cultist ~ Damage Reduction|Black Blood Cultist ~ Feral Rage|Black Blood Cultist ~ Natural Attacks
@@ -66,7 +66,8 @@ CLASS:Justice of Weald and Woe	PRETOTALAB:6	PREABILITY:2,CATEGORY=FEAT,Point Bla
 # Class Name				Skill Pts/Lvl	Class Skill
 CLASS:Justice of Weald and Woe	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|Concentration|TYPE=Craft|Disguise|Escape Artist|Gather Information|Handle Animal|Hide|Intimidate|Jump|Knowledge (Local)|Knowledge (Nature)|Knowledge (Religion)|Listen|Sense Motive|Spot|Survival|Swim|Tumble
 # Class Name				Spell Stat		Spell Type		Memorize		Caster level
-CLASS:Justice of Weald and Woe	SPELLSTAT:WIS	FACT:SpellType|Divine	MEMORIZE:YES	BONUS:CASTERLEVEL|Justice of Weald and Woe|Caster_Level_Justice_of_Weald_and_Woe	DEFINE:Caster_Level_Justice_of_Weald_and_Woe|0	BONUS:VAR|Caster_Level_Justice_of_Weald_and_Woe|CL+Caster_Level_Bonus	DEFINE:CasterLevelBLJustice_of_Weald_and_Woe|0	BONUS:VAR|CasterLevelBLJustice_of_Weald_and_Woe|charbonusto("PCLEVEL","Justice_of_Weald_and_Woe")	BONUS:VAR|Caster_Level_Highest__Divine|Caster_Level_Justice_of_Weald_and_Woe+CasterLevelBLJustice_of_Weald_and_Woe|TYPE=Base
+CLASS:Justice of Weald and Woe	FACT:SpellType|Divine
+CLASS:Justice of Weald and Woe	SPELLSTAT:WIS	MEMORIZE:YES	BONUS:CASTERLEVEL|Justice of Weald and Woe|Caster_Level_Justice_of_Weald_and_Woe	DEFINE:Caster_Level_Justice_of_Weald_and_Woe|0	BONUS:VAR|Caster_Level_Justice_of_Weald_and_Woe|CL+Caster_Level_Bonus	DEFINE:CasterLevelBLJustice_of_Weald_and_Woe|0	BONUS:VAR|CasterLevelBLJustice_of_Weald_and_Woe|charbonusto("PCLEVEL","Justice_of_Weald_and_Woe")	BONUS:VAR|Caster_Level_Highest__Divine|Caster_Level_Justice_of_Weald_and_Woe+CasterLevelBLJustice_of_Weald_and_Woe|TYPE=Base
 1	CAST:0,0		KNOWN:0,2																ABILITY:Special Ability|AUTOMATIC|Justice of Weald and Woe ~ Spells
 2	CAST:0,1		KNOWN:0,3		BONUS:ABILITYPOOL|Justice of Weald and WoeBonusFeat|1						ABILITY:Special Ability|AUTOMATIC|Justice of Weald and Woe ~ Woodland Stride
 3	CAST:0,2,0		KNOWN:0,3,2											BONUS:VAR|SneakAttackDice|1	ABILITY:Special Ability|AUTOMATIC|Justice of Weald and Woe ~ SneakAttack|Sneak Attack
@@ -82,7 +83,7 @@ CLASS:Justice of Weald and Woe	SPELLSTAT:WIS	FACT:SpellType|Divine	MEMORIZE:YES	
 # Class Name			Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page		Define		Save SAVE bonus												Combat bonus
 CLASS:Night Mask Deathbringer	HD:6		TYPE:PC.Prestige	FACT:ClassType|Prestige	FACT:Abb|NMDB		MAXLEVEL:10	SOURCEPAGE:54	DEFINE:NightMaskDeathbringerLVL|0	BONUS:VAR|NightMaskDeathbringerLVL|classlevel("APPLIEDAS=NONEPIC")	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE
 # Class Name			Required Ability								Required AL		Required Feat			Required Skill
-CLASS:Night Mask Deathbringer	PREABILITY:2,CATEGORY=Special Ability,Evasion,Uncanny Dodge	PREALIGN:	PREABILITY:1,CATEGORY=FEAT,Great Fortitude	PRESKILL:2,Hide=8,TYPE.Knowledge (Local)=3,Move Silently=8
+CLASS:Night Mask Deathbringer	PREABILITY:2,CATEGORY=Special Ability,Evasion,Uncanny Dodge	PREALIGN:LE,NE,CE	PREABILITY:1,CATEGORY=FEAT,Great Fortitude	PRESKILL:2,Hide=8,TYPE.Knowledge (Local)=3,Move Silently=8
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Night Mask Deathbringer	STARTSKILLPTS:8	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Intimidate|Jump|Knowledge (Local)|Listen|Move Silently|Open Lock|TYPE=Perform|TYPE=Profession|Search|Sense Motive|Sleight of Hand|Spot|Swim|Tumble|Use Magic Device|Use Rope
 1	BONUS:VAR|HesitatingStareTimes|1						ABILITY:Special Ability|AUTOMATIC|Night Mask Deathbringer ~ Creature of Darkness|Night Mask Deathbringer ~ Hesitating Stare|Night Mask Deathbringer ~ Light Sensitivity|Night Mask Deathbringer ~ Spider Climb

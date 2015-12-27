@@ -51,10 +51,52 @@ SUBCLASS:Water Shugenja	COST:0	CHOICE:DESCRIPTOR|Water Shugenja	PROHIBITSPELL:DE
 19	CAST:6,6,6,6,6,6,6,6,6,4	KNOWN:4,2,2,2,2,2,1,1,1,1	SPECIALTYKNOWN:5,3,3,2,2,2,2,2,2,1
 20	CAST:6,6,6,6,6,6,6,6,6,6	KNOWN:4,2,2,2,2,2,1,1,1,1	SPECIALTYKNOWN:5,3,3,2,2,2,2,2,2,2
 
+
+
+
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus															Modify VAR													Bonus
+CLASS:Contemplative	HD:6		TYPE:PC.Prestige	FACT:Abb|Com		MAXLEVEL:10	SOURCEPAGE:p.30	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name		Required Feat						Required Skill				Req. Spell Type
+CLASS:Contemplative	PREABILITY:1,CATEGORY=FEAT,Skill Focus (Knowledge (Religion))	PRESKILL:1,Knowledge (Religion)=13	PRESPELLTYPE:1,Divine=1
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Contemplative	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Intimidate|Knowledge (Religion)|TYPE=Profession|Sense Motive|Spellcraft
+1	BONUS:DOMAIN|NUMBER|1								ADD:SPELLCASTER|Divine	ABILITY:Contemplative Class Feature|AUTOMATIC|Contemplative ~ Divine Health
+2												ADD:SPELLCASTER|Divine	ABILITY:Contemplative Class Feature|AUTOMATIC|Contemplative ~ Slippery Mind
+3					BONUS:VAR|DivineWholenessHealing|4*CL	ADD:SPELLCASTER|Divine	ABILITY:Contemplative Class Feature|AUTOMATIC|Contemplative ~ Divine Wholeness
+4												ADD:SPELLCASTER|Divine
+5												ADD:SPELLCASTER|Divine	ABILITY:Contemplative Class Feature|AUTOMATIC|Contemplative ~ Divine Body
+6	BONUS:DOMAIN|NUMBER|1								ADD:SPELLCASTER|Divine
+7					BONUS:VAR|DivineSoulSR|CL			ADD:SPELLCASTER|Divine	ABILITY:Contemplative Class Feature|AUTOMATIC|Contemplative ~ Divine Soul
+8												ADD:SPELLCASTER|Divine
+9												ADD:SPELLCASTER|Divine	ABILITY:Contemplative Class Feature|AUTOMATIC|Contemplative ~ Eternal Body
+10												ADD:SPELLCASTER|Divine	ABILITY:Contemplative Class Feature|AUTOMATIC|Contemplative ~ Mystic Union
+
+
+### Divine Oracle - Added 2007-05-12
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus															Add domain number		Modify VAR													Bonus
+CLASS:Divine Oracle	HD:6		TYPE:PC.Prestige	FACT:Abb|Dorc		MAXLEVEL:10	SOURCEPAGE:p.35	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:DOMAIN|NUMBER|1	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name		Required Skill				Required Text
+CLASS:Divine Oracle	PRESKILL:1,Knowledge (Religion)=8	PRETEXT:Must be able to cast two divination spells
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Divine Oracle	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Heal|Intimidate|Knowledge (arcana)|Knowledge (Religion)|TYPE=Profession|Spellcraft
+1	DOMAIN:Oracle						ADD:SPELLCASTER|ANY	ABILITY:Divine Oracle Class Feature|AUTOMATIC|Divine Oracle ~ Scry Bonus
+2				BONUS:VAR|TrapSenseBonus|1	ADD:SPELLCASTER|ANY	ABILITY:Divine Oracle Class Feature|AUTOMATIC|Divine Oracle ~ Prescient Sense|Divine Oracle ~ Trap Sense
+3									ADD:SPELLCASTER|ANY	ABILITY:Divine Oracle Class Feature|AUTOMATIC|Divine Oracle ~ Divination Enhancement
+4				BONUS:VAR|UncannyDodgeLVL|1	ADD:SPELLCASTER|ANY	ABILITY:Divine Oracle Class Feature|AUTOMATIC|Divine Oracle ~ Uncanny Dodge
+5				BONUS:VAR|TrapSenseBonus|1	ADD:SPELLCASTER|ANY
+6				BONUS:VAR|UncannyDodgeLVL|1	ADD:SPELLCASTER|ANY	ABILITY:Divine Oracle Class Feature|AUTOMATIC|Divine Oracle ~ Improved Uncanny Dodge
+7									ADD:SPELLCASTER|ANY
+8				BONUS:VAR|TrapSenseBonus|1	ADD:SPELLCASTER|ANY
+9									ADD:SPELLCASTER|ANY
+10									ADD:SPELLCASTER|ANY	ABILITY:Divine Oracle Class Feature|AUTOMATIC|Divine Oracle ~ Immune to Surprise
+
+
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus															Modify VAR														Bonus
 CLASS:Favored Soul	HD:8		TYPE:Base.PC	FACT:Abb|FvSl		MAXLEVEL:20	SOURCEPAGE:6	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Favored Soul	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Jump|Knowledge (Arcana)|TYPE=Profession|Sense Motive|Spellcraft
+CLASS:Favored Soul	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Jump|Knowledge (arcana)|TYPE=Profession|Sense Motive|Spellcraft
 # Class Name		Spell Stat		Spell Stat Bonus		Spell Type		Memorize	Caster level				Bonus DC						Use Spell List
 CLASS:Favored Soul	SPELLSTAT:CHA	BONUSSPELLSTAT:CHA	FACT:SpellType|Divine	MEMORIZE:NO	BONUS:CASTERLEVEL|Favored Soul|CL	BONUS:DC|CLASS.Favored Soul|(WIS-CHA)	SPELLLIST:1|Cleric
 ###Block:
@@ -89,6 +131,7 @@ CLASS:Favored Soul	SPELLSTAT:CHA	BONUSSPELLSTAT:CHA	FACT:SpellType|Divine	MEMORI
 20	CAST:6,6,6,6,6,6,6,6,6,6	KNOWN:9,6,6,6,6,6,6,6,5,4
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus															Modify VAR														Bonus
+CLASS:Spirit Shaman	HD:8		TYPE:Base.PC	FACT:Abb|SprShm		MAXLEVEL:20	SOURCEPAGE:14
 CLASS:Spirit Shaman	HD:8		TYPE:Base.PC	FACT:Abb|SprShm	DEFINE:SpiritShamanLVL|0	BONUS:VAR|SpiritShamanLVL|CL	MAXLEVEL:20	SOURCEPAGE:p.14	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")/3)
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Spirit Shaman	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Knowledge (Geography)|Knowledge (History)|Knowledge (Local)|Knowledge (Nature)|Listen|TYPE=Profession|Ride|Spellcraft|Spot|Survival|Swim
@@ -165,7 +208,7 @@ CLASS:Black Flame Zealot	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE
 # Class Name	Hit Dice	Type			Source Page		Combat bonus															Modify VAR														Bonus
 CLASS:Blighter	HD:8		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.23	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Restricted AL		Required Class		PRETOTALAB
-CLASS:Blighter	!PREALIGN:	PRECLASS:1,Ex Druid=5	PRETOTALAB:4
+CLASS:Blighter	!PREALIGN:LG,NG,CG	PRECLASS:1,Ex Druid=5	PRETOTALAB:4
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Blighter	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nature)|Listen|Profession (Herbalist)|Spellcraft|Spot|Survival|Swim
 # Class Name	Spell Stat		Spell Type		Caster level
@@ -204,7 +247,7 @@ CLASS:Church Inquisitor	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC"
 CLASS:Church Inquisitor	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 CLASS:Church Inquisitor	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 CLASS:Church Inquisitor	PRETEXT:Alignment: Lawful good or lawful neutral. Base Save Bonus: Will +3. Skills: Knowledge (arcana) 4 ranks, Knowledge (religion) 4 ranks, Spellcraft 4 ranks. Spells: Able to cast zone of truth as a divine spell. Special: Must be a member of a lawful good church or religious order, and must have already uncovered some corruption within that organization.
-CLASS:Church Inquisitor	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Decipher Script|Diplomacy|Gather Information|Intimidate|Knowledge (Arcana)|Knowledge (Local)|Knowledge (The Planes)|Knowledge (Religion)|Search|Sense Motive|Spellcraft|Spot
+CLASS:Church Inquisitor	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Decipher Script|Diplomacy|Gather Information|Intimidate|Knowledge (arcana)|Knowledge (Local)|Knowledge (The Planes)|Knowledge (Religion)|Search|Sense Motive|Spellcraft|Spot
 1:REPEATLEVEL:1	ADD:SPELLCASTER|Divine
 ###Block
 11	PREPCLEVEL:MIN=20	PRECAMPAIGN:1,INCLUDES=Epic Level Handbook
@@ -321,7 +364,7 @@ CLASS:Divine Oracle	HD:6		TYPE:PC.Prestige	FACT:Abb|Dorc	DEFINE:DivineOracleLVL|
 # Class Name		Required Skill				Required Text
 CLASS:Divine Oracle	PRESKILL:1,Knowledge (Religion)=8	PRETEXT:Must be able to cast two divination spells
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Divine Oracle	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Heal|Intimidate|Knowledge (Arcana)|Knowledge (Religion)|TYPE=Profession|Spellcraft
+CLASS:Divine Oracle	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Heal|Intimidate|Knowledge (arcana)|Knowledge (Religion)|TYPE=Profession|Spellcraft
 1:REPEATLEVEL:1	ADD:SPELLCASTER|ANY
 ###Block
 1	DOMAIN:Oracle
@@ -342,7 +385,7 @@ CLASS:Entropomancer	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+
 CLASS:Entropomancer	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 CLASS:Entropomancer	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 CLASS:Entropomancer	PRETEXT:Alignment: Any nongood. Skills: Concentration 5 ranks, Knowledge (arcana) 5 ranks. Feats: Great Fortitude, Magical Aptitude. Spells: Able to cast 4th-level divine spells.
-CLASS:Entropomancer	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Heal|Intimidate|Knowledge (Arcana)|Knowledge (Local)|Knowledge (Religion)|TYPE=Profession|Spellcraft
+CLASS:Entropomancer	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Heal|Intimidate|Knowledge (arcana)|Knowledge (Local)|Knowledge (Religion)|TYPE=Profession|Spellcraft
 2:REPEATLEVEL:2	ADD:SPELLCASTER|Divine
 ###Block
 11	PREPCLEVEL:MIN=20
@@ -382,7 +425,7 @@ CLASS:Geomancer	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
 CLASS:Geomancer	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 CLASS:Geomancer	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 CLASS:Geomancer	PRETEXT:Skills: Knowledge (arcana) 6 ranks, Knowledge (nature) 6 ranks. Spells: Able to cast 2nd-level arcane spells and 2nd-level divine spells.
-CLASS:Geomancer	STARTSKILLPTS:4	CSKILL:Climb|Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Knowledge (Arcana)|Knowledge (Geography)|Knowledge (Nature)|Spellcraft|Survival|Swim
+CLASS:Geomancer	STARTSKILLPTS:4	CSKILL:Climb|Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Knowledge (arcana)|Knowledge (Geography)|Knowledge (Nature)|Spellcraft|Survival|Swim
 1:REPEATLEVEL:1	ADD:SPELLCASTER|ANY
 ###Block
 11	PREPCLEVEL:MIN=20
@@ -494,7 +537,7 @@ CLASS:Radiant Servant of Pelor	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=N
 CLASS:Radiant Servant of Pelor	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 CLASS:Radiant Servant of Pelor	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 CLASS:Radiant Servant of Pelor	PRETEXT:Alignment: Neutral good. Base Save Bonus: Will +5. Skills: Heal 5 ranks, Knowledge (religion) 9 ranks. Feat: Extra Turning. Spells: Able to cast 1st-level divine spells and access to the Sun domain. Special: Must have Pelor as patron deity.
-CLASS:Radiant Servant of Pelor	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (Religion)|TYPE=Profession|Sense Motive|Spellcraft
+CLASS:Radiant Servant of Pelor	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Knowledge (arcana)|Knowledge (Religion)|TYPE=Profession|Sense Motive|Spellcraft
 1:REPEATLEVEL:1	ADD:SPELLCASTER|Divine
 ###Block
 11	PREPCLEVEL:MIN=20
@@ -521,7 +564,7 @@ CLASS:Rainbow Servant	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/
 CLASS:Rainbow Servant	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 CLASS:Rainbow Servant	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 CLASS:Rainbow Servant	PRETEXT:Alignment: Any nonevil and nonchaotic. Skill: Knowledge (arcana) 4 ranks. Spells: Able to cast 3rd-level arcane spells. Special: Must fi nd the hidden jungle temples of the couatls.
-CLASS:Rainbow Servant	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Knowledge (Arcana)|Knowledge (The Planes)|TYPE=Profession|Sense Motive|Spellcraft
+CLASS:Rainbow Servant	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Knowledge (arcana)|Knowledge (The Planes)|TYPE=Profession|Sense Motive|Spellcraft
 2	ADD:SPELLCASTER|Arcane
 3	ADD:SPELLCASTER|Arcane
 5	ADD:SPELLCASTER|Arcane
@@ -549,7 +592,7 @@ CLASS:Sacred Exorcist	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/
 CLASS:Sacred Exorcist	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 CLASS:Sacred Exorcist	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 CLASS:Sacred Exorcist	PRETEXT:Alignment: Any good. Skills: Knowledge (the planes) 10 ranks, Knowledge (religion) 7 ranks. Spells: Able to cast dismissal or dispel evil. Special: Adopting this prestige class requires the sanction of a church or order that ordains sacred exorcists. Only characters judged by their church to be exemplary in faith and devotion, strong of will and upright in morality, are made sacred exorcists.
-CLASS:Sacred Exorcist	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Heal|Intimidate|Knowledge (Arcana)|Knowledge (The Planes)|Knowledge (Religion)|TYPE=Profession|Spellcraft
+CLASS:Sacred Exorcist	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Heal|Intimidate|Knowledge (arcana)|Knowledge (The Planes)|Knowledge (Religion)|TYPE=Profession|Spellcraft
 1:REPEATLEVEL:1	ADD:SPELLCASTER|ANY
 ###Block
 11	PREPCLEVEL:MIN=20
@@ -713,8 +756,8 @@ CLASS:Ur-Priest	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVA
 CLASS:Ur-Priest	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
 CLASS:Ur-Priest	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 CLASS:Ur-Priest	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
-CLASS:Ur-Priest	PRETEXT:Alignment: Any evil. Base Save Bonus: Fort +3, Will +3. Skills: Bluff 6 ranks, Knowledge (arcana) 5 ranks, Knowledge (the planes) 5 ranks, Knowledge (religion) 8 ranks, Spellcraft 8 ranks. Feats: Iron Will, Spell Focus (evil) [Spell Focus school of "Evil" does not exist]. Special: The character must have no ability to cast divine spells. If such spellcasting ability was previously possessed (as with an ex-cleric), that ability is forever forsaken. The character must be trained by another ur-priest.	PREALIGN:	PRECHECKBASE:2,Fortitude=3,Will=3	PRESKILL:5,Bluff=6,Knowledge (arcana)=5,Knowledge (the planes)=5,Knowledge (religion)=8,Spellcraft=8	PREABILITY:1,CATEGORY=FEAT,Iron Will
-CLASS:Ur-Priest	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Knowledge (Arcana)|Knowledge (The Planes)|Knowledge (Religion)|TYPE=Profession|Spellcraft
+CLASS:Ur-Priest	PRETEXT:Alignment: Any evil. Base Save Bonus: Fort +3, Will +3. Skills: Bluff 6 ranks, Knowledge (arcana) 5 ranks, Knowledge (the planes) 5 ranks, Knowledge (religion) 8 ranks, Spellcraft 8 ranks. Feats: Iron Will, Spell Focus (evil) [Spell Focus school of "Evil" does not exist]. Special: The character must have no ability to cast divine spells. If such spellcasting ability was previously possessed (as with an ex-cleric), that ability is forever forsaken. The character must be trained by another ur-priest.	PREALIGN:LE,NE,CE	PRECHECKBASE:2,Fortitude=3,Will=3	PRESKILL:5,Bluff=6,Knowledge (arcana)=5,Knowledge (the planes)=5,Knowledge (religion)=8,Spellcraft=8	PREABILITY:1,CATEGORY=FEAT,Iron Will
+CLASS:Ur-Priest	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Knowledge (arcana)|Knowledge (The Planes)|Knowledge (Religion)|TYPE=Profession|Spellcraft
 CLASS:Ur-Priest	FACT:SpellType|Divine	SPELLSTAT:WIS	MEMORIZE:NO	SPELLLIST:1|Cleric
 CLASS:Ur-Priest	BONUS:CASTERLEVEL|Ur-Priest|Caster_Level_UrPriest	DEFINE:Caster_Level_UrPriest|0	BONUS:VAR|Caster_Level_UrPriest|CL+Caster_Level_Bonus	DEFINE:CasterLevelBLUrPriest|0	BONUS:VAR|CasterLevelBLUrPriest|charbonusto("PCLEVEL","Ur-Priest")
 CLASS:Ur-Priest	BONUS:VAR|Caster_Level_Highest__Divine|Caster_Level_UrPriest+CasterLevelBLUrPriest|TYPE=Base

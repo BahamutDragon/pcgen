@@ -4,9 +4,12 @@
 # Class Name	Hit Dice	Type			Source Page		Define			Combat bonus															Modify VAR																			Bonus
 CLASS:Artificer	HD:6		TYPE:Base.PC	SOURCEPAGE:p.29	DEFINE:ArtificerLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ArtificerLVL|CL	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Artificer	STARTSKILLPTS:4	CSKILL:Appraise|Concentration|TYPE=Craft|Disable Device|Knowledge (Arcana)|KNOWLEDGE (ARCHITECTURE AND ENGINEERING)|Knowledge (the planes)|Open Lock|TYPE=Profession|Search|Spellcraft|Use Magic Device
+CLASS:Artificer	STARTSKILLPTS:4	CSKILL:Appraise|Concentration|TYPE=Craft|Disable Device|Knowledge (arcana)|KNOWLEDGE (ARCHITECTURE AND ENGINEERING)|Knowledge (The Planes)|Open Lock|TYPE=Profession|Search|Spellcraft|Use Magic Device
 # Class Name	Spell Stat		Spell Type			Caster level
-CLASS:Artificer	SPELLSTAT:INT	FACT:SpellType|Arcane	BONUS:CASTERLEVEL|Artificer|Caster_Level_Artificer	DEFINE:Caster_Level_Artificer|0	BONUS:VAR|Caster_Level_Artificer|CL+Caster_Level_Bonus	DEFINE:CasterLevelBLArtificer|0	BONUS:VAR|CasterLevelBLArtificer|charbonusto("PCLEVEL","Artificer")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Artificer+CasterLevelBLArtificer|TYPE=Base
+CLASS:Artificer	FACT:SpellType|Infusion
+CLASS:Artificer	SPELLSTAT:INT	BONUS:CASTERLEVEL|Artificer|Caster_Level_Artificer	DEFINE:Caster_Level_Artificer|0	BONUS:VAR|Caster_Level_Artificer|CL+Caster_Level_Bonus	DEFINE:CasterLevelBLArtificer|0	BONUS:VAR|CasterLevelBLArtificer|charbonusto("PCLEVEL","Artificer")
+CLASS:Artificer	BONUS:VAR|Caster_Level_Highest__Infusion|Caster_Level_Artificer+CasterLevelBLArtificer|TYPE=Base
+###Block:
 1	ABILITY:Artificer Class Feature|AUTOMATIC|Artificer ~ Weapon and Armor Proficiency
 1	ABILITY:Artificer Class Feature|AUTOMATIC|Artificer ~ Infusions
 1	ABILITY:Artificer Class Feature|AUTOMATIC|Artificer ~ Craft Reserve
@@ -49,7 +52,7 @@ CLASS:Dragonmark Heir	HD:8		TYPE:PC.Prestige.Eberron	MAXLEVEL:5	SOURCEPAGE:p.73	
 # Class Name		Required Feat						Required Skill		Required Text
 CLASS:Dragonmark Heir	PREABILITY:2,CATEGORY=FEAT,Favored in House,Least Dragonmark	PRESKILL:1,TYPE.Base=7	PRETEXT:Race: Member of appropriate dragonmarked race and house. Skills: 7 ranks in any two skills. Feats: Favored in House, Least Dragonmark.
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Dragonmark Heir	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Diplomacy|Gather Information|Intimidate|Knowledge (Arcana)|Knowledge (Nobility and Royalty)|TYPE=Perform|Ride|Sense Motive|Speak Language|Spellcraft
+CLASS:Dragonmark Heir	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Diplomacy|Gather Information|Intimidate|Knowledge (arcana)|Knowledge (nobility and royalty)|TYPE=Perform|Ride|Sense Motive|Speak Language|Spellcraft
 1	ABILITY:Dragonmark Heir Class Feature|AUTOMATIC|Dragonmark Heir ~ Weapon and Armor Proficiency
 1	ABILITY:Dragonmark Heir Class Feature|AUTOMATIC|Dragonmark Heir ~ Lesser Dragonmark
 1	ABILITY:Dragonmark Heir Class Feature|AUTOMATIC|Dragonmark Heir ~ House Status
@@ -79,9 +82,9 @@ CLASS:Eldeen Ranger	STARTSKILLPTS:6	CSKILL:Climb|TYPE=Craft|Handle Animal|Heal|H
 # Class Name				Hit Dice	Type					Source Page		Combat bonus										Bonus
 CLASS:Exorcist of the Silver Flame	HD:8		TYPE:PC.Prestige.Eberron	SOURCEPAGE:p.77	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name				Required AL		Required Deity					Required Skill								Req. Spell Type		Required Text																																	PRETOTALAB
-CLASS:Exorcist of the Silver Flame	PREALIGN:	PREDEITY:1,Church of the Silver Flame	PRESKILL:2,Knowledge (The Planes)=3,Knowledge (Religion)=8	PRESPELLTYPE:1,Divine=1	PRETEXT:Alignment: Any good. Base Attack Bonus: +3. Skills: Knowledge (the planes) 3 ranks, Knowledge (religion) 8 ranks. Spells: Able to cast 1st-level divine spells. Special: Worshiper of the Silver Flame.	PRETOTALAB:3
+CLASS:Exorcist of the Silver Flame	PREALIGN:LG,NG,CG	PREDEITY:1,Church of the Silver Flame	PRESKILL:2,Knowledge (The Planes)=3,Knowledge (Religion)=8	PRESPELLTYPE:1,Divine=1	PRETEXT:Alignment: Any good. Base Attack Bonus: +3. Skills: Knowledge (the planes) 3 ranks, Knowledge (religion) 8 ranks. Spells: Able to cast 1st-level divine spells. Special: Worshiper of the Silver Flame.	PRETOTALAB:3
 # Class Name				Skill Pts/Lvl	Class Skill
-CLASS:Exorcist of the Silver Flame	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Intimidate|Knowledge (Arcana)|Knowledge (the planes)|Knowledge (Religion)|TYPE=Profession|Sense Motive|Spellcraft
+CLASS:Exorcist of the Silver Flame	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Intimidate|Knowledge (arcana)|Knowledge (The Planes)|Knowledge (Religion)|TYPE=Profession|Sense Motive|Spellcraft
 11	PREPCLEVEL:MIN=20
 ###Block
 1	ABILITY:Exorcist of the Silver Flame Class Feature|AUTOMATIC|Exorcist of the Silver Flame ~ Weapon and Armor Proficiency
@@ -107,7 +110,7 @@ CLASS:Extreme Explorer	HD:8		TYPE:PC.Prestige.Eberron	MAXLEVEL:5	SOURCEPAGE:p.79
 # Class Name		Required Feat		Required Skill							Required Text																	PRETOTALAB
 CLASS:Extreme Explorer	PREABILITY:1,CATEGORY=FEAT,Action Boost	PRESKILL:2,Knowledge (Dungeoneering)=4,Survival=4	PRETEXT:Base Attack Bonus: +4. Skills: Knowledge (dungeoneering) 4 ranks, Survival 4 ranks. Feat: Action Boost.	PRETOTALAB:4
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Extreme Explorer	STARTSKILLPTS:6	CSKILL:Balance|Climb|Decipher Script|Disable Device|Escape Artist|Jump|Knowledge (Arcana)|Knowledge (Dungeoneering)|Knowledge (History)|Listen|Open Lock|Ride|Search|Speak Language|Survival|Swim|Tumble|Use Magic Device|Use Rope
+CLASS:Extreme Explorer	STARTSKILLPTS:6	CSKILL:Balance|Climb|Decipher Script|Disable Device|Escape Artist|Jump|Knowledge (arcana)|Knowledge (Dungeoneering)|Knowledge (History)|Listen|Open Lock|Ride|Search|Speak Language|Survival|Swim|Tumble|Use Magic Device|Use Rope
 1	ABILITY:Extreme Explorer Class Feature|AUTOMATIC|Extreme Explorer ~ Weapon and Armor Proficiency
 1	ABILITY:Extreme Explorer Class Feature|AUTOMATIC|Extreme Explorer ~ Additional Action Points
 1	ABILITY:Extreme Explorer Class Feature|AUTOMATIC|Extreme Explorer ~ Trap Sense

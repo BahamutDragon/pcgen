@@ -46,11 +46,12 @@ CLASS:Archivist	BONUS:VAR|Caster_Level_Highest__Divine|Caster_Level_Archivist+Ca
 # Class Name		Hit Dice	Type			Source Page		Define				Combat bonus								Modify VAR					Bonus
 CLASS:Dread Necromancer	HD:6		TYPE:Base.PC	SOURCEPAGE:p.84	DEFINE:DreadNecromancerLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|DreadNecromancerLVL|CL	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Restricted AL
-CLASS:Dread Necromancer	!PREALIGN:
+CLASS:Dread Necromancer	!PREALIGN:LG,CG,NG
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Dread Necromancer	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Decipher Script|Disguise|Hide|Intimidate|Knowledge (Arcana)|Knowledge (religion)|TYPE=Profession|Spellcraft
+CLASS:Dread Necromancer	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Decipher Script|Disguise|Hide|Intimidate|Knowledge (arcana)|Knowledge (religion)|TYPE=Profession|Spellcraft
 # Class Name		Spell Stat		Spell Type		Memorize	Automatically Known Spell Levels											Caster level
-CLASS:Dread Necromancer	SPELLSTAT:CHA	FACT:SpellType|Arcane	MEMORIZE:NO	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Dread Necromancer|Caster_Level_Dread_Necromancer	DEFINE:Caster_Level_Dread_Necromancer|0	BONUS:VAR|Caster_Level_Dread_Necromancer|CL+Caster_Level_Bonus	DEFINE:CasterLevelBLDread_Necromancer|0	BONUS:VAR|CasterLevelBLDread_Necromancer|charbonusto("PCLEVEL","Dread_Necromancer")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Dread_Necromancer+CasterLevelBLDread_Necromancer|TYPE=Base
+CLASS:Dread Necromancer	FACT:SpellType|Arcane
+CLASS:Dread Necromancer	SPELLSTAT:CHA	MEMORIZE:NO	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Dread Necromancer|Caster_Level_Dread_Necromancer	DEFINE:Caster_Level_Dread_Necromancer|0	BONUS:VAR|Caster_Level_Dread_Necromancer|CL+Caster_Level_Bonus	DEFINE:CasterLevelBLDread_Necromancer|0	BONUS:VAR|CasterLevelBLDread_Necromancer|charbonusto("PCLEVEL","Dread_Necromancer")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Dread_Necromancer+CasterLevelBLDread_Necromancer|TYPE=Base
 ###Block
 1	ABILITY:Dread Necromancer Class Feature|AUTOMATIC|Dread Necromancer ~ Spellcasting|Dread Necromancer ~ Weapon and Armor Proficiency
 1	ABILITY:Dread Necromancer Class Feature|AUTOMATIC|Dread Necromancer ~ Charnel Touch|Dread Necromancer ~ Rebuke Undead
@@ -95,7 +96,7 @@ CLASS:Corrupt Avenger	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=B
 CLASS:Corrupt Avenger	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
 CLASS:Corrupt Avenger	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 CLASS:Corrupt Avenger	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
-CLASS:Corrupt Avenger	PRETEXT:Alignment: Non-evil Base attack bonus: +6 Taint: Moderate corruption	!PREALIGN:	PRETOTALAB:6
+CLASS:Corrupt Avenger	PRETEXT:Alignment: Non-evil Base attack bonus: +6 Taint: Moderate corruption	!PREALIGN:LE,NE,CE	PRETOTALAB:6
 CLASS:Corrupt Avenger	STARTSKILLPTS:2	CSKILL:Bluff|Climb|Concentration|Diplomacy|Intimidate|Jump|Knowledge (Local)|Listen|Ride|Sense Motive|Spot|Survival
 CLASS:Corrupt Avenger	FACT:SpellType|Arcane	SPELLSTAT:CHA	MEMORIZE:YES
 CLASS:Corrupt Avenger	BONUS:CASTERLEVEL|Corrupt Avenger|Caster_Level_CorruptAvenger	DEFINE:Caster_Level_CorruptAvenger|0	BONUS:VAR|Caster_Level_CorruptAvenger|CL+Caster_Level_Bonus	DEFINE:CasterLevelBLCorruptAvenger|0	BONUS:VAR|CasterLevelBLCorruptAvenger|charbonusto("PCLEVEL","Corrupt Avenger")
@@ -137,7 +138,7 @@ CLASS:Death Delver	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
 CLASS:Death Delver	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 CLASS:Death Delver	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 CLASS:Death Delver	PRETEXT:Saving Throws: Base Will Save +2 Skills: Concentration ranks, Heal 2 ranks, Knowledge (religion) 4 ranks Special: Must have had at least one near-death experience (fallen below 0 hit points and lived)	PRECHECKBASE:1,Will=2	PRESKILL:3,Concentration=8,Heal=2,Knowledge (Religion)=4
-CLASS:Death Delver	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Gather Information|Knowledge (Arcana)|Knowledge (religion)|Listen|TYPE=Profession|Search|Spellcraft|Spot
+CLASS:Death Delver	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Gather Information|Knowledge (arcana)|Knowledge (religion)|Listen|TYPE=Profession|Search|Spellcraft|Spot
 CLASS:Death Delver	FACT:SpellType|Divine	SPELLSTAT:WIS	MEMORIZE:NO
 CLASS:Death Delver	BONUS:CASTERLEVEL|Death Delver|Caster_Level_DeathDelver	DEFINE:Caster_Level_DeathDelver|0	BONUS:VAR|Caster_Level_DeathDelver|CL+Caster_Level_Bonus	DEFINE:CasterLevelBLDeathDelver|0	BONUS:VAR|CasterLevelBLDeathDelver|charbonusto("PCLEVEL","Death Delver")
 CLASS:Death Delver	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_DeathDelver+CasterLevelBLDeathDelver|TYPE=Base
@@ -176,7 +177,7 @@ CLASS:Dread Witch	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
 CLASS:Dread Witch	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 CLASS:Dread Witch	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 CLASS:Dread Witch	PRETEXT:Saving Throws: Base Will save +4 Skills: Knowledge (arcana) 3 ranks Spellcasting: Ability to cast cause fear and scare Special: Must have suffered at least one fear effect against which she failed her save.	PRESKILL:1,Knowledge (Arcana)=3	PRECHECKBASE:1,Will=4
-CLASS:Dread Witch	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Intimidate|Knowledge (Arcana)|Knowledge (the planes)|TYPE=Profession|Spellcraft
+CLASS:Dread Witch	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Intimidate|Knowledge (arcana)|Knowledge (The Planes)|TYPE=Profession|Spellcraft
 ###Block
 2:REPEATLEVEL:1	ADD:SPELLCASTER|ANY
 ###Block	
@@ -198,8 +199,8 @@ CLASS:Fiend-Blooded	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVA
 CLASS:Fiend-Blooded	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
 CLASS:Fiend-Blooded	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 CLASS:Fiend-Blooded	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
-CLASS:Fiend-Blooded	PRETEXT:Race: Any humanoid race (cannot already be a half-fiend); Alignment: Any nongood alignment Skills: Concentration ranks, Knowledge (arcana) ranks, Knowledge (the planes) ranks; Feats: Blood Calls to Blood*, Eschew Materials; Spellcasting: Must be able to cast 2nd-level arcane spells without preparation	PRERACE:1,RACETYPE=Humanoid	!PRETEMPLATE:1,Half-Fiend	!PREALIGN:	PREABILITY:1,CATEGORY=FEAT,lood Calls to Blood,Eschew Materials	PRESKILL:3,Concentration=8,Knowledge (arcana)=8,Knowledge (the planes)=8
-CLASS:Fiend-Blooded	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|Intimidate|Knowledge (Arcana)|Knowledge (the planes)|Spellcraft
+CLASS:Fiend-Blooded	PRETEXT:Race: Any humanoid race (cannot already be a half-fiend); Alignment: Any nongood alignment Skills: Concentration ranks, Knowledge (arcana) ranks, Knowledge (the planes) ranks; Feats: Blood Calls to Blood*, Eschew Materials; Spellcasting: Must be able to cast 2nd-level arcane spells without preparation	PRERACE:1,RACETYPE=Humanoid	!PRETEMPLATE:1,Half-Fiend	!PREALIGN:LG,NG,CG	PREABILITY:1,CATEGORY=FEAT,lood Calls to Blood,Eschew Materials	PRESKILL:3,Concentration=8,Knowledge (arcana)=8,Knowledge (the planes)=8
+CLASS:Fiend-Blooded	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|Intimidate|Knowledge (arcana)|Knowledge (The Planes)|Spellcraft
 ###Block
 1:REPEATLEVEL:1|SKIP=0|MAX=9	ADD:SPELLCASTER|ANY
 ###Block
@@ -222,8 +223,8 @@ CLASS:Purifier of the Hallowed Doctrine	BONUS:VAR|ClassBABModerate|classlevel("A
 CLASS:Purifier of the Hallowed Doctrine	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
 CLASS:Purifier of the Hallowed Doctrine	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 CLASS:Purifier of the Hallowed Doctrine	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
-CLASS:Purifier of the Hallowed Doctrine	PRETEXT:Alignment: Any good alignment or true neutral; Skills: Knowledge (arcana) 4 ranks, Knowledge (religion) 8 ranks; Feats: Pure Soul*; Special: Ability to turn undead	PREABILITY:1,CATEGORY=Special Ability,TYPE.Turn Undead	PRESKILL:2,Knowledge (Arcana)=4,Knowledge (Religion)=8	PREABILITY:1,CATEGORY=FEAT,Pure Soul	PREALIGN:
-CLASS:Purifier of the Hallowed Doctrine	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (history)|Knowledge (religion)|Knowledge (the planes)|TYPE=Profession|Spellcraft
+CLASS:Purifier of the Hallowed Doctrine	PRETEXT:Alignment: Any good alignment or true neutral; Skills: Knowledge (arcana) 4 ranks, Knowledge (religion) 8 ranks; Feats: Pure Soul*; Special: Ability to turn undead	PREABILITY:1,CATEGORY=Special Ability,TYPE.Turn Undead	PRESKILL:2,Knowledge (Arcana)=4,Knowledge (Religion)=8	PREABILITY:1,CATEGORY=FEAT,Pure Soul	PREALIGN:LG,NG,CG,TN
+CLASS:Purifier of the Hallowed Doctrine	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Knowledge (arcana)|Knowledge (History)|Knowledge (religion)|Knowledge (The Planes)|TYPE=Profession|Spellcraft
 ###Block
 1:REPEATLEVEL:2	ADD:SPELLCASTER|Divine
 ###Block

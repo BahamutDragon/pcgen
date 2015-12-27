@@ -183,7 +183,7 @@ CLASS:Cerebremancer	HD:4		TYPE:PC.Prestige.Psionic	FACT:ClassType|Prestige	FACT:
 # Class Name		Required Skill								Req. Spell Type
 CLASS:Cerebremancer	PRESKILL:2,Knowledge (Arcana)=6,Knowledge (Psionics)=6	PRESPELLTYPE:1,Arcane=2	PRESPELLTYPE:1,Psionic=2
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Cerebremancer	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher Script|Knowledge (Arcana)|Knowledge (psionics)|TYPE=Profession|Psicraft|Spellcraft
+CLASS:Cerebremancer	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher Script|Knowledge (arcana)|Knowledge (psionics)|TYPE=Profession|Psicraft|Spellcraft
 ###Block: Class Info
 1	ADD:SPELLCASTER|Arcane	ADD:SPELLCASTER|Psionic
 2	ADD:SPELLCASTER|Arcane	ADD:SPELLCASTER|Psionic
@@ -249,9 +249,9 @@ CLASS:Psionic Fist	SPELLSTAT:WIS	FACT:SpellType|Psionic	MEMORIZE:NO	BONUS:CASTER
 11	PREPCLEVEL:MIN=20
 
 
-# Class Name		Hit Dice	Type					Class Type			Abbreviation	Max Level	Source Page		Combat bonus										Modify VAR									Bonus
-CLASS:Illithid Slayer	HD:8		TYPE:PC.Prestige.Psionic	FACT:ClassType|Prestige	FACT:Abb|IlSl		MAXLEVEL:10	SOURCEPAGE:p.146	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|PsiCrystalLVL|CL|PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	DEFINE:Illithid_SlayerLVL|0	BONUS:VAR|Illithid_SlayerLVL|classlevel
-# Class Name		Required Feat				Required Skill					Required Template		PRETOTALAB
+# Class Name	Hit Dice	Type					Class Type			Abbreviation	Max Level	Source Page		Combat bonus										Modify VAR									Bonus
+CLASS:Illithid Slayer	HD:8		TYPE:PC.Prestige.Psionic	FACT:ClassType|Prestige	FACT:Abb|IlSl		MAXLEVEL:10	SOURCEPAGE:p.146	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|PsiCrystalLVL|CL|PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Required Feat	Required Skill					Required Template		PRETOTALAB
 CLASS:Illithid Slayer	PREABILITY:1,CATEGORY=FEAT,Track	PRESKILL:1,Knowledge (Dungeoneering)=4	PRETEMPLATE:1,Psionic	PRETOTALAB:4
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Illithid Slayer	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Knowledge (Dungeoneering)|Listen|Psicraft|Sense Motive|Spot|Survival
@@ -317,7 +317,7 @@ CLASS:Psion Uncarnate	STARTSKILLPTS:2	CSKILL:Autohypnosis|Bluff|Concentration|TY
 # Class Name		Hit Dice	Type					Class Type			Abbreviation	Max Level	Source Page		Combat bonus															Modify VAR																								Bonus
 CLASS:Pyrokineticist	HD:8		TYPE:PC.Prestige.Psionic	FACT:ClassType|Prestige	FACT:Abb|Pyr		MAXLEVEL:10	SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|PsiCrystalLVL|CL|PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required AL		Required Skill										Required Template
-CLASS:Pyrokineticist	PREALIGN:	PRESKILL:3,Concentration=8,Craft (Alchemy)=1,Knowledge (Psionics)=2	PRETEMPLATE:1,Psionic
+CLASS:Pyrokineticist	PREALIGN:CG,CN,CE	PRESKILL:3,Concentration=8,Craft (Alchemy)=1,Knowledge (Psionics)=2	PRETEMPLATE:1,Psionic
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Pyrokineticist	STARTSKILLPTS:2	CSKILL:Climb|Concentration|TYPE=Craft|Intimidate|Jump|Psicraft
 ###Block: Psionic Variables
@@ -358,7 +358,7 @@ CLASS:Thrallherd	STARTSKILLPTS:2	CSKILL:Autohypnosis|Bluff|Concentration|TYPE=Cr
 # Class Name	Hit Dice	Type					Class Type			Abbreviation	Max Level	Source Page		Combat bonus										Modify VAR									Bonus
 CLASS:War Mind	HD:10		TYPE:PC.Prestige.Psionic	FACT:ClassType|Prestige	FACT:Abb|WMnd		MAXLEVEL:10	SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|PsiCrystalLVL|CL|PREABILITY:1,CATEGORY=FEAT,Psicrystal Affinity	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Restricted AL		Required Skill								Required Template		PRETOTALAB
-CLASS:War Mind	!PREALIGN:	PRESKILL:2,Knowledge (History)=2,Knowledge (Psionics)=8	PRETEMPLATE:1,Psionic	PRETOTALAB:3
+CLASS:War Mind	!PREALIGN:CG,CN,CE	PRESKILL:2,Knowledge (History)=2,Knowledge (Psionics)=8	PRETEMPLATE:1,Psionic	PRETOTALAB:3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:War Mind	STARTSKILLPTS:2	CSKILL:Autohypnosis|Concentration|Intimidate|Knowledge (History)|Knowledge (psionics)|Psicraft
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level			Use Spell List

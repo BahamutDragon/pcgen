@@ -157,9 +157,9 @@ CLASS:Prismatic Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES
 # Class Name		Hit Dice	Type			Class Type		Abbreviation	Max Level		Source Page					Bonus
 CLASS:Agent Retriever	HD:6		TYPE:Epic.PC	FACT:ClassType|PC	FACT:Abb|Agr		MAXLEVEL:NOLIMIT	SOURCEPAGE:epicprestiegclasses.rtf
 # Class Name		Required AL		Required Feat	Required Lvl	Required Skill
-CLASS:Agent Retriever	PREALIGN:	PREABILITY:1,CATEGORY=FEAT,Track	PRELEVEL:MIN=20	PRESKILL:2,Knowledge (The Planes)=15,Gather Information=24
+CLASS:Agent Retriever	PREALIGN:LG,LN,LE	PREABILITY:1,CATEGORY=FEAT,Track	PRELEVEL:MIN=20	PRESKILL:2,Knowledge (The Planes)=15,Gather Information=24
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Agent Retriever	STARTSKILLPTS:6	CSKILL:Appraise|Decipher Script|Diplomacy|Forgery|Gather Information|Knowledge (Arcana)|Knowledge (Geography)|Knowledge (History)|Knowledge (Local)|Knowledge (The Planes)|Listen|Search|Spot|Survival
+CLASS:Agent Retriever	STARTSKILLPTS:6	CSKILL:Appraise|Decipher Script|Diplomacy|Forgery|Gather Information|Knowledge (arcana)|Knowledge (Geography)|Knowledge (History)|Knowledge (Local)|Knowledge (The Planes)|Listen|Search|Spot|Survival
 1:REPEATLEVEL:1																		ADD:SPELLCASTER|ANY
 1										BONUS:VAR|ARTracking|10*ceil(CL/5)	DEFINE:ARTracking|0					ABILITY:Special Ability|AUTOMATIC|Agent Retriever Tracking Bonus|Uncanny Location
 2																																						SPELLS:Class|TIMES=((var("CL=Agent Retriever")+3)/5)|CASTERLEVEL=14|Plane Shift,17+CHA
@@ -172,7 +172,7 @@ CLASS:Cosmic Descryer	HD:4		TYPE:Epic.PC	FACT:ClassType|PC	FACT:Abb|Cde		MAXLEVE
 # Class Name		Required Feat							Required Lvl	Required Skill					Req. Known Spell
 CLASS:Cosmic Descryer	PREABILITY:2,CATEGORY=FEAT,Spell Focus (Conjuration),Energy Resistance	PRELEVEL:MIN=20	PRESKILL:1,Knowledge (The Planes)=24	PRESPELL:1,Gate	PRESPELL:1,Planar Ally,Planar Ally (Lesser),Planar Ally (Greater),Planar Binding,Planar Binding (Lesser),Planar Binding (Greater)
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Cosmic Descryer	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|Diplomacy|Knowledge (Arcana)|Knowledge (Religion)|Knowledge (The Planes)|Sense Motive|Spellcraft|TYPE=Craft|TYPE=Profession
+CLASS:Cosmic Descryer	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|Diplomacy|Knowledge (arcana)|Knowledge (Religion)|Knowledge (The Planes)|Sense Motive|Spellcraft|TYPE=Craft|TYPE=Profession
 1										BONUS:VAR|SuperiorSummoning|4*ceil(CL/4)									ABILITY:Special Ability|AUTOMATIC|Superior Planar Summoning
 2																									ABILITY:Special Ability|AUTOMATIC|Naturalization
 2:REPEATLEVEL:2								BONUS:VAR|CSNaturalization|1							ADD:SPELLCASTER|ANY
@@ -196,7 +196,7 @@ CLASS:Divine Emissary	STARTSKILLPTS:4	CSKILL:Concentration|Diplomacy|Disguise|Ga
 # Class Name		Hit Dice	Type				Class Type			Abbreviation	Max Level		Source Page					Bonus
 CLASS:Epic Infiltrator	HD:6		TYPE:Prestige.Epic.PC	FACT:ClassType|Prestige	FACT:Abb|Ein		MAXLEVEL:NOLIMIT	SOURCEPAGE:epicprestiegclasses.rtf
 # Class Name		Required AL				Required Feat			Required Lvl	Required Skill
-CLASS:Epic Infiltrator	PREALIGN:	PREABILITY:2,CATEGORY=FEAT,Alertness,Polyglot	PRELEVEL:MIN=20	PRESKILL:4,Diplomacy=10,Spot=10,Bluff=24,Disguise=24
+CLASS:Epic Infiltrator	PREALIGN:LG,LN,LE,NG,TN,NE	PREABILITY:2,CATEGORY=FEAT,Alertness,Polyglot	PRELEVEL:MIN=20	PRESKILL:4,Diplomacy=10,Spot=10,Bluff=24,Disguise=24
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Epic Infiltrator	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Intimidate|Jump|Listen|Move Silently|Open Lock|Sense Motive|Sleight of Hand|Spot|TYPE=Craft|TYPE=Profession
 1												BONUS:VAR|EICover|(2+ceil(CL/4))	BONUS:VAR|SneakAttackDice|ceil(classlevel("APPLIEDAS=NONEPIC")/3)	ABILITY:Special Ability|AUTOMATIC|Improved Cover Identity|Sneak Attack
@@ -225,7 +225,7 @@ CLASS:High Proselytizer	HD:8		TYPE:Epic.PC	FACT:ClassType|PC	FACT:Abb|Hig		MAXLE
 # Class Name		Required Feat					Required Lvl	Multiple Requirements													Req. Spell Type
 CLASS:High Proselytizer	PREABILITY:2,CATEGORY=FEAT,Leadership,Epic Leadership	PRELEVEL:MIN=20	PREMULT:2,[PRESKILL:1,Knowledge (Religion)=24,Knowledge (Nature)=24],[PRESKILL:1,Diplomacy=12]	PRESPELLTYPE:1,Divine=5
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:High Proselytizer	STARTSKILLPTS:2	CSKILL:Concentration|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (Religion)|Sense Motive|Spellcraft|TYPE=Craft|TYPE=Profession
+CLASS:High Proselytizer	STARTSKILLPTS:2	CSKILL:Concentration|Diplomacy|Heal|Knowledge (arcana)|Knowledge (Religion)|Sense Motive|Spellcraft|TYPE=Craft|TYPE=Profession
 1											BONUS:VAR|HPProsetilyze|ceil(CL/10)					ABILITY:Special Ability|AUTOMATIC|Proselytize
 2:REPEATLEVEL:2															ADD:SPELLCASTER|Divine
 2																													SPELLS:Class|TIMES=((var("CL=High Proselytizer")+2)/4)|CASTERLEVEL=(TL)|Heal,16+WIS
@@ -265,7 +265,7 @@ CLASS:Perfect Wight	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|Diplomac
 # Class Name		Hit Dice	Type			Class Type		Abbreviation	Max Level		Source Page					Bonus
 CLASS:Union Sentinel	HD:10		TYPE:Epic.PC	FACT:ClassType|PC	FACT:Abb|Sen		MAXLEVEL:NOLIMIT	SOURCEPAGE:epicprestiegclasses.rtf
 # Class Name		Required AL		Required Feat						Required Lvl	Required Skill						PRETOTALAB
-CLASS:Union Sentinel	PREALIGN:	PREABILITY:3,CATEGORY=FEAT,Alertness,Improved Disarm,Armor Skin	PRELEVEL:MIN=20	PRESKILL:2,Diplomacy=8,TYPE.Knowledge (Local)=8	PRETOTALAB:21
+CLASS:Union Sentinel	PREALIGN:LG,LN,LE	PREABILITY:3,CATEGORY=FEAT,Alertness,Improved Disarm,Armor Skin	PRELEVEL:MIN=20	PRESKILL:2,Diplomacy=8,TYPE.Knowledge (Local)=8	PRETOTALAB:21
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Union Sentinel	STARTSKILLPTS:2	CSKILL:Diplomacy|Gather Information|Intimidate|Knowledge (Local)|Listen|Search|Sense Motive|Spot|TYPE=Profession
 1																SPELLS:Class|TIMES=(ceil(var("CL=Union Sentinel")/7))|CASTERLEVEL=15|Sending,15+CHA	SPELLS:Class|TIMES=(ceil(var("CL=Union Sentinel")/3))|CASTERLEVEL=15|Shield of Law,18+CHA

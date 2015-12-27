@@ -53,9 +53,9 @@ SOURCELONG:Complete Warrior	SOURCESHORT:CW	SOURCEDATE:2003-12
 # Class Name	Hit Dice	Type							Ex Class			Source Page		Combat bonus										Bonus
 CLASS:Hexblade	HD:10		TYPE:Base.PC.Martial.Spellcaster.Arcane	EXCLASS:Ex Hexblade	SOURCEPAGE:p.5	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Restricted AL
-CLASS:Hexblade	!PREALIGN:
+CLASS:Hexblade	!PREALIGN:LG,NG,CG
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Hexblade	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Diplomacy|Intimidate|Knowledge (Arcana)|TYPE=Profession|Ride|Spellcraft
+CLASS:Hexblade	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Diplomacy|Intimidate|Knowledge (arcana)|TYPE=Profession|Ride|Spellcraft
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Hexblade	SPELLSTAT:CHA	FACT:SpellType|Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Hexblade|Caster_Level_BL_Stripped_Hexblade	DEFINE:Caster_Level_BL_Stripped_Hexblade|0	BONUS:VAR|Caster_Level_BL_Stripped_Hexblade|Caster_Level_Hexblade-CasterLevelBLHexblade	BONUS:VAR|Caster_Level_Hexblade|CL+Caster_Level_Bonus+CasterLevelBLHexblade	DEFINE:CasterLevelBLHexblade|0	BONUS:VAR|CasterLevelBL_x_Hexblade|charbonusto("PCLEVEL","Hexblade")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Hexblade|TYPE=Base/2|PRECLASS:1,Hexblade=4
 1	ABILITY:Hexblade Class Feature|AUTOMATIC|Hexblade ~ Weapon and Armor Proficiency|!PREABILITY:1,CATEGORY=ACF,TYPE.HexbladeProficiencies
@@ -94,7 +94,7 @@ CLASS:Hexblade	SPELLSTAT:CHA	FACT:SpellType|Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL
 # Class Name	Hit Dice	Type							Source Page		Visible	Combat bonus										Bonus
 CLASS:Ex Hexblade	HD:10		TYPE:Base.PC.Martial.CompleteWarrior	SOURCEPAGE:p.8	VISIBLE:NO	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Ex Hexblade	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Diplomacy|Intimidate|Knowledge (Arcana)|TYPE=Profession|Ride|Spellcraft
+CLASS:Ex Hexblade	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Diplomacy|Intimidate|Knowledge (arcana)|TYPE=Profession|Ride|Spellcraft
 1	ABILITY:Hexblade Class Feature|AUTOMATIC|Hexblade ~ Weapon and Armor Proficiency
 3	ABILITY:Hexblade Class Feature|AUTOMATIC|Hexblade ~ Mettle
 5	ABILITY:Hexblade Class Feature|AUTOMATIC|Hexblade ~ Bonus Feat
@@ -106,9 +106,9 @@ CLASS:Ex Hexblade	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Diplomac
 # Class Name	Hit Dice	Type					Abbreviation	Max Level	Ex Class			Source Page		Combat bonus										Bonus
 CLASS:Samurai	HD:10		TYPE:Base.PC.Martial.Oriental	FACT:Abb|Sam		MAXLEVEL:20	EXCLASS:Ex Samurai	SOURCEPAGE:p.8	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Required AL
-CLASS:Samurai	PREALIGN:
+CLASS:Samurai	PREALIGN:LG,LN,LE
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Samurai	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Intimidate|Knowledge (History)|Knowledge (Nobility and Royalty)|Ride|Sense Motive
+CLASS:Samurai	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Intimidate|Knowledge (History)|Knowledge (nobility and royalty)|Ride|Sense Motive
 1	ABILITY:Samurai Class Feature|AUTOMATIC|Samurai ~ Weapon and Armor Proficiency|!PREABILITY:1,CATEGORY=ACF,TYPE.SamuraiProficiencies
 1	ABILITY:Samurai Class Feature|AUTOMATIC|Samurai ~ Daisho Proficiency
 2	ABILITY:Samurai Class Feature|AUTOMATIC|Samurai ~ Two Swords as One
@@ -132,7 +132,7 @@ CLASS:Samurai	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Intimida
 # Class Name	Hit Dice	Type					Source Page		Visible	Combat bonus										Bonus
 CLASS:Ex Samurai	HD:10		TYPE:Base.PC.Martial.Oriental	SOURCEPAGE:p.8	VISIBLE:NO	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Ex Samurai	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Intimidate|Knowledge (History)|Knowledge (Nobility and Royalty)|Ride|Sense Motive
+CLASS:Ex Samurai	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Intimidate|Knowledge (History)|Knowledge (nobility and royalty)|Ride|Sense Motive
 1	ABILITY:Samurai Class Feature|AUTOMATIC|Samurai ~ Weapon and Armor Proficiency|!PREABILITY:1,CATEGORY=ACF,TYPE.SamuraiProficiencies
 1	ABILITY:Samurai Class Feature|AUTOMATIC|Samurai ~ Daisho Proficiency
 2	ABILITY:Samurai Class Feature|AUTOMATIC|Samurai ~ Two Swords as One
@@ -203,7 +203,7 @@ CLASS:Bladesinger	HD:8		TYPE:Prestige	FACT:Abb|Bld		SOURCEPAGE:p.17	BONUS:COMBAT
 # Class Name	Required Feat																Multiple Requirements								Required Skill														Required Casting Type		Req. Spell Type		PRETOTALAB
 CLASS:Bladesinger	PREABILITY:3,CATEGORY=FEAT,Combat Casting,Combat Expertise,Dodge	PREABILITY:1,CATEGORY=FEAT,Weapon Focus (Longsword),Weapon Focus (Rapier)	PREMULT:1,[PRERACE:1,Elf%,Half-Elf],[PRERACE:1,RACESUBTYPE=Elf]	PRESKILL:4,Balance=2,Perform (Dance)=2,Perform (Sing)=2,Tumble=2	PRESKILL:1,Concentration=4	PRESPELLCAST:TYPE=Arcane	PRESPELLTYPE:1,Arcane=1	PRETOTALAB:5
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Bladesinger	STARTSKILLPTS:2	CSKILL:Balance|Concentration|Jump|Knowledge (Arcana)|TYPE=Perform|Spellcraft|Tumble
+CLASS:Bladesinger	STARTSKILLPTS:2	CSKILL:Balance|Concentration|Jump|Knowledge (arcana)|TYPE=Perform|Spellcraft|Tumble
 1	ABILITY:Bladesinger Class Feature|AUTOMATIC|Bladesinger ~ Weapon and Armor Proficiency
 1	ABILITY:Bladesinger Class Feature|AUTOMATIC|Bladesinger ~ Bladesong Style
 2	ABILITY:Bladesinger Class Feature|AUTOMATIC|Bladesinger ~ Lesser Spellsong
@@ -223,9 +223,9 @@ CLASS:Bladesinger	STARTSKILLPTS:2	CSKILL:Balance|Concentration|Jump|Knowledge (A
 # Class Name	Hit Dice	Type			Abbreviation	Source Page		Combat bonus										Bonus
 CLASS:Cavalier	HD:10		TYPE:Prestige	FACT:Abb|Cav		SOURCEPAGE:p.19	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required AL		Required Feat											Required Skill												PRETOTALAB
-CLASS:Cavalier	PREALIGN:	PREABILITY:4,CATEGORY=FEAT,Spirited Charge,Weapon Focus (Lance),Mounted Combat,Ride By Attack	PRESKILL:2,Handle Animal=4,Knowledge (Nobility and Royalty)=4	PRESKILL:1,Ride=6	PRETOTALAB:8
+CLASS:Cavalier	PREALIGN:LG,LN,LE	PREABILITY:4,CATEGORY=FEAT,Spirited Charge,Weapon Focus (Lance),Mounted Combat,Ride By Attack	PRESKILL:2,Handle Animal=4,Knowledge (Nobility and Royalty)=4	PRESKILL:1,Ride=6	PRETOTALAB:8
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Cavalier	STARTSKILLPTS:2	CSKILL:Diplomacy|Handle Animal|Intimidate|Knowledge (Nobility and Royalty)|TYPE=Profession|Ride
+CLASS:Cavalier	STARTSKILLPTS:2	CSKILL:Diplomacy|Handle Animal|Intimidate|Knowledge (nobility and royalty)|TYPE=Profession|Ride
 1	ABILITY:Cavalier Class Feature|AUTOMATIC|Cavalier ~ Weapon and Armor Proficiency
 1	ABILITY:Cavalier Class Feature|AUTOMATIC|Cavalier ~ Mounted Weapon Bonus|Cavalier ~ Special Mount
 1	ABILITY:Cavalier Class Feature|AUTOMATIC|Cavalier ~ Courtly Knowledge|Cavalier ~ Ride Bonus
@@ -345,7 +345,7 @@ CLASS:Exotic Weapon Master	STARTSKILLPTS:2	CSKILL:TYPE=Craft|Intimidate|TYPE=Pro
 # Class Name		Hit Dice	Type			Abbreviation	Source Page		Combat bonus										Bonus
 CLASS:Eye of Gruumsh	HD:12		TYPE:Prestige	FACT:Abb|Eye		SOURCEPAGE:p.31	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required AL		Required Deity		Required Feat													Multiple Requirements								Required Text								PRETOTALAB
-CLASS:Eye of Gruumsh	PREALIGN:	PREDEITY:1,Gruumsh	PREABILITY:2,CATEGORY=FEAT,Exotic Weapon Proficiency (Axe (Orc Double)),Weapon Focus (Axe (Orc Double))	PREMULT:1,[PRERACE:1,Orc%,Half-Orc],[PRERACE:1,RACESUBTYPE=Orc]	PRETEXT:Must pop out his own right eye in a special ritual	PRETOTALAB:6
+CLASS:Eye of Gruumsh	PREALIGN:CE,CN,NE	PREDEITY:1,Gruumsh	PREABILITY:2,CATEGORY=FEAT,Exotic Weapon Proficiency (Axe (Orc Double)),Weapon Focus (Axe (Orc Double))	PREMULT:1,[PRERACE:1,Orc%,Half-Orc],[PRERACE:1,RACESUBTYPE=Orc]	PRETEXT:Must pop out his own right eye in a special ritual	PRETOTALAB:6
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Eye of Gruumsh	STARTSKILLPTS:2	CSKILL:Climb|Intimidate|Jump|Ride|Survival|Swim
 1	ABILITY:Eye of Gruumsh Class Feature|AUTOMATIC|Eye of Gruumsh ~ Weapon and Armor Proficiency
@@ -368,7 +368,7 @@ CLASS:Eye of Gruumsh	STARTSKILLPTS:2	CSKILL:Climb|Intimidate|Jump|Ride|Survival|
 # Class Name			Hit Dice	Type			Abbreviation	Source Page		Combat bonus										Bonus
 CLASS:Frenzied Berserker	HD:12		TYPE:Prestige	FACT:Abb|Fre		SOURCEPAGE:p.34	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name			Required AL				Required Feat									PRETOTALAB
-CLASS:Frenzied Berserker	PREALIGN:	PREABILITY:4,CATEGORY=FEAT,Cleave,Destructive Rage,Intimidating Rage,Power Attack	PRETOTALAB:6
+CLASS:Frenzied Berserker	PREALIGN:NG,TN,NE,CG,CN,CE	PREABILITY:4,CATEGORY=FEAT,Cleave,Destructive Rage,Intimidating Rage,Power Attack	PRETOTALAB:6
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Frenzied Berserker	STARTSKILLPTS:2	CSKILL:Climb|Intimidate|Jump|Ride|Ride|Swim
 1	ABILITY:FEAT|VIRTUAL|Diehard
@@ -442,7 +442,7 @@ CLASS:Hulking Hurler	STARTSKILLPTS:2	CSKILL:Climb|Intimidate|Jump|Swim
 # Class Name			Hit Dice	Type			Abbreviation	Source Page		Combat bonus										Bonus
 CLASS:Hunter of the Dead	HD:8		TYPE:Prestige	FACT:Abb|Hud		SOURCEPAGE:p.42	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name			Required Ability							Required AL				Required Skill				Required Text													PRETOTALAB
-CLASS:Hunter of the Dead	PREABILITY:1,CATEGORY=Special Ability,Turn Undead	PREALIGN:	PRESKILL:1,Knowledge (Religion)=5	PRETEXT:Must have lost one level or had an ability score drained by an undead creature.	PRETOTALAB:5
+CLASS:Hunter of the Dead	PREABILITY:1,CATEGORY=Special Ability,Turn Undead	PREALIGN:LG,LN,NG,TN,CG,CN	PRESKILL:1,Knowledge (Religion)=5	PRETEXT:Must have lost one level or had an ability score drained by an undead creature.	PRETOTALAB:5
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Hunter of the Dead	STARTSKILLPTS:2	CSKILL:Concentration|Heal|Knowledge (Religion)|TYPE=Profession|Ride|Search
 # Class Name			Spell Stat		Spell Type		Automatically Known Spell Levels				Spellbook		Caster level
@@ -493,7 +493,7 @@ CLASS:Invisible Blade	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Esca
 # Class Name	Hit Dice	Type			Abbreviation	Source Page		Combat bonus										Bonus
 CLASS:Justicar	HD:10		TYPE:Prestige	FACT:Abb|Jus		SOURCEPAGE:p.47	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required AL		Required Feat						Required Skill							PRETOTALAB
-CLASS:Justicar	PREALIGN:	PREABILITY:1,CATEGORY=FEAT,Skill Focus (Gather Information)	PRESKILL:3,Gather Information=5,Search=5,Survival=5	PRETOTALAB:6
+CLASS:Justicar	PREALIGN:LG,LN,LE	PREABILITY:1,CATEGORY=FEAT,Skill Focus (Gather Information)	PRESKILL:3,Gather Information=5,Search=5,Survival=5	PRETOTALAB:6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Justicar	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Disguise|Gather Information|Heal|Hide|Intimidate|Jump|TYPE=Knowledge|Listen|Move Silently|Open Lock|Ride|Search|Sense Motive|Spot|Survival|Swim|Use Rope
 1	ABILITY:Justicar Class Feature|AUTOMATIC|Justicar ~ Multiclass Note|Justicar ~ Weapon and Armor Proficiency
@@ -514,9 +514,9 @@ CLASS:Justicar	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Disguise|Gather Information|He
 # Class Name	Hit Dice	Type			Abbreviation	Source Page		Combat bonus															Modify VAR														Bonus
 CLASS:Kensai	HD:10		TYPE:Prestige	FACT:Abb|Ken		SOURCEPAGE:p.49	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required AL		Required Feat											Required Skill						Required Text											PRETOTALAB
-CLASS:Kensai	PREALIGN:	PREABILITY:1,CATEGORY=FEAT,Combat Expertise	PREABILITY:1,CHECKMULT,CATEGORY=FEAT,Weapon Focus (TYPE=ANY)	PRESKILL:3,Concentration=5,Diplomacy=5,Ride=5	PRETEXT:Must complete an oath of service to either an overlord or an ideal	PRETOTALAB:5
+CLASS:Kensai	PREALIGN:LG,LN,LE	PREABILITY:1,CATEGORY=FEAT,Combat Expertise	PREABILITY:1,CHECKMULT,CATEGORY=FEAT,Weapon Focus (TYPE=ANY)	PRESKILL:3,Concentration=5,Diplomacy=5,Ride=5	PRETEXT:Must complete an oath of service to either an overlord or an ideal	PRETOTALAB:5
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Kensai	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Diplomacy|Intimidate|Jump|Knowledge (Local)|Knowledge (Nobility and Royalty)|Ride|Sense Motive
+CLASS:Kensai	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Diplomacy|Intimidate|Jump|Knowledge (Local)|Knowledge (nobility and royalty)|Ride|Sense Motive
 1	ABILITY:Kensai Class Feature|AUTOMATIC|Kensai ~ Weapon and Armor Proficiency
 2	ABILITY:Kensai Class Feature|AUTOMATIC|Kensai ~ Power Surge
 4	ABILITY:Kensai Class Feature|AUTOMATIC|Kensai ~ Ki Projection
@@ -535,7 +535,7 @@ CLASS:Kensai	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Diplo
 # Class Name			Hit Dice	Type			Abbreviation	Source Page		Combat bonus										Bonus
 CLASS:Knight of the Chalice	HD:10		TYPE:Prestige	FACT:Abb|Cha		SOURCEPAGE:p.53	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name			Required AL	Required Skill								Req. Known Spell				Required Casting Type		Req. Spell Type		PRETOTALAB
-CLASS:Knight of the Chalice	PREALIGN:	PRESKILL:2,Knowledge (The Planes)=5,Knowledge (Religion)=10	PRESPELL:1,Protection from Evil	PRESPELLCAST:TYPE=Divine	PRESPELLTYPE:1,Divine=1	PRETOTALAB:8
+CLASS:Knight of the Chalice	PREALIGN:LG	PRESKILL:2,Knowledge (The Planes)=5,Knowledge (Religion)=10	PRESPELL:1,Protection from Evil	PRESPELLCAST:TYPE=Divine	PRESPELLTYPE:1,Divine=1	PRETOTALAB:8
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Knight of the Chalice	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Intimidate|Knowledge (the planes)|Knowledge (Religion)|TYPE=Profession|Sense Motive
 # Class Name			Spell Stat		Spell Type		Automatically Known Spell Levels				Spellbook		Caster level
@@ -569,9 +569,9 @@ CLASS:Knight of the Chalice	SPELLSTAT:WIS	FACT:SpellType|Divine	KNOWNSPELLS:LEVE
 # Class Name		Hit Dice	Type			Abbreviation	Ex Class				Source Page		Combat bonus										Bonus
 CLASS:Knight Protector	HD:10		TYPE:Prestige	FACT:Abb|Kni		EXCLASS:Ex Knight Protector	SOURCEPAGE:p.55	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Required AL		Required Feat												Required Skill											PRETOTALAB
-CLASS:Knight Protector	PREALIGN:	PREABILITY:5,CATEGORY=FEAT,Armor Proficiency (Heavy),Cleave,Great Cleave,Mounted Combat,Power Attack	PRESKILL:3,Diplomacy=6,Ride=6,Knowledge (Nobility and Royalty)=4	PRETOTALAB:5
+CLASS:Knight Protector	PREALIGN:LG,LN	PREABILITY:5,CATEGORY=FEAT,Armor Proficiency (Heavy),Cleave,Great Cleave,Mounted Combat,Power Attack	PRESKILL:3,Diplomacy=6,Ride=6,Knowledge (Nobility and Royalty)=4	PRETOTALAB:5
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Knight Protector	STARTSKILLPTS:2	CSKILL:Diplomacy|Intimidate|Knowledge (Nobility and Royalty)|Ride|Spot
+CLASS:Knight Protector	STARTSKILLPTS:2	CSKILL:Diplomacy|Intimidate|Knowledge (nobility and royalty)|Ride|Spot
 1	ABILITY:Knight Protector Class Feature|AUTOMATIC|Knight Protector ~ Weapon and Armor Proficiency
 1	ABILITY:Knight Protector Class Feature|AUTOMATIC|Knight Protector ~ Defensive Stance|Knight Protector ~ Shining Beacon
 2	ABILITY:Knight Protector Class Feature|AUTOMATIC|Knight Protector ~ Best Effort|Knight Protector ~ Iron Will
@@ -589,7 +589,7 @@ CLASS:Knight Protector	STARTSKILLPTS:2	CSKILL:Diplomacy|Intimidate|Knowledge (No
 # Class Name			Hit Dice	Type			Abbreviation	Source Page		Visible	Combat bonus										Bonus
 CLASS:Ex Knight Protector	HD:10		TYPE:Prestige	FACT:Abb|XKni		SOURCEPAGE:p.55	VISIBLE:NO	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name			Skill Pts/Lvl	Class Skill
-CLASS:Ex Knight Protector	STARTSKILLPTS:2	CSKILL:Diplomacy|Intimidate|Knowledge (Nobility and Royalty)|Ride|Spot
+CLASS:Ex Knight Protector	STARTSKILLPTS:2	CSKILL:Diplomacy|Intimidate|Knowledge (nobility and royalty)|Ride|Spot
 1	ABILITY:Knight Protector Class Feature|AUTOMATIC|Knight Protector ~ Weapon and Armor Proficiency
 1	ABILITY:Knight Protector Class Feature|AUTOMATIC|Knight Protector ~ Defensive Stance
 2	ABILITY:Knight Protector Class Feature|AUTOMATIC|Knight Protector ~ Best Effort|Knight Protector ~ Iron Will
@@ -623,7 +623,7 @@ CLASS:Master of the Unseen Hand	HD:4		TYPE:Prestige	FACT:Abb|Muh		MAXLEVEL:5	SOU
 # Class Name				Required Skill			Req. Known Spell
 CLASS:Master of the Unseen Hand	PRESKILL:1,Concentration=8	PRESPELL:1,Telekinesis
 # Class Name				Skill Pts/Lvl	Class Skill
-CLASS:Master of the Unseen Hand	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Intimidate|Knowledge (Arcana)|TYPE=Profession|Spellcraft
+CLASS:Master of the Unseen Hand	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Intimidate|Knowledge (arcana)|TYPE=Profession|Spellcraft
 1	ABILITY:Master of the Unseen Hand Class Feature|AUTOMATIC|Master of the Unseen Hand ~ Weapon and Armor Proficiency
 1	ABILITY:Master of the Unseen Hand Class Feature|AUTOMATIC|Master of the Unseen Hand ~ Versatile Telekinesis
 2	ABILITY:Master of the Unseen Hand Class Feature|AUTOMATIC|Master of the Unseen Hand ~ Sustained Concentration|Master of the Unseen Hand ~ Telekinetic Wielder
@@ -651,7 +651,7 @@ CLASS:Mindspy	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Intimidate|T
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
 CLASS:Nature's Warrior	HD:10		TYPE:Prestige	FACT:Abb|NWr		MAXLEVEL:5	SOURCEPAGE:p.63	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required Ability							Required AL		Required Feat	Required Skill												PRETOTALAB
-CLASS:Nature's Warrior	PREABILITY:1,CATEGORY=Special Ability,TYPE.WildShape	PREALIGN:	PREABILITY:1,CATEGORY=FEAT,Track	PRESKILL:2,Knowledge (Nature)=8,Survival=8	PRESKILL:1,Knowledge (The Planes)=2	PRETOTALAB:4
+CLASS:Nature's Warrior	PREABILITY:1,CATEGORY=Special Ability,TYPE.WildShape	PREALIGN:LN,TN,CN	PREABILITY:1,CATEGORY=FEAT,Track	PRESKILL:2,Knowledge (Nature)=8,Survival=8	PRESKILL:1,Knowledge (The Planes)=2	PRETOTALAB:4
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Nature's Warrior	STARTSKILLPTS:2	CSKILL:Diplomacy|Handle Animal|Intimidate|Jump|Knowledge (Nature)|Listen|Survival|Swim
 1	ABILITY:Nature's Warrior Class Feature|AUTOMATIC|Nature's Warrior ~ Weapon and Armor Proficiency
@@ -668,7 +668,7 @@ CLASS:Occult Slayer	HD:8		TYPE:Prestige	FACT:Abb|Osl		MAXLEVEL:5	SOURCEPAGE:p.66
 # Class Name		Required Feat									Required Skill								PRETOTALAB
 CLASS:Occult Slayer	PREABILITY:1,CATEGORY=FEAT,Improved Initiative	PREABILITY:1,CATEGORY=FEAT,Weapon Focus (TYPE=ANY)	PRESKILL:1,Knowledge (Arcana)=4	PRESKILL:1,Spellcraft=3	PRETOTALAB:5
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Occult Slayer	STARTSKILLPTS:2	CSKILL:Bluff|TYPE=Craft|Gather Information|Knowledge (Arcana)|TYPE=Profession|Sense Motive|Spellcraft
+CLASS:Occult Slayer	STARTSKILLPTS:2	CSKILL:Bluff|TYPE=Craft|Gather Information|Knowledge (arcana)|TYPE=Profession|Sense Motive|Spellcraft
 1	ABILITY:Occult Slayer Class Feature|AUTOMATIC|Occult Slayer ~ Weapon and Armor Proficiency
 1	ABILITY:Occult Slayer Class Feature|AUTOMATIC|Occult Slayer ~ Magical Defense
 2	ABILITY:Occult Slayer Class Feature|AUTOMATIC|Occult Slayer ~ Mind Over Magic|Occult Slayer ~ Vicious Strike
@@ -706,7 +706,7 @@ CLASS:Order of the Bow Initiate	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Knowledg
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
 CLASS:Purple Dragon Knight	HD:10		TYPE:Prestige	FACT:Abb|Prp		MAXLEVEL:5	SOURCEPAGE:p.70	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name			Required AL			Required Feat				Required Skill										Required Text						PRETOTALAB
-CLASS:Purple Dragon Knight	PREALIGN:	PREABILITY:2,CATEGORY=FEAT,Mounted Combat,Negotiator	PRESKILL:1,Diplomacy=1,Intimidate=1	PRESKILL:3,Listen=2,Ride=2,Spot=2	PRETEXT:Must be member of the Purple Dragons	PRETOTALAB:5
+CLASS:Purple Dragon Knight	PREALIGN:LG,NG,LN,TN	PREABILITY:2,CATEGORY=FEAT,Mounted Combat,Negotiator	PRESKILL:1,Diplomacy=1,Intimidate=1	PRESKILL:3,Listen=2,Ride=2,Spot=2	PRETEXT:Must be member of the Purple Dragons	PRETOTALAB:5
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Purple Dragon Knight	STARTSKILLPTS:2	CSKILL:Climb|Diplomacy|Handle Animal|Intimidate|Knowledge (Local)|Jump|Ride|Swim
 1	ABILITY:Purple Dragon Knight Class Feature|AUTOMATIC|Purple Dragon Knight ~ Weapon and Armor Proficiency
@@ -724,7 +724,7 @@ CLASS:Purple Dragon Knight	STARTSKILLPTS:2	CSKILL:Climb|Diplomacy|Handle Animal|
 # Class Name	Hit Dice	Type			Abbreviation	Source Page		Combat bonus															Modify VAR														Bonus
 CLASS:Rage Mage	HD:8		TYPE:Prestige	FACT:Abb|Rgm		SOURCEPAGE:p.72	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Required Ability						Required AL				Required Feat									Required Casting Type		Req. Spell Type		PRETOTALAB
-CLASS:Rage Mage	PREABILITY:1,CATEGORY=Special Ability,TYPE.Rage	PREALIGN:	PREABILITY:1,CATEGORY=FEAT,Combat Casting	PREABILITY:2,CATEGORY=FEAT,Mounted Combat,Negotiator	PRESPELLCAST:TYPE=Arcane	PRESPELLTYPE:1,Arcane=2	PRETOTALAB:4
+CLASS:Rage Mage	PREABILITY:1,CATEGORY=Special Ability,TYPE.Rage	PREALIGN:NG,TN,NE,CG,CN,CE	PREABILITY:1,CATEGORY=FEAT,Combat Casting	PREABILITY:2,CATEGORY=FEAT,Mounted Combat,Negotiator	PRESPELLCAST:TYPE=Arcane	PRESPELLTYPE:1,Arcane=2	PRETOTALAB:4
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Rage Mage	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Profession|Spellcraft|Survival
 1	ABILITY:Rage Mage Class Feature|AUTOMATIC|Rage Mage ~ Weapon and Armor Proficiency
@@ -748,7 +748,7 @@ CLASS:Rage Mage	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Profession|Spellcraft|
 # Class Name	Hit Dice	Type			Abbreviation	Source Page		Combat bonus										Bonus
 CLASS:Ravager	HD:10		TYPE:Prestige	FACT:Abb|Rav		SOURCEPAGE:p.73	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Required AL		Required Feat					Required Skill										Required Text							PRETOTALAB
-CLASS:Ravager	PREALIGN:	PREABILITY:2,CATEGORY=FEAT,Improved Sunder,Power Attack	PRESKILL:2,Intimidate=3,Knowledge (Religion)=3	PRESKILL:1,Survival=4	PRETEXT:Must survive the ravager initiation rites	PRETOTALAB:5
+CLASS:Ravager	PREALIGN:CE,NE	PREABILITY:2,CATEGORY=FEAT,Improved Sunder,Power Attack	PRESKILL:2,Intimidate=3,Knowledge (Religion)=3	PRESKILL:1,Survival=4	PRETEXT:Must survive the ravager initiation rites	PRETOTALAB:5
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Ravager	STARTSKILLPTS:2	CSKILL:Intimidate|Knowledge (Religion)|Move Silently|TYPE=Profession|Ride
 1	ABILITY:Ravager Class Feature|AUTOMATIC|Ravager ~ Weapon and Armor Proficiency
@@ -784,9 +784,9 @@ CLASS:Reaping Mauler	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Escape Artist|Intim
 # Class Name	Hit Dice	Type				Abbreviation	Source Page		Combat bonus										Bonus
 CLASS:Ronin		HD:10		TYPE:Prestige.Oriental	FACT:Abb|Ron		SOURCEPAGE:p.77	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Required AL				Required Feat							Required Text																PRETOTALAB
-CLASS:Ronin		PREALIGN:	PREABILITY:1,CATEGORY=FEAT,Exotic Weapon Proficiency (Sword (Bastard))	PRETEXT:Must have fled or exiled from the service of a feudal lord because disobeying, cowardice or similar	PRETOTALAB:6
+CLASS:Ronin		PREALIGN:NG,TN,NE,CG,CN,CE	PREABILITY:1,CATEGORY=FEAT,Exotic Weapon Proficiency (Sword (Bastard))	PRETEXT:Must have fled or exiled from the service of a feudal lord because disobeying, cowardice or similar	PRETOTALAB:6
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Ronin		STARTSKILLPTS:2	CSKILL:Bluff|Disguise|Intimidate|Knowledge (History)|Knowledge (Nobility and Royalty)|Ride|Sense Motive
+CLASS:Ronin		STARTSKILLPTS:2	CSKILL:Bluff|Disguise|Intimidate|Knowledge (History)|Knowledge (nobility and royalty)|Ride|Sense Motive
 # ex-samurai
 1	ABILITY:Ronin Class Feature|AUTOMATIC|Ronin ~ Weapon and Armor Proficiency
 1	ABILITY:Ronin Class Feature|AUTOMATIC|Samurai ~ Kiai Smite|PRECLASS:1,Ex Samurai=1
@@ -856,7 +856,7 @@ CLASS:Stonelord	STARTSKILLPTS:2	CSKILL:Climb|Concentration|TYPE=Knowledge|TYPE=P
 # Class Name		Hit Dice	Type			Abbreviation	Source Page		Define				Combat bonus															Modify VAR														Bonus
 CLASS:Tattooed Monk	HD:8		TYPE:Prestige	FACT:Abb|Ttm		SOURCEPAGE:p.82	DEFINE:TtmTattooNumber|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Required AL		Required Feat									Required Skill				PRETOTALAB
-CLASS:Tattooed Monk	PREALIGN:	PREABILITY:3,CATEGORY=FEAT,Endurance,Improved Grapple,Improved Unarmed Strike	PRESKILL:1,Knowledge (Religion)=8	PRETOTALAB:3
+CLASS:Tattooed Monk	PREALIGN:LG,LN,LE	PREABILITY:3,CATEGORY=FEAT,Endurance,Improved Grapple,Improved Unarmed Strike	PRESKILL:1,Knowledge (Religion)=8	PRETOTALAB:3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Tattooed Monk	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Diplomacy|Escape Artist|Hide|Jump|TYPE=Knowledge|Listen|Move Silently|TYPE=Perform|TYPE=Profession|Swim|Tumble
 1	ABILITY:Tattooed Monk Class Feature|AUTOMATIC|Tattooed Monk ~ Multiclass Note|Tattooed Monk ~ Weapon and Armor Proficiency
@@ -875,9 +875,9 @@ CLASS:Tattooed Monk	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=Craf
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Define																					Combat bonus										Bonus
 CLASS:Thayan Knight	HD:10		TYPE:Prestige	FACT:Abb|Thk		MAXLEVEL:5	SOURCEPAGE:p.85	DEFINE:ThkHorrorsBonus|0	DEFINE:ThkZulkirDefenderBonus|0	DEFINE:ThkFinalStandTimes|0	DEFINE:ThkZulkirChampioTimes|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required AL				Required Feat						Required Race			Required Skill									Required Text								PRETOTALAB
-CLASS:Thayan Knight	PREALIGN:	PREABILITY:2,CATEGORY=FEAT,Iron Will,Weapon Focus (Longsword)	PRERACE:1,RACESUBTYPE=Human	PRESKILL:3,Intimidate=2,Knowledge (Arcana)=2,TYPE.Knowledge (Local)=2	PRETEXT:Must sworn allegiance to the Red Wizards of Thay	PRETOTALAB:5
+CLASS:Thayan Knight	PREALIGN:LN,LE,TN,NE,CN,CE	PREABILITY:2,CATEGORY=FEAT,Iron Will,Weapon Focus (Longsword)	PRERACE:1,RACESUBTYPE=Human	PRESKILL:3,Intimidate=2,Knowledge (Arcana)=2,TYPE.Knowledge (Local)=2	PRETEXT:Must sworn allegiance to the Red Wizards of Thay	PRETOTALAB:5
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Thayan Knight	STARTSKILLPTS:2	CSKILL:Bluff|Climb|TYPE=Craft|Gather Information|Handle Animal|Intimidate|Jump|Knowledge (Arcana)|Knowledge (Local)|TYPE=Profession|Spot|Swim
+CLASS:Thayan Knight	STARTSKILLPTS:2	CSKILL:Bluff|Climb|TYPE=Craft|Gather Information|Handle Animal|Intimidate|Jump|Knowledge (arcana)|Knowledge (Local)|TYPE=Profession|Spot|Swim
 1	ABILITY:Thayan Knight Class Feature|AUTOMATIC|Thayan Knight ~ Weapon and Armor Proficiency
 1	ABILITY:Thayan Knight Class Feature|AUTOMATIC|Thayan Knight ~ Horrors of Thay|Thayan Knight ~ Zulkir's Favor
 2	ABILITY:Thayan Knight Class Feature|AUTOMATIC|Thayan Knight ~ Zulkir's Defender
@@ -892,7 +892,7 @@ CLASS:Thayan Knight	STARTSKILLPTS:2	CSKILL:Bluff|Climb|TYPE=Craft|Gather Informa
 # Class Name	Hit Dice	Type			Abbreviation	Source Page		Combat bonus										Bonus
 CLASS:War Chanter	HD:8		TYPE:Prestige	FACT:Abb|Wch		SOURCEPAGE:p.87	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Required Ability									Required AL				Required Feat							Required Skill						PRETOTALAB
-CLASS:War Chanter	PREABILITY:1,CATEGORY=Special Ability,Bardic Inspire Courage	PREALIGN:	PREABILITY:1,CATEGORY=FEAT,Combat Expertise	PREABILITY:1,CATEGORY=FEAT,Weapon Focus	PRESKILL:1,Perform (Sing)=6,Perform (Oratory)=6	PRETOTALAB:4
+CLASS:War Chanter	PREABILITY:1,CATEGORY=Special Ability,Bardic Inspire Courage	PREALIGN:NG,TN,NE,CG,CN,CE	PREABILITY:1,CATEGORY=FEAT,Combat Expertise	PREABILITY:1,CATEGORY=FEAT,Weapon Focus	PRESKILL:1,Perform (Sing)=6,Perform (Oratory)=6	PRETOTALAB:4
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:War Chanter	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Diplomacy|Escape Artist|Gather Information|Intimidate|Jump|TYPE=Perform|TYPE=Profession|Sense Motive|Swim
 1	ABILITY:War Chanter Class Feature|AUTOMATIC|War Chanter ~ Weapon and Armor Proficiency

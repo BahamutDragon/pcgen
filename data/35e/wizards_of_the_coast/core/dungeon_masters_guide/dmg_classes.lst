@@ -9,7 +9,8 @@ CLASS:Adept		HD:6		TYPE:Base.NPC	FACT:ClassType|NPC	FACT:Abb|Adp		MAXLEVEL:20	SO
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Adept		STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Handle Animal|Heal|TYPE=Knowledge|TYPE=Profession|Spellcraft|Survival
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels					Caster level
-CLASS:Adept		SPELLSTAT:WIS	FACT:SpellType|Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5	BONUS:CASTERLEVEL|Adept|Caster_Level_Adept	DEFINE:Caster_Level_Adept|0	BONUS:VAR|Caster_Level_Adept|CL+Caster_Level_Bonus	DEFINE:CasterLevelBLAdept|0	BONUS:VAR|CasterLevelBLAdept|charbonusto("PCLEVEL","Adept")	BONUS:VAR|Caster_Level_Highest__Divine|Caster_Level_Adept+CasterLevelBLAdept|TYPE=Base
+CLASS:Adept		FACT:SpellType|Divine
+CLASS:Adept		SPELLSTAT:WIS	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5	BONUS:CASTERLEVEL|Adept|Caster_Level_Adept	DEFINE:Caster_Level_Adept|0	BONUS:VAR|Caster_Level_Adept|CL+Caster_Level_Bonus	DEFINE:CasterLevelBLAdept|0	BONUS:VAR|CasterLevelBLAdept|charbonusto("PCLEVEL","Adept")	BONUS:VAR|Caster_Level_Highest__Divine|Caster_Level_Adept+CasterLevelBLAdept|TYPE=Base
 ###Block: Spell list
 1	SPELLLEVEL:CLASS|Adept=0|Create Water,Cure Minor Wounds,Detect Magic,Ghost Sound,Guidance,Light,Mending,Purify Food and Drink,Read Magic,Touch of Fatigue
 1	SPELLLEVEL:CLASS|Adept=1|Bless,Burning Hands,Cause Fear,Command,Comprehend Languages,Cure Light Wounds,Detect Chaos,Detect Evil,Detect Good,Detect Law,Endure Elements,Obscuring Mist,Protection from Chaos,Protection from Evil,Protection from Good,Protection from Law,Sleep
@@ -101,7 +102,7 @@ CLASS:Arcane Archer	STARTSKILLPTS:4	CSKILL:TYPE=Craft|Hide|Listen|Move Silently|
 # Class Name		Hit Dice	Type			Class Type			Abbreviation	Source Page		Define				Combat bonus															Modify VAR					Bonus
 CLASS:Arcane Trickster	HD:4		TYPE:PC.Prestige	FACT:ClassType|Prestige	FACT:Abb|Art		SOURCEPAGE:p.177	DEFINE:ArcaneTricksterLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ArcaneTricksterLVL|CL	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Restricted AL		Required Skill												Req. Known Spell		Req. Spell Type		Var. Min. Value
-CLASS:Arcane Trickster	!PREALIGN:	PRESKILL:4,Decipher Script=7,Disable Device=7,Escape Artist=7,Knowledge (Arcana)=4	PRESPELL:1,Mage Hand	PRESPELLTYPE:1,Arcane=3	PREVARGTEQ:SneakAttackDice,2
+CLASS:Arcane Trickster	!PREALIGN:LG,LN,LE	PRESKILL:4,Decipher Script=7,Disable Device=7,Escape Artist=7,Knowledge (Arcana)=4	PRESPELL:1,Mage Hand	PRESPELLTYPE:1,Arcane=3	PREVARGTEQ:SneakAttackDice,2
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Arcane Trickster	STARTSKILLPTS:4	CSKILL:Appraise|Balance|Bluff|Climb|Concentration|TYPE=Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Gather Information|Hide|Jump|TYPE=Knowledge|Listen|Move Silently|Open Lock|TYPE=Profession|Sense Motive|Search|Sleight of Hand|Speak Language|Spellcraft|Spot|Swim|Tumble|Use Rope
 ###Block:
@@ -144,11 +145,12 @@ CLASS:Archmage	STARTSKILLPTS:2	CSKILL:Concentration|Craft (Alchemy)|TYPE=Knowled
 # Class Name	Hit Dice	Type			Class Type			Abbreviation	Source Page		Define			Combat bonus															Modify VAR																			Bonus
 CLASS:Assassin	HD:6		TYPE:PC.Prestige	FACT:ClassType|Prestige	FACT:Abb|Asn		SOURCEPAGE:p.180	DEFINE:AssassinLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|AssassinLVL|CL	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Required AL		Required Skill
-CLASS:Assassin	PREALIGN:	PRESKILL:3,Disguise=4,Hide=8,Move Silently=8
+CLASS:Assassin	PREALIGN:LE,NE,CE	PRESKILL:3,Disguise=4,Hide=8,Move Silently=8
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Assassin	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Intimidate|Jump|Listen|Move Silently|Open Lock|Search|Sense Motive|Sleight of Hand|Spot|Swim|Tumble|Use Magic Device|Use Rope
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
-CLASS:Assassin	SPELLSTAT:INT	FACT:SpellType|Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Assassin|Caster_Level_Assassin	DEFINE:Caster_Level_Assassin|0	BONUS:VAR|Caster_Level_Assassin|CL+Caster_Level_Bonus	DEFINE:CasterLevelBLAssassin|0	BONUS:VAR|CasterLevelBLAssassin|charbonusto("PCLEVEL","Assassin")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Assassin+CasterLevelBLAssassin|TYPE=Base
+CLASS:Assassin	FACT:SpellType|Arcane
+CLASS:Assassin	SPELLSTAT:INT	MEMORIZE:NO	BONUS:CASTERLEVEL|Assassin|Caster_Level_Assassin	DEFINE:Caster_Level_Assassin|0	BONUS:VAR|Caster_Level_Assassin|CL+Caster_Level_Bonus	DEFINE:CasterLevelBLAssassin|0	BONUS:VAR|CasterLevelBLAssassin|charbonusto("PCLEVEL","Assassin")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Assassin+CasterLevelBLAssassin|TYPE=Base
 ###Block:
 1	ABILITY:Assassin Class Feature|AUTOMATIC|Assassin ~ Weapon and Armor Proficiency
 1	ABILITY:Assassin Class Feature|AUTOMATIC|Assassin ~ Death Attack
@@ -177,11 +179,12 @@ CLASS:Assassin	SPELLSTAT:INT	FACT:SpellType|Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL
 # Class Name	Hit Dice	Type			Class Type			Abbreviation	Source Page		Define			Combat bonus										Modify VAR				Bonus																							EXCHANGELEVEL
 CLASS:Blackguard	HD:10		TYPE:PC.Prestige	FACT:ClassType|Prestige	FACT:Abb|Bgd		SOURCEPAGE:p.	DEFINE:BlackguardLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|BlackguardLVL|CL	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	EXCHANGELEVEL:Ex Paladin|11|10|1
 # Class Name	Required AL		Required Feat						Required Skill					PRETOTALAB
-CLASS:Blackguard	PREALIGN:	PREABILITY:3,CATEGORY=FEAT,Cleave,Improved Sunder,Power Attack	PRESKILL:2,Hide=5,Knowledge (Religion)=2	PRETOTALAB:6
+CLASS:Blackguard	PREALIGN:LE,NE,CE	PREABILITY:3,CATEGORY=FEAT,Cleave,Improved Sunder,Power Attack	PRESKILL:2,Hide=5,Knowledge (Religion)=2	PRETOTALAB:6
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Blackguard	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Hide|Intimidate|Knowledge (Religion)|TYPE=Profession|Ride
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels				Caster level
-CLASS:Blackguard	SPELLSTAT:WIS	FACT:SpellType|Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Blackguard|Caster_Level_Blackguard	DEFINE:Caster_Level_Blackguard|0	BONUS:VAR|Caster_Level_Blackguard|CL+Caster_Level_Bonus	DEFINE:CasterLevelBLBlackguard|0	BONUS:VAR|CasterLevelBLBlackguard|charbonusto("PCLEVEL","Blackguard")	BONUS:VAR|Caster_Level_Highest__Divine|Caster_Level_Blackguard+CasterLevelBLBlackguard|TYPE=Base
+CLASS:Blackguard	FACT:SpellType|Divine
+CLASS:Blackguard	SPELLSTAT:WIS	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Blackguard|Caster_Level_Blackguard	DEFINE:Caster_Level_Blackguard|0	BONUS:VAR|Caster_Level_Blackguard|CL+Caster_Level_Bonus	DEFINE:CasterLevelBLBlackguard|0	BONUS:VAR|CasterLevelBLBlackguard|charbonusto("PCLEVEL","Blackguard")	BONUS:VAR|Caster_Level_Highest__Divine|Caster_Level_Blackguard+CasterLevelBLBlackguard|TYPE=Base
 ###Block:
 1	ABILITY:Blackguard Class Feature|AUTOMATIC|Blackguard ~ Weapon and Armor Proficiency
 1	ABILITY:Blackguard Class Feature|AUTOMATIC|Blackguard ~ Aura of Evil
@@ -283,7 +286,7 @@ CLASS:Duelist	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Escape Artist|Jump|Listen|TYP
 # Class Name		Hit Dice	Type			Class Type			Abbreviation	Source Page		Define				Combat bonus										Modify VAR					Bonus
 CLASS:Dwarven Defender	HD:12		TYPE:PC.Prestige	FACT:ClassType|Prestige	FACT:Abb|Ddf		SOURCEPAGE:p.186	DEFINE:DwarvenDefenderLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|DwarvenDefenderLVL|CL	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Required AL		Required Feat				Required Race	PRETOTALAB
-CLASS:Dwarven Defender	PREALIGN:	PREABILITY:3,CATEGORY=FEAT,Dodge,Endurance,Toughness	PRERACE:1,Dwarf%	PRETOTALAB:7
+CLASS:Dwarven Defender	PREALIGN:LG,LN,LE	PREABILITY:3,CATEGORY=FEAT,Dodge,Endurance,Toughness	PRERACE:1,Dwarf%	PRETOTALAB:7
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Dwarven Defender	STARTSKILLPTS:2	CSKILL:TYPE=Craft|Listen|Sense Motive|Spot
 ###Block:
@@ -398,7 +401,7 @@ CLASS:Mystic Theurge	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher Sc
 # Class Name	Hit Dice	Type			Class Type			Abbreviation	Source Page		Combat bonus															Bonus
 CLASS:Red Wizard	HD:4		TYPE:PC.Prestige	FACT:ClassType|Prestige	FACT:Abb|Rw		SOURCEPAGE:p.193	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Restricted AL		Required Feat		Required Race	Required Region	Required Skill		Req. Spell Type
-CLASS:Red Wizard	!PREALIGN:	PREABILITY:1,CATEGORY=FEAT,Tattoo Focus	PRERACE:1,Human%	PRETEXT:Human from Thay	PRESKILL:1,Spellcraft=8	PRESPELLTYPE:1,Arcane=3
+CLASS:Red Wizard	!PREALIGN:LG,NG,CG	PREABILITY:1,CATEGORY=FEAT,Tattoo Focus	PRERACE:1,Human%	PRETEXT:Human from Thay	PRESKILL:1,Spellcraft=8	PRESPELLTYPE:1,Arcane=3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Red Wizard	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Intimidate|TYPE=Knowledge|TYPE=Profession|Spellcraft
 ###Block:
