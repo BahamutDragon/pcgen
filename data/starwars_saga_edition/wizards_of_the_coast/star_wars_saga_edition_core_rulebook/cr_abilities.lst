@@ -22,7 +22,7 @@ Heroic PC Tracker					CATEGORY:Internal						DEFINE:HeroicLVL|0																	
 #
 First Class Level ~ Jedi			CATEGORY:Internal		TYPE:StartingClass	DEFINE:SkillTrainingCount|0	ABILITY:FEAT|AUTOMATIC|Force Sensitivity|Weapon Proficiency (Lightsabers)|Weapon Proficiency (Simple Weapons)															ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	BONUS:ABILITYPOOL|Jedi Skill Training|SkillTrainingCount																							BONUS:HP|CURRENTMAX|20												BONUS:VAR|SkillTrainingCount|max(0,INT+2)
 First Class Level ~ Noble			CATEGORY:Internal		TYPE:StartingClass	DEFINE:SkillTrainingCount|0	ABILITY:FEAT|AUTOMATIC|Weapon Proficiency (Pistols)|Weapon Proficiency (Simple Weapons)	ABILITY:FEAT|AUTOMATIC|Linguist|PRESTAT:1,INT=13													ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	BONUS:ABILITYPOOL|Noble Skill Training|SkillTrainingCount																							BONUS:HP|CURRENTMAX|12												BONUS:VAR|SkillTrainingCount|max(0,INT+6)
-First Class Level ~ Scoundrel			CATEGORY:Internal		TYPE:StartingClass	DEFINE:SkillTrainingCount|0	ABILITY:FEAT|AUTOMATIC|Weapon Proficiency (Pistols)|Point Blank Shot|Weapon Proficiency (Simple Weapons)																ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	BONUS:ABILITYPOOL|Scoundrel Skill Training|SkillTrainingCount																						BONUS:HP|CURRENTMAX|12												BONUS:VAR|SkillTrainingCount|max(0,INT+4)
+First Class Level ~ Scoundrel			CATEGORY:Internal		TYPE:StartingClass	DEFINE:SkillTrainingCount|0	ABILITY:FEAT|AUTOMATIC|Point Blank Shot|Weapon Proficiency (Pistols)|Weapon Proficiency (Simple Weapons)																ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	BONUS:ABILITYPOOL|Scoundrel Skill Training|SkillTrainingCount																						BONUS:HP|CURRENTMAX|12												BONUS:VAR|SkillTrainingCount|max(0,INT+4)
 First Class Level ~ Scout			CATEGORY:Internal		TYPE:StartingClass	DEFINE:SkillTrainingCount|0	ABILITY:FEAT|AUTOMATIC|Weapon Proficiency (Pistols)|Weapon Proficiency (Rifles)|Weapon Proficiency (Simple Weapons)	ABILITY:FEAT|AUTOMATIC|Shake It Off|PREABILITY:1,CATEGORY=FEAT,Skill Training (Endurance)|PRESTAT:1,CON=13	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	BONUS:ABILITYPOOL|Scout Skill Training|SkillTrainingCount																							BONUS:HP|CURRENTMAX|16												BONUS:VAR|SkillTrainingCount|max(0,INT+5)
 First Class Level ~ Soldier			CATEGORY:Internal		TYPE:StartingClass	DEFINE:SkillTrainingCount|0	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)|Weapon Proficiency (Pistols)|Weapon Proficiency (Rifles)|Weapon Proficiency (Simple Weapons)						ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	BONUS:ABILITYPOOL|Soldier Skill Training|SkillTrainingCount																							BONUS:HP|CURRENTMAX|20												BONUS:VAR|SkillTrainingCount|max(0,INT+3)
 #
@@ -318,7 +318,7 @@ Tough as Nails			CATEGORY:Talent		TYPE:SoldierTalent.Talent.CommandoTalent						
 # Weapon Specialist Talent Tree
 Devastating Attack		CATEGORY:Talent		TYPE:SoldierTalent.Talent.WeaponSpecialistTalent																																					SOURCEPAGE:p.
 Penetrating Attack		CATEGORY:Talent		TYPE:SoldierTalent.Talent.WeaponSpecialistTalent									PREABILITY:1,CATEGORY=FEAT,Weapon Focus																									SOURCEPAGE:p.
-Weapon Specialization		CATEGORY:Talent		TYPE:SoldierTalent.Talent.WeaponSpecialistTalent									PREABILITY:1,CATEGORY=FEAT,Weapon Focus	STACK:NO	MULT:YES	CHOOSE:WEAPONPROFICIENCY|FEAT=Weapon Focus	SELECT:1	BONUS:WEAPONPROF=%LIST|DAMAGE|2|TYPE=WeaponSpecialization	SOURCEPAGE:p.
+Weapon Specialization		CATEGORY:Talent		TYPE:SoldierTalent.Talent.WeaponSpecialistTalent									PREABILITY:1,CATEGORY=FEAT,Weapon Focus	STACK:NO	MULT:YES	CHOOSE:WEAPONPROFICIENCY|ABILITY=FEAT[Weapon Focus]	SELECT:1	BONUS:WEAPONPROF=%LIST|DAMAGE|2|TYPE=WeaponSpecialization	SOURCEPAGE:p.
 
 ###Block: Ace Pilot Talent Trees
 
@@ -379,7 +379,7 @@ Controlled Burst				CATEGORY:Talent		TYPE:Talent.EliteTrooperTalent.WeaponMaster
 Exotic Weapon Mastery				CATEGORY:Talent		TYPE:Talent.EliteTrooperTalent.WeaponMasterTalent																																				AUTO:WEAPONPROF|TYPE=Exotic								SOURCEPAGE:p.
 Greater Devastating Attack			CATEGORY:Talent		TYPE:Talent.EliteTrooperTalent.WeaponMasterTalent													PREABILITY:3,CATEGORY=FEAT,Greater Weapon Focus,Devastating,Weapon Focus																										SOURCEPAGE:p.
 Greater Penetrating Attack			CATEGORY:Talent		TYPE:Talent.EliteTrooperTalent.WeaponMasterTalent													PREABILITY:3,CATEGORY=FEAT,Greater Weapon Focus,Penetrating Attack,Weapon Focus																									SOURCEPAGE:p.
-Greater Weapon Focus				CATEGORY:Talent		TYPE:Talent.EliteTrooperTalent.WeaponMasterTalent													PREABILITY:1,CATEGORY=FEAT,Weapon Focus								MULT:YES	CHOOSE:WEAPONPROFICIENCY|FEAT=Weapon Focus	SELECT:1							BONUS:WEAPONPROF=%LIST|TOHIT|1	SOURCEPAGE:p.
+Greater Weapon Focus				CATEGORY:Talent		TYPE:Talent.EliteTrooperTalent.WeaponMasterTalent													PREABILITY:1,CATEGORY=FEAT,Weapon Focus								MULT:YES	CHOOSE:WEAPONPROFICIENCY|ABILITY=FEAT[Weapon Focus]	SELECT:1							BONUS:WEAPONPROF=%LIST|TOHIT|1	SOURCEPAGE:p.
 Greater Weapon Specialization			CATEGORY:Talent		TYPE:Talent.EliteTrooperTalent.WeaponMasterTalent	PREABILITY:2,CATEGORY=Talent,Greater Weapon Focus,Weapon Specialization	PREABILITY:1,CATEGORY=FEAT,Weapon Focus								MULT:YES	CHOOSE:ABILITYSELECTION|Talent|Weapon Specialization	SELECT:1							BONUS:WEAPONPROF=%LIST|DAMAGE|2	SOURCEPAGE:p.
 Multiattack Proficiency (Heavy Weapons)		CATEGORY:Talent		TYPE:Talent.EliteTrooperTalent.WeaponMasterTalent																																																SOURCEPAGE:p.
 Multiattack Proficiency (Rifles)		CATEGORY:Talent		TYPE:Talent.EliteTrooperTalent.WeaponMasterTalent																																																SOURCEPAGE:p.
@@ -565,11 +565,11 @@ Shaped Power			CATEGORY:Talent		TYPE:ForceSecrets	SOURCEPAGE:p.
 
 ###Block: Beast
 
-Species Trait ~ Nexu		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Nexu Species Trait	
-Species Trait ~ Rancor		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Rancor Species Trait		
-Species Trait ~ Reek		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Reek Species Trait	
-Species Trait ~ Tauntaun	CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Tauntaun Species Trait	
-Species Trait ~ Wampa		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Wampa Species Trait	
+Species Trait ~ Nexu		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Nexu Species Trait
+Species Trait ~ Rancor		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Rancor Species Trait
+Species Trait ~ Reek		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Reek Species Trait
+Species Trait ~ Tauntaun	CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Tauntaun Species Trait
+Species Trait ~ Wampa		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Wampa Species Trait
 
 
 
@@ -583,10 +583,10 @@ Rend			KEY:Wampa ~ Rend			CATEGORY:Special Ability	TYPE:Species Trait.Wampa Spec
 
 ###Block: Other Species Traits
 # Ability Name			Category of Ability	Ability
-Species Trait ~ Aqualish	CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Aqualish Species Trait	
-Species Trait ~ Hutt		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Hutt Species Trait		
-Species Trait ~ Neimoidian	CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Neimoidian Species Trait	
-Species Trait ~ Yuuzhan Vong	CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Yuuzhan Vong Species Trait	
+Species Trait ~ Aqualish	CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Aqualish Species Trait
+Species Trait ~ Hutt		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Hutt Species Trait
+Species Trait ~ Neimoidian	CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Neimoidian Species Trait
+Species Trait ~ Yuuzhan Vong	CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Yuuzhan Vong Species Trait
 
 ###Block:
 # Aqualish
@@ -609,9 +609,9 @@ Technophobic		KEY:Yuuzhan Vong ~ Technophobic			CATEGORY:Special Ability	TYPE:Sp
 Weapon Familiarity	KEY:Yuuzhan Vong ~ Weapon Familiarity		CATEGORY:Special Ability	TYPE:Species Trait.Yuuzhan Vong Species Trait.SpecialQuality	DESC:Yuuzhan Vong treat the amphistaff as a simple weapon instead of an exotic weapon.																																											CHANGEPROF:Amphistaff=Simple	SOURCEPAGE:p.285
 
 ###Block: Force-Using Traditions
-Jedi				KEY:Force-Using Tradition ~ Jedi				CATEGORY:Special Ability	TYPE:Force-Using Tradition.SpecialQuality	SORTKEY:1_B							TEMPLATE:Jedi Tradition	
-Sith				KEY:Force-Using Tradition ~ Sith				CATEGORY:Special Ability	TYPE:Force-Using Tradition.SpecialQuality	SORTKEY:1_B							TEMPLATE:Sith Tradition	
+Jedi				KEY:Force-Using Tradition ~ Jedi				CATEGORY:Special Ability	TYPE:Force-Using Tradition.SpecialQuality	SORTKEY:1_B							TEMPLATE:Jedi Tradition
+Sith				KEY:Force-Using Tradition ~ Sith				CATEGORY:Special Ability	TYPE:Force-Using Tradition.SpecialQuality	SORTKEY:1_B							TEMPLATE:Sith Tradition
 Jensaarai			KEY:Force-Using Tradition ~ Jensaarai				CATEGORY:Special Ability	TYPE:Force-Using Tradition.SpecialQuality	SORTKEY:2_A							TEMPLATE:Jensaarai Defender
-Witches of Dathomiri		KEY:Force-Using Tradition ~ Witches of Dathomiri		CATEGORY:Special Ability	TYPE:Force-Using Tradition.SpecialQuality	SORTKEY:2_B	PREGENDER:Female				TEMPLATE:Dathomiri Witch	
+Witches of Dathomiri		KEY:Force-Using Tradition ~ Witches of Dathomiri		CATEGORY:Special Ability	TYPE:Force-Using Tradition.SpecialQuality	SORTKEY:2_B	PREGENDER:Female				TEMPLATE:Dathomiri Witch
 None				KEY:Force-Using Tradition ~ None				CATEGORY:Special Ability	TYPE:Force-Using Tradition.SpecialQuality	SORTKEY:1_A
 Other				KEY:Force-Using Tradition ~ Other				CATEGORY:Special Ability	TYPE:Force-Using Tradition.SpecialQuality	SORTKEY:9_A													CHOOSE:USERINPUT|TITLE=Force Tradition	MULT:YES	STACK:NO
