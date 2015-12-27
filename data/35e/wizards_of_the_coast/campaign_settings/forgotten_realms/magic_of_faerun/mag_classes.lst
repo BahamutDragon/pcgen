@@ -11,10 +11,9 @@ CLASS:Gnome Artificer	HD:6		TYPE:PC.Prestige	FACT:Abb|Gar		MAXLEVEL:10	SOURCEPAG
 # Class Name		Required Feat																																														Multiple Requirements															Required Skill																																																																																											Required Spell School		Req. Spell Type
 CLASS:Gnome Artificer	PREABILITY:1,CATEGORY=FEAT,Lightning Reflexes	PREABILITY:1,CATEGORY=FEAT,Skill Focus (Craft (Armorsmithing)),Skill Focus (Craft (Blacksmithing)),Skill Focus (Craft (Gemcutting)),Skill Focus (Craft (Locksmithing)),Skill Focus (Craft (Metalworking)),Skill Focus (Craft (Trapmaking)),Skill Focus (Craft (Weaponsmithing))	PREMULT:1,[PRERACE:1,RACESUBTYPE=Gnome],[PREMULT:2,[PRERACE:1,RACESUBTYPE=Human],[PREREGION:1,Lantan]]	PRESKILL:1,Craft (Alchemy)=3	PRESKILL:1,Craft (Armorsmithing)=8,Craft (Blacksmithing)=8,Craft (Gemcutting)=8,Craft (Locksmithing)=8,Craft (Metalworking)=8,Craft (Trapmaking)=8,Craft (Weaponsmithing)=8	PRESKILL:3,Craft (Armorsmithing)=4,Craft (Blacksmithing)=4,Craft (Gemcutting)=4,Craft (Locksmithing)=4,Craft (Metalworking)=4,Craft (Trapmaking)=4,Craft (Weaponsmithing)=4	PRESKILL:1,Disable Device=2	PRESKILL:1,Knowledge (Architecture and Engineering)=4	PRESKILL:1,Profession (Apothecary)=3,Profession (Engineer)=3,Profession (Siege Engineer)=3	PRESPELLSCHOOL:1,Illusion=1	PRESPELLTYPE:1,Arcane=1
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Gnome Artificer	STARTSKILLPTS:4	CSKILL:Appraise|Concentration|TYPE=Craft|Disable Device|Knowledge (Architecture And Engineering)|Listen|TYPE=Profession|Search|Use Rope
+CLASS:Gnome Artificer	STARTSKILLPTS:4	CSKILL:Appraise|Concentration|TYPE=Craft|Disable Device|KNOWLEDGE (ARCHITECTURE AND ENGINEERING)|Listen|TYPE=Profession|Search|Use Rope
 # Class Name		Spell Stat		Spell Type		Automatically Known Spell Levels	Spellbook		Caster level
-CLASS:Gnome Artificer	FACT:SpellType|Mundane	
-CLASS:Gnome Artificer	SPELLSTAT:INT	SPELLTYPE:Mundane	KNOWNSPELLS:LEVEL=0			SPELLBOOK:YES	BONUS:CASTERLEVEL|Gnome Artificer|Caster_Level_Gnome_Artificer	DEFINE:Caster_Level_Gnome_Artificer|0	BONUS:VAR|Caster_Level_Gnome_Artificer|CL+Caster_Level_Bonus	DEFINE:CasterLevelBLGnome_Artificer|0	BONUS:VAR|CasterLevelBLGnome_Artificer|charbonusto("PCLEVEL","Gnome Artificer")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Gnome_Artificer+CasterLevelBLGnome_Artificer|TYPE=Base
+CLASS:Gnome Artificer	SPELLSTAT:INT	FACT:SpellType|Mundane	KNOWNSPELLS:LEVEL=0			SPELLBOOK:YES	BONUS:CASTERLEVEL|Gnome Artificer|Caster_Level_Gnome_Artificer	DEFINE:Caster_Level_Gnome_Artificer|0	BONUS:VAR|Caster_Level_Gnome_Artificer|CL+Caster_Level_Bonus	DEFINE:CasterLevelBLGnome_Artificer|0	BONUS:VAR|CasterLevelBLGnome_Artificer|charbonusto("PCLEVEL","Gnome Artificer")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Gnome_Artificer+CasterLevelBLGnome_Artificer|TYPE=Base
 1											ABILITY:Special Ability|AUTOMATIC|Gnome Artificier ~ Weapon and Armor Proficiency
 #
 1	KNOWN:4,2									ABILITY:Special Ability|AUTOMATIC|Gnome Artificer ~ Artificer Item
@@ -32,7 +31,7 @@ CLASS:Gnome Artificer	SPELLSTAT:INT	SPELLTYPE:Mundane	KNOWNSPELLS:LEVEL=0			SPEL
 # Class Name				Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus												Modify VAR													Bonus
 CLASS:Guild Wizard of Waterdeep	HD:4		TYPE:PC.Prestige	FACT:Abb|Guw		MAXLEVEL:10	SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name				Required AL				Required Feat														Required Skill											Req. Spell Type		Required Text
-CLASS:Guild Wizard of Waterdeep	PREALIGN:LG,LN,NG,TN,CG,CN	PREABILITY:1,CATEGORY=FEAT,Scribe Scroll	PREABILITY:1,CATEGORY=FEAT,TYPE=Metamagic	PREABILITY:1,CATEGORY=FEAT,Spell Penetration,Spell Focus		PRESKILL:1,Craft (Alchemy)=4	PRESKILL:2,Knowledge (Arcana)=8,Spellcraft=8	PRESPELLTYPE:1,Arcane=3	PRETEXT:Members must pay an initiation fee of 1000 Gp
+CLASS:Guild Wizard of Waterdeep	PREALIGN:	PREABILITY:1,CATEGORY=FEAT,Scribe Scroll	PREABILITY:1,CATEGORY=FEAT,TYPE=Metamagic	PREABILITY:1,CATEGORY=FEAT,Spell Penetration,Spell Focus		PRESKILL:1,Craft (Alchemy)=4	PRESKILL:2,Knowledge (Arcana)=8,Spellcraft=8	PRESPELLTYPE:1,Arcane=3	PRETEXT:Members must pay an initiation fee of 1000 Gp
 # Class Name				Skill Pts/Lvl	Class Skill
 CLASS:Guild Wizard of Waterdeep	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Spellcraft
 #
@@ -51,7 +50,7 @@ CLASS:Guild Wizard of Waterdeep	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus												Modify VAR													Bonus
 CLASS:Harper Mage	HD:4		TYPE:PC.Prestige	FACT:Abb|Hmm		MAXLEVEL:5	SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required AL				Required Feat						Required Skill																						Req. Spell Type		Required Text
-CLASS:Harper Mage	PREALIGN:LG,LN,NG,TN,CG,CN	PREABILITY:3,CATEGORY=FEAT,Alertness,Education,Extend Spell	PRESKILL:1,Concentration=4	PRESKILL:1,TYPE.Knowledge=8	PRESKILL:2,TYPE.Knowledge=4	PRESKILL:1,Sense Motive=2	PRESKILL:1,Spellcraft=8	PRESPELLTYPE:1,Arcane=3	PRETEXT:Sponsorship by a member of the Harpers, approval of the High Harpers.
+CLASS:Harper Mage	PREALIGN:	PREABILITY:3,CATEGORY=FEAT,Alertness,Education,Extend Spell	PRESKILL:1,Concentration=4	PRESKILL:1,TYPE.Knowledge=8	PRESKILL:2,TYPE.Knowledge=4	PRESKILL:1,Sense Motive=2	PRESKILL:1,Spellcraft=8	PRESPELLTYPE:1,Arcane=3	PRETEXT:Sponsorship by a member of the Harpers, approval of the High Harpers.
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Harper Mage	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|TYPE=Craft|Decipher Script|Diplomacy|Disguise|Gather Information|Heal|Hide|TYPE=Knowledge|Listen|Move Silently|TYPE=Perform|TYPE=Profession|Ride|Sense Motive|Speak Language|Spellcraft|Spot
 1																														ABILITY:Special Ability|AUTOMATIC|Harper Mage ~ Weapon and Armor Proficiency
@@ -67,7 +66,7 @@ CLASS:Harper Mage	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|TYPE=Craft|Decipher
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus												Modify VAR														Bonus
 CLASS:Harper Priest	HD:8		TYPE:PC.Prestige	FACT:Abb|Hpr		MAXLEVEL:5	SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Required AL				Required Feat			Required Skill														Req. Spell Type		Required Text
-CLASS:Harper Priest	PREALIGN:LG,LN,NG,TN,CG,CN	PREABILITY:2,CATEGORY=FEAT,Alertness,Iron Will	PRESKILL:2,Diplomacy=4,Knowledge (Arcana)=4	PRESKILL:2,Knowledge (Religion)=8,Spellcraft=8	PRESPELLTYPE:1,Divine=3	PRETEXT:Sponsorship by a member of the Harpers, approval of the High Harpers.
+CLASS:Harper Priest	PREALIGN:	PREABILITY:2,CATEGORY=FEAT,Alertness,Iron Will	PRESKILL:2,Diplomacy=4,Knowledge (Arcana)=4	PRESKILL:2,Knowledge (Religion)=8,Spellcraft=8	PRESPELLTYPE:1,Divine=3	PRETEXT:Sponsorship by a member of the Harpers, approval of the High Harpers.
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Harper Priest	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|TYPE=Knowledge|Listen|TYPE=Perform|Sense Motive|Spellcraft|Spot|Swim|Survival
 1																																ABILITY:Special Ability|AUTOMATIC|Harper Priest ~ Weapon and Armor Proficiency
@@ -82,7 +81,7 @@ CLASS:Harper Priest	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Ha
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus												Modify VAR													Bonus
 CLASS:Mage Killer	HD:4		TYPE:PC.Prestige	FACT:Abb|Mki		MAXLEVEL:10	SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required Feat																Required Skill			Req. Spell Type				Required Text
-CLASS:Mage Killer	PREABILITY:3,CATEGORY=FEAT,Great Fortitude,Lightning Reflexes,Combat Casting	PREABILITY:1,CATEGORY=FEAT,CHECKMULT,Martial Weapon Proficiency	PRESKILL:1,Spellcraft=10	PRESPELLTYPE:1,Divine=4,Arcane=4	PRETEXT:Must be able to cast at least 3 spells that require Fort saves and at least three spells that require Reflex saves. A spell that inflict damage but allow no saving throw can substitute for any of these required spells.
+CLASS:Mage Killer	PREABILITY:3,CATEGORY=FEAT,Great Fortitude,Lightning Reflexes,Combat Casting	PREABILITY:1,CHECKMULT,CATEGORY=FEAT,Martial Weapon Proficiency	PRESKILL:1,Spellcraft=10	PRESPELLTYPE:1,Divine=4,Arcane=4	PRETEXT:Must be able to cast at least 3 spells that require Fort saves and at least three spells that require Reflex saves. A spell that inflict damage but allow no saving throw can substitute for any of these required spells.
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Mage Killer	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Gather Information|Intimidate|TYPE=Knowledge|Spellcraft
 1	BONUS:ABILITYPOOL|Mage Killer Improved Saves|(CL+1)/2		ADD:SPELLCASTER|ANY
@@ -102,7 +101,7 @@ CLASS:Master Alchemist	HD:4		TYPE:PC.Prestige	FACT:Abb|Alc		MAXLEVEL:10	SOURCEPA
 # Class Name		Required Feat												Required Skill						Req. Spell Type
 CLASS:Master Alchemist	PREABILITY:3,CATEGORY=FEAT,Brew Potion,Magical Artisan (Brew Potion),Skill Focus (Craft (Alchemy))	PRESKILL:2,Craft (Alchemy)=10,Spellcraft=10	PRESPELLTYPE:1,Divine=4,Arcane=4
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Master Alchemist	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Knowledge (arcana)|TYPE=Profession|Spellcraft
+CLASS:Master Alchemist	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Knowledge (Arcana)|TYPE=Profession|Spellcraft
 1	BONUS:VAR|MasterAlchemistBrewLVL|CL		ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Master Alchemist ~ Brew
 2	BONUS:VAR|MasterAlchemistBrewPotionLVL|CL	ADD:SPELLCASTER|ANY	ABILITY:Special Ability|AUTOMATIC|Master Alchemist ~ Brew Potion
 3								ADD:SPELLCASTER|ANY
@@ -118,9 +117,9 @@ CLASS:Master Alchemist	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Knowledge
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus												Modify VAR													Bonus
 CLASS:Mystic Wanderer	HD:8		TYPE:PC.Prestige	FACT:Abb|Myw		MAXLEVEL:10	SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Required AL				Required Feat		Required Skill																		Req. Spell Type
-CLASS:Mystic Wanderer	PREALIGN:NG,TN,NE,CG,CN,CE	PREABILITY:1,CATEGORY=FEAT,Iron Will	PRESKILL:2,Craft (Alchemy)=3,Knowledge (Nature)=3	PRESKILL:1,TYPE.Perform=3	PRESKILL:1,Profession (Herbalist)=3	PRESPELLTYPE:1,Divine=2
+CLASS:Mystic Wanderer	PREALIGN:	PREABILITY:1,CATEGORY=FEAT,Iron Will	PRESKILL:2,Craft (Alchemy)=3,Knowledge (Nature)=3	PRESKILL:1,TYPE.Perform=3	PRESKILL:1,Profession (Herbalist)=3	PRESPELLTYPE:1,Divine=2
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Mystic Wanderer	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Knowledge (arcana)|Knowledge (Nature)|Knowledge (Religion)|TYPE=Profession|TYPE=Perform|Spellcraft
+CLASS:Mystic Wanderer	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (Nature)|Knowledge (Religion)|TYPE=Profession|TYPE=Perform|Spellcraft
 1	BONUS:VAR|SleepPerDay|1	BONUS:VAR|SleepLVL|CL					ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Glory of the Divine|Sleep (Sp)
 2	BONUS:VAR|FamiliarLVL|CL								ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Lore of Nature|Summon Familiar
 3													ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Gem Magic|Resistance To Charm
@@ -138,7 +137,7 @@ CLASS:Spelldancer	HD:6		TYPE:PC.Prestige	FACT:Abb|Spd		MAXLEVEL:5	SOURCEPAGE:p.	
 # Class Name	Required Feat							Required Skill									Req. Spell Type
 CLASS:Spelldancer	PREABILITY:4,CATEGORY=FEAT,Combat Casting,Dodge,Endurance,Mobility	PRESKILL:2,Concentration=4,Tumble=4	PRESKILL:1,Perform (Dance)=6	PRESPELLTYPE:1,ANY=3
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Spelldancer	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Jump|Knowledge (arcana)|TYPE=Perform|TYPE=Profession|Spellcraft|Swim|Tumble
+CLASS:Spelldancer	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Jump|Knowledge (Arcana)|TYPE=Perform|TYPE=Profession|Spellcraft|Swim|Tumble
 1														ABILITY:Special Ability|AUTOMATIC|Spelldancer ~ Weapon and Armor Proficiency
 #
 1	BONUS:VAR|SpelldancerSpelldanceLVL|CL							ABILITY:Special Ability|AUTOMATIC|Spelldancer ~ Spelldance
@@ -153,7 +152,7 @@ CLASS:Spellfire Channeler	HD:4		TYPE:PC.Prestige	FACT:Abb|Sfc		MAXLEVEL:10	SOURC
 # Class Name			Required Feat					Required Skill
 CLASS:Spellfire Channeler	PREABILITY:2,CATEGORY=FEAT,Endurance,Spellfire Wielder	PRESKILL:1,Concentration=8	PRESKILL:2,Knowledge (Arcana)=2,Spellcraft=2
 # Class Name			Skill Pts/Lvl	Class Skill
-CLASS:Spellfire Channeler	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Disguise|Heal|Intimidate|Knowledge (arcana)|TYPE=Profession|Sense Motive|Spellcraft|Survival
+CLASS:Spellfire Channeler	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Disguise|Heal|Intimidate|Knowledge (Arcana)|TYPE=Profession|Sense Motive|Spellcraft|Survival
 1										ABILITY:Special Ability|AUTOMATIC|Spellfire Channeler ~ Weapon and Armor Proficiency
 #
 1	BONUS:VAR|SpellfireChannelerIncreasedStorageLVL|CL	ABILITY:Special Ability|AUTOMATIC|Spellfire Channeler ~ Charged Item Drain|Spellfire Channeler ~ Increased Storage
@@ -171,7 +170,7 @@ CLASS:Spellfire Channeler	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus												Modify VAR													Bonus
 CLASS:War Wizard of Cormyr	HD:4		TYPE:PC.Prestige	FACT:Abb|Wwc		MAXLEVEL:5	SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name			Required AL			Required Feat												Required Skill			Req. Spell Type
-CLASS:War Wizard of Cormyr	PREALIGN:LG,LN,NG,TN	PREABILITY:2,CATEGORY=FEAT,Enlarge Spell,Widen Spell	PREABILITY:1,CATEGORY=FEAT,CHECKMULT,Martial Weapon Proficiency	PRESKILL:1,Spellcraft=10	PRESPELLTYPE:1,Arcane=4
+CLASS:War Wizard of Cormyr	PREALIGN:	PREABILITY:2,CATEGORY=FEAT,Enlarge Spell,Widen Spell	PREABILITY:1,CHECKMULT,CATEGORY=FEAT,Martial Weapon Proficiency	PRESKILL:1,Spellcraft=10	PRESPELLTYPE:1,Arcane=4
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:War Wizard of Cormyr	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Spellcraft
 1										ADD:SPELLCASTER|ANY	ADD:ABILITY|FEAT|VIRTUAL|Weapon Focus

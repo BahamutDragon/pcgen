@@ -7,8 +7,7 @@ CLASS:Mystic	DEITY:Mystic
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Mystic	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (Nature)|Knowledge (Religion)|TYPE=Profession|Spellcraft
 # Class Name	Spell Stat		Spell Type		Caster level
-CLASS:Mystic	FACT:SpellType|Divine
-CLASS:Mystic	SPELLSTAT:WIS	BONUS:CASTERLEVEL|Mystic|Caster_Level_Mystic	DEFINE:Caster_Level_Mystic|0	BONUS:VAR|Caster_Level_Mystic|CL+Caster_Level_Bonus	DEFINE:CasterLevelBLMystic|0	BONUS:VAR|CasterLevelBLMystic|charbonusto("PCLEVEL","Mystic")	BONUS:VAR|Caster_Level_Highest__Divine|Caster_Level_Mystic+CasterLevelBLMystic|TYPE=Base
+CLASS:Mystic	SPELLSTAT:WIS	FACT:SpellType|Divine	BONUS:CASTERLEVEL|Mystic|Caster_Level_Mystic	DEFINE:Caster_Level_Mystic|0	BONUS:VAR|Caster_Level_Mystic|CL+Caster_Level_Bonus	DEFINE:CasterLevelBLMystic|0	BONUS:VAR|CasterLevelBLMystic|charbonusto("PCLEVEL","Mystic")	BONUS:VAR|Caster_Level_Highest__Divine|Caster_Level_Mystic+CasterLevelBLMystic|TYPE=Base
 ###Block
 1	BONUS:DOMAIN|NUMBER|1
 ###Block
@@ -81,7 +80,7 @@ CLASS:Noble		STARTSKILLPTS:4	CSKILL:Appraise|Diplomacy|Gather Information|Intimi
 # Class Name			Hit Dice	Type			Source Page		Define					Combat bonus							Modify VAR					Bonus
 CLASS:Knight of the Crown	HD:10		TYPE:Prestige.PC	SOURCEPAGE:p.56	DEFINE:Knight_of_the_CrownLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|Knight_of_the_CrownLVL|CL	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name			Required AL	Required Check Base		Required Feat														Required Skill							Required Text																		PRETOTALAB
-CLASS:Knight of the Crown	PREALIGN:LG	PRECHECKBASE:1,Fortitude=4	PREABILITY:4,CATEGORY=FEAT,Armor Proficiency (Heavy),Honor-bound,Martial Weapon Proficiency,Shield Proficiency	PRESKILL:3,Diplomacy=2,Knowledge (Religion)=2,Ride=2	PRETEXT:Lawful Good, Base Attack Bonus +3, Base Save Bonus Fort +4, Skills Diplomacy 2, Knowledge (Religion) 2, Ride 2	PRETOTALAB:3
+CLASS:Knight of the Crown	PREALIGN:	PRECHECKBASE:1,Fortitude=4	PREABILITY:4,CATEGORY=FEAT,Armor Proficiency (Heavy),Honor-bound,Martial Weapon Proficiency,Shield Proficiency	PRESKILL:3,Diplomacy=2,Knowledge (Religion)=2,Ride=2	PRETEXT:Lawful Good, Base Attack Bonus +3, Base Save Bonus Fort +4, Skills Diplomacy 2, Knowledge (Religion) 2, Ride 2	PRETOTALAB:3
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Knight of the Crown	STARTSKILLPTS:2	CSKILL:TYPE=Craft|Diplomacy|Intimidate|Knowledge (Nobility and Royalty)|Knowledge (Religion)|TYPE=Profession|Ride
 1	ABILITY:Knight of the Crown Class Feature|AUTOMATIC|Knight of the Crown ~ Weapon and Armor Proficiency
@@ -100,7 +99,7 @@ CLASS:Knight of the Crown	STARTSKILLPTS:2	CSKILL:TYPE=Craft|Diplomacy|Intimidate
 # Class Name			Hit Dice	Type			Source Page		Define					Combat bonus												Modify VAR																				Bonus
 CLASS:Knight of the Sword	HD:8		TYPE:Prestige.PC	SOURCEPAGE:p.57	DEFINE:Knight_of_the_SwordLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|Knight_of_the_SwordLVL|CL	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name			Required Ability											Required AL	Required Check Base	Required Feat					Required Skill											Req. Spell Type		Required Text		PRETOTALAB
-CLASS:Knight of the Sword	PREABILITY:1,CATEGORY=Special Ability,Knight of the Crown ~ Knightly Courage	PREALIGN:LG	PRECHECKBASE:1,Will=4	PREABILITY:3,CATEGORY=FEAT,Diehard,Endurance,Honor-bound	PRESKILL:3,Knowledge (Nobility and Royalty)=2,Knowledge (Religion)=4,Ride=4	PRESPELLTYPE:1,Divine=1	PRETEXT:Knightly virtue	PRETOTALAB:6
+CLASS:Knight of the Sword	PREABILITY:1,CATEGORY=Special Ability,Knight of the Crown ~ Knightly Courage	PREALIGN:	PRECHECKBASE:1,Will=4	PREABILITY:3,CATEGORY=FEAT,Diehard,Endurance,Honor-bound	PRESKILL:3,Knowledge (Nobility and Royalty)=2,Knowledge (Religion)=4,Ride=4	PRESPELLTYPE:1,Divine=1	PRETEXT:Knightly virtue	PRETOTALAB:6
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Knight of the Sword	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Intimidate|Knowledge (Nobility and Royalty)|Knowledge (Religion)|TYPE=Profession|Ride
 1:REPEATLEVEL:1	ADD:SPELLCASTER|ANY
@@ -116,7 +115,7 @@ CLASS:Knight of the Sword	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplom
 # Class Name			Hit Dice	Type					Source Page		Define					Combat bonus							Modify VAR					Bonus
 CLASS:Knight of the Rose	HD:10		TYPE:Base.Prestige.Monster.PC	SOURCEPAGE:p.59	DEFINE:Knight_of_the_RoseLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|Knight_of_the_RoseLVL|CL	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name			Required Ability																		Required AL	Required Check Base	Required Feat								Required Skill									Req. Spell Type		Required Text		PRETOTALAB
-CLASS:Knight of the Rose	PREABILITY:2,CATEGORY=Special Ability,Knight of the Crown ~ Knightly Courage,Knight of the Sword ~ Aura of Courage	PREALIGN:LG	PRECHECKBASE:1,Will=7	PREABILITY:4,CATEGORY=FEAT,Mounted Combat,Leadership,Endurance,Honor-bound	PRESKILL:3,Diplomacy=8,Knowledge (Nobility and Royalty)=8,Ride=8	PRESPELLTYPE:1,Divine=2	PRETEXT:Knightly virtue	PRETOTALAB:8
+CLASS:Knight of the Rose	PREABILITY:2,CATEGORY=Special Ability,Knight of the Crown ~ Knightly Courage,Knight of the Sword ~ Aura of Courage	PREALIGN:	PRECHECKBASE:1,Will=7	PREABILITY:4,CATEGORY=FEAT,Mounted Combat,Leadership,Endurance,Honor-bound	PRESKILL:3,Diplomacy=8,Knowledge (Nobility and Royalty)=8,Ride=8	PRESPELLTYPE:1,Divine=2	PRETEXT:Knightly virtue	PRETOTALAB:8
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Knight of the Rose	STARTSKILLPTS:2	CSKILL:TYPE=Craft|Diplomacy|Intimidate|Knowledge (Nobility and Royalty)|Knowledge (Religion)|TYPE=Profession|Ride
 1:REPEATLEVEL:1	ADD:SPELLCASTER|ANY
@@ -140,7 +139,7 @@ CLASS:Knight of the Rose	STARTSKILLPTS:2	CSKILL:TYPE=Craft|Diplomacy|Intimidate|
 # Class Name			Hit Dice	Type			Source Page		Define					Combat bonus							Modify VAR					Bonus
 CLASS:Knight of the Lily	HD:10		TYPE:Prestige.PC	SOURCEPAGE:p.63	DEFINE:Knight_of_the_LilyLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|Knight_of_the_LilyLVL|CL	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name			Required AL	Required Feat		Required Skill						Required Text						PRETOTALAB
-CLASS:Knight of the Lily	PREALIGN:LE	PREABILITY:1,CATEGORY=FEAT,Honor-bound	PRESKILL:2,Knowledge (Religion)=2,Intimidate=4	PRETEXT:Squire of the Lily, Test of Takhisis	PRETOTALAB:5
+CLASS:Knight of the Lily	PREALIGN:	PREABILITY:1,CATEGORY=FEAT,Honor-bound	PRESKILL:2,Knowledge (Religion)=2,Intimidate=4	PRETEXT:Squire of the Lily, Test of Takhisis	PRETOTALAB:5
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Knight of the Lily	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Diplomacy|Intimidate|Jump|Knowledge (Religion)|TYPE=Profession|Ride
 ###Block
@@ -157,7 +156,7 @@ CLASS:Knight of the Lily	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Diplomacy|Intim
 # Class Name			Hit Dice	Type			Source Page		Define					Combat bonus												Modify VAR																				Bonus
 CLASS:Knight of the Skull	HD:8		TYPE:Prestige.PC	SOURCEPAGE:p.65	DEFINE:Knight_of_the_SkullLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|Knight_of_the_SkullLVL|CL	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name			Required AL	Required Feat		Required Skill				Req. Spell Type		Required Text						PRETOTALAB
-CLASS:Knight of the Skull	PREALIGN:LE	PREABILITY:1,CATEGORY=FEAT,Alertness	PRESKILL:1,Knowledge (Religion)=4	PRESPELLTYPE:1,Divine=3	PRETEXT:Squire of the Lily, Test of Takhisis	PRETOTALAB:3
+CLASS:Knight of the Skull	PREALIGN:	PREABILITY:1,CATEGORY=FEAT,Alertness	PRESKILL:1,Knowledge (Religion)=4	PRESPELLTYPE:1,Divine=3	PRETEXT:Squire of the Lily, Test of Takhisis	PRETOTALAB:3
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Knight of the Skull	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Intimidate|Knowledge (Religion)|TYPE=Profession|Ride
 2:REPEATLEVEL:1	ADD:SPELLCASTER|ANY
@@ -175,7 +174,7 @@ CLASS:Knight of the Skull	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplom
 # Class Name			Hit Dice	Type			Source Page		Define					Combat bonus												Modify VAR																				Bonus
 CLASS:Knight of the Thorn	HD:6		TYPE:Prestige.PC	SOURCEPAGE:p.66	DEFINE:Knight_of_the_ThornLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|Knight_of_the_ThornLVL|CL	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name			Required Ability							Required AL	Required Check Base			Required Feat									Required Skill										Req. Spell Type		Required Text						PRETOTALAB
-CLASS:Knight of the Thorn	PREABILITY:1,CATEGORY=Internal,TYPE.WeaponProfMartial	PREALIGN:LE	PRECHECKBASE:2,Fortitude=4,Will=3	PREABILITY:1,CATEGORY=FEAT,TYPE.Metamagic	PREABILITY:1,CATEGORY=FEAT,Armor Proficiency (Heavy)	PRESKILL:3,Knowledge (Arcana)=4,Knowledge (Religion)=4,Spellcraft=8	PRESPELLTYPE:1,Arcane=2	PRETEXT:Swuire of the Lily, Test of Takhisis	PRETOTALAB:3
+CLASS:Knight of the Thorn	PREABILITY:1,CATEGORY=Internal,TYPE.WeaponProfMartial	PREALIGN:	PRECHECKBASE:2,Fortitude=4,Will=3	PREABILITY:1,CATEGORY=FEAT,TYPE.Metamagic	PREABILITY:1,CATEGORY=FEAT,Armor Proficiency (Heavy)	PRESKILL:3,Knowledge (Arcana)=4,Knowledge (Religion)=4,Spellcraft=8	PRESPELLTYPE:1,Arcane=2	PRETEXT:Swuire of the Lily, Test of Takhisis	PRETOTALAB:3
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Knight of the Thorn	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Intimidate|TYPE=Knowledge|TYPE=Profession|Ride|Spellcraft
 1:REPEATLEVEL:1	ADD:SPELLCASTER|ANY
@@ -194,7 +193,7 @@ CLASS:Knight of the Thorn	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplom
 # Class Name		Hit Dice	Type					Max Level	Source Page		Define				Combat bonus							Modify VAR					Bonus
 CLASS:Steel Legionnaire	HD:8		TYPE:Base.Prestige.Monster.PC	MAXLEVEL:3	SOURCEPAGE:p.68	DEFINE:Steel_LegionnaireLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|Steel_LegionnaireLVL|CL	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Restricted AL		Required Check Base					Required Skill								PRETOTALAB
-CLASS:Steel Legionnaire	!PREALIGN:LE,NE,CE	PRECHECKBASE:3,Fortitude=2,Reflex=2,Will=2	PRESKILL:2,Bluff=3,Diplomacy=4	PRESKILL:1,TYPE.Base=9	PRETOTALAB:4
+CLASS:Steel Legionnaire	!PREALIGN:	PRECHECKBASE:3,Fortitude=2,Reflex=2,Will=2	PRESKILL:2,Bluff=3,Diplomacy=4	PRESKILL:1,TYPE.Base=9	PRETOTALAB:4
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Steel Legionnaire	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Disguise|Gather Information|Hide|Jump|TYPE=Knowledge|TYPE=Profession|Sense Motive|Speak Language|Swim
 ###Block
@@ -206,7 +205,7 @@ CLASS:Steel Legionnaire	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|
 # Class Name			Hit Dice	Max Level	Combat bonus								Bonus
 CLASS:Wizard of High Sorcery	HD:4		MAXLEVEL:10	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name			Required Check Base	Required Feat										Multiple Requirements																																																												Required Skill		Req. Spell Type		Required Text
-CLASS:Wizard of High Sorcery	PRECHECKBASE:1,Will=4	PREABILITY:2,CATEGORY=FEAT,TYPE.ItemCreation,TYPE.Metamagic	PREABILITY:1,CATEGORY=FEAT,Spell Focus	PREMULT:1,[PREMULT:2,[PREALIGN:LG,NG,CG],[PREABILITY:1,CATEGORY=Special Ability,Abjurer Learning Bonus,Diviner Learning Bonus]],[PREMULT:2,[PREALIGN:LN,TN,CN],[PREABILITY:1,CATEGORY=Special Ability,Illusionist Learning Bonus,Transmuter Learning Bonus]],[PREMULT:2,[PREALIGN:LE,NE,CE],[PREABILITY:1,CATEGORY=Special Ability,Enchanter Learning Bonus,Necromancer Learning Bonus]]	PRESKILL:1,Spellcraft=7	PRESPELLTYPE:1,Arcane=2	PRETEXT:Test of High Sorcery
+CLASS:Wizard of High Sorcery	PRECHECKBASE:1,Will=4	PREABILITY:2,CATEGORY=FEAT,TYPE.ItemCreation,TYPE.Metamagic	PREABILITY:1,CATEGORY=FEAT,Spell Focus	PREMULT:1,[PREMULT:2,[PREALIGN:],[PREABILITY:1,CATEGORY=Special Ability,Abjurer Learning Bonus,Diviner Learning Bonus]],[PREMULT:2,[PREALIGN:],[PREABILITY:1,CATEGORY=Special Ability,Illusionist Learning Bonus,Transmuter Learning Bonus]],[PREMULT:2,[PREALIGN:],[PREABILITY:1,CATEGORY=Special Ability,Enchanter Learning Bonus,Necromancer Learning Bonus]]	PRESKILL:1,Spellcraft=7	PRESPELLTYPE:1,Arcane=2	PRETEXT:Test of High Sorcery
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Wizard of High Sorcery	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher Script|Intimidate|TYPE=Knowledge|TYPE=Profession|Speak Language|Spellcraft
 ###Block
@@ -245,7 +244,7 @@ CLASS:Dragon Rider	STARTSKILLPTS:4	CSKILL:Balance|Concentration|TYPE=Craft|Diplo
 # Class Name	Hit Dice	Type			Source Page		Define			Combat bonus												Modify VAR																			Bonus
 CLASS:Inquisitor	HD:6		TYPE:Prestige.PC	SOURCEPAGE:p.80	DEFINE:InquisitorLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|InquisitorLVL|CL	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Restricted AL		Required Feat		Required Skill											PRETOTALAB
-CLASS:Inquisitor	!PREALIGN:CG,CN,CE	PREABILITY:1,CATEGORY=FEAT,Alertness	PRESKILL:2,Gather Information=8,Sense Motive=5	PRESKILL:1,TYPE.Knowledge=6	PRETOTALAB:3
+CLASS:Inquisitor	!PREALIGN:	PREABILITY:1,CATEGORY=FEAT,Alertness	PRESKILL:2,Gather Information=8,Sense Motive=5	PRESKILL:1,TYPE.Knowledge=6	PRETOTALAB:3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Inquisitor	STARTSKILLPTS:6	CSKILL:Appraise|Bluff|Concentration|TYPE=Craft|Decipher Script|Diplomacy|Disguise|Gather Information|Hide|Intimidate|TYPE=Knowledge|Listen|Move Silently|Open Lock|TYPE=Profession|Search|Speak Language|Spot
 ###Block
