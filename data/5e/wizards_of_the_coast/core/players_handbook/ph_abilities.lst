@@ -4,14 +4,18 @@ Default	CATEGORY:Internal	DEFINE:Proficiency_Bonus|0	BONUS:VAR|Proficiency_Bonus
 # Default
 CATEGORY=Internal|Default.MOD									DEFINE:Use_AC_Output|0					BONUS:VAR|Use_AC_Output|1	ABILITY:Internal|AUTOMATIC|AC Tracker	DEFINE:POOL_Expertise|0
 
-AC Tracker				CATEGORY:Internal	ABILITY:Armor Class Method|AUTOMATIC|AC Tracker ~ Default|!PREABILITY:1,CATEGORY=Special Ability,TYPE.AC_Tracker_Choice	
+AC Tracker				CATEGORY:Internal	ABILITY:Armor Class Method|AUTOMATIC|AC Tracker ~ Default|!PREABILITY:1,CATEGORY=Special Ability,TYPE.AC_Tracker_SelectionMade	
+
+CATEGORY=Internal|AC Tracker.MOD	DEFINE:POOL_AC_Tracker|0	BONUS:VAR|POOL_AC_Tracker|1|!PREABILITY:1,CATEGORY=Special Ability,TYPE.AC_Tracker_Choice
+
 #
 Base AC 10 + DEX or Armor	KEY:AC Tracker ~ Default	CATEGORY:Special Ability	TYPE:AC_Tracker						BONUS:VAR|AC_Total|AC_Base+AC_Armor+AC_Shield						DESC:This is the standard Method	BONUS:VAR|DisableDexForAC|1|PREEQUIP:1,TYPE.HeavyArmor
 #
-Mage Armor + DEX			KEY:AC Tracker ~ Mage Armor	CATEGORY:Special Ability	TYPE:AC_Tracker.AC_Tracker_Choice	COST:0	!PREABILITY:1,CATEGORY=Special Ability,TYPE.AC_Tracker_Choice																BONUS:VAR|AC_Base|3
-Barbarian Unarmored Defense	KEY:AC Tracker ~ Barbarian	CATEGORY:Special Ability	TYPE:AC_Tracker.AC_Tracker_Choice	COST:0	PREMULT:2,[!PREABILITY:1,CATEGORY=Special Ability,TYPE.AC_Tracker_Choice],[PREABILITY:1,CATEGORY=Special Ability,Barbarian ~ Unarmored Defense]			BONUS:VAR|AC_Total|AC_Shield		BONUS:VAR|AC_Ability_Score_Bonus|CON
-Monk Unarmored Defense		KEY:AC Tracker ~ Monk		CATEGORY:Special Ability	TYPE:AC_Tracker.AC_Tracker_Choice	COST:0	PREMULT:2,[!PREABILITY:1,CATEGORY=Special Ability,TYPE.AC_Tracker_Choice],[PREABILITY:1,CATEGORY=Special Ability,Monk ~ Unarmored Defense]			BONUS:VAR|AC_Ability_Score_Bonus|WIS
-Sorcerer Draconic Resilience	KEY:AC Tracker ~ Sorcerer	CATEGORY:Special Ability	TYPE:AC_Tracker.AC_Tracker_Choice	COST:0	PREMULT:2,[!PREABILITY:1,CATEGORY=Special Ability,TYPE.AC_Tracker_Choice],[PREABILITY:1,CATEGORY=Special Ability,Draconic Bloodline ~ Draconic Resilience]	BONUS:VAR|AC_Base|3|!PREEQUIP:1,TYPE.Armor
+Default				KEY:AC Tracker ~ No Choice	CATEGORY:Special Ability	TYPE:AC_Tracker.AC_Tracker_Choice					COST:0	
+Mage Armor + DEX			KEY:AC Tracker ~ Mage Armor	CATEGORY:Special Ability	TYPE:AC_Tracker.AC_Tracker_Choice.AC_Tracker_SelectionMade	COST:0	!PREABILITY:1,CATEGORY=Special Ability,TYPE.AC_Tracker_Choice																BONUS:VAR|AC_Base|3
+Barbarian Unarmored Defense	KEY:AC Tracker ~ Barbarian	CATEGORY:Special Ability	TYPE:AC_Tracker.AC_Tracker_Choice.AC_Tracker_SelectionMade	COST:0	PREMULT:2,[!PREABILITY:1,CATEGORY=Special Ability,TYPE.AC_Tracker_Choice],[PREABILITY:1,CATEGORY=Special Ability,Barbarian ~ Unarmored Defense]			BONUS:VAR|AC_Total|AC_Shield		BONUS:VAR|AC_Ability_Score_Bonus|CON
+Monk Unarmored Defense		KEY:AC Tracker ~ Monk		CATEGORY:Special Ability	TYPE:AC_Tracker.AC_Tracker_Choice.AC_Tracker_SelectionMade	COST:0	PREMULT:2,[!PREABILITY:1,CATEGORY=Special Ability,TYPE.AC_Tracker_Choice],[PREABILITY:1,CATEGORY=Special Ability,Monk ~ Unarmored Defense]			BONUS:VAR|AC_Ability_Score_Bonus|WIS
+Sorcerer Draconic Resilience	KEY:AC Tracker ~ Sorcerer	CATEGORY:Special Ability	TYPE:AC_Tracker.AC_Tracker_Choice.AC_Tracker_SelectionMade	COST:0	PREMULT:2,[!PREABILITY:1,CATEGORY=Special Ability,TYPE.AC_Tracker_Choice],[PREABILITY:1,CATEGORY=Special Ability,Draconic Bloodline ~ Draconic Resilience]	BONUS:VAR|AC_Base|3|!PREEQUIP:1,TYPE.Armor
 
 #
 CATEGORY=Internal|Default.MOD	DEFINESTAT:MAXVALUE|STR|max(20,MaxStatSTR)	DEFINE:MaxStatSTR|0	DEFINE:MaxStatNPC|0	BONUS:VAR|MaxStatSTR|Existing_Cap	DEFINE:Existing_Cap|0	BONUS:VAR|Existing_Cap|max(20,MaxStatNPC)
@@ -48,6 +52,8 @@ Caster Spell Slots ~ Full	CATEGORY:Internal							BONUS:VAR|SpellSlotsLVL1|2+(Sp
 # Thunder		. A concussive burst of sound, such as the effect of the thunderwave spell, deals thunder damage.
 
 Skill Disadvantage ~ Stealth	CATEGORY:Internal	ASPECT:SkillBonus|Armor - Disadvantage on Stealth
+Skill Disadvantage ~ Stealth (Medium Armor)	CATEGORY:Internal	ASPECT:SkillBonus|Armor - Disadvantage on Stealth
+Unproficient Armor	CATEGORY:Internal	ASPECT:SkillBonus|Armor - Disadvantage on STR and DEX skill checks, saving throws, and attacks. Can't cast spells.
 
 Racial Traits ~ Dwarf	CATEGORY:Internal	BONUS:ABILITYPOOL|Dwarf Subrace|1	ABILITY:Dwarf Trait|AUTOMATIC|TYPE=Base Dwarf Trait	
 #Dwarf Traits	CATEGORY:Special Ability	TYPE:Dwarf Trait	
@@ -246,7 +252,7 @@ Ability Score Increase	KEY:Tiefling ~ Ability Score Increase	CATEGORY:Special Ab
 #BONUS:STAT|INT|1|TYPE=Racial	BONUS:STAT|CHA|2|TYPE=Racial
 Darkvision			KEY:Tiefling ~ Darkvision			CATEGORY:Special Ability	SORTKEY:1_Race	TYPE:Race Trait.Tiefling Trait.Base Tiefling Trait.SpecialQuality	SOURCEPAGE:p.43	DESC:Thanks to your infernal heritage, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray.	BONUS:VAR|DarkvisionRange|60|TYPE=Base
 Hellish Resistance	KEY:Tiefling ~ Hellish Resistance		CATEGORY:Special Ability	SORTKEY:1_Race	TYPE:Race Trait.Tiefling Trait.Base Tiefling Trait.SpecialQuality	SOURCEPAGE:p.43	DESC:You have resistance to fire damage.
-Infernal Legacy		KEY:Tiefling ~ Infernal Legacy		CATEGORY:Special Ability	SORTKEY:1_Race	TYPE:Race Trait.Tiefling Trait.Base Tiefling Trait.SpecialQuality	SOURCEPAGE:p.43	DESC:You know the thaumaturgy cantrip. Once you reach 3rd level, you can cast the hellish rebuke spell once per day as a 2nd-level spell. Once you reach 5th level, you can also cast the darkness spell once per day. Charisma is your spellcasting ability for these spells. Spell save DC %1.|8+Proficiency_Bonus+CHA	SPELLS:Infernal Legacy|TIMES=ATWILL|Thaumaturgy	SPELLS:Infernal Legacy|TIMES=1|TIMEUNIT=Day|Hellish Rebuke,8+CHA|PRELEVEL:MIN=3	SPELLS:Infernal Legacy|TIMES=1|TIMEUNIT=Day|Darkness|PRELEVEL:MIN=5
+Infernal Legacy		KEY:Tiefling ~ Infernal Legacy		CATEGORY:Special Ability	SORTKEY:1_Race	TYPE:Race Trait.Tiefling Trait.Base Tiefling Trait.SpecialQuality	SOURCEPAGE:p.43	DESC:You know the thaumaturgy cantrip. Once you reach 3rd level, you can cast the hellish rebuke spell once per day as a 2nd-level spell. Once you reach 5th level, you can also cast the darkness spell once per day. Charisma is your spellcasting ability for these spells. Spell save DC %1.|8+Proficiency_Bonus+CHA	SPELLS:Infernal Legacy|TIMES=ATWILL|Thaumaturgy	SPELLS:Infernal Legacy|TIMES=1|TIMEUNIT=Day|Hellish Rebuke,8+CHA+Proficiency_Bonus|PRELEVEL:MIN=3	SPELLS:Infernal Legacy|TIMES=1|TIMEUNIT=Day|Darkness|PRELEVEL:MIN=5
 Languages			KEY:Tiefling ~ Languages			CATEGORY:Special Ability	SORTKEY:1_Race	TYPE:Race Trait.Tiefling Trait.Base Tiefling Trait.SpecialQuality	SOURCEPAGE:p.43	DESC:You can speak, read, and write Common and Infernal.		ABILITY:Language Selection|AUTOMATIC|Common|Infernal
 
 
@@ -468,7 +474,7 @@ Tool Proficiency ~ Forgery Kit			DEFINE:ProfBonus_Forgery_Kit|0		TYPE:Tool Profi
 Tool Proficiency ~ Dice Set				DEFINE:ProfBonus_Dice_Set|0			TYPE:Tool Proficiency.Tool Proficiency Gaming Set		CATEGORY:Internal	BONUS:VAR|ProfBonus_Dice_Set|Proficiency_Bonus				ASPECT:SkillBonus|+%1 Dice Set|ProfBonus_Dice_Set			
 Tool Proficiency ~ Dragonchess Set			DEFINE:ProfBonus_Dragonchess_Set|0		TYPE:Tool Proficiency.Tool Proficiency Gaming Set		CATEGORY:Internal	BONUS:VAR|ProfBonus_Dragonchess_Set|Proficiency_Bonus			ASPECT:SkillBonus|+%1 Dragonchess Set|ProfBonus_Dragonchess_Set		
 Tool Proficiency ~ Playing Card Set			DEFINE:ProfBonus_Playing_Card_Set|0		TYPE:Tool Proficiency.Tool Proficiency Gaming Set		CATEGORY:Internal	BONUS:VAR|ProfBonus_Playing_Card_Set|Proficiency_Bonus		ASPECT:SkillBonus|+%1 Playing Card Set|ProfBonus_Playing_Card_Set		
-Tool Proficiency ~ Three-Dragon Ante Set		DEFINE:ProfBonus_Three-Dragon_Ante_Set|0	TYPE:Tool Proficiency.Tool Proficiency Gaming Set		CATEGORY:Internal	BONUS:VAR|ProfBonus_Three_Dragon_Ante_Set|Proficiency_Bonus		ASPECT:SkillBonus|+%1 Three-Dragon Ante Set|ProfBonus_Three_Dragon_Ante_Set	
+Tool Proficiency ~ Three-Dragon Ante Set		DEFINE:ProfBonus_Three_Dragon_Ante_Set|0	TYPE:Tool Proficiency.Tool Proficiency Gaming Set		CATEGORY:Internal	BONUS:VAR|ProfBonus_Three_Dragon_Ante_Set|Proficiency_Bonus		ASPECT:SkillBonus|+%1 Three-Dragon Ante Set|ProfBonus_Three_Dragon_Ante_Set	
 Tool Proficiency ~ Bagpipes				DEFINE:ProfBonus_Bagpipes|0			TYPE:Tool Proficiency.Tool Proficiency Musical Instrument	CATEGORY:Internal	BONUS:VAR|ProfBonus_Bagpipes|Proficiency_Bonus				ASPECT:SkillBonus|+%1 Bagpipes|ProfBonus_Bagpipes			
 Tool Proficiency ~ Drum					DEFINE:ProfBonus_Drum|0				TYPE:Tool Proficiency.Tool Proficiency Musical Instrument	CATEGORY:Internal	BONUS:VAR|ProfBonus_Drum|Proficiency_Bonus				ASPECT:SkillBonus|+%1 Drum|ProfBonus_Drum				
 Tool Proficiency ~ Dulcimer				DEFINE:ProfBonus_Dulcimer|0			TYPE:Tool Proficiency.Tool Proficiency Musical Instrument	CATEGORY:Internal	BONUS:VAR|ProfBonus_Dulcimer|Proficiency_Bonus				ASPECT:SkillBonus|+%1 Dulcimer|ProfBonus_Dulcimer			
@@ -483,8 +489,8 @@ Tool Proficiency ~ Herbalism Kit			DEFINE:ProfBonus_Herbalism_Kit|0		TYPE:Tool P
 Tool Proficiency ~ Navigator's Tools		DEFINE:ProfBonus_Navigators_Tools|0		TYPE:Tool Proficiency							CATEGORY:Internal	BONUS:VAR|ProfBonus_Navigators_Tools|Proficiency_Bonus		ASPECT:SkillBonus|+%1 Navigator's Tools|ProfBonus_Navigators_Tools		
 Tool Proficiency ~ Poisoner's Kit			DEFINE:ProfBonus_Poisoners_Kit|0		TYPE:Tool Proficiency							CATEGORY:Internal	BONUS:VAR|ProfBonus_Poisoners_Kit|Proficiency_Bonus			ASPECT:SkillBonus|+%1 Poisoner's Kit|ProfBonus_Poisoners_Kit			
 Tool Proficiency ~ Thieves' Tools			DEFINE:ProfBonus_Thieves_Tools|0		TYPE:Tool Proficiency							CATEGORY:Internal	BONUS:VAR|ProfBonus_Thieves_Tools|Proficiency_Bonus			ASPECT:SkillBonus|+%1 Thieves' Tools|ProfBonus_Thieves_Tools			
-Tool Proficiency ~ Vehicles (Land)			DEFINE:ProfBonus_Vehicles_(Land)|0		TYPE:Tool Proficiency							CATEGORY:Internal	BONUS:VAR|ProfBonus_Vehicles_(Land)|Proficiency_Bonus			ASPECT:SkillBonus|+%1 Vehicles (Land)|ProfBonus_Vehicles_(Land)		
-Tool Proficiency ~ Vehicles (Water)			DEFINE:ProfBonus_Vehicles_(Water)|0		TYPE:Tool Proficiency							CATEGORY:Internal	BONUS:VAR|ProfBonus_Vehicles_(Water)|Proficiency_Bonus		ASPECT:SkillBonus|+%1 Vehicles (Water)|ProfBonus_Vehicles_(Water)		
+Tool Proficiency ~ Vehicles (Land)			DEFINE:ProfBonus_Vehicles_Land|0		TYPE:Tool Proficiency							CATEGORY:Internal	BONUS:VAR|ProfBonus_Vehicles_Land|Proficiency_Bonus			ASPECT:SkillBonus|+%1 Vehicles (Land)|ProfBonus_Vehicles_Land		
+Tool Proficiency ~ Vehicles (Water)			DEFINE:ProfBonus_Vehicles_Water|0		TYPE:Tool Proficiency							CATEGORY:Internal	BONUS:VAR|ProfBonus_Vehicles_Water|Proficiency_Bonus		ASPECT:SkillBonus|+%1 Vehicles (Water)|ProfBonus_Vehicles_Water		
 
 
 ###Block: Multiclass Support
@@ -496,7 +502,7 @@ Bard		CATEGORY:CLASS	DEFINE:POOL_Bard_Skill|0	DEFINE:POOL_Bard_Magical_Secrets|0
 Cleric	CATEGORY:CLASS	ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfMedium|TYPE=ShieldProf
 Druid		CATEGORY:CLASS	ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfMedium|TYPE=ShieldProf
 Fighter	CATEGORY:CLASS	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial|TYPE=ArmorProfMedium|TYPE=ShieldProf
-Monk		CATEGORY:CLASS	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfSimple	ABILITY:Weapon|AUTOMATIC|Shortsword
+Monk		CATEGORY:CLASS	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfSimple|TYPE=WeaponProfMonk	AUTO:WEAPONPROF|Shortsword
 Paladin	CATEGORY:CLASS	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial|TYPE=ArmorProfMedium|TYPE=ShieldProf
 Ranger	CATEGORY:CLASS	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial|TYPE=ArmorProfMedium|TYPE=ShieldProf		DEFINE:POOL_Ranger_Skill|0	BONUS:VAR|POOL_Ranger_Skill|1
 Rogue		CATEGORY:CLASS	ABILITY:Internal|AUTOMATIC|Tool Proficiency ~ Thieves' Tools|TYPE=ArmorProfLight	DEFINE:POOL_Rogue_Skill|0	BONUS:VAR|POOL_Rogue_Skill|1
@@ -574,17 +580,17 @@ Magical Secrets			KEY:Bard ~ Magical Secrets			CATEGORY:Special Ability	SORTKEY:
 Superior Inspiration		KEY:Bard ~ Superior Inspiration		CATEGORY:Special Ability	SORTKEY:Class	TYPE:Bard Class Feature.SpecialQuality	SOURCEPAGE:p.54	DESC:At 20th level, when you roll initiative and have no uses of Bardic Inspiration left, you regain one use.
 
 # Bard Cantrips
-Blade Ward			KEY:Bard Cantrip ~ Blade Ward			TYPE:Bard Cantrip	CATEGORY:Internal	SPELLKNOWN:CLASS|Bard=0|Blade Ward		
-Dancing Lights		KEY:Bard Cantrip ~ Dancing Lights		TYPE:Bard Cantrip	CATEGORY:Internal	SPELLKNOWN:CLASS|Bard=0|Dancing Lights		
-Friends			KEY:Bard Cantrip ~ Friends			TYPE:Bard Cantrip	CATEGORY:Internal	SPELLKNOWN:CLASS|Bard=0|Friends				
-Light				KEY:Bard Cantrip ~ Light			TYPE:Bard Cantrip	CATEGORY:Internal	SPELLKNOWN:CLASS|Bard=0|Light			
-Mage Hand			KEY:Bard Cantrip ~ Mage Hand			TYPE:Bard Cantrip	CATEGORY:Internal	SPELLKNOWN:CLASS|Bard=0|Mage Hand		
-Mending			KEY:Bard Cantrip ~ Mending			TYPE:Bard Cantrip	CATEGORY:Internal	SPELLKNOWN:CLASS|Bard=0|Mending				
-Message			KEY:Bard Cantrip ~ Message			TYPE:Bard Cantrip	CATEGORY:Internal	SPELLKNOWN:CLASS|Bard=0|Message			
-Minor Illusion		KEY:Bard Cantrip ~ Minor Illusion		TYPE:Bard Cantrip	CATEGORY:Internal	SPELLKNOWN:CLASS|Bard=0|Minor Illusion	
-Prestidigitation		KEY:Bard Cantrip ~ Prestidigitation		TYPE:Bard Cantrip	CATEGORY:Internal	SPELLKNOWN:CLASS|Bard=0|Prestidigitation	
-True Strike			KEY:Bard Cantrip ~ True Strike		TYPE:Bard Cantrip	CATEGORY:Internal	SPELLKNOWN:CLASS|Bard=0|True Strike		
-Vicious Mockery		KEY:Bard Cantrip ~ Vicious Mockery		TYPE:Bard Cantrip	CATEGORY:Internal	SPELLKNOWN:CLASS|Bard=0|Vicious Mockery	
+Blade Ward			KEY:Bard Cantrip ~ Blade Ward			TYPE:Bard Cantrip	CATEGORY:Internal	SPELLS:Bard Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Blade Ward,CHA+8+Proficiency_Bonus				
+Dancing Lights		KEY:Bard Cantrip ~ Dancing Lights		TYPE:Bard Cantrip	CATEGORY:Internal	SPELLS:Bard Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Dancing Lights,CHA+8+Proficiency_Bonus						
+Friends			KEY:Bard Cantrip ~ Friends			TYPE:Bard Cantrip	CATEGORY:Internal	SPELLS:Bard Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Friends,CHA+8+Proficiency_Bonus				
+Light				KEY:Bard Cantrip ~ Light			TYPE:Bard Cantrip	CATEGORY:Internal	SPELLS:Bard Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Light,CHA+8+Proficiency_Bonus			
+Mage Hand			KEY:Bard Cantrip ~ Mage Hand			TYPE:Bard Cantrip	CATEGORY:Internal	SPELLS:Bard Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Mage Hand,CHA+8+Proficiency_Bonus				
+Mending			KEY:Bard Cantrip ~ Mending			TYPE:Bard Cantrip	CATEGORY:Internal	SPELLS:Bard Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Mending,CHA+8+Proficiency_Bonus				
+Message			KEY:Bard Cantrip ~ Message			TYPE:Bard Cantrip	CATEGORY:Internal	SPELLS:Bard Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Message,CHA+8+Proficiency_Bonus				
+Minor Illusion		KEY:Bard Cantrip ~ Minor Illusion		TYPE:Bard Cantrip	CATEGORY:Internal	SPELLS:Bard Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Minor Illusion,CHA+8+Proficiency_Bonus						
+Prestidigitation		KEY:Bard Cantrip ~ Prestidigitation		TYPE:Bard Cantrip	CATEGORY:Internal	SPELLS:Bard Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Prestidigitation,CHA+8+Proficiency_Bonus					
+True Strike			KEY:Bard Cantrip ~ True Strike		TYPE:Bard Cantrip	CATEGORY:Internal	SPELLS:Bard Cantrip|TIMES=ATWILL|CASTERLEVEL=1|True Strike,CHA+8+Proficiency_Bonus					
+Vicious Mockery		KEY:Bard Cantrip ~ Vicious Mockery		TYPE:Bard Cantrip	CATEGORY:Internal	SPELLS:Bard Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Vicious Mockery,CHA+8+Proficiency_Bonus						
 
 # Bard Colleges
 College of Lore			KEY:Bard College ~ College of Lore		CATEGORY:Special Ability	SORTKEY:Class	TYPE:Bard Class Feature.Bard College.SpecialQuality		SOURCEPAGE:p.54	DESC:Bards of the College of Lore know something about most things, collecting bits of knowledge from sources as diverse as scholarly tomes and peasant tales. Whether singing folk ballads in taverns or elaborate compositions in royal courts, these bards use their gifts to hold audiences spellbound. When the applause dies down, the audience members might find themselves questioning everything they held to be true, from their faith in the priesthood of the local temple to their loyalty to the king. The loyalty of these bards lies in the pursuit of beauty and truth, not in fealty to a monarch or following the tenets of a deity. A noble who keeps such a bard as a herald or advisor knows that the bard would rather be honest than politic. The college's members gather in libraries and sometimes in actual colleges, complete with classrooms and dormitories, to share their lore with one another. They also meet at festivals or affairs of state, where they can expose corruption, unravel lies, and poke fun at selfimportant figures of authority.	ABILITY:Bard Class Feature|AUTOMATIC|College of Lore ~ Bonus Proficiencies|PRECLASS:1,Bard=3	ABILITY:Bard Class Feature|AUTOMATIC|College of Lore ~ Cutting Words|PRECLASS:1,Bard=3	ABILITY:Bard Class Feature|AUTOMATIC|College of Lore ~ Additional Magical Secrets|PRECLASS:1,Bard=6	ABILITY:Bard Class Feature|AUTOMATIC|College of Lore ~ Peerless Skill|PRECLASS:1,Bard=14			
@@ -977,13 +983,13 @@ Divine Intervention			KEY:Cleric ~ Divine Intervention		CATEGORY:Special Ability
 Channel Divinity: Turn Undead		KEY:Channel Divinity ~ Turn Undead		CATEGORY:Special Ability	SORTKEY:Class	TYPE:Class Features.Cleric Class Feature.Channel Divinity.SpecialQuality	SOURCEPAGE:p.59					DESC:As an action, you present your holy symbol and speak a prayer censuring the undead. Each undead that can see or hear you within 30 feet of you must make a Wisdom saving throw. If the creature fails its saving throw, it is turned for 1 minute or until it takes any damage. A turned creature must spend its turns trying to move as far away from you as it can, and it can't willingly move to a space within 30 feet of you. It also can't take reactions. For its action, it can use only the Dash action or try to escape from an effect that prevents it from moving. If there's nowhere to move, the creature can use the Dodge action.
 
 # Cleric Cantrips
-Guidance			KEY:Cleric Cantrip ~ Guidance			TYPE:Cleric Cantrip	CATEGORY:Internal	SPELLKNOWN:CLASS|Cleric=0|Guidance		
-Light				KEY:Cleric Cantrip ~ Light			TYPE:Cleric Cantrip	CATEGORY:Internal	SPELLKNOWN:CLASS|Cleric=0|Light			
-Mending			KEY:Cleric Cantrip ~ Mending			TYPE:Cleric Cantrip	CATEGORY:Internal	SPELLKNOWN:CLASS|Cleric=0|Mending	
-Resistance			KEY:Cleric Cantrip ~ Resistance		TYPE:Cleric Cantrip	CATEGORY:Internal	SPELLKNOWN:CLASS|Cleric=0|Resistance		
-Sacred Flame		KEY:Cleric Cantrip ~ Sacred Flame		TYPE:Cleric Cantrip	CATEGORY:Internal	SPELLKNOWN:CLASS|Cleric=0|Sacred Flame	
-Spare the Dying		KEY:Cleric Cantrip ~ Spare the Dying	TYPE:Cleric Cantrip	CATEGORY:Internal	SPELLKNOWN:CLASS|Cleric=0|Spare the Dying	
-Thaumaturgy			KEY:Cleric Cantrip ~ Thaumaturgy		TYPE:Cleric Cantrip	CATEGORY:Internal	SPELLKNOWN:CLASS|Cleric=0|Thaumaturgy		
+Guidance			KEY:Cleric Cantrip ~ Guidance			TYPE:Cleric Cantrip	CATEGORY:Internal	SPELLS:Cleric Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Guidance,WIS+8+Proficiency_Bonus				
+Light				KEY:Cleric Cantrip ~ Light			TYPE:Cleric Cantrip	CATEGORY:Internal	SPELLS:Cleric Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Light,WIS+8+Proficiency_Bonus			
+Mending			KEY:Cleric Cantrip ~ Mending			TYPE:Cleric Cantrip	CATEGORY:Internal	SPELLS:Cleric Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Mending,WIS+8+Proficiency_Bonus				
+Resistance			KEY:Cleric Cantrip ~ Resistance		TYPE:Cleric Cantrip	CATEGORY:Internal	SPELLS:Cleric Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Resistance,WIS+8+Proficiency_Bonus					
+Sacred Flame		KEY:Cleric Cantrip ~ Sacred Flame		TYPE:Cleric Cantrip	CATEGORY:Internal	SPELLS:Cleric Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Sacred Flame,WIS+8+Proficiency_Bonus						
+Spare the Dying		KEY:Cleric Cantrip ~ Spare the Dying	TYPE:Cleric Cantrip	CATEGORY:Internal	SPELLS:Cleric Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Spare the Dying,WIS+8+Proficiency_Bonus							
+Thaumaturgy			KEY:Cleric Cantrip ~ Thaumaturgy		TYPE:Cleric Cantrip	CATEGORY:Internal	SPELLS:Cleric Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Thaumaturgy,WIS+8+Proficiency_Bonus					
 
 
 # Divine Domains
@@ -1081,14 +1087,14 @@ Beast Spells			KEY:Druid ~ Beast Spells				CATEGORY:Special Ability	TYPE:Druid C
 Archdruid				KEY:Druid ~ Archdruid					CATEGORY:Special Ability	TYPE:Druid Class Feature.SpecialQuality	SORTKEY:Class	SOURCEPAGE:p.67	DESC:At 20th level, you can use your Wild Shape an unlimited number of times. Additionally, you can ignore the verbal and somatic components of your druid spells, as well as any material components that lack a cost and aren't consumed by a spell. You gain this benefit in both your normal shape and your beast shape from Wild Shape.
 
 # Druid Cantrips
-Druidcraft		KEY:Druid Cantrip ~ Druidcraft	TYPE:Druid Cantrip	CATEGORY:Internal	SPELLKNOWN:CLASS|Druid=0|Druidcraft		
-Guidance		KEY:Druid Cantrip ~ Guidance		TYPE:Druid Cantrip	CATEGORY:Internal	SPELLKNOWN:CLASS|Druid=0|Guidance		
-Mending		KEY:Druid Cantrip ~ Mending		TYPE:Druid Cantrip	CATEGORY:Internal	SPELLKNOWN:CLASS|Druid=0|Mending		
-Poison Spray	KEY:Druid Cantrip ~ Poison Spray	TYPE:Druid Cantrip	CATEGORY:Internal	SPELLKNOWN:CLASS|Druid=0|Poison Spray	
-Produce Flame	KEY:Druid Cantrip ~ Produce Flame	TYPE:Druid Cantrip	CATEGORY:Internal	SPELLKNOWN:CLASS|Druid=0|Produce Flame	
-Resistance		KEY:Druid Cantrip ~ Resistance	TYPE:Druid Cantrip	CATEGORY:Internal	SPELLKNOWN:CLASS|Druid=0|Resistance		
-Shillelagh		KEY:Druid Cantrip ~ Shillelagh	TYPE:Druid Cantrip	CATEGORY:Internal	SPELLKNOWN:CLASS|Druid=0|Shillelagh		
-Thorn Whip		KEY:Druid Cantrip ~ Thorn Whip	TYPE:Druid Cantrip	CATEGORY:Internal	SPELLKNOWN:CLASS|Druid=0|Thorn Whip		
+Druidcraft		KEY:Druid Cantrip ~ Druidcraft	TYPE:Druid Cantrip	CATEGORY:Internal	SPELLS:Druid Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Druidcraft,WIS+8+Proficiency_Bonus							
+Guidance		KEY:Druid Cantrip ~ Guidance		TYPE:Druid Cantrip	CATEGORY:Internal	SPELLS:Druid Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Guidance,WIS+8+Proficiency_Bonus						
+Mending		KEY:Druid Cantrip ~ Mending		TYPE:Druid Cantrip	CATEGORY:Internal	SPELLS:Druid Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Mending,WIS+8+Proficiency_Bonus						
+Poison Spray	KEY:Druid Cantrip ~ Poison Spray	TYPE:Druid Cantrip	CATEGORY:Internal	SPELLS:Druid Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Poison Spray,WIS+8+Proficiency_Bonus								
+Produce Flame	KEY:Druid Cantrip ~ Produce Flame	TYPE:Druid Cantrip	CATEGORY:Internal	SPELLS:Druid Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Produce Flame,WIS+8+Proficiency_Bonus								
+Resistance		KEY:Druid Cantrip ~ Resistance	TYPE:Druid Cantrip	CATEGORY:Internal	SPELLS:Druid Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Resistance,WIS+8+Proficiency_Bonus							
+Shillelagh		KEY:Druid Cantrip ~ Shillelagh	TYPE:Druid Cantrip	CATEGORY:Internal	SPELLS:Druid Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Shillelagh,WIS+8+Proficiency_Bonus							
+Thorn Whip		KEY:Druid Cantrip ~ Thorn Whip	TYPE:Druid Cantrip	CATEGORY:Internal	SPELLS:Druid Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Thorn Whip,WIS+8+Proficiency_Bonus							
 
 #Druid Circles	Though their organization is invisible to most outsiders, druids are part of a society that spans the land, ignoring political borders. All druids are nominally members of this druidic society, though some individuals are so isolated that they have never seen any high-ranking members of the society or participated in druidic gatherings. Druids recognize each other as brothers and sisters. Like creatures of the wilderness, however, druids sometimes compete with or even prey on each other. At a local scale, druids are organized into circles that share certain perspectives on nature, balance, and the way of the druid.
 Circle of the Land	KEY:Druid Circle ~ Circle of the Land		CATEGORY:Special Ability	TYPE:Druid Class Feature.SpecialQuality.Druid Circle	SORTKEY:Class_Druid	SOURCEPAGE:p.68	DESC:The Circle of the Land is made up of mystics and sages who safeguard ancient knowledge and rites through a vast oral tradition. These druids meet within sacred circles of trees or standing stones to whisper primal secrets in Druidic. The circle's wisest members preside as the chief priests of communities that hold to the Old Faith and serve as advisors to the rulers of those folk. As a member of this circle, your magic is influenced by the land where you were initiated into the circle's mysterious rites.	ABILITY:Druid Class Feature|AUTOMATIC|Circle of the Land ~ Bonus Cantrip|PRECLASS:1,Druid=2	ABILITY:Druid Class Feature|AUTOMATIC|Circle of the Land ~ Natural Recovery|PRECLASS:1,Druid=2	ABILITY:Druid Class Feature|AUTOMATIC|Circle of the Land ~ Circle Spells|PRECLASS:1,Druid=3	ABILITY:Druid Class Feature|AUTOMATIC|Circle of the Land ~ Land's Stride|PRECLASS:1,Druid=6	ABILITY:Druid Class Feature|AUTOMATIC|Circle of the Land ~ Nature's Ward|PRECLASS:1,Druid=10	ABILITY:Druid Class Feature|AUTOMATIC|Circle of the Land ~ Nature's Sanctuary|PRECLASS:1,Druid=14	
@@ -1163,7 +1169,7 @@ Superior Critical			KEY:Champion Archetype ~ Superior Critical			CATEGORY:Specia
 Survivor				KEY:Champion Archetype ~ Survivor					CATEGORY:Special Ability	SORTKEY:Class	TYPE:Archetype Ability.Fighter Class Feature.SpecialQuality	SOURCEPAGE:p.73	DESC:At 18th level, you attain the pinnacle of resilience in battle. At the start of each of your turns, you regain hit points equal to %1 if you have no more than half of your hit points left. You don't gain this benefit if you have 0 hit points.|5+CON
 
 # Battle Master
-Combat Superiority		KEY:Battle Master Archetype ~ Combat Superiority		CATEGORY:Special Ability	SORTKEY:Class	TYPE:Fighter Class Feature.SpecialQuality	SOURCEPAGE:p.73	DESC:When you choose this archetype at 3rd level, you learn maneuvers that are fueled by special dice called superiority dice. Maneuvers. You learn three maneuvers of your choice, which are detailed under "Maneuvers" below. Many maneuvers enhance an attack in some way. You can use only one maneuver per attack. You learn two additional maneuvers of your choice at 7th, 10th, and 15th level. Each time you learn new maneuvers, you can also replace one maneuver you know with a different one. Superiority Dice. You have %1 superiority dice, which are d%2s. A superiority die is expended when you use it. You regain all of your expended superiority dice when you finish a short or long rest. Saving Throws. Some of your maneuvers require your target to make a saving throw to resist the maneuver's effects. The saving throw DC is %3|SuperiorityDiceNumber|SuperiorityDiceType|8+Proficiency_Bonus+max(STR,DEX)	DEFINE:SuperiorityDiceNumber|0	BONUS:VAR|SuperiorityDiceNumber|(4*(FighterLVL>=3))+(FighterLVL>=7)+(FighterLVL>=15)	DEFINE:SuperiorityDiceType|0	BONUS:VAR|SuperiorityDiceType|6+(2*(FighterLVL>=3))+(2*(FighterLVL>=10))+(2*(FighterLVL>=18))	DEFINE:POOL_Fighter_Maneuver|0	BONUS:VAR|POOL_Fighter_Maneuver|3+(2*(FighterLVL>=7))+(2*(FighterLVL>=10))+(2*(FighterLVL>=15))
+Combat Superiority		KEY:Battle Master Archetype ~ Combat Superiority		CATEGORY:Special Ability	SORTKEY:Class	TYPE:Fighter Class Feature.SpecialQuality	SOURCEPAGE:p.73	DESC:You learn maneuvers that are fueled by special dice called superiority dice. Many maneuvers enhance an attack in some way. You can use only one maneuver per attack. Each time you learn new maneuvers, you can also replace one maneuver you know with a different one. Superiority Dice. You have %1 superiority dice, which are d%2s. A superiority die is expended when you use it. You regain all of your expended superiority dice when you finish a short or long rest. Saving Throws. Some of your maneuvers require your target to make a saving throw to resist the maneuver's effects. The saving throw DC is %3|SuperiorityDiceNumber|SuperiorityDiceType|8+Proficiency_Bonus+max(STR,DEX)	DEFINE:SuperiorityDiceNumber|0	BONUS:VAR|SuperiorityDiceNumber|(4*(FighterLVL>=3))+(FighterLVL>=7)+(FighterLVL>=15)|PREABILITY:1,CATEGORY=Special Ability,Martial Archetype ~ Battle Master	DEFINE:SuperiorityDiceType|0	BONUS:VAR|SuperiorityDiceType|6	BONUS:VAR|SuperiorityDiceType|(2*(FighterLVL>=3))+(2*(FighterLVL>=10))+(2*(FighterLVL>=18))|PREABILITY:1,CATEGORY=Special Ability,Martial Archetype ~ Battle Master	DEFINE:POOL_Fighter_Maneuver|0	BONUS:VAR|POOL_Fighter_Maneuver|(3*(FighterLVL>=3))+(2*(FighterLVL>=7))+(2*(FighterLVL>=10))+(2*(FighterLVL>=15))|PREABILITY:1,CATEGORY=Special Ability,Martial Archetype ~ Battle Master
 Student of War			KEY:Battle Master Archetype ~ Student of War			CATEGORY:Special Ability	SORTKEY:Class	TYPE:Fighter Class Feature.SpecialQuality	SOURCEPAGE:p.73	DESC:At 3rd level, you gain proficiency with one type of artisan's tools of your choice.	BONUS:ABILITYPOOL|Artisan's Tools Proficiency|1
 Know Your Enemy			KEY:Battle Master Archetype ~ Know Your Enemy			CATEGORY:Special Ability	SORTKEY:Class	TYPE:Fighter Class Feature.SpecialQuality	SOURCEPAGE:p.73	DESC:Starting at 7th level, if you spend at least 1 minute observing or interacting with another creature outside combat, you can learn certain information about its capabilities compared to your own. The DM tells you if the creature is your equal, superior, or inferior in regard to two of the following characteristics of your choice: * Strength score * Dexterity score * Constitution score * Armor Class * Current hit points * Total class levels (if any) * Fighter class levels (if any)
 Improved Combat Superiority	KEY:Battle Master Archetype ~ Improved Combat Superiority	CATEGORY:Special Ability	SORTKEY:Class	TYPE:Fighter Class Feature.SpecialQuality	SOURCEPAGE:p.74	DESC:At 10th level, your superiority dice turn into d10s. At 18th level, they turn into dl2s.
@@ -1378,7 +1384,7 @@ Way of the Four Elements	KEY:Monastic Tradition ~ Way of the Four Elements	CATEG
 # Way of the Open Hand
 Open Hand Technique	KEY:Way of the Open Hand ~ Open Hand Technique		CATEGORY:Special Ability	SORTKEY:Class	TYPE:Monk Class Feature.SpecialQuality	SOURCEPAGE:p.79	DESC:Starting when you choose this tradition at 3rd level, you can manipulate your enemy's ki when you harness your own. Whenever you hit a creature with one of the attacks granted by your Flurry of Blows, you can impose one of the following effects on that target: * It must succeed on a Dexterity saving throw or be knocked prone. * It must make a Strength saving throw. If it fails, you can push it up to 15 feet away from you. * It can't take reactions until the end of your next turn.
 Wholeness of Body		KEY:Way of the Open Hand ~ Wholeness of Body		CATEGORY:Special Ability	SORTKEY:Class	TYPE:Monk Class Feature.SpecialQuality	SOURCEPAGE:p.79	DESC:At 6th level, you gain the ability to heal yourself. As an action, you can regain hit points equal to %1. You must finish a long rest before you can use this feature again.|MonkLVL*3
-Tranquility			KEY:Way of the Open Hand ~ Tranquility			CATEGORY:Special Ability	SORTKEY:Class	TYPE:Monk Class Feature.SpecialQuality	SOURCEPAGE:p.80	DESC:Beginning at 11th level, you can enter a special meditation that surrounds you with an aura of peace. At the end of a long rest, you gain the effect of a sanctuary spell that lasts until the start of your next long rest (the spell can end early as normal). The saving throw DC for the spell equals %1.|8+Proficiency_Bonus+WIS	SPELLS:Monk|Sanctuary(Tranquility)
+Tranquility			KEY:Way of the Open Hand ~ Tranquility			CATEGORY:Special Ability	SORTKEY:Class	TYPE:Monk Class Feature.SpecialQuality	SOURCEPAGE:p.80	DESC:Beginning at 11th level, you can enter a special meditation that surrounds you with an aura of peace. At the end of a long rest, you gain the effect of a sanctuary spell that lasts until the start of your next long rest (the spell can end early as normal). The saving throw DC for the spell equals %1.|8+Proficiency_Bonus+WIS	SPELLS:Monk|Sanctuary(Tranquility),8+Proficiency_Bonus+WIS
 Quivering Palm		KEY:Way of the Open Hand ~ Quivering Palm			CATEGORY:Special Ability	SORTKEY:Class	TYPE:Monk Class Feature.SpecialQuality	SOURCEPAGE:p.80	DESC:At 17th level, you gain the ability to set up lethal vibrations in someone's body. When you hit a creature with an unarmed strike, you can spend 3 ki points to start these imperceptible vibrations, which last for a number of days equal to %1. The vibrations are harmless unless you use your action to end them. To do so, you and the target must be on the same plane of existence. When you use this action, the creature must make a Constitution saving throw. If it fails, it is reduced to 0 hit points. If it succeeds, it takes 10d10 necrotic damage. You can have only one creature under the effect of this feature at a time. You can choose to end the vibrations harmlessly without using an action.|MonkLVL
 
 # Way of Shadow
@@ -1391,23 +1397,23 @@ Opportunist			KEY:Way of Shadow ~ Opportunist			CATEGORY:Special Ability	SORTKEY
 Disciple of the Elements	KEY:Way of the Four Elements ~ Disciple of the Elements	CATEGORY:Special Ability	SORTKEY:Class	TYPE:Monk Class Feature.SpecialQuality	SOURCEPAGE:p.80	DESC:When you choose this tradition at 3rd level, you learn magical disciplines that harness the power of the four elements. A discipline requires you to spend ki points each time you use it. You know the Elemental Attunement discipline and one other elemental discipline of your choice, which are detailed in the "Elemental Disciplines" section below. You learn one additional elemental discipline of your choice at 6th, 11th, and 17th level. Whenever you learn a new elemental discipline, you can also replace one elemental discipline that you already know with a different discipline. Casting Elemental Spells. Some elemental disciplines allow you to cast spells. See chapter 10 for the general rules of spellcasting. To cast one of these spells, you use its casting time and other rules, but you don't need to provide material components for it. Once you reach 5th level in this class, you can spend additional ki points to increase the level of an elemental discipline spell that you cast, provided that the spell has an enhanced effect at a higher level, as burning hands does. The spell's level increases by 1 for each additional ki point you spend. For example, if you are a 5th-level monk and use Sweeping Cinder Strike to cast burning hands, you can spend 3 ki points to cast it as a 2nd-level spell (the discipline's base cost of 2 ki points plus 1). The maximum number of ki points you can spend to cast a spell in this way (including its base ki point cost and any additional ki points you spend to increase its level) is equal to %1.|ElementalKiLimit	DEFINE:ElementalKiLimit|0	BONUS:VAR|ElementalKiLimit|2+(MonkLVL>=5)+(MonkLVL>=9)+(MonkLVL>=13)+(MonkLVL>=17)	BONUS:ABILITYPOOL|Elemental Discipline|ElementalDisciplineCount	DEFINE:ElementalDisciplineCount|0	BONUS:VAR|ElementalDisciplineCount|1+(MonkLVL>=6)+(MonkLVL>=11)+(MonkLVL>=17)
 Elemental Disciplines		KEY:Way of the Four Elements ~ Elemental Disciplines		CATEGORY:Special Ability	SORTKEY:Class	TYPE:Monk Class Feature.SpecialQuality	SOURCEPAGE:p.81	DESC:The elemental disciplines are presented in alphabetical order. If a discipline requires a level, you must be that level in this class to learn the discipline.	ABILITY:Elemental Discipline|AUTOMATIC|Elemental Discipline ~ Elemental Attunement
 # Elemental Disciplines
-Breath of Winter			KEY:Elemental Discipline ~ Breath of Winter			CATEGORY:Special Ability	SORTKEY:Class	TYPE:Monk Class Feature.SpecialQuality.Elemental Discipline Selection	PRECLASS:1,Monk=17	SOURCEPAGE:p.81	DESC:(17th Level Required). You can spend 6 ki points to cast cone of cold.		SPELLS:Monk|Cone of Cold
-Clench of the North Wind	KEY:Elemental Discipline ~ Clench of the North Wind		CATEGORY:Special Ability	SORTKEY:Class	TYPE:Monk Class Feature.SpecialQuality.Elemental Discipline Selection	PRECLASS:1,Monk=6		SOURCEPAGE:p.81	DESC:(6th Level Required). You can spend 3 ki points to cast hold person.		SPELLS:Monk|Hold Person
+Breath of Winter			KEY:Elemental Discipline ~ Breath of Winter			CATEGORY:Special Ability	SORTKEY:Class	TYPE:Monk Class Feature.SpecialQuality.Elemental Discipline Selection	PRECLASS:1,Monk=17	SOURCEPAGE:p.81	DESC:(17th Level Required). You can spend 6 ki points to cast cone of cold.		SPELLS:Monk|Cone of Cold,8+Proficiency_Bonus+WIS
+Clench of the North Wind	KEY:Elemental Discipline ~ Clench of the North Wind		CATEGORY:Special Ability	SORTKEY:Class	TYPE:Monk Class Feature.SpecialQuality.Elemental Discipline Selection	PRECLASS:1,Monk=6		SOURCEPAGE:p.81	DESC:(6th Level Required). You can spend 3 ki points to cast hold person.		SPELLS:Monk|Hold Person,8+Proficiency_Bonus+WIS
 Elemental Attunement		KEY:Elemental Discipline ~ Elemental Attunement			CATEGORY:Special Ability	SORTKEY:Class	TYPE:Monk Class Feature.SpecialQuality.Elemental Discipline Selection					SOURCEPAGE:p.81	DESC:You can use your action to briefly control elemental forces nearby, causing one of the following effects of your choice: Create a harmless, instantaneous sensory effect related to air, earth, fire, or water, such as a shower of sparks, a puff of wind, a spray of light mist, or a gentle rumbling of stone.	DESC:&nl;Instantaneously light or snuff out a candle, a torch, or a small campfire.	DESC:&nl;Chill or warm up to 1 pound of nonliving material for up to 1 hour.	DESC:&nl;Cause earth, fire, water, or mist that can fit within a 1-foot cube to shape itself into a crude form you designate for 1 minute.
 Eternal Mountain Defense	KEY:Elemental Discipline ~ Eternal Mountain Defense		CATEGORY:Special Ability	SORTKEY:Class	TYPE:Monk Class Feature.SpecialQuality.Elemental Discipline Selection	PRECLASS:1,Monk=17	SOURCEPAGE:p.81	DESC:(17th Level Required). You can spend 5 ki points to cast stoneskin, targeting yourself.		SPELLS:Monk|Stoneskin(Eternal Mountain Defense)
 Fangs of the Fire Snake		KEY:Elemental Discipline ~ Fangs of the Fire Snake		CATEGORY:Special Ability	SORTKEY:Class	TYPE:Monk Class Feature.SpecialQuality.Elemental Discipline Selection					SOURCEPAGE:p.81	DESC:When you use the Attack action on your turn, you can spend 1 ki point to cause tendrils of flame to stretch out from your fists and feet. Your reach with your unarmed strikes increases by 10 feet for that action, as well as the rest of the turn. A hit with such an attack deals fire damage instead of bludgeoning damage, and if you spend 1 ki point when the attack hits, it also deals an extra 1d10 fire damage.
-Fist of Four Thunders		KEY:Elemental Discipline ~ Fist of Four Thunders		CATEGORY:Special Ability	SORTKEY:Class	TYPE:Monk Class Feature.SpecialQuality.Elemental Discipline Selection					SOURCEPAGE:p.81	DESC:You can spend 2 ki points to cast thunderwave.		SPELLS:Monk|Thunderwave
+Fist of Four Thunders		KEY:Elemental Discipline ~ Fist of Four Thunders		CATEGORY:Special Ability	SORTKEY:Class	TYPE:Monk Class Feature.SpecialQuality.Elemental Discipline Selection					SOURCEPAGE:p.81	DESC:You can spend 2 ki points to cast thunderwave.		SPELLS:Monk|Thunderwave,8+Proficiency_Bonus+WIS
 Fist of Unbroken Air		KEY:Elemental Discipline ~ Fist of Unbroken Air			CATEGORY:Special Ability	SORTKEY:Class	TYPE:Monk Class Feature.SpecialQuality.Elemental Discipline Selection					SOURCEPAGE:p.81	DESC:You can create a blast of compressed air that strikes like a mighty fist. As an action, you can spend 2 ki points and choose a creature within 30 feet of you. That creature must make a Strength saving throw. On a failed save, the creature takes 3d10 bludgeoning damage, plus an extra 1d10 bludgeoning damage for each additional ki point you spend, and you can push the creature up to 20 feet away from you and knock it prone. On a successful save, the creature takes half as much damage, and you don't push it or knock it prone.
-Flames of the Phoenix		KEY:Elemental Discipline ~ Flames of the Phoenix		CATEGORY:Special Ability	SORTKEY:Class	TYPE:Monk Class Feature.SpecialQuality.Elemental Discipline Selection	PRECLASS:1,Monk=11	SOURCEPAGE:p.81	DESC:(11th Level Required). You can spend 4 ki points to cast fireball.		SPELLS:Monk|Fireball
-Gong of the Summit		KEY:Elemental Discipline ~ Gong of the Summit			CATEGORY:Special Ability	SORTKEY:Class	TYPE:Monk Class Feature.SpecialQuality.Elemental Discipline Selection	PRECLASS:1,Monk=6		SOURCEPAGE:p.81	DESC:(6th Level Required). You can spend 3 ki points to cast shatter.		SPELLS:Monk|Shatter
+Flames of the Phoenix		KEY:Elemental Discipline ~ Flames of the Phoenix		CATEGORY:Special Ability	SORTKEY:Class	TYPE:Monk Class Feature.SpecialQuality.Elemental Discipline Selection	PRECLASS:1,Monk=11	SOURCEPAGE:p.81	DESC:(11th Level Required). You can spend 4 ki points to cast fireball.		SPELLS:Monk|Fireball,8+Proficiency_Bonus+WIS
+Gong of the Summit		KEY:Elemental Discipline ~ Gong of the Summit			CATEGORY:Special Ability	SORTKEY:Class	TYPE:Monk Class Feature.SpecialQuality.Elemental Discipline Selection	PRECLASS:1,Monk=6		SOURCEPAGE:p.81	DESC:(6th Level Required). You can spend 3 ki points to cast shatter.		SPELLS:Monk|Shatter,8+Proficiency_Bonus+WIS
 Mist Stance				KEY:Elemental Discipline ~ Mist Stance				CATEGORY:Special Ability	SORTKEY:Class	TYPE:Monk Class Feature.SpecialQuality.Elemental Discipline Selection	PRECLASS:1,Monk=11	SOURCEPAGE:p.81	DESC:(11th Level Required). You can spend 4 ki points to cast gaseous form, targeting yourself.		SPELLS:Monk|Gaseous Form(Mist Stance)
 Ride the Wind			KEY:Elemental Discipline ~ Ride the Wind				CATEGORY:Special Ability	SORTKEY:Class	TYPE:Monk Class Feature.SpecialQuality.Elemental Discipline Selection	PRECLASS:1,Monk=11	SOURCEPAGE:p.81	DESC:(11th Level Required). You can spend 4 ki points to cast fly, targeting yourself.		SPELLS:Monk|Fly(Ride the Wind)
-River of Hungry Flame		KEY:Elemental Discipline ~ River of Hungry Flame		CATEGORY:Special Ability	SORTKEY:Class	TYPE:Monk Class Feature.SpecialQuality.Elemental Discipline Selection	PRECLASS:1,Monk=17	SOURCEPAGE:p.81	DESC:(17th Level Required). You can spend 5 ki points to cast wall of fire.		SPELLS:Monk|Wall of Fire
-Rush of the Gale Spirits	KEY:Elemental Discipline ~ Rush of the Gale Spirits		CATEGORY:Special Ability	SORTKEY:Class	TYPE:Monk Class Feature.SpecialQuality.Elemental Discipline Selection					SOURCEPAGE:p.81	DESC:You can spend 2 ki points to cast gust of wind.		SPELLS:Monk|Gust of Wind
+River of Hungry Flame		KEY:Elemental Discipline ~ River of Hungry Flame		CATEGORY:Special Ability	SORTKEY:Class	TYPE:Monk Class Feature.SpecialQuality.Elemental Discipline Selection	PRECLASS:1,Monk=17	SOURCEPAGE:p.81	DESC:(17th Level Required). You can spend 5 ki points to cast wall of fire.		SPELLS:Monk|Wall of Fire,8+Proficiency_Bonus+WIS
+Rush of the Gale Spirits	KEY:Elemental Discipline ~ Rush of the Gale Spirits		CATEGORY:Special Ability	SORTKEY:Class	TYPE:Monk Class Feature.SpecialQuality.Elemental Discipline Selection					SOURCEPAGE:p.81	DESC:You can spend 2 ki points to cast gust of wind.		SPELLS:Monk|Gust of Wind,8+Proficiency_Bonus+WIS
 Shape the Flowing River		KEY:Elemental Discipline ~ Shape the Flowing River		CATEGORY:Special Ability	SORTKEY:Class	TYPE:Monk Class Feature.SpecialQuality.Elemental Discipline Selection					SOURCEPAGE:p.81	DESC:As an action, you can spend 1 ki point to choose an area of ice or water no larger than 30 feet on a side within 120 feet of you. You can change water to ice within the area and vice versa, and you can reshape ice in the area in any manner you choose. You can raise or lower the ice's elevation, create or fill in a trench, erect or flatten a wall, or form a pillar. The extent of any such changes can't exceed half the area's largest dimension. For example, if you affect a 30-foot square, you can create a pillar up to 15 feet high, raise or lower the square's elevation by up to 15 feet, dig a trench up to 15 feet deep, and so on. You can't shape the ice to trap or injure a creature in the area.
-Sweeping Cinder Strike		KEY:Elemental Discipline ~ Sweeping Cinder Strike		CATEGORY:Special Ability	SORTKEY:Class	TYPE:Monk Class Feature.SpecialQuality.Elemental Discipline Selection					SOURCEPAGE:p.81	DESC:You can spend 2 ki points to cast burning hands.		SPELLS:Monk|Burning Hands
+Sweeping Cinder Strike		KEY:Elemental Discipline ~ Sweeping Cinder Strike		CATEGORY:Special Ability	SORTKEY:Class	TYPE:Monk Class Feature.SpecialQuality.Elemental Discipline Selection					SOURCEPAGE:p.81	DESC:You can spend 2 ki points to cast burning hands.		SPELLS:Monk|Burning Hands,8+Proficiency_Bonus+WIS
 Water Whip				KEY:Elemental Discipline ~ Water Whip				CATEGORY:Special Ability	SORTKEY:Class	TYPE:Monk Class Feature.SpecialQuality.Elemental Discipline Selection					SOURCEPAGE:p.81	DESC:You can spend 2 ki points as an action to create a whip of water that shoves and pulls a creature to unbalance it. A creature that you can see that is within 30 feet of you must make a Dexterity saving throw. On a failed save, the creature takes 3d10 bludgeoning damage, plus an extra 1d10 bludgeoning damage for each additional ki point you spend, and you can either knock it prone or pull it up to 25 feet closer to you. On a successful save, the creature takes half as much damage, and you don't pull it or knock it prone.
-Wave of Rolling Earth		KEY:Elemental Discipline ~ Wave of Rolling Earth		CATEGORY:Special Ability	SORTKEY:Class	TYPE:Monk Class Feature.SpecialQuality.Elemental Discipline Selection	PRECLASS:1,Monk=17	SOURCEPAGE:p.81	DESC:(17th Level Required). You can spend 6 ki points to cast wall of stone.		SPELLS:Monk|Wall of Stone
+Wave of Rolling Earth		KEY:Elemental Discipline ~ Wave of Rolling Earth		CATEGORY:Special Ability	SORTKEY:Class	TYPE:Monk Class Feature.SpecialQuality.Elemental Discipline Selection	PRECLASS:1,Monk=17	SOURCEPAGE:p.81	DESC:(17th Level Required). You can spend 6 ki points to cast wall of stone.		SPELLS:Monk|Wall of Stone,8+Proficiency_Bonus+WIS
 
 ###Block: Paladin
 Divine Sense			KEY:Paladin ~ Divine Sense				CATEGORY:Special Ability	SORTKEY:Class	TYPE:Paladin Class Feature.SpecialQuality	SOURCEPAGE:p.84	DESC:The presence of strong evil registers on your senses like a noxious odor, and powerful good rings like heavenly music in your ears. As an action, you can open your awareness to detect such forces. Until the end of your next turn, you know the location of any celestial, fiend, or undead within 60 feet of you that is not behind total cover. You know the type (celestial, fiend, or undead) of any being whose presence you sense, but not its identity (the vampire Count Strahd von Zarovich, for instance). Within the same radius, you also detect the presence of any place or object that has been consecrated or desecrated, as with the hallow spell. You can use this feature %1 times. When you finish a long rest, you regain all expended uses.|1+CHA
@@ -1741,22 +1747,22 @@ Ability Score Improvement	KEY:Sorcerer ~ Ability Score Improvement	CATEGORY:Spec
 Sorcerous Restoration		KEY:Sorcerer ~ Sorcerous Restoration	CATEGORY:Special Ability	SORTKEY:Class	TYPE:Sorcerer Class Feature.SpecialQuality	SOURCEPAGE:p.102	DESC:At 20th level, you regain 4 expended sorcery points whenever you finish a short rest.
 
 # Sorcerer Cantrips
-Acid Splash			KEY:Sorcerer Cantrip ~ Acid Splash			TYPE:Sorcerer Cantrip	CATEGORY:Internal	SPELLKNOWN:CLASS|Sorcerer=0|Acid Splash		
-Blade Ward			KEY:Sorcerer Cantrip ~ Blade Ward			TYPE:Sorcerer Cantrip	CATEGORY:Internal	SPELLKNOWN:CLASS|Sorcerer=0|Blade Ward		
-Chill Touch			KEY:Sorcerer Cantrip ~ Chill Touch			TYPE:Sorcerer Cantrip	CATEGORY:Internal	SPELLKNOWN:CLASS|Sorcerer=0|Chill Touch		
-Dancing Lights		KEY:Sorcerer Cantrip ~ Dancing Lights		TYPE:Sorcerer Cantrip	CATEGORY:Internal	SPELLKNOWN:CLASS|Sorcerer=0|Dancing Lights	
-Fire Bolt			KEY:Sorcerer Cantrip ~ Fire Bolt			TYPE:Sorcerer Cantrip	CATEGORY:Internal	SPELLKNOWN:CLASS|Sorcerer=0|Fire Bolt		
-Friends			KEY:Sorcerer Cantrip ~ Friends			TYPE:Sorcerer Cantrip	CATEGORY:Internal	SPELLKNOWN:CLASS|Sorcerer=0|Friends			
-Light				KEY:Sorcerer Cantrip ~ Light				TYPE:Sorcerer Cantrip	CATEGORY:Internal	SPELLKNOWN:CLASS|Sorcerer=0|Light			
-Mage Hand			KEY:Sorcerer Cantrip ~ Mage Hand			TYPE:Sorcerer Cantrip	CATEGORY:Internal	SPELLKNOWN:CLASS|Sorcerer=0|Mage Hand		
-Mending			KEY:Sorcerer Cantrip ~ Mending			TYPE:Sorcerer Cantrip	CATEGORY:Internal	SPELLKNOWN:CLASS|Sorcerer=0|Mending			
-Message			KEY:Sorcerer Cantrip ~ Message			TYPE:Sorcerer Cantrip	CATEGORY:Internal	SPELLKNOWN:CLASS|Sorcerer=0|Message			
-Minor Illusion		KEY:Sorcerer Cantrip ~ Minor Illusion		TYPE:Sorcerer Cantrip	CATEGORY:Internal	SPELLKNOWN:CLASS|Sorcerer=0|Minor Illusion	
-Poison Spray		KEY:Sorcerer Cantrip ~ Poison Spray			TYPE:Sorcerer Cantrip	CATEGORY:Internal	SPELLKNOWN:CLASS|Sorcerer=0|Poison Spray		
-Prestidigitation		KEY:Sorcerer Cantrip ~ Prestidigitation		TYPE:Sorcerer Cantrip	CATEGORY:Internal	SPELLKNOWN:CLASS|Sorcerer=0|Prestidigitation	
-Ray of Frost		KEY:Sorcerer Cantrip ~ Ray of Frost			TYPE:Sorcerer Cantrip	CATEGORY:Internal	SPELLKNOWN:CLASS|Sorcerer=0|Ray of Frost		
-Shocking Grasp		KEY:Sorcerer Cantrip ~ Shocking Grasp		TYPE:Sorcerer Cantrip	CATEGORY:Internal	SPELLKNOWN:CLASS|Sorcerer=0|Shocking Grasp	
-True Strike			KEY:Sorcerer Cantrip ~ True Strike			TYPE:Sorcerer Cantrip	CATEGORY:Internal	SPELLKNOWN:CLASS|Sorcerer=0|True Strike		
+Acid Splash			KEY:Sorcerer Cantrip ~ Acid Splash			TYPE:Sorcerer Cantrip	CATEGORY:Internal	SPELLS:Sorcerer Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Acid Splash,CHA+8+Proficiency_Bonus					
+Blade Ward			KEY:Sorcerer Cantrip ~ Blade Ward			TYPE:Sorcerer Cantrip	CATEGORY:Internal	SPELLS:Sorcerer Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Blade Ward,CHA+8+Proficiency_Bonus					
+Chill Touch			KEY:Sorcerer Cantrip ~ Chill Touch			TYPE:Sorcerer Cantrip	CATEGORY:Internal	SPELLS:Sorcerer Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Chill Touch,CHA+8+Proficiency_Bonus					
+Dancing Lights		KEY:Sorcerer Cantrip ~ Dancing Lights		TYPE:Sorcerer Cantrip	CATEGORY:Internal	SPELLS:Sorcerer Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Dancing Lights,CHA+8+Proficiency_Bonus							
+Fire Bolt			KEY:Sorcerer Cantrip ~ Fire Bolt			TYPE:Sorcerer Cantrip	CATEGORY:Internal	SPELLS:Sorcerer Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Fire Bolt,CHA+8+Proficiency_Bonus					
+Friends			KEY:Sorcerer Cantrip ~ Friends			TYPE:Sorcerer Cantrip	CATEGORY:Internal	SPELLS:Sorcerer Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Friends,CHA+8+Proficiency_Bonus					
+Light				KEY:Sorcerer Cantrip ~ Light				TYPE:Sorcerer Cantrip	CATEGORY:Internal	SPELLS:Sorcerer Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Light,CHA+8+Proficiency_Bonus			
+Mage Hand			KEY:Sorcerer Cantrip ~ Mage Hand			TYPE:Sorcerer Cantrip	CATEGORY:Internal	SPELLS:Sorcerer Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Mage Hand,CHA+8+Proficiency_Bonus					
+Mending			KEY:Sorcerer Cantrip ~ Mending			TYPE:Sorcerer Cantrip	CATEGORY:Internal	SPELLS:Sorcerer Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Mending,CHA+8+Proficiency_Bonus					
+Message			KEY:Sorcerer Cantrip ~ Message			TYPE:Sorcerer Cantrip	CATEGORY:Internal	SPELLS:Sorcerer Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Message,CHA+8+Proficiency_Bonus					
+Minor Illusion		KEY:Sorcerer Cantrip ~ Minor Illusion		TYPE:Sorcerer Cantrip	CATEGORY:Internal	SPELLS:Sorcerer Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Minor Illusion,CHA+8+Proficiency_Bonus							
+Poison Spray		KEY:Sorcerer Cantrip ~ Poison Spray			TYPE:Sorcerer Cantrip	CATEGORY:Internal	SPELLS:Sorcerer Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Poison Spray,CHA+8+Proficiency_Bonus						
+Prestidigitation		KEY:Sorcerer Cantrip ~ Prestidigitation		TYPE:Sorcerer Cantrip	CATEGORY:Internal	SPELLS:Sorcerer Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Prestidigitation,CHA+8+Proficiency_Bonus							
+Ray of Frost		KEY:Sorcerer Cantrip ~ Ray of Frost			TYPE:Sorcerer Cantrip	CATEGORY:Internal	SPELLS:Sorcerer Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Ray of Frost,CHA+8+Proficiency_Bonus						
+Shocking Grasp		KEY:Sorcerer Cantrip ~ Shocking Grasp		TYPE:Sorcerer Cantrip	CATEGORY:Internal	SPELLS:Sorcerer Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Shocking Grasp,CHA+8+Proficiency_Bonus							
+True Strike			KEY:Sorcerer Cantrip ~ True Strike			TYPE:Sorcerer Cantrip	CATEGORY:Internal	SPELLS:Sorcerer Cantrip|TIMES=ATWILL|CASTERLEVEL=1|True Strike,CHA+8+Proficiency_Bonus					
 
 # Metamagic
 Careful Spell	KEY:Metamagic ~ Careful Spell		CATEGORY:Special Ability	SORTKEY:Class	TYPE:Sorcerer Class Feature.SpecialQuality.Metamagic	SOURCEPAGE:p.102	DESC:When you cast a spell that forces other creatures to make a saving throw, you can protect some of those creatures from the spell's full force. To do so, you spend 1 sorcery point and choose a number of those creatures up to %1. A chosen creature automatically succeeds on its saving throw against the spell.|max(CHA,1)
@@ -1811,15 +1817,15 @@ Mystic Arcanum			KEY:Warlock ~ Mystic Arcanum			CATEGORY:Special Ability	SORTKEY
 Eldritch Master			KEY:Warlock ~ Eldritch Master			CATEGORY:Special Ability	SORTKEY:Class	TYPE:Warlock Class Feature.SpecialQuality	SOURCEPAGE:p.108	DESC:At 20th level, you can draw on your inner reserve of mystical power while entreating your patron to regain expended spell slots. You can spend 1 minute entreating your patron for aid to regain all your expended spell slots from your Pact Magic feature. Once you regain spell slots with this feature, you must finish a long rest before you can do so again.
 
 # Warlock Cantrips
-Blade Ward			KEY:Warlock Cantrip ~ Blade Ward			TYPE:Warlock Cantrip	CATEGORY:Internal	SPELLKNOWN:CLASS|Warlock=0|Blade Ward		
-Chill Touch			KEY:Warlock Cantrip ~ Chill Touch			TYPE:Warlock Cantrip	CATEGORY:Internal	SPELLKNOWN:CLASS|Warlock=0|Chill Touch		
-Eldritch Blast		KEY:Warlock Cantrip ~ Eldritch Blast		TYPE:Warlock Cantrip	CATEGORY:Internal	SPELLKNOWN:CLASS|Warlock=0|Eldritch Blast	
-Friends			KEY:Warlock Cantrip ~ Friends				TYPE:Warlock Cantrip	CATEGORY:Internal	SPELLKNOWN:CLASS|Warlock=0|Friends			
-Mage Hand			KEY:Warlock Cantrip ~ Mage Hand			TYPE:Warlock Cantrip	CATEGORY:Internal	SPELLKNOWN:CLASS|Warlock=0|Mage Hand		
-Minor Illusion		KEY:Warlock Cantrip ~ Minor Illusion		TYPE:Warlock Cantrip	CATEGORY:Internal	SPELLKNOWN:CLASS|Warlock=0|Minor Illusion	
-Poison Spray		KEY:Warlock Cantrip ~ Poison Spray			TYPE:Warlock Cantrip	CATEGORY:Internal	SPELLKNOWN:CLASS|Warlock=0|Poison Spray		
-Prestidigitation		KEY:Warlock Cantrip ~ Prestidigitation		TYPE:Warlock Cantrip	CATEGORY:Internal	SPELLKNOWN:CLASS|Warlock=0|Prestidigitation	
-True Strike			KEY:Warlock Cantrip ~ True Strike			TYPE:Warlock Cantrip	CATEGORY:Internal	SPELLKNOWN:CLASS|Warlock=0|True Strike		
+Blade Ward			KEY:Warlock Cantrip ~ Blade Ward			TYPE:Warlock Cantrip	CATEGORY:Internal	SPELLS:Warlock Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Blade Ward,CHA+8+Proficiency_Bonus					
+Chill Touch			KEY:Warlock Cantrip ~ Chill Touch			TYPE:Warlock Cantrip	CATEGORY:Internal	SPELLS:Warlock Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Chill Touch,CHA+8+Proficiency_Bonus					
+Eldritch Blast		KEY:Warlock Cantrip ~ Eldritch Blast		TYPE:Warlock Cantrip	CATEGORY:Internal	SPELLS:Warlock Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Eldritch Blast,CHA+8+Proficiency_Bonus							
+Friends			KEY:Warlock Cantrip ~ Friends				TYPE:Warlock Cantrip	CATEGORY:Internal	SPELLS:Warlock Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Friends,CHA+8+Proficiency_Bonus				
+Mage Hand			KEY:Warlock Cantrip ~ Mage Hand			TYPE:Warlock Cantrip	CATEGORY:Internal	SPELLS:Warlock Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Mage Hand,CHA+8+Proficiency_Bonus					
+Minor Illusion		KEY:Warlock Cantrip ~ Minor Illusion		TYPE:Warlock Cantrip	CATEGORY:Internal	SPELLS:Warlock Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Minor Illusion,CHA+8+Proficiency_Bonus							
+Poison Spray		KEY:Warlock Cantrip ~ Poison Spray			TYPE:Warlock Cantrip	CATEGORY:Internal	SPELLS:Warlock Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Poison Spray,CHA+8+Proficiency_Bonus						
+Prestidigitation		KEY:Warlock Cantrip ~ Prestidigitation		TYPE:Warlock Cantrip	CATEGORY:Internal	SPELLS:Warlock Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Prestidigitation,CHA+8+Proficiency_Bonus							
+True Strike			KEY:Warlock Cantrip ~ True Strike			TYPE:Warlock Cantrip	CATEGORY:Internal	SPELLS:Warlock Cantrip|TIMES=ATWILL|CASTERLEVEL=1|True Strike,CHA+8+Proficiency_Bonus					
 
 # Pact Boon
 Pact of the Chain	KEY:Pact Boon ~ Pact of the Chain	CATEGORY:Special Ability	SORTKEY:Class	TYPE:Warlock Class Feature.SpecialQuality.Pact Boon	SOURCEPAGE:p.107	DESC:You learn the find familiar spell and can cast it as a ritual. The spell doesn't count against your number of spells known. When you cast the spell, you can choose one of the normal forms for your familiar or one of the following special forms: imp, pseudodragon, quasit, or sprite. Additionally, when you take the Attack action, you can forgo one of your own attacks to allow your familiar to make one attack of its own. When you let your familiar attack, it does so with its reaction.	SPELLS:Warlock|TIMES=ATWILL|Find Familiar(Pact of the Chain)
@@ -2044,12 +2050,12 @@ Charlatan		CATEGORY:Special Ability	TEMPLATE:Charlatan	SORTKEY:Background_1	TYPE
 Criminal		CATEGORY:Special Ability	TEMPLATE:Criminal		SORTKEY:Background_1	TYPE:Background.Background Selection.SpecialQuality		ABILITY:Special Ability|AUTOMATIC|Criminal ~ Criminal Contact		ABILITY:Internal|AUTOMATIC|Tool Proficiency ~ Thieves' Tools		BONUS:ABILITYPOOL|Gaming Set Proficiency|1		BONUS:ABILITYPOOL|Criminal Specialty|1		ABILITY:Skill|AUTOMATIC|Deception|Stealth		BONUS:ABILITYPOOL|Criminal Personality Trait|2		BONUS:ABILITYPOOL|Criminal Ideal|1		BONUS:ABILITYPOOL|Criminal Bond|POOL_Background_Bond		BONUS:ABILITYPOOL|Criminal Flaw|1		DESC:Equipment: A crowbar, a set of dark common clothes including a hood, and a belt pouch containing 15 gp	ASPECT:Skills Gained|Deception & Stealth	DESC: Gain Deception & Stealth as class skills.
 Entertainer		CATEGORY:Special Ability	TEMPLATE:Entertainer	SORTKEY:Background_1	TYPE:Background.Background Selection					ABILITY:Special Ability|AUTOMATIC|Entertainer ~ By Popular Demand		BONUS:ABILITYPOOL|Entertainer Routine|1		BONUS:ABILITYPOOL|Entertainer Personality Trait|2		BONUS:ABILITYPOOL|Entertainer Ideal|1		BONUS:ABILITYPOOL|Entertainer Bond|POOL_Background_Bond		BONUS:ABILITYPOOL|Entertainer Flaw|1	ABILITY:Skill|AUTOMATIC|Acrobatics|Performance	ABILITY:Internal|AUTOMATIC|Tool Proficiency ~ Disguise kit	BONUS:ABILITYPOOL|Musical Instrument Proficiency|1	DESC:Equipment: A musical instrument (one of your choice), the favor of an admirer (love letter, lock of hair, or trinket), a costume, and a belt pouch containing 15 gp	ASPECT:Skills Gained|Acrobatics & Performance	DESC: Gain Acrobatics & Performance as class skills.
 Folk Hero		CATEGORY:Special Ability	TEMPLATE:Folk Hero	SORTKEY:Background_1	TYPE:Background.Background Selection					ABILITY:Special Ability|AUTOMATIC|Folk Hero ~ Rustic Hospitality		BONUS:ABILITYPOOL|Folk Hero Defining Event|1		BONUS:ABILITYPOOL|Folk Hero Personality Trait|2		BONUS:ABILITYPOOL|Folk Hero Ideal|1		BONUS:ABILITYPOOL|Folk Hero Bond|POOL_Background_Bond		BONUS:ABILITYPOOL|Folk Hero Flaw|1		DESC:Equipment: A set of artisan's tools (one of your choice), a shovel, an iron pot, a set of common clothes, and a belt pouch containing 10 gp		ABILITY:Internal|AUTOMATIC|Tool Proficiency ~ Vehicles (Land)		BONUS:ABILITYPOOL|Artisan's Tools Proficiency|1	ABILITY:Skill|AUTOMATIC|Animal Handling|Survival	ASPECT:Skills Gained|Animal Handling & Survival	DESC: Gain Animal Handling & Survival as class skills.
-Guild Artisan	CATEGORY:Special Ability	TEMPLATE:Guild Artisan	SORTKEY:Background_1	TYPE:Background.Background Selection					ABILITY:Special Ability|AUTOMATIC|Guild Artisan ~ Guild Membership			ABILITY:Skill|AUTOMATIC|Insight|Persuasion		BONUS:ABILITYPOOL|Language Selection|1		BONUS:ABILITYPOOL|Guild Artisan Guild Business|1		BONUS:ABILITYPOOL|Guild Artisan Personality Trait|2		BONUS:ABILITYPOOL|Guild Artisan Ideal|1		BONUS:ABILITYPOOL|Guild Artisan Bond|POOL_Background_Bond		BONUS:ABILITYPOOL|Guild Artisan Flaw|1																	ASPECT:Skills Gained|Insight & Persuasion	DESC: Gain Insight & Persuasion as class skills	ASPECT:Skills Gained|Insight & Persuasion	DESC: Gain Insight & Persuasion as class skills.
-Hermit		CATEGORY:Special Ability	TEMPLATE:Hermit		SORTKEY:Background_1	TYPE:Background.Background Selection					BONUS:ABILITYPOOL|Hermit Life of Seclusion|1		BONUS:ABILITYPOOL|Hermit Personality Trait|2		BONUS:ABILITYPOOL|Hermit Ideal|1		BONUS:ABILITYPOOL|Hermit Bond|POOL_Background_Bond		BONUS:ABILITYPOOL|Hermit Flaw|1	ABILITY:Skill|AUTOMATIC|Medicine|Religion	ABILITY:Internal|AUTOMATIC|Tool Proficiency ~ Herbalism kit	BONUS:ABILITYPOOL|Language Selection|1		DESC:Equipment: A scroll case stuffed full of notes from your studies or prayers, a winter blanket, a set of common clothes, an herbalism kit, and 5 gp	ASPECT:Skills Gained|Medicine & Religion	DESC: Gain Medicine & Religion as class skills.
+Guild Artisan	CATEGORY:Special Ability	TEMPLATE:Guild Artisan	SORTKEY:Background_1	TYPE:Background.Background Selection					ABILITY:Special Ability|AUTOMATIC|Guild Artisan ~ Guild Membership			ABILITY:Skill|AUTOMATIC|Insight|Persuasion		BONUS:ABILITYPOOL|Language Selection|1		BONUS:ABILITYPOOL|Guild Artisan Guild Business|1		BONUS:ABILITYPOOL|Guild Artisan Personality Trait|2		BONUS:ABILITYPOOL|Guild Artisan Ideal|1		BONUS:ABILITYPOOL|Guild Artisan Bond|POOL_Background_Bond		BONUS:ABILITYPOOL|Guild Artisan Flaw|1	BONUS:ABILITYPOOL|Artisan's Tools Proficiency|1		ASPECT:Skills Gained|Insight & Persuasion	DESC: Gain Insight & Persuasion as class skills	ASPECT:Skills Gained|Insight & Persuasion	DESC: Gain Insight & Persuasion as class skills.
+Hermit		CATEGORY:Special Ability	TEMPLATE:Hermit		SORTKEY:Background_1	TYPE:Background.Background Selection						ABILITY:Special Ability|AUTOMATIC|Hermit ~ Discovery	BONUS:ABILITYPOOL|Hermit Life of Seclusion|1		BONUS:ABILITYPOOL|Hermit Personality Trait|2		BONUS:ABILITYPOOL|Hermit Ideal|1		BONUS:ABILITYPOOL|Hermit Bond|POOL_Background_Bond		BONUS:ABILITYPOOL|Hermit Flaw|1	ABILITY:Skill|AUTOMATIC|Medicine|Religion	ABILITY:Internal|AUTOMATIC|Tool Proficiency ~ Herbalism kit	BONUS:ABILITYPOOL|Language Selection|1		DESC:Equipment: A scroll case stuffed full of notes from your studies or prayers, a winter blanket, a set of common clothes, an herbalism kit, and 5 gp	ASPECT:Skills Gained|Medicine & Religion	DESC: Gain Medicine & Religion as class skills.
 Noble			CATEGORY:Special Ability	TEMPLATE:Noble		SORTKEY:Background_1	TYPE:Background.Background Selection.SpecialQuality		ABILITY:Special Ability|AUTOMATIC|Noble ~ Position of Privilege			BONUS:ABILITYPOOL|Noble Personality Trait|2		BONUS:ABILITYPOOL|Noble Ideal|1		BONUS:ABILITYPOOL|Noble Bond|POOL_Background_Bond		BONUS:ABILITYPOOL|Noble Flaw|1		ABILITY:Skill|AUTOMATIC|History|Persuasion		BONUS:ABILITYPOOL|Language Selection|1		BONUS:ABILITYPOOL|Gaming Set Proficiency|1		DESC:Equipment: A set of fine clothes, a signet ring, a scroll of pedigree, and a purse containing 25 gp	ASPECT:Skills Gained|History & Persuasion	DESC: Gain History & Persuasion as class skills.
-Outlander		CATEGORY:Special Ability	TEMPLATE:Outlander	SORTKEY:Background_1	TYPE:Background.Background Selection					BONUS:ABILITYPOOL|Outlander Origin|1		BONUS:ABILITYPOOL|Outlander Personality Trait|2		BONUS:ABILITYPOOL|Outlander Ideal|1		BONUS:ABILITYPOOL|Outlander Bond|POOL_Background_Bond		BONUS:ABILITYPOOL|Outlander Flaw|1	ABILITY:Skill|AUTOMATIC|Athletics|Survival	BONUS:ABILITYPOOL|Musical Instrument Proficiency|1	BONUS:ABILITYPOOL|Language Selection|1		DESC:Equipment: A staff, a hunting trap, a trophy from an animal you killed, a set of traveler's clothes, and a belt pouch containing 10 gp	ASPECT:Skills Gained|Athletics & Survival	DESC: Gain Athletics & Survival as class skills.
+Outlander		CATEGORY:Special Ability	TEMPLATE:Outlander	SORTKEY:Background_1	TYPE:Background.Background Selection					ABILITY:Special Ability|AUTOMATIC|Outlander ~ Wanderer	BONUS:ABILITYPOOL|Outlander Origin|1		BONUS:ABILITYPOOL|Outlander Personality Trait|2		BONUS:ABILITYPOOL|Outlander Ideal|1		BONUS:ABILITYPOOL|Outlander Bond|POOL_Background_Bond		BONUS:ABILITYPOOL|Outlander Flaw|1	ABILITY:Skill|AUTOMATIC|Athletics|Survival	BONUS:ABILITYPOOL|Musical Instrument Proficiency|1	BONUS:ABILITYPOOL|Language Selection|1		DESC:Equipment: A staff, a hunting trap, a trophy from an animal you killed, a set of traveler's clothes, and a belt pouch containing 10 gp	ASPECT:Skills Gained|Athletics & Survival	DESC: Gain Athletics & Survival as class skills.
 Sage			CATEGORY:Special Ability	TEMPLATE:Sage		SORTKEY:Background_1	TYPE:Background.Background Selection					ABILITY:Special Ability|AUTOMATIC|Sage ~ Researcher		BONUS:ABILITYPOOL|Sage Specialty|1		BONUS:ABILITYPOOL|Sage Personality Trait|2		BONUS:ABILITYPOOL|Sage Ideal|1		BONUS:ABILITYPOOL|Sage Bond|POOL_Background_Bond		BONUS:ABILITYPOOL|Sage Flaw|1	ABILITY:Skill|AUTOMATIC|Arcana|History	BONUS:ABILITYPOOL|Language Selection|2		DESC:Equipment: A bottle of black ink, a quill, a small knife, a letter from a dead colleague posing a question you have not yet been able to answer, a set of common clothes, and a belt pouch containing 10 gp	ASPECT:Skills Gained|Arcana & History	DESC: Gain Arcana & History as class skills.
-Sailor		CATEGORY:Special Ability	TEMPLATE:Sailor		SORTKEY:Background_1	TYPE:Background.Background Selection					BONUS:ABILITYPOOL|Sailor Personality Trait|2		BONUS:ABILITYPOOL|Sailor Ideal|1		BONUS:ABILITYPOOL|Sailor Bond|POOL_Background_Bond		BONUS:ABILITYPOOL|Sailor Flaw|1	ABILITY:Skill|AUTOMATIC|Athletics|Perception	ABILITY:Internal|AUTOMATIC|Tool Proficiency ~ Navigator's tools|Tool Proficiency ~ vehicles (water)	DESC:Equipment: A belaying pin (club), 50 feet of silk rope, a lucky charm such as a rabbit foot or a small stone with a hole in the center (or you may roll for a random trinket on the Trinkets table in chapter 5), a set of common clothes, and a belt pouch containing 10 gp	ASPECT:Skills Gained|Athletics & Perception	DESC: Gain Athletics & Perception as class skills.
+Sailor		CATEGORY:Special Ability	TEMPLATE:Sailor		SORTKEY:Background_1	TYPE:Background.Background Selection					ABILITY:Special Ability|AUTOMATIC|Sailor ~ Ship's Passage	BONUS:ABILITYPOOL|Sailor Personality Trait|2		BONUS:ABILITYPOOL|Sailor Ideal|1		BONUS:ABILITYPOOL|Sailor Bond|POOL_Background_Bond		BONUS:ABILITYPOOL|Sailor Flaw|1	ABILITY:Skill|AUTOMATIC|Athletics|Perception	ABILITY:Internal|AUTOMATIC|Tool Proficiency ~ Navigator's tools|Tool Proficiency ~ vehicles (water)	DESC:Equipment: A belaying pin (club), 50 feet of silk rope, a lucky charm such as a rabbit foot or a small stone with a hole in the center (or you may roll for a random trinket on the Trinkets table in chapter 5), a set of common clothes, and a belt pouch containing 10 gp	ASPECT:Skills Gained|Athletics & Perception	DESC: Gain Athletics & Perception as class skills.
 Soldier		CATEGORY:Special Ability	TEMPLATE:Soldier		SORTKEY:Background_1	TYPE:Background.Background Selection					ABILITY:Special Ability|AUTOMATIC|Soldier ~ Military Rank		ABILITY:Internal|AUTOMATIC|Tool Proficiency ~ Vehicles (Land)		BONUS:ABILITYPOOL|Soldier Specialty|1		ABILITY:Skill|AUTOMATIC|Athletics|Intimidation		BONUS:ABILITYPOOL|Soldier Personality Trait|2		BONUS:ABILITYPOOL|Soldier Ideal|1		BONUS:ABILITYPOOL|Soldier Bond|POOL_Background_Bond		BONUS:ABILITYPOOL|Soldier Flaw|1		DESC:Equipment: An insignia of rank, a trophy taken from a fallen enemy (a dagger, broken blade, or piece of a banner), a set of bone dice or deck of cards, a set of common clothes, and a belt pouch containing 10 gp		BONUS:ABILITYPOOL|Gaming Set Proficiency|1	ASPECT:Skills Gained|Athletics & Intimidation	DESC: Gain Athletics & Intimidation as class skills.
 Urchin		CATEGORY:Special Ability	TEMPLATE:Urchin		SORTKEY:Background_1	TYPE:Background.Background Selection					ABILITY:Special Ability|AUTOMATIC|Urchin ~ City Secrets		BONUS:ABILITYPOOL|Urchin Personality Trait|2	BONUS:ABILITYPOOL|Urchin Ideal|1	BONUS:ABILITYPOOL|Urchin Bond|POOL_Background_Bond	BONUS:ABILITYPOOL|Urchin Flaw|1	ABILITY:Skill|AUTOMATIC|Sleight of Hand|Stealth	ABILITY:Internal|AUTOMATIC|Tool Proficiency ~ Disguise kit|Tool Proficiency ~ thieves' tools	DESC:Equipment: A small knife, a map of the city you grew up in, a pet mouse, a token to remember your parents by, a set of common clothes, and a belt pouch containing 10 gp	ASPECT:Skills Gained|Sleight of Hand & Stealth	DESC: Gain Sleight of Hand & Stealth as class skills.
 
@@ -2058,7 +2064,7 @@ Feature: Shelter of the Faithful	KEY:Acolyte ~ Shelter of the Faithful	CATEGORY:
 # Charlatan
 Feature: False Identity			KEY:Charlatan ~ False Identity		CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality	DESC:You have created a second identity that includes documentation, established acquaintances, and disguises that allow you to assume that persona. Additionally, you can forge documents including official papers and personal letters, as long as you have seen an example of the kind of document or the handwriting you are trying to copy.
 # Criminal
-Criminal Specialty			KEY:Criminal ~ Criminal Specialty		CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality	DESC:There are many kinds of criminals, and within a thieves' guild or similar criminal organization, individual members have particular specialties. Even criminals who operate outside of such organizations have strong preferences for certain kinds of crimes over others.	MULT:YES	CHOOSE:STRING|Alchemist|Astronomer|Discredited academic|Librarian|Professor|Researcher|Wizard's apprentice|Scribe
+#Criminal Specialty			KEY:Criminal ~ Criminal Specialty		CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality	DESC:There are many kinds of criminals, and within a thieves' guild or similar criminal organization, individual members have particular specialties. Even criminals who operate outside of such organizations have strong preferences for certain kinds of crimes over others.	MULT:YES	CHOOSE:STRING|Alchemist|Astronomer|Discredited academic|Librarian|Professor|Researcher|Wizard's apprentice|Scribe
 Feature: Criminal Contact		KEY:Criminal ~ Criminal Contact		CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality	DESC:You have a reliable and trustworthy contact who acts as your liaison to a network of other criminals. You know how to get messages to and from your contact, even over great distances; specifically, you know the local messengers, corrupt caravan masters, and seedy sailors who can deliver messages for you.
 # Entertainer
 Feature: By Popular Demand		KEY:Entertainer ~ By Popular Demand		CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality	DESC:You can always find a place to perform, usually in an inn or tavern but possibly with a circus, at a theater, or even in a noble's court. At such a place, you receive free lodging and food of a modest or comfortable standard (depending on the quality of the establishment), as long as you perform each night. In addition, your performance makes you something of a local figure. When strangers recognize you in a town where you have performed, they typically take a liking to you.
@@ -2066,15 +2072,18 @@ Feature: By Popular Demand		KEY:Entertainer ~ By Popular Demand		CATEGORY:Specia
 Feature: Rustic Hospitality		KEY:Folk Hero ~ Rustic Hospitality		CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality	DESC:Since you come from the ranks of the common folk, you fit in among them with ease. You can find a place to hide, rest, or recuperate among other commoners, unless you have shown yourself to be a danger to them. They will shield you from the law or anyone else searching for you, though they will not risk their lives for you.
 # Guild Artisan
 Feature: Guild Membership		KEY:Guild Artisan ~ Guild Membership	CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality	DESC:As an established and respected member of a guild, you can rely on certain benefits that membership provides. Your fellow guild members will provide you with lodging and food if necessary, and pay for your funeral if needed. In some cities and towns, a guildhall offers a central place to meet other members of your profession, which can be a good place to meet potential patrons, allies, or hirelings. Guilds often wield tremendous political power. If you are accused of a crime, your guild will support you if a good case can be made for your innocence or the crime is justifiable. You can also gain access to powerful political figures through the guild, if you are a member in good standing. Such connections might require the donation of money or magic items to the guild's coffers. You must pay dues of 5 gp per month to the guild. If you miss payments, you must make up back dues to remain in the guild's good graces.
-# Hermit	
+# Hermit
+Feature: Discovery				KEY:Hermit ~ Discovery	CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality	DESC:The quiet seclusion of your extended hermitage gave you access to a unique and powerful discovery. The exact nature of this revelation depends on the nature of your seclusion. It might be a great truth about the cosmos, the deities, the powerful beings of the outer planes, or the forces of nature. It could be a site that no one else has ever seen. You might have uncovered a fact that has long been forgotten, or unearthed some relic of the past that could rewrite history. It might be information that would be damaging to the people who or consigned you to exile, and hence the reason for your return to society. Work with your DM to determine the details of your discovery and its impact on the campaign.
 # Noble	
 Feature: Position of Privilege	KEY:Noble ~ Position of Privilege		CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality	DESC:Thanks to your noble birth, people are inclined to think the best of you. You are welcome in high society, and people assume you have the right to be wherever you are. The common folk make every effort to accommodate you and avoid your displeasure, and other people of high birth treat you as a member of the same social sphere. You can secure an audience with a local noble if you need to.
 # Outlander	
+Feature: Wanderer				KEY:Outlander ~ Wanderer		CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality	DESC:You have an excellent memory for maps and geography, and you can always recall the general layout of terrain, settlements, and other features around you. In addition, you can find food and fresh water for yourself and up to five other people each day, provided that the land offers berries, small game, water, and so forth.
 # Sage
 Feature: Researcher			KEY:Sage ~ Researcher				CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality	DESC:When you attempt to learn or recall a piece of lore, if you do not know that information, you often know where and from whom you can obtain it. Usually, this information comes from a library, scriptorium, university, or a sage or other learned person or creature. Your DM might rule that the knowledge you seek is secreted away in an almost inaccessible place, or that it simply cannot be found. Unearthing the deepest secrets of the multiverse can require an adventure or even a whole campaign.
 # Sailor
+Feature: Ship's Passage		KEY:Sailor ~ Ship's Passage				CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality	DESC:When you need to, you can secure free passage on a sailing ship for yourself and your adventuring companions. You might sail on the ship you served on, or another ship you have good relations with (perhaps one captained by a former crewmate). Because you're calling in a favor, you can't be certain of a schedule or route that will meet your every need. Your Dungeon Master will determine how long it takes to get where you need to go. In return for your free passage, you and your companions are expected to assist the crew during the voyage.
 # Soldier
-Specialty					KEY:Soldier ~ Specialty				CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality	DESC:During your time as a soldier, you had a specific role to play in your unit or army. Roll a d8 or choose from the options in the table below to determine your role	MULT:YES	CHOOSE:STRING|Scout|Infantry|Cavalry|Healer|Quartermaster|Standard bearer|Support staff
+#Specialty					KEY:Soldier ~ Specialty				CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality	DESC:During your time as a soldier, you had a specific role to play in your unit or army. Roll a d8 or choose from the options in the table below to determine your role	MULT:YES	CHOOSE:STRING|Scout|Infantry|Cavalry|Healer|Quartermaster|Standard bearer|Support staff
 Feature: Military Rank			KEY:Soldier ~ Military Rank			CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality	DESC:You have a military rank from your career as a soldier. Soldiers loyal to your former military organization still recognize your authority and influence, and they defer to you if they are of a lower rank. You can invoke your rank to exert influence over other soldiers and requisition simple equipment or horses for temporary use. You can also usually gain access to friendly military encampments and fortresses where your rank is recognized.
 # Urchin
 Feature: City Secrets			KEY:Urchin ~ City Secrets			CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality	DESC:You know the secret patterns and flow to cities and can find passages through the urban sprawl that others would miss. When you are not in combat, you (and companions you lead) can travel between any two locations in the city twice as fast as your speed would normally allow.
@@ -2089,6 +2098,7 @@ Acolyte Personality Trait ~ 5		CATEGORY:Special Ability	SORTKEY:Background	TYPE:
 Acolyte Personality Trait ~ 6		CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Acolyte Personality Trait.Personality Trait	DESC:I am tolerant (or intolerant) of other faiths and respect (or condemn) the worship of other gods.
 Acolyte Personality Trait ~ 7		CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Acolyte Personality Trait.Personality Trait	DESC:I've enjoyed fine food, drink, and high society among my temple's elite. Rough living grates on me.
 Acolyte Personality Trait ~ 8		CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Acolyte Personality Trait.Personality Trait	DESC:I've spent so long in the temple that I have little practical experience dealing with people in the outside world.
+Acolyte Personality Trait ~ Custom	CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Acolyte Personality Trait					DESC:%1|%LIST	CHOOSE:USERINPUT|TITLE=Your Own Personality Trait	MULT:YES	STACK:NO
 # d6 Ideal 
 Acolyte Ideal ~ 1				CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Acolyte Ideal.Ideal					DESC:Tradition. The ancient traditions of worship and sacrifice must be preserved and upheld. (Lawful)
 Acolyte Ideal ~ 2				CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Acolyte Ideal.Ideal					DESC:Charity. I always try to help those in need, no matter what the personal cost. (Good)
@@ -2096,6 +2106,7 @@ Acolyte Ideal ~ 3				CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQua
 Acolyte Ideal ~ 4				CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Acolyte Ideal.Ideal					DESC:Power. I hope to one day rise to the top of my faith's religious hierarchy. (Lawful)
 Acolyte Ideal ~ 5				CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Acolyte Ideal.Ideal					DESC:Faith. I trust that my deity will guide my actions, I have faith that if I work hard, things will go well. (Lawful)
 Acolyte Ideal ~ 6				CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Acolyte Ideal.Ideal					DESC:Aspiration. I seek to prove myself worthy of my god's favor by matching my actions against his or her teachings. (Any)
+Acolyte Ideal ~ Custom			CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Acolyte Ideal						DESC:%1|%LIST	CHOOSE:USERINPUT|TITLE=Your Own Ideal	MULT:YES	STACK:NO
 # d6 Bond
 Acolyte Bond ~ 1				CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Acolyte Bond.Bond	COST:0						DESC:I would die to recover an ancient relic of my faith that was lost long ago.
 Acolyte Bond ~ 2				CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Acolyte Bond.Bond	COST:0						DESC:I will someday get revenge on the corrupt temple hierarchy who branded me a heretic.
@@ -2103,6 +2114,7 @@ Acolyte Bond ~ 3				CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQual
 Acolyte Bond ~ 4				CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Acolyte Bond.Bond	COST:0						DESC:Everything I do is for the common people.
 Acolyte Bond ~ 5				CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Acolyte Bond.Bond	COST:0						DESC:I will do anything to protect the temple where I served.
 Acolyte Bond ~ 6				CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Acolyte Bond.Bond	COST:0						DESC:I seek to preserve a sacred text that my enemies consider heretical and seek to destroy.
+Acolyte Bond ~ Custom			CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Acolyte Bond									DESC:%1|%LIST	CHOOSE:USERINPUT|TITLE=Your Own Bond	MULT:YES	STACK:NO
 # d6 Flaw
 Acolyte Flaw ~ 1				CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Acolyte Flaw.Flaw						DESC:I judge others harshly, and myself even more severely.
 Acolyte Flaw ~ 2				CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Acolyte Flaw.Flaw						DESC:I put too much trust in those who wield power within my temple's hierarchy.
@@ -2110,7 +2122,7 @@ Acolyte Flaw ~ 3				CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQual
 Acolyte Flaw ~ 4				CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Acolyte Flaw.Flaw						DESC:I am inflexible in my thinking.
 Acolyte Flaw ~ 5				CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Acolyte Flaw.Flaw						DESC:I am suspicious of strangers and expect the worst of them.
 Acolyte Flaw ~ 6				CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Acolyte Flaw.Flaw						DESC:Once I pick a goal, I become obsessed with it to the detriment of everything else in my life.
-Acolyte Flaw ~ 7				CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Acolyte Flaw							DESC:%1|%LIST	CHOOSE:USERINPUT|TITLE=Your Own Flaw	MULT:YES	STACK:NO
+Acolyte Flaw ~ Custom			CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Acolyte Flaw							DESC:%1|%LIST	CHOOSE:USERINPUT|TITLE=Your Own Flaw	MULT:YES	STACK:NO
 
 # Charlatan
 # d6 Scam
@@ -2120,6 +2132,7 @@ Charlatan Scam ~ 3	CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuali
 Charlatan Scam ~ 4	CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Charlatan Scam							DESC:I put on new identities like clothes.
 Charlatan Scam ~ 5	CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Charlatan Scam							DESC:I run sleight-of-hand cons on street corners.
 Charlatan Scam ~ 6	CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Charlatan Scam							DESC:I convince people that worthless junk is worth their hard-earned money.
+Charlatan Scam ~ Custom	CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Charlatan Scam						DESC:%1|%LIST	CHOOSE:USERINPUT|TITLE=Your Own Scam	MULT:YES	STACK:NO						
 
 #d8 Personality Trait
 Charlatan Personality Trait ~ 1				CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Charlatan Personality Trait.Personality Trait	DESC:I fall in and out of love easily, and am always pursuing someone.
@@ -2130,6 +2143,7 @@ Charlatan Personality Trait ~ 5				CATEGORY:Special Ability	SORTKEY:Background	T
 Charlatan Personality Trait ~ 6				CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Charlatan Personality Trait.Personality Trait	DESC:Sarcasm and insults are my weapons of choice.
 Charlatan Personality Trait ~ 7				CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Charlatan Personality Trait.Personality Trait	DESC:I keep multiple holy symbols on me and invoke whatever deity might come in useful at any given moment.
 Charlatan Personality Trait ~ 8				CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Charlatan Personality Trait.Personality Trait	DESC:I pocket anything I see that might have some value.
+Charlatan Personality Trait ~ Custom		CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Charlatan Personality Trait					DESC:%1|%LIST	CHOOSE:USERINPUT|TITLE=Your Own Personality Trait	MULT:YES	STACK:NO						
 #d6 Ideal							
 Charlatan Ideal ~ 1						CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Charlatan Ideal.Ideal					DESC:Independence. I am a free spirit- no one tells me what to do. (Chaotic)
 Charlatan Ideal ~ 2						CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Charlatan Ideal.Ideal					DESC:Fairness. I never target people who can't afford to lose a few coins. (Lawful)
@@ -2137,6 +2151,7 @@ Charlatan Ideal ~ 3						CATEGORY:Special Ability	SORTKEY:Background	TYPE:Specia
 Charlatan Ideal ~ 4						CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Charlatan Ideal.Ideal					DESC:Creativity. I never run the same con twice. (Chaotic)
 Charlatan Ideal ~ 5						CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Charlatan Ideal.Ideal					DESC:Friendship. Material goods come and go. Bonds of friendship last forever. (Good)
 Charlatan Ideal ~ 6						CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Charlatan Ideal.Ideal					DESC:Aspiration. I'm determined to make something of myself. (Any)
+Charlatan Ideal ~ Custom				CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Charlatan Ideal							DESC:%1|%LIST	CHOOSE:USERINPUT|TITLE=Your Own Ideal	MULT:YES	STACK:NO			
 #d6 Bond							
 Charlatan Bond ~ 1						CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Charlatan Bond.Bond	COST:0						DESC:I fleeced the wrong person and must work to ensure that this individual never crosses paths with me or those I care about.
 Charlatan Bond ~ 2						CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Charlatan Bond.Bond	COST:0						DESC:I owe everything to my mentor-a horrible person who's probably rotting in jail somewhere.
@@ -2144,6 +2159,7 @@ Charlatan Bond ~ 3						CATEGORY:Special Ability	SORTKEY:Background	TYPE:Special
 Charlatan Bond ~ 4						CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Charlatan Bond.Bond	COST:0						DESC:I come from a noble family, and one day I'll reclaim my lands and title from those who stole them from me.
 Charlatan Bond ~ 5						CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Charlatan Bond.Bond	COST:0						DESC:A powerful person killed someone I love. Some day soon, I'll have my revenge.
 Charlatan Bond ~ 6						CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Charlatan Bond.Bond	COST:0						DESC:I swindled and ruined a person who didn't deserve it. I seek to atone for my misdeeds but might never be able to forgive myself.
+Charlatan Bond ~ Custom					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Charlatan Bond									DESC:%1|%LIST	CHOOSE:USERINPUT|TITLE=Your Own Bond	MULT:YES	STACK:NO
 #d6 Flaw							
 Charlatan Flaw ~ 1						CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Charlatan Flaw.Flaw						DESC:I can't resist a pretty face.
 Charlatan Flaw ~ 2						CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Charlatan Flaw.Flaw						DESC:I'm always in debt. I spend my ill-gotten gains on decadent luxuries faster than I bring them in..
@@ -2151,6 +2167,7 @@ Charlatan Flaw ~ 3						CATEGORY:Special Ability	SORTKEY:Background	TYPE:Special
 Charlatan Flaw ~ 4						CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Charlatan Flaw.Flaw						DESC:I'm too greedy for my own good. I can't resist taking a risk if there's money involved.
 Charlatan Flaw ~ 5						CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Charlatan Flaw.Flaw						DESC:I can't resist swindling people who are more powerful than me.
 Charlatan Flaw ~ 6						CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Charlatan Flaw.Flaw						DESC:I hate to admit it and will hate myself for it, but I'll run and preserve my own hide if the going gets tough.
+Charlatan Flaw ~ Custom					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Charlatan Flaw							DESC:%1|%LIST	CHOOSE:USERINPUT|TITLE=Your Own Flaw	MULT:YES	STACK:NO		
 #									CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Charlatan Flaw							DESC:
 
 
@@ -2164,6 +2181,7 @@ Criminal Specialty ~ 5	CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQ
 Criminal Specialty ~ 6	CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Criminal Specialty							DESC:Hired killer
 Criminal Specialty ~ 7	CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Criminal Specialty							DESC:Pickpocket
 Criminal Specialty ~ 8	CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Criminal Specialty							DESC:Smuggler
+Criminal Specialty ~ Custom	CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Criminal Specialty						DESC:%1|%LIST	CHOOSE:USERINPUT|TITLE=Your Own Specialty	MULT:YES	STACK:NO			
 #d8 Personality Trait
 Criminal Personality Trait ~ 1				CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Criminal Personality Trait.Personality Trait	DESC:I always have a plan for what to do when things go wrong.
 Criminal Personality Trait ~ 2				CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Criminal Personality Trait.Personality Trait	DESC:I am always calm, no matter what the situation. I never raise my voice or let my emotions control me.
@@ -2173,6 +2191,7 @@ Criminal Personality Trait ~ 5				CATEGORY:Special Ability	SORTKEY:Background	TY
 Criminal Personality Trait ~ 6				CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Criminal Personality Trait.Personality Trait	DESC:I don't pay attention to the risks in a situation. Never tell me the odds.
 Criminal Personality Trait ~ 7				CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Criminal Personality Trait.Personality Trait	DESC:The best way to get me to do something is to tell me I can't do it.
 Criminal Personality Trait ~ 8				CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Criminal Personality Trait.Personality Trait	DESC:I blow up at the slightest insult.
+Criminal Personality Trait ~ Custom			CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Criminal Personality Trait						DESC:%1|%LIST	CHOOSE:USERINPUT|TITLE=Your Own Personality Trait	MULT:YES	STACK:NO						
 #d6 Ideal							
 Criminal Ideal ~ 1						CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Criminal Ideal.Ideal					DESC:Honor. I don't steal from others in the trade. (Lawful)
 Criminal Ideal ~ 2						CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Criminal Ideal.Ideal					DESC:Freedom. Chains are meant to be broken, as are those who would forge them. (Chaotic)
@@ -2180,6 +2199,7 @@ Criminal Ideal ~ 3						CATEGORY:Special Ability	SORTKEY:Background	TYPE:Special
 Criminal Ideal ~ 4						CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Criminal Ideal.Ideal					DESC:Greed. I will do whatever it takes to become wealthy. (Evil)
 Criminal Ideal ~ 5						CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Criminal Ideal.Ideal					DESC:People. I'm loyal to my friends, not to any ideals, and everyone else can take a trip down the Styx for all I care. (Neutral)
 Criminal Ideal ~ 6						CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Criminal Ideal.Ideal					DESC:Redemption. There's a spark of good in everyone. (Good)
+Criminal Ideal ~ Custom					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Criminal Ideal							DESC:%1|%LIST	CHOOSE:USERINPUT|TITLE=Your Own Ideal	MULT:YES	STACK:NO			
 #d6 Bond							
 Criminal Bond ~ 1							CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Criminal Bond.Bond	COST:0						DESC:I'm trying to pay off an old debt I owe to a generous benefactor.
 Criminal Bond ~ 2							CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Criminal Bond.Bond	COST:0						DESC:My ill-gotten gains go to support my family.
@@ -2187,6 +2207,7 @@ Criminal Bond ~ 3							CATEGORY:Special Ability	SORTKEY:Background	TYPE:Special
 Criminal Bond ~ 4							CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Criminal Bond.Bond	COST:0						DESC:I will become the greatest thief that ever lived.
 Criminal Bond ~ 5							CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Criminal Bond.Bond	COST:0						DESC:I'm guilty of a terrible crime. I hope I can redeem myself for it.
 Criminal Bond ~ 6							CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Criminal Bond.Bond	COST:0						DESC:Someone I loved died because of I mistake I made. That will never happen again.
+Criminal Bond ~ Custom						CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Criminal Bond									DESC:%1|%LIST	CHOOSE:USERINPUT|TITLE=Your Own Bond	MULT:YES	STACK:NO
 #d6 Flaw							
 Criminal Flaw ~ 1							CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Criminal Flaw.Flaw						DESC:When I see something valuable, I can't think about anything but how to steal it.
 Criminal Flaw ~ 2							CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Criminal Flaw.Flaw						DESC:When faced with a choice between money and my friends, I usually choose the money.
@@ -2194,6 +2215,7 @@ Criminal Flaw ~ 3							CATEGORY:Special Ability	SORTKEY:Background	TYPE:Special
 Criminal Flaw ~ 4							CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Criminal Flaw.Flaw						DESC:I have a "tell" that reveals when I'm lying.
 Criminal Flaw ~ 5							CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Criminal Flaw.Flaw						DESC:I turn tail and run when things look bad.
 Criminal Flaw ~ 6							CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Criminal Flaw.Flaw						DESC:An innocent person is in prison for a crime that I committed. I'm okay with that.
+Criminal Flaw ~ Custom						CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Criminal Flaw							DESC:%1|%LIST	CHOOSE:USERINPUT|TITLE=Your Own Flaw	MULT:YES	STACK:NO		
 #									CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Criminal Flaw							DESC:
 #
 ## Entertainer
@@ -2201,13 +2223,14 @@ Criminal Flaw ~ 6							CATEGORY:Special Ability	SORTKEY:Background	TYPE:Special
 Entertainer Routine ~ 1		CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Entertainer Routine							DESC:Actor
 Entertainer Routine ~ 2		CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Entertainer Routine							DESC:Dancer
 Entertainer Routine ~ 3		CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Entertainer Routine							DESC:Fire-eater
-Entertainer Routine ~ 4		CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Entertainer Routine							DESC:jester
-Entertainer Routine ~ 5		CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Entertainer Routine							DESC:juggler
+Entertainer Routine ~ 4		CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Entertainer Routine							DESC:Jester
+Entertainer Routine ~ 5		CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Entertainer Routine							DESC:Juggler
 Entertainer Routine ~ 6		CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Entertainer Routine							DESC:Instrumentalist
 Entertainer Routine ~ 7		CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Entertainer Routine							DESC:Poet
 Entertainer Routine ~ 8		CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Entertainer Routine							DESC:Singer
 Entertainer Routine ~ 9		CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Entertainer Routine							DESC:Storyteller
 Entertainer Routine ~ 10	CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Entertainer Routine							DESC:Tumbler
+Entertainer Routine ~ Custom	CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Entertainer Routine						DESC:%1|%LIST	CHOOSE:USERINPUT|TITLE=Your Own Routine	MULT:YES	STACK:NO			
 #
 #d8 Personality Trait
 Entertainer Personality Trait ~ 1			CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Entertainer Personality Trait.Personality Trait	DESC:I know a story relevant to almost every situation.
@@ -2218,6 +2241,7 @@ Entertainer Personality Trait ~ 5			CATEGORY:Special Ability	SORTKEY:Background	
 Entertainer Personality Trait ~ 6			CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Entertainer Personality Trait.Personality Trait	DESC:I get bitter if I'm not the center of attention.
 Entertainer Personality Trait ~ 7			CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Entertainer Personality Trait.Personality Trait	DESC:I'll settle for nothing less than perfection.
 Entertainer Personality Trait ~ 8			CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Entertainer Personality Trait.Personality Trait	DESC:I change my mood or my mind as quickly as I change key in a song.
+Entertainer Personality Trait ~ Custom		CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Entertainer Personality Trait					DESC:%1|%LIST	CHOOSE:USERINPUT|TITLE=Your Own Personality Trait	MULT:YES	STACK:NO						
 #d6 Ideal						
 Entertainer Ideal ~ 1					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Entertainer Ideal.Ideal					DESC:Beauty. When I perform, I make the world better than it was. (Good)
 Entertainer Ideal ~ 2					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Entertainer Ideal.Ideal					DESC:Tradition. The stories, legends, and songs of the past must never be forgotten, for they teach us who we are. (Lawful)
@@ -2225,6 +2249,7 @@ Entertainer Ideal ~ 3					CATEGORY:Special Ability	SORTKEY:Background	TYPE:Speci
 Entertainer Ideal ~ 4					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Entertainer Ideal.Ideal					DESC:Greed. I'm only in it for the money and fame. (Evil)
 Entertainer Ideal ~ 5					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Entertainer Ideal.Ideal					DESC:People. I like seeing the smiles on people's faces when I perform. That's all that matters. (Neutral)
 Entertainer Ideal ~ 6					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Entertainer Ideal.Ideal					DESC:Honesty. Art should reflect the soul; it should come from within and reveal who we really are. (Any)
+Entertainer Ideal ~ Custom				CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Entertainer Ideal						DESC:%1|%LIST	CHOOSE:USERINPUT|TITLE=Your Own Ideal	MULT:YES	STACK:NO			
 #d6 Bond						
 Entertainer Bond ~ 1					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Entertainer Bond.Bond	COST:0						DESC:My instrument is my most treasured possession, and it reminds me of someone I love.
 Entertainer Bond ~ 2					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Entertainer Bond.Bond	COST:0						DESC:Someone stole my precious instrument, and someday I'll get it back.
@@ -2232,6 +2257,7 @@ Entertainer Bond ~ 3					CATEGORY:Special Ability	SORTKEY:Background	TYPE:Specia
 Entertainer Bond ~ 4					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Entertainer Bond.Bond	COST:0						DESC:I idolize a hero of the old tales and measure my deeds against that person's.
 Entertainer Bond ~ 5					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Entertainer Bond.Bond	COST:0						DESC:I will do anything to prove myself superior to my hated rival.
 Entertainer Bond ~ 6					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Entertainer Bond.Bond	COST:0						DESC:I would do anything for the other members of my old troupe.
+Entertainer Bond ~ Custom				CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Entertainer Bond									DESC:%1|%LIST	CHOOSE:USERINPUT|TITLE=Your Own Bond	MULT:YES	STACK:NO
 # d6 Flaw						
 Entertainer Flaw ~ 1					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Entertainer Flaw.Flaw						DESC:I'll do anything to win fame and renown.
 Entertainer Flaw ~ 2					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Entertainer Flaw.Flaw						DESC:I'm a sucker for a pretty face.
@@ -2239,6 +2265,7 @@ Entertainer Flaw ~ 3					CATEGORY:Special Ability	SORTKEY:Background	TYPE:Specia
 Entertainer Flaw ~ 4					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Entertainer Flaw.Flaw						DESC:I once satirized a noble who still wants my head. It was a mistake that I will likely repeat.
 Entertainer Flaw ~ 5					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Entertainer Flaw.Flaw						DESC:I have trouble keeping my true feelings hidden. My sharp tongue lands me in trouble.
 Entertainer Flaw ~ 6					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Entertainer Flaw.Flaw						DESC:Despite my best efforts, I am unreliable to my friends.
+Entertainer Flaw ~ Custom				CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Entertainer Flaw							DESC:%1|%LIST	CHOOSE:USERINPUT|TITLE=Your Own Flaw	MULT:YES	STACK:NO		
 #								CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Entertainer Flaw							DESC:
 # Folk Hero
 #d10 Defining Event
@@ -2252,6 +2279,7 @@ Folk Hero Defining Event ~ 7	CATEGORY:Special Ability	SORTKEY:Background	TYPE:Sp
 Folk Hero Defining Event ~ 8	CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Folk Hero Defining Event							DESC:A lord rescinded an unpopular decree after I led a symbolic act of protest against it.
 Folk Hero Defining Event ~ 9	CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Folk Hero Defining Event							DESC:A celestial, fey, or similar creature gave me a blessing or revealed my secret origin.
 Folk Hero Defining Event ~ 10	CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Folk Hero Defining Event							DESC:Recruited into a lord's army, I rose to leadership and was commended for my heroism.
+Folk Hero  Defining Event ~ Custom	CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Folk Hero Defining Event						DESC:%1|%LIST	CHOOSE:USERINPUT|TITLE=Your Own  Defining Event	MULT:YES	STACK:NO			
 #d8 Personality Trait
 Folk Hero Personality Trait ~ 1				CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Folk Hero Personality Trait.Personality Trait	DESC:I judge people by their actions, not their words.
 Folk Hero Personality Trait ~ 2				CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Folk Hero Personality Trait.Personality Trait	DESC:If someone is in trouble, I'm always ready to lend help.
@@ -2261,6 +2289,7 @@ Folk Hero Personality Trait ~ 5				CATEGORY:Special Ability	SORTKEY:Background	T
 Folk Hero Personality Trait ~ 6				CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Folk Hero Personality Trait.Personality Trait	DESC:Thinking is for other people. I prefer action.
 Folk Hero Personality Trait ~ 7				CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Folk Hero Personality Trait.Personality Trait	DESC:I misuse long words in an attempt to sound smarter.
 Folk Hero Personality Trait ~ 8				CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Folk Hero Personality Trait.Personality Trait	DESC:I get bored easily. When am I going to get on with my destiny?
+Folk Hero Personality Trait ~ Custom		CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Folk Hero Personality Trait					DESC:%1|%LIST	CHOOSE:USERINPUT|TITLE=Your Own Personality Trait	MULT:YES	STACK:NO						
 #d6 Ideal							
 Folk Hero Ideal ~ 1						CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Folk Hero Ideal.Ideal					DESC:Respect. People deserve to be treated with dignity and respect. (Good)
 Folk Hero Ideal ~ 2						CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Folk Hero Ideal.Ideal					DESC:Fairness. No one should get preferential treatment before the law, and no one is above the law. (Lawful)
@@ -2268,6 +2297,7 @@ Folk Hero Ideal ~ 3						CATEGORY:Special Ability	SORTKEY:Background	TYPE:Specia
 Folk Hero Ideal ~ 4						CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Folk Hero Ideal.Ideal					DESC:Might. If I become strong, I can take what I want- what I deserve. (Evil)
 Folk Hero Ideal ~ 5						CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Folk Hero Ideal.Ideal					DESC:Sincerity. There's no good in pretending to be something I'm not. (Neutral)
 Folk Hero Ideal ~ 6						CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Folk Hero Ideal.Ideal					DESC:Destiny. Nothing and no one can steer me away from my higher calling. (Any)
+Folk Hero Ideal ~ Custom				CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Folk Hero Ideal						DESC:%1|%LIST	CHOOSE:USERINPUT|TITLE=Your Own Ideal	MULT:YES	STACK:NO			
 #d6 Bond							
 Folk Hero Bond ~ 1						CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Folk Hero Bond.Bond	COST:0						DESC:I have a family, but I have no idea where they are. One day, I hope to see them again.
 Folk Hero Bond ~ 2						CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Folk Hero Bond.Bond	COST:0						DESC:I worked the land, I love the land, and I will protect the land.
@@ -2275,6 +2305,7 @@ Folk Hero Bond ~ 3						CATEGORY:Special Ability	SORTKEY:Background	TYPE:Special
 Folk Hero Bond ~ 4						CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Folk Hero Bond.Bond	COST:0						DESC:My tools are symbols of my past life, and I carry them so that I will never forget my roots.
 Folk Hero Bond ~ 5						CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Folk Hero Bond.Bond	COST:0						DESC:I protect those who cannot protect themselves.
 Folk Hero Bond ~ 6						CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Folk Hero Bond.Bond	COST:0						DESC:I wish my childhood sweetheart had come with me to pursue my destiny.
+Folk Hero Bond ~ Custom					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Folk Hero Bond									DESC:%1|%LIST	CHOOSE:USERINPUT|TITLE=Your Own Bond	MULT:YES	STACK:NO
 #d6 Flaw							
 Folk Hero Flaw ~ 1						CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Folk Hero Flaw.Flaw						DESC:The tyrant who rules my land will stop at nothing to see me killed.
 Folk Hero Flaw ~ 2						CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Folk Hero Flaw.Flaw						DESC:I'm convinced of the significance of my destiny, and blind to my shortcomings and the risk of failure.
@@ -2282,6 +2313,7 @@ Folk Hero Flaw ~ 3						CATEGORY:Special Ability	SORTKEY:Background	TYPE:Special
 Folk Hero Flaw ~ 4						CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Folk Hero Flaw.Flaw						DESC:I have a weakness for the vices of the city, especially hard drink.
 Folk Hero Flaw ~ 5						CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Folk Hero Flaw.Flaw						DESC:Secretly, I believe that things would be better if I were a tyrant lording over the land.
 Folk Hero Flaw ~ 6						CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Folk Hero Flaw.Flaw						DESC:I have trouble trusting in my allies.
+Folk Hero Flaw ~ Custom					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Folk Hero Flaw							DESC:%1|%LIST	CHOOSE:USERINPUT|TITLE=Your Own Flaw	MULT:YES	STACK:NO		
 #						CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Folk Hero Flaw							DESC:
 
 # Guild Artisan
@@ -2306,6 +2338,7 @@ Guild Artisan Guild Business ~ 17	CATEGORY:Special Ability	SORTKEY:Background	TY
 Guild Artisan Guild Business ~ 18	CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Guild Artisan Guild Business							DESC:Wagon-makers and wheelwrights
 Guild Artisan Guild Business ~ 19	CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Guild Artisan Guild Business							DESC:Weavers and dyers
 Guild Artisan Guild Business ~ 20	CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Guild Artisan Guild Business							DESC:Woodcarvers, coopers, and bowyers
+Guild Artisan Guild Business ~ Custom	CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Guild Artisan Guild Business						DESC:%1|%LIST	CHOOSE:USERINPUT|TITLE=Your Own Guild Business	MULT:YES	STACK:NO			
 
 #d8 Personality Trait
 Guild Artisan Personality Trait ~ 1			CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Guild Artisan Personality Trait.Personality Trait	DESC:I believe that anything worth doing is worth doing right. I can't help it- I'm a perfectionist.
@@ -2316,6 +2349,7 @@ Guild Artisan Personality Trait ~ 5			CATEGORY:Special Ability	SORTKEY:Backgroun
 Guild Artisan Personality Trait ~ 6			CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Guild Artisan Personality Trait.Personality Trait	DESC:I like to talk at length about my profession.
 Guild Artisan Personality Trait ~ 7			CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Guild Artisan Personality Trait.Personality Trait	DESC:I don't part with my money easily and will haggle tirelessly to get the best deal possible.
 Guild Artisan Personality Trait ~ 8			CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Guild Artisan Personality Trait.Personality Trait	DESC:I'm well known for my work, and I want to make sure everyone appreciates it. I'm always taken aback when people haven't heard of me.
+Guild Artisan Personality Trait ~ Custom	CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Guild Artisan Personality Trait					DESC:%1|%LIST	CHOOSE:USERINPUT|TITLE=Your Own Personality Trait	MULT:YES	STACK:NO						
 #d6 Ideal						
 Guild Artisan Ideal ~ 1					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Guild Artisan Ideal.Ideal					DESC:Community. It is the duty of all civilized people to strengthen the bonds of community and the security of civilization. (Lawful)
 Guild Artisan Ideal ~ 2					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Guild Artisan Ideal.Ideal					DESC:Generosity. My talents were given to me so that I could use them to benefit the world. (Good)
@@ -2323,6 +2357,7 @@ Guild Artisan Ideal ~ 3					CATEGORY:Special Ability	SORTKEY:Background	TYPE:Spe
 Guild Artisan Ideal ~ 4					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Guild Artisan Ideal.Ideal					DESC:Greed. I'm only in it for the money. (Evil)
 Guild Artisan Ideal ~ 5					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Guild Artisan Ideal.Ideal					DESC:People. I'm committed to the people I care about, not to ideals. (Neutral)
 Guild Artisan Ideal ~ 6					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Guild Artisan Ideal.Ideal					DESC:Aspiration. I work hard to be the best there is at my craft.
+Guild Artisan Ideal ~ Custom			CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Guild Artisan Ideal							DESC:%1|%LIST	CHOOSE:USERINPUT|TITLE=Your Own Ideal	MULT:YES	STACK:NO			
 #d6 Bond						
 Guild Artisan Bond ~ 1					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Guild Artisan Bond.Bond	COST:0						DESC:The workshop where I learned my trade is the most important place in the world to me.
 Guild Artisan Bond ~ 2					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Guild Artisan Bond.Bond	COST:0						DESC:I created a great work for someone, and then found them unworthy to receive it. I'm still looking for someone worthy.
@@ -2330,6 +2365,7 @@ Guild Artisan Bond ~ 3					CATEGORY:Special Ability	SORTKEY:Background	TYPE:Spec
 Guild Artisan Bond ~ 4					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Guild Artisan Bond.Bond	COST:0						DESC:I pursue wealth to secure someone's love.
 Guild Artisan Bond ~ 5					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Guild Artisan Bond.Bond	COST:0						DESC:One day I will return to my guild and prove that I am the greatest artisan of them all.
 Guild Artisan Bond ~ 6					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Guild Artisan Bond.Bond	COST:0						DESC:I will get revenge on the evil forces that destroyed my place of business and ruined my livelihood.
+Guild Artisan Bond ~ Custom				CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Guild Artisan Bond									DESC:%1|%LIST	CHOOSE:USERINPUT|TITLE=Your Own Bond	MULT:YES	STACK:NO
 #d6 Flaw						
 Guild Artisan Flaw ~ 1					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Guild Artisan Flaw.Flaw						DESC:I'll do anything to get my hands on something rare or priceless.
 Guild Artisan Flaw ~ 2					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Guild Artisan Flaw.Flaw						DESC:I'm quick to assume that someone is trying to cheat me.
@@ -2337,6 +2373,7 @@ Guild Artisan Flaw ~ 3					CATEGORY:Special Ability	SORTKEY:Background	TYPE:Spec
 Guild Artisan Flaw ~ 4					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Guild Artisan Flaw.Flaw						DESC:I'm never satisfied with what I have- I always want more.
 Guild Artisan Flaw ~ 5					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Guild Artisan Flaw.Flaw						DESC:I would kill to acquire a noble title.
 Guild Artisan Flaw ~ 6					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Guild Artisan Flaw.Flaw						DESC:I'm horribly jealous of anyone who can outshine my handiwork. Everywhere I go, I'm surrounded by rivals.
+Guild Artisan Flaw ~ Custom				CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Guild Artisan Flaw							DESC:%1|%LIST	CHOOSE:USERINPUT|TITLE=Your Own Flaw	MULT:YES	STACK:NO		
 #								CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Guild Artisan Flaw							DESC:
 # Hermit
 #d8 Life of Seclusion
@@ -2348,6 +2385,7 @@ Hermit Life of Seclusion ~ 5	CATEGORY:Special Ability	SORTKEY:Background	TYPE:Sp
 Hermit Life of Seclusion ~ 6	CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Hermit Life of Seclusion							DESC: I needed to commune with nature, far from civilization.
 Hermit Life of Seclusion ~ 7	CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Hermit Life of Seclusion							DESC: I was the caretaker of an ancient ruin or relic.
 Hermit Life of Seclusion ~ 8	CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Hermit Life of Seclusion							DESC: I was a pilgrim in search of a person, place, or relic of spiritual significance.
+Hermit Life of Seclusion ~ Custom	CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Hermit Life of Seclusion						DESC:%1|%LIST	CHOOSE:USERINPUT|TITLE=Your Own Life of Seclusion	MULT:YES	STACK:NO			
 
 #d8 Personality Trait
 Hermit Personality Trait ~ 1			CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Hermit Personality Trait.Personality Trait	DESC:I've been isolated for so long that I rarely speak, preferring gestures and the occasional grunt.
@@ -2358,6 +2396,7 @@ Hermit Personality Trait ~ 5			CATEGORY:Special Ability	SORTKEY:Background	TYPE:
 Hermit Personality Trait ~ 6			CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Hermit Personality Trait.Personality Trait	DESC:I connect everything that happens to me to a grand, cosmic plan.
 Hermit Personality Trait ~ 7			CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Hermit Personality Trait.Personality Trait	DESC:I often get lost in my own thoughts and contemplation, becoming oblivious to my surroundings.
 Hermit Personality Trait ~ 8			CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Hermit Personality Trait.Personality Trait	DESC:I am working on a grand philosophical theory and love sharing my ideas.
+Hermit Personality Trait ~ Custom		CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Hermit Personality Trait					DESC:%1|%LIST	CHOOSE:USERINPUT|TITLE=Your Own Personality Trait	MULT:YES	STACK:NO						
 #d6 Ideal					
 Hermit Ideal ~ 1					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Hermit Ideal.Ideal					DESC:Greater Good. My gifts are meant to be shared with all, not used for my own benefit. (Good)
 Hermit Ideal ~ 2					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Hermit Ideal.Ideal					DESC:Logic. Emotions must not cloud our sense of what is right and true, or our logical thinking. (Lawful)
@@ -2365,6 +2404,7 @@ Hermit Ideal ~ 3					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQua
 Hermit Ideal ~ 4					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Hermit Ideal.Ideal					DESC:Power. Solitude and contemplation are paths toward mystical or magical power. (Evil)
 Hermit Ideal ~ 5					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Hermit Ideal.Ideal					DESC:Live and Let Live. Meddling in the affairs of others only causes trouble. (Neutral)
 Hermit Ideal ~ 6					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Hermit Ideal.Ideal					DESC:Self-Knowledge. If you know yourself, there's nothing left to know. (Any)
+Hermit Ideal ~ Custom				CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Hermit Ideal						DESC:%1|%LIST	CHOOSE:USERINPUT|TITLE=Your Own Ideal	MULT:YES	STACK:NO			
 #d6 Bond					
 Hermit Bond ~ 1					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Hermit Bond.Bond	COST:0						DESC:Nothing is more important than the other members of my hermitage, order, or association.
 Hermit Bond ~ 2					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Hermit Bond.Bond	COST:0						DESC:I entered seclusion to hide from the ones who might still be hunting me. I must someday confront them.
@@ -2372,6 +2412,7 @@ Hermit Bond ~ 3					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQual
 Hermit Bond ~ 4					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Hermit Bond.Bond	COST:0						DESC:I entered seclusion because I loved someone I could not have.
 Hermit Bond ~ 5					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Hermit Bond.Bond	COST:0						DESC:Should my discovery come to light, it could bring ruin to the world.
 Hermit Bond ~ 6					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Hermit Bond.Bond	COST:0						DESC:My isolation gave me great insight into a great evil that only I can destroy.
+Hermit Bond ~ Custom			CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Hermit Bond										DESC:%1|%LIST	CHOOSE:USERINPUT|TITLE=Your Own Bond	MULT:YES	STACK:NO
 #d6 Flaw						
 Hermit Flaw ~ 1					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Hermit Flaw.Flaw						DESC:Now that I've returned to the world, I enjoy its delights a little too much.
 Hermit Flaw ~ 2					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Hermit Flaw.Flaw						DESC:I harbor dark, bloodthirsty thoughts that my isolation and meditation failed to quell.
@@ -2379,6 +2420,7 @@ Hermit Flaw ~ 3					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQual
 Hermit Flaw ~ 4					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Hermit Flaw.Flaw						DESC:I let my need to win arguments overshadow friendships and harmony.
 Hermit Flaw ~ 5					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Hermit Flaw.Flaw						DESC:I'd risk too much to uncover a lost bit of knowledge.
 Hermit Flaw ~ 6					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Hermit Flaw.Flaw						DESC:I like keeping secrets and won't share them with anyone.
+Hermit Flaw ~ Custom			CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Hermit Flaw								DESC:%1|%LIST	CHOOSE:USERINPUT|TITLE=Your Own Flaw	MULT:YES	STACK:NO		
 #							
 # Noble
 #d8 Personality Trait
@@ -2390,6 +2432,7 @@ Noble Personality Trait ~ 5			CATEGORY:Special Ability	SORTKEY:Background	TYPE:S
 Noble Personality Trait ~ 6			CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Noble Personality Trait.Personality Trait	DESC:Despite my noble birth, I do not place myself above other folk. We all have the same blood.
 Noble Personality Trait ~ 7			CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Noble Personality Trait.Personality Trait	DESC:My favor, once lost, is lost forever.
 Noble Personality Trait ~ 8			CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Noble Personality Trait.Personality Trait	DESC:If you do me an injury, I will crush you, ruin your name, and salt your fields.
+Noble Personality Trait ~ Custom	CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Noble Personality Trait						DESC:%1|%LIST	CHOOSE:USERINPUT|TITLE=Your Own Personality Trait	MULT:YES	STACK:NO						
 #d6 Ideal					
 Noble Ideal ~ 1					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Noble Ideal.Ideal					DESC:Respect. Respect is due to me because of my position, but all people regardless of station deserve to be treated with dignity. (Good)
 Noble Ideal ~ 2					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Noble Ideal.Ideal					DESC:Responsibility. It is my duty to respect the authority of those above me, just as those below me must respect mine. (Lawful)
@@ -2397,6 +2440,7 @@ Noble Ideal ~ 3					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQual
 Noble Ideal ~ 4					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Noble Ideal.Ideal					DESC:Power. If I can attain more power, no one will tell me what to do. (Evil)
 Noble Ideal ~ 5					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Noble Ideal.Ideal					DESC:Family. Blood runs thicker than water. (Any)
 Noble Ideal ~ 6					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Noble Ideal.Ideal					DESC:Noble Obligation. It is my duty to protect and care for the people beneath me. (Good)
+Noble Ideal ~ Custom			CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Noble Ideal							DESC:%1|%LIST	CHOOSE:USERINPUT|TITLE=Your Own Ideal	MULT:YES	STACK:NO			
 #d6 Bond					
 Noble Bond ~ 1					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Noble Bond.Bond	COST:0						DESC:I will face any challenge to win the approval of my family.
 Noble Bond ~ 2					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Noble Bond.Bond	COST:0						DESC:My house's alliance with another noble family must be sustained at all costs.
@@ -2404,6 +2448,7 @@ Noble Bond ~ 3					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuali
 Noble Bond ~ 4					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Noble Bond.Bond	COST:0						DESC:I am in love with the heir of a family that my family despises.
 Noble Bond ~ 5					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Noble Bond.Bond	COST:0						DESC:My loyalty to my sovereign is unwavering.
 Noble Bond ~ 6					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Noble Bond.Bond	COST:0						DESC:The common folk must see me as a hero of the people.
+Noble Bond ~ Custom			CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Noble Bond										DESC:%1|%LIST	CHOOSE:USERINPUT|TITLE=Your Own Bond	MULT:YES	STACK:NO
 #d6 Flaw					
 Noble Flaw ~ 1					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Noble Flaw.Flaw						DESC:I secretly believe that everyone is beneath me.
 Noble Flaw ~ 2					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Noble Flaw.Flaw						DESC:I hide a truly scandalous secret that could ruin my family forever.
@@ -2411,6 +2456,7 @@ Noble Flaw ~ 3					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuali
 Noble Flaw ~ 4					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Noble Flaw.Flaw						DESC:I have an insatiable desire for carnal pleasures.
 Noble Flaw ~ 5					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Noble Flaw.Flaw						DESC:In fact, the world does revolve around me.
 Noble Flaw ~ 6					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Noble Flaw.Flaw						DESC:By my words and actions, I often bring shame to my family.
+Noble Flaw ~ Custom			CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Noble Flaw								DESC:%1|%LIST	CHOOSE:USERINPUT|TITLE=Your Own Flaw	MULT:YES	STACK:NO		
 #							CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Noble Flaw							DESC:
 # Outlander
 #d10 Origin
@@ -2424,6 +2470,7 @@ Outlander Origin ~ 7	CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQua
 Outlander Origin ~ 8	CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Outlander Origin							DESC: Tribal nomad
 Outlander Origin ~ 9	CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Outlander Origin							DESC: Hunter-gatherer
 Outlander Origin ~ 10	CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Outlander Origin							DESC: Tribal marauder
+Outlander Origin ~ Custom	CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Outlander Origin						DESC:%1|%LIST	CHOOSE:USERINPUT|TITLE=Your Own Origin	MULT:YES	STACK:NO			
 
 #d8 Personality Trait
 Outlander Personality Trait ~ 1			CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Outlander Personality Trait.Personality Trait	DESC:I'm driven by a wanderlust that led me away from home.
@@ -2434,6 +2481,7 @@ Outlander Personality Trait ~ 5			CATEGORY:Special Ability	SORTKEY:Background	TY
 Outlander Personality Trait ~ 6			CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Outlander Personality Trait.Personality Trait	DESC:I'm always picking things up, absently fiddling with them, and sometimes accidentally breaking them.
 Outlander Personality Trait ~ 7			CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Outlander Personality Trait.Personality Trait	DESC:I feel far more comfortable around animals than people.
 Outlander Personality Trait ~ 8			CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Outlander Personality Trait.Personality Trait	DESC:I was, in fact, raised by wolves.
+Outlander Personality Trait ~ Custom	CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Outlander Personality Trait						DESC:%1|%LIST	CHOOSE:USERINPUT|TITLE=Your Own Personality Trait	MULT:YES	STACK:NO						
 #d6 Ideal						
 Outlander Ideal ~ 1					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Outlander Ideal.Ideal					DESC:Change. Life is like the seasons, in constant change, and we must change with it. (Chaotic)
 Outlander Ideal ~ 2					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Outlander Ideal.Ideal					DESC:Greater Good. It is each person's responsibility to make the most happiness for the whole tribe. (Good)
@@ -2441,6 +2489,7 @@ Outlander Ideal ~ 3					CATEGORY:Special Ability	SORTKEY:Background	TYPE:Special
 Outlander Ideal ~ 4					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Outlander Ideal.Ideal					DESC:Might. The strongest are meant to rule. (Evil)
 Outlander Ideal ~ 5					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Outlander Ideal.Ideal					DESC:Nature. The natural world is more important than all the constructs of civilization. (Neutral)
 Outlander Ideal ~ 6					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Outlander Ideal.Ideal					DESC:Glory. I must earn glory in battle, for myself and my clan. (Any)
+Outlander Ideal ~ Custom			CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Outlander Ideal							DESC:%1|%LIST	CHOOSE:USERINPUT|TITLE=Your Own Ideal	MULT:YES	STACK:NO			
 #d6 Bond						
 Outlander Bond ~ 1					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Outlander Bond.Bond	COST:0						DESC:My family, clan, or tribe is the most important thing in my life, even when they are far from me.
 Outlander Bond ~ 2					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Outlander Bond.Bond	COST:0						DESC:An injury to the unspoiled wilderness of my home is an injury to me.
@@ -2448,6 +2497,7 @@ Outlander Bond ~ 3					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQ
 Outlander Bond ~ 4					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Outlander Bond.Bond	COST:0						DESC:I am the last of my tribe, and it is up to me to ensure their names enter legend.
 Outlander Bond ~ 5					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Outlander Bond.Bond	COST:0						DESC:I suffer awful visions of a coming disaster and will do anything to prevent it.
 Outlander Bond ~ 6					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Outlander Bond.Bond	COST:0						DESC:It is my duty to provide children to sustain my tribe.
+Outlander Bond ~ Custom			CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Outlander Bond										DESC:%1|%LIST	CHOOSE:USERINPUT|TITLE=Your Own Bond	MULT:YES	STACK:NO
 #d6 Flaw						
 Outlander Flaw ~ 1					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Outlander Flaw.Flaw						DESC:I am too enamored of ale, wine, and other intoxicants.
 Outlander Flaw ~ 2					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Outlander Flaw.Flaw						DESC:There's no room for caution in a life lived to the fullest.
@@ -2455,6 +2505,7 @@ Outlander Flaw ~ 3					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQ
 Outlander Flaw ~ 4					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Outlander Flaw.Flaw						DESC:I am slow to trust members of other races, tribes, and societies.
 Outlander Flaw ~ 5					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Outlander Flaw.Flaw						DESC:Violence is my answer to almost any challenge.
 Outlander Flaw ~ 6					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Outlander Flaw.Flaw						DESC:Don't expect me to save those who can't save themselves. It is nature's way that the strong thrive and the weak perish.
+Outlander Flaw ~ Custom			CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Outlander Flaw								DESC:%1|%LIST	CHOOSE:USERINPUT|TITLE=Your Own Flaw	MULT:YES	STACK:NO		
 #								CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Outlander Flaw							DESC:
 #
 # Sage
@@ -2467,6 +2518,7 @@ Sage Specialty ~ 5	CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuali
 Sage Specialty ~ 6	CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Sage Specialty							DESC: Researcher
 Sage Specialty ~ 7	CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Sage Specialty							DESC: Wizard's apprentice
 Sage Specialty ~ 8	CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Sage Specialty							DESC: Scribe
+Sage Specialty ~ Custom	CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Sage Specialty						DESC:%1|%LIST	CHOOSE:USERINPUT|TITLE=Your Own Specialty	MULT:YES	STACK:NO			
 #d8 Personality Trait
 Sage Personality Trait ~ 1			CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Sage Personality Trait.Personality Trait	DESC:I use polysyllabic words that convey the impression of great erudition.
 Sage Personality Trait ~ 2			CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Sage Personality Trait.Personality Trait	DESC:I've read every book in the world's greatest libraries or I like to boast that I have.
@@ -2476,6 +2528,7 @@ Sage Personality Trait ~ 5			CATEGORY:Special Ability	SORTKEY:Background	TYPE:Sp
 Sage Personality Trait ~ 6			CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Sage Personality Trait.Personality Trait	DESC:I... speak... slowly... when talking... to idiots,... which... almost... everyone... is... compared... to me.
 Sage Personality Trait ~ 7			CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Sage Personality Trait.Personality Trait	DESC:I am horribly, horribly awkward in social situations.
 Sage Personality Trait ~ 8			CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Sage Personality Trait.Personality Trait	DESC:I'm convinced that people are always trying to steal my secrets. 
+Sage Personality Trait ~ Custom		CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Sage Personality Trait						DESC:%1|%LIST	CHOOSE:USERINPUT|TITLE=Your Own Personality Trait	MULT:YES	STACK:NO						
 #d6 Ideal					
 Sage Ideal ~ 1					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Sage Ideal.Ideal					DESC:Knowledge. The path to power and self-improvement is through knowledge. (Neutral)
 Sage Ideal ~ 2					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Sage Ideal.Ideal					DESC:Beauty. What is beautiful points us beyond itself toward what is true. (Good)
@@ -2483,6 +2536,7 @@ Sage Ideal ~ 3					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuali
 Sage Ideal ~ 4					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Sage Ideal.Ideal					DESC:No Limits. Nothing should fetter the infinite possibility inherent in all existence. (Chaotic)
 Sage Ideal ~ 5					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Sage Ideal.Ideal					DESC:Power. Knowledge is the path to power and domination. (Evil)
 Sage Ideal ~ 6					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Sage Ideal.Ideal					DESC:Self-Improvement. The goal of a life of study is the betterment of oneself. (Any)
+Sage Ideal ~ Custom				CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Sage Ideal							DESC:%1|%LIST	CHOOSE:USERINPUT|TITLE=Your Own Ideal	MULT:YES	STACK:NO			
 #d6 Bond					
 Sage Bond ~ 1					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Sage Bond.Bond	COST:0						DESC:It is my duty to protect my students.
 Sage Bond ~ 2					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Sage Bond.Bond	COST:0						DESC:I have an ancient text that holds terrible secrets that must not fall into the wrong hands.
@@ -2490,6 +2544,7 @@ Sage Bond ~ 3					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQualit
 Sage Bond ~ 4					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Sage Bond.Bond	COST:0						DESC:My life's work is a series of tomes related to a specific field of lore.
 Sage Bond ~ 5					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Sage Bond.Bond	COST:0						DESC:I've been searching my whole life for the answer to a certain question.
 Sage Bond ~ 6					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Sage Bond.Bond	COST:0						DESC:I sold my soul for knowledge. I hope to do great deeds and win it back.
+Sage Bond ~ Custom				CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Sage Bond									DESC:%1|%LIST	CHOOSE:USERINPUT|TITLE=Your Own Bond	MULT:YES	STACK:NO
 #d6 Flaw					
 Sage Flaw ~ 1					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Sage Flaw.Flaw						DESC:I am easily distracted by the promise of information.
 Sage Flaw ~ 2					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Sage Flaw.Flaw						DESC:Most people scream and run when they see a demon. I stop and take notes on its anatomy.
@@ -2497,6 +2552,7 @@ Sage Flaw ~ 3					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQualit
 Sage Flaw ~ 4					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Sage Flaw.Flaw						DESC:I overlook obvious solutions in favor of complicated ones.
 Sage Flaw ~ 5					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Sage Flaw.Flaw						DESC:I speak without really thinking through my words, invariably insulting others.
 Sage Flaw ~ 6					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Sage Flaw.Flaw						DESC:I can't keep a secret to save my life, or anyone else's.
+Sage Flaw ~ Custom				CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Sage Flaw							DESC:%1|%LIST	CHOOSE:USERINPUT|TITLE=Your Own Flaw	MULT:YES	STACK:NO		
 #							CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Sage Flaw							DESC:
 # Sailor
 #d8 Personality Trait
@@ -2508,6 +2564,7 @@ Sailor Personality Trait ~ 5			CATEGORY:Special Ability	SORTKEY:Background	TYPE:
 Sailor Personality Trait ~ 6			CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Sailor Personality Trait.Personality Trait	DESC:I never pass up a friendly wager.
 Sailor Personality Trait ~ 7			CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Sailor Personality Trait.Personality Trait	DESC:My language is as foul as an otyugh nest.
 Sailor Personality Trait ~ 8			CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Sailor Personality Trait.Personality Trait	DESC:I like a job well done, especially if I can convince someone else to do it.
+Sailor Personality Trait ~ Custom		CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Sailor Personality Trait					DESC:%1|%LIST	CHOOSE:USERINPUT|TITLE=Your Own Personality Trait	MULT:YES	STACK:NO						
 #d6 Ideal					
 Sailor Ideal ~ 1					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Sailor Ideal.Ideal					DESC:Respect. The thing that keeps a ship together is mutual respect between captain and crew. (Good)
 Sailor Ideal ~ 2					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Sailor Ideal.Ideal					DESC:Fairness. We all do the work, so we all share in the rewards. (Lawful)
@@ -2515,6 +2572,7 @@ Sailor Ideal ~ 3					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQua
 Sailor Ideal ~ 4					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Sailor Ideal.Ideal					DESC:Mastery. I'm a predator, and the other ships on the sea are my prey. (Evil)
 Sailor Ideal ~ 5					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Sailor Ideal.Ideal					DESC:People. I'm committed to my crewmates, not to ideals. (Neutral)
 Sailor Ideal ~ 6					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Sailor Ideal.Ideal					DESC:Aspiration. Someday I'll own my own ship and chart my own destiny. (Any)
+Sailor Ideal ~ Custom				CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Sailor Ideal						DESC:%1|%LIST	CHOOSE:USERINPUT|TITLE=Your Own Ideal	MULT:YES	STACK:NO			
 #d6 Bond					
 Sailor Bond ~ 1					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Sailor Bond.Bond	COST:0						DESC:I'm loyal to my captain first, everything else second.
 Sailor Bond ~ 2					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Sailor Bond.Bond	COST:0						DESC:The ship is most important-crewmates and captains come and go.
@@ -2522,6 +2580,7 @@ Sailor Bond ~ 3					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQual
 Sailor Bond ~ 4					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Sailor Bond.Bond	COST:0						DESC:In a harbor town, I have a paramour whose eyes nearly stole me from the sea.
 Sailor Bond ~ 5					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Sailor Bond.Bond	COST:0						DESC:I was cheated out of my fair share of the profits, and I want to get my due.
 Sailor Bond ~ 6					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Sailor Bond.Bond	COST:0						DESC:Ruthless pirates murdered my captain and crewmates, plundered our ship, and left me to die. Vengeance will be mine.
+Sailor Bond ~ Custom			CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Sailor Bond										DESC:%1|%LIST	CHOOSE:USERINPUT|TITLE=Your Own Bond	MULT:YES	STACK:NO
 #d6 Flaw					
 Sailor Flaw ~ 1					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Sailor Flaw.Flaw						DESC:I follow orders, even if I think they're wrong.
 Sailor Flaw ~ 2					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Sailor Flaw.Flaw						DESC:I'll say anything to avoid having to do extra work.
@@ -2529,6 +2588,7 @@ Sailor Flaw ~ 3					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQual
 Sailor Flaw ~ 4					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Sailor Flaw.Flaw						DESC:Once I start drinking, it's hard for me to stop.
 Sailor Flaw ~ 5					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Sailor Flaw.Flaw						DESC:I can't help but pocket loose coins and other trinkets I come across.
 Sailor Flaw ~ 6					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Sailor Flaw.Flaw						DESC:My pride will probably lead to my destruction.
+Sailor Flaw ~ Custom			CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Sailor Flaw								DESC:%1|%LIST	CHOOSE:USERINPUT|TITLE=Your Own Flaw	MULT:YES	STACK:NO		
 #							CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Sailor Flaw							DESC:
 # Soldier
 #d8 Specialty
@@ -2540,6 +2600,7 @@ Soldier Specialty ~ 5	CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQu
 Soldier Specialty ~ 6	CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Soldier Specialty							DESC: Quartermaster
 Soldier Specialty ~ 7	CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Soldier Specialty							DESC: Standard bearer
 Soldier Specialty ~ 8	CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Soldier Specialty							DESC: Support staff (cook, blacksmith, or the like)
+Soldier Specialty ~ Custom	CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Soldier Specialty						DESC:%1|%LIST	CHOOSE:USERINPUT|TITLE=Your Own Specialty	MULT:YES	STACK:NO			
 
 #d8 Personality Trait
 Soldier Personality Trait ~ 1				CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Soldier Personality Trait.Personality Trait	DESC:I'm always polite and respectful.
@@ -2550,6 +2611,7 @@ Soldier Personality Trait ~ 5				CATEGORY:Special Ability	SORTKEY:Background	TYP
 Soldier Personality Trait ~ 6				CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Soldier Personality Trait.Personality Trait	DESC:I enjoy being strong and like breaking things.
 Soldier Personality Trait ~ 7				CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Soldier Personality Trait.Personality Trait	DESC:I have a crude sense of humor.
 Soldier Personality Trait ~ 8				CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Soldier Personality Trait.Personality Trait	DESC:I face problems head-on. A simple, direct solution is the best path to success.
+Soldier Personality Trait ~ Custom			CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Soldier Personality Trait					DESC:%1|%LIST	CHOOSE:USERINPUT|TITLE=Your Own Personality Trait	MULT:YES	STACK:NO						
 #d6 Ideal						
 Soldier Ideal ~ 1						CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Soldier Ideal.Ideal					DESC:Greater Good. Our lot is to lay down our lives in defense of others. (Good)
 Soldier Ideal ~ 2						CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Soldier Ideal.Ideal					DESC:Responsibility. I do what I must and obey just authority. (Lawful)
@@ -2557,6 +2619,7 @@ Soldier Ideal ~ 3						CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQ
 Soldier Ideal ~ 4						CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Soldier Ideal.Ideal					DESC:Might. In life as in war, the stronger force wins. (Evil)
 Soldier Ideal ~ 5						CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Soldier Ideal.Ideal					DESC:Live and Let Live. Ideals aren't worth killing over or going to war for. (Neutral)
 Soldier Ideal ~ 6						CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Soldier Ideal.Ideal					DESC:Nation. My city, nation, or people are all that matter. (Any)
+Soldier Ideal ~ Custom					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Soldier Ideal						DESC:%1|%LIST	CHOOSE:USERINPUT|TITLE=Your Own Ideal	MULT:YES	STACK:NO			
 #d6 Bond						
 Soldier Bond ~ 1						CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Soldier Bond.Bond	COST:0						DESC:I would still lay down my life for the people I served with.
 Soldier Bond ~ 2						CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Soldier Bond.Bond	COST:0						DESC:Someone saved my life on the battlefield. To this day, I will never leave a friend behind.
@@ -2564,6 +2627,7 @@ Soldier Bond ~ 3						CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQu
 Soldier Bond ~ 4						CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Soldier Bond.Bond	COST:0						DESC:I'll never forget the crushing defeat my company suffered or the enemies who dealt it.
 Soldier Bond ~ 5						CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Soldier Bond.Bond	COST:0						DESC:Those who fight beside me are those worth dying for.
 Soldier Bond ~ 6						CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Soldier Bond.Bond	COST:0						DESC:I fight for those who cannot fight for themselves.
+Soldier Bond ~ Custom					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Soldier Bond									DESC:%1|%LIST	CHOOSE:USERINPUT|TITLE=Your Own Bond	MULT:YES	STACK:NO
 # d6 Flaw						
 Soldier Flaw ~ 1						CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Soldier Flaw.Flaw						DESC:The monstrous enemy we faced in battle still leaves me quivering with fear.
 Soldier Flaw ~ 2						CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Soldier Flaw.Flaw						DESC:I have little respect for anyone who is not a proven warrior.
@@ -2571,6 +2635,7 @@ Soldier Flaw ~ 3						CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQu
 Soldier Flaw ~ 4						CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Soldier Flaw.Flaw						DESC:My hatred of my enemies is blind and unreasoning.
 Soldier Flaw ~ 5						CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Soldier Flaw.Flaw						DESC:I obey the law, even if the law causes misery.
 Soldier Flaw ~ 6						CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Soldier Flaw.Flaw						DESC:I'd rather eat my armor than admit when I'm wrong.
+Soldier Flaw ~ Custom					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Soldier Flaw							DESC:%1|%LIST	CHOOSE:USERINPUT|TITLE=Your Own Flaw	MULT:YES	STACK:NO		
 #								CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Soldier Flaw							DESC:
 # Urchin
 #d8 Personality Trait
@@ -2582,6 +2647,7 @@ Urchin Personality Trait ~ 5				CATEGORY:Special Ability	SORTKEY:Background	TYPE
 Urchin Personality Trait ~ 6				CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Urchin Personality Trait.Personality Trait	DESC:I think anyone who's nice to me is hiding evil intent.
 Urchin Personality Trait ~ 7				CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Urchin Personality Trait.Personality Trait	DESC:I don't like to bathe.
 Urchin Personality Trait ~ 8				CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Urchin Personality Trait.Personality Trait	DESC:I bluntly say what other people are hinting at or hiding.
+Urchin Personality Trait ~ Custom			CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Urchin Personality Trait					DESC:%1|%LIST	CHOOSE:USERINPUT|TITLE=Your Own Personality Trait	MULT:YES	STACK:NO						
 #d6 Ideal						
 Urchin Ideal ~ 1						CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Urchin Ideal.Ideal					DESC:Respect. All people, rich or poor, deserve respect. (Good)
 Urchin Ideal ~ 2						CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Urchin Ideal.Ideal					DESC:Community. We have to take care of each other, because no one else is going to do it. (Lawful)
@@ -2589,6 +2655,7 @@ Urchin Ideal ~ 3						CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQu
 Urchin Ideal ~ 4						CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Urchin Ideal.Ideal					DESC:Retribution. The rich need to be shown what life and death are like in the gutters. (Evil)
 Urchin Ideal ~ 5						CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Urchin Ideal.Ideal					DESC:People. I help the people who help me-that's what keeps us alive. (Neutral)
 Urchin Ideal ~ 6						CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Urchin Ideal.Ideal					DESC:Aspiration. I'm going to prove that I'm worthy of a better life.
+Urchin Ideal ~ Custom					CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Urchin Ideal						DESC:%1|%LIST	CHOOSE:USERINPUT|TITLE=Your Own Ideal	MULT:YES	STACK:NO			
 #d6 Bond						
 Urchin Bond ~ 1						CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Urchin Bond.Bond	COST:0						DESC:My town or city is my home, and I'll fight to defend it.
 Urchin Bond ~ 2						CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Urchin Bond.Bond	COST:0						DESC:I sponsor an orphanage to keep others from enduring what I was forced to endure.
@@ -2596,6 +2663,7 @@ Urchin Bond ~ 3						CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQua
 Urchin Bond ~ 4						CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Urchin Bond.Bond	COST:0						DESC:I owe a debt I can never repay to the person who took pity on me.
 Urchin Bond ~ 5						CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Urchin Bond.Bond	COST:0						DESC:I escaped my life of poverty by robbing an important person, and I'm wanted for it.
 Urchin Bond ~ 6						CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Urchin Bond.Bond	COST:0						DESC:No one else should have to endure the hardships I've been through.
+Urchin Bond ~ Custom				CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Urchin Bond										DESC:%1|%LIST	CHOOSE:USERINPUT|TITLE=Your Own Bond	MULT:YES	STACK:NO
 #d6 Flaw						
 Urchin Flaw ~ 1						CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Urchin Flaw.Flaw						DESC:If I'm outnumbered, I will run away from a fight.
 Urchin Flaw ~ 2						CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Urchin Flaw.Flaw						DESC:Gold seems like a lot of money to me, and I'll do just about anything for more of it.
@@ -2603,6 +2671,7 @@ Urchin Flaw ~ 3						CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQua
 Urchin Flaw ~ 4						CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Urchin Flaw.Flaw						DESC:I'd rather kill someone in their sleep then fight fair.
 Urchin Flaw ~ 5						CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Urchin Flaw.Flaw						DESC:It's not stealing if I need it more than someone else.
 Urchin Flaw ~ 6						CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Urchin Flaw.Flaw						DESC:People who can't take care of themselves get what they deserve.
+Urchin Flaw ~ Custom				CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Urchin Flaw								DESC:%1|%LIST	CHOOSE:USERINPUT|TITLE=Your Own Flaw	MULT:YES	STACK:NO		
 #								CATEGORY:Special Ability	SORTKEY:Background	TYPE:SpecialQuality.Urchin Flaw							DESC:
 
 ###Block: Determines if first class qualifies for Multiclass Requirements. First Class uses its own requirements to determine if to activate this ability, which then enables the multiclass options.
@@ -2628,11 +2697,145 @@ CATEGORY=Internal|Multiclass Allowed.MOD	ABILITY:Internal|AUTOMATIC|Multiclass A
 CATEGORY=Internal|Multiclass Allowed.MOD	ABILITY:Internal|AUTOMATIC|Multiclass Allowed ~ Fighter|PRESTAT:1,STR=13,DEX=13	
 CATEGORY=Internal|Multiclass Allowed.MOD	ABILITY:Internal|AUTOMATIC|Multiclass Allowed ~ Monk|PRESTAT:1,WIS=13		
 CATEGORY=Internal|Multiclass Allowed.MOD	ABILITY:Internal|AUTOMATIC|Multiclass Allowed ~ Paladin|PRESTAT:2,STR=13,CHA=13	
-CATEGORY=Internal|Multiclass Allowed.MOD	ABILITY:Internal|AUTOMATIC|Multiclass Allowed ~ Ranger|PRESTAT:2,STR=13,WIS=13	
+CATEGORY=Internal|Multiclass Allowed.MOD	ABILITY:Internal|AUTOMATIC|Multiclass Allowed ~ Ranger|PRESTAT:2,DEX=13,WIS=13	
 CATEGORY=Internal|Multiclass Allowed.MOD	ABILITY:Internal|AUTOMATIC|Multiclass Allowed ~ Rogue|PRESTAT:1,DEX=13		
 CATEGORY=Internal|Multiclass Allowed.MOD	ABILITY:Internal|AUTOMATIC|Multiclass Allowed ~ Sorcerer|PRESTAT:1,CHA=13		
 CATEGORY=Internal|Multiclass Allowed.MOD	ABILITY:Internal|AUTOMATIC|Multiclass Allowed ~ Warlock|PRESTAT:1,CHA=13		
 CATEGORY=Internal|Multiclass Allowed.MOD	ABILITY:Internal|AUTOMATIC|Multiclass Allowed ~ Wizard|PRESTAT:1,INT=13			
+
+
+Bard Magic Initiate			KEY:Magic Initiate ~ Bard				TYPE:Magic Initiate.SpecialQuality			CATEGORY:Special Ability	DESC:Spell save DC %1; Spell attack modifier +%2|8+Proficiency_Bonus+CHA|Proficiency_Bonus+CHA	DEFINE:POOL_Bard_Cantrip|0		BONUS:VAR|POOL_Bard_Cantrip|2	DEFINE:POOL_Bard_Magic_Initiate_Spell|0				BONUS:VAR|POOL_Bard_Magic_Initiate_Spell|1
+Cleric Magic Initiate		KEY:Magic Initiate ~ Cleric				TYPE:Magic Initiate.SpecialQuality			CATEGORY:Special Ability	DESC:Spell save DC %1; Spell attack modifier +%2|8+Proficiency_Bonus+WIS|Proficiency_Bonus+WIS	DEFINE:POOL_Cleric_Cantrip|0	BONUS:VAR|POOL_Cleric_Cantrip|2	DEFINE:POOL_Cleric_Magic_Initiate_Spell|0				BONUS:VAR|POOL_Cleric_Magic_Initiate_Spell|1
+Druid Magic Initiate		KEY:Magic Initiate ~ Druid				TYPE:Magic Initiate.SpecialQuality			CATEGORY:Special Ability	DESC:Spell save DC %1; Spell attack modifier +%2|8+Proficiency_Bonus+WIS|Proficiency_Bonus+WIS	DEFINE:POOL_Druid_Cantrip|0		BONUS:VAR|POOL_Druid_Cantrip|2	DEFINE:POOL_Druid_Magic_Initiate_Spell|0				BONUS:VAR|POOL_Druid_Magic_Initiate_Spell|1
+Sorcerer Magic Initiate		KEY:Magic Initiate ~ Sorcerer			TYPE:Magic Initiate.SpecialQuality			CATEGORY:Special Ability	DESC:Spell save DC %1; Spell attack modifier +%2|8+Proficiency_Bonus+CHA|Proficiency_Bonus+CHA	DEFINE:POOL_Sorcerer_Cantrip|0	BONUS:VAR|POOL_Sorcerer_Cantrip|2	DEFINE:POOL_Sorcerer_Magic_Initiate_Spell|0				BONUS:VAR|POOL_Sorcerer_Magic_Initiate_Spell|1
+Warlock Magic Initiate		KEY:Magic Initiate ~ Warlock			TYPE:Magic Initiate.SpecialQuality			CATEGORY:Special Ability	DESC:Spell save DC %1; Spell attack modifier +%2|8+Proficiency_Bonus+CHA|Proficiency_Bonus+CHA	DEFINE:POOL_Warlock_Cantrip|0	BONUS:VAR|POOL_Warlock_Cantrip|2	DEFINE:POOL_Warlock_Magic_Initiate_Spell|0				BONUS:VAR|POOL_Warlock_Magic_Initiate_Spell|1
+Wizard Magic Initiate		KEY:Magic Initiate ~ Wizard				TYPE:Magic Initiate.SpecialQuality			CATEGORY:Special Ability	DESC:Spell save DC %1; Spell attack modifier +%2|8+Proficiency_Bonus+INT|Proficiency_Bonus+INT	DEFINE:POOL_Wizard_Cantrip|0	BONUS:VAR|POOL_Wizard_Cantrip|2	DEFINE:POOL_Wizard_Magic_Initiate_Spell|0				BONUS:VAR|POOL_Wizard_Magic_Initiate_Spell|1
+
+Animal Friendship	KEY:Bard Magic Initiate Spell ~ Animal Friendship	CATEGORY:Internal	TYPE:BardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Animal Friendship,CHA+8+Proficiency_Bonus
+Bane	KEY:Bard Magic Initiate Spell ~ Bane	CATEGORY:Internal	TYPE:BardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Bane,CHA+8+Proficiency_Bonus
+Charm Person	KEY:Bard Magic Initiate Spell ~ Charm Person	CATEGORY:Internal	TYPE:BardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Charm Person,CHA+8+Proficiency_Bonus
+Comprehend Languages	KEY:Bard Magic Initiate Spell ~ Comprehend Languages	CATEGORY:Internal	TYPE:BardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Comprehend Languages,CHA+8+Proficiency_Bonus
+Cure Wounds	KEY:Bard Magic Initiate Spell ~ Cure Wounds	CATEGORY:Internal	TYPE:BardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Cure Wounds,CHA+8+Proficiency_Bonus
+Detect Magic	KEY:Bard Magic Initiate Spell ~ Detect Magic	CATEGORY:Internal	TYPE:BardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Detect Magic,CHA+8+Proficiency_Bonus
+Disguise Self	KEY:Bard Magic Initiate Spell ~ Disguise Self	CATEGORY:Internal	TYPE:BardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Disguise Self,CHA+8+Proficiency_Bonus
+Dissonant Whispers	KEY:Bard Magic Initiate Spell ~ Dissonant Whispers	CATEGORY:Internal	TYPE:BardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Dissonant Whispers,CHA+8+Proficiency_Bonus
+Faerie Fire	KEY:Bard Magic Initiate Spell ~ Faerie Fire	CATEGORY:Internal	TYPE:BardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Faerie Fire,CHA+8+Proficiency_Bonus
+Feather Fall	KEY:Bard Magic Initiate Spell ~ Feather Fall	CATEGORY:Internal	TYPE:BardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Feather Fall,CHA+8+Proficiency_Bonus
+Healing Word	KEY:Bard Magic Initiate Spell ~ Healing Word	CATEGORY:Internal	TYPE:BardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Healing Word,CHA+8+Proficiency_Bonus
+Heroism	KEY:Bard Magic Initiate Spell ~ Heroism	CATEGORY:Internal	TYPE:BardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Heroism,CHA+8+Proficiency_Bonus
+Identify	KEY:Bard Magic Initiate Spell ~ Identify	CATEGORY:Internal	TYPE:BardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Identify,CHA+8+Proficiency_Bonus
+Illusory Script	KEY:Bard Magic Initiate Spell ~ Illusory Script	CATEGORY:Internal	TYPE:BardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Illusory Script,CHA+8+Proficiency_Bonus
+Longstrider	KEY:Bard Magic Initiate Spell ~ Longstrider	CATEGORY:Internal	TYPE:BardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Longstrider,CHA+8+Proficiency_Bonus
+Silent Image	KEY:Bard Magic Initiate Spell ~ Silent Image	CATEGORY:Internal	TYPE:BardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Silent Image,CHA+8+Proficiency_Bonus
+Sleep	KEY:Bard Magic Initiate Spell ~ Sleep	CATEGORY:Internal	TYPE:BardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Sleep,CHA+8+Proficiency_Bonus
+Speak with Animals	KEY:Bard Magic Initiate Spell ~ Speak with Animals	CATEGORY:Internal	TYPE:BardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Speak with Animals,CHA+8+Proficiency_Bonus
+Tasha's Hideous Laughter	KEY:Bard Magic Initiate Spell ~ Tasha's Hideous Laughter	CATEGORY:Internal	TYPE:BardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Tasha's Hideous Laughter,CHA+8+Proficiency_Bonus
+Thunderwave	KEY:Bard Magic Initiate Spell ~ Thunderwave	CATEGORY:Internal	TYPE:BardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Thunderwave,CHA+8+Proficiency_Bonus
+Unseen Servant	KEY:Bard Magic Initiate Spell ~ Unseen Servant	CATEGORY:Internal	TYPE:BardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Unseen Servant,CHA+8+Proficiency_Bonus
+						
+Bane	KEY:Cleric Magic Initiate Spell ~ Bane	CATEGORY:Internal	TYPE:ClericMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Bane,WIS+8+Proficiency_Bonus
+Bless	KEY:Cleric Magic Initiate Spell ~ Bless	CATEGORY:Internal	TYPE:ClericMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Bless,WIS+8+Proficiency_Bonus
+Command	KEY:Cleric Magic Initiate Spell ~ Command	CATEGORY:Internal	TYPE:ClericMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Command,WIS+8+Proficiency_Bonus
+Create or Destroy Water	KEY:Cleric Magic Initiate Spell ~ Create or Destroy Water	CATEGORY:Internal	TYPE:ClericMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Create or Destroy Water,WIS+8+Proficiency_Bonus
+Cure Wounds	KEY:Cleric Magic Initiate Spell ~ Cure Wounds	CATEGORY:Internal	TYPE:ClericMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Cure Wounds,WIS+8+Proficiency_Bonus
+Detect Evil and Good	KEY:Cleric Magic Initiate Spell ~ Detect Evil and Good	CATEGORY:Internal	TYPE:ClericMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Detect Evil and Good,WIS+8+Proficiency_Bonus
+Detect Magic	KEY:Cleric Magic Initiate Spell ~ Detect Magic	CATEGORY:Internal	TYPE:ClericMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Detect Magic,WIS+8+Proficiency_Bonus
+Detect Poison and Disease	KEY:Cleric Magic Initiate Spell ~ Detect Poison and Disease	CATEGORY:Internal	TYPE:ClericMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Detect Poison and Disease,WIS+8+Proficiency_Bonus
+Guiding Bolt	KEY:Cleric Magic Initiate Spell ~ Guiding Bolt	CATEGORY:Internal	TYPE:ClericMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Guiding Bolt,WIS+8+Proficiency_Bonus
+Healing Word	KEY:Cleric Magic Initiate Spell ~ Healing Word	CATEGORY:Internal	TYPE:ClericMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Healing Word,WIS+8+Proficiency_Bonus
+Inflict Wounds	KEY:Cleric Magic Initiate Spell ~ Inflict Wounds	CATEGORY:Internal	TYPE:ClericMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Inflict Wounds,WIS+8+Proficiency_Bonus
+Protection from Evil and Good	KEY:Cleric Magic Initiate Spell ~ Protection from Evil and Good	CATEGORY:Internal	TYPE:ClericMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Protection from Evil and Good,WIS+8+Proficiency_Bonus
+Purify Food and Drink	KEY:Cleric Magic Initiate Spell ~ Purify Food and Drink	CATEGORY:Internal	TYPE:ClericMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Purify Food and Drink,WIS+8+Proficiency_Bonus
+Sanctuary	KEY:Cleric Magic Initiate Spell ~ Sanctuary	CATEGORY:Internal	TYPE:ClericMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Sanctuary,WIS+8+Proficiency_Bonus
+Shield of Faith	KEY:Cleric Magic Initiate Spell ~ Shield of Faith	CATEGORY:Internal	TYPE:ClericMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Shield of Faith,WIS+8+Proficiency_Bonus
+						
+Animal Friendship	KEY:Druid Magic Initiate Spell ~ Animal Friendship	CATEGORY:Internal	TYPE:DruidMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Animal Friendship,WIS+8+Proficiency_Bonus
+Charm Person	KEY:Druid Magic Initiate Spell ~ Charm Person	CATEGORY:Internal	TYPE:DruidMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Charm Person,WIS+8+Proficiency_Bonus
+Create or Destroy Water	KEY:Druid Magic Initiate Spell ~ Create or Destroy Water	CATEGORY:Internal	TYPE:DruidMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Create or Destroy Water,WIS+8+Proficiency_Bonus
+Cure Wounds	KEY:Druid Magic Initiate Spell ~ Cure Wounds	CATEGORY:Internal	TYPE:DruidMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Cure Wounds,WIS+8+Proficiency_Bonus
+Detect Magic	KEY:Druid Magic Initiate Spell ~ Detect Magic	CATEGORY:Internal	TYPE:DruidMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Detect Magic,WIS+8+Proficiency_Bonus
+Detect Poison and Disease	KEY:Druid Magic Initiate Spell ~ Detect Poison and Disease	CATEGORY:Internal	TYPE:DruidMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Detect Poison and Disease,WIS+8+Proficiency_Bonus
+Entangle	KEY:Druid Magic Initiate Spell ~ Entangle	CATEGORY:Internal	TYPE:DruidMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Entangle,WIS+8+Proficiency_Bonus
+Faerie Fire	KEY:Druid Magic Initiate Spell ~ Faerie Fire	CATEGORY:Internal	TYPE:DruidMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Faerie Fire,WIS+8+Proficiency_Bonus
+Fog Cloud	KEY:Druid Magic Initiate Spell ~ Fog Cloud	CATEGORY:Internal	TYPE:DruidMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Fog Cloud,WIS+8+Proficiency_Bonus
+Goodberry	KEY:Druid Magic Initiate Spell ~ Goodberry	CATEGORY:Internal	TYPE:DruidMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Goodberry,WIS+8+Proficiency_Bonus
+Healing Word	KEY:Druid Magic Initiate Spell ~ Healing Word	CATEGORY:Internal	TYPE:DruidMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Healing Word,WIS+8+Proficiency_Bonus
+Jump	KEY:Druid Magic Initiate Spell ~ Jump	CATEGORY:Internal	TYPE:DruidMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Jump,WIS+8+Proficiency_Bonus
+Longstrider	KEY:Druid Magic Initiate Spell ~ Longstrider	CATEGORY:Internal	TYPE:DruidMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Longstrider,WIS+8+Proficiency_Bonus
+Purify Food and Drink	KEY:Druid Magic Initiate Spell ~ Purify Food and Drink	CATEGORY:Internal	TYPE:DruidMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Purify Food and Drink,WIS+8+Proficiency_Bonus
+Speak with Animals	KEY:Druid Magic Initiate Spell ~ Speak with Animals	CATEGORY:Internal	TYPE:DruidMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Speak with Animals,WIS+8+Proficiency_Bonus
+Thunderwave	KEY:Druid Magic Initiate Spell ~ Thunderwave	CATEGORY:Internal	TYPE:DruidMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Thunderwave,WIS+8+Proficiency_Bonus
+						
+Burning Hands	KEY:Sorcerer Magic Initiate Spell ~ Burning Hands	CATEGORY:Internal	TYPE:SorcererMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Burning Hands,CHA+8+Proficiency_Bonus
+Charm Person	KEY:Sorcerer Magic Initiate Spell ~ Charm Person	CATEGORY:Internal	TYPE:SorcererMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Charm Person,CHA+8+Proficiency_Bonus
+Chromatic Orb	KEY:Sorcerer Magic Initiate Spell ~ Chromatic Orb	CATEGORY:Internal	TYPE:SorcererMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Chromatic Orb,CHA+8+Proficiency_Bonus
+Color Spray	KEY:Sorcerer Magic Initiate Spell ~ Color Spray	CATEGORY:Internal	TYPE:SorcererMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Color Spray,CHA+8+Proficiency_Bonus
+Comprehend Languages	KEY:Sorcerer Magic Initiate Spell ~ Comprehend Languages	CATEGORY:Internal	TYPE:SorcererMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Comprehend Languages,CHA+8+Proficiency_Bonus
+Detect Magic	KEY:Sorcerer Magic Initiate Spell ~ Detect Magic	CATEGORY:Internal	TYPE:SorcererMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Detect Magic,CHA+8+Proficiency_Bonus
+Disguise Self	KEY:Sorcerer Magic Initiate Spell ~ Disguise Self	CATEGORY:Internal	TYPE:SorcererMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Disguise Self,CHA+8+Proficiency_Bonus
+Expeditious Retreat	KEY:Sorcerer Magic Initiate Spell ~ Expeditious Retreat	CATEGORY:Internal	TYPE:SorcererMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Expeditious Retreat,CHA+8+Proficiency_Bonus
+False Life	KEY:Sorcerer Magic Initiate Spell ~ False Life	CATEGORY:Internal	TYPE:SorcererMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|False Life,CHA+8+Proficiency_Bonus
+Feather Fall	KEY:Sorcerer Magic Initiate Spell ~ Feather Fall	CATEGORY:Internal	TYPE:SorcererMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Feather Fall,CHA+8+Proficiency_Bonus
+Fog Cloud	KEY:Sorcerer Magic Initiate Spell ~ Fog Cloud	CATEGORY:Internal	TYPE:SorcererMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Fog Cloud,CHA+8+Proficiency_Bonus
+Jump	KEY:Sorcerer Magic Initiate Spell ~ Jump	CATEGORY:Internal	TYPE:SorcererMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Jump,CHA+8+Proficiency_Bonus
+Mage Armor	KEY:Sorcerer Magic Initiate Spell ~ Mage Armor	CATEGORY:Internal	TYPE:SorcererMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Mage Armor,CHA+8+Proficiency_Bonus
+Magic Missile	KEY:Sorcerer Magic Initiate Spell ~ Magic Missile	CATEGORY:Internal	TYPE:SorcererMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Magic Missile,CHA+8+Proficiency_Bonus
+Ray of Sickness	KEY:Sorcerer Magic Initiate Spell ~ Ray of Sickness	CATEGORY:Internal	TYPE:SorcererMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Ray of Sickness,CHA+8+Proficiency_Bonus
+Shield	KEY:Sorcerer Magic Initiate Spell ~ Shield	CATEGORY:Internal	TYPE:SorcererMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Shield,CHA+8+Proficiency_Bonus
+Silent Image	KEY:Sorcerer Magic Initiate Spell ~ Silent Image	CATEGORY:Internal	TYPE:SorcererMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Silent Image,CHA+8+Proficiency_Bonus
+Sleep	KEY:Sorcerer Magic Initiate Spell ~ Sleep	CATEGORY:Internal	TYPE:SorcererMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Sleep,CHA+8+Proficiency_Bonus
+Thunderwave	KEY:Sorcerer Magic Initiate Spell ~ Thunderwave	CATEGORY:Internal	TYPE:SorcererMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Thunderwave,CHA+8+Proficiency_Bonus
+Witch Bolt	KEY:Sorcerer Magic Initiate Spell ~ Witch Bolt	CATEGORY:Internal	TYPE:SorcererMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Witch Bolt,CHA+8+Proficiency_Bonus
+						
+Armor of Agathys	KEY:Warlock Magic Initiate Spell ~ Armor of Agathys	CATEGORY:Internal	TYPE:WarlockMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Armor of Agathys,CHA+8+Proficiency_Bonus
+Arms of Hadar	KEY:Warlock Magic Initiate Spell ~ Arms of Hadar	CATEGORY:Internal	TYPE:WarlockMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Arms of Hadar,CHA+8+Proficiency_Bonus
+Charm Person	KEY:Warlock Magic Initiate Spell ~ Charm Person	CATEGORY:Internal	TYPE:WarlockMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Charm Person,CHA+8+Proficiency_Bonus
+Comprehend Languages	KEY:Warlock Magic Initiate Spell ~ Comprehend Languages	CATEGORY:Internal	TYPE:WarlockMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Comprehend Languages,CHA+8+Proficiency_Bonus
+Expeditious Retreat	KEY:Warlock Magic Initiate Spell ~ Expeditious Retreat	CATEGORY:Internal	TYPE:WarlockMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Expeditious Retreat,CHA+8+Proficiency_Bonus
+Hellish Rebuke	KEY:Warlock Magic Initiate Spell ~ Hellish Rebuke	CATEGORY:Internal	TYPE:WarlockMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Hellish Rebuke,CHA+8+Proficiency_Bonus
+Hex	KEY:Warlock Magic Initiate Spell ~ Hex	CATEGORY:Internal	TYPE:WarlockMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Hex,CHA+8+Proficiency_Bonus
+Illusory Script	KEY:Warlock Magic Initiate Spell ~ Illusory Script	CATEGORY:Internal	TYPE:WarlockMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Illusory Script,CHA+8+Proficiency_Bonus
+Protection from Evil and Good	KEY:Warlock Magic Initiate Spell ~ Protection from Evil and Good	CATEGORY:Internal	TYPE:WarlockMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Protection from Evil and Good,CHA+8+Proficiency_Bonus
+Unseen Servant	KEY:Warlock Magic Initiate Spell ~ Unseen Servant	CATEGORY:Internal	TYPE:WarlockMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Unseen Servant,CHA+8+Proficiency_Bonus
+Witch Bolt	KEY:Warlock Magic Initiate Spell ~ Witch Bolt	CATEGORY:Internal	TYPE:WarlockMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Witch Bolt,CHA+8+Proficiency_Bonus
+						
+Alarm	KEY:Wizard Magic Initiate Spell ~ Alarm	CATEGORY:Internal	TYPE:WizardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Alarm,INT+8+Proficiency_Bonus
+Burning Hands	KEY:Wizard Magic Initiate Spell ~ Burning Hands	CATEGORY:Internal	TYPE:WizardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Burning Hands,INT+8+Proficiency_Bonus
+Charm Person	KEY:Wizard Magic Initiate Spell ~ Charm Person	CATEGORY:Internal	TYPE:WizardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Charm Person,INT+8+Proficiency_Bonus
+Chromatic Orb	KEY:Wizard Magic Initiate Spell ~ Chromatic Orb	CATEGORY:Internal	TYPE:WizardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Chromatic Orb,INT+8+Proficiency_Bonus
+Color Spray	KEY:Wizard Magic Initiate Spell ~ Color Spray	CATEGORY:Internal	TYPE:WizardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Color Spray,INT+8+Proficiency_Bonus
+Comprehend Languages	KEY:Wizard Magic Initiate Spell ~ Comprehend Languages	CATEGORY:Internal	TYPE:WizardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Comprehend Languages,INT+8+Proficiency_Bonus
+Detect Magic	KEY:Wizard Magic Initiate Spell ~ Detect Magic	CATEGORY:Internal	TYPE:WizardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Detect Magic,INT+8+Proficiency_Bonus
+Disguise Self	KEY:Wizard Magic Initiate Spell ~ Disguise Self	CATEGORY:Internal	TYPE:WizardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Disguise Self,INT+8+Proficiency_Bonus
+Expeditious Retreat	KEY:Wizard Magic Initiate Spell ~ Expeditious Retreat	CATEGORY:Internal	TYPE:WizardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Expeditious Retreat,INT+8+Proficiency_Bonus
+False Life	KEY:Wizard Magic Initiate Spell ~ False Life	CATEGORY:Internal	TYPE:WizardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|False Life,INT+8+Proficiency_Bonus
+Feather Fall	KEY:Wizard Magic Initiate Spell ~ Feather Fall	CATEGORY:Internal	TYPE:WizardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Feather Fall,INT+8+Proficiency_Bonus
+Find Familiar	KEY:Wizard Magic Initiate Spell ~ Find Familiar	CATEGORY:Internal	TYPE:WizardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Find Familiar,INT+8+Proficiency_Bonus
+Fog Cloud	KEY:Wizard Magic Initiate Spell ~ Fog Cloud	CATEGORY:Internal	TYPE:WizardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Fog Cloud,INT+8+Proficiency_Bonus
+Grease	KEY:Wizard Magic Initiate Spell ~ Grease	CATEGORY:Internal	TYPE:WizardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Grease,INT+8+Proficiency_Bonus
+Identify	KEY:Wizard Magic Initiate Spell ~ Identify	CATEGORY:Internal	TYPE:WizardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Identify,INT+8+Proficiency_Bonus
+Illusory Script	KEY:Wizard Magic Initiate Spell ~ Illusory Script	CATEGORY:Internal	TYPE:WizardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Illusory Script,INT+8+Proficiency_Bonus
+Jump	KEY:Wizard Magic Initiate Spell ~ Jump	CATEGORY:Internal	TYPE:WizardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Jump,INT+8+Proficiency_Bonus
+Longstrider	KEY:Wizard Magic Initiate Spell ~ Longstrider	CATEGORY:Internal	TYPE:WizardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Longstrider,INT+8+Proficiency_Bonus
+Mage Armor	KEY:Wizard Magic Initiate Spell ~ Mage Armor	CATEGORY:Internal	TYPE:WizardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Mage Armor,INT+8+Proficiency_Bonus
+Magic Missile	KEY:Wizard Magic Initiate Spell ~ Magic Missile	CATEGORY:Internal	TYPE:WizardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Magic Missile,INT+8+Proficiency_Bonus
+Protection from Evil and Good	KEY:Wizard Magic Initiate Spell ~ Protection from Evil and Good	CATEGORY:Internal	TYPE:WizardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Protection from Evil and Good,INT+8+Proficiency_Bonus
+Ray of Sickness	KEY:Wizard Magic Initiate Spell ~ Ray of Sickness	CATEGORY:Internal	TYPE:WizardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Ray of Sickness,INT+8+Proficiency_Bonus
+Shield	KEY:Wizard Magic Initiate Spell ~ Shield	CATEGORY:Internal	TYPE:WizardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Shield,INT+8+Proficiency_Bonus
+Silent Image	KEY:Wizard Magic Initiate Spell ~ Silent Image	CATEGORY:Internal	TYPE:WizardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Silent Image,INT+8+Proficiency_Bonus
+Sleep	KEY:Wizard Magic Initiate Spell ~ Sleep	CATEGORY:Internal	TYPE:WizardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Sleep,INT+8+Proficiency_Bonus
+Tasha's Hideous Laughter	KEY:Wizard Magic Initiate Spell ~ Tasha's Hideous Laughter	CATEGORY:Internal	TYPE:WizardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Tasha's Hideous Laughter,INT+8+Proficiency_Bonus
+Tenser's Floating Disk	KEY:Wizard Magic Initiate Spell ~ Tenser's Floating Disk	CATEGORY:Internal	TYPE:WizardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Tenser's Floating Disk,INT+8+Proficiency_Bonus
+Thunderwave	KEY:Wizard Magic Initiate Spell ~ Thunderwave	CATEGORY:Internal	TYPE:WizardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Thunderwave,INT+8+Proficiency_Bonus
+Unseen Servant	KEY:Wizard Magic Initiate Spell ~ Unseen Servant	CATEGORY:Internal	TYPE:WizardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Unseen Servant,INT+8+Proficiency_Bonus
+Witch Bolt	KEY:Wizard Magic Initiate Spell ~ Witch Bolt	CATEGORY:Internal	TYPE:WizardMagicInitiateSpell	SPELLS:Magic Initiate|TIMES=1|TIMEUNIT=Day|Witch Bolt,INT+8+Proficiency_Bonus
+
+Bard Ritual Caster			KEY:Ritual Caster ~ Bard				TYPE:Ritual Caster.SpecialQuality			CATEGORY:Special Ability	DESC:Spell save DC %1; Spell attack modifier +%2|8+Proficiency_Bonus+CHA|Proficiency_Bonus+CHA	SELECT:99	CHOOSE:SPELLS|SUBSCHOOL=Ritual,CLASSLIST=Bard[LEVELMAX=ceil(TL/2)]	MULT:YES
+Cleric Ritual Caster		KEY:Ritual Caster ~ Cleric				TYPE:Ritual Caster.SpecialQuality			CATEGORY:Special Ability	DESC:Spell save DC %1; Spell attack modifier +%2|8+Proficiency_Bonus+WIS|Proficiency_Bonus+WIS	SELECT:99	CHOOSE:SPELLS|SUBSCHOOL=Ritual,CLASSLIST=Cleric[LEVELMAX=ceil(TL/2)]	MULT:YES
+Druid Ritual Caster		KEY:Ritual Caster ~ Druid				TYPE:Ritual Caster.SpecialQuality			CATEGORY:Special Ability	DESC:Spell save DC %1; Spell attack modifier +%2|8+Proficiency_Bonus+WIS|Proficiency_Bonus+WIS	SELECT:99	CHOOSE:SPELLS|SUBSCHOOL=Ritual,CLASSLIST=Druid[LEVELMAX=ceil(TL/2)]	MULT:YES
+Sorcerer Ritual Caster		KEY:Ritual Caster ~ Sorcerer			TYPE:Ritual Caster.SpecialQuality			CATEGORY:Special Ability	DESC:Spell save DC %1; Spell attack modifier +%2|8+Proficiency_Bonus+CHA|Proficiency_Bonus+CHA	SELECT:99	CHOOSE:SPELLS|SUBSCHOOL=Ritual,CLASSLIST=Sorcerer[LEVELMAX=ceil(TL/2)]	MULT:YES
+Warlock Ritual Caster		KEY:Ritual Caster ~ Warlock			TYPE:Ritual Caster.SpecialQuality			CATEGORY:Special Ability	DESC:Spell save DC %1; Spell attack modifier +%2|8+Proficiency_Bonus+CHA|Proficiency_Bonus+CHA	SELECT:99	CHOOSE:SPELLS|SUBSCHOOL=Ritual,CLASSLIST=Warlock[LEVELMAX=ceil(TL/2)]	MULT:YES
+Wizard Ritual Caster		KEY:Ritual Caster ~ Wizard				TYPE:Ritual Caster.SpecialQuality			CATEGORY:Special Ability	DESC:Spell save DC %1; Spell attack modifier +%2|8+Proficiency_Bonus+INT|Proficiency_Bonus+INT	SELECT:99	CHOOSE:SPELLS|SUBSCHOOL=Ritual,CLASSLIST=Wizard[LEVELMAX=ceil(TL/2)]	MULT:YES
 
 
 ###Block: Appendix D: Creature Statistics
