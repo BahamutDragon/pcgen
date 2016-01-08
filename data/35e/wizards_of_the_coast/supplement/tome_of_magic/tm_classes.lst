@@ -96,24 +96,24 @@ CLASS:Shadowcaster	SPELLSTAT:INT	FACT:SpellType|Shadow Magic	MEMORIZE:NO	BONUS:C
 19	CAST:0,3,3,3,2,2,2,1,1,1
 20	CAST:0,3,3,3,2,2,2,1,1,1
 
-CLASS:Truennamer	MAXLEVEL:20
-CLASS:Truennamer	HD:6	TYPE:Base.PC	SOURCEPAGE:p.198	DEFINE:TruennamerLVL|0	BONUS:VAR|TruennamerLVL|CL
-CLASS:Truennamer	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
-CLASS:Truennamer	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
-CLASS:Truennamer	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
-CLASS:Truennamer	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
-CLASS:Truennamer	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
-CLASS:Truennamer	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Perform (oratory)|TYPE=Knowledge|Truespeak|Use Magic Device
+CLASS:Truenamer	MAXLEVEL:20
+CLASS:Truenamer	HD:6	TYPE:Base.PC	SOURCEPAGE:p.198	DEFINE:TruenamerLVL|0	BONUS:VAR|TruenamerLVL|CL
+CLASS:Truenamer	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+CLASS:Truenamer	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+CLASS:Truenamer	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Truenamer	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Truenamer	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Truenamer	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Perform (oratory)|TYPE=Knowledge|Truespeak|Use Magic Device
 ###Block	
-1	ABILITY:Truennamer Class Feature|AUTOMATIC|Truenamer ~ Weapon and Armor Proficiency
-1	ABILITY:Truennamer Class Feature|AUTOMATIC|Truenamer ~ Known Personal Truename
-1	ABILITY:Truennamer Class Feature|AUTOMATIC|Truenamer ~ Utterances
-1	ABILITY:Truennamer Class Feature|AUTOMATIC|Truenamer ~ Knowledge Focus
-6	ABILITY:Truennamer Class Feature|AUTOMATIC|Truenamer ~ Truename Research
-9	ABILITY:Truennamer Class Feature|AUTOMATIC|Truenamer ~ See the Named
-13	ABILITY:Truennamer Class Feature|AUTOMATIC|Truenamer ~ Sending
-17	ABILITY:Truennamer Class Feature|AUTOMATIC|Truenamer ~ Speak unto the Masses
-20	ABILITY:Truennamer Class Feature|AUTOMATIC|Truenamer ~ Say My Name and I Am There
+1	ABILITY:Truenamer Class Feature|AUTOMATIC|Truenamer ~ Weapon and Armor Proficiency
+1	ABILITY:Truenamer Class Feature|AUTOMATIC|Truenamer ~ Known Personal Truename
+1	ABILITY:Truenamer Class Feature|AUTOMATIC|Truenamer ~ Utterances
+1	ABILITY:Truenamer Class Feature|AUTOMATIC|Truenamer ~ Knowledge Focus
+6	ABILITY:Truenamer Class Feature|AUTOMATIC|Truenamer ~ Truename Research
+9	ABILITY:Truenamer Class Feature|AUTOMATIC|Truenamer ~ See the Named
+13	ABILITY:Truenamer Class Feature|AUTOMATIC|Truenamer ~ Sending
+17	ABILITY:Truenamer Class Feature|AUTOMATIC|Truenamer ~ Speak unto the Masses
+20	ABILITY:Truenamer Class Feature|AUTOMATIC|Truenamer ~ Say My Name and I Am There
 
 ###Block: Prestige Classes
 # COMMENT: Adaptation allows this to be open to any spellcaster.
@@ -255,7 +255,8 @@ CLASS:Noctumancer	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 CLASS:Noctumancer	PRETEXT:Skills: Knowledge (arcana) 6 ranks, Spellcraft 6 ranks Shadowcasting: Able to cast 2nd-level mysteries Spellcasting: Able to cast 2nd-level arcane spells
 CLASS:Noctumancer	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Knowledge (arcana)|Knowledge (The Planes)|TYPE=Profession|Spellcraft
 1	ADD:SPELLCASTER|Arcane
-1	ADD:SPELLCASTER|Mystery
+# DG disabled to avoid load errors, 'Mystery' is not defined?
+#1	ADD:SPELLCASTER|Mystery
 ###Block
 1	ABILITY:Noctumancer Class Feature|AUTOMATIC|Noctumancer ~ Mysteries/Spellcasting
 1	ABILITY:Noctumancer Class Feature|AUTOMATIC|Noctumancer ~ Capture Magic's Shadow
