@@ -197,11 +197,12 @@ CLASS:Bard.MOD	BONUS:ABILITYPOOL|Bard Variant|1
 # Cleric Variant
 
 # Class Name				Hit Dice	Type				Class Type		Abbreviation	Max Level	Source Page			Bonus Languages					Combat bonus															Add domain number		Modify VAR													Monster Role	Bonus
-CLASS:Cleric (Cloistered Cleric)	HD:6		TYPE:Base.PC.Variant	SERVESAS:CLASS|Cleric	FACT:ClassType|PC	FACT:Abb|Clr		MAXLEVEL:20	SOURCEPAGE:ClassesI.rtf	LANGBONUS:Abyssal,Celestial,Infernal	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:DOMAIN|NUMBER|2	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	ROLE:Cleric		BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	SPELLLIST:2|Cleric|Cleric (Cloistered Cleric)
+CLASS:Cleric (Cloistered Cleric)	HD:6		TYPE:Base.PC.Spellcaster.Divine.Variant	SERVESAS:CLASS|Cleric	FACT:ClassType|PC	FACT:Abb|Clr		MAXLEVEL:20	SOURCEPAGE:50	LANGBONUS:Abyssal,Celestial,Infernal	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:DOMAIN|NUMBER|2	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	ROLE:Cleric		BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	SPELLLIST:2|Cleric|Cleric (Cloistered Cleric)
 # Class Name				Skill Pts/Lvl	Class Skill
 CLASS:Cleric (Cloistered Cleric)	STARTSKILLPTS:6	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|TYPE=Knowledge|TYPE=Profession|Spellcraft|Decipher Script|Speak Language
 # Class Name				Spell Stat		Spell Type		Automatically Known Spell Levels											Caster level
-CLASS:Cleric (Cloistered Cleric)	SPELLSTAT:WIS	FACT:SpellType|Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Cleric (Cloistered Cleric)|Caster_Level_BL_Stripped_Cleric	DEFINE:Caster_Level_BL_Stripped_Cleric|0	BONUS:VAR|Caster_Level_BL_Stripped_Cleric|Caster_Level_Cleric-CasterLevelBLCleric	BONUS:VAR|Caster_Level_Cleric|CL+Caster_Level_Bonus+CasterLevelBLCleric	DEFINE:CasterLevelBLCleric|0	BONUS:VAR|CasterLevelBL_x_Cloistered_Cleric|charbonusto("PCLEVEL","Cleric (Cloistered Cleric)")	BONUS:VAR|Caster_Level_Highest__Divine|Caster_Level_Cleric|TYPE=Base
+CLASS:Cleric (Cloistered Cleric)	SPELLSTAT:WIS	FACT:SpellType|Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Cleric (Cloistered Cleric)|Caster_Level_BL_Stripped_Cleric	DEFINE:Caster_Level_BL_Stripped_Cleric|0	BONUS:VAR|Caster_Level_BL_Stripped_Cleric|Caster_Level_Cleric-CasterLevelBLCleric	BONUS:VAR|Caster_Level_Cleric|CL+Caster_Level_Bonus+CasterLevelBLCleric	DEFINE:CasterLevelBLCleric|0	DEFINE:Caster_Level_Cleric|0	DEFINE:CasterLevelBL_x_Cloistered_Cleric|0	BONUS:VAR|CasterLevelBL_x_Cloistered_Cleric|charbonusto("PCLEVEL","Cleric (Cloistered Cleric)")	BONUS:VAR|Caster_Level_Highest__Divine|Caster_Level_Cleric|TYPE=Base
+# TODO - add? BONUS:VAR|ClericLVL|CL
 ###Block:Proficiencies
 1								ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfLight|TYPE=WeaponProfSimple
 1								ABILITY:Special Ability|AUTOMATIC|Cloistered Cleric ~ Lore
@@ -218,6 +219,8 @@ CLASS:Cleric (Cloistered Cleric)	SPELLSTAT:WIS	FACT:SpellType|Divine	KNOWNSPELLS
 1	PROHIBITSPELL:ALIGNMENT.Chaotic|PREALIGN:LG,LN,LE	PROHIBITSPELL:ALIGNMENT.Chaotic|PREDEITYALIGN:LG,LN,LE
 ###Block: Aura strength
 1	BONUS:VAR|AlignmentAuraBase|CL	DEFINE:AlignmentAuraBase|0
+# Default Cleric spells in addition to extra's
+1	ABILITY:Cleric Class Feature|AUTOMATIC|Cleric ~ Spells
 ###Block: Righteous Might Workaround
 1	TEMPLATE:RighteousMightDR
 ###Block: Level progression
@@ -1288,3 +1291,4 @@ CLASS:Tainted Warrior	STARTSKILLPTS:2	CSKILL:Climb|Intimidate|Jump|Ride|Sense Mo
 ###Block: Gestalt Support
 CLASS:Gestalt	HD:4	TYPE:PC.Base.Gestalt	PREABILITY:2,CATEGORY=Internal,TYPE.GestaltClass	FACT:ClassType|PC	FACT:Abb|Ges		SOURCEPAGE:p.	DEFINE:CL_Gestalt|0	DEFINE:GestaltLVL|0	BONUS:VAR|CL_Gestalt|classlevel()	BONUS:VAR|GestaltLVL|classlevel("APPLIEDAS=NONEPIC")
 CLASS:Gestalt	STARTSKILLPTS:Gestalt_SkillPts	DEFINE:Gestalt_SkillPts|0	BONUS:VAR|Gestalt_SkillPts|2|TYPE=Class
+
