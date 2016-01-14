@@ -85,7 +85,8 @@ Strongheart Halfling					KEY:Subrace ~ Strongheart Halfling		VISIBLE:NO		SUBRACE
 
 # Planetouched Subraces
 Aasimar							KEY:Subrace ~ Aasimar				VISIBLE:NO		SUBRACE:Aasimar					BONUS:VAR|LevelAdjustment|1|TYPE=Base		FAVOREDCLASS:Paladin				AUTO:LANG|Common
-Lesser Aasimar						KEY:Subrace ~ Lesser Aasimar			VISIBLE:NO		SUBRACE:Lesser Aasimar								FAVOREDCLASS:Paladin				AUTO:LANG|Common				RACETYPE:Humanoid
+# TODO - is this now obsolete?
+#Lesser Aasimar						KEY:Subrace ~ Lesser Aasimar			VISIBLE:NO		SUBRACE:Lesser Aasimar								FAVOREDCLASS:Paladin				AUTO:LANG|Common				RACETYPE:Humanoid
 Air Genasi							KEY:Subrace ~ Air Genasi			VISIBLE:NO		SUBRACE:Air Genasi				BONUS:VAR|LevelAdjustment|1|TYPE=Base		FAVOREDCLASS:Fighter|Swashbuckler		AUTO:LANG|Common
 Lesser Air Genasi						KEY:Subrace ~ Lesser Air Genasi		VISIBLE:NO		SUBRACE:Lesser Air Genasi							FAVOREDCLASS:Fighter|Swashbuckler		AUTO:LANG|Common				RACETYPE:Humanoid
 Earth Genasi						KEY:Subrace ~ Earth Genasi			VISIBLE:NO		SUBRACE:Earth Genasi				BONUS:VAR|LevelAdjustment|1|TYPE=Base		FAVOREDCLASS:Fighter				AUTO:LANG|Common
@@ -102,7 +103,7 @@ Greater Power ECL Boost					KEY:Feyri ~ Greater Power ECL Boost		VISIBLE:NO					
 
 
 ###Block:
-Lesser Planetouched		VISIBLE:YES		BONUS:VAR|DefaultRaceType|1	ABILITY:Internal|AUTOMATIC|Assign Race Type ~ Humanoid	TYPE:Humanoid	SUBRACE:Lesser	BONUS:VAR|LevelAdjustment|-1
+Lesser Planetouched		VISIBLE:YES		BONUS:VAR|DefaultRaceType|1	ABILITY:Internal|AUTOMATIC|Assign Race Type ~ Humanoid	ABILITY:Special Ability|AUTOMATIC|Lesser Planetouched	TYPE:Humanoid	SUBRACE:Lesser	PRERACE:1,Planetouched (Aasimar),Planetouched (Tiefling),Planetouched (Genasi)	BONUS:VAR|LevelAdjustment|-1
 
 
 # Regions
@@ -348,3 +349,4 @@ Magical Training ~ Sorcerer									VISIBLE:YES		BONUS:SPELLCAST|CLASS=Sorcerer;
 Magical Training ~ Wizard									VISIBLE:YES		BONUS:SPELLCAST|CLASS=Wizard;LEVEL=0|3
 
 Otherworldly Template										VISIBLE:NO	RACETYPE:Outsider
+
