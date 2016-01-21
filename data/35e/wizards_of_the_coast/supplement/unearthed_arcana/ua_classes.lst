@@ -202,8 +202,10 @@ CLASS:Cleric (Cloistered Cleric)	HD:6		TYPE:Base.PC.Spellcaster.Divine.Variant	S
 CLASS:Cleric (Cloistered Cleric)	STARTSKILLPTS:6	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|TYPE=Knowledge|TYPE=Profession|Spellcraft|Decipher Script|Speak Language
 # Class Name				Spell Stat		Spell Type		Automatically Known Spell Levels											Caster level
 CLASS:Cleric (Cloistered Cleric)	SPELLSTAT:WIS	FACT:SpellType|Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Cleric (Cloistered Cleric)|Caster_Level_BL_Stripped_Cleric	DEFINE:Caster_Level_BL_Stripped_Cleric|0	BONUS:VAR|Caster_Level_BL_Stripped_Cleric|Caster_Level_Cleric-CasterLevelBLCleric	BONUS:VAR|Caster_Level_Cleric|CL+Caster_Level_Bonus+CasterLevelBLCleric	DEFINE:CasterLevelBLCleric|0	DEFINE:Caster_Level_Cleric|0	DEFINE:CasterLevelBL_x_Cloistered_Cleric|0	BONUS:VAR|CasterLevelBL_x_Cloistered_Cleric|charbonusto("PCLEVEL","Cleric (Cloistered Cleric)")	BONUS:VAR|Caster_Level_Highest__Divine|Caster_Level_Cleric|TYPE=Base
-# DG - add to ClericLVL to get Turning working
-CLASS:Cleric (Cloistered Cleric)	DEFINE:ClericLVL|0	DEFINE:CloisteredClericLVL|0	BONUS:VAR|CloisteredClericLVL|CL	BONUS:VAR|ClericLVL|CloisteredClericLVL
+# DG - don't add to ClericLVL, add to TurnLevel instead, or do use ClericLVL and disable TurnLevelBase & AlignmentAuraBase below?
+# however that affects Aura level ?
+#CLASS:Cleric (Cloistered Cleric)	DEFINE:CloisteredClericLVL|0	BONUS:VAR|CloisteredClericLVL|CL	
+#CLASS:Cleric (Cloistered Cleric)	DEFINE:ClericLVL|0	BONUS:VAR|ClericLVL|CloisteredClericLVL
 
 ###Block:Proficiencies
 1								ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfLight|TYPE=WeaponProfSimple
@@ -220,6 +222,8 @@ CLASS:Cleric (Cloistered Cleric)	DEFINE:ClericLVL|0	DEFINE:CloisteredClericLVL|0
 1	PROHIBITSPELL:ALIGNMENT.Lawful|PREALIGN:CG,CN,CE	PROHIBITSPELL:ALIGNMENT.Lawful|PREDEITYALIGN:CG,CN,CE
 1	PROHIBITSPELL:ALIGNMENT.Chaotic|PREALIGN:LG,LN,LE	PROHIBITSPELL:ALIGNMENT.Chaotic|PREDEITYALIGN:LG,LN,LE
 ###Block: Aura strength
+#DG also add to Turninging level
+1	BONUS:VAR|TurnLevelBase,TurnDamagePlusBase|CL
 1	BONUS:VAR|AlignmentAuraBase|CL	DEFINE:AlignmentAuraBase|0
 # Default Cleric spells in addition to extra's
 1	ABILITY:Cleric Class Feature|AUTOMATIC|Cleric ~ Spells
