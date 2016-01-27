@@ -46,7 +46,7 @@ CLASS:Scout		STARTSKILLPTS:8	CSKILL:Balance|Climb|TYPE=Craft|Escape Artist|Hide|
 # Class Name	Hit Dice	Type			Max Level	Source Page		Group of Prohibited Spells														Define			Combat bonus															Modify VAR																			Bonus
 CLASS:Spellthief	HD:6		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.13	PROHIBITSPELL:SCHOOL.Conjuration	PROHIBITSPELL:SCHOOL.Evocation	PROHIBITSPELL:SCHOOL.Necromancy	DEFINE:SpellthiefLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|SpellthiefLVL|CL	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Spellthief	STARTSKILLPTS:6	CSKILL:Appraise|Bluff|Concentration|TYPE=Craft|Decipher Script|Disable Device|Escape Artist|Gather Information|Hide|Jump|Knowledge (arcana)|Knowledge (local)|Listen|Move Silently|Open Lock|Search|Speak Language|Spellcraft|Spot|Swim|Tumble|Use Magic Device
+CLASS:Spellthief	STARTSKILLPTS:6	CSKILL:Appraise|Bluff|Concentration|TYPE=Craft|Decipher Script|Disable Device|Escape Artist|Gather Information|Hide|Jump|Knowledge (arcana)|Knowledge (Local)|Listen|Move Silently|Open Lock|Search|Speak Language|Spellcraft|Spot|Swim|Tumble|Use Magic Device
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level								Use Spell List
 CLASS:Spellthief	SPELLSTAT:CHA	FACT:SpellType|Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Spellthief|Caster_Level_BL_Stripped_Spellthief	DEFINE:Caster_Level_BL_Stripped_Spellthief|0	BONUS:VAR|Caster_Level_BL_Stripped_Spellthief|Caster_Level_Spellthief-CasterLevelBLSpellthief	BONUS:VAR|Caster_Level_Spellthief|CL+Caster_Level_Bonus+CasterLevelBLSpellthief	DEFINE:CasterLevelBLSpellthief|0	BONUS:VAR|CasterLevelBL_x_Spellthief|charbonusto("PCLEVEL","Spellthief")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Spellthief|TYPE=Base/2|PRECLASS:1,Spellthief=4	SPELLLIST:1|Wizard
 ###Block: Can only learn from the following Schools - abjuration, divination, enchantment, illusion, and transmutation.
@@ -506,7 +506,7 @@ CLASS:Shadowmind	HD:6		TYPE:PC.Prestige	SOURCEPAGE:p.74	DEFINE:ShadowmindLVL|0	B
 # Class Name	Required Skill							Required Text																												PRETOTALAB
 CLASS:Shadowmind	PRESKILL:3,Hide=5,Move Silently=5,Sleight of Hand=3	PRETEXT:Base Attack Bonus: +3. Skills: Hide 5 ranks, Move Silently 5 Ranks, Sleight of Hand 3 ranks. Special: Manifester level 3rd. Special: Able to manifest concealing amorpha.	PRETOTALAB:3
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Shadowmind	STARTSKILLPTS:4	CSKILL:Autohypnosis|Bluff|Concentration|TYPE=Craft|Disable Device|Escape Artist|Hide|Jump|Knowledge (Psionics)|Listen|Move Silently|Open Lock|Psicraft|Search|Sense Motive|Sleight of Hand|Spot|Tumble
+CLASS:Shadowmind	STARTSKILLPTS:4	CSKILL:Autohypnosis|Bluff|Concentration|TYPE=Craft|Disable Device|Escape Artist|Hide|Jump|Knowledge (psionics)|Listen|Move Silently|Open Lock|Psicraft|Search|Sense Motive|Sleight of Hand|Spot|Tumble
 ###Block
 1	ABILITY:Shadowmind Class Feature|AUTOMATIC|Shadowmind ~ Weapon and Armor Proficiency
 1	ABILITY:Shadowmind Class Feature|AUTOMATIC|Shadowmind ~ Powers Known
@@ -524,7 +524,7 @@ CLASS:Spymaster	HD:6		TYPE:PC.Prestige	MAXLEVEL:7	SOURCEPAGE:p.76	DEFINE:Spymast
 # Class Name	Required Feat			Required Skill													Required Text
 CLASS:Spymaster	PREABILITY:1,CATEGORY=FEAT,Skill Focus (Bluff)	PRESKILL:6,Bluff=8,Diplomacy=4,Disguise=8,Forgery=4,Gather Information=4,Sense Motive=4	PRETEXT:Skills: Bluff 8 ranks, Diplomacy 4 ranks, Disguise 8 ranks, Forgery 4 ranks, Gather Information 4 ranks, Sense Motive 4 ranks. Feat: Skill Focus (Bluff).
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Spymaster	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Intimidate|Jump|Knowledge (Geography)|Knowledge (History)|Knowledge (local)|Knowledge (Nobility and Royalty)|Listen|Move Silently|Open Lock|Search|Sense Motive|Sleight of Hand|Speak Language|Spot|Swim|Tumble|Use Magic Device|Use Rope
+CLASS:Spymaster	STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Intimidate|Jump|Knowledge (Geography)|Knowledge (History)|Knowledge (Local)|Knowledge (nobility and royalty)|Listen|Move Silently|Open Lock|Search|Sense Motive|Sleight of Hand|Speak Language|Spot|Swim|Tumble|Use Magic Device|Use Rope
 ###Block
 1	ABILITY:Spymaster Class Feature|AUTOMATIC|Spymaster ~ Weapon and Armor Proficiency
 1	ABILITY:Spymaster Class Feature|AUTOMATIC|Spymaster ~ Cover Identity
@@ -545,7 +545,7 @@ CLASS:Streetfighter	HD:8		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:p.79	DEFINE:Str
 # Class Name		Required Feat					Required Skill							Required Text																						PRETOTALAB
 CLASS:Streetfighter	PREABILITY:2,CATEGORY=FEAT,Combat Expertise,Improved Feint	PRESKILL:3,Bluff=5,Intimidate=5,TYPE.Knowledge (Local)=5	PRETEXT:Base Attack Bonus: +5. Skills: Bluff 5 ranks, Intimidate 5 ranks, Knowledge (local) 5 ranks. Feats: Combat Expertise, Improved Feint.	PRETOTALAB:5
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Streetfighter	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Disable Device|Hide|Intimidate|Jump|Knowledge (local)|Listen|Move Silently|Open Lock|Ride|Search|Spot|Tumble
+CLASS:Streetfighter	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Disable Device|Hide|Intimidate|Jump|Knowledge (Local)|Listen|Move Silently|Open Lock|Ride|Search|Spot|Tumble
 ###Block
 1	ABILITY:Streetfighter Class Feature|AUTOMATIC|Streetfighter ~ Weapon and Armor Proficiency
 1	ABILITY:Streetfighter Class Feature|AUTOMATIC|Streetfighter ~ Always Ready
@@ -593,7 +593,7 @@ CLASS:Vigilante	HD:8		TYPE:PC.Prestige	SOURCEPAGE:p.85	DEFINE:VigilanteLVL|0	BON
 # Class Name	Restricted AL		Required Feat		Required Skill													Required Text																															PRETOTALAB
 CLASS:Vigilante	!PREALIGN:NE,CE,LE	PREABILITY:1,CATEGORY=FEAT,Alertness	PRESKILL:5,Gather Information=8,Intimidate=4,TYPE.Knowledge (Local)=8,Search=4,Sense Motive=8	PRETEXT:Alignment: Any nonevil. Base Attack Bonus: +4. Skills: Gather Information 8 ranks, Intimidate 4 ranks, Knowledge (local) 8 ranks, Search 4 ranks, Sense Motive 8 ranks. Feats: Alertness.	PRETOTALAB:4
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Vigilante	STARTSKILLPTS:6	CSKILL:Balance|Climb|TYPE=Craft|Disable Device|Disguise|Escape Artist|Gather Information|Hide|Intimidate|Jump|Knowledge (local)|Move Silently|Open Lock|TYPE=Perform|Search|Sense Motive|Tumble|Use Rope
+CLASS:Vigilante	STARTSKILLPTS:6	CSKILL:Balance|Climb|TYPE=Craft|Disable Device|Disguise|Escape Artist|Gather Information|Hide|Intimidate|Jump|Knowledge (Local)|Move Silently|Open Lock|TYPE=Perform|Search|Sense Motive|Tumble|Use Rope
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Vigilante	SPELLSTAT:CHA	FACT:SpellType|Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Vigilante|Caster_Level_BL_Stripped_Vigilante	DEFINE:Caster_Level_BL_Stripped_Vigilante|0	BONUS:VAR|Caster_Level_BL_Stripped_Vigilante|Caster_Level_Vigilante-CasterLevelBLVigilante	BONUS:VAR|Caster_Level_Vigilante|CL+Caster_Level_Bonus+CasterLevelBLVigilante	DEFINE:CasterLevelBLVigilante|0	BONUS:VAR|CasterLevelBL_x_Vigilante|charbonusto("PCLEVEL","Vigilante")	BONUS:VAR|Caster_Level_Highest__Divine|Caster_Level_Vigilante|TYPE=Base
 ###Block

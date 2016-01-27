@@ -32,7 +32,7 @@ CLASS:Blood Scaled Fury	STARTSKILLPTS:2	CSKILL:Climb|Intimidate|Jump|Listen|Swim
 5	BONUS:VAR|RageDuration|3
 9	BONUS:VAR|TirelessRage|1
 ###Block:
-4	VFEAT:Rend
+4	ABILITY:FEAT|VIRTUAL|Rend
 
 # Class Name			Hit Dice	Type				Abbreviation	Max Level	Source Page		Visible	Combat bonus										Bonus
 CLASS:Ex Blood Scaled Fury	HD:12		TYPE:Prestige.Dragon	FACT:Abb|XBlSF		MAXLEVEL:12	SOURCEPAGE:p.86	VISIBLE:NO	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
@@ -108,7 +108,7 @@ CLASS:Dispassionate Watcher of Chronepsis	STARTSKILLPTS:2	CSKILL:Concentration|D
 10	BONUS:VAR|VisionPerDay|3	BONUS:VAR|VisionLVL|CL	ADD:SPELLCASTER|Divine
 11										ADD:SPELLCASTER|Divine
 12	BONUS:VAR|AnalyzeDweomerLVL|CL				ADD:SPELLCASTER|Divine
-#	1	ABILITY:Special Ability|AUTOMATIC|Divine Conversion	ABILITY:Special Ability|AUTOMATIC|Calming Aura	VFEAT:Draconic Knowledge
+#	1	ABILITY:Special Ability|AUTOMATIC|Divine Conversion	ABILITY:Special Ability|AUTOMATIC|Calming Aura	ABILITY:Feat|VIRTUAL|Draconic Knowledge
 #	2	ABILITY:Special Ability|AUTOMATIC|Comprehend Languages (Sp at will)
 #	4	ABILITY:Special Ability|AUTOMATIC|Dispassionate Watcher Stunning Rebuke|Stunning Rebuke
 #	5	ABILITY:Special Ability|AUTOMATIC|Tongues (Sp at will)
@@ -701,9 +701,9 @@ CLASS:Fang Dragon	HD:12		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Drac	BONUS:CHE
 # Class Name	Required Race		Reg. Race Type
 CLASS:Fang Dragon	PRERACE:1,Dragon (Fang%	PRERACETYPE:Dragon
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
-CLASS:Fang Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE.Knowledge|Sense Motive|Use Magic Device
+CLASS:Fang Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device
 1																		BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Sorcerer")+var("CL=Sorcerer")))	DEFINE:DragonCL|0
-1	VISION:Keen Senses|Darkvision (120')|Blindsense (60')	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
+1	VISION:Blindsense (60')|Darkvision (120')|Keen Senses	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
 ###Block: Breath Weapon and other SA's
 1	DEFINE:FangDragonAbilityDrainDamage|1	DEFINE:FangDragonAbilityDrainDamageDie|2	ABILITY:Special Ability|AUTOMATIC|Ability Drain ~ Fang Dragon
 #1
@@ -716,7 +716,7 @@ CLASS:Fang Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Co
 6									DEFINE:DragonAge|2
 9									DEFINE:DragonAge|3																													SPELLS:Innate|TIMES=2|CASTERLEVEL=DragonCL|Shield
 12	SR:16								DEFINE:DragonAge|4																													SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Dispel Magic
-15	SR:18	DR:5/Magic						DEFINE:DragonAge|5					ADD:SPELLCASTER|1|Sorcerer
+15	SR:18	DR:5/Magic						DEFINE:DragonAge|5					ADD:SPELLCASTER|Sorcerer
 18	SR:20			BONUS:PCLEVEL|Sorcerer|1	DEFINE:DragonAge|6																													SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Spell Turning
 21	SR:22	DR:10/Magic	BONUS:PCLEVEL|Sorcerer|1	DEFINE:DragonAge|7
 24	SR:25			BONUS:PCLEVEL|Sorcerer|1	DEFINE:DragonAge|8																													SPELLS:Innate|TIMES=2|CASTERLEVEL=DragonCL|Telekinesis
@@ -738,9 +738,9 @@ CLASS:Battle Dragon	HD:12		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Drac	BONUS:C
 # Class Name		Required Race			Reg. Race Type
 CLASS:Battle Dragon	PRERACE:1,Dragon (Battle%	PRERACETYPE:Dragon
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
-CLASS:Battle Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE.Knowledge|Sense Motive|Use Magic Device|TYPE.Perform
+CLASS:Battle Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device|TYPE=Perform
 1																		BONUS:VAR|DragonCL|DragonAge	DEFINE:DragonCL|0
-1	VISION:Keen Senses|Darkvision (120')|Blindsense (60')	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
+1	VISION:Blindsense (60')|Darkvision (120')|Keen Senses	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
 ###Block: Breath Weapon and other SA's
 1	DEFINE:BreathWeaponCone|max((SIZE-1)*10,15)	DEFINE:BreathWeaponDice|(2*DragonAge)	DEFINE:BreathWeaponDamageDie|6	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Sonic Energy
 1																						ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Fear Gas
@@ -749,7 +749,7 @@ CLASS:Battle Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|
 ###Block: Frightful Presence
 1	BONUS:VAR|FrightfulPresRange|DragonAge*30|PREVARGTEQ:DragonAge,5	ABILITY:Special Ability|AUTOMATIC|Frightful Presence
 ###Block: Normal Progression
-1						BONUS:VAR|BardicMusicTimes|1	BONUS:VAR|BardicMusicLvl|DragonCL	BONUS:VAR|InspireDurationBase|5					ABILITY:Special Ability|AUTOMATIC|Immunity To Sonic|Bardic Music
+1						BONUS:VAR|BardicMusicTimes|1	BONUS:VAR|BardicMusicLvl|DragonCL	BONUS:VAR|InspireDurationBase|5					ABILITY:Special Ability|AUTOMATIC|Bardic Music|Immunity To Sonic
 5																							DEFINE:DragonAge|1
 8																							DEFINE:DragonAge|2													SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Protection from Evil
 11		DR:5/Magic																				DEFINE:DragonAge|3
@@ -761,7 +761,7 @@ CLASS:Battle Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|
 29	SR:30	DR:20/Magic	DR:5/Evil																		DEFINE:DragonAge|9
 32	SR:32																						DEFINE:DragonAge|10
 35	SR:33	DR:10/Evil																				DEFINE:DragonAge|11
-38	SR:35					BONUS:VAR|BattleDragonBattleFuryTimesLVL|DragonCL									DEFINE:DragonAge|12	ABILITY:Special Ability|AUTOMATIC|Battle Fury|Battle Dragon Battle Fury	SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Heroes' Feast
+38	SR:35					BONUS:VAR|BattleDragonBattleFuryTimesLVL|DragonCL									DEFINE:DragonAge|12	ABILITY:Special Ability|AUTOMATIC|Battle Dragon Battle Fury|Battle Fury	SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Heroes' Feast
 #
 
 # Class Name		Hit Dice	Type			Max Level		Source Page		Save checks bonus															Combat bonus
@@ -769,9 +769,9 @@ CLASS:Chaos Dragon	HD:12		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Drac	BONUS:CH
 # Class Name		Required Race			Reg. Race Type
 CLASS:Chaos Dragon	PRERACE:1,Dragon (Chaos%	PRERACETYPE:Dragon
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
-CLASS:Chaos Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE.Knowledge|Sense Motive|Use Magic Device
+CLASS:Chaos Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device
 1																		BONUS:VAR|DragonCL|DragonAge	DEFINE:DragonCL|0
-1	VISION:Keen Senses|Darkvision (120')|Blindsense (60')	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
+1	VISION:Blindsense (60')|Darkvision (120')|Keen Senses	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
 ###Block: Breath Weapon and other SA's
 1								DEFINE:BreathWeaponLine|max((SIZE-1)*20,30)	DEFINE:BreathWeaponDice|(2*DragonAge)	DEFINE:BreathWeaponDamageDie|4	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Line of Random Energy
 1	BONUS:VAR|BreathWeaponDuration|DragonAge																						ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Confusion Gas
@@ -800,9 +800,9 @@ CLASS:Ethereal Dragon	HD:12		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Drac	BONUS
 # Class Name		Required Race			Reg. Race Type
 CLASS:Ethereal Dragon	PRERACE:1,Dragon (Ethereal%	PRERACETYPE:Dragon
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
-CLASS:Ethereal Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE.Knowledge|Sense Motive|Use Magic Device
+CLASS:Ethereal Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device
 1																		BONUS:VAR|DragonCL|DragonAge	DEFINE:DragonCL|0
-1	VISION:Keen Senses|Darkvision (120')|Blindsense (60')	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
+1	VISION:Blindsense (60')|Darkvision (120')|Keen Senses	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
 ###Block: Breath Weapon and other SA's
 1	DEFINE:BreathWeaponCone|max((SIZE-1)*10,15)	DEFINE:BreathWeaponDice|(2*DragonAge)	DEFINE:BreathWeaponDamageDie|6	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Force
 #1
@@ -811,7 +811,7 @@ CLASS:Ethereal Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spo
 ###Block: Frightful Presence
 1	BONUS:VAR|FrightfulPresRange|DragonAge*30|PREVARGTEQ:DragonAge,5	ABILITY:Special Ability|AUTOMATIC|Frightful Presence
 ###Block: Normal Progression
-1											ABILITY:Special Ability|AUTOMATIC|Immunity To Ether Cyclones|Ethereal Dragon Skills
+1											ABILITY:Special Ability|AUTOMATIC|Ethereal Dragon Skills|Immunity To Ether Cyclones
 4							DEFINE:DragonAge|1
 7							DEFINE:DragonAge|2	ABILITY:Special Ability|AUTOMATIC|Ethereal Vision|See Ethereal
 10		DR:5/Magic				DEFINE:DragonAge|3
@@ -823,7 +823,7 @@ CLASS:Ethereal Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spo
 28	SR:28	DR:20/Magic	DR:5/Cold Iron	DEFINE:DragonAge|9
 31	SR:29						DEFINE:DragonAge|10	ABILITY:Special Ability|AUTOMATIC|Strike Ethereal Creatures
 34	SR:32	DR:10/Cold Iron			DEFINE:DragonAge|11
-37	SR:33						DEFINE:DragonAge|12	ABILITY:Special Ability|AUTOMATIC|Summon Ethereal Cyclones|Ethereal Dragon Summon Ethereal Cyclones
+37	SR:33						DEFINE:DragonAge|12	ABILITY:Special Ability|AUTOMATIC|Ethereal Dragon Summon Ethereal Cyclones|Summon Ethereal Cyclones
 #
 
 # Class Name		Hit Dice	Type			Max Level		Source Page		Save checks bonus															Combat bonus
@@ -831,9 +831,9 @@ CLASS:Howling Dragon	HD:12		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Drac	BONUS:
 # Class Name		Required Race			Reg. Race Type
 CLASS:Howling Dragon	PRERACE:1,Dragon (Howling%	PRERACETYPE:Dragon
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
-CLASS:Howling Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE.Knowledge|Sense Motive|Use Magic Device
+CLASS:Howling Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device
 1																		BONUS:VAR|DragonCL|DragonAge	DEFINE:DragonCL|0
-1	VISION:Keen Senses|Darkvision (120')|Blindsense (60')	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
+1	VISION:Blindsense (60')|Darkvision (120')|Keen Senses	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
 ###Block: Breath Weapon and other SA's
 1	DEFINE:BreathWeaponCone|max((SIZE-1)*10,15)	DEFINE:BreathWeaponDice|(2*DragonAge)	DEFINE:BreathWeaponDamageDie|10	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Howling Sound
 1	DEFINE:BreathWeaponDamage|DragonAge																ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Maddening Wails
@@ -854,7 +854,7 @@ CLASS:Howling Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot
 33	SR:32	DR:20/Magic	DR:5/Law	DEFINE:DragonAge|9
 36	SR:33					DEFINE:DragonAge|10	ABILITY:Special Ability|AUTOMATIC|Strike Ethereal Creatures								SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Insanity|Whirlwind
 39	SR:35	DR:10/Law			DEFINE:DragonAge|11
-42	SR:36					DEFINE:DragonAge|12	ABILITY:Special Ability|AUTOMATIC|Summon Ethereal Cyclones|Ethereal Dragon Summon Ethereal Cyclones	SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Symbol of Insanity|Weird
+42	SR:36					DEFINE:DragonAge|12	ABILITY:Special Ability|AUTOMATIC|Ethereal Dragon Summon Ethereal Cyclones|Summon Ethereal Cyclones	SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Symbol of Insanity|Weird
 #
 
 # Class Name		Hit Dice	Type			Max Level		Source Page		Save checks bonus															Combat bonus
@@ -862,9 +862,9 @@ CLASS:Oceanus Dragon	HD:12		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Drac	BONUS:
 # Class Name		Required Race			Reg. Race Type
 CLASS:Oceanus Dragon	PRERACE:1,Dragon (Oceanus%	PRERACETYPE:Dragon
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
-CLASS:Oceanus Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE.Knowledge|Sense Motive|Use Magic Device
+CLASS:Oceanus Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device
 1																		BONUS:VAR|DragonCL|DragonAge	DEFINE:DragonCL|0
-1	VISION:Keen Senses|Darkvision (120')|Blindsense (60')	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
+1	VISION:Blindsense (60')|Darkvision (120')|Keen Senses	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
 ###Block: Breath Weapon and other SA's
 1	DEFINE:BreathWeaponLine|max((SIZE-1)*20,30)	DEFINE:BreathWeaponDice|(2*DragonAge)	DEFINE:BreathWeaponDamageDie|8	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Line of Lightning
 1	DEFINE:BreathWeaponDuration|DragonAge															ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Tranquillity Gas
@@ -873,13 +873,13 @@ CLASS:Oceanus Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot
 ###Block: Frightful Presence
 1	BONUS:VAR|FrightfulPresRange|DragonAge*30|PREVARGTEQ:DragonAge,5	ABILITY:Special Ability|AUTOMATIC|Frightful Presence
 ###Block: Normal Progression
-1																	ABILITY:Special Ability|AUTOMATIC|Immunity To Electricity|Amphibious|Water Breathing
+1																	ABILITY:Special Ability|AUTOMATIC|Amphibious|Immunity to Electricity|Water Breathing
 7													DEFINE:DragonAge|1
 10													DEFINE:DragonAge|2																SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=DragonCL|Detect Evil
 13		DR:5/Magic										DEFINE:DragonAge|3
 16													DEFINE:DragonAge|4																SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Control Water
 19	SR:23	DR:10/Magic										DEFINE:DragonAge|5
-22	SR:26					BONUS:VAR|OceanusDragonSmiteEvilLVL|CL	DEFINE:DragonAge|6	ABILITY:Special Ability|AUTOMATIC|Smite Evil|Oceanus Dragon Smite Evil
+22	SR:26					BONUS:VAR|OceanusDragonSmiteEvilLVL|CL	DEFINE:DragonAge|6	ABILITY:Special Ability|AUTOMATIC|Oceanus Dragon Smite Evil|Smite Evil
 25	SR:27	DR:15/Magic										DEFINE:DragonAge|7
 28	SR:30												DEFINE:DragonAge|8																SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Holy Smite
 31	SR:32	DR:20/Magic	DR:5/Evil								DEFINE:DragonAge|9
@@ -893,9 +893,9 @@ CLASS:Pyroclastic Dragon	HD:12		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Drac	BO
 # Class Name			Required Race				Reg. Race Type
 CLASS:Pyroclastic Dragon	PRERACE:1,Dragon (Pyroclastic%	PRERACETYPE:Dragon
 # Class Name			Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
-CLASS:Pyroclastic Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE.Knowledge|Sense Motive|Use Magic Device
+CLASS:Pyroclastic Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device
 1																		BONUS:VAR|DragonCL|DragonAge	DEFINE:DragonCL|0
-1	VISION:Keen Senses|Darkvision (120')|Blindsense (60')	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
+1	VISION:Blindsense (60')|Darkvision (120')|Keen Senses	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
 ###Block: Breath Weapon and other SA's
 1	DEFINE:BreathWeaponCone|max((SIZE-1)*10,15)	DEFINE:BreathWeaponDice|(2*DragonAge)	DEFINE:BreathWeaponDamageDie|6	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Superheated Ash and Crushing Waves
 1	DEFINE:BreathWeaponLine|max((SIZE-1)*20,30)														ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Line of Disintegration
@@ -904,7 +904,7 @@ CLASS:Pyroclastic Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|
 ###Block: Frightful Presence
 1	BONUS:VAR|FrightfulPresRange|DragonAge*30|PREVARGTEQ:DragonAge,1	ABILITY:Special Ability|AUTOMATIC|Frightful Presence
 ###Block: Normal Progression
-1										ABILITY:Special Ability|AUTOMATIC|Immunity To Sonic|Immunity To Fire
+1										ABILITY:Special Ability|AUTOMATIC|Immunity To Fire|Immunity To Sonic
 7	SR:14					DEFINE:DragonAge|1
 10	SR:15					DEFINE:DragonAge|2													SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Sound Burst	SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Pyrotechnics
 13	SR:17	DR:5/Magic			DEFINE:DragonAge|3
@@ -924,9 +924,9 @@ CLASS:Radiant Dragon	HD:12		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Drac	BONUS:
 # Class Name		Required Race			Reg. Race Type
 CLASS:Radiant Dragon	PRERACE:1,Dragon (Radiant%	PRERACETYPE:Dragon
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
-CLASS:Radiant Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE.Knowledge|Sense Motive|Use Magic Device
+CLASS:Radiant Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device
 1																		BONUS:VAR|DragonCL|DragonAge	DEFINE:DragonCL|0
-1	VISION:Keen Senses|Darkvision (120')|Blindsense (60')	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
+1	VISION:Blindsense (60')|Darkvision (120')|Keen Senses	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
 ###Block: Breath Weapon and other SA's
 1	DEFINE:BreathWeaponLine|max((SIZE-1)*20,30)	DEFINE:BreathWeaponDice|(2*DragonAge)	DEFINE:BreathWeaponDamageDie|10	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Line of Force
 1	DEFINE:BreathWeaponCone|max((SIZE-1)*10,15)	DEFINE:BreathWeaponDuration|DragonAge							ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Light
@@ -955,9 +955,9 @@ CLASS:Rust Dragon	HD:12		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Drac	BONUS:CHE
 # Class Name	Required Race		Reg. Race Type
 CLASS:Rust Dragon	PRERACE:1,Dragon (Rust%	PRERACETYPE:Dragon
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
-CLASS:Rust Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE.Knowledge|Sense Motive|Use Magic Device
+CLASS:Rust Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device
 1																		BONUS:VAR|DragonCL|DragonAge	DEFINE:DragonCL|0
-1	VISION:Keen Senses|Darkvision (120')|Blindsense (60')	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
+1	VISION:Blindsense (60')|Darkvision (120')|Keen Senses	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
 ###Block: Breath Weapon and other SA's
 1	DEFINE:BreathWeaponLine|max((SIZE-1)*20,30)	DEFINE:BreathWeaponDice|(2*DragonAge)	DEFINE:BreathWeaponDamageDie|4	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Line of Acid
 1	DEFINE:BreathWeaponCone|max((SIZE-1)*10,15)														ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Corrosive Liquid
@@ -986,9 +986,9 @@ CLASS:Styx Dragon	HD:12		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Drac	BONUS:CHE
 # Class Name	Required Race		Reg. Race Type
 CLASS:Styx Dragon	PRERACE:1,Dragon (Styx%	PRERACETYPE:Dragon
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
-CLASS:Styx Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE.Knowledge|Sense Motive|Use Magic Device
+CLASS:Styx Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device
 1																		BONUS:VAR|DragonCL|DragonAge	DEFINE:DragonCL|0
-1	VISION:Keen Senses|Darkvision (120')|Blindsense (60')	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
+1	VISION:Blindsense (60')|Darkvision (120')|Keen Senses	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
 ###Block: Breath Weapon and other SA's
 1	DEFINE:BreathWeaponLine|max((SIZE-1)*20,30)	DEFINE:BreathWeaponDice|DragonAge	DEFINE:BreathWeaponDamageDie|6	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Line of Persistent Acid
 1	DEFINE:BreathWeaponCone|max((SIZE-1)*10,15)	DEFINE:BreathWeaponDamage|DragonAge							ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Stupefying Gas
@@ -997,7 +997,7 @@ CLASS:Styx Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Co
 ###Block: Frightful Presence
 1	BONUS:VAR|FrightfulPresRange|DragonAge*30|PREVARGTEQ:DragonAge,2	ABILITY:Special Ability|AUTOMATIC|Frightful Presence
 ###Block: Normal Progression
-1										ABILITY:Special Ability|AUTOMATIC|Amphibious|Constrict|Improved Grab|Immunity To Poison|Immunity To Disease|Styx Adaptation|Water Breathing|Disease
+1										ABILITY:Special Ability|AUTOMATIC|Amphibious|Constrict|Disease|Immunity To Disease|Immunity To Poison|Improved Grab|Styx Adaptation|Water Breathing
 6	SR:13					DEFINE:DragonAge|1
 9	SR:14					DEFINE:DragonAge|2
 12	SR:15	DR:5/Magic			DEFINE:DragonAge|3
@@ -1017,9 +1017,9 @@ CLASS:Tarterian Dragon	HD:12		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Drac	BONU
 # Class Name		Required Race			Reg. Race Type
 CLASS:Tarterian Dragon	PRERACE:1,Dragon (Tarterian%	PRERACETYPE:Dragon
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
-CLASS:Tarterian Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE.Knowledge|Sense Motive|Use Magic Device
+CLASS:Tarterian Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device
 1																		BONUS:VAR|DragonCL|DragonAge	DEFINE:DragonCL|0
-1	VISION:Keen Senses|Darkvision (120')|Blindsense (60')	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
+1	VISION:Blindsense (60')|Darkvision (120')|Keen Senses	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
 ###Block: Breath Weapon and other SA's
 1	DEFINE:BreathWeaponLine|max((SIZE-1)*20,30)	DEFINE:BreathWeaponDice|(2*DragonAge)	DEFINE:BreathWeaponDamageDie|8	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Line of Disruptive Force
 1	DEFINE:BreathWeaponCone|max((SIZE-1)*10,15)	DEFINE:BreathWeaponDuration|DragonAge							ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Will-Sapping Gas
@@ -1028,7 +1028,7 @@ CLASS:Tarterian Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Sp
 ###Block: Frightful Presence
 1	BONUS:VAR|FrightfulPresRange|DragonAge*30|PREVARGTEQ:DragonAge,1	ABILITY:Special Ability|AUTOMATIC|Frightful Presence
 ###Block: Normal Progression
-1						BONUS:VAR|ForceResistantBonus|4					ABILITY:Special Ability|AUTOMATIC|Force Resistant|Strength of Will|Freedom of Movement (Su)
+1						BONUS:VAR|ForceResistantBonus|4					ABILITY:Special Ability|AUTOMATIC|Force Resistant|Freedom of Movement (Su)|Strength of Will
 8	SR:15											DEFINE:DragonAge|1
 11	SR:17											DEFINE:DragonAge|2
 14	SR:19	DR:5/Magic									DEFINE:DragonAge|3
@@ -1048,9 +1048,9 @@ CLASS:Shadow Dragon	HD:12		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:Drac	BONUS:C
 # Class Name		Required Race			Reg. Race Type
 CLASS:Shadow Dragon	PRERACE:1,Dragon (Shadow%	PRERACETYPE:Dragon
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
-CLASS:Shadow Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE.Knowledge|Sense Motive|Use Magic Device
+CLASS:Shadow Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Concentration|Diplomacy|Escape Artist|Intimidate|TYPE=Knowledge|Sense Motive|Use Magic Device
 1																		BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Sorcerer")+var("CL=Sorcerer")))	DEFINE:DragonCL|0
-1	VISION:Keen Senses|Darkvision (120')|Blindsense (60')	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
+1	VISION:Blindsense (60')|Darkvision (120')|Keen Senses	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
 ###Block: Breath Weapon and other SA's
 1	DEFINE:BreathWeaponCone|max((SIZE-1)*10,15)	DEFINE:BreathWeaponDrain|0	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Smoky Shadows
 #1
@@ -1063,7 +1063,7 @@ CLASS:Shadow Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|
 4	SR:12										DEFINE:DragonAge|1
 7	SR:13										DEFINE:DragonAge|2						ABILITY:Special Ability|AUTOMATIC|Shadow Blend
 10	SR:15										DEFINE:DragonAge|3
-13	SR:17					BONUS:PCLEVEL|Sorcerer|1	DEFINE:DragonAge|4	ADD:SPELLCASTER|1|Sorcerer															SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Mirror Image
+13	SR:17					BONUS:PCLEVEL|Sorcerer|1	DEFINE:DragonAge|4	ADD:SPELLCASTER|Sorcerer															SPELLS:Innate|TIMES=3|CASTERLEVEL=DragonCL|Mirror Image
 16	SR:20	DR:5/Magic			BONUS:PCLEVEL|Sorcerer|1	DEFINE:DragonAge|5
 19	SR:22					BONUS:PCLEVEL|Sorcerer|1	DEFINE:DragonAge|6																				SPELLS:Innate|TIMES=2|CASTERLEVEL=DragonCL|Dimension Door
 22	SR:25	DR:10/Magic			BONUS:PCLEVEL|Sorcerer|1	DEFINE:DragonAge|7

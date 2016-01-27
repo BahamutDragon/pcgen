@@ -200,28 +200,7 @@ CLASS:Monk		STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Diplom
 19	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Empty Body|!PREABILITY:1,CATEGORY=ACF,TYPE.MonkEmptyBody
 20	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Perfect Self|!PREABILITY:1,CATEGORY=ACF,TYPE.MonkPerfectSelf
 ###Block: Unarmed Block
-1	UMULT:2
-###Block:
-1	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6
-2	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6
-3	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6
-4	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6
-5	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6
-6	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6
-7	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6
-8	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8
-9	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8
-10	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8
-11	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8
-12	UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6
-13	UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6
-14	UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6
-15	UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6
-16	UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8
-17	UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8
-18	UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8
-19	UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8
-20	UDAM:1d8,1d10,2d6,2d8,2d10,4d8,6d8,8d8,12d8
+1	ABILITY:Internal|AUTOMATIC|Monk ~ Unarmed Damage
 
 
 # Class Name	Hit Dice	Type						Class Type		Abbreviation	Ex Class			Source Page		Ability														Define								Combat bonus										Modify VAR								Monster Role	Bonus
@@ -365,7 +344,7 @@ CLASS:Wizard	HD:4		TYPE:PC.Base.Spellcaster.Arcane.NonSpontaneousArcaneCaster	FA
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Wizard	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher Script|TYPE=Knowledge|TYPE=Profession|Spellcraft
 # Class Name	Spell Stat		Spell Type		Memorize		Automatically Known Spell Levels	Spellbook		Caster level
-CLASS:Wizard	FACT:SpellType|Arcane	
+CLASS:Wizard	FACT:SpellType|Arcane
 CLASS:Wizard	SPELLSTAT:INT	MEMORIZE:YES	KNOWNSPELLS:LEVEL=0			SPELLBOOK:YES	BONUS:CASTERLEVEL|Wizard|Caster_Level_Wizard	DEFINE:Caster_Level_Wizard|0	BONUS:VAR|Caster_Level_Wizard|CL+Caster_Level_Bonus	DEFINE:CasterLevelBLWizard|0	BONUS:VAR|CasterLevelBLWizard|charbonusto("PCLEVEL","Wizard")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Wizard+CasterLevelBLWizard|TYPE=Base
 #	COST bonuses the Number of Choices, PROHIBITCOST designates how expensive the school is to prohibit, 0 is cannot prohibit, and CHOICE:SCHOOL removes the School from Selection
 #SUBCLASS:Wizard Subclass		CHOICE:SCHOOL|Universal	COST:0	BONUS:ABILITYPOOL|Wizard Subclass|1
@@ -437,5 +416,5 @@ CLASS:Wizard.MOD	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ
 
 # Class Name		Modify VAR
 CLASS:Sorcerer.MOD	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
-1	ABILITY:CLASS|AUTOMATIC|Sorcerer
+1	ABILITY:Class|AUTOMATIC|Sorcerer
 

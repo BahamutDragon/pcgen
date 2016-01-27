@@ -4,10 +4,10 @@ SOURCELONG:Player's Handbook II	SOURCESHORT:PH2	SOURCEDATE:2006-05
 # Class Name	Hit Dice	Type			Source Page		Combat bonus															Modify VAR													Bonus
 CLASS:Beguiler	HD:6		TYPE:Base.PC	SOURCEPAGE:p.6	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	DEFINE:BeguilerLVL|0	BONUS:VAR|BeguilerLVL|CL
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Beguiler	STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Climb|Concentration|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Jump|Knowledge (Arcana)|TYPE=KnowledgeLocal|Listen|Move Silently|Open Lock|TYPE=Profession|Search|Sense Motive|Sleight of Hand|Speak Language|Spellcraft|Spot|Swim|Tumble|Use Magic Device
+CLASS:Beguiler	STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Climb|Concentration|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Jump|Knowledge (arcana)|TYPE=KnowledgeLocal|Listen|Move Silently|Open Lock|TYPE=Profession|Search|Sense Motive|Sleight of Hand|Speak Language|Spellcraft|Spot|Swim|Tumble|Use Magic Device
 # Class Name	Spell Stat		Spell Type		Memorize	Automatically Known Spell Levels							Caster level			Use Spell List
 CLASS:Beguiler	FACT:SpellType|Arcane
-CLASS:Beguiler	SPELLSTAT:INT	SPELLTYPE:Arcane	MEMORIZE:NO	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6	BONUS:CASTERLEVEL|Beguiler|Caster_Level_Beguiler	DEFINE:Caster_Level_Beguiler|0	BONUS:VAR|Caster_Level_Beguiler|CL+Caster_Level_Bonus	DEFINE:CasterLevelBLBeguiler|0	BONUS:VAR|CasterLevelBLBeguiler|charbonusto("PCLEVEL","Beguiler")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Beguiler+CasterLevelBLBeguiler|TYPE=Base
+CLASS:Beguiler	SPELLSTAT:INT	FACT:SpellType|Arcane	MEMORIZE:NO	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6	BONUS:CASTERLEVEL|Beguiler|Caster_Level_Beguiler	DEFINE:Caster_Level_Beguiler|0	BONUS:VAR|Caster_Level_Beguiler|CL+Caster_Level_Bonus	DEFINE:CasterLevelBLBeguiler|0	BONUS:VAR|CasterLevelBLBeguiler|charbonusto("PCLEVEL","Beguiler")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Beguiler+CasterLevelBLBeguiler|TYPE=Base
 ###Block:
 1	ABILITY:Beguiler Class Feature|AUTOMATIC|Beguiler ~ Armored Mage|Beguiler ~ Spells|Beguiler ~ Trapfinding|Beguiler ~ Weapon and Armor Proficiency
 2	ABILITY:Beguiler Class Feature|AUTOMATIC|Beguiler ~ Cloaked Casting|Beguiler ~ Surprise Casting
@@ -119,14 +119,14 @@ CLASS:Duskblade	SPELLSTAT:INT	BONUS:CASTERLEVEL|Duskblade|Caster_Level_Duskblade
 # Class Name	Hit Dice	Type			Abbreviation	Source Page		Combat bonus										Bonus
 CLASS:Knight	HD:12		TYPE:Base.PC	FACT:Abb|Kni		SOURCEPAGE:p.24	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Knight	STARTSKILLPTS:2	CSKILL:Climb|Handle Animal|Intimidate|Jump|Knowledge (Nobility and Royalty)|Ride|Swim	DEFINE:KnightLVL|0	BONUS:VAR|KnightLVL|CL
+CLASS:Knight	STARTSKILLPTS:2	CSKILL:Climb|Handle Animal|Intimidate|Jump|Knowledge (nobility and royalty)|Ride|Swim	DEFINE:KnightLVL|0	BONUS:VAR|KnightLVL|CL
 ###Block:
 1	ABILITY:Knight Class Feature|AUTOMATIC|Knight ~ Weapon and Armor Proficiency
 1	ABILITY:Knight Class Feature|AUTOMATIC|Knight ~ Fighting Challenge|Knight ~ Knight's Challenge|Knight ~ Knight's Code
-2	ABILITY:Knight Class Feature|AUTOMATIC|Knight ~ Shield Block|Knight ~ Mounted Combat
+2	ABILITY:Knight Class Feature|AUTOMATIC|Knight ~ Mounted Combat|Knight ~ Shield Block
 3	ABILITY:Knight Class Feature|AUTOMATIC|Knight ~ Bulwark of Defense
 4	ABILITY:Knight Class Feature|AUTOMATIC|Knight ~ Armor Mastery|Knight ~ Test of Mettle
-5	ABILITY:Knight Class Feature|AUTOMATIC|Knight ~ Vigilant Defender|Knight ~ Bonus Feat
+5	ABILITY:Knight Class Feature|AUTOMATIC|Knight ~ Bonus Feat|Knight ~ Vigilant Defender
 6	ABILITY:Knight Class Feature|AUTOMATIC|Knight ~ Shield Ally
 8	ABILITY:Knight Class Feature|AUTOMATIC|Knight ~ Call to Battle
 12	ABILITY:Knight Class Feature|AUTOMATIC|Knight ~ Daunting Challenge

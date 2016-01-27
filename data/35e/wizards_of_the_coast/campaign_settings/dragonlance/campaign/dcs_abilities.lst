@@ -55,11 +55,11 @@ Kenderspeak																CATEGORY:Language										AUTO:LANG|Kenderspeak
 ###Block: Base Classes
 # Mystic
 # Ability Name			Unique Key						Category of Ability		Type							Define						Ability														Modify VAR																																																		Aspects
-Weapon and Armor Proficiency	KEY:Mystic ~ Weapon and Armor Proficiency	CATEGORY:Special Ability	TYPE:SpecialQuality.Mystic Class Feature								ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfSimple|TYPE=ArmorProfMedium|TYPE=ShieldProf
+Weapon and Armor Proficiency	KEY:Mystic ~ Weapon and Armor Proficiency	CATEGORY:Special Ability	TYPE:SpecialQuality.Mystic Class Feature								ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfMedium|TYPE=ShieldProf|TYPE=WeaponProfSimple
 Domain				KEY:Mystic ~ Domain				CATEGORY:Special Ability	TYPE:SpecialQuality.Mystic Class Feature
 
 # Noble
-Weapon and Armor Proficiency	KEY:Noble ~ Weapon and Armor Proficiency	CATEGORY:Special Ability	TYPE:SpecialQuality.Noble Class Feature								ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial|TYPE=ArmorProfLight|TYPE=ShieldProf
+Weapon and Armor Proficiency	KEY:Noble ~ Weapon and Armor Proficiency	CATEGORY:Special Ability	TYPE:SpecialQuality.Noble Class Feature								ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfLight|TYPE=ShieldProf|TYPE=WeaponProfMartial
 Bonus Class Skill			KEY:Noble ~ Bonus Class Skill			CATEGORY:Special Ability	TYPE:SpecialQuality.Noble Class Feature
 Favor					KEY:Noble ~ Favor					CATEGORY:Special Ability	TYPE:SpecialQuality.Noble Class Feature	DEFINE:NobleFavorBonus|0																		BONUS:VAR|NobleFavorBonus|1	BONUS:VAR|NobleFavorBonus|1|PREVARGTEQ:NobleLVL,3	BONUS:VAR|NobleFavorBonus|1|PREVARGTEQ:NobleLVL,7	BONUS:VAR|NobleFavorBonus|1|PREVARGTEQ:NobleLVL,12	BONUS:VAR|NobleFavorBonus|1|PREVARGTEQ:NobleLVL,16											ASPECT:NAME|Favor +%1|NobleFavorBonus
 Inspire Confidence		KEY:Noble ~ Inspire Confidence		CATEGORY:Special Ability	TYPE:SpecialQuality.Noble Class Feature	DEFINE:NobleInspireConfidenceBonus|0																BONUS:VAR|NobleInspireConfidenceBonus|1|PREVARGTEQ:NobleLVL,5	BONUS:VAR|NobleInspireConfidenceBonus|1|PREVARGTEQ:NobleLVL,9	BONUS:VAR|NobleInspireConfidenceBonus|1|PREVARGTEQ:NobleLVL,13	BONUS:VAR|NobleInspireConfidenceBonus|1|PREVARGTEQ:NobleLVL,17	BONUS:VAR|NobleInspireConfidenceBonus|1	ASPECT:NAME|Inspire Confidence %1/day|NobleInspireConfidenceBonus
@@ -267,3 +267,10 @@ Draconian ~ Disease Immunity											CATEGORY:Special Ability	TYPE:SpecialQual
 Draconian ~ Glide													CATEGORY:Special Ability	TYPE:SpecialQuality
 Draconian ~ Inspired by Dragons										CATEGORY:Special Ability	TYPE:SpecialQuality
 Draconian ~ Low Metabolism											CATEGORY:Special Ability	TYPE:SpecialQuality
+
+
+###Block - Academic Priest
+# ClassName	KEY:Academic Priest ~ ClassName	CATEGORY:Special Ability	TYPE:Academic Priest		BONUS:STAT|BASESPELLSTAT;Class=ClassName|AcademicPriest_ClassName		DEFINE:AcademicPriest_ClassName|0	BONUS:VAR|AcademicPriest_ClassName|INTSCORE-WISSCORE	BONUS:DC|CLASS.ClassName|-(AcademicPriest_ClassName/2)
+
+Cleric	KEY:Academic Priest ~ Cleric		CATEGORY:Special Ability	TYPE:Academic Priest		BONUS:STAT|BASESPELLSTAT;Class=Cleric|AcademicPriest_Cleric			DEFINE:AcademicPriest_Cleric|0	BONUS:VAR|AcademicPriest_Cleric|INTSCORE-WISSCORE	BONUS:DC|CLASS.Cleric|-(AcademicPriest_Cleric/2)
+Mystic	KEY:Academic Priest ~ Mystic		CATEGORY:Special Ability	TYPE:Academic Priest		BONUS:STAT|BASESPELLSTAT;Class=Mystic|AcademicPriest_Mystic			DEFINE:AcademicPriest_Mystic|0	BONUS:VAR|AcademicPriest_Mystic|INTSCORE-WISSCORE	BONUS:DC|CLASS.Mystic|-(AcademicPriest_Mystic/2)
