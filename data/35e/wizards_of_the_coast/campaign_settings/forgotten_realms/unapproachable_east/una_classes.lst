@@ -53,22 +53,50 @@ CLASS:Master of the Yuirwood	STARTSKILLPTS:4	CSKILL:Climb|Concentration|Handle A
 ###Block
 11	PREPCLEVEL:MIN=20
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										List of Class Spells by Level																																																																															Bonus
-CLASS:Nar Demonbinder	HD:6		TYPE:PC.Prestige	FACT:Abb|Nar		MAXLEVEL:7	SOURCEPAGE:p.25	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE	SPELLLEVEL:CLASS|Nar Demonbinder=4|Beltyn's Burning Blood,Dimensional Anchor,Dismissal,Magic Circle against Good,Planar Binding (Lesser),Summon Monster IV,Wall of Fire|Nar Demonbinder=5|Dispel Good,Flame Strike,Plane Shift,Spell Resistance,Summon Monster V|Nar Demonbinder=6|Banishment,Dispel Magic (Greater),Fiendform,Planar Binding,Summon Monster VI|Nar Demonbinder=7|Blasphemy,Fire Storm,Summon Monster VII|Nar Demonbinder=8|Flensing,Planar Binding (Greater),Summon Monster VIII,Unholy Aura	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
-# Class Name		Required Feat						Required Language	Required Skill														Req. Known Spell
-CLASS:Nar Demonbinder	PREABILITY:2,CATEGORY=FEAT,Iron Will,Spell Focus (Conjuration)	PRELANG:1,Abyssal	PRESKILL:1,Intimidate=5	PRESKILL:1,Knowledge (The Planes)=10	PRESKILL:1,Sense Motive=2	PRESPELL:1,Summon Monster I,Summon Monster II,Summon Monster III,Summon Monster IV,Summon Monster V,Summon Monster VI,Summon Monster VII,Summon Monster VIII,Summon Monster IX
-# Class Name		Skill Pts/Lvl	Class Skill
+####
+CLASS:Nar Demonbinder	HD:6		TYPE:PC.Prestige	CLASSTYPE:Prestige		ABB:Nar		MAXLEVEL:7	SOURCEPAGE:p.25		
+CLASS:Nar Demonbinder	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE		
+CLASS:Nar Demonbinder	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Nar Demonbinder	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Nar Demonbinder	PREABILITY:2,CATEGORY=FEAT,Iron Will,Spell Focus (Conjuration)	PRELANG:1,Abyssal	PRESKILL:1,Intimidate=5	PRESKILL:1,Knowledge (The Planes)=10	PRESKILL:1,Sense Motive=2	
+CLASS:Nar Demonbinder	PREMULT:1,[PRESPELLTYPE:1,Arcane=4],[PRESPELLTYPE:1,Divine=4]
+CLASS:Nar Demonbinder	PRESPELL:1,Summon Monster I,Summon Monster II,Summon Monster III,Summon Monster IV,Summon Monster V,Summon Monster VI,Summon Monster VII,Summon Monster VIII,Summon Monster IX
 CLASS:Nar Demonbinder	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher Script|Diplomacy|Intimidate|Knowledge (arcana)|Knowledge (The Planes)|TYPE=Profession|Sense Motive|Spellcraft
-# Class Name		Spell Stat		Spell Type		Caster level
-CLASS:Nar Demonbinder	FACT:SpellType|Arcane
-CLASS:Nar Demonbinder	SPELLSTAT:CHA	BONUS:CASTERLEVEL|Nar Demonbinder|Caster_Level_Nar_Demonbinder	DEFINE:Caster_Level_Nar_Demonbinder|0	BONUS:VAR|Caster_Level_Nar_Demonbinder|CL+Caster_Level_Bonus	DEFINE:CasterLevelBLNar_Demonbinder|0	BONUS:VAR|CasterLevelBLNar_Demonbinder|charbonusto("PCLEVEL","Nar Demonbinder")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Nar_Demonbinder+CasterLevelBLNar_Demonbinder|TYPE=Base
-1	CAST:0,0,0,0,2,1		KNOWN:0,0,0,0,3,1
-2	CAST:0,0,0,0,2,2		KNOWN:0,0,0,0,4,2
-3	CAST:0,0,0,0,3,2,1	KNOWN:0,0,0,0,4,2,1
-4	CAST:0,0,0,0,3,3,2	KNOWN:0,0,0,0,4,3,2
-5	CAST:0,0,0,0,3,3,2,1	KNOWN:0,0,0,0,4,3,2,1
-6	CAST:0,0,0,0,4,3,3,2	KNOWN:0,0,0,0,4,4,3,2
-7	CAST:0,0,0,0,4,4,3,2,1	KNOWN:0,0,0,0,4,4,3,2,1
+#CLASS:Nar Demonbinder	SPELLSTAT:CHA	BONUSSPELLSTAT:NONE	SPELLTYPE:Arcane	MEMORIZE:NO
+CLASS:Nar Demonbinder	BONUSSPELLSTAT:CHA	SPELLTYPE:Arcane	MEMORIZE:NO
+CLASS:Nar Demonbinder	BONUS:CASTERLEVEL|Nar Demonbinder|CL=Nar Demonbinder
+#
+CLASS:Nar Demonbinder	DEFINE:HasMasterSummoner|0	DEFINE:HasInfernalCertitude|0
+#
+CLASS:Nar Demonbinder	ALLOWBASECLASS:NO
+#
+SUBCLASS:Nar Demonbinder (Cleric)	PRECLASS:1,Cleric=7
+SUBCLASSLEVEL:1		BONUS:CASTERLEVEL|Nar Demonbinder|CL=Cleric	BONUS:CASTERLEVEL|Nar Demonbinder|BL=Cleric
+#
+SUBCLASS:Nar Demonbinder (Sorcerer)	PRECLASS:1,Sorcerer=8
+SUBCLASSLEVEL:1		BONUS:CASTERLEVEL|Nar Demonbinder|CL=Sorcerer	BONUS:CASTERLEVEL|Nar Demonbinder|BL=Sorcerer
+#
+SUBCLASS:Nar Demonbinder (Wizard)	PRECLASS:1,Wizard=7
+SUBCLASSLEVEL:1		BONUS:CASTERLEVEL|Nar Demonbinder|CL=Wizard	BONUS:CASTERLEVEL|Nar Demonbinder|BL=Wizard
+#
+1	ABILITY:Nar Demonbinder Class Feature|AUTOMATIC|Nar Demonbinder ~ Weapon and Armor Proficiency
+1	ABILITY:Nar Demonbinder Class Feature|AUTOMATIC|Nar Demonbinder ~ Spells per Day/Spells Known
+1	ABILITY:Nar Demonbinder Class Feature|AUTOMATIC|Nar Demonbinder ~ Fiendish Familiar
+1	ABILITY:Nar Demonbinder Class Feature|AUTOMATIC|Nar Demonbinder ~ Inimical Casting
+2	ABILITY:Nar Demonbinder Class Feature|AUTOMATIC|Nar Demonbinder ~ Iron Sign
+3	ABILITY:Nar Demonbinder Class Feature|AUTOMATIC|Nar Demonbinder ~ Master Summoner
+4	ABILITY:Nar Demonbinder Class Feature|AUTOMATIC|Nar Demonbinder ~ Brazen Sign
+5	ABILITY:Nar Demonbinder Class Feature|AUTOMATIC|Nar Demonbinder ~ Infernal Certitude
+6	ABILITY:Nar Demonbinder Class Feature|AUTOMATIC|Nar Demonbinder ~ Silver Sign
+7	ABILITY:Nar Demonbinder Class Feature|AUTOMATIC|Nar Demonbinder ~ Baleful Energy
+#
+1	KNOWN:0,0,0,0,3,1		CAST:0,0,0,0,2,1		
+2	KNOWN:0,0,0,0,4,2		CAST:0,0,0,0,2,2	
+3	KNOWN:0,0,0,0,4,2,1		CAST:0,0,0,0,3,2,1			
+4	KNOWN:0,0,0,0,4,3,2		CAST:0,0,0,0,3,3,2		
+5	KNOWN:0,0,0,0,4,3,2,1		CAST:0,0,0,0,3,3,2,1		
+6	KNOWN:0,0,0,0,4,4,3,2		CAST:0,0,0,0,4,3,3,2		
+7	KNOWN:0,0,0,0,4,4,3,2,1		CAST:0,0,0,0,4,4,3,2,1
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus											List of Class Spells by Level																																																																																																																	Bonus
 CLASS:Nentyar Hunter	HD:6		TYPE:PC.Prestige	FACT:Abb|Nen		MAXLEVEL:5	SOURCEPAGE:p.28	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	SPELLLEVEL:CLASS|Nentyar Hunter=1|Barkskin,Cure Light Wounds,Detect Magic,Detect Poison,Entangle,Jump,Light,Magic Missile,Pass without Trace,Snare,Speak with Animals,True Strike|Nentyar Hunter=2|Aganazzar's Scorcher,Blur,Cure Moderate Wounds,Gust of Wind,Moonbeam,Neutralize Poison,Remove Disease,Resist Energy,Speak with Plants,Tree Shape|Nentyar Hunter=3|Cure Serious Wounds,Freedom of Movement,Greenfire,Invisibility,Keen Edge,Moon Blade,Quench,See Invisibility,Wind Wall|Nentyar Hunter=4|Break Enchantment,Commune with Nature,Control Winds,Force Orb,Magic Weapon (Greater),Tree Stride,Wall of Thorns|Nentyar Hunter=5|Cure Light Wounds (Mass),Find the Path,Flame Strike,Moon Path,Righteous Might	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
@@ -85,14 +113,38 @@ CLASS:Nentyar Hunter	SPELLSTAT:WIS	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|L
 4	CAST:0,3,2,2,1																		BONUS:SKILL|Spot|4|TYPE=ClassAbility
 5	CAST:0,3,3,2,2,1
 
+
 # Class Name			Hit Dice	Type			Abbreviation	Source Page		Combat bonus											Bonus
-CLASS:Raumathari Battlemage	HD:4		TYPE:PC.Prestige	FACT:Abb|Rau		SOURCEPAGE:p.29	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Raumathari Battlemage	HD:4		TYPE:PC.Prestige	ABB:Rau		SOURCEPAGE:p.29	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name			Required Feat												Required Text
-CLASS:Raumathari Battlemage	PREABILITY:3,CATEGORY=FEAT,Combat Casting,Exotic Weapon Proficiency (Bastard Sword),TYPE=Metamagic	PRETEXT:Able to read Roushoum and Imaskari script. Must find a mentor to study with.
+CLASS:Raumathari Battlemage	PREABILITY:3,CATEGORY=FEAT,Combat Casting,Exotic Weapon Proficiency (Sword (Bastard)),TYPE=Metamagic	PRETEXT:Able to read Roushoum and Imaskari script. Must find a mentor to study with.
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Raumathari Battlemage	STARTSKILLPTS:2	CSKILL:TYPE=Craft|Concentration|Decipher Script|Knowledge (arcana)|Knowledge (History)|TYPE=Profession|Ride|Spellcraft|Use Magic Device
+CLASS:Raumathari Battlemage	DEFINE:RaumathariBattlemageChannelUsage|0		DEFINE:RaumathariBattlemageMaxChannelLevel|0		DEFINE:RaumathariBattlemageBattleSpells|0		
+CLASS:Raumathari Battlemage	BONUS:VAR|RaumathariBattlemageBattleSpells|floor(CL/2)
 #Need to make a feat for Battle Spell levels and Channel Spell Levels
 ###Block
+#
+1	ABILITY:Raumathari Battlemage Class Feature|AUTOMATIC|Raumathari Battlemage ~ Weapon and Armor Proficiency
+1	ABILITY:Raumathari Battlemage Class Feature|AUTOMATIC|Raumathari Battlemage ~ Spells per Day/Spells Known
+1	ABILITY:Raumathari Battlemage Class Feature|AUTOMATIC|Raumathari Battlemage ~ Sword Focus
+1	ABILITY:Raumathari Battlemage Class Feature|AUTOMATIC|Raumathari Battlemage ~ Channel Spell
+2	ABILITY:Raumathari Battlemage Class Feature|AUTOMATIC|Raumathari Battlemage ~ Battle Spell
+5	ABILITY:Raumathari Battlemage Class Feature|AUTOMATIC|Raumathari Battlemage ~ Sublime Sword
+#
+1	ADD:SPELLCASTER|Arcane		BONUS:VAR|RaumathariBattlemageChannelUsage|1			BONUS:VAR|RaumathariBattlemageMaxChannelLevel|1		
+2	ADD:SPELLCASTER|Arcane
+3	ADD:SPELLCASTER|Arcane		BONUS:VAR|RaumathariBattlemageChannelUsage|1			BONUS:VAR|RaumathariBattlemageMaxChannelLevel|1		
+4	ADD:SPELLCASTER|Arcane
+5
+6	ADD:SPELLCASTER|Arcane
+7	ADD:SPELLCASTER|Arcane		BONUS:VAR|RaumathariBattlemageChannelUsage|1			BONUS:VAR|RaumathariBattlemageMaxChannelLevel|1		
+8	ADD:SPELLCASTER|Arcane
+9	ADD:SPELLCASTER|Arcane		BONUS:VAR|RaumathariBattlemageChannelUsage|1			BONUS:VAR|RaumathariBattlemageMaxChannelLevel|1		
+10	ADD:SPELLCASTER|Arcane
+
+
+#
 11	PREPCLEVEL:MIN=20
 
 ##################################################
