@@ -255,3 +255,32 @@ CATEGORY=Internal|Default.MOD		DEFINE:AbilityScoreLimit|0	BONUS:VAR|AbilityScore
 #min(MaxAbilityScore_Bonus__Encumbrance,MaxAbilityScore_Bonus__Equipment)
 
 CATEGORY=Internal|Default.MOD		BONUS:VAR|AC_Ability_Score_Bonus|DEX|PREVAREQ:DisableDexForAC,0
+
+CATEGORY=Internal|Default.MOD		ABILITY:Internal|AUTOMATIC|Movement Mode
+
+
+Movement Mode	CATEGORY:Internal	
+
+
+###Block
+CATEGORY=Internal|Movement Mode.MOD	DEFINE:Move_Walk|0	DEFINE:Move_Swim|0	DEFINE:Move_Fly|0	DEFINE:Move_Climb|0	
+CATEGORY=Internal|Movement Mode.MOD	DEFINE:RaceBase_Walk|0	DEFINE:RaceBase_Swim|0	DEFINE:RaceBase_Fly|0	DEFINE:RaceBase_Climb|0
+###Block
+CATEGORY=Internal|Movement Mode.MOD	BONUS:VAR|Move_Walk|RaceBase_Walk|TYPE=Base
+CATEGORY=Internal|Movement Mode.MOD	BONUS:VAR|Move_Swim|RaceBase_Swim|TYPE=Base
+CATEGORY=Internal|Movement Mode.MOD	BONUS:VAR|Move_Fly|RaceBase_Fly|TYPE=Base
+CATEGORY=Internal|Movement Mode.MOD	BONUS:VAR|Move_Climb|RaceBase_Climb|TYPE=Base
+###Block
+CATEGORY=Internal|Movement Mode.MOD		ABILITY:Internal|AUTOMATIC|Movement Mode ~ Walk|PREVARGTEQ:Move_Walk,1
+CATEGORY=Internal|Movement Mode.MOD		ABILITY:Internal|AUTOMATIC|Movement Mode ~ Swim|PREVARGTEQ:Move_Swim,1
+CATEGORY=Internal|Movement Mode.MOD		ABILITY:Internal|AUTOMATIC|Movement Mode ~ Fly|PREVARGTEQ:Move_Fly,1
+CATEGORY=Internal|Movement Mode.MOD		ABILITY:Internal|AUTOMATIC|Movement Mode ~ Climb|PREVARGTEQ:Move_Climb,1
+
+###Block - For setting up correct display of movement. Do not use PREMOVE to detect these movements. It does not detect movement from BONUS tags.
+Movement Mode ~ Walk	CATEGORY:Internal	BONUS:MOVEADD|TYPE.Walk|Move_Walk	
+Movement Mode ~ Swim	CATEGORY:Internal	BONUS:MOVEADD|TYPE.Swim|Move_Swim	
+Movement Mode ~ Fly	CATEGORY:Internal	BONUS:MOVEADD|TYPE.Fly|Move_Fly	
+Movement Mode ~ Climb	CATEGORY:Internal	BONUS:MOVEADD|TYPE.Climb|Move_Climb	
+
+
+
