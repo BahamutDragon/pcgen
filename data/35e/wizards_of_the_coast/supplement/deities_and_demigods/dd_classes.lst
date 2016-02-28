@@ -1,0 +1,87 @@
+# CVS $Revision: $ $Author: $ -- Wed May 27 21:05:30 2015 -- reformated by PCGen PrettyLST v6.04.01
+
+
+# Class Name	Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page		Define			Combat bonus															Save bonus																														Modify VAR			Monster Role
+CLASS:Berserk	HD:12		TYPE:Prestige	FACT:ClassType|Prestige	FACT:Abb|Bsk		MAXLEVEL:10	SOURCEPAGE:DD	DEFINE:BerserkLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|BerserkLVL|CL	ROLE:Combat
+# Class Name	Required AL				Req. Att.		Required Armor Proficiencies		Required Shield Proficiencies		Req. Weapond Prof.
+CLASS:Berserk	PREALIGN:LN,TN,CN,LE,NE,CE	PRETOTALAB:3	PREPROFWITHARMOR:1,TYPE.Medium	PREPROFWITHSHIELD:1,TYPE.Shield	PREWEAPONPROF:1,Battleaxe,Longsword,Warhammer
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Berserk	STARTSKILLPTS:2	CSKILL:Climb|Intimidate|Handle Animal|Jump|Listen|Spot|Swim|Survival
+1	ABILITY:Berserk Class Feature|AUTOMATIC|Berserk ~ Weapon and Armor Proficiency|!PREABILITY:1,CATEGORY=ACF,TYPE.BerserkProficiencies
+1	ABILITY:Berserk Class Feature|AUTOMATIC|Berserk ~ Battle Fury|!PREABILITY:1,CATEGORY=ACF,TYPE.BerserkBattleFury
+1	ABILITY:Berserk Class Feature|AUTOMATIC|Berserk ~ Movement Bonus|!PREABILITY:1,CATEGORY=ACF,TYPE.BerserkMovement
+2	ABILITY:Berserk Class Feature|AUTOMATIC|Berserk ~ Damage Reduction|!PREABILITY:1,CATEGORY=ACF,TYPE.BerserkDR
+3	ABILITY:Berserk Class Feature|AUTOMATIC|Berserk ~ Beast Shape|!PREABILITY:1,CATEGORY=ACF,TYPE.BerserkBeast Shape
+
+# Class Name			Hit Dice	Type			Class Type			Abbreviation	Max Level	Ex Class				Source Page		Define				Combat bonus															Save bonus																													Modify VAR					Monster Role
+CLASS:Justiciar of Taiia	HD:6		TYPE:Prestige	FACT:ClassType|Prestige	FACT:Abb|Jus		MAXLEVEL:10	EXCLASS:Ex Justiciar of Taiia	SOURCEPAGE:DD	DEFINE:JusticiarOfTaiiaLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|JusticiarOfTaiiaLVL|CL	ROLE:Skill
+# Class Name			Required Ability							Required AL				Req. Att.		Required Skill
+CLASS:Justiciar of Taiia	PREABILITY:1,CATEGORY=Guild Category,Purifying Flame	PREALIGN:LN,TN,CN,LE,NE,CE	PRETOTALAB:4	PRESKILL:1,Knowledge (Religion)=6
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Justiciar of Taiia	STARTSKILLPTS:6	CSKILL:Concentration|Diplomacy|Gather Information|Hide|Intimidate|Knowledge (Religion)|Listen|Move Silently|Search|Sense Motive|Spellcraft|Spot
+# Class Name			Spell Stat		Spell Type		Automatically Known Spell Levels				Caster level
+CLASS:Justiciar of Taiia	SPELLSTAT:WIS	FACT:SpellType|Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Justiciar of Taiia|CL
+1	ABILITY:Justiciar of Taiia Class Feature|AUTOMATIC|Justiciar of Taiia ~ Weapon and Armor Proficiency|!PREABILITY:1,CATEGORY=ACF,TYPE.JusticiarOfTaiiaProficiencies
+1	ABILITY:Justiciar of Taiia Class Feature|AUTOMATIC|Justiciar of Taiia ~ Sneak Attack|!PREABILITY:1,CATEGORY=ACF,TYPE.JusticiarOfTaiiaSneakAttack
+2	ABILITY:Justiciar of Taiia Class Feature|AUTOMATIC|Justiciar of Taiia ~ Combat Sense|!PREABILITY:1,CATEGORY=ACF,TYPE.JusticiarOfTaiiaCombatSense
+3	ABILITY:Justiciar of Taiia Class Feature|AUTOMATIC|Justiciar of Taiia ~ Augury|!PREABILITY:1,CATEGORY=ACF,TYPE.JusticiarOfTaiiaAugury
+5	ABILITY:Justiciar of Taiia Class Feature|AUTOMATIC|Justiciar of Taiia ~ Divination|!PREABILITY:1,CATEGORY=ACF,TYPE.JusticiarOfTaiiaDivination
+###Block
+1	CAST:0,0
+2	CAST:0,1
+3	CAST:0,1,0
+4	CAST:0,1,1
+5	CAST:0,1,1,0
+6	CAST:0,1,1,1
+7	CAST:0,2,1,1,0
+8	CAST:0,2,1,1,1
+9	CAST:0,2,2,1,1
+10	CAST:0,2,2,2,1
+
+# Class Name			Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page		Visible	Define				Combat bonus															Save bonus																													Modify VAR					Monster Role
+CLASS:Ex Justiciar of Taiia	HD:6		TYPE:Prestige	FACT:ClassType|Prestige	FACT:Abb|xJus		MAXLEVEL:10	SOURCEPAGE:DD	VISIBLE:NO	DEFINE:JusticiarOfTaiiaLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|JusticiarOfTaiiaLVL|CL	ROLE:Skill
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Ex Justiciar of Taiia	STARTSKILLPTS:6	CSKILL:Concentration|Diplomacy|Gather Information|Hide|Intimidate|Knowledge (Religion)|Listen|Move Silently|Search|Sense Motive|Spellcraft|Spot
+###Block
+1	ABILITY:Justiciar of Taiia Class Feature|AUTOMATIC|Justiciar of Taiia ~ Weapon and Armor Proficiency|!PREABILITY:1,CATEGORY=ACF,TYPE.JusticiarOfTaiiaProficiencies
+1	ABILITY:Justiciar of Taiia Class Feature|AUTOMATIC|Justiciar of Taiia ~ Sneak Attack|!PREABILITY:1,CATEGORY=ACF,TYPE.JusticiarOfTaiiaSneakAttack
+2	ABILITY:Justiciar of Taiia Class Feature|AUTOMATIC|Justiciar of Taiia ~ Combat Sense|!PREABILITY:1,CATEGORY=ACF,TYPE.JusticiarOfTaiiaCombatSense
+
+# Class Name		Hit Dice	Type			Class Type			Abbreviation	Max Level	Ex Class				Source Page		Define				Combat bonus															Save bonus																														Modify VAR					Monster Role
+CLASS:Soldier of Light	HD:10		TYPE:Prestige	FACT:ClassType|Prestige	FACT:Abb|SoL		MAXLEVEL:10	EXCLASS:Ex Soldier of Light	SOURCEPAGE:DD	DEFINE:SoldierOfLightLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|SoldierOfLightLVL|CL	ROLE:Combat
+# Class Name		Required AL	Req. Att.		Required Deity		Required Skill
+CLASS:Soldier of Light	PREALIGN:NG	PRETOTALAB:5	PREDEITY:1,Elishar	PRESKILL:1,Knowledge (Religion)=4
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Soldier of Light	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Knowledge (Religion)|TYPE=Profession|Sense Motive|Spellcraft
+# Class Name		Spell Stat		Spell Type		Automatically Known Spell Levels				Caster level
+CLASS:Soldier of Light	SPELLSTAT:WIS	FACT:SpellType|Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Soldier of Light|CL
+###Block
+1	ABILITY:Soldier of Light Class Feature|AUTOMATIC|Soldier of Light ~ Weapon and Armor Proficiency|!PREABILITY:1,CATEGORY=ACF,TYPE.SoldierOfLightProficiencies
+1	ABILITY:Soldier of Light Class Feature|AUTOMATIC|Soldier of Light ~ Spontaneous Casting|!PREABILITY:1,CATEGORY=ACF,TYPE.SoldierOfLightSpontaneousCasting
+1	ABILITY:Soldier of Light Class Feature|AUTOMATIC|Soldier of Light ~ Detect Undead|!PREABILITY:1,CATEGORY=ACF,TYPE.SoldierOfLightDetectUndead
+1	ABILITY:Soldier of Light Class Feature|AUTOMATIC|Soldier of Light ~ Turn Undead|!PREABILITY:1,CATEGORY=ACF,TYPE.SoldierOfLightTurnUndead
+2	ABILITY:Soldier of Light Class Feature|AUTOMATIC|Soldier of Light ~ Divine Grace|!PREABILITY:1,CATEGORY=ACF,TYPE.SoldierOfLightDivineGrace
+2	ABILITY:Soldier of Light Class Feature|AUTOMATIC|Soldier of Light ~ Smite Undead|!PREABILITY:1,CATEGORY=ACF,TYPE.SoldierOfLightSmiteUndead
+3	ABILITY:Soldier of Light Class Feature|AUTOMATIC|Soldier of Light ~ Positive Fortitude|!PREABILITY:1,CATEGORY=ACF,TYPE.SoldierOfLightPositiveFortitude
+4	ABILITY:Soldier of Light Class Feature|AUTOMATIC|Soldier of Light ~ Energon Companion|!PREABILITY:1,CATEGORY=ACF,TYPE.SoldierOfLightEnergonCompanion
+5	ABILITY:Soldier of Light Class Feature|AUTOMATIC|Soldier of Light ~ Divine Vengeance|!PREABILITY:1,CATEGORY=ACF,TYPE.SoldierOfLightDivineVengeance
+7	ABILITY:Soldier of Light Class Feature|AUTOMATIC|Soldier of Light ~ Fast Healing|!PREABILITY:1,CATEGORY=ACF,TYPE.SoldierOfLightFastHealing
+8	ABILITY:Soldier of Light Class Feature|AUTOMATIC|Soldier of Light ~ Positive Energy Blast|!PREABILITY:1,CATEGORY=ACF,TYPE.SoldierOfLightPositiveEnergyBlast
+8	ABILITY:Soldier of Light Class Feature|AUTOMATIC|Soldier of Light ~ Energon Companion 2|!PREABILITY:1,CATEGORY=ACF,TYPE.SoldierOfLightEnergonCompanion
+###Block
+1	CAST:0,0
+2	CAST:0,1
+3	CAST:0,1,0
+4	CAST:0,1,1
+5	CAST:0,1,1,0
+6	CAST:0,1,1,1
+7	CAST:0,2,1,1,0
+8	CAST:0,2,1,1,1
+9	CAST:0,2,2,1,1
+10	CAST:0,2,2,2,1
+
+# Class Name			Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page		Visible	Define				Combat bonus															Save bonus																														Modify VAR					Monster Role
+CLASS:Ex Soldier of Light	HD:10		TYPE:Prestige	FACT:ClassType|Prestige	FACT:Abb|xSoL		MAXLEVEL:10	SOURCEPAGE:DD	VISIBLE:NO	DEFINE:SoldierOfLightLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:VAR|SoldierOfLightLVL|CL	ROLE:Combat
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Ex Soldier of Light	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Knowledge (Religion)|TYPE=Profession|Sense Motive|Spellcraft
+1	ABILITY:Soldier of Light Class Feature|AUTOMATIC|Soldier of Light ~ Weapon and Armor Proficiency|!PREABILITY:1,CATEGORY=ACF,TYPE.SoldierOfLightProficiencies

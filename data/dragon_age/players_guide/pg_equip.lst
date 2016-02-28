@@ -1,0 +1,98 @@
+# CVS $Revision: $ $Author: $ -- Thu Jul 10 13:59:32 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+#A backpack.
+#Traveler's garb.
+#A waterskin.
+#If you are a mage, you get one weapon and a wand (for your arcane lance).
+#If you are a rogue, you get light leather armor and two weapons.
+#If you are a warrior, you get heavy leather armor and three weapons.
+#If you choose a bow or crossbow, you get a quiver and 20 arrows or bolts.
+#If you have the Weapon and Shield talent, you get a medium shield.
+
+###Block: Armor
+# Equipment Name	Required Armor Proficiency		Type		Cost		Add to base move		Stat bonus								Special Property
+Light Leather	PROFICIENCY:ARMOR|Light Leather	TYPE:Armor	COST:15														SPROP:Armor Rating 3
+Heavy Leather	PROFICIENCY:ARMOR|Heavy Leather	TYPE:Armor	COST:30	BONUS:MOVEADD|Walk|-1	BONUS:STAT|DEX|-1|!PREPROFWITHARMOR:1,Heavy Leather	SPROP:Armor Rating 4
+Light Mail		PROFICIENCY:ARMOR|Light Mail		TYPE:Armor	COST:50	BONUS:MOVEADD|Walk|-2	BONUS:STAT|DEX|-2|!PREPROFWITHARMOR:1,Light Mail	SPROP:Armor Rating 5
+Heavy Mail		PROFICIENCY:ARMOR|Heavy Mail		TYPE:Armor	COST:75	BONUS:MOVEADD|Walk|-3	BONUS:STAT|DEX|-3|!PREPROFWITHARMOR:1,Heavy Mail	SPROP:Armor Rating 7
+Light Plate		PROFICIENCY:ARMOR|Light Plate		TYPE:Armor	COST:100	BONUS:MOVEADD|Walk|-4	BONUS:STAT|DEX|-4|!PREPROFWITHARMOR:1,Light Plate	SPROP:Armor Rating 8
+Heavy Plate		PROFICIENCY:ARMOR|Heavy Plate		TYPE:Armor	COST:150	BONUS:MOVEADD|Walk|-5	BONUS:STAT|DEX|-5|!PREPROFWITHARMOR:1,Heavy Plate	SPROP:Armor Rating 10
+
+###Block: Shields
+# Equipment Name	Type		Cost		Combat bonus
+Light Shield	TYPE:Shield	COST:15	BONUS:COMBAT|AC|1|TYPE=Shield
+Medium Shield	TYPE:Shield	COST:30	BONUS:COMBAT|AC|1|TYPE=Shield	BONUS:COMBAT|AC|2|TYPE=Shield|PREPROFWITHSHIELD:1,Medium Shield
+Heavy Shield	TYPE:Shield	COST:60	BONUS:COMBAT|AC|1|TYPE=Shield	BONUS:COMBAT|AC|3|TYPE=Shield|PREPROFWITHSHIELD:1,Heavy Shield
+
+###Block: Weapons
+# Axes Group
+# Equipment Name	Required Weapon Proficiency			Type								Cost		Required Stat	Damage
+Battle Axe		PROFICIENCY:WEAPON|Axes Group			TYPE:Weapon.Melee.Axes Group				COST:14	PRESTAT:1,STR=1	DAMAGE:2d6
+Throwing Axe	PROFICIENCY:WEAPON|Axes Group			TYPE:Weapon.Ranged.Throwing.Axes Group		COST:10	PRESTAT:1,STR=1	DAMAGE:1d6+2
+Two-Handed Axe	PROFICIENCY:WEAPON|Axes Group			TYPE:Weapon.Melee.Axes Group				COST:20	PRESTAT:1,STR=3	DAMAGE:3d6
+
+Mace			PROFICIENCY:WEAPON|Bludgeons Group		TYPE:Weapon.Melee.Bludgeons Group			COST:12	PRESTAT:1,STR=1	DAMAGE:2d6
+Maul			PROFICIENCY:WEAPON|Bludgeons Group		TYPE:Weapon.Melee.Bludgeons Group			COST:14	PRESTAT:1,STR=1	DAMAGE:1d6+3
+Two-Handed Maul	PROFICIENCY:WEAPON|Bludgeons Group		TYPE:Weapon.Melee.Bludgeons Group			COST:19	PRESTAT:1,STR=3	DAMAGE:2d6+3
+
+Crossbow		PROFICIENCY:WEAPON|Bows Group			TYPE:Weapon.Ranged.Bows Group				COST:20	PRESTAT:1,STR=1	DAMAGE:2d6+1
+Short Bow		PROFICIENCY:WEAPON|Bows Group			TYPE:Weapon.Ranged.Bows Group				COST:9	PRESTAT:1,STR=-1	DAMAGE:1d6+1
+Long Bow		PROFICIENCY:WEAPON|Bows Group			TYPE:Weapon.Ranged.Bows Group				COST:15	PRESTAT:1,STR=1	DAMAGE:1d6+3
+
+Fist			PROFICIENCY:WEAPON|Brawling Group		TYPE:Weapon.Melee.Brawling Group			COST:0				DAMAGE:1d3
+Gauntlet		PROFICIENCY:WEAPON|Brawling Group		TYPE:Weapon.Melee.Brawling Group			COST:4				DAMAGE:1d3+1
+Improvised Weapon	PROFICIENCY:WEAPON|Brawling Group		TYPE:Weapon.Melee.Brawling Group			COST:0				DAMAGE:1d6-1
+
+Bastard Sword	PROFICIENCY:WEAPON|Heavy Blades Group	TYPE:Weapon.Melee.Heavy Blades Group		COST:20	PRESTAT:1,STR=2	DAMAGE:2d6+1
+Long Sword		PROFICIENCY:WEAPON|Heavy Blades Group	TYPE:Weapon.Melee.Heavy Blades Group		COST:18	PRESTAT:1,STR=1	DAMAGE:2d6
+Two-Handed Sword	PROFICIENCY:WEAPON|Heavy Blades Group	TYPE:Weapon.Melee.Heavy Blades Group		COST:23	PRESTAT:1,STR=3	DAMAGE:3d6
+
+Dagger		PROFICIENCY:WEAPON|Light Blades Group	TYPE:Weapon.Melee.Light Blades Group		COST:9				DAMAGE:1d6+1
+Short Sword		PROFICIENCY:WEAPON|Light Blades Group	TYPE:Weapon.Melee.Light Blades Group		COST:14	PRESTAT:1,STR=-1	DAMAGE:1d6+2
+Throwing Knife	PROFICIENCY:WEAPON|Light Blades Group	TYPE:Weapon.Ranged.Throwing.Light Blades Group	COST:10				DAMAGE:1d6
+
+Spear			PROFICIENCY:WEAPON|Spears Group		TYPE:Weapon.Melee.Spears Group			COST:12	PRESTAT:1,STR=0	DAMAGE:1d6+3
+Throwing Spear	PROFICIENCY:WEAPON|Spears Group		TYPE:Weapon.Ranged.Throwing.Spears Group		COST:12	PRESTAT:1,STR=0	DAMAGE:1d6+3
+Two-handed Spear	PROFICIENCY:WEAPON|Spears Group		TYPE:Weapon.Melee.Spears Group			COST:20	PRESTAT:1,STR=1	DAMAGE:2d6
+
+Club			PROFICIENCY:WEAPON|Staves Group		TYPE:Weapon.Melee.Staves Group			COST:1				DAMAGE:1d6
+Morningstar		PROFICIENCY:WEAPON|Staves Group		TYPE:Weapon.Melee.Staves Group			COST:11	PRESTAT:1,STR=1	DAMAGE:1d6+3
+Quarterstaff	PROFICIENCY:WEAPON|Staves Group		TYPE:Weapon.Melee.Staves Group			COST:3				DAMAGE:1d6+1
+
+###Block: Adventurer's gear
+# Equipment Name		Unique Key			Type				Cost
+Arrows (20)							TYPE:Adventure Gear	COST:2
+Bolts (20)							TYPE:Adventure Gear	COST:3
+Backpack							TYPE:Adventure Gear	COST:9
+Candle (Pair)						TYPE:Adventure Gear	COST:0.05
+Flask								TYPE:Adventure Gear	COST:0.50
+Flint and Steel						TYPE:Adventure Gear	COST:0.10
+Healer's Kit						TYPE:Adventure Gear	COST:25
+Ink (Black, one vial)	KEY:Ink ~ Vial (Black)	TYPE:Adventure Gear	COST:0.20
+Lamp								TYPE:Adventure Gear	COST:2
+Lantern							TYPE:Adventure Gear	COST:5
+Lock Picks							TYPE:Adventure Gear	COST:12
+Mountain Garb						TYPE:Adventure Gear	COST:10
+Musical Instrument					TYPE:Adventure Gear	COST:10
+Oil, Pint			KEY:Oil (Pint)		TYPE:Adventure Gear	COST:0.08
+Pouch (Belt)						TYPE:Adventure Gear	COST:1
+Rope (20 Yards)						TYPE:Adventure Gear	COST:2
+Spike								TYPE:Adventure Gear	COST:0.05
+Tent, Large			KEY:Tent (Large)		TYPE:Adventure Gear	COST:35
+Tent, Small			KEY:Tent (Small)		TYPE:Adventure Gear	COST:10
+Torch								TYPE:Adventure Gear	COST:0.10
+Traveler's Garb						TYPE:Adventure Gear	COST:15
+Waterskin							TYPE:Adventure Gear	COST:0.40
+Whetstone							TYPE:Adventure Gear	COST:0.10
+
+# Animals, Mounts and Vehicles
+Cart								TYPE:Vehicle		COST:20
+Dog								TYPE:Animal			COST:15
+Draft Horse							TYPE:Animal.Mount		COST:50
+Falcon							TYPE:Animal			COST:75
+Feed (per day)						TYPE:Service		COST:0.05
+Mule								TYPE:Animal.Mount		COST:20
+Riding Horse						TYPE:Animal.Mount		COST:120
+Saddle							TYPE:Gear			COST:20
+Saddlebags							TYPE:Gear			COST:10
+Stabling (per day)					TYPE:Service		COST:0.10
+Wagon								TYPE:Vehicle		COST:150

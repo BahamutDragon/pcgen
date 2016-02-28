@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Sat Jan  4 10:54:50 2014 -- reformated by prettylst.pl v1.50 (build 22746)
+# CVS $Revision: $ $Author: $ -- Thu Jul 10 14:45:53 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 
 
 # Ability Name	Category of Ability	Template					Ability
@@ -18,13 +18,13 @@ Weapon Proficiencies ~ Soldier	CATEGORY:Special Ability	TYPE:Special	VISIBLE:NO	
 
 ###Block: Tracker - Need a method to deal with Not over granting on 2nd class.
 # Ability Name					Category of Ability	Type				Define				Automatically Gained Feat																											Ability										Bonus to Ability Pool																			Combat bonus								Bonus to HP			Bonus to skill rank								Modify VAR					Weapon prof. bonus
-Heroic PC Tracker					CATEGORY:Internal						DEFINE:HeroicLVL|0																																																																		BONUS:COMBAT|INITIATIVE|skillinfo("TOTAL", "Initiative")					BONUS:SKILLRANK|TYPE.Standard|HeroicLevels/2|TYPE=HeroicLevels							BONUS:WEAPONPROF=TYPE.Weapon|DAMAGE|HeroicLevels/2|TYPE=HeroicLevels
+Heroic PC Tracker					CATEGORY:Internal						DEFINE:HeroicLVL|0																																																																		BONUS:COMBAT|INITIATIVE|skillinfo("TOTAL", "Initiative")					BONUS:SKILLRANK|TYPE.Standard|HeroicLevels/2|TYPE=HeroicLevels							BONUS:WEAPONPROF=TYPE.Weapon|DAMAGE|HeroicLevels/2|TYPE=HeroicLevels	BONUS:ABILITYPOOL|Force-Using Tradition|1
 #
-First Class Level ~ Jedi			CATEGORY:Internal		TYPE:StartingClass	DEFINE:SkillTrainingCount|0	AUTO:FEAT|Force Sensitivity|Weapon Proficiency (Lightsabers)|Weapon Proficiency (Simple Weapons)															ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	BONUS:ABILITYPOOL|Jedi Skill Training|SkillTrainingCount																							BONUS:HP|CURRENTMAX|20												BONUS:VAR|SkillTrainingCount|INT+2
-First Class Level ~ Noble			CATEGORY:Internal		TYPE:StartingClass	DEFINE:SkillTrainingCount|0	AUTO:FEAT|Weapon Proficiency (Pistols)|Weapon Proficiency (Simple Weapons)	AUTO:FEAT|Linguist|PRESTAT:1,INT=13													ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	BONUS:ABILITYPOOL|Noble Skill Training|SkillTrainingCount																							BONUS:HP|CURRENTMAX|12												BONUS:VAR|SkillTrainingCount|INT+6
-First Class Level ~ Scoundrel			CATEGORY:Internal		TYPE:StartingClass	DEFINE:SkillTrainingCount|0	AUTO:FEAT|Weapon Proficiency (Pistols)|Point Blank Shot|Weapon Proficiency (Simple Weapons)																ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	BONUS:ABILITYPOOL|Scoundrel Skill Training|SkillTrainingCount																						BONUS:HP|CURRENTMAX|12												BONUS:VAR|SkillTrainingCount|INT+4
-First Class Level ~ Scout			CATEGORY:Internal		TYPE:StartingClass	DEFINE:SkillTrainingCount|0	AUTO:FEAT|Weapon Proficiency (Pistols)|Weapon Proficiency (Rifles)|Weapon Proficiency (Simple Weapons)	AUTO:FEAT|Shake It Off|PREFEAT:1,Skill Training (Endurance)|PRESTAT:1,CON=13	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	BONUS:ABILITYPOOL|Scout Skill Training|SkillTrainingCount																							BONUS:HP|CURRENTMAX|16												BONUS:VAR|SkillTrainingCount|INT+5
-First Class Level ~ Soldier			CATEGORY:Internal		TYPE:StartingClass	DEFINE:SkillTrainingCount|0	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)|Weapon Proficiency (Pistols)|Weapon Proficiency (Rifles)|Weapon Proficiency (Simple Weapons)						ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	BONUS:ABILITYPOOL|Soldier Skill Training|SkillTrainingCount																							BONUS:HP|CURRENTMAX|20												BONUS:VAR|SkillTrainingCount|INT+3
+First Class Level ~ Jedi			CATEGORY:Internal		TYPE:StartingClass	DEFINE:SkillTrainingCount|0	ABILITY:FEAT|AUTOMATIC|Force Sensitivity|Weapon Proficiency (Lightsabers)|Weapon Proficiency (Simple Weapons)															ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	BONUS:ABILITYPOOL|Jedi Skill Training|SkillTrainingCount																							BONUS:HP|CURRENTMAX|20												BONUS:VAR|SkillTrainingCount|max(0,INT+2)
+First Class Level ~ Noble			CATEGORY:Internal		TYPE:StartingClass	DEFINE:SkillTrainingCount|0	ABILITY:FEAT|AUTOMATIC|Weapon Proficiency (Pistols)|Weapon Proficiency (Simple Weapons)	ABILITY:FEAT|AUTOMATIC|Linguist|PRESTAT:1,INT=13													ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	BONUS:ABILITYPOOL|Noble Skill Training|SkillTrainingCount																							BONUS:HP|CURRENTMAX|12												BONUS:VAR|SkillTrainingCount|max(0,INT+6)
+First Class Level ~ Scoundrel			CATEGORY:Internal		TYPE:StartingClass	DEFINE:SkillTrainingCount|0	ABILITY:FEAT|AUTOMATIC|Point Blank Shot|Weapon Proficiency (Pistols)|Weapon Proficiency (Simple Weapons)																ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	BONUS:ABILITYPOOL|Scoundrel Skill Training|SkillTrainingCount																						BONUS:HP|CURRENTMAX|12												BONUS:VAR|SkillTrainingCount|max(0,INT+4)
+First Class Level ~ Scout			CATEGORY:Internal		TYPE:StartingClass	DEFINE:SkillTrainingCount|0	ABILITY:FEAT|AUTOMATIC|Weapon Proficiency (Pistols)|Weapon Proficiency (Rifles)|Weapon Proficiency (Simple Weapons)	ABILITY:FEAT|AUTOMATIC|Shake It Off|PREABILITY:1,CATEGORY=FEAT,Skill Training (Endurance)|PRESTAT:1,CON=13	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	BONUS:ABILITYPOOL|Scout Skill Training|SkillTrainingCount																							BONUS:HP|CURRENTMAX|16												BONUS:VAR|SkillTrainingCount|max(0,INT+5)
+First Class Level ~ Soldier			CATEGORY:Internal		TYPE:StartingClass	DEFINE:SkillTrainingCount|0	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)|Armor Proficiency (Medium)|Weapon Proficiency (Pistols)|Weapon Proficiency (Rifles)|Weapon Proficiency (Simple Weapons)						ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	BONUS:ABILITYPOOL|Soldier Skill Training|SkillTrainingCount																							BONUS:HP|CURRENTMAX|20												BONUS:VAR|SkillTrainingCount|max(0,INT+3)
 #
 CATEGORY=Internal|Heroic PC Tracker.MOD																																																								BONUS:ABILITYPOOL|Jedi Multiclass Selection|1|PREPCLEVEL:MIN=2|PRECLASS:1,Jedi=1|!PRETEMPLATE:1,First Level ~ Jedi
 CATEGORY=Internal|Heroic PC Tracker.MOD																																																								BONUS:ABILITYPOOL|Noble Multiclass Selection|1|PREPCLEVEL:MIN=2|PRECLASS:1,Noble=1|!PRETEMPLATE:1,First Level ~ Noble
@@ -35,113 +35,113 @@ CATEGORY=Internal|Heroic PC Tracker.MOD																																									
 ###Block: Species Traits
 
 # Ability Name			Ability
-CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Airborne ~ Species Trait|PRERACE:1,RACESUBTYPE=Airborne
-CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Aquatic ~ Species Trait|PRERACE:1,RACESUBTYPE=Aquatic
-CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Arctic ~ Species Trait|PRERACE:1,RACESUBTYPE=Arctic
-CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Desert ~ Species Trait|PRERACE:1,RACESUBTYPE=Desert
-CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Subterranean ~ Species Trait|PRERACE:1,RACESUBTYPE=Subterranean
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Species Trait ~ Airborne|PRERACE:1,RACESUBTYPE=Airborne
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Species Trait ~ Aquatic|PRERACE:1,RACESUBTYPE=Aquatic
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Species Trait ~ Arctic|PRERACE:1,RACESUBTYPE=Arctic
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Species Trait ~ Desert|PRERACE:1,RACESUBTYPE=Desert
+CATEGORY=Internal|Default.MOD	ABILITY:Special Ability|AUTOMATIC|Species Trait ~ Subterranean|PRERACE:1,RACESUBTYPE=Subterranean
 
 ###Block:
 # Ability Name	Unique Key					Category of Ability		Type						Description																		Source Page
-Airborne		KEY:Airborne ~ Species Trait		CATEGORY:Special Ability	TYPE:SpeciesTrait.SpecialQuality	DESC:May reroll Initiative checks but must keep the second result, even if it's worse.					SOURCEPAGE:p.275
-Aquatic		KEY:Aquatic ~ Species Trait		CATEGORY:Special Ability	TYPE:SpeciesTrait.SpecialQuality	DESC:Can't drown in water and doesn't need to make Swim checks; low-light vision (see page 257).			SOURCEPAGE:p.275
-Arctic		KEY:Arctic ~ Species Trait		CATEGORY:Special Ability	TYPE:SpeciesTrait.SpecialQuality	DESC:May reroll Survival checks made to endure extreme cold, keeping the better result.					SOURCEPAGE:p.275
-Desert		KEY:Desert ~ Species Trait		CATEGORY:Special Ability	TYPE:SpeciesTrait.SpecialQuality	DESC:May reroll Survival checks made to endure extreme heat, keeping the better result.					SOURCEPAGE:p.275
-Subterranean	KEY:Subterranean ~ Species Trait	CATEGORY:Special Ability	TYPE:SpeciesTrait.SpecialQuality	DESC:May reroll Perception checks but must keep the second result, even if it's worse; darkvision (see page 257).	SOURCEPAGE:p.275
+Airborne		KEY:Species Trait ~ Airborne		CATEGORY:Special Ability	TYPE:Species Trait.SpecialQuality	DESC:May reroll Initiative checks but must keep the second result, even if it's worse.					SOURCEPAGE:p.275
+Aquatic		KEY:Species Trait ~ Aquatic		CATEGORY:Special Ability	TYPE:Species Trait.SpecialQuality	DESC:Can't drown in water and doesn't need to make Swim checks; low-light vision (see page 257).			SOURCEPAGE:p.275
+Arctic		KEY:Species Trait ~ Arctic		CATEGORY:Special Ability	TYPE:Species Trait.SpecialQuality	DESC:May reroll Survival checks made to endure extreme cold, keeping the better result.					SOURCEPAGE:p.275
+Desert		KEY:Species Trait ~ Desert		CATEGORY:Special Ability	TYPE:Species Trait.SpecialQuality	DESC:May reroll Survival checks made to endure extreme heat, keeping the better result.					SOURCEPAGE:p.275
+Subterranean	KEY:Species Trait ~ Subterranean	CATEGORY:Special Ability	TYPE:Species Trait.SpecialQuality	DESC:May reroll Perception checks but must keep the second result, even if it's worse; darkvision (see page 257).	SOURCEPAGE:p.275
 
 ###Block: Species Traits
 # Ability Name			Category of Ability	Define			Ability												Stat bonus									Modify VAR
-Species Trait ~ Human		CATEGORY:Internal						ABILITY:Human Species Trait|AUTOMATIC|TYPE=HumanSpeciesTrait
-Species Trait ~ Bothan		CATEGORY:Internal						ABILITY:Bothan Species Trait|AUTOMATIC|TYPE=BothanSpeciesTrait
-Species Trait ~ Cerean		CATEGORY:Internal						ABILITY:Cerean Species Trait|AUTOMATIC|TYPE=CereanSpeciesTrait
-Species Trait ~ Duros		CATEGORY:Internal						ABILITY:Duros Species Trait|AUTOMATIC|TYPE=DurosSpeciesTrait
-Species Trait ~ Ewok		CATEGORY:Internal						ABILITY:Ewok Species Trait|AUTOMATIC|TYPE=EwokSpeciesTrait
-Species Trait ~ Gamorrean	CATEGORY:Internal						ABILITY:Gamorrean Species Trait|AUTOMATIC|TYPE=GamorreanSpeciesTrait
-Species Trait ~ Gungan		CATEGORY:Internal						ABILITY:Gungan Species Trait|AUTOMATIC|TYPE=GunganSpeciesTrait
-Species Trait ~ Ithorian	CATEGORY:Internal						ABILITY:Ithorian Species Trait|AUTOMATIC|TYPE=IthorianSpeciesTrait
-Species Trait ~ Kel Dor		CATEGORY:Internal						ABILITY:Kel Dor Species Trait|AUTOMATIC|TYPE=Kel DorSpeciesTrait
-Species Trait ~ Mon Calamari	CATEGORY:Internal						ABILITY:Mon Calamari Species Trait|AUTOMATIC|TYPE=Mon CalamariSpeciesTrait
-Species Trait ~ Quarren		CATEGORY:Internal						ABILITY:Quarren Species Trait|AUTOMATIC|TYPE=QuarrenSpeciesTrait
-Species Trait ~ Rodian		CATEGORY:Internal						ABILITY:Rodian Species Trait|AUTOMATIC|TYPE=RodianSpeciesTrait
-Species Trait ~ Sullustan	CATEGORY:Internal						ABILITY:Sullustan Species Trait|AUTOMATIC|TYPE=SullustanSpeciesTrait
-Species Trait ~ Trandoshan	CATEGORY:Internal						ABILITY:Trandoshan Species Trait|AUTOMATIC|TYPE=TrandoshanSpeciesTrait
-Species Trait ~ Twi'Lek		CATEGORY:Internal						ABILITY:Twi'lek Species Trait|AUTOMATIC|TYPE=Twi'LekSpeciesTrait
-Species Trait ~ Wookie		CATEGORY:Internal						ABILITY:Wookie Species Trait|AUTOMATIC|TYPE=WookieSpeciesTrait
-Species Trait ~ Zabrak		CATEGORY:Internal						ABILITY:Zabrak Species Trait|AUTOMATIC|TYPE=ZabrakSpeciesTrait
-Species Trait ~ Droid		CATEGORY:Internal		DEFINE:CostFactor|0	ABILITY:Droid Species Trait|AUTOMATIC|TYPE=DroidSpeciesTrait			BONUS:STAT|STR|-2|PRESIZEEQ:S	BONUS:STAT|DEX|2|PRESIZEEQ:S	BONUS:VAR|CostFactor|2|PRESIZEEQ:S	BONUS:VAR|CostFactor|1|PRESIZEEQ:M
+Species Trait ~ Human		CATEGORY:Internal						ABILITY:Human Species Trait|AUTOMATIC|TYPE=Human Species Trait
+Species Trait ~ Bothan		CATEGORY:Internal						ABILITY:Bothan Species Trait|AUTOMATIC|TYPE=Bothan Species Trait
+Species Trait ~ Cerean		CATEGORY:Internal						ABILITY:Cerean Species Trait|AUTOMATIC|TYPE=Cerean Species Trait
+Species Trait ~ Duros		CATEGORY:Internal						ABILITY:Duros Species Trait|AUTOMATIC|TYPE=Duros Species Trait
+Species Trait ~ Ewok		CATEGORY:Internal						ABILITY:Ewok Species Trait|AUTOMATIC|TYPE=Ewok Species Trait
+Species Trait ~ Gamorrean	CATEGORY:Internal						ABILITY:Gamorrean Species Trait|AUTOMATIC|TYPE=Gamorrean Species Trait
+Species Trait ~ Gungan		CATEGORY:Internal						ABILITY:Gungan Species Trait|AUTOMATIC|TYPE=Gungan Species Trait
+Species Trait ~ Ithorian	CATEGORY:Internal						ABILITY:Ithorian Species Trait|AUTOMATIC|TYPE=Ithorian Species Trait
+Species Trait ~ Kel Dor		CATEGORY:Internal						ABILITY:Kel Dor Species Trait|AUTOMATIC|TYPE=Kel Dor Species Trait
+Species Trait ~ Mon Calamari	CATEGORY:Internal						ABILITY:Mon Calamari Species Trait|AUTOMATIC|TYPE=Mon Calamari Species Trait
+Species Trait ~ Quarren		CATEGORY:Internal						ABILITY:Quarren Species Trait|AUTOMATIC|TYPE=Quarren Species Trait
+Species Trait ~ Rodian		CATEGORY:Internal						ABILITY:Rodian Species Trait|AUTOMATIC|TYPE=Rodian Species Trait
+Species Trait ~ Sullustan	CATEGORY:Internal						ABILITY:Sullustan Species Trait|AUTOMATIC|TYPE=Sullustan Species Trait
+Species Trait ~ Trandoshan	CATEGORY:Internal						ABILITY:Trandoshan Species Trait|AUTOMATIC|TYPE=Trandoshan Species Trait
+Species Trait ~ Twi'Lek		CATEGORY:Internal						ABILITY:Twi'lek Species Trait|AUTOMATIC|TYPE=Twi'Lek Species Trait
+Species Trait ~ Wookie		CATEGORY:Internal						ABILITY:Wookie Species Trait|AUTOMATIC|TYPE=Wookie Species Trait
+Species Trait ~ Zabrak		CATEGORY:Internal						ABILITY:Zabrak Species Trait|AUTOMATIC|TYPE=Zabrak Species Trait
+Species Trait ~ Droid		CATEGORY:Internal		DEFINE:CostFactor|0	ABILITY:Droid Species Trait|AUTOMATIC|TYPE=Droid Species Trait			BONUS:STAT|STR|-2|PRESIZEEQ:S	BONUS:STAT|DEX|2|PRESIZEEQ:S	BONUS:VAR|CostFactor|2|PRESIZEEQ:S	BONUS:VAR|CostFactor|1|PRESIZEEQ:M
 
 ###Block:
 # Human
-# Ability Name			Unique Key						Category of Ability		Type										Description																																																																																																																		Automatically Gained Weapon Prof.	Save checks bonus					Source Page
-Bonus Trained Skill		KEY:Bonus Trained Skill ~ Human		CATEGORY:Special Ability	TYPE:SpeciesTrait.HumanSpeciesTrait.SpecialQuality		DESC:Humans are versatile and accomplished at many tasks. A Human character chooses one additional trained skill at 1st level. The skill must be chosen from the character's list of class skills (see Chapter 3: Heroic Classes).																																																																																											SOURCEPAGE:p.23
-Bonus Feat				KEY:Bonus Feat ~ Human				CATEGORY:Special Ability	TYPE:SpeciesTrait.HumanSpeciesTrait.SpecialQuality		DESC:Humans gain one bonus feat at 1st level (see Chapter 5: Feats).																																																																																																																					SOURCEPAGE:p.23
+# Ability Name			Unique Key						Category of Ability		Type										Description																																																																																																																		Automatically Gained Weapon Prof.	Source Page		Bonus
+Bonus Trained Skill		KEY:Human ~ Bonus Trained Skill				CATEGORY:Special Ability	TYPE:Species Trait.Human Species Trait.SpecialQuality				DESC:Humans are versatile and accomplished at many tasks. A Human character chooses one additional trained skill at 1st level. The skill must be chosen from the character's list of class skills (see Chapter 3: Heroic Classes).																																																																																				SOURCEPAGE:p.23
+Bonus Feat			KEY:Human ~ Bonus Feat					CATEGORY:Special Ability	TYPE:Species Trait.Human Species Trait.SpecialQuality				DESC:Humans gain one bonus feat at 1st level (see Chapter 5: Feats).																																																																																																														SOURCEPAGE:p.23
 # Bothan
-Iron Will				KEY:Iron Will ~ Bothan				CATEGORY:Special Ability	TYPE:SpeciesTrait.BothanSpeciesTrait.SpecialQuality		DESC:Bothans have above-average willpower and gain a +2 species bonus to their Will Defense.																																																																																																																	SOURCEPAGE:p.24
-Conditional Bonus Feat		KEY:Conditional Bonus Feat ~ Bothan		CATEGORY:Special Ability	TYPE:SpeciesTrait.BothanSpeciesTrait.SpecialQuality		DESC:Bothans are natural spies and investigators. A Bothan with Gather Information as a trained skill gains Skill Focus (Gather Information) as a bonus feat.																																																																																																						SOURCEPAGE:p.24
+Iron Will				KEY:Bothan ~ Iron Will				CATEGORY:Special Ability	TYPE:Species Trait.Bothan Species Trait.SpecialQuality		DESC:Bothans have above-average willpower and gain a +2 species bonus to their Will Defense.																																																																																																										SOURCEPAGE:p.24
+Conditional Bonus Feat		KEY:Bothan ~ Conditional Bonus Feat		CATEGORY:Special Ability	TYPE:Species Trait.Bothan Species Trait.SpecialQuality		DESC:Bothans are natural spies and investigators. A Bothan with Gather Information as a trained skill gains Skill Focus (Gather Information) as a bonus feat.																																																																																															SOURCEPAGE:p.24
 # Cerean
-Intuitive Initiative		KEY:Intuitive Initiative ~ Cerean		CATEGORY:Special Ability	TYPE:SpeciesTrait.CereanSpeciesTrait.SpecialQuality		DESC:A Cerean may choose to reroll any Initiative check, but the result of the reroll must be accepted even if it is worse. Despite their general lack of coordination, Cereans' reaction speed is superior to that of most other species.																																																																																									SOURCEPAGE:p.25
-Conditional Bonus Feat		KEY:Conditional Bonus Feat ~ Cerean		CATEGORY:Special Ability	TYPE:SpeciesTrait.CereanSpeciesTrait.SpecialQuality		DESC:A Cerean with Initiative as a trained skill gains Skill Focus (Initiative) as a bonus feat.																																																																																																																SOURCEPAGE:p.25
+Intuitive Initiative		KEY:Cerean ~ Intuitive Initiative		CATEGORY:Special Ability	TYPE:Species Trait.Cerean Species Trait.SpecialQuality		DESC:A Cerean may choose to reroll any Initiative check, but the result of the reroll must be accepted even if it is worse. Despite their general lack of coordination, Cereans' reaction speed is superior to that of most other species.																																																																																		SOURCEPAGE:p.25
+Conditional Bonus Feat		KEY:Cerean ~ Conditional Bonus Feat		CATEGORY:Special Ability	TYPE:Species Trait.Cerean Species Trait.SpecialQuality		DESC:A Cerean with Initiative as a trained skill gains Skill Focus (Initiative) as a bonus feat.																																																																																																									SOURCEPAGE:p.25
 # Duros
-Expert Pilot			KEY:Expert Pilot ~ Duros			CATEGORY:Special Ability	TYPE:SpeciesTrait.DurosSpeciesTrait.SpecialQuality		DESC:As natural spacers, a Duros may choose to reroll any Pilot check, but the result of the reroll must be accepted even if it is worse.																																																																																																										SOURCEPAGE:p.25
+Expert Pilot			KEY:Duros ~ Expert Pilot			CATEGORY:Special Ability	TYPE:Species Trait.Duros Species Trait.SpecialQuality		DESC:As natural spacers, a Duros may choose to reroll any Pilot check, but the result of the reroll must be accepted even if it is worse.																																																																																																			SOURCEPAGE:p.25
 # Ewok
-Primitive				KEY:Primitive ~ Ewok				CATEGORY:Special Ability	TYPE:SpeciesTrait.EwokSpeciesTrait.SpecialQuality		DESC:Ewoks do not gain Weapon Proficiency (pistols, rifles, or heavy weapons) as starting feats at 1st level, even if their class normally grants them.																																																																																																							SOURCEPAGE:p.26
-Scent					KEY:Scent ~ Ewok					CATEGORY:Special Ability	TYPE:SpeciesTrait.EwokSpeciesTrait.SpecialQuality		DESC:Ewoks have a keen sense of smell. At close range (within 10 squares). Ewoks ignore concealment and cover for purposes of Perception checks, and they take no penalty from poor visibility when tracking (see Survival skill, page 73).																																																																																									SOURCEPAGE:p.26
-Sneaky				KEY:Sneaky ~ Ewok					CATEGORY:Special Ability	TYPE:SpeciesTrait.EwokSpeciesTrait.SpecialQuality		DESC:An Ewok may choose to reroll any Stealth check, but the result of the reroll must be accepted even if it is worse.																																																																																																													SOURCEPAGE:p.26
-Conditional Bonus Feat		KEY:Conditional Bonus Feat ~ Ewok		CATEGORY:Special Ability	TYPE:SpeciesTrait.EwokSpeciesTrait.SpecialQuality		DESC:Ewoks are skilled foragers. An Ewok with Survival as a trained skill gains Skill Focus (Survival) as a bonus feat.																																																																																																													SOURCEPAGE:p.26
+Primitive				KEY:Ewok ~ Primitive				CATEGORY:Special Ability	TYPE:Species Trait.Ewok Species Trait.SpecialQuality		DESC:Ewoks do not gain Weapon Proficiency (pistols, rifles, or heavy weapons) as starting feats at 1st level, even if their class normally grants them.																																																																																																SOURCEPAGE:p.26
+Scent					KEY:Ewok ~ Scent					CATEGORY:Special Ability	TYPE:Species Trait.Ewok Species Trait.SpecialQuality		DESC:Ewoks have a keen sense of smell. At close range (within 10 squares). Ewoks ignore concealment and cover for purposes of Perception checks, and they take no penalty from poor visibility when tracking (see Survival skill, page 73).																																																																																		SOURCEPAGE:p.26
+Sneaky				KEY:Ewok ~ Sneaky					CATEGORY:Special Ability	TYPE:Species Trait.Ewok Species Trait.SpecialQuality		DESC:An Ewok may choose to reroll any Stealth check, but the result of the reroll must be accepted even if it is worse.																																																																																																						SOURCEPAGE:p.26
+Conditional Bonus Feat		KEY:Ewok ~ Conditional Bonus Feat		CATEGORY:Special Ability	TYPE:Species Trait.Ewok Species Trait.SpecialQuality		DESC:Ewoks are skilled foragers. An Ewok with Survival as a trained skill gains Skill Focus (Survival) as a bonus feat.																																																																																																						SOURCEPAGE:p.26
 # Gamorrean
-Primitive				KEY:Primitive ~ Gamorrean			CATEGORY:Special Ability	TYPE:SpeciesTrait.GamorreanSpeciesTrait.SpecialQuality	DESC:Gamorreans do not gain Weapon Proficiency (pistols, rifles, or heavy weapons) as starting feats at 1st level, even if their class normally grants them.																																																																																																						SOURCEPAGE:p.26
-Great Fortitude			KEY:Great Fortitude ~ Gamorrean		CATEGORY:Special Ability	TYPE:SpeciesTrait.GamorreanSpeciesTrait.SpecialQuality	DESC:Gamorreans gain a +2 species bonus to their Fortitude Defense, accounting for their great physical resistance.																																																																																																													SOURCEPAGE:p.26
-Bonus Feat				KEY:Bonus Feat ~ Gamorrean			CATEGORY:Special Ability	TYPE:SpeciesTrait.GamorreanSpeciesTrait.SpecialQuality	DESC:Gamorreans gain Improved Damage Threshold as a bonus feat.																																																																																																																						SOURCEPAGE:p.26
+Primitive				KEY:Gamorrean ~ Primitive			CATEGORY:Special Ability	TYPE:Species Trait.Gamorrean Species Trait.SpecialQuality	DESC:Gamorreans do not gain Weapon Proficiency (pistols, rifles, or heavy weapons) as starting feats at 1st level, even if their class normally grants them.																																																																																															SOURCEPAGE:p.26
+Great Fortitude			KEY:Gamorrean ~ Great Fortitude		CATEGORY:Special Ability	TYPE:Species Trait.Gamorrean Species Trait.SpecialQuality	DESC:Gamorreans gain a +2 species bonus to their Fortitude Defense, accounting for their great physical resistance.																																																																																																						SOURCEPAGE:p.26
+Bonus Feat				KEY:Gamorrean ~ Bonus Feat			CATEGORY:Special Ability	TYPE:Species Trait.Gamorrean Species Trait.SpecialQuality	DESC:Gamorreans gain Improved Damage Threshold as a bonus feat.																																																																																																															SOURCEPAGE:p.26
 # Gungan
-Expert Swimmer			KEY:Expert Swimmer ~ Gungan			CATEGORY:Special Ability	TYPE:SpeciesTrait.GunganSpeciesTrait.SpecialQuality		DESC:A Gungan may choose to reroll any Swim check, but the result of the reroll must be accepted even if it is worse. In addition, a Gungan may choose to take 10 on Swim checks even when distracted or threatened.																																																																																													SOURCEPAGE:p.27
-Hold Breath				KEY:Hold Breath ~ Gungan			CATEGORY:Special Ability	TYPE:SpeciesTrait.GunganSpeciesTrait.SpecialQuality		DESC:Gungans are at home either in air or water. A Gungan can hold his breath for a number of rounds equal to 25 times his Constitution score before he needs to make Endurance checks to hold his breath (see the Endurance skill, page 66).																																																																																									SOURCEPAGE:p.27
-Lightning Reflexes		KEY:Lightning Reflexes ~ Gungan		CATEGORY:Special Ability	TYPE:SpeciesTrait.GunganSpeciesTrait.SpecialQuality		DESC:Gungans gain a +2 species bonus to their Reflex Defense, accounting for their uncanny ability to avoid danger.																																																																																																													SOURCEPAGE:p.27
-Low-Light Vision			KEY:Low-Light Vision ~ Gungan			CATEGORY:Special Ability	TYPE:SpeciesTrait.GunganSpeciesTrait.SpecialQuality		DESC:Gungans ignore concealment (but not total concealment) from darkness.																																																																																																																				SOURCEPAGE:p.27
-Weapon Familiarity		KEY:Weapon Familiarity ~ Gungan		CATEGORY:Special Ability	TYPE:SpeciesTrait.GunganSpeciesTrait.SpecialQuality		DESC:Gungans with the Weapon Proficiency (simple weapons) feat are proficient with the atlatl and the cesta (see page 121).																																																																																																												SOURCEPAGE:p.27
+Expert Swimmer			KEY:Gungan ~ Expert Swimmer			CATEGORY:Special Ability	TYPE:Species Trait.Gungan Species Trait.SpecialQuality		DESC:A Gungan may choose to reroll any Swim check, but the result of the reroll must be accepted even if it is worse. In addition, a Gungan may choose to take 10 on Swim checks even when distracted or threatened.																																																																																						SOURCEPAGE:p.27
+Hold Breath				KEY:Gungan ~ Hold Breath			CATEGORY:Special Ability	TYPE:Species Trait.Gungan Species Trait.SpecialQuality		DESC:Gungans are at home either in air or water. A Gungan can hold his breath for a number of rounds equal to 25 times his Constitution score before he needs to make Endurance checks to hold his breath (see the Endurance skill, page 66).																																																																																		SOURCEPAGE:p.27
+Lightning Reflexes		KEY:Gungan ~ Lightning Reflexes		CATEGORY:Special Ability	TYPE:Species Trait.Gungan Species Trait.SpecialQuality		DESC:Gungans gain a +2 species bonus to their Reflex Defense, accounting for their uncanny ability to avoid danger.																																																																																																						SOURCEPAGE:p.27
+Low-Light Vision			KEY:Gungan ~ Low-Light Vision			CATEGORY:Special Ability	TYPE:Species Trait.Gungan Species Trait.SpecialQuality		DESC:Gungans ignore concealment (but not total concealment) from darkness.																																																																																																													SOURCEPAGE:p.27
+Weapon Familiarity		KEY:Gungan ~ Weapon Familiarity		CATEGORY:Special Ability	TYPE:Species Trait.Gungan Species Trait.SpecialQuality		DESC:Gungans with the Weapon Proficiency (simple weapons) feat are proficient with the atlatl and the cesta (see page 121).																																																																																																					SOURCEPAGE:p.27
 # Ithorian
-Iron Will				KEY:Iron Will ~ Ithorian			CATEGORY:Special Ability	TYPE:SpeciesTrait.IthorianSpeciesTrait.SpecialQuality		DESC:Ithorians have above-average willpower and gain a +2 species bonus to their Will Defense.																																																																																																																	SOURCEPAGE:p.27
-Bellow				KEY:Bellow ~ Ithorian				CATEGORY:Special Ability	TYPE:SpeciesTrait.IthorianSpeciesTrait.SpecialQuality		DESC:As a standard action, an Ithorian can open all four of its throats and emit a terrible subsonic bellow. The Ithorian makes a special attack roll (ld20 + its character level) and compares the result to the Fortitude Defense of all creatures and unattended objects in a 6-square cone. A successful hit deals 3d6 points of sonic damage; if the attack misses, the target takes half damage instead. Each use of this ability moves the Ithorian -1 step along the condition track (see Conditions, page 148). An Ithorian can choose to add more dice (d6s) to the damage it deals with its bellow, but each additional 1d6 of damage moves the Ithorian another-1 step along the condition track.														SOURCEPAGE:p.27
-Survival Instinct			KEY:Survival Instinct ~ Ithorian		CATEGORY:Special Ability	TYPE:SpeciesTrait.IthorianSpeciesTrait.SpecialQuality		DESC:An Ithorian may choose to reroll any Survival check, but the result of the reroll must be accepted even if it is worse.																																																																																																												SOURCEPAGE:p.28
-Conditional Bonus Feat		KEY:Conditional Bonus Feat ~ Ithorian	CATEGORY:Special Ability	TYPE:SpeciesTrait.IthorianSpeciesTrait.SpecialQuality		DESC:Ithorians like to maintain close ties with nature. An Ithorian with Knowledge (life sciences) as a trained skill gains Skill Focus (Knowledge [life sciences]) as a bonus feat.																																																																																																		SOURCEPAGE:p.28
+Iron Will				KEY:Ithorian ~ Iron Will			CATEGORY:Special Ability	TYPE:Species Trait.Ithorian Species Trait.SpecialQuality		DESC:Ithorians have above-average willpower and gain a +2 species bonus to their Will Defense.																																																																																																										SOURCEPAGE:p.27
+Bellow				KEY:Ithorian ~ Bellow				CATEGORY:Special Ability	TYPE:Species Trait.Ithorian Species Trait.SpecialQuality		DESC:As a standard action, an Ithorian can open all four of its throats and emit a terrible subsonic bellow. The Ithorian makes a special attack roll (ld20 + its character level) and compares the result to the Fortitude Defense of all creatures and unattended objects in a 6-square cone. A successful hit deals 3d6 points of sonic damage; if the attack misses, the target takes half damage instead. Each use of this ability moves the Ithorian -1 step along the condition track (see Conditions, page 148). An Ithorian can choose to add more dice (d6s) to the damage it deals with its bellow, but each additional 1d6 of damage moves the Ithorian another-1 step along the condition track.							SOURCEPAGE:p.27
+Survival Instinct			KEY:Ithorian ~ Survival Instinct		CATEGORY:Special Ability	TYPE:Species Trait.Ithorian Species Trait.SpecialQuality		DESC:An Ithorian may choose to reroll any Survival check, but the result of the reroll must be accepted even if it is worse.																																																																																																					SOURCEPAGE:p.28
+Conditional Bonus Feat		KEY:Ithorian ~ Conditional Bonus Feat	CATEGORY:Special Ability	TYPE:Species Trait.Ithorian Species Trait.SpecialQuality		DESC:Ithorians like to maintain close ties with nature. An Ithorian with Knowledge (life sciences) as a trained skill gains Skill Focus (Knowledge [life sciences]) as a bonus feat.																																																																																											SOURCEPAGE:p.28
 # Kel Dor
-Keen Force Sense			KEY:Keen Force Sense ~ Kel Dor		CATEGORY:Special Ability	TYPE:SpeciesTrait.Kel DorSpeciesTrait.SpecialQuality		DESC:Kel Dor may choose to reroll any Use the Force check made to search their feelings or sense the Force, keeping the better of the two results.																																																																																																								SOURCEPAGE:p.28
-Low-Light Vision			KEY:Low-Light Vision ~ Kel Dor		CATEGORY:Special Ability	TYPE:SpeciesTrait.Kel DorSpeciesTrait.SpecialQuality		DESC:Kel Dor ignore concealment (but not total concealment) from darkness.																																																																																																																				SOURCEPAGE:p.28
-Special Equipment			KEY:Special Equipment ~ Kel Dor		CATEGORY:Special Ability	TYPE:SpeciesTrait.Kel DorSpeciesTrait.SpecialQuality		DESC:Kel Dor suffer limitations outside their native atmosphere. Without protective goggles, a Kel Dor is considered blind (see page 254). Without an antiox breath mask, a Kel Dor begins to suffocate (see Endurance, page 66). A replacement mask costs 2,000 credits (500 on Dorin)' and a year's supply of filters costs 200 credits (50 on Dorin). Kel Dor characters begin play with these items at no cost. An antiox breath mask is poisonous to other species (see page 255).																																																		SOURCEPAGE:p.28
+Keen Force Sense			KEY:Kel Dor ~ Keen Force Sense		CATEGORY:Special Ability	TYPE:Species Trait.Kel Dor Species Trait.SpecialQuality		DESC:Kel Dor may choose to reroll any Use the Force check made to search their feelings or sense the Force, keeping the better of the two results.																																																																																																	SOURCEPAGE:p.28
+Low-Light Vision			KEY:Kel Dor ~ Low-Light Vision		CATEGORY:Special Ability	TYPE:Species Trait.Kel Dor Species Trait.SpecialQuality		DESC:Kel Dor ignore concealment (but not total concealment) from darkness.																																																																																																													SOURCEPAGE:p.28
+Special Equipment			KEY:Kel Dor ~ Special Equipment		CATEGORY:Special Ability	TYPE:Species Trait.Kel Dor Species Trait.SpecialQuality		DESC:Kel Dor suffer limitations outside their native atmosphere. Without protective goggles, a Kel Dor is considered blind (see page 254). Without an antiox breath mask, a Kel Dor begins to suffocate (see Endurance, page 66). A replacement mask costs 2,000 credits (500 on Dorin)' and a year's supply of filters costs 200 credits (50 on Dorin). Kel Dor characters begin play with these items at no cost. An antiox breath mask is poisonous to other species (see page 255).																																											SOURCEPAGE:p.28
 # Mon Calamari
-Breathe Underwater		KEY:Breathe Underwater ~ Mon Calamari	CATEGORY:Special Ability	TYPE:SpeciesTrait.Mon CalamariSpeciesTrait.SpecialQuality	DESC:As amphibious creatures, Mon Calamari can't drown in water.																																																																																																																						SOURCEPAGE:p.29
-Expert Swimmer			KEY:Expert Swimmer ~ Mon Calamari		CATEGORY:Special Ability	TYPE:SpeciesTrait.Mon CalamariSpeciesTrait.SpecialQuality	DESC:A Mon Calamari may choose to reroll any Swim check, but the result of the reroll must be accepted even if it is worse. In addition, a Man Calamari may choose to take 10 on Swim checks even when distracted or threatened.																																																																																											SOURCEPAGE:p.29
-Low-Light Vision			KEY:Low-Light Vision ~ Mon Calamari		CATEGORY:Special Ability	TYPE:SpeciesTrait.Mon CalamariSpeciesTrait.SpecialQuality	DESC:Mon Calamari ignore concealment (but not total concealment) from darkness.																																																																																																																			SOURCEPAGE:p.29
-Conditional Bonus Feat		KEY:Conditional Bonus Feat ~ Mon Calamari	CATEGORY:Special Ability	TYPE:SpeciesTrait.Mon CalamariSpeciesTrait.SpecialQuality	DESC:Keenly perceptive, a Mon Calamari with Perception as a trained skill gains Skill Focus (Perception) as a bonus feat.																																																																																																												SOURCEPAGE:p.29
+Breathe Underwater		KEY:Mon Calamari ~ Breathe Underwater	CATEGORY:Special Ability	TYPE:Species Trait.Mon Calamari Species Trait.SpecialQuality	DESC:As amphibious creatures, Mon Calamari can't drown in water.																																																																																																															SOURCEPAGE:p.29
+Expert Swimmer			KEY:Mon Calamari ~ Expert Swimmer		CATEGORY:Special Ability	TYPE:Species Trait.Mon Calamari Species Trait.SpecialQuality	DESC:A Mon Calamari may choose to reroll any Swim check, but the result of the reroll must be accepted even if it is worse. In addition, a Man Calamari may choose to take 10 on Swim checks even when distracted or threatened.																																																																																				SOURCEPAGE:p.29
+Low-Light Vision			KEY:Mon Calamari ~ Low-Light Vision		CATEGORY:Special Ability	TYPE:Species Trait.Mon Calamari Species Trait.SpecialQuality	DESC:Mon Calamari ignore concealment (but not total concealment) from darkness.																																																																																																												SOURCEPAGE:p.29
+Conditional Bonus Feat		KEY:Mon Calamari ~ Conditional Bonus Feat	CATEGORY:Special Ability	TYPE:Species Trait.Mon Calamari Species Trait.SpecialQuality	DESC:Keenly perceptive, a Mon Calamari with Perception as a trained skill gains Skill Focus (Perception) as a bonus feat.																																																																																																					SOURCEPAGE:p.29
 # Quarren
-Breathe Underwater		KEY:Breathe Underwater ~ Quarren		CATEGORY:Special Ability	TYPE:SpeciesTrait.QuarrenSpeciesTrait.SpecialQuality		DESC:As amphibious creatures, Quarren can't drown in water.																																																																																																																							SOURCEPAGE:p.29
-Expert Swimmer			KEY:Expert Swimmer ~ Quarren			CATEGORY:Special Ability	TYPE:SpeciesTrait.QuarrenSpeciesTrait.SpecialQuality		DESC:A Quarren may choose to reroll any Swim check, but the result of the reroll must be accepted even if it is worse. In addition, a Quarren may choose to take 10 on Swim checks even when distracted or threatened.																																																																																													SOURCEPAGE:p.29
-Low-Light Vision			KEY:Low-Light Vision ~ Quarren		CATEGORY:Special Ability	TYPE:SpeciesTrait.QuarrenSpeciesTrait.SpecialQuality		DESC:Quarren ignore concealment (but not total concealment) from darkness.																																																																																																																				SOURCEPAGE:p.29
-Conditional Bonus Feat		KEY:Conditional Bonus Feat ~ Quarren	CATEGORY:Special Ability	TYPE:SpeciesTrait.QuarrenSpeciesTrait.SpecialQuality		DESC:Adept traders and negotiators, Quarren with Persuasion as a trained skill gains Skill Focus (Persuasion) as a bonus feat.																																																																																																											SOURCEPAGE:p.29
+Breathe Underwater		KEY:Quarren ~ Breathe Underwater		CATEGORY:Special Ability	TYPE:Species Trait.Quarren Species Trait.SpecialQuality		DESC:As amphibious creatures, Quarren can't drown in water.																																																																																																																SOURCEPAGE:p.29
+Expert Swimmer			KEY:Quarren ~ Expert Swimmer			CATEGORY:Special Ability	TYPE:Species Trait.Quarren Species Trait.SpecialQuality		DESC:A Quarren may choose to reroll any Swim check, but the result of the reroll must be accepted even if it is worse. In addition, a Quarren may choose to take 10 on Swim checks even when distracted or threatened.																																																																																						SOURCEPAGE:p.29
+Low-Light Vision			KEY:Quarren ~ Low-Light Vision		CATEGORY:Special Ability	TYPE:Species Trait.Quarren Species Trait.SpecialQuality		DESC:Quarren ignore concealment (but not total concealment) from darkness.																																																																																																													SOURCEPAGE:p.29
+Conditional Bonus Feat		KEY:Quarren ~ Conditional Bonus Feat	CATEGORY:Special Ability	TYPE:Species Trait.Quarren Species Trait.SpecialQuality		DESC:Adept traders and negotiators, Quarren with Persuasion as a trained skill gains Skill Focus (Persuasion) as a bonus feat.																																																																																																				SOURCEPAGE:p.29
 # Rodian
-Heightened Awareness		KEY:Heightened Awareness ~ Rodian		CATEGORY:Special Ability	TYPE:SpeciesTrait.RodianSpeciesTrait.SpecialQuality		DESC:A Rodian may choose to reroll any Perception check, but the result of the reroll must be accepted even if it is worse.																																																																																																												SOURCEPAGE:p.30
-Low-Light Vision			KEY:Low-Light Vision ~ Rodian			CATEGORY:Special Ability	TYPE:SpeciesTrait.RodianSpeciesTrait.SpecialQuality		DESC:Rodians ignore concealment (but not total concealment) from darkness.																																																																																																																				SOURCEPAGE:p.30
-Conditional Bonus Feat		KEY:Conditional Bonus Feat ~ Rodian		CATEGORY:Special Ability	TYPE:SpeciesTrait.RodianSpeciesTrait.SpecialQuality		DESC:Rodians are taught how to track and survive in the wilderness of Rodia from a very young age. A Rodian with Survival as a trained skill gains Skill Focus (Survival) as a bonus feat.																																																																																																	SOURCEPAGE:p.30
+Heightened Awareness		KEY:Rodian ~ Heightened Awareness		CATEGORY:Special Ability	TYPE:Species Trait.Rodian Species Trait.SpecialQuality		DESC:A Rodian may choose to reroll any Perception check, but the result of the reroll must be accepted even if it is worse.																																																																																																					SOURCEPAGE:p.30
+Low-Light Vision			KEY:Rodian ~ Low-Light Vision			CATEGORY:Special Ability	TYPE:Species Trait.Rodian Species Trait.SpecialQuality		DESC:Rodians ignore concealment (but not total concealment) from darkness.																																																																																																													SOURCEPAGE:p.30
+Conditional Bonus Feat		KEY:Rodian ~ Conditional Bonus Feat		CATEGORY:Special Ability	TYPE:Species Trait.Rodian Species Trait.SpecialQuality		DESC:Rodians are taught how to track and survive in the wilderness of Rodia from a very young age. A Rodian with Survival as a trained skill gains Skill Focus (Survival) as a bonus feat.																																																																																										SOURCEPAGE:p.30
 # Sullustan
-Darkvision				KEY:Darkvision ~ Sullustan			CATEGORY:Special Ability	TYPE:SpeciesTrait.SullustanSpeciesTrait.SpecialQuality	DESC:Sullustans ignore concealment (including total con cealment) from darkness. However, they cannot perceive colors in total darkness.																																																																																																										SOURCEPAGE:p.30
-Expert Climber			KEY:Expert Climber ~ Sullustan		CATEGORY:Special Ability	TYPE:SpeciesTrait.SullustanSpeciesTrait.SpecialQuality	DESC:Sullustans are adept at climbing in their underground homes. A Sullustan may choose to take 10 on Climb checks even when distracted or threatened.																																																																																																							SOURCEPAGE:p.31
-Heightened Awareness		KEY:Heightened Awareness ~ Sullustan	CATEGORY:Special Ability	TYPE:SpeciesTrait.SullustanSpeciesTrait.SpecialQuality	DESC:A Sullustan may choose to reroll any Perception check, but the result of the reroll must be accepted even if it is worse.																																																																																																											SOURCEPAGE:p.31
+Darkvision				KEY:Sullustan ~ Darkvision			CATEGORY:Special Ability	TYPE:Species Trait.Sullustan Species Trait.SpecialQuality	DESC:Sullustans ignore concealment (including total con cealment) from darkness. However, they cannot perceive colors in total darkness.																																																																																																			SOURCEPAGE:p.30
+Expert Climber			KEY:Sullustan ~ Expert Climber		CATEGORY:Special Ability	TYPE:Species Trait.Sullustan Species Trait.SpecialQuality	DESC:Sullustans are adept at climbing in their underground homes. A Sullustan may choose to take 10 on Climb checks even when distracted or threatened.																																																																																																SOURCEPAGE:p.31
+Heightened Awareness		KEY:Sullustan ~ Heightened Awareness	CATEGORY:Special Ability	TYPE:Species Trait.Sullustan Species Trait.SpecialQuality	DESC:A Sullustan may choose to reroll any Perception check, but the result of the reroll must be accepted even if it is worse.																																																																																																				SOURCEPAGE:p.31
 # Trandoshan
-Darkvision				KEY:Darkvision ~ Trandoshan			CATEGORY:Special Ability	TYPE:SpeciesTrait.TrandoshanSpeciesTrait.SpecialQuality	DESC:Trandoshans ignore concealment (including total concealment) from darkness. However, they cannot perceive colors in total darkness.																																																																																																										SOURCEPAGE:p.31
-Limb Regeneration			KEY:Limb Regeneration ~ Trandoshan		CATEGORY:Special Ability	TYPE:SpeciesTrait.TrandoshanSpeciesTrait.SpecialQuality	DESC:A Trandoshan regrows a lost limb in ldl0 days. At the end of that time, all persistent penalties associated with the loss of the limb are removed.																																																																																																							SOURCEPAGE:p.31
-Natural Armor			KEY:Natural Armor ~ Trandoshan		CATEGORY:Special Ability	TYPE:SpeciesTrait.TrandoshanSpeciesTrait.SpecialQuality	DESC:Trandoshans have thick scales that provide a + 1 natural armor bonus to their Reflex Defense. A natural armor bonus stacks with an armor bonus.																																																																																																								SOURCEPAGE:p.31
-Bonus Feat				KEY:Bonus Feat ~ Trandoshan			CATEGORY:Special Ability	TYPE:SpeciesTrait.TrandoshanSpeciesTrait.SpecialQuality	DESC:Rugged and resilient, Trandoshans gain Toughness as a bonus feat.																																																																																																																					SOURCEPAGE:p.31
+Darkvision				KEY:Trandoshan ~ Darkvision			CATEGORY:Special Ability	TYPE:Species Trait.Trandoshan Species Trait.SpecialQuality	DESC:Trandoshans ignore concealment (including total concealment) from darkness. However, they cannot perceive colors in total darkness.																																																																																																			SOURCEPAGE:p.31
+Limb Regeneration			KEY:Trandoshan ~ Limb Regeneration		CATEGORY:Special Ability	TYPE:Species Trait.Trandoshan Species Trait.SpecialQuality	DESC:A Trandoshan regrows a lost limb in ldl0 days. At the end of that time, all persistent penalties associated with the loss of the limb are removed.																																																																																																SOURCEPAGE:p.31
+Natural Armor			KEY:Trandoshan ~ Natural Armor		CATEGORY:Special Ability	TYPE:Species Trait.Trandoshan Species Trait.SpecialQuality	DESC:Trandoshans have thick scales that provide a + 1 natural armor bonus to their Reflex Defense. A natural armor bonus stacks with an armor bonus.																																																																																																	SOURCEPAGE:p.31
+Bonus Feat				KEY:Trandoshan ~ Bonus Feat			CATEGORY:Special Ability	TYPE:Species Trait.Trandoshan Species Trait.SpecialQuality	DESC:Rugged and resilient, Trandoshans gain Toughness as a bonus feat.																																																																																																														SOURCEPAGE:p.31
 # Twi'lek
-Deceptive				KEY:Deceptive ~ Twi'lek				CATEGORY:Special Ability	TYPE:SpeciesTrait.Twi'lekSpeciesTrait.SpecialQuality		DESC:Naturally gifted at manipulation, you may choose to reroll any Deception check, but the result of the reroll must be accepted even if it is worse.																																																																																																							SOURCEPAGE:p.32
-Great Fortitude			KEY:Great Fortitude ~ Twi'lek			CATEGORY:Special Ability	TYPE:SpeciesTrait.Twi'lekSpeciesTrait.SpecialQuality		DESC:You gain a +2 species bonus to your Fortitude Defense. You have great health with a natural resistance to toxins and illness.																																																																																																				BONUS:CHECKS|Fortitude|2|TYPE=Species	SOURCEPAGE:p.32
+Deceptive				KEY:Twi'lek ~ Deceptive				CATEGORY:Special Ability	TYPE:Species Trait.Twi'lek Species Trait.SpecialQuality		DESC:Naturally gifted at manipulation, you may choose to reroll any Deception check, but the result of the reroll must be accepted even if it is worse.																																																																																																SOURCEPAGE:p.32
+Great Fortitude			KEY:Twi'lek ~ Great Fortitude			CATEGORY:Special Ability	TYPE:Species Trait.Twi'lek Species Trait.SpecialQuality		DESC:You gain a +2 species bonus to your Fortitude Defense. You have great health with a natural resistance to toxins and illness.																																																																																																				SOURCEPAGE:p.32	BONUS:SAVE|Fortitude|2|TYPE=Species
 # Wookie
-Extraordinary Recuperation	KEY:Extraordinary Recuperation ~ Wookie	CATEGORY:Special Ability	TYPE:SpeciesTrait.WookieSpeciesTrait.SpecialQuality		DESC:A Wookiee regains hit points at double the normal rate (see Natural Healing, page 148).																																																																																																																	SOURCEPAGE:p.32
-Rage					KEY:Rage ~ Wookie					CATEGORY:Special Ability	TYPE:SpeciesTrait.WookieSpeciesTrait.SpecialAttack.Rage	DESC:Once per day, a Wookiee can fly into a rage as a swift action. While raging, the Wookiee temporarily gains a +2 rage bonus on melee attack rolls and melee damage rolls but cannot use skills that require patience and concentration, such as Mechanics, Stealth, or Use the Force. A fit of rage lasts for a number of rounds equal to 5 + the Wookiee's Constitution modifier. At the end of its rage, a Wookiee moves -1 persistent step along the condition track (see Conditions, page 148). The penalties imposed by this condition persist until the Wookiee takes at least 10 minutes to recuperate, during which time the Wookiee can't engage in any strenuous activity.																		SOURCEPAGE:p.32
-Weapon Familiarity		KEY:Weapon Familiarity ~ Wookie		CATEGORY:Special Ability	TYPE:SpeciesTrait.WookieSpeciesTrait.SpecialQuality		DESC:Wookies treat bowcasters as rifles instead of exotic weapons.																																																																																																								AUTO:WEAPONPROF|Bowcaster									SOURCEPAGE:p.32
+Extraordinary Recuperation	KEY:Wookie ~ Extraordinary Recuperation	CATEGORY:Special Ability	TYPE:Species Trait.Wookie Species Trait.SpecialQuality		DESC:A Wookiee regains hit points at double the normal rate (see Natural Healing, page 148).																																																																																																										SOURCEPAGE:p.32
+Rage					KEY:Wookie ~ Rage					CATEGORY:Special Ability	TYPE:Species Trait.Wookie Species Trait.SpecialAttack.Rage	DESC:Once per day, a Wookiee can fly into a rage as a swift action. While raging, the Wookiee temporarily gains a +2 rage bonus on melee attack rolls and melee damage rolls but cannot use skills that require patience and concentration, such as Mechanics, Stealth, or Use the Force. A fit of rage lasts for a number of rounds equal to 5 + the Wookiee's Constitution modifier. At the end of its rage, a Wookiee moves -1 persistent step along the condition track (see Conditions, page 148). The penalties imposed by this condition persist until the Wookiee takes at least 10 minutes to recuperate, during which time the Wookiee can't engage in any strenuous activity.											SOURCEPAGE:p.32
+Weapon Familiarity		KEY:Wookie ~ Weapon Familiarity		CATEGORY:Special Ability	TYPE:Species Trait.Wookie Species Trait.SpecialQuality		DESC:Wookies treat bowcasters as rifles instead of exotic weapons.																																																																																																								AUTO:WEAPONPROF|Bowcaster		SOURCEPAGE:p.32
 # Zabrak
-Heightened Awareness		KEY:Heightened Awareness ~ Zabrak		CATEGORY:Special Ability	TYPE:SpeciesTrait.ZabrakSpeciesTrait.SpecialQuality		DESC:Having strong survival instincts and quick reactions, a Zabrak may choose to reroll any Perception check, but the result of the reroll must be accepted even if it is worse.																																																																																																			SOURCEPAGE:p.33
-Superior Defenses			KEY:Superior Defenses ~ Zabrak		CATEGORY:Special Ability	TYPE:SpeciesTrait.ZabrakSpeciesTrait.SpecialQuality		DESC:Adapted to a very tough and trying environment, Zabrak gain a + 1 species bonus to all of their defenses.																																																																																																														SOURCEPAGE:p.33
+Heightened Awareness		KEY:Zabrak ~ Heightened Awareness		CATEGORY:Special Ability	TYPE:Species Trait.Zabrak Species Trait.SpecialQuality		DESC:Having strong survival instincts and quick reactions, a Zabrak may choose to reroll any Perception check, but the result of the reroll must be accepted even if it is worse.																																																																																												SOURCEPAGE:p.33
+Superior Defenses			KEY:Zabrak ~ Superior Defenses		CATEGORY:Special Ability	TYPE:Species Trait.Zabrak Species Trait.SpecialQuality		DESC:Adapted to a very tough and trying environment, Zabrak gain a + 1 species bonus to all of their defenses.																																																																																																							SOURCEPAGE:p.33
 # Droid
-Nonliving				KEY:Nonliving ~ Droid				CATEGORY:Special Ability	TYPE:SpeciesTrait.DroidSpeciesTrait.SpecialQuality		DESC:A droid is immune to poison, disease, radiation, noncorrosive atmospheric hazards, vacuum, mind-affecting effects, stunning effects, and any other effect that works only on living targets. Droids have no connection to the Force and can't gain the Force Sensitivity feat or learn Force powers.
+Nonliving				KEY:Droid ~ Nonliving				CATEGORY:Special Ability	TYPE:Species Trait.Droid Species Trait.SpecialQuality		DESC:A droid is immune to poison, disease, radiation, noncorrosive atmospheric hazards, vacuum, mind-affecting effects, stunning effects, and any other effect that works only on living targets. Droids have no connection to the Force and can't gain the Force Sensitivity feat or learn Force powers.
 
 # Acklay
 Immunity to Radiation									CATEGORY:Special Ability	TYPE:SpecialQuality
@@ -155,75 +155,76 @@ Immunity to Radiation									CATEGORY:Special Ability	TYPE:SpecialQuality
 5th-Degree		KEY:Droid 5th Degree	CATEGORY:Internal		TYPE:DroidDegree	DESC:Labor, utility droids		TEMPLATE:5th-degree	BONUS:STAT|STR|4|TYPE=Racial	BONUS:STAT|INT,CHA|-4|TYPE=Racial
 
 ###Block: Droid Size
-# Ability Name	Category of Ability	Type			PRECHARACTERTYPE			Template
+# Ability Name		Category of Ability	Type			PRECHARACTERTYPE			Template
 Droid Fine		CATEGORY:Internal		TYPE:DroidSize	PRECHARACTERTYPE:1,NPC		TEMPLATE:Fine
 Droid Diminutive	CATEGORY:Internal		TYPE:DroidSize	PRECHARACTERTYPE:1,NPC		TEMPLATE:Diminutive
 Droid Tiny		CATEGORY:Internal		TYPE:DroidSize	PRECHARACTERTYPE:1,NPC		TEMPLATE:Tiny
 Droid Small		CATEGORY:Internal		TYPE:DroidSize	PRECHARACTERTYPE:1,PC,NPC	TEMPLATE:Small
-Droid Medium	CATEGORY:Internal		TYPE:DroidSize	PRECHARACTERTYPE:1,PC,NPC	TEMPLATE:Medium
+Droid Medium		CATEGORY:Internal		TYPE:DroidSize	PRECHARACTERTYPE:1,PC,NPC	TEMPLATE:Medium
 Droid Large		CATEGORY:Internal		TYPE:DroidSize	PRECHARACTERTYPE:1,NPC		TEMPLATE:Large
 Droid Huge		CATEGORY:Internal		TYPE:DroidSize	PRECHARACTERTYPE:1,NPC		TEMPLATE:Huge
 Droid Gargantuan	CATEGORY:Internal		TYPE:DroidSize	PRECHARACTERTYPE:1,NPC		TEMPLATE:Gargantuan
-Droid Colossal	CATEGORY:Internal		TYPE:DroidSize	PRECHARACTERTYPE:1,NPC		TEMPLATE:Colossal
+Droid Colossal		CATEGORY:Internal		TYPE:DroidSize	PRECHARACTERTYPE:1,NPC		TEMPLATE:Colossal
 
 ###Block: Jedi Class Feature
-# Ability Name	Category of Ability		Type
-Build Lightsaber	CATEGORY:Special Ability	TYPE:ClassFeatures.JediClassFeatures.SpecialQuality
+# Ability Name			Category of Ability		Type
+Build Lightsaber		CATEGORY:Special Ability	TYPE:Class Feature.Jedi Class Feature.SpecialQuality
 
 
 ###Block: Jedi Talent Trees
 # Jedi Consular Talent Tree
-# Ability Name		Category of Ability	Type							Required Ability						Description																																																																																																																		Source Page
+# Ability Name			Category of Ability	Type							Required Ability					Description																																																																																																																		Source Page
 Adept Negotiator		CATEGORY:Talent		TYPE:JediTalent.Talent.JediConsularTalent									DESC:As a standard action, you can weaken the resolve of one enemy with your words. The target must have an Intelligence of 3 or higher, and it must be able to see, hear, and understand you. Make a Persuasion check; if the result equals or exceeds the target's Will Defense, it moves - 1 step along the condition track (see Conditions, page 148). The target gets a +5 bonus to its Will Defense if it is highter level than you. If the target reaches the end of the track, it does not fall unconscious; instead, it cannot attack you or your allies for the remainder of the encounter unless you or one of your allies attacks it or one of its allies first. This is a mind-affecting effect.	SOURCEPAGE:p.39
-Force Persuasion		CATEGORY:Talent		TYPE:JediTalent.Talent.JediConsularTalent	PREABILITY:1,CATEGORY=Talent,Adept Negotiator	DESC:You can use your Use the Force check modifier instead of your Persuasion check modifier when making Persuasion checks. You are considered trained in the Persuasion skill for purposes of using this talent. If you are entitled t o a Persuasion check reroll, you may reroll your Use the Force check instead (subject to the same circumstances and limitations).																																																							SOURCEPAGE:p.40
-Master Negotiator		CATEGORY:Talent		TYPE:JediTalent.Talent.JediConsularTalent	PREABILITY:1,CATEGORY=Talent,Adept Negotiator	DESC:Negotiator: If you successfully use the Adept Negotiator talent (see above). your target moves an additional -1 step along the condition track (-2 steps total) . This is a mind-affecting effect.																																																																																		SOURCEPAGE:p.40
-Skilled Advisor		CATEGORY:Talent		TYPE:JediTalent.Talent.JediConsularTalent									DESC:You can spend a full-round action advising an ally, thereby granting her a +5 bonus on her next skill check. If you spend a Force Point, the bonus increases to + 10. The target must be able (and willing) to hear and understand your advice. You cannot advise yourself. This is a mind-affecting effect.																																																																	SOURCEPAGE:p.40
+Force Persuasion		CATEGORY:Talent		TYPE:JediTalent.Talent.JediConsularTalent	PREABILITY:1,CATEGORY=Talent,Adept Negotiator			DESC:You can use your Use the Force check modifier instead of your Persuasion check modifier when making Persuasion checks. You are considered trained in the Persuasion skill for purposes of using this talent. If you are entitled t o a Persuasion check reroll, you may reroll your Use the Force check instead (subject to the same circumstances and limitations).																																																							SOURCEPAGE:p.40
+Master Negotiator		CATEGORY:Talent		TYPE:JediTalent.Talent.JediConsularTalent	PREABILITY:1,CATEGORY=Talent,Adept Negotiator			DESC:Negotiator: If you successfully use the Adept Negotiator talent (see above). your target moves an additional -1 step along the condition track (-2 steps total) . This is a mind-affecting effect.																																																																																		SOURCEPAGE:p.40
+Skilled Advisor			CATEGORY:Talent		TYPE:JediTalent.Talent.JediConsularTalent									DESC:You can spend a full-round action advising an ally, thereby granting her a +5 bonus on her next skill check. If you spend a Force Point, the bonus increases to + 10. The target must be able (and willing) to hear and understand your advice. You cannot advise yourself. This is a mind-affecting effect.																																																																	SOURCEPAGE:p.40
 
 # Jedi Guardian Talent Tree
-Acrobatic Recovery	CATEGORY:Talent		TYPE:JediTalent.Talent.JediGuardianTalent									DESC:If an effect causes you to fall prone, you can make a DC 20 Acrobatics check to remain on your feet.																																																																																																		SOURCEPAGE:p.40
+Acrobatic Recovery		CATEGORY:Talent		TYPE:JediTalent.Talent.JediGuardianTalent									DESC:If an effect causes you to fall prone, you can make a DC 20 Acrobatics check to remain on your feet.																																																																																																		SOURCEPAGE:p.40
 Battle Meditation		CATEGORY:Talent		TYPE:JediTalent.Talent.JediGuardianTalent									DESC:The Jedi technique known as Battle Meditation allows you and your allies to work together seamlessly and with a level of precision that can only come from the Force. As a full-round action, you can spend a Force Point to give you and all allies within 6 squares of you a + 1 insight bonus on attack rolls that lasts until the end of the encounter. This bonus does not extend to allies outside the range of the effect, even if they move within 6 squares of you later on. Allies who benefit from the Battle Meditation must remain within 6 squares of you to retain the insight bonus, and they lose it if you are knocked unconscious or killed. This is a mind-affecting effect.			SOURCEPAGE:p.40
-Elusive Target		CATEGORY:Talent		TYPE:JediTalent.Talent.JediGuardianTalent									DESC:When fighting an opponent or multiple opponents in melee, other opponents attempting to target you with ranged attacks take a -5 penalty. This penalty is in addition to the normal -5 penalty for firing into melee (see Shooting or Throwing into a Melee, page 161). making the penalty to target you -10.																																																																SOURCEPAGE:p.40
-#< Need Pg and Desc below this point >
-Force Intuition		CATEGORY:Talent		TYPE:JediTalent.Talent.JediGuardianTalent																																																																																																																												SOURCEPAGE:p.
-Resilience			CATEGORY:Talent		TYPE:JediTalent.Talent.JediGuardianTalent																																																																																																																												SOURCEPAGE:p.
+Elusive Target			CATEGORY:Talent		TYPE:JediTalent.Talent.JediGuardianTalent									DESC:When fighting an opponent or multiple opponents in melee, other opponents attempting to target you with ranged attacks take a -5 penalty. This penalty is in addition to the normal -5 penalty for firing into melee (see Shooting or Throwing into a Melee, page 161). making the penalty to target you -10.																																																																SOURCEPAGE:p.40
+Force Intuition			CATEGORY:Talent		TYPE:JediTalent.Talent.JediGuardianTalent									DESC:Make a Use the Force check instead of an Initiative check.																																																																																																																											SOURCEPAGE:p.
+Resilience			CATEGORY:Talent		TYPE:JediTalent.Talent.JediGuardianTalent									DESC:Spend a full round action to move +2 along the condition track.																																																																																																																											SOURCEPAGE:p.
 
 # Jedi Sentinel Talent Tree
-Clear Mind			CATEGORY:Talent		TYPE:JediTalent.Talent.JediSentinelTalent																																																																																																																												SOURCEPAGE:p.
-Dark Side Sense		CATEGORY:Talent		TYPE:JediTalent.Talent.JediSentinelTalent																																																																																																																												SOURCEPAGE:p.
-Dark Side Scourge		CATEGORY:Talent		TYPE:JediTalent.Talent.JediSentinelTalent	PREABILITY:1,CATEGORY=Talent,Dark Side Sense																																																																																																																				SOURCEPAGE:p.
-Force Haze			CATEGORY:Talent		TYPE:JediTalent.Talent.JediSentinelTalent	PREABILITY:1,CATEGORY=Talent,Clear Mind																																																																																																																					SOURCEPAGE:p.
-Resist the Dark Side	CATEGORY:Talent		TYPE:JediTalent.Talent.JediSentinelTalent	PREABILITY:1,CATEGORY=Talent,Dark Side Sense																																																																																																																				SOURCEPAGE:p.
+Clear Mind			CATEGORY:Talent		TYPE:JediTalent.Talent.JediSentinelTalent									DESC:Reroll Use the Force check when avoiding detection from other force-users.																																																																																																																			SOURCEPAGE:p.
+Dark Side Sense			CATEGORY:Talent		TYPE:JediTalent.Talent.JediSentinelTalent									DESC:Reroll Use the Force check to sense the presence of those with a Dark Side Score of 1+.																																																																																																																			SOURCEPAGE:p.
+Dark Side Scourge		CATEGORY:Talent		TYPE:JediTalent.Talent.JediSentinelTalent	PREABILITY:1,CATEGORY=Talent,Dark Side Sense			DESC:Deal extra damage with melee attacks versus creatures with a Dark Side Score of 1+.																																																																																																																	SOURCEPAGE:p.
+Force Haze			CATEGORY:Talent		TYPE:JediTalent.Talent.JediSentinelTalent	PREABILITY:1,CATEGORY=Talent,Clear Mind				DESC:Conceal you and allies in haze to avoid detection from others in line of sight.																																																																																																																	SOURCEPAGE:p.
+Resist the Dark Side		CATEGORY:Talent		TYPE:JediTalent.Talent.JediSentinelTalent	PREABILITY:1,CATEGORY=Talent,Dark Side Sense			DESC:Gain a +5 bonus to all Defense scores versus Dark Side powers and Dark Force-users.																																																																																																																	SOURCEPAGE:p.
+
+#< Need Pg and Desc below this point >
 
 ###Block: Lightsaber Combat Talent Tree
-# Ability Name				Category of Ability	Type								Required Ability					Req. Att.	Required Feat					Description																																																																											Weapon prof. bonus								Source Page
-Block						CATEGORY:Talent		TYPE:JediTalent.Talent.LightsaberCombatTalent																	DESC:As a reaction, you may negate a melee attack by making a successful Use the Force check. The DC of the skill check is equal to the result of the attack roll you wish to negate, and you take a cumulative -5 penalty on your Use the Force check for every time you have used Block or Deflect since the beginning of your last turn. You must have a lightsaber drawn and ignited to use this talent, and you must be aware of the attack and not flat-footed.												SOURCEPAGE:p.
-Deflect					CATEGORY:Talent		TYPE:JediTalent.Talent.LightsaberCombatTalent																	DESC:As a reaction, you may negate a ranged attack by making a successful Use the Force check. The DC of the skill check is equal to the result of the attack roll you wish to negate, and you take a cumulative -5 penalty on your Use the Force check for every time you have used Block or Deflect since the beginning of your last turn. You must have a lightsaber drawn and ignited to use this talent, and you must be aware of the attack and not flat-footed.												SOURCEPAGE:p.
-Lightsaber Defense			CATEGORY:Talent		TYPE:JediTalent.Talent.LightsaberCombatTalent																																																																																																								SOURCEPAGE:p.
-Weapon Specialization ~ Lightsabers	CATEGORY:Talent		TYPE:JediTalent.Talent.LightsaberCombatTalent										PREFEAT:1,Weapon Focus (Lightsabers)																																																																													BONUS:WEAPONPROF=Lightsaber|DAMAGE|2|TYPE=WeaponSpecialization	SOURCEPAGE:p.
-Lightsaber Throw				CATEGORY:Talent		TYPE:JediTalent.Talent.LightsaberCombatTalent																																																																																																								SOURCEPAGE:p.
-Redirect Shot				CATEGORY:Talent		TYPE:JediTalent.Talent.LightsaberCombatTalent	PREABILITY:1,CATEGORY=Talent,Deflect	PREATT:5																																																																																															SOURCEPAGE:p.
+# Ability Name				Category of Ability	Type								Required Ability					Required Feat					Description																																																																											Weapon prof. bonus								Source Page		PRETOTALAB
+Block					CATEGORY:Talent		TYPE:JediTalent.Talent.LightsaberCombatTalent															DESC:As a reaction, you may negate a melee attack by making a successful Use the Force check. The DC of the skill check is equal to the result of the attack roll you wish to negate, and you take a cumulative -5 penalty on your Use the Force check for every time you have used Block or Deflect since the beginning of your last turn. You must have a lightsaber drawn and ignited to use this talent, and you must be aware of the attack and not flat-footed.												SOURCEPAGE:p.
+Deflect					CATEGORY:Talent		TYPE:JediTalent.Talent.LightsaberCombatTalent															DESC:As a reaction, you may negate a ranged attack by making a successful Use the Force check. The DC of the skill check is equal to the result of the attack roll you wish to negate, and you take a cumulative -5 penalty on your Use the Force check for every time you have used Block or Deflect since the beginning of your last turn. You must have a lightsaber drawn and ignited to use this talent, and you must be aware of the attack and not flat-footed.												SOURCEPAGE:p.
+Lightsaber Defense			CATEGORY:Talent		TYPE:JediTalent.Talent.LightsaberCombatTalent																																																																																																						SOURCEPAGE:p.
+Weapon Specialization ~ Lightsabers	CATEGORY:Talent		TYPE:JediTalent.Talent.LightsaberCombatTalent								PREABILITY:1,CATEGORY=FEAT,Weapon Focus (Lightsabers)																																																																													BONUS:WEAPONPROF=Lightsaber|DAMAGE|2|TYPE=WeaponSpecialization	SOURCEPAGE:p.
+Lightsaber Throw			CATEGORY:Talent		TYPE:JediTalent.Talent.LightsaberCombatTalent																																																																																																						SOURCEPAGE:p.
+Redirect Shot				CATEGORY:Talent		TYPE:JediTalent.Talent.LightsaberCombatTalent	PREABILITY:1,CATEGORY=Talent,Deflect																																																																																															SOURCEPAGE:p.	PRETOTALAB:5
 
 ###Block: Noble Talent Trees
 
 # Influence Talent Tree
-# Ability Name		Category of Ability	Type								Required Ability											Source Page
+# Ability Name			Category of Ability	Type								Required Ability											Source Page
 Presence			CATEGORY:Talent		TYPE:NobleTalent.Talent.InfluenceTalent															SOURCEPAGE:p.
 Demand Surrender		CATEGORY:Talent		TYPE:NobleTalent.Talent.InfluenceTalent		PREABILITY:1,CATEGORY=Talent,Presence							SOURCEPAGE:p.
-Improved Weaken Resolve	CATEGORY:Talent		TYPE:NobleTalent.Talent.InfluenceTalent		PREABILITY:2,CATEGORY=Talent,Presence,Weaken Resolve					SOURCEPAGE:p.
-Weaken Resolve		CATEGORY:Talent		TYPE:NobleTalent.Talent.InfluenceTalent		PREABILITY:1,CATEGORY=Talent,Presence							SOURCEPAGE:p.
+Improved Weaken Resolve		CATEGORY:Talent		TYPE:NobleTalent.Talent.InfluenceTalent		PREABILITY:2,CATEGORY=Talent,Presence,Weaken Resolve					SOURCEPAGE:p.
+Weaken Resolve			CATEGORY:Talent		TYPE:NobleTalent.Talent.InfluenceTalent		PREABILITY:1,CATEGORY=Talent,Presence							SOURCEPAGE:p.
 
 # Inspirational Talent Tree
-Bolster Ally		CATEGORY:Talent		TYPE:NobleTalent.Talent.InspirationalTalent														SOURCEPAGE:p.
-Ignite Fervor		CATEGORY:Talent		TYPE:NobleTalent.Talent.InspirationalTalent	PREABILITY:2,CATEGORY=Talent,Bolster Ally,Inspire Confidence			SOURCEPAGE:p.
-Inspire Confidence	CATEGORY:Talent		TYPE:NobleTalent.Talent.InspirationalTalent														SOURCEPAGE:p.
-Inspire Haste		CATEGORY:Talent		TYPE:NobleTalent.Talent.InspirationalTalent														SOURCEPAGE:p.
-Inspire Zeal		CATEGORY:Talent		TYPE:NobleTalent.Talent.InspirationalTalent	PREABILITY:3,CATEGORY=Talent,Bolster Ally,Inspire Confidence,Ignite Fervor	SOURCEPAGE:p.
+Bolster Ally			CATEGORY:Talent		TYPE:NobleTalent.Talent.InspirationalTalent														SOURCEPAGE:p.
+Ignite Fervor			CATEGORY:Talent		TYPE:NobleTalent.Talent.InspirationalTalent	PREABILITY:2,CATEGORY=Talent,Bolster Ally,Inspire Confidence			SOURCEPAGE:p.
+Inspire Confidence		CATEGORY:Talent		TYPE:NobleTalent.Talent.InspirationalTalent														SOURCEPAGE:p.
+Inspire Haste			CATEGORY:Talent		TYPE:NobleTalent.Talent.InspirationalTalent														SOURCEPAGE:p.
+Inspire Zeal			CATEGORY:Talent		TYPE:NobleTalent.Talent.InspirationalTalent	PREABILITY:3,CATEGORY=Talent,Bolster Ally,Inspire Confidence,Ignite Fervor	SOURCEPAGE:p.
 
 # Leadership Talent Tree
 Born Leader			CATEGORY:Talent		TYPE:NobleTalent.Talent.LeadershipTalent															SOURCEPAGE:p.
 Coordinate			CATEGORY:Talent		TYPE:NobleTalent.Talent.LeadershipTalent															SOURCEPAGE:p.
-Distant Command		CATEGORY:Talent		TYPE:NobleTalent.Talent.LeadershipTalent		PREABILITY:1,CATEGORY=Talent,Born Leader							SOURCEPAGE:p.
-Fearless Leader		CATEGORY:Talent		TYPE:NobleTalent.Talent.LeadershipTalent		PREABILITY:1,CATEGORY=Talent,Born Leader							SOURCEPAGE:p.
+Distant Command			CATEGORY:Talent		TYPE:NobleTalent.Talent.LeadershipTalent		PREABILITY:1,CATEGORY=Talent,Born Leader							SOURCEPAGE:p.
+Fearless Leader			CATEGORY:Talent		TYPE:NobleTalent.Talent.LeadershipTalent		PREABILITY:1,CATEGORY=Talent,Born Leader							SOURCEPAGE:p.
 Rally				CATEGORY:Talent		TYPE:NobleTalent.Talent.LeadershipTalent		PREABILITY:2,CATEGORY=Talent,Born Leader,Distant Command				SOURCEPAGE:p.
 Trust				CATEGORY:Talent		TYPE:NobleTalent.Talent.LeadershipTalent		PREABILITY:2,CATEGORY=Talent,Born Leader,Coordinate					SOURCEPAGE:p.
 
@@ -231,109 +232,109 @@ Trust				CATEGORY:Talent		TYPE:NobleTalent.Talent.LeadershipTalent		PREABILITY:2
 Connections			CATEGORY:Talent		TYPE:NobleTalent.Talent.LineageTalent															SOURCEPAGE:p.
 Educated			CATEGORY:Talent		TYPE:NobleTalent.Talent.LineageTalent															SOURCEPAGE:p.
 Spontaneous Skill		CATEGORY:Talent		TYPE:NobleTalent.Talent.LineageTalent		PREABILITY:1,CATEGORY=Talent,Educated							SOURCEPAGE:p.
-Wealth			CATEGORY:Talent		TYPE:NobleTalent.Talent.LineageTalent															SOURCEPAGE:p.
+Wealth				CATEGORY:Talent		TYPE:NobleTalent.Talent.LineageTalent															SOURCEPAGE:p.
 
 ###Block: Scoundrel Talent Trees
 
 # Fortune Talent Tree
-# Ability Name	Category of Ability	Type								Required Ability					Define				Description																																													Stackable?	Multiple?	Choose		Modify VAR					Source Page
-Fool's Luck		CATEGORY:Talent		TYPE:ScoundrelTalent.Talent.FortuneTalent														DESC:As a standard action, you can spend a Force Point to gain one of the following benefits for the rest of the encounter - a +1 luck bonus on attack rolls; a +5 luck bonus on skill checks; or a +1 luck bonus to all your defenses.																					SOURCEPAGE:p.
-Fortune's Favor	CATEGORY:Talent		TYPE:ScoundrelTalent.Talent.FortuneTalent														DESC:Whenever you score a critical hit with a melee or ranged attack, you gain a free standard action. You must take the extra standard action before the end of your turn, or else it is lost.																												SOURCEPAGE:p.
-Gambler		CATEGORY:Talent		TYPE:ScoundrelTalent.Talent.FortuneTalent									DEFINE:GamblerTalentBonus|0	DESC:You gain a +%1 competence bonus on Wisdom checks when you gamble. You can take this talent multiple times increasing the bonus by another +2 each time.|GamblerTalentBonus																	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|GamblerTalentBonus|2	SOURCEPAGE:p.
-Knack			CATEGORY:Talent		TYPE:ScoundrelTalent.Talent.FortuneTalent									DEFINE:KnackTimes|0		DESC:%1/day, you can reroll a skill check and take the better result. You can take this talent multiple times, each time you select this talent you can use it one additional time per day.|KnackTimes													STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|KnackTimes|1			SOURCEPAGE:p.
-Lucky Shot		CATEGORY:Talent		TYPE:ScoundrelTalent.Talent.FortuneTalent		PREABILITY:1,CATEGORY=Talent,Knack		DEFINE:LuckyShotTimes|0		DESC:%1/day, you can reroll an attack roll and take the better result. You can take this talent multiple times, each time you select this talent you can use it one additional time per day.|LuckyShotTimes													STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|LuckyShotTimes|1		SOURCEPAGE:p.
+# Ability Name			Category of Ability	Type								Required Ability					Define				Description																																													Stackable?	Multiple?	Choose		Modify VAR					Source Page
+Fool's Luck			CATEGORY:Talent		TYPE:ScoundrelTalent.Talent.FortuneTalent														DESC:As a standard action, you can spend a Force Point to gain one of the following benefits for the rest of the encounter - a +1 luck bonus on attack rolls; a +5 luck bonus on skill checks; or a +1 luck bonus to all your defenses.																					SOURCEPAGE:p.
+Fortune's Favor			CATEGORY:Talent		TYPE:ScoundrelTalent.Talent.FortuneTalent														DESC:Whenever you score a critical hit with a melee or ranged attack, you gain a free standard action. You must take the extra standard action before the end of your turn, or else it is lost.																												SOURCEPAGE:p.
+Gambler				CATEGORY:Talent		TYPE:ScoundrelTalent.Talent.FortuneTalent									DEFINE:GamblerTalentBonus|0	DESC:You gain a +%1 competence bonus on Wisdom checks when you gamble. You can take this talent multiple times increasing the bonus by another +2 each time.|GamblerTalentBonus																	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|GamblerTalentBonus|2	SOURCEPAGE:p.
+Knack				CATEGORY:Talent		TYPE:ScoundrelTalent.Talent.FortuneTalent									DEFINE:KnackTimes|0		DESC:%1/day, you can reroll a skill check and take the better result. You can take this talent multiple times, each time you select this talent you can use it one additional time per day.|KnackTimes													STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|KnackTimes|1			SOURCEPAGE:p.
+Lucky Shot			CATEGORY:Talent		TYPE:ScoundrelTalent.Talent.FortuneTalent		PREABILITY:1,CATEGORY=Talent,Knack		DEFINE:LuckyShotTimes|0		DESC:%1/day, you can reroll an attack roll and take the better result. You can take this talent multiple times, each time you select this talent you can use it one additional time per day.|LuckyShotTimes													STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|LuckyShotTimes|1		SOURCEPAGE:p.
 
 # Misfortune Talent Tree
-Dastardly Strike	CATEGORY:Talent		TYPE:ScoundrelTalent.Talent.MisfortuneTalent																																																																								SOURCEPAGE:p.
-Disruptive		CATEGORY:Talent		TYPE:ScoundrelTalent.Talent.MisfortuneTalent																																																																								SOURCEPAGE:p.
-Skirmisher		CATEGORY:Talent		TYPE:ScoundrelTalent.Talent.MisfortuneTalent																																																																								SOURCEPAGE:p.
-Sneak Attack	CATEGORY:Talent		TYPE:ScoundrelTalent.Talent.MisfortuneTalent													DESC:Any time your opponent is flat-footed or otherwise denied its Dexterity bonus to Reflex Defense, you deal and extra 1d6 points of damage with a successful melee or ranged attack. You must be within 6 squares of the target to make a sneak attack with a ranged weapon.	STACK:YES	MULT:YES	CHOOSE:NOCHOICE							SOURCEPAGE:p.
-Walk the Line	CATEGORY:Talent		TYPE:ScoundrelTalent.Talent.MisfortuneTalent	PREABILITY:1,CATEGORY=Talent,Disruptive																																																																	SOURCEPAGE:p.
+Dastardly Strike		CATEGORY:Talent		TYPE:ScoundrelTalent.Talent.MisfortuneTalent																																																																								SOURCEPAGE:p.
+Disruptive			CATEGORY:Talent		TYPE:ScoundrelTalent.Talent.MisfortuneTalent																																																																								SOURCEPAGE:p.
+Skirmisher			CATEGORY:Talent		TYPE:ScoundrelTalent.Talent.MisfortuneTalent																																																																								SOURCEPAGE:p.
+Sneak Attack			CATEGORY:Talent		TYPE:ScoundrelTalent.Talent.MisfortuneTalent													DESC:Any time your opponent is flat-footed or otherwise denied its Dexterity bonus to Reflex Defense, you deal and extra 1d6 points of damage with a successful melee or ranged attack. You must be within 6 squares of the target to make a sneak attack with a ranged weapon.	STACK:YES	MULT:YES	CHOOSE:NOCHOICE							SOURCEPAGE:p.
+Walk the Line			CATEGORY:Talent		TYPE:ScoundrelTalent.Talent.MisfortuneTalent	PREABILITY:1,CATEGORY=Talent,Disruptive																																																																	SOURCEPAGE:p.
 
 # Slicer Talent Tree
-Gimmick		CATEGORY:Talent		TYPE:ScoundrelTalent.Talent.SlicerTalent																																																																									SOURCEPAGE:p.
-Master Slicer	CATEGORY:Talent		TYPE:ScoundrelTalent.Talent.SlicerTalent		PREABILITY:1,CATEGORY=Talent,Gimmick																																																																	SOURCEPAGE:p.
-Trace			CATEGORY:Talent		TYPE:ScoundrelTalent.Talent.SlicerTalent																																																																									SOURCEPAGE:p.
+Gimmick				CATEGORY:Talent		TYPE:ScoundrelTalent.Talent.SlicerTalent																																																																									SOURCEPAGE:p.
+Master Slicer			CATEGORY:Talent		TYPE:ScoundrelTalent.Talent.SlicerTalent		PREABILITY:1,CATEGORY=Talent,Gimmick																																																																	SOURCEPAGE:p.
+Trace				CATEGORY:Talent		TYPE:ScoundrelTalent.Talent.SlicerTalent																																																																									SOURCEPAGE:p.
 
 # Spacer Talent Tree
-Hyperdriven		CATEGORY:Talent		TYPE:ScoundrelTalent.Talent.SpacerTalent																																																																									SOURCEPAGE:p.
-Spacehound		CATEGORY:Talent		TYPE:ScoundrelTalent.Talent.SpacerTalent																																																																									SOURCEPAGE:p.
-Starship Raider	CATEGORY:Talent		TYPE:ScoundrelTalent.Talent.SpacerTalent		PREABILITY:1,CATEGORY=Talent,Spacehound																																																																	SOURCEPAGE:p.
-Stellar Warrior	CATEGORY:Talent		TYPE:ScoundrelTalent.Talent.SpacerTalent		PREABILITY:1,CATEGORY=Talent,Spacehound																																																																	SOURCEPAGE:p.
+Hyperdriven			CATEGORY:Talent		TYPE:ScoundrelTalent.Talent.SpacerTalent																																																																									SOURCEPAGE:p.
+Spacehound			CATEGORY:Talent		TYPE:ScoundrelTalent.Talent.SpacerTalent																																																																									SOURCEPAGE:p.
+Starship Raider			CATEGORY:Talent		TYPE:ScoundrelTalent.Talent.SpacerTalent		PREABILITY:1,CATEGORY=Talent,Spacehound																																																																	SOURCEPAGE:p.
+Stellar Warrior			CATEGORY:Talent		TYPE:ScoundrelTalent.Talent.SpacerTalent		PREABILITY:1,CATEGORY=Talent,Spacehound																																																																	SOURCEPAGE:p.
 
 ###Block: Scout Talent Trees
 
 # Awareness Talent Tree
-# Ability Name		Category of Ability	Type							Required Ability											Source Page
-Acute Senses		CATEGORY:Talent		TYPE:ScoutTalent.Talent.AwarenessTalent														SOURCEPAGE:p.
-Expert Tracker		CATEGORY:Talent		TYPE:ScoutTalent.Talent.AwarenessTalent	PREABILITY:1,CATEGORY=Talent,Acute Senses							SOURCEPAGE:p.
-Improved Initiative	CATEGORY:Talent		TYPE:ScoutTalent.Talent.AwarenessTalent	PREABILITY:1,CATEGORY=Talent,Acute Senses							SOURCEPAGE:p.
+# Ability Name			Category of Ability	Type							Required Ability											Source Page
+Acute Senses			CATEGORY:Talent		TYPE:ScoutTalent.Talent.AwarenessTalent														SOURCEPAGE:p.
+Expert Tracker			CATEGORY:Talent		TYPE:ScoutTalent.Talent.AwarenessTalent	PREABILITY:1,CATEGORY=Talent,Acute Senses							SOURCEPAGE:p.
+Improved Initiative		CATEGORY:Talent		TYPE:ScoutTalent.Talent.AwarenessTalent	PREABILITY:1,CATEGORY=Talent,Acute Senses							SOURCEPAGE:p.
 Keen Shot			CATEGORY:Talent		TYPE:ScoutTalent.Talent.AwarenessTalent	PREABILITY:1,CATEGORY=Talent,Acute Senses							SOURCEPAGE:p.
-Uncanny Dodge I		CATEGORY:Talent		TYPE:ScoutTalent.Talent.AwarenessTalent	PREABILITY:2,CATEGORY=Talent,Acute Senses,Improved Initiative			SOURCEPAGE:p.
+Uncanny Dodge I			CATEGORY:Talent		TYPE:ScoutTalent.Talent.AwarenessTalent	PREABILITY:2,CATEGORY=Talent,Acute Senses,Improved Initiative			SOURCEPAGE:p.
 Uncanny Dodge II		CATEGORY:Talent		TYPE:ScoutTalent.Talent.AwarenessTalent	PREABILITY:3,CATEGORY=Talent,Acute Senses,Improved Initiative,Uncanny Dodge I	SOURCEPAGE:p.
 
 # Camouflage Talent Tree
-Hidden Movement		CATEGORY:Talent		TYPE:ScoutTalent.Talent.CamouflageTalent	PREABILITY:1,CATEGORY=Talent,Improved Stealth						SOURCEPAGE:p.
+Hidden Movement			CATEGORY:Talent		TYPE:ScoutTalent.Talent.CamouflageTalent	PREABILITY:1,CATEGORY=Talent,Improved Stealth						SOURCEPAGE:p.
 Improved Stealth		CATEGORY:Talent		TYPE:ScoutTalent.Talent.CamouflageTalent														SOURCEPAGE:p.
 Total Concealment		CATEGORY:Talent		TYPE:ScoutTalent.Talent.CamouflageTalent	PREABILITY:2,CATEGORY=Talent,Hidden Movement,Improved Stealth			SOURCEPAGE:p.
 
 # Fringer Talent Tree
-Barter			CATEGORY:Talent		TYPE:ScoutTalent.Talent.FrigerTalent														SOURCEPAGE:p.
-Fringe Savant		CATEGORY:Talent		TYPE:ScoutTalent.Talent.FrigerTalent														SOURCEPAGE:p.
+Barter				CATEGORY:Talent		TYPE:ScoutTalent.Talent.FrigerTalent														SOURCEPAGE:p.
+Fringe Savant			CATEGORY:Talent		TYPE:ScoutTalent.Talent.FrigerTalent														SOURCEPAGE:p.
 Long Stride			CATEGORY:Talent		TYPE:ScoutTalent.Talent.FrigerTalent														SOURCEPAGE:p.
 Jury-Rigger			CATEGORY:Talent		TYPE:ScoutTalent.Talent.FrigerTalent														SOURCEPAGE:p.
 
 # Survivor Talent Tree
-Evasion			CATEGORY:Talent		TYPE:ScoutTalent.Talent.SurvivorTalent														SOURCEPAGE:p.
-Extreme Effort		CATEGORY:Talent		TYPE:ScoutTalent.Talent.SurvivorTalent														SOURCEPAGE:p.
-Sprint			CATEGORY:Talent		TYPE:ScoutTalent.Talent.SurvivorTalent														SOURCEPAGE:p.
+Evasion				CATEGORY:Talent		TYPE:ScoutTalent.Talent.SurvivorTalent														SOURCEPAGE:p.
+Extreme Effort			CATEGORY:Talent		TYPE:ScoutTalent.Talent.SurvivorTalent														SOURCEPAGE:p.
+Sprint				CATEGORY:Talent		TYPE:ScoutTalent.Talent.SurvivorTalent														SOURCEPAGE:p.
 Surefooted			CATEGORY:Talent		TYPE:ScoutTalent.Talent.SurvivorTalent														SOURCEPAGE:p.
 
 ###Block: Soldier Talent Trees
 
 # Armor Specialist Talent Tree
-# Ability Name		Category of Ability	Type									Required Ability						Required Feat		Stackable?	Multiple?	Choose							Selections	Weapon prof. bonus							Source Page
-Armor Mastery		CATEGORY:Talent		TYPE:SoldierTalent.Talent.ArmorSpecialistTalent		PREABILITY:1,CATEGORY=Talent,Armored Defense																													SOURCEPAGE:p.
-Armored Defense		CATEGORY:Talent		TYPE:SoldierTalent.Talent.ArmorSpecialistTalent																																						SOURCEPAGE:p.
+# Ability Name			Category of Ability	Type									Required Ability						Required Feat		Stackable?	Multiple?	Choose							Selections	Weapon prof. bonus							Source Page
+Armor Mastery			CATEGORY:Talent		TYPE:SoldierTalent.Talent.ArmorSpecialistTalent		PREABILITY:1,CATEGORY=Talent,Armored Defense																													SOURCEPAGE:p.
+Armored Defense			CATEGORY:Talent		TYPE:SoldierTalent.Talent.ArmorSpecialistTalent																																						SOURCEPAGE:p.
 Juggernaut			CATEGORY:Talent		TYPE:SoldierTalent.Talent.ArmorSpecialistTalent		PREABILITY:1,CATEGORY=Talent,Armorer Defense																													SOURCEPAGE:p.
 Second Skin			CATEGORY:Talent		TYPE:SoldierTalent.Talent.ArmorSpecialistTalent		PREABILITY:1,CATEGORY=Talent,Armorer Defense																													SOURCEPAGE:p.
 
 # Brawler Talent Tree
-Expert Grappler		CATEGORY:Talent		TYPE:SoldierTalent.Talent.BrawlerTalent																																							SOURCEPAGE:p.
+Expert Grappler			CATEGORY:Talent		TYPE:SoldierTalent.Talent.BrawlerTalent																																							SOURCEPAGE:p.
 Gun Club			CATEGORY:Talent		TYPE:SoldierTalent.Talent.BrawlerTalent																																							SOURCEPAGE:p.
 Melee Smash			CATEGORY:Talent		TYPE:SoldierTalent.Talent.BrawlerTalent																																							SOURCEPAGE:p.
-Stunning Strike		CATEGORY:Talent		TYPE:SoldierTalent.Talent.BrawlerTalent			PREABILITY:1,CATEGORY=Talent,Melee Smash																														SOURCEPAGE:p.
-Unbalance Opponent	CATEGORY:Talent		TYPE:SoldierTalent.Talent.BrawlerTalent			PREABILITY:1,CATEGORY=Talent,Expert Grappler																													SOURCEPAGE:p.
+Stunning Strike			CATEGORY:Talent		TYPE:SoldierTalent.Talent.BrawlerTalent			PREABILITY:1,CATEGORY=Talent,Melee Smash																														SOURCEPAGE:p.
+Unbalance Opponent		CATEGORY:Talent		TYPE:SoldierTalent.Talent.BrawlerTalent			PREABILITY:1,CATEGORY=Talent,Expert Grappler																													SOURCEPAGE:p.
 
 #Commando Talent Tree
-Battle Analysis		CATEGORY:Talent		TYPE:SoldierTalent.Talent.CommandoTalent																																							SOURCEPAGE:p.
+Battle Analysis			CATEGORY:Talent		TYPE:SoldierTalent.Talent.CommandoTalent																																							SOURCEPAGE:p.
 Cover Fire			CATEGORY:Talent		TYPE:SoldierTalent.Talent.CommandoTalent			PREABILITY:1,CATEGORY=Talent,Battle Analysis																													SOURCEPAGE:p.
-Demolitionist		CATEGORY:Talent		TYPE:SoldierTalent.Talent.CommandoTalent																																							SOURCEPAGE:p.
+Demolitionist			CATEGORY:Talent		TYPE:SoldierTalent.Talent.CommandoTalent																																							SOURCEPAGE:p.
 Draw Fire			CATEGORY:Talent		TYPE:SoldierTalent.Talent.CommandoTalent																																							SOURCEPAGE:p.
 Harm's Way			CATEGORY:Talent		TYPE:SoldierTalent.Talent.CommandoTalent																																							SOURCEPAGE:p.
 Indomitable			CATEGORY:Talent		TYPE:SoldierTalent.Talent.CommandoTalent																																							SOURCEPAGE:p.
-Tough as Nails		CATEGORY:Talent		TYPE:SoldierTalent.Talent.CommandoTalent																																							SOURCEPAGE:p.
+Tough as Nails			CATEGORY:Talent		TYPE:SoldierTalent.Talent.CommandoTalent																																							SOURCEPAGE:p.
 
 # Weapon Specialist Talent Tree
-Devastating Attack	CATEGORY:Talent		TYPE:SoldierTalent.Talent.WeaponSpecialistTalent																																					SOURCEPAGE:p.
-Penetrating Attack	CATEGORY:Talent		TYPE:SoldierTalent.Talent.WeaponSpecialistTalent									PREFEAT:1,Weapon Focus																									SOURCEPAGE:p.
-Weapon Specialization	CATEGORY:Talent		TYPE:SoldierTalent.Talent.WeaponSpecialistTalent									PREFEAT:1,Weapon Focus	STACK:NO	MULT:YES	CHOOSE:WEAPONPROFICIENCY|FEAT=Weapon Focus	SELECT:1	BONUS:WEAPONPROF=%LIST|DAMAGE|2|TYPE=WeaponSpecialization	SOURCEPAGE:p.
+Devastating Attack		CATEGORY:Talent		TYPE:SoldierTalent.Talent.WeaponSpecialistTalent																																					SOURCEPAGE:p.
+Penetrating Attack		CATEGORY:Talent		TYPE:SoldierTalent.Talent.WeaponSpecialistTalent									PREABILITY:1,CATEGORY=FEAT,Weapon Focus																									SOURCEPAGE:p.
+Weapon Specialization		CATEGORY:Talent		TYPE:SoldierTalent.Talent.WeaponSpecialistTalent									PREABILITY:1,CATEGORY=FEAT,Weapon Focus	STACK:NO	MULT:YES	CHOOSE:WEAPONPROFICIENCY|ABILITY=FEAT[Weapon Focus]	SELECT:1	BONUS:WEAPONPROF=%LIST|DAMAGE|2|TYPE=WeaponSpecialization	SOURCEPAGE:p.
 
 ###Block: Ace Pilot Talent Trees
 
 # Expert Pilot Talent Tree
-# Ability Name		Category of Ability	Type								Source Page
-Elusive Dogfighter	CATEGORY:Talent		TYPE:AcePilotTalent.Talent.ExpertPilotTalent	SOURCEPAGE:p.
-Full Throttle		CATEGORY:Talent		TYPE:AcePilotTalent.Talent.ExpertPilotTalent	SOURCEPAGE:p.
+# Ability Name			Category of Ability	Type								Source Page
+Elusive Dogfighter		CATEGORY:Talent		TYPE:AcePilotTalent.Talent.ExpertPilotTalent	SOURCEPAGE:p.
+Full Throttle			CATEGORY:Talent		TYPE:AcePilotTalent.Talent.ExpertPilotTalent	SOURCEPAGE:p.
 Juke				CATEGORY:Talent		TYPE:AcePilotTalent.Talent.ExpertPilotTalent	SOURCEPAGE:p.
 Keep It Together		CATEGORY:Talent		TYPE:AcePilotTalent.Talent.ExpertPilotTalent	SOURCEPAGE:p.
-Relentless Pursuit	CATEGORY:Talent		TYPE:AcePilotTalent.Talent.ExpertPilotTalent	SOURCEPAGE:p.
+Relentless Pursuit		CATEGORY:Talent		TYPE:AcePilotTalent.Talent.ExpertPilotTalent	SOURCEPAGE:p.
 Vehicular Evasion		CATEGORY:Talent		TYPE:AcePilotTalent.Talent.ExpertPilotTalent	SOURCEPAGE:p.
 
 # Gunner Talent Tree
-Dogfight Gunner		CATEGORY:Talent		TYPE:AcePilotTalent.Talent.GunnerTalent		SOURCEPAGE:p.
-Expert Gunner		CATEGORY:Talent		TYPE:AcePilotTalent.Talent.GunnerTalent		SOURCEPAGE:p.
-Quick Trigger		CATEGORY:Talent		TYPE:AcePilotTalent.Talent.GunnerTalent		SOURCEPAGE:p.
+Dogfight Gunner			CATEGORY:Talent		TYPE:AcePilotTalent.Talent.GunnerTalent		SOURCEPAGE:p.
+Expert Gunner			CATEGORY:Talent		TYPE:AcePilotTalent.Talent.GunnerTalent		SOURCEPAGE:p.
+Quick Trigger			CATEGORY:Talent		TYPE:AcePilotTalent.Talent.GunnerTalent		SOURCEPAGE:p.
 System Hit			CATEGORY:Talent		TYPE:AcePilotTalent.Talent.GunnerTalent		SOURCEPAGE:p.
 
 ###Block: Jedi Knight Talent
@@ -342,70 +343,70 @@ System Hit			CATEGORY:Talent		TYPE:AcePilotTalent.Talent.GunnerTalent		SOURCEPAG
 # Ability Name						Category of Ability	Type								Weapon prof. bonus				Source Page
 Force Fortification					CATEGORY:Talent		TYPE:DuelistTalent.JediKnightTalent.Talent								SOURCEPAGE:p.
 Greater Weapon Focus (Lightsabers)			CATEGORY:Talent		TYPE:DuelistTalent.JediKnightTalent.Talent	BONUS:WEAPONPROF=Lightsabers|TOHIT|1	SOURCEPAGE:p.
-Greater Weapon Specialization (Lightsabers)	CATEGORY:Talent		TYPE:DuelistTalent.JediKnightTalent.Talent	BONUS:WEAPONPROF=Lightsabers|DAMAGE|2	SOURCEPAGE:p.
+Greater Weapon Specialization (Lightsabers)		CATEGORY:Talent		TYPE:DuelistTalent.JediKnightTalent.Talent	BONUS:WEAPONPROF=Lightsabers|DAMAGE|2	SOURCEPAGE:p.
 
 ###Block: Bounty Hunter Talents
 
 # Bounty Hunter Talent Tree
-# Ability Name		Category of Ability	Type										Required Ability								Source Page
-Hunter's Mark		CATEGORY:Talent		TYPE:Talent.BountyHunterTalent															SOURCEPAGE:p.
-Hunter's Target		CATEGORY:Talent		TYPE:Talent.BountyHunterTalent					PREABILITY:1,CATEGORY=Talent,Hunter's Mark			SOURCEPAGE:p.
+# Ability Name			Category of Ability	Type										Required Ability								Source Page
+Hunter's Mark			CATEGORY:Talent		TYPE:Talent.BountyHunterTalent															SOURCEPAGE:p.
+Hunter's Target			CATEGORY:Talent		TYPE:Talent.BountyHunterTalent					PREABILITY:1,CATEGORY=Talent,Hunter's Mark			SOURCEPAGE:p.
 Notorious			CATEGORY:Talent		TYPE:Talent.BountyHunterTalent.InfamyTalent.CrimeLordTalent											SOURCEPAGE:p.
-Nowhere to Hide		CATEGORY:Talent		TYPE:Talent.BountyHunterTalent															SOURCEPAGE:p.
+Nowhere to Hide			CATEGORY:Talent		TYPE:Talent.BountyHunterTalent															SOURCEPAGE:p.
 Relentless			CATEGORY:Talent		TYPE:Talent.BountyHunterTalent					PREABILITY:2,CATEGORY=Talent,Hunter's Mark,Hunter's Target	SOURCEPAGE:p.
-Ruthless Negotiator	CATEGORY:Talent		TYPE:Talent.BountyHunterTalent					PREABILITY:1,CATEGORY=Talent,Notorious				SOURCEPAGE:p.
+Ruthless Negotiator		CATEGORY:Talent		TYPE:Talent.BountyHunterTalent					PREABILITY:1,CATEGORY=Talent,Notorious				SOURCEPAGE:p.
 
 ###Block: Crime Lord
 
 # Infamy Talent Tree
-# Ability Name	Category of Ability	Type								Required Ability								Source Page
-Inspire Fear I	CATEGORY:Talent		TYPE:Talent.InfamyTalent.CrimeLordTalent												SOURCEPAGE:p.
-Inspire Fear II	CATEGORY:Talent		TYPE:Talent.InfamyTalent.CrimeLordTalent		PREABILITY:1,CATEGORY=Talent,Inspire Fear I			SOURCEPAGE:p.
-Inspire Fear III	CATEGORY:Talent		TYPE:Talent.InfamyTalent.CrimeLordTalent		PREABILITY:2,CATEGORY=Talent,Inspire Fear II,Inspire Fear I	SOURCEPAGE:p.
-#Notorious											CATEGORY:Talent		SOURCEPAGE:p.	TYPE:Talent.InfamyTalent.CrimeLordTalent
-Shared Notoriety	CATEGORY:Talent		TYPE:Talent.InfamyTalent.CrimeLordTalent		PREABILITY:1,CATEGORY=Talent,Notorious				SOURCEPAGE:p.
+# Ability Name			Category of Ability	Type								Required Ability								Source Page
+Inspire Fear I			CATEGORY:Talent		TYPE:Talent.InfamyTalent.CrimeLordTalent												SOURCEPAGE:p.
+Inspire Fear II			CATEGORY:Talent		TYPE:Talent.InfamyTalent.CrimeLordTalent		PREABILITY:1,CATEGORY=Talent,Inspire Fear I			SOURCEPAGE:p.
+Inspire Fear III		CATEGORY:Talent		TYPE:Talent.InfamyTalent.CrimeLordTalent		PREABILITY:2,CATEGORY=Talent,Inspire Fear II,Inspire Fear I	SOURCEPAGE:p.
+#Notorious			CATEGORY:Talent		TYPE:Talent.InfamyTalent.CrimeLordTalent										SOURCEPAGE:p.
+Shared Notoriety		CATEGORY:Talent		TYPE:Talent.InfamyTalent.CrimeLordTalent		PREABILITY:1,CATEGORY=Talent,Notorious				SOURCEPAGE:p.
 
 # Mastermind  Talent Tree
-Attract Minion	CATEGORY:Talent		TYPE:Talent.MastermindTalent.CrimeLordTalent											SOURCEPAGE:p.
-Impel Ally I	CATEGORY:Talent		TYPE:Talent.MastermindTalent.CrimeLordTalent											SOURCEPAGE:p.
-Impel Ally II	CATEGORY:Talent		TYPE:Talent.MastermindTalent.CrimeLordTalent	PREABILITY:1,CATEGORY=Talent,Impel Ally I				SOURCEPAGE:p.
+Attract Minion			CATEGORY:Talent		TYPE:Talent.MastermindTalent.CrimeLordTalent											SOURCEPAGE:p.
+Impel Ally I			CATEGORY:Talent		TYPE:Talent.MastermindTalent.CrimeLordTalent											SOURCEPAGE:p.
+Impel Ally II			CATEGORY:Talent		TYPE:Talent.MastermindTalent.CrimeLordTalent	PREABILITY:1,CATEGORY=Talent,Impel Ally I				SOURCEPAGE:p.
 
 ###Block: Elite Trooper Talent Tree
 
 # Weapon Master Talent Tree
 # Ability Name					Category of Ability	Type									Required Ability										Required Feat									Multiple?	Choose							Selections	Automatically Gained Weapon Prof.	Weapon prof. bonus			Source Page
-Controlled Burst					CATEGORY:Talent		TYPE:Talent.EliteTrooperTalent.WeaponMasterTalent																																																SOURCEPAGE:p.
+Controlled Burst				CATEGORY:Talent		TYPE:Talent.EliteTrooperTalent.WeaponMasterTalent																																																SOURCEPAGE:p.
 Exotic Weapon Mastery				CATEGORY:Talent		TYPE:Talent.EliteTrooperTalent.WeaponMasterTalent																																				AUTO:WEAPONPROF|TYPE=Exotic								SOURCEPAGE:p.
-Greater Devastating Attack			CATEGORY:Talent		TYPE:Talent.EliteTrooperTalent.WeaponMasterTalent													PREFEAT:3,Greater Weapon Focus,Devastating,Weapon Focus																										SOURCEPAGE:p.
-Greater Penetrating Attack			CATEGORY:Talent		TYPE:Talent.EliteTrooperTalent.WeaponMasterTalent													PREFEAT:3,Greater Weapon Focus,Penetrating Attack,Weapon Focus																									SOURCEPAGE:p.
-Greater Weapon Focus				CATEGORY:Talent		TYPE:Talent.EliteTrooperTalent.WeaponMasterTalent													PREFEAT:1,Weapon Focus								MULT:YES	CHOOSE:WEAPONPROFICIENCY|FEAT=Weapon Focus	SELECT:1							BONUS:WEAPONPROF=%LIST|TOHIT|1	SOURCEPAGE:p.
-Greater Weapon Specialization			CATEGORY:Talent		TYPE:Talent.EliteTrooperTalent.WeaponMasterTalent	PREABILITY:2,CATEGORY=Talent,Greater Weapon Focus,Weapon Specialization	PREFEAT:1,Weapon Focus								MULT:YES	CHOOSE:ABILITY|Talent|Weapon Specialization	SELECT:1							BONUS:WEAPONPROF=%LIST|DAMAGE|2	SOURCEPAGE:p.
-Multiattack Proficiency (Heavy Weapons)	CATEGORY:Talent		TYPE:Talent.EliteTrooperTalent.WeaponMasterTalent																																																SOURCEPAGE:p.
+Greater Devastating Attack			CATEGORY:Talent		TYPE:Talent.EliteTrooperTalent.WeaponMasterTalent													PREABILITY:3,CATEGORY=FEAT,Greater Weapon Focus,Devastating,Weapon Focus																										SOURCEPAGE:p.
+Greater Penetrating Attack			CATEGORY:Talent		TYPE:Talent.EliteTrooperTalent.WeaponMasterTalent													PREABILITY:3,CATEGORY=FEAT,Greater Weapon Focus,Penetrating Attack,Weapon Focus																									SOURCEPAGE:p.
+Greater Weapon Focus				CATEGORY:Talent		TYPE:Talent.EliteTrooperTalent.WeaponMasterTalent													PREABILITY:1,CATEGORY=FEAT,Weapon Focus								MULT:YES	CHOOSE:WEAPONPROFICIENCY|ABILITY=FEAT[Weapon Focus]	SELECT:1							BONUS:WEAPONPROF=%LIST|TOHIT|1	SOURCEPAGE:p.
+Greater Weapon Specialization			CATEGORY:Talent		TYPE:Talent.EliteTrooperTalent.WeaponMasterTalent	PREABILITY:2,CATEGORY=Talent,Greater Weapon Focus,Weapon Specialization	PREABILITY:1,CATEGORY=FEAT,Weapon Focus								MULT:YES	CHOOSE:ABILITYSELECTION|Talent|Weapon Specialization	SELECT:1							BONUS:WEAPONPROF=%LIST|DAMAGE|2	SOURCEPAGE:p.
+Multiattack Proficiency (Heavy Weapons)		CATEGORY:Talent		TYPE:Talent.EliteTrooperTalent.WeaponMasterTalent																																																SOURCEPAGE:p.
 Multiattack Proficiency (Rifles)		CATEGORY:Talent		TYPE:Talent.EliteTrooperTalent.WeaponMasterTalent																																																SOURCEPAGE:p.
 
 ###Block: Force Adept Talent Trees
 # Dark Side Devotee Talent Tree
-# Ability Name		Category of Ability	Type									Required Ability									Source Page
-Channel Aggression	CATEGORY:Talent		TYPE:Talent.DarkSideDevoteeTalent.ForceAdeptTalent												SOURCEPAGE:p.
-Channel Anger		CATEGORY:Talent		TYPE:Talent.DarkSideDevoteeTalent.ForceAdeptTalent	PREABILITY:1,CATEGORY=Talent,Channel Aggression				SOURCEPAGE:p.
+# Ability Name			Category of Ability	Type									Required Ability									Source Page
+Channel Aggression		CATEGORY:Talent		TYPE:Talent.DarkSideDevoteeTalent.ForceAdeptTalent												SOURCEPAGE:p.
+Channel Anger			CATEGORY:Talent		TYPE:Talent.DarkSideDevoteeTalent.ForceAdeptTalent	PREABILITY:1,CATEGORY=Talent,Channel Aggression				SOURCEPAGE:p.
 Crippling Strike		CATEGORY:Talent		TYPE:Talent.DarkSideDevoteeTalent.ForceAdeptTalent	PREABILITY:1,CATEGORY=Talent,Channel Aggression				SOURCEPAGE:p.
-Embrace the Dark Side	CATEGORY:Talent		TYPE:Talent.DarkSideDevoteeTalent.ForceAdeptTalent	PREABILITY:2,CATEGORY=Talent,Channel Aggression,Channel Anger	SOURCEPAGE:p.
+Embrace the Dark Side		CATEGORY:Talent		TYPE:Talent.DarkSideDevoteeTalent.ForceAdeptTalent	PREABILITY:2,CATEGORY=Talent,Channel Aggression,Channel Anger	SOURCEPAGE:p.
 
 # Force Adept Talent Tree
 Force Power Adept		CATEGORY:Talent		TYPE:Talent.ForceAdeptTalent																SOURCEPAGE:p.
-Force Treatment		CATEGORY:Talent		TYPE:Talent.ForceAdeptTalent																SOURCEPAGE:p.
-Fortified Body		CATEGORY:Talent		TYPE:Talent.ForceAdeptTalent					PREABILITY:1,CATEGORY=Talent,Equilibrium					SOURCEPAGE:p.
+Force Treatment			CATEGORY:Talent		TYPE:Talent.ForceAdeptTalent																SOURCEPAGE:p.
+Fortified Body			CATEGORY:Talent		TYPE:Talent.ForceAdeptTalent					PREABILITY:1,CATEGORY=Talent,Equilibrium					SOURCEPAGE:p.
 
 # Force Item Talent Tree
-Attune Weapon		CATEGORY:Talent		TYPE:Talent.ForceItemTalent.ForceAdeptTalent													SOURCEPAGE:p.
-Empower Weapon		CATEGORY:Talent		TYPE:Talent.ForceItemTalent.ForceAdeptTalent													SOURCEPAGE:p.
-Force Talisman		CATEGORY:Talent		TYPE:Talent.ForceItemTalent.ForceAdeptTalent													SOURCEPAGE:p.
-Greater Force Talisman	CATEGORY:Talent		TYPE:Talent.ForceItemTalent.ForceAdeptTalent		PREABILITY:1,CATEGORY=Talent,Force Talisman				SOURCEPAGE:p.
+Attune Weapon			CATEGORY:Talent		TYPE:Talent.ForceItemTalent.ForceAdeptTalent													SOURCEPAGE:p.
+Empower Weapon			CATEGORY:Talent		TYPE:Talent.ForceItemTalent.ForceAdeptTalent													SOURCEPAGE:p.
+Force Talisman			CATEGORY:Talent		TYPE:Talent.ForceItemTalent.ForceAdeptTalent													SOURCEPAGE:p.
+Greater Force Talisman		CATEGORY:Talent		TYPE:Talent.ForceItemTalent.ForceAdeptTalent		PREABILITY:1,CATEGORY=Talent,Force Talisman				SOURCEPAGE:p.
 
 ###Block: Gunslinger
 # Gunslinger Talent Tree
 # Ability Name				Category of Ability	Type					Source Page
-Debilitating Shot				CATEGORY:Talent		TYPE:Talent.GunslingerTalent	SOURCEPAGE:p.
+Debilitating Shot			CATEGORY:Talent		TYPE:Talent.GunslingerTalent	SOURCEPAGE:p.
 Deceptive Shot				CATEGORY:Talent		TYPE:Talent.GunslingerTalent	SOURCEPAGE:p.
 Improved Quick Draw			CATEGORY:Talent		TYPE:Talent.GunslingerTalent	SOURCEPAGE:p.
 Knockdown Shot				CATEGORY:Talent		TYPE:Talent.GunslingerTalent	SOURCEPAGE:p.
@@ -423,125 +424,125 @@ Multiattack Proficiency (Lightsabers)							CATEGORY:Talent		TYPE:Talent.Duelist
 Severing Strike											CATEGORY:Talent		TYPE:Talent.DuelistTalent.JediKnightTalent									SOURCEPAGE:p.
 
 # Lightsaber Forms Talent Tree
-Ataru								KEY:Ataru ~ Lighsaber Form	CATEGORY:Talent		TYPE:JediKnightTalent.Talent.LightsaberFormsTalent								SOURCEPAGE:p.
-Djem So							KEY:Djem So ~ Lighsaber Form	CATEGORY:Talent		TYPE:JediKnightTalent.Talent.LightsaberFormsTalent								SOURCEPAGE:p.
-Jar'Kai							KEY:Jar'Kai ~ Lighsaber Form	CATEGORY:Talent		TYPE:JediKnightTalent.Talent.LightsaberFormsTalent								SOURCEPAGE:p.
-Juyo								KEY:Juyo ~ Lighsaber Form	CATEGORY:Talent		TYPE:JediKnightTalent.Talent.LightsaberFormsTalent								SOURCEPAGE:p.
-Makashi							KEY:Makashi ~ Lighsaber Form	CATEGORY:Talent		TYPE:JediKnightTalent.Talent.LightsaberFormsTalent								SOURCEPAGE:p.
-Niman								KEY:Niman ~ Lighsaber Form	CATEGORY:Talent		TYPE:JediKnightTalent.Talent.LightsaberFormsTalent								SOURCEPAGE:p.
-Shien								KEY:Shien ~ Lighsaber Form	CATEGORY:Talent		TYPE:JediKnightTalent.Talent.LightsaberFormsTalent								SOURCEPAGE:p.
-Shii-Cho							KEY:Shii-Cho ~ Lighsaber Form	CATEGORY:Talent		TYPE:JediKnightTalent.Talent.LightsaberFormsTalent								SOURCEPAGE:p.
-Sokan								KEY:Sokan ~ Lighsaber Form	CATEGORY:Talent		TYPE:JediKnightTalent.Talent.LightsaberFormsTalent								SOURCEPAGE:p.
-Soresu							KEY:Soresu ~ Lighsaber Form	CATEGORY:Talent		TYPE:JediKnightTalent.Talent.LightsaberFormsTalent								SOURCEPAGE:p.
-Trakata							KEY:Trakata ~ Lighsaber Form	CATEGORY:Talent		TYPE:JediKnightTalent.Talent.LightsaberFormsTalent								SOURCEPAGE:p.
-Vaapad							KEY:Vaapad ~ Lighsaber Form	CATEGORY:Talent		TYPE:JediKnightTalent.Talent.LightsaberFormsTalent								SOURCEPAGE:p.
+Ataru							KEY:Lighsaber Form ~ Ataru	CATEGORY:Talent		TYPE:JediKnightTalent.Talent.LightsaberFormsTalent								SOURCEPAGE:p.
+Djem So							KEY:Lighsaber Form ~ Djem So	CATEGORY:Talent		TYPE:JediKnightTalent.Talent.LightsaberFormsTalent								SOURCEPAGE:p.
+Jar'Kai							KEY:Lighsaber Form ~ Jar'Kai	CATEGORY:Talent		TYPE:JediKnightTalent.Talent.LightsaberFormsTalent								SOURCEPAGE:p.
+Juyo							KEY:Lighsaber Form ~ Juyo	CATEGORY:Talent		TYPE:JediKnightTalent.Talent.LightsaberFormsTalent								SOURCEPAGE:p.
+Makashi							KEY:Lighsaber Form ~ Makashi	CATEGORY:Talent		TYPE:JediKnightTalent.Talent.LightsaberFormsTalent								SOURCEPAGE:p.
+Niman							KEY:Lighsaber Form ~ Niman	CATEGORY:Talent		TYPE:JediKnightTalent.Talent.LightsaberFormsTalent								SOURCEPAGE:p.
+Shien							KEY:Lighsaber Form ~ Shien	CATEGORY:Talent		TYPE:JediKnightTalent.Talent.LightsaberFormsTalent								SOURCEPAGE:p.
+Shii-Cho						KEY:Lighsaber Form ~ Shii-Cho	CATEGORY:Talent		TYPE:JediKnightTalent.Talent.LightsaberFormsTalent								SOURCEPAGE:p.
+Sokan							KEY:Lighsaber Form ~ Sokan	CATEGORY:Talent		TYPE:JediKnightTalent.Talent.LightsaberFormsTalent								SOURCEPAGE:p.
+Soresu							KEY:Lighsaber Form ~ Soresu	CATEGORY:Talent		TYPE:JediKnightTalent.Talent.LightsaberFormsTalent								SOURCEPAGE:p.
+Trakata							KEY:Lighsaber Form ~ Trakata	CATEGORY:Talent		TYPE:JediKnightTalent.Talent.LightsaberFormsTalent								SOURCEPAGE:p.
+Vaapad							KEY:Lighsaber Form ~ Vaapad	CATEGORY:Talent		TYPE:JediKnightTalent.Talent.LightsaberFormsTalent								SOURCEPAGE:p.
 
 ###Block: Officer Talents
 
 # Military Tactics Talent Tree
-# Ability Name		Category of Ability	Type								Required Ability									Source Page
-Assault Tactics		CATEGORY:Talent		TYPE:Talent.OfficerTalent.MilitaryTacticsTalent												SOURCEPAGE:p.
-Deployment Tactics	CATEGORY:Talent		TYPE:Talent.OfficerTalent.MilitaryTacticsTalent												SOURCEPAGE:p.
-Field Tactics		CATEGORY:Talent		TYPE:Talent.OfficerTalent.MilitaryTacticsTalent												SOURCEPAGE:p.
+# Ability Name			Category of Ability	Type								Required Ability									Source Page
+Assault Tactics			CATEGORY:Talent		TYPE:Talent.OfficerTalent.MilitaryTacticsTalent												SOURCEPAGE:p.
+Deployment Tactics		CATEGORY:Talent		TYPE:Talent.OfficerTalent.MilitaryTacticsTalent												SOURCEPAGE:p.
+Field Tactics			CATEGORY:Talent		TYPE:Talent.OfficerTalent.MilitaryTacticsTalent												SOURCEPAGE:p.
 One for the Team		CATEGORY:Talent		TYPE:Talent.OfficerTalent.MilitaryTacticsTalent												SOURCEPAGE:p.
 Outmaneuver			CATEGORY:Talent		TYPE:Talent.OfficerTalent.MilitaryTacticsTalent												SOURCEPAGE:p.
-Shift Defense I		CATEGORY:Talent		TYPE:Talent.OfficerTalent.MilitaryTacticsTalent												SOURCEPAGE:p.
+Shift Defense I			CATEGORY:Talent		TYPE:Talent.OfficerTalent.MilitaryTacticsTalent												SOURCEPAGE:p.
 Shift Defense II		CATEGORY:Talent		TYPE:Talent.OfficerTalent.MilitaryTacticsTalent	PREABILITY:1,CATEGORY=Talent,Shift Defense I				SOURCEPAGE:p.
 Shift Defense III		CATEGORY:Talent		TYPE:Talent.OfficerTalent.MilitaryTacticsTalent	PREABILITY:2,CATEGORY=Talent,Shift Defense II,Shift Defense I	SOURCEPAGE:p.
-Tactical Edge		CATEGORY:Talent		TYPE:Talent.OfficerTalent.MilitaryTacticsTalent												SOURCEPAGE:p.
+Tactical Edge			CATEGORY:Talent		TYPE:Talent.OfficerTalent.MilitaryTacticsTalent												SOURCEPAGE:p.
 
 ###Block: Sith Apprentice Talents
 
 # Sith Talent Tree
-# Ability Name		Category of Ability	Type								Required Ability						Required Feat										Source Page
-Dark Healing		CATEGORY:Talent		TYPE:Talent.SithApprenticeTalent.SithTalent																					SOURCEPAGE:p.
-Dark Scourge		CATEGORY:Talent		TYPE:Talent.SithApprenticeTalent.SithTalent																					SOURCEPAGE:p.
-Dark Side Adept		CATEGORY:Talent		TYPE:Talent.SithApprenticeTalent.SithTalent																					SOURCEPAGE:p.
+# Ability Name			Category of Ability	Type								Required Ability						Required Feat										Source Page
+Dark Healing			CATEGORY:Talent		TYPE:Talent.SithApprenticeTalent.SithTalent																					SOURCEPAGE:p.
+Dark Scourge			CATEGORY:Talent		TYPE:Talent.SithApprenticeTalent.SithTalent																					SOURCEPAGE:p.
+Dark Side Adept			CATEGORY:Talent		TYPE:Talent.SithApprenticeTalent.SithTalent																					SOURCEPAGE:p.
 Dark Side Master		CATEGORY:Talent		TYPE:Talent.SithApprenticeTalent.SithTalent	PREABILITY:1,CATEGORY=Talent,Dark Side Adept													SOURCEPAGE:p.
-Force Deception		CATEGORY:Talent		TYPE:Talent.SithApprenticeTalent.SithTalent																					SOURCEPAGE:p.
-Improved Dark Healing	CATEGORY:Talent		TYPE:Talent.SithApprenticeTalent.SithTalent	PREABILITY:1,CATEGORY=Talent,Dark Healing														SOURCEPAGE:p.
-Wicked Strike		CATEGORY:Talent		TYPE:Talent.SithApprenticeTalent.SithTalent									PREFEAT:2,Weapon Focus (Lightsaber),Weapon Specialization (Lightsaber)	SOURCEPAGE:p.
+Force Deception			CATEGORY:Talent		TYPE:Talent.SithApprenticeTalent.SithTalent																					SOURCEPAGE:p.
+Improved Dark Healing		CATEGORY:Talent		TYPE:Talent.SithApprenticeTalent.SithTalent	PREABILITY:1,CATEGORY=Talent,Dark Healing														SOURCEPAGE:p.
+Wicked Strike			CATEGORY:Talent		TYPE:Talent.SithApprenticeTalent.SithTalent									PREABILITY:2,CATEGORY=FEAT,Weapon Focus (Lightsaber),Weapon Specialization (Lightsaber)	SOURCEPAGE:p.
 
 ###Block: Force Support
-# Ability Name		Category of Ability		Type				Define			Description			Bonus to Ability Pool						Modify VAR																					Source Page
-Force Training Tracker	CATEGORY:Internal															BONUS:ABILITYPOOL|Force Powers|ForceTrainingCount	BONUS:VAR|ForceTrainingCount|max(WIS,0)	BONUS:VAR|ForceTrainingCount|1*COUNT("ABILITIES","CATEGORY=FEAT","KEY=Force Training")
+# Ability Name			Category of Ability		Type				Define			Description			Bonus to Ability Pool						Modify VAR																					Source Page
+Force Training Tracker		CATEGORY:Internal													BONUS:ABILITYPOOL|Force Powers|ForceTrainingCount	BONUS:VAR|ForceTrainingCount|1+(max(0,WIS)*COUNT("ABILITIES","CATEGORY=FEAT","KEY=Force Training"))
 
 # Ability Name		Category of Ability		Type				Define			Description			Bonus to Ability Pool						Modify VAR																					Source Page
 Force Points		CATEGORY:Special Ability	TYPE:SpecialQuality	DEFINE:ForcePoints|0	DESC:%1|ForcePoints																																SOURCEPAGE:p.
 
 
 ###Block: Prestige Class Features
-# Ability Name	Unique Key					Category of Ability		Type														Define				Description																																																																																																																																																															Weapon prof. bonus							Damage Reduction			Source Page
-Vehicle Dodge	KEY:Vehicle Dodge				CATEGORY:Special Ability	TYPE:ClassFeatures.Ace PilotClassFeatures.SpecialQuality					DEFINE:VehicleDodgeBonus|0	DESC:+%1|VehicleDodgeBonus	DESC:Beginning at 2nd level, you apply a dodge bonus to the Reflex Defense of any vehicle you pilot. The dodge bonus is equal to one-half your class level, rounded down. Any condition that makes you lose your Dexterity bonus to Reflex Defense also makes you lose dodge bonuses. Also, dodge bonuses stack with each other, unlike most other types of bonuses.																																																																																																															SOURCEPAGE:p.
-Familiar Foe	KEY:Familiar Foe				CATEGORY:Special Ability	TYPE:ClassFeatures.Bounty HunterClassFeatures.SpecialQuality					DEFINE:FamiliarFoeBonus|0	DESC:+%1|FamiliarFoeBonus	DESC:By observing your enemy in combat, you know how to defeat him more easily. If you spend a full-round action observing an opponent in combat, you gain a bonus on attack rolls against that opponent and a bonus to your Reflex Defense against attacks made by that opponent equal to onehalf your class level (rounded down). The effects last until the end of the encounter. You cannot use this ability until after your opponent has acted during the combat.																																																																																															SOURCEPAGE:p.
-Command Cover	KEY:Command Cover				CATEGORY:Special Ability	TYPE:ClassFeatures.Crime LordClassFeatures.OfficerClassFeatures.SpecialQuality							DESC:Starting at 2nd level, you can use your allies to shield you from harm. You gain a + 1 cover bonus to your Reflex Defense for each ally that is adjacent to you, up to a maximum bonus equal to one-half your class level (maximum +5 at 10th level).																																																																																																																																						SOURCEPAGE:p.
-Delay Damage	KEY:Delay Damage ~ Elite Trooper	CATEGORY:Special Ability	TYPE:ClassFeatures.Elite TrooperClassFeatures.SpecialQuality										DESC:Elite troopers are among the toughest individuals in the galaxy. After being exposed to numerous threats, foes, and combat situations, you've developed the ability to delay effects that would drop lesser creatures. Once per encounter as a reaction, you can choose to delay the effect of a single attack, ability, or effect used against you. The damage or effect does not take hold until the end of your next turn.																																																																																																										SOURCEPAGE:p.
-Damage Reduction	KEY:Damage Reduction			CATEGORY:Special Ability	TYPE:ClassFeatures.Elite TrooperClassFeatures.SpecialQuality					DEFINE:DamageReductionBonus|0	DESC:%1|DamageReductionBonus	DESC:At 2nd level, you gain damage reduction 1 (DR 1), which means that you reduce the damage you take from any attack by 1 (see Damage Reduction, page 158). At every even-numbered level after 2nd, your damage reduction improves by 1 (DR 2 at 4th level, DR 3 at 6th level, and so on).																																																																																																																						DR:DamageReductionBonus/-	SOURCEPAGE:p.
-Indomitable		KEY:Indomitable				CATEGORY:Special Ability	TYPE:ClassFeatures.Force DiscipleClassFeatures.SpecialQuality										DESC:You are immune to mind-affecting effects																																																																																																																																																																								SOURCEPAGE:p.
-Trusty Sidearm	KEY:Trusty Sidearm			CATEGORY:Special Ability	TYPE:ClassFeatures.GunslingerClassFeatures.SpecialQuality					DEFINE:TrustySidearmDamage|0	DESC:+%1 damage|TrustySidearmDamage	DESC:Starting at 2nd level, you gain a bonus on damage rolls equal to one-half your class level (rounded down) when wielding a pistol. This damage is in addition to the character's usual level bonus to damage. This damage is doubled on a successful critical hit, as normal.																																																																																																													BONUS:WEAPONPROF=TYPE.Pistols|DAMAGE|TrustySidearmDamage						SOURCEPAGE:p.
-Fearless		KEY:Fearless				CATEGORY:Special Ability	TYPE:ClassFeatures.Jedi MasterClassFeatures.Sith LordClassFeatures.SpecialQuality						DESC:You are immune to fear effects																																																																																																																																																																										SOURCEPAGE:p.
-Serenity		KEY:Serenity				CATEGORY:Special Ability	TYPE:ClassFeatures.Jedi MasterClassFeatures.SpecialQuality										DESC:You may enter a brief meditative state as a full-round action. You may remain in this trance as long as you wish, and you are still aware of your surroundings; however, you are otherwise helpless and cannot perform any other actions. Upon emerging from the trance (a swift action), your first attack roll or Use the Force skill check made in the following round is considered to be a natural 20.																																																																																																													SOURCEPAGE:p.
-Share Talent	KEY:Share Talent ~ Officer		CATEGORY:Special Ability	TYPE:ClassFeatures.OfficerClassFeatures.SpecialQuality											DESC:At every even-numbered level, choose a talent that you already possess. The talent you select must be under the Influence talent tree (page 43). the Inspiration talent tree (page 43). the Commando talent tree (page 52). or the Military Tactics talent tree (see above). Once per day as a standard action, you can impart the benefits of the chosen talent to one or more allies, effectively granting them the talent (even if they don't meet the prerequisites). An ally must be within 10 squares of you and must be able to see and hear you to gain the talent; once gained, its benefits last until the end of the encounter. You can share the talent with a number of allies equal to one-half your officer class level (rounded down). Each time you gain this ability, it applies to a different talent. By 10th level, an officer has five different talents that he can share with up to five allies at a time. Once you select a shared talent, it cannot be changed.																SOURCEPAGE:p.
-Temptation		KEY:Temptation				CATEGORY:Special Ability	TYPE:ClassFeatures.Sith LordClassFeatures.SpecialQuality										DESC:You are adept at using Dun Moch, an ancient and vile technique for tempting others to tap into the dark side of the Force. As a standard action, make a Persuasion check and compare it to the Will Defense of a single opponent within line of sight. If the check succeeds, the target is filled with fear or anger, briefly giving in to the dark side. If the target spends a Force Point before your next turn, it must either add 1 point to its Dark Side Score or move-l step on the condition track (see Conditions, page 148) as it is overcome by doubt and remorse. If the target spends a Destiny Point before your next turn, it instead must add 2 points to its Dark Side Score or move -2 steps on the condition track.																																																								SOURCEPAGE:p.
+# Ability Name		Unique Key					Category of Ability		Type														Define				Description																																																																																																																																																															Weapon prof. bonus							Damage Reduction			Source Page
+Vehicle Dodge		KEY:Vehicle Dodge				CATEGORY:Special Ability	TYPE:Class Feature.Ace Pilot Class Feature.SpecialQuality					DEFINE:VehicleDodgeBonus|0	DESC:+%1|VehicleDodgeBonus	DESC:Beginning at 2nd level, you apply a dodge bonus to the Reflex Defense of any vehicle you pilot. The dodge bonus is equal to one-half your class level, rounded down. Any condition that makes you lose your Dexterity bonus to Reflex Defense also makes you lose dodge bonuses. Also, dodge bonuses stack with each other, unlike most other types of bonuses.																																																																																																															SOURCEPAGE:p.
+Familiar Foe		KEY:Familiar Foe				CATEGORY:Special Ability	TYPE:Class Feature.Bounty Hunter Class Feature.SpecialQuality				DEFINE:FamiliarFoeBonus|0	DESC:+%1|FamiliarFoeBonus	DESC:By observing your enemy in combat, you know how to defeat him more easily. If you spend a full-round action observing an opponent in combat, you gain a bonus on attack rolls against that opponent and a bonus to your Reflex Defense against attacks made by that opponent equal to onehalf your class level (rounded down). The effects last until the end of the encounter. You cannot use this ability until after your opponent has acted during the combat.																																																																																															SOURCEPAGE:p.
+Command Cover		KEY:Command Cover				CATEGORY:Special Ability	TYPE:Class Feature.Crime Lord Class Feature.Officer Class Feature.SpecialQuality						DESC:Starting at 2nd level, you can use your allies to shield you from harm. You gain a + 1 cover bonus to your Reflex Defense for each ally that is adjacent to you, up to a maximum bonus equal to one-half your class level (maximum +5 at 10th level).																																																																																																																																						SOURCEPAGE:p.
+Delay Damage		KEY:Delay Damage ~ Elite Trooper		CATEGORY:Special Ability	TYPE:Class Feature.Elite Trooper Class Feature.SpecialQuality									DESC:Elite troopers are among the toughest individuals in the galaxy. After being exposed to numerous threats, foes, and combat situations, you've developed the ability to delay effects that would drop lesser creatures. Once per encounter as a reaction, you can choose to delay the effect of a single attack, ability, or effect used against you. The damage or effect does not take hold until the end of your next turn.																																																																																																										SOURCEPAGE:p.
+Damage Reduction	KEY:Damage Reduction				CATEGORY:Special Ability	TYPE:Class Feature.Elite Trooper Class Feature.SpecialQuality				DEFINE:DamageReductionBonus|0	DESC:%1|DamageReductionBonus	DESC:At 2nd level, you gain damage reduction 1 (DR 1), which means that you reduce the damage you take from any attack by 1 (see Damage Reduction, page 158). At every even-numbered level after 2nd, your damage reduction improves by 1 (DR 2 at 4th level, DR 3 at 6th level, and so on).																																																																																																																						DR:DamageReductionBonus/-	SOURCEPAGE:p.
+Indomitable		KEY:Indomitable					CATEGORY:Special Ability	TYPE:Class Feature.Force Disciple Class Feature.SpecialQuality									DESC:You are immune to mind-affecting effects																																																																																																																																																																								SOURCEPAGE:p.
+Trusty Sidearm		KEY:Trusty Sidearm				CATEGORY:Special Ability	TYPE:Class Feature.Gunslinger Class Feature.SpecialQuality					DEFINE:TrustySidearmDamage|0	DESC:+%1 damage|TrustySidearmDamage	DESC:Starting at 2nd level, you gain a bonus on damage rolls equal to one-half your class level (rounded down) when wielding a pistol. This damage is in addition to the character's usual level bonus to damage. This damage is doubled on a successful critical hit, as normal.																																																																																																													BONUS:WEAPONPROF=TYPE.Pistols|DAMAGE|TrustySidearmDamage						SOURCEPAGE:p.
+Fearless		KEY:Fearless					CATEGORY:Special Ability	TYPE:Class Feature.Jedi Master Class Feature.Sith Lord Class Feature.SpecialQuality						DESC:You are immune to fear effects																																																																																																																																																																										SOURCEPAGE:p.
+Serenity		KEY:Serenity					CATEGORY:Special Ability	TYPE:Class Feature.Jedi Master Class Feature.SpecialQuality										DESC:You may enter a brief meditative state as a full-round action. You may remain in this trance as long as you wish, and you are still aware of your surroundings; however, you are otherwise helpless and cannot perform any other actions. Upon emerging from the trance (a swift action), your first attack roll or Use the Force skill check made in the following round is considered to be a natural 20.																																																																																																													SOURCEPAGE:p.
+Share Talent		KEY:Share Talent ~ Officer			CATEGORY:Special Ability	TYPE:Class Feature.Officer Class Feature.SpecialQuality										DESC:At every even-numbered level, choose a talent that you already possess. The talent you select must be under the Influence talent tree (page 43). the Inspiration talent tree (page 43). the Commando talent tree (page 52). or the Military Tactics talent tree (see above). Once per day as a standard action, you can impart the benefits of the chosen talent to one or more allies, effectively granting them the talent (even if they don't meet the prerequisites). An ally must be within 10 squares of you and must be able to see and hear you to gain the talent; once gained, its benefits last until the end of the encounter. You can share the talent with a number of allies equal to one-half your officer class level (rounded down). Each time you gain this ability, it applies to a different talent. By 10th level, an officer has five different talents that he can share with up to five allies at a time. Once you select a shared talent, it cannot be changed.																SOURCEPAGE:p.
+Temptation		KEY:Temptation					CATEGORY:Special Ability	TYPE:Class Feature.Sith Lord Class Feature.SpecialQuality										DESC:You are adept at using Dun Moch, an ancient and vile technique for tempting others to tap into the dark side of the Force. As a standard action, make a Persuasion check and compare it to the Will Defense of a single opponent within line of sight. If the check succeeds, the target is filled with fear or anger, briefly giving in to the dark side. If the target spends a Force Point before your next turn, it must either add 1 point to its Dark Side Score or move-l step on the condition track (see Conditions, page 148) as it is overcome by doubt and remorse. If the target spends a Destiny Point before your next turn, it instead must add 2 points to its Dark Side Score or move -2 steps on the condition track.																																																								SOURCEPAGE:p.
 
 ###Block: Force Powers
-# Ability Name	Category of Ability		Type							Description																																																																																																							Source Page
-Battle Strike	CATEGORY:Special Ability	TYPE:ForcePower.SpecialQuality																																																																																																										SOURCEPAGE:p.
-Dark Rage		CATEGORY:Special Ability	TYPE:ForcePower.SpecialQuality.DarkSide																																																																																																									SOURCEPAGE:p.
-Farseeing		CATEGORY:Special Ability	TYPE:ForcePower.SpecialQuality																																																																																																										SOURCEPAGE:p.
-Force Disarm	CATEGORY:Special Ability	TYPE:ForcePower.SpecialQuality																																																																																																										SOURCEPAGE:p.
-Force Grip		CATEGORY:Special Ability	TYPE:ForcePower.SpecialQuality																																																																																																										SOURCEPAGE:p.
-Force Lightning	CATEGORY:Special Ability	TYPE:ForcePower.SpecialQuality.DarkSide																																																																																																									SOURCEPAGE:p.
-Force Slam		CATEGORY:Special Ability	TYPE:ForcePower.SpecialQuality		DESC:You pound one or more creatures with the Force. [Standard Action], All targets within a 6-square cone and within line of sight. Make a Use the Force check. Make one roll and compare the result to each target's Fortitude Defense. If the result equals or exceeds a the Defense, it takes 4d6 points of Force damage and is knocked prone. It takes half damage and is not knocked prone if the result does not equal the defense. SPECIAL: You may spend a Force Point to deal an additional 2d6 points of damage to targets in the area.																SOURCEPAGE:p.
-Force Stun		CATEGORY:Special Ability	TYPE:ForcePower.SpecialQuality																																																																																																										SOURCEPAGE:p.
-Force Thrust	CATEGORY:Special Ability	TYPE:ForcePower.SpecialQuality																																																																																																										SOURCEPAGE:p.
-Mind Trick		CATEGORY:Special Ability	TYPE:ForcePower.SpecialQuality		DESC:You use the Force to alter a target's perceptions or plant a suggestion in it's mind. [Standard Action], Target [One Int 3 or higher creature in line of sight within 12 squares of you.																																																																									SOURCEPAGE:p.
-Move Object		CATEGORY:Special Ability	TYPE:ForcePower.SpecialQuality																																																																																																										SOURCEPAGE:p.
-Negate Energy	CATEGORY:Special Ability	TYPE:ForcePower.SpecialQuality		DESC:You spontaneously negate a single attack that deals energy weapon damage, such as a lightsaber or blaster. [Time- Reaction; Target- One attack made against you that deals energy weapon damage.] Make a Use the Force check. If the result of the check equals or exceeds the damage dealt, the attack is negated and you take no damage. If the check fails, you take damage as normal. [Special - You must be aware of the attack, and not flatfooted, to negate it. If you are successful, you can spend a Force Point to regain hit points equal to the damage of the negated attack, up to a maximim of your full normal hit points.	SOURCEPAGE:p.
-Rebuke		CATEGORY:Special Ability	TYPE:ForcePower.SpecialQuality		DESC:You harmlessly absorb or deflect one Force power or used against you, perhaps even turning it against its creator [Time- Reaction; Target- One Force power direct at you.] Make a Use the Force Check. If your result equals or exceeds the check result of the power directed at you, you harmlessly redirect it and suffer no ill effects. If your result exceeds the check result of the power directed at you by 5 or more, you may choose to turn the Force power against its creator, who suffers the effect. The originator can rebuke it back and if successful both are affected.									SOURCEPAGE:p.
-Sever Force		CATEGORY:Special Ability	TYPE:ForcePower.SpecialQuality.LightSide																																																																																																									SOURCEPAGE:p.
-Surge			CATEGORY:Special Ability	TYPE:ForcePower.SpecialQuality		DESC:The Force enables you to jump great heights and distances as well as move quickly. [Time- Swift action; Target- You]. Make a Use the Force check. The result of the check determines the effect, if any. [Special- You can spend a Force Point to increase the power's Force bonus on Jump checks by 10 and increase your speed by an additional 2 squares.]																																														SOURCEPAGE:p.
-Vital Transfer	CATEGORY:Special Ability	TYPE:ForcePower.SpecialQuality.LightSide	DESC:You use your own life force to heal another living creature, using the Force as a conduit. [Standard action], [One creature touched]																																																																																		SOURCEPAGE:p.
+# Ability Name		Category of Ability		Type						Description																																																																																																							Source Page
+Battle Strike		CATEGORY:Special Ability	TYPE:ForcePower.SpecialQuality			DESC:You use the Force to enhance your battle prowess.																																																																																																							SOURCEPAGE:p.
+Dark Rage		CATEGORY:Special Ability	TYPE:ForcePower.SpecialQuality.DarkSide		DESC:You become enraged as the dark side flows through you.																																																																																																							SOURCEPAGE:p.
+Farseeing		CATEGORY:Special Ability	TYPE:ForcePower.SpecialQuality			DESC:You gain a vague, momentary impression of events happening around a particular being in some distant																																																																																																							SOURCEPAGE:p.
+Force Disarm		CATEGORY:Special Ability	TYPE:ForcePower.SpecialQuality			DESC:You disarm an opponent by using the Force to pull the weapon from his grasp.																																																																																																							SOURCEPAGE:p.
+Force Grip		CATEGORY:Special Ability	TYPE:ForcePower.SpecialQuality			DESC:You use the Force to choke or crush your enemy.																																																																																																							SOURCEPAGE:p.
+Force Lightning		CATEGORY:Special Ability	TYPE:ForcePower.SpecialQuality.DarkSide		DESC:You blast an enemy with deadly arcs of Force energy.																																																																																																							SOURCEPAGE:p.
+Force Slam		CATEGORY:Special Ability	TYPE:ForcePower.SpecialQuality			DESC:You pound one or more creatures with the Force. [Standard Action], All targets within a 6-square cone and within line of sight. Make a Use the Force check. Make one roll and compare the result to each target's Fortitude Defense. If the result equals or exceeds a the Defense, it takes 4d6 points of Force damage and is knocked prone. It takes half damage and is not knocked prone if the result does not equal the defense. SPECIAL: You may spend a Force Point to deal an additional 2d6 points of damage to targets in the area.																SOURCEPAGE:p.
+Force Stun		CATEGORY:Special Ability	TYPE:ForcePower.SpecialQuality			DESC:You call upon the Force to overload an enemy's senses, potentially stunning it.																																																																																																							SOURCEPAGE:p.
+Force Thrust		CATEGORY:Special Ability	TYPE:ForcePower.SpecialQuality			DESC:You use the Force to push a target away from you.																																																																																																							SOURCEPAGE:p.
+Mind Trick		CATEGORY:Special Ability	TYPE:ForcePower.SpecialQuality			DESC:You use the Force to alter a target's perceptions or plant a suggestion in it's mind. [Standard Action], Target [One Int 3 or higher creature in line of sight within 12 squares of you.																																																																									SOURCEPAGE:p.
+Move Object		CATEGORY:Special Ability	TYPE:ForcePower.SpecialQuality			DESC:You telekinetically move a target up to 6 squares in any direction using the Force.																																																																																																							SOURCEPAGE:p.
+Negate Energy		CATEGORY:Special Ability	TYPE:ForcePower.SpecialQuality			DESC:You spontaneously negate a single attack that deals energy weapon damage, such as a lightsaber or blaster. [Time- Reaction; Target- One attack made against you that deals energy weapon damage.] Make a Use the Force check. If the result of the check equals or exceeds the damage dealt, the attack is negated and you take no damage. If the check fails, you take damage as normal. [Special - You must be aware of the attack, and not flatfooted, to negate it. If you are successful, you can spend a Force Point to regain hit points equal to the damage of the negated attack, up to a maximim of your full normal hit points.	SOURCEPAGE:p.
+Rebuke			CATEGORY:Special Ability	TYPE:ForcePower.SpecialQuality			DESC:You harmlessly absorb or deflect one Force power or used against you, perhaps even turning it against its creator [Time- Reaction; Target- One Force power direct at you.] Make a Use the Force Check. If your result equals or exceeds the check result of the power directed at you, you harmlessly redirect it and suffer no ill effects. If your result exceeds the check result of the power directed at you by 5 or more, you may choose to turn the Force power against its creator, who suffers the effect. The originator can rebuke it back and if successful both are affected.									SOURCEPAGE:p.
+Sever Force		CATEGORY:Special Ability	TYPE:ForcePower.SpecialQuality.LightSide	DESC:You can block another Force-user's access to the Force, preventing him from spending Force Points and making it difficult for him to use Force powers.																																																																																																								SOURCEPAGE:p.
+Surge			CATEGORY:Special Ability	TYPE:ForcePower.SpecialQuality			DESC:The Force enables you to jump great heights and distances as well as move quickly. [Time- Swift action; Target- You]. Make a Use the Force check. The result of the check determines the effect, if any. [Special- You can spend a Force Point to increase the power's Force bonus on Jump checks by 10 and increase your speed by an additional 2 squares.]																																														SOURCEPAGE:p.
+Vital Transfer		CATEGORY:Special Ability	TYPE:ForcePower.SpecialQuality.LightSide	DESC:You use your own life force to heal another living creature, using the Force as a conduit. [Standard action], [One creature touched]																																																																																		SOURCEPAGE:p.
 
 ###Block: Force Talent Trees
 # Alter Talent Tree
-# Ability Name		Category of Ability	Type							Required Feat			Multiple Requirements														Required Stat	Source Page
-Discipline Strike		CATEGORY:Talent		TYPE:ForceTalent.Talent.AlterTalent		PREFEAT:1,Force Sensitivity																					SOURCEPAGE:p.
-Telekinetic Power		CATEGORY:Talent		TYPE:ForceTalent.Talent.AlterTalent		PREFEAT:1,Force Sensitivity																					SOURCEPAGE:p.
-Telekinetic Savant	CATEGORY:Talent		TYPE:ForceTalent.Talent.AlterTalent		PREFEAT:1,Force Sensitivity																					SOURCEPAGE:p.
+# Ability Name			Category of Ability	Type							Required Feat			Multiple Requirements														Required Stat	Source Page
+Discipline Strike		CATEGORY:Talent		TYPE:ForceTalent.Talent.AlterTalent		PREABILITY:1,CATEGORY=FEAT,Force Sensitivity																					SOURCEPAGE:p.
+Telekinetic Power		CATEGORY:Talent		TYPE:ForceTalent.Talent.AlterTalent		PREABILITY:1,CATEGORY=FEAT,Force Sensitivity																					SOURCEPAGE:p.
+Telekinetic Savant		CATEGORY:Talent		TYPE:ForceTalent.Talent.AlterTalent		PREABILITY:1,CATEGORY=FEAT,Force Sensitivity																					SOURCEPAGE:p.
 
 # Control Talent Tree
-Damage Reduction 10	CATEGORY:Talent		TYPE:ForceTalent.Talent.ControlTalent	PREFEAT:1,Force Sensitivity																					SOURCEPAGE:p.
-Equilibrium			CATEGORY:Talent		TYPE:ForceTalent.Talent.ControlTalent	PREFEAT:1,Force Sensitivity																					SOURCEPAGE:p.
-Force Focus			CATEGORY:Talent		TYPE:ForceTalent.Talent.ControlTalent	PREFEAT:1,Force Sensitivity																					SOURCEPAGE:p.
-Force Recovery		CATEGORY:Talent		TYPE:ForceTalent.Talent.ControlTalent						PREMULT:2,[PREFEAT:1,Force Sensitivity],[PREABILITY:1,CATEGORY=Force Talent,Equilibrium]						SOURCEPAGE:p.
+Damage Reduction 10		CATEGORY:Talent		TYPE:ForceTalent.Talent.ControlTalent	PREABILITY:1,CATEGORY=FEAT,Force Sensitivity																					SOURCEPAGE:p.
+Equilibrium			CATEGORY:Talent		TYPE:ForceTalent.Talent.ControlTalent	PREABILITY:1,CATEGORY=FEAT,Force Sensitivity																					SOURCEPAGE:p.
+Force Focus			CATEGORY:Talent		TYPE:ForceTalent.Talent.ControlTalent	PREABILITY:1,CATEGORY=FEAT,Force Sensitivity																					SOURCEPAGE:p.
+Force Recovery			CATEGORY:Talent		TYPE:ForceTalent.Talent.ControlTalent						PREMULT:2,[PREABILITY:1,CATEGORY=FEAT,Force Sensitivity],[PREABILITY:1,CATEGORY=Talent,Equilibrium]						SOURCEPAGE:p.
 
 # Dark Side Talent Tree
-Power of the Dark Side	CATEGORY:Talent		TYPE:ForceTalent.Talent.DarkSideTalent	PREFEAT:1,Force Sensitivity																					SOURCEPAGE:p.
-Dark Presence		CATEGORY:Talent		TYPE:ForceTalent.Talent.DarkSideTalent						PREMULT:2,[PREFEAT:1,Force Sensitivity],[PREABILITY:1,CATEGORY=Force Talent,Power of the Dark Side]	PRESTAT:1,CHA=13	SOURCEPAGE:p.
-Revenge			CATEGORY:Talent		TYPE:ForceTalent.Talent.DarkSideTalent						PREMULT:2,[PREFEAT:1,Force Sensitivity],[PREABILITY:1,CATEGORY=Force Talent,Power of the Dark Side]				SOURCEPAGE:p.
-Swift Power			CATEGORY:Talent		TYPE:ForceTalent.Talent.DarkSideTalent						PREMULT:2,[PREFEAT:1,Force Sensitivity],[PREABILITY:1,CATEGORY=Force Talent,Power of the Dark Side]				SOURCEPAGE:p.
+Power of the Dark Side		CATEGORY:Talent		TYPE:ForceTalent.Talent.DarkSideTalent	PREABILITY:1,CATEGORY=FEAT,Force Sensitivity																					SOURCEPAGE:p.
+Dark Presence			CATEGORY:Talent		TYPE:ForceTalent.Talent.DarkSideTalent						PREMULT:2,[PREABILITY:1,CATEGORY=FEAT,Force Sensitivity],[PREABILITY:1,CATEGORY=Talent,Power of the Dark Side]	PRESTAT:1,CHA=13	SOURCEPAGE:p.
+Revenge				CATEGORY:Talent		TYPE:ForceTalent.Talent.DarkSideTalent						PREMULT:2,[PREABILITY:1,CATEGORY=FEAT,Force Sensitivity],[PREABILITY:1,CATEGORY=Talent,Power of the Dark Side]				SOURCEPAGE:p.
+Swift Power			CATEGORY:Talent		TYPE:ForceTalent.Talent.DarkSideTalent						PREMULT:2,[PREABILITY:1,CATEGORY=FEAT,Force Sensitivity],[PREABILITY:1,CATEGORY=Talent,Power of the Dark Side]				SOURCEPAGE:p.
 
 # Sense Talent Tree
-Force Perception		CATEGORY:Talent		TYPE:ForceTalent.Talent.SenseTalent		PREFEAT:1,Force Sensitivity																					SOURCEPAGE:p.
-Force Pilot			CATEGORY:Talent		TYPE:ForceTalent.Talent.SenseTalent		PREFEAT:1,Force Sensitivity																					SOURCEPAGE:p.
-Foresight			CATEGORY:Talent		TYPE:ForceTalent.Talent.SenseTalent							PREMULT:2,[PREFEAT:1,Force Sensitivity],[PREABILITY:1,CATEGORY=Force Talent,Force Perception]					SOURCEPAGE:p.
-Gauge Force Potential	CATEGORY:Talent		TYPE:ForceTalent.Talent.SenseTalent							PREMULT:2,[PREFEAT:1,Force Sensitivity],[PREABILITY:1,CATEGORY=Force Talent,Force Perception]					SOURCEPAGE:p.
-Visions			CATEGORY:Talent		TYPE:ForceTalent.Talent.SenseTalent							PREMULT:2,[PREFEAT:1,Force Sensitivity],[PREABILITY:1,CATEGORY=Force Talent,Farseeing]						SOURCEPAGE:p.
+Force Perception		CATEGORY:Talent		TYPE:ForceTalent.Talent.SenseTalent		PREABILITY:1,CATEGORY=FEAT,Force Sensitivity																					SOURCEPAGE:p.
+Force Pilot			CATEGORY:Talent		TYPE:ForceTalent.Talent.SenseTalent		PREABILITY:1,CATEGORY=FEAT,Force Sensitivity																					SOURCEPAGE:p.
+Foresight			CATEGORY:Talent		TYPE:ForceTalent.Talent.SenseTalent							PREMULT:2,[PREABILITY:1,CATEGORY=FEAT,Force Sensitivity],[PREABILITY:1,CATEGORY=Talent,Force Perception]					SOURCEPAGE:p.
+Gauge Force Potential		CATEGORY:Talent		TYPE:ForceTalent.Talent.SenseTalent							PREMULT:2,[PREABILITY:1,CATEGORY=FEAT,Force Sensitivity],[PREABILITY:1,CATEGORY=Talent,Force Perception]					SOURCEPAGE:p.
+Visions				CATEGORY:Talent		TYPE:ForceTalent.Talent.SenseTalent							PREMULT:2,[PREABILITY:1,CATEGORY=FEAT,Force Sensitivity],[PREABILITY:1,CATEGORY=Talent,Farseeing]						SOURCEPAGE:p.
 
 ###Block: Other Tradition Force Talents
 # Jensaarai Defender Talent Tree
-# Ability Name		Category of Ability	Type								Required Feat			Multiple Requirements													Required Text			Source Page
-Attune Armor		CATEGORY:Talent		TYPE:ForceTalent.Talent.JensaaraiDefenderTalent	PREFEAT:1,Force Sensitivity																	PRETEXT:Jensaarai Defender	SOURCEPAGE:p.
-Force Cloak			CATEGORY:Talent		TYPE:ForceTalent.Talent.JensaaraiDefenderTalent	PREFEAT:1,Force Sensitivity																	PRETEXT:Jensaarai Defender	SOURCEPAGE:p.
-Force Cloak Mastery	CATEGORY:Talent		TYPE:ForceTalent.Talent.JensaaraiDefenderTalent						PREMULT:2,[PREFEAT:1,Force Sensitivity],[PREABILITY:1,CATEGORY=Force Talent,Force Cloak]		PRETEXT:Jensaarai Defender	SOURCEPAGE:p.
-Linked Defense		CATEGORY:Talent		TYPE:ForceTalent.Talent.JensaaraiDefenderTalent	PREFEAT:1,Force Sensitivity																	PRETEXT:Jensaarai Defender	SOURCEPAGE:p.
+# Ability Name			Category of Ability	Type								Required Feat			Multiple Requirements													Required Text			Source Page
+Attune Armor			CATEGORY:Talent		TYPE:ForceTalent.Talent.JensaaraiDefenderTalent	PREABILITY:1,CATEGORY=FEAT,Force Sensitivity																	PRETEXT:Jensaarai Defender	SOURCEPAGE:p.
+Force Cloak			CATEGORY:Talent		TYPE:ForceTalent.Talent.JensaaraiDefenderTalent	PREABILITY:1,CATEGORY=FEAT,Force Sensitivity																	PRETEXT:Jensaarai Defender	SOURCEPAGE:p.
+Force Cloak Mastery		CATEGORY:Talent		TYPE:ForceTalent.Talent.JensaaraiDefenderTalent						PREMULT:2,[PREABILITY:1,CATEGORY=FEAT,Force Sensitivity],[PREABILITY:1,CATEGORY=Talent,Force Cloak]			PRETEXT:Jensaarai Defender	SOURCEPAGE:p.
+Linked Defense			CATEGORY:Talent		TYPE:ForceTalent.Talent.JensaaraiDefenderTalent	PREABILITY:1,CATEGORY=FEAT,Force Sensitivity																	PRETEXT:Jensaarai Defender	SOURCEPAGE:p.
 
 # Dathomiri Witch Talent Tree
-Adept Spellcaster		CATEGORY:Talent		TYPE:ForceTalent.Talent.DathomiriWitchTalent	PREFEAT:1,Force Sensitivity																	PRETEXT:Dathomiri Witch		SOURCEPAGE:p.
-Charm Beast			CATEGORY:Talent		TYPE:ForceTalent.Talent.DathomiriWitchTalent	PREFEAT:1,Force Sensitivity																	PRETEXT:Dathomiri Witch		SOURCEPAGE:p.
-Command Beast		CATEGORY:Talent		TYPE:ForceTalent.Talent.DathomiriWitchTalent						PREMULT:2,[PREFEAT:1,Force Sensitivity],[PREABILITY:1,CATEGORY=Force Talent,Charm Beast]		PRETEXT:Dathomiri Witch		SOURCEPAGE:p.
-Flight			CATEGORY:Talent		TYPE:ForceTalent.Talent.DathomiriWitchTalent						PREMULT:2,[PREFEAT:1,Force Sensitivity],[PREABILITY:1,CATEGORY=Force Talent,Adept Spellcaster]	PRETEXT:Dathomiri Witch		SOURCEPAGE:p.
+Adept Spellcaster		CATEGORY:Talent		TYPE:ForceTalent.Talent.DathomiriWitchTalent	PREABILITY:1,CATEGORY=FEAT,Force Sensitivity																	PRETEXT:Dathomiri Witch		SOURCEPAGE:p.
+Charm Beast			CATEGORY:Talent		TYPE:ForceTalent.Talent.DathomiriWitchTalent	PREABILITY:1,CATEGORY=FEAT,Force Sensitivity																	PRETEXT:Dathomiri Witch		SOURCEPAGE:p.
+Command Beast			CATEGORY:Talent		TYPE:ForceTalent.Talent.DathomiriWitchTalent						PREMULT:2,[PREABILITY:1,CATEGORY=FEAT,Force Sensitivity],[PREABILITY:1,CATEGORY=Talent,Charm Beast]		PRETEXT:Dathomiri Witch		SOURCEPAGE:p.
+Flight				CATEGORY:Talent		TYPE:ForceTalent.Talent.DathomiriWitchTalent						PREMULT:2,[PREABILITY:1,CATEGORY=FEAT,Force Sensitivity],[PREABILITY:1,CATEGORY=Talent,Adept Spellcaster]	PRETEXT:Dathomiri Witch		SOURCEPAGE:p.
 
 ###Block: Force Techniques
 # Ability Name			Category of Ability	Type				Source Page
@@ -554,45 +555,63 @@ Improved Sense Surroundings	CATEGORY:Talent		TYPE:ForceTechniques	SOURCEPAGE:p.
 Improved Telepathy		CATEGORY:Talent		TYPE:ForceTechniques	SOURCEPAGE:p.
 
 ###Block: Force Secrets
-# Ability Name	Category of Ability	Type			Source Page
-Devastating Power	CATEGORY:Talent		TYPE:ForceSecrets	SOURCEPAGE:p.
-Distant Power	CATEGORY:Talent		TYPE:ForceSecrets	SOURCEPAGE:p.
-Multitarget Power	CATEGORY:Talent		TYPE:ForceSecrets	SOURCEPAGE:p.
-Quicken Power	CATEGORY:Talent		TYPE:ForceSecrets	SOURCEPAGE:p.
-Shaped Power	CATEGORY:Talent		TYPE:ForceSecrets	SOURCEPAGE:p.
+# Ability Name			Category of Ability	Type			Source Page
+Devastating Power		CATEGORY:Talent		TYPE:ForceSecrets	SOURCEPAGE:p.
+Distant Power			CATEGORY:Talent		TYPE:ForceSecrets	SOURCEPAGE:p.
+Multitarget Power		CATEGORY:Talent		TYPE:ForceSecrets	SOURCEPAGE:p.
+Quicken Power			CATEGORY:Talent		TYPE:ForceSecrets	SOURCEPAGE:p.
+Shaped Power			CATEGORY:Talent		TYPE:ForceSecrets	SOURCEPAGE:p.
+
+
+###Block: Beast
+
+Species Trait ~ Nexu		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Nexu Species Trait
+Species Trait ~ Rancor		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Rancor Species Trait
+Species Trait ~ Reek		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Reek Species Trait
+Species Trait ~ Tauntaun	CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Tauntaun Species Trait
+Species Trait ~ Wampa		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Wampa Species Trait
+
 
 
 ###Block: Beast Species Traits
 # Ability Name	Unique Key				Category of Ability		Type										Description																																																																																																																				Source Page
-Ambush		KEY:Ambush ~ Nexu			CATEGORY:Special Ability	TYPE:SpeciesTrait.NexuSpeciesTrait.SpecialQuality		DESC:A nexu deals +2d6 points of damage with its natural weapons against a flat-footed opponent.																																																																																																					SOURCEPAGE:p.276
-Fast Healing 5	KEY:Fast Healing ~ Rancor	CATEGORY:Special Ability	TYPE:SpeciesTrait.RancorSpeciesTrait.SpecialQuality		DESC:A rancor automatically regains 5 hit points every round at the end of its turn, up to its normal maximum, until it is killed.																																																																																																SOURCEPAGE:p.276
-Rage			KEY:Rage ~ Reek			CATEGORY:Special Ability	TYPE:SpeciesTrait.ReekSpeciesTrait.SpecialQuality.Rage	DESC:The first time a reek takes damage greater than its Will Defense from a single attack, it flies into a terrible rage. While enraged, the reek temporarily gains a +2 rage bonus on melee attack rolls and melee damage rolls. The reek's fit of rage lasts for a number of rounds equal to 5 + its Constitution modifier. At the end of its rage, the reek moves -1 persistent step along the condition track (see Conditions, page 148). The penalties imposed by this condition persist until the reek takes at least 10 minutes to recuperate, during which time it can't engage in any strenuous activity. A reek can be pulled out of its enraged state by making it friendly (see the Persuasion skill, page 71).	SOURCEPAGE:p.276
-Scent			KEY:Scent ~ Tauntaun		CATEGORY:Special Ability	TYPE:SpeciesTrait.TauntaunSpeciesTrait.SpecialQuality		DESC:Tauntauns ignore concealment and cover when making Perception checks to notice opponents within 10 squares, and they take no penalty from poor visibility when tracking (see the Survival skill, page 73).																																																																																			SOURCEPAGE:p.277
-Rend			KEY:Rend ~ Wampa			CATEGORY:Special Ability	TYPE:SpeciesTrait.WampaSpeciesTrait.SpecialQuality		DESC:If a wampa hits with both of its claw attacks in the same turn, it rends its opponent for an additional 2d6 points of damage.																																																																																																SOURCEPAGE:p.277
+Ambush		KEY:Nexu ~ Ambush			CATEGORY:Special Ability	TYPE:Species Trait.Nexu Species Trait.SpecialQuality		DESC:A nexu deals +2d6 points of damage with its natural weapons against a flat-footed opponent.																																																																																																					SOURCEPAGE:p.276
+Fast Healing 5	KEY:Rancor ~ Fast Healing	CATEGORY:Special Ability	TYPE:Species Trait.Rancor Species Trait.SpecialQuality		DESC:A rancor automatically regains 5 hit points every round at the end of its turn, up to its normal maximum, until it is killed.																																																																																																SOURCEPAGE:p.276
+Rage			KEY:Reek ~ Rage			CATEGORY:Special Ability	TYPE:Species Trait.Reek Species Trait.SpecialQuality.Rage	DESC:The first time a reek takes damage greater than its Will Defense from a single attack, it flies into a terrible rage. While enraged, the reek temporarily gains a +2 rage bonus on melee attack rolls and melee damage rolls. The reek's fit of rage lasts for a number of rounds equal to 5 + its Constitution modifier. At the end of its rage, the reek moves -1 persistent step along the condition track (see Conditions, page 148). The penalties imposed by this condition persist until the reek takes at least 10 minutes to recuperate, during which time it can't engage in any strenuous activity. A reek can be pulled out of its enraged state by making it friendly (see the Persuasion skill, page 71).	SOURCEPAGE:p.276
+Scent			KEY:Tauntaun ~ Scent		CATEGORY:Special Ability	TYPE:Species Trait.Tauntaun Species Trait.SpecialQuality		DESC:Tauntauns ignore concealment and cover when making Perception checks to notice opponents within 10 squares, and they take no penalty from poor visibility when tracking (see the Survival skill, page 73).																																																																																			SOURCEPAGE:p.277
+Rend			KEY:Wampa ~ Rend			CATEGORY:Special Ability	TYPE:Species Trait.Wampa Species Trait.SpecialQuality		DESC:If a wampa hits with both of its claw attacks in the same turn, it rends its opponent for an additional 2d6 points of damage.																																																																																																SOURCEPAGE:p.277
 
 ###Block: Other Species Traits
 # Ability Name			Category of Ability	Ability
-Species Trait ~ Aqualish	CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=AqualishSpeciesTrait
-Species Trait ~ Hutt		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=HuttSpeciesTrait
-Species Trait ~ Neimoidian	CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=NeimoidianSpeciesTrait
-Species Trait ~ Yuuzhan Vong	CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Yuuzhan VongSpeciesTrait
+Species Trait ~ Aqualish	CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Aqualish Species Trait
+Species Trait ~ Hutt		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Hutt Species Trait
+Species Trait ~ Neimoidian	CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Neimoidian Species Trait
+Species Trait ~ Yuuzhan Vong	CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|TYPE=Yuuzhan Vong Species Trait
 
 ###Block:
 # Aqualish
-# Ability Name		Unique Key						Category of Ability		Type										Description																																												Automatically Gained Feat								Change Weapon Prof. Category	Source Page
-Breathe Underwater	KEY:Breathe Underwater ~ Aqualish		CATEGORY:Special Ability	TYPE:SpeciesTrait.AqualishSpeciesTrait.SpecialQuality		DESC:As amphibious creatures, Aqualish can't drown in water.																																																				SOURCEPAGE:p.284
-Expert Swimmer		KEY:Expert Swimmer ~ Aqualish			CATEGORY:Special Ability	TYPE:SpeciesTrait.AqualishSpeciesTrait.SpecialQuality		DESC:An Aqualish may choose to reroll any Swim check, but the result of the reroll must be accepted even if it is worse. In addition, an Aqualish may choose to take 10 on Swim checks even when distracted or threatened.																										SOURCEPAGE:p.284
+# Ability Name		Unique Key					Category of Ability		Type										Description																																												Automatically Gained Feat								Change Weapon Prof. Category	Source Page
+Breathe Underwater	KEY:Aqualish ~ Breathe Underwater		CATEGORY:Special Ability	TYPE:Species Trait.Aqualish Species Trait.SpecialQuality		DESC:As amphibious creatures, Aqualish can't drown in water.																																																				SOURCEPAGE:p.284
+Expert Swimmer		KEY:Aqualish ~ Expert Swimmer			CATEGORY:Special Ability	TYPE:Species Trait.Aqualish Species Trait.SpecialQuality		DESC:An Aqualish may choose to reroll any Swim check, but the result of the reroll must be accepted even if it is worse. In addition, an Aqualish may choose to take 10 on Swim checks even when distracted or threatened.																										SOURCEPAGE:p.284
 
 # Hutt
-Force Resistance		KEY:Force Resistance ~ Hutt			CATEGORY:Special Ability	TYPE:SpeciesTrait.HuttSpeciesTrait.SpecialQuality		DESC:+5 species bonus to Will Defense against any Use the Force check.																																																			SOURCEPAGE:p.285
-Supreme Stability		KEY:Supreme Stability ~ Hutt			CATEGORY:Special Ability	TYPE:SpeciesTrait.HuttSpeciesTrait.SpecialQuality		DESC:Hutts can't be tripped or knocked prone.																																																							SOURCEPAGE:p.285
-Skills			KEY:Skills ~ Hutt					CATEGORY:Special Ability	TYPE:SpeciesTrait.HuttSpeciesTrait.SpecialQuality		DESC:A Hutt may reroll a Persuasion check, keeping the better result.																																																			SOURCEPAGE:p.285
+Force Resistance		KEY:Hutt ~ Force Resistance		CATEGORY:Special Ability	TYPE:Species Trait.Hutt Species Trait.SpecialQuality		DESC:+5 species bonus to Will Defense against any Use the Force check.																																																			SOURCEPAGE:p.285
+Supreme Stability		KEY:Hutt ~ Supreme Stability		CATEGORY:Special Ability	TYPE:Species Trait.Hutt Species Trait.SpecialQuality		DESC:Hutts can't be tripped or knocked prone.																																																							SOURCEPAGE:p.285
+Skills			KEY:Hutt ~ Skills				CATEGORY:Special Ability	TYPE:Species Trait.Hutt Species Trait.SpecialQuality		DESC:A Hutt may reroll a Persuasion check, keeping the better result.																																																			SOURCEPAGE:p.285
 
 # Neimoidian
-Conditional Bonus Feat	KEY:Conditional Bonus Feat ~ Neimoidian	CATEGORY:Special Ability	TYPE:SpeciesTrait.NeimoidianSpeciesTrait.SpecialQuality	DESC:Neimoidians with Deception as a trained skill gain Skill Focus (Deception) as a bonus feat.																													AUTO:FEAT|Skill Focus (Deception)|PREFEAT:1,Skill Training (Deception)						SOURCEPAGE:p.285
-Skills			KEY:Skills ~ Neimoidian				CATEGORY:Special Ability	TYPE:SpeciesTrait.NeimoidianSpeciesTrait.SpecialQuality	DESC:A Neimoidian may reroll a Deception check but must keep the second result.																																																	SOURCEPAGE:p.285
+Conditional Bonus Feat	KEY:Neimoidian ~ Conditional Bonus Feat		CATEGORY:Special Ability	TYPE:Species Trait.Neimoidian Species Trait.SpecialQuality	DESC:Neimoidians with Deception as a trained skill gain Skill Focus (Deception) as a bonus feat.																													ABILITY:FEAT|AUTOMATIC|Skill Focus (Deception)|PREABILITY:1,CATEGORY=FEAT,Skill Training (Deception)						SOURCEPAGE:p.285
+Skills			KEY:Neimoidian ~ Skills				CATEGORY:Special Ability	TYPE:Species Trait.Neimoidian Species Trait.SpecialQuality	DESC:A Neimoidian may reroll a Deception check but must keep the second result.																																																	SOURCEPAGE:p.285
 
 # Yuuzhan Vong
-Force Immunity		KEY:Force Immunity ~ Yuuzhan Vong		CATEGORY:Special Ability	TYPE:SpeciesTrait.Yuuzhan VongSpeciesTrait.SpecialQuality	DESC:Yuuzhan Vong can't take the Force Sensitivity feat, can't make Use the Force checks, and never gain Force Points. In addition, they are immune to any Force effect that targets their Will Defense (including Force powers and aspects of the Use the Force skill).																		SOURCEPAGE:p.285
-Technophobic		KEY:Technophobic ~ Yuuzhan Vong		CATEGORY:Special Ability	TYPE:SpeciesTrait.Yuuzhan VongSpeciesTrait.SpecialQuality	DESC:Yuuzhan Vong take a -5 penalty on attack rolls and skill checks made when using mechanical weapons or tools.																																												SOURCEPAGE:p.285
-Weapon Familiarity	KEY:Weapon Familiarity ~ Yuuzhan Vong	CATEGORY:Special Ability	TYPE:SpeciesTrait.Yuuzhan VongSpeciesTrait.SpecialQuality	DESC:Yuuzhan Vong treat the amphistaff as a simple weapon instead of an exotic weapon.																																											CHANGEPROF:Amphistaff=Simple	SOURCEPAGE:p.285
+Force Immunity		KEY:Yuuzhan Vong ~ Force Immunity		CATEGORY:Special Ability	TYPE:Species Trait.Yuuzhan Vong Species Trait.SpecialQuality	DESC:Yuuzhan Vong can't take the Force Sensitivity feat, can't make Use the Force checks, and never gain Force Points. In addition, they are immune to any Force effect that targets their Will Defense (including Force powers and aspects of the Use the Force skill).																		SOURCEPAGE:p.285
+Technophobic		KEY:Yuuzhan Vong ~ Technophobic			CATEGORY:Special Ability	TYPE:Species Trait.Yuuzhan Vong Species Trait.SpecialQuality	DESC:Yuuzhan Vong take a -5 penalty on attack rolls and skill checks made when using mechanical weapons or tools.																																												SOURCEPAGE:p.285
+Weapon Familiarity	KEY:Yuuzhan Vong ~ Weapon Familiarity		CATEGORY:Special Ability	TYPE:Species Trait.Yuuzhan Vong Species Trait.SpecialQuality	DESC:Yuuzhan Vong treat the amphistaff as a simple weapon instead of an exotic weapon.																																											CHANGEPROF:Amphistaff=Simple	SOURCEPAGE:p.285
+
+###Block: Force-Using Traditions
+Jedi				KEY:Force-Using Tradition ~ Jedi				CATEGORY:Special Ability	TYPE:Force-Using Tradition.SpecialQuality	SORTKEY:1_B							TEMPLATE:Jedi Tradition
+Sith				KEY:Force-Using Tradition ~ Sith				CATEGORY:Special Ability	TYPE:Force-Using Tradition.SpecialQuality	SORTKEY:1_B							TEMPLATE:Sith Tradition
+Jensaarai			KEY:Force-Using Tradition ~ Jensaarai				CATEGORY:Special Ability	TYPE:Force-Using Tradition.SpecialQuality	SORTKEY:2_A							TEMPLATE:Jensaarai Defender
+Witches of Dathomiri		KEY:Force-Using Tradition ~ Witches of Dathomiri		CATEGORY:Special Ability	TYPE:Force-Using Tradition.SpecialQuality	SORTKEY:2_B	PREGENDER:Female				TEMPLATE:Dathomiri Witch
+None				KEY:Force-Using Tradition ~ None				CATEGORY:Special Ability	TYPE:Force-Using Tradition.SpecialQuality	SORTKEY:1_A
+Other				KEY:Force-Using Tradition ~ Other				CATEGORY:Special Ability	TYPE:Force-Using Tradition.SpecialQuality	SORTKEY:9_A													CHOOSE:USERINPUT|TITLE=Force Tradition	MULT:YES	STACK:NO

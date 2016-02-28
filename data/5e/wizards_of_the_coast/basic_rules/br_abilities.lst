@@ -1,0 +1,414 @@
+
+Default	CATEGORY:Internal	DEFINE:Proficiency_Bonus|0	BONUS:VAR|Proficiency_Bonus|(TL+7)/4	DEFINE:BlindsightRange|0	DEFINE:DarkvisionRange|0	DEFINE:TruesightRange|0
+
+Blindsight	CATEGORY:Special Ability			DESC:A creature with blindsight can perceive its surroundings without relying on sight, within a specific radius. Creatures without eyes, such as oozes, and creatures with echolocation or heightened senses, such as bats and true dragons, have this sense.
+Darkvision	CATEGORY:Special Ability			DESC:Many creatures in the worlds of D&amp;D, especially those that dwell underground, have darkvision. Within a specified range, a creature with darkvision can see in darkness as if the darkness were dim light, so areas of darkness are only lightly obscured as far as that creature is concerned. However, the creature can't discern color in darkness, only shades of gray.
+Truesight	CATEGORY:Special Ability			DESC:A creature with truesight can, out to a specific range, see in normal and magical darkness, see invisible creatures and objects, automatically detect visual illusions and succeed on saving throws against them, and perceive the original form of a shapechanger or a creature that is transformed by magic. Furthermore, the creature can see into the Ethereal Plane.
+
+# Damage Types
+# Acid			. The corrosive spray of a black dragon's breath and the dissolving enzymes secreted by a black pudding deal acid damage.
+# Bludgeoning		. Blunt force attacks-hammers, falling, constriction, and the like-deal bludgeoning damage.
+# Cold			. The infernal chill radiating from an ice devil's spear and the frigid blast of a white dragon's breath deal cold damage.
+# Fire		. Red dragons breathe fire, and many spells conjure flames to deal fire damage.
+# Force		. Force is pure magical energy focused into a damaging form. Most effects that deal force damage are spells, including magic missile and spiritual weapon.
+# Lightning	. A lightning bolt spell and a blue dragon's breath deal lightning damage.
+# Necrotic	. Necrotic damage, dealt by certain undead and some spells, withers matter and even the soul.
+# Piercing	. Puncturing and impaling attacks, including spears and monsters' bites, deal piercing damage.
+# Poison	. Venomous stings and the toxic gas of a green dragon's breath deal poison damage.
+# Psychic	. Mental abilities such as a mind flayer's psionic blast deal psychic damage.
+# Radiant	. Radiant damage, dealt by a cleric's flame strike spell or an angel's smiting weapon, sears the flesh like fire and overloads the spirit with power.
+# Slashing	. Swords, axes, and monsters' claws deal slashing damage.
+# Thunder	. A concussive burst of sound, such as the effect of the thunderwave spell, deals thunder damage.
+
+Race Traits ~ Dwarf	CATEGORY:Internal	BONUS:ABILITYPOOL|Dwarf Subrace|1	ABILITY:Dwarf Trait|AUTOMATIC|TYPE=Base Dwarf Trait
+
+#Dwarf Traits	CATEGORY:Special Ability	TYPE:Dwarf Trait	
+
+
+Ability Score Increase	KEY:Dwarf ~ Ability Score Increase		CATEGORY:Special Ability	TYPE:Dwarf Trait.Base Dwarf Trait.SpecialQuality	VISIBLE:EXPORT	DESC:Your Constitution score increases by 2.	BONUS:STAT|CON|2|TYPE=Racial
+Darkvision			KEY:Dwarf ~ Darkvision				CATEGORY:Special Ability	TYPE:Dwarf Trait.Base Dwarf Trait.SpecialQuality	VISIBLE:EXPORT	DESC:Accustomed to life underground, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray.	BONUS:VAR|DarkvisionRange|60|TYPE=Base
+Dwarven Resilience	KEY:Dwarf ~ Dwarven Resilience		CATEGORY:Special Ability	TYPE:Dwarf Trait.Base Dwarf Trait.SpecialQuality	VISIBLE:EXPORT	DESC:You have advantage on saving throws against poison, and you have resistance against poison damage (explained in chapter 9).	ASPECT:SaveBonus|advantage on saving throws against poison, and you have resistance against poison damage
+# Throwing Hammer not found - Light Hammer may be "Thrown".
+Dwarven Combat Training	KEY:Dwarf ~ Dwarven Combat Training		CATEGORY:Special Ability	TYPE:Dwarf Trait.Base Dwarf Trait.SpecialQuality	VISIBLE:EXPORT	DESC:You have proficiency with the battleaxe, handaxe, throwing hammer, and warhammer.	AUTO:WEAPONPROF|Battleaxe|Handaxe|Light Hammer|Warhammer
+Tool Proficiency		KEY:Dwarf ~ Tool Proficiency			CATEGORY:Special Ability	TYPE:Dwarf Trait.Base Dwarf Trait.SpecialQuality	VISIBLE:EXPORT	DESC:You gain proficiency with the artisan's tools of your choice: smith's tools, brewer's supplies, or mason's tools.	BONUS:ABILITYPOOL|Dwarf Artisan's Tool Proficiency|1
+Stonecunning		KEY:Dwarf ~ Stonecunning			CATEGORY:Special Ability	TYPE:Dwarf Trait.Base Dwarf Trait.SpecialQuality	VISIBLE:EXPORT	DESC:Whenever you make an Intelligence (History) check related to the origin of stonework, you are considered proficient in the History skill and add double your proficiency bonus to the check, instead of your normal proficiency bonus.
+Languages			KEY:Dwarf ~ Languages				CATEGORY:Special Ability	TYPE:Dwarf Trait.Base Dwarf Trait.SpecialQuality	VISIBLE:EXPORT	DESC:You can speak, read, and write Common and Dwarvish. Dwarvish is full of hard consonants and guttural sounds, and those characteristics spill over into whatever other language a dwarf might speak.
+
+# Tool Proficiency
+Smith's Tools		KEY:Tool Proficiency ~ Smith's Tools	CATEGORY:Special Ability	TYPE:DwarfToolProficiency.SpecialQuality	DESC:Proficient with Artisan Smith's Tools.
+Brewer's Supplies		KEY:Tool Proficiency ~ Brewer's Supplies	CATEGORY:Special Ability	TYPE:DwarfToolProficiency.SpecialQuality	DESC:Proficient with Artisan Brewer's Supplies.
+Mason's Tools		KEY:Tool Proficiency ~ Mason's Tools	CATEGORY:Special Ability	TYPE:DwarfToolProficiency.SpecialQuality	DESC:Proficient with Artisan Mason's Tools.
+
+
+Hill Dwarf			KEY:Dwarf Subrace ~ Hill	TYPE:DwarfSubrace	CATEGORY:Internal	ABILITY:Dwarf Trait|AUTOMATIC|Hill Dwarf ~ Ability Score Increase		ABILITY:Dwarf Trait|AUTOMATIC|Hill Dwarf ~ Dwarven Toughness
+Mountain Dwarf		KEY:Dwarf Subrace ~ Mountain	TYPE:DwarfSubrace	CATEGORY:Internal	ABILITY:Dwarf Trait|AUTOMATIC|Mountain Dwarf ~ Ability Score Increase	ABILITY:Dwarf Trait|AUTOMATIC|Mountain Dwarf ~ Dwarven Armor Training
+Gray Dwarf			KEY:Dwarf Subrace ~ Gray	TYPE:DwarfSubrace	CATEGORY:Internal	VISIBLE:NO
+
+
+
+# Hill Dwarf
+Ability Score Increase	KEY:Hill Dwarf ~ Ability Score Increase	CATEGORY:Special Ability	TYPE:Dwarf Trait.Hill Dwarf Trait.SpecialQuality	VISIBLE:EXPORT	DESC:Your Wisdom score increases by 1.		BONUS:STAT|WIS|1|TYPE=Racial
+Dwarven Toughness		KEY:Hill Dwarf ~ Dwarven Toughness		CATEGORY:Special Ability	TYPE:Dwarf Trait.Hill Dwarf Trait.SpecialQuality	VISIBLE:EXPORT	DESC:Your hit point maximum increases by 1, and it increases by 1 every time you gain a level.	BONUS:HP|CURRENTMAX|TL
+
+# Mountain Dwarf		
+Ability Score Increase	KEY:Mountain Dwarf ~ Ability Score Increase	CATEGORY:Special Ability	TYPE:Dwarf Trait.Mountain Dwarf Trait.SpecialQuality	VISIBLE:EXPORT	DESC:Your Strength score increases by 2.	BONUS:STAT|STR|2|TYPE=Racial
+Dwarven Armor Training	KEY:Mountain Dwarf ~ Dwarven Armor Training	CATEGORY:Special Ability	TYPE:Dwarf Trait.Mountain Dwarf Trait.SpecialQuality	VISIBLE:EXPORT	DESC:You have proficiency with light and medium armor.	ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfMedium
+
+
+###Block: Elf
+Race Traits ~ Elf	CATEGORY:Internal		BONUS:ABILITYPOOL|Elf Subrace|1	ABILITY:Elf Trait|AUTOMATIC|TYPE=Base Elf Trait
+
+Ability Score Increase	KEY:Elf ~ Ability Score Increase	CATEGORY:Special Ability	TYPE:Elf Trait.Base Elf Trait.SpecialQuality	SOURCEPAGE:p.	DESC:Your Dexterity score increases by 2.	BONUS:STAT|DEX|2|TYPE=Racial
+Darkvision			KEY:Elf ~ Darkvision			CATEGORY:Special Ability	TYPE:Elf Trait.Base Elf Trait.SpecialQuality	SOURCEPAGE:p.	DESC:Accustomed to twilit forests and the night sky, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray.
+Keen Senses			KEY:Elf ~ Keen Senses			CATEGORY:Special Ability	TYPE:Elf Trait.Base Elf Trait.SpecialQuality	SOURCEPAGE:p.	DESC:You have proficiency in the Perception skill.
+Fey Ancestry		KEY:Elf ~ Fey Ancestry			CATEGORY:Special Ability	TYPE:Elf Trait.Base Elf Trait.SpecialQuality	SOURCEPAGE:p.	DESC:You have advantage on saving throws against being charmed, and magic can't put you to sleep.
+Trance			KEY:Elf ~ Trance				CATEGORY:Special Ability	TYPE:Elf Trait.Base Elf Trait.SpecialQuality	SOURCEPAGE:p.	DESC:Elves don't need to sleep. Instead, they meditate deeply, remaining semiconscious, for 4 hours a day. (The Common word for such meditation is "trance.") While meditating, you can dream after a fashion; such dreams are actually mental exercises that have become reflexive through years of practice. After resting in this way, you gain the same benefit that a human does from 8 hours of sleep.
+Languages			KEY:Elf ~ Languages			CATEGORY:Special Ability	TYPE:Elf Trait.Base Elf Trait.SpecialQuality	SOURCEPAGE:p.	DESC:You can speak, read, and write Common and Elvish. Elvish is fluid, with subtle intonations and intricate grammar. Elven literature is rich and varied, and their songs and poems are famous among other races. Many bards learn their language so they can add Elvish ballads to their repertoires.
+
+# Elf Subrace Selection
+High Elf			KEY:Elf Subrace ~ High	TYPE:ElfSubrace	CATEGORY:Internal	ABILITY:Elf Trait|AUTOMATIC|High Elf ~ Ability Score Increase		ABILITY:Elf Trait|AUTOMATIC|High Elf ~ Elf Weapon Training			ABILITY:Elf Trait|AUTOMATIC|High Elf ~ Cantrip					ABILITY:Elf Trait|AUTOMATIC|High Elf ~ Extra Language
+Wood Elf			KEY:Elf Subrace ~ Wood	TYPE:ElfSubrace	CATEGORY:Internal	ABILITY:Elf Trait|AUTOMATIC|Wood Elf ~ Ability Score Increase		ABILITY:Elf Trait|AUTOMATIC|Wood Elf ~ Elf Weapon Training			ABILITY:Elf Trait|AUTOMATIC|Wood Elf ~ Fleet of Foot				ABILITY:Elf Trait|AUTOMATIC|Wood Elf ~ Mask of the Wild
+
+
+# High Elf
+Ability Score Increase	KEY:High Elf ~ Ability Score Increase	CATEGORY:Special Ability	TYPE:Elf Trait.High Elf Trait.SpecialQuality	SOURCEPAGE:p.	DESC:Your Intelligence score increases by 1.	BONUS:STAT|INT|1|TYPE=Racial
+Elf Weapon Training	KEY:High Elf ~ Elf Weapon Training		CATEGORY:Special Ability	TYPE:Elf Trait.High Elf Trait.SpecialQuality	SOURCEPAGE:p.	DESC:You have proficiency with the longsword, shortsword, shortbow, and longbow.	AUTO:WEAPONPROF|Longsword|Shortsword|Shortbow|Longbow
+Cantrip			KEY:High Elf ~ Cantrip				CATEGORY:Special Ability	TYPE:Elf Trait.High Elf Trait.SpecialQuality	SOURCEPAGE:p.	DESC:You know one cantrip of your choice from the wizard spell list. Intelligence is your spellcasting ability for it.
+Extra Language		KEY:High Elf ~ Extra Language			CATEGORY:Special Ability	TYPE:Elf Trait.High Elf Trait.SpecialQuality	SOURCEPAGE:p.	DESC:You can speak, read, and write one extra language of your choice.
+
+# Wood Elf
+Ability Score Increase	KEY:Wood Elf ~ Ability Score Increase	CATEGORY:Special Ability	TYPE:Elf Trait.Wood Elf Trait.SpecialQuality	SOURCEPAGE:p.	DESC:Your Wisdom score increases by 1.	BONUS:STAT|WIS|1|TYPE=Racial
+Elf Weapon Training	KEY:Wood Elf ~ Elf Weapon Training		CATEGORY:Special Ability	TYPE:Elf Trait.Wood Elf Trait.SpecialQuality	SOURCEPAGE:p.	DESC:You have proficiency with the longsword, shortsword, shortbow, and longbow.	AUTO:WEAPONPROF|Longsword|Shortsword|Shortbow|Longbow
+Fleet of Foot		KEY:Wood Elf ~ Fleet of Foot			CATEGORY:Special Ability	TYPE:Elf Trait.Wood Elf Trait.SpecialQuality	SOURCEPAGE:p.	DESC:Your base walking speed increases to 35 feet.	BONUS:MOVEADD|TYPE.Walk|5
+Mask of the Wild		KEY:Wood Elf ~ Mask of the Wild		CATEGORY:Special Ability	TYPE:Elf Trait.Wood Elf Trait.SpecialQuality	SOURCEPAGE:p.	DESC:You can attempt to hide even when you are only lightly obscured by foliage, heavy rain, falling snow, mist, and other natural phenomena.
+
+
+###Block: Halfling
+Race Traits ~ Halfling	CATEGORY:Internal	BONUS:ABILITYPOOL|Halfling Subrace|1	ABILITY:Halfling Trait|AUTOMATIC|TYPE=Base Halfling Trait
+
+Ability Score Increase		KEY:Halfling ~ Ability Score Increase	CATEGORY:Special Ability	TYPE:Halfling Trait.Base Halfling Trait.SpecialQuality	SOURCEPAGE:p.	DESC:Your Dexterity score increases by 2.	BONUS:STAT|DEX|2|TYPE=Racial
+Lucky						KEY:Halfling ~ Lucky			CATEGORY:Special Ability	TYPE:Halfling Trait.Base Halfling Trait.SpecialQuality	SOURCEPAGE:p.	DESC:When you roll a 1 on an attack roll, ability check, or saving throw, you can reroll the die and must use the new roll.
+Brave						KEY:Halfling ~ Brave			CATEGORY:Special Ability	TYPE:Halfling Trait.Base Halfling Trait.SpecialQuality	SOURCEPAGE:p.	DESC:You have advantage on saving throws against being frightened.
+Halfling Nimbleness			KEY:Halfling ~ Halfling Nimbleness	CATEGORY:Special Ability	TYPE:Halfling Trait.Base Halfling Trait.SpecialQuality	SOURCEPAGE:p.	DESC:You can move through the space of any creature that is of a size larger than yours.
+Languages					KEY:Halfling ~ Languages		CATEGORY:Special Ability	TYPE:Halfling Trait.Base Halfling Trait.SpecialQuality	SOURCEPAGE:p.	DESC:You can speak, read, and write Common and Halfling. The Halfling language isn't secret, but halflings are loath to share it with others. They write very little, so they don't have a rich body of literature. Their oral tradition, however, is very strong. Almost all halflings speak Common to converse with the people in whose lands they dwell or through which they are traveling.
+
+# Halfing Selection
+Lightfoot			KEY:Halfling Subrace ~ Lightfoot	TYPE:HalflingSubrace	CATEGORY:Internal	ABILITY:Halfling Trait|AUTOMATIC|Lightfoot Halfling ~ Ability Score Increase			ABILITY:Halfling Trait|AUTOMATIC|Lightfoot Halfling ~ Naturally Stealthy
+Stout				KEY:Halfling Subrace ~ Stout		TYPE:HalflingSubrace	CATEGORY:Internal	ABILITY:Halfling Trait|AUTOMATIC|Stout Halfling ~ Ability Score Increase			ABILITY:Halfling Trait|AUTOMATIC|Stout Halfling ~ Stout Resilience
+
+
+# Lightfoot
+Ability Score Increase		KEY:Lightfoot Halfling ~ Ability Score Increase				CATEGORY:Special Ability	TYPE:Lightfoot Halfling Trait.Halfling Trait.SpecialQuality	SOURCEPAGE:p.	DESC:Your Charisma score increases by 1.	BONUS:STAT|CHA|1|TYPE=Racial
+Naturally Stealthy		KEY:Lightfoot Halfling ~ Naturally Stealthy				CATEGORY:Special Ability	TYPE:Lightfoot Halfling Trait.Halfling Trait.SpecialQuality	SOURCEPAGE:p.	DESC:You can attempt to hide even when you are obscured only by a creature that is at least one size larger than you.
+
+# Stout
+Ability Score Increase		KEY:Stout Halfling ~ Ability Score Increase				CATEGORY:Special Ability	TYPE:Stout Halfling Trait.Halfling Trait.SpecialQuality	SOURCEPAGE:p.	DESC:Your Constitution score increases by 1.	BONUS:STAT|CON|1|TYPE=Racial
+Stout Resilience			KEY:Stout Halfling ~ Stout Resilience					CATEGORY:Special Ability	TYPE:Stout Halfling Trait.Halfling Trait.SpecialQuality	SOURCEPAGE:p.	DESC:You have advantage on saving throws against poison, and you have resistance against poison damage.
+
+
+###Block: Human
+Race Traits ~ Human	CATEGORY:Internal	BONUS:ABILITYPOOL|Human Rule Selection|1	ABILITY:Human Trait|AUTOMATIC|Human ~ Languages
+
+#
+Basic Rules Human		TYPE:Human Rule Selection	CATEGORY:Internal	ABILITY:Human Trait|AUTOMATIC|Human ~ Ability Score Increase
+Feat Variant Human	TYPE:Human Rule Selection	CATEGORY:Internal	ABILITY:Human Trait|AUTOMATIC|Variant Human ~ Ability Score Increase		ABILITY:Human Trait|AUTOMATIC|Variant Human ~ Skills					ABILITY:Human Trait|AUTOMATIC|Variant Human ~ Feat
+
+
+
+# Default Human
+Ability Score Increase		KEY:Human ~ Ability Score Increase				CATEGORY:Special Ability	TYPE:Human Trait.SpecialQuality	SOURCEPAGE:p.	DESC:Your ability scores each increase by 1.	BONUS:STAT|STR,DEX,CON,INT,WIS,CHA|1|TYPE=Racial
+Languages				KEY:Human ~ Languages						CATEGORY:Special Ability	TYPE:Human Trait.SpecialQuality	SOURCEPAGE:p.	DESC:You can speak, read, and write Common and one extra language of your choice. Humans typically learn the languages of other peoples they deal with, including obscure dialects. They are fond of sprinkling their speech with words borrowed from other tongues: Orc curses, Elvish musical expressions, Dwarvish military phrases, and so on.
+
+# Variant Human
+Ability Score Increase		KEY:Variant Human ~ Ability Score Increase		CATEGORY:Special Ability	TYPE:Human Trait.SpecialQuality	SOURCEPAGE:p.	DESC:Two different ability scores of your choice increase by 1.	BONUS:ABILITYPOOL|Ability Score Increase +1|2
+Skills				KEY:Variant Human ~ Skills					CATEGORY:Special Ability	TYPE:Human Trait.SpecialQuality	SOURCEPAGE:p.	DESC:You gain proficiency in one skill of your choice.		BONUS:ABILITYPOOL|Skill Proficiency|1
+Feat					KEY:Variant Human ~ Feat					CATEGORY:Special Ability	TYPE:Human Trait.SpecialQuality	SOURCEPAGE:p.	DESC:You gain one feat of your choice.					BONUS:ABILITYPOOL|Feat|1
+
++1 Strength		KEY:Ability Score +1 ~ STR	CATEGORY:Internal	TYPE:StatIncrease+1	BONUS:STAT|STR|1	SORTKEY:AbilityScore_1
++1 Dexterity	KEY:Ability Score +1 ~ DEX	CATEGORY:Internal	TYPE:StatIncrease+1	BONUS:STAT|DEX|1	SORTKEY:AbilityScore_2
++1 Constitution	KEY:Ability Score +1 ~ CON	CATEGORY:Internal	TYPE:StatIncrease+1	BONUS:STAT|CON|1	SORTKEY:AbilityScore_3
++1 Intelligence	KEY:Ability Score +1 ~ INT	CATEGORY:Internal	TYPE:StatIncrease+1	BONUS:STAT|INT|1	SORTKEY:AbilityScore_4
++1 Wisdom		KEY:Ability Score +1 ~ WIS	CATEGORY:Internal	TYPE:StatIncrease+1	BONUS:STAT|WIS|1	SORTKEY:AbilityScore_5
++1 Charisma		KEY:Ability Score +1 ~ CHA	CATEGORY:Internal	TYPE:StatIncrease+1	BONUS:STAT|CHA|1	SORTKEY:AbilityScore_6
+
+
+#		KEY:xxx ~			CATEGORY:Special Ability	TYPE:xxx Trait.SpecialQuality	SOURCEPAGE:p.	DESC:
+
+###Block: Class Progressions
++1 Strength		COST:0.5	KEY:Ability Score Increase +1 ~ STR	CATEGORY:Internal	TYPE:Ability Score Increase	BONUS:STAT|STR|1	SORTKEY:AbilityScore_1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	PREVARLT:STRSCORE,20
++1 Dexterity	COST:0.5	KEY:Ability Score Increase +1 ~ DEX	CATEGORY:Internal	TYPE:Ability Score Increase	BONUS:STAT|DEX|1	SORTKEY:AbilityScore_2	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	PREVARLT:DEXSCORE,20
++1 Constitution	COST:0.5	KEY:Ability Score Increase +1 ~ CON	CATEGORY:Internal	TYPE:Ability Score Increase	BONUS:STAT|CON|1	SORTKEY:AbilityScore_3	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	PREVARLT:CONSCORE,20
++1 Intelligence	COST:0.5	KEY:Ability Score Increase +1 ~ INT	CATEGORY:Internal	TYPE:Ability Score Increase	BONUS:STAT|INT|1	SORTKEY:AbilityScore_4	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	PREVARLT:INTSCORE,20
++1 Wisdom		COST:0.5	KEY:Ability Score Increase +1 ~ WIS	CATEGORY:Internal	TYPE:Ability Score Increase	BONUS:STAT|WIS|1	SORTKEY:AbilityScore_5	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	PREVARLT:WISSCORE,20
++1 Charisma		COST:0.5	KEY:Ability Score Increase +1 ~ CHA	CATEGORY:Internal	TYPE:Ability Score Increase	BONUS:STAT|CHA|1	SORTKEY:AbilityScore_6	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	PREVARLT:CHASCORE,20
+
++2 Strength				KEY:Ability Score Increase +2 ~ STR	CATEGORY:Internal	TYPE:StatIncrease+2.Ability Score Increase	BONUS:STAT|STR|2	SORTKEY:AbilityScore_1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	PREVARLT:STRSCORE,19
++2 Dexterity			KEY:Ability Score Increase +2 ~ DEX	CATEGORY:Internal	TYPE:StatIncrease+2.Ability Score Increase	BONUS:STAT|DEX|2	SORTKEY:AbilityScore_2	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	PREVARLT:DEXSCORE,19
++2 Constitution			KEY:Ability Score Increase +2 ~ CON	CATEGORY:Internal	TYPE:StatIncrease+2.Ability Score Increase	BONUS:STAT|CON|2	SORTKEY:AbilityScore_3	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	PREVARLT:CONSCORE,19
++2 Intelligence			KEY:Ability Score Increase +2 ~ INT	CATEGORY:Internal	TYPE:StatIncrease+2.Ability Score Increase	BONUS:STAT|INT|2	SORTKEY:AbilityScore_4	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	PREVARLT:INTSCORE,19
++2 Wisdom				KEY:Ability Score Increase +2 ~ WIS	CATEGORY:Internal	TYPE:StatIncrease+2.Ability Score Increase	BONUS:STAT|WIS|2	SORTKEY:AbilityScore_5	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	PREVARLT:WISSCORE,19
++2 Charisma				KEY:Ability Score Increase +2 ~ CHA	CATEGORY:Internal	TYPE:StatIncrease+2.Ability Score Increase	BONUS:STAT|CHA|2	SORTKEY:AbilityScore_6	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	PREVARLT:CHASCORE,19
+
++1 Feat				KEY:Add Feat				CATEGORY:Internal	TYPE:Ability Score Increase
+
+###Block: Shared
+Strength		KEY:Saving Throw ~ Str	BONUS:SAVE|Strength|Proficiency_Bonus|TYPE=Class		CATEGORY:Internal
+Dexterity		KEY:Saving Throw ~ Dex	BONUS:SAVE|Dexterity|Proficiency_Bonus|TYPE=Class		CATEGORY:Internal
+Constitution	KEY:Saving Throw ~ Con	BONUS:SAVE|Constitution|Proficiency_Bonus|TYPE=Class		CATEGORY:Internal
+Intelligence	KEY:Saving Throw ~ Int	BONUS:SAVE|Intelligence|Proficiency_Bonus|TYPE=Class		CATEGORY:Internal
+Wisdom		KEY:Saving Throw ~ Wis	BONUS:SAVE|Wisdom|Proficiency_Bonus|TYPE=Class			CATEGORY:Internal
+Charisma		KEY:Saving Throw ~ Cha	BONUS:SAVE|Charisma|Proficiency_Bonus|TYPE=Class		CATEGORY:Internal
+
+# Weapon Profs
+Simple Weapon Proficiency	KEY:Weapon Proficiency ~ Simple	TYPE:WeaponProfSimple.WeaponProfMartial	CATEGORY:Internal	AUTO:WEAPONPROF|TYPE=Simple
+Martial Weapon Proficiency	KEY:Weapon Proficiency ~ Martial	TYPE:WeaponProfMartial				CATEGORY:Internal	AUTO:WEAPONPROF|TYPE=Martial
+
+Light Armor Proficiency		KEY:Armor Proficiency ~ Light		TYPE:ArmorProfLight.ArmorProfMedium.ArmorProfHeavy	CATEGORY:Internal	AUTO:ARMORPROF|ARMORTYPE=LightArmor
+Medium Armor Proficiency	KEY:Armor Proficiency ~ Medium	TYPE:ArmorProfMedium.ArmorProfHeavy				CATEGORY:Internal	AUTO:ARMORPROF|ARMORTYPE=MediumArmor
+Heavy Armor Proficiency		KEY:Armor Proficiency ~ Heavy		TYPE:ArmorProfHeavy						CATEGORY:Internal	AUTO:ARMORPROF|ARMORTYPE=HeavyArmor
+Shield Proficiency		KEY:Shield Proficiency			TYPE:ShieldProf							CATEGORY:Internal	AUTO:SHIELDPROF|Shield
+
+
+
+#	AUTO:WEAPONPROF|TYPE=Simple
+#	BONUS:WEAPONPROF=xxx|TOHIT|Proficiency_Bonus|TYPE=Class|PREWEAPONPROF:1,xxx
+
+# Handles the Proficiency Bonus for Classes, to avoid the inherent overlap PCGen will allow if the tag is not an exact match.
+###Block: Weapon Proficiency Bonus
+CATEGORY=Internal|Default.MOD	BONUS:WEAPONPROF=Club|TOHIT|Proficiency_Bonus|TYPE=Class|PREWEAPONPROF:1,Club
+CATEGORY=Internal|Default.MOD	BONUS:WEAPONPROF=Dagger|TOHIT|Proficiency_Bonus|TYPE=Class|PREWEAPONPROF:1,Dagger
+CATEGORY=Internal|Default.MOD	BONUS:WEAPONPROF=Greatclub|TOHIT|Proficiency_Bonus|TYPE=Class|PREWEAPONPROF:1,Greatclub
+CATEGORY=Internal|Default.MOD	BONUS:WEAPONPROF=Handaxe|TOHIT|Proficiency_Bonus|TYPE=Class|PREWEAPONPROF:1,Handaxe
+CATEGORY=Internal|Default.MOD	BONUS:WEAPONPROF=Javelin|TOHIT|Proficiency_Bonus|TYPE=Class|PREWEAPONPROF:1,Javelin
+CATEGORY=Internal|Default.MOD	BONUS:WEAPONPROF=Light Hammer|TOHIT|Proficiency_Bonus|TYPE=Class|PREWEAPONPROF:1,Light Hammer
+CATEGORY=Internal|Default.MOD	BONUS:WEAPONPROF=Mace|TOHIT|Proficiency_Bonus|TYPE=Class|PREWEAPONPROF:1,Mace
+CATEGORY=Internal|Default.MOD	BONUS:WEAPONPROF=Quarterstaff|TOHIT|Proficiency_Bonus|TYPE=Class|PREWEAPONPROF:1,Quarterstaff
+CATEGORY=Internal|Default.MOD	BONUS:WEAPONPROF=Sickle|TOHIT|Proficiency_Bonus|TYPE=Class|PREWEAPONPROF:1,Sickle
+CATEGORY=Internal|Default.MOD	BONUS:WEAPONPROF=Spear|TOHIT|Proficiency_Bonus|TYPE=Class|PREWEAPONPROF:1,Spear
+CATEGORY=Internal|Default.MOD	BONUS:WEAPONPROF=Unarmed Strike|TOHIT|Proficiency_Bonus|TYPE=Class|PREWEAPONPROF:1,Unarmed Strike
+CATEGORY=Internal|Default.MOD	BONUS:WEAPONPROF=Crossbow (Light)|TOHIT|Proficiency_Bonus|TYPE=Class|PREWEAPONPROF:1,Crossbow (Light)
+CATEGORY=Internal|Default.MOD	BONUS:WEAPONPROF=Dart|TOHIT|Proficiency_Bonus|TYPE=Class|PREWEAPONPROF:1,Dart
+CATEGORY=Internal|Default.MOD	BONUS:WEAPONPROF=Shortbow|TOHIT|Proficiency_Bonus|TYPE=Class|PREWEAPONPROF:1,Shortbow
+CATEGORY=Internal|Default.MOD	BONUS:WEAPONPROF=Sling|TOHIT|Proficiency_Bonus|TYPE=Class|PREWEAPONPROF:1,Sling
+CATEGORY=Internal|Default.MOD	BONUS:WEAPONPROF=Battleaxe|TOHIT|Proficiency_Bonus|TYPE=Class|PREWEAPONPROF:1,Battleaxe
+CATEGORY=Internal|Default.MOD	BONUS:WEAPONPROF=Flail|TOHIT|Proficiency_Bonus|TYPE=Class|PREWEAPONPROF:1,Flail
+CATEGORY=Internal|Default.MOD	BONUS:WEAPONPROF=Glaive|TOHIT|Proficiency_Bonus|TYPE=Class|PREWEAPONPROF:1,Glaive
+CATEGORY=Internal|Default.MOD	BONUS:WEAPONPROF=Greataxe|TOHIT|Proficiency_Bonus|TYPE=Class|PREWEAPONPROF:1,Greataxe
+CATEGORY=Internal|Default.MOD	BONUS:WEAPONPROF=Greatsword|TOHIT|Proficiency_Bonus|TYPE=Class|PREWEAPONPROF:1,Greatsword
+CATEGORY=Internal|Default.MOD	BONUS:WEAPONPROF=Halberd|TOHIT|Proficiency_Bonus|TYPE=Class|PREWEAPONPROF:1,Halberd
+CATEGORY=Internal|Default.MOD	BONUS:WEAPONPROF=Lance|TOHIT|Proficiency_Bonus|TYPE=Class|PREWEAPONPROF:1,Lance
+CATEGORY=Internal|Default.MOD	BONUS:WEAPONPROF=Longsword|TOHIT|Proficiency_Bonus|TYPE=Class|PREWEAPONPROF:1,Longsword
+CATEGORY=Internal|Default.MOD	BONUS:WEAPONPROF=Maul|TOHIT|Proficiency_Bonus|TYPE=Class|PREWEAPONPROF:1,Maul
+CATEGORY=Internal|Default.MOD	BONUS:WEAPONPROF=Morningstar|TOHIT|Proficiency_Bonus|TYPE=Class|PREWEAPONPROF:1,Morningstar
+CATEGORY=Internal|Default.MOD	BONUS:WEAPONPROF=Pike|TOHIT|Proficiency_Bonus|TYPE=Class|PREWEAPONPROF:1,Pike
+CATEGORY=Internal|Default.MOD	BONUS:WEAPONPROF=Rapier|TOHIT|Proficiency_Bonus|TYPE=Class|PREWEAPONPROF:1,Rapier
+CATEGORY=Internal|Default.MOD	BONUS:WEAPONPROF=Scimitar|TOHIT|Proficiency_Bonus|TYPE=Class|PREWEAPONPROF:1,Scimitar
+CATEGORY=Internal|Default.MOD	BONUS:WEAPONPROF=Shortsword|TOHIT|Proficiency_Bonus|TYPE=Class|PREWEAPONPROF:1,Shortsword
+CATEGORY=Internal|Default.MOD	BONUS:WEAPONPROF=Trident|TOHIT|Proficiency_Bonus|TYPE=Class|PREWEAPONPROF:1,Trident
+CATEGORY=Internal|Default.MOD	BONUS:WEAPONPROF=War Pick|TOHIT|Proficiency_Bonus|TYPE=Class|PREWEAPONPROF:1,War Pick
+CATEGORY=Internal|Default.MOD	BONUS:WEAPONPROF=Warhammer|TOHIT|Proficiency_Bonus|TYPE=Class|PREWEAPONPROF:1,Warhammer
+CATEGORY=Internal|Default.MOD	BONUS:WEAPONPROF=Whip|TOHIT|Proficiency_Bonus|TYPE=Class|PREWEAPONPROF:1,Whip
+CATEGORY=Internal|Default.MOD	BONUS:WEAPONPROF=Blowgun|TOHIT|Proficiency_Bonus|TYPE=Class|PREWEAPONPROF:1,Blowgun
+CATEGORY=Internal|Default.MOD	BONUS:WEAPONPROF=Crossbow (Hand)|TOHIT|Proficiency_Bonus|TYPE=Class|PREWEAPONPROF:1,Crossbow (Hand)
+CATEGORY=Internal|Default.MOD	BONUS:WEAPONPROF=Crossbow (Heavy)|TOHIT|Proficiency_Bonus|TYPE=Class|PREWEAPONPROF:1,Crossbow (Heavy)
+CATEGORY=Internal|Default.MOD	BONUS:WEAPONPROF=Longbow|TOHIT|Proficiency_Bonus|TYPE=Class|PREWEAPONPROF:1,Longbow
+CATEGORY=Internal|Default.MOD	BONUS:WEAPONPROF=Net|TOHIT|Proficiency_Bonus|TYPE=Class|PREWEAPONPROF:1,Net
+###Block: Skill Proficiency Bonus
+CATEGORY=Internal|Default.MOD	BONUS:SKILL|Athletics|Proficiency_Bonus|TYPE=Class|PRECSKILL:1,Athletics
+CATEGORY=Internal|Default.MOD	BONUS:SKILL|Acrobatics|Proficiency_Bonus|TYPE=Class|PRECSKILL:1,Acrobatics
+CATEGORY=Internal|Default.MOD	BONUS:SKILL|Sleight of Hand|Proficiency_Bonus|TYPE=Class|PRECSKILL:1,Sleight of Hand
+CATEGORY=Internal|Default.MOD	BONUS:SKILL|Stealth|Proficiency_Bonus|TYPE=Class|PRECSKILL:1,Stealth
+CATEGORY=Internal|Default.MOD	BONUS:SKILL|Arcana|Proficiency_Bonus|TYPE=Class|PRECSKILL:1,Arcana
+CATEGORY=Internal|Default.MOD	BONUS:SKILL|History|Proficiency_Bonus|TYPE=Class|PRECSKILL:1,History
+CATEGORY=Internal|Default.MOD	BONUS:SKILL|Investigation|Proficiency_Bonus|TYPE=Class|PRECSKILL:1,Investigation
+CATEGORY=Internal|Default.MOD	BONUS:SKILL|Nature|Proficiency_Bonus|TYPE=Class|PRECSKILL:1,Nature
+CATEGORY=Internal|Default.MOD	BONUS:SKILL|Religion|Proficiency_Bonus|TYPE=Class|PRECSKILL:1,Religion
+CATEGORY=Internal|Default.MOD	BONUS:SKILL|Animal Handling|Proficiency_Bonus|TYPE=Class|PRECSKILL:1,Animal Handling
+CATEGORY=Internal|Default.MOD	BONUS:SKILL|Insight|Proficiency_Bonus|TYPE=Class|PRECSKILL:1,Insight
+CATEGORY=Internal|Default.MOD	BONUS:SKILL|Medicine|Proficiency_Bonus|TYPE=Class|PRECSKILL:1,Medicine
+CATEGORY=Internal|Default.MOD	BONUS:SKILL|Perception|Proficiency_Bonus|TYPE=Class|PRECSKILL:1,Perception
+CATEGORY=Internal|Default.MOD	BONUS:SKILL|Survival|Proficiency_Bonus|TYPE=Class|PRECSKILL:1,Survival
+CATEGORY=Internal|Default.MOD	BONUS:SKILL|Deception|Proficiency_Bonus|TYPE=Class|PRECSKILL:1,Deception
+CATEGORY=Internal|Default.MOD	BONUS:SKILL|Intimidation|Proficiency_Bonus|TYPE=Class|PRECSKILL:1,Intimidation
+CATEGORY=Internal|Default.MOD	BONUS:SKILL|Performance|Proficiency_Bonus|TYPE=Class|PRECSKILL:1,Performance
+CATEGORY=Internal|Default.MOD	BONUS:SKILL|Persuasion|Proficiency_Bonus|TYPE=Class|PRECSKILL:1,Persuasion
+
+###Block: Skill Proficiencies
+Athletics		CATEGORY:Internal	CSKILL:Athletics
+Acrobatics		CATEGORY:Internal	CSKILL:Acrobatics
+Sleight of Hand	CATEGORY:Internal	CSKILL:Sleight of Hand
+Stealth		CATEGORY:Internal	CSKILL:Stealth
+Arcana		CATEGORY:Internal	CSKILL:Arcana
+History		CATEGORY:Internal	CSKILL:History
+Investigation	CATEGORY:Internal	CSKILL:Investigation
+Nature		CATEGORY:Internal	CSKILL:Nature
+Religion		CATEGORY:Internal	CSKILL:Religion
+Animal Handling	CATEGORY:Internal	CSKILL:Animal Handling
+Insight		CATEGORY:Internal	CSKILL:Insight
+Medicine		CATEGORY:Internal	CSKILL:Medicine
+Perception		CATEGORY:Internal	CSKILL:Perception
+Survival		CATEGORY:Internal	CSKILL:Survival
+Deception		CATEGORY:Internal	CSKILL:Deception
+Intimidation	CATEGORY:Internal	CSKILL:Intimidation
+Performance		CATEGORY:Internal	CSKILL:Performance
+Persuasion		CATEGORY:Internal	CSKILL:Persuasion
+
+
+###Block: Cleric
+Cantrips					KEY:Cleric ~ Cantrips					CATEGORY:Special Ability	TYPE:Class Features.Cleric Class Feature.SpecialQuality	SOURCEPAGE:p.						DESC:At 1st level, you know three cantrips of your choice from the cleric spell list. You learn additional cleric cantrips of your choice at higher levels, as shown in the Cantrips Known column of the Cleric table.
+Spellcasting Ability			KEY:Cleric ~ Spellcasting Ability			CATEGORY:Special Ability	TYPE:Class Features.Cleric Class Feature.SpecialQuality	SOURCEPAGE:p.					DESC:Spell Save DC %1, Spell Attack Modifier +%2|ClericSpellDC|ClericSpellAttackModifier		DEFINE:ClericSpellDC|0	BONUS:VAR|ClericSpellDC|8+Proficiency_Bonus+WIS	DEFINE:ClericSpellAttackModifier|0	BONUS:VAR|ClericSpellAttackModifier|WIS+Proficiency_Bonus
+Divine Domain				KEY:Cleric ~ Divine Domain				CATEGORY:Special Ability	TYPE:Class Features.Cleric Class Feature.SpecialQuality	SOURCEPAGE:p.					DESC:Choose one domain related to your deity: Knowledge, Life, Light, Nature, Tempest, Trickery, or War. The Life domain is detailed at the end of the class description and provides examples of gods associated with it. See the Player's Handbook for details on all the domains. Your choice grants you domain spells and other features when you choose it at 1st level. It also grants you additional ways to use Channel Divinity when you gain that feature at 2nd level, and additional benefits at 6th, 8th, and 17th levels.	BONUS:ABILITYPOOL|Divine Domain|1
+Channel Divinity				KEY:Cleric ~ Channel Divinity				CATEGORY:Special Ability	TYPE:Class Features.Cleric Class Feature.SpecialQuality	SOURCEPAGE:p.					DESC:At 2nd level, you gain the ability to channel divine energy directly from your deity, using that energy to fuel magical effects. You start with two such effects: Turn Undead and an effect determined by your domain. Some domains grant you additional effects as you advance in levels, as noted in the domain description. When you use your Channel Divinity, you choose which effect to create. You must then finish a short or long rest to use your Channel Divinity again. Some Channel Divinity effects require saving throws. When you use such an effect from this class, the DC equals your cleric spell save DC. Beginning at 6th level, you can use your Channel Divinity twice between rests, and beginning at 18th level, you can use it three times between rests. When you finish a short or long rest, you regain your expended uses.	ABILITY:Special Ability|AUTOMATIC|Channel Divinity ~ Turn Undead
+Destroy Undead				KEY:Cleric ~ Destroy Undead				CATEGORY:Special Ability	TYPE:Class Features.Cleric Class Feature.SpecialQuality	SOURCEPAGE:p.					DESC:Starting at 5th level, when an undead fails its saving throw against your Turn Undead feature, the creature is instantly destroyed if its challenge rating is at or below a certain threshold, as shown in the Destroy Undead table.	ASPECT:NAME|Destroy Undead (CR 1/2)|PREVAREQ:DestroyUndeadCR,0	ASPECT:NAME|Destroy Undead (CR %1)|DestroyUndeadCR|PREVARGT:DestroyUndeadCR,0	DEFINE:DestroyUndeadCR|0
+Divine Intervention			KEY:Cleric ~ Divine Intervention				CATEGORY:Special Ability	TYPE:Class Features.Cleric Class Feature.SpecialQuality	SOURCEPAGE:p.					DESC:Beginning at 10th level, you can call on your deity to intervene on your behalf when your need is great. Imploring your deity's aid requires you to use your action. Describe the assistance you seek, and roll percentile dice. If you roll a number equal to or lower than your cleric level, your deity intervenes. The DM chooses the nature of the intervention; the effect of any cleric spell or cleric domain spell would be appropriate. If your deity intervenes, you can't use this feature again for 7 days. Otherwise, you can use it again after you finish a long rest. At 20th level, your call for intervention succeeds automatically, no roll required.
+#
+Channel Divinity: Turn Undead		KEY:Channel Divinity ~ Turn Undead		CATEGORY:Special Ability	TYPE:Class Features.Cleric Class Feature.Channel Divinity.SpecialQuality	SOURCEPAGE:p.					DESC:As an action, you present your holy symbol and speak a prayer censuring the undead. Each undead that can see or hear you within 30 feet of you must make a Wisdom saving throw. If the creature fails its saving throw, it is turned for 1 minute or until it takes any damage. A turned creature must spend its turns trying to move as far away from you as it can, and it can't willingly move to a space within 30 feet of you. It also can't take reactions. For its action, it can use only the Dash action or try to escape from an effect that prevents it from moving. If there's nowhere to move, the creature can use the Dodge action.
+
+
+Life Domain		CATEGORY:Special Ability	TYPE:Cleric Class Feature.Divine Domain	DESC:The Life domain focuses on the vibrant positive energy-one of the fundamental forces of the universe- that sustains all life. The gods of life promote vitality and health through healing the sick and wounded, caring for those in need, and driving away the forces of death and undeath. Almost any non-evil deity can claim influence over this domain, particularly agricultural deities (such as Chauntea, Arawai, and Demeter), sun gods (such as Lathander, Pelor, and Re-Horakhty), gods of healing or endurance (such as Ilmater, Mishakal, Apollo, and Diancecht), and gods of home and community (such as Hestia, Hathor, and Boldrei).	ABILITY:Special Ability|AUTOMATIC|Life Domain ~ Bonus Proficiency|PREVARGTEQ:ClericLVL,1			ABILITY:Special Ability|AUTOMATIC|Life Domain ~ Disciple of Life|PREVARGTEQ:ClericLVL,1			ABILITY:Special Ability|AUTOMATIC|Channel Divinity ~ Preserve Life|PREVARGTEQ:ClericLVL,2		ABILITY:Special Ability|AUTOMATIC|Life Domain ~ Blessed Healer|PREVARGTEQ:ClericLVL,6			ABILITY:Special Ability|AUTOMATIC|Life Domain ~ Divine Strike|PREVARGTEQ:ClericLVL,8			ABILITY:Special Ability|AUTOMATIC|Life Domain ~ Supreme Healing|PREVARGTEQ:ClericLVL,17
+
+
+#Life Domain Spells
+#Cleric Level Spells
+#1st bless, cure wounds
+#3rd lesser restoration, spiritual weapon
+#5th beacon of hope, revivify
+#7th death ward, guardian of faith
+#9th mass cure wounds, raise dead
+
+Bonus Proficiency				KEY:Life Domain ~ Bonus Proficiency						CATEGORY:Special Ability	TYPE:Cleric Class Feature.SpecialQuality	DESC:When you choose this domain at 1st level, you gain proficiency with heavy armor.
+Disciple of Life				KEY:Life Domain ~ Disciple of Life							CATEGORY:Special Ability	TYPE:Cleric Class Feature.SpecialQuality	DESC:Also starting at 1st level, your healing spells are more effective. Whenever you use a spell of 1st level or higher to restore hit points to a creature, the creature regains additional hit points equal to 2 + the spell's level.
+Channel Divinity: Preserve Life	KEY:Channel Divinity ~ Preserve Life				CATEGORY:Special Ability	TYPE:Cleric Class Feature.SpecialQuality	DESC:Starting at 2nd level, you can use your Channel Divinity to heal the badly injured. As an action, you present your holy symbol and evoke healing energy that can restore a number of hit points equal to five times your cleric level. Choose any creatures within 30 feet of you, and divide those hit points among them. This feature can restore a creature to no more than half of its hit point maximum. You can't use this feature on an undead or a construct.
+Blessed Healer				KEY:Life Domain ~ Blessed Healer							CATEGORY:Special Ability	TYPE:Cleric Class Feature.SpecialQuality	DESC:Beginning at 6th level, the healing spells you cast on others heal you as well. When you cast a spell of 1st level or higher that restores hit points to a creature other than you, you regain hit points equal to 2 + the spell's level.
+Divine Strike				KEY:Life Domain ~ Divine Strike							CATEGORY:Special Ability	TYPE:Cleric Class Feature.SpecialQuality	DESC:At 8th level, you gain the ability to infuse your weapon strikes with divine energy. Once on each of your turns when you hit a creature with a weapon attack, you can cause the attack to deal an extra 1d8 radiant damage to the target. When you reach 14th level, the extra damage increases to 2d8.
+Supreme Healing				KEY:Life Domain ~ Supreme Healing							CATEGORY:Special Ability	TYPE:Cleric Class Feature.SpecialQuality	DESC:Starting at 17th level, when you would normally roll one or more dice to restore hit points with a spell, you instead use the highest number possible for each die. For example, instead of restoring 2d6 hit points to a creature, you restore 12.
+
+
+### Fighter
+Fighting Style		KEY:Fighter ~ Fighting Style			CATEGORY:Special Ability	TYPE:Fighter Class Feature.SpecialQuality	DESC:You adopt a particular style of fighting as your specialty. Choose one of the following options. You can't take a Fighting Style option more than once, even if you later get to choose again.	BONUS:ABILITYPOOL|Fighting Style|1
+
+# Styles
+Archery			KEY:Style ~ Archery				CATEGORY:Special Ability	TYPE:Fighting Style.SpecialQuality	DESC:You gain a +2 bonus to attack rolls you make with ranged weapons.
+Defense			KEY:Style ~ Defense				CATEGORY:Special Ability	TYPE:Fighting Style.SpecialQuality	DESC:While you are wearing armor, you gain a +1 bonus to AC.
+Dueling			KEY:Style ~ Dueling				CATEGORY:Special Ability	TYPE:Fighting Style.SpecialQuality	DESC:When you are wielding a melee weapon in one hand and no other weapons, you gain a +2 bonus to damage rolls with that weapon.
+Great Weapon Fighting	KEY:Style ~ Great Weapon Fighting		CATEGORY:Special Ability	TYPE:Fighting Style.SpecialQuality	DESC:When you roll a 1 or 2 on a damage die for an attack you make with a melee weapon that you are wielding with two hands, you can reroll the die and must use the new roll, even if the new roll is a 1 or a 2. The weapon must have the two-handed or versatile property for you to gain this benefit.
+Protection			KEY:Style ~ Protection				CATEGORY:Special Ability	TYPE:Fighting Style.SpecialQuality	DESC:When a creature you can see attacks a target other than you that is within 5 feet of you, you can use your reaction to impose disadvantage on the attack roll. You must be wielding a shield.
+Two-Weapon Fighting	KEY:Style ~ Two-Weapon Fighting		CATEGORY:Special Ability	TYPE:Fighting Style.SpecialQuality	DESC:When you engage in two-weapon fighting, you can add your ability modifier to the damage of the second attack.
+#
+
+Second Wind				KEY:Fighter ~ Second Wind			CATEGORY:Special Ability	TYPE:Fighter Class Feature.SpecialQuality	DESC:You have a limited well of stamina that you can draw on to protect yourself from harm. On your turn, you can use a bonus action to regain hit points equal to 1d10 + your fighter level. Once you use this feature, you must finish a short or long rest before you can use it again.
+Action Surge			KEY:Fighter ~ Action Surge			CATEGORY:Special Ability	TYPE:Fighter Class Feature.SpecialQuality	DESC:Starting at 2nd level, you can push yourself beyond your normal limits for a moment. On your turn, you can take one additional action on top of your regular action and a possible bonus action. Once you use this feature, you must finish a short or long rest before you can use it again. Starting at 17th level, you can use it twice before a rest, but only once on the same turn.
+Martial Archetype			KEY:Fighter ~ Martial Archetype		CATEGORY:Special Ability	TYPE:Fighter Class Feature.SpecialQuality	DESC:At 3rd level, you choose an archetype that you strive to emulate in your combat styles and techniques. The Champion archetype is detailed at the end of the class description; see the Player's Handbook for information on other martial archetypes. Your archetype grants you features at 3rd level and again at 7th, 10th, 15th, and 18th level.	BONUS:ABILITYPOOL|Martial Archetype|1
+Ability Score Improvement	KEY:Fighter ~ Ability Score Improvement	CATEGORY:Special Ability	TYPE:Fighter Class Feature.SpecialQuality	DESC:When you reach 4th level, and again at 6th, 8th, 12th, 14th, 16th, and 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature.
+Extra Attack			KEY:Fighter ~ Extra Attack			CATEGORY:Special Ability	TYPE:Fighter Class Feature.SpecialQuality	DESC:Beginning at 5th level, you can attack twice, instead of once, whenever you take the Attack action on your turn. The number of attacks increases to three when you reach 11th level in this class and to four when you reach 20th level in this class.
+Indomitable				KEY:Fighter ~ Indomitable			CATEGORY:Special Ability	TYPE:Fighter Class Feature.SpecialQuality	DESC:Beginning at 9th level, you can reroll a saving throw that you fail. If you do so, you must use the new roll, and you can't use this feature again until you finish a long rest. You can use this feature twice between long rests starting at 13th level and three times between long rests starting at 17th level.
+
+#	Martial Archetypes - Different fighters choose different approaches to perfecting their fighting prowess. The martial archetype you choose to emulate reflects your approach.
+Champion				KEY:Martial Archetype ~ Champion					CATEGORY:Special Ability	TYPE:Martial Archetype.Fighter Class Feature.SpecialQuality	DESC: The archetypal Champion focuses on the development of raw physical power honed to deadly perfection. Those who model themselves on this archetype combine rigorous training with physical excellence to deal devastating blows.
+#
+Improved Critical			KEY:Champion Archetype ~ Improved Critical				CATEGORY:Special Ability	TYPE:Archetype Ability.Fighter Class Feature.SpecialQuality	DESC: Beginning when you choose this archetype at 3rd level, your weapon attacks score a critical hit on a roll of 19 or 20.
+Remarkable Athlete		KEY:Champion Archetype ~ Remarkable Athlete			CATEGORY:Special Ability	TYPE:Archetype Ability.Fighter Class Feature.SpecialQuality	DESC: Starting at 7th level, you can add half your proficiency bonus (round up) to any Strength, Dexterity, or Constitution check you make that doesn't already use your proficiency bonus. In addition, when you make a running long jump, the distance you can cover increases by a number of feet equal to your Strength modifier.
+Additional Fighting Style	KEY:Champion Archetype ~ Additional Fighting Style		CATEGORY:Special Ability	TYPE:Archetype Ability.Fighter Class Feature.SpecialQuality	DESC: At 10th level, you can choose a second option from the Fighting Style class feature.
+Superior Critical			KEY:Champion Archetype ~ Superior Critical				CATEGORY:Special Ability	TYPE:Archetype Ability.Fighter Class Feature.SpecialQuality	DESC: Starting at 15th level, your weapon attacks score a critical hit on a roll of 18-20.
+Survivor				KEY:Champion Archetype ~ Survivor					CATEGORY:Special Ability	TYPE:Archetype Ability.Fighter Class Feature.SpecialQuality	DESC: At 18th level, you attain the pinnacle of resilience in battle. At the start of each of your turns, you regain hit points equal to 5 + your Constitution modifier if you have no more than half of your hit points left. You don't gain this benefit if you have 0 hit points.
+
+### Rogue
+Expertise			KEY:Rogue ~ Expertise					CATEGORY:Special Ability	TYPE:Rogue Class Feature.SpecialQuality	DESC: At 1st level, choose two of your skill proficiencies, or one of your skill proficiencies and your proficiency with thieves' tools. Your proficiency bonus is doubled for any ability check you make that uses either of the chosen proficiencies. At 6th level, you can choose two more of your proficiencies (in skills or with thieves' tools) to gain this benefit.
+Sneak Attack		KEY:Rogue ~ Sneak Attack				CATEGORY:Special Ability	TYPE:Rogue Class Feature.SpecialQuality	DESC: Beginning at 1st level, you know how to strike subtly and exploit a foe's distraction. Once per turn, you can deal an extra 1d6 damage to one creature you hit with an attack if you have advantage on the attack roll. The attack must use a finesse or a ranged weapon. You don't need advantage on the attack roll if another enemy of the target is within 5 feet of it, that enemy isn't incapacitated, and you don't have disadvantage on the attack roll. The amount of the extra damage increases as you gain levels in this class, as shown in the Sneak Attack column of the Rogue table.
+Thieves' Cant		KEY:Rogue ~ Thieves' Cant				CATEGORY:Special Ability	TYPE:Rogue Class Feature.SpecialQuality	DESC: During your rogue training you learned thieves' cant, a secret mix of dialect, jargon, and code that allows you to hide messages in seemingly normal conversation. Only another creature that knows thieves' cant understands such messages. It takes four times longer to convey such a message than it does to speak the same idea plainly. In addition, you understand a set of secret signs and symbols used to convey short, simple messages, such as whether an area is dangerous or the territory of a thieves' guild, whether loot is nearby, or whether the people in an area are easy marks or will provide a safe house for thieves on the run.
+Cunning Action		KEY:Rogue ~ Cunning Action				CATEGORY:Special Ability	TYPE:Rogue Class Feature.SpecialQuality	DESC: Starting at 2nd level, your quick thinking and agility allow you to move and act quickly. You can take a bonus action on each of your turns in combat. This action can be used only to take the Dash, Disengage, or Hide action.
+Roguish Archetype		KEY:Rogue ~ Roguish Archetype				CATEGORY:Special Ability	TYPE:Rogue Class Feature.SpecialQuality	DESC: At 3rd level, you choose an archetype that you emulate in the exercise of your rogue abilities. The Thief archetype is detailed here; see the Player's Handbook for other archetypes. Your choice grants you features at 3rd level and then again at 9th, 13th, and 17th level.	BONUS:ABILITYPOOL|Roguish Archetype|1
+Uncanny Dodge		KEY:Rogue ~ Uncanny Dodge				CATEGORY:Special Ability	TYPE:Rogue Class Feature.SpecialQuality	DESC: Starting at 5th level, when an attacker that you can see hits you with an attack, you can use your reaction to halve the attack's damage against you.
+Evasion			KEY:Rogue ~ Evasion					CATEGORY:Special Ability	TYPE:Rogue Class Feature.SpecialQuality	DESC: Beginning at 7th level, you can nimbly dodge out of the way of certain area effects, such as a red dragon's fiery breath or an ice storm spell. When you are subjected to an effect that allows you to make a Dexterity saving throw to take only half damage, you instead take no damage if you succeed on the saving throw, and only half damage if you fail.
+Reliable Talent		KEY:Rogue ~ Reliable Talent				CATEGORY:Special Ability	TYPE:Rogue Class Feature.SpecialQuality	DESC: By 11th level, you have refined your chosen skills until they approach perfection. Whenever you make an ability check that lets you add your proficiency bonus, you can treat a d20 roll of 9 or lower as a 10.
+Blindsense			KEY:Rogue ~ Blindsense					CATEGORY:Special Ability	TYPE:Rogue Class Feature.SpecialQuality	DESC: Starting at 14th level, if you are able to hear, you are aware of the location of any hidden or invisible creature within 10 feet of you.
+Slippery Mind		KEY:Rogue ~ Slippery Mind				CATEGORY:Special Ability	TYPE:Rogue Class Feature.SpecialQuality	DESC: By 15th level, you have acquired greater mental strength. You gain proficiency in Wisdom saving throws.
+Elusive			KEY:Rogue ~ Elusive					CATEGORY:Special Ability	TYPE:Rogue Class Feature.SpecialQuality	DESC: Beginning at 18th level, you are so evasive that attackers rarely gain the upper hand against you. No attack roll has advantage against you while you aren't incapacitated.
+Stroke of Luck		KEY:Rogue ~ Stroke of Luck				CATEGORY:Special Ability	TYPE:Rogue Class Feature.SpecialQuality	DESC: At 20th level, you have an uncanny knack for succeeding when you need to. If your attack misses a target within range, you can turn the miss into a hit. Alternatively, if you fail an ability check, you can treat the d20 roll as a 20. Once you use this feature, you can't use it again until you finish a short or long rest.
+
+#
+#Roguish Archetypes	Rogues have many features in common, including their emphasis on perfecting their skills, their precise and deadly approach to combat, and their increasingly quick reflexes. But different rogues steer those talents in varying directions, embodied by the rogue archetypes. Your choice of archetype is a reflection of your focus- not necessarily an indication of your chosen profession, but a description of your preferred techniques.
+Thief				KEY:Roguish Archetype ~ Thief			CATEGORY:Special Ability	TYPE:Rogue Archetype.SpecialQuality	DESC: You hone your skills in the larcenous arts. Burglars, bandits, cutpurses, and other criminals typically follow this archetype, but so do rogues who prefer to think of themselves as professional treasure seekers, explorers, delvers, and investigators. In addition to improving your agility and stealth, you learn skills useful for delving into ancient ruins, reading unfamiliar languages, and using magic items you normally couldn't employ.
+Fast Hands			KEY:Thief Archetype ~ Fast Hands					CATEGORY:Special Ability	TYPE:Archetype Feature.SpecialQuality	DESC: Starting at 3rd level, you can use the bonus action granted by your Cunning Action to make a Dexterity (Sleight of Hand) check, use your thieves' tools to disarm a trap or open a lock, or take the Use an Object action.
+Second-Story Work		KEY:Thief Archetype ~ Second-Story Work				CATEGORY:Special Ability	TYPE:Archetype Feature.SpecialQuality	DESC: When you choose this archetype at 3rd level, you gain the ability to climb faster than normal; climbing no longer costs you extra movement. In addition, when you make a running jump, the distance you cover increases by a number of feet equal to your Dexterity modifier.
+Supreme Sneak		KEY:Thief Archetype ~ Supreme Sneak				CATEGORY:Special Ability	TYPE:Archetype Feature.SpecialQuality	DESC: Starting at 9th level, you have advantage on a Dexterity (Stealth) check if you move no more than half your speed on the same turn.
+Use Magic Device		KEY:Thief Archetype ~ Use Magic Device				CATEGORY:Special Ability	TYPE:Archetype Feature.SpecialQuality	DESC: By 13th level, you have learned enough about the workings of magic that you can improvise the use of items even when they are not intended for you. You ignore all class, race, and level requirements on the use of magic items.
+Thief's Reflexes		KEY:Thief Archetype ~ Thief's Reflexes				CATEGORY:Special Ability	TYPE:Archetype Feature.SpecialQuality	DESC: When you reach 17th level, you have become adept at laying ambushes and quickly escaping danger. You can take two turns during the first round of any combat. You take your first turn at your normal initiative and your second turn at your initiative minus 10. You can't use this feature when you are surprised.
+
+### Wizard
+Spellcasting					KEY:Wizard ~ Spellcasting						CATEGORY:Special Ability	TYPE:Wizard Class Feature.SpecialQuality	DESC: As a student of arcane magic, you have a spellbook containing spells that show the first glimmerings of your true power. See chapter 10 for the general rules of spellcasting and chapter 11 for the wizard spell list.
+Cantrips						KEY:Wizard ~ Cantrips							CATEGORY:Special Ability	TYPE:Wizard Class Feature.SpecialQuality	DESC: At 1st level, you know three cantrips of your choice from the wizard spell list. You learn additional wizard cantrips of your choice at higher levels, as shown in the Cantrips Known column of the Wizard table.
+Spellbook						KEY:Wizard ~ Spellbook							CATEGORY:Special Ability	TYPE:Wizard Class Feature.SpecialQuality	DESC: At 1st level, you have a spellbook containing six 1st-level wizard spells of your choice.
+Preparing and Casting Spells			KEY:Wizard ~ Preparing and Casting Spells				CATEGORY:Special Ability	TYPE:Wizard Class Feature.SpecialQuality	DESC: The Wizard table shows how many spell slots you have to cast your spells of 1st level and higher. To cast one of these spells, you must expend a slot of the spell's level or higher. You regain all expended spell slots when you finish a long rest. You prepare the list of wizard spells that are available for you to cast. To do so, choose a number of wizard spells from your spellbook equal to your Intelligence modifier + your wizard level (minimum of one spell). The spells must be of a level for which you have spell slots. For example, if you're a 3rd-level wizard, you have four 1st-level and two 2nd-level spell slots. With an Intelligence of 16, your list of prepared spells can include six spells of 1st or 2nd level, in any combination, chosen from your spellbook. If you prepare the 1st-level spell magic missile, you can cast it using a 1st-level or a 2nd-level slot. Casting the spell doesn't remove it from your list of prepared spells. You can change your list of prepared spells when you finish a long rest. Preparing a new list of wizard spells requires time spent studying your spellbook and memorizing the incantations and gestures you must make to cast the spell: at least 1 minute per spell level for each spell on your list.
+Spellcasting Ability				KEY:Wizard ~ Spellcasting Ability					CATEGORY:Special Ability	TYPE:Wizard Class Feature.SpecialQuality	DESC: Intelligence is your spellcasting ability for your wizard spells, since you learn your spells through dedicated study and memorization. You use your Intelligence whenever a spell refers to your spellcasting ability. In addition, you use your Intelligence modifier when setting the saving throw DC for a wizard spell you cast and when making an attack roll with one. Spell save DC = 8 + your proficiency bonus + your Intelligence modifier Spell attack modifier = your proficiency bonus + your Intelligence modifier
+Ritual Casting					KEY:Wizard ~ Ritual Casting						CATEGORY:Special Ability	TYPE:Wizard Class Feature.SpecialQuality	DESC: You can cast a wizard spell as a ritual if that spell has the ritual tag and you have the spell in your spellbook. You don't need to have the spell prepared.
+Spellcasting Focus				KEY:Wizard ~ Spellcasting Focus					CATEGORY:Special Ability	TYPE:Wizard Class Feature.SpecialQuality	DESC: You can use an arcane focus (found in chapter 5) as a spellcasting focus for your wizard spells.
+Learning Spells of 1st Level and Higher	KEY:Wizard ~ Learning Spells of 1st Level and Higher				CATEGORY:Special Ability	TYPE:Wizard Class Feature.SpecialQuality	DESC: Each time you gain a wizard level, you can add two wizard spells of your choice to your spellbook. Each of these spells must be of a level for which you have spell slots, as shown on the Wizard table. On your adventures, you might find other spells that you can add to your spellbook (see the "Your Spellbook" sidebar).
+Arcane Recovery					KEY:Wizard ~ Arcane Recovery								CATEGORY:Special Ability	TYPE:Wizard Class Feature.SpecialQuality	DESC: You have learned to regain some of your magical energy by studying your spellbook. Once per day when you finish a short rest, you can choose expended spell slots to recover. The spell slots can have a combined level that is equal to or less than half your wizard level (rounded up), and none of the slots can be 6th level or higher. For example, if you're a 4th-level wizard, you can recover up to two levels worth of spell slots. You can recover either a 2nd-level spell slot or two 1st-level spell slots.
+Arcane Tradition					KEY:Wizard ~ Arcane Tradition								CATEGORY:Special Ability	TYPE:Wizard Class Feature.SpecialQuality	DESC: When you reach 2nd level, you choose an arcane tradition, shaping your practice of magic through one of eight schools: Abjuration, Conjuration, Divination, Enchantment, Evocation, Illusion, Necromancy, or Transmutation. The school of Evocation is detailed at the end of the class description; see the Player's Handbook for information on the other schools. Your choice grants you features at 2nd level and again at 6th, 10th, and 14th level.	BONUS:ABILITYPOOL|Arcane Tradition|1
+Ability Score Improvement			KEY:Wizard ~ Ability Score Improvement						CATEGORY:Special Ability	TYPE:Wizard Class Feature.SpecialQuality	DESC: When you reach 4th level, and again at 8th, 12th, 16th, and 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can't increase an ability score above 20 using this feature.
+Spell Mastery					KEY:Wizard ~ Spell Mastery								CATEGORY:Special Ability	TYPE:Wizard Class Feature.SpecialQuality	DESC: At 18th level, you have achieved such mastery over certain spells that you can cast them at will. Choose a 1st-level wizard spell and a 2nd-level wizard spell that are in your spellbook. You can cast those spells at their lowest level without expending a spell slot when you have them prepared. If you want to cast either spell at a higher level, you must expend a spell slot as normal. By spending 8 hours in study, you can exchange one or both of the spells you chose for different spells of the same levels.
+Signature Spells					KEY:Wizard ~ Signature Spells								CATEGORY:Special Ability	TYPE:Wizard Class Feature.SpecialQuality	DESC: When you reach 20th level, you gain mastery over two powerful spells and can cast them with little effort. Choose two 3rd-level wizard spells in your spellbook as your signature spells. You always have these spells prepared, they don't count against the number of spells you have prepared, and you can cast each of them once at 3rd level without expending a spell slot. When you do so, you can't do so again until you finish a short or long rest. If you want to cast either spell at a higher level, you must expend a spell slot as normal.
+
+#Arcane Traditions	 The study of wizardry is ancient, stretching back to the earliest mortal discoveries of magic. It is firmly established in the worlds of D&D, with various traditions dedicated to its complex study. The most common arcane traditions in the multiverse revolve around the schools of magic. Wizards through the ages have cataloged thousands of spells, grouping them into eight categories called schools, as described in chapter 10. In some places, these traditions are literally schools. Elsewhere, they are more like academic departments, with rival faculties competing for students and funding. Even wizards who train apprentices in the solitude of their own towers use the division of magic into schools as a learning device, since the spells of each school require mastery of different techniques.
+School of Evocation	KEY:Arcane Tradition ~ School of Evocation		CATEGORY:Special Ability	TYPE:Wizard Arcane Tradition.SpecialQuality	DESC: You focus your study on magic that creates powerful elemental effects such as bitter cold, searing flame, rolling thunder, crackling lightning, and burning acid. Some evokers find employment in military forces, serving as artillery to blast enemy armies from afar. Others use their spectacular power to protect the weak, while some seek their own gain as bandits, adventurers, or aspiring tyrants.	ABILITY:Special Ability|AUTOMATIC|School of Evocation ~ Evocation Savant|PREVARGTEQ:WizardLVL,2		ABILITY:Special Ability|AUTOMATIC|School of Evocation ~ Sculpt Spells|PREVARGTEQ:WizardLVL,2			ABILITY:Special Ability|AUTOMATIC|School of Evocation ~ Potent Cantrip|PREVARGTEQ:WizardLVL,6			ABILITY:Special Ability|AUTOMATIC|School of Evocation ~ Empowered Evocation|PREVARGTEQ:WizardLVL,10		ABILITY:Special Ability|AUTOMATIC|School of Evocation ~ Overchannel|PREVARGTEQ:WizardLVL,14
+#
+Evocation Savant		KEY:School of Evocation ~ Evocation Savant					CATEGORY:Special Ability	TYPE:School of Evocation Tradition.SpecialQuality	DESC: Beginning when you select this school at 2nd level, the gold and time you must spend to copy an evocation spell into your spellbook is halved.
+Sculpt Spells		KEY:School of Evocation ~ Sculpt Spells					CATEGORY:Special Ability	TYPE:School of Evocation Tradition.SpecialQuality	DESC: Beginning at 2nd level, you can create pockets of relative safety within the effects of your evocation spells. When you cast an evocation spell that affects other creatures that you can see, you can choose a number of them equal to 1 + the spell's level. The chosen creatures automatically succeed on their saving throws against the spell, and they take no damage if they would normally take half damage on a successful save.
+Potent Cantrip		KEY:School of Evocation ~ Potent Cantrip					CATEGORY:Special Ability	TYPE:School of Evocation Tradition.SpecialQuality	DESC: Starting at 6th level, your damaging cantrips affect even creatures that avoid the brunt of the effect. When a creature succeeds on a saving throw against your cantrip, the creature takes half the cantrip's damage (if any) but suffers no additional effect from the cantrip.
+Empowered Evocation	KEY:School of Evocation ~ Empowered Evocation				CATEGORY:Special Ability	TYPE:School of Evocation Tradition.SpecialQuality	DESC: Beginning at 10th level, you can add your Intelligence modifier to the damage roll of any wizard evocation spell you cast.
+Overchannel			KEY:School of Evocation ~ Overchannel						CATEGORY:Special Ability	TYPE:School of Evocation Tradition.SpecialQuality	DESC: Starting at 14th level, you can increase the power of your simpler spells. When you cast a wizard spell of 5th level or lower that deals damage, you can deal maximum damage with that spell. The first time you do so, you suffer no adverse effect. If you use this feature again before you finish a long rest, you take 2d12 necrotic damage for each level of the spell, immediately after you cast it. Each time you use this feature again before finishing a long rest, the necrotic damage per spell level increases by 1d12. This damage ignores resistance and immunity.
+
+# Cleric Cantrips
+Guidance			KEY:Cleric Cantrip ~ Guidance			TYPE:ClericCantrip	CATEGORY:Internal		SPELLKNOWN:CLASS|Cleric=0|Guidance
+Light				KEY:Cleric Cantrip ~ Light			TYPE:ClericCantrip	CATEGORY:Internal		SPELLKNOWN:CLASS|Cleric=0|Light
+Resistance			KEY:Cleric Cantrip ~ Resistance		TYPE:ClericCantrip	CATEGORY:Internal		SPELLKNOWN:CLASS|Cleric=0|Resistance
+Sacred Flame		KEY:Cleric Cantrip ~ Sacred Flame		TYPE:ClericCantrip	CATEGORY:Internal		SPELLKNOWN:CLASS|Cleric=0|Sacred Flame
+Spare the Dying		KEY:Cleric Cantrip ~ Spare the Dying	TYPE:ClericCantrip	CATEGORY:Internal		SPELLKNOWN:CLASS|Cleric=0|Spare the Dying
+Thaumaturgy			KEY:Cleric Cantrip ~ Thaumaturgy		TYPE:ClericCantrip	CATEGORY:Internal		SPELLKNOWN:CLASS|Cleric=0|Thaumaturgy
+
+# Wizard Cantrips
+Dancing Lights	KEY:Wizard Cantrip ~ Dancing Lights			TYPE:WizardCantrip	CATEGORY:Internal		SPELLKNOWN:CLASS|Wizard=0|Dancing Lights
+Fire Bolt		KEY:Wizard Cantrip ~ Fire Bolt			TYPE:WizardCantrip	CATEGORY:Internal		SPELLKNOWN:CLASS|Wizard=0|Fire Bolt
+Light			KEY:Wizard Cantrip ~ Light				TYPE:WizardCantrip	CATEGORY:Internal		SPELLKNOWN:CLASS|Wizard=0|Light
+Mage Hand		KEY:Wizard Cantrip ~ Mage Hand			TYPE:WizardCantrip	CATEGORY:Internal		SPELLKNOWN:CLASS|Wizard=0|Mage Hand
+Minor Illusion	KEY:Wizard Cantrip ~ Minor Illusion			TYPE:WizardCantrip	CATEGORY:Internal		SPELLKNOWN:CLASS|Wizard=0|Minor Illusion
+Prestidigitation	KEY:Wizard Cantrip ~ Prestidigitation		TYPE:WizardCantrip	CATEGORY:Internal		SPELLKNOWN:CLASS|Wizard=0|Prestidigitation
+Ray of Frost	KEY:Wizard Cantrip ~ Ray of Frost			TYPE:WizardCantrip	CATEGORY:Internal		SPELLKNOWN:CLASS|Wizard=0|Ray of Frost
+Shocking Grasp	KEY:Wizard Cantrip ~ Shocking Grasp			TYPE:WizardCantrip	CATEGORY:Internal		SPELLKNOWN:CLASS|Wizard=0|Shocking Grasp
+
+
+###Block: Backgrounds
+No Background	CATEGORY:Special Ability	TYPE:Background
+Acolyte		CATEGORY:Special Ability	TYPE:Background		ABILITY:Special Ability|AUTOMATIC|Acolyte ~ Shelter of the Faithful
+#	Skill Proficiencies: Insight, Religion
+#	Languages: Two of your choice
+#Equipment: A holy symbol (a gift to you when you entered the priesthood), a prayer book or prayer wheel, 5 sticks of incense, vestments, a set of common clothes, and a belt pouch containing 15 gp
+
+Feature: Shelter of the Faithful	KEY:Acolyte ~ Shelter of the Faithful	CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:As an acolyte, you command the respect of those who share your faith, and you can perform the religious ceremonies of your deity. You and your adventuring companions can expect to receive free healing and care at a temple, shrine, or other established presence of your faith, though you must provide any material components needed for spells. Those who share your religion will support you (but only you) at a modest lifestyle. You might also have ties to a specific temple dedicated to your chosen deity or pantheon, and you have a residence there. This could be the temple where you used to serve, if you remain on good terms with it, or a temple where you have found a new home. While near your temple, you can call upon the priests for assistance, provided the assistance you ask for is not hazardous and you remain in good standing with your temple.
+
+Criminal	CATEGORY:Special Ability	TYPE:Background	ABILITY:Special Ability|AUTOMATIC|Criminal ~ Criminal Contact	BONUS:ABILITYPOOL|Criminal Specialty|1
+#	Skill Proficiencies: Deception, Stealth
+#	Tool Proficiencies: One type of gaming set, thieves' tools
+#	Equipment: A crowbar, a set of dark common clothes including a hood, and a belt pouch containing 15 gp
+Criminal Specialty	KEY:Criminal ~ Criminal Specialty	CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:There are many kinds of criminals, and within a thieves' guild or similar criminal organization, individual members have particular specialties. Even criminals who operate outside of such organizations have strong preferences for certain kinds of crimes over others.	MULT:YES	CHOOSE:STRING|Alchemist|Astronomer|Discredited academic|Librarian|Professor|Researcher|Scribe|Wizard's apprentice
+
+
+Feature: Criminal Contact	KEY:Criminal ~ Criminal Contact	CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:You have a reliable and trustworthy contact who acts as your liaison to a network of other criminals. You know how to get messages to and from your contact, even over great distances; specifically, you know the local messengers, corrupt caravan masters, and seedy sailors who can deliver messages for you.
+
+Folk Hero		CATEGORY:Special Ability	TYPE:Background	ABILITY:Special Ability|AUTOMATIC|Folk Hero ~ Rustic Hospitality
+#Tool Proficiencies: One type of artisan's tools, vehicles (land)
+#Equipment: A set of artisan's tools (one of your choice), a shovel, an iron pot, a set of common clothes, and a belt pouch containing 10 gp
+Feature: Rustic Hospitality	KEY:Folk Hero ~ Rustic Hospitality		CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:Since you come from the ranks of the common folk, you fit in among them with ease. You can find a place to hide, rest, or recuperate among other commoners, unless you have shown yourself to be a danger to them. They will shield you from the law or anyone else searching for you, though they will not risk their lives for you.
+
+Sage		CATEGORY:Special Ability	TYPE:Background	ABILITY:Special Ability|AUTOMATIC|Sage ~ Researcher
+
+Feature: Researcher	KEY:Sage ~ Researcher		CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:When you attempt to learn or recall a piece of lore, if you do not know that information, you often know where and from whom you can obtain it. Usually, this information comes from a library, scriptorium, university, or a sage or other learned person or creature. Your DM might rule that the knowledge you seek is secreted away in an almost inaccessible place, or that it simply cannot be found. Unearthing the deepest secrets of the multiverse can require an adventure or even a whole campaign.
+
+Soldier	CATEGORY:Special Ability	TYPE:Background	ABILITY:Special Ability|AUTOMATIC|Soldier ~ Military Rank	BONUS:ABILITYPOOL|Soldier Specialty|1
+#Skill Proficiencies: Athletics, Intimidation
+#Tool Proficiencies: One type of gaming set, vehicles (land)
+#Equipment: An insignia of rank, a trophy taken from a fallen enemy (a dagger, broken blade, or piece of a banner), a set of bone dice or deck of cards, a set of common clothes, and a belt pouch containing 10 gp
+
+Specialty	KEY:Soldier ~ Specialty		CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:During your time as a soldier, you had a specific role to play in your unit or army. Roll a d8 or choose from the options in the table below to determine your role	MULT:YES	CHOOSE:STRING|Cavalry|Healer|Infantry|Quartermaster|Scout|Standard bearer|Support staff
+Feature: Military Rank	KEY:Soldier ~ Military Rank		CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:You have a military rank from your career as a soldier. Soldiers loyal to your former military organization still recognize your authority and influence, and they defer to you if they are of a lower rank. You can invoke your rank to exert influence over other soldiers and requisition simple equipment or horses for temporary use. You can also usually gain access to friendly military encampments and fortresses where your rank is recognized.

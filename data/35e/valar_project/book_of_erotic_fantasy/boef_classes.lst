@@ -1,0 +1,296 @@
+# Partial Conversion.
+#
+# Class Name	Hit Dice	Type			Abbreviation	Source Page	Save checks bonus									Combat bonus
+CLASS:Kundala	HD:8		TYPE:Base.PC	FACT:Abb|Knd	DEFINE:KundalaLVL|0	BONUS:VAR|KundalaLVL|CL	SOURCEPAGE:p.59	DEFINE:FlurryOfBlows|0	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE
+# Class Name	Required AL
+CLASS:Kundala	PREALIGN:LG,LN,LE
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Kundala	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Diplomacy|Heal|Hide|Jump|Listen|TYPE=Perform|TYPE=Profession|Sense Motive|Spot|Swim
+# Class Name	Spell Stat		Spell Type		Memorize	Use Spell List
+CLASS:Kundala	SPELLSTAT:WIS		FACT:SpellType|Divine	MEMORIZE:NO	SPELLLIST:1|Kundala	BONUS:CASTERLEVEL|Kundala|CL/2|PRECLASS:1,Kundala=4
+###Block:Proficiencies
+1	AUTO:WEAPONPROF|Club|Crossbow (Light)|Crossbow (Heavy)|Dagger|Handaxe|Javelin|Kama|Nunchaku|Quarterstaff|Sai|Shuriken|Siangham|Sling|Unarmed Strike
+###Block: Level progression
+1	SAB:Flurry of Blows (Ex)		SAB:Sexual Code of Conduct	BONUS:COMBAT|AC|max(WIS,0)|PREVAREQ:COUNT[EQTYPE.ARMOR.EQUIPPED],0		ABILITY:FEAT|AUTOMATIC|Improved Unarmed Strike|Stunning Fist
+2	SAB:Blassings of the Wise (Su)	BONUS:SAVE|ALL|WIS
+3	SAB:Body Control (Ex)
+5	SAB:Purity of Body (Ex)
+7	SAB:Wholeness of Body (Su) % hp/day|WholenessBody		BONUS:VAR|WholenessBody|KundalaLVL*2				DEFINE:WholenessBody|0
+8	SAB:Body Manipulation %/day|BodyManip				BONUS:VAR|BodyManip|1							DEFINE:BodyManip|0
+10	SAB:Alternate Form (Su) %/day|AltForm				BONUS:VAR|AltForm|1							DEFINE:AltForm|0
+12	BONUS:VAR|BodyManip|1
+13	SAB:Diamond Body (Su)		SAB:Immune to poison
+15	BONUS:VAR|AltForm|2
+16	BONUS:VAR|BodyManip|1
+20	BONUS:VAR|BodyManip|1		SAB:Alternate Form at will	SAB:.CLEAR.Alternate Form %/day|AltForm					TYPE:Shapechanger
+###Block
+1	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6		UMULT:2
+2	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6
+3	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6
+4	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6
+5	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6
+6	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6
+7	UDAM:1d2,1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6
+8	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8
+9	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8
+10	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8
+11	UDAM:1d3,1d4,1d6,1d8,1d10,2d8,3d8,4d8,6d8
+12	UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6
+13	UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6
+14	UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6
+15	UDAM:1d4,1d6,1d8,1d10,2d6,3d6,4d6,6d6,8d6
+16	UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8
+17	UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8
+18	UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8
+19	UDAM:1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8,8d8
+20	UDAM:1d8,1d10,2d6,2d8,2d10,4d8,6d8,8d8,12d8
+###Block
+4	CAST:0,0
+5	CAST:0,0
+6	CAST:0,1
+7	CAST:0,1
+8	CAST:0,1,0
+9	CAST:0,1,0
+10	CAST:0,1,1
+11	CAST:0,1,1
+12	CAST:0,1,1,0
+13	CAST:0,1,1,1
+14	CAST:0,2,1,1,0
+15	CAST:0,2,1,1,1
+16	CAST:0,2,2,1,1
+17	CAST:0,2,2,2,1
+18	CAST:0,2,2,2,1
+19	CAST:0,3,3,3,2
+20	CAST:0,3,3,3,3
+
+
+#
+# Class Name			Hit Dice	Type			Abbreviation	Source Page	Automatic Languages	Define			Save checks bonus									Combat bonus
+CLASS:Fey Enticer		HD:6		TYPE:PC.Prestige	FACT:Abb|FEn		SOURCEPAGE:p.72	BONUS:SAVE|BASE.Reflex,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+4)/2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE
+# Class Name			Requirements
+CLASS:Fey Enticer			PRESKILL:1,Escape Artist=8	PRERACE:1,RACETYPE=Fey
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Fey Enticer		STARTSKILLPTS:6	CSKILL:Bluff|Concentration|TYPE=Craft|Diplomacy|Disguise|Escape Artist|Handle Animal|Knowledge (Nature)|TYPE=Perform|TYPE=Profession|Sense Motive|Spellcraft
+1	SAB:Enhanced Spell-like Abilities +% (Su)|EnhancedSp
+2	SAB:Enhanced Supernatural Abilities +% (Su)|EnhancedSu
+5	SAB:Enticing Aura (Su)
+###Block
+2	ADD:SPELLCASTER|ANY
+4	ADD:SPELLCASTER|ANY
+###Block
+1	DEFINE:EnhancedSp|0	BONUS:VAR|EnhancedSp|1
+2	DEFINE:EnhancedSu|0	BONUS:VAR|EnhancedSu|1	BONUS:STAT|APP|1|TYPE=Inherent
+3					BONUS:VAR|EnhancedSp|1
+4					BONUS:VAR|EnhancedSu|1	BONUS:STAT|APP|1|TYPE=Inherent
+
+# Class Name			Hit Dice	Type			Abbreviation	Source Page	Automatic Languages	Define			Save checks bonus									Combat bonus
+CLASS:Frenzied Disciple		HD:10		TYPE:PC.Prestige	FACT:Abb|FzD	DEFINE:FrenziedDiscipleLVL|0	BONUS:VAR|FrenziedDiscipleLVL|CL	SOURCEPAGE:p.73	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+4)/2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE
+# Class Name			Requirements
+CLASS:Frenzied Disciple		PREALIGN:CG,CN,CE	PRESKILL:1,Perform (Dance)=4	PREABILITY:1,CATEGORY=FEAT,Endurance	PRETOTALAB:5
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Frenzied Disciple		STARTSKILLPTS:4	CSKILL:Climb|Escape Artist|Handle Animal|Intimidate|Jump|Listen|Ride|Survival|Swim
+1	SAB:Improvised Weapons (Ex)
+2	SAB:Mesmerizing Dance (Su) DC %|DanceDC	DEFINE:DanceDC|0	BONUS:VAR|DanceDC|10+CL+MAX(CHA,APP)
+3	ABILITY:Special Ability|AUTOMATIC|Frenzied Disciple ~ Claws
+5	SAB:Arousing Dance (Su) DC %|DanceDC
+6	SAB:Fearsome Dance (Su) DC %|DanceDC
+8	SAB:Ecstatic Dance (Su)
+10	SAB:Frenzied Dance (Su)
+
+# Class Name			Hit Dice	Type			Abbreviation	Source Page	Automatic Languages	Define			Save checks bonus									Combat bonus
+CLASS:Sacred Prostitute		HD:6		TYPE:PC.Prestige	FACT:Abb|ScP		SOURCEPAGE:p.89	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+4)/2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE
+# Class Name			Requirements
+CLASS:Sacred Prostitute		PRESTAT:2,CHA=13,APP=13	PRESKILL:3,Diplomacy=8,Perform (Sexual Techniques)=8,Profession (Prostitute)=8	PREABILITY:1,CATEGORY=FEAT,Sexually Open Society		PRETOTALAB:3
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Sacred Prostitute		STARTSKILLPTS:6	CSKILL:Appraise|Bluff|TYPE=Craft|Diplomacy|Heal|Listen|Perform (Sexual Techniques)|TYPE=Profession|Sense Motive|Sleight of Hand|Spot|Use Rope
+# Class Name			Spell Stat	Spell Type		Memorize	Use Spell List
+CLASS:Sacred Prostitute		SPELLSTAT:CHA	FACT:SpellType|Arcane	MEMORIZE:NO	SPELLLIST:1|Bard
+1	CAST:0			SAB:Aura of Sexual Ease
+2	CAST:1			SAB:Sexual Healing %|SexualHealing	DEFINE:SexualHealing|0	BONUS:VAR|SexualHealing|1
+3	CAST:1,0		SAB:Sexual Communion
+4	CAST:1,1		BONUS:VAR|SexualHealing|1
+5	CAST:1,1,0		SAB:Restorative Sex
+
+#
+# Class Name	Hit Dice	Type		Abbreviation	Source Page	Automatic Languages	Save checks bonus												Combat bonus					Modify VAR
+CLASS:Imagist	HD:4		TYPE:Base.PC	FACT:Abb|Img		SOURCEPAGE:p.55	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE
+# Class Name	Requirements
+CLASS:Imagist	PREALIGN:0,1,3,4,6,7
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Imagist	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Diplomacy|Heal|Listen|TYPE=Perform|TYPE=Profession|Sense Motive|Spellcraft|Spot
+# Class Name	Spell Stat		Spell Type		Memorize	Use Spell List
+CLASS:Imagist	SPELLSTAT:APP		FACT:SpellType|Divine	MEMORIZE:NO	SPELLLIST:1|Imagist
+#BONUS:CASTERLEVEL|Imagist|CL
+###Block:Proficiencies
+1	AUTO:WEAPONPROF|Dagger|Sling|Quarterstaff	AUTO:SHIELDPROF|SHIELDTYPE=Buckler	AUTO:ARMORPROF|ARMORTYPE=Light
+###Block: Level progression
+1	CAST:5,3			KNOWN:4,2				SPELLS:Innate|TIMES=1|CASTERLEVEL=1|Sanctuary	BONUS:SKILL|Bluff,Diplomacy|ScoreSwitch		DEFINE:ScoreSwitch|0	BONUS:VAR|ScoreSwitch|APP-CHA
+2	CAST:6,4			KNOWN:5,2
+3	CAST:6,5			KNOWN:5,3				SAB:Cohort
+4	CAST:6,6,3			KNOWN:6,3,1				SPELLS:Innate|TIMES=2|CASTERLEVEL=1|Sanctuary
+5	CAST:6,6,4			KNOWN:6,4,2				SAB:Inspired Smite Evil (Su) %/day|InspSmite	BONUS:VAR|InspSmite|1	DEFINE:InspSmite|0
+6	CAST:6,6,5,3			KNOWN:7,4,2,1				ADD:ABILITY|FEAT|NORMAL|Animal Affinity,Combat Casting,Dodge,Leadership,Negotiator,Persuasive,Satisfied Glow,Spell Focus,TYPE=Metamagic
+7	CAST:6,6,6,4			KNOWN:7,5,3,2				SPELLS:Innate|TIMES=3|CASTERLEVEL=1|Sanctuary
+8	CAST:6,6,6,5,3			KNOWN:8,5,3,2,1
+9	CAST:6,6,6,6,4			KNOWN:8,5,4,3,2
+10	CAST:6,6,6,6,5,3		KNOWN:9,5,4,3,2,1			SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=1|Sanctuary	BONUS:VAR|InspSmite|1
+11	CAST:6,6,6,6,6,4		KNOWN:9,5,5,4,3,2
+12	CAST:6,6,6,6,6,4,3		KNOWN:9,5,5,4,3,2,1			ADD:ABILITY|FEAT|NORMAL|Animal Affinity,Combat Casting,Dodge,Leadership,Negotiator,Persuasive,Satisfied Glow,Spell Focus,TYPE=Metamagic
+13	CAST:6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,3,2
+14	CAST:6,6,6,6,6,6,5,3		KNOWN:9,5,5,4,4,3,2,1
+15	CAST:6,6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,4,3,2			BONUS:VAR|InspSmite|1
+16	CAST:6,6,6,6,6,6,6,5,3		KNOWN:9,5,5,4,4,4,3,2,1
+17	CAST:6,6,6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,4,3,3,2
+18	CAST:6,6,6,6,6,6,6,6,5,3	KNOWN:9,5,5,4,4,4,3,3,2,1
+19	CAST:6,6,6,6,6,6,6,6,6,4	KNOWN:9,5,5,4,4,4,3,3,3,2
+20	CAST:6,6,6,6,6,6,6,6,6,6	KNOWN:9,5,5,4,4,4,3,3,3,3		BONUS:VAR|InspSmite|1
+
+# Class Name	Hit Dice	Type		Abbreviation	Source Page	Automatic Languages	Save checks bonus									Combat bonus
+CLASS:Tantrist	HD:4		TYPE:Base.PC	FACT:Abb|Tan		SOURCEPAGE:p.62	BONUS:SAVE|BASE.Fortitude|(classlevel("APPLIEDAS=NONEPIC")+4)/2	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE		BONUS:DOMAIN|NUMBER|2
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Tantrist	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Listen|TYPE=Perform|TYPE=Profession|Sense Motive|Spellcraft|Spot
+# Class Name	Spell Stat		Spell Type		Automaticaly Known Spell Levels	Spellbook
+CLASS:Tantrist	SPELLSTAT:CON	BONUSSPELLSTAT:APP	FACT:SpellType|Arcane	KNOWNSPELLS:LEVEL=0		SPELLLIST:1|Wizard	SPELLBOOK:YES	MEMORIZE:YES	DEITY:None (Tantrist)
+###Block:Proficiencies
+1	AUTO:WEAPONPROF|TYPE=Simple
+###Block: Level progression
+1	CAST:3,1				SPECIALTYKNOWN:1,1			SAB:Sexual Code of Conduct	BONUS:DC|SCHOOL.Evocation|2	BONUS:DC|ALLSPELLS|INT-CON	SAB:+2 bonus to Spellcraft when learning Evocation
+2	CAST:4,2				SPECIALTYKNOWN:1,1
+3	CAST:4,2,1				SPECIALTYKNOWN:1,1,1
+4	CAST:5,3,2				SPECIALTYKNOWN:1,1,1
+5	CAST:5,3,2,1			SPECIALTYKNOWN:1,1,1,1			ADD:ABILITY|FEAT|NORMAL|Greater Spell Focus,Greater Spell Penetration,Spell Focus,Spell Penetration,TYPE=Metamagic,TYPE=Sexual
+6	CAST:5,3,3,2			SPECIALTYKNOWN:1,1,1,1
+7	CAST:6,4,3,2,1			SPECIALTYKNOWN:1,1,1,1,1
+8	CAST:6,4,3,3,2			SPECIALTYKNOWN:1,1,1,1,1
+9	CAST:6,4,4,3,2,1			SPECIALTYKNOWN:1,1,1,1,1,1
+10	CAST:6,4,4,3,3,2			SPECIALTYKNOWN:1,1,1,1,1,1		ADD:ABILITY|FEAT|NORMAL|Greater Spell Focus,Greater Spell Penetration,Spell Focus,Spell Penetration,TYPE=Metamagic,TYPE=Sexual
+11	CAST:6,5,4,4,3,2,1		SPECIALTYKNOWN:1,1,1,1,1,1,1
+12	CAST:6,5,4,4,3,3,2		SPECIALTYKNOWN:1,1,1,1,1,1,1
+13	CAST:6,5,5,4,4,3,2,1		SPECIALTYKNOWN:1,1,1,1,1,1,1,1
+14	CAST:6,5,5,4,4,3,3,2		SPECIALTYKNOWN:1,1,1,1,1,1,1,1
+15	CAST:6,5,5,5,4,4,3,2,1		SPECIALTYKNOWN:1,1,1,1,1,1,1,1,1	ADD:ABILITY|FEAT|NORMAL|Greater Spell Focus,Greater Spell Penetration,Spell Focus,Spell Penetration,TYPE=Metamagic,TYPE=Sexual
+16	CAST:6,5,5,5,4,4,3,3,2		SPECIALTYKNOWN:1,1,1,1,1,1,1,1,1
+17	CAST:6,5,5,5,5,4,4,3,2,1	SPECIALTYKNOWN:1,1,1,1,1,1,1,1,1,1
+18	CAST:6,5,5,5,5,4,4,3,3,2	SPECIALTYKNOWN:1,1,1,1,1,1,1,1,1,1
+19	CAST:6,5,5,5,5,5,4,4,3,3	SPECIALTYKNOWN:1,1,1,1,1,1,1,1,1,1
+20	CAST:6,5,5,5,5,5,4,4,4,4	SPECIALTYKNOWN:1,1,1,1,1,1,1,1,1,1	ADD:ABILITY|FEAT|NORMAL|Greater Spell Focus,Greater Spell Penetration,Spell Focus,Spell Penetration,TYPE=Metamagic,TYPE=Sexual
+
+#
+# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page	Automatic Languages	Define			Save checks bonus									Combat bonus
+CLASS:Disciple of Aaluran	HD:8		TYPE:PC.Prestige	FACT:Abb|DoA		MAXLEVEL:5	SOURCEPAGE:p.66	BONUS:SAVE|BASE.Fortitude,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+4)/2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE
+# Class Name			Requirements
+CLASS:Disciple of Aaluran	PREALIGN:3,5,6,7	PRESKILL:2,Diplomacy=5,Perform (Sexual Techniques)=5	PREABILITY:1,CATEGORY=FEAT,Seductive	PREDEITY:1,Aaluran
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Disciple of Aaluran	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Diplomacy|Heal|Listen|Perform (Sexual Techniques)|TYPE=Profession|Sense Motive|Spellcraft|Spot
+1	ADD:SPELLCASTER|ANY	BONUS:DOMAIN|NUMBER|1	ADDDOMAINS:Pleasure	SPELLS:Innate|TIMES=1|CASTERLEVEL=CL|Disguise Self
+2	ADD:SPELLCASTER|ANY	ADD:ABILITY|FEAT|NORMAL|Improved Initiative,Kundalini,Seductive,Tantric,TYPE=Metamagic
+3	ADD:SPELLCASTER|ANY	SAB:Aura of Good Will (Su)	SPELLS:Innate|TIMES=1|CASTERLEVEL=CL|Sanctuary
+4	ADD:SPELLCASTER|ANY	ADD:ABILITY|FEAT|NORMAL|Improved Initiative,Kundalini,Seductive,Tantric,TYPE=Metamagic
+5	ADD:SPELLCASTER|ANY	SAB:Smoldering Glance (Su) DC %|10+CL+CHA
+
+# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page	Automatic Languages	Define			Save checks bonus									Combat bonus
+CLASS:Divine Celibate		HD:8		TYPE:PC.Prestige	FACT:Abb|DvC		MAXLEVEL:5	SOURCEPAGE:p.67	BONUS:SAVE|BASE.Fortitude,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+4)/2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
+# Class Name			Requirements
+CLASS:Divine Celibate		PREALIGN:LG,NG,CG	PRESKILL:1,Knowledge (Religion)=4	PRESKILL:1,Ride=5	PREABILITY:2,CATEGORY=FEAT,Mounted Combat,Ride-by Attack		PRETOTALAB:5
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Divine Celibate		STARTSKILLPTS:2	CSKILL:Climb|Concentration|Diplomacy|Heal|Intimidate|Jump|Knowledge (religion)|Ride|Sense Motive|Spot|Survival|Swim
+# Class Name			Spell Stat	Spell Type		Memorize	Use Spell List
+CLASS:Divine Celibate		SPELLSTAT:CHA	FACT:SpellType|Divine	MEMORIZE:NO	SPELLLIST:3|Cleric|DOMAIN.Good|DOMAIN.Protection
+1	CAST:1			SAB:Unicorn Mount		SAB:Sex Magic Resistance
+2	CAST:2,0		SAB:Virtuous Mind
+3	CAST:3,1		SAB:Virtuous Body
+4	CAST:3,2,0		SAB:Maintaining Purity of Purpose
+5	CAST:3,2,1		SAB:Turn Evil Outsiders		SAB:Sex Magic Immunity
+
+# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page	Automatic Languages	Define			Save checks bonus									Combat bonus
+CLASS:Dominator			HD:8		TYPE:PC.Prestige	FACT:Abb|Dom		MAXLEVEL:10	SOURCEPAGE:p.69	BONUS:SAVE|BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+4)/2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE
+# Class Name			Requirements
+CLASS:Dominator			PREALIGN:0,1,2	PRESKILL:1,Intimidate=8	PREABILITY:3,CATEGORY=FEAT,Iron Will,Leadership,Mentor	PRECHECK:1,Will=4
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Dominator			STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Diplomacy|Escape Artist|Handle Animal|Heal|Intimidate|Perform (Sexual Techniques)|TYPE=Profession|Sense Motive|Use Rope
+1	ADD:SPELLCASTER|ANY	SAB:Secret of the Strict Master/Mistress
+2	ADD:SPELLCASTER|ANY	SAB:Aura of Authority +%|AuraAuthority	DEFINE:AuraAuthority|0	BONUS:VAR|AuraAuthority|2
+3	ADD:SPELLCASTER|ANY	SPELLS:Innate|TIMES=1|CASTERLEVEL=CL/3|Dominate Person
+4	ADD:SPELLCASTER|ANY	SAB:Secret of the Harsh Master
+5	ADD:SPELLCASTER|ANY	BONUS:VAR|AuraAuthority|1
+6	ADD:SPELLCASTER|ANY
+7	ADD:SPELLCASTER|ANY	SAB:Secret of the Severe Master
+8	ADD:SPELLCASTER|ANY	BONUS:VAR|AuraAuthority|1
+9	ADD:SPELLCASTER|ANY
+10	ADD:SPELLCASTER|ANY	SAB:Secret of the Cruel Master
+
+# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page	Automatic Languages	Define			Save checks bonus									Combat bonus
+CLASS:Harem Protector		HD:10		TYPE:PC.Prestige	FACT:Abb|HmP		MAXLEVEL:10	SOURCEPAGE:p.76	BONUS:SAVE|BASE.Fortitude,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+4)/2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
+# Class Name			Requirements
+CLASS:Harem Protector		PREALIGN:LG,LN,LE	PRESKILL:1,Intimidate=8	PREABILITY:2,CATEGORY=FEAT,Alertness,Sterile	PRETOTALAB:5
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Harem Protector		STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate|Jump|Listen|Ride|Search|Sense Motive|Spot|Swim
+1	SAB:Spurn Seduction (Ex)	SAB:Vigilance (Ex)	SAB:No Sex Drive	BONUS:SKILL|Listen,Spot|CL	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
+2	SAB:Resist Enchantments (Su) +%|CL
+3	SAB:Shield Other (Sp)
+4	ADD:ABILITY|FEAT|NORMAL|Athletic,Blind-Fight,Combat Expertise,Combat Reflexes,Dodge,Great Fortitude,Improved Disarm,Improved Grapple,Improved Unarmed Strike,Iron Will,Mobility,Power Attack,Toughness,Weapon Focus
+5	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge
+6	ADD:ABILITY|FEAT|NORMAL|Athletic,Blind-Fight,Combat Expertise,Combat Reflexes,Dodge,Great Fortitude,Improved Disarm,Improved Grapple,Improved Unarmed Strike,Iron Will,Mobility,Power Attack,Toughness,Weapon Focus
+7	SAB:Immunity to Enchantments (Su)
+8	ADD:ABILITY|FEAT|NORMAL|Athletic,Blind-Fight,Combat Expertise,Combat Reflexes,Dodge,Great Fortitude,Improved Disarm,Improved Grapple,Improved Unarmed Strike,Iron Will,Mobility,Power Attack,Toughness,Weapon Focus
+9	ABILITY:Special Ability|AUTOMATIC|Improved Uncanny Dodge
+10	SAB:Shield Harem (Sp)
+
+# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page	Automatic Languages	Define			Save checks bonus									Combat bonus
+CLASS:Knot Binder of Kaladis	HD:8		TYPE:PC.Prestige	FACT:Abb|KBK		MAXLEVEL:5	SOURCEPAGE:p.78	BONUS:SAVE|BASE.Fortitude,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+4)/2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE
+# Class Name			Requirements
+CLASS:Knot Binder of Kaladis	PREALIGN:0,1,3,4	PRESKILL:1,Diplomacy=8	PRESKILL:1,Sense Motive=2	PREABILITY:1,CATEGORY=FEAT,Negotiator	PREDEITY:1,Kaladis
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Knot Binder of Kaladis	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Knowledge (arcana)|Knowledge (History)|Knowledge (Local)|Knowledge (religion)|TYPE=Profession|Sense Motive|Spellcraft
+1	ADD:SPELLCASTER|ANY	SAB:Witness (Ex)	SAB:Descern Lie (SP)
+2	ADD:SPELLCASTER|ANY	SAB:Find a Soulmate (Sp)	SPELLS:Innate|TIMES=1|CASTERLEVEL=1|Find a Soulmate
+3	ADD:SPELLCASTER|ANY	SAB:Seek the Broken Vow (Su)
+4	ADD:SPELLCASTER|ANY	SAB:Zone of Truth (Sp)	SPELLS:Innate|TIMES=3|CASTERLEVEL=1|Zone of Truth
+5	ADD:SPELLCASTER|ANY	SAB:Inviolate Oath (Su)
+
+# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page	Automatic Languages	Define			Save checks bonus									Combat bonus
+CLASS:Metaphysical Spellshaper	HD:4		TYPE:PC.Prestige	FACT:Abb|MSs		MAXLEVEL:3	SOURCEPAGE:p.82	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE
+# Class Name			Requirements
+CLASS:Metaphysical Spellshaper	PREABILITY:2,CATEGORY=FEAT,TYPE.Metamagic	PRESPELLTYPE:1,Arcane=1,Divine=1
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Metaphysical Spellshaper	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Intimidate|Knowledge (arcana)|TYPE=Profession|Spellcraft
+1	ADD:SPELLCASTER|ANY	SAB:Metamagic Manipulation (Su)
+2	ADD:SPELLCASTER|ANY	ADD:ABILITY|FEAT|NORMAL|TYPE=Metamagic
+3	ADD:SPELLCASTER|ANY	SAB:Metamagic Mastery
+
+# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page	Automatic Languages	Define			Save checks bonus									Combat bonus
+CLASS:Pierced Mystic		HD:4		TYPE:PC.Prestige	FACT:Abb|PMy		MAXLEVEL:5	SOURCEPAGE:p.84	BONUS:SAVE|BASE.Fortitude,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+4)/2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE
+# Class Name			Requirements
+CLASS:Pierced Mystic		PRESKILL:1,Profession (Piercer)=8	PRESKILL:1,Heal=4	PREABILITY:1,CATEGORY=FEAT,Great Fortitude	PRETOTALAB:2	PRESPELLTYPE:1,Arcane=1,Divine=1
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Pierced Mystic		STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Knowledge (arcana)|TYPE=Profession|Spellcraft
+1	ADD:SPELLCASTER|ANY	SAB:Imbue Piercing %|ImbuePiercing	DEFINE:ImbuePiercing|0	BONUS:VAR|ImbuePiercing|1
+2	ADD:SPELLCASTER|ANY	SAB:Pierce Other
+3	ADD:SPELLCASTER|ANY	BONUS:VAR|ImbuePiercing|1
+4	ADD:SPELLCASTER|ANY	SAB:Additional Body Slot
+5	ADD:SPELLCASTER|ANY	BONUS:VAR|ImbuePiercing|1
+
+# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page	Automatic Languages	Define			Save checks bonus									Combat bonus
+CLASS:Rake			HD:8		TYPE:PC.Prestige	FACT:Abb|Rake	MAXLEVEL:10	SOURCEPAGE:p.86	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+4)/2	BONUS:COMBAT|BAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE
+# Class Name			Requirements
+CLASS:Rake			PRESKILL:3,Bluff=8,Diplomacy=8,Intimidate=8	PREABILITY:1,CATEGORY=FEAT,Seductive
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Rake			STARTSKILLPTS:6	CSKILL:Appraise|Bluff|TYPE=Craft|Diplomacy|Disguise|Forgery|Gather Information|Intimidate|Listen|TYPE=Knowledge|Move Silently|Perform (Sexual Techniques)|TYPE=Profession|Sense Motive|Sleight of Hand|Spot
+1	SAB:Seduction (Su)	SAB:Pillow Talk (Su) Save at -%|PillowTalk	DEFINE:PillowTalk|0
+2	SAB:Seductive Art +%|SeductiveArt	DEFINE:SeductiveArt|0	BONUS:VAR|SeductiveArt|1	BONUS:VAR|SneakAttack|1
+3	SPELLS:Innate|TIMES=1|CASTERLEVEL=CL/3|Charm Monster
+4	BONUS:VAR|PillowTalk|2
+5	BONUS:VAR|SeductiveArt|1	SAB:Forgetful Caress
+7	BONUS:VAR|SneakAttack|1
+8	BONUS:VAR|PillowTalk|2	BONUS:VAR|SeductiveArt|1
+10	SAB:True Seduction (Su)
+
+# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page	Automatic Languages	Define			Save checks bonus									Combat bonus
+CLASS:Voyeuristic Seer		HD:6		TYPE:PC.Prestige	FACT:Abb|VyS		MAXLEVEL:3	SOURCEPAGE:p.91	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE
+# Class Name			Requirements
+CLASS:Voyeuristic Seer		PREABILITY:1,CATEGORY=FEAT,Spell Focus (Divination)	PRESPELL:1,Scrying
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Voyeuristic Seer		STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Knowledge (arcana)|Knowledge (Local)|Knowledge (nobility and royalty)|Listen|TYPE=Profession|Sense Motive|Spellcraft|Spot
+1	ADD:SPELLCASTER|ANY	SAB:Divination Expert (Ex)	SAB:Superior Scrying (Sp)	BONUS:DOMAIN|NUMBER|1	ADDDOMAINS:Voyeur
+2	ADD:SPELLCASTER|ANY	SAB:Portable Scrying Focus (Su)
+3	ADD:SPELLCASTER|ANY	SAB:Reduced Scrying Casting Time (Su)

@@ -1,13 +1,13 @@
-# CVS $Revision: $ $Author: $ -- Wed Mar  5 16:52:34 2014 -- reformated by prettylst.pl v1.51 (build 22988)
+# CVS $Revision: $ $Author: $ -- Sun Aug 17 15:41:15 2014 -- reformated by prettylst.pl v1.51 (build 24906)
 SOURCELONG:Complete Divine	SOURCESHORT:CD	SOURCEDATE:2004-05
 
 
-# Class Name	Unique Key		Type					Base class as subclass?	Source Page		Save checks bonus											Combat bonus
-CLASS:Shugenja	KEY:Shugenja	TYPE:Base.PC.Complete Divine	ALLOWBASECLASS:NO		SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*1/2
+# Class Name	Unique Key		Type					Base class as subclass?	Source Page		Combat bonus															Modify VAR													Bonus
+CLASS:Shugenja	KEY:Shugenja	TYPE:Base.PC.Complete Divine	ALLOWBASECLASS:NO		SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Shugenja	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|TYPE=Knowledge|TYPE=Profession|Spellcraft
 # Class Name	Spell Stat		Spell Type		Caster level			Use Spell List
-CLASS:Shugenja	SPELLSTAT:CHA	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Shugenja|CL	SPELLLIST:1|Shugenja
+CLASS:Shugenja	SPELLSTAT:CHA	FACT:SpellType|Divine	BONUS:CASTERLEVEL|Shugenja|Caster_Level_BL_Stripped_Shugenja	DEFINE:Caster_Level_BL_Stripped_Shugenja|0	BONUS:VAR|Caster_Level_BL_Stripped_Shugenja|Caster_Level_Shugenja-CasterLevelBLShugenja	BONUS:VAR|Caster_Level_Shugenja|CL+Caster_Level_Bonus+CasterLevelBLShugenja	DEFINE:CasterLevelBLShugenja|0	BONUS:VAR|CasterLevelBL_x_Shugenja|charbonusto("PCLEVEL","Shugenja")	BONUS:VAR|Caster_Level_Highest__Divine|Caster_Level_Shugenja|TYPE=Base	SPELLLIST:1|Shugenja
 #
 SUBCLASS:Air Shugenja	COST:0	CHOICE:DESCRIPTOR|Air Shugenja	PROHIBITSPELL:DESCRIPTOR.Earth Shugenja	DEFINE:AirShugenja|0	ABILITY:Shugenja Class Feature|AUTOMATIC|Shugenja ~ Element Focus (Air)
 SUBCLASS:Earth Shugenja	COST:0	CHOICE:DESCRIPTOR|Earth Shugenja	PROHIBITSPELL:DESCRIPTOR.Air Shugenja	DEFINE:EarthShugenja|0	ABILITY:Shugenja Class Feature|AUTOMATIC|Shugenja ~ Element Focus (Earth)
@@ -55,10 +55,10 @@ SUBCLASS:Water Shugenja	COST:0	CHOICE:DESCRIPTOR|Water Shugenja	PROHIBITSPELL:DE
 
 
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus							Modify VAR
-CLASS:Contemplative	HD:6		TYPE:PC.Prestige	ABB:Com		MAXLEVEL:10	SOURCEPAGE:p.30	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*1/2|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|CL|PREVAREQ:UseFractionalBAB,1
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus															Modify VAR													Bonus
+CLASS:Contemplative	HD:6		TYPE:PC.Prestige	FACT:Abb|Com		MAXLEVEL:10	SOURCEPAGE:p.30	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required Feat						Required Skill				Req. Spell Type
-CLASS:Contemplative	PREFEAT:1,Skill Focus (Knowledge (Religion))	PRESKILL:1,Knowledge (Religion)=13	PRESPELLTYPE:1,Divine=1
+CLASS:Contemplative	PREABILITY:1,CATEGORY=FEAT,Skill Focus (Knowledge (Religion))	PRESKILL:1,Knowledge (Religion)=13	PRESPELLTYPE:1,Divine=1
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Contemplative	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Intimidate|Knowledge (Religion)|TYPE=Profession|Sense Motive|Spellcraft
 1	BONUS:DOMAIN|NUMBER|1								ADD:SPELLCASTER|Divine	ABILITY:Contemplative Class Feature|AUTOMATIC|Contemplative ~ Divine Health
@@ -75,12 +75,12 @@ CLASS:Contemplative	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|He
 
 ### Divine Oracle - Added 2007-05-12
 
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus							Add domain number		Modify VAR
-CLASS:Divine Oracle	HD:6		TYPE:PC.Prestige	ABB:Dorc		MAXLEVEL:10	SOURCEPAGE:p.35	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*1/2|PREVAREQ:UseFractionalBAB,0	BONUS:DOMAIN|NUMBER|1	BONUS:VAR|ClassBABPoor|CL|PREVAREQ:UseFractionalBAB,1
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus															Add domain number		Modify VAR													Bonus
+CLASS:Divine Oracle	HD:6		TYPE:PC.Prestige	FACT:Abb|Dorc		MAXLEVEL:10	SOURCEPAGE:p.35	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:DOMAIN|NUMBER|1	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required Skill				Required Text
 CLASS:Divine Oracle	PRESKILL:1,Knowledge (Religion)=8	PRETEXT:Must be able to cast two divination spells
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Divine Oracle	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Heal|Intimidate|Knowledge (Arcana)|Knowledge (Religion)|TYPE=Profession|Spellcraft
+CLASS:Divine Oracle	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Heal|Intimidate|Knowledge (arcana)|Knowledge (Religion)|TYPE=Profession|Spellcraft
 1	DOMAIN:Oracle						ADD:SPELLCASTER|ANY	ABILITY:Divine Oracle Class Feature|AUTOMATIC|Divine Oracle ~ Scry Bonus
 2				BONUS:VAR|TrapSenseBonus|1	ADD:SPELLCASTER|ANY	ABILITY:Divine Oracle Class Feature|AUTOMATIC|Divine Oracle ~ Prescient Sense|Divine Oracle ~ Trap Sense
 3									ADD:SPELLCASTER|ANY	ABILITY:Divine Oracle Class Feature|AUTOMATIC|Divine Oracle ~ Divination Enhancement
@@ -93,43 +93,50 @@ CLASS:Divine Oracle	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Heal|Intimid
 10									ADD:SPELLCASTER|ANY	ABILITY:Divine Oracle Class Feature|AUTOMATIC|Divine Oracle ~ Immune to Surprise
 
 
-#CLASS NAME				HITDICE		SOURCEPAGE		TYPE						ABBREVIATION	MAXLEVEL			LANGBONUS	SAVING THROWS																								BASE ATTACK BONUS									DEFINE
-
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus									Combat bonus
-CLASS:Favored Soul	HD:8		TYPE:Base.PC	ABB:FvSl		MAXLEVEL:20	SOURCEPAGE:6	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|((CL/2)+2)	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus															Modify VAR														Bonus
+CLASS:Favored Soul	HD:8		TYPE:Base.PC	FACT:Abb|FvSl		MAXLEVEL:20	SOURCEPAGE:6	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Favored Soul	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Jump|Knowledge (Arcana)|TYPE=Profession|Sense Motive|Spellcraft
-# Class Name		Spell Stat		Stat for Bonus Spells	Spell Type		Memorize	Caster level				Bonus to DC						Use Spell List
-CLASS:Favored Soul	SPELLSTAT:CHA	BONUSSPELLSTAT:CHA	SPELLTYPE:Divine	MEMORIZE:NO	BONUS:CASTERLEVEL|Favored Soul|CL	BONUS:DC|CLASS.Favored Soul|(WIS-CHA)	SPELLLIST:1|Cleric
-1	CAST:5,3				KNOWN:4,3												ABILITY:Favored Soul Class Feature|AUTOMATIC|Favored Soul ~ Weapon and Armor Proficiency
+CLASS:Favored Soul	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Jump|Knowledge (arcana)|TYPE=Profession|Sense Motive|Spellcraft
+# Class Name		Spell Stat		Spell Stat Bonus		Spell Type		Memorize	Caster level				Bonus DC						Use Spell List
+CLASS:Favored Soul	SPELLSTAT:CHA	BONUSSPELLSTAT:CHA	FACT:SpellType|Divine	MEMORIZE:NO	BONUS:CASTERLEVEL|Favored Soul|CL	BONUS:DC|CLASS.Favored Soul|(WIS-CHA)	SPELLLIST:1|Cleric
+###Block:
+1	ABILITY:Favored Soul Class Feature|AUTOMATIC|Favored Soul ~ Weapon and Armor Proficiency|!PREABILITY:1,CATEGORY=ACF,TYPE.FavoredSoulWeaponandArmorProficiency
+3	ABILITY:Favored Soul Class Feature|AUTOMATIC|Favored Soul ~ Weapon Focus|!PREABILITY:1,CATEGORY=ACF,TYPE.FavoredSoulWeaponFocus
+5	ABILITY:Favored Soul Class Feature|AUTOMATIC|Favored Soul ~ Energy Resistance|!PREABILITY:1,CATEGORY=ACF,TYPE.FavoredSoulEnergyResistance					BONUS:ABILITYPOOL|Favored Soul Resistance|1
+10																												BONUS:ABILITYPOOL|Favored Soul Resistance|1
+12	ABILITY:Favored Soul Class Feature|AUTOMATIC|Favored Soul ~ Weapon Specialization|!PREABILITY:1,CATEGORY=ACF,TYPE.FavoredSoulWeaponSpecialization
+15																												BONUS:ABILITYPOOL|Favored Soul Resistance|1
+17	ABILITY:Favored Soul Class Feature|AUTOMATIC|Favored Soul ~ Wings|!PREABILITY:1,CATEGORY=ACF,TYPE.FavoredSoulWings
+20	ABILITY:Favored Soul Class Feature|AUTOMATIC|Favored Soul ~ Damage Reduction|!PREABILITY:1,CATEGORY=ACF,TYPE.FavoredSoulDamageReduction
+###Block: Level progression
+1	CAST:5,3				KNOWN:4,3
 2	CAST:6,4				KNOWN:5,3
-3	CAST:6,5				KNOWN:5,4												ABILITY:Favored Soul Class Feature|AUTOMATIC|Favored Soul ~ Weapon Focus
+3	CAST:6,5				KNOWN:5,4
 4	CAST:6,6,3				KNOWN:6,4,3
-5	CAST:6,6,4				KNOWN:6,5,3				BONUS:ABILITYPOOL|Favored Soul Resistance|1	ABILITY:Favored Soul Class Feature|AUTOMATIC|Favored Soul ~ Energy Resistance
+5	CAST:6,6,4				KNOWN:6,5,3
 6	CAST:6,6,5,3			KNOWN:7,5,4,3
 7	CAST:6,6,6,4			KNOWN:7,6,4,3
 8	CAST:6,6,6,5,3			KNOWN:8,6,5,4,3
 9	CAST:6,6,6,6,4			KNOWN:8,6,5,4,3
-10	CAST:6,6,6,6,5,3			KNOWN:9,6,6,5,4,3			BONUS:ABILITYPOOL|Favored Soul Resistance|1
+10	CAST:6,6,6,6,5,3			KNOWN:9,6,6,5,4,3
 11	CAST:6,6,6,6,6,4			KNOWN:9,6,6,5,4,3
-12	CAST:6,6,6,6,6,5,3		KNOWN:9,6,6,6,5,4,3										ABILITY:Favored Soul Class Feature|AUTOMATIC|Favored Soul ~ Weapon Specialization
+12	CAST:6,6,6,6,6,5,3		KNOWN:9,6,6,6,5,4,3
 13	CAST:6,6,6,6,6,6,4		KNOWN:9,6,6,6,5,4,3
 14	CAST:6,6,6,6,6,6,5,3		KNOWN:9,6,6,6,6,5,4,3
-15	CAST:6,6,6,6,6,6,6,4		KNOWN:9,6,6,6,6,5,4,3		BONUS:ABILITYPOOL|Favored Soul Resistance|1
+15	CAST:6,6,6,6,6,6,6,4		KNOWN:9,6,6,6,6,5,4,3
 16	CAST:6,6,6,6,6,6,6,5,3		KNOWN:9,6,6,6,6,6,5,4,3
-17	CAST:6,6,6,6,6,6,6,6,4		KNOWN:9,6,6,6,6,6,5,4,3										ABILITY:Favored Soul Class Feature|AUTOMATIC|Favored Soul ~ Wings
+17	CAST:6,6,6,6,6,6,6,6,4		KNOWN:9,6,6,6,6,6,5,4,3
 18	CAST:6,6,6,6,6,6,6,5,4,3	KNOWN:9,6,6,6,6,6,6,5,4,3
 19	CAST:6,6,6,6,6,6,6,6,6,4	KNOWN:9,6,6,6,6,6,6,5,4,3
-20	CAST:6,6,6,6,6,6,6,6,6,6	KNOWN:9,6,6,6,6,6,6,6,5,4									ABILITY:Favored Soul Class Feature|AUTOMATIC|Favored Soul ~ Damage Reduction
-###Block
+20	CAST:6,6,6,6,6,6,6,6,6,6	KNOWN:9,6,6,6,6,6,6,6,5,4
 
-
-# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus													Combat bonus
-CLASS:Spirit Shaman	HD:8		TYPE:Base.PC	ABB:SprShm		MAXLEVEL:20	SOURCEPAGE:14	BONUS:CHECKS|BASE.Fortitude,BASE.Will|((CL/2)+2)	BONUS:CHECKS|BASE.Reflex|(CL/3)	BONUS:COMBAT|BAB|CL*3/4|TYPE=Base.REPLACE
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus															Modify VAR														Bonus
+CLASS:Spirit Shaman	HD:8		TYPE:Base.PC	FACT:Abb|SprShm		MAXLEVEL:20	SOURCEPAGE:14
+CLASS:Spirit Shaman	HD:8		TYPE:Base.PC	FACT:Abb|SprShm	DEFINE:SpiritShamanLVL|0	BONUS:VAR|SpiritShamanLVL|CL	MAXLEVEL:20	SOURCEPAGE:p.14	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")/3)
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Spirit Shaman	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Knowledge (Geography)|Knowledge (History)|Knowledge (Local)|Knowledge (Nature)|Listen|TYPE=Profession|Ride|Spellcraft|Spot|Survival|Swim
-# Class Name		Spell Stat		Stat for Bonus Spells	Spell Type		Memorize	Caster level				Bonus to DC					Use Spell List
-CLASS:Spirit Shaman	SPELLSTAT:WIS	BONUSSPELLSTAT:WIS	SPELLTYPE:Divine	MEMORIZE:NO	BONUS:CASTERLEVEL|Spirit Shaman|CL	BONUS:DC|CLASS.SpiritShaman|CHA-WIS	SPELLLIST:1|Druid
+# Class Name		Spell Stat		Spell Stat Bonus		Spell Type		Memorize	Caster level				Bonus DC					Use Spell List
+CLASS:Spirit Shaman	SPELLSTAT:WIS	BONUSSPELLSTAT:WIS	FACT:SpellType|Divine	MEMORIZE:NO	BONUS:CASTERLEVEL|Spirit Shaman|CL	BONUS:DC|CLASS.SpiritShaman|CHA-WIS	SPELLLIST:1|Druid
 1	CAST:3,2				KNOWN:3,1
 2	CAST:4,3				KNOWN:3,2
 3	CAST:5,4,2				KNOWN:3,2,1
@@ -151,11 +158,7 @@ CLASS:Spirit Shaman	SPELLSTAT:WIS	BONUSSPELLSTAT:WIS	SPELLTYPE:Divine	MEMORIZE:N
 19	CAST:6,6,6,6,6,6,6,6,6,4	KNOWN:3,3,3,3,3,3,3,3,2,2
 20	CAST:6,6,6,6,6,6,6,6,6,5	KNOWN:3,3,3,3,3,3,3,3,3,2
 ###Block
-9	BONUS:VAR|SpiritFormsPerDay|1
-15	BONUS:VAR|SpiritFormsPerDay|1
-20	BONUS:VAR|SpiritFormsPerDay|1
-###Block
-1	ABILITY:Spirit Shaman Class Feature|AUTOMATIC|Spirit Shaman ~ Weapon and Armor Proficiency|Spirit Shaman ~ Spirit Guide|Spirit Shaman ~ Wild Empathy
+1	ABILITY:Spirit Shaman Class Feature|AUTOMATIC|Spirit Shaman ~ Spirit Guide|Spirit Shaman ~ Weapon and Armor Proficiency|Spirit Shaman ~ Wild Empathy
 2	ABILITY:Spirit Shaman Class Feature|AUTOMATIC|Spirit Shaman ~ Chastise Spirits
 3	ABILITY:Spirit Shaman Class Feature|AUTOMATIC|Spirit Shaman ~ Detect Spirits
 4	ABILITY:Spirit Shaman Class Feature|AUTOMATIC|Spirit Shaman ~ Blessing of the Spirits
@@ -173,16 +176,43 @@ CLASS:Spirit Shaman	SPELLSTAT:WIS	BONUSSPELLSTAT:WIS	SPELLTYPE:Divine	MEMORIZE:N
 
 ###Block: Prestige Classes
 
-#CLASS:Black Flame Zealot					SOURCEPAGE:p.21
+# Black Flame Zealot
+CLASS:Black Flame Zealot	MAXLEVEL:10
+CLASS:Black Flame Zealot	HD:6	TYPE:Prestige	SOURCEPAGE:p.21	DEFINE:BlackFlameZealotLVL|0	BONUS:VAR|BlackFlameZealotLVL|CL
+CLASS:Black Flame Zealot	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+CLASS:Black Flame Zealot	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+CLASS:Black Flame Zealot	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Black Flame Zealot	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Black Flame Zealot	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Black Flame Zealot	PRETEXT:Alignment: Any nongood. Skills: Hide 8 ranks, Knowledge (religion) 8 ranks, Move Silently 8 ranks. Feats: Exotic Weapon Profi ciency (kukri), Iron Will. Spells: Able to cast 2ndlevel divine spells. Special: Sneak attack damage +1d6.
+CLASS:Black Flame Zealot	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Escape Artist|Hide|Jump|Knowledge (Religion)|Listen|Move Silently|Open Lock|TYPE=Profession|Search|Sleight of Hand|Spellcraft|Spot|Swim|Tumble|Use Rope
+2	ADD:SPELLCASTER|Divine
+4	ADD:SPELLCASTER|Divine
+6	ADD:SPELLCASTER|Divine
+8	ADD:SPELLCASTER|Divine
+10	ADD:SPELLCASTER|Divine
+###Block
+11	PREPCLEVEL:MIN=20	PRECAMPAIGN:1,INCLUDES=Epic Level Handbook
+###Block	
+1	ABILITY:Black Flame Zealot Class Feature|AUTOMATIC|Black Flame Zealot ~ Weapon and Armor Proficiency
+1	ABILITY:Black Flame Zealot Class Feature|AUTOMATIC|Black Flame Zealot ~ Spells per Day/Spells Known
+1	ABILITY:Black Flame Zealot Class Feature|AUTOMATIC|Black Flame Zealot ~ Death Attack
+1	ABILITY:Black Flame Zealot Class Feature|AUTOMATIC|Black Flame Zealot ~ Zealous Heart
+2	ABILITY:Black Flame Zealot Class Feature|AUTOMATIC|Black Flame Zealot ~ Poison Use
+3	ABILITY:Black Flame Zealot Class Feature|AUTOMATIC|Black Flame Zealot ~ Sneak Attack
+5	ABILITY:Black Flame Zealot Class Feature|AUTOMATIC|Black Flame Zealot ~ Fateful Stride
+7	ABILITY:Black Flame Zealot Class Feature|AUTOMATIC|Black Flame Zealot ~ Sacred Flame
+10	ABILITY:Black Flame Zealot Class Feature|AUTOMATIC|Black Flame Zealot ~ Unholy Immolation
 
-# Class Name	Hit Dice	Type			Source Page		Save checks bonus											Combat bonus
-CLASS:Blighter	HD:8		TYPE:Prestige	SOURCEPAGE:p.23	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4
-# Class Name	Restricted AL		Required Class		Multiple Requirements
-CLASS:Blighter	!PREALIGN:LG,NG,CG	PRECLASS:1,Ex Druid=5	PREMULT:1,[PREATT:4],[PREVARGTEQ:BaseAttackBonus,4]
+
+# Class Name	Hit Dice	Type			Source Page		Combat bonus															Modify VAR														Bonus
+CLASS:Blighter	HD:8		TYPE:Prestige	MAXLEVEL:10	SOURCEPAGE:p.23	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Restricted AL		Required Class		PRETOTALAB
+CLASS:Blighter	!PREALIGN:LG,NG,CG	PRECLASS:1,Ex Druid=5	PRETOTALAB:4
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Blighter	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nature)|Listen|Profession (Herbalist)|Spellcraft|Spot|Survival|Swim
 # Class Name	Spell Stat		Spell Type		Caster level
-CLASS:Blighter	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Blighter|CL
+CLASS:Blighter	SPELLSTAT:WIS	FACT:SpellType|Divine	BONUS:CASTERLEVEL|Blighter|Caster_Level_BL_Stripped_Blighter	DEFINE:Caster_Level_BL_Stripped_Blighter|0	BONUS:VAR|Caster_Level_BL_Stripped_Blighter|Caster_Level_Blighter-CasterLevelBLBlighter	BONUS:VAR|Caster_Level_Blighter|CL+Caster_Level_Bonus+CasterLevelBLBlighter	DEFINE:CasterLevelBLBlighter|0	BONUS:VAR|CasterLevelBL_x_Blighter|charbonusto("PCLEVEL","Blighter")	BONUS:VAR|Caster_Level_Highest__Divine|Caster_Level_Blighter|TYPE=Base
 1	CAST:4,2
 2	CAST:5,3,0
 3	CAST:5,3,1,0
@@ -194,34 +224,619 @@ CLASS:Blighter	SPELLSTAT:WIS	SPELLTYPE:Divine	BONUS:CASTERLEVEL|Blighter|CL
 9	CAST:6,5,4,4,4,4,3,2,1,0
 10	CAST:6,5,5,4,4,4,4,3,2,1
 ###Block
+11	PREPCLEVEL:MIN=20	PRECAMPAIGN:1,INCLUDES=Epic Level Handbook
+###Block
+1	ABILITY:Blighter Class Feature|AUTOMATIC|Blighter ~ Weapon and Armor Proficiency
+1	ABILITY:Blighter Class Feature|AUTOMATIC|Blighter ~ Spells per Day
+1	ABILITY:Blighter Class Feature|AUTOMATIC|Blighter ~ Deforestation
+2	ABILITY:Blighter Class Feature|AUTOMATIC|Blighter ~ Blightfire
+2	ABILITY:Blighter Class Feature|AUTOMATIC|Blighter ~ Sustenance
+3	ABILITY:Blighter Class Feature|AUTOMATIC|Blighter ~ Undead Wild Shape
+4	ABILITY:Blighter Class Feature|AUTOMATIC|Blighter ~ Speak with Dead Animal
+5	ABILITY:Blighter Class Feature|AUTOMATIC|Blighter ~ Contagious Touch
+6	ABILITY:Blighter Class Feature|AUTOMATIC|Blighter ~ Animate Dead Animal
+8	ABILITY:Blighter Class Feature|AUTOMATIC|Blighter ~ Unbond
+10	ABILITY:Blighter Class Feature|AUTOMATIC|Blighter ~ Plague
 
-#CLASS:Church Inquisitor					SOURCEPAGE:26
+# Church Inquisitor
+CLASS:Church Inquisitor	MAXLEVEL:10
+CLASS:Church Inquisitor	HD:8	TYPE:Prestige	SOURCEPAGE:p.26	DEFINE:ChurchInquisitorLVL|0	BONUS:VAR|ChurchInquisitorLVL|CL
+CLASS:Church Inquisitor	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+CLASS:Church Inquisitor	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+CLASS:Church Inquisitor	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Church Inquisitor	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Church Inquisitor	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Church Inquisitor	PRETEXT:Alignment: Lawful good or lawful neutral. Base Save Bonus: Will +3. Skills: Knowledge (arcana) 4 ranks, Knowledge (religion) 4 ranks, Spellcraft 4 ranks. Spells: Able to cast zone of truth as a divine spell. Special: Must be a member of a lawful good church or religious order, and must have already uncovered some corruption within that organization.
+CLASS:Church Inquisitor	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Decipher Script|Diplomacy|Gather Information|Intimidate|Knowledge (arcana)|Knowledge (Local)|Knowledge (The Planes)|Knowledge (Religion)|Search|Sense Motive|Spellcraft|Spot
+1:REPEATLEVEL:1	ADD:SPELLCASTER|Divine
+###Block
+11	PREPCLEVEL:MIN=20	PRECAMPAIGN:1,INCLUDES=Epic Level Handbook
+###Block	
+1	ABILITY:Church Inquisitor Class Feature|AUTOMATIC|Church Inquisitor ~ Weapon and Armor Proficiency
+1	ABILITY:Church Inquisitor Class Feature|AUTOMATIC|Church Inquisitor ~ Detect Evil
+1	ABILITY:Church Inquisitor Class Feature|AUTOMATIC|Church Inquisitor ~ Inquisition Domain
+1	ABILITY:Church Inquisitor Class Feature|AUTOMATIC|Church Inquisitor ~ Spells per Day/Spells Known
+2	ABILITY:Church Inquisitor Class Feature|AUTOMATIC|Church Inquisitor ~ Immune to Charms
+3	ABILITY:Church Inquisitor Class Feature|AUTOMATIC|Church Inquisitor ~ Pierce Illusion
+4	ABILITY:Church Inquisitor Class Feature|AUTOMATIC|Church Inquisitor ~ Pierce Disguise
+5	ABILITY:Church Inquisitor Class Feature|AUTOMATIC|Church Inquisitor ~ Immune to Compulsions
+6	ABILITY:Church Inquisitor Class Feature|AUTOMATIC|Church Inquisitor ~ Force Shapechange
+8	ABILITY:Church Inquisitor Class Feature|AUTOMATIC|Church Inquisitor ~ Immunity to Possession
+9	ABILITY:Church Inquisitor Class Feature|AUTOMATIC|Church Inquisitor ~ Discern Lies
+10	ABILITY:Church Inquisitor Class Feature|AUTOMATIC|Church Inquisitor ~ Learn the Truth
 
-# Class Name			Source Page
-CLASS:Consecrated Harrier	SOURCEPAGE:p.28
-#CLASS:Divine Crusader						SOURCEPAGE:33
-#CLASS:Dweomerkeeper							SOURCEPAGE:WU
-#CLASS:Entropomancer							SOURCEPAGE:36
-#CLASS:Evangelist								SOURCEPAGE:39
-#CLASS:Geomancer								SOURCEPAGE:41
+# Consecrated Harrier
+CLASS:Consecrated Harrier	MAXLEVEL:10
+CLASS:Consecrated Harrier	HD:6	TYPE:Prestige	SOURCEPAGE:p.28	DEFINE:ConsecratedHarrierLVL|0	BONUS:VAR|ConsecratedHarrierLVL|CL
+CLASS:Consecrated Harrier	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
+CLASS:Consecrated Harrier	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Consecrated Harrier	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Consecrated Harrier	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Consecrated Harrier	PRETEXT:Alignment: Any lawful. Base Attack Bonus: +5. Skills: Disguise 5 ranks, Gather Information 5 ranks. Feat: Track. Special: The candidate must accept an assignment from her church to locate and destroy some specifi c, individual enemy of the church. A character who fails must wait a year and a day before applying again. If she succeeds, the church accepts her as a consecrated harrier and she may gain levels in the class.
+CLASS:Consecrated Harrier	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Diplomacy|Disguise|Gather Information|Intimidate|Knowledge (Local)|TYPE=Profession|Ride|Search|Use Rope
+CLASS:Consecrated Harrier	FACT:SpellType|Divine	SPELLSTAT:WIS	MEMORIZE:NO
+CLASS:Consecrated Harrier	BONUS:CASTERLEVEL|Consecrated Harrier|Caster_Level_ConsecratedHarrier	DEFINE:Caster_Level_ConsecratedHarrier|0	BONUS:VAR|Caster_Level_ConsecratedHarrier|CL+Caster_Level_Bonus	DEFINE:CasterLevelBLConsecratedHarrier|0	BONUS:VAR|CasterLevelBLConsecratedHarrier|charbonusto("PCLEVEL","Consecrated Harrier")
+CLASS:Consecrated Harrier	BONUS:VAR|Caster_Level_Highest__Divine|Caster_Level_ConsecratedHarrier+CasterLevelBLConsecratedHarrier|TYPE=Base
+###Block
+1	CAST:0,0
+2	CAST:0,1
+3	CAST:0,1,0
+4	CAST:0,1,1
+5	CAST:0,1,1,0
+6	CAST:0,2,1,1
+7	CAST:0,2,1,1,0
+8	CAST:0,2,1,1,1
+9	CAST:0,2,2,1,1
+10	CAST:0,2,2,2,1
+###Block
+11	PREPCLEVEL:MIN=20
+###Block	
+1	ABILITY:Consecrated Harrier Class Feature|AUTOMATIC|Consecrated Harrier ~ Weapon and Armor Proficiency
+1	ABILITY:Consecrated Harrier Class Feature|AUTOMATIC|Consecrated Harrier ~ Spells per Day
+1	ABILITY:Consecrated Harrier Class Feature|AUTOMATIC|Consecrated Harrier ~ Blessing of Scripture
+1	ABILITY:Consecrated Harrier Class Feature|AUTOMATIC|Consecrated Harrier ~ Detect Chaos
+2	ABILITY:Consecrated Harrier Class Feature|AUTOMATIC|Consecrated Harrier ~ Sanctified Sight
+3	ABILITY:Consecrated Harrier Class Feature|AUTOMATIC|Consecrated Harrier ~ Dispel Magic
+4	ABILITY:Consecrated Harrier Class Feature|AUTOMATIC|Consecrated Harrier ~ Crushing Despair
+6	ABILITY:Consecrated Harrier Class Feature|AUTOMATIC|Consecrated Harrier ~ False Vision
+8	ABILITY:Consecrated Harrier Class Feature|AUTOMATIC|Consecrated Harrier ~ Implacable Hunt
+10	ABILITY:Consecrated Harrier Class Feature|AUTOMATIC|Consecrated Harrier ~ Faultless Hunt
+1	ABILITY:Consecrated Harrier Class Feature|AUTOMATIC|Consecrated Harrier ~ Code of Conduct
+1	ABILITY:Consecrated Harrier Class Feature|AUTOMATIC|Consecrated Harrier ~ Multiclass Note
 
-# Class Name		Source Page
-CLASS:Holy Liberator	SOURCEPAGE:p.45
-#CLASS:Hospitaler								SOURCEPAGE:48
-#CLASS:Master of Shrouds					SOURCEPAGE:WU
-#CLASS:Moon Guardian							SOURCEPAGE:WU
-#CLASS:Nightcloak								SOURCEPAGE:WU
-#CLASS:Pious Templar							SOURCEPAGE:50
-#CLASS:Radiant Servant of Pelor			SOURCEPAGE:52
-#CLASS:Rainbow Warrior						SOURCEPAGE:54
-#CLASS:Sacred Exorcist						SOURCEPAGE:56
-#CLASS:Sacred Fist							SOURCEPAGE:59
-#CLASS:Seeker of the Misty Isle			SOURCEPAGE:61
-#CLASS:Shining Blade of Heironeous		SOURCEPAGE:63
-#CLASS:Stormlord								SOURCEPAGE:65
 
-# Class Name				Source Page
-CLASS:Temple Raider of Olidammara	SOURCEPAGE:p.67
-#CLASS:Ur-Priest								SOURCEPAGE:70
-#CLASS:Void Disciple							SOURCEPAGE:71
-#CLASS:Warpriest								SOURCEPAGE:74
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus															Modify VAR													Bonus
+CLASS:Contemplative	HD:6		TYPE:PC.Prestige	FACT:Abb|Com	DEFINE:ContemplativeLVL|0	BONUS:VAR|ContemplativeLVL|CL		BONUS:DOMAIN|NUMBER|1+(ContemplativeLVL>=6)	MAXLEVEL:10	SOURCEPAGE:p.30	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name		Required Feat						Required Skill				Req. Spell Type
+CLASS:Contemplative	PREABILITY:1,CATEGORY=FEAT,Skill Focus (Knowledge (Religion))	PRESKILL:1,Knowledge (Religion)=13	PRESPELLTYPE:1,Divine=1
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Contemplative	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Intimidate|Knowledge (Religion)|TYPE=Profession|Sense Motive|Spellcraft
+1:REPEATLEVEL:1	ADD:SPELLCASTER|ANY
+###Block
+1	ABILITY:Contemplative Class Feature|AUTOMATIC|Contemplative ~ Divine Health
+2	ABILITY:Contemplative Class Feature|AUTOMATIC|Contemplative ~ Slippery Mind
+3	ABILITY:Contemplative Class Feature|AUTOMATIC|Contemplative ~ Divine Wholeness
+5	ABILITY:Contemplative Class Feature|AUTOMATIC|Contemplative ~ Divine Body
+7	ABILITY:Contemplative Class Feature|AUTOMATIC|Contemplative ~ Divine Soul
+9	ABILITY:Contemplative Class Feature|AUTOMATIC|Contemplative ~ Eternal Body
+10	ABILITY:Contemplative Class Feature|AUTOMATIC|Contemplative ~ Mystic Union
+
+
+# Divine Crusader
+CLASS:Divine Crusader	MAXLEVEL:10
+CLASS:Divine Crusader	HD:8	TYPE:Prestige	SOURCEPAGE:p.33	DEFINE:DivineCrusaderLVL|0	BONUS:VAR|DivineCrusaderLVL|CL
+CLASS:Divine Crusader	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+CLASS:Divine Crusader	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+CLASS:Divine Crusader	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Divine Crusader	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Divine Crusader	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Divine Crusader	PRETEXT:Alignment: Must match chosen deity. Base Attack Bonus: +7. Skill: Knowledge (religion) 2 ranks. Feat: Weapon Focus (in chosen deity's favored weapon).
+CLASS:Divine Crusader	STARTSKILLPTS:2	CSKILL:Climb|Concentration|TYPE=Craft|Diplomacy|Intimidate|Jump|Knowledge (Religion)|Ride|Swim
+CLASS:Divine Crusader	FACT:SpellType|Divine	SPELLSTAT:WIS	MEMORIZE:NO
+CLASS:Divine Crusader	BONUS:CASTERLEVEL|Divine Crusader|Caster_Level_DivineCrusader	DEFINE:Caster_Level_DivineCrusader|0	BONUS:VAR|Caster_Level_DivineCrusader|CL+Caster_Level_Bonus	DEFINE:CasterLevelBLDivineCrusader|0	BONUS:VAR|CasterLevelBLDivineCrusader|charbonusto("PCLEVEL","Divine Crusader")
+CLASS:Divine Crusader	BONUS:VAR|Caster_Level_Highest__Divine|Caster_Level_DivineCrusader+CasterLevelBLDivineCrusader|TYPE=Base
+###Block
+1	CAST:0,0
+2	CAST:0,1,0
+3	CAST:0,2,1,0
+4	CAST:0,2,2,1,0
+5	CAST:0,3,2,2,1,0
+6	CAST:0,3,3,2,2,1,0
+7	CAST:0,3,3,3,2,2,1,0
+8	CAST:0,3,3,3,3,2,2,1,0
+9	CAST:0,3,3,3,3,3,2,2,1,0
+10	CAST:0,3,3,3,3,3,3,2,2,1
+###Block
+11	PREPCLEVEL:MIN=20
+###Block	
+1	ABILITY:Divine Crusader Class Feature|AUTOMATIC|Divine Crusader ~ Weapon and Armor Proficiency
+1	ABILITY:Divine Crusader Class Feature|AUTOMATIC|Divine Crusader ~ Aura
+1	ABILITY:Divine Crusader Class Feature|AUTOMATIC|Divine Crusader ~ Deity and Domain
+1	ABILITY:Divine Crusader Class Feature|AUTOMATIC|Divine Crusader ~ Spells per Day
+3	ABILITY:Divine Crusader Class Feature|AUTOMATIC|Divine Crusader ~ Electricity Resistance
+5	ABILITY:Divine Crusader Class Feature|AUTOMATIC|Divine Crusader ~ Weapon Specialization
+6	ABILITY:Divine Crusader Class Feature|AUTOMATIC|Divine Crusader ~ Acid Resistance
+7	ABILITY:Divine Crusader Class Feature|AUTOMATIC|Divine Crusader ~ Darkvision
+10	ABILITY:Divine Crusader Class Feature|AUTOMATIC|Divine Crusader ~ Perfect Self
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus															Add domain number		Modify VAR													Bonus
+CLASS:Divine Oracle	HD:6		TYPE:PC.Prestige	FACT:Abb|Dorc	DEFINE:DivineOracleLVL|0	BONUS:VAR|DivineOracleLVL|CL	MAXLEVEL:10	SOURCEPAGE:p.35	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:DOMAIN|NUMBER|1	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name		Required Skill				Required Text
+CLASS:Divine Oracle	PRESKILL:1,Knowledge (Religion)=8	PRETEXT:Must be able to cast two divination spells
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Divine Oracle	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Heal|Intimidate|Knowledge (arcana)|Knowledge (Religion)|TYPE=Profession|Spellcraft
+1:REPEATLEVEL:1	ADD:SPELLCASTER|ANY
+###Block
+1	DOMAIN:Oracle
+###Block
+1	ABILITY:Divine Oracle Class Feature|AUTOMATIC|Divine Oracle ~ Scry Bonus
+2	ABILITY:Divine Oracle Class Feature|AUTOMATIC|Divine Oracle ~ Prescient Sense|Divine Oracle ~ Trap Sense
+3	ABILITY:Divine Oracle Class Feature|AUTOMATIC|Divine Oracle ~ Divination Enhancement
+4	ABILITY:Divine Oracle Class Feature|AUTOMATIC|Divine Oracle ~ Uncanny Dodge
+6	ABILITY:Divine Oracle Class Feature|AUTOMATIC|Divine Oracle ~ Improved Uncanny Dodge
+10	ABILITY:Divine Oracle Class Feature|AUTOMATIC|Divine Oracle ~ Immune to Surprise
+
+# Entropomancer
+CLASS:Entropomancer	MAXLEVEL:10
+CLASS:Entropomancer	HD:8	TYPE:Prestige	SOURCEPAGE:p.36	DEFINE:EntropomancerLVL|0	BONUS:VAR|EntropomancerLVL|CL
+CLASS:Entropomancer	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+CLASS:Entropomancer	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+CLASS:Entropomancer	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Entropomancer	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Entropomancer	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Entropomancer	PRETEXT:Alignment: Any nongood. Skills: Concentration 5 ranks, Knowledge (arcana) 5 ranks. Feats: Great Fortitude, Magical Aptitude. Spells: Able to cast 4th-level divine spells.
+CLASS:Entropomancer	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Heal|Intimidate|Knowledge (arcana)|Knowledge (Local)|Knowledge (Religion)|TYPE=Profession|Spellcraft
+2:REPEATLEVEL:2	ADD:SPELLCASTER|Divine
+###Block
+11	PREPCLEVEL:MIN=20
+###Block	
+1	ABILITY:Entropomancer Class Feature|AUTOMATIC|Entropomancer ~ Weapon and Armor Proficiency
+1	ABILITY:Entropomancer Class Feature|AUTOMATIC|Entropomancer ~ Shard of Entropy
+2	ABILITY:Entropomancer Class Feature|AUTOMATIC|Entropomancer ~ Spells per Day/Spells Known
+3	ABILITY:Entropomancer Class Feature|AUTOMATIC|Entropomancer ~ Entropic Field
+10	ABILITY:Entropomancer Class Feature|AUTOMATIC|Entropomancer ~ Control Sphere
+
+# Evangelist
+CLASS:Evangelist	MAXLEVEL:5
+CLASS:Evangelist	HD:6	TYPE:Prestige	SOURCEPAGE:p.39	DEFINE:EvangelistLVL|0	BONUS:VAR|EvangelistLVL|CL
+CLASS:Evangelist	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+CLASS:Evangelist	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+CLASS:Evangelist	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Evangelist	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Evangelist	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Evangelist	PRETEXT:Alignment: An evangelist has the same alignment restrictions as a cleric of a particular deity. Skills: Bluff 8 ranks, Gather Information 5 ranks, Knowledge (religion) 5 ranks, Perform (oratory) 6 ranks, Sense Motive 5 ranks. Feats: Negotiator or Persuasive.
+CLASS:Evangelist	STARTSKILLPTS:6	CSKILL:Bluff|TYPE=Craft|Diplomacy|Disguise|Escape Artist|Intimidate|TYPE=Knowledge|Listen|TYPE=Perform|TYPE=Profession|Sense Motive|Speak Language
+###Block	
+1	ABILITY:Evangelist Class Feature|AUTOMATIC|Evangelist ~ Weapon and Armor Proficiency
+1	ABILITY:Evangelist Class Feature|AUTOMATIC|Evangelist ~ Great Orator
+1	ABILITY:Evangelist Class Feature|AUTOMATIC|Evangelist ~ Inspire Dread
+1	ABILITY:Evangelist Class Feature|AUTOMATIC|Evangelist ~ Inspire Hope
+3	ABILITY:Evangelist Class Feature|AUTOMATIC|Evangelist ~ Inflame the Righteous
+5	ABILITY:Evangelist Class Feature|AUTOMATIC|Evangelist ~ Convert the Unfaithful
+2	ABILITY:Evangelist Class Feature|AUTOMATIC|Evangelist ~ Fast Talk
+4	ABILITY:Evangelist Class Feature|AUTOMATIC|Evangelist ~ Skill Mastery
+
+# Geomancer
+CLASS:Geomancer	MAXLEVEL:10
+CLASS:Geomancer	HD:6	TYPE:Prestige	SOURCEPAGE:p.41	DEFINE:GeomancerLVL|0	BONUS:VAR|GeomancerLVL|CL
+CLASS:Geomancer	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+CLASS:Geomancer	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+CLASS:Geomancer	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Geomancer	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Geomancer	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Geomancer	PRETEXT:Skills: Knowledge (arcana) 6 ranks, Knowledge (nature) 6 ranks. Spells: Able to cast 2nd-level arcane spells and 2nd-level divine spells.
+CLASS:Geomancer	STARTSKILLPTS:4	CSKILL:Climb|Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Knowledge (arcana)|Knowledge (Geography)|Knowledge (Nature)|Spellcraft|Survival|Swim
+1:REPEATLEVEL:1	ADD:SPELLCASTER|ANY
+###Block
+11	PREPCLEVEL:MIN=20
+###Block	
+1	ABILITY:Geomancer Class Feature|AUTOMATIC|Geomancer ~ Weapon and Armor Proficiency
+1	ABILITY:Geomancer Class Feature|AUTOMATIC|Geomancer ~ Spells per Day/Spells Known
+1	ABILITY:Geomancer Class Feature|AUTOMATIC|Geomancer ~ Spell Versatility
+1	ABILITY:Geomancer Class Feature|AUTOMATIC|Geomancer ~ Drift
+2	ABILITY:Geomancer Class Feature|AUTOMATIC|Geomancer ~ Ley Lines
+
+# Holy Liberator
+CLASS:Holy Liberator	MAXLEVEL:10
+CLASS:Holy Liberator	HD:10	TYPE:Prestige	SOURCEPAGE:p.45	DEFINE:HolyLiberatorLVL|0	BONUS:VAR|HolyLiberatorLVL|CL
+CLASS:Holy Liberator	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
+CLASS:Holy Liberator	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Holy Liberator	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Holy Liberator	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Holy Liberator	PRETEXT:Alignment: Chaotic good. Base Attack Bonus: +5. Skills: Diplomacy 5 ranks, Sense Motive 5 ranks. Feat: Iron Will.
+CLASS:Holy Liberator	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Intimidate|Knowledge (Religion)|TYPE=Profession|Ride|Sense Motive
+CLASS:Holy Liberator	FACT:SpellType|Divine	SPELLSTAT:WIS	MEMORIZE:NO
+CLASS:Holy Liberator	BONUS:CASTERLEVEL|Holy Liberator|Caster_Level_HolyLiberator	DEFINE:Caster_Level_HolyLiberator|0	BONUS:VAR|Caster_Level_HolyLiberator|CL+Caster_Level_Bonus	DEFINE:CasterLevelBLHolyLiberator|0	BONUS:VAR|CasterLevelBLHolyLiberator|charbonusto("PCLEVEL","Holy Liberator")
+CLASS:Holy Liberator	BONUS:VAR|Caster_Level_Highest__Divine|Caster_Level_HolyLiberator+CasterLevelBLHolyLiberator|TYPE=Base
+###Block
+11	PREPCLEVEL:MIN=20
+###Block	
+1	ABILITY:Holy Liberator Class Feature|AUTOMATIC|Holy Liberator ~ Weapon and Armor Proficiency
+1	ABILITY:Holy Liberator Class Feature|AUTOMATIC|Holy Liberator ~ Spells per Day
+1	ABILITY:Holy Liberator Class Feature|AUTOMATIC|Holy Liberator ~ Aura of Good
+1	ABILITY:Holy Liberator Class Feature|AUTOMATIC|Holy Liberator ~ Detect Evil
+1	ABILITY:Holy Liberator Class Feature|AUTOMATIC|Holy Liberator ~ Smite Evil
+2	ABILITY:Holy Liberator Class Feature|AUTOMATIC|Holy Liberator ~ Remove Fatigue
+3	ABILITY:Holy Liberator Class Feature|AUTOMATIC|Holy Liberator ~ Aura of Resolve
+4	ABILITY:Holy Liberator Class Feature|AUTOMATIC|Holy Liberator ~ Divine Grace
+4	ABILITY:Holy Liberator Class Feature|AUTOMATIC|Holy Liberator ~ Break Enchantment
+6	ABILITY:Holy Liberator Class Feature|AUTOMATIC|Holy Liberator ~ Celestial Companion
+1	ABILITY:Holy Liberator Class Feature|AUTOMATIC|Holy Liberator ~ Code of Conduct
+###Block
+1	CAST:0,0
+2	CAST:0,1
+3	CAST:0,1,0
+4	CAST:0,1,1
+5	CAST:0,1,1,0
+6	CAST:0,2,1,1
+7	CAST:0,2,1,1,0
+8	CAST:0,2,1,1,1
+9	CAST:0,2,2,1,1
+10	CAST:0,2,2,2,1
+
+# Hospitaler
+CLASS:Hospitaler	MAXLEVEL:10
+CLASS:Hospitaler	HD:8	TYPE:Prestige	SOURCEPAGE:p.48	DEFINE:HospitalerLVL|0	BONUS:VAR|HospitalerLVL|CL
+CLASS:Hospitaler	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
+CLASS:Hospitaler	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Hospitaler	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Hospitaler	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Hospitaler	PRETEXT:Alignment: Any nonchaotic. Base Attack Bonus: +5. Skills: Handle Animal 5 ranks, Ride 5 ranks. Feats: Mounted Combat, Ride-By Attack. Spells: Able to cast 1st-level divine spells.
+CLASS:Hospitaler	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Knowledge (Religion)|TYPE=Profession|Ride
+2	ADD:SPELLCASTER|Divine
+3	ADD:SPELLCASTER|Divine
+4	ADD:SPELLCASTER|Divine
+6	ADD:SPELLCASTER|Divine
+7	ADD:SPELLCASTER|Divine
+8	ADD:SPELLCASTER|Divine
+10	ADD:SPELLCASTER|Divine
+###Block
+11	PREPCLEVEL:MIN=20
+###Block	
+1	ABILITY:Hospitaler Class Feature|AUTOMATIC|Hospitaler ~ Weapon and Armor Proficiency
+1	ABILITY:Hospitaler Class Feature|AUTOMATIC|Hospitaler ~ Lay on Hands
+2	ABILITY:Hospitaler Class Feature|AUTOMATIC|Hospitaler ~ Spells per Day/Spells Known
+1	ABILITY:Hospitaler Class Feature|AUTOMATIC|Hospitaler ~ Bonus Feat
+3	ABILITY:Hospitaler Class Feature|AUTOMATIC|Hospitaler ~ Remove Disease
+1	ABILITY:Hospitaler Class Feature|AUTOMATIC|Hospitaler ~ Code of Conduct
+1	ABILITY:Hospitaler Class Feature|AUTOMATIC|Hospitaler ~ Multiclass Note
+
+# Pious Templar							SOURCEPAGE:50
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Define				Combat bonus										Modify VAR				Bonus
+CLASS:Pious Templar	HD:10		TYPE:PC.Prestige	FACT:Abb|Pio		MAXLEVEL:10	SOURCEPAGE:p.50	DEFINE:PiousTemplarLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|PiousTemplarLVL|CL	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name		Multiple Requirements												Required Skill				Required Text								PRETOTALAB
+CLASS:Pious Templar	PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,True Believer],[PREABILITY:1,CATEGORY=FEAT,Weapon Focus (DEITYWEAPON),Weapon Focus]	PRESKILL:1,Knowledge (Religion)=4	PRETEXT:Must have Weapon Focus in deity's chosen weapon	PRETOTALAB:5
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Pious Templar	STARTSKILLPTS:2	CSKILL:Climb|Concentration|TYPE=Craft|Heal|Jump|Knowledge (Religion)|TYPE=Profession|Swim
+# Class Name		Spell Stat		Spell Type		Automatically Known Spell Levels				Caster level				Use Spell List
+CLASS:Pious Templar	SPELLSTAT:WIS	FACT:SpellType|Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Pious Templar|CL+Caster_Level_Bonus	SPELLLIST:1|Paladin
+###Block
+1	ABILITY:Pious Templar Class Feature|AUTOMATIC|Pious Templar ~ Mettle
+2	ABILITY:Pious Templar Class Feature|AUTOMATIC|Pious Templar ~ Smite
+3	ABILITY:Pious Templar Class Feature|AUTOMATIC|Pious Templar ~ Weapon Specialization
+4	ABILITY:Pious Templar Class Feature|AUTOMATIC|Pious Templar ~ Bonus Feat
+3	ABILITY:Pious Templar Class Feature|AUTOMATIC|Pious Templar ~ Damage Reduction
+###Block
+1	CAST:0,0
+2	CAST:0,1
+3	CAST:0,1
+4	CAST:0,1,1
+5	CAST:0,1,1,0
+6	CAST:0,1,1,1
+7	CAST:0,2,1,1,0
+8	CAST:0,2,1,1,1
+9	CAST:0,2,2,1,1
+10	CAST:0,2,2,2,1
+
+# Radiant Servant of Pelor
+CLASS:Radiant Servant of Pelor	MAXLEVEL:10
+CLASS:Radiant Servant of Pelor	HD:6	TYPE:Prestige	SOURCEPAGE:p.52	DEFINE:RadiantServantOfPelorLVL|0	BONUS:VAR|RadiantServantOfPelorLVL|CL
+CLASS:Radiant Servant of Pelor	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+CLASS:Radiant Servant of Pelor	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+CLASS:Radiant Servant of Pelor	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Radiant Servant of Pelor	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Radiant Servant of Pelor	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Radiant Servant of Pelor	PRETEXT:Alignment: Neutral good. Base Save Bonus: Will +5. Skills: Heal 5 ranks, Knowledge (religion) 9 ranks. Feat: Extra Turning. Spells: Able to cast 1st-level divine spells and access to the Sun domain. Special: Must have Pelor as patron deity.
+CLASS:Radiant Servant of Pelor	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Knowledge (arcana)|Knowledge (Religion)|TYPE=Profession|Sense Motive|Spellcraft
+1:REPEATLEVEL:1	ADD:SPELLCASTER|Divine
+###Block
+11	PREPCLEVEL:MIN=20
+###Block	
+1	ABILITY:Radiant Servant of Pelor Class Feature|AUTOMATIC|Radiant Servant Of Pelor ~ Weapon and Armor Proficiency
+1	ABILITY:Radiant Servant of Pelor Class Feature|AUTOMATIC|Radiant Servant Of Pelor ~ Radiance
+1	ABILITY:Radiant Servant of Pelor Class Feature|AUTOMATIC|Radiant Servant Of Pelor ~ Extra Greater Turning
+1	ABILITY:Radiant Servant of Pelor Class Feature|AUTOMATIC|Radiant Servant Of Pelor ~ Spells per Day/Spells Known
+1	ABILITY:Radiant Servant of Pelor Class Feature|AUTOMATIC|Radiant Servant Of Pelor ~ Turn Undead
+2	ABILITY:Radiant Servant of Pelor Class Feature|AUTOMATIC|Radiant Servant Of Pelor ~ Divine Health
+2	ABILITY:Radiant Servant of Pelor Class Feature|AUTOMATIC|Radiant Servant Of Pelor ~ Empower Healing
+3	ABILITY:Radiant Servant of Pelor Class Feature|AUTOMATIC|Radiant Servant Of Pelor ~ Aura of Warding
+5	ABILITY:Radiant Servant of Pelor Class Feature|AUTOMATIC|Radiant Servant Of Pelor ~ Bonus Domain
+6	ABILITY:Radiant Servant of Pelor Class Feature|AUTOMATIC|Radiant Servant Of Pelor ~ Maximize Healing
+8	ABILITY:Radiant Servant of Pelor Class Feature|AUTOMATIC|Radiant Servant Of Pelor ~ Positive Energy Burst
+10	ABILITY:Radiant Servant of Pelor Class Feature|AUTOMATIC|Radiant Servant Of Pelor ~ Supreme Healing
+
+# Rainbow Servant
+CLASS:Rainbow Servant	MAXLEVEL:10
+CLASS:Rainbow Servant	HD:4	TYPE:Prestige	SOURCEPAGE:p.54	DEFINE:RainbowServantLVL|0	BONUS:VAR|RainbowServantLVL|CL
+CLASS:Rainbow Servant	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+CLASS:Rainbow Servant	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+CLASS:Rainbow Servant	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Rainbow Servant	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Rainbow Servant	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Rainbow Servant	PRETEXT:Alignment: Any nonevil and nonchaotic. Skill: Knowledge (arcana) 4 ranks. Spells: Able to cast 3rd-level arcane spells. Special: Must fi nd the hidden jungle temples of the couatls.
+CLASS:Rainbow Servant	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Knowledge (arcana)|Knowledge (The Planes)|TYPE=Profession|Sense Motive|Spellcraft
+2	ADD:SPELLCASTER|Arcane
+3	ADD:SPELLCASTER|Arcane
+5	ADD:SPELLCASTER|Arcane
+6	ADD:SPELLCASTER|Arcane
+8	ADD:SPELLCASTER|Arcane
+9	ADD:SPELLCASTER|Arcane
+###Block
+11	PREPCLEVEL:MIN=20
+###Block	
+1	ABILITY:Rainbow Servant Class Feature|AUTOMATIC|Rainbow Servant ~ Weapon and Armor Proficiency
+1	ABILITY:Rainbow Servant Class Feature|AUTOMATIC|Rainbow Servant ~ Detect Evil
+1	ABILITY:Rainbow Servant Class Feature|AUTOMATIC|Rainbow Servant ~ Extra Domain
+2	ABILITY:Rainbow Servant Class Feature|AUTOMATIC|Rainbow Servant ~ Spells per Day/Spells Known
+4	ABILITY:Rainbow Servant Class Feature|AUTOMATIC|Rainbow Servant ~ Grow Wings
+7	ABILITY:Rainbow Servant Class Feature|AUTOMATIC|Rainbow Servant ~ Detect Chaos
+10	ABILITY:Rainbow Servant Class Feature|AUTOMATIC|Rainbow Servant ~ Cleric Spell Access
+10	ABILITY:Rainbow Servant Class Feature|AUTOMATIC|Rainbow Servant ~ Detect Thoughts
+
+# Sacred Exorcist
+CLASS:Sacred Exorcist	MAXLEVEL:10
+CLASS:Sacred Exorcist	HD:8	TYPE:Prestige	SOURCEPAGE:p.56	DEFINE:SacredExorcistLVL|0	BONUS:VAR|SacredExorcistLVL|CL
+CLASS:Sacred Exorcist	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+CLASS:Sacred Exorcist	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+CLASS:Sacred Exorcist	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Sacred Exorcist	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Sacred Exorcist	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Sacred Exorcist	PRETEXT:Alignment: Any good. Skills: Knowledge (the planes) 10 ranks, Knowledge (religion) 7 ranks. Spells: Able to cast dismissal or dispel evil. Special: Adopting this prestige class requires the sanction of a church or order that ordains sacred exorcists. Only characters judged by their church to be exemplary in faith and devotion, strong of will and upright in morality, are made sacred exorcists.
+CLASS:Sacred Exorcist	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Heal|Intimidate|Knowledge (arcana)|Knowledge (The Planes)|Knowledge (Religion)|TYPE=Profession|Spellcraft
+1:REPEATLEVEL:1	ADD:SPELLCASTER|ANY
+###Block
+11	PREPCLEVEL:MIN=20
+###Block	
+1	ABILITY:Sacred Exorcist Class Feature|AUTOMATIC|Sacred Exorcist ~ Weapon and Armor Proficiency
+1	ABILITY:Sacred Exorcist Class Feature|AUTOMATIC|Sacred Exorcist ~ Spells per Day/ Spells Known
+1	ABILITY:Sacred Exorcist Class Feature|AUTOMATIC|Sacred Exorcist ~ Exorcism
+1	ABILITY:Sacred Exorcist Class Feature|AUTOMATIC|Sacred Exorcist ~ Turn Undead
+2	ABILITY:Sacred Exorcist Class Feature|AUTOMATIC|Sacred Exorcist ~ Resist Possession
+2	ABILITY:Sacred Exorcist Class Feature|AUTOMATIC|Sacred Exorcist ~ Detect Evil
+3	ABILITY:Sacred Exorcist Class Feature|AUTOMATIC|Sacred Exorcist ~ Chosen Foe
+4	ABILITY:Sacred Exorcist Class Feature|AUTOMATIC|Sacred Exorcist ~ Dispel Evil
+5	ABILITY:Sacred Exorcist Class Feature|AUTOMATIC|Sacred Exorcist ~ Consecrated Presence
+8	ABILITY:Sacred Exorcist Class Feature|AUTOMATIC|Sacred Exorcist ~ Holy Aura
+
+CLASS:Sacred Fist	HD:8	TYPE:Prestige	SOURCEPAGE:p.59	DEFINE:SacredFistLVL|0	BONUS:VAR|SacredFistLVL|CL
+CLASS:Sacred Fist	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
+CLASS:Sacred Fist	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Sacred Fist	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Sacred Fist	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Sacred Fist	PRETEXT:Base Attack Bonus: +4. Skill: Knowledge (religion) 8 ranks. Feats: Combat Casting, Combat Reflexes, Improved Unarmed Strike, Stunning Fist. Spells: Able to cast 1st-level divine spells.	PRETOTALAB:4	PRESKILL:1,Knowledge (Religion)=4	PREABILITY:4,CATEGORY=Feat,Combat Casting,Combat Reflexes,Improved Unarmed Strike,Stunning Fist	PRESPELLTYPE:1,Divine=1
+CLASS:Sacred Fist	STARTSKILLPTS:4	CSKILL:Balance|Concentration|Escape Artist|Heal|Jump|TYPE=Profession|Spellcraft|Tumble
+1	ADD:SPELLCASTER|Divine
+2	ADD:SPELLCASTER|Divine
+3	ADD:SPELLCASTER|Divine
+5	ADD:SPELLCASTER|Divine
+6	ADD:SPELLCASTER|Divine
+7	ADD:SPELLCASTER|Divine
+9	ADD:SPELLCASTER|Divine
+10	ADD:SPELLCASTER|Divine
+###Block
+11	PREPCLEVEL:MIN=20
+###Block
+1	ABILITY:Sacred Fist Class Feature|AUTOMATIC|Sacred Fist ~ Weapon and Armor Proficiency
+1	ABILITY:Sacred Fist Class Feature|AUTOMATIC|Sacred Fist ~ AC Bonus
+1	ABILITY:Sacred Fist Class Feature|AUTOMATIC|Sacred Fist ~ Spells per Day/Spells Known
+1	ABILITY:Sacred Fist Class Feature|AUTOMATIC|Sacred Fist ~ Unarmed Damage
+3	ABILITY:Sacred Fist Class Feature|AUTOMATIC|Sacred Fist ~ Fast Movement
+4	ABILITY:Sacred Fist Class Feature|AUTOMATIC|Sacred Fist ~ Sacred Flames
+6	ABILITY:Sacred Fist Class Feature|AUTOMATIC|Sacred Fist ~ Blindsense
+10	ABILITY:Sacred Fist Class Feature|AUTOMATIC|Sacred Fist ~ Inner Armor
+1	ABILITY:Sacred Fist Class Feature|AUTOMATIC|Sacred Fist ~ Code of Conduct
+
+# Seeker of the Misty Isle
+CLASS:Seeker of the Misty Isle	MAXLEVEL:10
+CLASS:Seeker of the Misty Isle	HD:8	TYPE:Prestige	SOURCEPAGE:p.61	DEFINE:SeekerOfTheMistyIsleLVL|0	BONUS:VAR|SeekerOfTheMistyIsleLVL|CL
+CLASS:Seeker of the Misty Isle	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+CLASS:Seeker of the Misty Isle	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+CLASS:Seeker of the Misty Isle	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Seeker of the Misty Isle	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Seeker of the Misty Isle	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Seeker of the Misty Isle	PRETEXT:Race: Elf or half-elf. Skills: Knowledge (religion) 4 ranks, Survival 8 ranks. Spells: Able to cast 2nd-level divine spells. Special: Must be inducted into the order by another member.
+CLASS:Seeker of the Misty Isle	STARTSKILLPTS:6	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Diplomacy|Hide|Jump|Knowledge (Geography)|Knowledge (Religion)|Listen|Move Silently|Ride|Speak Language|Spellcraft|Spot|Survival
+1	ADD:SPELLCASTER|ANY
+2	ADD:SPELLCASTER|ANY
+3	ADD:SPELLCASTER|ANY
+4	ADD:SPELLCASTER|ANY
+6	ADD:SPELLCASTER|ANY
+7	ADD:SPELLCASTER|ANY
+8	ADD:SPELLCASTER|ANY
+9	ADD:SPELLCASTER|ANY
+###Block
+11	PREPCLEVEL:MIN=20
+###Block	
+1	ABILITY:Seeker of the Misty Isle Class Feature|AUTOMATIC|Seeker Of The Misty Isle ~ Weapon and Armor Proficiency
+1	ABILITY:Seeker of the Misty Isle Class Feature|AUTOMATIC|Seeker Of The Misty Isle ~ Extra Domain
+1	ABILITY:Seeker of the Misty Isle Class Feature|AUTOMATIC|Seeker Of The Misty Isle ~ Spells per Day/Spells Known
+4	ABILITY:Seeker of the Misty Isle Class Feature|AUTOMATIC|Seeker Of The Misty Isle ~ Swiftfooted
+5	ABILITY:Seeker of the Misty Isle Class Feature|AUTOMATIC|Seeker Of The Misty Isle ~ Corellon's Perception
+5	ABILITY:Seeker of the Misty Isle Class Feature|AUTOMATIC|Seeker Of The Misty Isle ~ Surefooted
+6	ABILITY:Seeker of the Misty Isle Class Feature|AUTOMATIC|Seeker Of The Misty Isle ~ Find the Path
+9	ABILITY:Seeker of the Misty Isle Class Feature|AUTOMATIC|Seeker Of The Misty Isle ~ Arcane Sight
+10	ABILITY:Seeker of the Misty Isle Class Feature|AUTOMATIC|Seeker Of The Misty Isle ~ Discern Location
+
+# Shining Blade of Heironeous
+CLASS:Shining Blade of Heironeous	MAXLEVEL:10
+CLASS:Shining Blade of Heironeous	HD:10	TYPE:Prestige	SOURCEPAGE:p.63	DEFINE:ShiningBladeOfHeironeousLVL|0	BONUS:VAR|ShiningBladeOfHeironeousLVL|CL
+CLASS:Shining Blade of Heironeous	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
+CLASS:Shining Blade of Heironeous	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Shining Blade of Heironeous	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Shining Blade of Heironeous	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Shining Blade of Heironeous	PRETEXT:Alignment: Lawful good. Base Attack Bonus: +7. Base Save Bonus: Will +3. Skill: Knowledge (religion) 7 ranks. Spells: Able to cast 1st-level divine spells Special: Must have Heironeous as a patron deity.
+CLASS:Shining Blade of Heironeous	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Knowledge (Religion)|TYPE=Profession|Spellcraft
+2:REPEATLEVEL:2	ADD:SPELLCASTER|Divine
+###Block
+11	PREPCLEVEL:MIN=20
+###Block	
+1	ABILITY:Shining Blade of Heironeous Class Feature|AUTOMATIC|Shining Blade Of Heironeous ~ Weapon and Armor Proficiency
+1	ABILITY:Shining Blade of Heironeous Class Feature|AUTOMATIC|Shining Blade Of Heironeous ~ Shock Blade
+2	ABILITY:Shining Blade of Heironeous Class Feature|AUTOMATIC|Shining Blade Of Heironeous ~ Spells per Day/Spells Known
+5	ABILITY:Shining Blade of Heironeous Class Feature|AUTOMATIC|Shining Blade Of Heironeous ~ Holy Blade
+9	ABILITY:Shining Blade of Heironeous Class Feature|AUTOMATIC|Shining Blade Of Heironeous ~ Brilliant Blade
+
+# Stormlord
+CLASS:Stormlord	MAXLEVEL:10
+CLASS:Stormlord	HD:8	TYPE:Prestige	SOURCEPAGE:p.65	DEFINE:StormlordLVL|0	BONUS:VAR|StormlordLVL|CL
+CLASS:Stormlord	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+CLASS:Stormlord	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+CLASS:Stormlord	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Stormlord	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Stormlord	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Stormlord	PRETEXT:Base Save Bonus: Fort +4. Feats: Endurance, Great Fortitude, Weapon Focus (any spear or javelin). Spells: Able to cast 3rdlevel divine spells. Patron: Talos. Special: The character must have been hit by a bolt of lightning, whether a natural bolt or one created by magic, and survived.
+CLASS:Stormlord	STARTSKILLPTS:2	CSKILL:Concentration|Disguise|Gather Information|Intimidate|Knowledge (Nature)|Knowledge (Religion)|Survival|Swim
+1:REPEATLEVEL:1	ADD:SPELLCASTER|Divine
+###Block
+11	PREPCLEVEL:MIN=20
+###Block	
+1	ABILITY:Stormlord Class Feature|AUTOMATIC|Stormlord ~ Weapon and Armor Proficiency
+1	ABILITY:Stormlord Class Feature|AUTOMATIC|Stormlord ~ Spells per Day/Spells Known
+1	ABILITY:Stormlord Class Feature|AUTOMATIC|Stormlord ~ Enhanced Javelins
+1	ABILITY:Stormlord Class Feature|AUTOMATIC|Stormlord ~ Resistance to Electricity
+2	ABILITY:Stormlord Class Feature|AUTOMATIC|Stormlord ~ Shock Weapon
+3	ABILITY:Stormlord Class Feature|AUTOMATIC|Stormlord ~ Storm Walk
+5	ABILITY:Stormlord Class Feature|AUTOMATIC|Stormlord ~ Thundering Weapon
+6	ABILITY:Stormlord Class Feature|AUTOMATIC|Stormlord ~ Storm Ride
+8	ABILITY:Stormlord Class Feature|AUTOMATIC|Stormlord ~ Shocking Burst Weapon
+10	ABILITY:Stormlord Class Feature|AUTOMATIC|Stormlord ~ Storm of Elemental Fury
+
+# Temple Raider of Olidammara
+CLASS:Temple Raider of Olidammara	MAXLEVEL:10
+CLASS:Temple Raider of Olidammara	HD:6	TYPE:Prestige	SOURCEPAGE:p.67	DEFINE:TempleRaiderOfOlidammaraLVL|0	BONUS:VAR|TempleRaiderOfOlidammaraLVL|CL
+CLASS:Temple Raider of Olidammara	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+CLASS:Temple Raider of Olidammara	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+CLASS:Temple Raider of Olidammara	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Temple Raider of Olidammara	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Temple Raider of Olidammara	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Temple Raider of Olidammara	PRETEXT:Alignment: Any chaotic. Base Attack Bonus: +5. Skills: Disable Device 4 ranks, Knowledge (religion) 1 rank, Open Lock 4 ranks, Search 8 ranks. Special: The character must worship Olidammara and be invited to join the ranks of the temple raiders by at least three current members of that prestige class.
+CLASS:Temple Raider of Olidammara	STARTSKILLPTS:4	CSKILL:Appraise|Climb|TYPE=Craft|Decipher Script|Disable Device|Hide|Jump|Knowledge (Religion)|Listen|Move Silently|Open Lock|Search|Spot|Tumble|Use Magic Device|Use Rope
+CLASS:Temple Raider of Olidammara	FACT:SpellType|Divine	SPELLSTAT:WIS	MEMORIZE:NO
+CLASS:Temple Raider of Olidammara	BONUS:CASTERLEVEL|Temple Raider of Olidammara|Caster_Level_TempleRaiderOfOlidammara	DEFINE:Caster_Level_TempleRaiderOfOlidammara|0	BONUS:VAR|Caster_Level_TempleRaiderOfOlidammara|CL+Caster_Level_Bonus	DEFINE:CasterLevelBLTempleRaiderOfOlidammara|0	BONUS:VAR|CasterLevelBLTempleRaiderOfOlidammara|charbonusto("PCLEVEL","Temple Raider of Olidammara")
+CLASS:Temple Raider of Olidammara	BONUS:VAR|Caster_Level_Highest__Divine|Caster_Level_TempleRaiderOfOlidammara+CasterLevelBLTempleRaiderOfOlidammara|TYPE=Base
+###Block
+1	CAST:0,0
+2	CAST:0,1
+3	CAST:0,1
+4	CAST:0,1,1
+5	CAST:0,1,1,0
+6	CAST:0,1,1,1
+7	CAST:0,2,1,1,0
+8	CAST:0,2,1,1,1
+9	CAST:0,2,2,1,1
+10	CAST:0,2,2,2,1
+###Block
+11	PREPCLEVEL:MIN=20
+###Block	
+1	ABILITY:Temple Raider of Olidammara Class Feature|AUTOMATIC|Temple Raider Of Olidammara ~ Weapon and Armor Proficiency
+1	ABILITY:Temple Raider of Olidammara Class Feature|AUTOMATIC|Temple Raider Of Olidammara ~ Spells per Day
+1	ABILITY:Temple Raider of Olidammara Class Feature|AUTOMATIC|Temple Raider Of Olidammara ~ Trapfinding
+1	ABILITY:Temple Raider of Olidammara Class Feature|AUTOMATIC|Temple Raider Of Olidammara ~ Trap Sense
+2	ABILITY:Temple Raider of Olidammara Class Feature|AUTOMATIC|Temple Raider Of Olidammara ~ Sneak Attack
+3	ABILITY:Temple Raider of Olidammara Class Feature|AUTOMATIC|Temple Raider Of Olidammara ~ Uncanny Dodge
+5	ABILITY:Temple Raider of Olidammara Class Feature|AUTOMATIC|Temple Raider Of Olidammara ~ Improved Uncanny Dodge
+9	ABILITY:Temple Raider of Olidammara Class Feature|AUTOMATIC|Temple Raider Of Olidammara ~ Skill Mastery
+10	ABILITY:Temple Raider of Olidammara Class Feature|AUTOMATIC|Temple Raider Of Olidammara ~ Luck Domain
+
+# Ur-Priest
+CLASS:Ur-Priest	MAXLEVEL:10
+CLASS:Ur-Priest	HD:8	TYPE:Prestige	SOURCEPAGE:p.70	DEFINE:UrPriestLVL|0	BONUS:VAR|UrPriestLVL|CL
+CLASS:Ur-Priest	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+CLASS:Ur-Priest	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+CLASS:Ur-Priest	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Ur-Priest	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Ur-Priest	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Ur-Priest	PRETEXT:Alignment: Any evil. Base Save Bonus: Fort +3, Will +3. Skills: Bluff 6 ranks, Knowledge (arcana) 5 ranks, Knowledge (the planes) 5 ranks, Knowledge (religion) 8 ranks, Spellcraft 8 ranks. Feats: Iron Will, Spell Focus (evil) [Spell Focus school of "Evil" does not exist]. Special: The character must have no ability to cast divine spells. If such spellcasting ability was previously possessed (as with an ex-cleric), that ability is forever forsaken. The character must be trained by another ur-priest.	PREALIGN:LE,NE,CE	PRECHECKBASE:2,Fortitude=3,Will=3	PRESKILL:5,Bluff=6,Knowledge (arcana)=5,Knowledge (the planes)=5,Knowledge (religion)=8,Spellcraft=8	PREABILITY:1,CATEGORY=FEAT,Iron Will
+CLASS:Ur-Priest	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Knowledge (arcana)|Knowledge (The Planes)|Knowledge (Religion)|TYPE=Profession|Spellcraft
+CLASS:Ur-Priest	FACT:SpellType|Divine	SPELLSTAT:WIS	MEMORIZE:NO	SPELLLIST:1|Cleric
+CLASS:Ur-Priest	BONUS:CASTERLEVEL|Ur-Priest|Caster_Level_UrPriest	DEFINE:Caster_Level_UrPriest|0	BONUS:VAR|Caster_Level_UrPriest|CL+Caster_Level_Bonus	DEFINE:CasterLevelBLUrPriest|0	BONUS:VAR|CasterLevelBLUrPriest|charbonusto("PCLEVEL","Ur-Priest")
+CLASS:Ur-Priest	BONUS:VAR|Caster_Level_Highest__Divine|Caster_Level_UrPriest+CasterLevelBLUrPriest|TYPE=Base
+###Block
+1	CAST:0,0
+2	CAST:0,1,0
+3	CAST:0,2,1,0
+4	CAST:0,2,2,1,0
+5	CAST:0,3,2,2,1,0
+6	CAST:0,3,3,2,2,1,0
+7	CAST:0,3,3,3,2,2,1,0
+8	CAST:0,3,3,3,3,2,2,1,0
+9	CAST:0,3,3,3,3,3,2,2,1,0
+10	CAST:0,3,3,3,3,3,3,2,2,1
+###Block
+11	PREPCLEVEL:MIN=20
+###Block	
+1	ABILITY:Ur-Priest Class Feature|AUTOMATIC|Ur-Priest ~ Weapon and Armor Proficiency
+1	ABILITY:Ur-Priest Class Feature|AUTOMATIC|Ur-Priest ~ Spells per Day
+2	ABILITY:Ur-Priest Class Feature|AUTOMATIC|Ur-Priest ~ Rebuke Undead
+4	ABILITY:Ur-Priest Class Feature|AUTOMATIC|Ur-Priest ~ Divine Spell Resistance
+6	ABILITY:Ur-Priest Class Feature|AUTOMATIC|Ur-Priest ~ Siphon Spell Power
+10	ABILITY:Ur-Priest Class Feature|AUTOMATIC|Ur-Priest ~ Steal Spell-Like Ability
+
+# Void Disciple
+CLASS:Void Disciple	MAXLEVEL:13
+CLASS:Void Disciple	HD:6	TYPE:Prestige	SOURCEPAGE:p.71	DEFINE:VoidDiscipleLVL|0	BONUS:VAR|VoidDiscipleLVL|CL
+CLASS:Void Disciple	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+CLASS:Void Disciple	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+CLASS:Void Disciple	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Void Disciple	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Void Disciple	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Void Disciple	PRETEXT:Alignment: Any neutral. Skill: Spellcraft 10 ranks. Feats: Heighten Spell, Spell Penetration. Spells: Able to cast 3rd-level arcane or divine spells.
+CLASS:Void Disciple	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|TYPE=Knowledge|TYPE=Profession|Spellcraft
+2	ADD:SPELLCASTER|ANY
+4	ADD:SPELLCASTER|ANY
+5	ADD:SPELLCASTER|ANY
+6	ADD:SPELLCASTER|ANY
+8	ADD:SPELLCASTER|ANY
+10	ADD:SPELLCASTER|ANY
+11	ADD:SPELLCASTER|ANY
+12	ADD:SPELLCASTER|ANY
+###Block
+14	PREPCLEVEL:MIN=20
+###Block	
+1	ABILITY:Void Disciple Class Feature|AUTOMATIC|Void Disciple ~ Weapon and Armor Proficiency
+1	ABILITY:Void Disciple Class Feature|AUTOMATIC|Void Disciple ~ Spells per Day/Spells Known
+1	ABILITY:Void Disciple Class Feature|AUTOMATIC|Void Disciple ~ Sense Void
+4	ABILITY:Void Disciple Class Feature|AUTOMATIC|Void Disciple ~ Moment of Clarity
+7	ABILITY:Void Disciple Class Feature|AUTOMATIC|Void Disciple ~ Altering the Course
+10	ABILITY:Void Disciple Class Feature|AUTOMATIC|Void Disciple ~ Void Release
+12	ABILITY:Void Disciple Class Feature|AUTOMATIC|Void Disciple ~ Void Suppression
+13	ABILITY:Void Disciple Class Feature|AUTOMATIC|Void Disciple ~ Void Strike
+
+# Warpriest
+CLASS:Warpriest	MAXLEVEL:10	BONUS:VAR|DomainCount|1
+CLASS:Warpriest	HD:10	TYPE:Prestige	SOURCEPAGE:p.74	DEFINE:WarpriestLVL|0	BONUS:VAR|WarpriestLVL|CL	
+CLASS:Warpriest	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
+CLASS:Warpriest	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Warpriest	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Warpriest	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Warpriest	PRETEXT:Base Attack Bonus: +5. Skills: Diplomacy 8 ranks, Sense Motive 5 ranks. Feat: Combat Casting. Spells: Able to cast at least one divine spell from one of the following domains' spell lists: Destruction, Protection, Strength, or War. A character who can cast at least one spell from a domain counts as having access for this purpose. Special: Ability to turn or rebuke undead.
+CLASS:Warpriest	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Knowledge (History)|Ride|Sense Motive|Spellcraft|Swim
+2:REPEATLEVEL:2	ADD:SPELLCASTER|Divine
+###Block
+11	PREPCLEVEL:MIN=20
+###Block	
+1	ABILITY:Warpriest Class Feature|AUTOMATIC|Warpriest ~ Weapon and Armor Proficiency
+1	ABILITY:Warpriest Class Feature|AUTOMATIC|Warpriest ~ Spells per Day/Spells Known
+1	ABILITY:Warpriest Class Feature|AUTOMATIC|Warpriest ~ Bonus Domain
+1	ABILITY:Warpriest Class Feature|AUTOMATIC|Warpriest ~ Rally
+1	ABILITY:Warpriest Class Feature|AUTOMATIC|Warpriest ~ Turn or Rebuke Undead
+2	ABILITY:Warpriest Class Feature|AUTOMATIC|Warpriest ~ Inflame
+3	ABILITY:Warpriest Class Feature|AUTOMATIC|Warpriest ~ Mass Cure Light Wounds
+5	ABILITY:Warpriest Class Feature|AUTOMATIC|Warpriest ~ Fear Aura
+6	ABILITY:Warpriest Class Feature|AUTOMATIC|Warpriest ~ Heroes' Feast
+7	ABILITY:Warpriest Class Feature|AUTOMATIC|Warpriest ~ Haste
+9	ABILITY:Warpriest Class Feature|AUTOMATIC|Warpriest ~ Mass Heal
+10	ABILITY:Warpriest Class Feature|AUTOMATIC|Warpriest ~ Implacable Foe
+###Block
+1	DOMAIN:Glory|PREABILITY:1,CATEGORY=Special Ability,TYPE.Turn Undead
+1	DOMAIN:Domination|PREABILITY:1,CATEGORY=Special Ability,TYPE.Rebuke Undead

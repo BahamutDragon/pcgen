@@ -1,11 +1,11 @@
-# CVS $Revision: $ $Author: $ -- Sun Dec  8 22:17:49 2013 -- reformated by prettylst.pl v1.50 (build 22352)
+# CVS $Revision: $ $Author: $ -- Thu Jul 10 13:59:32 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 
 # Class Name
 CLASS:Cleric.MOD
 SUBCLASS:Cleric of Tharizdun				COST:0							SOURCEPAGE:RttToEE	DEITY:Tharizdun
-SUBCLASSLEVEL:1	BONUS:CHECKS|BASE.Will|-InsanityScoreDarkCleric	BONUS:SKILL|TYPE.Wisdom|-InsanityScoreDarkCleric	BONUS:STAT|BASESPELLSTAT|InsanityScoreDarkCleric	BONUS:VAR|InsanityScoreDarkCleric|CL/2	ABILITY:Special Ability|VIRTUAL|InsanityScore|PREDEITY:1,Tharizdun
+SUBCLASSLEVEL:1	BONUS:SKILL|TYPE.Wisdom|-InsanityScoreDarkCleric	BONUS:STAT|BASESPELLSTAT|InsanityScoreDarkCleric	BONUS:VAR|InsanityScoreDarkCleric|CL/2	ABILITY:Special Ability|VIRTUAL|InsanityScore|PREDEITY:1,Tharizdun		BONUS:SAVE|BASE.Will|-InsanityScoreDarkCleric
 SUBCLASS:Cleric of the Elder Elemental Eye	COST:0							SOURCEPAGE:RttToEE	DEITY:Elder Elemental Eye
-SUBCLASSLEVEL:1	BONUS:CHECKS|BASE.Will|-InsanityScoreDarkCleric	BONUS:SKILL|TYPE.Wisdom|-InsanityScoreDarkCleric	BONUS:STAT|BASESPELLSTAT|InsanityScoreDarkCleric	BONUS:VAR|InsanityScoreDarkCleric|CL/2	ABILITY:Special Ability|VIRTUAL|InsanityScore|PREDEITY:1,Elder Elemental Eye
+SUBCLASSLEVEL:1	BONUS:SKILL|TYPE.Wisdom|-InsanityScoreDarkCleric	BONUS:STAT|BASESPELLSTAT|InsanityScoreDarkCleric	BONUS:VAR|InsanityScoreDarkCleric|CL/2	ABILITY:Special Ability|VIRTUAL|InsanityScore|PREDEITY:1,Elder Elemental Eye	BONUS:SAVE|BASE.Will|-InsanityScoreDarkCleric
 SUBCLASS:Cleric of Air					COST:0	SPELLLIST:2|Cleric|DOMAIN.Air		SOURCEPAGE:RttToEE
 SUBCLASSLEVEL:1
 SUBCLASS:Cleric of Earth				COST:0	SPELLLIST:2|Cleric|DOMAIN.Earth	SOURCEPAGE:RttToEE
@@ -19,14 +19,14 @@ SUBCLASSLEVEL:1
 
 
 
-# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page			Save checks bonus											Combat bonus							Modify VAR
-CLASS:Doomdreamer	HD:8		TYPE:PC.Prestige	ABB:DD		MAXLEVEL:5	SOURCEPAGE:RttToEE	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page			Combat bonus												Modify VAR														Bonus
+CLASS:Doomdreamer	HD:8		TYPE:PC.Prestige	FACT:Abb|DD		MAXLEVEL:5	SOURCEPAGE:RttToEE	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Required Feat				Required Skill
-CLASS:Doomdreamer	PREFEAT:1,Spell Focus (Necromancy)	PRESKILL:2,Knowledge (Religion)=9,Knowledge (Arcana)=9
+CLASS:Doomdreamer	PREABILITY:1,CATEGORY=FEAT,Spell Focus (Necromancy)	PRESKILL:2,Knowledge (Religion)=9,Knowledge (Arcana)=9
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Doomdreamer	STARTSKILLPTS:2	CSKILL:Craft (Alchemy)|Concentration|Intimidate|Knowledge (Religion)|TYPE=Profession|Spellcraft
-1	BONUS:ABILITYPOOL|Doom Dreamer Secret|(CL+1)/2	BONUS:VAR|SecretsKnown|(CL+1)/2	BONUS:VAR|InsanityScoreDarkCleric|CL/2	BONUS:VAR|DoomDreamSecretLVL|CL	ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|DoomDreamer Secret ~ Doomdreamer
-2									BONUS:VAR|DarkLoreDC|CL																ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Dark Lore ~ Doomdreamer
-3																												ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Chill Soul ~ Doomdreamer
-4									BONUS:VAR|MaddeningHowlDC|CL															ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Maddening Howl ~ Doomdreamer
-5																												ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Dark Communion ~ Doomdreamer
+1	BONUS:ABILITYPOOL|Doom Dreamer Secret|(CL+1)/2	BONUS:VAR|SecretsKnown|(CL+1)/2	BONUS:VAR|InsanityScoreDarkCleric|CL/2	BONUS:VAR|DoomDreamSecretLVL|CL	ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Doomdreamer ~ Doomdreamer Secret
+2									BONUS:VAR|DarkLoreDC|CL																ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Doomdreamer ~ Dark Lore
+3																												ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Doomdreamer ~ Chill Soul
+4									BONUS:VAR|MaddeningHowlDC|CL															ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Doomdreamer ~ Maddening Howl
+5																												ADD:SPELLCASTER|Divine	ABILITY:Special Ability|AUTOMATIC|Doomdreamer ~ Dark Communion

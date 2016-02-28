@@ -1,0 +1,431 @@
+
+# Archer: A ranged specialist whose ability to defeat foes from afar is unmatched.
+CLASS:Archer	MAXLEVEL:20
+#CLASS:Archer	FACT:Abb|Acr	FACT:ClassType|
+CLASS:Archer	HD:8	TYPE:Base.PC	SOURCEPAGE:p.62	DEFINE:ArcherLVL|0	BONUS:VAR|ArcherLVL|CL
+CLASS:Archer	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+CLASS:Archer	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+CLASS:Archer	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Archer	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Archer	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Archer	STARTSKILLPTS:4	CSKILL:Acrobatics|Climb|TYPE=Craft|Heal|Knowledge (Geography)|Knowledge (Nature)|Perception|Ride|Stealth|Survival|Swim
+###Block 	
+1	ABILITY:Class|AUTOMATIC|Archer
+
+# Bard: A performer whose music works magic-a wanderer, a storyteller, and an inspirer.
+CLASS:Bard	MAXLEVEL:20
+#CLASS:Bard	FACT:Abb|	FACT:ClassType|
+CLASS:Bard	HD:6	TYPE:Base.PC	SOURCEPAGE:p.68	DEFINE:BardLVL|0	BONUS:VAR|BardLVL|CL
+CLASS:Bard	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+CLASS:Bard	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+CLASS:Bard	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Bard	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Bard	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Bard	STARTSKILLPTS:6	CSKILL:Acrobatics|Appraise|Bluff|Climb|TYPE=Craft|Diplomacy|Disguise|Escape Artist|Intimidate|TYPE=Knowledge|Linguistics|Perception|TYPE=Perform|TYPE=Profession|Sense Motive|Sleight of Hand|Spellcraft|Stealth|Use Magic Device
+CLASS:Bard	FACT:SpellType|Song
+CLASS:Bard	SPELLSTAT:CHA	MEMORIZE:YES
+CLASS:Bard	BONUS:CASTERLEVEL|Bard|Caster_Level_BL_Stripped_Bard	DEFINE:Caster_Level_BL_Stripped_Bard|0	BONUS:VAR|Caster_Level_BL_Stripped_Bard|Caster_Level_Bard-CasterLevelBLBard	BONUS:VAR|Caster_Level_Bard|CL+Caster_Level_Bonus+CasterLevelBLBard	DEFINE:CasterLevelBLBard|0	BONUS:VAR|CasterLevelBL_x_Bard|charbonusto("PCLEVEL","Bard")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Bard|TYPE=Base
+###Block 	
+1	ABILITY:Class|AUTOMATIC|Bard
+
+
+# Beastmaster: A ferocious warrior who fights along with his animal companion.
+CLASS:Beastmaster	MAXLEVEL:20
+#CLASS:Beastmaster	FACT:Abb|	FACT:ClassType|
+CLASS:Beastmaster	HD:10	TYPE:Base.PC	SOURCEPAGE:p.76	DEFINE:BeastmasterLVL|0	BONUS:VAR|BeastmasterLVL|CL
+CLASS:Beastmaster	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
+CLASS:Beastmaster	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Beastmaster	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Beastmaster	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Beastmaster	STARTSKILLPTS:4	CSKILL:Acrobatics|Climb|TYPE=Craft|Handle Animal|Heal|Intimidate|Knowledge (Nature)|Perception|Ride|Stealth|Survival|Swim
+###Block 	
+1	ABILITY:Class|AUTOMATIC|Beastmaster
+
+
+# Black Mage: A potent spellcaster schooled in the magical art of destruction magic.
+CLASS:Black Mage	MAXLEVEL:20
+#CLASS:Black Mage	FACT:Abb|	FACT:ClassType|
+CLASS:Black Mage	HD:6	TYPE:Base.PC	SOURCEPAGE:p.	DEFINE:BlackMageLVL|0	BONUS:VAR|BlackMageLVL|CL
+CLASS:Black Mage	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+CLASS:Black Mage	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+CLASS:Black Mage	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Black Mage	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Black Mage	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Black Mage	STARTSKILLPTS:2	CSKILL:Appraise|TYPE=Craft|Fly|TYPE=Knowledge|Linguistics|TYPE=Profession|Spellcraft
+CLASS:Black Mage	FACT:SpellType|Arcane
+CLASS:Black Mage	SPELLSTAT:INT	MEMORIZE:YES
+CLASS:Black Mage	BONUS:CASTERLEVEL|Black Mage|Caster_Level_BL_Stripped_BlackMage	DEFINE:Caster_Level_BL_Stripped_BlackMage|0	BONUS:VAR|Caster_Level_BL_Stripped_BlackMage|Caster_Level_BlackMage-CasterLevelBLBlackMage	BONUS:VAR|Caster_Level_BlackMage|CL+Caster_Level_Bonus+CasterLevelBLBlackMage	DEFINE:CasterLevelBLBlackMage|0	BONUS:VAR|CasterLevelBL_x_BlackMage|charbonusto("PCLEVEL","BlackMage")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_BlackMage|TYPE=Base
+###Block 	
+1	ABILITY:Class|AUTOMATIC|Black Mage
+
+
+# Blue Mage: A unique spellcaster who practices the mystical art of creature magic.
+CLASS:Blue Mage	MAXLEVEL:20
+#CLASS:Blue Mage	FACT:Abb|	FACT:ClassType|
+CLASS:Blue Mage	HD:8	TYPE:Base.PC	SOURCEPAGE:p.94	DEFINE:BlueMageLVL|0	BONUS:VAR|BlueMageLVL|CL
+CLASS:Blue Mage	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+CLASS:Blue Mage	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+CLASS:Blue Mage	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Blue Mage	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Blue Mage	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Blue Mage	STARTSKILLPTS:6	CSKILL:Acrobatics|Appraise|TYPE=Craft|Fly|TYPE=Knowledge|Linguistics|TYPE=Profession|Spellcraft
+CLASS:Blue Mage	FACT:SpellType|Arcane
+CLASS:Blue Mage	SPELLSTAT:INT	MEMORIZE:YES
+CLASS:Blue Mage	BONUS:CASTERLEVEL|Blue Mage|Caster_Level_BL_Stripped_BlueMage	DEFINE:Caster_Level_BL_Stripped_BlueMage|0	BONUS:VAR|Caster_Level_BL_Stripped_BlueMage|Caster_Level_BlueMage-CasterLevelBLBlueMage	BONUS:VAR|Caster_Level_BlueMage|CL+Caster_Level_Bonus+CasterLevelBLBlueMage	DEFINE:CasterLevelBLBlueMage|0	BONUS:VAR|CasterLevelBL_x_BlueMage|charbonusto("PCLEVEL","BlueMage")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_BlueMage|TYPE=Base
+###Block 	
+1	ABILITY:Class|AUTOMATIC|Blue Mage
+
+
+# Chemist: A mystical brewer of chemicals that heal, enhance, or explode allies and enemies alike.
+CLASS:Chemist	MAXLEVEL:20
+#CLASS:Chemist	FACT:Abb|	FACT:ClassType|
+CLASS:Chemist	HD:8	TYPE:Base.PC	SOURCEPAGE:p.99	DEFINE:ChemistLVL|0	BONUS:VAR|ChemistLVL|CL
+CLASS:Chemist	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+CLASS:Chemist	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+CLASS:Chemist	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Chemist	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Chemist	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Chemist	STARTSKILLPTS:4	CSKILL:Appraise|TYPE=Craft|Disable Device|Fly|Heal|Knowledge (Arcana)|Knowledge (Nature)|Perception|TYPE=Profession|Sleight of Hand|Spellcraft|Survival|Use Magic Device
+###Block 	
+1	ABILITY:Class|AUTOMATIC|Chemist
+
+
+# Chocobo Knight: A mounted charger representing the ultimate in mounted warfare.
+CLASS:Chocobo Knight	MAXLEVEL:20
+#CLASS:Chocobo Knight	FACT:Abb|	FACT:ClassType|
+CLASS:Chocobo Knight	HD:12	TYPE:Base.PC	SOURCEPAGE:p.106	DEFINE:ChocoboKnightLVL|0	BONUS:VAR|ChocoboKnightLVL|CL
+CLASS:Chocobo Knight	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
+CLASS:Chocobo Knight	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Chocobo Knight	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Chocobo Knight	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Chocobo Knight	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Handle Animal|Intimidate|TYPE=Profession|Ride|Sense Motive|Swim
+###Block 	
+1	ABILITY:Class|AUTOMATIC|Chocobo Knight
+
+
+# Dark Knight: An unholy champion of evil seeking fame and personal power.
+CLASS:Dark Knight	MAXLEVEL:20
+#CLASS:Dark Knight	FACT:Abb|	FACT:ClassType|
+CLASS:Dark Knight	HD:10	TYPE:Base.PC	SOURCEPAGE:p.111	DEFINE:DarkKnightLVL|0	BONUS:VAR|DarkKnightLVL|CL
+CLASS:Dark Knight	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
+CLASS:Dark Knight	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/0+2
+CLASS:Dark Knight	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Dark Knight	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Dark Knight	STARTSKILLPTS:2	CSKILL:Bluff|TYPE=Craft|Disguise|Handle Animal|Intimidate|Knowledge (Religion)|TYPE=Profession|Ride|Sense Motive|Spellcraft|Stealth
+CLASS:Dark Knight	FACT:SpellType|Divine
+CLASS:Dark Knight	SPELLSTAT:CHA	MEMORIZE:YES
+CLASS:Dark Knight	BONUS:CASTERLEVEL|DarkKnight|Caster_Level_BL_Stripped_DarkKnight	DEFINE:Caster_Level_BL_Stripped_DarkKnight|0	BONUS:VAR|Caster_Level_BL_Stripped_DarkKnight|Caster_Level_DarkKnight-CasterLevelBLDarkKnight	BONUS:VAR|Caster_Level_DarkKnight|if(DarkKnightLVL>3,DarkKnightLVL,0)+Caster_Level_Bonus+CasterLevelBLDarkKnight	DEFINE:CasterLevelBLDarkKnight|0	BONUS:VAR|CasterLevelBL_x_DarkKnight|charbonusto("PCLEVEL","DarkKnight")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_DarkKnight|TYPE=Base
+###Block 	
+1	ABILITY:Class|AUTOMATIC|Dark Knight
+
+
+# Dragoon: An unstoppable lancer capable of tremendous jumps and flashy polearm techniques.
+CLASS:Dragoon	MAXLEVEL:20
+#CLASS:Dragoon	FACT:Abb|	FACT:ClassType|
+CLASS:Dragoon	HD:10	TYPE:Base.PC	SOURCEPAGE:p.117	DEFINE:DragoonLVL|0	BONUS:VAR|DragoonLVL|CL
+CLASS:Dragoon	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
+CLASS:Dragoon	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Dragoon	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Dragoon	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Dragoon	STARTSKILLPTS:2	CSKILL:Acrobatics|Climb|TYPE=Craft|Handle Animal|Intimidate|Perception|Ride|Swim
+###Block 	
+1	ABILITY:Class|AUTOMATIC|Dragoon
+
+
+# Fighter: A raging berserker with exceptional combat capability and unequaled skill with weapons.
+CLASS:Fighter	MAXLEVEL:20
+#CLASS:Fighter	FACT:Abb|	FACT:ClassType|
+CLASS:Fighter	HD:10	TYPE:Base.PC	SOURCEPAGE:p.121	DEFINE:FighterLVL|0	BONUS:VAR|FighterLVL|CL
+CLASS:Fighter	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
+CLASS:Fighter	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Fighter	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Fighter	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Fighter	STARTSKILLPTS:2	CSKILL:Acrobatics|Climb|TYPE=Craft|Handle Animal|Intimidate|Knowledge (Dungeoneering)|TYPE=Profession|Ride|Survival|Swim
+###Block 	
+1	ABILITY:Class|AUTOMATIC|Fighter
+
+
+# Geomancer: An elemental spellcaster who uses the environment as her playground.
+CLASS:Geomancer	MAXLEVEL:20
+#CLASS:Geomancer	FACT:Abb|	FACT:ClassType|
+CLASS:Geomancer	HD:8	TYPE:Base.PC	SOURCEPAGE:p.127	DEFINE:GeomancerLVL|0	BONUS:VAR|GeomancerLVL|CL
+CLASS:Geomancer	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+CLASS:Geomancer	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+CLASS:Geomancer	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Geomancer	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Geomancer	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Geomancer	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Fly|Knowledge (Geography)|Knowledge (Nature)|Knowledge (Planes)|Perception|TYPE=Perform|TYPE=Profession|Ride|Sense Motive|Spellcraft|Stealth|Survival|Swim
+CLASS:Geomancer	FACT:SpellType|Arcane
+CLASS:Geomancer	SPELLSTAT:WIS	MEMORIZE:YES
+CLASS:Geomancer	BONUS:CASTERLEVEL|Geomancer|Caster_Level_BL_Stripped_Geomancer	DEFINE:Caster_Level_BL_Stripped_Geomancer|0	BONUS:VAR|Caster_Level_BL_Stripped_Geomancer|Caster_Level_Geomancer-CasterLevelBLGeomancer	BONUS:VAR|Caster_Level_Geomancer|CL+Caster_Level_Bonus+CasterLevelBLGeomancer	DEFINE:CasterLevelBLGeomancer|0	BONUS:VAR|CasterLevelBL_x_Geomancer|charbonusto("PCLEVEL","Geomancer")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Geomancer|TYPE=Base
+###Block 	
+1	ABILITY:Class|AUTOMATIC|Geomancer
+
+
+# Holy Knight: A champion of justice, protected and strengthened by an array of holy powers.
+CLASS:Holy Knight	MAXLEVEL:20
+#CLASS:Holy Knight	FACT:Abb|	FACT:ClassType|
+CLASS:Holy Knight	HD:10	TYPE:Base.PC	SOURCEPAGE:p.134	DEFINE:HolyKnightLVL|0	BONUS:VAR|HolyKnightLVL|CL
+CLASS:Holy Knight	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
+CLASS:Holy Knight	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Holy Knight	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Holy Knight	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Holy Knight	STARTSKILLPTS:2	CSKILL:TYPE=Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nobility)|Knowledge (Religion)|TYPE=Profession|Ride|Sense Motive|Spellcraft
+CLASS:Holy Knight	FACT:SpellType|Divine
+CLASS:Holy Knight	SPELLSTAT:CHA	MEMORIZE:YES
+CLASS:Holy Knight	BONUS:CASTERLEVEL|HolyKnight|Caster_Level_BL_Stripped_HolyKnight	DEFINE:Caster_Level_BL_Stripped_HolyKnight|0	BONUS:VAR|Caster_Level_BL_Stripped_HolyKnight|Caster_Level_HolyKnight-CasterLevelBLHolyKnight	BONUS:VAR|Caster_Level_HolyKnight|if(CL>3,CL,0)+Caster_Level_Bonus+CasterLevelBLHolyKnight	DEFINE:CasterLevelBLHolyKnight|0	BONUS:VAR|CasterLevelBL_x_HolyKnight|charbonusto("PCLEVEL","HolyKnight")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_HolyKnight|TYPE=Base
+###Block 	
+1	ABILITY:Class|AUTOMATIC|Holy Knight
+
+
+# Illusionist: A tricksy mage who uses illusions and trickery to control the battlefield.
+CLASS:Illusionist	MAXLEVEL:20
+#CLASS:Illusionist	FACT:Abb|	FACT:ClassType|
+CLASS:Illusionist	HD:6	TYPE:Base.PC	SOURCEPAGE:p.140	DEFINE:IllusionistLVL|0	BONUS:VAR|IllusionistLVL|CL
+CLASS:Illusionist	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+CLASS:Illusionist		BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+CLASS:Illusionist	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Illusionist	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Illusionist	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Illusionist	STARTSKILLPTS:4	CSKILL:Bluff|TYPE=Craft|Diplomacy|Disguise|Knowledge (Local)|Linguistics|Perception|TYPE=Perform|TYPE=Profession|Sense Motive|Spellcraft
+CLASS:Illusionist	FACT:SpellType|Arcane
+CLASS:Illusionist	SPELLSTAT:CHA	MEMORIZE:YES
+CLASS:Illusionist	BONUS:CASTERLEVEL|Illusionist|Caster_Level_BL_Stripped_Illusionist	DEFINE:Caster_Level_BL_Stripped_Illusionist|0	BONUS:VAR|Caster_Level_BL_Stripped_Illusionist|Caster_Level_Illusionist-CasterLevelBLIllusionist	BONUS:VAR|Caster_Level_Illusionist|CL+Caster_Level_Bonus+CasterLevelBLIllusionist	DEFINE:CasterLevelBLIllusionist|0	BONUS:VAR|CasterLevelBL_x_Illusionist|charbonusto("PCLEVEL","Illusionist")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Illusionist|TYPE=Base
+###Block 	
+1	ABILITY:Class|AUTOMATIC|Illusionist
+
+
+# Knight: An armored combatant with a code of honor, defending those in need.
+CLASS:Knight	MAXLEVEL:20
+#CLASS:Knight	FACT:Abb|	FACT:ClassType|
+CLASS:Knight	HD:12	TYPE:Base.PC	SOURCEPAGE:p.146	DEFINE:KnightLVL|0	BONUS:VAR|KnightLVL|CL
+CLASS:Knight	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
+CLASS:Knight	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Knight	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Knight	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Knight	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Diplomacy|Handle Animal|Intimidate|Knowledge (Nobility)|Perception|Ride|Sense Motive|Swim
+###Block 	
+1	ABILITY:Class|AUTOMATIC|Knight
+
+
+# Monk: A martial artist whose unarmed strikes hit fast and hard-a master of exotic powers.
+CLASS:Monk	MAXLEVEL:20
+#CLASS:Monk	FACT:Abb|	FACT:ClassType|
+CLASS:Monk	HD:8	TYPE:Base.PC	SOURCEPAGE:p.154	DEFINE:MonkLVL|0	BONUS:VAR|MonkLVL|CL
+CLASS:Monk	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+CLASS:Necromancer	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+CLASS:Monk	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Monk	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Monk	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Monk	STARTSKILLPTS:4	CSKILL:Acrobatics|Climb|TYPE=Craft|Escape Artist|Intimidate|Knowledge (History)|Knowledge (Religion)|Perception|TYPE=Perform|TYPE=Profession|Ride|Sense Motive|Stealth|Swim
+CLASS:Monk	PRETEXT:Any Lawful alignment.	PREALIGN:LE,LG,LN
+###Block 	
+1	ABILITY:Class|AUTOMATIC|Monk
+
+
+# Necromancer: A ghastly spellcaster who summons undead to follow his every command.
+CLASS:Necromancer	MAXLEVEL:20
+#CLASS:Necromancer	FACT:Abb|	FACT:ClassType|
+CLASS:Necromancer	HD:6	TYPE:Base.PC	SOURCEPAGE:p.161	DEFINE:NecromancerLVL|0	BONUS:VAR|NecromancerLVL|CL
+CLASS:Necromancer	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+CLASS:Necromancer		BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+CLASS:Necromancer	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Necromancer	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Necromancer	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Necromancer	PRETEXT:Any non-good alignment.	!PREALIGN:LG,NG,CG
+CLASS:Necromancer	STARTSKILLPTS:2	CSKILL:TYPE=Craft|TYPE=Knowledge|Linguistics|Perception|TYPE=Profession|Spellcraft
+CLASS:Necromancer	FACT:SpellType|Arcane
+CLASS:Necromancer	SPELLSTAT:CHA	MEMORIZE:YES
+CLASS:Necromancer	BONUS:CASTERLEVEL|Necromancer|Caster_Level_BL_Stripped_Necromancer	DEFINE:Caster_Level_BL_Stripped_Necromancer|0	BONUS:VAR|Caster_Level_BL_Stripped_Necromancer|Caster_Level_Necromancer-CasterLevelBLNecromancer	BONUS:VAR|Caster_Level_Necromancer|CL+Caster_Level_Bonus+CasterLevelBLNecromancer	DEFINE:CasterLevelBLNecromancer|0	BONUS:VAR|CasterLevelBL_x_Necromancer|charbonusto("PCLEVEL","Necromancer")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Necromancer|TYPE=Base
+###Block 	
+1	ABILITY:Class|AUTOMATIC|Necromancer
+
+
+# Red Mage: A jack-of-all-trades who is able to use both black and white magic to a limited degree.
+CLASS:Red Mage	MAXLEVEL:20
+#CLASS:Red Mage	FACT:Abb|	FACT:ClassType|
+CLASS:Red Mage	HD:8	TYPE:Base.PC	SOURCEPAGE:p.170	DEFINE:RedMageLVL|0	BONUS:VAR|RedMageLVL|CL
+CLASS:Red Mage	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+CLASS:Red Mage	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+CLASS:Red Mage	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Red Mage	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Red Mage	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Red Mage	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Fly|Intimidate|Knowledge (Arcana)|Knowledge (Planes)|TYPE=Profession|Ride|Spellcraft|Swim|Use Magic Device
+CLASS:Red Mage	FACT:SpellType|Arcane
+CLASS:Red Mage	SPELLSTAT:CHA	MEMORIZE:YES	BONUSSPELLSTAT:NONE
+CLASS:Red Mage	BONUS:CASTERLEVEL|RedMage|Caster_Level_BL_Stripped_RedMage	DEFINE:Caster_Level_BL_Stripped_RedMage|0	BONUS:VAR|Caster_Level_BL_Stripped_RedMage|Caster_Level_RedMage-CasterLevelBLRedMage	BONUS:VAR|Caster_Level_RedMage|CL+Caster_Level_Bonus+CasterLevelBLRedMage	DEFINE:CasterLevelBLRedMage|0	BONUS:VAR|CasterLevelBL_x_RedMage|charbonusto("PCLEVEL","RedMage")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_RedMage|TYPE=Base
+###Block 	
+1	ABILITY:Class|AUTOMATIC|Red Mage
+###Block 	
+1	CAST:1,1
+2	CAST:1,1
+3	CAST:1,1
+4	CAST:1,1,1
+5	CAST:1,1,1
+6	CAST:1,1,1
+7	CAST:1,1,1,1
+8	CAST:1,1,1,1
+9	CAST:1,1,1,1
+10	CAST:1,1,1,1,1
+11	CAST:1,1,1,1,1
+12	CAST:1,1,1,1,1
+13	CAST:1,1,1,1,1,1
+14	CAST:1,1,1,1,1,1
+15	CAST:1,1,1,1,1,1
+16	CAST:1,1,1,1,1,1,1
+17	CAST:1,1,1,1,1,1,1
+18	CAST:1,1,1,1,1,1,1
+19	CAST:1,1,1,1,1,1,1
+20	CAST:1,1,1,1,1,1,1
+
+# Summoner: A specialized spellcaster who summons an elemental avatar to defend him.
+CLASS:Summoner	MAXLEVEL:20
+#CLASS:Summoner	FACT:Abb|	FACT:ClassType|
+CLASS:Summoner	HD:6	TYPE:Base.PC	SOURCEPAGE:p.178	DEFINE:SummonerLVL|0	BONUS:VAR|SummonerLVL|CL
+CLASS:Summoner	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+CLASS:Summoner	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+CLASS:Summoner	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Summoner	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Summoner	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Summoner	STARTSKILLPTS:2	CSKILL:TYPE=Craft|Fly|Handle Animal|TYPE=Knowledge|Linguistics|TYPE=Profession|Ride|Spellcraft|Use Magic Device
+CLASS:Summoner	FACT:SpellType|Arcane
+CLASS:Summoner	SPELLSTAT:CHA	MEMORIZE:YES
+CLASS:Summoner	BONUS:CASTERLEVEL|Summoner|Caster_Level_BL_Stripped_Summoner	DEFINE:Caster_Level_BL_Stripped_Summoner|0	BONUS:VAR|Caster_Level_BL_Stripped_Summoner|Caster_Level_Summoner-CasterLevelBLSummoner	BONUS:VAR|Caster_Level_Summoner|CL+Caster_Level_Bonus+CasterLevelBLSummoner	DEFINE:CasterLevelBLSummoner|0	BONUS:VAR|CasterLevelBL_x_Summoner|charbonusto("PCLEVEL","Summoner")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Summoner|TYPE=Base
+###Block 	
+1	ABILITY:Class|AUTOMATIC|Summoner
+
+
+# Thief: A tricky, skillful scout who wins the battle by stealth rather than brute force.
+CLASS:Thief	MAXLEVEL:20
+#CLASS:Thief	FACT:Abb|	FACT:ClassType|
+CLASS:Thief	HD:8	TYPE:Base.PC	SOURCEPAGE:p.186	DEFINE:ThiefLVL|0	BONUS:VAR|ThiefLVL|CL
+CLASS:Thief	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+CLASS:Thief	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+CLASS:Thief	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Thief	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Thief	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Thief	STARTSKILLPTS:8	CSKILL:Acrobatics|Appraise|Bluff|Climb|TYPE=Craft|Diplomacy|Disable Device|Disguise|Escape Artist|Intimidate|Knowledge (Dungeoneering)|Knowledge (Local)|Linguistics|Perception|TYPE=Perform|TYPE=Profession|Sense Motive|Sleight of Hand|Stealth|Swim|Use Magic Device
+###Block 	
+1	ABILITY:Class|AUTOMATIC|Thief
+
+
+# Time Mage: A controller of time and space who uses time to his advantage.
+CLASS:Time Mage	MAXLEVEL:20
+#CLASS:Time Mage	FACT:Abb|	FACT:ClassType|
+CLASS:Time Mage	HD:6	TYPE:Base.PC	SOURCEPAGE:p.199	DEFINE:TimeMageLVL|0	BONUS:VAR|TimeMageLVL|CL
+CLASS:Time Mage	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+CLASS:Time Mage	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+CLASS:Time Mage	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Time Mage	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Time Mage	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Time Mage	STARTSKILLPTS:2	CSKILL:Appraise|TYPE=Craft|Fly|TYPE=Knowledge|Linguistics|Perception|TYPE=Profession|Spellcraft
+CLASS:Time Mage	FACT:SpellType|Arcane
+CLASS:Time Mage	SPELLSTAT:INT	MEMORIZE:YES
+CLASS:Time Mage	BONUS:CASTERLEVEL|TimeMage|Caster_Level_BL_Stripped_TimeMage	DEFINE:Caster_Level_BL_Stripped_TimeMage|0	BONUS:VAR|Caster_Level_BL_Stripped_TimeMage|Caster_Level_TimeMage-CasterLevelBLTimeMage	BONUS:VAR|Caster_Level_TimeMage|CL+Caster_Level_Bonus+CasterLevelBLTimeMage	DEFINE:CasterLevelBLTimeMage|0	BONUS:VAR|CasterLevelBL_x_TimeMage|charbonusto("PCLEVEL","TimeMage")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_TimeMage|TYPE=Base
+###Block 	
+1	ABILITY:Class|AUTOMATIC|Time Mage
+
+
+# White Mage: A defensive spellcaster schooled in the magical art of holy and healing magic.
+CLASS:White Mage	MAXLEVEL:20
+#CLASS:White Mage	FACT:Abb|	FACT:ClassType|
+CLASS:White Mage	HD:6	TYPE:Base.PC	SOURCEPAGE:p.207	DEFINE:WhiteMageLVL|0	BONUS:VAR|WhiteMageLVL|CL
+CLASS:White Mage	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+CLASS:White Mage	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+CLASS:White Mage	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:White Mage	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:White Mage	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:White Mage	STARTSKILLPTS:2	CSKILL:Appraise|TYPE=Craft|Fly|Heal|TYPE=Knowledge|Linguistics|Perception|TYPE=Profession|Spellcraft
+CLASS:White Mage	FACT:SpellType|Divine
+CLASS:White Mage	SPELLSTAT:WIS	MEMORIZE:YES
+CLASS:White Mage	BONUS:CASTERLEVEL|WhiteMage|Caster_Level_BL_Stripped_WhiteMage	DEFINE:Caster_Level_BL_Stripped_WhiteMage|0	BONUS:VAR|Caster_Level_BL_Stripped_WhiteMage|Caster_Level_WhiteMage-CasterLevelBLWhiteMage	BONUS:VAR|Caster_Level_WhiteMage|CL+Caster_Level_Bonus+CasterLevelBLWhiteMage	DEFINE:CasterLevelBLWhiteMage|0	BONUS:VAR|CasterLevelBL_x_WhiteMage|charbonusto("PCLEVEL","WhiteMage")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_WhiteMage|TYPE=Base
+###Block 	
+1	ABILITY:Class|AUTOMATIC|White Mage
+
+
+
+# Hybrid Classes
+# Black Belt: Unifying two of the game's greatest pugilists, the fighter and the monk, the black belt forgoes mysticism and spiritual training to focus on raw physical mastery.
+CLASS:Black Belt	MAXLEVEL:20
+#CLASS:Black Belt	FACT:Abb|	FACT:ClassType|
+CLASS:Black Belt	HD:10	TYPE:Base.PC	SOURCEPAGE:p.	DEFINE:BlackBeltLVL|0	BONUS:VAR|BlackBeltLVL|CL
+CLASS:Black Belt	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
+CLASS:Black Belt	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Black Belt	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Black Belt	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Black Belt	STARTSKILLPTS:4	CSKILL:Acrobatics|Climb|TYPE=Craft|Escape Artist|Handle Animal|Intimidate|Knowledge (Dungeoneering)|Knowledge (Local)|Perception|TYPE=Profession|Ride|Sense Motive|Swim
+###Block 	
+1	ABILITY:Class|AUTOMATIC|Black Belt
+
+
+# Dancer: The dancer blends the passion and relentlessness of the monk with the inspiration of the bard, inspiring her fellows from the front lines.
+CLASS:Dancer	MAXLEVEL:20
+#CLASS:Dancer	FACT:Abb|	FACT:ClassType|
+CLASS:Dancer	HD:8	TYPE:Base.PC	SOURCEPAGE:p.218	DEFINE:DancerLVL|0	BONUS:VAR|DancerLVL|CL
+CLASS:Dancer	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+CLASS:Dancer	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+CLASS:Dancer	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Dancer	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Dancer	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Dancer	STARTSKILLPTS:4	CSKILL:Acrobatics|Appraise|Bluff|Climb|TYPE=Craft|Diplomacy|Disguise|Escape Artist|Intimidate|TYPE=Knowledge|Linguistics|Perception|TYPE=Perform|TYPE=Profession|Sense Motive|Sleight of Hand|Spellcraft|Stealth|Use Magic Device
+###Block 	
+1	ABILITY:Class|AUTOMATIC|Dancer
+
+
+# Scholar: A melding of black mage and white mage, the scholar is an arcane tinkerer and spell-twister, reshaping magic to her whims.
+# This is going to be bonkers. Has two different casting stats for two different sets of spells.
+CLASS:Scholar	MAXLEVEL:20
+#CLASS:Scholar	FACT:Abb|	FACT:ClassType|
+CLASS:Scholar	HD:6	TYPE:Base.PC	SOURCEPAGE:p.226	DEFINE:ScholarLVL|0	BONUS:VAR|ScholarLVL|CL
+CLASS:Scholar	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+CLASS:Scholar	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+CLASS:Scholar	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Scholar	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Scholar	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Scholar	STARTSKILLPTS:2	CSKILL:Appraise|TYPE=Craft|Fly|TYPE=Knowledge|Linguistics|TYPE=Profession|Spellcraft
+CLASS:Scholar	FACT:SpellType|Arcane
+CLASS:Scholar	SPELLSTAT:INT	MEMORIZE:YES
+CLASS:Scholar	BONUS:CASTERLEVEL|Scholar|Caster_Level_BL_Stripped_Scholar	DEFINE:Caster_Level_BL_Stripped_Scholar|0	BONUS:VAR|Caster_Level_BL_Stripped_Scholar|Caster_Level_Scholar-CasterLevelBLScholar	BONUS:VAR|Caster_Level_Scholar|CL+Caster_Level_Bonus+CasterLevelBLScholar	DEFINE:CasterLevelBLScholar|0	BONUS:VAR|CasterLevelBL_x_Scholar|charbonusto("PCLEVEL","Scholar")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Scholar|TYPE=Base
+###Block 	
+1	ABILITY:Class|AUTOMATIC|Scholar
+
+
+# Sword Saint: Bringing together the divine sword skills of the holy knight and the unholy sword skills of the dark knight, the sword saint uses martial mastery of the sword and bewildering melee skills to lay her opponents low.
+CLASS:Sword Saint	MAXLEVEL:20
+#CLASS:Sword Saint	FACT:Abb|	FACT:ClassType|
+CLASS:Sword Saint	HD:10	TYPE:Base.PC	SOURCEPAGE:p.238	DEFINE:SwordSaintLVL|0	BONUS:VAR|SwordSaintLVL|CL
+CLASS:Sword Saint	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
+CLASS:Sword Saint	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Sword Saint	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Sword Saint	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Sword Saint	STARTSKILLPTS:2	CSKILL:TYPE=Craft|Diplomacy|Handle Animal|Heal|Knowledge (Nobility)|Knowledge (Religion)|TYPE=Profession|Ride|Sense Motive|Spellcraft
+###Block 	
+1	ABILITY:Class|AUTOMATIC|Sword Saint
+
+
+
+# Prestige Classes
+
+# Arithmetician
+# Clan Hunter
+# Diamond Magister
+# Dragon Disciple
+# Elemental Fist Disciple
+# Elementalist
+# Fencer
+# Green Mage
+# Judge Magister
+# Lucky Gambler
+# Magicite Knight
+# Mediator
+# Mime
+# Mystic Knight
+# Ninja
+# Onyx Magister
+# Oracle
+# Paradigm Shifter
+# Phantom Blade
+# Ruby Magister
+# Samurai
+# Sapphire Magister
+# Skald

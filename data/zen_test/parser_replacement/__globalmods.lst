@@ -1,0 +1,372 @@
+
+
+#On BASEAB: - These go to individual classes
+# MODIFY:BaseAB|SOLVE|classlevel("APPLIEDAS=NONEPIC")
+#or
+# MODIFY:BaseAB|SOLVE|classlevel(this(), "APPLIEDAS=NONEPIC")
+
+#The "this()" is implied as it is an optional argument to classlevel()...
+
+#Note that "this()" never has arguments... (nor does value() for that matter)
+
+MODIFYOTHER:STAT|ALL|Mod|SOLVE|(Value/2)-5		EXPLANATION:D20 System - Sets the Mod for all "Stats" to the Value of the stat/2-5. 
+
+# GLOBAL RULES:
+
+#Straight conversion would be:
+MODIFYOTHER:EQUIPMENT.PART|VAR=ToHit.ModTotal|GROUP=WeaponMelee|SET|STR|PRIORITY=1000000	EXPLANATION:ModTotal for Melee weapons set to the Strength Modifier	
+MODIFYOTHER:EQUIPMENT.PART|VAR=ToHit.ModTotal|GROUP=WeaponThrown|SET|STR|PRIORITY=1000000	EXPLANATION:
+MODIFYOTHER:EQUIPMENT.PART|VAR=ToHit.ModTotal|GROUP=WeaponRanged|SET|DEX|PRIORITY=1000000	EXPLANATION:
+
+# Tom hasn't decided how to handle DAMAGE:xdy+z / damage bonus yet.
+MODIFYOTHER:EQUIPMENT.PART|VAR=Damage.Bonus|GROUP=WeaponMelee|SET|STR|PRIORITY=1000000		EXPLANATION:Bonus to Damage for Melee weapons set to the Strength modifier
+MODIFYOTHER:EQUIPMENT.PART|VAR=Damage.Bonus|GROUP=WeaponThrown|SET|STR|PRIORITY=1000000		EXPLANATION:Bonus to Damage for Thrown weapons set to the Strength modifier
+MODIFYOTHER:EQUIPMENT.PART|VAR=Damage.Bonus|GROUP=WeaponSplash|SET|-STR|PRIORITY=1000000		EXPLANATION:Bonus to Damage for Splash weapons set to remove the Strength modifier
+
+# This is used by the Output system - consider redoing to OS=x
+MODIFY:Weapon.DamageMult.Light|SOLVE|0.5*(STR>=0)
+MODIFY:Weapon.DamageMult.OneHand|SOLVE|1
+MODIFY:Weapon.DamageMult.TwoHand|SOLVE|1.5*(STR>=0)
+
+###Block: AC Universal Rules!
+MODIFY:VAR=AC.Total|SOLVE|value()+AC.Base+AC.Armor+AC.Shield+AC.Attribute+AC.Size+AC.NaturalArmor+AC.Enhancements		EXPLANATION:AC displayed for Total
+MODIFY:VAR=AC.Flatfooted|SOLVE|value()+AC.Total-AC.Stat-AC.Dodge										EXPLANATION:AC displayed for Flatfooted	
+MODIFY:VAR=AC.Touch|SOLVE|value()+AC.Base+AC.Stat+AC.Enhancements										EXPLANATION:AC displayed for Touch
+#
+MODIFY:VAR=AC.Enhancements|SOLVE|value()+AC.Dodge+AC.Deflection+AC.Misc+AC.Circumstance+AC.Insight+AC.Morale+AC.Profane+AC.Sacred+AC.ClassDefense	EXPLANATION:Resolves all the "Enhancements" to AC
+
+
+# AC values:
+MODIFY:AC.Base|SET|10|PRIORITY=1000000						EXPLANATION:D20 System - Default value is 10
+MODIFY:AC.Attribute|SOLVE|min(AC.Stat,min(MaxDex,ModEquipMaxDex))		EXPLANATION:D20 System - Sets the actual attribute modifier to the lowest value of Dex Mod, or penalties for Armor "MaxDex" or "Encumbrance".
+MODIFY:AC.Stat|SET|DEX|PRIORITY=1000000						EXPLANATION:D20 System - Sets the default AC.Stat to DEX mod, though this can be overriden using a PRIORITY >1000000
+
+# Determing MaxDex based upon encumbrance
+MODIFY:MaxDex|SOLVE|if(encumbrance==0,1000,value())				EXPLANATION:D20 System - Sets MaxDex to be 1000, if encumbrance value is 0
+MODIFY:MaxDex|SOLVE|if(encumbrance==1,3,value())				EXPLANATION:D20 System - Sets MaxDex to be 3, if encumbrance value is 1
+MODIFY:MaxDex|SOLVE|if(encumbrance==2,1,value())				EXPLANATION:D20 System - Sets MaxDex to be 1, if encumbrance value is 2
+
+# Interesting, looks like 'ModEquipMaxDex' was the value coming from equipment.
+
+
+MODIFY:Initiative.Stat|SET|DEX							EXPLANATION:Initiative.Stat is the Modifier for Initiative based upon Dex Bonus
+
+
+#STATNAME:Strength
+#	MODIFY:STR|SOLVE|stat("Strength")	EXPLANATION:Alternative Tom displayed, instead of universal method above.
+#	MODIFY:STRSCORE|SOLVE|getLocalVariable("STAT","STR",Value)
+MODIFY:LOADSCORE|SOLVE|STRSCORE	
+
+
+#STATNAME:Dexterity
+							EXPLANATION:DEXSCORE = Stat "Dexterity" value.
+									EXPLANATION:Sets 'DEX' to the Mod value for Dexterity.
+MODIFY:AC|SOLVE|max(FightingDefensivelyAC,TotalDefenseAC)			EXPLANATION:D20 System - Adds to AC the values of either Fighting Defensively or Total Defense AC. This is turned on by activating a TEMPBONUS/TEMPMOD.
+
+# SET vs SOLVE
+
+#STATNAME:Constitution	
+
+MODIFY:HP=WoundPoints|SET|CON|PRIORITY=1000000						
+MODIFY:HP=HP|SOLVE|CON*TL
+MODIFY:HP=AltHP|SOLVE|CONSCORE*2
+
+#STATNAME:Intelligence
+
+MODIFY:Language.Race|SOLVE|max(INT,0)+Language.Additional			EXPLANATION:PC's have two pools for Languages - those gained from Race and high intelligence, the second is from the Linguistics Skill
+
+
+MODIFY:Skill.Bonus|SET|INT
+# NOTE: We used this to avoid TEMP changes var("STAT.3.MOD.NOEQUIP.NOTEMP")
+# Also for the retroactive Bonus to Skill Pool, we used this "BonusRetroSkillPoints"
+
+#STATNAME:Wisdom
+
+
+#STATNAME:Charisma
+
+
+# Generic
+MODIFY:RacialVision|SET|value()+if(context("FLAG",RacialVision),1,0)
+
+
+#GENERAL RULES
+MODIFY:Companion.NormalMount|SET|1
+MODIFY:Companion.NormalFollower|SET|1
+
+# AC.Attribute = Actual Display, and ultimate value from the Stat, whereas AC.Stat will be the MOD (Dex or CHA)
+
+
+# This globally applies the Class Skill Bonus to the SkillTotal of every skill (Pathfinder Core Rulebook, page 86, forth printing)
+# RULE QUOTE: "You gain a +3 bonus on all class skills that you put ranks into."
+MODIFYOTHER:SKILL|ALL|SkillTotal|SOLVE|value()+if((Rank>=1)&&(Grantors>=1),3,0)|PRIORITY=1000
+
+# Rules to review for FLY skill:
+# "Creatures with a fly speed treat the Fly skill as a class skill."
+# "A creature with a natural fly speed receives a bonus (or penalty) on Fly skill checks depending on its maneuverability: Clumsy -8, Poor -4, Average +0, Good +4, Perfect +8. Creatures without a listed maneuverability rating are assumed to have average maneuverability.
+# "A creature larger or smaller than Medium takes a size bonus or penalty on Fly checks depending on its size category: Fine +8, Diminutive +6, Tiny +4, Small +2, Large -2, Huge -4, Gargantuan -6, Colossal -8."
+
+
+# This globally applies the Climb Bonus to the SkillTotal of the Climb skill (Pathfinder Core Rulebook, page 91, forth printing)
+# RULE QUOTE: "A creature with a climb speed has a +8 racial bonus on all Climb checks."
+MODIFYOTHER:SKILL|Climb|SOLVE|value()+if(namespace("MOVE",Climb>=1,8,0)
+
+# This globally applies the Swin Bonus to the SkillTotal of the Situational Swim skill (Pathfinder Core Rulebook, page 91, forth printing)
+# RULE QUOTE: "A creature with a swim speed can move through water at its indicated speed without making Swim checks. It gains a +8 racial bonus on any Swim check to perform a special action or avoid a hazard."
+# TOM QUESTION: How do we bonus the SITUATION?
+#?MODIFYOTHER:SKILL|Swim=perform special action or avoid hazard|SOLVE|value()+if(namespace("MOVE",Swim>=1,8,0)
+
+#	BONUS:COMBAT|AC|min(CHA, min(MXDXEN,MODEQUIPMAXDEX))|TYPE=Ability|PREVAREQ:ACStatIsCha,1
+#	DEFINE:OversizeWeaponToHitBonus|0	
+
+# Redo to OS display
+# getLocalVar("STAT","Constitution",Mod)	EXPLANATION:An Alternate method to get a Local Var.
+# MODIFY:STR|SOLVE|stat("Strength")
+
+MODIFY:ENCUMBRANCE|SET|encumbrance()			EXPLANATION:D20 System - Sets the Encumbrance to the "Encumbrance" - ties into the Load.lst file
+
+
+MODIFYOTHER:CLASS|ALL|BaseAB|SOLVE|classlevel("APPLIEDAS=NONEPIC")*BAB.ProgressionSpeed	EXPLANATION: This automatically calculates standard Class BAB progression!
+
+MODIFYOTHER:CLASS|ALL|Save.Fortitude|SOLVE|
+
+# Support for BaseAB
+MODIFYOTHER:CLASS|GROUP=BABProgressionFull|BAB.Progression|SET|1					EXPLANATION: Any class with GROUP:BABProgressionFull will have a 1:1 progression for BAB
+MODIFYOTHER:CLASS|GROUP=BABProgressionModerate|BAB.Progression|SET|0.75				EXPLANATION: Any class with GROUP:BABProgressionModerate will have a *3/4 progression for BAB
+MODIFYOTHER:CLASS|GROUP=BABProgressionPoor|BAB.Progression|SET|0.5				EXPLANATION: Any class with GROUP:BABProgressionPoor will have a *1/2 progression for BAB	
+
+# Support for CHECKS aka Saves
+MODIFYOTHER:CLASS|GROUP=GoodSaveFortitude|Save.Fortitude|SOLVE|classlevel("APPLIEDAS=NONEPIC")/2+2
+MODIFYOTHER:CLASS|GROUP=GoodSaveReflex|Save.Reflex|SOLVE|classlevel("APPLIEDAS=NONEPIC")/2+2
+MODIFYOTHER:CLASS|GROUP=GoodSaveWill|Save.Will|SOLVE|classlevel("APPLIEDAS=NONEPIC")/2+2
+
+MODIFYOTHER:CLASS|GROUP=PoorSaveFortitude|Save.Fortitude|SOLVE|classlevel("APPLIEDAS=NONEPIC")/3
+MODIFYOTHER:CLASS|GROUP=PoorSaveReflex|Save.Reflex|SOLVE|classlevel("APPLIEDAS=NONEPIC")/3
+MODIFYOTHER:CLASS|GROUP=PoorSaveWill|Save.Will|SOLVE|classlevel("APPLIEDAS=NONEPIC")/3
+
+
+
+
+# OS Flags - Need to deal with RULE.lst file:
+MODIFY:VAR=UseAlternateDamage|SET|if(context("RULE",DAMAGE_VW),1,0)
+MODIFY:VAR=UseCombatManueverBonus|SET|if(context("RULE",USE_CMB),1,0)
+
+
+
+#Global file:
+MODIFYOTHER:EQUIPMENT.PART|ALL|AB.1|SOLVE|BaseAB
+MODIFYOTHER:EQUIPMENT.PART|ALL|AB.2|SOLVE|max(0,BaseAB-BaseAB.Step)
+MODIFYOTHER:EQUIPMENT.PART|ALL|AB.3|SOLVE|max(0,BaseAB-2*BaseAB.Step)
+MODIFYOTHER:EQUIPMENT.PART|ALL|AB.4|SOLVE|max(0,BaseAB-3*BaseAB.Step)
+MODIFYOTHER:EQUIPMENT.PART|ALL|AB.5|SOLVE|max(0,BaseAB-4*BaseAB.Step)
+#//AB.6 and AB.7 default to zero
+#//Some other stuff to calculate ToHit.ModTotal correctly (stats, pluses, etc), content may appear elsewhere as well
+
+
+#//Set the default values of the ToHits to the ABs, can be overridden by equipment if necessary
+MODIFYOTHER:EQUIPMENT.PART|ALL|ToHit.1|SOLVE|AB.1
+MODIFYOTHER:EQUIPMENT.PART|ALL|ToHit.2|SOLVE|AB.2
+MODIFYOTHER:EQUIPMENT.PART|ALL|ToHit.3|SOLVE|AB.3
+MODIFYOTHER:EQUIPMENT.PART|ALL|ToHit.4|SOLVE|AB.4
+MODIFYOTHER:EQUIPMENT.PART|ALL|ToHit.5|SOLVE|AB.5
+MODIFYOTHER:EQUIPMENT.PART|ALL|ToHit.6|SOLVE|AB.6
+MODIFYOTHER:EQUIPMENT.PART|ALL|ToHit.7|SOLVE|AB.7
+#//ToHit.8 and ToHit.9 default to zero since they would not have been used.
+
+#//Make sure all ToHits get the mod total applied (close to last)
+MODIFYOTHER:EQUIPMENT.PART|ALL|ToHit.1|SOLVE|value()+ToHit.ModTotal|PRIORITY=1000000
+MODIFYOTHER:EQUIPMENT.PART|ALL|ToHit.2|SOLVE|value()+ToHit.ModTotal|PRIORITY=1000000
+MODIFYOTHER:EQUIPMENT.PART|ALL|ToHit.3|SOLVE|value()+ToHit.ModTotal|PRIORITY=1000000
+MODIFYOTHER:EQUIPMENT.PART|ALL|ToHit.4|SOLVE|value()+ToHit.ModTotal|PRIORITY=1000000
+MODIFYOTHER:EQUIPMENT.PART|ALL|ToHit.5|SOLVE|value()+ToHit.ModTotal|PRIORITY=1000000
+MODIFYOTHER:EQUIPMENT.PART|ALL|ToHit.6|SOLVE|value()+ToHit.ModTotal|PRIORITY=1000000
+MODIFYOTHER:EQUIPMENT.PART|ALL|ToHit.7|SOLVE|value()+ToHit.ModTotal|PRIORITY=1000000
+MODIFYOTHER:EQUIPMENT.PART|ALL|ToHit.8|SOLVE|value()+ToHit.ModTotal|PRIORITY=1000000
+MODIFYOTHER:EQUIPMENT.PART|ALL|ToHit.9|SOLVE|value()+ToHit.ModTotal|PRIORITY=1000000
+
+#For Flurry of Blows (SRD 3.5):
+#MODIFY:BaseAB.Step|SET|3|PRIORITY=1000
+
+#For Flurry of Blows (PF) [on the Equipment]:
+
+#For Haste/Speed (these need to be applied as the equivalent of today's TEMPBONUS)
+MODIFYOTHER:EQUIPMENT.PART|ALL|ToHit.1|SOLVE|AB.1|PRIORITY=1000
+MODIFYOTHER:EQUIPMENT.PART|ALL|ToHit.2|SOLVE|AB.1|PRIORITY=1000
+MODIFYOTHER:EQUIPMENT.PART|ALL|ToHit.3|SOLVE|AB.2|PRIORITY=1000
+MODIFYOTHER:EQUIPMENT.PART|ALL|ToHit.4|SOLVE|AB.3|PRIORITY=1000
+MODIFYOTHER:EQUIPMENT.PART|ALL|ToHit.5|SOLVE|AB.4|PRIORITY=1000
+MODIFYOTHER:EQUIPMENT.PART|ALL|ToHit.6|SOLVE|AB.5|PRIORITY=1000
+MODIFYOTHER:EQUIPMENT.PART|ALL|ToHit.7|SOLVE|AB.6|PRIORITY=1000
+MODIFYOTHER:EQUIPMENT.PART|ALL|ToHit.8|SOLVE|AB.7|PRIORITY=1000
+
+
+
+# Clarify with Tom that this (see below) sets all Flags true IF an Archetype with GROUP:FighterWeaponMastery will activate the TRUE flag
+# Archetype Support
+MODIFYOTHER:ABILITY=Archetype|GROUP=BarbarianRage|FLAG=BarbarianRage|SET|True
+MODIFYOTHER:ABILITY=Archetype|GROUP=BarbarianFastMovement|FLAG=BarbarianFastMovement|SET|True
+MODIFYOTHER:ABILITY=Archetype|GROUP=BarbarianRagePowers|FLAG=BarbarianRagePowers|SET|True
+MODIFYOTHER:ABILITY=Archetype|GROUP=BarbarianTrapSense|FLAG=BarbarianTrapSense|SET|True
+MODIFYOTHER:ABILITY=Archetype|GROUP=BarbarianDamageReduction|FLAG=BarbarianDamageReduction|SET|True
+MODIFYOTHER:ABILITY=Archetype|GROUP=BarbarianGreaterRage|FLAG=BarbarianGreaterRage|SET|True
+MODIFYOTHER:ABILITY=Archetype|GROUP=BarbarianIndomitableWill|FLAG=BarbarianIndomitableWill|SET|True
+MODIFYOTHER:ABILITY=Archetype|GROUP=BarbarianTirelessRage|FLAG=BarbarianTirelessRage|SET|True
+MODIFYOTHER:ABILITY=Archetype|GROUP=BarbarianMightyRage|FLAG=BarbarianMightyRage|SET|True
+
+# Cleric
+MODIFYOTHER:ABILITY=Archetype|GROUP=ClericClassSkills|FLAG=ClericClassSkills|SET|True
+MODIFYOTHER:ABILITY=Archetype|GROUP=ClericChannelEnergy|FLAG=ClericChannelEnergy|SET|True
+MODIFYOTHER:ABILITY=Archetype|GROUP=ClericOrisons|FLAG=ClericOrisons|SET|True
+MODIFYOTHER:ABILITY=Archetype|GROUP=ClericSpontaneousCasting|FLAG=ClericSpontaneousCasting|SET|True
+
+# Fighter
+MODIFYOTHER:ABILITY=Archetype|GROUP=FighterClassSkills|FLAG=FighterClassSkills|SET|True
+MODIFYOTHER:ABILITY=Archetype|GROUP=FighterProficiencies|FLAG=FighterProficiencies|SET|True
+MODIFYOTHER:ABILITY=Archetype|GROUP=FighterWeaponProficiencies|FLAG=FighterWeaponProficiencies|SET|True
+MODIFYOTHER:ABILITY=Archetype|GROUP=FighterHeavyArmorProficiency|FLAG=FighterHeavyArmorProficiency|SET|True
+MODIFYOTHER:ABILITY=Archetype|GROUP=FighterMediumArmorProficiency|FLAG=FighterMediumArmorProficiency|SET|True
+MODIFYOTHER:ABILITY=Archetype|GROUP=FighterLightArmorProficiency|FLAG=FighterLightArmorProficiency|SET|True
+MODIFYOTHER:ABILITY=Archetype|GROUP=FighterShieldProficiency|FLAG=FighterShieldProficiency|SET|True
+MODIFYOTHER:ABILITY=Archetype|GROUP=FighterTowerShieldProficiency|FLAG=FighterTowerShieldProficiency|SET|True
+MODIFYOTHER:ABILITY=Archetype|GROUP=FighterBonusFeats|FLAG=FighterBonusFeats|SET|True
+MODIFYOTHER:ABILITY=Archetype|GROUP=FighterBravery|FLAG=FighterBravery|SET|True
+MODIFYOTHER:ABILITY=Archetype|GROUP=FighterArmorTraining_ALL|FLAG=FighterArmorTraining_ALL|SET|True
+MODIFYOTHER:ABILITY=Archetype|GROUP=FighterWeaponTraining_ALL|FLAG=FighterWeaponTraining_ALL|SET|True
+MODIFYOTHER:ABILITY=Archetype|GROUP=FighterArmorMastery|FLAG=FighterArmorMastery|SET|True
+MODIFYOTHER:ABILITY=Archetype|GROUP=FighterWeaponMastery|FLAG=FighterWeaponMastery|SET|True
+
+
+# Monk
+MODIFYOTHER:ABILITY=Archetype|GROUP=MonkFlurryOfBlows|FLAG=MonkFlurryOfBlows|SET|True
+MODIFYOTHER:ABILITY=Archetype|GROUP=MonkBonusFeats|FLAG=MonkBonusFeats|SET|True
+MODIFYOTHER:ABILITY=Archetype|GROUP=MonkACBonus|FLAG=MonkACBonus|SET|True
+MODIFYOTHER:ABILITY=Archetype|GROUP=MonkStunningFist|FLAG=MonkStunningFist|SET|True
+MODIFYOTHER:ABILITY=Archetype|GROUP=MonkEvasion|FLAG=MonkEvasion|SET|True
+MODIFYOTHER:ABILITY=Archetype|GROUP=MonkFastMovement|FLAG=MonkFastMovement|SET|True
+MODIFYOTHER:ABILITY=Archetype|GROUP=MonkManeuverTraining|FLAG=MonkManeuverTraining|SET|True
+MODIFYOTHER:ABILITY=Archetype|GROUP=MonkStillMind|FLAG=MonkStillMind|SET|True
+MODIFYOTHER:ABILITY=Archetype|GROUP=MonkKiPool|FLAG=MonkKiPool|SET|True
+MODIFYOTHER:ABILITY=Archetype|GROUP=MonkSlowFall|FLAG=MonkSlowFall|SET|True
+MODIFYOTHER:ABILITY=Archetype|GROUP=MonkHighJump|FLAG=MonkHighJump|SET|True
+MODIFYOTHER:ABILITY=Archetype|GROUP=MonkPurityOfBody|FLAG=MonkPurityOfBody|SET|True
+MODIFYOTHER:ABILITY=Archetype|GROUP=MonkWholenessOfBody|FLAG=MonkWholenessOfBody|SET|True
+MODIFYOTHER:ABILITY=Archetype|GROUP=MonkImprovedEvasion|FLAG=MonkImprovedEvasion|SET|True
+MODIFYOTHER:ABILITY=Archetype|GROUP=MonkDiamondBody|FLAG=MonkDiamondBody|SET|True
+MODIFYOTHER:ABILITY=Archetype|GROUP=MonkAbundantStep|FLAG=MonkAbundantStep|SET|True
+MODIFYOTHER:ABILITY=Archetype|GROUP=MonkDiamondSoul|FLAG=MonkDiamondSoul|SET|True
+MODIFYOTHER:ABILITY=Archetype|GROUP=MonkQuiveringPalm|FLAG=MonkQuiveringPalm|SET|True
+MODIFYOTHER:ABILITY=Archetype|GROUP=MonkTongueOfTheSunAndMoon|FLAG=MonkTongueOfTheSunAndMoon|SET|True
+MODIFYOTHER:ABILITY=Archetype|GROUP=MonkTimelessBody|FLAG=MonkTimelessBody|SET|True
+MODIFYOTHER:ABILITY=Archetype|GROUP=MonkEmptyBody|FLAG=MonkEmptyBody|SET|True
+MODIFYOTHER:ABILITY=Archetype|GROUP=MonkPerfectSelf|FLAG=MonkPerfectSelf|SET|True
+
+# Wizard
+MODIFYOTHER:ABILITY=Archetype|GROUP=WizardClassSkills|FLAG=WizardClassSkills|SET|True
+MODIFYOTHER:ABILITY=Archetype|GROUP=WizardArcaneSchool|FLAG=WizardArcaneSchool|SET|True
+MODIFYOTHER:ABILITY=Archetype|GROUP=WizardWeaponProficiencies|FLAG=WizardWeaponProficiencies|SET|True
+MODIFYOTHER:ABILITY=Archetype|GROUP=WizardWeaponProficiencies|FLAG=WizardWeaponProficiencies|SET|True
+MODIFYOTHER:ABILITY=Archetype|GROUP=WizardScribeScroll|FLAG=WizardScribeScroll|SET|True
+MODIFYOTHER:ABILITY=Archetype|GROUP=WizardArcaneBond|FLAG=WizardArcaneBond|SET|True
+MODIFYOTHER:ABILITY=Archetype|GROUP=WizardCantrips|FLAG=WizardCantrips|SET|True
+MODIFYOTHER:ABILITY=Archetype|GROUP=WizardBonusFeats|FLAG=WizardBonusFeats|SET|True
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Then the other places also need to add to Grantors when they make something a class skill
+# they make something a class skill, so instead of a FLAG on the skill its a count.
+
+#CLASS:Fighter	MODIFYOTHER:SKILL|Ride|Grantors|ADD|1
+
+
+#<blah blah>if(getLocalVar("SKILL","Ride",Grantors>)=1,...stuff when a class skill...,...stuff when not a class skill...)
+#[20:39] Tom Parker: missed a ) after the s in Grantors
+#[20:39] Tom Parker: then in Skill Specialization, we need to do 2 things:
+
+#[20:40] Tom Parker: (1) Add to Grantors
+#[20:40] Tom Parker: MODIFYOTHER:SKILL|%LIST|Grantors|ADD|1
+#We can do this "innocently" as a readd because we actually WANT to count, the threshold is simply a test for >=1
+
+
+# Class Skill detection:
+#<blah blah>if(getLocalVar("SKILL","Ride",Grantors)>=1,...stuff when a class skill...,...stuff when not a class skill...)
+#is how class skill detection would be done in most places
+
+#MODIFYOTHER:SKILL|
+
+
+
+# Pathfinder Skill Specialization
+# Goes on the ability		MODIFYOTHER:SKILL|%LIST|SkillTotal|SOLVE|value()+if(Grantors>1,1,0)|PRIORITY=10000
+
+
+
+# Pathfinder MaxRank
+MODIFYOTHER:SKILL|ALL|MaxRank|SOLVE|TL
+
+
+#is the correct MODIFYOTEHR statement
+
+# MODIFYOTHER:SKILL|ALL|MaxRank|3+TL*0.5
+# For Cross Class Rank Difference:
+#	MODIFYOTHER:SKILL|CLASSLIST=Fighter|MaxRank|SOLVE|value()+CL*0.5|PRIORITY=1000
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#Global set to one if the flag is turned on
+MODIFY:ABILITYPOOL=Weapon Mastery|SET|if(context("FLAG",FighterWeaponMastery),0,1)
+
+#TL can be done in various ways, including putting this in the global file:
+MODIFYOTHER:CLASS|ALL|TL|ADD|classlevel()
+#CL is pointless, and can be handled by classlevel() if required
+
+# Which replaces this:
+#	BONUS:COMBAT|TOHIT.Melee|STR|TYPE=Ability|PREVAREQ:DisableToHitMeleeStr,0	
+#	BONUS:COMBAT|DAMAGE.Melee,DAMAGE.Thrown|STR|TYPE=Ability	
+#	BONUS:COMBAT|DAMAGEMULT:0|0.5*(STR>=0)	
+#	BONUS:COMBAT|DAMAGEMULT:1|1	
+#	BONUS:COMBAT|DAMAGEMULT:2|1.5*(STR>=0)	
+#	BONUS:COMBAT|DAMAGE.Splash|-STR|TYPE=Ability
+
+# This is for the OS to determine Bonuses in the Sheet.
+MODIFY:VAR=TWOHANDDAMAGEDIVISOR|SET|2
+MODIFY:VAR=OFFHANDLIGHTBONUS|SET|2
+
+
+
+MODIFYOTHER:EQUIPMENT|GROUP=somegroup|VAR=BaseCost|SOLVE|value()*0.5
+
+# From the SizeAdjustment.lst Email discussion
+MODIFYOTHER:EQUIPMENT.PART|GROUP=Weapon|MagicCost|SOLVE|value()+2000*(PlusCost.Weapon^2)
+MODIFYOTHER:EQUIPMENT.PART|GROUP=Armor|MagicCost|SOLVE|value()+1000*(PlusCost.Armor^2)
+MODIFYOTHER:EQUIPMENT.PART|GROUP=Shield|MagicCost|SOLVE|value()+1000*(PlusCost.Shield^2)

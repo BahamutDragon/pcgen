@@ -1,14 +1,14 @@
-# CVS $Revision: $ $Author: $ -- Thu Jan 23 19:18:03 2014 -- reformated by prettylst.pl v1.51 (build 22988)
+# CVS $Revision: $ $Author: $ -- Sun Aug 17 15:41:15 2014 -- reformated by prettylst.pl v1.51 (build 24906)
 
 
-# Class Name	Hit Dice	Type			Source Page		Define			Save checks bonus											Combat bonus
-CLASS:Crusader	HD:10		TYPE:PC.Base	SOURCEPAGE:p.8	DEFINE:CrusaderLVL|CL	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
+# Class Name	Hit Dice	Type			Source Page		Define			Combat bonus										Modify VAR				Bonus
+CLASS:Crusader	HD:10		TYPE:PC.Base	SOURCEPAGE:p.8	DEFINE:CrusaderLVL|0	BONUS:VAR|InitiatorClass|1	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|CrusaderLVL|CL	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Crusader	STARTSKILLPTS:4	CSKILL:Balance|Concentration|TYPE=Craft|Diplomacy|Intimidate|Jump|Knowledge (History)|Knowledge (Religion)|Martial Lore|Ride
-# Class Name	Spell Stat		Stat for Bonus Spells	Spell Type		Memorize	Caster level
-CLASS:Crusader	SPELLSTAT:WIS	BONUSSPELLSTAT:NONE	SPELLTYPE:Martial	MEMORIZE:NO	BONUS:CASTERLEVEL|Crusader|CrusaderInitiatorManeuverLVL
+# Class Name	Spell Stat		Spell Stat Bonus		Spell Type		Memorize	Caster level
+CLASS:Crusader	SPELLSTAT:WIS	BONUSSPELLSTAT:NONE	FACT:SpellType|Martial	MEMORIZE:NO	BONUS:CASTERLEVEL|Crusader|InitiatorManueverLVL	
 ###Block:
-1	ABILITY:Crusader Class Feature|AUTOMATIC|Crusader ~ Weapon and Armor Proficiency|Crusader ~ Maneuvers|Crusader ~ Maneuvers Readied|Crusader ~ Stances Known
+1	ABILITY:Crusader Class Feature|AUTOMATIC|Crusader ~ Maneuvers|Crusader ~ Maneuvers Readied|Crusader ~ Stances Known|Crusader ~ Weapon and Armor Proficiency
 1	ABILITY:Crusader Class Feature|AUTOMATIC|Crusader ~ Furious Counterstrike|Crusader ~ Steely Resolve
 2	ABILITY:Crusader Class Feature|AUTOMATIC|Crusader ~ Indomitable Soul
 3	ABILITY:Crusader Class Feature|AUTOMATIC|Crusader ~ Zealous Surge
@@ -16,84 +16,66 @@ CLASS:Crusader	SPELLSTAT:WIS	BONUSSPELLSTAT:NONE	SPELLTYPE:Martial	MEMORIZE:NO	B
 10	ABILITY:Crusader Class Feature|AUTOMATIC|Crusader ~ Die Hard
 12	ABILITY:Crusader Class Feature|AUTOMATIC|Crusader ~ Mettle
 ###Block:
-1								BONUS:VAR|SteelyResolveBonus|5+(5*(CL/4))
-6								BONUS:VAR|SmiteTimes|(CL+6)/12
-1								BONUS:VAR|CrusaderManueversKnown|(CL+9)/2					DEFINE:CrusaderManueversKnown|0
-1								BONUS:VAR|CrusaderStancesKnown|(CL+10)/6					DEFINE:CrusaderStancesKnown|0
-1								BONUS:VAR|CrusaderReadiedManuevers|(CL/10)+5				DEFINE:CrusaderReadiedManuevers|0
-1								BONUS:VAR|CrusaderInitiatorLVL|CrusaderLVL+(CrusaderLVL-TL/2)	DEFINE:CrusaderInitiatorLVL|0
-1								BONUS:VAR|CrusaderInitiatorManeuverLVL|(1+CrusaderInitiatorLVL)/2	DEFINE:CrusaderInitiatorManeuverLVL|0
-#Block:
+1	ABILITY:Class|AUTOMATIC|Crusader
+###Block:
 1:REPEATLEVEL:1	KNOWN:0,0,0,0,0,0,0,0,0,0
 
-# Class Name	Hit Dice	Type			Source Page		Define			Save checks bonus											Combat bonus
-CLASS:Swordsage	HD:8		TYPE:PC.Base	SOURCEPAGE:p.15	DEFINE:SwordsageLVL|CL	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4
+# Class Name	Hit Dice	Type			Source Page		Define			Combat bonus															Modify VAR																			Bonus
+CLASS:Swordsage	HD:8		TYPE:PC.Base	SOURCEPAGE:p.15	DEFINE:SwordsageLVL|0	BONUS:VAR|InitiatorClass|1	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|SwordsageLVL|CL	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Swordsage	STARTSKILLPTS:6	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Heal|Hide|Intimidate|Jump|Knowledge (History)|Knowledge (Local)|Knowledge (Nature)|Knowledge (Nobility and Royalty)|Listen|Martial Lore|Move Silently|TYPE=Profession|Ride|Sense Motive|Swim|Tumble
-# Class Name	Spell Stat		Stat for Bonus Spells	Spell Type		Memorize	Caster level
-CLASS:Swordsage	SPELLSTAT:WIS	BONUSSPELLSTAT:NONE	SPELLTYPE:Martial	MEMORIZE:NO	BONUS:CASTERLEVEL|Swordsage|SwordsageInitiatorManeuverLVL
+CLASS:Swordsage	STARTSKILLPTS:6	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Heal|Hide|Intimidate|Jump|Knowledge (History)|Knowledge (Local)|Knowledge (Nature)|Knowledge (nobility and royalty)|Listen|Martial Lore|Move Silently|TYPE=Profession|Ride|Sense Motive|Swim|Tumble
+# Class Name	Spell Stat		Spell Stat Bonus		Spell Type		Memorize	Caster level
+CLASS:Swordsage	SPELLSTAT:WIS	BONUSSPELLSTAT:NONE	FACT:SpellType|Martial	MEMORIZE:NO	BONUS:CASTERLEVEL|Swordsage|InitiatorManueverLVL
 ###Block:
-1	BONUS:VAR|SwordsageManueversKnown|5+CL						DEFINE:SwordsageManueversKnown|0
-1	BONUS:VAR|SwordsageStancesKnown|1+(CL>1)+(CL>4)+(CL>8)+(CL>13)+(CL>19)	DEFINE:SwordsageStancesKnown|0
-1	BONUS:VAR|SwordsageReadiedManuevers|4						DEFINE:SwordsageReadiedManuevers|0
-1	BONUS:VAR|SwordsageInitiatorLVL|SwordsageLVL+(SwordsageLVL-TL/2)		DEFINE:SwordsageInitiatorLVL|0
-1	BONUS:VAR|SwordsageInitiatorManeuverLVL|(1+SwordsageInitiatorLVL)/2	DEFINE:SwordsageInitiatorManeuverLVL|0
-1	BONUS:VAR|QuickToActBonus|1+(CL/5)							DEFINE:QuickToActBonus|0
+1	ABILITY:Class|AUTOMATIC|Swordsage
 ###Block:
-1								ABILITY:Swordsage Class Feature|AUTOMATIC|Swordsage ~ Weapon and Armor Proficiency|Swordsage ~ Maneuvers|Swordsage ~ Maneuvers Readied|Swordsage ~ Stances Known|Swordsage ~ Discipline Focus|Swordsage ~ Quick to Act
-2								ABILITY:Swordsage Class Feature|AUTOMATIC|Swordsage ~ AC Bonus
-7								ABILITY:Swordsage Class Feature|AUTOMATIC|Swordsage ~ Sense Magic
-9								ABILITY:Swordsage Class Feature|AUTOMATIC|Swordsage ~ Evasion
-17								ABILITY:Swordsage Class Feature|AUTOMATIC|Swordsage ~ Improved Evasion
-20								ABILITY:Swordsage Class Feature|AUTOMATIC|Swordsage ~ Dual Boost
-#Block:
+1	ABILITY:Swordsage Class Feature|AUTOMATIC|Swordsage ~ Discipline Focus|Swordsage ~ Maneuvers|Swordsage ~ Maneuvers Readied|Swordsage ~ Quick to Act|Swordsage ~ Stances Known|Swordsage ~ Weapon and Armor Proficiency
+2	ABILITY:Swordsage Class Feature|AUTOMATIC|Swordsage ~ AC Bonus
+7	ABILITY:Swordsage Class Feature|AUTOMATIC|Swordsage ~ Sense Magic
+9	ABILITY:Swordsage Class Feature|AUTOMATIC|Swordsage ~ Evasion
+17	ABILITY:Swordsage Class Feature|AUTOMATIC|Swordsage ~ Improved Evasion
+20	ABILITY:Swordsage Class Feature|AUTOMATIC|Swordsage ~ Dual Boost
+###Block:
 1:REPEATLEVEL:1	KNOWN:0,0,0,0,0,0,0,0,0,0
 
-# Class Name	Hit Dice	Type			Source Page		Define			Save checks bonus											Combat bonus
-CLASS:Warblade	HD:12		TYPE:PC.Base	SOURCEPAGE:p.20	DEFINE:WarbladeLVL|CL	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
+# Class Name	Hit Dice	Type			Source Page		Define			Combat bonus										Modify VAR				Bonus
+CLASS:Warblade	HD:12		TYPE:PC.Base	SOURCEPAGE:p.20	DEFINE:WarbladeLVL|0	BONUS:VAR|InitiatorClass|1	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|WarbladeLVL|CL	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Warblade	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Diplomacy|Intimidate|Jump|Knowledge (History)|Knowledge (Local)|Martial Lore|Swim|Tumble
-# Class Name	Spell Stat		Stat for Bonus Spells	Spell Type		Memorize	Caster level
-CLASS:Warblade	SPELLSTAT:WIS	BONUSSPELLSTAT:NONE	SPELLTYPE:Martial	MEMORIZE:NO	BONUS:CASTERLEVEL|Warblade|WarbladeInitiatorManeuverLVL
+# Class Name	Spell Stat		Spell Stat Bonus		Spell Type		Memorize	Caster level
+CLASS:Warblade	SPELLSTAT:WIS	BONUSSPELLSTAT:NONE	FACT:SpellType|Martial	MEMORIZE:NO	BONUS:CASTERLEVEL|Warblade|InitiatorManueverLVL
 ###Block:
-1	BONUS:VAR|WarbladeManueversKnown|(WarbladeLVL+5/2)+(CL>1)			DEFINE:WarbladeManueversKnown|0
-1	BONUS:VAR|WarbladeStancesKnown|1+(CL>2)+(CL>9)+(CL>15)			DEFINE:WarbladeStancesKnown|0
-1	BONUS:VAR|WarbladeReadiedManuevers|3+(CL>3)+(CL>9)+(CL>14)+(CL>19)	DEFINE:WarbladeReadiedManuevers|0
-1	BONUS:VAR|WarbladeInitiatorLVL|WarbladeLVL+(WarbladeLVL-TL/2)		DEFINE:WarbladeInitiatorLVL|0
-1	BONUS:VAR|WarbladeInitiatorManeuverLVL|(1+WarbladeInitiatorLVL)/2		DEFINE:WarbladeInitiatorManeuverLVL|0
+1	ABILITY:Class|AUTOMATIC|Warblade
 ###Block:
-1								ABILITY:Warblade Class Feature|AUTOMATIC|Warblade ~ Weapon and Armor Proficiency|Warblade ~ Maneuvers|Warblade ~ Maneuvers Readied|Warblade ~ Stances Known|Warblade ~ Battle Clarity|Warblade ~ Weapon Aptitude
-2								ABILITY:Warblade Class Feature|AUTOMATIC|Warblade ~ Uncanny Dodge
-3								ABILITY:Warblade Class Feature|AUTOMATIC|Warblade ~ Battle Ardor
-5								ABILITY:Warblade Class Feature|AUTOMATIC|Warblade ~ Bonus Feat
-6								ABILITY:Warblade Class Feature|AUTOMATIC|Warblade ~ Improved Uncanny Dodge
-7								ABILITY:Warblade Class Feature|AUTOMATIC|Warblade ~ Battle Cunning
-11								ABILITY:Warblade Class Feature|AUTOMATIC|Warblade ~ Battle Skill
-15								ABILITY:Warblade Class Feature|AUTOMATIC|Warblade ~ Battle Mastery
-20								ABILITY:Warblade Class Feature|AUTOMATIC|Warblade ~ Stance Mastery
-#Block:
+1	ABILITY:Warblade Class Feature|AUTOMATIC|Warblade ~ Battle Clarity|Warblade ~ Maneuvers|Warblade ~ Maneuvers Readied|Warblade ~ Stances Known|Warblade ~ Weapon and Armor Proficiency|Warblade ~ Weapon Aptitude
+2	ABILITY:Warblade Class Feature|AUTOMATIC|Warblade ~ Uncanny Dodge
+3	ABILITY:Warblade Class Feature|AUTOMATIC|Warblade ~ Battle Ardor
+5	ABILITY:Warblade Class Feature|AUTOMATIC|Warblade ~ Bonus Feat
+6	ABILITY:Warblade Class Feature|AUTOMATIC|Warblade ~ Improved Uncanny Dodge
+7	ABILITY:Warblade Class Feature|AUTOMATIC|Warblade ~ Battle Cunning
+11	ABILITY:Warblade Class Feature|AUTOMATIC|Warblade ~ Battle Skill
+15	ABILITY:Warblade Class Feature|AUTOMATIC|Warblade ~ Battle Mastery
+20	ABILITY:Warblade Class Feature|AUTOMATIC|Warblade ~ Stance Mastery
+###Block:
 1:REPEATLEVEL:1	KNOWN:0,0,0,0,0,0,0,0,0,0
 
 ###Block: @Prestige Classes	96+
 
 # Class Name		Hit Dice	Type			Max Level	Source Page
-CLASS:Bloodclaw Master	HD:12		TYPE:Prestige.PC	MAXLEVEL:5	SOURCEPAGE:p.96
+CLASS:Bloodclaw Master	HD:12		TYPE:Prestige.PC	MAXLEVEL:5	SOURCEPAGE:p.96	DEFINE:BloodclawMasterLVL|0	BONUS:VAR|BloodclawMasterLVL|CL	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required Ability									Required Feat					Required Skill	Required Text
-CLASS:Bloodclaw Master	PREABILITY:3,CATEGORY=Special Ability,TYPE.Tiger Claw Maneuver	PREFEAT:1,Multiattack,Two-Weapon Fighting	PRESKILL:1,Jump=9	PRETEXT:Martial Maneuvers: Must know three Tiger Claw maneuvers.
+CLASS:Bloodclaw Master	PREABILITY:3,CATEGORY=Special Ability,TYPE.Tiger Claw Maneuver	PREABILITY:1,CATEGORY=FEAT,Multiattack,Two-Weapon Fighting	PRESKILL:1,Jump=9	PRETEXT:Martial Maneuvers: Must know three Tiger Claw maneuvers.
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Bloodclaw Master	STARTSKILLPTS:2	CSKILL:Balance|Climb|Handle Animal|Hide|Jump|Knowledge (Nature)|Listen|Martial Lore|Move Silently|Spot|Survival
 ###Block:
 1	ABILITY:Bloodclaw Master Class Feature|AUTOMATIC|Bloodclaw Master ~ Maneuvers
-1	ABILITY:Bloodclaw Master Class Feature|AUTOMATIC|Bloodclaw Master ~ Shifting|Bloodclaw Master ~ Claws of the Beast
+1	ABILITY:Bloodclaw Master Class Feature|AUTOMATIC|Bloodclaw Master ~ Claws of the Beast|Bloodclaw Master ~ Shifting
 2	ABILITY:Bloodclaw Master Class Feature|AUTOMATIC|Bloodclaw Master ~ Superior Two-Weapon Fighting|Bloodclaw Master ~ Tiger Claw Synergy
-3	ABILITY:Bloodclaw Master Class Feature|AUTOMATIC|Bloodclaw Master ~ Pouncing Strike|Bloodclaw Master ~ Low-Light Vision
+3	ABILITY:Bloodclaw Master Class Feature|AUTOMATIC|Bloodclaw Master ~ Low-Light Vision|Bloodclaw Master ~ Pouncing Strike
 5	ABILITY:Bloodclaw Master Class Feature|AUTOMATIC|Bloodclaw Master ~ Rending Claws|Bloodclaw Master ~ Scent
-###Block:
-1	BONUS:VAR|ShiftingTimes|(CL+1)/2
-2	BONUS:VAR|TigerClawSynergyLVL|CL/2	DEFINE:TigerClawSynergyLVL|0
 
 # Class Name		Hit Dice	Type			Source Page
-CLASS:Bloodstorm Blade	HD:12		TYPE:Prestige.PC	SOURCEPAGE:p.100
+CLASS:Bloodstorm Blade	HD:12		TYPE:Prestige.PC	SOURCEPAGE:p.100	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Bloodstorm Blade	STARTSKILLPTS:4	CSKILL:Balance|Concentration|TYPE=Craft|Intimidate|Jump|Martial Lore|Spot|Tumble
 1	ABILITY:Bloodstorm Blade Class Feature|AUTOMATIC|Bloodstorm Blade ~ Returning Attacks|Bloodstorm Blade ~ Throw Anything|Bloodstorm Blade ~ Weapon Aptitude
@@ -105,14 +87,14 @@ CLASS:Bloodstorm Blade	STARTSKILLPTS:4	CSKILL:Balance|Concentration|TYPE=Craft|I
 8	ABILITY:Bloodstorm Blade Class Feature|AUTOMATIC|Bloodstorm Blade ~ Blood Rain
 10	ABILITY:Bloodstorm Blade Class Feature|AUTOMATIC|Bloodstorm Blade ~ Blade Storm
 ###Block:
-3	BONUS:VAR|FighterBonusFeatCount|CL/3
+3	BONUS:VAR|FighterBonusFeatCount|classlevel("APPLIEDAS=NONEPIC")/3
 ###Block:
 11	PREPCLEVEL:MIN=20
 
 # Class Name			Hit Dice	Type			Max Level	Source Page
-CLASS:Deepstone Sentinel	HD:10		TYPE:Prestige.PC	MAXLEVEL:5	SOURCEPAGE:p.105
-# Class Name			Required Ability																				Required Feat				Multiple Requirements						Required Race	Required Skill		Required Text
-CLASS:Deepstone Sentinel	PREABILITY:2,CATEGORY=Special Ability,TYPE.Stone Dragon Maneuver	PREABILITY:1,CATEGORY=Special Ability,TYPE.Stone Dragon Stance	PREFEAT:1,Power Attack,Stone Power	PREMULT:1,[PREATT:10],[PREVARGTEQ:BaseAttackBonus,10]	PRERACE:1,Dwarf	PRESKILL:1,Balance=13	PRETEXT:Martial Maneuvers: Must know at least two Stone Dragon maneuvers and one Stone Dragon stance.
+CLASS:Deepstone Sentinel	HD:10		TYPE:Prestige.PC	MAXLEVEL:5	SOURCEPAGE:p.105	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name			Required Ability																				Required Feat				Required Race	Required Skill		Required Text															PRETOTALAB
+CLASS:Deepstone Sentinel	PREABILITY:2,CATEGORY=Special Ability,TYPE.Stone Dragon Maneuver	PREABILITY:1,CATEGORY=Special Ability,TYPE.Stone Dragon Stance	PREABILITY:1,CATEGORY=FEAT,Power Attack,Stone Power	PRERACE:1,Dwarf	PRESKILL:1,Balance=13	PRETEXT:Martial Maneuvers: Must know at least two Stone Dragon maneuvers and one Stone Dragon stance.	PRETOTALAB:10
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Deepstone Sentinel	STARTSKILLPTS:2	CSKILL:Balance|Concentration|TYPE=Craft|Intimidate|Knowledge (Dungeoneering)|Listen|Martial Lore|Spot
 ###Block:
@@ -120,17 +102,17 @@ CLASS:Deepstone Sentinel	STARTSKILLPTS:2	CSKILL:Balance|Concentration|TYPE=Craft
 1	ABILITY:Deepstone Sentinel Class Feature|AUTOMATIC|Deepstone Sentinel ~ Mountain Fortress Stance|Deepstone Sentinel ~ Passwall
 2	ABILITY:Deepstone Sentinel Class Feature|AUTOMATIC|Deepstone Sentinel ~ Crashing Mountain Juggernaut
 3	ABILITY:Deepstone Sentinel Class Feature|AUTOMATIC|Deepstone Sentinel ~ Indomitable Redoubt
-4	ABILITY:Deepstone Sentinel Class Feature|AUTOMATIC|Deepstone Sentinel ~ Stone Curse|Deepstone Sentinel ~ Dragon's Tooth
+4	ABILITY:Deepstone Sentinel Class Feature|AUTOMATIC|Deepstone Sentinel ~ Dragon's Tooth|Deepstone Sentinel ~ Stone Curse
 5	ABILITY:Deepstone Sentinel Class Feature|AUTOMATIC|Deepstone Sentinel ~ Awaken the Stone Dragon
 ###Block:
 1	BONUS:ABILITYPOOL|Martial Maneuvers Known|1
 3	BONUS:ABILITYPOOL|Martial Maneuvers Known|1	BONUS:ABILITYPOOL|Martial Maneuvers Readied|1
 5	BONUS:ABILITYPOOL|Martial Maneuvers Known|1
 
-# Class Name		Hit Dice	Type			Source Page		Save checks bonus											Combat bonus
-CLASS:Eternal Blade	HD:10		TYPE:Prestige.PC	SOURCEPAGE:p.109	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
-# Class Name		Required Feat		Multiple Requirements																															Required Race	Required Text
-CLASS:Eternal Blade	PREFEAT:1,Weapon Focus	PREMULT:1,[PREATT:10],[PREVARGTEQ:BaseAttackBonus,10]	PREMULT:1,[PREABILITY:2,CATEGORY=Special Ability,TYPE.Devoted Spirit Maneuver],[PREABILITY:2,CATEGORY=Special Ability,TYPE.Diamond Mind Maneuver]	PRERACE:1,Elf	PRETEXT:Martial Maneuvers: Any two Devoted Spirit or Diamond Mind maneuvers.
+# Class Name		Hit Dice	Type			Source Page		Combat bonus										Bonus
+CLASS:Eternal Blade	HD:10		TYPE:Prestige.PC	SOURCEPAGE:p.109	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name		Required Feat		Multiple Requirements																						Required Race	Required Text											PRETOTALAB
+CLASS:Eternal Blade	PREABILITY:1,CATEGORY=FEAT,Weapon Focus	PREMULT:1,[PREABILITY:2,CATEGORY=Special Ability,TYPE.Devoted Spirit Maneuver],[PREABILITY:2,CATEGORY=Special Ability,TYPE.Diamond Mind Maneuver]	PRERACE:1,Elf	PRETEXT:Martial Maneuvers: Any two Devoted Spirit or Diamond Mind maneuvers.	PRETOTALAB:10
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Eternal Blade	STARTSKILLPTS:2	CSKILL:Climb|Concentration|Diplomacy|Handle Animal|Intimidate|Jump|Martial Lore|Ride|Sense Motive|Tumble
 ###Block:
@@ -147,14 +129,15 @@ CLASS:Eternal Blade	STARTSKILLPTS:2	CSKILL:Climb|Concentration|Diplomacy|Handle 
 ###Block:
 11	PREPCLEVEL:MIN=20
 
-# Class Name		Hit Dice	Type			Source Page		Save checks bonus											Combat bonus
-CLASS:Jade Phoenix Mage	HD:6		TYPE:Prestige.PC	SOURCEPAGE:p.113	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
+# Class Name		Hit Dice	Type			Source Page		Combat bonus										Bonus
+CLASS:Jade Phoenix Mage	HD:6		TYPE:Prestige.PC	SOURCEPAGE:p.113	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	DEFINE:Jade_Phoenix_MageLVL|0	BONUS:VAR|Jade_Phoenix_MageLVL|CL	BONUS:VAR|HighestInitiatorLVL|Jade_Phoenix_MageLVL
 # Class Name		Required Ability							Restricted AL		Multiple Requirements																		Required Skill														Req. Spell Type		Required Text
 CLASS:Jade Phoenix Mage	PREABILITY:1,CATEGORY=Special Ability,TYPE.Stance	!PREALIGN:LE,NE,CE	PREMULT:2,[PREABILITY:2,CATEGORY=Special Ability,TYPE.Martial Maneuver],[PREABILITY:1,CATEGORY=Special Ability,TYPE.Strike]	PRESKILL:4,Concentration=9,Knowledge (Arcana)=2,Knowledge (History)=2,Knowledge (Religion)=2	PRESPELLTYPE:1,Arcane=2	PRETEXT:Alignment: Any nonevil. Skills: Concentration 9 ranks, Knowledge (arcana) 2 ranks, Knowledge (history) 2 ranks, Knowledge (religion) 2 ranks. Martial Maneuvers: Must know at least two martial maneuvers, including one strike. Martial Stances: Must know at least one martial stance. Spells: Ability to cast 2nd-level arcane spells.
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Jade Phoenix Mage	STARTSKILLPTS:2	CSKILL:Climb|Concentration|Diplomacy|Handle Animal|Intimidate|Jump|Martial Lore|Ride|Sense Motive|Tumble
+CLASS:Jade Phoenix Mage	SPELLSTAT:WIS	BONUSSPELLSTAT:NONE	FACT:SpellType|Martial	MEMORIZE:NO	BONUS:CASTERLEVEL|Jade Phoenix Mage|InitiatorManueverLVL
 ###Block:
-1	ABILITY:Jade Phoenix Mage Class Feature|AUTOMATIC|Jade Phoenix Mage ~ Spellcasting|Jade Phoenix Mage ~ Maneuvers|Jade Phoenix Mage ~ Stances Known
+1	ABILITY:Jade Phoenix Mage Class Feature|AUTOMATIC|Jade Phoenix Mage ~ Maneuvers|Jade Phoenix Mage ~ Spellcasting|Jade Phoenix Mage ~ Stances Known
 1	ABILITY:Jade Phoenix Mage Class Feature|AUTOMATIC|Jade Phoenix Mage ~ Arcane Wrath|Jade Phoenix Mage ~ Rite of Waking
 2	ABILITY:Jade Phoenix Mage Class Feature|AUTOMATIC|Jade Phoenix Mage ~ Mystic Phoenix Stance
 4	ABILITY:Jade Phoenix Mage Class Feature|AUTOMATIC|Jade Phoenix Mage ~ Empowering Strike
@@ -162,15 +145,17 @@ CLASS:Jade Phoenix Mage	STARTSKILLPTS:2	CSKILL:Climb|Concentration|Diplomacy|Han
 8	ABILITY:Jade Phoenix Mage Class Feature|AUTOMATIC|Jade Phoenix Mage ~ Quickening Strike
 10	ABILITY:Jade Phoenix Mage Class Feature|AUTOMATIC|Jade Phoenix Mage ~ Emerald Immolation
 ###Block:
-2:REPEATLEVEL:1|MAX=5	ADD:SPELLCASTER|ANY
-7:REPEATLEVEL:1|MAX=10	ADD:SPELLCASTER|ANY
+2:REPEATLEVEL:1|MAX=5	ADD:SPELLCASTER|Arcane
+7:REPEATLEVEL:1|MAX=10	ADD:SPELLCASTER|Arcane
+###Block:
+1:REPEATLEVEL:1	KNOWN:0,0,0,0,0,0,0,0,0,0
 ###Block:
 11	PREPCLEVEL:MIN=20
 
-# Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Master of Nine	HD:8		TYPE:Prestige.PC	MAXLEVEL:5	SOURCEPAGE:p.119	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*3/4
-# Class Name		Required Feat													Multiple Requirements																																																																																																			Required Skill																Required Text
-CLASS:Master of Nine	PREFEAT:5,Adaptive Style,Dodge,Blind-Fight,Improved Initiative,Improved Unarmed Strike	PREMULT:6,[PREABILITY:1,CATEGORY=Special Ability,TYPE.Desert Wind Maneuver],[PREABILITY:1,CATEGORY=Special Ability,TYPE.Devoted Spirit Maneuver],[PREABILITY:1,CATEGORY=Special Ability,TYPE.Diamond Mind Maneuver],[PREABILITY:1,CATEGORY=Special Ability,TYPE.Iron Heart Maneuver],[PREABILITY:1,CATEGORY=Special Ability,TYPE.Setting Sun Maneuver],[PREABILITY:1,CATEGORY=Special Ability,TYPE.Shadow Hand Maneuver],[PREABILITY:1,CATEGORY=Special Ability,TYPE.Stone Dragon Maneuver],[PREABILITY:1,CATEGORY=Special Ability,TYPE.Tiger Claw Maneuver],[PREABILITY:1,CATEGORY=Special Ability,TYPE.White Raven Maneuver]	PRESKILL:4,Tumble=10,Intimidate=10,Concentration=10,Balance=10,Sense Motive=10,Hide=10,Jump=10,Diplomacy=10	PRETEXT:Skills: 10 ranks in four key discipline skills. Feats: Adaptive Style*, Dodge, Blind-Fight, Improved Initiative, Improved Unarmed Strike. Martial Maneuvers: Must know at least one maneuver from six different disciplines.
+# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus															Modify VAR														Bonus
+CLASS:Master of Nine	DEFINE:MasterofNineLVL|0	BONUS:VAR|MasterofNineLVL|CL	HD:8		TYPE:Prestige.PC	MAXLEVEL:5	SOURCEPAGE:p.119	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name		Required Ability																																												Required Feat													Required Skill																Required Text
+CLASS:Master of Nine	PREABILITY:6,CATEGORY=Special Ability,TYPE.Desert Wind Maneuver,TYPE.Devoted Spirit Maneuver,TYPE.Diamond Mind Maneuver,TYPE.Iron Heart Maneuver,TYPE.Setting Sun Maneuver,TYPE.Shadow Hand Maneuver,TYPE.Stone Dragon Maneuver,TYPE.Tiger Claw Maneuver,TYPE.White Raven Maneuver	PREABILITY:5,CATEGORY=FEAT,Adaptive Style,Dodge,Blind-Fight,Improved Initiative,Improved Unarmed Strike	PRESKILL:4,Tumble=10,Intimidate=10,Concentration=10,Balance=10,Sense Motive=10,Hide=10,Jump=10,Diplomacy=10	PRETEXT:Skills: 10 ranks in four key discipline skills. Feats: Adaptive Style*, Dodge, Blind-Fight, Improved Initiative, Improved Unarmed Strike. Martial Maneuvers: Must know at least one maneuver from six different disciplines.
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Master of Nine	STARTSKILLPTS:6	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Diplomacy|Hide|Intimidate|Jump|Knowledge (History)|Knowledge (Local)|Martial Lore|Sense Motive|Swim|Tumble
 ###Block:
@@ -179,13 +164,9 @@ CLASS:Master of Nine	STARTSKILLPTS:6	CSKILL:Balance|Climb|Concentration|TYPE=Cra
 3	ABILITY:Master of Nine Class Feature|AUTOMATIC|Master of Nine ~ Perfect Form
 4	ABILITY:Master of Nine Class Feature|AUTOMATIC|Master of Nine ~ Counter Stance
 5	ABILITY:Master of Nine Class Feature|AUTOMATIC|Master of Nine ~ Mastery Of Nine
-###Block:
-2	BONUS:VAR|MasterOfNineStancesKnown|CL/2
-1	BONUS:VAR|MasterOfNineManeuversKnown|CL+1+(CL>2)+(CL>4)
-1	BONUS:VAR|MasterOfNineManeuversReadied|CL
 
-# Class Name			Hit Dice	Type			Source Page		Save checks bonus											Combat bonus
-CLASS:Ruby Knight Vindicator	HD:8		TYPE:Prestige.PC	SOURCEPAGE:p.122	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL
+# Class Name			Hit Dice	Type			Source Page		Combat bonus										Bonus
+CLASS:Ruby Knight Vindicator	HD:8		TYPE:Prestige.PC	SOURCEPAGE:p.122	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name			Required Ability																																		Required Deity		Required Skill							Required Text
 CLASS:Ruby Knight Vindicator	PREABILITY:1,CATEGORY=Special Ability,TYPE.Devoted Spirit Maneuver	PREABILITY:1,CATEGORY=Special Ability,TYPE.Devoted Spirit Stance	PREABILITY:1,CATEGORY=Special Ability,TYPE.Turn Undead,TYPE.Rebuke Undead	PREDEITY:1,Wee Jas	PRESKILL:3,Hide=4,Intimidate=4,Knowledge (Religion)=8	PRETEXT:Skills: Hide 4 ranks, Intimidate 4 ranks, Knowledge (religion) 8 ranks. Martial Maneuvers: Must know at least one Devoted Spirit maneuver. Martial Stancess: Must know at least one Devoted Spirit stance. Deity: Wee Jas. Special: Ability to turn or rebuke undead.
 # Class Name			Skill Pts/Lvl	Class Skill
@@ -194,7 +175,7 @@ CLASS:Ruby Knight Vindicator	STARTSKILLPTS:4	CSKILL:Balance|Concentration|TYPE=C
 2:REPEATLEVEL:1|MAX=5	ADD:SPELLCASTER|Divine
 7:REPEATLEVEL:1|MAX=10	ADD:SPELLCASTER|Divine
 ###Block:
-1	ABILITY:Ruby Knight Vindicator Class Feature|AUTOMATIC|Ruby Knight Vindicator ~ Spellcasting|Ruby Knight Vindicator ~ Maneuvers|Ruby Knight Vindicator ~ Stances Known|Ruby Knight Vindicator ~ Multiclass Note
+1	ABILITY:Ruby Knight Vindicator Class Feature|AUTOMATIC|Ruby Knight Vindicator ~ Maneuvers|Ruby Knight Vindicator ~ Multiclass Note|Ruby Knight Vindicator ~ Spellcasting|Ruby Knight Vindicator ~ Stances Known
 2	ABILITY:Ruby Knight Vindicator Class Feature|AUTOMATIC|Ruby Knight Vindicator ~ Divine Recovery
 5	ABILITY:Ruby Knight Vindicator Class Feature|AUTOMATIC|Ruby Knight Vindicator ~ Armored Stealth
 7	ABILITY:Ruby Knight Vindicator Class Feature|AUTOMATIC|Ruby Knight Vindicator ~ Divine Impetus
@@ -202,12 +183,12 @@ CLASS:Ruby Knight Vindicator	STARTSKILLPTS:4	CSKILL:Balance|Concentration|TYPE=C
 ###Block:
 11	PREPCLEVEL:MIN=20
 
-# Class Name		Hit Dice	Type			Source Page		Save checks bonus								Combat bonus
-CLASS:Shadow Sun Ninja	HD:8		TYPE:Prestige.PC	SOURCEPAGE:p.126	BONUS:CHECKS|BASE.Will,BASE.Reflex,BASE.Fortitude|CL/2+2	BONUS:COMBAT|BAB|CL*3/4
-# Class Name		Required Ability																																				Required AL		Required Feat				Multiple Requirements						Required Skill	Required Text
-CLASS:Shadow Sun Ninja	PREABILITY:1,CATEGORY=Special Ability,TYPE.Setting Sun Maneuver	PREABILITY:1,CATEGORY=Special Ability,TYPE.Shadow Hand Maneuver	PREABILITY:1,CATEGORY=Special Ability,TYPE.Shadow Hand Maneuver LVL2,Setting Sun Maneuver LVL2	PREALIGN:LG,NG,CG	PREFEAT:1,Improved Unarmed Strike	PREMULT:1,[PREATT:3],[PREVARGTEQ:BaseAttackBonus,3]	PRESKILL:1,Hide=8	PRETEXT:Alignment: Any good. Base Attack Bonus: +3. Skills: Hide 8 ranks. Feats: Improved Unarmed Strike. Martial Maneuvers: Must know one 2nd-level Setting Sun or Shadow Hand maneuver, one Setting Sun maneuver of any level, and one Shadow Hand maneuver of any level.
+# Class Name		Hit Dice	Type			Source Page		Combat bonus															Modify VAR														Bonus
+CLASS:Shadow Sun Ninja	HD:8		TYPE:Prestige.PC	SOURCEPAGE:p.126	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Will,BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name		Required Ability																																				Required AL		Required Feat				Required Skill	Required Text																																											PRETOTALAB
+CLASS:Shadow Sun Ninja	PREABILITY:1,CATEGORY=Special Ability,TYPE.Setting Sun Maneuver	PREABILITY:1,CATEGORY=Special Ability,TYPE.Shadow Hand Maneuver	PREABILITY:1,CATEGORY=Special Ability,TYPE.Shadow Hand Maneuver LVL2,Setting Sun Maneuver LVL2	PREALIGN:LG,NG,CG	PREABILITY:1,CATEGORY=FEAT,Improved Unarmed Strike	PRESKILL:1,Hide=8	PRETEXT:Alignment: Any good. Base Attack Bonus: +3. Skills: Hide 8 ranks. Feats: Improved Unarmed Strike. Martial Maneuvers: Must know one 2nd-level Setting Sun or Shadow Hand maneuver, one Setting Sun maneuver of any level, and one Shadow Hand maneuver of any level.	PRETOTALAB:3
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Shadow Sun Ninja	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Diplomacy|Escape Artist|Hide|Jump|Knowledge (Arcana)|Knowledge (The Planes)|Knowledge (Religion)|Listen|Martial Lore|Move Silently|TYPE=Perform|TYPE=Profession|Sense Motive|Spot|Swim|Tumble
+CLASS:Shadow Sun Ninja	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Diplomacy|Escape Artist|Hide|Jump|Knowledge (arcana)|Knowledge (The Planes)|Knowledge (Religion)|Listen|Martial Lore|Move Silently|TYPE=Perform|TYPE=Profession|Sense Motive|Spot|Swim|Tumble
 ###Block:
 1	ABILITY:Shadow Sun Ninja Class Feature|AUTOMATIC|Shadow Sun Ninja ~ Maneuvers|Shadow Sun Ninja ~ Stances Known
 1	ABILITY:Shadow Sun Ninja Class Feature|AUTOMATIC|Shadow Sun Ninja ~ Monk Abilities|Shadow Sun Ninja ~ Touch of the Shadow Sun

@@ -1,0 +1,11 @@
+# CVS $Revision: $ $Author: $ -- Sun Dec  8 22:17:49 2013 -- reformated by prettylst.pl v1.50 (build 22352)
+
+
+# Skill Name		Key Stat	Untrained?		Classes	Type				Visible		Req. Rule (in options)		Required Template				Prohibited Var. Value											Source Page		Bonus to skill								Bonus to skill rank
+Control Shape		KEYSTAT:WIS	USEUNTRAINED:YES			TYPE:Wisdom.Standard									PRETEMPLATE:1,Afflicted Lycanthrope															SOURCEPAGE:p.303
+
+
+# Conditional
+Diplomacy (Red Dragons)	KEYSTAT:CHA	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse		VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE							PREVARNEQ:var("SKILL.Diplomacy (Red Dragons).MISC"),var("SKILL.Diplomacy.MISC")	SOURCEPAGE:p.128
+
+Diplomacy.MOD																																												BONUS:SKILL|Diplomacy (Red Dragons)|SKILL.Diplomacy.MISC	BONUS:SKILLRANK|Diplomacy (Red Dragons)|SKILLRANK=Diplomacy|TYPE=SkillGranted|PRERULE:1,DISPLAYSKILLUSE

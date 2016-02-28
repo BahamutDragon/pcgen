@@ -1,0 +1,308 @@
+# CVS $Revision: $ $Author: $ -- Thu Jul 10 13:59:32 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+
+###Block: Size Mods for Automatic Changes
+# Ability Name	Category of Ability	Visible	Template
+REACH_0		CATEGORY:Internal		VISIBLE:NO	TEMPLATE:REACH_0
+REACH_5		CATEGORY:Internal		VISIBLE:NO	TEMPLATE:REACH_5
+REACH_10		CATEGORY:Internal		VISIBLE:NO	TEMPLATE:REACH_10
+REACH_15		CATEGORY:Internal		VISIBLE:NO	TEMPLATE:REACH_15
+REACH_20		CATEGORY:Internal		VISIBLE:NO	TEMPLATE:REACH_20
+REACH_30		CATEGORY:Internal		VISIBLE:NO	TEMPLATE:REACH_30
+#
+FACE_0		CATEGORY:Internal		VISIBLE:NO	TEMPLATE:FACE_0
+FACE_1		CATEGORY:Internal		VISIBLE:NO	TEMPLATE:FACE_1
+FACE_2		CATEGORY:Internal		VISIBLE:NO	TEMPLATE:FACE_2
+FACE_5		CATEGORY:Internal		VISIBLE:NO	TEMPLATE:FACE_5
+FACE_10		CATEGORY:Internal		VISIBLE:NO	TEMPLATE:FACE_10
+FACE_15		CATEGORY:Internal		VISIBLE:NO	TEMPLATE:FACE_15
+FACE_20		CATEGORY:Internal		VISIBLE:NO	TEMPLATE:FACE_20
+FACE_30		CATEGORY:Internal		VISIBLE:NO	TEMPLATE:FACE_30
+#
+SIZE_F		CATEGORY:Internal		VISIBLE:NO	TEMPLATE:SIZE_F
+SIZE_D		CATEGORY:Internal		VISIBLE:NO	TEMPLATE:SIZE_D
+SIZE_T		CATEGORY:Internal		VISIBLE:NO	TEMPLATE:SIZE_T
+SIZE_S		CATEGORY:Internal		VISIBLE:NO	TEMPLATE:SIZE_S
+SIZE_M		CATEGORY:Internal		VISIBLE:NO	TEMPLATE:SIZE_M
+SIZE_L		CATEGORY:Internal		VISIBLE:NO	TEMPLATE:SIZE_L
+SIZE_H		CATEGORY:Internal		VISIBLE:NO	TEMPLATE:SIZE_H
+SIZE_G		CATEGORY:Internal		VISIBLE:NO	TEMPLATE:SIZE_G
+SIZE_C		CATEGORY:Internal		VISIBLE:NO	TEMPLATE:SIZE_C
+SIZE_C+		CATEGORY:Internal		VISIBLE:NO	TEMPLATE:SIZE_C+
+
+###Block: Tracker for Size
+CATEGORY=Internal|Default.MOD		ABILITY:Internal|AUTOMATIC|Size Tracker
+Size Tracker		CATEGORY:Internal	DEFINE:BaseSize|0	DEFINE:CurrentSize|0	ABILITY:Internal|AUTOMATIC|Base Size ~ Fine|PREBASESIZEEQ:F	ABILITY:Internal|AUTOMATIC|Base Size ~ Diminutive|PREBASESIZEEQ:D	ABILITY:Internal|AUTOMATIC|Base Size ~ Tiny|PREBASESIZEEQ:T	ABILITY:Internal|AUTOMATIC|Base Size ~ Small|PREBASESIZEEQ:S	ABILITY:Internal|AUTOMATIC|Base Size ~ Medium|PREBASESIZEEQ:Me	ABILITY:Internal|AUTOMATIC|Base Size ~ Large|PREBASESIZEEQ:L	ABILITY:Internal|AUTOMATIC|Base Size ~ Huge|PREBASESIZEEQ:H	ABILITY:Internal|AUTOMATIC|Base Size ~ Gargantuan|PREBASESIZEEQ:G	ABILITY:Internal|AUTOMATIC|Base Size ~ Colossal|PREBASESIZEEQ:C	ABILITY:Internal|AUTOMATIC|Current Size ~ Fine|PRESIZEEQ:F					ABILITY:Internal|AUTOMATIC|Current Size ~ Diminutive|PRESIZEEQ:D			ABILITY:Internal|AUTOMATIC|Current Size ~ Tiny|PRESIZEEQ:T					ABILITY:Internal|AUTOMATIC|Current Size ~ Small|PRESIZEEQ:S			ABILITY:Internal|AUTOMATIC|Current Size ~ Medium|PRESIZEEQ:M			ABILITY:Internal|AUTOMATIC|Current Size ~ Large|PRESIZEEQ:L			ABILITY:Internal|AUTOMATIC|Current Size ~ Huge|PRESIZEEQ:H					ABILITY:Internal|AUTOMATIC|Current Size ~ Gargantuan|PRESIZEEQ:G			ABILITY:Internal|AUTOMATIC|Current Size ~ Colossal|PRESIZEEQ:C			DEFINE:SizeIncrease|0	DEFINE:SizeDecrease|0	BONUS:VAR|SizeIncrease|CurrentSize-BaseSize	BONUS:VAR|SizeDecrease|BaseSize-CurrentSize
+#
+Current Size ~ Fine			CATEGORY:Internal	BONUS:VAR|CurrentSize|1
+Current Size ~ Diminutive		CATEGORY:Internal	BONUS:VAR|CurrentSize|2
+Current Size ~ Tiny			CATEGORY:Internal	BONUS:VAR|CurrentSize|3
+Current Size ~ Small			CATEGORY:Internal	BONUS:VAR|CurrentSize|4
+Current Size ~ Medium			CATEGORY:Internal	BONUS:VAR|CurrentSize|5
+Current Size ~ Large			CATEGORY:Internal	BONUS:VAR|CurrentSize|6
+Current Size ~ Huge			CATEGORY:Internal	BONUS:VAR|CurrentSize|7
+Current Size ~ Gargantuan		CATEGORY:Internal	BONUS:VAR|CurrentSize|8
+Current Size ~ Colossal			CATEGORY:Internal	BONUS:VAR|CurrentSize|9
+#
+Base Size ~ Fine				CATEGORY:Internal	BONUS:VAR|BaseSize|1
+Base Size ~ Diminutive			CATEGORY:Internal	BONUS:VAR|BaseSize|2
+Base Size ~ Tiny				CATEGORY:Internal	BONUS:VAR|BaseSize|3
+Base Size ~ Small				CATEGORY:Internal	BONUS:VAR|BaseSize|4
+Base Size ~ Medium			CATEGORY:Internal	BONUS:VAR|BaseSize|5
+Base Size ~ Large				CATEGORY:Internal	BONUS:VAR|BaseSize|6
+Base Size ~ Huge				CATEGORY:Internal	BONUS:VAR|BaseSize|7
+Base Size ~ Gargantuan			CATEGORY:Internal	BONUS:VAR|BaseSize|8
+Base Size ~ Colossal			CATEGORY:Internal	BONUS:VAR|BaseSize|9
+
+# Fine
+CATEGORY=Internal|Base Size ~ Fine.MOD		BONUS:STAT|DEX|-2|PREVARGTEQ:SizeIncrease,1|PREVAREQ:BypassSizeMods,0	
+CATEGORY=Internal|Base Size ~ Fine.MOD		BONUS:STAT|DEX|-2|PREVARGTEQ:SizeIncrease,2|PREVAREQ:BypassSizeMods,0	BONUS:STAT|STR|2|PREVARGTEQ:SizeIncrease,2|PREVAREQ:BypassSizeMods,0
+CATEGORY=Internal|Base Size ~ Fine.MOD		BONUS:STAT|DEX|-2|PREVARGTEQ:SizeIncrease,3|PREVAREQ:BypassSizeMods,0	BONUS:STAT|STR|4|PREVARGTEQ:SizeIncrease,3|PREVAREQ:BypassSizeMods,0
+CATEGORY=Internal|Base Size ~ Fine.MOD		BONUS:STAT|DEX|-2|PREVARGTEQ:SizeIncrease,4|PREVAREQ:BypassSizeMods,0	BONUS:STAT|STR|4|PREVARGTEQ:SizeIncrease,4|PREVAREQ:BypassSizeMods,0	BONUS:STAT|CON|2|PREVARGTEQ:SizeIncrease,4|PREVAREQ:BypassSizeMods,0
+CATEGORY=Internal|Base Size ~ Fine.MOD		BONUS:STAT|DEX|-2|PREVARGTEQ:SizeIncrease,5|PREVAREQ:BypassSizeMods,0	BONUS:STAT|STR|8|PREVARGTEQ:SizeIncrease,5|PREVAREQ:BypassSizeMods,0	BONUS:STAT|CON|4|PREVARGTEQ:SizeIncrease,5|PREVAREQ:BypassSizeMods,0	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK|PREVARGTEQ:SizeIncrease,5|PREVAREQ:BypassSizeMods,0
+CATEGORY=Internal|Base Size ~ Fine.MOD		BONUS:STAT|DEX|-2|PREVARGTEQ:SizeIncrease,6|PREVAREQ:BypassSizeMods,0	BONUS:STAT|STR|8|PREVARGTEQ:SizeIncrease,6|PREVAREQ:BypassSizeMods,0	BONUS:STAT|CON|4|PREVARGTEQ:SizeIncrease,6|PREVAREQ:BypassSizeMods,0	BONUS:COMBAT|AC|3|TYPE=NaturalArmor.STACK|PREVARGTEQ:SizeIncrease,6|PREVAREQ:BypassSizeMods,0	
+CATEGORY=Internal|Base Size ~ Fine.MOD														BONUS:STAT|STR|8|PREVARGTEQ:SizeIncrease,7|PREVAREQ:BypassSizeMods,0	BONUS:STAT|CON|4|PREVARGTEQ:SizeIncrease,7|PREVAREQ:BypassSizeMods,0	BONUS:COMBAT|AC|4|TYPE=NaturalArmor.STACK|PREVARGTEQ:SizeIncrease,7|PREVAREQ:BypassSizeMods,0
+CATEGORY=Internal|Base Size ~ Fine.MOD														BONUS:STAT|STR|8|PREVARGTEQ:SizeIncrease,8|PREVAREQ:BypassSizeMods,0	BONUS:STAT|CON|4|PREVARGTEQ:SizeIncrease,8|PREVAREQ:BypassSizeMods,0	BONUS:COMBAT|AC|5|TYPE=NaturalArmor.STACK|PREVARGTEQ:SizeIncrease,8|PREVAREQ:BypassSizeMods,0
+# Diminutive
+CATEGORY=Internal|Base Size ~ Diminutive.MOD		BONUS:STAT|DEX|-2|PREVARGTEQ:SizeIncrease,1|PREVAREQ:BypassSizeMods,0	BONUS:STAT|STR|2|PREVARGTEQ:SizeIncrease,1|PREVAREQ:BypassSizeMods,0
+CATEGORY=Internal|Base Size ~ Diminutive.MOD		BONUS:STAT|DEX|-2|PREVARGTEQ:SizeIncrease,2|PREVAREQ:BypassSizeMods,0	BONUS:STAT|STR|4|PREVARGTEQ:SizeIncrease,2|PREVAREQ:BypassSizeMods,0
+CATEGORY=Internal|Base Size ~ Diminutive.MOD		BONUS:STAT|DEX|-2|PREVARGTEQ:SizeIncrease,3|PREVAREQ:BypassSizeMods,0	BONUS:STAT|STR|4|PREVARGTEQ:SizeIncrease,3|PREVAREQ:BypassSizeMods,0	BONUS:STAT|CON|2|PREVARGTEQ:SizeIncrease,3|PREVAREQ:BypassSizeMods,0
+CATEGORY=Internal|Base Size ~ Diminutive.MOD		BONUS:STAT|DEX|-2|PREVARGTEQ:SizeIncrease,4|PREVAREQ:BypassSizeMods,0	BONUS:STAT|STR|8|PREVARGTEQ:SizeIncrease,4|PREVAREQ:BypassSizeMods,0	BONUS:STAT|CON|4|PREVARGTEQ:SizeIncrease,4|PREVAREQ:BypassSizeMods,0	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK|PREVARGTEQ:SizeIncrease,4|PREVAREQ:BypassSizeMods,0
+CATEGORY=Internal|Base Size ~ Diminutive.MOD		BONUS:STAT|DEX|-2|PREVARGTEQ:SizeIncrease,5|PREVAREQ:BypassSizeMods,0	BONUS:STAT|STR|8|PREVARGTEQ:SizeIncrease,5|PREVAREQ:BypassSizeMods,0	BONUS:STAT|CON|4|PREVARGTEQ:SizeIncrease,5|PREVAREQ:BypassSizeMods,0	BONUS:COMBAT|AC|3|TYPE=NaturalArmor.STACK|PREVARGTEQ:SizeIncrease,5|PREVAREQ:BypassSizeMods,0	
+CATEGORY=Internal|Base Size ~ Diminutive.MOD														BONUS:STAT|STR|8|PREVARGTEQ:SizeIncrease,6|PREVAREQ:BypassSizeMods,0	BONUS:STAT|CON|4|PREVARGTEQ:SizeIncrease,6|PREVAREQ:BypassSizeMods,0	BONUS:COMBAT|AC|4|TYPE=NaturalArmor.STACK|PREVARGTEQ:SizeIncrease,6|PREVAREQ:BypassSizeMods,0
+CATEGORY=Internal|Base Size ~ Diminutive.MOD														BONUS:STAT|STR|8|PREVARGTEQ:SizeIncrease,7|PREVAREQ:BypassSizeMods,0	BONUS:STAT|CON|4|PREVARGTEQ:SizeIncrease,7|PREVAREQ:BypassSizeMods,0	BONUS:COMBAT|AC|5|TYPE=NaturalArmor.STACK|PREVARGTEQ:SizeIncrease,7|PREVAREQ:BypassSizeMods,0
+#
+CATEGORY=Internal|Base Size ~ Diminutive.MOD														BONUS:STAT|DEX|2|PREVARGTEQ:SizeDecrease,1|PREVAREQ:BypassSizeMods,0	
+# Tiny
+CATEGORY=Internal|Base Size ~ Tiny.MOD		BONUS:STAT|DEX|-2|PREVARGTEQ:SizeIncrease,1|PREVAREQ:BypassSizeMods,0	BONUS:STAT|STR|4|PREVARGTEQ:SizeIncrease,1|PREVAREQ:BypassSizeMods,0
+CATEGORY=Internal|Base Size ~ Tiny.MOD		BONUS:STAT|DEX|-2|PREVARGTEQ:SizeIncrease,2|PREVAREQ:BypassSizeMods,0	BONUS:STAT|STR|4|PREVARGTEQ:SizeIncrease,2|PREVAREQ:BypassSizeMods,0	BONUS:STAT|CON|2|PREVARGTEQ:SizeIncrease,2|PREVAREQ:BypassSizeMods,0
+CATEGORY=Internal|Base Size ~ Tiny.MOD		BONUS:STAT|DEX|-2|PREVARGTEQ:SizeIncrease,3|PREVAREQ:BypassSizeMods,0	BONUS:STAT|STR|8|PREVARGTEQ:SizeIncrease,3|PREVAREQ:BypassSizeMods,0	BONUS:STAT|CON|4|PREVARGTEQ:SizeIncrease,3|PREVAREQ:BypassSizeMods,0	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK|PREVARGTEQ:SizeIncrease,3|PREVAREQ:BypassSizeMods,0
+CATEGORY=Internal|Base Size ~ Tiny.MOD		BONUS:STAT|DEX|-2|PREVARGTEQ:SizeIncrease,4|PREVAREQ:BypassSizeMods,0	BONUS:STAT|STR|8|PREVARGTEQ:SizeIncrease,4|PREVAREQ:BypassSizeMods,0	BONUS:STAT|CON|4|PREVARGTEQ:SizeIncrease,4|PREVAREQ:BypassSizeMods,0	BONUS:COMBAT|AC|3|TYPE=NaturalArmor.STACK|PREVARGTEQ:SizeIncrease,4|PREVAREQ:BypassSizeMods,0	
+CATEGORY=Internal|Base Size ~ Tiny.MOD														BONUS:STAT|STR|8|PREVARGTEQ:SizeIncrease,5|PREVAREQ:BypassSizeMods,0	BONUS:STAT|CON|4|PREVARGTEQ:SizeIncrease,5|PREVAREQ:BypassSizeMods,0	BONUS:COMBAT|AC|4|TYPE=NaturalArmor.STACK|PREVARGTEQ:SizeIncrease,5|PREVAREQ:BypassSizeMods,0
+CATEGORY=Internal|Base Size ~ Tiny.MOD														BONUS:STAT|STR|8|PREVARGTEQ:SizeIncrease,6|PREVAREQ:BypassSizeMods,0	BONUS:STAT|CON|4|PREVARGTEQ:SizeIncrease,6|PREVAREQ:BypassSizeMods,0	BONUS:COMBAT|AC|5|TYPE=NaturalArmor.STACK|PREVARGTEQ:SizeIncrease,6|PREVAREQ:BypassSizeMods,0
+#
+CATEGORY=Internal|Base Size ~ Tiny.MOD		BONUS:STAT|STR|-2|PREVARGTEQ:SizeDecrease,7|PREVAREQ:BypassSizeMods,0	BONUS:STAT|DEX|2|PREVARGTEQ:SizeDecrease,1|PREVAREQ:BypassSizeMods,0	
+CATEGORY=Internal|Base Size ~ Tiny.MOD														BONUS:STAT|DEX|2|PREVARGTEQ:SizeDecrease,2|PREVAREQ:BypassSizeMods,0	
+# Small
+CATEGORY=Internal|Base Size ~ Small.MOD		BONUS:STAT|DEX|-2|PREVARGTEQ:SizeIncrease,1|PREVAREQ:BypassSizeMods,0	BONUS:STAT|STR|4|PREVARGTEQ:SizeIncrease,1|PREVAREQ:BypassSizeMods,0	BONUS:STAT|CON|2|PREVARGTEQ:SizeIncrease,1|PREVAREQ:BypassSizeMods,0
+CATEGORY=Internal|Base Size ~ Small.MOD		BONUS:STAT|DEX|-2|PREVARGTEQ:SizeIncrease,2|PREVAREQ:BypassSizeMods,0	BONUS:STAT|STR|8|PREVARGTEQ:SizeIncrease,2|PREVAREQ:BypassSizeMods,0	BONUS:STAT|CON|4|PREVARGTEQ:SizeIncrease,2|PREVAREQ:BypassSizeMods,0	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK|PREVARGTEQ:SizeIncrease,2|PREVAREQ:BypassSizeMods,0
+CATEGORY=Internal|Base Size ~ Small.MOD		BONUS:STAT|DEX|-2|PREVARGTEQ:SizeIncrease,3|PREVAREQ:BypassSizeMods,0	BONUS:STAT|STR|8|PREVARGTEQ:SizeIncrease,3|PREVAREQ:BypassSizeMods,0	BONUS:STAT|CON|4|PREVARGTEQ:SizeIncrease,3|PREVAREQ:BypassSizeMods,0	BONUS:COMBAT|AC|3|TYPE=NaturalArmor.STACK|PREVARGTEQ:SizeIncrease,3|PREVAREQ:BypassSizeMods,0	
+CATEGORY=Internal|Base Size ~ Small.MOD														BONUS:STAT|STR|8|PREVARGTEQ:SizeIncrease,4|PREVAREQ:BypassSizeMods,0	BONUS:STAT|CON|4|PREVARGTEQ:SizeIncrease,4|PREVAREQ:BypassSizeMods,0	BONUS:COMBAT|AC|4|TYPE=NaturalArmor.STACK|PREVARGTEQ:SizeIncrease,4|PREVAREQ:BypassSizeMods,0
+CATEGORY=Internal|Base Size ~ Small.MOD														BONUS:STAT|STR|8|PREVARGTEQ:SizeIncrease,5|PREVAREQ:BypassSizeMods,0	BONUS:STAT|CON|4|PREVARGTEQ:SizeIncrease,5|PREVAREQ:BypassSizeMods,0	BONUS:COMBAT|AC|5|TYPE=NaturalArmor.STACK|PREVARGTEQ:SizeIncrease,5|PREVAREQ:BypassSizeMods,0
+#
+CATEGORY=Internal|Base Size ~ Small.MOD		BONUS:STAT|STR|-4|PREVARGTEQ:SizeDecrease,1|PREVAREQ:BypassSizeMods,0	BONUS:STAT|DEX|2|PREVARGTEQ:SizeDecrease,1|PREVAREQ:BypassSizeMods,0	
+CATEGORY=Internal|Base Size ~ Small.MOD		BONUS:STAT|STR|-2|PREVARGTEQ:SizeDecrease,2|PREVAREQ:BypassSizeMods,0	BONUS:STAT|DEX|2|PREVARGTEQ:SizeDecrease,2|PREVAREQ:BypassSizeMods,0	
+CATEGORY=Internal|Base Size ~ Small.MOD														BONUS:STAT|DEX|2|PREVARGTEQ:SizeDecrease,3|PREVAREQ:BypassSizeMods,0	
+# Medium
+CATEGORY=Internal|Base Size ~ Medium.MOD		BONUS:STAT|DEX|-2|PREVARGTEQ:SizeIncrease,1|PREVAREQ:BypassSizeMods,0	BONUS:STAT|STR|8|PREVARGTEQ:SizeIncrease,1|PREVAREQ:BypassSizeMods,0	BONUS:STAT|CON|4|PREVARGTEQ:SizeIncrease,1|PREVAREQ:BypassSizeMods,0	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK|PREVARGTEQ:SizeIncrease,1|PREVAREQ:BypassSizeMods,0
+CATEGORY=Internal|Base Size ~ Medium.MOD		BONUS:STAT|DEX|-2|PREVARGTEQ:SizeIncrease,2|PREVAREQ:BypassSizeMods,0	BONUS:STAT|STR|8|PREVARGTEQ:SizeIncrease,2|PREVAREQ:BypassSizeMods,0	BONUS:STAT|CON|4|PREVARGTEQ:SizeIncrease,2|PREVAREQ:BypassSizeMods,0	BONUS:COMBAT|AC|3|TYPE=NaturalArmor.STACK|PREVARGTEQ:SizeIncrease,2|PREVAREQ:BypassSizeMods,0	
+CATEGORY=Internal|Base Size ~ Medium.MOD														BONUS:STAT|STR|8|PREVARGTEQ:SizeIncrease,3|PREVAREQ:BypassSizeMods,0	BONUS:STAT|CON|4|PREVARGTEQ:SizeIncrease,3|PREVAREQ:BypassSizeMods,0	BONUS:COMBAT|AC|4|TYPE=NaturalArmor.STACK|PREVARGTEQ:SizeIncrease,3|PREVAREQ:BypassSizeMods,0
+CATEGORY=Internal|Base Size ~ Medium.MOD														BONUS:STAT|STR|8|PREVARGTEQ:SizeIncrease,4|PREVAREQ:BypassSizeMods,0	BONUS:STAT|CON|4|PREVARGTEQ:SizeIncrease,4|PREVAREQ:BypassSizeMods,0	BONUS:COMBAT|AC|5|TYPE=NaturalArmor.STACK|PREVARGTEQ:SizeIncrease,4|PREVAREQ:BypassSizeMods,0
+#
+CATEGORY=Internal|Base Size ~ Medium.MOD		BONUS:STAT|STR|-4|PREVARGTEQ:SizeDecrease,1|PREVAREQ:BypassSizeMods,0	BONUS:STAT|DEX|2|PREVARGTEQ:SizeDecrease,1|PREVAREQ:BypassSizeMods,0	BONUS:STAT|CON|-2|PREVARGTEQ:SizeDecrease,1|PREVAREQ:BypassSizeMods,0
+CATEGORY=Internal|Base Size ~ Medium.MOD		BONUS:STAT|STR|-4|PREVARGTEQ:SizeDecrease,2|PREVAREQ:BypassSizeMods,0	BONUS:STAT|DEX|2|PREVARGTEQ:SizeDecrease,2|PREVAREQ:BypassSizeMods,0	
+CATEGORY=Internal|Base Size ~ Medium.MOD		BONUS:STAT|STR|-2|PREVARGTEQ:SizeDecrease,3|PREVAREQ:BypassSizeMods,0	BONUS:STAT|DEX|2|PREVARGTEQ:SizeDecrease,3|PREVAREQ:BypassSizeMods,0	
+CATEGORY=Internal|Base Size ~ Medium.MOD														BONUS:STAT|DEX|2|PREVARGTEQ:SizeDecrease,4|PREVAREQ:BypassSizeMods,0	
+# Large
+CATEGORY=Internal|Base Size ~ Large.MOD		BONUS:STAT|DEX|-2|PREVARGTEQ:SizeIncrease,1|PREVAREQ:BypassSizeMods,0	BONUS:STAT|STR|8|PREVARGTEQ:SizeIncrease,1|PREVAREQ:BypassSizeMods,0	BONUS:STAT|CON|4|PREVARGTEQ:SizeIncrease,1|PREVAREQ:BypassSizeMods,0	BONUS:COMBAT|AC|3|TYPE=NaturalArmor.STACK|PREVARGTEQ:SizeIncrease,1|PREVAREQ:BypassSizeMods,0	
+CATEGORY=Internal|Base Size ~ Large.MOD														BONUS:STAT|STR|8|PREVARGTEQ:SizeIncrease,2|PREVAREQ:BypassSizeMods,0	BONUS:STAT|CON|4|PREVARGTEQ:SizeIncrease,2|PREVAREQ:BypassSizeMods,0	BONUS:COMBAT|AC|4|TYPE=NaturalArmor.STACK|PREVARGTEQ:SizeIncrease,2|PREVAREQ:BypassSizeMods,0
+CATEGORY=Internal|Base Size ~ Large.MOD														BONUS:STAT|STR|8|PREVARGTEQ:SizeIncrease,3|PREVAREQ:BypassSizeMods,0	BONUS:STAT|CON|4|PREVARGTEQ:SizeIncrease,3|PREVAREQ:BypassSizeMods,0	BONUS:COMBAT|AC|5|TYPE=NaturalArmor.STACK|PREVARGTEQ:SizeIncrease,3|PREVAREQ:BypassSizeMods,0
+#
+CATEGORY=Internal|Base Size ~ Large.MOD		BONUS:STAT|STR|-8|PREVARGTEQ:SizeDecrease,1|PREVAREQ:BypassSizeMods,0	BONUS:STAT|DEX|2|PREVARGTEQ:SizeDecrease,1|PREVAREQ:BypassSizeMods,0	BONUS:STAT|CON|-4|PREVARGTEQ:SizeDecrease,1|PREVAREQ:BypassSizeMods,0	BONUS:COMBAT|AC|-2|TYPE=NaturalArmor|PREVARGTEQ:SizeDecrease,1|PREVAREQ:BypassSizeMods,0		
+CATEGORY=Internal|Base Size ~ Large.MOD		BONUS:STAT|STR|-4|PREVARGTEQ:SizeDecrease,2|PREVAREQ:BypassSizeMods,0	BONUS:STAT|DEX|2|PREVARGTEQ:SizeDecrease,2|PREVAREQ:BypassSizeMods,0	BONUS:STAT|CON|-2|PREVARGTEQ:SizeDecrease,2|PREVAREQ:BypassSizeMods,0
+CATEGORY=Internal|Base Size ~ Large.MOD		BONUS:STAT|STR|-4|PREVARGTEQ:SizeDecrease,3|PREVAREQ:BypassSizeMods,0	BONUS:STAT|DEX|2|PREVARGTEQ:SizeDecrease,3|PREVAREQ:BypassSizeMods,0	
+CATEGORY=Internal|Base Size ~ Large.MOD		BONUS:STAT|STR|-2|PREVARGTEQ:SizeDecrease,4|PREVAREQ:BypassSizeMods,0	BONUS:STAT|DEX|2|PREVARGTEQ:SizeDecrease,4|PREVAREQ:BypassSizeMods,0	
+CATEGORY=Internal|Base Size ~ Large.MOD														BONUS:STAT|DEX|2|PREVARGTEQ:SizeDecrease,5|PREVAREQ:BypassSizeMods,0	
+# Huge
+CATEGORY=Internal|Base Size ~ Huge.MOD														BONUS:STAT|STR|8|PREVARGTEQ:SizeIncrease,1|PREVAREQ:BypassSizeMods,0	BONUS:STAT|CON|4|PREVARGTEQ:SizeIncrease,1|PREVAREQ:BypassSizeMods,0	BONUS:COMBAT|AC|4|TYPE=NaturalArmor.STACK|PREVARGTEQ:SizeIncrease,1|PREVAREQ:BypassSizeMods,0
+CATEGORY=Internal|Base Size ~ Huge.MOD														BONUS:STAT|STR|8|PREVARGTEQ:SizeIncrease,2|PREVAREQ:BypassSizeMods,0	BONUS:STAT|CON|4|PREVARGTEQ:SizeIncrease,2|PREVAREQ:BypassSizeMods,0	BONUS:COMBAT|AC|5|TYPE=NaturalArmor.STACK|PREVARGTEQ:SizeIncrease,2|PREVAREQ:BypassSizeMods,0
+#
+CATEGORY=Internal|Base Size ~ Huge.MOD		BONUS:STAT|STR|-8|PREVARGTEQ:SizeDecrease,1|PREVAREQ:BypassSizeMods,0	BONUS:STAT|DEX|2|PREVARGTEQ:SizeDecrease,1|PREVAREQ:BypassSizeMods,0	BONUS:STAT|CON|-4|PREVARGTEQ:SizeDecrease,1|PREVAREQ:BypassSizeMods,0	BONUS:COMBAT|AC|-3|TYPE=NaturalArmor|PREVARGTEQ:SizeDecrease,1|PREVAREQ:BypassSizeMods,0		
+CATEGORY=Internal|Base Size ~ Huge.MOD		BONUS:STAT|STR|-8|PREVARGTEQ:SizeDecrease,2|PREVAREQ:BypassSizeMods,0	BONUS:STAT|DEX|2|PREVARGTEQ:SizeDecrease,2|PREVAREQ:BypassSizeMods,0	BONUS:STAT|CON|-4|PREVARGTEQ:SizeDecrease,2|PREVAREQ:BypassSizeMods,0	BONUS:COMBAT|AC|-2|TYPE=NaturalArmor|PREVARGTEQ:SizeDecrease,2|PREVAREQ:BypassSizeMods,0		
+CATEGORY=Internal|Base Size ~ Huge.MOD		BONUS:STAT|STR|-4|PREVARGTEQ:SizeDecrease,3|PREVAREQ:BypassSizeMods,0	BONUS:STAT|DEX|2|PREVARGTEQ:SizeDecrease,3|PREVAREQ:BypassSizeMods,0	BONUS:STAT|CON|-2|PREVARGTEQ:SizeDecrease,3|PREVAREQ:BypassSizeMods,0
+CATEGORY=Internal|Base Size ~ Huge.MOD		BONUS:STAT|STR|-4|PREVARGTEQ:SizeDecrease,4|PREVAREQ:BypassSizeMods,0	BONUS:STAT|DEX|2|PREVARGTEQ:SizeDecrease,4|PREVAREQ:BypassSizeMods,0	
+CATEGORY=Internal|Base Size ~ Huge.MOD		BONUS:STAT|STR|-2|PREVARGTEQ:SizeDecrease,5|PREVAREQ:BypassSizeMods,0	BONUS:STAT|DEX|2|PREVARGTEQ:SizeDecrease,5|PREVAREQ:BypassSizeMods,0	
+CATEGORY=Internal|Base Size ~ Huge.MOD														BONUS:STAT|DEX|2|PREVARGTEQ:SizeDecrease,6|PREVAREQ:BypassSizeMods,0	
+# Gargantuan
+CATEGORY=Internal|Base Size ~ Gargantuan.MOD														BONUS:STAT|STR|8|PREVARGTEQ:SizeIncrease,1|PREVAREQ:BypassSizeMods,0	BONUS:STAT|CON|4|PREVARGTEQ:SizeIncrease,1|PREVAREQ:BypassSizeMods,0	BONUS:COMBAT|AC|5|TYPE=NaturalArmor.STACK|PREVARGTEQ:SizeIncrease,1|PREVAREQ:BypassSizeMods,0
+#
+CATEGORY=Internal|Base Size ~ Gargantuan.MOD		BONUS:STAT|STR|-8|PREVARGTEQ:SizeDecrease,1|PREVAREQ:BypassSizeMods,0													BONUS:STAT|CON|-4|PREVARGTEQ:SizeDecrease,1|PREVAREQ:BypassSizeMods,0	BONUS:COMBAT|AC|-4|TYPE=NaturalArmor|PREVARGTEQ:SizeDecrease,1|PREVAREQ:BypassSizeMods,0				
+CATEGORY=Internal|Base Size ~ Gargantuan.MOD		BONUS:STAT|STR|-8|PREVARGTEQ:SizeDecrease,2|PREVAREQ:BypassSizeMods,0	BONUS:STAT|DEX|2|PREVARGTEQ:SizeDecrease,2|PREVAREQ:BypassSizeMods,0	BONUS:STAT|CON|-4|PREVARGTEQ:SizeDecrease,2|PREVAREQ:BypassSizeMods,0	BONUS:COMBAT|AC|-3|TYPE=NaturalArmor|PREVARGTEQ:SizeDecrease,2|PREVAREQ:BypassSizeMods,0		
+CATEGORY=Internal|Base Size ~ Gargantuan.MOD		BONUS:STAT|STR|-8|PREVARGTEQ:SizeDecrease,3|PREVAREQ:BypassSizeMods,0	BONUS:STAT|DEX|2|PREVARGTEQ:SizeDecrease,3|PREVAREQ:BypassSizeMods,0	BONUS:STAT|CON|-4|PREVARGTEQ:SizeDecrease,3|PREVAREQ:BypassSizeMods,0	BONUS:COMBAT|AC|-2|TYPE=NaturalArmor|PREVARGTEQ:SizeDecrease,3|PREVAREQ:BypassSizeMods,0		
+CATEGORY=Internal|Base Size ~ Gargantuan.MOD		BONUS:STAT|STR|-4|PREVARGTEQ:SizeDecrease,4|PREVAREQ:BypassSizeMods,0	BONUS:STAT|DEX|2|PREVARGTEQ:SizeDecrease,4|PREVAREQ:BypassSizeMods,0	BONUS:STAT|CON|-2|PREVARGTEQ:SizeDecrease,4|PREVAREQ:BypassSizeMods,0
+CATEGORY=Internal|Base Size ~ Gargantuan.MOD		BONUS:STAT|STR|-4|PREVARGTEQ:SizeDecrease,5|PREVAREQ:BypassSizeMods,0	BONUS:STAT|DEX|2|PREVARGTEQ:SizeDecrease,5|PREVAREQ:BypassSizeMods,0	
+CATEGORY=Internal|Base Size ~ Gargantuan.MOD		BONUS:STAT|STR|-2|PREVARGTEQ:SizeDecrease,6|PREVAREQ:BypassSizeMods,0	BONUS:STAT|DEX|2|PREVARGTEQ:SizeDecrease,6|PREVAREQ:BypassSizeMods,0	
+CATEGORY=Internal|Base Size ~ Gargantuan.MOD														BONUS:STAT|DEX|2|PREVARGTEQ:SizeDecrease,7|PREVAREQ:BypassSizeMods,0	
+# Colossal
+CATEGORY=Internal|Base Size ~ Colossal.MOD		BONUS:STAT|STR|-8|PREVARGTEQ:SizeDecrease,1|PREVAREQ:BypassSizeMods,0													BONUS:STAT|CON|-4|PREVARGTEQ:SizeDecrease,1|PREVAREQ:BypassSizeMods,0	BONUS:COMBAT|AC|-5|TYPE=NaturalArmor|PREVARGTEQ:SizeDecrease,1|PREVAREQ:BypassSizeMods,0	
+CATEGORY=Internal|Base Size ~ Colossal.MOD		BONUS:STAT|STR|-8|PREVARGTEQ:SizeDecrease,2|PREVAREQ:BypassSizeMods,0													BONUS:STAT|CON|-4|PREVARGTEQ:SizeDecrease,2|PREVAREQ:BypassSizeMods,0	BONUS:COMBAT|AC|-4|TYPE=NaturalArmor|PREVARGTEQ:SizeDecrease,2|PREVAREQ:BypassSizeMods,0				
+CATEGORY=Internal|Base Size ~ Colossal.MOD		BONUS:STAT|STR|-8|PREVARGTEQ:SizeDecrease,3|PREVAREQ:BypassSizeMods,0	BONUS:STAT|DEX|2|PREVARGTEQ:SizeDecrease,3|PREVAREQ:BypassSizeMods,0	BONUS:STAT|CON|-4|PREVARGTEQ:SizeDecrease,3|PREVAREQ:BypassSizeMods,0	BONUS:COMBAT|AC|-3|TYPE=NaturalArmor|PREVARGTEQ:SizeDecrease,3|PREVAREQ:BypassSizeMods,0		
+CATEGORY=Internal|Base Size ~ Colossal.MOD		BONUS:STAT|STR|-8|PREVARGTEQ:SizeDecrease,4|PREVAREQ:BypassSizeMods,0	BONUS:STAT|DEX|2|PREVARGTEQ:SizeDecrease,4|PREVAREQ:BypassSizeMods,0	BONUS:STAT|CON|-4|PREVARGTEQ:SizeDecrease,4|PREVAREQ:BypassSizeMods,0	BONUS:COMBAT|AC|-2|TYPE=NaturalArmor|PREVARGTEQ:SizeDecrease,4|PREVAREQ:BypassSizeMods,0		
+CATEGORY=Internal|Base Size ~ Colossal.MOD		BONUS:STAT|STR|-4|PREVARGTEQ:SizeDecrease,5|PREVAREQ:BypassSizeMods,0	BONUS:STAT|DEX|2|PREVARGTEQ:SizeDecrease,5|PREVAREQ:BypassSizeMods,0	BONUS:STAT|CON|-2|PREVARGTEQ:SizeDecrease,5|PREVAREQ:BypassSizeMods,0
+CATEGORY=Internal|Base Size ~ Colossal.MOD		BONUS:STAT|STR|-4|PREVARGTEQ:SizeDecrease,6|PREVAREQ:BypassSizeMods,0	BONUS:STAT|DEX|2|PREVARGTEQ:SizeDecrease,6|PREVAREQ:BypassSizeMods,0	
+CATEGORY=Internal|Base Size ~ Colossal.MOD		BONUS:STAT|STR|-2|PREVARGTEQ:SizeDecrease,7|PREVAREQ:BypassSizeMods,0	BONUS:STAT|DEX|2|PREVARGTEQ:SizeDecrease,7|PREVAREQ:BypassSizeMods,0	
+CATEGORY=Internal|Base Size ~ Colossal.MOD														BONUS:STAT|DEX|2|PREVARGTEQ:SizeDecrease,8|PREVAREQ:BypassSizeMods,0	
+
+
+###Block: Internal Level Adjustment Mods
+# Ability Name		Category of Ability	Visible	Define																																													Template				Ability																																																																	Combat bonus																				Modify VAR
+LEVEL_ADJUSTMENT_1	CATEGORY:Internal		VISIBLE:NO																																															TEMPLATE:LEVEL_ADJUSTMENT_1
+LEVEL_ADJUSTMENT_2	CATEGORY:Internal		VISIBLE:NO																																															TEMPLATE:LEVEL_ADJUSTMENT_2
+LEVEL_ADJUSTMENT_3	CATEGORY:Internal		VISIBLE:NO																																															TEMPLATE:LEVEL_ADJUSTMENT_3
+LEVEL_ADJUSTMENT_4	CATEGORY:Internal		VISIBLE:NO																																															TEMPLATE:LEVEL_ADJUSTMENT_4
+LEVEL_ADJUSTMENT_5	CATEGORY:Internal		VISIBLE:NO																																															TEMPLATE:LEVEL_ADJUSTMENT_5
+LEVEL_ADJUSTMENT_6	CATEGORY:Internal		VISIBLE:NO																																															TEMPLATE:LEVEL_ADJUSTMENT_6
+
+
+# Set by Race Type and Modified by	BONUS:VAR|RaceHands|x
+Hands 0			CATEGORY:Internal																																																		TEMPLATE:Hands 0
+Hands 1			CATEGORY:Internal																																																		TEMPLATE:Hands 1
+Hands 2			CATEGORY:Internal																																																		TEMPLATE:Hands 2
+Hands 3			CATEGORY:Internal																																																		TEMPLATE:Hands 3
+Hands 4			CATEGORY:Internal																																																		TEMPLATE:Hands 4
+Hands 5			CATEGORY:Internal																																																		TEMPLATE:Hands 5
+Hands 6			CATEGORY:Internal																																																		TEMPLATE:Hands 6
+# Set by Race Type and Modified by	BONUS:VAR|RaceLegs|x
+Legs 1			CATEGORY:Internal																																																		TEMPLATE:Legs 1
+Legs 2			CATEGORY:Internal																																																		TEMPLATE:Legs 2
+Legs 3			CATEGORY:Internal																																																		TEMPLATE:Legs 3
+Legs 4			CATEGORY:Internal																																																		TEMPLATE:Legs 4
+Legs 5			CATEGORY:Internal																																																		TEMPLATE:Legs 5
+Legs 6			CATEGORY:Internal																																																		TEMPLATE:Legs 6
+Legs 8			CATEGORY:Internal																																																		TEMPLATE:Legs 8
+
+
+
+
+
+
+
+
+
+Default			CATEGORY:Internal				DEFINE:DarkvisionRange|0	DEFINE:HasLowlightVision|0	DEFINE:FirstLevelFeatTaken|0	DEFINE:FirstLevelFeatAllowed|0	DEFINE:ClassBABPoor|0	DEFINE:ClassBABModerate|0	DEFINE:ClassBABModerateTotal|0	DEFINE:EpicAttackBonus|0	DEFINE:BaseAttackBonus|0						ABILITY:Special Ability|AUTOMATIC|Low-Light Vision|PREVARGTEQ:HasLowlightVision,1	ABILITY:Special Ability|AUTOMATIC|Darkvision|PREVARGTEQ:DarkvisionRange,1	ABILITY:Internal|AUTOMATIC|Defines	ABILITY:Special Ability|AUTOMATIC|Aerial Maneuverability|PREMOVE:1,Fly=1	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base	BONUS:COMBAT|REACH|-5|PREVAREQ:RaceSizeIsLong,1|PRESIZEGTEQ:L	BONUS:COMBAT|REACH|-5|PREVAREQ:RaceSizeIsLong,1|PRESIZEGTEQ:C	BONUS:VAR|FirstLevelFeatTaken|count("ABILITIES","CATEGORY=FEAT","NATURE=Normal","TYPE=FirstLevel")	BONUS:VAR|FirstLevelFeatAllowed|1	BONUS:VAR|FirstLevelFeatAllowed|1|PRERACE:1,Human	BONUS:VAR|EpicAttackBonus|max(((TL-HD)-19)/2,0)|TYPE=Epic	BONUS:VAR|BaseAttackBonus|BAB+EpicAttackBonus
+#	BONUS:COMBAT|BASEAB|ClassMasterBAB|PREVAREQ:UseFractionalBAB,1	DEFINE:ClassMasterBAB|0	BONUS:VAR|ClassMasterBAB|(ClassBABPoor*1/2)+(ClassBABModerate*3/4)
+#	BONUS:COMBAT|BASEAB|ClassMasterBAB|PRERULE:Use Fractional BAB
+
+###Block: Vision Modes
+# Ability Name	Category of Ability		Type							Define				Description																																																																																													Modify VAR				Vision					Source, Short Desc.	Source Page		Aspects
+Low-Light Vision	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Vision	DEFINE:LowLightDistance|0	DESC:You can see %1x as far as humans in low illumination. Characters with low-light vision have eyes that are so sensitive to light that they can see twice as far as normal in dim light. Low-light vision is color vision. A spellcaster with low-light vision can read a scroll as long as even the tiniest candle flame is next to her as a source of light. Characters with low-light vision can see outdoors on a moonlit night as well as they can during the day.|LowLightDistance															BONUS:VAR|LowLightDistance|2	VISION:Low-Light Vision			SOURCESHORT:PH		SOURCEPAGE:p.165	ASPECT:Vision|Low-Light Vision
+Darkvision		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Vision	DEFINE:DarkvisionRange|0	DESC:Range %1 ft.;|DarkvisionRange|PREVARGTEQ:DarkvisionRange,1	DESC:Darkvision is the extraordinary ability to see with no light source at all, out to a range specified for the creature. Darkvision is black and white only (colors cannot be discerned). It does not allow characters to see anything that they could not see otherwise-invisible objects are still invisible, and illusions are still visible as what they seem to be. Likewise, darkvision subjects a creature to gaze attacks normally. The presence of light does not spoil darkvision.|DarkvisionRange						VISION:Darkvision (DarkvisionRange)	SOURCESHORT:PH		SOURCEPAGE:p.165	ASPECT:Vision|Darkvision %1'|DarkvisionRange
+
+
+###Block:
+# Ability Name				Category of Ability	Define						Template			Ability
+Creature Type				CATEGORY:Internal									TEMPLATE:Base Race Type	ABILITY:Special Ability|AUTOMATIC|Aberration Type|PRERACE:1,RACETYPE=Aberration	ABILITY:Special Ability|AUTOMATIC|Animal Type|PRERACE:1,RACETYPE=Animal	ABILITY:Special Ability|AUTOMATIC|Construct Type|PRERACE:1,RACETYPE=Construct	ABILITY:Special Ability|AUTOMATIC|Dragon Type|PRERACE:1,RACETYPE=Dragon	ABILITY:Special Ability|AUTOMATIC|Elemental Type|PRERACE:1,RACETYPE=Elemental	ABILITY:Special Ability|AUTOMATIC|Fey Type|PRERACE:1,RACETYPE=Fey	ABILITY:Special Ability|AUTOMATIC|Giant Type|PRERACE:1,RACETYPE=Giant	ABILITY:Special Ability|AUTOMATIC|Humanoid Type|PRERACE:1,RACETYPE=Humanoid	ABILITY:Special Ability|AUTOMATIC|Magical Beast Type|PRERACE:1,RACETYPE=Magical Beast	ABILITY:Special Ability|AUTOMATIC|Monstrous Humanoid Type|PRERACE:1,RACETYPE=Monstrous Humanoid	ABILITY:Special Ability|AUTOMATIC|Plant Type|PRERACE:1,RACETYPE=Plant	ABILITY:Special Ability|AUTOMATIC|Undead Type|PRERACE:1,RACETYPE=Undead	ABILITY:Special Ability|AUTOMATIC|Vermin Type|PRERACE:1,RACETYPE=Vermin
+#ABILITY:Special Ability|AUTOMATIC|Air Subtype|PRERACE:1,RACESUBTYPE=Air	ABILITY:Special Ability|AUTOMATIC|Angel Subtype|PRERACE:1,RACESUBTYPE=Angel	ABILITY:Special Ability|AUTOMATIC|Aquatic Subtype|PRERACE:1,RACESUBTYPE=Aquatic	ABILITY:Special Ability|AUTOMATIC|Archon Subtype|PRERACE:1,RACESUBTYPE=Archon	ABILITY:Special Ability|AUTOMATIC|Augmented Subtype|PRERACE:1,RACESUBTYPE=Augmented	ABILITY:Special Ability|AUTOMATIC|Chaotic Subtype|PRERACE:1,RACESUBTYPE=Chaotic	ABILITY:Special Ability|AUTOMATIC|Cold Subtype|PRERACE:1,RACESUBTYPE=Cold	ABILITY:Special Ability|AUTOMATIC|Tanar'ri Subtype|PRERACE:1,RACESUBTYPE=Tanar'ri	ABILITY:Special Ability|AUTOMATIC|Baatezu Subtype|PRERACE:1,RACESUBTYPE=Baatezu	ABILITY:Special Ability|AUTOMATIC|Earth Subtype|PRERACE:1,RACESUBTYPE=Earth	ABILITY:Special Ability|AUTOMATIC|Evil Subtype|PRERACE:1,RACESUBTYPE=Evil	ABILITY:Special Ability|AUTOMATIC|Extraplanar Subtype|PRERACE:1,RACESUBTYPE=Extraplanar	ABILITY:Special Ability|AUTOMATIC|Fire Subtype|PRERACE:1,RACESUBTYPE=Fire	ABILITY:Special Ability|AUTOMATIC|Goblinoid Subtype|PRERACE:1,RACESUBTYPE=Goblinoid	ABILITY:Special Ability|AUTOMATIC|Good Subtype|PRERACE:1,RACESUBTYPE=Good	ABILITY:Special Ability|AUTOMATIC|Incorporeal Subtype|PRERACE:1,RACESUBTYPE=Incorporeal	ABILITY:Special Ability|AUTOMATIC|Lawful Subtype|PRERACE:1,RACESUBTYPE=Lawful	ABILITY:Special Ability|AUTOMATIC|Mephit Subtype|PRERACE:1,RACESUBTYPE=Mephit	ABILITY:Special Ability|AUTOMATIC|Native Subtype|PRERACE:1,RACESUBTYPE=Native	ABILITY:Special Ability|AUTOMATIC|Reptilian Subtype|PRERACE:1,RACESUBTYPE=Reptilian	ABILITY:Special Ability|AUTOMATIC|Shapechanger Subtype|PRERACE:1,RACESUBTYPE=Shapechanger	ABILITY:Special Ability|AUTOMATIC|Swarm Subtype|PRERACE:1,RACESUBTYPE=Swarm	ABILITY:Special Ability|AUTOMATIC|Water Subtype|PRERACE:1,RACESUBTYPE=Water	ABILITY:Special Ability|AUTOMATIC|Mindless|PRERACE:1,RACESUBTYPE=Mindless	ABILITY:Special Ability|AUTOMATIC|Type Output ~ Aberration|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACETYPE=Aberration]	ABILITY:Special Ability|AUTOMATIC|Type Output ~ Animal|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACETYPE=Animal]	ABILITY:Special Ability|AUTOMATIC|Type Output ~ Construct|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACETYPE=Construct]	ABILITY:Special Ability|AUTOMATIC|Type Output ~ Dragon|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACETYPE=Dragon]	ABILITY:Special Ability|AUTOMATIC|Type Output ~ Elemental|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACETYPE=Elemental]	ABILITY:Special Ability|AUTOMATIC|Type Output ~ Fey|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACETYPE=Fey]	ABILITY:Special Ability|AUTOMATIC|Type Output ~ Giant|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACETYPE=Giant]	ABILITY:Special Ability|AUTOMATIC|Type Output ~ Humanoid|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACETYPE=Humanoid]	ABILITY:Special Ability|AUTOMATIC|Type Output ~ Magical Beast|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACETYPE=Magical Beast]	ABILITY:Special Ability|AUTOMATIC|Type Output ~ Monstrous Humanoid|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACETYPE=Monstrous Humanoid]	ABILITY:Special Ability|AUTOMATIC|Type Output ~ Ooze|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACETYPE=Ooze]	ABILITY:Special Ability|AUTOMATIC|Type Output ~ Outsider|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACETYPE=Outsider]	ABILITY:Special Ability|AUTOMATIC|Type Output ~ Plant|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACETYPE=Plant]	ABILITY:Special Ability|AUTOMATIC|Type Output ~ Undead|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACETYPE=Undead]	ABILITY:Special Ability|AUTOMATIC|Type Output ~ Vermin|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACETYPE=Vermin]	ABILITY:Special Ability|AUTOMATIC|Subtype Output ~ Air|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Air]	ABILITY:Special Ability|AUTOMATIC|Subtype Output ~ Angel|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Angel]	ABILITY:Special Ability|AUTOMATIC|Subtype Output ~ Aquatic|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Aquatic]	ABILITY:Special Ability|AUTOMATIC|Subtype Output ~ Archon|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Archon]	ABILITY:Special Ability|AUTOMATIC|Subtype Output ~ Augmented|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Augmented]	ABILITY:Special Ability|AUTOMATIC|Subtype Output ~ Chaotic|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Chaotic]	ABILITY:Special Ability|AUTOMATIC|Subtype Output ~ Cold|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Cold]	ABILITY:Special Ability|AUTOMATIC|Subtype Output ~ Earth|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Earth]	ABILITY:Special Ability|AUTOMATIC|Subtype Output ~ Evil|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Evil]	ABILITY:Special Ability|AUTOMATIC|Subtype Output ~ Extraplanar|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Extraplanar]	ABILITY:Special Ability|AUTOMATIC|Subtype Output ~ Fire|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Fire]	ABILITY:Special Ability|AUTOMATIC|Subtype Output ~ Goblinoid|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Goblinoid]	ABILITY:Special Ability|AUTOMATIC|Subtype Output ~ Good|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Good]	ABILITY:Special Ability|AUTOMATIC|Subtype Output ~ Incorporeal|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Incorporeal]	ABILITY:Special Ability|AUTOMATIC|Subtype Output ~ Lawful|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Lawful]	ABILITY:Special Ability|AUTOMATIC|Subtype Output ~ Native|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Native]	ABILITY:Special Ability|AUTOMATIC|Subtype Output ~ Reptilian|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Reptilian]	ABILITY:Special Ability|AUTOMATIC|Subtype Output ~ Shapechanger|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Shapechanger]	ABILITY:Special Ability|AUTOMATIC|Subtype Output ~ Swarm|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Swarm]	ABILITY:Special Ability|AUTOMATIC|Subtype Output ~ Water|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Water]	ABILITY:Special Ability|AUTOMATIC|Subtype Output ~ Tanar'ri|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Tanar'ri]	ABILITY:Special Ability|AUTOMATIC|Subtype Output ~ Baatezu|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Baatezu]	ABILITY:Special Ability|AUTOMATIC|Dragonblood Subtype|PRERACE:1,RACESUBTYPE=Dragonblood	ABILITY:Special Ability|AUTOMATIC|Subtype Output ~ Dragonblood|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Dragonblood]		ABILITY:Special Ability|AUTOMATIC|Subtype Output ~ Symbiont|PREMULT:2,[PREVAREQ:NoTypeTraits,0],[PRERACE:1,RACESUBTYPE=Symbiont]	ABILITY:Special Ability|AUTOMATIC|Symbiont SubType|PRERACE:1,RACESUBTYPE=Symbiont
+CATEGORY=Internal|Creature Type.MOD					DEFINE:RaceHands|0	DEFINE:RaceLegs|0					ABILITY:Internal|AUTOMATIC|Hands 0|PREVAREQ:RaceHands,0	ABILITY:Internal|AUTOMATIC|Hands 1|PREVAREQ:RaceHands,1	ABILITY:Internal|AUTOMATIC|Hands 2|PREVAREQ:RaceHands,2	ABILITY:Internal|AUTOMATIC|Hands 3|PREVAREQ:RaceHands,3	ABILITY:Internal|AUTOMATIC|Hands 4|PREVAREQ:RaceHands,4	ABILITY:Internal|AUTOMATIC|Hands 5|PREVAREQ:RaceHands,5	ABILITY:Internal|AUTOMATIC|Hands 6|PREVAREQ:RaceHands,6	ABILITY:Internal|AUTOMATIC|Legs 1|PREVAREQ:RaceLegs,1	ABILITY:Internal|AUTOMATIC|Legs 2|PREVAREQ:RaceLegs,2	ABILITY:Internal|AUTOMATIC|Legs 3|PREVAREQ:RaceLegs,3	ABILITY:Internal|AUTOMATIC|Legs 4|PREVAREQ:RaceLegs,4	ABILITY:Internal|AUTOMATIC|Legs 5|PREVAREQ:RaceLegs,5	ABILITY:Internal|AUTOMATIC|Legs 6|PREVAREQ:RaceLegs,6	ABILITY:Internal|AUTOMATIC|Legs 8|PREVAREQ:RaceLegs,8
+#ABILITY:Special Ability|AUTOMATIC|Ooze Type|PRERACE:1,RACETYPE=Ooze
+#ABILITY:Special Ability|AUTOMATIC|Outsider Type|PRERACE:1,RACETYPE=Outsider
+
+
+
+###Block: Creature Race Traits
+# Ability Name		Category of Ability		Type			Template					Bonus to HP													Bonus to skill				Modify VAR
+Aberration Type		CATEGORY:Special Ability	TYPE:RaceType																											BONUS:VAR|DarkvisionRange|60|TYPE=Base
+Animal Type			CATEGORY:Special Ability	TYPE:RaceType																											BONUS:VAR|RaceLegs|4	BONUS:VAR|HasLowLightVision|1|TYPE=Base
+Construct Type		CATEGORY:Special Ability	TYPE:RaceType	TEMPLATE:Non-Ability ~ Constitution	BONUS:HP|CURRENTMAX|max(SIZE-2,0)*10	BONUS:HP|CURRENTMAX|max(SIZE-6,0)*10							BONUS:VAR|RaceHands,RaceLegs|2	BONUS:VAR|HasLowLightVision|1|TYPE=Base	BONUS:VAR|DarkvisionRange|60|TYPE=Base
+Dragon Type			CATEGORY:Special Ability	TYPE:RaceType																											BONUS:VAR|RaceHands,RaceLegs|2	BONUS:VAR|HasLowLightVision|1|TYPE=Base	BONUS:VAR|DarkvisionRange|60|TYPE=Base
+Elemental Type		CATEGORY:Special Ability	TYPE:RaceType																											BONUS:VAR|RaceHands,RaceLegs|2	BONUS:VAR|DarkvisionRange|60|TYPE=Base
+Fey Type			CATEGORY:Special Ability	TYPE:RaceType																											BONUS:VAR|RaceHands,RaceLegs|2	BONUS:VAR|HasLowLightVision|1|TYPE=Base
+Giant Type			CATEGORY:Special Ability	TYPE:RaceType																											BONUS:VAR|RaceHands,RaceLegs|2	BONUS:VAR|HasLowLightVision|1|TYPE=Base
+Humanoid Type		CATEGORY:Special Ability	TYPE:RaceType																											BONUS:VAR|RaceHands,RaceLegs|2
+Magical Beast Type	CATEGORY:Special Ability	TYPE:RaceType																											BONUS:VAR|RaceLegs|4	BONUS:VAR|HasLowLightVision|1|TYPE=Base	BONUS:VAR|DarkvisionRange|60|TYPE=Base
+Monstrous Humanoid Type	CATEGORY:Special Ability	TYPE:RaceType																											BONUS:VAR|RaceHands,RaceLegs|2	BONUS:VAR|DarkvisionRange|60|TYPE=Base
+#Ooze Type			CATEGORY:Special Ability	TYPE:RaceType	DEFINE:OozeObjectAcidDamageAmount|0	DEFINE:OozeHasObjectAcidDamage|0	TEMPLATE:Non-Ability ~ Intelligence	ABILITY:Special Ability|AUTOMATIC|Ooze Shared ~ Blindsight																																																						BONUS:VAR|OozeObjectAcidDamageAmount|10+(HD/2)+CON																			VISION:Blind
+#Outsider Type		CATEGORY:Special Ability	TYPE:RaceType	BONUS:VAR|RaceHands,RaceLegs|2																		ABILITY:Special Ability|AUTOMATIC|Outsider House Rule ~ Martial Weapons|PRERULE:1,OutsiderZeroHDGainMartialWeapons																																												BONUS:VAR|DarkvisionRange|60|TYPE=Base
+Plant Type			CATEGORY:Special Ability	TYPE:RaceType																											BONUS:VAR|HasLowLightVision|1|TYPE=Base
+Undead Type			CATEGORY:Special Ability	TYPE:RaceType	TEMPLATE:Non-Ability ~ Constitution															BONUS:SKILL|Concentration|CHA-CON
+Vermin Type			CATEGORY:Special Ability	TYPE:RaceType																											BONUS:VAR|RaceLegs|6	BONUS:VAR|DarkvisionRange|60|TYPE=Base
+# Creature Subtype Traits
+#Air Subtype			CATEGORY:Special Ability	TYPE:SubRaceType
+#Angel Subtype		CATEGORY:Special Ability	TYPE:SubRaceType																			ABILITY:Special Ability|AUTOMATIC|Immunity to Acid|Immunity to Cold|Immunity to Petrification|Angel ~ Protective Aura|Angel ~ Tongues																																									BONUS:VAR|HasLowLightVision|1|TYPE=Base	BONUS:VAR|DarkvisionRange|60|TYPE=Base																	SOURCEPAGE:p.10
+#Aquatic Subtype		CATEGORY:Special Ability	TYPE:SubRaceType
+#Archon Subtype		CATEGORY:Special Ability	TYPE:SubRaceType																			ABILITY:Special Ability|AUTOMATIC|Archon ~ Aura of Menace|Immunity to Electricity|Immunity to Petrification|Archon ~ Magic Circle against Evil|Archon ~ Teleport|Archon ~ Tongues																																		BONUS:VAR|HasLowLightVision|1|TYPE=Base	BONUS:VAR|DarkvisionRange|60|TYPE=Base																	SOURCEPAGE:p.16
+#Augmented Subtype		CATEGORY:Special Ability	TYPE:SubRaceType
+#Chaotic Subtype		CATEGORY:Special Ability	TYPE:SubRaceType
+#Cold Subtype		CATEGORY:Special Ability	TYPE:SubRaceType																			ABILITY:Special Ability|AUTOMATIC|Immunity to Cold|Vulnerability to Fire
+#Tanar'ri Subtype		CATEGORY:Special Ability	TYPE:SubRaceType																			ABILITY:Special Ability|AUTOMATIC|Immunity to Electricity|Immunity to Poison|Resistance to Acid|Resistance to Cold|Resistance to Fire|Summon Demon|Telepathy																																					BONUS:VAR|AcidResistanceBonus|10|TYPE=Resistance	BONUS:VAR|ColdResistanceBonus|10|TYPE=Resistance	BONUS:VAR|FireResistanceBonus|10|TYPE=Resistance
+#Baatezu Subtype		CATEGORY:Special Ability	TYPE:SubRaceType																			ABILITY:Special Ability|AUTOMATIC|Immunity to Fire|Immunity to Poison|Resistance to Acid|Resistance to Cold|Baatezu ~ See in Darkness|Baatezu ~ Summon|Telepathy																																					BONUS:VAR|AcidResistanceBonus|10|TYPE=Resistance	BONUS:VAR|ColdResistanceBonus|10|TYPE=Resistance
+#Earth Subtype		CATEGORY:Special Ability	TYPE:SubRaceType
+#Evil Subtype		CATEGORY:Special Ability	TYPE:SubRaceType
+#Extraplanar Subtype	CATEGORY:Special Ability	TYPE:SubRaceType
+#Fire Subtype		CATEGORY:Special Ability	TYPE:SubRaceType																			ABILITY:Special Ability|AUTOMATIC|Immunity to Fire|Vulnerability to Cold
+#Goblinoid Subtype		CATEGORY:Special Ability	TYPE:SubRaceType
+#Good Subtype		CATEGORY:Special Ability	TYPE:SubRaceType
+#Incorporeal Subtype	CATEGORY:Special Ability	TYPE:SubRaceType	DEFINE:CanNotGrapple|1																																													BONUS:COMBAT|AC|max(1,CHA)|TYPE=Deflection	BONUS:COMBAT|TOHIT.MELEE|DEX
+#Lawful Subtype		CATEGORY:Special Ability	TYPE:SubRaceType
+#Mephit Subtype		CATEGORY:Special Ability	TYPE:SubRaceType																			ABILITY:Special Ability|AUTOMATIC|Mephit ~ Breath Weapon|Mephit ~ Fast Healing|Mephit ~ Natural Weapons|Mephit ~ Spell-Like Abilities|Mephit ~ Summon Mephit
+#Native Subtype		CATEGORY:Special Ability	TYPE:SubRaceType
+#Reptilian Subtype		CATEGORY:Special Ability	TYPE:SubRaceType
+#Shapechanger Subtype	CATEGORY:Special Ability	TYPE:SubRaceType
+#Swarm Subtype		CATEGORY:Special Ability	TYPE:SubRaceType	DEFINE:CanNotGrapple|1
+#Water Subtype		CATEGORY:Special Ability	TYPE:SubRaceType
+#Mindless			CATEGORY:Special Ability	TYPE:SubRaceType													TEMPLATE:Non-Ability ~ Intelligence
+###Block: RACETYPE Output
+# Ability Name		Unique Key						Category of Ability		Type						Description
+Aberration Type		KEY:Type Output ~ Aberration			CATEGORY:Special Ability	TYPE:SpecialQuality			DESC:Aberrations eat/sleep/breathe
+Animal Type			KEY:Type Output ~ Animal			CATEGORY:Special Ability	TYPE:SpecialQuality			DESC:Animals eat/sleep/breathe
+Construct Type		KEY:Type Output ~ Construct			CATEGORY:Special Ability	TYPE:SpecialQuality			DESC:Constructs do not eat/sleep/breathe. Constructs are Immune to poison/ sleep effects/ paralysis/ stunning/ disease/ death effects/ and necromancy effects. Constructs cannot heal damage on own but can be repaired by exposure to certain kind of effect (see description for details) or through use of Craft Construct feat (does benefit from Fast Healing special ability). Not subject to critical hits/ nonlethal damage/ ability damage/ ability drain/ fatigue/ exhaustion/ or energy drain. Immune to effects requiring a Fortitude save (unless it affects objects or is harmless). Not at risk from death from massive damage (but destroyed when reduced to 0 hp). Constructs cannot be raised/resurrected.	DESC:Mindless - Immune to all mind-affecting effects (charms/ compulsions/ phantasms/ patterns/ and morale effects)|PRETEMPLATE:1,Mindless
+Dragon Type			KEY:Type Output ~ Dragon			CATEGORY:Special Ability	TYPE:SpecialQuality			DESC:Dragons eat/sleep/breathe. Dragons are Immune to magic sleep effects and paralysis effects.
+Elemental Type		KEY:Type Output ~ Elemental			CATEGORY:Special Ability	TYPE:SpecialQuality			DESC:Elementals do not eat/sleep/breathe. Elementals' are Immune to poison/ sleep effects/ paralysis/ and stunning. Elementals' are not subject to critical hits or flanking. Elementals' souls and bodies are one unit so cannot be restored to life by spells that restore souls to a body (requires a different effect such as a Wish or True Resurrection).
+Fey Type			KEY:Type Output ~ Fey				CATEGORY:Special Ability	TYPE:SpecialQuality			DESC:Fey eat/sleep/breathe
+Giant Type			KEY:Type Output ~ Giant				CATEGORY:Special Ability	TYPE:SpecialQuality			DESC:Giants eat/sleep/breathe
+Humanoid Type		KEY:Type Output ~ Humanoid			CATEGORY:Special Ability	TYPE:SpecialQuality			DESC:Humanoids eat/sleep/breathe
+Magical Beast Type	KEY:Type Output ~ Magical Beast		CATEGORY:Special Ability	TYPE:SpecialQuality			DESC:Magical Beasts eat/sleep/breathe
+Monstrous Humanoid Type	KEY:Type Output ~ Monstrous Humanoid	CATEGORY:Special Ability	TYPE:SpecialQuality			DESC:Monstrous Humanoids eat/sleep/breathe
+Ooze Type			KEY:Type Output ~ Ooze				CATEGORY:Special Ability	TYPE:SpecialQuality			DESC:Oozes eat/breathe but do not sleep. Oozes are Immune to all mind-influencing effects (charms/ compulsions/ phantasms/ patterns/ and morale effects). Blind: Immune to gaze attacks/ visual effects/ illusions/ and other attack forms that rely on sight. Immune to poison/ sleep effects/ paralysis/ polymorph/ and stunning. Not subject to critical hits or flanking.	DESC:Some oozes have the ability to inflict acid damage to objects (%1 damage per full round of contact)|OozeObjectAcidDamageAmount|PREVARGT:OozeHasObjectAcidDamage,0
+Outsider Type		KEY:Type Output ~ Outsider			CATEGORY:Special Ability	TYPE:SpecialQuality			DESC:Outsiders breathe but do not sleep/eat (though they can if they wish). Outsiders' souls and bodies are one unit so cannot be restored to life by spells that restore souls to a body (requires a different effect such as a Wish or True Resurrection).|!PRERACE:1,RACESUBTYPE=Native	DESC:Native outsiders eat/sleep/breathe|PRERACE:1,RACESUBTYPE=Native
+Plant Type			KEY:Type Output ~ Plant				CATEGORY:Special Ability	TYPE:SpecialQuality			DESC:Plants breathe/eat but do not sleep. Plants are Immune to all mind-influencing effects (charms/ compulsions/ phantasms/ patterns/ and morale effects). Immune to poison/ sleep effects/ paralysis/ polymorph/ and stunning. Not subject to critical hits.
+Undead Type			KEY:Type Output ~ Undead			CATEGORY:Special Ability	TYPE:SpecialQuality			DESC:Undead do not eat/sleep/breathe. Undead are Immune to poison/ sleep effects/ paralysis/ stunning/ disease/ and death effects. Not subject to critical hits/ nonlethal damage/ ability drain/ or energy drain. Immune to damage to STR/DEX/CON as well as to fatigue and exhaustion effects. Negative energy can heal undead creatures. Immune to any effect that requires a Fortitude save (unless it works on objects or is harmless). Not at risk from death from massive damage (but destroyed when reduced to 0 hp). Not affected by Raise Dead and Reincarnate spells/abilities (but Resurrection and True Resurrection return the undead into their former living self).	DESC:Mindless - Immune to all mind-affecting effects (charms/ compulsions/ phantasms/ patterns/ and morale effects), Cannot heal damage on own if has no Intelligence score (but can be healed and Fast Healing works)|PRETEMPLATE:1,Mindless
+Vermin Type			KEY:Type Output ~ Vermin			CATEGORY:Special Ability	TYPE:SpecialQuality			DESC:Vermin eat/sleep/breathe	DESC:Mindless - Immune to all mind-influencing effects (charms/ compulsions/ phantasms/ patterns/ and morale effects)|PRETEMPLATE:1,Mindless
+# RACESUBTYPE Output
+Air Subtype			KEY:Subtype Output ~ Air			CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait	DESC:Air creatures always have fly speeds and usually have perfect maneuverability
+Angel Subtype		KEY:Subtype Output ~ Angel			CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait	DESC:+4 racial bonus on saves vs. poison
+Aquatic Subtype		KEY:Subtype Output ~ Aquatic			CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait	DESC:Aquatic creatures move in water without making Swim checks/ and breathe underwater
+Archon Subtype		KEY:Subtype Output ~ Archon			CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait	DESC:+4 racial bonus on saves against poison.
+Augmented Subtype		KEY:Subtype Output ~ Augmented		CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait	DESC:A creature receives this subtype whenever something happens to change its original type. Some creatures (those with an inherited template) are born with this subtype; others acquire it when they take on an acquired template. The augmented subtype is always paired with the creature's original type. A creature with the augmented subtype usually has the traits of its current type, but the features of its original type.
+Baatezu Subtype		KEY:Subtype Output ~ Baatezu			CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait	DESC:Many devils belong to the race of evil outsiders known as the baatezu.&nl;Traits: A baatezu possesses the following traits (unless otherwise noted in a creature's entry).&nl;-Immunity to fire and poison.&nl;-Resistance to acid 10 and cold 10.&nl;-See in Darkness (Su): All baatezu can see perfectly in darkness of any kind, even that created by a deeper darkness spell.&nl;-Summon (Sp): Baatezu share the ability to summon others of their kind (the success chance and type of baatezu summoned are noted in each monster description).&nl;-Telepathy.
+Chaotic Subtype		KEY:Subtype Output ~ Chaotic			CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait	DESC:A creature with the chaotic subtype overcomes damage reduction as if its natural weapons and any weapons it wields were chaotic-aligned
+Cold Subtype		KEY:Subtype Output ~ Cold			CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait	DESC:A creature with the cold subtype has immunity to cold. It has vulnerability to fire, which means it takes half again as much (+50%%) damage as normal from fire, regardless of whether a saving throw is allowed, or if the save is a success or failure.
+Earth Subtype		KEY:Subtype Output ~ Earth			CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait	DESC:This subtype usually is used for elementals and outsiders with a connection to the Elemental Plane of Earth. Earth creatures usually have burrow speeds, and most earth creatures can burrow through solid rock.
+Evil Subtype		KEY:Subtype Output ~ Evil			CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait	DESC:A creature with the evil subtype overcomes damage reduction as if its natural weapons and any weapons it wields were evil-aligned
+Extraplanar Subtype	KEY:Subtype Output ~ Extraplanar		CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait	DESC:A subtype applied to any creature when it is on a plane other than its native plane. A creature that travels the planes can gain or lose this subtype as it goes from plane to plane. Monster entries assume that encounters with creatures take place on the Material Plane, and every creature whose native plane is not the Material Plane has the extraplanar subtype (but would not have when on its home plane). Every extraplanar creature in this book has a home plane mentioned in its description. Creatures not labeled as extraplanar are natives of the Material Plane, and they gain the extraplanar subtype if they leave the Material Plane. No creature has the extraplanar subtype when it is on a transitive plane, such as the Astral Plane, the Ethereal Plane, and the Plane of Shadow.
+Fire Subtype		KEY:Subtype Output ~ Fire			CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait	DESC:A creature with the fire subtype has immunity to fire. It has vulnerability to cold, which means it takes half again as much (+50%%) damage as normal from cold, regardless of whether a saving throw is allowed, or if the save is a success or failure.
+Goblinoid Subtype		KEY:Subtype Output ~ Goblinoid		CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait	DESC:Goblinoids are stealthy humanoids who live by hunting and raiding and who all speak Goblin.
+Good Subtype		KEY:Subtype Output ~ Good			CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait	DESC:A creature with the good subtype overcomes damage reduction as if its natural weapons and any weapons it wields were good-aligned
+Incorporeal Subtype	KEY:Subtype Output ~ Incorporeal		CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait	DESC:Can be harmed only by other incorporeal creatures/+1 or better weapons/magic. 50%% chance to ignore any damage from a corporeal source. Can pass through solid objects at will. Attacks pass through armor. Always moves silently
+Lawful Subtype		KEY:Subtype Output ~ Lawful			CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait	DESC:A creature with the lawful subtype overcomes damage reduction as if its natural weapons and any weapons it wields were lawful-aligned
+Native Subtype		KEY:Subtype Output ~ Native			CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait	DESC:Outsider native to Material Plane
+Reptilian Subtype		KEY:Subtype Output ~ Reptilian		CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait	DESC:These creatures are scaly and usually coldblooded. The reptilian subtype is only used to describe a set of humanoid races, not all animals and monsters that are truly reptiles.
+Shapechanger Subtype	KEY:Subtype Output ~ Shapechanger		CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait	DESC:A shapechanger has the supernatural ability to assume one or more alternate forms. Many magical effects allow some kind of shape shifting, and not every creature that can change shapes has the shapechanger subtype. Traits- A shapechanger possesses the following traits (unless otherwise noted in a creature's entry). Proficient with its natural weapons, with simple weapons, and with any weapons mentioned in the creature's description. Proficient with any armor mentioned in the creature's description, as well as all lighter forms. If no form of armor is mentioned, the shapechanger is not proficient with armor. A shapechanger is proficient with shields if it is proficient with any type of armor.
+Swarm Subtype		KEY:Subtype Output ~ Swarm			CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait	DESC:Swarm are Not subject to critical hits or flanking. Immune to any spell or effect that targets a specific number of creatures. Immune to any spell or effect that targets a specific number of creatures	DESC:Takes half damage from slashing and piercing weapons|PRESIZEEQ:T	DESC:Immune to all weapon damage/ susceptible to high winds|PRESIZELTEQ:D
+Water Subtype		KEY:Subtype Output ~ Water			CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait	DESC:Always have swim speeds and can move in water without making Swim checks/ can breathe underwater and usually can breathe air as well
+Tanar'ri Subtype		KEY:Subtype Output ~ Tanar'ri			CATEGORY:Special Ability	TYPE:SpecialQuality.RacialTrait	DESC:Many devils belong to the race of evil outsiders known as the baatezu.&nl;Traits: A baatezu possesses the following traits (unless otherwise noted in a creature's entry).&nl;-Immunity to fire and poison.&nl;-Resistance to acid 10 and cold 10.&nl;-See in Darkness (Su): All baatezu can see perfectly in darkness of any kind, even that created by a deeper darkness spell.&nl;-Summon (Sp): Baatezu share the ability to summon others of their kind (the success chance and type of baatezu summoned are noted in each monster description).&nl;-Telepathy.
+
+
+
+#Augmented Subtype: A creature receives this subtype whenever something happens to change its original type.
+#The augmented subtype is always paired with the creature's original type.
+#For example, a wizard's raven familiar is a magical beast (augmented animal).
+#A creature with the augmented subtype usually has the _traits_ of its current type, but the _features_ of its original type.
+#For example, a wizard's raven familiar has an animal's features and the traits of a magical beast.
+
+###Block: Augmented Subtypes	For these to work you must have a TYPE that correlates on the actual RACE. RACETYPE doesn't handle this, it's TYPE.
+# Ability Name			Category of Ability	Type										Template
+Augmented Aberration		CATEGORY:Internal		TYPE:AugmentedSubType.AugmentedSubTypeAberration		TEMPLATE:RaceSubtype ~ Augmented Aberration
+Augmented Animal			CATEGORY:Internal		TYPE:AugmentedSubType.AugmentedSubTypeAnimal			TEMPLATE:RaceSubtype ~ Augmented Animal
+Augmented Construct		CATEGORY:Internal		TYPE:AugmentedSubType.AugmentedSubTypeConstruct			TEMPLATE:RaceSubtype ~ Augmented Construct
+Augmented Dragon			CATEGORY:Internal		TYPE:AugmentedSubType.AugmentedSubTypeDragon			TEMPLATE:RaceSubtype ~ Augmented Dragon
+Augmented Elemental		CATEGORY:Internal		TYPE:AugmentedSubType.AugmentedSubTypeElemental			TEMPLATE:RaceSubtype ~ Augmented Elemental
+Augmented Fey			CATEGORY:Internal		TYPE:AugmentedSubType.AugmentedSubTypeFey				TEMPLATE:RaceSubtype ~ Augmented Fey
+Augmented Giant			CATEGORY:Internal		TYPE:AugmentedSubType.AugmentedSubTypeGiant			TEMPLATE:RaceSubtype ~ Augmented Giant
+Augmented Humanoid		CATEGORY:Internal		TYPE:AugmentedSubType.AugmentedSubTypeHumanoid			TEMPLATE:RaceSubtype ~ Augmented Humanoid
+Augmented Magical Beast		CATEGORY:Internal		TYPE:AugmentedSubType.AugmentedSubTypeMagicalBeast		TEMPLATE:RaceSubtype ~ Augmented Magical Beast
+Augmented Monstrous Humanoid	CATEGORY:Internal		TYPE:AugmentedSubType.AugmentedSubTypeMonstrousHumanoid	TEMPLATE:RaceSubtype ~ Augmented Monstrous Humanoid
+Augmented Ooze			CATEGORY:Internal		TYPE:AugmentedSubType.AugmentedSubTypeAugmentedOoze		TEMPLATE:RaceSubtype ~ Augmented Ooze
+Augmented Outsider		CATEGORY:Internal		TYPE:AugmentedSubType.AugmentedSubTypeOutsider			TEMPLATE:RaceSubtype ~ Augmented Outsider
+Augmented Plant			CATEGORY:Internal		TYPE:AugmentedSubType.AugmentedSubTypePlant			TEMPLATE:RaceSubtype ~ Augmented Plant
+Augmented Undead			CATEGORY:Internal		TYPE:AugmentedSubType.AugmentedSubTypeUndead			TEMPLATE:RaceSubtype ~ Augmented Undead
+Augmented Vermin			CATEGORY:Internal		TYPE:AugmentedSubType.AugmentedSubTypeVermin			TEMPLATE:RaceSubtype ~ Augmented Vermin

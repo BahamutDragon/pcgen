@@ -1,28 +1,28 @@
-# CVS $Revision: $ $Author: $ -- Wed Feb 26 18:18:46 2014 -- reformated by prettylst.pl v1.51 (build 22988)
+# CVS $Revision: $ $Author: $ -- Thu Jul 10 14:45:53 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 
 
 
 ###Prestige Class
 
-# Class Name			Hit Dice	Max Level	Source Page		Save checks bonus								Combat bonus
-CLASS:Disciple of the Eye	HD:8		MAXLEVEL:5	SOURCEPAGE:p.75	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4
+# Class Name			Hit Dice	Max Level	Source Page		Combat bonus								Bonus
+CLASS:Disciple of the Eye	HD:8		MAXLEVEL:5	SOURCEPAGE:p.75	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name			Required AL			Required Feat				Required Race							Required Skill
-CLASS:Disciple of the Eye	PREALIGN:1,LG,LN,LE	PREFEAT:1,Improved Unarmed Strike	PRERACE:1,RACESUBTYPE=Dragonblood,RACETYPE=Dragon	PRESKILL:2,Concentration=8,Spot=8
+CLASS:Disciple of the Eye	PREALIGN:LN,LG,LN,LE	PREABILITY:1,CATEGORY=FEAT,Improved Unarmed Strike	PRERACE:1,RACESUBTYPE=Dragonblood,RACETYPE=Dragon	PRESKILL:2,Concentration=8,Spot=8
 # Class Name			Skill Pts/Lvl	Class Skill
-CLASS:Disciple of the Eye	STARTSKILLPTS:4	CSKILL:Concentration|Climb|TYPE=Craft|Diplomacy|Gather Information|Hide|Jump|Intimidate|Knowledge (Arcana)|Knowledge (Geography)|Listen|Move Silently|TYPE=Profession|Sense Motive|Spot|Survival|Swim|Tumble
+CLASS:Disciple of the Eye	STARTSKILLPTS:4	CSKILL:Concentration|Climb|TYPE=Craft|Diplomacy|Gather Information|Hide|Jump|Intimidate|Knowledge (arcana)|Knowledge (Geography)|Listen|Move Silently|TYPE=Profession|Sense Motive|Spot|Survival|Swim|Tumble
 ###Block:
 2	BONUS:VAR|DiscipleOfTheEyeNaturalArmorBonus|CL/2
 ###Block:
-1	ABILITY:Disciple of the Eye Class Feature|AUTOMATIC|Disciple of the Eye ~ Fast Movement|Disciple of the Eye ~ Flurry of Blows|Disciple of the Eye ~ Wandering Eyes|Disciple of the Eye ~ Natural Armor Bonus
+1	ABILITY:Disciple of the Eye Class Feature|AUTOMATIC|Disciple of the Eye ~ Fast Movement|Disciple of the Eye ~ Flurry of Blows|Disciple of the Eye ~ Natural Armor Bonus|Disciple of the Eye ~ Wandering Eyes
 2	ABILITY:Disciple of the Eye Class Feature|AUTOMATIC|Disciple of the Eye ~ Frightful Attack
 3	ABILITY:Disciple of the Eye Class Feature|AUTOMATIC|Disciple of the Eye ~ Keen Senses
 4	ABILITY:Disciple of the Eye Class Feature|AUTOMATIC|Disciple of the Eye ~ Glare of the Enraged Dragon
 5	ABILITY:Disciple of the Eye Class Feature|AUTOMATIC|Disciple of the Eye ~ Blindsense
 
-# Class Name	Hit Dice	Source Page		Save checks bonus											Combat bonus
-CLASS:Dracolexi	HD:6		SOURCEPAGE:p.79	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*1/2
+# Class Name	Hit Dice	Source Page		Combat bonus								Bonus
+CLASS:Dracolexi	HD:6		SOURCEPAGE:p.79	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Required Feat					Required Language								Required Skill									Required Text
-CLASS:Dracolexi	PREFEAT:1,Eschew Materials,Still Spell	PRELANG:1,Draconic	PRELANG:2,Auran,Dwarven,Elven,Ignan	PRESKILL:3,Knowledge (Arcana)=8,Perform (Oratory)=4,Spellcraft=4	PRETEXT:Feats: Eschew Materials or Still Spell. Skills: Knowledge (Arcana) 8 ranks, Perform (Oratory) 4 ranks, Spellcraft 4 ranks. Spells: Must be able to spontaneously cast 2nd-level arcane spells, must know at least one languagedependent spell. Languages: Must be able to speak Draconic plus at least two languages from the following list: Auran, Dwarven, Elven, Ignan.
+CLASS:Dracolexi	PREABILITY:1,CATEGORY=FEAT,Eschew Materials,Still Spell	PRELANG:1,Draconic	PRELANG:2,Auran,Dwarven,Elven,Ignan	PRESKILL:3,Knowledge (Arcana)=8,Perform (Oratory)=4,Spellcraft=4	PRETEXT:Feats: Eschew Materials or Still Spell. Skills: Knowledge (Arcana) 8 ranks, Perform (Oratory) 4 ranks, Spellcraft 4 ranks. Spells: Must be able to spontaneously cast 2nd-level arcane spells, must know at least one languagedependent spell. Languages: Must be able to speak Draconic plus at least two languages from the following list: Auran, Dwarven, Elven, Ignan.
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Dracolexi	STARTSKILLPTS:4	CSKILL:Concentration|Climb|TYPE=Craft|Decipher Script|Gather Information|Jump|TYPE=Knowledge|TYPE=Profession|Sense Motive|Spellcraft|Search|Speak Language|Swim|Use Magic Device
 ###Block
@@ -36,12 +36,12 @@ CLASS:Dracolexi	STARTSKILLPTS:4	CSKILL:Concentration|Climb|TYPE=Craft|Decipher S
 5	ABILITY:Dracolexi Class Feature|AUTOMATIC|Dracolexi ~ Bonus Spells Known
 8	ABILITY:Dracolexi Class Feature|AUTOMATIC|Dracolexi ~ Voice in Silence
 
-# Class Name		Hit Dice	Max Level	Source Page		Save checks bonus											Combat bonus
-CLASS:Dragon Devotee	HD:6		MAXLEVEL:5	SOURCEPAGE:p.84	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4
-# Class Name		Required Language		Multiple Requirements						Prohibited Race							Required Skill				Prohibited Template
-CLASS:Dragon Devotee	PRELANG:1,Draconic	PREMULT:1,[PREATT:5],[PREVARGTEQ:BaseAttackBonus,5]	!PRERACE:1,RACETYPE=Dragon,RACESUBTYPE=Dragonblood	PRESKILL:1,Knowledge (Arcana)=1	!PRETEMPLATE:1,Draconic Template
+# Class Name		Hit Dice	Max Level	Source Page		Combat bonus								Bonus
+CLASS:Dragon Devotee	HD:6		MAXLEVEL:5	SOURCEPAGE:p.84	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name		Required Language		Prohibited Race							Required Skill				Prohibited Template			PRETOTALAB
+CLASS:Dragon Devotee	PRELANG:1,Draconic	!PRERACE:1,RACETYPE=Dragon,RACESUBTYPE=Dragonblood	PRESKILL:1,Knowledge (Arcana)=1	!PRETEMPLATE:1,Draconic Template	PRETOTALAB:5
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Dragon Devotee	STARTSKILLPTS:4	CSKILL:Climb|Concentration|Intimidate|Jump|Knowledge (Arcana)|Listen|Sense Motive|Spellcraft|Spot
+CLASS:Dragon Devotee	STARTSKILLPTS:4	CSKILL:Climb|Concentration|Intimidate|Jump|Knowledge (arcana)|Listen|Sense Motive|Spellcraft|Spot
 ###Block
 3	ADD:SPELLCASTER|Sorcerer
 5	ADD:SPELLCASTER|Sorcerer
@@ -52,15 +52,15 @@ CLASS:Dragon Devotee	STARTSKILLPTS:4	CSKILL:Climb|Concentration|Intimidate|Jump|
 4	ABILITY:Dragon Devotee Class Feature|AUTOMATIC|Dragon Devotee ~ Claws
 5	ABILITY:Dragon Devotee Class Feature|AUTOMATIC|Dragon Devotee ~ Draconic Template
 
-# Class Name		Hit Dice	Source Page		Save checks bonus											Combat bonus
-CLASS:Dragonheart Mage	HD:6		SOURCEPAGE:p.88	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*1/2
+# Class Name		Hit Dice	Source Page		Combat bonus								Bonus
+CLASS:Dragonheart Mage	HD:6		SOURCEPAGE:p.88	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required Feat			Required Language		Required Skill				Required Casting Type	Req. Spell Type		Required Text
-CLASS:Dragonheart Mage	PREFEAT:1,Draconic Heritage	PRELANG:1,Draconic	PRESKILL:1,Knowledge (Arcana)=8	PRESPELLCAST:MEMORIZE=N	PRESPELLTYPE:1,Arcane=1	PRETEXT:Spellcasting: Ability to spontaneously cast arcane spells.
+CLASS:Dragonheart Mage	PREABILITY:1,CATEGORY=FEAT,Draconic Heritage	PRELANG:1,Draconic	PRESKILL:1,Knowledge (Arcana)=8	PRESPELLCAST:MEMORIZE=N	PRESPELLTYPE:1,Arcane=1	PRETEXT:Spellcasting: Ability to spontaneously cast arcane spells.
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Dragonheart Mage	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|Gather Information|TYPE=Knowledge|Listen|Speak Language|Search|Spellcraft|Spot
 ###Block
 1	ABILITY:Dragonheart Mage Class Feature|AUTOMATIC|Dragonheart Mage ~ Draconic Breath
-2	ABILITY:Dragonheart Mage Class Feature|AUTOMATIC|Dragonheart Mage ~ Spellcasting|Dragonheart Mage ~ Draconic Feat
+2	ABILITY:Dragonheart Mage Class Feature|AUTOMATIC|Dragonheart Mage ~ Draconic Feat|Dragonheart Mage ~ Spellcasting
 ###Block
 2	ADD:SPELLCASTER|ANY
 3	ADD:SPELLCASTER|ANY
@@ -80,14 +80,14 @@ CLASS:Dragonheart Mage	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|Gather Informa
 8				BONUS:VAR|DraconicFeatCount|1
 11	PREPCLEVEL:MIN=20
 
-# Class Name			Hit Dice	Source Page		Save checks bonus											Combat bonus
-CLASS:Singer of Concordance	HD:6		SOURCEPAGE:p.91	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:COMBAT|BAB|CL*1/2
+# Class Name			Hit Dice	Source Page		Combat bonus								Bonus
+CLASS:Singer of Concordance	HD:6		SOURCEPAGE:p.91	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name			Required Deity	Required Race							Required Skill				Req. Spell Type
 CLASS:Singer of Concordance	PREDEITY:1,Io	PRERACE:1,RACESUBTYPE=Dragonblood,RACETYPE=Dragon	PRESKILL:1,Knowledge (Religion)=8	PRESPELLTYPE:1,Divine=3
 # Class Name			Skill Pts/Lvl	Class Skill
-CLASS:Singer of Concordance	STARTSKILLPTS:4	CSKILL:Concentration|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (The Planes)|Knowledge (Religion)|TYPE=Profession|Sense Motive|Spellcraft|Survival
+CLASS:Singer of Concordance	STARTSKILLPTS:4	CSKILL:Concentration|Diplomacy|Heal|Knowledge (arcana)|Knowledge (The Planes)|Knowledge (Religion)|TYPE=Profession|Sense Motive|Spellcraft|Survival
 ###Block
-1	ABILITY:Singer of Concordance Class Feature|AUTOMATIC|Singer of Concordance ~ Spellcasting|Singer of Concordance ~ Aspect of Peace
+1	ABILITY:Singer of Concordance Class Feature|AUTOMATIC|Singer of Concordance ~ Aspect of Peace|Singer of Concordance ~ Spellcasting
 2	ABILITY:Singer of Concordance Class Feature|AUTOMATIC|Singer of Concordance ~ Bonus Domain
 3	ABILITY:Singer of Concordance Class Feature|AUTOMATIC|Singer of Concordance ~ Aspect of Refuge
 5	ABILITY:Singer of Concordance Class Feature|AUTOMATIC|Singer of Concordance ~ Aspect of Exclusion
@@ -131,7 +131,7 @@ SUBSTITUTIONLEVEL:9	CAST:6,4,4,3,2,1	BONUS:SPELLCAST|CLASS=Cleric;LEVEL=5|-1
 
 # Class Name
 CLASS:Sorcerer.MOD
-SUBSTITUTIONCLASS:Dragonblood Sorcerer	STARTSKILLPTS:2	PRERACE:1,RACESUBTYPE=Dragonblood	SOURCEPAGE:p.107	HD:4
+SUBSTITUTIONCLASS:Dragonblood Sorcerer	STARTSKILLPTS:2	PRERACE:1,RACESUBTYPE=Dragonblood	CSKILL:.CLEAR.TYPE=Craft|.CLEAR.TYPE=Profession	CSKILL:Use Magic Device	SOURCEPAGE:p.107	HD:4
 SUBSTITUTIONLEVEL:1	BONUS:VAR|ArcaneInsightBonus|2	ABILITY:Dragonblood Sorcerer Class Feature|AUTOMATIC|Dragonblood Sorcerer ~ Arcane Insight|Dragonblood Sorcerer ~ Draconic Heritage
 SUBSTITUTIONLEVEL:4	BONUS:VAR|ArcaneInsightBonus|2	ABILITY:Dragonblood Sorcerer Class Feature|AUTOMATIC|Dragonblood Sorcerer ~ Spell-Like Ability
 SUBSTITUTIONLEVEL:7	BONUS:VAR|ArcaneInsightBonus|2	ABILITY:Dragonblood Sorcerer Class Feature|AUTOMATIC|Dragonblood Sorcerer ~ Bonus Spells Known
@@ -148,7 +148,7 @@ CLASS:Paladin.MOD
 SUBSTITUTIONCLASS:Dragonborn Paladin	PRETEMPLATE:1,Dragonborn	SOURCEPAGE:p.108
 SUBSTITUTIONLEVEL:1							ABILITY:Dragonborn Paladin Class Feature|AUTOMATIC|Dragonborn Paladin ~ Detect Dragonblood
 SUBSTITUTIONLEVEL:4							ABILITY:Dragonborn Paladin Class Feature|AUTOMATIC|Dragonborn Paladin ~ Bahamut's Blessing
-SUBSTITUTIONLEVEL:5			BONUS:COMBAT|BAB|-1	ABILITY:Dragonborn Paladin Class Feature|AUTOMATIC|Dragonborn Paladin ~ Fearless Special Mount
+SUBSTITUTIONLEVEL:5			BONUS:COMBAT|BASEAB|-1	ABILITY:Dragonborn Paladin Class Feature|AUTOMATIC|Dragonborn Paladin ~ Fearless Special Mount
 SUBSTITUTIONLEVEL:1							ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Aura of Good|!PREABILITY:1,CATEGORY=ACF,TYPE.PaladinAuraOfGood
 SUBSTITUTIONLEVEL:1							ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Smite Evil|!PREABILITY:1,CATEGORY=ACF,TYPE.PaladinSmiteEvil
 SUBSTITUTIONLEVEL:1							ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Associates|Paladin ~ Code of Conduct
@@ -163,14 +163,14 @@ SUBSTITUTIONLEVEL:5	CAST:0,0
 CLASS:Fighter.MOD
 SUBSTITUTIONCLASS:Kobold Fighter	PRERACE:1,Kobold	SOURCEPAGE:p.109
 # TODO: Remove Heavy Armor Prof
-SUBSTITUTIONLEVEL:1							ABILITY:Kobold Fighter Class Feature|AUTOMATIC|Kobold Fighter ~ Spear Focus|Kobold Fighter ~ Dodge
+SUBSTITUTIONLEVEL:1							ABILITY:Kobold Fighter Class Feature|AUTOMATIC|Kobold Fighter ~ Dodge|Kobold Fighter ~ Spear Focus
 SUBSTITUTIONLEVEL:2	BONUS:ABILITYPOOL|Fighter Feat|-1	ABILITY:Kobold Fighter Class Feature|AUTOMATIC|Kobold Fighter ~ Constitution Boost
 SUBSTITUTIONLEVEL:4	BONUS:ABILITYPOOL|Fighter Feat|-1	ABILITY:Kobold Fighter Class Feature|AUTOMATIC|Kobold Fighter ~ Strength Boost
 
 # Kobold Ranger
 
 # Class Name	Group of Prohibited Spells
-CLASS:Ranger.MOD	PROHIBITSPELL:SPELL.Entangle,Speak with Plants,Spike Growth,Command Plants,Diminish Plants,Plant Growth,Tree Shape,Tree Stride|PREVAREQ:KoboldRangerSpells,1
+CLASS:Ranger.MOD	PROHIBITSPELL:SPELL.Command Plants,Diminish Plants,Entangle,Plant Growth,Speak with Plants,Spike Growth,Tree Shape,Tree Stride|PREVAREQ:KoboldRangerSpells,1
 SUBSTITUTIONCLASS:Kobold Ranger	PRERACE:1,Kobold	SOURCEPAGE:p.109
 #
 SUBSTITUTIONLEVEL:1			ABILITY:Kobold Ranger Class Feature|AUTOMATIC|Kobold Ranger ~ Kobold Favored Enemy

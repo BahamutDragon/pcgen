@@ -1,14 +1,14 @@
-# CVS $Revision: $ $Author: $ -- Wed Mar  5 16:52:34 2014 -- reformated by prettylst.pl v1.51 (build 22988)
+# CVS $Revision: $ $Author: $ -- Thu Aug  7 12:47:32 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:Magic of Incarnum	SOURCESHORT:MoI	SOURCEDATE:2005-09
 # Original Entry by: BahamutDragon
 # Date Entered: 2014-01
 
-# Class Name	Hit Dice	Type			Ex Class			Source Page		Define													Save checks bonus											Combat bonus		Modify VAR
-CLASS:Incarnate	HD:6		TYPE:Base.PC	EXCLASS:Ex Incarnate	SOURCEPAGE:p.20	DEFINE:IncarnateLVL|CL	DEFINE:IncarnateMeldshaperLVL|0	DEFINE:IncarnumUser|1	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*1/2	BONUS:VAR|MeldshaperLVL|CL
+# Class Name	Hit Dice	Type			Ex Class			Source Page		Define													Combat bonus															Modify VAR																												Bonus
+CLASS:Incarnate	HD:6		TYPE:Base.PC	EXCLASS:Ex Incarnate	SOURCEPAGE:p.20	DEFINE:IncarnateLVL|0	DEFINE:IncarnateMeldshaperLVL|0	DEFINE:IncarnumUser|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|IncarnateLVL|CL	BONUS:VAR|IncarnumUser|1	BONUS:VAR|MeldshaperLVL|CL	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Required AL
 CLASS:Incarnate	PREALIGN:NG,NE,LN,CN
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Incarnate	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Knowledge (Arcana)|Knowledge (Religion)|Knowledge (The Planes)|TYPE=Profession|Spellcraft
+CLASS:Incarnate	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Knowledge (arcana)|Knowledge (Religion)|Knowledge (The Planes)|TYPE=Profession|Spellcraft
 ###Block:
 #1	BONUS:ABILITYPOOL|Incarnate Alignment Focus|1
 1	ABILITY:Special Ability|AUTOMATIC|Incarnate Alignment Focus (Good)|PREALIGN:NG
@@ -16,7 +16,7 @@ CLASS:Incarnate	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Knowledge (Arcan
 1	ABILITY:Special Ability|AUTOMATIC|Incarnate Alignment Focus (Law)|PREALIGN:LN
 1	ABILITY:Special Ability|AUTOMATIC|Incarnate Alignment Focus (Chaos)|PREALIGN:CN
 ###Block:
-1	ABILITY:Incarnate Class Feature|AUTOMATIC|Incarnate ~ Weapon and Armor Proficiency|Incarnate ~ Meldshaping|Incarnate ~ Aligned Soulmelds
+1	ABILITY:Incarnate Class Feature|AUTOMATIC|Incarnate ~ Aligned Soulmelds|Incarnate ~ Meldshaping|Incarnate ~ Weapon and Armor Proficiency
 1	ABILITY:Incarnate Class Feature|AUTOMATIC|Incarnate ~ Aura|Incarnate ~ Detect Opposition
 2	ABILITY:Incarnate Class Feature|AUTOMATIC|Incarnate ~ Chakra Binds
 3	ABILITY:Incarnate Class Feature|AUTOMATIC|Incarnate ~ Expanded Soulmeld Capacity|Incarnate ~ Incarnum Radiance
@@ -35,25 +35,25 @@ CLASS:Incarnate	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Knowledge (Arcan
 15	BONUS:VAR|ExpandedSoulmelds|1
 5	BONUS:VAR|RapidMeldshapingTimes|CL+1/6
 
-# Class Name		Hit Dice	Type			Source Page		Visible	Define									Save checks bonus											Combat bonus
-CLASS:Ex Incarnate	HD:6		TYPE:Base.PC	SOURCEPAGE:p.22	VISIBLE:NO	DEFINE:IncarnateLVL|CL	DEFINE:IncarnateMeldshaperLVL|CL	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*1/2
+# Class Name		Hit Dice	Type			Source Page		Visible	Define									Combat bonus															Modify VAR																										Bonus
+CLASS:Ex Incarnate	HD:6		TYPE:Base.PC	SOURCEPAGE:p.22	VISIBLE:NO	DEFINE:IncarnateLVL|0	DEFINE:IncarnateMeldshaperLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|IncarnateLVL|CL	BONUS:VAR|IncarnateMeldshaperLVL|IncarnateLVL	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Ex Incarnate	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Knowledge (Arcana)|Knowledge (Religion)|Knowledge (The Planes)|TYPE=Profession|Spellcraft
+CLASS:Ex Incarnate	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Knowledge (arcana)|Knowledge (Religion)|Knowledge (The Planes)|TYPE=Profession|Spellcraft
 1	ABILITY:Incarnate Class Feature|AUTOMATIC|Incarnate ~ Weapon and Armor Proficiency
 
-# Class Name	Hit Dice	Type			Base class as subclass?	Source Page		Define													Save checks bonus						Combat bonus		Modify VAR
-CLASS:Soulborn	HD:10		TYPE:Base.PC	ALLOWBASECLASS:NO		SOURCEPAGE:p.25	DEFINE:SoulbornLVL|CL	DEFINE:SoulbornMeldshaperLVL|0	DEFINE:IncarnumUser|1	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL	BONUS:VAR|SoulbornMeldshaperLVL|CL/2
+# Class Name	Hit Dice	Type			Base class as subclass?	Source Page		Define													Combat bonus										Modify VAR																Bonus
+CLASS:Soulborn	HD:10		TYPE:Base.PC	ALLOWBASECLASS:NO		SOURCEPAGE:p.25	DEFINE:SoulbornLVL|0	DEFINE:SoulbornMeldshaperLVL|0	DEFINE:IncarnumUser|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|SoulbornLVL|CL	BONUS:VAR|IncarnumUser|1	BONUS:VAR|SoulbornMeldshaperLVL|CL/2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required AL
 CLASS:Soulborn	PREALIGN:LG,CG,LE,CE
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Soulborn	STARTSKILLPTS:2	CSKILL:Climb|Concentration|TYPE=Craft|Handle Animal|Heal|Jump|Knowledge (Arcana)|Knowledge (The Planes)|TYPE=Profession|Ride|Spellcraft|Swim
+CLASS:Soulborn	STARTSKILLPTS:2	CSKILL:Climb|Concentration|TYPE=Craft|Handle Animal|Heal|Jump|Knowledge (arcana)|Knowledge (The Planes)|TYPE=Profession|Ride|Spellcraft|Swim
 ###Block: This could be skipped if there was a method to assign class skills to a class.
 SUBCLASS:Lawful Good Soulborn		COST:0	PREALIGN:LG	CSKILL:Diplomacy
 SUBCLASS:Chaotic Good Soulborn	COST:0	PREALIGN:CG	CSKILL:Gather Information
 SUBCLASS:Lawful Evil Soulborn		COST:0	PREALIGN:LE	CSKILL:Bluff
 SUBCLASS:Chaotic Evil Soulborn	COST:0	PREALIGN:CE	CSKILL:Intimidate
 ###Block:
-1	ABILITY:Soulborn Class Feature|AUTOMATIC|Soulborn ~ Weapon and Armor Proficiency|Soulborn ~ Meldshaping|Soulborn ~ Aligned Soulmelds
+1	ABILITY:Soulborn Class Feature|AUTOMATIC|Soulborn ~ Aligned Soulmelds|Soulborn ~ Meldshaping|Soulborn ~ Weapon and Armor Proficiency
 1	ABILITY:Soulborn Class Feature|AUTOMATIC|Soulborn ~ Aura|Soulborn ~ Smite Opposition
 2	ABILITY:Soulborn Class Feature|AUTOMATIC|Soulborn ~ Incarnum Defense
 3	ABILITY:Soulborn Class Feature|AUTOMATIC|Soulborn ~ Bonus Feat
@@ -67,20 +67,20 @@ SUBCLASS:Chaotic Evil Soulborn	COST:0	PREALIGN:CE	CSKILL:Intimidate
 8	BONUS:VAR|SoulbornChakraBinds|1+(CL>13)+(CL>17)	DEFINE:SoulbornChakraBinds|0
 6	BONUS:VAR|EssentiaPool|(CL-4)/2+(CL>16)+(CL>18)	DEFINE:EssentiaPool|0
 
-# Class Name	Hit Dice	Type			Source Page		Visible	Define									Save checks bonus						Combat bonus		Modify VAR
-CLASS:Ex Soulborn	HD:10		TYPE:Base.PC	SOURCEPAGE:p.27	VISIBLE:NO	DEFINE:SoulbornLVL|CL	DEFINE:SoulbornMeldshaperLVL|0	BONUS:CHECKS|BASE.Fortitude,BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL	BONUS:VAR|SoulbornMeldshaperLVL|CL/2
+# Class Name	Hit Dice	Type			Source Page		Visible	Define									Combat bonus										Modify VAR											Bonus
+CLASS:Ex Soulborn	HD:10		TYPE:Base.PC	SOURCEPAGE:p.27	VISIBLE:NO	DEFINE:SoulbornLVL|0	DEFINE:SoulbornMeldshaperLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|SoulbornLVL|CL	BONUS:VAR|SoulbornMeldshaperLVL|CL/2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Ex Soulborn	STARTSKILLPTS:2	CSKILL:Climb|Concentration|TYPE=Craft|Handle Animal|Heal|Jump|Knowledge (Arcana)|Knowledge (The Planes)|TYPE=Profession|Ride|Spellcraft|Swim
+CLASS:Ex Soulborn	STARTSKILLPTS:2	CSKILL:Climb|Concentration|TYPE=Craft|Handle Animal|Heal|Jump|Knowledge (arcana)|Knowledge (The Planes)|TYPE=Profession|Ride|Spellcraft|Swim
 1	ABILITY:Soulborn Class Feature|AUTOMATIC|Soulborn ~ Weapon and Armor Proficiency
 3	ABILITY:Soulborn Class Feature|AUTOMATIC|Soulborn ~ Bonus Feat
 19	ABILITY:Soulborn Class Feature|AUTOMATIC|Soulborn ~ Timeless Body
 
-# Class Name	Hit Dice	Type			Source Page		Define													Save checks bonus											Combat bonus		Modify VAR
-CLASS:Totemist	HD:8		TYPE:Base.PC	SOURCEPAGE:p.29	DEFINE:TotemistLVL|CL	DEFINE:TotemistMeldshaperLVL|0	DEFINE:IncarnumUser|1	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|TotemistMeldshaperLVL|CL
+# Class Name	Hit Dice	Type			Source Page		Define													Combat bonus															Modify VAR																														Bonus
+CLASS:Totemist	HD:8		TYPE:Base.PC	SOURCEPAGE:p.29	DEFINE:TotemistLVL|0	DEFINE:TotemistMeldshaperLVL|0	DEFINE:IncarnumUser|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|TotemistLVL|CL	BONUS:VAR|IncarnumUser|1	BONUS:VAR|TotemistMeldshaperLVL|CL	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Totemist	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Handle Animal|Knowledge (Arcana)|Knowledge (Nature)|Knowledge (The Planes)|Listen|TYPE=Profession|Ride|Spellcraft|Spot|Survival|Swim
-1	ABILITY:Totemist Class Feature|AUTOMATIC|Totemist ~ Weapon and Armor Proficiency|Totemist ~ Meldshaping
-1	ABILITY:Totemist Class Feature|AUTOMATIC|Totemist ~ Wild Empathy|Totemist ~ Illiteracy
+CLASS:Totemist	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Handle Animal|Knowledge (arcana)|Knowledge (Nature)|Knowledge (The Planes)|Listen|TYPE=Profession|Ride|Spellcraft|Spot|Survival|Swim
+1	ABILITY:Totemist Class Feature|AUTOMATIC|Totemist ~ Meldshaping|Totemist ~ Weapon and Armor Proficiency
+1	ABILITY:Totemist Class Feature|AUTOMATIC|Totemist ~ Illiteracy|Totemist ~ Wild Empathy
 2	ABILITY:Totemist Class Feature|AUTOMATIC|Totemist ~ Chakra Binds|Totemist ~ Totem Chakra Bind
 3	ABILITY:Totemist Class Feature|AUTOMATIC|Totemist ~ Totem's Protection
 8	ABILITY:Totemist Class Feature|AUTOMATIC|Totemist ~ Rebind Totem Soulmeld
@@ -92,12 +92,12 @@ CLASS:Totemist	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Handle Animal|Kno
 
 #Incandescent Champion: This good-aligned warrior wields pure incarnum to protect the innocent from the depredations of tyranny.
 
-# Class Name			Hit Dice	Type					Source Page		Visible	Save checks bonus											Combat bonus		Modify VAR
-CLASS:Incandescent Champion	HD:10		TYPE:PC.Prestige.Incarnum	SOURCEPAGE:p.115	VISIBLE:NO	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:COMBAT|BAB|CL*3/4	BONUS:VAR|EssentiaPool|CL
-# Class Name			Required AL		Multiple Requirements						Required Skill			Required Text															Var. Min. Value
-CLASS:Incandescent Champion	PREALIGN:LG,NG,CG	PREMULT:1,[PREATT:6],[PREVARGTEQ:BaseAttackBonus,6]	PRESKILL:1,Concentration=4	PRETEXT:Alignment: Any good. Base Attack Bonus: +6. Skills: Concentration 4 ranks. Essentia Pool: 1.	PREVARGTEQ:EssentiaPool,1
+# Class Name			Hit Dice	Type					Source Page		Visible	Combat bonus															Modify VAR																			Bonus
+CLASS:Incandescent Champion	HD:10		TYPE:PC.Prestige.Incarnum	SOURCEPAGE:p.115	VISIBLE:NO	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|EssentiaPool|CL	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name			Required AL		Required Skill			Required Text															Var. Min. Value			PRETOTALAB
+CLASS:Incandescent Champion	PREALIGN:LG,NG,CG	PRESKILL:1,Concentration=4	PRETEXT:Alignment: Any good. Base Attack Bonus: +6. Skills: Concentration 4 ranks. Essentia Pool: 1.	PREVARGTEQ:EssentiaPool,1	PRETOTALAB:6
 # Class Name			Skill Pts/Lvl	Class Skill
-CLASS:Incandescent Champion	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Heal|Intimidate|Knowledge (Arcana)|Knowledge (Religion)|Knowledge (The Planes)|TYPE=Profession|Ride
+CLASS:Incandescent Champion	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Heal|Intimidate|Knowledge (arcana)|Knowledge (Religion)|Knowledge (The Planes)|TYPE=Profession|Ride
 1	ABILITY:Incandescent Champion Class Feature|AUTOMATIC|Incandescent Champion ~ Weapon and Armor Proficiency
 1	ABILITY:Incandescent Champion Class Feature|AUTOMATIC|Incandescent Champion ~ Incandescent Strike
 2	ABILITY:Incandescent Champion Class Feature|AUTOMATIC|Incandescent Champion ~ Fast Healing
@@ -114,12 +114,12 @@ CLASS:Incandescent Champion	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Heal
 
 #Incarnum Blade: This fierce warrior augments his melee weapon with incarnum to gain extra combat benefits.
 
-# Class Name		Hit Dice	Type					Source Page		Visible	Save checks bonus											Combat bonus
-CLASS:Incarnum Blade	HD:10		TYPE:PC.Prestige.Incarnum	SOURCEPAGE:p.121	VISIBLE:NO	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex,BASE.Will|CL/3	BONUS:COMBAT|BAB|CL
-# Class Name		Restricted AL	Multiple Requirements						Required Skill			Required Text
-CLASS:Incarnum Blade	!PREALIGN:TN	PREMULT:1,[PREATT:5],[PREVARGTEQ:BaseAttackBonus,5]	PRESKILL:1,Concentration=2	PRETEXT:Alignment: Any except neutral. Base Attack Bonus: +5. Skills: Concentration 2 ranks.
+# Class Name		Hit Dice	Type					Source Page		Visible	Combat bonus										Bonus
+CLASS:Incarnum Blade	HD:10		TYPE:PC.Prestige.Incarnum	SOURCEPAGE:p.121	VISIBLE:NO	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name		Restricted AL	Required Skill			Required Text														PRETOTALAB
+CLASS:Incarnum Blade	!PREALIGN:TN	PRESKILL:1,Concentration=2	PRETEXT:Alignment: Any except neutral. Base Attack Bonus: +5. Skills: Concentration 2 ranks.	PRETOTALAB:5
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Incarnum Blade	STARTSKILLPTS:2	CSKILL:Climb|Concentration|TYPE=Craft|Intimidate|Jump|Knowledge (Arcana)|Swim
+CLASS:Incarnum Blade	STARTSKILLPTS:2	CSKILL:Climb|Concentration|TYPE=Craft|Intimidate|Jump|Knowledge (arcana)|Swim
 1	ABILITY:Incarnum Blade Class Feature|AUTOMATIC|Incarnum Blade ~ Weapon and Armor Proficiency
 1	ABILITY:Incarnum Blade Class Feature|AUTOMATIC|Incarnum Blade ~ Shape Blademeld
 1	ABILITY:Incarnum Blade Class Feature|AUTOMATIC|Incarnum Blade ~ Blademeld Chakra Bind
@@ -133,7 +133,7 @@ CLASS:Ironsoul Forgemaster	HD:8		TYPE:PC.Prestige.Incarnum	SOURCEPAGE:p.126
 # Class Name			Restricted AL		Required Race	Required Skill														Required Text
 CLASS:Ironsoul Forgemaster	!PREALIGN:LE,NE,CE	PRERACE:1,Dwarf%	PRESKILL:1,Craft (Armorsmithing)=8,Craft (Weaponsmithing)=8	PRESKILL:1,Knowledge (Arcana)=2	PRETEXT:Race: Dwarf. Alignment: Any nonevil. Skills: Craft (armorsmithing or weaponsmithing) 8 ranks, Knowledge (arcana) 2 ranks. Meldshaping: Ability to shape soulmelds.
 # Class Name			Skill Pts/Lvl	Class Skill
-CLASS:Ironsoul Forgemaster	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Knowledge (Arcana)|Knowledge (Religion)|TYPE=Profession|Sense Motive|Spellcraft
+CLASS:Ironsoul Forgemaster	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Knowledge (arcana)|Knowledge (Religion)|TYPE=Profession|Sense Motive|Spellcraft
 1	ABILITY:Ironsoul Forgemaster Class Feature|AUTOMATIC|Ironsoul Forgemaster ~ Weapon and Armor Proficiency
 1	ABILITY:Ironsoul Forgemaster Class Feature|AUTOMATIC|Ironsoul Forgemaster ~ Meldshaping
 1	ABILITY:Ironsoul Forgemaster Class Feature|AUTOMATIC|Ironsoul Forgemaster ~ Shield Bond
@@ -147,12 +147,12 @@ CLASS:Ironsoul Forgemaster	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplo
 
 #Necrocarnate: This black-hearted meldshaper draws his power from the life energy of others and creates horrific undead from the corpses of his enemies.
 
-# Class Name		Hit Dice	Type					Source Page		Save checks bonus											Combat bonus
-CLASS:Necrocarnate	HD:6		TYPE:PC.Prestige.Incarnum	SOURCEPAGE:p.132	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*1/2
+# Class Name		Hit Dice	Type					Source Page		Combat bonus															Modify VAR													Bonus
+CLASS:Necrocarnate	HD:6		TYPE:PC.Prestige.Incarnum	SOURCEPAGE:p.132	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Required AL		Required Feat			Required Skill										Required Text
-CLASS:Necrocarnate	PREALIGN:LE,NE,CE	PREFEAT:1,Necrocarnum Acolyte	PRESKILL:3,Knowledge (Arcana)=5,Knowledge (Religion)=5,Spellcraft=10	PRETEXT:Alignment: Any evil. Skills: Knowledge (arcana) 5 ranks, Knowledge (religion) 5 ranks, Spellcraft 10 ranks. Feat: Necrocarnum Acolyte. Meldshaping: Ability to shape soulmelds, ability to bind soulmelds to the crown, feet, and hands chakras.
+CLASS:Necrocarnate	PREALIGN:LE,NE,CE	PREABILITY:1,CATEGORY=FEAT,Necrocarnum Acolyte	PRESKILL:3,Knowledge (Arcana)=5,Knowledge (Religion)=5,Spellcraft=10	PRETEXT:Alignment: Any evil. Skills: Knowledge (arcana) 5 ranks, Knowledge (religion) 5 ranks, Spellcraft 10 ranks. Feat: Necrocarnum Acolyte. Meldshaping: Ability to shape soulmelds, ability to bind soulmelds to the crown, feet, and hands chakras.
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Necrocarnate	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Intimidate|Knowledge (Arcana)|Knowledge (Religion)|Knowledge (The Planes)|TYPE=Profession|Spellcraft
+CLASS:Necrocarnate	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Intimidate|Knowledge (arcana)|Knowledge (Religion)|Knowledge (The Planes)|TYPE=Profession|Spellcraft
 1	ABILITY:Necrocarnate Class Feature|AUTOMATIC|Necrocarnate ~ Weapon and Armor Proficiency
 1	ABILITY:Necrocarnate Class Feature|AUTOMATIC|Necrocarnate ~ Harvest Soul
 1	ABILITY:Necrocarnate Class Feature|AUTOMATIC|Necrocarnate ~ Improved Meldshaper Level
@@ -168,12 +168,12 @@ CLASS:Necrocarnate	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Intimid
 
 #Sapphire Hierarch: A member of an order devoted to the mysterious Sapphire Eidolon, this character is a stalwart servant of law who fights chaos wherever it reigns.
 
-# Class Name		Hit Dice	Type					Source Page		Save checks bonus											Combat bonus
-CLASS:Sapphire Hierarch	HD:6		TYPE:PC.Prestige.Incarnum	SOURCEPAGE:p.136	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*1/2
+# Class Name		Hit Dice	Type					Source Page		Combat bonus															Modify VAR													Bonus
+CLASS:Sapphire Hierarch	HD:6		TYPE:PC.Prestige.Incarnum	SOURCEPAGE:p.136	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Required AL		Required Domain	Required Skill								Req. Spell Type		Required Text																																								Var. Min. Value
 CLASS:Sapphire Hierarch	PREALIGN:LG,LN,LE	PREDOMAIN:1,Law	PRESKILL:2,Knowledge (Arcana)=4,Knowledge (Religion)=4	PRESPELLTYPE:1,Divine=2	PRETEXT:Alignment: Lawful. Meldshaping: Ability to shape three soulmelds. Spellcasting: Ability to cast 2nd-level divine spells. Skills: Knowledge (arcana) 4 ranks, Knowledge (religion) 4 ranks. Essentia Pool: 3. Special: Access to the Law domain.	PREVARGTEQ:EssentiaPool,3
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Sapphire Hierarch	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Knowledge (Arcana)|Knowledge (Religion)|Knowledge (The Planes)|TYPE=Profession|Sense Motive|Spellcraft
+CLASS:Sapphire Hierarch	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Knowledge (arcana)|Knowledge (Religion)|Knowledge (The Planes)|TYPE=Profession|Sense Motive|Spellcraft
 1	ABILITY:Sapphire Hierarch Class Feature|AUTOMATIC|Sapphire Hierarch ~ Weapon and Armor Proficiency
 1	ABILITY:Sapphire Hierarch Class Feature|AUTOMATIC|Sapphire Hierarch ~ Meldshaping
 1	ABILITY:Sapphire Hierarch Class Feature|AUTOMATIC|Sapphire Hierarch ~ Spellcasting
@@ -188,12 +188,12 @@ CLASS:Sapphire Hierarch	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomac
 
 #Soulcaster: Incarnum-suffused magic is the specialty of this arcane spellcaster.
 
-# Class Name	Hit Dice	Type					Source Page		Save checks bonus											Combat bonus
-CLASS:Soulcaster	HD:4		TYPE:PC.Prestige.Incarnum	SOURCEPAGE:p.142	BONUS:CHECKS|BASE.Fortitude,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*1/2
+# Class Name	Hit Dice	Type					Source Page		Combat bonus															Modify VAR													Bonus
+CLASS:Soulcaster	HD:4		TYPE:PC.Prestige.Incarnum	SOURCEPAGE:p.142	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required Feat				Required Skill				Req. Spell Type		Required Text
-CLASS:Soulcaster	PREFEAT:1,Incarnum Spellshaping	PRESKILL:1,Knowledge (Arcana)=8	PRESPELLTYPE:1,Arcane=2	PRETEXT:Skills: Knowledge (arcana) 8 ranks. Feats: Incarnum Spellshaping. Spellcasting: Ability to cast 2nd-level arcane spells. Meldshaping: Ability to shape three soulmelds; ability to bind a soulmeld to a chakra.
+CLASS:Soulcaster	PREABILITY:1,CATEGORY=FEAT,Incarnum Spellshaping	PRESKILL:1,Knowledge (Arcana)=8	PRESPELLTYPE:1,Arcane=2	PRETEXT:Skills: Knowledge (arcana) 8 ranks. Feats: Incarnum Spellshaping. Spellcasting: Ability to cast 2nd-level arcane spells. Meldshaping: Ability to shape three soulmelds; ability to bind a soulmeld to a chakra.
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Soulcaster	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Knowledge (Arcana)|Knowledge (Religion)|Knowledge (The Planes)|TYPE=Profession|Spellcraft
+CLASS:Soulcaster	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Knowledge (arcana)|Knowledge (Religion)|Knowledge (The Planes)|TYPE=Profession|Spellcraft
 1	ABILITY:Soulcaster Class Feature|AUTOMATIC|Soulcaster ~ Weapon and Armor Proficiency
 1	ABILITY:Soulcaster Class Feature|AUTOMATIC|Soulcaster ~ Meldshaping
 1	ABILITY:Soulcaster Class Feature|AUTOMATIC|Soulcaster ~ Spellcasting
@@ -204,12 +204,13 @@ CLASS:Soulcaster	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Knowledge (Arca
 11	PREPCLEVEL:MIN=20
 
 #Spinemeld Warrior: This noble, fighting skarn can use his arm spines to devastating effect.
-# Class Name		Hit Dice	Source Page		Save checks bonus											Combat bonus
-CLASS:Spinemeld Warrior	HD:10		SOURCEPAGE:p.147	BONUS:CHECKS|BASE.Will,BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:COMBAT|BAB|CL
-# Class Name		Required AL		Multiple Requirements						Required Race	Required Text													Var. Min. Value
-CLASS:Spinemeld Warrior	PREALIGN:LG,LN,LE	PREMULT:1,[PREATT:5],[PREVARGTEQ:BaseAttackBonus,5]	PRERACE:1,Skarn%	PRETEXT:Race: Skarn. Alignment: Any lawful. Base Attack Bonus: +5. Essentia Pool: 1.	PREVARGTEQ:EssentiaPool,1
+
+# Class Name		Hit Dice	Source Page		Combat bonus										Bonus
+CLASS:Spinemeld Warrior	HD:10		SOURCEPAGE:p.147	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name		Required AL		Required Race	Required Text													Var. Min. Value			PRETOTALAB
+CLASS:Spinemeld Warrior	PREALIGN:LG,LN,LE	PRERACE:1,Skarn%	PRETEXT:Race: Skarn. Alignment: Any lawful. Base Attack Bonus: +5. Essentia Pool: 1.	PREVARGTEQ:EssentiaPool,1	PRETOTALAB:5
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Spinemeld Warrior	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Diplomacy|Handle Animal|Intimidate|Jump|Knowledge (Nobility and Royalty)|TYPE=Profession|Ride|Swim
+CLASS:Spinemeld Warrior	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Diplomacy|Handle Animal|Intimidate|Jump|Knowledge (nobility and royalty)|TYPE=Profession|Ride|Swim
 1	ABILITY:Spinemeld Warrior Class Feature|AUTOMATIC|Spinemeld Warrior ~ Weapon and Armor Proficiency
 1	ABILITY:Spinemeld Warrior Class Feature|AUTOMATIC|Spinemeld Warrior ~ Meldshaping
 1	ABILITY:Spinemeld Warrior Class Feature|AUTOMATIC|Spinemeld Warrior ~ Twin Spine Fighting
@@ -223,57 +224,60 @@ CLASS:Spinemeld Warrior	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Diplomacy|Handle
 11	PREPCLEVEL:MIN=20
 
 #Totem Rager
-CLASS:Totem Rager	HD:10	SOURCEPAGE:p.153	TYPE:PC.Prestige	BONUS:CHECKS|Base.Fortitude,Base.Reflex|CL/2+2	BONUS:CHECKS|Base.Will|CL/3
-CLASS:Totem Rager	BONUS:COMBAT|BAB|CL*3/4
-CLASS:Totem Rager	PREMULT:1,[PREATT:5],[PREVARGTEQ:BaseAttackBonus,5]	PRESKILL:2,Intimidate=5,Survival=9	PREFEAT:1,Cobalt Rage	PREABILITY:2,CATEGORY=Special Ability,TYPE.Rage,TYPE.Totem Chakra	PRETEXT:Base Attack Bonus: +5. Skills: Intimidate 5 ranks, Survival 9 ranks. Feat: Cobalt Rage. Special: Ability to bind soulmelds to totem chakra, rage class feature.
-CLASS:Totem Rager	STARTSKILLPTS:4	CSKILL:Climb|Concentration|TYPE=Craft|Handle Animal|Intimidate|Jump|Knowledge (Arcana)|Knowledge (Nature)|Listen|TYPE=Profession|Ride|Spot|Survival|Swim
+
+# Class Name	Hit Dice	Type			Source Page		Combat bonus															Modify VAR														Bonus
+CLASS:Totem Rager	HD:10		TYPE:PC.Prestige	SOURCEPAGE:p.153	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|Base.Fortitude,Base.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|Base.Will|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Required Ability									Required Feat		Required Skill				Required Text																										PRETOTALAB
+CLASS:Totem Rager	PREABILITY:2,CATEGORY=Special Ability,TYPE.Rage,TYPE.Totem Chakra	PREABILITY:1,CATEGORY=FEAT,Cobalt Rage	PRESKILL:2,Intimidate=5,Survival=9	PRETEXT:Base Attack Bonus: +5. Skills: Intimidate 5 ranks, Survival 9 ranks. Feat: Cobalt Rage. Special: Ability to bind soulmelds to totem chakra, rage class feature.	PRETOTALAB:5
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Totem Rager	STARTSKILLPTS:4	CSKILL:Climb|Concentration|TYPE=Craft|Handle Animal|Intimidate|Jump|Knowledge (arcana)|Knowledge (Nature)|Listen|TYPE=Profession|Ride|Spot|Survival|Swim
 ###Block
-1	ABILITY:Totem Rager Class Feature|AUTOMATIC|Totem Rager ~ Weapon and Armor Proficiency	
-1	ABILITY:Totem Rager Class Feature|AUTOMATIC|Totem Rager ~ Meldshaping				
-1	ABILITY:Totem Rager Class Feature|AUTOMATIC|Totem Rager ~ Totem Rage				
-1	ABILITY:Totem Rager Class Feature|AUTOMATIC|Totem Rager ~ Wild Empathy			
-2	ABILITY:Totem Rager Class Feature|AUTOMATIC|Totem Rager ~ Extra Rage				
-3	ABILITY:Totem Rager Class Feature|AUTOMATIC|Totem Rager ~ Damage Reduction			
-4	ABILITY:Totem Rager Class Feature|AUTOMATIC|Totem Rager ~ Chakra Binds			
-5	ABILITY:Totem Rager Class Feature|AUTOMATIC|Totem Rager ~ Extended Rage			
-10	ABILITY:Totem Rager Class Feature|AUTOMATIC|Totem Rager ~ Totem Chakra Bind			
+1	ABILITY:Totem Rager Class Feature|AUTOMATIC|Totem Rager ~ Weapon and Armor Proficiency
+1	ABILITY:Totem Rager Class Feature|AUTOMATIC|Totem Rager ~ Meldshaping
+1	ABILITY:Totem Rager Class Feature|AUTOMATIC|Totem Rager ~ Totem Rage
+1	ABILITY:Totem Rager Class Feature|AUTOMATIC|Totem Rager ~ Wild Empathy
+2	ABILITY:Totem Rager Class Feature|AUTOMATIC|Totem Rager ~ Extra Rage
+3	ABILITY:Totem Rager Class Feature|AUTOMATIC|Totem Rager ~ Damage Reduction
+4	ABILITY:Totem Rager Class Feature|AUTOMATIC|Totem Rager ~ Chakra Binds
+5	ABILITY:Totem Rager Class Feature|AUTOMATIC|Totem Rager ~ Extended Rage
+10	ABILITY:Totem Rager Class Feature|AUTOMATIC|Totem Rager ~ Totem Chakra Bind
 ###Block
 11	PREPCLEVEL:MIN=20
 
 #Umbral Disciple
-CLASS:Umbral Disciple
-CLASS:Umbral Disciple
+
+# Class Name
 CLASS:Umbral Disciple
 ###Block
-1	ABILITY:Umbral Disciple Class Feature|AUTOMATIC|Umbral Disciple ~ Weapon and Armor Proficiency	
-1	ABILITY:Umbral Disciple Class Feature|AUTOMATIC|Umbral Disciple ~ Essentia Pool				
-1	ABILITY:Umbral Disciple Class Feature|AUTOMATIC|Umbral Disciple ~ Sept Knowledge			
-1	ABILITY:Umbral Disciple Class Feature|AUTOMATIC|Umbral Disciple ~ Step of the Bodiless		
-2	ABILITY:Umbral Disciple Class Feature|AUTOMATIC|Umbral Disciple ~ Sneak Attack				
-3	ABILITY:Umbral Disciple Class Feature|AUTOMATIC|Umbral Disciple ~ Embrace of Shadow			
-7	ABILITY:Umbral Disciple Class Feature|AUTOMATIC|Umbral Disciple ~ Sight of the Eyeless		
-9	ABILITY:Umbral Disciple Class Feature|AUTOMATIC|Umbral Disciple ~ Soulchilling Strike			
-10	ABILITY:Umbral Disciple Class Feature|AUTOMATIC|Umbral Disciple ~ Kiss of the Shadows			
-1	ABILITY:Umbral Disciple Class Feature|AUTOMATIC|Umbral Disciple ~ Multiclass Note			
+1	ABILITY:Umbral Disciple Class Feature|AUTOMATIC|Umbral Disciple ~ Weapon and Armor Proficiency
+1	ABILITY:Umbral Disciple Class Feature|AUTOMATIC|Umbral Disciple ~ Essentia Pool
+1	ABILITY:Umbral Disciple Class Feature|AUTOMATIC|Umbral Disciple ~ Sept Knowledge
+1	ABILITY:Umbral Disciple Class Feature|AUTOMATIC|Umbral Disciple ~ Step of the Bodiless
+2	ABILITY:Umbral Disciple Class Feature|AUTOMATIC|Umbral Disciple ~ Sneak Attack
+3	ABILITY:Umbral Disciple Class Feature|AUTOMATIC|Umbral Disciple ~ Embrace of Shadow
+7	ABILITY:Umbral Disciple Class Feature|AUTOMATIC|Umbral Disciple ~ Sight of the Eyeless
+9	ABILITY:Umbral Disciple Class Feature|AUTOMATIC|Umbral Disciple ~ Soulchilling Strike
+10	ABILITY:Umbral Disciple Class Feature|AUTOMATIC|Umbral Disciple ~ Kiss of the Shadows
+1	ABILITY:Umbral Disciple Class Feature|AUTOMATIC|Umbral Disciple ~ Multiclass Note
 ###Block
 11	PREPCLEVEL:MIN=20
 
 #Witchborn Binder
-CLASS:Witchborn Binder
-CLASS:Witchborn Binder
+
+# Class Name
 CLASS:Witchborn Binder
 ###Block
-1	ABILITY:Witchborn Binder Class Feature|AUTOMATIC|Witchborn Binder ~ Weapon and Armor Proficiency	
-1	ABILITY:Witchborn Binder Class Feature|AUTOMATIC|Witchborn Binder ~ Meldshaping				
-1	ABILITY:Witchborn Binder Class Feature|AUTOMATIC|Witchborn Binder ~ Detect Magic				
-1	ABILITY:Witchborn Binder Class Feature|AUTOMATIC|Witchborn Binder ~ Meldshield				
-1	ABILITY:Witchborn Binder Class Feature|AUTOMATIC|Witchborn Binder ~ Royal Purse				
-2	ABILITY:Witchborn Binder Class Feature|AUTOMATIC|Witchborn Binder ~ Dispelling Orb			
-2	ABILITY:Witchborn Binder Class Feature|AUTOMATIC|Witchborn Binder ~ Essentia				
-4	ABILITY:Witchborn Binder Class Feature|AUTOMATIC|Witchborn Binder ~ Mage Shackles			
-6	ABILITY:Witchborn Binder Class Feature|AUTOMATIC|Witchborn Binder ~ Word of Abrogation			
-8	ABILITY:Witchborn Binder Class Feature|AUTOMATIC|Witchborn Binder ~ Spiritflay				
-10	ABILITY:Witchborn Binder Class Feature|AUTOMATIC|Witchborn Binder ~ Grim Integument			
+1	ABILITY:Witchborn Binder Class Feature|AUTOMATIC|Witchborn Binder ~ Weapon and Armor Proficiency
+1	ABILITY:Witchborn Binder Class Feature|AUTOMATIC|Witchborn Binder ~ Meldshaping
+1	ABILITY:Witchborn Binder Class Feature|AUTOMATIC|Witchborn Binder ~ Detect Magic
+1	ABILITY:Witchborn Binder Class Feature|AUTOMATIC|Witchborn Binder ~ Meldshield
+1	ABILITY:Witchborn Binder Class Feature|AUTOMATIC|Witchborn Binder ~ Royal Purse
+2	ABILITY:Witchborn Binder Class Feature|AUTOMATIC|Witchborn Binder ~ Dispelling Orb
+2	ABILITY:Witchborn Binder Class Feature|AUTOMATIC|Witchborn Binder ~ Essentia
+4	ABILITY:Witchborn Binder Class Feature|AUTOMATIC|Witchborn Binder ~ Mage Shackles
+6	ABILITY:Witchborn Binder Class Feature|AUTOMATIC|Witchborn Binder ~ Word of Abrogation
+8	ABILITY:Witchborn Binder Class Feature|AUTOMATIC|Witchborn Binder ~ Spiritflay
+10	ABILITY:Witchborn Binder Class Feature|AUTOMATIC|Witchborn Binder ~ Grim Integument
 ###Block
 11	PREPCLEVEL:MIN=20
 

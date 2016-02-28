@@ -1,0 +1,110 @@
+# CVS $Revision: $ $Author: $ -- Mon Jul 20 11:53:44 2015 -- reformated by PCGen PrettyLST v6.05.01
+
+# Class Name	Hit Dice	Type			Source Page		Define			Combat bonus										Save bonus																					Modify VAR
+CLASS:Eidolon	HD:8		TYPE:Base.PC	SOURCEPAGE:p.16	DEFINE:EidolonLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|EidolonLVL|CL
+# Class Name	Required Template
+CLASS:Eidolon	PRETEMPLATE:1,Ghostwalk Campaign ~ Ghost
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Eidolon	STARTSKILLPTS:2	CSKILL:Balance|Bluff|Concentration|Hide|Intimidate|Knowledge (The Planes)|Listen|Sense Motive|Spot
+###Block:
+1	ABILITY:Eidolon Class Feature|AUTOMATIC|Eidolon ~ Weapon and Armor Proficiency
+1	ABILITY:Eidolon Class Feature|AUTOMATIC|Eidolon ~ Free Multiclassing
+1	ABILITY:Eidolon Class Feature|AUTOMATIC|Eidolon ~ Ghost Feats
+
+# Class Name	Hit Dice	Type			Source Page		Define			Combat bonus																	Save bonus																					Modify VAR
+CLASS:Eidolancer	HD:6		TYPE:Base.PC	SOURCEPAGE:p.17	DEFINE:EidolancerLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|EidolancerLVL|CL
+# Class Name	Required Template
+CLASS:Eidolancer	PRETEMPLATE:1,Ghostwalk Campaign ~ Ghost
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Eidolancer	STARTSKILLPTS:2	CSKILL:Concentration|Knowledge (arcana)|Knowledge (Nature)|Knowledge (The Planes)|Knowledge (religion)|Spellcraft
+###Block:
+1:REPEATLEVEL:1	ADD:SPELLCASTER|ANY
+###Block:
+1	ABILITY:Eidolancer Class Feature|AUTOMATIC|Eidolancer ~ Weapon and Armor Proficiency
+1	ABILITY:Eidolancer Class Feature|AUTOMATIC|Eidolancer ~ Free Multiclassing
+1	ABILITY:Eidolancer Class Feature|AUTOMATIC|Eidolancer ~ Ghost Feats
+1	ABILITY:Eidolancer Class Feature|AUTOMATIC|Eidolancer ~ Spellcasting
+
+###Block: Prestige Classes
+
+# Class Name		Hit Dice	Type			Max Level	Source Page		Define				Combat bonus																	Save bonus																					Modify VAR
+CLASS:Arboreal Guardian	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.19	DEFINE:ArborealGuardianLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ArborealGuardianLVL|CL
+# Class Name		Required Ability										Prohibited Deity			Required Race		Required Skill						Req. Known Spell
+CLASS:Arboreal Guardian	PREABILITY:3,CATEGORY=FEAT,Great Fortitude,Green Bond,Point Blank Shot	!PREDEITY:1,Nessek,Orcus	PRERACE:1,Elf,Half-Elf	PRESKILL:2,Knowledge (Nature)=8,Survival=8	PRESPELL:1,Entangle
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Arboreal Guardian	STARTSKILLPTS:4	CSKILL:Climb|Concentration|TYPE=Craft|Diplomacy|Heal|Handle Animal|Hide|Jump|Knowledge (Nature)|Listen|Move Silently|Spot|Survival|Swim
+###Block
+2:REPEATLEVEL:2	ADD:SPELLCASTER|Divine
+###Block
+1	ABILITY:Arboreal Guardian Class Feature|AUTOMATIC|Arboreal Guardian ~ Weapon and Armor Proficiency
+1	ABILITY:Arboreal Guardian Class Feature|AUTOMATIC|Arboreal Guardian ~ Spellcasting
+1	ABILITY:Arboreal Guardian Class Feature|AUTOMATIC|Arboreal Guardian ~ Bond's Call
+1	ABILITY:Arboreal Guardian Class Feature|AUTOMATIC|Arboreal Guardian ~ Forestwalk
+2	ABILITY:Arboreal Guardian Class Feature|AUTOMATIC|Arboreal Guardian ~ Nature's Water
+2	ABILITY:Arboreal Guardian Class Feature|AUTOMATIC|Arboreal Guardian ~ Natural Armor
+3	ABILITY:Arboreal Guardian Class Feature|AUTOMATIC|Arboreal Guardian ~ Unhindered Charge
+3	ABILITY:Arboreal Guardian Class Feature|AUTOMATIC|Arboreal Guardian ~ Wood Speech
+5	ABILITY:Arboreal Guardian Class Feature|AUTOMATIC|Arboreal Guardian ~ Hunter's Mercy
+5	ABILITY:Arboreal Guardian Class Feature|AUTOMATIC|Arboreal Guardian ~ Blindsight
+7	ABILITY:Arboreal Guardian Class Feature|AUTOMATIC|Arboreal Guardian ~ Nature's Defender
+7	ABILITY:Arboreal Guardian Class Feature|AUTOMATIC|Arboreal Guardian ~ Quench
+8	ABILITY:Arboreal Guardian Class Feature|AUTOMATIC|Arboreal Guardian ~ Tree Stride
+
+# Class Name		Hit Dice	Type			Max Level	Source Page		Define				Combat bonus																	Save bonus																					Modify VAR
+CLASS:Bone Collector	HD:8		TYPE:PC.Prestige	MAXLEVEL:6	SOURCEPAGE:p.21	DEFINE:BoneCollectorLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|BoneCollectorLVL|CL
+# Class Name		Required Ability							Required Skill																												Required Text																																		PRETOTALAB
+CLASS:Bone Collector	PREABILITY:2,CATEGORY=FEAT,Endurance,Great Fortitude	PRESKILL:1,Craft (Alchemy)=2	PRESKILL:2,Concentration=3,Knowledge (Arcana)=3	PRESKILL:1,Craft (Armorsmithing)=1,Craft (Bowmaking)=1,Craft (Weaponsmithing)=1	PRESKILL:1,Heal=5	PRETEXT:The character must have been knocked unconscious or killed by an undead creature or necromancy spell, or must have received a negative level or ability damage or drain from an undead or a necromancy spell	PRETOTALAB:5
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Bone Collector	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Heal|Hide|Intimidate|Knowledge (arcana)|Knowledge (The Planes)|TYPE=Profession|Sense Motive
+# Class Name		Spell Stat		Spell Type		Automatically Known Spell Levels	Caster level
+CLASS:Bone Collector	SPELLSTAT:WIS	FACT:SpellType|Divine	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3	BONUS:CASTERLEVEL|Bone Collector|Caster_Level_Bone_Collector	DEFINE:Caster_Level_Bone_Collector|0	BONUS:VAR|Caster_Level_Bone_Collector|CL+Caster_Level_Bonus	DEFINE:CasterLevelBLBone_Collector|0	BONUS:VAR|CasterLevelBLBone_Collector|charbonusto("PCLEVEL","Bone_Collector")	BONUS:VAR|Caster_Level_Highest__Divine|Caster_Level_Bone_Collector+CasterLevelBLBone_Collector|TYPE=Base
+###Block
+1	ABILITY:Bone Collector Class Feature|AUTOMATIC|Bone Collector ~ Weapon and Armor Proficiency
+1	ABILITY:Bone Collector Class Feature|AUTOMATIC|Bone Collector ~ Spells
+1	ABILITY:Bone Collector Class Feature|AUTOMATIC|Bone Collector ~ Recognize Undead
+1	ABILITY:Bone Collector Class Feature|AUTOMATIC|Bone Collector ~ Lesser Bone Armor
+2	ABILITY:Bone Collector Class Feature|AUTOMATIC|Bone Collector ~ Lesser Bone Weapon
+3	ABILITY:Bone Collector Class Feature|AUTOMATIC|Bone Collector ~ Negative Energy Shroud
+4	ABILITY:Bone Collector Class Feature|AUTOMATIC|Bone Collector ~ Greater Bone Armor
+5	ABILITY:Bone Collector Class Feature|AUTOMATIC|Bone Collector ~ Greater Bone Weapon
+6	ABILITY:Bone Collector Class Feature|AUTOMATIC|Bone Collector ~ Undead Channel
+###Block
+1	CAST:1
+2	CAST:2,0
+3	CAST:2,1
+4	CAST:2,2,0
+5	CAST:2,2,1
+6	CAST:2,2,2
+
+# Class Name			Hit Dice	Type			Max Level	Source Page		Define					Combat bonus																	Save bonus																					Modify VAR
+CLASS:Deathwarden Chanter	HD:8		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.23	DEFINE:DeathwardenChanterLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|DeathwardenChanterLVL|CL	BONUS:VAR|TurnLevelUndead|DeathwardenChanterLVL
+# Class Name			Required Ability									Required AL		Prohibited Deity	Required Race	Required Skill																							Req. Spell Type		Required Text																												PRETOTALAB
+CLASS:Deathwarden Chanter	PREABILITY:2,CATEGORY=FEAT,Iron Will,Spell Focus (Evocation)	PREALIGN:LG,LN,LE	!PREDEITY:1,Orcus	PRERACE:1,Dwarf	PRESKILL:1,Perform (Sing)=1	PRESKILL:2,Knowledge (Ghost Lore)=3,Knowledge (The Planes)=3	PRESKILL:2,Concentration=5,Knowledge (Religion)=5	PRESPELLTYPE:1,Divine=3	PRETEXT:Must have participated in a Hallowing with the permission of the Deathwarden dwarves; myst have destroyed one undead of 3 HD or more through the use of posiitve energy	PRETOTALAB:4
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Deathwarden Chanter	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Knowledge (Ghost Lore)|Knowledge (The Planes)|Knowledge (religion)|TYPE=Profession
+###Block
+1:REPEATLEVEL:1	ADD:SPELLCASTER|Divine
+###Block
+1	ABILITY:Deathwarden Chanter Class Feature|AUTOMATIC|Deathwarden Chanter ~ Weapon and Armor Proficiency
+1	ABILITY:Deathwarden Chanter Class Feature|AUTOMATIC|Deathwarden Chanter ~ Spellcasting
+1	ABILITY:Deathwarden Chanter Class Feature|AUTOMATIC|Deathwarden Chanter ~ Smite Undead
+1	ABILITY:Deathwarden Chanter Class Feature|AUTOMATIC|Deathwarden Chanter ~ Undead's Foe
+2	ABILITY:Deathwarden Chanter Class Feature|AUTOMATIC|Deathwarden Chanter ~ Iron Soul
+3	ABILITY:Deathwarden Chanter Class Feature|AUTOMATIC|Deathwarden Chanter ~ Great Rune
+5	ABILITY:Deathwarden Chanter Class Feature|AUTOMATIC|Deathwarden Chanter ~ Deep Chant
+7	ABILITY:Deathwarden Chanter Class Feature|AUTOMATIC|Deathwarden Chanter ~ Shepherd Soul
+
+# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus										Save bonus
+CLASS:Ghost Slayer	HD:8		TYPE:PC.Prestige	MAXLEVEL:5	SOURCEPAGE:p.26	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name		Required Ability																			Required Skill													Prohibited Template				Required Text																											PRETOTALAB
+CLASS:Ghost Slayer	PREABILITY:1,CATEGORY=FEAT,Alertness	PREABILITY:1,CATEGORY=FEAT,Incorporeal Target Fighting,Incorporeal Spell Targeting	PRESKILL:2,Bluff=4,Gather Information=4	PRESKILL:2,Knowledge (Ghost Lore)=5,Spot=5	!PRETEMPLATE:1,Ghostwalk Campaign ~ Ghost	PRETEXT:Must hav been knocked unconscious by or failed a saving throw against an attack from a ghost; a character who is a ghost cannot take the ghost slayer prestige class	PRETOTALAB:4
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Ghost Slayer	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Disguise|Forgery|Gather Information|Hide|Knowledge (Ghost Lore)|Listen|TYPE=Profession|Sense Motive|Spot
+###Block
+1	ABILITY:Ghost Slayer Class Feature|AUTOMATIC|Ghost Slayer ~ Weapon and Armor Proficiency
+1	ABILITY:Ghost Slayer Class Feature|AUTOMATIC|Ghost Slayer ~ Untainted Spirit
+2	ABILITY:Ghost Slayer Class Feature|AUTOMATIC|Ghost Slayer ~ Silver Aura
+3	ABILITY:Ghost Slayer Class Feature|AUTOMATIC|Ghost Slayer ~ Protected Vessel
+4	ABILITY:Ghost Slayer Class Feature|AUTOMATIC|Ghost Slayer ~ Detect Ghost
+4	ABILITY:Ghost Slayer Class Feature|AUTOMATIC|Ghost Slayer ~ Ghost Touch Aura
+5	ABILITY:Ghost Slayer Class Feature|AUTOMATIC|Ghost Slayer ~ Ghost Bane Fires

@@ -1,15 +1,15 @@
-# CVS $Revision: $ $Author: $ -- Wed Mar  5 16:52:34 2014 -- reformated by prettylst.pl v1.51 (build 22988)
+# CVS $Revision: $ $Author: $ -- Sun Aug 17 15:41:15 2014 -- reformated by prettylst.pl v1.51 (build 24906)
 SOURCELONG:Complete Arcane	SOURCESHORT:CAr	SOURCEDATE:2004-11
 
 
-# Template Name		Output Name				Hit Dice Size	Challenge Rating	Damage Reduction											Template									Source Page		Special ABility																				Define				Define a Stat										Multiple Requirements										Required Race																									Prohibited Race				Required Stat	Save checks bonus							Combat bonus					Stat bonus					Modify VAR										Ability									Spell Res.			Main Race Type		Race Subtype			Type			Hit Dice
-Effigy								HITDIE:10		CR:1																										SOURCEPAGE:p.151	SAB:Loses Supernatural, Spell-like and extraordinary special abilities for wich a target's saving throw is based on Effigy's Con						DEFINESTAT:NONSTAT|INT	DEFINESTAT:LOCK|WIS|11	DEFINESTAT:LOCK|CHA|1														PRERACE:1,RACETYPE=Aberration,RACETYPE=Animal,RACETYPE=Dragon,RACETYPE=Giant,RACETYPE=Humanoid,RACETYPE=Magical Beast,RACETYPE=Monstrous Humanoid,RACETYPE=Vermin	!PRERACE:1,RACESUBTYPE=Incorporeal													BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|4	BONUS:STAT|DEX|-2																										RACETYPE:Construct						TYPE:Construct	HD:1-3:DR:1/Adamantine	HD:4-6:DR:3/Adamantine	HD:7-10:DR:5/Adamantine	HD:11-15:DR:7/Adamantine	HD:16-20:DR:10/Adamantine	HD:21+:DR:15/Adamantine
-Pseudonatural (CA)	OUTPUTNAME:Pseudonatural							DR:5/Magic|PRELEVEL:MIN=4	DR:10/Magic|PRELEVEL:MIN=12				TEMPLATE:CHOOSE:Int Bonus +1|Int Bonus +2|Int Bonus +3	SOURCEPAGE:p.160																																																																																!PRERACE:1,RACESUBTYPE=Incorporeal																																					ABILITY:Internal|AUTOMATIC|Race Traits ~ Pseudonatural					RACETYPE:Outsider		RACESUBTYPE:Shapechanger	TYPE:Outsider	HD:4-11:CR:1	HD:12+:CR:2
-Spellstitched										CR:1			DR:5/Magic or Silver|PRELEVEL:MIN=4	DR:5/Magic and Silver|PRELEVEL:MIN=12											SOURCEPAGE:p.																							DEFINE:SpellstitchedSR|0													PREMULT:2,[PRERACE:1,RACETYPE=Undead],[!PRERACE:1,RACESUBTYPE=Incorporeal]																																		PRESTAT:1,WIS=10	BONUS:CHECKS|Fortitude,Reflex,Will|2|TYPE=Profane														BONUS:VAR|TurnResistBonus|2	BONUS:VAR|SpellstitchedSR|10+CHA	ABILITY:Special Ability|AUTOMATIC|Turn Resistance		SR:SpellstitchedSR
+# Template Name		Output Name				Hit Dice Size	Challenge Rating	Damage Reduction											Template									Source Page		Special ABility																				Define				Define Stat											Multiple Requirements										Required Race																									Prohibited Race				Required Stat	Combat bonus					Stat bonus					Modify VAR										Ability									Spell Res.			Main Race Type		Race Subtype			Type			Hit Dice																									Bonus
+Effigy								HITDIE:10		CR:1																										SOURCEPAGE:p.151	SAB:Loses Supernatural, Spell-like and extraordinary special abilities for wich a target's saving throw is based on Effigy's Con						DEFINESTAT:NONSTAT|INT	DEFINESTAT:LOCK|WIS|11	DEFINESTAT:LOCK|CHA|1														PRERACE:1,RACETYPE=Aberration,RACETYPE=Animal,RACETYPE=Dragon,RACETYPE=Giant,RACETYPE=Humanoid,RACETYPE=Magical Beast,RACETYPE=Monstrous Humanoid,RACETYPE=Vermin	!PRERACE:1,RACESUBTYPE=Incorporeal				BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|4	BONUS:STAT|DEX|-2																										RACETYPE:Construct						TYPE:Construct	HD:1-3:DR:1/Adamantine	HD:4-6:DR:3/Adamantine	HD:7-10:DR:5/Adamantine	HD:11-15:DR:7/Adamantine	HD:16-20:DR:10/Adamantine	HD:21+:DR:15/Adamantine
+Pseudonatural (CA)	OUTPUTNAME:Pseudonatural							DR:5/Magic|PRELEVEL:MIN=4	DR:10/Magic|PRELEVEL:MIN=12				TEMPLATE:CHOOSE:Int Bonus +1|Int Bonus +2|Int Bonus +3	SOURCEPAGE:p.160																																																																																!PRERACE:1,RACESUBTYPE=Incorporeal																												ABILITY:Internal|AUTOMATIC|Race Traits ~ Pseudonatural					RACETYPE:Outsider		RACESUBTYPE:Shapechanger	TYPE:Outsider	HD:4-11:CR:1	HD:12+:CR:2
+Spellstitched										CR:1			DR:5/Magic or Silver|PRELEVEL:MIN=4	DR:5/Magic and Silver|PRELEVEL:MIN=12											SOURCEPAGE:p.																							DEFINE:SpellstitchedSR|0													PREMULT:2,[PRERACE:1,RACETYPE=Undead],[!PRERACE:1,RACESUBTYPE=Incorporeal]																																		PRESTAT:1,WIS=10														BONUS:VAR|TurnResistBonus|2	BONUS:VAR|SpellstitchedSR|10+CHA	ABILITY:Special Ability|AUTOMATIC|Turn Resistance		SR:SpellstitchedSR																																							BONUS:SAVE|Fortitude,Reflex,Will|2|TYPE=Profane
 
 
 ###Block: Hidden
-# Template Name				Visible		Damage Reduction	Template																		Define a Stat		Required Class				Required Size	Minimum Size	Maximum Size	Bonus to HP													Bonus to skill		Modify VAR												Ability																													Main Race Type						Race Subtype			Type			Natural Attacks
+# Template Name				Visible		Damage Reduction	Template																		Define Stat			Required Class				Required Size	Minimum Size	Maximum Size	Bonus to HP													Bonus to skill		Modify VAR												Ability																													Main Race Type						Race Subtype			Type			Natural Attacks
 Fiendish Symbiosis			VISIBLE:NO		DR:10/Good																									PRECLASS:1,Acolyte of the Skin=10																																																																							RACETYPE:Outsider											TYPE:Outsider
 Alienist Timeless Body			VISIBLE:DISPLAY				TEMPLATE:CHOOSE:Timeless Body ~ Adult|Timeless Body ~ Middle Age|Timeless Body ~ Old|Timeless Body ~ Venerable					PRECLASS:1,Alienist=9
 Alienist Alien Trascendence		VISIBLE:NO		DR:10/Magic																									PRECLASS:1,Alienist=10																										BONUS:SKILL|Disguise|-4	BONUS:VAR|AcidResistanceBonus|10	BONUS:VAR|ElectricityResistanceBonus|10	ABILITY:Special Ability|VIRTUAL|Resistance to Acid|Resistance to Electricity																		RACETYPE:Outsider											TYPE:Outsider
@@ -31,3 +31,21 @@ Transmogrifist Shapechanger		VISIBLE:NO																																									
 Draconic Heritage ~ Claw (Small)	VISIBLE:NO																																								PRESIZELTEQ:S																																																																														NATURALATTACKS:Draconic Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*1,1d4
 Draconic Heritage ~ Claw (Medium)	VISIBLE:NO																																		PRESIZEEQ:M																																																																																					NATURALATTACKS:Draconic Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*1,1d6
 Draconic Heritage ~ Claw (Large)	VISIBLE:NO																																					PRESIZEGTEQ:L																																																																																	NATURALATTACKS:Draconic Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*1,1d8
+
+Dragonblood					VISIBLE:NO																																																																																					RACESUBTYPE:Dragonblood
+
+
+#
+Warmage ~ Sudden Empower	VISIBLE:NO	TEMPLATE:CHOOSE:Warmage ~ Sudden Empower (YES)|Warmage ~ Sudden Empower (NO)
+Warmage ~ Sudden Enlarge	VISIBLE:NO	TEMPLATE:CHOOSE:Warmage ~ Sudden Enlarge (YES)|Warmage ~ Sudden Enlarge (NO)
+Warmage ~ Sudden Widen		VISIBLE:NO	TEMPLATE:CHOOSE:Warmage ~ Sudden Widen (YES)|Warmage ~ Sudden Widen (NO)
+Warmage ~ Sudden Maximize	VISIBLE:NO	TEMPLATE:CHOOSE:Warmage ~ Sudden Maximize (YES)|Warmage ~ Sudden Maximize (NO)
+#
+Warmage ~ Sudden Empower (YES)	VISIBLE:NO	PREABILITY:1,CATEGORY=FEAT,Sudden Empower		BONUS:ABILITYPOOL|Metamagic Feat|1
+Warmage ~ Sudden Empower (NO)		VISIBLE:NO	!PREABILITY:1,CATEGORY=FEAT,Sudden Empower	ABILITY:FEAT|AUTOMATIC|Sudden Empower
+Warmage ~ Sudden Enlarge (YES)	VISIBLE:NO	PREABILITY:1,CATEGORY=FEAT,Sudden Enlarge		BONUS:ABILITYPOOL|Metamagic Feat|1
+Warmage ~ Sudden Enlarge (NO)		VISIBLE:NO	!PREABILITY:1,CATEGORY=FEAT,Sudden Enlarge	ABILITY:FEAT|AUTOMATIC|Sudden Enlarge
+Warmage ~ Sudden Widen (YES)		VISIBLE:NO	PREABILITY:1,CATEGORY=FEAT,Sudden Widen		BONUS:ABILITYPOOL|Metamagic Feat|1
+Warmage ~ Sudden Widen (NO)		VISIBLE:NO	!PREABILITY:1,CATEGORY=FEAT,Sudden Widen		ABILITY:FEAT|AUTOMATIC|Sudden Widen
+Warmage ~ Sudden Maximize (YES)	VISIBLE:NO	PREABILITY:1,CATEGORY=FEAT,Sudden Maximize	BONUS:ABILITYPOOL|Metamagic Feat|1
+Warmage ~ Sudden Maximize (NO)	VISIBLE:NO	!PREABILITY:1,CATEGORY=FEAT,Sudden Maximize	ABILITY:FEAT|AUTOMATIC|Sudden Maximize

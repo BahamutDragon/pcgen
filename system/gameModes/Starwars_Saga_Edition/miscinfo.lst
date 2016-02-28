@@ -116,19 +116,46 @@ BONUSFEATLEVELSTARTINTERVAL:3|3
 #level = first level where you gain an additional stat
 # (use more than one of these tags for additional stat)
 #interval = multiples of levels after the start level that you gain an additional stat (0 = only at start)
-BONUSSTATLEVELSTARTINTERVAL:4|4|!PRECLASS:1,Beast=1
+#BONUSSTATLEVELSTARTINTERVAL:4|4|!PRECLASS:1,Beast=1
 BONUSSTATLEVELSTARTINTERVAL:4|4
 
 #Attack/Check Cycle attributes
 BABMAXATT:1
 BABATTCYC:20
 BABMINVAL:1
-CHECKSMAXLVL:20
+#BABMAXLVL:20
+#CHECKSMAXLVL:20
+#
+#MAXNONEPICLEVEL:20
 
 CLASSTYPE:PC		CRFORMULA:CL		ISMONSTER:NO	XPPENALTY:NO
 CLASSTYPE:Nonheroic	CRFORMULA:CL		ISMONSTER:NO	XPPENALTY:NO
 CLASSTYPE:Beast		CRFORMULA:CL		ISMONSTER:YES	XPPENALTY:NO
 CLASSTYPE:Prestige	CRFORMULA:CL		ISMONSTER:NO	XPPENALTY:NO
+
+#AC Types
+ACTYPE:Total				ADD:TOTAL		REMOVE:Ability|Armor|ArmorEnhancement|NaturalArmor|Shield|ShieldEnhancement|NaturalArmorEnhancement
+ACTYPE:Flatfooted				ADD:TOTAL		REMOVE:Ability|PRESTAT:1,DEX=10|!PREABILITY:1,CATEGORY=Special Ability,Retain Dex To AC ~ Flat-footed		REMOVE:Dodge|!PREABILITY:1,CATEGORY=Special Ability,Retain Dex To AC ~ Flat-footed
+ACTYPE:Touch				ADD:TOTAL		REMOVE:Armor|ArmorEnhancement|NaturalArmor|Shield|ShieldEnhancement|NaturalArmorEnhancement	ADD:Shield|ShieldEnhancement|PREVARGTEQ:ShieldAddsToTouchAC,1
+ACTYPE:Base					ADD:Base
+# Not Used for AC total
+ACTYPE:Armor				ADD:Armor|ArmorEnhancement
+ACTYPE:ArmorEnhancement			ADD:ArmorEnhancement
+ACTYPE:Shield				ADD:Shield|ShieldEnhancement
+ACTYPE:ShieldEnhancement		ADD:ShieldEnhancement
+ACTYPE:Ability				ADD:Ability
+ACTYPE:Size					ADD:Size
+ACTYPE:NaturalArmor			ADD:NaturalArmor|NaturalArmorEnhancement
+ACTYPE:NaturalArmorEnhancement	ADD:NaturalArmorEnhancement
+ACTYPE:Dodge				ADD:Dodge
+ACTYPE:Deflection				ADD:Deflection
+ACTYPE:Misc					ADD:TOTAL		REMOVE:Base|Armor|Shield|Ability|Size|NaturalArmor|NaturalArmorEnhancement|Dodge|Deflection|ShieldEnhancement|ArmorEnhancement
+ACTYPE:Circumstance			ADD:Circumstance
+ACTYPE:Insight				ADD:Insight
+ACTYPE:Morale				ADD:Morale
+ACTYPE:Profane				ADD:Profane
+ACTYPE:Sacred				ADD:Sacred
+ACTYPE:ClassDefense			ADD:ClassDefense
 
 # Damage die changes on size
 BASEDICE:1d2	UP:1d3,1d4,1d6,1d8,2d6,3d6,4d6,6d6,8d6,12d6	DOWN:1,0
@@ -210,6 +237,7 @@ WIELDCATEGORY:OneHanded		UP:TwoHanded			DOWN:Light
 WIELDCATEGORY:TwoHanded						DOWN:OneHanded|Light
 WIELDCATEGORY:TooLarge						DOWN:TwoHanded|OneHanded|Light	ZERO:TwoHanded
 
+
 #
 # Dice rolling methods for character creation
 #
@@ -241,7 +269,7 @@ ABILITYCATEGORY:Internal		VISIBLE:NO		EDITABLE:NO		EDITPOOL:NO		FRACTIONALPOOL:N
 ABILITYCATEGORY:Natural Attack	VISIBLE:NO		EDITABLE:NO		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Natural Attack					
 
 
-PREVIEWDIR:d20/starwars_saga_edition
+PREVIEWDIR:d20/fantasy
 PREVIEWSHEET:standard.htm
 INFOSHEET:SUMMARY|preview/summary/35e_info.html
 INFOSHEET:SKILLS|preview/skills/35e_skills.html

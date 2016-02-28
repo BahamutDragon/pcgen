@@ -1,0 +1,14 @@
+
+Race Traits ~ Tibbit	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|TYPE=Tibbit Race Trait
+
+Feline Transformation	KEY:Tibbit ~ Feline Transformation			CATEGORY:Special Ability	TYPE:Tibbit Race Trait.SpecialQuality	SOURCEPAGE:p.25	DESC:At will, as a standard action, a tibbit can transform into a house cat. This effect is similar to the spell polymorph but with a number of key changes.	DEFINE:FelineTransformation|0	TEMPBONUS:PC|VAR|FelineTransformation|1	ABILITY:Internal|AUTOMATIC|Temp Bonus ~ Feline Transformation|PREVAREQ:FelineTransformation,1
+Tibbit Racial Traits	KEY:Tibbit ~ Racial Traits	CATEGORY:Special Ability	TYPE:SpecialQuality.Tibbit Race Trait	DESC:+2 racial bonus on all Spot checks. Tibbits have keen eyes.	DESC:&nl;+2 racial bonus on all Jump and Escape Artist checks. Like their feline cousins, tibbits are quick, nimble, and lithe.	DESC:&nl;Automatic Languages: Common and Feline. The Feline language is spoken by all tibbits and cats with an Intelligence of 3 or higher, allowing a tibbit to use the Diplomacy skill against such felines. This language is part of the felines' racial heritage. Other races cannot master it, nor can they use spells such as tongues to communicate with cats. Bonus Languages: Any. Tibbits travel far and wide and their curiosity pushes them to learn a number of languages.	DESC:&nl;Favored Class: Rogue. A multiclass tibbit's rogue class does not count when determining whether she takes an experience point penalty for multiclassing. Tibbits excel at keeping a low profile and finding secrets, two tasks for which the rogue is ideally suited.	BONUS:SKILL|Jump,Escape Artist,Spot|2|TYPE=Racial	TEMPLATE:Favored Class ~ Rogue	AUTO:LANG|Common|Feline	TEMPLATE:Lang Bonus ~ Tibbit
+
+
+Temp Bonus ~ Feline Transformation	CATEGORY:Internal	BONUS:SIZEMOD|NUMBER|-1	BONUS:MOVEADD|TYPE.Walk|10		DEFINESTAT:MINVALUE|STR|3
+
+# Remove in 6.6
+CATEGORY=Internal|Temp Bonus ~ Feline Transformation.MOD	BONUS:STAT|STR|-8|TYPE=Size	BONUS:STAT|DEX|2|TYPE=Size
+
+# SIZEMOD is lowering Damage - Set 1 Die size higher to get correct numbers.
+CATEGORY=Internal|Temp Bonus ~ Feline Transformation.MOD	NATURALATTACKS:Claw,Natural.Weapon.Melee.Slashing,*2,1d3|Bite,Natural.Weapon.Melee.Piercing,*1,1d4

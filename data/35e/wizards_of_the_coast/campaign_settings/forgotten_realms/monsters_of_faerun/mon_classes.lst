@@ -1,14 +1,17 @@
-SOURCELONG:Monsters of Faerun	SOURCESHORT:MoF	SOURCEDATE:2003-05
+# CVS $Revision: $ $Author: $ -- Thu Aug  7 12:47:32 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+SOURCELONG:Monster Compendium: Monsters of Faerun	SOURCESHORT:mon	SOURCEDATE:2001-02
 
 ###Block: Prestige Classes
-# Class Name			Hit Dice	Type				Abbreviation	Max Level	Source Page		Save checks bonus														Combat bonus
-CLASS:Beholder Mage (MoF)	HD:4		TYPE:Monster.Prestige	ABB:BeHM		MAXLEVEL:10	SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*1/2|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|CL|PREVAREQ:UseFractionalBAB,1		
+
+# Class Name			Hit Dice	Type				Abbreviation	Max Level	Source Page		Combat bonus															Modify VAR													Bonus
+CLASS:Beholder Mage (MoF)	HD:4		TYPE:Monster.Prestige	FACT:Abb|BeHM		MAXLEVEL:10	SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name			Required Race				Required Text
 CLASS:Beholder Mage (MoF)	PRERACE:1,RACESUBTYPE:Beholder	PRETEXT:Lose or put out central magic eye.
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Beholder Mage (MoF)	STARTSKILLPTS:2	CSKILL:Craft (Alchemy)|Appraise|Concentration|Decipher Script|TYPE=Knowledge|Speak Language|Spellcraft|Use Magic Device
 # Class Name			Spell Stat		Spell Type		Spellbook		Caster level
-CLASS:Beholder Mage (MoF)	SPELLSTAT:INT	SPELLTYPE:Arcane	SPELLBOOK:YES	BONUS:CASTERLEVEL|Beholder Mage (MoF)|CL
+CLASS:Beholder Mage (MoF)	FACT:SpellType|Arcane
+CLASS:Beholder Mage (MoF)	SPELLSTAT:INT		SPELLBOOK:YES	BONUS:CASTERLEVEL|Beholder Mage (MoF)|Caster_Level_Beholder_Mage	DEFINE:Caster_Level_Beholder_Mage|0	BONUS:VAR|Caster_Level_Beholder_Mage|CL+Caster_Level_Bonus	DEFINE:CasterLevelBLBeholder_Mage|0	BONUS:VAR|CasterLevelBLBeholder_Mage|charbonusto("PCLEVEL","Beholder Mage (MoF)")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Beholder_Mage+CasterLevelBLBeholder_Mage|TYPE=Base
 1	CAST:6,3									ABILITY:Special Ability|AUTOMATIC|Sacrifice Eyestalk
 2	CAST:6,5,3
 3	CAST:6,6,5,3			BONUS:VAR|FamiliarLVL|CL	ABILITY:Special Ability|AUTOMATIC|Summon Familiar
@@ -23,41 +26,40 @@ CLASS:Beholder Mage (MoF)	SPELLSTAT:INT	SPELLTYPE:Arcane	SPELLBOOK:YES	BONUS:CAS
 
 
 ###Block: Monster Classes
-# Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus															Combat bonus					Add domain number
-CLASS:Banelar	HD:10		TYPE:Monster	MAXLEVEL:21	SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/3	BONUS:COMBAT|BAB|CL		BONUS:DOMAIN|NUMBER|3
+
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus										Add domain number		Bonus
+CLASS:Banelar	HD:10		TYPE:Monster	MAXLEVEL:21	SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:DOMAIN|NUMBER|3	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Required Race	Reg. Race Type
 CLASS:Banelar	PRERACE:1,Banelar	PRERACETYPE:1,Magical Beast
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Banelar	STARTSKILLPTS:2	MODTOSKILLS:NO
-1	DOMAIN:Evil|Magic|Water									ADD:SPELLCASTER|1|Cleric	ADD:SPELLCASTER|1|Wizard
+1	DOMAIN:Evil|Magic|Water									ADD:SPELLCASTER|Cleric	ADD:SPELLCASTER|Wizard
 2					BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Wizard|1
 3					BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Wizard|1
 5					BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Wizard|1
 6					BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Wizard|1
 7					BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Wizard|1
 
-# Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus														Combat bonus					Add domain number
-CLASS:Choldrith	HD:8		TYPE:Monster	MAXLEVEL:4	SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1	
-	BONUS:DOMAIN|NUMBER|3
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus															Add domain number		Modify VAR														Bonus
+CLASS:Choldrith	HD:8		TYPE:Monster	MAXLEVEL:4	SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:DOMAIN|NUMBER|3	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required Race		Reg. Race Type
 CLASS:Choldrith	PRERACE:1,Choldrith	PRERACETYPE:1,Aberration
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Choldrith	STARTSKILLPTS:2	MODTOSKILLS:NO
-1	DOMAIN:Chaos|Evil|Protection					ADD:SPELLCASTER|1|Cleric
+1	DOMAIN:Chaos|Evil|Protection					ADD:SPELLCASTER|Cleric
 2						BONUS:PCLEVEL|Cleric|1
 3						BONUS:PCLEVEL|Cleric|1
 4						BONUS:PCLEVEL|Cleric|1
 
-# Class Name		Hit Dice	Type			Max Level	Source Page		Save checks bonus														Combat bonus
-CLASS:Cloaker Lord	HD:8		TYPE:Monster	MAXLEVEL:9	SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude|CL/3	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1	
-
+# Class Name		Hit Dice	Type			Max Level	Source Page		Combat bonus															Modify VAR														Bonus
+CLASS:Cloaker Lord	HD:8		TYPE:Monster	MAXLEVEL:9	SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Required Race		Reg. Race Type
 CLASS:Cloaker Lord	PRERACE:1,Cloaker Lord	PRERACETYPE:Aberration
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Cloaker Lord	STARTSKILLPTS:2	MODTOSKILLS:YES
 SUBCLASS:Shadow	COST:0	CHOICE:SUBSCHOOL|Shadow	KNOWNSPELLSFROMSPECIALTY:1
 SUBCLASSLEVEL:1	ABILITY:Special Ability|AUTOMATIC|Shadow Learning Bonus
-1					ADD:SPELLCASTER|1|Wizard
+1					ADD:SPELLCASTER|Wizard
 2	BONUS:PCLEVEL|Wizard|1
 3	BONUS:PCLEVEL|Wizard|1
 4	BONUS:PCLEVEL|Wizard|1
@@ -67,14 +69,13 @@ SUBCLASSLEVEL:1	ABILITY:Special Ability|AUTOMATIC|Shadow Learning Bonus
 8	BONUS:PCLEVEL|Wizard|1
 9	BONUS:PCLEVEL|Wizard|1
 
-# Class Name	Hit Dice	Type			Max Level	Source Page		Save checks bonus														Combat bonus					Add domain number
-CLASS:Sharn		HD:8		TYPE:Monster	MAXLEVEL:12	SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/3	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1	
-	BONUS:DOMAIN|NUMBER|4	BONUS:DOMAIN|NUMBER|4
+# Class Name	Hit Dice	Type			Max Level	Source Page		Combat bonus															Add domain number						Modify VAR														Bonus
+CLASS:Sharn		HD:8		TYPE:Monster	MAXLEVEL:12	SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:DOMAIN|NUMBER|4	BONUS:DOMAIN|NUMBER|4	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required Race	Reg. Race Type
 CLASS:Sharn		PRERACE:1,Sharn	PRERACETYPE:1,Aberration
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Sharn		STARTSKILLPTS:2	MODTOSKILLS:NO
-1	BONUS:PCLEVEL|Cleric|1						ADD:SPELLCASTER|1|Cleric	ADD:SPELLCASTER|1|Sorcerer	ADDDOMAINS:Chaos.Death.Knowledge.Luck.Magic.Protection.Travel.Trickery
+1	BONUS:PCLEVEL|Cleric|1						ADD:SPELLCASTER|Cleric	ADD:SPELLCASTER|Sorcerer	ADDDOMAINS:Chaos.Death.Knowledge.Luck.Magic.Protection.Travel.Trickery
 2	BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Sorcerer|2
 3	BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Sorcerer|2
 4	BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Sorcerer|2
@@ -87,8 +88,8 @@ CLASS:Sharn		STARTSKILLPTS:2	MODTOSKILLS:NO
 11	BONUS:PCLEVEL|Sorcerer|1
 12	BONUS:PCLEVEL|Cleric|1
 
-# Class Name		Hit Dice	Type			Max Level		Source Page		Save checks bonus															Combat bonus
-CLASS:Brown Dragon	HD:12		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL
+# Class Name		Hit Dice	Type			Max Level		Source Page		Combat bonus										Bonus
+CLASS:Brown Dragon	HD:12		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Required Race			Reg. Race Type
 CLASS:Brown Dragon	PRERACE:1,Dragon (Brown%	PRERACETYPE:Dragon
 # Class Name		Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
@@ -97,15 +98,15 @@ CLASS:Brown Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot
 1																						BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Sorcerer")+var("CL=Sorcerer")))
 1	VISION:Blindsense (60')|Darkvision (120')|Keen Senses|Tremorsense (500')	BONUS:COMBAT|AC|CL-3|TYPE=NaturalArmor.REPLACE
 ###Block: Breath Weapon and other SA's
-1	DEFINE:BreathWeaponLine|max((SIZE-1)*20,30)	DEFINE:BreathWeaponDice|(2*DragonAge)	DEFINE:BreathWeaponDamageDie|4	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Line of Acid
-1																						ABILITY:Special Ability|AUTOMATIC|Immunity to Sleep
-1																						ABILITY:Special Ability|AUTOMATIC|Immunity to Paralysis
-1																						ABILITY:Special Ability|AUTOMATIC|Immunity to Acid
+1	BONUS:VAR|BreathWeaponLine|max((SIZE-1)*20,30)	BONUS:VAR|BreathWeaponDice|(2*DragonAge)	BONUS:VAR|BreathWeaponDamageDie|4	DEFINE:BreathWeaponLine|0	DEFINE:BreathWeaponDice|0	DEFINE:BreathWeaponDamageDie|0	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Line of Acid
+1																																						ABILITY:Special Ability|AUTOMATIC|Immunity to Sleep
+1																																						ABILITY:Special Ability|AUTOMATIC|Immunity to Paralysis
+1																																						ABILITY:Special Ability|AUTOMATIC|Immunity to Acid
 ###Block: Frightful Presence
 1	BONUS:VAR|FrightfulPresRange|DragonAge*30|PREVARGTEQ:DragonAge,5	ABILITY:Special Ability|AUTOMATIC|Frightful Presence
 ###Block: Normal Progression
-1	DEFINE:DragonCL|0
-1	DEFINE:DragonAge|(CL-3)/3
+1						DEFINE:DragonCL|0
+1	BONUS:VAR|DragonAge|(CL-3)/3	DEFINE:DragonAge|0
 ###Block:
 15																ADD:SPELLCASTER|Sorcerer													SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Create Water
 17				BONUS:PCLEVEL|Sorcerer|1
@@ -126,8 +127,8 @@ CLASS:Brown Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot
 39	SR:34			BONUS:PCLEVEL|Sorcerer|1																									SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Disintegrate,16+CHA
 ###Block:
 
-# Class Name	Hit Dice	Type			Max Level		Source Page		Save checks bonus															Combat bonus
-CLASS:Deep Dragon	HD:12		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL
+# Class Name	Hit Dice	Type			Max Level		Source Page		Combat bonus										Bonus
+CLASS:Deep Dragon	HD:12		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required Race		Reg. Race Type
 CLASS:Deep Dragon	PRERACE:1,Dragon (Deep%	PRERACETYPE:Dragon
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
@@ -142,7 +143,7 @@ CLASS:Deep Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Hi
 ###Block: Frightful Presence
 1	BONUS:VAR|FrightfulPresRange|DragonAge*30|PREVARGTEQ:DragonAge,5	ABILITY:Special Ability|AUTOMATIC|Frightful Presence
 ###Block: Normal Progression
-1									BONUS:VAR|ColdResistanceBonus|10	BONUS:VAR|FireResistanceBonus|10	DEFINE:DragonAge|1						ABILITY:Special Ability|AUTOMATIC|Immunity to Charm|Resistance to Cold|Resistance to Fire|True Seeing	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=DragonCL|Detect Magic
+1									BONUS:VAR|ColdResistanceBonus|10	BONUS:VAR|FireResistanceBonus|10	DEFINE:DragonAge|1						ABILITY:Special Ability|AUTOMATIC|Immunity to Charm|Resistance To Cold|Resistance To Fire|True Seeing	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=DragonCL|Detect Magic
 9									BONUS:VAR|SnakeFormTimes|3								DEFINE:DragonAge|2						ABILITY:Special Ability|AUTOMATIC|Alternate Form ~ Snake Form
 12									BONUS:VAR|HumanoidFormTimes|3								DEFINE:DragonAge|3						ABILITY:Special Ability|AUTOMATIC|Alternate Form ~ Humanoid Form
 15									BONUS:VAR|SnakeFormTimes|1	BONUS:VAR|HumanoidFormTimes|1			DEFINE:DragonAge|4	ADD:SPELLCASTER|Sorcerer
@@ -163,8 +164,8 @@ CLASS:Deep Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Hi
 35				BONUS:PCLEVEL|Sorcerer|1
 38				BONUS:PCLEVEL|Sorcerer|1
 
-# Class Name	Hit Dice	Type			Max Level		Source Page		Save checks bonus															Combat bonus
-CLASS:Song Dragon	HD:12		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.	BONUS:CHECKS|BASE.Fortitude|CL/2+2	BONUS:CHECKS|BASE.Reflex|CL/2+2	BONUS:CHECKS|BASE.Will|CL/2+2	BONUS:COMBAT|BAB|CL
+# Class Name	Hit Dice	Type			Max Level		Source Page		Combat bonus										Bonus
+CLASS:Song Dragon	HD:12		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required Race		Reg. Race Type
 CLASS:Song Dragon	PRERACE:1,Dragon (Song%	PRERACETYPE:Dragon
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?	Class Skill

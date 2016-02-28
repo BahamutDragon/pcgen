@@ -1,0 +1,73 @@
+# CVS $Revision: $ $Author: $ -- Sun Sep  7 00:12:26 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+SOURCELONG:Cityscape: An Essential Guide to Urban Adventuring	SOURCESHORT:Ci	SOURCEWEB:www.wizards.com	SOURCEDATE:2006-11
+###Block: Prestige Classes
+
+# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Define					Combat bonus								Bonus
+CLASS:Ebonmar Infiltrator	HD:6		TYPE:Prestige.PC	FACT:Abb|EbInf		MAXLEVEL:10	SOURCEPAGE:p.80	DEFINE:EbonmarInfiltratorLVL|0	BONUS:VAR|EbonmarInfiltratorLVL|CL	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")/2)+2
+# Class Name			Required Feat									Required Skill																				Required Text
+CLASS:Ebonmar Infiltrator	PREABILITY:2,CATEGORY=FEAT,Alertness,Deceitful,Investigator,Negotiator,Stealthy	PRESKILL:1,Decipher Script=4	PRESKILL:1,Hide=8	PRESKILL:1,Move Silently=8	PRESKILL:1,Search=4	PRESKILL:1,Sense Motive=4	PRETEXT:Must be a member of House Ebonmar
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Ebonmar Infiltrator	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Jump|Knowledge (nobility and royalty)|Listen|Move Silently|Open Lock|Search|Sense Motive|Sleight of Hand|Spot|Swim|Tumble|Use Rope
+# Class Name			Spell Stat		Spell Type		Memorize		Automatically Known Spell Levels				Caster level
+CLASS:Ebonmar Infiltrator	FACT:SpellType|Arcane
+CLASS:Ebonmar Infiltrator	SPELLSTAT:INT	MEMORIZE:YES	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Ebonmar Infiltrator|Caster_Level_Ebonmar_Infiltrator	DEFINE:Caster_Level_Ebonmar_Infiltrator|0	BONUS:VAR|Caster_Level_Ebonmar_Infiltrator|CL+Caster_Level_Bonus	DEFINE:CasterLevelBLEbonmar_Infiltrator|0	BONUS:VAR|CasterLevelBLEbonmar_Infiltrator|charbonusto("PCLEVEL","Ebonmar Infiltrator")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Ebonmar_Infiltrator+CasterLevelBLEbonmar_Infiltrator|TYPE=Base
+1	ABILITY:Special Ability|AUTOMATIC|Ebonmar Infiltrator ~ Weapon and Armor Proficiency
+1	ABILITY:Special Ability|AUTOMATIC|Ebonmar Infiltrator ~ Piercing Insight
+1	ABILITY:Special Ability|AUTOMATIC|Ebonmar Infiltrator ~ Speed Reader
+2	ABILITY:Special Ability|AUTOMATIC|Sneak Attack
+3	ABILITY:Special Ability|AUTOMATIC|Ebonmar Infiltrator ~ Combat Anticipation
+4	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base
+8	ABILITY:Special Ability|AUTOMATIC|Ebonmar Infiltrator ~ Hide in Plain Sight
+9	ABILITY:Special Ability|AUTOMATIC|Ebonmar Infiltrator ~ Hyper-Awareness
+10	ABILITY:Special Ability|AUTOMATIC|Ebonmar Infiltrator ~ Shadow in the Night
+
+###Block: Normal Level Progression
+1	CAST:0,0		BONUS:VAR|PiercingInsight|(CL+2)/3
+2	CAST:0,1		BONUS:VAR|SneakAttackDice|(CL+1)/3
+3	CAST:0,2,0		BONUS:VAR|CombatAnticipation|1
+4	CAST:0,3,1		BONUS:VAR|UncannyDodgeFlankingLevel|CL|TYPE=EachClass.REPLACE
+5	CAST:0,3,2,0
+6	CAST:0,3,3,1	BONUS:VAR|CombatAnticipation|1
+7	CAST:0,3,3,2,0
+8	CAST:0,3,3,3,1
+9	CAST:0,3,3,3,2
+10	CAST:0,3,3,3,3
+#
+#
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Define				Combat bonus							Bonus
+CLASS:Crimson Scourge	HD:10		TYPE:Prestige.PC	FACT:Abb|CrmScg		MAXLEVEL:10	SOURCEPAGE:p.93	DEFINE:CrimsonScourgeLVL|0	BONUS:VAR|CrimsonScourgeLVL|CL	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")/2)+2
+# Class Name		Required AL				Req. Att.	Required Check Base		Required Feat		Required Skill
+CLASS:Crimson Scourge	PREALIGN:LN,LE,TN,NE,CN,CE	PRETOTALAB:4	PRECHECKBASE:1,Fortitude=3	PREABILITY:1,CATEGORY=FEAT,Urban Tracker	PRESKILL:1,Gather Information=4	PRESKILL:1,Handle Animal=8	PRESKILL:1,Heal=1	PRESKILL:1,Intimidate=3
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Crimson Scourge	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Craft (Trapmaking)|Diplomacy|Disable Device|Disguise|Escape Artist|Gather Information|Handle Animal|Hide|Intimidate|Jump|Knowledge (Local)|Listen|Move Silently|Ride|Search|Sense Motive|Spot|Survival|Swim|Use Rope
+1						ABILITY:Special Ability|AUTOMATIC|Crimson Scourge ~ Weapon and Armor Proficiency
+1						ABILITY:Special Ability|AUTOMATIC|Crimson Scourge ~ Kid Gloves
+1						ABILITY:Special Ability|AUTOMATIC|Crimson Scourge ~ Special Dispensation
+2						ABILITY:Special Ability|AUTOMATIC|Crimson Scourge ~ Swift Tracker
+3	BONUS:VAR|PainfulStrike|CL/3	ABILITY:Special Ability|AUTOMATIC|Crimson Scourge ~ Painful Strike
+4						ABILITY:Special Ability|AUTOMATIC|Crimson Scourge ~ Immovable Heart
+5						ABILITY:Special Ability|AUTOMATIC|Crimson Scourge ~ Improved Disarm
+7						ABILITY:Special Ability|AUTOMATIC|Crimson Scourge ~ Threaten
+8						ABILITY:Special Ability|AUTOMATIC|Crimson Scourge ~ Deadened Hide
+10						ABILITY:Special Ability|AUTOMATIC|Crimson Scourge ~ Smell of Blood
+#
+#
+
+# Class Name		Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page		Define				Combat bonus							Bonus
+CLASS:Urban Savant	HD:6		TYPE:PC.Prestige	FACT:ClassType|Prestige.PC	FACT:Abb|UrbSvt		MAXLEVEL:10	SOURCEPAGE:p.100	DEFINE:UrbanSavantLVL|0	BONUS:VAR|UrbanSavantLVL|CL	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name		Required Feat	Multiple Requirements																																																									Required Text
+CLASS:Urban Savant	PREABILITY:1,CATEGORY=FEAT,Favored	PREMULT:1,[PRESKILL:3,Knowledge (Dungeoneering)=8,TYPE.Knowledge (Local)=2,Knowledge (Nature)=2],[PRESKILL:3,Knowledge (Dungeoneering)=2,TYPE.Knowledge (Local)=8,Knowledge (Nature)=2],[PRESKILL:3,Knowledge (Dungeoneering)=2,TYPE.Knowledge (Local)=2,Knowledge (Nature)=8]	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Bardic Knowledge],[PRESKILL:1,Knowledge (History)=2]	PRETEXT:Must be a member in good standing of the League of Eyes or similar organization
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Urban Savant	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Climb|Concentration|Decipher Script|Diplomacy|Gather Information|Hide|TYPE=Knowledge|Listen|Move Silently|TYPE=Profession|Search|Sense Motive|Speak Language|Spellcraft|Spot|Tumble|Use Magic Device
+1												ABILITY:Special Ability|AUTOMATIC|Urban Savant ~ Spellcasting|Urban Savant ~ Weapon and Armor Proficiency
+1								ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Urban Savant ~ Urban Saavy
+2								ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Urban Savant ~ Urban Empathy
+3	BONUS:VAR|ContinuingEducation|(CL/3)	ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Urban Savant ~ Continuing Education
+4								ADD:SPELLCASTER|Arcane
+5								ADD:SPELLCASTER|Arcane	ABILITY:Special Ability|AUTOMATIC|Urban Savant ~ Eyes of the City
+6								ADD:SPELLCASTER|Arcane
+7								ADD:SPELLCASTER|Arcane
+8								ADD:SPELLCASTER|Arcane
+9								ADD:SPELLCASTER|Arcane
+10								ADD:SPELLCASTER|Arcane

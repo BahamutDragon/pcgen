@@ -1,0 +1,588 @@
+# CVS $Revision: $ $Author: $ -- Thu Aug  7 12:47:32 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+
+# Used from the PCGen RSRD Version - no changes needed at this time.
+
+# Class Name	Hit Dice	Type			Class Type		Max Level		Source Page		Combat bonus															Modify VAR									Bonus
+CLASS:Aberration	HD:8		TYPE:Monster	FACT:ClassType|Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.290	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Reg. Race Type
+CLASS:Aberration	PRERACETYPE:Aberration
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Aberration	STARTSKILLPTS:2	MODTOSKILLS:YES
+
+# Class Name	Hit Dice	Type			Class Type		Max Level		Source Page		Combat bonus															Modify VAR									Bonus
+CLASS:Animal	HD:8		TYPE:Monster	FACT:ClassType|Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.290	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Prohibited Class			Reg. Race Type
+CLASS:Animal	!PRECLASS:1,Animal (Will)=1	PRERACETYPE:Animal
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Animal	STARTSKILLPTS:2	MODTOSKILLS:YES
+
+# Class Name		Output Name		Hit Dice	Type			Class Type		Max Level		Source Page		Combat bonus															Modify VAR									Bonus
+CLASS:Animal (Will)	OUTPUTNAME:Animal	HD:8		TYPE:Monster	FACT:ClassType|Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.290	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name		Prohibited Class		Reg. Race Type
+CLASS:Animal (Will)	!PRECLASS:1,Animal=1	PRERACETYPE:Animal
+# Class Name		Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Animal (Will)	STARTSKILLPTS:2	MODTOSKILLS:YES
+
+# Class Name	Hit Dice	Type			Class Type		Max Level		Source Page		Combat bonus															Modify VAR									Bonus
+CLASS:Construct	HD:10		TYPE:Monster	FACT:ClassType|Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.290	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Reg. Race Type
+CLASS:Construct	PRERACETYPE:Construct
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Construct	STARTSKILLPTS:2	MODTOSKILLS:YES
+
+# Class Name			Output Name			Hit Dice	Type			Class Type		Max Level		Source Page		Levels per Feat	Combat bonus															Modify VAR									Bonus
+CLASS:Construct (Mindless)	OUTPUTNAME:Construct	HD:10		TYPE:Monster	FACT:ClassType|Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.290	LEVELSPERFEAT:0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name			Reg. Race Type
+CLASS:Construct (Mindless)	PRERACETYPE:Construct
+# Class Name			Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Construct (Mindless)	STARTSKILLPTS:0	MODTOSKILLS:NO
+
+# Class Name	Hit Dice	Type			Class Type		Max Level		Source Page		Define			Combat bonus										Bonus
+CLASS:Dragon	HD:12		TYPE:Monster	FACT:ClassType|Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.290	DEFINE:DragonLVL|CL	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name	Reg. Race Type
+CLASS:Dragon	PRERACETYPE:Dragon
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES
+
+# Class Name	Hit Dice	Type			Class Type		Max Level		Source Page		Combat bonus															Modify VAR									Bonus
+CLASS:Elemental	HD:8		TYPE:Monster	FACT:ClassType|Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.290	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2|PRERACE:1,RACESUBTYPE=Air,RACESUBTYPE=Fire	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3|PRERACE:1,RACESUBTYPE=Air,RACESUBTYPE=Fire	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2|PRERACE:1,RACESUBTYPE=Earth,RACESUBTYPE=Water	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PRERACE:1,RACESUBTYPE=Earth,RACESUBTYPE=Water
+# Class Name	Reg. Race Type
+CLASS:Elemental	PRERACETYPE:Elemental
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Elemental	STARTSKILLPTS:2	MODTOSKILLS:YES
+
+# Class Name			Output Name			Hit Dice	Type			Class Type		Max Level		Source Page		Combat bonus															Modify VAR									Bonus
+CLASS:Elemental (Air/Fire)	OUTPUTNAME:Elemental	HD:8		TYPE:Monster	FACT:ClassType|Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.290	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name			Reg. Race Type
+CLASS:Elemental (Air/Fire)	PRERACETYPE:Elemental
+# Class Name			Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Elemental (Air/Fire)	STARTSKILLPTS:2	MODTOSKILLS:YES
+
+# Class Name			Output Name			Hit Dice	Type			Class Type		Max Level		Source Page		Combat bonus															Modify VAR									Bonus
+CLASS:Elemental (Earth/Water)	OUTPUTNAME:Elemental	HD:8		TYPE:Monster	FACT:ClassType|Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.290	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name			Reg. Race Type
+CLASS:Elemental (Earth/Water)	PRERACETYPE:Elemental
+# Class Name			Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Elemental (Earth/Water)	STARTSKILLPTS:2	MODTOSKILLS:YES
+
+# Class Name			Hit Dice	Type			Class Type		Max Level		Source Page		Levels per Feat	Combat bonus															Modify VAR									Bonus
+CLASS:Elemental (Mindless)	HD:8		TYPE:Monster	FACT:ClassType|Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.290	LEVELSPERFEAT:0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2|PRERACE:1,RACESUBTYPE=Air,RACESUBTYPE=Fire	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3|PRERACE:1,RACESUBTYPE=Air,RACESUBTYPE=Fire	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2|PRERACE:1,RACESUBTYPE=Earth,RACESUBTYPE=Water	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PRERACE:1,RACESUBTYPE=Earth,RACESUBTYPE=Water
+# Class Name			Reg. Race Type
+CLASS:Elemental (Mindless)	PRERACETYPE:Elemental
+# Class Name			Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Elemental (Mindless)	STARTSKILLPTS:0	MODTOSKILLS:NO
+
+# Class Name	Hit Dice	Type			Class Type		Max Level		Source Page		Ability													Combat bonus															Modify VAR								Bonus
+CLASS:Fey		HD:6		TYPE:Monster	FACT:ClassType|Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.290	ABILITY:Special Ability|AUTOMATIC|Fey Proficiencies|PREVAREQ:NoTypeProficiencies,0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|CL|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Reg. Race Type
+CLASS:Fey		PRERACETYPE:Fey
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Fey		STARTSKILLPTS:6	MODTOSKILLS:YES
+
+# Class Name	Hit Dice	Type			Class Type		Max Level		Source Page		Ability														Combat bonus															Modify VAR									Bonus
+CLASS:Giant		HD:8		TYPE:Monster	FACT:ClassType|Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.290	ABILITY:Special Ability|AUTOMATIC|Giant Proficiencies|PREVAREQ:NoTypeProficiencies,0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Reg. Race Type
+CLASS:Giant		PRERACETYPE:Giant
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Giant		STARTSKILLPTS:2	MODTOSKILLS:YES
+
+
+# Class Name	Hit Dice	Type			Class Type		Max Level		Source Page		Ability														Combat bonus															Modify VAR									Bonus
+CLASS:Humanoid	HD:8		TYPE:Monster	FACT:ClassType|Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.290	ABILITY:Special Ability|AUTOMATIC|Humanoid Proficiencies|PREVAREQ:NoTypeProficiencies,0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Prohibited Class							Reg. Race Type
+CLASS:Humanoid	!PRECLASS:1,Humanoid (Fortitude)=1,Humanoid (Will)=1	PRERACETYPE:Humanoid
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Humanoid	STARTSKILLPTS:2	MODTOSKILLS:YES
+
+# Class Name			Output Name			Hit Dice	Type			Class Type		Max Level		Source Page		Ability														Combat bonus															Modify VAR									Bonus
+CLASS:Humanoid (Fortitude)	OUTPUTNAME:Humanoid	HD:8		TYPE:Monster	FACT:ClassType|Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.290	ABILITY:Special Ability|AUTOMATIC|Humanoid Proficiencies|PREVAREQ:NoTypeProficiencies,0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name			Prohibited Class					Reg. Race Type
+CLASS:Humanoid (Fortitude)	!PRECLASS:1,Humanoid=1,Humanoid (Will)=1	PRERACETYPE:Humanoid
+# Class Name			Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Humanoid (Fortitude)	STARTSKILLPTS:2	MODTOSKILLS:YES
+
+
+# Class Name		Output Name			Hit Dice	Type			Class Type		Max Level		Source Page		Ability														Combat bonus															Modify VAR									Bonus
+CLASS:Humanoid (Will)	OUTPUTNAME:Humanoid	HD:8		TYPE:Monster	FACT:ClassType|Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.290	ABILITY:Special Ability|AUTOMATIC|Humanoid Proficiencies|PREVAREQ:NoTypeProficiencies,0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name		Prohibited Class						Reg. Race Type
+CLASS:Humanoid (Will)	!PRECLASS:1,Humanoid=1,Humanoid (Fortitude)=1	PRERACETYPE:Humanoid
+# Class Name		Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Humanoid (Will)	STARTSKILLPTS:2	MODTOSKILLS:YES
+
+
+# Class Name		Hit Dice	Type			Class Type		Max Level		Source Page		Combat bonus										Bonus
+CLASS:Magical Beast	HD:10		TYPE:Monster	FACT:ClassType|Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.290	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name		Reg. Race Type
+CLASS:Magical Beast	PRERACETYPE:Magical Beast
+# Class Name		Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Magical Beast	STARTSKILLPTS:2	MODTOSKILLS:YES
+
+# Class Name			Hit Dice	Type			Class Type		Max Level		Source Page		Ability																Combat bonus										Bonus
+CLASS:Monstrous humanoid	HD:8		TYPE:Monster	FACT:ClassType|Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.290	ABILITY:Special Ability|AUTOMATIC|Monstrous Humanoid Proficiencies|PREVAREQ:NoTypeProficiencies,0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name			Reg. Race Type
+CLASS:Monstrous humanoid	PRERACETYPE:Monstrous humanoid
+# Class Name			Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Monstrous humanoid	STARTSKILLPTS:2	MODTOSKILLS:YES
+
+# Class Name	Hit Dice	Type			Class Type		Max Level		Source Page		Levels per Feat	Combat bonus															Modify VAR									Bonus
+CLASS:Ooze		HD:10		TYPE:Monster	FACT:ClassType|Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.290	LEVELSPERFEAT:0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Reg. Race Type
+CLASS:Ooze		PRERACETYPE:Ooze
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Ooze		STARTSKILLPTS:0	MODTOSKILLS:NO
+
+# Class Name			Output Name		Hit Dice	Type			Class Type		Max Level		Source Page		Combat bonus															Modify VAR									Bonus
+CLASS:Ooze (Intelligent)	OUTPUTNAME:Ooze	HD:10		TYPE:Monster	FACT:ClassType|Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.290	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name			Reg. Race Type
+CLASS:Ooze (Intelligent)	PRERACETYPE:Ooze
+# Class Name			Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Ooze (Intelligent)	STARTSKILLPTS:2	MODTOSKILLS:YES
+
+# Class Name	Hit Dice	Type			Class Type		Max Level		Source Page		Ability														Combat bonus										Bonus
+CLASS:Outsider	HD:8		TYPE:Monster	FACT:ClassType|Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.290	ABILITY:Special Ability|AUTOMATIC|Outsider Proficiencies|PREVAREQ:NoTypeProficiencies,0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name	Reg. Race Type
+CLASS:Outsider	PRERACETYPE:Outsider
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Outsider	STARTSKILLPTS:8	MODTOSKILLS:YES
+
+# Class Name	Hit Dice	Type			Class Type		Max Level		Source Page		Combat bonus															Modify VAR									Bonus
+CLASS:Plant		HD:8		TYPE:Monster	FACT:ClassType|Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.290	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Reg. Race Type
+CLASS:Plant		PRERACETYPE:Plant
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Plant		STARTSKILLPTS:2	MODTOSKILLS:YES
+
+# Class Name		Output Name		Hit Dice	Type			Class Type		Max Level		Source Page		Levels per Feat	Combat bonus															Modify VAR									Bonus
+CLASS:Plant (Mindless)	OUTPUTNAME:Plant	HD:8		TYPE:Monster	FACT:ClassType|Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.290	LEVELSPERFEAT:0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name		Reg. Race Type
+CLASS:Plant (Mindless)	PRERACETYPE:Plant
+# Class Name		Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Plant (Mindless)	STARTSKILLPTS:0	MODTOSKILLS:NO
+
+# Class Name	Hit Dice	Type			Class Type		Max Level		Source Page		Ability														Combat bonus															Modify VAR								Bonus
+CLASS:Undead	HD:12		TYPE:Monster	FACT:ClassType|Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.290	ABILITY:Special Ability|AUTOMATIC|Undead Proficiencies|PREVAREQ:NoTypeProficiencies,0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|CL|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Reg. Race Type
+CLASS:Undead	PRERACETYPE:Undead
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Undead	STARTSKILLPTS:4	MODTOSKILLS:YES
+
+# Class Name		Output Name		Hit Dice	Type			Class Type		Max Level		Source Page		Levels per Feat	Ability														Combat bonus															Modify VAR								Bonus
+CLASS:Undead (Mindless)	OUTPUTNAME:Undead	HD:12		TYPE:Monster	FACT:ClassType|Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.290	LEVELSPERFEAT:0	ABILITY:Special Ability|AUTOMATIC|Undead Proficiencies|PREVAREQ:NoTypeProficiencies,0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|CL|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name		Reg. Race Type
+CLASS:Undead (Mindless)	PRERACETYPE:Undead
+# Class Name		Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Undead (Mindless)	STARTSKILLPTS:0	MODTOSKILLS:NO
+
+# Class Name	Hit Dice	Type			Class Type		Max Level		Source Page		Levels per Feat	Combat bonus															Modify VAR									Bonus
+CLASS:Vermin	HD:8		TYPE:Monster	FACT:ClassType|Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.290	LEVELSPERFEAT:0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Reg. Race Type
+CLASS:Vermin	PRERACETYPE:Vermin
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Vermin	STARTSKILLPTS:0	MODTOSKILLS:NO
+
+# Class Name			Output Name		Hit Dice	Type			Class Type		Max Level		Source Page		Combat bonus															Modify VAR									Bonus
+CLASS:Vermin (Intelligent)	OUTPUTNAME:Vermin	HD:8		TYPE:Monster	FACT:ClassType|Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.290	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name			Reg. Race Type
+CLASS:Vermin (Intelligent)	PRERACETYPE:Vermin
+# Class Name			Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Vermin (Intelligent)	STARTSKILLPTS:2	MODTOSKILLS:YES
+
+
+#Blue - *Can also cast cleric spells and those from the Air, Evil, and Law domains as arcane spells.
+#red *Can also cast cleric spells and those from the Chaos, Evil, and Fire domains as arcane spells.
+#Brass *Can also cast cleric spells and those from the Chaos and Knowledge domains as arcane spells.
+#Bronze *Can also cast cleric spells and those from the Animal, Law, and Water domains as arcane spells.
+#Copper *Can also cast cleric spells and those from the Chaos, Earth, and Trickery domains as arcane spells.
+#Gold *Can also cast cleric spells and those from the Law, Luck, and Good domains as arcane spells.
+#Silver *Can also cast cleric spells and those from the Air, Good, Law, and Sun domains as arcane spells.
+
+###Block: For Monsters that can Cast both Sorcerer and Cleric Spells as Arcane
+
+# Class Name				Visible
+CLASS:Sorcerer/Cleric (Arcane)	VISIBLE:NO
+# Class Name				Spell Stat		Spell Type		Memorize	Caster level						Use Spell List
+CLASS:Sorcerer/Cleric (Arcane)	SPELLSTAT:CHA	FACT:SpellType|Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Sorcerer/Cleric (Arcane)|CL	SPELLLIST:2|Cleric|Sorcerer
+###Block:
+1	CAST:5,3				KNOWN:4,2
+2	CAST:6,4				KNOWN:5,2
+3	CAST:6,5				KNOWN:5,3
+4	CAST:6,6,3				KNOWN:6,3,1
+5	CAST:6,6,4				KNOWN:6,4,2
+6	CAST:6,6,5,3			KNOWN:7,4,2,1
+7	CAST:6,6,6,4			KNOWN:7,5,3,2
+8	CAST:6,6,6,5,3			KNOWN:8,5,3,2,1
+9	CAST:6,6,6,6,4			KNOWN:8,5,4,3,2
+10	CAST:6,6,6,6,5,3			KNOWN:9,5,4,3,2,1
+11	CAST:6,6,6,6,6,4			KNOWN:9,5,5,4,3,2
+12	CAST:6,6,6,6,6,5,3		KNOWN:9,5,5,4,3,2,1
+13	CAST:6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,3,2
+14	CAST:6,6,6,6,6,6,5,3		KNOWN:9,5,5,4,4,3,2,1
+15	CAST:6,6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,4,3,2
+16	CAST:6,6,6,6,6,6,6,5,3		KNOWN:9,5,5,4,4,4,3,2,1
+17	CAST:6,6,6,6,6,6,6,6,4		KNOWN:9,5,5,4,4,4,3,3,2
+18	CAST:6,6,6,6,6,6,6,6,5,3	KNOWN:9,5,5,4,4,4,3,3,2,1
+19	CAST:6,6,6,6,6,6,6,6,6,4	KNOWN:9,5,5,4,4,4,3,3,3,2
+20	CAST:6,6,6,6,6,6,6,6,6,6	KNOWN:9,5,5,4,4,4,3,3,3,3
+
+
+
+
+###Block: Specific Monster Classes - Leaving for Savage Specieis Progressions
+
+# Class Name	Hit Dice	Type			Class Type		Max Level	Source Page		Combat bonus										Bonus
+CLASS:Planetar	HD:8		TYPE:Monster	FACT:ClassType|Monster	MAXLEVEL:42	SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name	Required Race			Reg. Race Type
+CLASS:Planetar	PRERACE:1,Angel (Planetar)	PRERACETYPE:Outsider
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Planetar	STARTSKILLPTS:8	MODTOSKILLS:YES
+1	BONUS:PCLEVEL|Cleric|1					ADD:SPELLCASTER|Cleric
+2	BONUS:PCLEVEL|Cleric|1
+3	BONUS:PCLEVEL|Cleric|1
+4	BONUS:PCLEVEL|Cleric|1
+5	BONUS:PCLEVEL|Cleric|1
+6	BONUS:PCLEVEL|Cleric|1
+7	BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Cleric|1
+8	BONUS:PCLEVEL|Cleric|1
+9	BONUS:PCLEVEL|Cleric|1
+10	BONUS:PCLEVEL|Cleric|1
+11	BONUS:PCLEVEL|Cleric|1
+12	BONUS:PCLEVEL|Cleric|1
+13	BONUS:PCLEVEL|Cleric|1
+14	BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Cleric|1
+
+# Class Name	Hit Dice	Type			Class Type		Max Level	Source Page		Combat bonus										Bonus
+CLASS:Solar		HD:8		TYPE:Monster	FACT:ClassType|Monster	MAXLEVEL:66	SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name	Required Race		Reg. Race Type
+CLASS:Solar		PRERACE:1,Angel (Solar)	PRERACETYPE:Outsider
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Solar		STARTSKILLPTS:8	MODTOSKILLS:YES
+1					ADD:SPELLCASTER|Cleric
+2	BONUS:PCLEVEL|Cleric|1
+3	BONUS:PCLEVEL|Cleric|1
+4	BONUS:PCLEVEL|Cleric|1
+5	BONUS:PCLEVEL|Cleric|1
+6	BONUS:PCLEVEL|Cleric|1
+7	BONUS:PCLEVEL|Cleric|1
+9	BONUS:PCLEVEL|Cleric|1
+10	BONUS:PCLEVEL|Cleric|1
+11	BONUS:PCLEVEL|Cleric|1
+12	BONUS:PCLEVEL|Cleric|1
+13	BONUS:PCLEVEL|Cleric|1
+14	BONUS:PCLEVEL|Cleric|1
+16	BONUS:PCLEVEL|Cleric|1
+17	BONUS:PCLEVEL|Cleric|1
+18	BONUS:PCLEVEL|Cleric|1
+19	BONUS:PCLEVEL|Cleric|1
+20	BONUS:PCLEVEL|Cleric|1
+21	BONUS:PCLEVEL|Cleric|1
+22	BONUS:PCLEVEL|Cleric|1
+
+# Class Name		Hit Dice	Type			Class Type		Max Level	Source Page		Combat bonus										Bonus
+CLASS:Trumpet Archon	HD:8		TYPE:Monster	FACT:ClassType|Monster	MAXLEVEL:36	SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name		Required Race			Reg. Race Type
+CLASS:Trumpet Archon	PRERACE:1,Archon (Trumpet)	PRERACETYPE:Outsider
+# Class Name		Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Trumpet Archon	STARTSKILLPTS:8	MODTOSKILLS:YES
+1	BONUS:PCLEVEL|Cleric|1					ADD:SPELLCASTER|Cleric
+2	BONUS:PCLEVEL|Cleric|1
+3	BONUS:PCLEVEL|Cleric|1
+4	BONUS:PCLEVEL|Cleric|1
+5	BONUS:PCLEVEL|Cleric|1
+6	BONUS:PCLEVEL|Cleric|1
+7	BONUS:PCLEVEL|Cleric|1
+8	BONUS:PCLEVEL|Cleric|1
+9	BONUS:PCLEVEL|Cleric|1
+10	BONUS:PCLEVEL|Cleric|1
+11	BONUS:PCLEVEL|Cleric|1
+12	BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Cleric|1
+
+# Class Name	Hit Dice	Type			Class Type		Max Level	Source Page		Combat bonus										Bonus
+CLASS:Aranea	HD:10		TYPE:Monster	FACT:ClassType|Monster	MAXLEVEL:3	SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Required Race	Reg. Race Type
+CLASS:Aranea	PRERACE:1,Aranea	PRERACETYPE:Magical Beast
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Aranea	STARTSKILLPTS:2	MODTOSKILLS:YES
+1						ADD:SPELLCASTER|Sorcerer
+2	BONUS:PCLEVEL|Sorcerer|1
+3	BONUS:PCLEVEL|Sorcerer|1
+
+# Class Name	Hit Dice	Type			Class Type		Max Level	Source Page				Combat bonus										Bonus
+CLASS:Couatl	HD:8		TYPE:Monster	FACT:ClassType|Monster	MAXLEVEL:27	SOURCEPAGE:MonstersB-C.rtf	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name	Required Race	Reg. Race Type
+CLASS:Couatl	PRERACE:1,Couatl	PRERACETYPE:Outsider
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Couatl	STARTSKILLPTS:8	MODTOSKILLS:YES
+1						ADD:SPELLCASTER|Sorcerer
+2	BONUS:PCLEVEL|Sorcerer|1
+3	BONUS:PCLEVEL|Sorcerer|1
+4	BONUS:PCLEVEL|Sorcerer|1
+5	BONUS:PCLEVEL|Sorcerer|1
+6	BONUS:PCLEVEL|Sorcerer|1
+7	BONUS:PCLEVEL|Sorcerer|1
+8	BONUS:PCLEVEL|Sorcerer|1
+9	BONUS:PCLEVEL|Sorcerer|1
+
+# Class Name		Output Name		Hit Dice	Type			Class Type		Max Level	Source Page		Combat bonus															Modify VAR									Bonus
+CLASS:Drider Cleric	OUTPUTNAME:Drider	HD:8		TYPE:Monster	FACT:ClassType|Monster	MAXLEVEL:6	SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name		Required Race			Reg. Race Type
+CLASS:Drider Cleric	PRERACE:1,Drider (Cleric)	PRERACETYPE:Aberration
+# Class Name		Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Drider Cleric	STARTSKILLPTS:2	MODTOSKILLS:YES
+###Block: Spontaneous casting
+1	ABILITY:Special Ability|VIRTUAL|Spontaneous casting ~ Cure spells|PREABILITY:1,CATEGORY=Special Ability,Turn Undead
+1	ABILITY:Special Ability|VIRTUAL|Spontaneous casting ~ Inflict spells|PREABILITY:1,CATEGORY=Special Ability,Rebuke Undead
+###Block: progression
+1	BONUS:ABILITYPOOL|Turn Undead|1|TYPE=ClassAbility					BONUS:VAR|TurnCheckBase|CHA|TYPE=Base	BONUS:VAR|TurnLevelBase,TurnDamagePlusBase|CL|TYPE=Level.REPLACE	BONUS:VAR|TurnTimesBase|3+CHA|TYPE=Base	DEFINE:AllowExtraTurning|1	ADD:SPELLCASTER|Cleric	ABILITY:Special Ability|AUTOMATIC|Basic Turning
+2										BONUS:PCLEVEL|Cleric|1
+3										BONUS:PCLEVEL|Cleric|1
+4										BONUS:PCLEVEL|Cleric|1
+5										BONUS:PCLEVEL|Cleric|1
+6										BONUS:PCLEVEL|Cleric|1
+
+# Class Name		Output Name		Hit Dice	Type			Class Type		Max Level	Source Page		Combat bonus															Modify VAR									Bonus
+CLASS:Drider Sorcerer	OUTPUTNAME:Drider	HD:8		TYPE:Monster	FACT:ClassType|Monster	MAXLEVEL:6	SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name		Required Race			Reg. Race Type
+CLASS:Drider Sorcerer	PRERACE:1,Drider (Sorcerer)	PRERACETYPE:Aberration
+# Class Name		Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Drider Sorcerer	STARTSKILLPTS:2	MODTOSKILLS:YES
+1						ADD:SPELLCASTER|Sorcerer
+2	BONUS:PCLEVEL|Sorcerer|1
+3	BONUS:PCLEVEL|Sorcerer|1
+4	BONUS:PCLEVEL|Sorcerer|1
+5	BONUS:PCLEVEL|Sorcerer|1
+6	BONUS:PCLEVEL|Sorcerer|1
+
+# Class Name		Output Name		Hit Dice	Type			Class Type		Max Level	Source Page		Combat bonus															Modify VAR									Bonus
+CLASS:Drider Wizard	OUTPUTNAME:Drider	HD:8		TYPE:Monster	FACT:ClassType|Monster	MAXLEVEL:6	SOURCEPAGE:p.	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name		Required Race			Reg. Race Type
+CLASS:Drider Wizard	PRERACE:1,Drider (Wizard)	PRERACETYPE:Aberration
+# Class Name		Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Drider Wizard	STARTSKILLPTS:2	MODTOSKILLS:YES
+1					ADD:SPELLCASTER|Wizard
+2	BONUS:PCLEVEL|Wizard|1
+3	BONUS:PCLEVEL|Wizard|1
+4	BONUS:PCLEVEL|Wizard|1
+5	BONUS:PCLEVEL|Wizard|1
+6	BONUS:PCLEVEL|Wizard|1
+
+# Class Name		Hit Dice	Type			Class Type		Max Level	Source Page				Combat bonus										Bonus
+CLASS:Formian Queen	HD:8		TYPE:Monster	FACT:ClassType|Monster	MAXLEVEL:40	SOURCEPAGE:MonstersE-F.rtf	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name		Required Race			Reg. Race Type
+CLASS:Formian Queen	PRERACE:1,Formian (Queen)	PRERACETYPE:Outsider
+# Class Name		Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Formian Queen	STARTSKILLPTS:8	MODTOSKILLS:YES
+1						ADD:SPELLCASTER|Sorcerer
+2	BONUS:PCLEVEL|Sorcerer|1
+3	BONUS:PCLEVEL|Sorcerer|1
+4	BONUS:PCLEVEL|Sorcerer|1
+5	BONUS:PCLEVEL|Sorcerer|1
+7	BONUS:PCLEVEL|Sorcerer|1
+8	BONUS:PCLEVEL|Sorcerer|1
+9	BONUS:PCLEVEL|Sorcerer|1
+10	BONUS:PCLEVEL|Sorcerer|1
+11	BONUS:PCLEVEL|Sorcerer|1
+13	BONUS:PCLEVEL|Sorcerer|1
+14	BONUS:PCLEVEL|Sorcerer|1
+15	BONUS:PCLEVEL|Sorcerer|1
+16	BONUS:PCLEVEL|Sorcerer|1
+17	BONUS:PCLEVEL|Sorcerer|1
+19	BONUS:PCLEVEL|Sorcerer|1
+20	BONUS:PCLEVEL|Sorcerer|1
+
+# Class Name	Hit Dice	Type			Class Type		Max Level	Source Page				Combat bonus										Bonus
+CLASS:Ghaele	HD:8		TYPE:Monster	FACT:ClassType|Monster	MAXLEVEL:30	SOURCEPAGE:MonstersG.rtf	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name	Required Race	Reg. Race Type
+CLASS:Ghaele	PRERACE:1,Ghaele	PRERACETYPE:Outsider
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Ghaele	STARTSKILLPTS:8	MODTOSKILLS:YES
+###Block: Spell list adjustment
+1	SPELLLEVEL:CLASS|Cleric=1|Obscuring Mist|Cleric=2|Wind Wall|Cleric=3|Gaseous Form|Cleric=4|Air Walk|Cleric=5|Control Winds|Cleric=6|Chain Lightning|Cleric=7|Control Weather|Cleric=8|Whirlwind|Cleric=9|Elemental Swarm
+1	SPELLLEVEL:CLASS|Cleric=1|Calm Animals|Cleric=2|Hold Animal|Cleric=3|Dominate Animal|Cleric=4|Summon Nature's Ally IV|Cleric=5|Commune with Nature|Cleric=6|Antilife Shell|Cleric=7|Animal Shapes|Cleric=8|Summon Nature's Ally VIII|Cleric=9|Shapechange
+###Block: Spellcasting progression
+1	BONUS:PCLEVEL|Cleric|1					ADD:SPELLCASTER|Cleric
+2	BONUS:PCLEVEL|Cleric|1
+3	BONUS:PCLEVEL|Cleric|1
+4	BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Cleric|1
+5	BONUS:PCLEVEL|Cleric|1
+6	BONUS:PCLEVEL|Cleric|1
+7	BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Cleric|1
+8	BONUS:PCLEVEL|Cleric|1
+9	BONUS:PCLEVEL|Cleric|1
+10	BONUS:PCLEVEL|Cleric|1	BONUS:PCLEVEL|Cleric|1
+
+# Class Name	Hit Dice	Type			Class Type		Max Level	Source Page				Combat bonus										Bonus
+CLASS:Lammasu	HD:10		TYPE:Monster	FACT:ClassType|Monster	MAXLEVEL:21	SOURCEPAGE:MonstersK-L.rtf	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Required Race	Reg. Race Type
+CLASS:Lammasu	PRERACE:1,Lammasu	PRERACETYPE:Magical Beast
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Lammasu	STARTSKILLPTS:2	MODTOSKILLS:YES
+1					ADD:SPELLCASTER|Cleric
+2	BONUS:PCLEVEL|Cleric|1
+3	BONUS:PCLEVEL|Cleric|1
+4	BONUS:PCLEVEL|Cleric|1
+5	BONUS:PCLEVEL|Cleric|1
+6	BONUS:PCLEVEL|Cleric|1
+7	BONUS:PCLEVEL|Cleric|1
+
+# Class Name	Hit Dice	Type			Class Type		Max Level	Source Page				Combat bonus										Bonus
+CLASS:Lillend	HD:8		TYPE:Monster	FACT:ClassType|Monster	MAXLEVEL:21	SOURCEPAGE:MonstersK-L.rtf	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name	Required Race	Reg. Race Type
+CLASS:Lillend	PRERACE:1,Lillend	PRERACETYPE:Outsider
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Lillend	STARTSKILLPTS:8	MODTOSKILLS:YES
+1					ADD:SPELLCASTER|Bard
+3	BONUS:PCLEVEL|Bard|1
+4	BONUS:PCLEVEL|Bard|1
+5	BONUS:PCLEVEL|Bard|1
+6	BONUS:PCLEVEL|Bard|1
+7	BONUS:PCLEVEL|Bard|1
+
+# Class Name	Hit Dice	Type			Class Type		Max Level	Source Page				Combat bonus															Modify VAR									Bonus
+CLASS:Dark Naga	HD:8		TYPE:Monster	FACT:ClassType|Monster	MAXLEVEL:27	SOURCEPAGE:MonstersM-N.rtf	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Required Race		Reg. Race Type
+CLASS:Dark Naga	PRERACE:1,Naga (Dark)	PRERACETYPE:Aberration
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Dark Naga	STARTSKILLPTS:2	MODTOSKILLS:YES
+1						ADD:SPELLCASTER|Sorcerer
+3	BONUS:PCLEVEL|Sorcerer|1
+4	BONUS:PCLEVEL|Sorcerer|1
+5	BONUS:PCLEVEL|Sorcerer|1
+7	BONUS:PCLEVEL|Sorcerer|1
+8	BONUS:PCLEVEL|Sorcerer|1
+9	BONUS:PCLEVEL|Sorcerer|1
+
+# Class Name		Hit Dice	Type			Class Type		Max Level	Source Page				Combat bonus															Modify VAR									Bonus
+CLASS:Guardian Naga	HD:8		TYPE:Monster	FACT:ClassType|Monster	MAXLEVEL:33	SOURCEPAGE:MonstersM-N.rtf	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name		Required Race			Reg. Race Type
+CLASS:Guardian Naga	PRERACE:1,Naga (Guardian)	PRERACETYPE:Aberration
+# Class Name		Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Guardian Naga	STARTSKILLPTS:2	MODTOSKILLS:YES
+1						ADD:SPELLCASTER|Sorcerer	SPELLLIST:3|Cleric|DOMAIN.Good|DOMAIN.Law
+2	BONUS:PCLEVEL|Sorcerer|1
+3	BONUS:PCLEVEL|Sorcerer|1
+5	BONUS:PCLEVEL|Sorcerer|1
+6	BONUS:PCLEVEL|Sorcerer|1
+7	BONUS:PCLEVEL|Sorcerer|1
+9	BONUS:PCLEVEL|Sorcerer|1
+10	BONUS:PCLEVEL|Sorcerer|1
+11	BONUS:PCLEVEL|Sorcerer|1
+
+# Class Name	Hit Dice	Type			Class Type		Max Level	Source Page				Combat bonus															Modify VAR									Bonus
+CLASS:Spirit Naga	HD:8		TYPE:Monster	FACT:ClassType|Monster	MAXLEVEL:27	SOURCEPAGE:MonstersM-N.rtf	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Required Race		Reg. Race Type
+CLASS:Spirit Naga	PRERACE:1,Naga (Spirit)	PRERACETYPE:Aberration
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Spirit Naga	STARTSKILLPTS:2	MODTOSKILLS:YES
+1						ADD:SPELLCASTER|Sorcerer
+3	BONUS:PCLEVEL|Sorcerer|1
+4	BONUS:PCLEVEL|Sorcerer|1
+5	BONUS:PCLEVEL|Sorcerer|1
+7	BONUS:PCLEVEL|Sorcerer|1
+8	BONUS:PCLEVEL|Sorcerer|1
+9	BONUS:PCLEVEL|Sorcerer|1
+
+# Class Name	Hit Dice	Type			Class Type		Max Level	Source Page				Combat bonus															Modify VAR									Bonus
+CLASS:Water Naga	HD:8		TYPE:Monster	FACT:ClassType|Monster	MAXLEVEL:21	SOURCEPAGE:MonstersM-N.rtf	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Required Race		Reg. Race Type
+CLASS:Water Naga	PRERACE:1,Naga (Water)	PRERACETYPE:Aberration
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Water Naga	STARTSKILLPTS:2	MODTOSKILLS:YES
+1						ADD:SPELLCASTER|Sorcerer
+2	BONUS:PCLEVEL|Sorcerer|1
+3	BONUS:PCLEVEL|Sorcerer|1
+4	BONUS:PCLEVEL|Sorcerer|1
+5	BONUS:PCLEVEL|Sorcerer|1
+6	BONUS:PCLEVEL|Sorcerer|1
+7	BONUS:PCLEVEL|Sorcerer|1
+
+# Class Name	Hit Dice	Type			Class Type		Max Level	Source Page				Combat bonus															Modify VAR								Bonus
+CLASS:Nymph		HD:6		TYPE:Monster	FACT:ClassType|Monster	MAXLEVEL:12	SOURCEPAGE:MonstersM-N.rtf	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABPoor|CL|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Will,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Required Race	Reg. Race Type
+CLASS:Nymph		PRERACE:1,Nymph	PRERACETYPE:Fey
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Nymph		STARTSKILLPTS:6	MODTOSKILLS:YES
+1	BONUS:PCLEVEL|Druid|1	ADD:SPELLCASTER|Druid
+2	BONUS:PCLEVEL|Druid|1
+3	BONUS:PCLEVEL|Druid|1
+4	BONUS:PCLEVEL|Druid|1
+5	BONUS:PCLEVEL|Druid|1
+6	BONUS:PCLEVEL|Druid|1
+
+# Class Name	Hit Dice	Type			Class Type		Max Level	Source Page				Combat bonus										Bonus
+CLASS:Rakshasa	HD:8		TYPE:Monster	FACT:ClassType|Monster	MAXLEVEL:7	SOURCEPAGE:MonstersO-R.rtf	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name	Required Race		Reg. Race Type
+CLASS:Rakshasa	PRERACE:1,Rakshasa	PRERACETYPE:Outsider
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Rakshasa	STARTSKILLPTS:8	MODTOSKILLS:YES
+1						ADD:SPELLCASTER|Sorcerer
+2	BONUS:PCLEVEL|Sorcerer|1
+3	BONUS:PCLEVEL|Sorcerer|1
+4	BONUS:PCLEVEL|Sorcerer|1
+5	BONUS:PCLEVEL|Sorcerer|1
+6	BONUS:PCLEVEL|Sorcerer|1
+7	BONUS:PCLEVEL|Sorcerer|1
+
+# Class Name	Hit Dice	Type			Class Type		Max Level	Source Page				Combat bonus										Bonus
+CLASS:Androsphinx	HD:10		TYPE:Monster	FACT:ClassType|Monster	MAXLEVEL:36	SOURCEPAGE:MonstersS.rtf	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Required Race				Reg. Race Type
+CLASS:Androsphinx	PRERACE:1,Sphinx (Androsphinx)	PRERACETYPE:Magical Beast
+# Class Name	Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Androsphinx	STARTSKILLPTS:2	MODTOSKILLS:YES
+1					ADD:SPELLCASTER|Cleric
+2	BONUS:PCLEVEL|Cleric|1
+4	BONUS:PCLEVEL|Cleric|1
+6	BONUS:PCLEVEL|Cleric|1
+8	BONUS:PCLEVEL|Cleric|1
+10	BONUS:PCLEVEL|Cleric|1
+12	BONUS:PCLEVEL|Cleric|1
+
+###Block: Lycanthropes
+
+# Class Name			Output Name		Hit Dice	Type			Class Type		Source Page
+CLASS:Lycanthrope (Generic)	OUTPUTNAME:Animal	HD:8		TYPE:Lycanthrope	FACT:ClassType|Monster	SOURCEPAGE:MonstersK-L.rtf
+# Class Name			Required Lvl	Required Template
+CLASS:Lycanthrope (Generic)	PRELEVEL:MIN=1	PRETEMPLATE:1,Lycanthrope
+# Class Name			Skill Pts/Lvl	Add INT to Skill Points?
+CLASS:Lycanthrope (Generic)	STARTSKILLPTS:2	MODTOSKILLS:YES
+
+# Class Name			Output Name		Hit Dice	Type			Class Type		Max Level	Source Page
+CLASS:Lycanthrope (Werebear)	OUTPUTNAME:Animal	HD:8		TYPE:Lycanthrope	FACT:ClassType|Monster	MAXLEVEL:6	SOURCEPAGE:MonstersK-L.rtf
+# Class Name			Required Lvl	Required Template
+CLASS:Lycanthrope (Werebear)	PRELEVEL:MIN=1	PRETEMPLATE:1,Lycanthrope
+# Class Name			Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
+CLASS:Lycanthrope (Werebear)	STARTSKILLPTS:2	MODTOSKILLS:YES			CSKILL:Listen|Spot|Swim
+
+# Class Name			Output Name		Hit Dice	Type			Class Type		Max Level	Source Page
+CLASS:Lycanthrope (Wereboar)	OUTPUTNAME:Animal	HD:8		TYPE:Lycanthrope	FACT:ClassType|Monster	MAXLEVEL:3	SOURCEPAGE:MonstersK-L.rtf
+# Class Name			Required Lvl	Required Template
+CLASS:Lycanthrope (Wereboar)	PRELEVEL:MIN=1	PRETEMPLATE:1,Lycanthrope
+# Class Name			Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
+CLASS:Lycanthrope (Wereboar)	STARTSKILLPTS:2	MODTOSKILLS:YES			CSKILL:Listen|Spot
+
+# Class Name			Output Name		Hit Dice	Type			Class Type		Max Level	Source Page
+CLASS:Lycanthrope (Wererat)	OUTPUTNAME:Animal	HD:8		TYPE:Lycanthrope	FACT:ClassType|Monster	MAXLEVEL:1	SOURCEPAGE:MonstersK-L.rtf
+# Class Name			Required Lvl	Required Template
+CLASS:Lycanthrope (Wererat)	PRELEVEL:MIN=1	PRETEMPLATE:1,Lycanthrope
+# Class Name			Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
+CLASS:Lycanthrope (Wererat)	STARTSKILLPTS:2	MODTOSKILLS:YES			CSKILL:Balance|Climb|Hide|Move Silently|Swim
+
+# Class Name			Output Name		Hit Dice	Type			Class Type		Max Level	Source Page
+CLASS:Lycanthrope (Weretiger)	OUTPUTNAME:Animal	HD:8		TYPE:Lycanthrope	FACT:ClassType|Monster	MAXLEVEL:6	SOURCEPAGE:MonstersK-L.rtf
+# Class Name			Required Lvl	Required Template
+CLASS:Lycanthrope (Weretiger)	PRELEVEL:MIN=1	PRETEMPLATE:1,Lycanthrope
+# Class Name			Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
+CLASS:Lycanthrope (Weretiger)	STARTSKILLPTS:2	MODTOSKILLS:YES			CSKILL:Balance|Hide|Listen|Move Silently|Spot|Swim
+
+# Class Name			Output Name		Hit Dice	Type			Class Type		Max Level	Source Page
+CLASS:Lycanthrope (Werewolf)	OUTPUTNAME:Animal	HD:8		TYPE:Lycanthrope	FACT:ClassType|Monster	MAXLEVEL:2	SOURCEPAGE:MonstersK-L.rtf
+# Class Name			Required Lvl	Required Template
+CLASS:Lycanthrope (Werewolf)	PRELEVEL:MIN=1	PRETEMPLATE:1,Lycanthrope
+# Class Name			Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
+CLASS:Lycanthrope (Werewolf)	STARTSKILLPTS:2	MODTOSKILLS:YES			CSKILL:Hide|Listen|Move Silently|Spot|Survival
+
+# Class Name				Output Name		Hit Dice	Type			Class Type		Max Level	Source Page
+CLASS:Lycanthrope (Dire Wereboar)	OUTPUTNAME:Animal	HD:8		TYPE:Lycanthrope	FACT:ClassType|Monster	MAXLEVEL:12	SOURCEPAGE:MonstersK-L.rtf
+# Class Name				Required Lvl	Required Template
+CLASS:Lycanthrope (Dire Wereboar)	PRELEVEL:MIN=1	PRETEMPLATE:1,Lycanthrope
+# Class Name				Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
+CLASS:Lycanthrope (Dire Wereboar)	STARTSKILLPTS:2	MODTOSKILLS:YES			CSKILL:Listen|Spot

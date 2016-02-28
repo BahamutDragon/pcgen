@@ -1,0 +1,510 @@
+# CVS $Revision: $ $Author: $ -- Thu Aug  7 12:47:32 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+
+#####################
+### NPC		###
+#####################
+
+# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Define			Combat bonus															Bonus
+CLASS:Adept		HD:6		TYPE:Base.NPC	FACT:ClassType|NPC	FACT:Abb|Adp		MAXLEVEL:20	SOURCEPAGE:p.107	DEFINE:AdeptLVL|CL	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Adept		STARTSKILLPTS:2	CSKILL:Alchemy|Concentration|TYPE=Craft|Handle Animal|Heal|TYPE=Knowledge|TYPE=Profession|Scry|Spellcraft|Wilderness Lore
+# Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels					Caster level
+CLASS:Adept		SPELLSTAT:WIS	FACT:SpellType|Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5	BONUS:CASTERLEVEL|Adept|CL
+###Block: Spell list
+1	SPELLLEVEL:CLASS|Adept=0|Create Water,Cure Minor Wounds,Detect Magic,Ghost Sound,Guidance,Light,Mending,Purify Food and Drink,Read Magic,Touch of Fatigue
+1	SPELLLEVEL:CLASS|Adept=1|Bless,Burning Hands,Cause Fear,Command,Comprehend Languages,Cure Light Wounds,Detect Chaos,Detect Evil,Detect Good,Detect Law,Endure Elements,Obscuring Mist,Protection from Chaos,Protection from Evil,Protection from Good,Protection from Law,Sleep
+1	SPELLLEVEL:CLASS|Adept=2|Aid,Animal Trance,Bear's Endurance,Bull's Strength,Cat's Grace,Cure Moderate Wounds,Darkness,Delay Poison,Invisibility,Mirror Image,Resist Energy,Scorching Ray,See Invisibility,Web
+1	SPELLLEVEL:CLASS|Adept=3|Animate Dead,Bestow Curse,Contagion,Continual Flame,Cure Serious Wounds,Daylight,Deeper Darkness,Lightning Bolt,Neutralize Poison,Remove Curse,Remove Disease,Tongues
+1	SPELLLEVEL:CLASS|Adept=4|Cure Critical Wounds,Minor Creation,Polymorph,Restoration,Stoneskin,Wall of Fire
+1	SPELLLEVEL:CLASS|Adept=5|Baleful Polymorph,Break Enchantment,Commune,Heal,Major Creation,Raise Dead,True Seeing,Wall of Stone
+###Block: Proficiencies
+1	ABILITY:Adept Class Feature|AUTOMATIC|Adept ~ Weapon and Armor Proficiency
+1	ABILITY:Adept Class Feature|AUTOMATIC|Adept ~ Spells
+2	ABILITY:Adept Class Feature|AUTOMATIC|Adept ~ Summon Familiar
+###Block Normal Level progression
+1	CAST:3,1
+2	CAST:3,1
+3	CAST:3,2
+4	CAST:3,2,0
+5	CAST:3,2,1
+6	CAST:3,2,1
+7	CAST:3,3,2
+8	CAST:3,3,2,0
+9	CAST:3,3,2,1
+10	CAST:3,3,2,1
+11	CAST:3,3,3,2
+12	CAST:3,3,3,2,0
+13	CAST:3,3,3,2,1
+14	CAST:3,3,3,2,1
+15	CAST:3,3,3,3,2
+16	CAST:3,3,3,3,2,0
+17	CAST:3,3,3,3,2,1
+18	CAST:3,3,3,3,2,1
+19	CAST:3,3,3,3,3,2
+20	CAST:3,3,3,3,3,2
+
+# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Combat bonus															Modify VAR									Bonus
+CLASS:Aristocrat	HD:8		TYPE:Base.NPC	FACT:ClassType|NPC	FACT:Abb|Ari		MAXLEVEL:20	SOURCEPAGE:p.108	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Aristocrat	STARTSKILLPTS:4	CSKILL:Appraise|Bluff|Diplomacy|Disguise|Forgery|Gather Information|Handle Animal|Innuendo|Intimidate|TYPE=Knowledge|Listen|Perform|Read Lips|Ride|Sense Motive|Speak Language|Spot|Swim|Wilderness Lore
+###Block: Proficiencies
+1	ABILITY:Aristocrat Class Feature|AUTOMATIC|Aristocrat ~ Weapon and Armor Proficiency
+
+# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Optionnal Weapon Prof.	Combat bonus															Bonus
+CLASS:Commoner	HD:4		TYPE:Base.NPC	FACT:ClassType|NPC	FACT:Abb|Com		MAXLEVEL:20	SOURCEPAGE:p.108	WEAPONBONUS:TYPE=Simple	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Commoner	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Jump|Listen|TYPE=Profession|Ride|Spot|Swim|Use Rope
+###Block: Proficiencies
+1	ABILITY:Commoner Class Feature|AUTOMATIC|Commoner ~ Weapon and Armor Proficiency
+
+# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Combat bonus															Modify VAR									Bonus
+CLASS:Expert	HD:6		TYPE:Base.NPC	FACT:ClassType|NPC	FACT:Abb|Exp		MAXLEVEL:20	SOURCEPAGE:p.109	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name	Skill Pts/Lvl
+CLASS:Expert	STARTSKILLPTS:6
+###Block: Proficiencies
+1	ABILITY:Expert Class Feature|AUTOMATIC|Expert ~ Weapon and Armor Proficiency
+###Block: Class skills
+#1	BONUS:ABILITYPOOL|Expert Class Skills|10
+1	ADD:CLASSSKILLS|10|ANY
+
+# Class Name	Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page		Combat bonus										Bonus
+CLASS:Warrior	HD:8		TYPE:Base.NPC	FACT:ClassType|NPC	FACT:Abb|War		MAXLEVEL:20	SOURCEPAGE:p.109	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Warrior	STARTSKILLPTS:2	CSKILL:Climb|Handle Animal|Intimidate|Jump|Ride|Swim
+###Block: Proficiencies
+1	ABILITY:Warrior Class Feature|AUTOMATIC|Warrior ~ Weapon and Armor Proficiency
+
+
+#####################
+### @Prestige	###
+#####################
+
+###Block: Arcane Archer
+
+# Class Name		Hit Dice	Type			Class Type			Abbreviation	Source Page		Define				Combat bonus										Bonus
+CLASS:Arcane Archer	HD:8		TYPE:PC.Prestige	FACT:ClassType|Prestige	FACT:Abb|Arc		SOURCEPAGE:p.176	DEFINE:ArcaneArcherLVL|CL	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name		Required Feat															Required Race		Req. Spell Type		PRETOTALAB
+CLASS:Arcane Archer	PREABILITY:2,CATEGORY=FEAT,Point Blank Shot,Precise Shot	PREABILITY:1,CATEGORY=FEAT,Weapon Focus (Longbow),Weapon Focus (Shortbow)	PRERACE:1,Elf%,Half-Elf	PRESPELLTYPE:1,Arcane=1	PRETOTALAB:6
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Arcane Archer	STARTSKILLPTS:4	CSKILL:TYPE=Craft|Hide|Listen|Move Silently|Ride|Spot|Survival|Use Rope
+###Block:
+1	ABILITY:Arcane Archer Class Feature|AUTOMATIC|Arcane Archer ~ Weapon and Armor Proficiency
+1	ABILITY:Arcane Archer Class Feature|AUTOMATIC|Arcane Archer ~ Enhance Arrow
+2	ABILITY:Arcane Archer Class Feature|AUTOMATIC|Arcane Archer ~ Imbue Arrow
+4	ABILITY:Arcane Archer Class Feature|AUTOMATIC|Arcane Archer ~ Seeker Arrow
+6	ABILITY:Arcane Archer Class Feature|AUTOMATIC|Arcane Archer ~ Phase Arrow
+8	ABILITY:Arcane Archer Class Feature|AUTOMATIC|Arcane Archer ~ Hail of Arrows
+10	ABILITY:Arcane Archer Class Feature|AUTOMATIC|Arcane Archer ~ Arrow of Death
+###Block:
+11	PREPCLEVEL:MIN=20
+
+# Class Name		Hit Dice	Type			Class Type			Abbreviation	Source Page		Define				Combat bonus															Bonus
+CLASS:Arcane Trickster	HD:4		TYPE:PC.Prestige	FACT:ClassType|Prestige	FACT:Abb|Art		SOURCEPAGE:p.177	DEFINE:ArcaneTricksterLVL|CL	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name		Restricted AL		Required Skill												Req. Known Spell		Req. Spell Type		Var. Min. Value
+CLASS:Arcane Trickster	!PREALIGN:LG,LN,LE	PRESKILL:4,Decipher Script=7,Disable Device=7,Escape Artist=7,Knowledge (Arcana)=4	PRESPELL:1,Mage Hand	PRESPELLTYPE:1,Arcane=3	PREVARGTEQ:SneakAttackDice,2
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Arcane Trickster	STARTSKILLPTS:4	CSKILL:Appraise|Balance|Bluff|Climb|Concentration|TYPE=Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Gather Information|Hide|Jump|TYPE=Knowledge|Listen|Move Silently|Open Lock|TYPE=Profession|Sense Motive|Search|Sleight of Hand|Speak Language|Spellcraft|Spot|Swim|Tumble|Use Rope
+###Block:
+1	ABILITY:Arcane Trickster Class Feature|AUTOMATIC|Arcane Trickster ~ Weapon and Armor Proficiency
+1	ABILITY:Arcane Trickster Class Feature|AUTOMATIC|Arcane Trickster ~ Spells per Day
+1	ABILITY:Arcane Trickster Class Feature|AUTOMATIC|Arcane Trickster ~ Ranged Legerdemain
+2	ABILITY:Arcane Trickster Class Feature|AUTOMATIC|Arcane Trickster ~ Sneak Attack
+3	ABILITY:Arcane Trickster Class Feature|AUTOMATIC|Arcane Trickster ~ Impromptu Sneak Attack
+###Block:
+1	ADD:SPELLCASTER|ANY
+2	ADD:SPELLCASTER|ANY
+3	ADD:SPELLCASTER|ANY
+4	ADD:SPELLCASTER|ANY
+5	ADD:SPELLCASTER|ANY
+6	ADD:SPELLCASTER|ANY
+7	ADD:SPELLCASTER|ANY
+8	ADD:SPELLCASTER|ANY
+9	ADD:SPELLCASTER|ANY
+10	ADD:SPELLCASTER|ANY
+###Block:
+11	PREPCLEVEL:MIN=20
+
+# Class Name	Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page		Define			Combat bonus															Bonus
+CLASS:Archmage	HD:4		TYPE:PC.Prestige	FACT:ClassType|Prestige	FACT:Abb|Arm		MAXLEVEL:5	SOURCEPAGE:p.178	DEFINE:ArchmageLVL|CL	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Multiple Requirements											Required Skill						Required Spell School																		Req. Spell Type
+CLASS:Archmage	PREMULT:2,[PREABILITY:1,CATEGORY=FEAT,Skill Focus (Spellcraft)],[PREABILITY:2,CHECKMULT,CATEGORY=FEAT,Spell Focus]	PRESKILL:2,Knowledge (Arcana)=15,Spellcraft=15	PRESPELLSCHOOL:5,Abjuration=5,Conjuration=5,Divination=5,Enchantment=5,Evocation=5,Illusion=5,Necromancy=5,Transmutation=5	PRESPELLTYPE:1,Arcane=7
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Archmage	STARTSKILLPTS:2	CSKILL:Concentration|Craft (Alchemy)|TYPE=Knowledge|TYPE=Profession|Search|Spellcraft
+###Block:
+1	ABILITY:Archmage Class Feature|AUTOMATIC|Archmage ~ Weapon and Armor Proficiency
+1	ABILITY:Archmage Class Feature|AUTOMATIC|Archmage ~ Spells per Day/Spells Known
+1	ABILITY:Archmage Class Feature|AUTOMATIC|Archmage ~ High Arcana
+###Block:
+1	ADD:SPELLCASTER|Arcane
+2	ADD:SPELLCASTER|Arcane
+3	ADD:SPELLCASTER|Arcane
+4	ADD:SPELLCASTER|Arcane
+5	ADD:SPELLCASTER|Arcane
+
+# Class Name	Hit Dice	Type			Class Type			Abbreviation	Source Page		Define			Combat bonus															Modify VAR									Bonus
+CLASS:Assassin	HD:6		TYPE:PC.Prestige	FACT:ClassType|Prestige	FACT:Abb|Asn		SOURCEPAGE:p.180	DEFINE:AssassinLVL|CL	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Required AL		Required Skill
+CLASS:Assassin	PREALIGN:LE,NE,CE	PRESKILL:3,Disguise=4,Hide=8,Move Silently=8
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Assassin	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Intimidate|Jump|Listen|Move Silently|Open Lock|Search|Sense Motive|Sleight of Hand|Spot|Swim|Tumble|Use Magic Device|Use Rope
+# Class Name	Spell Stat		Spell Type		Memorize	Caster level
+CLASS:Assassin	SPELLSTAT:INT	FACT:SpellType|Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Assassin|CL
+###Block:
+1	ABILITY:Assassin Class Feature|AUTOMATIC|Assassin ~ Weapon and Armor Proficiency
+1	ABILITY:Assassin Class Feature|AUTOMATIC|Assassin ~ Death Attack
+1	ABILITY:Assassin Class Feature|AUTOMATIC|Assassin ~ Poison Use
+1	ABILITY:Assassin Class Feature|AUTOMATIC|Assassin ~ Sneak Attack
+1	ABILITY:Assassin Class Feature|AUTOMATIC|Assassin ~ Spells
+2	ABILITY:Assassin Class Feature|AUTOMATIC|Assassin ~ Uncanny Dodge
+2	ABILITY:Assassin Class Feature|AUTOMATIC|Assassin ~ Save Bonus against Poison
+5	ABILITY:Assassin Class Feature|AUTOMATIC|Assassin ~ Improved Uncanny Dodge
+8	ABILITY:Assassin Class Feature|AUTOMATIC|Assassin ~ Hide in Plain Sight
+###Block:
+1	CAST:0,0		KNOWN:0,2
+2	CAST:0,1		KNOWN:0,3
+3	CAST:0,2,0		KNOWN:0,3,2
+4	CAST:0,3,1		KNOWN:0,4,3
+5	CAST:0,3,2,0	KNOWN:0,4,3,2
+6	CAST:0,3,3,1	KNOWN:0,4,4,3
+7	CAST:0,3,3,2,0	KNOWN:0,4,4,3,2
+8	CAST:0,3,3,3,1	KNOWN:0,4,4,4,3
+9	CAST:0,3,3,3,2	KNOWN:0,4,4,4,3
+10	CAST:0,3,3,3,3	KNOWN:0,4,4,4,4
+###Block:
+11	PREPCLEVEL:MIN=20
+
+
+# Class Name	Hit Dice	Type			Class Type			Abbreviation	Source Page		Define			Combat bonus										Bonus																							EXCHANGELEVEL
+CLASS:Blackguard	HD:10		TYPE:PC.Prestige	FACT:ClassType|Prestige	FACT:Abb|Bgd		SOURCEPAGE:p.	DEFINE:BlackguardLVL|CL	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	EXCHANGELEVEL:Ex Paladin|11|10|1
+# Class Name	Required AL		Required Feat						Required Skill					PRETOTALAB
+CLASS:Blackguard	PREALIGN:LE,NE,CE	PREABILITY:3,CATEGORY=FEAT,Cleave,Improved Sunder,Power Attack	PRESKILL:2,Hide=5,Knowledge (Religion)=2	PRETOTALAB:6
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Blackguard	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Hide|Intimidate|Knowledge (Religion)|TYPE=Profession|Ride
+# Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels				Caster level
+CLASS:Blackguard	SPELLSTAT:WIS	FACT:SpellType|Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Blackguard|CL
+###Block:
+1	ABILITY:Blackguard Class Feature|AUTOMATIC|Blackguard ~ Weapon and Armor Proficiency
+1	ABILITY:Blackguard Class Feature|AUTOMATIC|Blackguard ~ Aura of Evil
+1	ABILITY:Blackguard Class Feature|AUTOMATIC|Blackguard ~ Detect Good
+1	ABILITY:Blackguard Class Feature|AUTOMATIC|Blackguard ~ Poison Use
+2	ABILITY:Blackguard Class Feature|AUTOMATIC|Blackguard ~ Dark Blessing
+1	ABILITY:Blackguard Class Feature|AUTOMATIC|Blackguard ~ Spells
+2	ABILITY:Blackguard Class Feature|AUTOMATIC|Blackguard ~ Smite Good
+3	ABILITY:Blackguard Class Feature|AUTOMATIC|Blackguard ~ Aura of Despair
+3	ABILITY:Blackguard Class Feature|AUTOMATIC|Blackguard ~ Command Undead
+4	ABILITY:Blackguard Class Feature|AUTOMATIC|Blackguard ~ Sneak Attack
+5	ABILITY:Blackguard Class Feature|AUTOMATIC|Blackguard ~ Fiendish Servant
+# Fallen Abilites
+1	ABILITY:Blackguard Class Feature|AUTOMATIC|Blackguard ~ Lay on Hands|PRECLASS:1,Ex Paladin=3
+5	ABILITY:Blackguard Class Feature|AUTOMATIC|Blackguard ~ Fiendish Summoning|PRECLASS:1,Ex Paladin=7
+5	ABILITY:Blackguard Class Feature|AUTOMATIC|Blackguard ~ Undead Companion|PRECLASS:1,Ex Paladin=9
+###Block:
+1	CAST:0,0
+2	CAST:0,1
+3	CAST:0,1,0
+4	CAST:0,1,1
+5	CAST:0,1,1,0
+6	CAST:0,1,1,1
+7	CAST:0,2,1,1,0
+8	CAST:0,2,1,1,1
+9	CAST:0,2,2,1,1
+10	CAST:0,2,2,2,1
+###Block:
+11	PREPCLEVEL:MIN=20
+
+# Class Name		Hit Dice	Type			Class Type			Abbreviation	Base class as subclass?	Source Page		Define				Combat bonus															Modify VAR									Bonus
+CLASS:Dragon Disciple	HD:12		TYPE:PC.Prestige	FACT:ClassType|Prestige	FACT:Abb|DrD		ALLOWBASECLASS:NO		SOURCEPAGE:p.183	DEFINE:DragonDiscipleLVL|CL	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name		Required Language		Prohibited Race		Required Skill				Required Casting Type						Prohibited Template
+CLASS:Dragon Disciple	PRELANG:1,Draconic	!PRERACE:1,TYPE=Dragon	PRESKILL:1,Knowledge (Arcana)=8	PRESPELLCAST:MEMORIZE=N	PRESPELLCAST:TYPE=Arcane	!PRETEMPLATE:1,Half Dragon
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Dragon Disciple	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Escape Artist|Gather Information|TYPE=Knowledge|Listen|TYPE=Profession|Search|Speak Language|Spellcraft|Spot
+SUBCLASS:Black Dragon Disciple	COST:0
+SUBCLASSLEVEL:3	ABILITY:Special Ability|AUTOMATIC|Dragon Disciple Breath Weapon ~ Line of Acid
+SUBCLASSLEVEL:10	ABILITY:Special Ability|AUTOMATIC|Immunity to Acid
+SUBCLASS:Blue Dragon Disciple		COST:0
+SUBCLASSLEVEL:3	ABILITY:Special Ability|AUTOMATIC|Dragon Disciple Breath Weapon ~ Line of Lightning
+SUBCLASSLEVEL:10	ABILITY:Special Ability|AUTOMATIC|Immunity to Electricity
+SUBCLASS:Green Dragon Disciple	COST:0
+SUBCLASSLEVEL:3	ABILITY:Special Ability|AUTOMATIC|Dragon Disciple Breath Weapon ~ Cone of Gas
+SUBCLASSLEVEL:10	ABILITY:Special Ability|AUTOMATIC|Immunity to Acid
+SUBCLASS:Red Dragon Disciple		COST:0
+SUBCLASSLEVEL:3	ABILITY:Special Ability|AUTOMATIC|Dragon Disciple Breath Weapon ~ Cone of Fire
+SUBCLASSLEVEL:10	ABILITY:Special Ability|AUTOMATIC|Immunity to Fire
+SUBCLASS:White Dragon Disciple	COST:0
+SUBCLASSLEVEL:3	ABILITY:Special Ability|AUTOMATIC|Dragon Disciple Breath Weapon ~ Cone of Cold
+SUBCLASSLEVEL:10	ABILITY:Special Ability|AUTOMATIC|Immunity to Cold
+SUBCLASS:Brass Dragon Disciple	COST:0
+SUBCLASSLEVEL:3	ABILITY:Special Ability|AUTOMATIC|Dragon Disciple Breath Weapon ~ Line of Fire
+SUBCLASSLEVEL:10	ABILITY:Special Ability|AUTOMATIC|Immunity to Fire
+SUBCLASS:Bronze Dragon Disciple	COST:0
+SUBCLASSLEVEL:3	ABILITY:Special Ability|AUTOMATIC|Dragon Disciple Breath Weapon ~ Line of Lightning
+SUBCLASSLEVEL:10	ABILITY:Special Ability|AUTOMATIC|Immunity to Electricity
+SUBCLASS:Copper Dragon Disciple	COST:0
+SUBCLASSLEVEL:3	ABILITY:Special Ability|AUTOMATIC|Dragon Disciple Breath Weapon ~ Line of Acid
+SUBCLASSLEVEL:10	ABILITY:Special Ability|AUTOMATIC|Immunity to Acid
+SUBCLASS:Gold Dragon Disciple		COST:0
+SUBCLASSLEVEL:3	ABILITY:Special Ability|AUTOMATIC|Dragon Disciple Breath Weapon ~ Cone of Fire
+SUBCLASSLEVEL:10	ABILITY:Special Ability|AUTOMATIC|Immunity to Fire
+SUBCLASS:Silver Dragon Disciple	COST:0
+SUBCLASSLEVEL:3	ABILITY:Special Ability|AUTOMATIC|Dragon Disciple Breath Weapon ~ Cone of Cold
+SUBCLASSLEVEL:10	ABILITY:Special Ability|AUTOMATIC|Immunity to Cold
+###Block:
+1	ABILITY:Dragon Disciple Class Feature|AUTOMATIC|Dragon Disciple ~ Weapon and Armor Proficiency
+1	ABILITY:Dragon Disciple Class Feature|AUTOMATIC|Dragon Disciple ~ Bonus Spells
+1	ABILITY:Dragon Disciple Class Feature|AUTOMATIC|Dragon Disciple ~ Natural Armor Increase
+2	ABILITY:Dragon Disciple Class Feature|AUTOMATIC|Dragon Disciple ~ Claws and Bite
+2	ABILITY:Dragon Disciple Class Feature|AUTOMATIC|Dragon Disciple ~ Ability Boost
+3	ABILITY:Dragon Disciple Class Feature|AUTOMATIC|Dragon Disciple ~ Breath Weapon
+5	ABILITY:Dragon Disciple Class Feature|AUTOMATIC|Dragon Disciple ~ Blindsense
+9	ABILITY:Dragon Disciple Class Feature|AUTOMATIC|Dragon Disciple ~ Wings
+10	ABILITY:Dragon Disciple Class Feature|AUTOMATIC|Dragon Disciple ~ Dragon Apotheosis
+###Block:
+11	PREPCLEVEL:MIN=20
+
+# Class Name	Hit Dice	Type			Class Type			Abbreviation	Source Page		Define			Combat bonus										Bonus
+CLASS:Duelist	HD:10		TYPE:PC.Prestige	FACT:ClassType|Prestige	FACT:Abb|Dul		SOURCEPAGE:p.185	DEFINE:DuelistLVL|CL	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Required Feat					Required Skill				PRETOTALAB
+CLASS:Duelist	PREABILITY:3,CATEGORY=FEAT,Dodge,Mobility,Weapon Finesse	PRESKILL:2,TYPE.Perform=3,Tumble=5	PRETOTALAB:6
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Duelist	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Escape Artist|Jump|Listen|TYPE=Perform|Sense Motive|Spot|Tumble
+###Block:
+1	ABILITY:Duelist Class Feature|AUTOMATIC|Duelist ~ Weapon and Armor Proficiency
+1	ABILITY:Duelist Class Feature|AUTOMATIC|Duelist ~ Canny Defense
+2	ABILITY:Duelist Class Feature|AUTOMATIC|Duelist ~ Improved Reaction
+3	ABILITY:Duelist Class Feature|AUTOMATIC|Duelist ~ Enhanced Mobility
+4	ABILITY:Duelist Class Feature|AUTOMATIC|Duelist ~ Grace
+5	ABILITY:Duelist Class Feature|AUTOMATIC|Duelist ~ Precise Strike
+6	ABILITY:Duelist Class Feature|AUTOMATIC|Duelist ~ Acrobatic Charge
+7	ABILITY:Duelist Class Feature|AUTOMATIC|Duelist ~ Elaborate Parry
+9	ABILITY:Duelist Class Feature|AUTOMATIC|Duelist ~ Deflect Arrows
+###Block:
+11	PREPCLEVEL:MIN=20
+
+# Class Name		Hit Dice	Type			Class Type			Abbreviation	Source Page		Define				Combat bonus										Bonus
+CLASS:Dwarven Defender	HD:12		TYPE:PC.Prestige	FACT:ClassType|Prestige	FACT:Abb|Ddf		SOURCEPAGE:p.186	DEFINE:DwarvenDefenderLVL|CL	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name		Required AL		Required Feat				Required Race	PRETOTALAB
+CLASS:Dwarven Defender	PREALIGN:LG,LN,LE	PREABILITY:3,CATEGORY=FEAT,Dodge,Endurance,Toughness	PRERACE:1,Dwarf%	PRETOTALAB:7
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Dwarven Defender	STARTSKILLPTS:2	CSKILL:TYPE=Craft|Listen|Sense Motive|Spot
+###Block:
+1	ABILITY:Dwarven Defender Class Feature|AUTOMATIC|Dwarven Defender ~ Weapon and Armor Proficiency
+1	ABILITY:Dwarven Defender Class Feature|AUTOMATIC|Dwarven Defender ~ AC Bonus
+1	ABILITY:Dwarven Defender Class Feature|AUTOMATIC|Dwarven Defender ~ Defensive Stance
+2	ABILITY:Dwarven Defender Class Feature|AUTOMATIC|Dwarven Defender ~ Uncanny Dodge
+4	ABILITY:Dwarven Defender Class Feature|AUTOMATIC|Dwarven Defender ~ Trap Sense
+5	ABILITY:Dwarven Defender Class Feature|AUTOMATIC|Dwarven Defender ~ Damage Reduction
+5	ABILITY:Dwarven Defender Class Feature|AUTOMATIC|Dwarven Defender ~ Improved Uncanny Dodge
+8	ABILITY:Dwarven Defender Class Feature|AUTOMATIC|Dwarven Defender ~ Mobile Defense
+###Block:
+11	PREPCLEVEL:MIN=20
+
+# Class Name		Hit Dice	Type			Class Type			Abbreviation	Source Page		Define				Combat bonus										Bonus
+CLASS:Eldritch Knight	HD:6		TYPE:PC.Prestige	FACT:ClassType|Prestige	FACT:Abb|Elk		SOURCEPAGE:p.187	DEFINE:EldritchKnightLVL|CL	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name		Required Ability										Req. Spell Type
+CLASS:Eldritch Knight	PREABILITY:1,CATEGORY=Special Ability,All Martial Weapon Proficiencies	PRESPELLTYPE:1,Arcane=3
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Eldritch Knight	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher Script|Jump|Knowledge (Arcana)|Knowledge (Nobility and Royalty)|Ride|Sense Motive|Spellcraft|Swim
+###Block:
+1	ABILITY:Eldritch Knight Class Feature|AUTOMATIC|Eldritch Knight ~ Weapon and Armor Proficiency
+1	ABILITY:Eldritch Knight Class Feature|AUTOMATIC|Eldritch Knight ~ Bonus Feat
+2	ABILITY:Eldritch Knight Class Feature|AUTOMATIC|Eldritch Knight ~ Spells per Day
+###Block:
+2	ADD:SPELLCASTER|Arcane
+3	ADD:SPELLCASTER|Arcane
+4	ADD:SPELLCASTER|Arcane
+5	ADD:SPELLCASTER|Arcane
+6	ADD:SPELLCASTER|Arcane
+7	ADD:SPELLCASTER|Arcane
+8	ADD:SPELLCASTER|Arcane
+9	ADD:SPELLCASTER|Arcane
+10	ADD:SPELLCASTER|Arcane
+###Block:
+11	PREPCLEVEL:MIN=20
+
+# Class Name	Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page		Define			Combat bonus															Bonus
+CLASS:Hierophant	HD:8		TYPE:PC.Prestige	FACT:ClassType|Prestige	FACT:Abb|Hie		MAXLEVEL:5	SOURCEPAGE:p.188	DEFINE:HierophantLVL|CL	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name	Required Feat			Required Skill				Req. Spell Type
+CLASS:Hierophant	PREABILITY:1,CATEGORY=FEAT,TYPE=Metamagic	PRESKILL:1,Knowledge (Religion)=15	PRESPELLTYPE:1,Divine=7
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Hierophant	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (Religion)|TYPE=Profession|Spellcraft
+1	ABILITY:Hierophant Class Feature|AUTOMATIC|Hierophant ~ Weapon and Armor Proficiency
+1	ABILITY:Hierophant Class Feature|AUTOMATIC|Hierophant ~ Spells and Caster Level
+1	ABILITY:Hierophant Class Feature|AUTOMATIC|Hierophant ~ Special Ability
+
+# Class Name		Hit Dice	Type			Class Type			Abbreviation	Source Page		Define				Combat bonus										Bonus
+CLASS:Horizon Walker	HD:8		TYPE:PC.Prestige	FACT:ClassType|Prestige	FACT:Abb|How		SOURCEPAGE:p.189	DEFINE:HorizonWalkerLVL|CL	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name		Required Feat		Required Skill
+CLASS:Horizon Walker	PREABILITY:1,CATEGORY=FEAT,Endurance	PRESKILL:1,Knowledge (Geography)=8
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Horizon Walker	STARTSKILLPTS:4	CSKILL:Balance|Climb|Diplomacy|Handle Animal|Hide|Knowledge (Geography)|Listen|Move Silently|TYPE=Profession|Ride|Speak Language|Spot|Survival
+###Block:
+1	ABILITY:Horizon Walker Class Feature|AUTOMATIC|Horizon Walker ~ Weapon and Armor Proficiency
+1	ABILITY:Horizon Walker Class Feature|AUTOMATIC|Horizon Walker ~ Terrain Mastery
+6	ABILITY:Horizon Walker Class Feature|AUTOMATIC|Horizon Walker ~ Planar Terrain Mastery
+###Block:
+11	PREPCLEVEL:MIN=20
+
+# Class Name	Hit Dice	Type			Class Type			Abbreviation	Source Page		Define			Combat bonus															Bonus
+CLASS:Loremaster	HD:4		TYPE:PC.Prestige	FACT:ClassType|Prestige	FACT:Abb|Lor		SOURCEPAGE:p.191	DEFINE:LoremasterLVL|CL	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Required Feat												Required Skill						Required Spell School
+CLASS:Loremaster	PREABILITY:1,CATEGORY=FEAT,Skill Focus (Knowledge%)	PREABILITY:3,CATEGORY=FEAT,TYPE=Metamagic,TYPE=ItemCreation	PRESKILL:2,TYPE.Knowledge=10,TYPE.Knowledge=10	PRESPELLSCHOOL:1,Divination=3	PRESPELLSCHOOL:7,Divination=0
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Loremaster	STARTSKILLPTS:4	CSKILL:Appraise|Concentration|Craft (Alchemy)|Decipher Script|Gather Information|Handle Animal|Heal|TYPE=Knowledge|TYPE=Perform|TYPE=Profession|Speak Language|Spellcraft|Use Magic Device
+###Block:
+1	ABILITY:Loremaster Class Feature|AUTOMATIC|Loremaster ~ Weapon and Armor Proficiency
+1	ABILITY:Loremaster Class Feature|AUTOMATIC|Loremaster ~ Spells per Day/Spells Known
+1	ABILITY:Loremaster Class Feature|AUTOMATIC|Loremaster ~ Secret
+2	ABILITY:Loremaster Class Feature|AUTOMATIC|Loremaster ~ Lore
+4	ABILITY:Loremaster Class Feature|AUTOMATIC|Loremaster ~ Bonus Languages
+6	ABILITY:Loremaster Class Feature|AUTOMATIC|Loremaster ~ Greater Lore
+10	ABILITY:Loremaster Class Feature|AUTOMATIC|Loremaster ~ True Lore
+###Block:
+1	ADD:SPELLCASTER|ANY
+2	ADD:SPELLCASTER|ANY
+3	ADD:SPELLCASTER|ANY
+4	ADD:SPELLCASTER|ANY
+5	ADD:SPELLCASTER|ANY
+6	ADD:SPELLCASTER|ANY
+7	ADD:SPELLCASTER|ANY
+8	ADD:SPELLCASTER|ANY
+9	ADD:SPELLCASTER|ANY
+10	ADD:SPELLCASTER|ANY
+###Block:
+11	PREPCLEVEL:MIN=20
+
+# Class Name		Hit Dice	Type			Class Type			Abbreviation	Source Page		Combat bonus															Bonus
+CLASS:Mystic Theurge	HD:4		TYPE:PC.Prestige	FACT:ClassType|Prestige	FACT:Abb|Myt		SOURCEPAGE:p.192	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name		Required Skill								Req. Spell Type
+CLASS:Mystic Theurge	PRESKILL:2,Knowledge (Arcana)=6,Knowledge (Religion)=6	PRESPELLTYPE:1,Arcane=2	PRESPELLTYPE:1,Divine=2
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Mystic Theurge	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher Script|Knowledge (Arcana)|Knowledge (Religion)|TYPE=Profession|Sense Motive|Spellcraft
+###Block:
+1	ABILITY:Mystic Theurge Class Feature|AUTOMATIC|Mystic Theurge ~ Weapon and Armor Proficiency
+1	ABILITY:Mystic Theurge Class Feature|AUTOMATIC|Mystic Theurge ~ Spells per Day
+###Block:
+1	ADD:SPELLCASTER|Arcane	ADD:SPELLCASTER|Divine
+2	ADD:SPELLCASTER|Arcane	ADD:SPELLCASTER|Divine
+3	ADD:SPELLCASTER|Arcane	ADD:SPELLCASTER|Divine
+4	ADD:SPELLCASTER|Arcane	ADD:SPELLCASTER|Divine
+5	ADD:SPELLCASTER|Arcane	ADD:SPELLCASTER|Divine
+6	ADD:SPELLCASTER|Arcane	ADD:SPELLCASTER|Divine
+7	ADD:SPELLCASTER|Arcane	ADD:SPELLCASTER|Divine
+8	ADD:SPELLCASTER|Arcane	ADD:SPELLCASTER|Divine
+9	ADD:SPELLCASTER|Arcane	ADD:SPELLCASTER|Divine
+10	ADD:SPELLCASTER|Arcane	ADD:SPELLCASTER|Divine
+###Block:
+11	PREPCLEVEL:MIN=20
+
+# Class Name	Hit Dice	Type			Class Type			Abbreviation	Source Page		Combat bonus															Bonus
+CLASS:Red Wizard	HD:4		TYPE:PC.Prestige	FACT:ClassType|Prestige	FACT:Abb|Rw		SOURCEPAGE:p.193	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Restricted AL		Required Feat		Required Race	Required Region	Required Skill		Req. Spell Type
+CLASS:Red Wizard	!PREALIGN:LG,NG,CG	PREABILITY:1,CATEGORY=FEAT,Tattoo Focus	PRERACE:1,Human%	PREREGION:Thay	PRESKILL:1,Spellcraft=8	PRESPELLTYPE:1,Arcane=3
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Red Wizard	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Intimidate|TYPE=Knowledge|TYPE=Profession|Spellcraft
+###Block:
+1	ABILITY:Red Wizard Class Feature|AUTOMATIC|Red Wizard ~ Weapon and Armor Proficiency
+1	ABILITY:Red Wizard Class Feature|AUTOMATIC|Red Wizard ~ Enhanced Specialization
+1	ABILITY:Red Wizard Class Feature|AUTOMATIC|Red Wizard ~ Specialist Defense
+2	ABILITY:Red Wizard Class Feature|AUTOMATIC|Red Wizard ~ Spell Power
+5	ABILITY:Red Wizard Class Feature|AUTOMATIC|Red Wizard ~ Bonus Feat
+5	ABILITY:Red Wizard Class Feature|AUTOMATIC|Red Wizard ~ Circle Leader
+7	ABILITY:Red Wizard Class Feature|AUTOMATIC|Red Wizard ~ Scribe Tattoo
+10	ABILITY:Red Wizard Class Feature|AUTOMATIC|Red Wizard ~ Great Circle Leader
+###Block:
+1	ADD:SPELLCASTER|Arcane
+2	ADD:SPELLCASTER|Arcane
+3	ADD:SPELLCASTER|Arcane
+4	ADD:SPELLCASTER|Arcane
+5	ADD:SPELLCASTER|Arcane
+6	ADD:SPELLCASTER|Arcane
+7	ADD:SPELLCASTER|Arcane
+8	ADD:SPELLCASTER|Arcane
+9	ADD:SPELLCASTER|Arcane
+10	ADD:SPELLCASTER|Arcane
+###Block:
+11	PREPCLEVEL:MIN=20
+
+# Class Name		Hit Dice	Type			Class Type			Abbreviation	Source Page		Define				Combat bonus															Bonus
+CLASS:Shadowdancer	HD:8		TYPE:PC.Prestige	FACT:ClassType|Prestige	FACT:Abb|Shd		SOURCEPAGE:p.194	DEFINE:ShadowdancerLVL|CL	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name		Required Feat					Required Skill
+CLASS:Shadowdancer	PREABILITY:3,CATEGORY=FEAT,Combat Reflexes,Dodge,Mobility	PRESKILL:3,Hide=10,Move Silently=8,Perform (Dance)=5
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Shadowdancer	STARTSKILLPTS:6	CSKILL:Balance|Bluff|Decipher Script|Diplomacy|Disguise|Escape Artist|Hide|Jump|Listen|Move Silently|TYPE=Perform|TYPE=Profession|Search|Sleight of Hand|Spot|Tumble|Use Rope
+###Block:
+1	ABILITY:Shadowdancer Class Feature|AUTOMATIC|Shadowdancer ~ Weapon and Armor Proficiency
+1	ABILITY:Shadowdancer Class Feature|AUTOMATIC|Shadowdancer ~ Hide in Plain Sight
+2	ABILITY:Shadowdancer Class Feature|AUTOMATIC|Shadowdancer ~ Evasion
+2	ABILITY:Shadowdancer Class Feature|AUTOMATIC|Shadowdancer ~ Darkvision
+2	ABILITY:Shadowdancer Class Feature|AUTOMATIC|Shadowdancer ~ Uncanny Dodge
+3	ABILITY:Shadowdancer Class Feature|AUTOMATIC|Shadowdancer ~ Shadow Illusion
+3	ABILITY:Shadowdancer Class Feature|AUTOMATIC|Shadowdancer ~ Summon Shadow
+4	ABILITY:Shadowdancer Class Feature|AUTOMATIC|Shadowdancer ~ Shadow Jump
+5	ABILITY:Shadowdancer Class Feature|AUTOMATIC|Shadowdancer ~ Defensive Roll
+5	ABILITY:Shadowdancer Class Feature|AUTOMATIC|Shadowdancer ~ Improved Uncanny Dodge
+7	ABILITY:Shadowdancer Class Feature|AUTOMATIC|Shadowdancer ~ Slippery Mind
+10	ABILITY:Shadowdancer Class Feature|AUTOMATIC|Shadowdancer ~ Improved Evasion
+###Block:
+11	PREPCLEVEL:MIN=20
+
+# Class Name		Hit Dice	Type			Class Type			Abbreviation	Max Level	Source Page		Combat bonus															Bonus
+CLASS:Thaumaturgist	HD:4		TYPE:PC.Prestige	FACT:ClassType|Prestige	FACT:Abb|Tha		MAXLEVEL:5	SOURCEPAGE:p.196	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name		Required Feat				Req. Known Spell
+CLASS:Thaumaturgist	PREABILITY:1,CATEGORY=FEAT,Spell Focus (Conjuration)	PRESPELL:1,Planar Ally (Lesser)
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Thaumaturgist	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Knowledge (Religion)|Knowledge (The Planes)|TYPE=Profession|Sense Motive|Speak Language|Spellcraft
+1	ABILITY:Thaumaturgist Class Feature|AUTOMATIC|Thaumaturgist ~ Weapon and Armor Proficiency
+1	ABILITY:Thaumaturgist Class Feature|AUTOMATIC|Thaumaturgist ~ Spells per Day
+1	ABILITY:Thaumaturgist Class Feature|AUTOMATIC|Thaumaturgist ~ Improved Ally
+2	ABILITY:Thaumaturgist Class Feature|AUTOMATIC|Thaumaturgist ~ Augment Summoning
+3	ABILITY:Thaumaturgist Class Feature|AUTOMATIC|Thaumaturgist ~ Extended Summoning
+4	ABILITY:Thaumaturgist Class Feature|AUTOMATIC|Thaumaturgist ~ Contingent Conjuration
+5	ABILITY:Thaumaturgist Class Feature|AUTOMATIC|Thaumaturgist ~ Planar Cohort
+###Block:
+1	ADD:SPELLCASTER|ANY
+2	ADD:SPELLCASTER|ANY
+3	ADD:SPELLCASTER|ANY
+4	ADD:SPELLCASTER|ANY
+5	ADD:SPELLCASTER|ANY
+
+###Block: Fractional BAB Support
+#3/4
+
+# Class Name	Combat bonus																		Modify VAR
+CLASS:Expert.MOD	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")assBABModerate*3/4|TYPE=ClassBABModerate|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1
+
+# Class Name		Combat bonus																		Modify VAR
+CLASS:Assassin.MOD	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")assBABModerate*3/4|TYPE=ClassBABModerate|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1
+
+# Class Name			Combat bonus																		Modify VAR
+CLASS:Dragon Disciple.MOD	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")assBABModerate*3/4|TYPE=ClassBABModerate|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1
+
+# Class Name		Combat bonus																		Modify VAR
+CLASS:Shadowdancer.MOD	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")assBABModerate*3/4|TYPE=ClassBABModerate|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1
+#1/2
+
+# Class Name	Combat bonus																	Modify VAR
+CLASS:Adept.MOD	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")assBABPoor*1/2|TYPE=ClassBABPoor|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassBABPoor|CL|PREVAREQ:UseFractionalBAB,1
+
+# Class Name		Combat bonus																	Modify VAR
+CLASS:Commoner.MOD	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")assBABPoor*1/2|TYPE=ClassBABPoor|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassBABPoor|CL|PREVAREQ:UseFractionalBAB,1
+
+# Class Name			Combat bonus																	Modify VAR
+CLASS:Arcane Trickster.MOD	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")assBABPoor*1/2|TYPE=ClassBABPoor|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassBABPoor|CL|PREVAREQ:UseFractionalBAB,1
+
+# Class Name		Combat bonus																	Modify VAR
+CLASS:Archmage.MOD	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")assBABPoor*1/2|TYPE=ClassBABPoor|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassBABPoor|CL|PREVAREQ:UseFractionalBAB,1
+
+# Class Name		Combat bonus																	Modify VAR
+CLASS:Hierophant.MOD	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")assBABPoor*1/2|TYPE=ClassBABPoor|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassBABPoor|CL|PREVAREQ:UseFractionalBAB,1
+
+# Class Name		Combat bonus																	Modify VAR
+CLASS:Loremaster.MOD	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")assBABPoor*1/2|TYPE=ClassBABPoor|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassBABPoor|CL|PREVAREQ:UseFractionalBAB,1
+
+# Class Name			Combat bonus																	Modify VAR
+CLASS:Mystic Theurge.MOD	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")assBABPoor*1/2|TYPE=ClassBABPoor|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassBABPoor|CL|PREVAREQ:UseFractionalBAB,1
+
+# Class Name		Combat bonus																	Modify VAR
+CLASS:Red Wizard.MOD	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")assBABPoor*1/2|TYPE=ClassBABPoor|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassBABPoor|CL|PREVAREQ:UseFractionalBAB,1
+
+# Class Name		Combat bonus																	Modify VAR
+CLASS:Thaumaturgist.MOD	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")assBABPoor*1/2|TYPE=ClassBABPoor|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ClassBABPoor|CL|PREVAREQ:UseFractionalBAB,1
