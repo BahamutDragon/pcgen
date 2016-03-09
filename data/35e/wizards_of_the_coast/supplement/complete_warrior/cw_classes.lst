@@ -51,13 +51,14 @@ SOURCELONG:Complete Warrior	SOURCESHORT:CW	SOURCEDATE:2003-12
 # Hexblade
 
 # Class Name	Hit Dice	Type							Ex Class			Source Page		Combat bonus										Bonus
-CLASS:Hexblade	HD:10		TYPE:Base.PC.Martial.Spellcaster.Arcane	EXCLASS:Ex Hexblade	SOURCEPAGE:p.5	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Hexblade	HD:10		TYPE:Base.PC.Martial.Spellcaster.Arcane	EXCLASS:Ex Hexblade	DEFINE:HexbladeLVL|0	BONUS:VAR|HexbladeLVL|CL	SOURCEPAGE:p.5	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Restricted AL
 CLASS:Hexblade	!PREALIGN:LG,NG,CG
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Hexblade	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Diplomacy|Intimidate|Knowledge (arcana)|TYPE=Profession|Ride|Spellcraft
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
-CLASS:Hexblade	SPELLSTAT:CHA	FACT:SpellType|Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Hexblade|Caster_Level_BL_Stripped_Hexblade	DEFINE:Caster_Level_BL_Stripped_Hexblade|0	BONUS:VAR|Caster_Level_BL_Stripped_Hexblade|Caster_Level_Hexblade-CasterLevelBLHexblade	BONUS:VAR|Caster_Level_Hexblade|CL+Caster_Level_Bonus+CasterLevelBLHexblade	DEFINE:CasterLevelBLHexblade|0	BONUS:VAR|CasterLevelBL_x_Hexblade|charbonusto("PCLEVEL","Hexblade")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Hexblade|TYPE=Base/2|PRECLASS:1,Hexblade=4
+CLASS:Hexblade	SPELLSTAT:CHA	FACT:SpellType|Arcane	MEMORIZE:NO	
+CLASS:Hexblade	BONUS:CASTERLEVEL|Hexblade|Caster_Level_Hexblade|PRECLASS:1,Hexblade=4	DEFINE:Caster_Level_BL_Stripped_Hexblade|0	BONUS:VAR|Caster_Level_BL_Stripped_Hexblade|Caster_Level_Hexblade-CasterLevelBLHexblade	BONUS:VAR|Caster_Level_Hexblade|(HexbladeLVL/2)+Caster_Level_Bonus	DEFINE:CasterLevelBLHexblade|0	BONUS:VAR|CasterLevelBL_x_Hexblade|charbonusto("PCLEVEL","Hexblade")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Hexblade|TYPE=Base|PRECLASS:1,Hexblade=4	DEFINE:Caster_Level_Hexblade|0
 1	ABILITY:Hexblade Class Feature|AUTOMATIC|Hexblade ~ Weapon and Armor Proficiency|!PREABILITY:1,CATEGORY=ACF,TYPE.HexbladeProficiencies
 1	ABILITY:Hexblade Class Feature|AUTOMATIC|Hexblade ~ Hexblade's Curse|!PREABILITY:1,CATEGORY=ACF,TYPE.HexbladeCurse
 2	ABILITY:Hexblade Class Feature|AUTOMATIC|Hexblade ~ Arcane Resistance|!PREABILITY:1,CATEGORY=ACF,TYPE.HexbladeArcaneResistance
@@ -67,11 +68,6 @@ CLASS:Hexblade	SPELLSTAT:CHA	FACT:SpellType|Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL
 7	ABILITY:Hexblade Class Feature|AUTOMATIC|Hexblade ~ Greater Hexblade's Curse|!PREABILITY:1,CATEGORY=ACF,TYPE.HexbladeGreaterCurse
 12	ABILITY:Hexblade Class Feature|AUTOMATIC|Hexblade ~ Aura of Unluck|!PREABILITY:1,CATEGORY=ACF,TYPE.HexbladeAuraofUnluck
 19	ABILITY:Hexblade Class Feature|AUTOMATIC|Hexblade ~ Dire Hexblade's Curse|!PREABILITY:1,CATEGORY=ACF,TYPE.HexbladeDireCurse
-###Block:
-1	BONUS:VAR|HexbladesCurseTimes|(CL-1)/4+1
-12	BONUS:VAR|AuraOfUnluckTimes|(CL-8)/4
-5	BONUS:VAR|HexbladeBonusFeatCount|CL/5
-4	BONUS:VAR|FamiliarLVL|CL-3
 ###Block: SpellCasting
 4	CAST:0,0		KNOWN:0,2
 5	CAST:0,0		KNOWN:0,2
@@ -878,6 +874,9 @@ CLASS:Thayan Knight	HD:10		TYPE:Prestige	FACT:Abb|Thk		MAXLEVEL:5	SOURCEPAGE:p.8
 CLASS:Thayan Knight	PREALIGN:LN,LE,TN,NE,CN,CE	PREABILITY:2,CATEGORY=FEAT,Iron Will,Weapon Focus (Longsword)	PRERACE:1,RACESUBTYPE=Human	PRESKILL:3,Intimidate=2,Knowledge (Arcana)=2,TYPE.Knowledge (Local)=2	PRETEXT:Must sworn allegiance to the Red Wizards of Thay	PRETOTALAB:5
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Thayan Knight	STARTSKILLPTS:2	CSKILL:Bluff|Climb|TYPE=Craft|Gather Information|Handle Animal|Intimidate|Jump|Knowledge (arcana)|Knowledge (Local)|TYPE=Profession|Spot|Swim
+#
+CLASS:Thayan Knight	DEFINE:ThayanKnightLVL|0	BONUS:VAR|ThayanKnightLVL|CL
+#
 1	ABILITY:Thayan Knight Class Feature|AUTOMATIC|Thayan Knight ~ Weapon and Armor Proficiency
 1	ABILITY:Thayan Knight Class Feature|AUTOMATIC|Thayan Knight ~ Horrors of Thay|Thayan Knight ~ Zulkir's Favor
 2	ABILITY:Thayan Knight Class Feature|AUTOMATIC|Thayan Knight ~ Zulkir's Defender
