@@ -1,0 +1,39 @@
+
+#CLASS:Death's Chosen	HD:10	TYPE:PC.Prestige	DEFINE:Deaths_ChosenLVL|0	BONUS:VAR|Deaths_ChosenLVL|CL
+#CLASS:Death's Chosen	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")
+#CLASS:Death's Chosen	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
+#CLASS:Death's Chosen	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+#CLASS:Death's Chosen	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+#CLASS:Death's Chosen	SOURCEPAGE:p.41	MAXLEVEL:3
+#CLASS:Death's Chosen	!PREALIGN:LG,NG,CG	PRERACE:1,RACETYPE=Aberration,RACETYPE=Dragon,RACETYPE=Giant,RACETYPE=Humanoid,RACETYPE=Magical Beast,RACETYPE=Monstrous Humanoid	PRETOTALAB:5	PRESKILL:2,Knowledge (Religion)=1,Spot=2	PRETEXT:Type: Aberration, dragon, giant, humanoid, magical beast, or monstrous humanoid. Alignment: Any nongood. Base Attack Bonus: +5. Skills: Knowledge (religion) 1 rank, Spot 2 ranks. Special: The character must be accepted as a death's chosen by a sentient undead creature with at least as many Hit Dice as the character.
+#CLASS:Death's Chosen	STARTSKILLPTS:2	CSKILL:TYPE=Craft|Diplomacy|Gather Information|Hide|Knowledge (Religion)|Listen|Move Silently|TYPE=Profession|Search|Spot
+###Block
+#1	ABILITY:Death's Chosen Class Feature|AUTOMATIC|Death's Chosen ~ Weapon and Armor Proficiency
+#1	ABILITY:Death's Chosen Class Feature|AUTOMATIC|Death's Chosen ~ Shield of the Master
+#1	ABILITY:Death's Chosen Class Feature|AUTOMATIC|Death's Chosen ~ Vigor of the Chosen
+#2	ABILITY:Death's Chosen Class Feature|AUTOMATIC|Death's Chosen ~ Will of the Chosen
+#3	ABILITY:Death's Chosen Class Feature|AUTOMATIC|Death's Chosen ~ Bravery of the Chosen
+#3	ABILITY:Death's Chosen Class Feature|AUTOMATIC|Death's Chosen ~ Unnatural Aura
+
+#CLASS:Pale Master	HD:4	TYPE:PC.Prestige	DEFINE:Pale_MasterLVL|0	BONUS:VAR|Pale_MasterLVL|CL
+#CLASS:Pale Master	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+#CLASS:Pale Master	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+#CLASS:Pale Master	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
+#CLASS:Pale Master	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+#CLASS:Pale Master	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+#CLASS:Pale Master	PRETEXT:Alignment: Any nongood. Skill: Knowledge (religion) 8 ranks. Feat: Skill Focus (Knowledge [religion]). Spells: Able to cast command undead and vampiric touch as arcane spells. Special: The candidate must have spent three or more days locked in a tomb with animate undead. This contact may be peaceful or violent. A character who is slain by the undead and later raised still meets the requirement, although the resulting level loss may delay compliance with other prerequisites.	!PREALIGN:LG,NG,CG	PRESKILL:1,Knowledge (Religion)=8	PREABILITY:1,CATEGORY=FEAT,Skill Focus (Knowledge (Religion))	PRESPELL:2,Command Undead,Vampiric Touch	PRESPELLTYPE:1,Arcane=1
+#CLASS:Pale Master	SOURCEPAGE:p.47	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Hide|TYPE=Knowledge|Listen|Move Silently|TYPE=Profession|Spellcraft
+###Block
+#2:REPEATLEVEL:1	ADD:SPELLCASTER|Arcane
+####Block
+#1	ABILITY:Pale Master Class Feature|AUTOMATIC|Pale Master ~ Weapon and Armor Proficiency
+#1	ABILITY:Pale Master Class Feature|AUTOMATIC|Pale Master ~ Spells per Day/Spells Known
+#2	ABILITY:Pale Master Class Feature|AUTOMATIC|Pale Master ~ Animate Dead
+#3	ABILITY:Pale Master Class Feature|AUTOMATIC|Pale Master ~ Darkvision
+#4	ABILITY:Pale Master Class Feature|AUTOMATIC|Pale Master ~ Undead Armor Affinity
+#5	ABILITY:Pale Master Class Feature|AUTOMATIC|Pale Master ~ Control Undead
+#5	ABILITY:Pale Master Class Feature|AUTOMATIC|Pale Master ~ Deathless Vigor
+#6	ABILITY:Pale Master Class Feature|AUTOMATIC|Pale Master ~ Undead Graft
+#7	ABILITY:Pale Master Class Feature|AUTOMATIC|Pale Master ~ Tough as Bone
+#8	ABILITY:Pale Master Class Feature|AUTOMATIC|Pale Master ~ Undead Cohort
+#10	ABILITY:Pale Master Class Feature|AUTOMATIC|Pale Master ~ Deathless Mastery
