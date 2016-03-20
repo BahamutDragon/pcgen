@@ -117,13 +117,14 @@ CLASS:Darkrunner	CSKILL:Balance|Bluff|Climb|Diplomacy|Escape Artist|Gather Infor
 
 CLASS:Fleshwarper	!PREALIGN:LN,LE,LG		PRESKILL:1,Heal=4	PRESKILL:1,Knowledge (Arcana)=8		PREABILITY:1,CATEGORY=FEAT,Graft Flesh%		PREABILITY:1,CATEGORY=Special Ability,Summon Familiar	
 CLASS:Fleshwarper	HD:6	MAXLEVEL:10
-CLASS:Darkrunner	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE
-CLASS:Darkrunner	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
-CLASS:Darkrunner	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
-CLASS:Darkrunner	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
-CLASS:Darkrunner	STARTSKILLPTS:4
-CLASS:Darkrunner	CSKILL:Concentration|TYPE.Craft|Decipher Script|Heal|TYPE.Knowledge|Search|Speak Language|Spellcraft|Use Magic Device
-1	ABILITY:Special Ability|AUTOMATIC|Graft Reserve|Aberrant Familiar	BONUS:VAR|GraftReserve|500
+CLASS:Fleshwarper	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE
+CLASS:Fleshwarper	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Fleshwarper	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Fleshwarper	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Fleshwarper	STARTSKILLPTS:4
+CLASS:Fleshwarper	CSKILL:Concentration|TYPE.Craft|Decipher Script|Heal|TYPE.Knowledge|Search|Speak Language|Spellcraft|Use Magic Device
+1	ABILITY:Special Ability|AUTOMATIC|Graft Reserve	BONUS:VAR|GraftReserve|500
+1	ABILITY:Special Ability|AUTOMATIC|Aberrant Familiar ~ Fleshwarper
 2:REPEATLEVEL:1	ADD:SPELLCASTER|ANY
 2	ABILITY:Special Ability|AUTOMATIC|Elder Secrets						BONUS:VAR|GraftReserve|200
 3	ABILITY:Special Ability|AUTOMATIC|Graft Mastery						BONUS:VAR|GraftReserve|200
@@ -134,3 +135,23 @@ CLASS:Darkrunner	CSKILL:Concentration|TYPE.Craft|Decipher Script|Heal|TYPE.Knowl
 8	BONUS:VAR|GraftReserve|500	
 9	BONUS:VAR|GraftReserve|1000
 10	BONUS:VAR|GraftReserve|1000	ABILITY:Special Ability|AUTOMATIC|Aberrant Apotheosis
+
+CLASS:Keeper of the Cerulean Sign		!PRERACE:1,RACETYPE=Aberration
+CLASS:Keeper of the Cerulean Sign		HD:6
+CLASS:Keeper of the Cerulean Sign		PRESKILL:1,Gather Information=5	PRESKILL:1,Knowledge (Arcana)=8	PRESKILL:1,Knowledge (Dungeoneering)=8	PRESKILL:1,Sense Motive=5	
+CLASS:Keeper of the Cerulean Sign		PREABILITY:1,CATEGORY=FEAT,Aberration Banemagic	PREABILITY:1,CATEGORY=FEAT,Craft Wondrous Item
+CLASS:Keeper of the Cerulean Sign		PRETEXT:Must create a Cerulean Sign, without aid.
+CLASS:Keeper of the Cerulean Sign		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE
+CLASS:Keeper of the Cerulean Sign		BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Keeper of the Cerulean Sign		BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Keeper of the Cerulean Sign		BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Keeper of the Cerulean Sign		STARTSKILLPTS:6
+CLASS:Keeper of the Cerulean Sign		CSKILL:Bluff|Concentration|Decipher Script|Disguise|Forgery|Gather Information|Hide|Intimidate|Knowledge (Arcana)|Knowledge (Dungeoneering)|Knowledge (History)|Knowledge (Local)|Knowledge (Religion)|Knowledge (The Planes)|Listen|Move Silently|Search|Sense Motive|Spellcraft|Spot|Use Magic Device
+CLASS:Keeper of the Cerulean Sign		DEFINE:CeruleanLVL|0	BONUS:VAR|CeruleanLVL|CL
+1:REPEATLEVEL:1	ADD:SPELLCASTER|ANY
+1	ABILITY:Special Ability|AUTOMATIC|Cerulean Focus|Detect Aberrant Taint
+2	ABILITY:Special Ability|AUTOMATIC|Greater Banemagic
+3	ABILITY:Special Ability|AUTOMATIC|Word of Revelation
+5	ABILITY:Special Ability|AUTOMATIC|Portal Warding
+7	ABILITY:Special Ability|AUTOMATIC|Mental Backlash
+10	ABILITY:Special Ability|AUTOMATIC|Cleanse Aberration
