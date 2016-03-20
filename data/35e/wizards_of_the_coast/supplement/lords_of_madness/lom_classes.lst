@@ -83,6 +83,7 @@ CLASS:Abolisher	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Bas
 CLASS:Abolisher	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 CLASS:Abolisher	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 CLASS:Abolisher	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Abolisher	STARTSKILLPTS:4	CSKILL:Concentration|Escape Artist|Gather Information|Heal|Intimidate|Knowledge (Arcana)|Knowledge (Dungeoneering)|Knowledge (Nature)|Knowledge (The Planes)|Listen|Sense Motive|Spot|Survival
 2:REPEATLEVEL:1|SKIP=4		ADD:SPELLCASTER|Divine
 1	ABILITY:Special Ability|AUTOMATIC|Abolisher Favored		ABILITY:Special Ability|AUTOMATIC|Abolisher Wild Shape|!PREABILITY:1,CATEGORY=Special Ability,TYPE=Wild Shape	ABILITY:Special Ability|AUTOMATIC|Abolisher Wild Shape Stacking|PREABILITY:1,CATEGORY=Special Ability,TYPE=Wild Shape	
 2	ABILITY:Special Ability|AUTOMATIC|Winds of Nature's Grace
@@ -91,3 +92,45 @@ CLASS:Abolisher	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
 5	ABILITY:Special Ability|AUTOMATIC|Crystals of Nature's Wrath
 7	ABILITY:Special Ability|AUTOMATIC|Waves of Nature's Purity
 10	ABILITY:Special Ability|AUTOMATIC|Fires of Nature's Rage
+
+
+CLASS:Darkrunner	PRESKILL:1,Knowledge (Dungeoneering)=5		PRESKILL:1,Search=5			PRESKILL:1,Survival=5
+CLASS:Darkrunner	PREABILITY:1,CATEGORY=FEAT,Alertness	PREABILITY:1,CATEGORY=FEAT,Track	
+CLASS:Darkrunner	PREVISION:1,Darkvision=ANY	HD:6	TYPE:PC.Prestige	MAXLEVEL:10
+CLASS:Darkrunner	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE
+CLASS:Darkrunner	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Darkrunner	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Darkrunner	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Darkrunner	STARTSKILLPTS:6
+CLASS:Darkrunner	CSKILL:Balance|Bluff|Climb|Diplomacy|Escape Artist|Gather Information|Heal|Hide|Intimidate|Jump|Knowledge (Architecture and Engineering)|Knowledge (Dungeoneering)|Knowledge (Geography)|Knowledge (Local)|Knowledge (Nature)|Listen|Move Silently|Search|Sense Motive|Speak Language|Spot|Survival|Swim|Tumble
+1	AUTO:WEAPONPROF|TYPE.Martial	AUTO:ARMORPROF|ARMORTYPE=Light
+1	ABILITY:Special Ability|AUTOMATIC|Direction Sense ~ Darkrunner|Spelunking ~ Darkrunner|Darkrunner Emblem ~ Darkrunner
+2	ABILITY:Special Ability|AUTOMATIC|Aberration Lore ~ Darkrunner|Darkvision ~ Darkrunner
+3	ABILITY:Special Ability|AUTOMATIC|Cavefighting ~ Darkrunner|Tunnelport ~ Darkrunner
+4	ABILITY:Special Ability|AUTOMATIC|Tremorsense ~ Darkrunner
+5	ABILITY:Special Ability|AUTOMATIC|Lore of the Stones ~ Darkrunner
+6	ABILITY:Special Ability|AUTOMATIC|Aberration Specialist
+7	ABILITY:Special Ability|AUTOMATIC|Deepsong ~ Darkrunner
+8	ABILITY:Special Ability|AUTOMATIC|Improved Cavefighting ~ Darkrunner
+9	ABILITY:Special Ability|AUTOMATIC|Greater Tunnelport ~ Darkrunner	
+10	ABILITY:Special Ability|AUTOMATIC|Stonewalking ~ Darkrunner
+
+CLASS:Fleshwarper	!PREALIGN:LN,LE,LG		PRESKILL:1,Heal=4	PRESKILL:1,Knowledge (Arcana)=8		PREABILITY:1,CATEGORY=FEAT,Graft Flesh%		PREABILITY:1,CATEGORY=Special Ability,Summon Familiar	
+CLASS:Fleshwarper	HD:6	MAXLEVEL:10
+CLASS:Darkrunner	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE
+CLASS:Darkrunner	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Darkrunner	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Darkrunner	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Darkrunner	STARTSKILLPTS:4
+CLASS:Darkrunner	CSKILL:Concentration|TYPE.Craft|Decipher Script|Heal|TYPE.Knowledge|Search|Speak Language|Spellcraft|Use Magic Device
+1	ABILITY:Special Ability|AUTOMATIC|Graft Reserve|Aberrant Familiar	BONUS:VAR|GraftReserve|500
+2:REPEATLEVEL:1	ADD:SPELLCASTER|ANY
+2	ABILITY:Special Ability|AUTOMATIC|Elder Secrets						BONUS:VAR|GraftReserve|200
+3	ABILITY:Special Ability|AUTOMATIC|Graft Mastery						BONUS:VAR|GraftReserve|200
+4	BONUS:VAR|GraftReserve|300
+5	BONUS:VAR|GraftReserve|300
+6	BONUS:VAR|GraftReserve|500	ABILITY:Special Ability|AUTOMATIC|Rapid Grafting
+7	BONUS:VAR|GraftReserve|500	
+8	BONUS:VAR|GraftReserve|500	
+9	BONUS:VAR|GraftReserve|1000
+10	BONUS:VAR|GraftReserve|1000	ABILITY:Special Ability|AUTOMATIC|Aberrant Apotheosis
