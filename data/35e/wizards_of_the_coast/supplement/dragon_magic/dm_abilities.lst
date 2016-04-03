@@ -5,7 +5,8 @@
 # -Feather Fall (Sp): A silverbrow human can use feather fall once per day, plus one additional time per day for every 5 Hit Dice he has.
 # -No Bonus Skill Points: Silverbrow humans don't have the aptitude for learning that standard humans have.
 # -Disguise Aptitude: Silverbrow humans have a +2 racial bonus on Disguise checks, and Disguise is always considered a class skill. Their ancestors' need to guard their identities against those who feared or hated them has become second nature to silverbrow humans.
-# 
+Race Traits ~ Human (Silverbrow)	CATEGORY:Internal	TEMPLATE:Dragonblood			SPELLS:TIMES=1+(TL/5)|CASTERLEVEL=TL|Feather Fall		BONUS:VAR|ExtraSkillPoint|1	CSKILL:Disguise	BONUS:VAR|Disguise|2|TYPE=Racial
+
 # Deepwyrm (Drow)		TYPE:Drow
 # Deepwyrm Half-Drow
 # Dragonblood Subtype: Deepwyrm drow and half-drow are of the dragonblood subtype (see page 4).
@@ -15,7 +16,32 @@
 # -Deepwyrm half-drow lose the standard +2 racial bonus on Diplomacy checks.
 # -Deepwyrm drow and half-drow lose the standard +2 racial bonus on Will saves against spells and spell-like abilities.
 # 
-# # 7
+Deepwyrm Drow			KEY:Elf ~ Deepwyrm Drow		 TEMPLATE:Dragonblood	CATEGORY:Internal		TYPE:ElfSubrace.AltSubraceChoice		PREMULT:1,[PREABILITY:1,CATEGORY=Internal,Elf ~ Drow],[!PREABILITY:1,CATEGORY=Internal,TYPE.AltSubraceChoice]	TEMPLATE:Drow Elf	TEMPLATE:CHOOSE:Drow Male|Drow Female																																ABILITY:Special Ability|AUTOMATIC|Deepwyrm Drow Traits	ABILITY:Elf Race Trait|AUTOMATIC|Drow ~ Darkvision|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DisableRacialTraits,TYPE.DrowDarkvision	ABILITY:Elf Race Trait|AUTOMATIC|Drow ~ Light Blindness|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DisableRacialTraits,TYPE.DrowLightBlindness	ABILITY:Elf Race Trait|AUTOMATIC|Drow ~ Poison|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DisableRacialTraits,TYPE.DrowPoison	ABILITY:Elf Race Trait|AUTOMATIC|Deepwyrm Drow ~ Spell-Like Abilities|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DisableRacialTraits,TYPE.DrowSpellLikeAbilities	ABILITY:Elf Race Trait|AUTOMATIC|Drow ~ Spell Resistance|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DisableRacialTraits,TYPE.DrowSpellResistance	ABILITY:Elf Race Trait|AUTOMATIC|Drow ~ Weapon Proficiency|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DisableRacialTraits,TYPE.DrowWeaponProficiency	ABILITY:Elf Race Trait|AUTOMATIC|Elf ~ Racial Immunity|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DisableRacialTraits,TYPE.DrowRacialImmunity	ABILITY:Elf Race Trait|AUTOMATIC|Elf ~ Skill Bonus|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DisableRacialTraits,TYPE.DrowSkillBonus	ABILITY:Internal|AUTOMATIC|Language ~ Auto (Drow)|!PREABILITY:1,CATEGORY=Internal,TYPE.AutoLangReplace	ABILITY:Internal|AUTOMATIC|Language ~ Bonus (Drow)|!PREABILITY:1,CATEGORY=Internal,TYPE.BonusLangReplace	BONUS:STAT|CON|-2|TYPE=Racial	BONUS:STAT|DEX|2|TYPE=Racial		BONUS:SKILL|Bluff|2|TYPE=Racial																											COST:0	SOURCEPAGE:p.103# # 7	
+CATEGORY=Internal|Dwarf ~ Hill.COPY=Dwarf ~ Fireblood	
+CATEGORY=Internal|Dwarf ~ Fireblood.MOD	OUTPUTNAME:Fireblood	TEMPLATE:Dragonblood	ABILITY:Special Ability|AUTOMATIC|Fireblood Dodge	
++4 Dodge bonus to AC versus creatures of the dragon type.	KEY:Fireblood Dodge		CATEGORY:Special Ability	TYPE:DisableRacialTraits.DwarfPoisonSaveBonus.DwarfDodgeBonus.SpecialQuality	ABILITY:Special Ability|AUTOMATIC|Resistance to Fire	BONUS:VAR|FireResistanceBonus|5|TYPE=Racial
+CATEGORY=Internal|Elf ~ High.COPY=Elf ~ Forestlord
+CATEGORY=Internal|Elf ~ Forestlord.MOD	OUTPUTNAME:Forestlord	TEMPLATE:Dragonblood	CSKILL:Hide		TEMPLATE:Favclass_Sorcerer	TYPE:DisableRacialTraits.ElfRacialImmunity.ElfWeaponProficiency.HalfElfPersuasion.ElfWeaponProficiency	ABILITY:Special Ability|AUTOMATIC|Forestlord ~ Treewalk
+Treewalk	CATEGORY:Special Ability	KEY:Forestlord ~ Treewalk	TYPE:Supernatural.SpecialQuality.Treewalk	DESC:A forestlord elf or half-elf can transport herself between trees in much the same way that dryads and druids can. Once per day, a forestlord elf can enter a tree by touching it as a move action; once inside the tree, she instantly transports to any other tree within 60 feet. The forestlord elf appears in a  square adjacent to the second tree at the beginning of her next turn. When a forestlors elf or half-elf reaches 5 Hit Dice, and for every 5 HD thereafter, she gains one additional use of this ability per day.  Any forestlord elf or half-elf who attacks or otherwise attempts to harm a  green dragon loses her treewalk ability for 24 hours. During that time, the character also takes a –1 penalty on attack rolls, caster level or  manifester level, and saving throws.
+
+CATEGORY=Internal|Gnome ~ Rock.COPY=Stonehunter
+CATEGORY=Internal|Stonehunter.MOD	TEMPLATE:Dragonblood	TYPE:DisableRacialTraits.GnomeSaveBonus.GnomeIllusionDC		TEMPLATE:Favclass_Ranger		ABILITY:Special Ability|AUTOMATIC|Hunter's Insight
+Hunter's Insight	CATEGORY:Special Ability	DESC:As frequent hunting companions of great copper dragons, stonehunter gnomes quickly develop the skills necessary to track down their prey. They have a +2 racial bonus on Climb and Survival checks as a result of their upbringing.  BONUS:SKILL|Climb|2|TYPE=Racial	BONUS:SKILL|Survival|2|TYPE=Racial	
+Spell-Like Abilities					KEY:Deepwyrm Drow ~ Spell-Like Abilities			CATEGORY:Special Ability	TYPE:RaceAbility.Elf Race Trait																			VISIBLE:NO		DEFINE:DancingLightsTimes|0	DEFINE:DarknessTimes|0	DEFINE:FaerieFireTimes|0	SPELLS:Innate|TIMES=DancingLightsTimes|CASTERLEVEL=TL|Dancing Lights,10+CHA|PRESTAT:1,INT=10	SPELLS:Innate|TIMES=DarknessTimes|CASTERLEVEL=TL|Darkness,12+CHA|PRESTAT:1,INT=10		DESC:Deepwyrm Drow can use the following spell-like abilities once per day: dancing lights, darkness, disguise. Caster level equals the drow's class levels.  3/day, Detect Magic.	SPELLS:Innate|TIMES=DisguiseTimes|CASTERLEVEL=TL|Darkness,12+CHA|PRESTAT:1,INT=10	DEFINE:DisguiseTimes|0	BONUS:VAR|DisguiseTimes|1	SPELLS:Innate|TIMES=DetectMagicTimes|CASTERLEVEL=TL|Detect Magic,11+CHA|PRESTAT:1,INT=10	DEFINE:DetectMagicTimes|0	BONUS:VAR|DetectMagicTimes|3																																
+CATEGORY=Internal|Halfling ~ Lightfoot.COPY=Glimmerskin
+CATEGORY=Internal|Glimmerskin.MOD	TEMPLATE:Dragonblood	CSKILL:Heal	TYPE:DisableRacialTraits.HalflingSkillBonus		ABILITY:Special Ability|AUTOMATIC|Glimmerskin ~ Touch of Luck
+Touch of Luck	KEY:Glimmerskin ~ Touch of Luck		CATEGORY:Special Ability	DESC:Once per day, a glimmerskin halfling can grant himself or any ally within 30 feet a +2 luck bonus on a single saving throw. Using this ability is an immediate action and must be announced before the roll is made. 
+Viletooth Traits	CATEGORY:Internal	TYPE:Lizardfolk Race Traits		CSKILL:Move Silently	ABILITY:Special Ability|AUTOMATIC|Viletooth ~ Acid Bite|Viletooth ~ Breath
+Acid Bite	CATEGORY:Special Ability	KEY:Viletooth ~ Acid Bite		TYPE:Supernatural.SpecialAttack.Acid	DESC:+1d6 acid damage to Bite attacks.
+No Hold Breath Ability	KEY:Viletooth ~ Breath	CATEGORY:Special Ability	DESC:You do not have the Lizardfold Hold Breath ability.
++2 racial bonus to saves to avoid nonlethal damage from heat (see DMG 303)	CATEGORY:Special Ability	KEY:Sunscorch ~ Saves
+
+CATEGORY=Internal|Half-Orc.COPY=Frostblood
+CATEGORY=Internal|Frostblood.MOD	TEMPLATE:Dragonblood	ABILITY:Special Ability|AUTOMATIC|Resistance to Cold|Vulnerability to Fire	ABILITY:Feat|AUTOMATIC|Endurance	BONUS:VAR|ColdResistanceBonus|10|TYPE=Racial	
+
+
+
+Deepwyrm Drow Traits	CATEGORY:Special Ability	TYPE:RaceAbility.Elf Race Trait.DrowRaceAbility.SpecialQuality.Extraordinary.ElfLowLightVision.ElfWeaponProficiency.ElfLanguage.ElfFavoredClass	DESC:+2 Intelligence, +2 Charisma.	DESC:&nl;Darkvision out to 120 feet. This trait replaces the high elf's low-light vision.|PREABILITY:1,CATEGORY=Special Ability,Drow ~ Darkvision	DESC:&nl;Spell resistance equal to 11 + class levels.|PREABILITY:1,CATEGORY=Special Ability,Drow ~ Spell Resistance	DESC:&nl;+2 racial bonus on Will saves against spells and spell-like abilities.	DESC:&nl;Spell-Like Abilities: Drow can use the following spell-like abilities once per day: dancing lights, darkness, faerie fire. Caster level equals the drow's class levels.|PREABILITY:1,CATEGORY=Special Ability,Drow ~ Spell-Like Abilities	DESC:&nl;Weapon Proficiency: A drow is automatically proficient with the hand crossbow, the rapier, and the short sword. This trait replaces the high elf 's weapon proficiency.|PREABILITY:1,CATEGORY=Special Ability,Drow ~ Weapon Proficiency	DESC:&nl;Light Blindness: Abrupt exposure to bright light (such as sunlight or a daylight spell) blinds drow for 1 round. On subsequent rounds, they are dazzled as long as they remain in the affected area.|PREABILITY:1,CATEGORY=Special Ability,Drow ~ Light Blindness	SOURCEPAGE:p.103
 # Fireblood Dwarf
 # -Dragonblood Subtype: Fireblood dwarves are of the dragonblood subtype (see page 4).
 # -Dragon Dodge: Fireblood dwarves gain a +4 dodge bonus to Armor Class against creatures of the dragon type. In memory of their ancestors, fireblood dwarves train from an early age to avoid surprise attacks from treacherous dragons. Any time a fireblood dwarf loses his Dexterity bonus (if any) to Armor Class, such as when he is caught flat-footed, he loses this dodge bonus, too.
@@ -196,3 +222,60 @@ Discorporating Breath of Bahamut	KEY:Breath Effect ~ Discorporating Breath of Ba
 Force Breath				KEY:Breath Effect ~ Force Breath					CATEGORY:Special Ability	TYPE:DragonfireAdeptBreathEffect.SpecialAttack	DESC:Line-shaped breath weapon deals force damage											PRECLASS:1,Dragonfire Adept=15
 Paralyzing Breath				KEY:Breath Effect ~ Paralyzing Breath				CATEGORY:Special Ability	TYPE:DragonfireAdeptBreathEffect.SpecialAttack	DESC:Cone-shaped breath weapon paralyzes creatures for 1 round								PRECLASS:1,Dragonfire Adept=15
 Fivefold Breath of Tiamat		KEY:Breath Effect ~ Fivefold Breath of Tiamat			CATEGORY:Special Ability	TYPE:DragonfireAdeptBreathEffect.SpecialAttack	DESC:Breathe five different breath weapons simultaneously							PRECLASS:1,Dragonfire Adept=15
+
+#NOCHOICE BEFORE actual CHOOSE tag because PCGEN errors out otherwie
+Dragon Pact ~ Dragon		CHOOSE:NOCHOICE		CATEGORY:Special Ability	TYPE:Draconic Pact.SpecialQuality	KEY:Dragon ~ Dragon Pact	MULT:YES	STACK:YES		DEFINE:DragonPactGain|0	BONUS:VAR|DragonPactGain|%CHOICE	DEFINE:DragonPactHPLoss|0	BONUS:VAR|DragonPactHPLoss|(-10*(%CHOICE>=2))+(-15*(%CHOICE>=5))+(-25*(%CHOICE>=8))	BONUS:HP|CURRENTMAX|DragonPactHPLoss	BONUS:SPELLCAST|CLASS=Sorcerer;LEVEL=%CHOICE|1		DESC:Bonus Spells and HP loss.	COST:0		PRERACE:1,RACETYPE=Dragon	PRETEXT:Must be a True Dragon (Dragon of a type with 12 age categories)		
+
+Scales of the pact dragon's color adorn your face arms and legs	CATEGORY:Special Ability	TYPE:DragonPactMinor.SpecialQuality
+Your eyes glow faintly the pact dragon's color in the dark	CATEGORY:Special Ability	TYPE:DragonPactMinor.SpecialQuality
+Your hair matches the color of your pact dragon	CATEGORY:Special Ability	TYPE:DragonPactMinor.SpecialQuality
+You have small horns or chitin protrusions on your face	CATEGORY:Special Ability	TYPE:DragonPactMinor.SpecialQuality
+Your skin is tinged to match your pact dragon	CATEGORY:Special Ability	TYPE:DragonPactMinor.SpecialQuality
+You have a serpentine tongue which is visible when you speak	CATEGORY:Special Ability	TYPE:DragonPactMinor.SpecialQuality
+Your voice is gravelly and draconic	CATEGORY:Special Ability	TYPE:DragonPactMinor.SpecialQuality
+You have nictating membranes	CATEGORY:Special Ability	TYPE:DragonPactMinor.SpecialQuality
+Bony protrusions grow from your elbows and knees	CATEGORY:Special Ability	TYPE:DragonPactMinor.SpecialQuality
+faint wisps of odorless smoke drift from your nose and mount	CATEGORY:Special Ability	TYPE:DragonPactMinor.SpecialQuality
+Your fingernails resemble claws	CATEGORY:Special Ability	TYPE:DragonPactMinor.SpecialQuality
+Your face is vaguely draconic	CATEGORY:Special Ability	TYPE:DragonPactMinor.SpecialQuality
+You have long pointy teeth which are visible whe speaking	CATEGORY:Special Ability	TYPE:DragonPactMinor.SpecialQuality
+You have elaborate draconic tattoos that seem to glow faintly	CATEGORY:Special Ability	TYPE:DragonPactMinor.SpecialQuality
+You have visible bony ridges over your shoulder blades	CATEGORY:Special Ability	TYPE:DragonPactMinor.SpecialQuality
+You have bumps on your face where a dragon would have horns	CATEGORY:Special Ability	TYPE:DragonPactMinor.SpecialQuality
+You have mottled spots on your temple and jaw of the pact dragon's color	CATEGORY:Special Ability	TYPE:DragonPactMinor.SpecialQuality
+Your hands and feet are slightly webbed with elongated digits	CATEGORY:Special Ability	TYPE:DragonPactMinor.SpecialQuality
+Your skin is leathery like dragon hide	CATEGORY:Special Ability	TYPE:DragonPactMinor.SpecialQuality
+You have draconic slit-like irises	CATEGORY:Special Ability	TYPE:DragonPactMinor.SpecialQuality
+
+Breath of Winter's Doom	CATEGORY:Special Ability	TYPE:Dragonpact.SpellLike.SpecialQuality	DEFINE:DragonPactSlot|0		DESC:Your pact is with a White or Silver dragon																														ABILITY:Special Ability|AUTOMATIC|Winterdoom ~ Obscuring Mist											ABILITY:Special Ability|AUTOMATIC|Winterdoom ~ Protection From Cold|PREVARGTEQ:DragonPactSlot,3											ABILITY:Special Ability|AUTOMATIC|Winterdoom ~ Ice Storm|PREVARGTEQ:DragonPactSlot,5												ABILITY:Special Ability|AUTOMATIC|Winterdoom ~ Cone of Cold|PREVARGTEQ:DragonPactSlot,7		Ability|AUTOMATIC|Winterdoom ~ Polar Ray|PREVARGTEQ:DragonPactSlot,9		BONUS:ABILITYPOOL|Dragonpact Spell Choice|1	
+
+2nd Level Spell	KEY:Dragonpact2	CATEGORY:Special Ability	TYPE:Dragonpact Spell	BONUS:VAR|DragonPactSlot|2	BONUS:SPELLCAST|CLASS=Sorcerer;LEVEL=2|-1
+3rd Level Spell	KEY:Dragonpact3	CATEGORY:Special Ability	TYPE:Dragonpact Spell	BONUS:VAR|DragonPactSlot|3	BONUS:SPELLCAST|CLASS=Sorcerer;LEVEL=3|-1
+4th Level Spell	KEY:Dragonpact4	CATEGORY:Special Ability	TYPE:Dragonpact Spell	BONUS:VAR|DragonPactSlot|4	BONUS:SPELLCAST|CLASS=Sorcerer;LEVEL=4|-1
+5th Level Spell	KEY:Dragonpact5	CATEGORY:Special Ability	TYPE:Dragonpact Spell	BONUS:VAR|DragonPactSlot|5	BONUS:SPELLCAST|CLASS=Sorcerer;LEVEL=5|-1
+6th Level Spell	KEY:Dragonpact6	CATEGORY:Special Ability	TYPE:Dragonpact Spell	BONUS:VAR|DragonPactSlot|6	BONUS:SPELLCAST|CLASS=Sorcerer;LEVEL=6|-1
+7th Level Spell	KEY:Dragonpact7	CATEGORY:Special Ability	TYPE:Dragonpact Spell	BONUS:VAR|DragonPactSlot|7	BONUS:SPELLCAST|CLASS=Sorcerer;LEVEL=7|-1
+8th Level Spell	KEY:Dragonpact8	CATEGORY:Special Ability	TYPE:Dragonpact Spell	BONUS:VAR|DragonPactSlot|8	BONUS:SPELLCAST|CLASS=Sorcerer;LEVEL=8|-1
+9th Level Spell	KEY:Dragonpact9	CATEGORY:Special Ability	TYPE:Dragonpact Spell	BONUS:VAR|DragonPactSlot|9	BONUS:SPELLCAST|CLASS=Sorcerer;LEVEL=9|-1
+
+
+
+
+Obscuring Mist	KEY:Winterdoom ~ Obscuring Mist		CATEGORY:Special Ability		TYPE:SpecialQuality.SpellLike	SPELLS:Innate|TIMES=2+(DragonPactSlot>=3)|CASTERLEVEL=DragonPactCaster|Obscuring Mist,11+CHA	
+Protection From Cold	KEY:Winterdoom ~ Protection From Cold	CATEGORY:Special Ability	TYPE:SpellLike	DESC:Cast Protection From Energy (Cold) %1 times per day.|1+(DragonPactSlot>=4)+(DragonPactSlot>=5)
+Ice Storm	KEY:Winterdoom ~ Ice Storm	CATEGORY:Special Ability	SPELLS:Innate|TIMES=1+(DragonPactSlot>=6)+(DragonPactSlot>=7)|CASTERLEVEL=DragonPactCaster|Ice Storm,14+CHA
+Cone of Cold	KEY:Winterdoom ~ Cone of Cold	CATEGORY:Special Ability	SPELLS:Innate|TIMES=1+(DragonPactSlot>=8)+(DragonPactSlot>=9)|Cone of Cold,15+CHA
+Polar Ray	KEY:Winterdoom ~ Polar Ray		CATEGORY:Special Ability	TYPE:SpecialQuality	SPELLS:Innate|TIMES=1|Cone of Cold,18+CHA
+
+Champion of the Golden Orb	CATEGORY:Special Ability	TYPE:Dragonpact.SpellLike.SpecialQuality	DEFINE:DragonPactSlot|0		DESC:Your pact is with a Gold dragon.																																BONUS:ABILITYPOOL|Dragonpact Spell Choice|1		ABILITY:Special Ability|AUTOMATIC|Golden Orb ~ Bless	ABILITY:Special Ability|AUTOMATIC|Golden Orb ~ Lesser Restoration|PREVARGTEQ:DragonPactSlot,3		ABILITY:Special Ability|AUTOMATIC|Golden Orb ~ Fire Shield|PREVARGTEQ:DragonPactSlot,5			ABILITY:Special Ability|AUTOMATIC|Golden Orb ~ Cure Light Wounds|PREVARGTEQ:DragonPactSlot,7	ABILITY:Special Ability|AUTOMATIC|Golden Orb ~ Sunburst|PREVARGTEQ:DragonPactSlot,9	
+
+Bless	KEY:Golden Orb ~ Bless	CATEGORY:Special Ability	TYPE:SpecialQuality		SPELLS:Innate|TIMES=2+(DragonPactSlot>=3)|CASTERLEVEL=DragonPactCaster|Bless,11+CHA
+Lesser Restoration	KEY:Golden Orb ~ Lesser Restoration	CATEGORY:Special Ability	TYPE:SpecialQuality		SPELLS:Innate|TIMES=1+(DragonPactSlot>=4)+(DragonPactSlot>=5)|CASTERLEVEL=DragonPactCaster|Restoration (Lesser),12+CHA
+Fire Shield (Hot)	KEY:Golden Orb ~ Fire Shield	CATEGORY:Special Ability	TYPE:SpecialQuality		SPELLS:Innate|TIMES=1+(DragonPactSlot>=6)+(DragonPactSlot>=7)|CASTERLEVEL=DragonPactCaster|Fire Shield,14+CHA
+Cure Light Wounds (Mass)	KEY:Golden Orb ~ Cure Light Wounds	CATEGORY:Special Ability	TYPE:SpecialQuality	SPELLS:Innate|TIMES=1+(DragonPactSlot>=8)+(DragonPactSlot>=9)|CASTERLEVEL=DragonPactCaster|Cure Light Wounds (Mass),15+CHA
+
+Sunburst	KEY:Golden Orb ~ Sunburst	CATEGORY:Special Ability	TYPE:SpecialQuality	SPELLS:Innate|TIMES=1+|CASTERLEVEL=DragonPactCaster|Cure Light Wounds (Mass),18+CHA
+
+
+
+	
