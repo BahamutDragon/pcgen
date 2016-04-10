@@ -957,13 +957,43 @@ Permanency Spell / Reduce Person						CATEGORY:Special Ability	TYPE:SpecialQuali
 Permanency Spell / Resistance							CATEGORY:Special Ability	TYPE:SpecialQuality.PermanencySpell			DEFINE:PermanecyResistanceLVL|0		SPELLS:Permanency Spell|TIMES=ATWILL|CASTERLEVEL=PermanecyResistanceLVL|Resistance				DESC:(500XP), Caster Level %1.|%LIST	DESC:You imbue the subject with magical energy that protects it from harm, granting it a +1 resistance bonus on saves.																																																																																																																																																																																																																																																																																																																																									MULT:YES	CHOOSE:NUMCHOICES=1|STRING|09|10|11|12|13|14|15|16|17|18|19|20																																																																	BONUS:VAR|PermanecyResistanceLVL|%LIST																	COST:0																															BONUS:SAVE|ALL|1|TYPE=Resistance
 Permanency Spell / Rary's Telepathic Bond					CATEGORY:Special Ability	TYPE:SpecialQuality.PermanencySpell			DEFINE:PermanecyRarysTelepathicBondLVL|0	SPELLS:Permanency Spell|TIMES=ATWILL|CASTERLEVEL=PermanecyRarysTelepathicBondLVL|Telepathic Bond	DESC:(2,500XP), Caster Level %1.|%LIST	DESC:You forge a telepathic bond among yourself and a number of willing creatures, each of which must have an Intelligence score of 3 or higher. Each creature included in the link is linked to all the others. The creatures can communicate telepathically through the bond regardless of language. No special power or influence is established as a result of the bond. Once the bond is formed, it works over any distance [although not from one plane to another]. If desired, you may leave yourself out of the telepathic bond forged. This decision must be made at the time of casting. Telepathic bond can be made permanent with a permanency spell, though it only bonds two creatures per casting of permanency.																																																																																																																																																																																																																																							MULT:YES	CHOOSE:NUMCHOICES=1|STRING|13|14|15|16|17|18|19|20																																																																			BONUS:VAR|PermanecyTelepathicBondLVL|%LIST																COST:0
 
+###Block: Follower and Mount Support
+CATEGORY=Internal|Default.MOD	COMPANIONLIST:Mount|ANY	COMPANIONLIST:Follower|ANY
 
 
-# Leadership Feat Support
-Leadership Score									CATEGORY:Special Ability	TYPE:Internal				VISIBLE:NO																																																																																																																																																																																																																																																																																																																																																																																														TEMPVALUE:MIN=-10|MAX=10|TITLE=Leadership Score Adjustment																																																																																										TEMPDESC:Several factors can affect a character's Leadership score, causing it to vary from the base score. Add modifiers as needed.	TEMPBONUS:PC|VAR|LeadershipScore|%CHOICE
+###Block: Leadership Feat Support
+Leadership Score	CATEGORY:Special Ability	TYPE:Leadership.SpecialQuality	VISIBLE:YES	TEMPVALUE:MIN=-10|MAX=10|TITLE=Leadership Score Adjustment		TEMPDESC:Several factors can affect a character's Leadership score, causing it to vary from the base score. Add modifiers as needed.	TEMPBONUS:PC|VAR|LeadershipScore|%CHOICE	DESC:Current Score = %8; Your Cohort max level is %1, you have the following number of followers: %2 level 1, %3 level 2, %4 level 3, %5 level 4, %6 level 5, %7 level 6.|LeadershipMaxCohortLvl|FollowersLVL1|FollowersLVL2|FollowersLVL3|FollowersLVL4|FollowersLVL5|FollowersLVL6|LeadershipScore		DEFINE:LeadershipScoreCohort|0	DEFINE:LeadershipScoreFollower|0	BONUS:VAR|LeadershipScoreCohort|LeadershipScore	BONUS:VAR|LeadershipScoreFollower|LeadershipScore	DEFINE:FollowersLVL1|0	DEFINE:FollowersLVL2|0	DEFINE:FollowersLVL3|0	DEFINE:FollowersLVL4|0	DEFINE:FollowersLVL5|0	DEFINE:FollowersLVL6|0	BONUS:VAR|FollowersLVL1|if(LeadershipScoreFollower>=10,5,0)+(LeadershipScoreFollower>=11)+if(LeadershipScoreFollower>=12,2,0)+if(LeadershipScoreFollower>=13,2,0)+if(LeadershipScoreFollower>=14,5,0)+if(LeadershipScoreFollower>=15,5,0)+if(LeadershipScoreFollower>=16,5,0)+if(LeadershipScoreFollower>=17,5,0)+if(LeadershipScoreFollower>=18,5,0)+if(LeadershipScoreFollower>=19,5,0)+if(LeadershipScoreFollower>=20,10,0)+if(LeadershipScoreFollower>=21,10,0)+if(LeadershipScoreFollower>=22,15,0)+if(LeadershipScoreFollower>=23,15,0)+if(LeadershipScoreFollower>=24,20,0)+if(LeadershipScoreFollower>=25,25,0)	BONUS:VAR|FollowersLVL2|if(LeadershipScoreFollower>=13,1,0)+(LeadershipScoreFollower>=15)+(LeadershipScoreFollower>=17)+(LeadershipScoreFollower>=19)+(LeadershipScoreFollower>=20)+(LeadershipScoreFollower>=21)+(LeadershipScoreFollower>=22)+((LeadershipScoreFollower>=23)*2)+if(LeadershipScoreFollower>=24,2,0)+if(LeadershipScoreFollower>=25,2,0)	BONUS:VAR|FollowersLVL3|if(LeadershipScoreFollower>=15,1,0)+(LeadershipScoreFollower>=19)+(LeadershipScoreFollower>=22)+(LeadershipScoreFollower>=23)+(LeadershipScoreFollower>=24)+(LeadershipScoreFollower>=25)	BONUS:VAR|FollowersLVL4|if(LeadershipScoreFollower>=17,1,0)+(LeadershipScoreFollower>=20)+(LeadershipScoreFollower>=23)+(LeadershipScoreFollower>=25)	BONUS:VAR|FollowersLVL5|if(LeadershipScoreFollower>=19,1,0)+(LeadershipScoreFollower>=22)	BONUS:VAR|FollowersLVL6|if(LeadershipScoreFollower>=21,1,0)+(LeadershipScoreFollower>=25)		COMPANIONLIST:Cohort|ANY		FOLLOWERS:Cohort|if(LeadershipScoreCohort>=2,1,-2)
+# Optional
+Grant Followers		CATEGORY:Special Ability	TYPE:Leadership	COST:0	ABILITY:Special Ability|AUTOMATIC|Grant Follower LV 1|PREVARGTEQ:FollowersLVL1,1	ABILITY:Special Ability|AUTOMATIC|Grant Follower LV 2|PREVARGTEQ:FollowersLVL2,1	ABILITY:Special Ability|AUTOMATIC|Grant Follower LV 3|PREVARGTEQ:FollowersLVL3,1	ABILITY:Special Ability|AUTOMATIC|Grant Follower LV 4|PREVARGTEQ:FollowersLVL4,1	ABILITY:Special Ability|AUTOMATIC|Grant Follower LV 5|PREVARGTEQ:FollowersLVL5,1	ABILITY:Special Ability|AUTOMATIC|Grant Follower LV 6|PREVARGTEQ:FollowersLVL6,1
+
+Grant Follower LV 1	CATEGORY:Special Ability	COMPANIONLIST:Follower LV 1|ANY	FOLLOWERS:Follower LV 1|FollowersLVL1	DEFINE:LeadershipFollowersLVL1|0
+Grant Follower LV 2	CATEGORY:Special Ability	COMPANIONLIST:Follower LV 2|ANY	FOLLOWERS:Follower LV 2|FollowersLVL2	DEFINE:LeadershipFollowersLVL2|0
+Grant Follower LV 3	CATEGORY:Special Ability	COMPANIONLIST:Follower LV 3|ANY	FOLLOWERS:Follower LV 3|FollowersLVL3	DEFINE:LeadershipFollowersLVL3|0
+Grant Follower LV 4	CATEGORY:Special Ability	COMPANIONLIST:Follower LV 4|ANY	FOLLOWERS:Follower LV 4|FollowersLVL4	DEFINE:LeadershipFollowersLVL4|0
+Grant Follower LV 5	CATEGORY:Special Ability	COMPANIONLIST:Follower LV 5|ANY	FOLLOWERS:Follower LV 5|FollowersLVL5	DEFINE:LeadershipFollowersLVL5|0
+Grant Follower LV 6	CATEGORY:Special Ability	COMPANIONLIST:Follower LV 6|ANY	FOLLOWERS:Follower LV 6|FollowersLVL6	DEFINE:LeadershipFollowersLVL6|0
 
 
+###Block: Leadership Reputation Modifiers
+Great renown		KEY:Leadership Reputation ~ Great renown			COST:0	SORTKEY:z_leadership	CATEGORY:Special Ability	TYPE:Leadership.SpecialQuality	BONUS:VAR|LeadershipScore|2
+Fairness and generosity	KEY:Leadership Reputation ~ Fairness and generosity	COST:0	SORTKEY:z_leadership	CATEGORY:Special Ability	TYPE:Leadership.SpecialQuality	BONUS:VAR|LeadershipScore|1
+Special power		KEY:Leadership Reputation ~ Special power			COST:0	SORTKEY:z_leadership	CATEGORY:Special Ability	TYPE:Leadership.SpecialQuality	BONUS:VAR|LeadershipScore|1
+Failure			KEY:Leadership Reputation ~ Failure				COST:0	SORTKEY:z_leadership	CATEGORY:Special Ability	TYPE:Leadership.SpecialQuality	BONUS:VAR|LeadershipScore|-1
+Aloofness			KEY:Leadership Reputation ~ Aloofness			COST:0	SORTKEY:z_leadership	CATEGORY:Special Ability	TYPE:Leadership.SpecialQuality	BONUS:VAR|LeadershipScore|-1
+Cruelty			KEY:Leadership Reputation ~ Cruelty				COST:0	SORTKEY:z_leadership	CATEGORY:Special Ability	TYPE:Leadership.SpecialQuality	BONUS:VAR|LeadershipScore|-2
 
+###Block: Attracting Cohorts
+Has a familiar, special mount, or animal companion	KEY:Leadership Attracting Cohort ~ Companion				COST:0	SORTKEY:z_leadership	CATEGORY:Special Ability	TYPE:Leadership.SpecialQuality								BONUS:VAR|LeadershipScoreCohort|-2
+Recruits a cohort of a different alignment		KEY:Leadership Attracting Cohort ~ Different Alignment		COST:0	SORTKEY:z_leadership	CATEGORY:Special Ability	TYPE:Leadership.SpecialQuality								BONUS:VAR|LeadershipScoreCohort|-1
+Caused the death of a cohort					KEY:Leadership Attracting Cohort ~ Caused the death of a cohort	COST:0	SORTKEY:z_leadership	CATEGORY:Special Ability	TYPE:Leadership.SpecialQuality	MULT:YES	CHOOSE:NOCHOICE	STACK:YES	BONUS:VAR|LeadershipScoreCohort|-2
+
+###Block: Attracting Followers
+Has a stronghold, base of operations, guildhouse, or the like	KEY:Leadership Attracting Follower ~ Has base of operations			COST:0	SORTKEY:z_leadership	BONUS:VAR|LeadershipScoreFollower|2				CATEGORY:Special Ability	TYPE:Leadership.SpecialQuality
+Moves around a lot								KEY:Leadership Attracting Follower ~ Moves around a lot			COST:0	SORTKEY:z_leadership	BONUS:VAR|LeadershipScoreFollower|-1			CATEGORY:Special Ability	TYPE:Leadership.SpecialQuality
+Caused the death of other followers						KEY:Leadership Attracting Follower ~ Caused the death of a follower	COST:0	SORTKEY:z_leadership	BONUS:VAR|LeadershipScoreFollower|-1			CATEGORY:Special Ability	TYPE:Leadership.SpecialQuality
+
+###Block: Cohort Support
+Cohort Level	CATEGORY:Special Ability	ASPECT:NAME|Cohort Level %1|CohortLVL	DEFINE:CohortLVL|0	BONUS:VAR|CohortLVL|1+(LeadershipScoreCohort>=3)+(LeadershipScoreCohort>=4)+(LeadershipScoreCohort>=6)+(LeadershipScoreCohort>=7)+(LeadershipScoreCohort>=9)+(LeadershipScoreCohort>=10)+(LeadershipScoreCohort>=12)+(LeadershipScoreCohort>=13)+(LeadershipScoreCohort>=14)+(LeadershipScoreCohort>=16)+(LeadershipScoreCohort>=17)+(LeadershipScoreCohort>=19)+(LeadershipScoreCohort>=20)+(LeadershipScoreCohort>=21)+(LeadershipScoreCohort>=23)+(LeadershipScoreCohort>=24)
 
 ###Block: Domain Abilities
 # Ability Name	Output Name										Category of Ability		Type								Visible	Define			Description
@@ -2016,4 +2046,11 @@ Remove Domain Power	CATEGORY:Internal	TYPE:Remove Domain Power	CHOOSE:ABILITY|Do
 
 
 ###Block: Domain
+
+
+
+
+
+
+
 
