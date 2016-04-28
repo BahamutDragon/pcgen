@@ -1,0 +1,26 @@
+#TEMPLATE:Hill Dwarf		ABILITY:Internal|AUTOMATIC|Favored Class ~ Fighter|PREVAREQ:RemoveDefaultFavoredClass,0					ABILITY:Dwarf Race Trait|AUTOMATIC|Dwarf ~ Darkvision|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DisableRacialTraits,TYPE.DwarfRacialVision	ABILITY:Dwarf Race Trait|AUTOMATIC|Dwarf ~ Weapon Familiarity|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DisableRacialTraits,TYPE.DwarfWeaponFamiliarity	ABILITY:Dwarf Race Trait|AUTOMATIC|Dwarf ~ Stonecunning|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DisableRacialTraits,TYPE.DwarfStonecunning	ABILITY:Dwarf Race Trait|AUTOMATIC|Dwarf ~ Stability|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DisableRacialTraits,TYPE.DwarfStability	ABILITY:Dwarf Race Trait|AUTOMATIC|Dwarf ~ Poison Save Bonus|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DisableRacialTraits,TYPE.DwarfPoisonSaveBonus	ABILITY:Dwarf Race Trait|AUTOMATIC|Dwarf ~ Spell Save Bonus|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DisableRacialTraits,TYPE.DwarfSpellSaveBonus	ABILITY:Dwarf Race Trait|AUTOMATIC|Dwarf ~ Attack Bonus|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DisableRacialTraits,TYPE.DwarfAttackBonus	ABILITY:Dwarf Race Trait|AUTOMATIC|Dwarf ~ Dodge Bonus|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DisableRacialTraits,TYPE.DwarfDodgeBonus	ABILITY:Dwarf Race Trait|AUTOMATIC|Dwarf ~ Appraise Bonus|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DisableRacialTraits,TYPE.DwarfAppraiseBonus	ABILITY:Dwarf Race Trait|AUTOMATIC|Dwarf ~ Craft Bonus|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DisableRacialTraits,TYPE.DwarfCraftBonus	ABILITY:Internal|AUTOMATIC|Language ~ Auto (Dwarf)|!PREABILITY:1,CATEGORY=Internal,TYPE.AutoLangReplace	ABILITY:Internal|AUTOMATIC|Language ~ Bonus (Dwarf)|!PREABILITY:1,CATEGORY=Internal,TYPE.BonusLangReplace	BONUS:STAT|CON|2|TYPE=Racial	BONUS:STAT|CHA|-2|TYPE=Racial
+CATEGORY=Internal|Dwarf ~ Hill.COPY=Dwarf ~ Glacier
+CATEGORY=Internal|Dwarf ~ Glacier.MOD	TYPE:.CLEAR	OUTPUTNAME:Glacier
+CATEGORY=Internal|Dwarf ~ Glacier.MOD	TYPE:DwarfSubrace.AltSubraceChoice	PREMULT:1,[PREABILITY:1,CATEGORY=Internal,Dwarf ~ Glacier],[!PREABILITY:1,CATEGORY=Internal,TYPE.AltSubraceChoice]	
+CATEGORY=Internal|Dwarf ~ Glacier.MOD	ABILITY:Special Ability|AUTOMATIC|Dwarf ~ Icecunning
+CATEGORY=Internal|Dwarf ~ Glacier.MOD	ABILITY:Special Ability|AUTOMATIC|Dwarf ~ Icecunning|Dwarf ~ Cold Tolerant|Dwarf ~ Ice Crafting
+Icecunning	KEY:Dwarf ~ Icecunning	CATEGORY:Special Ability	TYPE:SpecialQuality.DwarfStonecunning	DESC:+2 racial bonus for search checks for unusual hazards or construction of ice or snow.  Merely passing within 10 ft allows for a search check.
+Cold Tolerant	CATEGORY:Special Ability		TYPE:SpecialQuality.DwarfPoisonSaveBonus	KEY:Dwarf ~ Cold Tolerant	SERVESAS:ABILITY=FEAT|Cold Endurance	DESC:+2 on saves vs cold damage or spells, and are comfortable from Severely Cold to Hot climates.
+Ice Crafting Bonus	CATEGORY:Special Ability		TYPE:SpecialQuality.DwarfCraftBonus		KEY:Dwarf ~ Ice Crafting	DESC:+2 on appraise or craft related to ice or Frostfell materials.
+CATEGORY=Internal|Elf ~ High.COPY=Elf ~ Snow	
+CATEGORY=Internal|Elf ~ Snow.MOD	BONUS:STAT|CON|2	BONUS:STAT|CHA|-2	OUTPUTNAME:Snow	TYPE:ElfSubrace.AltSubraceChoice	
+CATEGORY=Internal|Gnome ~ Rock.COPY=Gnome ~ Ice
+CATEGORY=Internal|Gnome ~ Ice.MOD	TYPE:GnomeSubrace.AltSubraceChoice	OUTPUTNAME:Ice	ABILITY:Special Ability|AUTOMATIC|Ice Gnome Spells
+Ice Gnome Spells	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike.GnomeSpellLikeAbilities	DESC:Speak With Animals (arctic mammals only), 1/day.		SPELLS:Innate|TIMES=1|CASTERLEVEL=1|Dancing Lights,10+CHA+1|Prestidigitation,10+CHA+1|Ray of Frost,10+CHA+1|PRESTAT:1,CHA=10
+CATEGORY=Internal|Halfling ~ Lightfoot.COPY=Halfling ~ Tundra	
+CATEGORY=Internal|Halfling ~ Tundra.MOD	OUTPUTNAME:Tundra		TYPE:HalflingSubrace.AltSubraceChoice	BONUS:SKILL|Climb|-2	BONUS:SKILL|Survival|2	TEMPLATE:Favored Class ~ Ranger
+Neanderthal Race Traits	CATEGORY:Internal	TYPE:Race Traits	ABILITY:Special Ability|AUTOMATIC|Barbarian ~ Illiteracy|Neanderthal ~ Human Blood|Primitive Weapon Mastery|Neanderthal Skill Bonus|Climate Tolerant
+Human Blood	CATEGORY:Special Ability	KEY:Neanderthal ~ Human Blood	TYPE:SpecialQuality	DESC:You count as human for the purposes of qualifying for feats and classes.
+Primitive Weapon Mastery	CATEGORY:Special Ability	TYPE:Extraordinary.SpecialQuality	DESC:+1 to hit with primitive weapons.	BONUS:WEAPONPROF=TYPE.Primitive|TOHIT|1|TYPE=Racial	
+Neanderthal Skill Bonus			CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:+2 racial bonus on Listen, Spot, and Survival checks	TYPE:SpecialQuality	BONUS:SKILL|Listen,Spot,Survival|2|TYPE=Racial
+Climate Tolerant	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:Comfortable between Severe Cold and Severe Heat, serves as the Cold Endurance feat.	SERVESAS:ABILITY=FEAT|Cold Endurance	
+Uldra Traits		CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|Nature Scholar|Uldra ~ Cold Tolerant|Frosty Touch
+Nature Scholar		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	DESC:Knowledge(Nature) is always a class skill, and is at +2	CSKILL:Knowledge (Nature)	BONUS:SKILL|Knowledge (Nature)|2|TYPE=Racial
+CATEGORY=Special Ability|Dwarf ~ Cold Tolerant.COPY=Uldra ~ Cold Tolerant
+Frosty Touch	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural		DESC:Add 1 point of cold damage to all melee attacks.
+
