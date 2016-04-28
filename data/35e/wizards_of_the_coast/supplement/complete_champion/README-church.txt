@@ -8,20 +8,19 @@ User Interface
 In PCGEN:
 - navigate to the 'Feats & Abilities' tab
 - navigate to the 'Church' sub tab
-- Pick category 'Church'
+
+* Category Church
 
 Membership abilities are available for each Church.
 
 Pick a Church Membership (for example, Ruby Temple, deity must be Wee Jas)
 
-Additional ability categories are displayed:
+More abilities become available
 
-- The Ruby Temple Affiliation Criterion
+Pick abilities to describe *what* the character has done.
+This computes the affiliation score.
 
-In the 'Affiliation Criterion', pick abilities to describe *what* the
-character has done. This computes the affiliation score.
-
-- The Ruby Temple Rank
+* Category The Ruby Temple Rank
 
 The affiliation score is displayed in the total.
 
@@ -36,14 +35,14 @@ Ability "Church / XYZ Membership":
 - has no cost
 - defines a variable XYZAffiliationScore
 - gives a bonus to the "XYZ Rank" ability pool
-- grants automatic abilities in category "XYZ Affiliation Criterion"
+- grants automatic abilities
 
-Abilities in "XYZ Affiliation Criterion"
+Abilities in "Church", type = XYZ
 - have no cost
 - requires the Membership prerequisite
 - gives a bonus to XYZAffiliationScore
 
-Abilities in "XYZ Rank"
+Abilities in "Church Rank", type = XYZ
 - require the previous rank
 - have a cost, defined incrementally
 - grant bonuses
