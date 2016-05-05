@@ -69,16 +69,8 @@ CLASS:Diabolist	PREALIGN:LE	PRECHECKBASE:1,Will=5	PREABILITY:2,CATEGORY=FEAT,Evi
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Diabolist	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|Diplomacy|Intimidate|Knowledge (arcana)|Knowledge (The Planes)|Spellcraft|Spot
 ###Block
-1	ADD:SPELLCASTER|ANY
-2	ADD:SPELLCASTER|ANY
-3	ADD:SPELLCASTER|ANY
-4	ADD:SPELLCASTER|ANY
-5	ADD:SPELLCASTER|ANY
-6	ADD:SPELLCASTER|ANY
-7	ADD:SPELLCASTER|ANY
-8	ADD:SPELLCASTER|ANY
-9	ADD:SPELLCASTER|ANY
-10	ADD:SPELLCASTER|ANY
+1:REPEATLEVEL:1	ADD:SPELLCASTER|ANY
+
 ###Block
 1	ABILITY:Diabolist Class Feature|AUTOMATIC|Diabolist ~ Spells|Diabolist ~ Weapon and Armor Proficiency
 1	ABILITY:Diabolist Class Feature|AUTOMATIC|Diabolist ~ Diabolism
@@ -95,11 +87,7 @@ CLASS:Disciple of Asmodeus	PREALIGN:LE,NE	PREABILITY:3,CATEGORY=FEAT,Disciple of
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Disciple of Asmodeus	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Decipher Script|Diplomacy|Gather Information|Hide|Intimidate|TYPE=Knowledge|Listen|Search|Sense Motive|Spellcraft|Spot
 ###Block
-1	ADD:SPELLCASTER|ANY
-3	ADD:SPELLCASTER|ANY
-5	ADD:SPELLCASTER|ANY
-7	ADD:SPELLCASTER|ANY
-9	ADD:SPELLCASTER|ANY
+1:REPEATLEVEL:2	ADD:SPELLCASTER|ANY
 10	ADD:SPELLCASTER|ANY
 ###Block
 1	ABILITY:Disciple of Asmodeus Class Feature|AUTOMATIC|Disciple of Asmodeus ~ Spells|Disciple of Asmodeus ~ Weapon and Armor Proficiency
@@ -310,11 +298,7 @@ CLASS:Thrall of Graz'zt	PREALIGN:LE,NE,CE	PREABILITY:2,CATEGORY=FEAT,Thrall to D
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Thrall of Graz'zt	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Decipher Script|Diplomacy|Gather Information|Hide|TYPE=Knowledge|Listen|Move Silently|Open Lock|TYPE=Perform|Search|Sense Motive|Sleight of Hand|Spellcraft|Spot|Survival|Use Magic Device
 ###Block
-1	ADD:SPELLCASTER|ANY
-3	ADD:SPELLCASTER|ANY
-5	ADD:SPELLCASTER|ANY
-7	ADD:SPELLCASTER|ANY
-9	ADD:SPELLCASTER|ANY
+1:REPEATLEVEL:2	ADD:SPELLCASTER|ANY
 10	ADD:SPELLCASTER|ANY
 ###Block
 1	ABILITY:Thrall of Graz'zt Class Feature|AUTOMATIC|Thrall of Graz'zt ~ Weapon and Armor Proficiency
@@ -369,13 +353,11 @@ CLASS:Thrall of Orcus	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Hide
 10	ABILITY:Thrall of Orcus Class Feature|AUTOMATIC|Thrall of Orcus ~ Summon Nightwing
 
 # Class Name	Hit Dice	Type			Source Page		Combat bonus															Modify VAR														Bonus
-CLASS:Ur-Priest	HD:8		TYPE:PC.Prestige	SOURCEPAGE:p.72	DEFINE:Ur_PriestLVL|0	BONUS:VAR|Ur_PriestLVL|CL	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Ur-Priest	HD:8		TYPE:PC.Prestige	SOURCEPAGE:p.72	DEFINE:UrPriestLVL|0	BONUS:VAR|UrPriestLVL|CL	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Required AL		Required Check Base			Required Feat					Required Skill															Required Text
 CLASS:Ur-Priest	PREALIGN:LE,CE,NE	PRECHECKBASE:2,Fortitude=3,Will=3	PREABILITY:2,CATEGORY=FEAT,Iron Will,Malign Spell Focus	PRESKILL:5,Bluff=6,Knowledge (Arcana)=5,Knowledge (Religion)=8,Knowledge (The Planes)=5,Spellcraft=8	PRETEXT:Alignment: Any evil. Base Save Bonus: Fort +3, Will +3. Skills: Bluff 6 ranks, Knowledge (arcana) 5 ranks, Knowledge (religion) 8 ranks, Knowledge (the planes) 5 ranks, Spellcraft 8 ranks. Feats: Iron Will, Malign Spell Focus. Special: The character must have no ability to cast divine spells. If that ability was previously possessed (as with an excleric), the ability must be forever forsaken. Special: The character must be trained by another ur-priest.
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Ur-Priest	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Knowledge (arcana)|Knowledge (Religion)|Knowledge (The Planes)|TYPE=Profession|Spellcraft
-# Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels											Caster level				Use Spell List
-CLASS:Ur-Priest	SPELLSTAT:WIS	FACT:SpellType|Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9
 # Class Name	Spell Stat		Spell Type		Memorize		Automatically Known Spell Levels											Caster level				Use Spell List
 CLASS:Ur-Priest	SPELLSTAT:WIS	FACT:SpellType|Divine	MEMORIZE:YES	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Ur-Priest|Caster_Level_BL_Stripped_Ur_Priest	DEFINE:Caster_Level_BL_Stripped_Ur_Priest|0	BONUS:VAR|Caster_Level_BL_Stripped_Ur_Priest|Caster_Level_Ur_Priest-CasterLevelBLUr_Priest	BONUS:VAR|Caster_Level_Ur_Priest|CL+Caster_Level_Bonus+CasterLevelBLUr_Priest	DEFINE:CasterLevelBLUr_Priest|0	BONUS:VAR|CasterLevelBL_x_Ur_Priest|charbonusto("PCLEVEL","Ur-Priest")	BONUS:VAR|Caster_Level_Highest__Divine|Caster_Level_Ur_Priest|TYPE=Base	SPELLLIST:1|Cleric
 ###Block
@@ -407,11 +389,7 @@ CLASS:Vermin Lord	PREALIGN:LE,NE,CE	PREABILITY:1,CATEGORY=FEAT,Verminfriend	PRES
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Vermin Lord	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Concentration|Hide|Knowledge (Nature)|Listen|Move Silently|TYPE=Perform|Sleight of Hand|Search|Spellcraft|Spot
 ###Block
-1	ADD:SPELLCASTER|ANY
-3	ADD:SPELLCASTER|ANY
-5	ADD:SPELLCASTER|ANY
-7	ADD:SPELLCASTER|ANY
-9	ADD:SPELLCASTER|ANY
+1:REPEATLEVEL:2	ADD:SPELLCASTER|ANY
 ###Block
 1	ABILITY:Vermin Lord Class Feature|AUTOMATIC|Vermin Lord ~ Weapon and Armor Proficiency
 1	ABILITY:Vermin Lord Class Feature|AUTOMATIC|Vermin Lord ~ Spells
