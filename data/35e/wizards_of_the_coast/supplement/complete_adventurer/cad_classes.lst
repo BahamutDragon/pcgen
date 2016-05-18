@@ -359,7 +359,7 @@ CLASS:Highland Stalker	STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE=Craft|Hide|Jump
 # Class Name	Hit Dice	Type			Source Page		Combat bonus															Modify VAR													Bonus
 CLASS:Maester	HD:4		TYPE:PC.Prestige	SOURCEPAGE:p.56	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	DEFINE:MaesterLVL|0	BONUS:VAR|MaesterLVL|CL
 # Class Name	Required Feat						Required Race				Required Skill							Req. Spell Type		Required Text
-CLASS:Maester	PREABILITY:2,CATEGORY=FEAT,TYPE=ItemCreation,TYPE=Item Creation	PRERACE:1,RACESUBTYPE=Gnome,Gnome	PRESKILL:1,TYPE.Craft=8	PRESKILL:1,Use Magic Device=4	PRESPELLTYPE:1,Arcane=5	PRETEXT:Race: Gnome. Skills: Craft (any) 8 ranks, Use Magic Device 4 ranks. Feats: Any two item creation feats. Spells: Arcane caster level 5th.
+CLASS:Maester	PREABILITY:2,CATEGORY=FEAT,TYPE=ItemCreation,TYPE=Item Creation	PRERACE:1,RACESUBTYPE=Gnome,Gnome	PRESKILL:1,TYPE.Craft=8	PRESKILL:1,Use Magic Device=4	PRECLASS:1,SPELLCASTER.Arcane=5	PRETEXT:Race: Gnome. Skills: Craft (any) 8 ranks, Use Magic Device 4 ranks. Feats: Any two item creation feats. Spells: Arcane caster level 5th.
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Maester	STARTSKILLPTS:4	CSKILL:Appraise|Concentration|TYPE=Craft|Disable Device|Knowledge (arcana)|Knowledge (Architecture and Engineering)|Spellcraft|Use Magic Device
 ###Block
@@ -370,7 +370,8 @@ CLASS:Maester	STARTSKILLPTS:4	CSKILL:Appraise|Concentration|TYPE=Craft|Disable D
 3	ABILITY:Maester Class Feature|AUTOMATIC|Maester ~ Identification
 ###Block
 11	PREPCLEVEL:MIN=20
-
+###Block
+2:REPEATLEVEL:1	ADD:SPELLCASTER|ANY
 
 # Class Name			Hit Dice	Type			Source Page		Define				Combat bonus															Modify VAR																				Bonus
 CLASS:Master of Many Forms	HD:8		TYPE:PC.Prestige	SOURCEPAGE:p.58	DEFINE:MasterofManyFormsLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|MasterofManyFormsLVL|CL	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
