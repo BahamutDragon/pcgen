@@ -2,7 +2,8 @@
 SOURCELONG:Players Handbook	SOURCESHORT:PH	
 
 # Ability Name			Unique Key		SORTKEY	Output Name			Category of Ability		Type							Visible	Define																																																																																									Bonus Ability Pool				Modify VAR				Cost
-CATEGORY=Internal|Default.MOD																								DEFINE:ExtraSkillPoint|0	DEFINE:ThisisThreeFive|0	DEFINE:RemoveLangCommon|0	DEFINE:RemoveLangDwarven|0	DEFINE:RemoveLangElven|0	DEFINE:RemoveLangGnome|0	DEFINE:RemoveLangHalfling|0	DEFINE:RemoveLangGiant|0	DEFINE:RemoveLangGnoll|0	DEFINE:RemoveLangGoblin|0	DEFINE:RemoveLangOrc|0	DEFINE:RemoveLangTerran|0	DEFINE:RemoveLangUndercommon|0	DEFINE:RemoveLangAbyssal|0	DEFINE:RemoveLangCelestial|0	DEFINE:RemoveLangDraconic|0	DEFINE:RemoveLangInfernal|0	DEFINE:RemoveLangSylvan|0	DEFINE:RemoveLangDruidic|0	BONUS:ABILITYPOOL|Region|1|TYPE=Base	BONUS:VAR|ThisisThreeFive|1	DEFINE:Pool_FighterFeat|0	DEFINE:Pool_WizardFeat|0	DEFINE:FamiliarBonus|0	BONUS:VAR|FamiliarBonus|1|TYPE=Base		BONUS:VAR|BastardSwordExoticUse|1|PREABILITY:1,CATEGORY=FEAT,Exotic Weapon Proficiency (Sword (Bastard))	BONUS:VAR|DwarvenWaraxeExoticUse|1|PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Exotic Weapon Proficiency (Waraxe (Dwarven))],[PREABILITY:1,CATEGORY=Special Ability,Dwarf ~ Weapon Familiarity]		DEFINE:BastardSwordExoticUse|0	DEFINE:DwarvenWaraxeExoticUse|0		DEFINE:RemoveDefaultFavoredClass|0
+CATEGORY=Internal|Default.MOD																								DEFINE:ExtraSkillPoint|0	DEFINE:ThisisThreeFive|0	DEFINE:RemoveLangCommon|0	DEFINE:RemoveLangDwarven|0	DEFINE:RemoveLangElven|0	DEFINE:RemoveLangGnome|0	DEFINE:RemoveLangHalfling|0	DEFINE:RemoveLangGiant|0	DEFINE:RemoveLangGnoll|0	DEFINE:RemoveLangGoblin|0	DEFINE:RemoveLangOrc|0	DEFINE:RemoveLangTerran|0	DEFINE:RemoveLangUndercommon|0	DEFINE:RemoveLangAbyssal|0	DEFINE:RemoveLangCelestial|0	DEFINE:RemoveLangDraconic|0	DEFINE:RemoveLangInfernal|0	DEFINE:RemoveLangSylvan|0	DEFINE:RemoveLangDruidic|0	BONUS:ABILITYPOOL|Region|1|TYPE=Base	BONUS:VAR|ThisisThreeFive|1	DEFINE:Pool_FighterFeat|0	DEFINE:Pool_WizardFeat|0	DEFINE:FamiliarBonus|0	BONUS:VAR|FamiliarBonus|1|TYPE=Base		BONUS:VAR|BastardSwordExoticUse|1|PREABILITY:1,CATEGORY=FEAT,Exotic Weapon Proficiency (Sword (Bastard))	BONUS:VAR|DwarvenWaraxeExoticUse|1|PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Exotic Weapon Proficiency (Waraxe (Dwarven))],[PREABILITY:1,CATEGORY=Special Ability,Dwarf ~ Weapon Familiarity]		DEFINE:BastardSwordExoticUse|0	DEFINE:DwarvenWaraxeExoticUse|0		DEFINE:RemoveDefaultFavoredClass|0	BONUS:ABILITYPOOL|First Level Feat|1|PREFACT:1,RACE,HasFirstLevelFeat=True	
+#	BONUS:ABILITYPOOL|FEAT|-1|PREFACT:1,RACE,HasFirstLevelFeat=True
 
 CATEGORY=Internal|Default.MOD	DEFINE:SynergySkillBonus|0	BONUS:VAR|SynergySkillBonus|2|TYPE=Base
 
@@ -34,6 +35,8 @@ No Region				KEY:Region ~ None	SORTKEY:a	OUTPUTNAME:No Region	CATEGORY:Regional	
 Remove Default Auto Language										CATEGORY:Internal			TYPE:LanguageReplacement.AutoLangReplace																																																																																																									COST:0
 Remove Default Bonus Language										CATEGORY:Internal			TYPE:LanguageReplacement.BonusLangReplace																																																																																																									COST:0
 
+Select First Level Feat			CATEGORY:Internal		TYPE:FirstLevelFeatOnly	STACK:YES	MULT:YES	CHOOSE:ABILITYSELECTION|FEAT|QUALIFIED[TYPE=LevelOneFeatOnly]	ABILITY:FEAT|AUTOMATIC|%LIST	DESC:This will allow choices of First Level Only Feats the character would qualify for normally. The feat will be displayed on the export or preview only.
++1 Feat to feat pool	SORTKEY:1	CATEGORY:Internal		TYPE:FirstLevelFeatOnly	VISIBLE:YES	BONUS:ABILITYPOOL|FEAT|1	DESC:Use this to bypass a First Level Only Feat, and pick any non-First Level only feats from the regular pool instead.	MULT:YES	CHOOSE:NOCHOICE	STACK:YES
 
 
 # Base Race looses several abilities for subsequent Subraces, these need to be tailored to remove the Abilities individually.
@@ -142,7 +145,7 @@ Human Racial Traits	KEY:Human Racial Traits	CATEGORY:Special Ability	TYPE:Specia
 ###Block: Human - Abilities
 # Ability Name	Unique Key			Category of Ability		Type						Description														Bonus Ability Pool		Modify VAR						Source Page
 Skill Bonus		KEY:Human ~ Skill Bonus	CATEGORY:Special Ability	TYPE:Race Trait.Human Race Trait	DESC:4 extra skill points at 1st level and 1 extra skill point at each additional level.						BONUS:VAR|ExtraSkillPoint|1|TYPE=Base	SOURCEPAGE:p.13
-Feat Bonus		KEY:Human ~ Bonus Feat	CATEGORY:Special Ability	TYPE:Race Trait.Human Race Trait	DESC:1 extra feat at 1st level.										BONUS:ABILITYPOOL|FEAT|1								SOURCEPAGE:p.13
+Feat Bonus		KEY:Human ~ Bonus Feat	CATEGORY:Special Ability	TYPE:Race Trait.Human Race Trait	DESC:1 extra feat at 1st level.										BONUS:ABILITYPOOL|First Level Feat|1								SOURCEPAGE:p.13
 
 # COMMENT: TO DO - Race Traits Display needs to be done for remainder of Base Races.
 
