@@ -187,7 +187,7 @@ CLASS:Nightmare Spinner	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Decipher Scri
 5	ADD:SPELLCASTER|ANY
 
 # Class Name		Hit Dice	Type			Source Page		Combat bonus															Modify VAR													Bonus
-CLASS:Ultimate Magus	HD:4		TYPE:PC.Prestige	SOURCEPAGE:p.77	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Ultimate Magus	HD:4		TYPE:PC.Prestige	SOURCEPAGE:p.77	DEFINE:UltimateMagusLVL|0	BONUS:VAR|UltimateMagusLVL|CL	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required Class											Required Feat			Required Skill						Req. Spellbook	Required Casting Type	Req. Spell Type		Required Text
 CLASS:Ultimate Magus	PRECLASS:2,TYPE=NonSpontaneousArcaneCaster=2,TYPE=SpontaneousArcaneCaster=1	PREABILITY:1,CATEGORY=FEAT,TYPE=Metamagic	PRESKILL:2,Knowledge (Arcana)=4,Spellcraft=8	PRESPELLBOOK:YES	PRESPELLCAST:MEMORIZE=N	PRESPELLTYPE:1,Arcane=2	PRETEXT:Skills: Knowledge (arcana) 4 ranks, Spellcraft 8 ranks. Feats: Any metamagic feat. Spellcasting: Able to spontaneously cast 1st-level arcane spells, able to prepare and cast 2nd-level arcane spells from a spellbook.
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -197,8 +197,6 @@ CLASS:Ultimate Magus	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher Sc
 2	ABILITY:Ultimate Magus Class Feature|AUTOMATIC|Ultimate Magus ~ Expanded Spell Knowledge
 3	ABILITY:Ultimate Magus Class Feature|AUTOMATIC|Ultimate Magus ~ Augmented Casting
 5	ABILITY:Ultimate Magus Class Feature|AUTOMATIC|Ultimate Magus ~ Bonus Feat
-###Block
-5	BONUS:VAR|UltimateMagusBonusFeatCount|(CL-1)/4
 ###Block - No method to distinguish Lower Level, or spontaneous vs. non.
 2	ADD:SPELLCASTER|Arcane
 3	ADD:SPELLCASTER|Arcane

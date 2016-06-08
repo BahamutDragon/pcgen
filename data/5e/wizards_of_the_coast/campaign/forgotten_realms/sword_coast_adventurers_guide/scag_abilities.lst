@@ -302,7 +302,7 @@ An arcane book or formulary								KEY:Inheritance ~ Book		CATEGORY:Special Abil
 A written story, song, poem, or secret						KEY:Inheritance ~ Story		CATEGORY:Special Ability	SORTKEY:Background Feature Inheritor Inheritance	TYPE:SpecialQuality.Inheritance
 A tattoo or other body marking							KEY:Inheritance ~ Tattoo	CATEGORY:Special Ability	SORTKEY:Background Feature Inheritor Inheritance	TYPE:SpecialQuality.Inheritance
 
-Background Characteristics ~ Far Traveler		CATEGORY:Internal		BONUS:ABILITYPOOL|Far Traveler Personality Trait|2	BONUS:ABILITYPOOL|Far Traveler Ideal|1	BONUS:ABILITYPOOL|Far Traveler Bond|POOL_Background_Bond	BONUS:ABILITYPOOL|Far Traveler Flaw|1	BONUS:ABILITYPOOL|Why Are You Here?|1	BONUS:ABILITYPOOL|Where Are You From?|1
+Background Characteristics ~ Far Traveler		CATEGORY:Internal		BONUS:ABILITYPOOL|Far Traveler Personality Trait|POOL_Background_Trait	BONUS:ABILITYPOOL|Far Traveler Ideal|POOL_Background_Ideal	BONUS:ABILITYPOOL|Far Traveler Bond|POOL_Background_Bond	BONUS:ABILITYPOOL|Far Traveler Flaw|POOL_Background_Flaw	BONUS:ABILITYPOOL|Why Are You Here?|1	BONUS:ABILITYPOOL|Where Are You From?|1
 
 # Why Are You Here
 Emissary	KEY:Why Are You Here ~ Emissary			CATEGORY:Special Ability	TYPE:Why Are You Here.SpecialQuality	SORTKEY:Background - Why Are you Here
@@ -322,58 +322,33 @@ Zakhara		KEY:Where Are You From ~ Zakhara			CATEGORY:Special Ability	TYPE:Where 
 The Underdark	KEY:Where Are You From ~ The Underdark		CATEGORY:Special Ability	TYPE:Where Are You From.SpecialQuality	DESC:Though your home is physically closer to the Sword Coast than the other locations discussed here, it is far more unnatural. You hail from one of the settlements in the Underdark, each of which has its own strange customs and laws. If you are a native of one of the great subterranean cities or settlements, you are probably a member of the race that occupies the placebut you might also have grown up there after being captured and brought below when you were a child. If you are a true Underdark native, you might have come to the surface as an emissary of your people, or perhaps to escape accusations of criminal behavior (whether warranted or not). If you aren't a native, your reason for leaving "home" probably has something to do with getting away from a bad situation.
 
 #d8 Personality Trait
-Far Traveler Personality Trait ~ 1			SORTKEY:Background	CATEGORY:Special Ability	TYPE:SpecialQuality.Far Traveler Personality Trait.Personality Trait		DESC:I have different assumptions from those around me concerning personal space, blithe ly invading others' space in innocence, or reacting to ignorant invasion of my own.
-Far Traveler Personality Trait ~ 2			SORTKEY:Background	CATEGORY:Special Ability	TYPE:SpecialQuality.Far Traveler Personality Trait.Personality Trait		DESC:I have my own ideas about what is and is not food, and I find the eating habits of those around me fascinating, confusing, or revolting.
-Far Traveler Personality Trait ~ 3			SORTKEY:Background	CATEGORY:Special Ability	TYPE:SpecialQuality.Far Traveler Personality Trait.Personality Trait		DESC:I have a strong code of honor or sense of propriety that others don't comprehend.
-Far Traveler Personality Trait ~ 4			SORTKEY:Background	CATEGORY:Special Ability	TYPE:SpecialQuality.Far Traveler Personality Trait.Personality Trait		DESC:I express affection or contempt in ways that are unfamiliar to others.
-Far Traveler Personality Trait ~ 5			SORTKEY:Background	CATEGORY:Special Ability	TYPE:SpecialQuality.Far Traveler Personality Trait.Personality Trait		DESC:I honor my deities through practices that are foreign to this land .
-Far Traveler Personality Trait ~ 6			SORTKEY:Background	CATEGORY:Special Ability	TYPE:SpecialQuality.Far Traveler Personality Trait.Personality Trait		DESC:I begin or end my day with small traditional ritua ls that are unfamiliar to those around me.
-#Far Traveler Personality Trait ~ 7			SORTKEY:Background	CATEGORY:Special Ability	TYPE:SpecialQuality.Far Traveler Personality Trait.Personality Trait		DESC:
-#Far Traveler Personality Trait ~ 8			SORTKEY:Background	CATEGORY:Special Ability	TYPE:SpecialQuality.Far Traveler Personality Trait.Personality Trait		DESC:
-Far Traveler Personality Trait ~ Custom		SORTKEY:Background	CATEGORY:Special Ability	TYPE:SpecialQuality.Far Traveler Personality Trait					DESC:%1|%LIST																						STACK:NO	MULT:YES	CHOOSE:USERINPUT|TITLE=Your Own Personality Trait
+Far Traveler Personality Trait ~ 1			PREABILITY:1,CATEGORY=Internal,Background Characteristics ~ Far Traveler	SORTKEY:Background	CATEGORY:Special Ability	TYPE:SpecialQuality.Far Traveler Personality Trait.Personality Trait	COST:0	BONUS:VAR|POOL_Background_PersonalityTrait|-1		DESC:I have different assumptions from those around me concerning personal space, blithe ly invading others' space in innocence, or reacting to ignorant invasion of my own.
+Far Traveler Personality Trait ~ 2			PREABILITY:1,CATEGORY=Internal,Background Characteristics ~ Far Traveler	SORTKEY:Background	CATEGORY:Special Ability	TYPE:SpecialQuality.Far Traveler Personality Trait.Personality Trait	COST:0	BONUS:VAR|POOL_Background_PersonalityTrait|-1		DESC:I have my own ideas about what is and is not food, and I find the eating habits of those around me fascinating, confusing, or revolting.
+Far Traveler Personality Trait ~ 3			PREABILITY:1,CATEGORY=Internal,Background Characteristics ~ Far Traveler	SORTKEY:Background	CATEGORY:Special Ability	TYPE:SpecialQuality.Far Traveler Personality Trait.Personality Trait	COST:0	BONUS:VAR|POOL_Background_PersonalityTrait|-1		DESC:I have a strong code of honor or sense of propriety that others don't comprehend.
+Far Traveler Personality Trait ~ 4			PREABILITY:1,CATEGORY=Internal,Background Characteristics ~ Far Traveler	SORTKEY:Background	CATEGORY:Special Ability	TYPE:SpecialQuality.Far Traveler Personality Trait.Personality Trait	COST:0	BONUS:VAR|POOL_Background_PersonalityTrait|-1		DESC:I express affection or contempt in ways that are unfamiliar to others.
+Far Traveler Personality Trait ~ 5			PREABILITY:1,CATEGORY=Internal,Background Characteristics ~ Far Traveler	SORTKEY:Background	CATEGORY:Special Ability	TYPE:SpecialQuality.Far Traveler Personality Trait.Personality Trait	COST:0	BONUS:VAR|POOL_Background_PersonalityTrait|-1		DESC:I honor my deities through practices that are foreign to this land .
+Far Traveler Personality Trait ~ 6			PREABILITY:1,CATEGORY=Internal,Background Characteristics ~ Far Traveler	SORTKEY:Background	CATEGORY:Special Ability	TYPE:SpecialQuality.Far Traveler Personality Trait.Personality Trait	COST:0	BONUS:VAR|POOL_Background_PersonalityTrait|-1		DESC:I begin or end my day with small traditional ritua ls that are unfamiliar to those around me.
 #d6 Ideal
-Open		KEY:Far Traveler Ideal ~ 1					SORTKEY:Background Ideal 1a	CATEGORY:Special Ability	TYPE:SpecialQuality.Far Traveler Ideal.Ideal						DESC:Open. I have much to learn from the kind ly folk I meet along my way. (Good)
-Reserved	KEY:Far Traveler Ideal ~ 2					SORTKEY:Background Ideal 1b	CATEGORY:Special Ability	TYPE:SpecialQuality.Far Traveler Ideal.Ideal						DESC:Reserved. As someone new to these strange lands, I am cautious and respectful in my dealings. (Lawful)	
-Adventure	KEY:Far Traveler Ideal ~ 3					SORTKEY:Background Ideal 1c	CATEGORY:Special Ability	TYPE:SpecialQuality.Far Traveler Ideal.Ideal						DESC:Adventure. I'm far from home, and eve rything is strange and wonderful! (Chaotic)		
-Cunning	KEY:Far Traveler Ideal ~ 4					SORTKEY:Background Ideal 1d	CATEGORY:Special Ability	TYPE:SpecialQuality.Far Traveler Ideal.Ideal						DESC:Cunning. Th ough I may not know their ways, neither do they know mine, which can be to my advantage. (Evil)		
-Inquisitive	KEY:Far Traveler Ideal ~ 5					SORTKEY:Background Ideal 1e	CATEGORY:Special Ability	TYPE:SpecialQuality.Far Traveler Ideal.Ideal						DESC:Inquisitive. Everything is new, but I have a thirst to learn. (Neutral)		
-Suspicious	KEY:Far Traveler Ideal ~ 6					SORTKEY:Background Ideal 1f	CATEGORY:Special Ability	TYPE:SpecialQuality.Far Traveler Ideal.Ideal						DESC:Suspicious. I must be carefu l, for I have no way of telling fr iend from foe here. (Any)		
-Custom	KEY:Far Traveler Ideal ~ Custom				SORTKEY:Background Ideal 1g	CATEGORY:Special Ability	TYPE:SpecialQuality.Far Traveler Ideal							DESC:%1|%LIST																						STACK:NO	MULT:YES	CHOOSE:USERINPUT|TITLE=Your Own Ideal
+Open		KEY:Far Traveler Ideal ~ 1		PREABILITY:1,CATEGORY=Internal,Background Characteristics ~ Far Traveler	SORTKEY:Background Ideal 1a	CATEGORY:Special Ability	TYPE:SpecialQuality.Far Traveler Ideal.Ideal	COST:0	BONUS:VAR|POOL_Background_Ideal|-1						DESC:Open. I have much to learn from the kind ly folk I meet along my way. (Good)
+Reserved	KEY:Far Traveler Ideal ~ 2		PREABILITY:1,CATEGORY=Internal,Background Characteristics ~ Far Traveler	SORTKEY:Background Ideal 1b	CATEGORY:Special Ability	TYPE:SpecialQuality.Far Traveler Ideal.Ideal	COST:0	BONUS:VAR|POOL_Background_Ideal|-1						DESC:Reserved. As someone new to these strange lands, I am cautious and respectful in my dealings. (Lawful)	
+Adventure	KEY:Far Traveler Ideal ~ 3		PREABILITY:1,CATEGORY=Internal,Background Characteristics ~ Far Traveler	SORTKEY:Background Ideal 1c	CATEGORY:Special Ability	TYPE:SpecialQuality.Far Traveler Ideal.Ideal	COST:0	BONUS:VAR|POOL_Background_Ideal|-1						DESC:Adventure. I'm far from home, and eve rything is strange and wonderful! (Chaotic)		
+Cunning	KEY:Far Traveler Ideal ~ 4		PREABILITY:1,CATEGORY=Internal,Background Characteristics ~ Far Traveler	SORTKEY:Background Ideal 1d	CATEGORY:Special Ability	TYPE:SpecialQuality.Far Traveler Ideal.Ideal	COST:0	BONUS:VAR|POOL_Background_Ideal|-1						DESC:Cunning. Th ough I may not know their ways, neither do they know mine, which can be to my advantage. (Evil)		
+Inquisitive	KEY:Far Traveler Ideal ~ 5		PREABILITY:1,CATEGORY=Internal,Background Characteristics ~ Far Traveler	SORTKEY:Background Ideal 1e	CATEGORY:Special Ability	TYPE:SpecialQuality.Far Traveler Ideal.Ideal	COST:0	BONUS:VAR|POOL_Background_Ideal|-1						DESC:Inquisitive. Everything is new, but I have a thirst to learn. (Neutral)		
+Suspicious	KEY:Far Traveler Ideal ~ 6		PREABILITY:1,CATEGORY=Internal,Background Characteristics ~ Far Traveler	SORTKEY:Background Ideal 1f	CATEGORY:Special Ability	TYPE:SpecialQuality.Far Traveler Ideal.Ideal	COST:0	BONUS:VAR|POOL_Background_Ideal|-1						DESC:Suspicious. I must be carefu l, for I have no way of telling fr iend from foe here. (Any)		
 #d6 Bond
-Far Traveler Bond ~ 1					SORTKEY:Background	CATEGORY:Special Ability	TYPE:SpecialQuality.Far Traveler Bond.Bond		COST:0					DESC:So long as I have this token from my homeland, I can face any adversity in this strange land.					
-Far Traveler Bond ~ 2					SORTKEY:Background	CATEGORY:Special Ability	TYPE:SpecialQuality.Far Traveler Bond.Bond		COST:0					DESC:The gods of my people are a comfort to me so far from home.				
-Far Traveler Bond ~ 3					SORTKEY:Background	CATEGORY:Special Ability	TYPE:SpecialQuality.Far Traveler Bond.Bond		COST:0					DESC:I hold no greater cause than my service to my people.					
-Far Traveler Bond ~ 4					SORTKEY:Background	CATEGORY:Special Ability	TYPE:SpecialQuality.Far Traveler Bond.Bond		COST:0					DESC:My freedom is my most precious possession. I' ll never let anyone take it from me again.	
-Far Traveler Bond ~ 5					SORTKEY:Background	CATEGORY:Special Ability	TYPE:SpecialQuality.Far Traveler Bond.Bond		COST:0					DESC:I'm fascinated by the beauty and wonder of this new land.					
-Far Traveler Bond ~ 6					SORTKEY:Background	CATEGORY:Special Ability	TYPE:SpecialQuality.Far Traveler Bond.Bond		COST:0					DESC:Though I had no choice, I lame nt having to leave my loved one(s) behind. I ho pe to see them again one day.
-Far Traveler Bond ~ Custom				SORTKEY:Background	CATEGORY:Special Ability	TYPE:SpecialQuality.Far Traveler Bond			COST:0					DESC:%1|%LIST																						STACK:NO	MULT:YES	CHOOSE:USERINPUT|TITLE=Your Own Bond
+Far Traveler Bond ~ 1					PREABILITY:1,CATEGORY=Internal,Background Characteristics ~ Far Traveler	SORTKEY:Background	CATEGORY:Special Ability	TYPE:SpecialQuality.Far Traveler Bond.Bond	COST:0	BONUS:VAR|POOL_Background_Bond|-1		COST:0					DESC:So long as I have this token from my homeland, I can face any adversity in this strange land.					
+Far Traveler Bond ~ 2					PREABILITY:1,CATEGORY=Internal,Background Characteristics ~ Far Traveler	SORTKEY:Background	CATEGORY:Special Ability	TYPE:SpecialQuality.Far Traveler Bond.Bond	COST:0	BONUS:VAR|POOL_Background_Bond|-1		COST:0					DESC:The gods of my people are a comfort to me so far from home.				
+Far Traveler Bond ~ 3					PREABILITY:1,CATEGORY=Internal,Background Characteristics ~ Far Traveler	SORTKEY:Background	CATEGORY:Special Ability	TYPE:SpecialQuality.Far Traveler Bond.Bond	COST:0	BONUS:VAR|POOL_Background_Bond|-1		COST:0					DESC:I hold no greater cause than my service to my people.					
+Far Traveler Bond ~ 4					PREABILITY:1,CATEGORY=Internal,Background Characteristics ~ Far Traveler	SORTKEY:Background	CATEGORY:Special Ability	TYPE:SpecialQuality.Far Traveler Bond.Bond	COST:0	BONUS:VAR|POOL_Background_Bond|-1		COST:0					DESC:My freedom is my most precious possession. I' ll never let anyone take it from me again.	
+Far Traveler Bond ~ 5					PREABILITY:1,CATEGORY=Internal,Background Characteristics ~ Far Traveler	SORTKEY:Background	CATEGORY:Special Ability	TYPE:SpecialQuality.Far Traveler Bond.Bond	COST:0	BONUS:VAR|POOL_Background_Bond|-1		COST:0					DESC:I'm fascinated by the beauty and wonder of this new land.					
+Far Traveler Bond ~ 6					PREABILITY:1,CATEGORY=Internal,Background Characteristics ~ Far Traveler	SORTKEY:Background	CATEGORY:Special Ability	TYPE:SpecialQuality.Far Traveler Bond.Bond	COST:0	BONUS:VAR|POOL_Background_Bond|-1		COST:0					DESC:Though I had no choice, I lame nt having to leave my loved one(s) behind. I ho pe to see them again one day.
 #d6 Flaw
-Far Traveler Flaw ~ 1					SORTKEY:Background	CATEGORY:Special Ability	TYPE:SpecialQuality.Far Traveler Flaw.Flaw							DESC:I am secretly (or not so secretly) convinced of the superiority of my own culture over that of this foreign land.
-Far Traveler Flaw ~ 2					SORTKEY:Background	CATEGORY:Special Ability	TYPE:SpecialQuality.Far Traveler Flaw.Flaw							DESC:I pretend not to understand the local language in order to avoid interactions I would rather not have.
-Far Traveler Flaw ~ 3					SORTKEY:Background	CATEGORY:Special Ability	TYPE:SpecialQuality.Far Traveler Flaw.Flaw							DESC:I have a weakness for the new intoxicants and other pleasures of this land.
-Far Traveler Flaw ~ 4					SORTKEY:Background	CATEGORY:Special Ability	TYPE:SpecialQuality.Far Traveler Flaw.Flaw							DESC:I don't take kindly to some of the actions and motivations of the people of this land, because these folk are different from me.
-Far Traveler Flaw ~ 5					SORTKEY:Background	CATEGORY:Special Ability	TYPE:SpecialQuality.Far Traveler Flaw.Flaw							DESC:I consider the adherents of other gods to be deluded innocents at best, or ignorant fools at worst.
-Far Traveler Flaw ~ 6					SORTKEY:Background	CATEGORY:Special Ability	TYPE:SpecialQuality.Far Traveler Flaw.Flaw							DESC:I have a weakness for the exotic beauty of the people of these lands.
-Far Traveler Flaw ~ Custom				SORTKEY:Background	CATEGORY:Special Ability	TYPE:SpecialQuality.Far Traveler Flaw								DESC:%1|%LIST																						STACK:NO	MULT:YES	CHOOSE:USERINPUT|TITLE=Your Own Flaw
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Far Traveler Flaw ~ 1					PREABILITY:1,CATEGORY=Internal,Background Characteristics ~ Far Traveler	SORTKEY:Background	CATEGORY:Special Ability	TYPE:SpecialQuality.Far Traveler Flaw.Flaw	COST:0	BONUS:VAR|POOL_Background_Flaw|-1							DESC:I am secretly (or not so secretly) convinced of the superiority of my own culture over that of this foreign land.
+Far Traveler Flaw ~ 2					PREABILITY:1,CATEGORY=Internal,Background Characteristics ~ Far Traveler	SORTKEY:Background	CATEGORY:Special Ability	TYPE:SpecialQuality.Far Traveler Flaw.Flaw	COST:0	BONUS:VAR|POOL_Background_Flaw|-1							DESC:I pretend not to understand the local language in order to avoid interactions I would rather not have.
+Far Traveler Flaw ~ 3					PREABILITY:1,CATEGORY=Internal,Background Characteristics ~ Far Traveler	SORTKEY:Background	CATEGORY:Special Ability	TYPE:SpecialQuality.Far Traveler Flaw.Flaw	COST:0	BONUS:VAR|POOL_Background_Flaw|-1							DESC:I have a weakness for the new intoxicants and other pleasures of this land.
+Far Traveler Flaw ~ 4					PREABILITY:1,CATEGORY=Internal,Background Characteristics ~ Far Traveler	SORTKEY:Background	CATEGORY:Special Ability	TYPE:SpecialQuality.Far Traveler Flaw.Flaw	COST:0	BONUS:VAR|POOL_Background_Flaw|-1							DESC:I don't take kindly to some of the actions and motivations of the people of this land, because these folk are different from me.
+Far Traveler Flaw ~ 5					PREABILITY:1,CATEGORY=Internal,Background Characteristics ~ Far Traveler	SORTKEY:Background	CATEGORY:Special Ability	TYPE:SpecialQuality.Far Traveler Flaw.Flaw	COST:0	BONUS:VAR|POOL_Background_Flaw|-1							DESC:I consider the adherents of other gods to be deluded innocents at best, or ignorant fools at worst.
+Far Traveler Flaw ~ 6					PREABILITY:1,CATEGORY=Internal,Background Characteristics ~ Far Traveler	SORTKEY:Background	CATEGORY:Special Ability	TYPE:SpecialQuality.Far Traveler Flaw.Flaw	COST:0	BONUS:VAR|POOL_Background_Flaw|-1							DESC:I have a weakness for the exotic beauty of the people of these lands.
 
 #
 # Organizations, Factions and Orders
