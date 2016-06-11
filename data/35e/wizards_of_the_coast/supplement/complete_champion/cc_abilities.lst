@@ -376,15 +376,82 @@ Character Level	KEY:Eternal Library ~ Character Level	CATEGORY:Church	TYPE:Etern
 
 ###Block: Fharlanghn's Way (FW), One Time
 
-Fharlanghn's Way Membership	KEY:Fharlanghn's Way ~ Membership	CATEGORY:Church	TYPE:Fharlanghn's Way	PREDEITY:1,Fharlanghn	DEFINE:FWAffiliationScore|0	COST:0	BONUS:ABILITYPOOL|Fharlanghn's Way Rank|FWAffiliationScore/100	ABILITY:Church|AUTOMATIC|Fharlanghn's Way ~ Character Level	DESC:Membership	SOURCEPAGE:p.6
+Fharlanghn's Way Membership	KEY:Fharlanghn's Way ~ Membership	CATEGORY:Church	TYPE:Fharlanghn's Way	PREDEITY:1,Fharlanghn	DEFINE:FWAffiliationScore|0	COST:0	BONUS:ABILITYPOOL|Fharlanghn's Way Rank|FWAffiliationScore/100	ABILITY:Church|AUTOMATIC|Fharlanghn's Way ~ Character Level	ABILITY:Church|AUTOMATIC|Fharlanghn's Way ~ Knowledge geography 5|PRESKILL:1,Knowledge (Geography)=5	ABILITY:Church|AUTOMATIC|Fharlanghn's Way ~ Knowledge local 5|PRESKILL:1,Knowledge (Local)=5	ABILITY:Church|AUTOMATIC|Fharlanghn's Way ~ Knowledge planes 5|PRESKILL:1,Knowledge (The Planes)=5	DESC:Membership	SOURCEPAGE:p.6
 
 Character Level	KEY:Fharlanghn's Way ~ Character Level	CATEGORY:Church	TYPE:Fharlanghn's Way	BONUS:VAR|FWAffiliationScore|100*floor(ECL/2)	COST:0	PREABILITY:1,CATEGORY=Church,Fharlanghn's Way ~ Membership	DESC:Character Level: +1/2 levels	SOURCEPAGE:p.14
 
+Knowledge geography 5 or more ranks	KEY:Fharlanghn's Way ~ Knowledge geography 5	CATEGORY:Church	TYPE:Fharlanghn's Way	PRESKILL:1,Knowledge (Geography)=5	BONUS:VAR|FWAffiliationScore|100*1	COST:0	PREABILITY:1,CATEGORY=Church,Fharlanghn's Way ~ Membership	DESC:Knowledge (Geography) 5 or more ranks: +1	SOURCEPAGE:p.14
+
+Knowledge local 5 or more ranks	KEY:Fharlanghn's Way ~ Knowledge local 5	CATEGORY:Church	TYPE:Fharlanghn's Way	PRESKILL:1,Knowledge (Local)=5	BONUS:VAR|FWAffiliationScore|100*1	COST:0	PREABILITY:1,CATEGORY=Church,Fharlanghn's Way ~ Membership	DESC:Knowledge (Local) 5 or more ranks: +1	SOURCEPAGE:p.14
+
+Knowledge the planes 5 or more ranks	KEY:Fharlanghn's Way ~ Knowledge planes 5	CATEGORY:Church	TYPE:Fharlanghn's Way	PRESKILL:1,Knowledge (The Planes)=5	BONUS:VAR|FWAffiliationScore|100*1	COST:0	PREABILITY:1,CATEGORY=Church,Fharlanghn's Way ~ Membership	DESC:Knowledge (The Planes) 5 or more ranks: +1	SOURCEPAGE:p.14
+
+Entitled to reroll	KEY:Fharlanghn's Way ~ Entitled to reroll	CATEGORY:Church	TYPE:Fharlanghn's Way	BONUS:VAR|FWAffiliationScore|100*1	COST:0	PREABILITY:1,CATEGORY=Church,Fharlanghn's Way ~ Membership	DESC:Is entitled to a reroll at least once per day through a spell, feat, or item: +1	SOURCEPAGE:p.14
+
+Speed spell	KEY:Fharlanghn's Way ~ Speed spell	CATEGORY:Church	TYPE:Fharlanghn's Way	BONUS:VAR|FWAffiliationScore|100*1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Fharlanghn's Way ~ Membership	DESC:Can cast a spell that increases speed: +1/spell	SOURCEPAGE:p.14
+
+Saving throw spell	KEY:Fharlanghn's Way ~ Saving throw spell	CATEGORY:Church	TYPE:Fharlanghn's Way	BONUS:VAR|FWAffiliationScore|100*1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Fharlanghn's Way ~ Membership	DESC:Can cast a spell that increases at least one saving throw modifier: +1/spell	SOURCEPAGE:p.14
+
+Can cast teleport	KEY:Fharlanghn's Way ~ Teleport spell	CATEGORY:Church	TYPE:Fharlanghn's Way	BONUS:VAR|FWAffiliationScore|100*1	COST:0	PREABILITY:1,CATEGORY=Church,Fharlanghn's Way ~ Membership	DESC:Can cast teleport: +1	SOURCEPAGE:p.14
+
+Can cast plane shift	KEY:Fharlanghn's Way ~ Plane Shift spell	CATEGORY:Church	TYPE:Fharlanghn's Way	BONUS:VAR|FWAffiliationScore|100*3	COST:0	PREABILITY:1,CATEGORY=Church,Fharlanghn's Way ~ Membership	DESC:Can cast plane shift: +3	SOURCEPAGE:p.14
+
+Modes of mouvement	KEY:Fharlanghn's Way ~ Mouvement modes	CATEGORY:Church	TYPE:Fharlanghn's Way	BONUS:VAR|FWAffiliationScore|100*3	COST:0	PREABILITY:1,CATEGORY=Church,Fharlanghn's Way ~ Membership	DESC:Has more than one mode of mouvement (such as a climb speed, the ability to fly, or the like): +3	SOURCEPAGE:p.14
+
+One month stay	KEY:Fharlanghn's Way ~ Stay month	CATEGORY:Church	TYPE:Fharlanghn's Way	BONUS:VAR|FWAffiliationScore|100*-2	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Fharlanghn's Way ~ Membership	DESC:Spends more than one month in a single place: -2	SOURCEPAGE:p.14
+
+One year stay	KEY:Fharlanghn's Way ~ Stay year	CATEGORY:Church	TYPE:Fharlanghn's Way	BONUS:VAR|FWAffiliationScore|100*-4	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Fharlanghn's Way ~ Membership	DESC:Spends more than one year in a single place: -4	SOURCEPAGE:p.14
+
 ###Block: Fharlanghn's Way (FW), Multiple Use
+
+Survives EL 3-4 higher	KEY:Fharlanghn's Way ~ Survive EL 3-4	CATEGORY:Church	TYPE:Fharlanghn's Way	BONUS:VAR|FWAffiliationScore|100*1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Fharlanghn's Way ~ Membership	DESC:Survives an encounter with an EL 3-4 higher than own character level: +1	SOURCEPAGE:p.14
+
+Survives EL 5 higher	KEY:Fharlanghn's Way ~ Survive EL 5	CATEGORY:Church	TYPE:Fharlanghn's Way	BONUS:VAR|FWAffiliationScore|100*2	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Fharlanghn's Way ~ Membership	DESC:Survives an encounter with an EL 5 or more higher than own character level: +2	SOURCEPAGE:p.14
+
+Avoids a battle	KEY:Fharlanghn's Way ~ Avoids battle	CATEGORY:Church	TYPE:Fharlanghn's Way	BONUS:VAR|FWAffiliationScore|100*1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Fharlanghn's Way ~ Membership	DESC:Avoids a battle as a result of careful preparation: +1	SOURCEPAGE:p.14
+
+Wins a battle	KEY:Fharlanghn's Way ~ Wins battle	CATEGORY:Church	TYPE:Fharlanghn's Way	BONUS:VAR|FWAffiliationScore|100*4	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Fharlanghn's Way ~ Membership	DESC:Wins a battle as a result of careful preparation: +4	SOURCEPAGE:p.14
+
+Wins impossible battle	KEY:Fharlanghn's Way ~ Wins impossible battle	CATEGORY:Church	TYPE:Fharlanghn's Way	BONUS:VAR|FWAffiliationScore|100*8	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Fharlanghn's Way ~ Membership	DESC:Wins a battle against seemingly insurmountable odds as a result of careful preparation: +8	SOURCEPAGE:p.14
+
+Converts a new member	KEY:Fharlanghn's Way ~ Convert	CATEGORY:Church	TYPE:Fharlanghn's Way	BONUS:VAR|FWAffiliationScore|100*1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Fharlanghn's Way ~ Membership	DESC:Converts a new member: +1	SOURCEPAGE:p.14
+
+Find use for useless item	KEY:Fharlanghn's Way ~ Find use	CATEGORY:Church	TYPE:Fharlanghn's Way	BONUS:VAR|FWAffiliationScore|100*1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Fharlanghn's Way ~ Membership	DESC:Finds a use for an item thought to be useless: +1	SOURCEPAGE:p.14
+
+Destroys a slave ring	KEY:Fharlanghn's Way ~ Destroys slave ring	CATEGORY:Church	TYPE:Fharlanghn's Way	BONUS:VAR|FWAffiliationScore|100*4	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Fharlanghn's Way ~ Membership	DESC:Destroys a slave ring: +4	SOURCEPAGE:p.14
+
+Discover area	KEY:Fharlanghn's Way ~ Discover area	CATEGORY:Church	TYPE:Fharlanghn's Way	BONUS:VAR|FWAffiliationScore|100*8	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Fharlanghn's Way ~ Membership	DESC:Discover an area never traveled before: +8	SOURCEPAGE:p.14
+
+Discover area and record voyage	KEY:Fharlanghn's Way ~ Discover and record	CATEGORY:Church	TYPE:Fharlanghn's Way	BONUS:VAR|FWAffiliationScore|100*2	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Fharlanghn's Way ~ Membership	DESC:Discover an area never traveled before and records the voyage: +2	SOURCEPAGE:p.14
+
+One week stay	KEY:Fharlanghn's Way ~ Stay week	CATEGORY:Church	TYPE:Fharlanghn's Way	BONUS:VAR|FWAffiliationScore|100*3	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Fharlanghn's Way ~ Membership	DESC:Spends no more than 1 week in a single place for an entire year: +3	SOURCEPAGE:p.14
+
+Incarcerates or enslave	KEY:Fharlanghn's Way ~ Incarcerator	CATEGORY:Church	TYPE:Fharlanghn's Way	BONUS:VAR|FWAffiliationScore|100*-15	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Fharlanghn's Way ~ Membership	DESC:Incarcerates or enslaves another creature: -15	SOURCEPAGE:p.14
+
+Fails to defend church	KEY:Fharlanghn's Way ~ Fails church	CATEGORY:Church	TYPE:Fharlanghn's Way	BONUS:VAR|FWAffiliationScore|100*-6	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Fharlanghn's Way ~ Membership	DESC:Fails to defend a structure or item important to the church: -6	SOURCEPAGE:p.14
 
 ###Block: Fharlanghn's Way (FW), Rank
 
+# Absolute cost 4, 12, 21, 30
+# Incremental cost 4, 8, 9, 9
+
+Fharlanghn's Way Vagabond	KEY:Fharlanghn's Way ~ Vagabond	CATEGORY:Church Rank	TYPE:Fharlanghn's Way	COST:4	ABILITY:Special Ability|AUTOMATIC|Fharlanghn's Way ~ Vagabond Bonus	DESC:Gain a +2 bonus on sense motive checks.	SOURCEPAGE:p.15
+
+Fharlanghn's Way Wanderer	KEY:Fharlanghn's Way ~ Wanderer	CATEGORY:Church Rank	TYPE:Fharlanghn's Way	COST:8	PREABILITY:1,CATEGORY=Church Rank,Fharlanghn's Way ~ Vagabond	ABILITY:Special Ability|AUTOMATIC|Fharlanghn's Way ~ Wanderer Bonus	DESC:Gain a +2 bonus on checks made to resist a grapple, trip, or bull rush attempt.	SOURCEPAGE:p.15
+
+Fharlanghn's Way Explorer	KEY:Fharlanghn's Way ~ Explorer	CATEGORY:Church Rank	TYPE:Fharlanghn's Way	COST:9	PREABILITY:1,CATEGORY=Church Rank,Fharlanghn's Way ~ Wanderer	ABILITY:Special Ability|AUTOMATIC|Fharlanghn's Way ~ Explorer Bonus	DESC:Once per day, gain a bonus equals to +1 per three character levels on one saving throw.	SOURCEPAGE:p.15
+
+Fharlanghn's Way Traveler of Worlds	KEY:Fharlanghn's Way ~ Traveler	CATEGORY:Church Rank	TYPE:Fharlanghn's Way	COST:9	PREABILITY:1,CATEGORY=Church Rank,Fharlanghn's Way ~ Explorer	ABILITY:Special Ability|AUTOMATIC|Fharlanghn's Way ~ Traveler Bonus	DESC:Once per day, become etheral for 1 round per three character level as a spell-like ability (caster level equals your character level).	SOURCEPAGE:p.15
+
 ###Block: Fharlanghn's Way (FW), Bonus
+
+Fharlanghn's Way Vagabond Bonus	KEY:Fharlanghn's Way ~ Vagabond Bonus	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	OUTPUTNAME:Fharlanghn's Way Vagabond	DESC:Gain a +2 bonus on sense motive checks.	SOURCEPAGE:P.15	BONUS:SKILL|Sense motive|2
+
+Fharlanghn's Way Wanderer Bonus	KEY:Fharlanghn's Way ~ Wanderer Bonus	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	OUTPUTNAME:Fharlanghn's Way Wanderer	DESC:Gain a +2 bonus on checks made to resist a grapple, trip, or bull rush attempt.	SOURCEPAGE:P.15
+
+Fharlanghn's Way Explorer Bonus	KEY:Fharlanghn's Way ~ Explorer Bonus	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	OUTPUTNAME:Fharlanghn's Way Explorer	DESC:Once per day, gain a bonus equals to +1 per three character levels on one saving throw.	SOURCEPAGE:P.15
+
+Fharlanghn's Way Traveler of Worlds Bonus	KEY:Fharlanghn's Way ~ Traveler Bonus	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	OUTPUTNAME:Fharlanghn's Way Traveler of Worlds	DESC:Once per day, become etheral for 1 round per three character level as a spell-like ability (caster level equals your character level).	SOURCEPAGE:P.15
 
 #======================================
 
