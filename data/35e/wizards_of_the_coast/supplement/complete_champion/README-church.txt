@@ -59,6 +59,7 @@ Church list, membership for each church: complete
 
 Ruby Temple: complete
 Shining Light of Pelor: complete
+Fharlanghn's Way: complete
 
 All other churches:
 - automatic 'Character Level' score: completed
