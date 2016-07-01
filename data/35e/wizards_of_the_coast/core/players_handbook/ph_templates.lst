@@ -63,12 +63,11 @@ RighteousMightDR												VISIBLE:NO	DEFINE:RighteousMightDR|0									ABILITY
 
 # The only problem with Bardic Abilities are they are level dependent
 # Template Name					Unique Key						Visible	Define				Choose							Ability																																													Temporary Bonus
-Bardic Inspire Courage ~ Is the Bard								VISIBLE:NO																																																												TEMPBONUS:PC|SAVE|ALL|InspireCourageSaves|TYPE=BardicInspireCourage	TEMPBONUS:PC|COMBAT|TOHIT|InspireCourageAttack|TYPE=BardicInspireCourage	TEMPBONUS:PC|COMBAT|DAMAGE.Melee,DAMAGE.Ranged|InspireCourageDamage|TYPE=BardicInspireCourage
-Bardic Inspire Competence ~ Is The Bard								VISIBLE:NO																																																												TEMPBONUS:PC|SKILL|TYPE.Standard|InspireCompetenceBonus
+Bardic Inspire Courage ~ Is the Bard								VISIBLE:NO																																																												TEMPBONUS:PC|COMBAT|TOHIT|BardicInspireCourageHit|TYPE=BardicInspireCourage	TEMPBONUS:PC|COMBAT|DAMAGE.Melee,DAMAGE.Ranged|BardicInspireCourageDamage|TYPE=BardicInspireCourage		TEMPBONUS:PC|VAR|TempBonus_ActivateBardicInspireCourage|1
 
 # This is for Non-Bards traveling with Bards - They need to select the Bard's Level.
-Bardic Inspire Courage ~ Not The Bard	KEY:Bardic Inspire Courage (Other)		VISIBLE:NO						TEMPVALUE:MIN=1|MAX=20|TITLE=Bard Level																																															TEMPBONUS:ANYPC|VAR|EnableBardicInspireCourage|1	TEMPBONUS:ANYPC|VAR|OtherInspireCourageLVL|%CHOICE
-Bardic Inspire Competence ~ Not The Bard	KEY:Bardic Inspire Competence (Other)	VISIBLE:NO																																																												TEMPBONUS:ANYPC|VAR|EnableBardicInspireCompetence|1
+Bardic Inspire Courage ~ Not The Bard	KEY:Bardic Inspire Courage (Other)		VISIBLE:NO						TEMPVALUE:MIN=1|MAX=20|TITLE=Bard Level																																																TEMPBONUS:ANYPC|VAR|TempBonus_BardicInspireCourageBonus|1+((%CHOICE-2)/6)	TEMPBONUS:ANYPC|COMBAT|TOHIT|TempBonus_BardicInspireCourageBonus|TYPE=BardicInspireCourage	TEMPBONUS:ANYPC|COMBAT|DAMAGE.Melee,DAMAGE.Ranged|TempBonus_BardicInspireCourageBonus|TYPE=BardicInspireCourage	TEMPBONUS:ANYPC|VAR|BardicInspireCourageSaveBonus|TempBonus_BardicInspireCourageBonus	TEMPBONUS:ANYPC|VAR|TempBonus_ActivateBardicInspireCourage|1
+Bardic Inspire Competence			KEY:Bardic Inspire Competence (Other)	VISIBLE:NO																																																												TEMPBONUS:ANYPC|SKILL|TYPE.Standard|2|TYPE=Competence
 
 
 ###Block: Inherent ability bonuses
