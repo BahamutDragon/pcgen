@@ -1,0 +1,188 @@
+# CVS $Revision: $ $Author: $ -- Fri Sep  5 11:40:25 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+SOURCELONG:Traveller's Handbook	SOURCESHORT:THB	SOURCEWEB:http://www.rpgrealms.com
+
+
+# Template Name		Visible		Define			Bonus			Feats				Bonus									Template																												Source Page
+#Assign Homeworld Skills
+# Template Name						Visible		Template																																																																		Define			Required Template											Prohibited Template											Bonus Ability Pool						Bonus to skill																Bonus to skill rank																																																		Stat bonus											Modify VAR				Class Skill				Add 				Feat						Auto Feat
+Homeworld Skills						VISIBLE:YES		TEMPLATE:CHOOSE:VeryLowTechHomeWorldSkills|MidTechHomeWorldSkills|HighTechHomeWorldSkills|VHighTechHomeWorldSkills
+
+#Very Low Tech Skills
+VeryLowTechHomeWorldSkills				VISIBLE:NO																																																																									PRETEMPLATE:1,Homeworld Skills	PRETEMPLATE:1,Very Low Tech																	BONUS:ABILITYPOOL|Very Low Tech Home World Skills|1																			BONUS:SKILLRANK|Ride,Survival|1
+
+# Low Tech Skills
+LowTechHomeWorldSkills					VISIBLE:NO																																																																									PRETEMPLATE:1,Homeworld Skills	PRETEMPLATE:1,Low Tech																		BONUS:ABILITYPOOL|Low Tech Home World Skills|1																				BONUS:SKILLRANK|Ride,Survival|1																																																																	CSKILL:Ride|SURVIVAL
+
+# Mid Tech Skills
+MidTechHomeWorldSkills					VISIBLE:NO																																																																									PRETEMPLATE:1,Homeworld Skills	PRETEMPLATE:1,Mid-Level Tech																	BONUS:ABILITYPOOL|Mid Tech Home World Skills|3
+
+# High Tech Skills
+HighTechHomeWorldSkills					VISIBLE:NO		TEMPLATE:Display Technical(0-Lvl) (Computer)																																																																PRETEMPLATE:1,Homeworld Skills	PRETEMPLATE:1,High Tech 1,High Tech 2															BONUS:ABILITYPOOL|High Tech Home World Skills|3																																																																																										CSKILL:Technical (Computer)
+
+# High Tech Skills
+VHighTechHomeWorldSkills				VISIBLE:NO		TEMPLATE:Display Technical(0-Lvl) (Computer)																																																																PRETEMPLATE:1,Homeworld Skills	PRETEMPLATE:1,Very High Tech																	BONUS:ABILITYPOOL|VHigh Tech Home World Skills|3																																																																																									CSKILL:Technical (Computer)
+
+Tech Level Group						VISIBLE:DISPLAY	TEMPLATE:CHOOSE:Very Low Tech|Low Tech|Mid-Level Tech|High Tech 1|High Tech 2|Very High Tech
+
+Very Low Tech						VISIBLE:NO		TEMPLATE:CHOOSE:Very Low Tech TL 0-1|Very Low Tech TL 2-3	TEMPLATE:CHOOSE:Die Roll 2-VeryLow|Die Roll 3-VeryLow|Die Roll 4-VeryLow|Die Roll 5-VeryLow|Die Roll 6-VeryLow|Die Roll 7-VeryLow|Die Roll 8-VeryLow|Die Roll 9-VeryLow|Die Roll 10-VeryLow|Die Roll 11-VeryLow|Die Roll 12-VeryLow																				DEFINE:TechLevelGroup|0	PRETEMPLATE:1,Tech Level Group								!PRETEMPLATE:1,Low Tech,Mid-Level Tech,High Tech 1,High Tech 2,Very High Tech																																																																																														BONUS:VAR|TechLevelGroup|1										ABILITY:Feat|AUTOMATIC|Tracker|Trapping
+Very Low Tech TL 0-1					VISIBLE:EXPORT																																																																				DEFINE:TravellerTL|0	PRETEMPLATE:1,Very Low Tech																																																																																																							BONUS:STAT|EDU|-5
+Very Low Tech TL 2-3					VISIBLE:EXPORT																																																																				DEFINE:TravellerTL|0	PRETEMPLATE:1,Very Low Tech																																																																																																							BONUS:STAT|EDU|-4										BONUS:VAR|TravellerTL|2
+
+Low Tech							VISIBLE:NO		TEMPLATE:CHOOSE:Low Tech TL 4-5|Low Tech TL 6	TEMPLATE:CHOOSE:Die Roll 2-Low|Die Roll 3-Low|Die Roll 4-Low|Die Roll 5-Low|Die Roll 6-Low|Die Roll 7-Low|Die Roll 8-Low|Die Roll 9-Low|Die Roll 10-Low|Die Roll 11-Low|Die Roll 12-Low																													DEFINE:TechLevelGroup|0	PRETEMPLATE:1,Tech Level Group								!PRETEMPLATE:1,Very Low Tech,Mid-Level Tech,High Tech 1,High Tech 2,Very High Tech																																																																																													BONUS:VAR|TechLevelGroup|2										ABILITY:Feat|AUTOMATIC|Weapon Proficiency (Swordsman)
+Low Tech TL 4-5						VISIBLE:EXPORT																																																																				DEFINE:TravellerTL|0	PRETEMPLATE:1,Low Tech																																																																																																								BONUS:STAT|EDU|-3										BONUS:VAR|TravellerTL|4
+Low Tech TL 6						VISIBLE:EXPORT																																																																				DEFINE:TravellerTL|0	PRETEMPLATE:1,Low Tech																																																																																																								BONUS:STAT|EDU|-2										BONUS:VAR|TravellerTL|6
+
+Mid-Level Tech						VISIBLE:NO		TEMPLATE:CHOOSE:Mid-Level Tech TL 7|Mid-Level Tech TL 8-9	TEMPLATE:CHOOSE:Die Roll 2-Mid|Die Roll 3-Mid|Die Roll 4-Mid|Die Roll 5-Mid|Die Roll 6-Mid|Die Roll 7-Mid|Die Roll 8-Mid|Die Roll 9-Mid|Die Roll 10-Mid|Die Roll 11-Mid|Die Roll 12-Mid																											DEFINE:TechLevelGroup|0	PRETEMPLATE:1,Tech Level Group								!PRETEMPLATE:1,Very Low Tech,Low Tech,High Tech 1,High Tech 2,Very High Tech											BONUS:SKILL|Driving|0																																																																																BONUS:VAR|TechLevelGroup|3						ADD:ABILITY|FEAT|NORMAL|Vessel/Ground
+Mid-Level Tech TL 7					VISIBLE:EXPORT																																																																				DEFINE:TravellerTL|0	PRETEMPLATE:1,Mid-Level Tech																																																																																																							BONUS:STAT|EDU|-2										BONUS:VAR|TravellerTL|7
+Mid-Level Tech TL 8-9					VISIBLE:EXPORT																																																																				DEFINE:TravellerTL|0	PRETEMPLATE:1,Mid-Level Tech																																																																																																							BONUS:STAT|EDU|-2										BONUS:VAR|TravellerTL|8
+
+High Tech 1							VISIBLE:NO		TEMPLATE:Display Technical(0-Lvl) (Computer)	TEMPLATE:CHOOSE:High Tech 1 TL 10-11|High Tech 1 TL 12	TEMPLATE:CHOOSE:Die Roll 2-High1|Die Roll 3-High1|Die Roll 4-High1|Die Roll 5-High1|Die Roll 6-High1|Die Roll 7-High1|Die Roll 8-High1|Die Roll 9-High1|Die Roll 10-High1|Die Roll 11-High1|Die Roll 12-High1															DEFINE:TechLevelGroup|0	PRETEMPLATE:1,Tech Level Group								!PRETEMPLATE:1,Very Low Tech,Low Tech,Mid-Level Tech,High Tech 2,Very High Tech										BONUS:SKILL|Pilot (INT Based),Pilot (Dex Based)|0																																																																											BONUS:VAR|TechLevelGroup|4						ADD:ABILITY|FEAT|NORMAL|Vessel/Grav
+High Tech 1 TL 10-11					VISIBLE:EXPORT																																																																				DEFINE:TravellerTL|0	PRETEMPLATE:1,High Tech 1																																																																																																																			BONUS:VAR|TravellerTL|10
+High Tech 1 TL 12						VISIBLE:EXPORT																																																																				DEFINE:TravellerTL|0	PRETEMPLATE:1,High Tech 1																																																																																																							BONUS:STAT|EDU|1										BONUS:VAR|TravellerTL|12
+
+High Tech 2							VISIBLE:NO		TEMPLATE:Display Technical(0-Lvl) (Computer)	TEMPLATE:CHOOSE:High Tech 2 TL 10-11|High Tech 2 TL 12	TEMPLATE:CHOOSE:Die Roll 2-High2|Die Roll 3-High2|Die Roll 4-High2|Die Roll 5-High2|Die Roll 6-High2|Die Roll 7-High2|Die Roll 8-High2|Die Roll 9-High2|Die Roll 10-High2|Die Roll 11-High2|Die Roll 12-High2															DEFINE:TechLevelGroup|0	PRETEMPLATE:1,Tech Level Group								!PRETEMPLATE:1,Very Low Tech,Low Tech,Mid-Level Tech,High Tech 1,Very High Tech										BONUS:SKILL|Pilot (INT Based),Pilot (Dex Based)|0																																																																											BONUS:VAR|TechLevelGroup|5						ADD:ABILITY|FEAT|NORMAL|Vessel/Grav
+High Tech 2 TL 10-11					VISIBLE:EXPORT																																																																				DEFINE:TravellerTL|0	PRETEMPLATE:1,High Tech 2																																																																																																																			BONUS:VAR|TravellerTL|10
+High Tech 2 TL 12						VISIBLE:EXPORT																																																																				DEFINE:TravellerTL|0	PRETEMPLATE:1,High Tech 2																																																																																																							BONUS:STAT|EDU|1										BONUS:VAR|TravellerTL|12
+
+Very High Tech						VISIBLE:NO		TEMPLATE:Display Technical(0-Lvl) (Computer)	TEMPLATE:Display Pilot(0-Lvl)	TEMPLATE:CHOOSE:Very High Tech TL 13|Very High Tech TL 14-15|Very High Tech TL 16+	TEMPLATE:CHOOSE:Die Roll 2-VeryHigh|Die Roll 3-VeryHigh|Die Roll 4-VeryHigh|Die Roll 5-VeryHigh|Die Roll 6-VeryHigh|Die Roll 7-VeryHigh|Die Roll 8-VeryHigh|Die Roll 9-VeryHigh|Die Roll 10-VeryHigh|Die Roll 11-VeryHigh|Die Roll 12-VeryHigh	DEFINE:TechLevelGroup|0	PRETEMPLATE:1,Tech Level Group								!PRETEMPLATE:1,Very Low Tech,Low Tech,Mid-Level Tech,High Tech 1,High Tech 2																																																																																														BONUS:VAR|TechLevelGroup|6						ADD:ABILITY|FEAT|NORMAL|Vessel/Grav
+Very High Tech TL 13					VISIBLE:EXPORT																																																																				DEFINE:TravellerTL|0	PRETEMPLATE:1,Very High Tech																																																																																																							BONUS:STAT|EDU|1										BONUS:VAR|TravellerTL|13
+Very High Tech TL 14-15					VISIBLE:EXPORT																																																																				DEFINE:TravellerTL|0	PRETEMPLATE:1,Very High Tech																																																																																																							BONUS:STAT|EDU|2										BONUS:VAR|TravellerTL|14
+Very High Tech TL 16+					VISIBLE:EXPORT																																																																				DEFINE:TravellerTL|0	PRETEMPLATE:1,Very High Tech																																																																																																							BONUS:STAT|EDU|3										BONUS:VAR|TravellerTL|16
+
+#Display Driving(0-Lvl)		VISIBLE:NO	BONUS:SKILLRANK|Driving(0-Lvl)|1	BONUS:SKILLRANK|Driving(0-Lvl)|-1|PRESKILL:1,Pilot=1	BONUS:SKILL|Driving(0-Lvl)|-1|TYPE=Misc
+
+#Zero Level Skills
+Display Intuit Direction(0-Lvl)			VISIBLE:NO																																																																																																													BONUS:SKILL|Intuit Direction(0-Lvl)|-1|TYPE=Misc										BONUS:SKILLRANK|Intuit Direction(0-Lvl)|1	BONUS:SKILLRANK|Intuit Direction(0-Lvl)|-1|PRESKILL:1,Intuit Direction=1	BONUS:SKILLRANK|Intuit Direction|-1|PRESKILL:1,Intuit Direction=1
+Display Navigation(0-Lvl)				VISIBLE:NO																																																																																																													BONUS:SKILL|Navigation(0-Lvl)|-1|TYPE=Misc											BONUS:SKILLRANK|Navigation(0-Lvl)|1	BONUS:SKILLRANK|Navigation(0-Lvl)|-1|PRESKILL:1,Navigation=1	BONUS:SKILLRANK|Navigation|-1|PRESKILL:1,Navigation=1
+#Display Knowledge(0-Lvl)				VISIBLE:NO																																																																																																																BONUS:SKILL|Knowledge(0-Lvl) ()|-1|TYPE=Misc											BONUS:SKILLRANK|Knowledge(0-Lvl) ()|1	BONUS:SKILLRANK|Knowledge(0-Lvl) ()|-1|PRESKILL:1,Knowledge ()=1	BONUS:SKILLRANK|Knowledge ()|-1|PRESKILL:1,Knowledge ()=1
+Display Knowledge(0-Lvl) (Chemistry)		VISIBLE:NO																																																																																																													BONUS:SKILL|Knowledge(0-Lvl) (Chemistry)|-1|TYPE=Misc										BONUS:SKILLRANK|Knowledge(0-Lvl) (Chemistry)|1	BONUS:SKILLRANK|Knowledge(0-Lvl) (Chemistry)|-1|PRESKILL:1,Knowledge (Chemistry)=1	BONUS:SKILLRANK|Knowledge (Chemistry)|-1|PRESKILL:1,Knowledge (Chemistry)=1
+Display Knowledge(0-Lvl) (Interstellar Law)	VISIBLE:NO																																																																																																													BONUS:SKILL|Knowledge(0-Lvl) (Interstellar Law)|-1|TYPE=Misc								BONUS:SKILLRANK|Knowledge(0-Lvl) (Interstellar Law)|1	BONUS:SKILLRANK|Knowledge(0-Lvl) (Interstellar Law)|-1|PRESKILL:1,Knowledge (Interstellar Law)=1	BONUS:SKILLRANK|Knowledge (Interstellar Law)|-1|PRESKILL:1,Knowledge (Interstellar Law)=1
+Display Pilot(0-Lvl)					VISIBLE:NO																																																																																																													BONUS:SKILL|Pilot(0-Lvl) (Dex Based)|-1|TYPE=Misc	BONUS:SKILL|Pilot(0-Lvl) (INT Based)|-1|TYPE=Misc	BONUS:SKILLRANK|Pilot(0-Lvl)|1	BONUS:SKILLRANK|Pilot(0-Lvl)|-1|PRESKILL:1,Pilot=1	BONUS:SKILLRANK|Pilot(0-Lvl) (Dex Based)|1	BONUS:SKILLRANK|Pilot(0-Lvl) (Dex Based)|-1|PRESKILL:1,Pilot=1	BONUS:SKILLRANK|Pilot(0-Lvl) (INT Based)|1	BONUS:SKILLRANK|Pilot(0-Lvl) (INT Based)|-1|PRESKILL:1,Pilot=1
+Display Profession(0-Lvl) (Administration)	VISIBLE:NO																																																																																																													BONUS:SKILL|Profession(0-Lvl) (Administration)|-1|TYPE=Misc									BONUS:SKILLRANK|Profession(0-Lvl) (Administration)|1	BONUS:SKILLRANK|Profession(0-Lvl) (Administration)|-1|PRESKILL:1,Profession (Administration)=1	BONUS:SKILLRANK|Profession (Administration)|-1|PRESKILL:1,Profession (Administration)=1
+Display Profession(0-Lvl) (Prospecting)		VISIBLE:NO																																																																																																													BONUS:SKILL|Profession(0-Lvl) (Prospecting)|-1|TYPE=Misc									BONUS:SKILLRANK|Profession(0-Lvl) (Prospecting)|1	BONUS:SKILLRANK|Profession(0-Lvl) (Prospecting)|-1|PRESKILL:1,Profession (Prospecting)=1	BONUS:SKILLRANK|Profession (Prospecting)|-1|PRESKILL:1,Profession (Prospecting)=1
+Display Technical(0-Lvl) (Mechanical)		VISIBLE:NO																																																																																																													BONUS:SKILL|Technical(0-Lvl) (Mechanical)|-1|TYPE=Misc									BONUS:SKILLRANK|Technical(0-Lvl) (Mechanical)|1	BONUS:SKILLRANK|Technical(0-Lvl) (Mechanical)|-1|PRESKILL:1,Technical (Mechanical)=1	BONUS:SKILLRANK|Technical (Mechanical)|-1|PRESKILL:1,Technical (Mechanical)=1
+Display Technical(0-Lvl) (Communications)		VISIBLE:NO																																																																																																													BONUS:SKILL|Technical(0-Lvl) (Communications)|-1|TYPE=Misc									BONUS:SKILLRANK|Technical(0-Lvl) (Communications)|1	BONUS:SKILLRANK|Technical(0-Lvl) (Communications)|-1|PRESKILL:1,Technical (Communications)=1	BONUS:SKILLRANK|Technical (Communications)|-1|PRESKILL:1,Technical (Communications)=1
+Display Technical(0-Lvl) (Electronics)		VISIBLE:NO																																																																																																													BONUS:SKILL|Technical(0-Lvl) (Electronics)|-1|TYPE=Misc									BONUS:SKILLRANK|Technical(0-Lvl) (Electronics)|1	BONUS:SKILLRANK|Technical(0-Lvl) (Electronics)|-1|PRESKILL:1,Technical (Electronics)=1	BONUS:SKILLRANK|Technical (Electronics)|-1|PRESKILL:1,Technical (Electronics)=1
+Display Technical(0-Lvl) (Gravitics)		VISIBLE:NO																																																																																																													BONUS:SKILL|Technical(0-Lvl) (Gravitics)|-1|TYPE=Misc										BONUS:SKILLRANK|Technical(0-Lvl) (Gravitics)|1	BONUS:SKILLRANK|Technical(0-Lvl) (Gravitics)|-1|PRESKILL:1,Technical (Gravitics)=1	BONUS:SKILLRANK|Technical (Gravitics)|-1|PRESKILL:1,Technical (Gravitics)=1
+Display Technical(0-Lvl) (Astrogation)		VISIBLE:NO																																																																																																													BONUS:SKILL|Technical(0-Lvl) (Astrogation)|-1|TYPE=Misc									BONUS:SKILLRANK|Technical(0-Lvl) (Astrogation)|1	BONUS:SKILLRANK|Technical(0-Lvl) (Astrogation)|-1|PRESKILL:1,Technical (Astrogation)=1	BONUS:SKILLRANK|Technical (Astrogation)|-1|PRESKILL:1,Technical (Astrogation)=1
+Display Technical(0-Lvl) (Computer)			VISIBLE:NO																																																																																																													BONUS:SKILL|Technical(0-Lvl) (Computer)|-1|TYPE=Misc										BONUS:SKILLRANK|Technical(0-Lvl) (Computer)|1	BONUS:SKILLRANK|Technical(0-Lvl) (Computer)|-1|PRESKILL:1,Technical (Computer)=1	BONUS:SKILLRANK|Technical (Computer)|-1|PRESKILL:1,Technical (Computer)=1
+
+#World Trade Clasifications
+# Template Name		Visible		Define			Bonus			Feats				Bonus									Template																												Source Page
+
+Die Roll 2-VeryLow					VISIBLE:NO		TEMPLATE:Na	TEMPLATE:Po																																																																				PRETEMPLATE:1,Very Low Tech
+Die Roll 3-VeryLow					VISIBLE:NO		TEMPLATE:Ni	TEMPLATE:LoPop																																																																			PRETEMPLATE:1,Very Low Tech
+Die Roll 4-VeryLow					VISIBLE:NO		TEMPLATE:LoPop	TEMPLATE:De																																																																			PRETEMPLATE:1,Very Low Tech
+Die Roll 5-VeryLow					VISIBLE:NO		TEMPLATE:Wa	TEMPLATE:LoPop																																																																			PRETEMPLATE:1,Very Low Tech
+Die Roll 6-VeryLow					VISIBLE:NO		TEMPLATE:Po	TEMPLATE:LoPop																																																																			PRETEMPLATE:1,Very Low Tech
+Die Roll 7-VeryLow					VISIBLE:NO		TEMPLATE:LoPop																																																																					PRETEMPLATE:1,Very Low Tech
+Die Roll 8-VeryLow					VISIBLE:NO		TEMPLATE:Ag	TEMPLATE:Ni																																																																				PRETEMPLATE:1,Very Low Tech
+Die Roll 9-VeryLow					VISIBLE:NO		TEMPLATE:Ni																																																																						PRETEMPLATE:1,Very Low Tech
+Die Roll 10-VeryLow					VISIBLE:NO		TEMPLATE:Ag																																																																						PRETEMPLATE:1,Very Low Tech
+Die Roll 11-VeryLow					VISIBLE:NO		TEMPLATE:Na	TEMPLATE:Ni	TEMPLATE:Po																																																																		PRETEMPLATE:1,Very Low Tech
+Die Roll 12-VeryLow					VISIBLE:NO		TEMPLATE:Po																																																																						PRETEMPLATE:1,Very Low Tech
+
+
+Die Roll 2-Low						VISIBLE:NO		TEMPLATE:Na	TEMPLATE:In	TEMPLATE:HiPop	TEMPLATE:Va																																																															PRETEMPLATE:1,Low Tech
+Die Roll 3-Low						VISIBLE:NO		TEMPLATE:Ag	TEMPLATE:Ri																																																																				PRETEMPLATE:1,Low Tech
+Die Roll 4-Low						VISIBLE:NO		TEMPLATE:In	TEMPLATE:HiPop																																																																			PRETEMPLATE:1,Low Tech
+Die Roll 5-Low						VISIBLE:NO		TEMPLATE:Wa	TEMPLATE:LoPop																																																																			PRETEMPLATE:1,Low Tech
+Die Roll 6-Low						VISIBLE:NO		TEMPLATE:Ni																																																																						PRETEMPLATE:1,Low Tech
+Die Roll 7-Low						VISIBLE:NO		TEMPLATE:Po	TEMPLATE:LoPop																																																																			PRETEMPLATE:1,Low Tech
+Die Roll 8-Low						VISIBLE:NO		TEMPLATE:Ag	TEMPLATE:Ni																																																																				PRETEMPLATE:1,Low Tech
+Die Roll 9-Low						VISIBLE:NO		TEMPLATE:LoPop	TEMPLATE:Fl																																																																			PRETEMPLATE:1,Low Tech
+Die Roll 10-Low						VISIBLE:NO		TEMPLATE:Ag																																																																						PRETEMPLATE:1,Low Tech
+Die Roll 11-Low						VISIBLE:NO		TEMPLATE:HiPop																																																																					PRETEMPLATE:1,Low Tech
+Die Roll 12-Low						VISIBLE:NO		TEMPLATE:Na	TEMPLATE:Ni	TEMPLATE:Po	TEMPLATE:De																																																																PRETEMPLATE:1,Low Tech
+
+Die Roll 2-Mid						VISIBLE:NO		TEMPLATE:De																																																																						PRETEMPLATE:1,Mid-Level Tech
+Die Roll 3-Mid						VISIBLE:NO		TEMPLATE:Na	TEMPLATE:Va																																																																				PRETEMPLATE:1,Mid-Level Tech
+Die Roll 4-Mid						VISIBLE:NO		TEMPLATE:Ag	TEMPLATE:Ni																																																																				PRETEMPLATE:1,Mid-Level Tech
+Die Roll 5-Mid						VISIBLE:NO		TEMPLATE:HiPop																																																																					PRETEMPLATE:1,Mid-Level Tech
+Die Roll 6-Mid						VISIBLE:NO		TEMPLATE:Po	TEMPLATE:LoPop																																																																			PRETEMPLATE:1,Mid-Level Tech
+Die Roll 7-Mid						VISIBLE:NO		TEMPLATE:LoPop																																																																					PRETEMPLATE:1,Mid-Level Tech
+Die Roll 8-Mid						VISIBLE:NO		TEMPLATE:In	TEMPLATE:HiPop																																																																			PRETEMPLATE:1,Mid-Level Tech
+Die Roll 9-Mid						VISIBLE:NO		TEMPLATE:Na	TEMPLATE:Ni	TEMPLATE:Va																																																																		PRETEMPLATE:1,Mid-Level Tech
+Die Roll 10-Mid						VISIBLE:NO		TEMPLATE:Ic	TEMPLATE:LoPop	TEMPLATE:Va																																																																	PRETEMPLATE:1,Mid-Level Tech
+Die Roll 11-Mid						VISIBLE:NO		TEMPLATE:Na	TEMPLATE:Va																																																																				PRETEMPLATE:1,Mid-Level Tech
+Die Roll 12-Mid						VISIBLE:NO		TEMPLATE:Na	TEMPLATE:Ni																																																																				PRETEMPLATE:1,Mid-Level Tech
+
+Die Roll 2-High1						VISIBLE:NO		TEMPLATE:De	TEMPLATE:LoPop																																																																			PRETEMPLATE:1,High Tech 1
+Die Roll 3-High1						VISIBLE:NO		TEMPLATE:HiPop	TEMPLATE:Fl																																																																			PRETEMPLATE:1,High Tech 1
+Die Roll 4-High1						VISIBLE:NO		TEMPLATE:Po																																																																						PRETEMPLATE:1,High Tech 1
+Die Roll 5-High1						VISIBLE:NO		TEMPLATE:Ni	TEMPLATE:Po	TEMPLATE:De																																																																		PRETEMPLATE:1,High Tech 1
+Die Roll 6-High1						VISIBLE:NO		TEMPLATE:Ni																																																																						PRETEMPLATE:1,High Tech 1
+Die Roll 7-High1						VISIBLE:NO		TEMPLATE:LoPop	TEMPLATE:Va																																																																			PRETEMPLATE:1,High Tech 1
+Die Roll 8-High1						VISIBLE:NO		TEMPLATE:Wa	TEMPLATE:LoPop																																																																			PRETEMPLATE:1,High Tech 1
+Die Roll 9-High1						VISIBLE:NO		TEMPLATE:Ni	TEMPLATE:Po																																																																				PRETEMPLATE:1,High Tech 1
+Die Roll 10-High1						VISIBLE:NO		TEMPLATE:Na	TEMPLATE:In	TEMPLATE:HiPop																																																																	PRETEMPLATE:1,High Tech 1
+Die Roll 11-High1						VISIBLE:NO		TEMPLATE:Na	TEMPLATE:Ni	TEMPLATE:Po																																																																		PRETEMPLATE:1,High Tech 1
+Die Roll 12-High1						VISIBLE:NO		TEMPLATE:Na	TEMPLATE:Po	TEMPLATE:De																																																																		PRETEMPLATE:1,High Tech 1
+
+
+Die Roll 2-High2						VISIBLE:NO		TEMPLATE:Fl																																																																						PRETEMPLATE:1,High Tech 2
+Die Roll 3-High2						VISIBLE:NO		TEMPLATE:LoPop	TEMPLATE:Fl																																																																			PRETEMPLATE:1,High Tech 2
+Die Roll 4-High2						VISIBLE:NO		TEMPLATE:Ri																																																																						PRETEMPLATE:1,High Tech 2
+Die Roll 5-High2						VISIBLE:NO		TEMPLATE:Na	TEMPLATE:In	TEMPLATE:HiPop	TEMPLATE:Va																																																															PRETEMPLATE:1,High Tech 2
+Die Roll 6-High2						VISIBLE:NO		TEMPLATE:Ast	TEMPLATE:LoPop	TEMPLATE:Va																																																																PRETEMPLATE:1,High Tech 2
+Die Roll 7-High2						VISIBLE:NO		TEMPLATE:Na	TEMPLATE:Va																																																																				PRETEMPLATE:1,High Tech 2
+Die Roll 8-High2						VISIBLE:NO		TEMPLATE:Ni	TEMPLATE:Va																																																																				PRETEMPLATE:1,High Tech 2
+Die Roll 9-High2						VISIBLE:NO		TEMPLATE:Po	TEMPLATE:De	TEMPLATE:LoPop																																																																	PRETEMPLATE:1,High Tech 2
+Die Roll 10-High2						VISIBLE:NO		TEMPLATE:Na	TEMPLATE:Ni	TEMPLATE:Ast	TEMPLATE:Va																																																															PRETEMPLATE:1,High Tech 2
+Die Roll 11-High2						VISIBLE:NO		TEMPLATE:Ag																																																																						PRETEMPLATE:1,High Tech 2
+Die Roll 12-High2						VISIBLE:NO		TEMPLATE:Na	TEMPLATE:Po	TEMPLATE:HiPop																																																																	PRETEMPLATE:1,High Tech 2
+
+Die Roll 2-VeryHigh					VISIBLE:NO		TEMPLATE:Na	TEMPLATE:In	TEMPLATE:Po	TEMPLATE:HiPop																																																															PRETEMPLATE:1,Very High Tech
+Die Roll 3-VeryHigh					VISIBLE:NO		TEMPLATE:In	TEMPLATE:Wa	TEMPLATE:HiPop																																																																	PRETEMPLATE:1,Very High Tech
+Die Roll 4-VeryHigh					VISIBLE:NO		TEMPLATE:Ni	TEMPLATE:Wa																																																																				PRETEMPLATE:1,Very High Tech
+Die Roll 5-VeryHigh					VISIBLE:NO		TEMPLATE:Ni																																																																						PRETEMPLATE:1,Very High Tech
+Die Roll 6-VeryHigh					VISIBLE:NO		TEMPLATE:LoPop	TEMPLATE:Va																																																																			PRETEMPLATE:1,Very High Tech
+Die Roll 7-VeryHigh					VISIBLE:NO		TEMPLATE:LoPop																																																																					PRETEMPLATE:1,Very High Tech
+Die Roll 8-VeryHigh					VISIBLE:NO		TEMPLATE:Ast	TEMPLATE:LoPop	TEMPLATE:Va																																																																PRETEMPLATE:1,Very High Tech
+Die Roll 9-VeryHigh					VISIBLE:NO		TEMPLATE:In	TEMPLATE:HiPop																																																																			PRETEMPLATE:1,Very High Tech
+Die Roll 10-VeryHigh					VISIBLE:NO		TEMPLATE:Na	TEMPLATE:Va																																																																				PRETEMPLATE:1,Very High Tech
+Die Roll 11-VeryHigh					VISIBLE:NO		TEMPLATE:Ag	TEMPLATE:Ni	TEMPLATE:Ri																																																																		PRETEMPLATE:1,Very High Tech
+Die Roll 12-VeryHigh					VISIBLE:NO		TEMPLATE:Na	TEMPLATE:Po	TEMPLATE:HiPop																																																																	PRETEMPLATE:1,Very High Tech
+
+Ag								VISIBLE:EXPORT
+Ast								VISIBLE:EXPORT																																																																																																																																																																																																																			ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Vacc Suit)|Zero-G/Low Gravity Adaptation
+De								VISIBLE:EXPORT
+Fl								VISIBLE:EXPORT
+HiPop								VISIBLE:EXPORT
+Ic								VISIBLE:EXPORT
+In								VISIBLE:EXPORT
+LoPop								VISIBLE:EXPORT
+Na								VISIBLE:EXPORT
+Ni								VISIBLE:EXPORT
+Po								VISIBLE:EXPORT
+Ri								VISIBLE:EXPORT
+Wa								VISIBLE:EXPORT
+Va								VISIBLE:EXPORT																																																																																																																																																																																																																			ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Vacc Suit)|Zero-G/Low Gravity Adaptation
+
+
+#University Programs & OTC
+University							VISIBLE:DISPLAY	TEMPLATE:CHOOSE:Bachelor's Program|Master's Program|Doctorate Program
+Bachelor's Program					VISIBLE:DISPLAY	TEMPLATE:CHOOSE:Bachelor's Program Graduate|Bachelor's Program Honors|Bachelor's Program Dropout
+Bachelor's Program Graduate				VISIBLE:EXPORT	TEMPLATE:EDU Bonus 6																																																																				PRETEMPLATE:1,Bachelor's Program
+Bachelor's Program Honors				VISIBLE:EXPORT	TEMPLATE:EDU Bonus 5																																																																				PRETEMPLATE:1,Bachelor's Program
+Bachelor's Program Dropout				VISIBLE:EXPORT																																																																								PRETEMPLATE:1,Bachelor's Program
+Master's Program						VISIBLE:DISPLAY	TEMPLATE:CHOOSE:Master's Program Graduate|Master's Program Honors|Master's Program Dropout																																																								PRETEMPLATE:1,Bachelor's Program Graduate,Bachelor's Program Honors
+Master's Program Graduate				VISIBLE:EXPORT	TEMPLATE:EDU Bonus 4																																																																				PRETEMPLATE:1,Master's Program
+Master's Program Honors					VISIBLE:EXPORT	TEMPLATE:EDU Bonus 3																																																																				PRETEMPLATE:1,Master's Program
+Master's Program Dropout				VISIBLE:EXPORT																																																																								PRETEMPLATE:1,Master's Program
+Doctorate Program						VISIBLE:DISPLAY	TEMPLATE:CHOOSE:Doctorate Program Graduate|Doctorate Program Honors|Doctorate Program Dropout																																																								PRETEMPLATE:1,Master's Program Graduate,Master's Program Honors
+Doctorate Program Graduate				VISIBLE:EXPORT	TEMPLATE:EDU Bonus 2																																																																				PRETEMPLATE:1,Doctorate Program
+Doctorate Program Honors				VISIBLE:EXPORT	TEMPLATE:EDU Bonus 1																																																																				PRETEMPLATE:1,Doctorate Program
+Doctorate Program Dropout				VISIBLE:EXPORT																																																																								PRETEMPLATE:1,Doctorate Program
+OTC								VISIBLE:DISPLAY	TEMPLATE:CHOOSE:OTC (Army)|OTC (Marines)|OTC (Navy)|OTC (Merchants)																																																												PRETEMPLATE:1,Bachelor's Program
+OTC (Army)							VISIBLE:EXPORT																																																																								PRETEMPLATE:1,OTC
+OTC (Marines)						VISIBLE:EXPORT																																																																								PRETEMPLATE:1,OTC
+OTC (Navy)							VISIBLE:EXPORT																																																																								PRETEMPLATE:1,OTC
+OTC (Merchants)						VISIBLE:EXPORT																																																																								PRETEMPLATE:1,OTC
+# COMMENT: This was all commented up, need to review it.
+EDU Bonus 6							VISIBLE:NO																																																																									PRETEMPLATE:1,Bachelor's Program Graduate																																																																																																					BONUS:STAT|EDU|if(EDUSCORE<12,(12-EDUSCORE),0)
+EDU Bonus 5							VISIBLE:NO		TEMPLATE:EDU Bonus 6																																																																				PRETEMPLATE:1,Bachelor's Program Honors																																																																																																					BONUS:STAT|EDU|if(EDUSCORE<12,(12-EDUSCORE+1),1)
+EDU Bonus 4							VISIBLE:NO																																																																									PRETEMPLATE:1,Master's Program Graduate																																																																																																					BONUS:STAT|EDU|if(EDUSCORE<14,(14-EDUSCORE),0)
+EDU Bonus 3							VISIBLE:NO		TEMPLATE:EDU Bonus 4																																																																				PRETEMPLATE:1,Master's Program Honors																																																																																																					BONUS:STAT|EDU|1	BONUS:STAT|EDU|if(EDUSCORE<14,(14-EDUSCORE+1),1)
+EDU Bonus 2							VISIBLE:NO																																																																									PRETEMPLATE:1,Doctorate Program Honors																																																																																																					BONUS:STAT|EDU|if(EDUSCORE<16,(16-EDUSCORE),0)
+EDU Bonus 1							VISIBLE:NO		TEMPLATE:EDU Bonus 2																																																																				PRETEMPLATE:1,Doctorate Program Honors																																																																																																					BONUS:STAT|EDU|1	BONUS:STAT|EDU|if(EDUSCORE<16,(16-EDUSCORE+1),1)

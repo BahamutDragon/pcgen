@@ -11,15 +11,6 @@ CLASS:Barbarian.MOD	BONUS:ABILITYPOOL|Totem Barbarian|1	BONUS:ABILITYPOOL|Barbar
 
 ###Block: Bard
 
-# Class Name
-#CLASS:Bard.COPY=Bardic Sage
-
-# Class Name
-#CLASS:Bard.COPY=Divine Bard
-
-# Class Name
-#CLASS:Bard.COPY=Savage Bard
-
 # Class Name	Prohibited Class
 CLASS:Bard.MOD	!PRECLASS:1,Bardic Sage=1,Divine Bard=1,Savage Bard=1
 
@@ -86,7 +77,6 @@ CLASS:Bardic Sage	SPELLSTAT:INT	BONUSSPELLSTAT:CHA	BONUS:CASTERLEVEL|Bardic Sage
 # 0-level bard spell of the divination school (such as detect magic, know direction, or read magic.
 # The bardic sage's number of spells per day does not change.
 #
-
 
 # Class Name		Abbreviation	Source Page
 CLASS:Divine Bard	FACT:Abb|DvnBrd		SOURCEPAGE:p.50		HD:6		SERVESAS:CLASS|Bard		TYPE:Base.PC	FACT:ClassType|PC		DEFINE:BardLVL|0	BONUS:VAR|BardLVL|CL	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
@@ -933,7 +923,7 @@ CLASS:Prestige Ranger	STARTSKILLPTS:6	CSKILL:Climb|Concentration|TYPE=Craft|Hand
 # Class Name		Hit Dice	Type					Abbreviation	Max Level	Source Page		Define			Combat bonus															Modify VAR																			Bonus
 CLASS:Drow Paragon	HD:6		TYPE:PC.Prestige.Paragon	FACT:Abb|Par		MAXLEVEL:3	SOURCEPAGE:p.32	DEFINE:DrowParagonLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|DrowParagonLVL|CL	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required Race
-CLASS:Drow Paragon	PRERACE:1,Elf (Drow)
+CLASS:Drow Paragon	PRERACE:1,Elf	PREMULT:2,[PRERACE:1,Elf%],[PREABILITY:1,CATEGORY=Internal,Elf ~ Drow]
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Drow Paragon	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Hide|Intimidate|Jump|TYPE=Knowledge|Listen|Move Silently|TYPE=Profession|Spellcraft|Spot|Survival|Swim
 ###Block: Class Features
@@ -943,6 +933,7 @@ CLASS:Drow Paragon	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Hide|Intimidate|Jump|
 ###Block:
 1	BONUS:PCLEVEL|Wizard|1|PREGENDER:M	BONUS:PCLEVEL|Cleric|1|PREGENDER:F
 3	BONUS:PCLEVEL|Wizard|1|PREGENDER:M	BONUS:PCLEVEL|Cleric|1|PREGENDER:F
+
 
 # Class Name		Hit Dice	Type					Abbreviation	Max Level	Source Page		Define				Combat bonus										Modify VAR				Bonus
 CLASS:Dwarf Paragon	HD:10		TYPE:PC.Prestige.Paragon	FACT:Abb|Par		MAXLEVEL:3	SOURCEPAGE:p.33	DEFINE:DwarfParagonLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|DwarfParagonLVL|CL	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
@@ -959,7 +950,7 @@ CLASS:Dwarf Paragon	STARTSKILLPTS:2	CSKILL:Appraise|Climb|TYPE=Craft|Intimidate|
 # Class Name	Hit Dice	Type					Abbreviation	Max Level	Source Page		Define			Combat bonus															Modify VAR																			Bonus
 CLASS:Elf Paragon	HD:8		TYPE:PC.Prestige.Paragon	FACT:Abb|Par		MAXLEVEL:3	SOURCEPAGE:p.35	DEFINE:ElfParagonLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ElfParagonLVL|CL	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Multiple Requirements
-CLASS:Elf Paragon	PREMULT:1,[PREMULT:2,[PRERACE:1,Elf%],[!PRERACE:1,Elf (Drow)]],[PREMULT:3,[PRERACE:1,Half-Elf],[PRECLASS:1,Half-Elf Paragon=1],[!PRECLASS:1,Human Paragon=1]]
+CLASS:Elf Paragon	PREMULT:1,[PREMULT:2,[PRERACE:1,Elf%],[!PREABILITY:1,CATEGORY=Internal,Elf ~ Drow]],[PREMULT:3,[PRERACE:1,Half-Elf],[PRECLASS:1,Half-Elf Paragon=1],[!PRECLASS:1,Human Paragon=1]]
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Elf Paragon	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Diplomacy|Hide|Jump|TYPE=Knowledge|Listen|Move Silently|TYPE=Profession|Spellcraft|Spot|Survival|Swim
 ###Block: Proficiencies
@@ -1238,7 +1229,6 @@ CLASS:GC_Warrior	CSKILL:TYPE=Craft
 1	ADD:CLASSSKILLS|6|ANY
 ###Block:
 1	ABILITY:Special Ability|AUTOMATIC|GC_Warrior ~ Weapon and Armor Proficiency
-
 
 
 # Class Name		Hit Dice	Source Page		Combat bonus										Bonus

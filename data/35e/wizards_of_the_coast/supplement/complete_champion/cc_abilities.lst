@@ -162,7 +162,7 @@ Vision of Pelor			KEY:Shadowspy ~ Vision of Pelor				CATEGORY:Special Ability	TY
 # Shadowstriker
 Badge of Office			KEY:Shadowstriker ~ Badge of Office				CATEGORY:Special Ability	TYPE:Extraordinary.Class Feature.Shadowstriker Class Feature.SpecialQuality																																													DESC:Upon your induction into the shadowstrikers, you were given a special holy symbol combining the symbols of Heironeous and Pelor. This item is crafted from gold, inlaid with platinum lightning motifs, and encrusted with sunstones. In areas where the Church of Heironeous or the Church of Pelor holds political power, this badge allows you access to prohibited areas and gives you the right to detain and question suspects in the pursuit of your deity's will.																																																																																																																																																																																																																																																																																																																																																																																																																							SOURCEPAGE:p.108
 Luminous Weapon			KEY:Shadowstriker ~ Luminous Weapon				CATEGORY:Special Ability	TYPE:Supernatural.Class Feature.Shadowstriker Class Feature.SpecialQuality																																													DESC:You can imbue your melee weapon with the power of the Shining One. When you do so, your weapon glows as if affected by a light spell and gains a bonus equal to twice your shadowstriker level on damage rolls against evil and/or undead creatures. You can use this ability a number of times per day equal to your Wisdom modifier (minimum once), and the effect lasts for 10 rounds.																																																																																																																																																																																																																																																																																																																																																																																																																																					SOURCEPAGE:p.108
-Smite Evil				KEY:Shadowstriker ~ Smite Evil				CATEGORY:Special Ability	TYPE:Supernatural.Class Feature.Shadowstriker Class Feature.SpecialQuality																																													DESC:Beginning at 2nd level, you can smite evil once per day (see the paladin class feature, PH 44). Smite evil attempts/day attained from multiple sources stack.																																																																																																																																																																																																																																																																																																		ABILITY:Special Ability|AUTOMATIC|Smite Evil																																																																																																																																												BONUS:VAR|SmiteEvilTimes|1																SOURCEPAGE:p.108
+Smite Evil				KEY:Shadowstriker ~ Smite Evil				CATEGORY:Special Ability	TYPE:Supernatural.Class Feature.Shadowstriker Class Feature.SpecialQuality.Smite Evil																																													DESC:Beginning at 2nd level, you can smite evil once per day (see the paladin class feature, PH 44). Smite evil attempts/day attained from multiple sources stack.																																																																																																																																																																																																																																																																																																		ABILITY:Special Ability|AUTOMATIC|Smite Evil																																																																																																																																												BONUS:VAR|SmiteEvilTimes|1																SOURCEPAGE:p.108
 Sun's Blessing			KEY:Shadowstriker ~ Sun's Blessing				CATEGORY:Special Ability	TYPE:Supernatural.Class Feature.Shadowstriker Class Feature.SpecialQuality																																													DESC:When you reach 2nd level, you can cause your weapon to flare with the fires of the sun. As long as the sun's blessing remains upon your luminous weapon, it deals an extra 1d6 points of fire damage. Additionally, the blinding light spilling from the weapon counts as a daylight spell for the duration of the effect. The sun's blessing can be used once per day, and the effect lasts for a number of rounds equal to your shadowstriker level. You can gain an additional use per day of this ability for each daily turn attempt, smite evil attempt, or spell slot (if you are a spontaneous caster) that you sacrifice.																																																																																																																																																																																																																																																																																																																																																																																														SOURCEPAGE:p.108
 Surge of Piety			KEY:Shadowstriker ~ Surge of Piety				CATEGORY:Special Ability	TYPE:Supernatural.Class Feature.Shadowstriker Class Feature.SpecialQuality																																													DESC:When you attain 3rd level as a shadowstriker, your touch becomes infused with positive energy. Any undead creature that touches you (by hitting you in melee or for any other reason) is shaken for 1 round or until it is no longer in physical contact with you-even if it normally can't be affected by this condition. Once per day as a fullround action, you can channel this energy into a single burst of positive energy, which manifests as a flash of bright, warm sunlight. In addition to functioning as a consecrate spell, this wave of energy deals 1d8 points of positive energy damage to every undead creature within 30 feet (no save). You can increase the damage this effect deals by 1d8 points (maximum +5d8) for each daily turn attempt, smite evil attempt, or spell slot (if you are a spontaneous caster) that you sacrifice.																																																																																																																																																																																																																																																																																																																																																										SOURCEPAGE:p.108
 
@@ -284,3 +284,465 @@ Feral Trance Active	CATEGORY:Internal		NATURALATTACKS:Bite,Melee.Weapon.Natural,
 ###Block: Ability Focus
 # Ability Name	Category of Ability
 Blinding Light	CATEGORY:Ability Focus
+
+
+# Marc
+
+#======================================
+
+###Block: template (XX), One Time
+
+# XX Membership	KEY:XX ~ Membership	CATEGORY:Church	TYPE:XX	PREDEITY:1,XX	DEFINE:XXAffiliationScore|0	COST:0	BONUS:ABILITYPOOL|CC_XX_RANK|XXAffiliationScore/100	ABILITY:Church|AUTOMATIC|XX ~ Character Level	DESC:Membership	SOURCEPAGE:p.6
+
+# Character Level	KEY:XX ~ Character Level	CATEGORY:Church	TYPE:XX	BONUS:VAR|XXAffiliationScore|100*floor(ECL/2)	COST:0	PREABILITY:1,CATEGORY=Church,XX ~ Membership	DESC:Character Level: +1/2 levels	SOURCEPAGE:p.XX
+
+###Block: template (XX), Multiple Use
+
+###Block: template (XX), Rank
+
+###Block: template (XX), Bonus
+
+#======================================
+
+###Block: The Anvil Of Creation (AC), One Time
+
+The Anvil Of Creation Membership	KEY:Anvil Of Creation ~ Membership	CATEGORY:Church	TYPE:Anvil Of Creation	PREDEITY:1,Moradin	DEFINE:ACAffiliationScore|0	COST:0	BONUS:ABILITYPOOL|The Anvil Of Creation Rank|ACAffiliationScore/100	ABILITY:Church|AUTOMATIC|Anvil Of Creation ~ Character Level	DESC:Membership	SOURCEPAGE:p.6
+
+Character Level	KEY:Anvil Of Creation ~ Character Level	CATEGORY:Church	TYPE:Anvil Of Creation	BONUS:VAR|ACAffiliationScore|100*floor(ECL/2)	COST:0	PREABILITY:1,CATEGORY=Church,Anvil Of Creation ~ Membership	DESC:Character Level: +1/2 levels	SOURCEPAGE:p.7
+
+###Block: The Anvil Of Creation (AC), Multiple Use
+
+###Block: The Anvil Of Creation (AC), Rank
+
+###Block: The Anvil Of Creation (AC), Bonus
+
+#======================================
+
+###Block: Assembly Of Balance (AB), One Time
+
+Assembly Of Balance Membership	KEY:Assembly Of Balance ~ Membership	CATEGORY:Church	TYPE:Assembly Of Balance	PREDEITY:1,Ehlonna	DEFINE:ABAffiliationScore|0	COST:0	BONUS:ABILITYPOOL|Assembly Of Balance Rank|ABAffiliationScore/100	ABILITY:Church|AUTOMATIC|Assembly Of Balance ~ Character Level	DESC:Membership	SOURCEPAGE:p.6
+
+Character Level	KEY:Assembly Of Balance ~ Character Level	CATEGORY:Church	TYPE:Assembly Of Balance	BONUS:VAR|ABAffiliationScore|100*floor(ECL/2)	COST:0	PREABILITY:1,CATEGORY=Church,Assembly Of Balance ~ Membership	DESC:Character Level: +1/2 levels	SOURCEPAGE:p.8
+
+###Block: Assembly Of Balance (AB), Multiple Use
+
+###Block: Assembly Of Balance (AB), Rank
+
+###Block: Assembly Of Balance (AB), Bonus
+
+#======================================
+
+###Block: The Blessed Bounty Of Yondalla (BBY), One Time
+
+The Blessed Bounty Of Yondalla Membership	KEY:Blessed Bounty Of Yondalla ~ Membership	CATEGORY:Church	TYPE:Blessed Bounty Of Yondalla	PREDEITY:1,Yondalla	DEFINE:BBYAffiliationScore|0	COST:0	BONUS:ABILITYPOOL|The Blessed Bounty Of Yondalla Rank|BBYAffiliationScore/100	ABILITY:Church|AUTOMATIC|Blessed Bounty Of Yondalla ~ Character Level	DESC:Membership	SOURCEPAGE:p.6
+
+Character Level	KEY:Blessed Bounty Of Yondalla ~ Character Level	CATEGORY:Church	TYPE:Blessed Bounty Of Yondalla	BONUS:VAR|BBYAffiliationScore|100*floor(ECL/2)	COST:0	PREABILITY:1,CATEGORY=Church,Blessed Bounty Of Yondalla ~ Membership	DESC:Character Level: +1/2 levels	SOURCEPAGE:p.10
+
+###Block: The Blessed Bounty Of Yondalla (BBY), Multiple Use
+
+###Block: The Blessed Bounty Of Yondalla (BBY), Rank
+
+###Block: The Blessed Bounty Of Yondalla (BBY), Bonus
+
+#======================================
+
+###Block: The Brotherhood Of Equals (BE), One Time
+
+The Brotherhood Of Equals Membership	KEY:Brotherhood Of Equals ~ Membership	CATEGORY:Church	TYPE:Brotherhood Of Equals	PREDEITY:1,Obad-Hai	DEFINE:BEAffiliationScore|0	COST:0	BONUS:ABILITYPOOL|The Brotherhood Of Equals Rank|BEAffiliationScore/100	ABILITY:Church|AUTOMATIC|Brotherhood Of Equals ~ Character Level	DESC:Membership	SOURCEPAGE:p.6
+
+Character Level	KEY:Brotherhood Of Equals ~ Character Level	CATEGORY:Church	TYPE:Brotherhood Of Equals	BONUS:VAR|BEAffiliationScore|100*floor(ECL/2)	COST:0	PREABILITY:1,CATEGORY=Church,Brotherhood Of Equals ~ Membership	DESC:Character Level: +1/2 levels	SOURCEPAGE:p.11
+
+###Block: The Brotherhood Of Equals (BE), Multiple Use
+
+###Block: The Brotherhood Of Equals (BE), Rank
+
+###Block: The Brotherhood Of Equals (BE), Bonus
+
+#======================================
+
+###Block: The Eternal Library (EL), One Time
+
+The Eternal Library Membership	KEY:Eternal Library ~ Membership	CATEGORY:Church	TYPE:Eternal Library	PREDEITY:1,Boccob	DEFINE:ELAffiliationScore|0	COST:0	BONUS:ABILITYPOOL|The Eternal Library Rank|ELAffiliationScore/100	ABILITY:Church|AUTOMATIC|Eternal Library ~ Character Level	DESC:Membership	SOURCEPAGE:p.6
+
+Character Level	KEY:Eternal Library ~ Character Level	CATEGORY:Church	TYPE:Eternal Library	BONUS:VAR|ELAffiliationScore|100*floor(ECL/2)	COST:0	PREABILITY:1,CATEGORY=Church,Eternal Library ~ Membership	DESC:Character Level: +1/2 levels	SOURCEPAGE:p.13
+
+###Block: The Eternal Library (EL), Multiple Use
+
+###Block: The Eternal Library (EL), Rank
+
+###Block: The Eternal Library (EL), Bonus
+
+#======================================
+
+###Block: Fharlanghn's Way (FW), One Time
+
+Fharlanghn's Way Membership	KEY:Fharlanghn's Way ~ Membership	CATEGORY:Church	TYPE:Fharlanghn's Way	PREDEITY:1,Fharlanghn	DEFINE:FWAffiliationScore|0	COST:0	BONUS:ABILITYPOOL|Fharlanghn's Way Rank|FWAffiliationScore/100	ABILITY:Church|AUTOMATIC|Fharlanghn's Way ~ Character Level	ABILITY:Church|AUTOMATIC|Fharlanghn's Way ~ Knowledge geography 5|PRESKILL:1,Knowledge (Geography)=5	ABILITY:Church|AUTOMATIC|Fharlanghn's Way ~ Knowledge local 5|PRESKILL:1,Knowledge (Local)=5	ABILITY:Church|AUTOMATIC|Fharlanghn's Way ~ Knowledge planes 5|PRESKILL:1,Knowledge (The Planes)=5	DESC:Membership	SOURCEPAGE:p.6
+
+Character Level	KEY:Fharlanghn's Way ~ Character Level	CATEGORY:Church	TYPE:Fharlanghn's Way	BONUS:VAR|FWAffiliationScore|100*floor(ECL/2)	COST:0	PREABILITY:1,CATEGORY=Church,Fharlanghn's Way ~ Membership	DESC:Character Level: +1/2 levels	SOURCEPAGE:p.14
+
+Knowledge geography 5 or more ranks	KEY:Fharlanghn's Way ~ Knowledge geography 5	CATEGORY:Church	TYPE:Fharlanghn's Way	PRESKILL:1,Knowledge (Geography)=5	BONUS:VAR|FWAffiliationScore|100*1	COST:0	PREABILITY:1,CATEGORY=Church,Fharlanghn's Way ~ Membership	DESC:Knowledge (Geography) 5 or more ranks: +1	SOURCEPAGE:p.14
+
+Knowledge local 5 or more ranks	KEY:Fharlanghn's Way ~ Knowledge local 5	CATEGORY:Church	TYPE:Fharlanghn's Way	PRESKILL:1,Knowledge (Local)=5	BONUS:VAR|FWAffiliationScore|100*1	COST:0	PREABILITY:1,CATEGORY=Church,Fharlanghn's Way ~ Membership	DESC:Knowledge (Local) 5 or more ranks: +1	SOURCEPAGE:p.14
+
+Knowledge the planes 5 or more ranks	KEY:Fharlanghn's Way ~ Knowledge planes 5	CATEGORY:Church	TYPE:Fharlanghn's Way	PRESKILL:1,Knowledge (The Planes)=5	BONUS:VAR|FWAffiliationScore|100*1	COST:0	PREABILITY:1,CATEGORY=Church,Fharlanghn's Way ~ Membership	DESC:Knowledge (The Planes) 5 or more ranks: +1	SOURCEPAGE:p.14
+
+Entitled to reroll	KEY:Fharlanghn's Way ~ Entitled to reroll	CATEGORY:Church	TYPE:Fharlanghn's Way	BONUS:VAR|FWAffiliationScore|100*1	COST:0	PREABILITY:1,CATEGORY=Church,Fharlanghn's Way ~ Membership	DESC:Is entitled to a reroll at least once per day through a spell, feat, or item: +1	SOURCEPAGE:p.14
+
+Speed spell	KEY:Fharlanghn's Way ~ Speed spell	CATEGORY:Church	TYPE:Fharlanghn's Way	BONUS:VAR|FWAffiliationScore|100*1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Fharlanghn's Way ~ Membership	DESC:Can cast a spell that increases speed: +1/spell	SOURCEPAGE:p.14
+
+Saving throw spell	KEY:Fharlanghn's Way ~ Saving throw spell	CATEGORY:Church	TYPE:Fharlanghn's Way	BONUS:VAR|FWAffiliationScore|100*1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Fharlanghn's Way ~ Membership	DESC:Can cast a spell that increases at least one saving throw modifier: +1/spell	SOURCEPAGE:p.14
+
+Can cast teleport	KEY:Fharlanghn's Way ~ Teleport spell	CATEGORY:Church	TYPE:Fharlanghn's Way	BONUS:VAR|FWAffiliationScore|100*1	COST:0	PREABILITY:1,CATEGORY=Church,Fharlanghn's Way ~ Membership	DESC:Can cast teleport: +1	SOURCEPAGE:p.14
+
+Can cast plane shift	KEY:Fharlanghn's Way ~ Plane Shift spell	CATEGORY:Church	TYPE:Fharlanghn's Way	BONUS:VAR|FWAffiliationScore|100*3	COST:0	PREABILITY:1,CATEGORY=Church,Fharlanghn's Way ~ Membership	DESC:Can cast plane shift: +3	SOURCEPAGE:p.14
+
+Modes of mouvement	KEY:Fharlanghn's Way ~ Mouvement modes	CATEGORY:Church	TYPE:Fharlanghn's Way	BONUS:VAR|FWAffiliationScore|100*3	COST:0	PREABILITY:1,CATEGORY=Church,Fharlanghn's Way ~ Membership	DESC:Has more than one mode of mouvement (such as a climb speed, the ability to fly, or the like): +3	SOURCEPAGE:p.14
+
+One month stay	KEY:Fharlanghn's Way ~ Stay month	CATEGORY:Church	TYPE:Fharlanghn's Way	BONUS:VAR|FWAffiliationScore|100*-2	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Fharlanghn's Way ~ Membership	DESC:Spends more than one month in a single place: -2	SOURCEPAGE:p.14
+
+One year stay	KEY:Fharlanghn's Way ~ Stay year	CATEGORY:Church	TYPE:Fharlanghn's Way	BONUS:VAR|FWAffiliationScore|100*-4	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Fharlanghn's Way ~ Membership	DESC:Spends more than one year in a single place: -4	SOURCEPAGE:p.14
+
+###Block: Fharlanghn's Way (FW), Multiple Use
+
+Survives EL 3-4 higher	KEY:Fharlanghn's Way ~ Survive EL 3-4	CATEGORY:Church	TYPE:Fharlanghn's Way	BONUS:VAR|FWAffiliationScore|100*1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Fharlanghn's Way ~ Membership	DESC:Survives an encounter with an EL 3-4 higher than own character level: +1	SOURCEPAGE:p.14
+
+Survives EL 5 higher	KEY:Fharlanghn's Way ~ Survive EL 5	CATEGORY:Church	TYPE:Fharlanghn's Way	BONUS:VAR|FWAffiliationScore|100*2	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Fharlanghn's Way ~ Membership	DESC:Survives an encounter with an EL 5 or more higher than own character level: +2	SOURCEPAGE:p.14
+
+Avoids a battle	KEY:Fharlanghn's Way ~ Avoids battle	CATEGORY:Church	TYPE:Fharlanghn's Way	BONUS:VAR|FWAffiliationScore|100*1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Fharlanghn's Way ~ Membership	DESC:Avoids a battle as a result of careful preparation: +1	SOURCEPAGE:p.14
+
+Wins a battle	KEY:Fharlanghn's Way ~ Wins battle	CATEGORY:Church	TYPE:Fharlanghn's Way	BONUS:VAR|FWAffiliationScore|100*4	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Fharlanghn's Way ~ Membership	DESC:Wins a battle as a result of careful preparation: +4	SOURCEPAGE:p.14
+
+Wins impossible battle	KEY:Fharlanghn's Way ~ Wins impossible battle	CATEGORY:Church	TYPE:Fharlanghn's Way	BONUS:VAR|FWAffiliationScore|100*8	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Fharlanghn's Way ~ Membership	DESC:Wins a battle against seemingly insurmountable odds as a result of careful preparation: +8	SOURCEPAGE:p.14
+
+Converts a new member	KEY:Fharlanghn's Way ~ Convert	CATEGORY:Church	TYPE:Fharlanghn's Way	BONUS:VAR|FWAffiliationScore|100*1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Fharlanghn's Way ~ Membership	DESC:Converts a new member: +1	SOURCEPAGE:p.14
+
+Find use for useless item	KEY:Fharlanghn's Way ~ Find use	CATEGORY:Church	TYPE:Fharlanghn's Way	BONUS:VAR|FWAffiliationScore|100*1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Fharlanghn's Way ~ Membership	DESC:Finds a use for an item thought to be useless: +1	SOURCEPAGE:p.14
+
+Destroys a slave ring	KEY:Fharlanghn's Way ~ Destroys slave ring	CATEGORY:Church	TYPE:Fharlanghn's Way	BONUS:VAR|FWAffiliationScore|100*4	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Fharlanghn's Way ~ Membership	DESC:Destroys a slave ring: +4	SOURCEPAGE:p.14
+
+Discover area	KEY:Fharlanghn's Way ~ Discover area	CATEGORY:Church	TYPE:Fharlanghn's Way	BONUS:VAR|FWAffiliationScore|100*8	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Fharlanghn's Way ~ Membership	DESC:Discover an area never traveled before: +8	SOURCEPAGE:p.14
+
+Discover area and record voyage	KEY:Fharlanghn's Way ~ Discover and record	CATEGORY:Church	TYPE:Fharlanghn's Way	BONUS:VAR|FWAffiliationScore|100*2	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Fharlanghn's Way ~ Membership	DESC:Discover an area never traveled before and records the voyage: +2	SOURCEPAGE:p.14
+
+One week stay	KEY:Fharlanghn's Way ~ Stay week	CATEGORY:Church	TYPE:Fharlanghn's Way	BONUS:VAR|FWAffiliationScore|100*3	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Fharlanghn's Way ~ Membership	DESC:Spends no more than 1 week in a single place for an entire year: +3	SOURCEPAGE:p.14
+
+Incarcerates or enslave	KEY:Fharlanghn's Way ~ Incarcerator	CATEGORY:Church	TYPE:Fharlanghn's Way	BONUS:VAR|FWAffiliationScore|100*-15	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Fharlanghn's Way ~ Membership	DESC:Incarcerates or enslaves another creature: -15	SOURCEPAGE:p.14
+
+Fails to defend church	KEY:Fharlanghn's Way ~ Fails church	CATEGORY:Church	TYPE:Fharlanghn's Way	BONUS:VAR|FWAffiliationScore|100*-6	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Fharlanghn's Way ~ Membership	DESC:Fails to defend a structure or item important to the church: -6	SOURCEPAGE:p.14
+
+###Block: Fharlanghn's Way (FW), Rank
+
+# Absolute cost 4, 12, 21, 30
+# Incremental cost 4, 8, 9, 9
+
+Fharlanghn's Way Vagabond	KEY:Fharlanghn's Way ~ Vagabond	CATEGORY:Church Rank	TYPE:Fharlanghn's Way	COST:4	ABILITY:Special Ability|AUTOMATIC|Fharlanghn's Way ~ Vagabond Bonus	DESC:Gain a +2 bonus on sense motive checks.	SOURCEPAGE:p.15
+
+Fharlanghn's Way Wanderer	KEY:Fharlanghn's Way ~ Wanderer	CATEGORY:Church Rank	TYPE:Fharlanghn's Way	COST:8	PREABILITY:1,CATEGORY=Church Rank,Fharlanghn's Way ~ Vagabond	ABILITY:Special Ability|AUTOMATIC|Fharlanghn's Way ~ Wanderer Bonus	DESC:Gain a +2 bonus on checks made to resist a grapple, trip, or bull rush attempt.	SOURCEPAGE:p.15
+
+Fharlanghn's Way Explorer	KEY:Fharlanghn's Way ~ Explorer	CATEGORY:Church Rank	TYPE:Fharlanghn's Way	COST:9	PREABILITY:1,CATEGORY=Church Rank,Fharlanghn's Way ~ Wanderer	ABILITY:Special Ability|AUTOMATIC|Fharlanghn's Way ~ Explorer Bonus	DESC:Once per day, gain a bonus equals to +1 per three character levels on one saving throw.	SOURCEPAGE:p.15
+
+Fharlanghn's Way Traveler of Worlds	KEY:Fharlanghn's Way ~ Traveler	CATEGORY:Church Rank	TYPE:Fharlanghn's Way	COST:9	PREABILITY:1,CATEGORY=Church Rank,Fharlanghn's Way ~ Explorer	ABILITY:Special Ability|AUTOMATIC|Fharlanghn's Way ~ Traveler Bonus	DESC:Once per day, become etheral for 1 round per three character level as a spell-like ability (caster level equals your character level).	SOURCEPAGE:p.15
+
+###Block: Fharlanghn's Way (FW), Bonus
+
+Fharlanghn's Way Vagabond Bonus	KEY:Fharlanghn's Way ~ Vagabond Bonus	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	OUTPUTNAME:Fharlanghn's Way Vagabond	DESC:Gain a +2 bonus on sense motive checks.	SOURCEPAGE:P.15	BONUS:SKILL|Sense motive|2
+
+Fharlanghn's Way Wanderer Bonus	KEY:Fharlanghn's Way ~ Wanderer Bonus	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	OUTPUTNAME:Fharlanghn's Way Wanderer	DESC:Gain a +2 bonus on checks made to resist a grapple, trip, or bull rush attempt.	SOURCEPAGE:P.15
+
+Fharlanghn's Way Explorer Bonus	KEY:Fharlanghn's Way ~ Explorer Bonus	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	OUTPUTNAME:Fharlanghn's Way Explorer	DESC:Once per day, gain a bonus equals to +1 per three character levels on one saving throw.	SOURCEPAGE:P.15
+
+Fharlanghn's Way Traveler of Worlds Bonus	KEY:Fharlanghn's Way ~ Traveler Bonus	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	OUTPUTNAME:Fharlanghn's Way Traveler of Worlds	DESC:Once per day, become etheral for 1 round per three character level as a spell-like ability (caster level equals your character level).	SOURCEPAGE:P.15
+
+#======================================
+
+###Block: Fingers Of The Laughing Rogue (FLR), One Time
+
+Fingers Of The Laughing Rogue Membership	KEY:Fingers Of The Laughing Rogue ~ Membership	CATEGORY:Church	TYPE:Fingers Of The Laughing Rogue	PREDEITY:1,Olidammara	DEFINE:FLRAffiliationScore|0	COST:0	BONUS:ABILITYPOOL|Fingers Of The Laughing Rogue Rank|FLRAffiliationScore/100	ABILITY:Church|AUTOMATIC|Fingers Of The Laughing Rogue ~ Character Level	DESC:Membership	SOURCEPAGE:p.6
+
+Character Level	KEY:Fingers Of The Laughing Rogue ~ Character Level	CATEGORY:Church	TYPE:Fingers Of The Laughing Rogue	BONUS:VAR|FLRAffiliationScore|100*floor(ECL/2)	COST:0	PREABILITY:1,CATEGORY=Church,Fingers Of The Laughing Rogue ~ Membership	DESC:Character Level: +1/2 levels	SOURCEPAGE:p.16
+
+###Block: Fingers Of The Laughing Rogue (FLR), Multiple Use
+
+###Block: Fingers Of The Laughing Rogue (FLR), Rank
+
+###Block: Fingers Of The Laughing Rogue (FLR), Bonus
+
+#======================================
+
+###Block: The Fist Of Valor (FV), One Time
+
+The Fist Of Valor Membership	KEY:Fist Of Valor ~ Membership	CATEGORY:Church	TYPE:Fist Of Valor	PREDEITY:1,Heironeous	DEFINE:FVAffiliationScore|0	COST:0	BONUS:ABILITYPOOL|The Fist Of Valor Rank|FVAffiliationScore/100	ABILITY:Church|AUTOMATIC|Fist Of Valor ~ Character Level	DESC:Membership	SOURCEPAGE:p.6
+
+Character Level	KEY:Fist Of Valor ~ Character Level	CATEGORY:Church	TYPE:Fist Of Valor	BONUS:VAR|FVAffiliationScore|100*floor(ECL/2)	COST:0	PREABILITY:1,CATEGORY=Church,Fist Of Valor ~ Membership	DESC:Character Level: +1/2 levels	SOURCEPAGE:p.18
+
+###Block: The Fist Of Valor (FV), Multiple Use
+
+###Block: The Fist Of Valor (FV), Rank
+
+###Block: The Fist Of Valor (FV), Bonus
+
+#======================================
+
+###Block: The Mighty Arms Of Kord (MAK), One Time
+
+The Mighty Arms Of Kord Membership	KEY:Mighty Arms Of Kord ~ Membership	CATEGORY:Church	TYPE:Mighty Arms Of Kord	PREDEITY:1,Kord	DEFINE:MAKAffiliationScore|0	COST:0	BONUS:ABILITYPOOL|The Mighty Arms Of Kord Rank|MAKAffiliationScore/100	ABILITY:Church|AUTOMATIC|Mighty Arms Of Kord ~ Character Level	DESC:Membership	SOURCEPAGE:p.6
+
+Character Level	KEY:Mighty Arms Of Kord ~ Character Level	CATEGORY:Church	TYPE:Mighty Arms Of Kord	BONUS:VAR|MAKAffiliationScore|100*floor(ECL/2)	COST:0	PREABILITY:1,CATEGORY=Church,Mighty Arms Of Kord ~ Membership	DESC:Character Level: +1/2 levels	SOURCEPAGE:p.19
+
+###Block: The Mighty Arms Of Kord (MAK), Multiple Use
+
+###Block: The Mighty Arms Of Kord (MAK), Rank
+
+###Block: The Mighty Arms Of Kord (MAK), Bonus
+
+#======================================
+
+###Block: The Ruby Temple (RT), One Time
+
+Ruby Temple Membership	KEY:Ruby Temple ~ Membership	CATEGORY:Church	TYPE:Ruby Temple	PREDEITY:1,Wee Jas	DEFINE:RTAffiliationScore|0	COST:0	BONUS:ABILITYPOOL|The Ruby Temple Rank|RTAffiliationScore/100	ABILITY:Church|AUTOMATIC|Ruby Temple ~ Character Level	ABILITY:Church|AUTOMATIC|Ruby Temple ~ Lawful Alignment|PREALIGN:LG,LN,LE	ABILITY:Church|AUTOMATIC|Ruby Temple ~ Knowledge 5-9|PREMULT:2,[PRESKILL:1,Knowledge (Arcana)=5,Knowledge (Religion)=5],[!PRESKILL:1,Knowledge (Arcana)=10,Knowledge (Religion)=10]	ABILITY:Church|AUTOMATIC|Ruby Temple ~ Knowledge 10|PRESKILL:1,Knowledge (Arcana)=10,Knowledge (Religion)=10	ABILITY:Church|AUTOMATIC|Ruby Temple ~ Necromancy 5th|PRESPELLSCHOOL:1,Necromancy=5	ABILITY:Church|AUTOMATIC|Ruby Temple ~ Arcane Divine 3th 4th|PREMULT:2,[PRESPELLTYPE:1,Arcane=3,Divine=3],[!PRESPELLTYPE:1,Arcane=5,Divine=5]	ABILITY:Church|AUTOMATIC|Ruby Temple ~ Arcane Divine 5th|PRESPELLTYPE:1,Arcane=5,Divine=5	ABILITY:Church|AUTOMATIC|Ruby Temple ~ Mystic Theurge|PRECLASS:1,Mystic Theurge=1	ABILITY:Church|AUTOMATIC|Ruby Temple ~ Chaotic Alignment|PREALIGN:CG,CN,CE	DESC:Membership	SOURCEPAGE:p.6
+
+Character Level	KEY:Ruby Temple ~ Character Level	CATEGORY:Church	TYPE:Ruby Temple	BONUS:VAR|RTAffiliationScore|100*floor(ECL/2)	COST:0	PREABILITY:1,CATEGORY=Church,Ruby Temple ~ Membership	DESC:Character Level: +1/2 levels	SOURCEPAGE:p.20
+
+Lawful Alignment	KEY:Ruby Temple ~ Lawful Alignment	CATEGORY:Church	TYPE:Ruby Temple	PREALIGN:LG,LN,LE	BONUS:VAR|RTAffiliationScore|100*1	COST:0	PREABILITY:1,CATEGORY=Church,Ruby Temple ~ Membership	DESC:Lawful Alignment: +1	SOURCEPAGE:p.20
+
+Knowledge 5-9	KEY:Ruby Temple ~ Knowledge 5-9	CATEGORY:Church	TYPE:Ruby Temple	PREMULT:2,[PRESKILL:1,Knowledge (Arcana)=5,Knowledge (Religion)=5],[!PRESKILL:1,Knowledge (Arcana)=10,Knowledge (Religion)=10]	BONUS:VAR|RTAffiliationScore|100*1	COST:0	PREABILITY:1,CATEGORY=Church,Ruby Temple ~ Membership	DESC:Knowledge (religion) or (arcana) 5-9 ranks: +1	SOURCEPAGE:p.20
+
+Knowledge 10	KEY:Ruby Temple ~ Knowledge 10	CATEGORY:Church	TYPE:Ruby Temple	PRESKILL:1,Knowledge (Arcana)=10,Knowledge (Religion)=10	BONUS:VAR|RTAffiliationScore|100*2	COST:0	PREABILITY:1,CATEGORY=Church,Ruby Temple ~ Membership	DESC:Knowledge (religion) or (arcana) 10 or more ranks: +2	SOURCEPAGE:p.20
+
+Educate the Masses	KEY:Ruby Temple ~ Educate the Masses	CATEGORY:Church	TYPE:Ruby Temple	!PREALIGN:CE,NE,LE	BONUS:VAR|RTAffiliationScore|100*1	COST:0	PREABILITY:1,CATEGORY=Church,Ruby Temple ~ Membership	DESC:Aids the uneducated masses in understanding death: +1	SOURCEPAGE:p.20
+
+Necromancy 5th	KEY:Ruby Temple ~ Necromancy 5th	CATEGORY:Church	TYPE:Ruby Temple	PRESPELLSCHOOL:1,Necromancy=5	BONUS:VAR|RTAffiliationScore|100*2	COST:0	PREABILITY:1,CATEGORY=Church,Ruby Temple ~ Membership	DESC:Can cast 5th level or higher necromancy spells: +2	SOURCEPAGE:p.20
+
+Arcane Divine 3th 4th	KEY:Ruby Temple ~ Arcane Divine 3th 4th	CATEGORY:Church	TYPE:Ruby Temple	PREMULT:2,[PRESPELLTYPE:1,Arcane=3,Divine=3],[!PRESPELLTYPE:1,Arcane=5,Divine=5]	BONUS:VAR|RTAffiliationScore|100*1	COST:0	PREABILITY:1,CATEGORY=Church,Ruby Temple ~ Membership	DESC:Can cast 3rd- or 4th-level arcane or divine spells: +1	SOURCEPAGE:p.20
+
+Arcane Divine 5th	KEY:Ruby Temple ~ Arcane Divine 5th	CATEGORY:Church	TYPE:Ruby Temple	PRESPELLTYPE:1,Arcane=5,Divine=5	BONUS:VAR|RTAffiliationScore|100*2	COST:0	PREABILITY:1,CATEGORY=Church,Ruby Temple ~ Membership	DESC:Can cast 5th-level or higher arcane or divine spells: +2	SOURCEPAGE:p.20
+
+Mystic Theurge	KEY:Ruby Temple ~ Mystic Theurge	CATEGORY:Church	TYPE:Ruby Temple	PRECLASS:1,Mystic Theurge=1	BONUS:VAR|RTAffiliationScore|100*1	COST:0	PREABILITY:1,CATEGORY=Church,Ruby Temple ~ Membership	DESC:Has at least one level in the mystic theurge class: +1	SOURCEPAGE:p.20
+
+Chaotic Alignment	KEY:Ruby Temple ~ Chaotic Alignment	CATEGORY:Church	TYPE:Ruby Temple	PREALIGN:CG,CN,CE	BONUS:VAR|RTAffiliationScore|100*-10	COST:0	PREABILITY:1,CATEGORY=Church,Ruby Temple ~ Membership	DESC:Chaotic Alignment: -10	SOURCEPAGE:p.20
+
+Sympathic to Life or Healing religion	KEY:Ruby Temple ~ Sympathic to Life or Healing religion	CATEGORY:Church	TYPE:Ruby Temple	BONUS:VAR|RTAffiliationScore|100*-2	COST:0	PREABILITY:1,CATEGORY=Church,Ruby Temple ~ Membership	DESC:Known to be sympathetic to a religion dedicated to a deity of life or healing (such as Ehlonna or Pelor): -2	SOURCEPAGE:p.20
+
+###Block: The Ruby Temple (RT), Multiple Use
+
+Convert	KEY:Ruby Temple ~ Convert	CATEGORY:Church	TYPE:Ruby Temple	BONUS:VAR|RTAffiliationScore|100*1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Ruby Temple ~ Membership	DESC:Converts a new member: +1	SOURCEPAGE:p.20
+
+Discovery about death	KEY:Ruby Temple ~ Discovery about death	CATEGORY:Church	TYPE:Ruby Temple	BONUS:VAR|RTAffiliationScore|100*2	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Ruby Temple ~ Membership	DESC:Makes a new discovery about the nature of death or dying: +2	SOURCEPAGE:p.20
+
+Destroy Chaotic CR1	KEY:Ruby Temple ~ Destroy Chaotic CR1	CATEGORY:Church	TYPE:Ruby Temple	BONUS:VAR|RTAffiliationScore|100*1/4	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Ruby Temple ~ Membership	DESC:Destroys a creature of the chaotic subtype: +1/4 creature's CR	SOURCEPAGE:p.20	SORTKEY:CR01
+Destroy Chaotic CR2	KEY:Ruby Temple ~ Destroy Chaotic CR2	CATEGORY:Church	TYPE:Ruby Temple	BONUS:VAR|RTAffiliationScore|100*2/4	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Ruby Temple ~ Membership	DESC:Destroys a creature of the chaotic subtype: +1/4 creature's CR	SOURCEPAGE:p.20	SORTKEY:CR02
+Destroy Chaotic CR3	KEY:Ruby Temple ~ Destroy Chaotic CR3	CATEGORY:Church	TYPE:Ruby Temple	BONUS:VAR|RTAffiliationScore|100*3/4	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Ruby Temple ~ Membership	DESC:Destroys a creature of the chaotic subtype: +1/4 creature's CR	SOURCEPAGE:p.20	SORTKEY:CR03
+Destroy Chaotic CR4	KEY:Ruby Temple ~ Destroy Chaotic CR4	CATEGORY:Church	TYPE:Ruby Temple	BONUS:VAR|RTAffiliationScore|100*4/4	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Ruby Temple ~ Membership	DESC:Destroys a creature of the chaotic subtype: +1/4 creature's CR	SOURCEPAGE:p.20	SORTKEY:CR04
+Destroy Chaotic CR5	KEY:Ruby Temple ~ Destroy Chaotic CR5	CATEGORY:Church	TYPE:Ruby Temple	BONUS:VAR|RTAffiliationScore|100*5/4	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Ruby Temple ~ Membership	DESC:Destroys a creature of the chaotic subtype: +1/4 creature's CR	SOURCEPAGE:p.20	SORTKEY:CR05
+Destroy Chaotic CR6	KEY:Ruby Temple ~ Destroy Chaotic CR6	CATEGORY:Church	TYPE:Ruby Temple	BONUS:VAR|RTAffiliationScore|100*6/4	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Ruby Temple ~ Membership	DESC:Destroys a creature of the chaotic subtype: +1/4 creature's CR	SOURCEPAGE:p.20	SORTKEY:CR06
+Destroy Chaotic CR7	KEY:Ruby Temple ~ Destroy Chaotic CR7	CATEGORY:Church	TYPE:Ruby Temple	BONUS:VAR|RTAffiliationScore|100*7/4	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Ruby Temple ~ Membership	DESC:Destroys a creature of the chaotic subtype: +1/4 creature's CR	SOURCEPAGE:p.20	SORTKEY:CR07
+Destroy Chaotic CR8	KEY:Ruby Temple ~ Destroy Chaotic CR8	CATEGORY:Church	TYPE:Ruby Temple	BONUS:VAR|RTAffiliationScore|100*8/4	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Ruby Temple ~ Membership	DESC:Destroys a creature of the chaotic subtype: +1/4 creature's CR	SOURCEPAGE:p.20	SORTKEY:CR08
+Destroy Chaotic CR9	KEY:Ruby Temple ~ Destroy Chaotic CR9	CATEGORY:Church	TYPE:Ruby Temple	BONUS:VAR|RTAffiliationScore|100*9/4	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Ruby Temple ~ Membership	DESC:Destroys a creature of the chaotic subtype: +1/4 creature's CR	SOURCEPAGE:p.20	SORTKEY:CR09
+Destroy Chaotic CR10	KEY:Ruby Temple ~ Destroy Chaotic CR10	CATEGORY:Church	TYPE:Ruby Temple	BONUS:VAR|RTAffiliationScore|100*10/4	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Ruby Temple ~ Membership	DESC:Destroys a creature of the chaotic subtype: +1/4 creature's CR	SOURCEPAGE:p.20	SORTKEY:CR10
+Destroy Chaotic CR11	KEY:Ruby Temple ~ Destroy Chaotic CR11	CATEGORY:Church	TYPE:Ruby Temple	BONUS:VAR|RTAffiliationScore|100*11/4	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Ruby Temple ~ Membership	DESC:Destroys a creature of the chaotic subtype: +1/4 creature's CR	SOURCEPAGE:p.20	SORTKEY:CR11
+Destroy Chaotic CR12	KEY:Ruby Temple ~ Destroy Chaotic CR12	CATEGORY:Church	TYPE:Ruby Temple	BONUS:VAR|RTAffiliationScore|100*12/4	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Ruby Temple ~ Membership	DESC:Destroys a creature of the chaotic subtype: +1/4 creature's CR	SOURCEPAGE:p.20	SORTKEY:CR12
+Destroy Chaotic CR13	KEY:Ruby Temple ~ Destroy Chaotic CR13	CATEGORY:Church	TYPE:Ruby Temple	BONUS:VAR|RTAffiliationScore|100*13/4	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Ruby Temple ~ Membership	DESC:Destroys a creature of the chaotic subtype: +1/4 creature's CR	SOURCEPAGE:p.20	SORTKEY:CR13
+Destroy Chaotic CR14	KEY:Ruby Temple ~ Destroy Chaotic CR14	CATEGORY:Church	TYPE:Ruby Temple	BONUS:VAR|RTAffiliationScore|100*14/4	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Ruby Temple ~ Membership	DESC:Destroys a creature of the chaotic subtype: +1/4 creature's CR	SOURCEPAGE:p.20	SORTKEY:CR14
+Destroy Chaotic CR15	KEY:Ruby Temple ~ Destroy Chaotic CR15	CATEGORY:Church	TYPE:Ruby Temple	BONUS:VAR|RTAffiliationScore|100*15/4	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Ruby Temple ~ Membership	DESC:Destroys a creature of the chaotic subtype: +1/4 creature's CR	SOURCEPAGE:p.20	SORTKEY:CR15
+Destroy Chaotic CR16	KEY:Ruby Temple ~ Destroy Chaotic CR16	CATEGORY:Church	TYPE:Ruby Temple	BONUS:VAR|RTAffiliationScore|100*16/4	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Ruby Temple ~ Membership	DESC:Destroys a creature of the chaotic subtype: +1/4 creature's CR	SOURCEPAGE:p.20	SORTKEY:CR16
+Destroy Chaotic CR17	KEY:Ruby Temple ~ Destroy Chaotic CR17	CATEGORY:Church	TYPE:Ruby Temple	BONUS:VAR|RTAffiliationScore|100*17/4	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Ruby Temple ~ Membership	DESC:Destroys a creature of the chaotic subtype: +1/4 creature's CR	SOURCEPAGE:p.20	SORTKEY:CR17
+Destroy Chaotic CR18	KEY:Ruby Temple ~ Destroy Chaotic CR18	CATEGORY:Church	TYPE:Ruby Temple	BONUS:VAR|RTAffiliationScore|100*18/4	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Ruby Temple ~ Membership	DESC:Destroys a creature of the chaotic subtype: +1/4 creature's CR	SOURCEPAGE:p.20	SORTKEY:CR18
+Destroy Chaotic CR19	KEY:Ruby Temple ~ Destroy Chaotic CR19	CATEGORY:Church	TYPE:Ruby Temple	BONUS:VAR|RTAffiliationScore|100*19/4	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Ruby Temple ~ Membership	DESC:Destroys a creature of the chaotic subtype: +1/4 creature's CR	SOURCEPAGE:p.20	SORTKEY:CR19
+Destroy Chaotic CR20	KEY:Ruby Temple ~ Destroy Chaotic CR20	CATEGORY:Church	TYPE:Ruby Temple	BONUS:VAR|RTAffiliationScore|100*20/4	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Ruby Temple ~ Membership	DESC:Destroys a creature of the chaotic subtype: +1/4 creature's CR	SOURCEPAGE:p.20	SORTKEY:CR20
+
+Destroy with Magic CR1	KEY:Ruby Temple ~ Destroy with Magic CR1	CATEGORY:Church	TYPE:Ruby Temple	BONUS:VAR|RTAffiliationScore|100*1/4	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Ruby Temple ~ Membership	DESC:Destroys a foo single-handedly using only magic: +1/4 creature's CR	SOURCEPAGE:p.20	SORTKEY:CR01
+Destroy with Magic CR2	KEY:Ruby Temple ~ Destroy with Magic CR2	CATEGORY:Church	TYPE:Ruby Temple	BONUS:VAR|RTAffiliationScore|100*2/4	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Ruby Temple ~ Membership	DESC:Destroys a foo single-handedly using only magic: +1/4 creature's CR	SOURCEPAGE:p.20	SORTKEY:CR02
+Destroy with Magic CR3	KEY:Ruby Temple ~ Destroy with Magic CR3	CATEGORY:Church	TYPE:Ruby Temple	BONUS:VAR|RTAffiliationScore|100*3/4	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Ruby Temple ~ Membership	DESC:Destroys a foo single-handedly using only magic: +1/4 creature's CR	SOURCEPAGE:p.20	SORTKEY:CR03
+Destroy with Magic CR4	KEY:Ruby Temple ~ Destroy with Magic CR4	CATEGORY:Church	TYPE:Ruby Temple	BONUS:VAR|RTAffiliationScore|100*4/4	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Ruby Temple ~ Membership	DESC:Destroys a foo single-handedly using only magic: +1/4 creature's CR	SOURCEPAGE:p.20	SORTKEY:CR04
+Destroy with Magic CR5	KEY:Ruby Temple ~ Destroy with Magic CR5	CATEGORY:Church	TYPE:Ruby Temple	BONUS:VAR|RTAffiliationScore|100*5/4	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Ruby Temple ~ Membership	DESC:Destroys a foo single-handedly using only magic: +1/4 creature's CR	SOURCEPAGE:p.20	SORTKEY:CR05
+Destroy with Magic CR6	KEY:Ruby Temple ~ Destroy with Magic CR6	CATEGORY:Church	TYPE:Ruby Temple	BONUS:VAR|RTAffiliationScore|100*6/4	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Ruby Temple ~ Membership	DESC:Destroys a foo single-handedly using only magic: +1/4 creature's CR	SOURCEPAGE:p.20	SORTKEY:CR06
+Destroy with Magic CR7	KEY:Ruby Temple ~ Destroy with Magic CR7	CATEGORY:Church	TYPE:Ruby Temple	BONUS:VAR|RTAffiliationScore|100*7/4	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Ruby Temple ~ Membership	DESC:Destroys a foo single-handedly using only magic: +1/4 creature's CR	SOURCEPAGE:p.20	SORTKEY:CR07
+Destroy with Magic CR8	KEY:Ruby Temple ~ Destroy with Magic CR8	CATEGORY:Church	TYPE:Ruby Temple	BONUS:VAR|RTAffiliationScore|100*8/4	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Ruby Temple ~ Membership	DESC:Destroys a foo single-handedly using only magic: +1/4 creature's CR	SOURCEPAGE:p.20	SORTKEY:CR08
+Destroy with Magic CR9	KEY:Ruby Temple ~ Destroy with Magic CR9	CATEGORY:Church	TYPE:Ruby Temple	BONUS:VAR|RTAffiliationScore|100*9/4	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Ruby Temple ~ Membership	DESC:Destroys a foo single-handedly using only magic: +1/4 creature's CR	SOURCEPAGE:p.20	SORTKEY:CR09
+Destroy with Magic CR10	KEY:Ruby Temple ~ Destroy with Magic CR10	CATEGORY:Church	TYPE:Ruby Temple	BONUS:VAR|RTAffiliationScore|100*10/4	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Ruby Temple ~ Membership	DESC:Destroys a foo single-handedly using only magic: +1/4 creature's CR	SOURCEPAGE:p.20	SORTKEY:CR10
+Destroy with Magic CR11	KEY:Ruby Temple ~ Destroy with Magic CR11	CATEGORY:Church	TYPE:Ruby Temple	BONUS:VAR|RTAffiliationScore|100*11/4	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Ruby Temple ~ Membership	DESC:Destroys a foo single-handedly using only magic: +1/4 creature's CR	SOURCEPAGE:p.20	SORTKEY:CR11
+Destroy with Magic CR12	KEY:Ruby Temple ~ Destroy with Magic CR12	CATEGORY:Church	TYPE:Ruby Temple	BONUS:VAR|RTAffiliationScore|100*12/4	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Ruby Temple ~ Membership	DESC:Destroys a foo single-handedly using only magic: +1/4 creature's CR	SOURCEPAGE:p.20	SORTKEY:CR12
+Destroy with Magic CR13	KEY:Ruby Temple ~ Destroy with Magic CR13	CATEGORY:Church	TYPE:Ruby Temple	BONUS:VAR|RTAffiliationScore|100*13/4	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Ruby Temple ~ Membership	DESC:Destroys a foo single-handedly using only magic: +1/4 creature's CR	SOURCEPAGE:p.20	SORTKEY:CR13
+Destroy with Magic CR14	KEY:Ruby Temple ~ Destroy with Magic CR14	CATEGORY:Church	TYPE:Ruby Temple	BONUS:VAR|RTAffiliationScore|100*14/4	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Ruby Temple ~ Membership	DESC:Destroys a foo single-handedly using only magic: +1/4 creature's CR	SOURCEPAGE:p.20	SORTKEY:CR14
+Destroy with Magic CR15	KEY:Ruby Temple ~ Destroy with Magic CR15	CATEGORY:Church	TYPE:Ruby Temple	BONUS:VAR|RTAffiliationScore|100*15/4	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Ruby Temple ~ Membership	DESC:Destroys a foo single-handedly using only magic: +1/4 creature's CR	SOURCEPAGE:p.20	SORTKEY:CR15
+Destroy with Magic CR16	KEY:Ruby Temple ~ Destroy with Magic CR16	CATEGORY:Church	TYPE:Ruby Temple	BONUS:VAR|RTAffiliationScore|100*16/4	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Ruby Temple ~ Membership	DESC:Destroys a foo single-handedly using only magic: +1/4 creature's CR	SOURCEPAGE:p.20	SORTKEY:CR16
+Destroy with Magic CR17	KEY:Ruby Temple ~ Destroy with Magic CR17	CATEGORY:Church	TYPE:Ruby Temple	BONUS:VAR|RTAffiliationScore|100*17/4	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Ruby Temple ~ Membership	DESC:Destroys a foo single-handedly using only magic: +1/4 creature's CR	SOURCEPAGE:p.20	SORTKEY:CR17
+Destroy with Magic CR18	KEY:Ruby Temple ~ Destroy with Magic CR18	CATEGORY:Church	TYPE:Ruby Temple	BONUS:VAR|RTAffiliationScore|100*18/4	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Ruby Temple ~ Membership	DESC:Destroys a foo single-handedly using only magic: +1/4 creature's CR	SOURCEPAGE:p.20	SORTKEY:CR18
+Destroy with Magic CR19	KEY:Ruby Temple ~ Destroy with Magic CR19	CATEGORY:Church	TYPE:Ruby Temple	BONUS:VAR|RTAffiliationScore|100*19/4	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Ruby Temple ~ Membership	DESC:Destroys a foo single-handedly using only magic: +1/4 creature's CR	SOURCEPAGE:p.20	SORTKEY:CR19
+Destroy with Magic CR20	KEY:Ruby Temple ~ Destroy with Magic CR20	CATEGORY:Church	TYPE:Ruby Temple	BONUS:VAR|RTAffiliationScore|100*20/4	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Ruby Temple ~ Membership	DESC:Destroys a foo single-handedly using only magic: +1/4 creature's CR	SOURCEPAGE:p.20	SORTKEY:CR20
+
+Defend Bastion	KEY:Ruby Temple ~ Defend Bastion	CATEGORY:Church	TYPE:Ruby Temple	BONUS:VAR|RTAffiliationScore|100*4	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Ruby Temple ~ Membership	DESC:Defends a bastion of magical knowledge from attack: +4	SOURCEPAGE:p.20
+
+Discover Magic	KEY:Ruby Temple ~ Discover Magic	CATEGORY:Church	TYPE:Ruby Temple	BONUS:VAR|RTAffiliationScore|100*2	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Ruby Temple ~ Membership	DESC:Discovers a new magic item or spell: +2	SOURCEPAGE:p.20
+
+Donate Artifact	KEY:Ruby Temple ~ Donate Artifact	CATEGORY:Church	TYPE:Ruby Temple	BONUS:VAR|RTAffiliationScore|100*10	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Ruby Temple ~ Membership	DESC:Discovers an artifact and donates it to the church: +10	SOURCEPAGE:p.20
+
+Found Magic School	KEY:Ruby Temple ~ Found Magic School	CATEGORY:Church	TYPE:Ruby Temple	BONUS:VAR|RTAffiliationScore|100*4	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Ruby Temple ~ Membership	DESC:Founds a school of magic: +4	SOURCEPAGE:p.20
+
+Found Dedicated Magic School	KEY:Ruby Temple ~ Found Dedicated Magic School	CATEGORY:Church	TYPE:Ruby Temple	BONUS:VAR|RTAffiliationScore|100*6	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Ruby Temple ~ Membership	DESC:Founds a school of magic dedicated to both arcane and divine magic: +6	SOURCEPAGE:p.20
+
+Destroy Magic	KEY:Ruby Temple ~ Destroy Magic	CATEGORY:Church	TYPE:Ruby Temple	BONUS:VAR|RTAffiliationScore|100*-8	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Ruby Temple ~ Membership	DESC:Destroys a magic item or magic-related knowledge: -8	SOURCEPAGE:p.20
+
+Persecute Spellcasters	KEY:Ruby Temple ~ Persecute Spellcasters	CATEGORY:Church	TYPE:Ruby Temple	BONUS:VAR|RTAffiliationScore|100*-4	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Ruby Temple ~ Membership	DESC:Associates with characters who hunt or persecute spellcasters: -4	SOURCEPAGE:p.20
+
+Break Church Law	KEY:Ruby Temple ~ Break Church Law	CATEGORY:Church	TYPE:Ruby Temple	BONUS:VAR|RTAffiliationScore|100*-2	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Ruby Temple ~ Membership	DESC:Breaks a law of the church: -2	SOURCEPAGE:p.20
+
+###Block: The Ruby Temple (RT), Rank
+
+# Absolute cost 4, 15, 23, 30
+# Incremental cost 4, 11, 8, 7
+
+Ruby Temple Crystal Novice	KEY:Ruby Temple ~ Crystal Novice	CATEGORY:Church Rank	TYPE:Ruby Temple	COST:4	ABILITY:Special Ability|AUTOMATIC|Ruby Temple ~ Crystal Novice Bonus	DESC:Gain a +2 bonus on Knowledge (Religion) made regarding undead creatures.	SOURCEPAGE:p.20
+
+Ruby Temple Topaz Apprentice	KEY:Ruby Temple ~ Topaz Apprentice	CATEGORY:Church Rank	TYPE:Ruby Temple	COST:11	PREABILITY:1,CATEGORY=Church Rank,Ruby Temple ~ Crystal Novice	ABILITY:Special Ability|AUTOMATIC|Ruby Temple ~ Topaz Apprentice Bonus	DESC:Gain a +1 bonus on saves against death spells and effects.	SOURCEPAGE:p.20
+
+Ruby Temple Emerald Master	KEY:Ruby Temple ~ Emerald Master	CATEGORY:Church Rank	TYPE:Ruby Temple	COST:8	PREABILITY:1,CATEGORY=Church Rank,Ruby Temple ~ Topaz Apprentice	ABILITY:Special Ability|AUTOMATIC|Ruby Temple ~ Emerald Master Bonus	DESC:Increase caster level by 1 for a single school of magic (your choice)	SOURCEPAGE:p.20	MULT:YES	CHOOSE:SCHOOLS|ALL	BONUS:CASTERLEVEL|SCHOOL.%CHOICE|1
+
+Ruby Temple Ruby Master	KEY:Ruby Temple ~ Ruby Master	CATEGORY:Church Rank	TYPE:Ruby Temple	COST:7	PREABILITY:1,CATEGORY=Church Rank,Ruby Temple ~ Emerald Master	ABILITY:Special Ability|AUTOMATIC|Ruby Temple ~ Ruby Master Bonus	DESC:Once per day, counter a spell without a readied action, and without having the same spell ready to cast, provided you succceed on a Spellcraft check to identify the spell as normal.	SOURCEPAGE:p.20
+
+###Block: The Ruby Temple (RT), Bonus
+
+Ruby Temple Crystal Novice Bonus	KEY:Ruby Temple ~ Crystal Novice Bonus	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	OUTPUTNAME:Ruby Temple Crystal Novice	DESC:+2 bonus to Knowledge (Religion) checks made regarding undead creatures.	SOURCEPAGE:P.20	ASPECT:SkillBonus|+2 bonus to Knowledge (Religion) regarding undead creatures
+
+Ruby Temple Topaz Apprentice Bonus	KEY:Ruby Temple ~ Topaz Apprentice Bonus	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	OUTPUTNAME:Ruby Temple Topaz Apprentice	DESC:+1 bonus on saves against death spells and effects.	SOURCEPAGE:P.20
+
+Ruby Temple Emerald Master Bonus	KEY:Ruby Temple ~ Emerald Master Bonus	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	OUTPUTNAME:Ruby Temple Emerald Master	DESC:Increase caster level by 1 for a single school of magic (your choice)	SOURCEPAGE:P.20
+
+Ruby Temple Ruby Master Bonus	KEY:Ruby Temple ~ Ruby Master Bonus	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	OUTPUTNAME:Ruby Temple Ruby Master	DESC:Once a day, counter a spell without a readied action, and without having the same spell ready to cast, provided you succeed on a Spellcraft check to identify the spell, as normal	SOURCEPAGE:P.20
+
+#======================================
+
+###Block: Scales of Balance (SB), One Time
+
+Scales of Balance Membership	KEY:Scales of Balance ~ Membership	CATEGORY:Church	TYPE:Scales of Balance	PREDEITY:1,St. Cuthbert	DEFINE:SBAffiliationScore|0	COST:0	BONUS:ABILITYPOOL|Scales of Balance Rank|SBAffiliationScore/100	ABILITY:Church|AUTOMATIC|Scales of Balance ~ Character Level	DESC:Membership	SOURCEPAGE:p.6
+
+Character Level	KEY:Scales of Balance ~ Character Level	CATEGORY:Church	TYPE:Scales of Balance	BONUS:VAR|SBAffiliationScore|100*floor(ECL/2)	COST:0	PREABILITY:1,CATEGORY=Church,Scales of Balance ~ Membership	DESC:Character Level: +1/2 levels	SOURCEPAGE:p.21
+
+###Block: Scales of Balance (SB), Multiple Use
+
+###Block: Scales of Balance (SB), Rank
+
+###Block: Scales of Balance (SB), Bonus
+
+#======================================
+
+###Block: The Shining Light Of Pelor (SLP), One Time
+
+The Shining Light Of Pelor Membership	KEY:Shining Light Of Pelor ~ Membership	CATEGORY:Church	TYPE:Shining Light Of Pelor	PREDEITY:1,Pelor	DEFINE:SLPAffiliationScore|0	COST:0	BONUS:ABILITYPOOL|The Shining Light Of Pelor Rank|SLPAffiliationScore/100	ABILITY:Church|AUTOMATIC|Shining Light Of Pelor ~ Character Level	ABILITY:Church|AUTOMATIC|Shining Light Of Pelor ~ Cleric or paladin|PREMULT:1,[PRECLASS:1,Cleric=1],[PRECLASS:1,Paladin=1]	ABILITY:Church|AUTOMATIC|Shining Light Of Pelor ~ Knowledge religion 5-9|PREMULT:2,[PRESKILL:1,Knowledge (Religion)=5],[!PRESKILL:1,Knowledge (Religion)=10]	ABILITY:Church|AUTOMATIC|Shining Light Of Pelor ~ Knowledge religion 10|PRESKILL:1,Knowledge (Religion)=10	ABILITY:Church|AUTOMATIC|Shining Light Of Pelor ~ Heal 5-9|PREMULT:2,[PRESKILL:1,Heal=5],[!PRESKILL:1,Heal=10]	ABILITY:Church|AUTOMATIC|Shining Light Of Pelor ~ Heal 10|PRESKILL:1,Heal=10	ABILITY:Church|AUTOMATIC|Shining Light Of Pelor ~ Will save 10|PRECHECK:1,Will=10	ABILITY:Church|AUTOMATIC|Shining Light Of Pelor ~ Strength 20|PRESTAT:1,STR=20	ABILITY:Church|AUTOMATIC|Shining Light Of Pelor ~ Can cast heal|PREMULT:2,[PRESPELLTYPE:1,Divine=6],[PRESPELL:1,Heal]	DESC:Membership	SOURCEPAGE:p.6
+
+Character Level	KEY:Shining Light Of Pelor ~ Character Level	CATEGORY:Church	TYPE:Shining Light Of Pelor	BONUS:VAR|SLPAffiliationScore|100*floor(ECL/2)	COST:0	PREABILITY:1,CATEGORY=Church,Shining Light Of Pelor ~ Membership	DESC:Character Level: +1/2 levels	SOURCEPAGE:p.22
+
+Cleric or paladin	KEY:Shining Light Of Pelor ~ Cleric or paladin	CATEGORY:Church	TYPE:Shining Light Of Pelor	PREMULT:1,[PRECLASS:1,Cleric=1],[PRECLASS:1,Paladin=1]	BONUS:VAR|SLPAffiliationScore|100*1	COST:0	PREABILITY:1,CATEGORY=Church,Shining Light Of Pelor ~ Membership	DESC:Cleric or paladin: +1	SOURCEPAGE:p.22
+
+Knowledge religion 5-9 ranks	KEY:Shining Light Of Pelor ~ Knowledge religion 5-9	CATEGORY:Church	TYPE:Shining Light Of Pelor	PREMULT:2,[PRESKILL:1,Knowledge (Religion)=5],[!PRESKILL:1,Knowledge (Religion)=10]	BONUS:VAR|SLPAffiliationScore|100*1	COST:0	PREABILITY:1,CATEGORY=Church,Shining Light Of Pelor ~ Membership	DESC:Knowledge (religion) 5-9 ranks: +1	SOURCEPAGE:p.22
+
+Knowledge religion 10 or more ranks	KEY:Shining Light Of Pelor ~ Knowledge religion 10	CATEGORY:Church	TYPE:Shining Light Of Pelor	PRESKILL:1,Knowledge (Religion)=10	BONUS:VAR|SLPAffiliationScore|100*2	COST:0	PREABILITY:1,CATEGORY=Church,Shining Light Of Pelor ~ Membership	DESC:Knowledge (religion) 10 or more ranks: +2	SOURCEPAGE:p.22
+
+Heal 5-9 ranks	KEY:Shining Light Of Pelor ~ Heal 5-9	CATEGORY:Church	TYPE:Shining Light Of Pelor	PREMULT:2,[PRESKILL:1,Heal=5],[!PRESKILL:1,Heal=10]	BONUS:VAR|SLPAffiliationScore|100*1	COST:0	PREABILITY:1,CATEGORY=Church,Shining Light Of Pelor ~ Membership	DESC:Heal 5-9 ranks: +1	SOURCEPAGE:p.22
+
+Heal 10 or more ranks	KEY:Shining Light Of Pelor ~ Heal 10	CATEGORY:Church	TYPE:Shining Light Of Pelor	PRESKILL:1,Heal=10	BONUS:VAR|SLPAffiliationScore|100*2	COST:0	PREABILITY:1,CATEGORY=Church,Shining Light Of Pelor ~ Membership	DESC:Heal 10 or more ranks: +2	SOURCEPAGE:p.22
+
+Will save bonus +10 or higher	KEY:Shining Light Of Pelor ~ Will save 10	CATEGORY:Church	TYPE:Shining Light Of Pelor	PRECHECK:1,Will=10	BONUS:VAR|SLPAffiliationScore|100*1	COST:0	PREABILITY:1,CATEGORY=Church,Shining Light Of Pelor ~ Membership	DESC:Will save bonus +10 or higher: +1	SOURCEPAGE:p.22
+
+Strength score of 20 or higher	KEY:Shining Light Of Pelor ~ Strength 20	CATEGORY:Church	TYPE:Shining Light Of Pelor	PRESTAT:1,STR=20	BONUS:VAR|SLPAffiliationScore|100*1	COST:0	PREABILITY:1,CATEGORY=Church,Shining Light Of Pelor ~ Membership	DESC:Strength bonus of 20 or higher: +1	SOURCEPAGE:p.22
+
+# FIXME: 'PRESPELL:1,Heal' alone does not work, cleric level < 11 pass the requirement.
+# WORKAROUND: added 'PRESPELLTYPE:1,Divine=6' for clerics.
+# ISSUE: Other classes that can also cast Heal are most likely broken.
+
+Can cast heal	KEY:Shining Light Of Pelor ~ Can cast heal	CATEGORY:Church	TYPE:Shining Light Of Pelor	PREMULT:2,[PRESPELLTYPE:1,Divine=6],[PRESPELL:1,Heal]	BONUS:VAR|SLPAffiliationScore|100*3	COST:0	PREABILITY:1,CATEGORY=Church,Shining Light Of Pelor ~ Membership	DESC:Can cast heal: +3	SOURCEPAGE:p.22
+
+Has been undead	KEY:Shining Light Of Pelor ~ Has been undead	CATEGORY:Church	TYPE:Shining Light Of Pelor	BONUS:VAR|SLPAffiliationScore|100*-6	COST:0	PREABILITY:1,CATEGORY=Church,Shining Light Of Pelor ~ Membership	DESC:Has been undead: -6	SOURCEPAGE:p.22
+
+###Block: The Shining Light Of Pelor (SLP), Multiple Use
+
+Destroy undead CR8	KEY:Shining Light Of Pelor ~ Destroy undead CR8	CATEGORY:Church	TYPE:Shining Light Of Pelor	BONUS:VAR|SLPAffiliationScore|100*8/4	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Shining Light Of Pelor ~ Membership	DESC:Destroys a CR8 or higher undead creature: +1/4 creature's CR	SOURCEPAGE:p.23	SORTKEY:CR08
+Destroy undead CR9	KEY:Shining Light Of Pelor ~ Destroy undead CR9	CATEGORY:Church	TYPE:Shining Light Of Pelor	BONUS:VAR|SLPAffiliationScore|100*9/4	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Shining Light Of Pelor ~ Membership	DESC:Destroys a CR8 or higher undead creature: +1/4 creature's CR	SOURCEPAGE:p.23	SORTKEY:CR09
+Destroy undead CR10	KEY:Shining Light Of Pelor ~ Destroy undead CR10	CATEGORY:Church	TYPE:Shining Light Of Pelor	BONUS:VAR|SLPAffiliationScore|100*10/4	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Shining Light Of Pelor ~ Membership	DESC:Destroys a CR8 or higher undead creature: +1/4 creature's CR	SOURCEPAGE:p.23	SORTKEY:CR10
+Destroy undead CR11	KEY:Shining Light Of Pelor ~ Destroy undead CR11	CATEGORY:Church	TYPE:Shining Light Of Pelor	BONUS:VAR|SLPAffiliationScore|100*11/4	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Shining Light Of Pelor ~ Membership	DESC:Destroys a CR8 or higher undead creature: +1/4 creature's CR	SOURCEPAGE:p.23	SORTKEY:CR11
+Destroy undead CR12	KEY:Shining Light Of Pelor ~ Destroy undead CR12	CATEGORY:Church	TYPE:Shining Light Of Pelor	BONUS:VAR|SLPAffiliationScore|100*12/4	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Shining Light Of Pelor ~ Membership	DESC:Destroys a CR8 or higher undead creature: +1/4 creature's CR	SOURCEPAGE:p.23	SORTKEY:CR12
+Destroy undead CR13	KEY:Shining Light Of Pelor ~ Destroy undead CR13	CATEGORY:Church	TYPE:Shining Light Of Pelor	BONUS:VAR|SLPAffiliationScore|100*13/4	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Shining Light Of Pelor ~ Membership	DESC:Destroys a CR8 or higher undead creature: +1/4 creature's CR	SOURCEPAGE:p.23	SORTKEY:CR13
+Destroy undead CR14	KEY:Shining Light Of Pelor ~ Destroy undead CR14	CATEGORY:Church	TYPE:Shining Light Of Pelor	BONUS:VAR|SLPAffiliationScore|100*14/4	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Shining Light Of Pelor ~ Membership	DESC:Destroys a CR8 or higher undead creature: +1/4 creature's CR	SOURCEPAGE:p.23	SORTKEY:CR14
+Destroy undead CR15	KEY:Shining Light Of Pelor ~ Destroy undead CR15	CATEGORY:Church	TYPE:Shining Light Of Pelor	BONUS:VAR|SLPAffiliationScore|100*15/4	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Shining Light Of Pelor ~ Membership	DESC:Destroys a CR8 or higher undead creature: +1/4 creature's CR	SOURCEPAGE:p.23	SORTKEY:CR15
+Destroy undead CR16	KEY:Shining Light Of Pelor ~ Destroy undead CR16	CATEGORY:Church	TYPE:Shining Light Of Pelor	BONUS:VAR|SLPAffiliationScore|100*16/4	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Shining Light Of Pelor ~ Membership	DESC:Destroys a CR8 or higher undead creature: +1/4 creature's CR	SOURCEPAGE:p.23	SORTKEY:CR16
+Destroy undead CR17	KEY:Shining Light Of Pelor ~ Destroy undead CR17	CATEGORY:Church	TYPE:Shining Light Of Pelor	BONUS:VAR|SLPAffiliationScore|100*17/4	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Shining Light Of Pelor ~ Membership	DESC:Destroys a CR8 or higher undead creature: +1/4 creature's CR	SOURCEPAGE:p.23	SORTKEY:CR17
+Destroy undead CR18	KEY:Shining Light Of Pelor ~ Destroy undead CR18	CATEGORY:Church	TYPE:Shining Light Of Pelor	BONUS:VAR|SLPAffiliationScore|100*18/4	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Shining Light Of Pelor ~ Membership	DESC:Destroys a CR8 or higher undead creature: +1/4 creature's CR	SOURCEPAGE:p.23	SORTKEY:CR18
+Destroy undead CR19	KEY:Shining Light Of Pelor ~ Destroy undead CR19	CATEGORY:Church	TYPE:Shining Light Of Pelor	BONUS:VAR|SLPAffiliationScore|100*19/4	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Shining Light Of Pelor ~ Membership	DESC:Destroys a CR8 or higher undead creature: +1/4 creature's CR	SOURCEPAGE:p.23	SORTKEY:CR19
+Destroy undead CR20	KEY:Shining Light Of Pelor ~ Destroy undead CR20	CATEGORY:Church	TYPE:Shining Light Of Pelor	BONUS:VAR|SLPAffiliationScore|100*20/4	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Shining Light Of Pelor ~ Membership	DESC:Destroys a CR8 or higher undead creature: +1/4 creature's CR	SOURCEPAGE:p.23	SORTKEY:CR20
+
+Hunt undead	KEY:Shining Light Of Pelor ~ Hunt undead	CATEGORY:Church	TYPE:Shining Light Of Pelor	BONUS:VAR|SLPAffiliationScore|100*1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Shining Light Of Pelor ~ Membership	DESC:Undertakes a mission to hunt undead: +1	SOURCEPAGE:p.23
+
+Mission underground	KEY:Shining Light Of Pelor ~ Mission underground	CATEGORY:Church	TYPE:Shining Light Of Pelor	BONUS:VAR|SLPAffiliationScore|100*1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Shining Light Of Pelor ~ Membership	DESC:Undertakes a mission underground: +1	SOURCEPAGE:p.23
+
+Razes undead stronghold	KEY:Shining Light Of Pelor ~ Razes undead stronghold	CATEGORY:Church	TYPE:Shining Light Of Pelor	BONUS:VAR|SLPAffiliationScore|100*8	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Shining Light Of Pelor ~ Membership	DESC:Razes the stronghold of an undead creature: +8	SOURCEPAGE:p.23
+
+Raise dead	KEY:Shining Light Of Pelor ~ Raise dead	CATEGORY:Church	TYPE:Shining Light Of Pelor	BONUS:VAR|SLPAffiliationScore|100*2	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Shining Light Of Pelor ~ Membership	DESC:Brings a creature back to life with raise dead or similar magic: +2	SOURCEPAGE:p.23
+
+Aid the less fortunate with 500gp	KEY:Shining Light Of Pelor ~ Aid 500gp	CATEGORY:Church	TYPE:Shining Light Of Pelor	BONUS:VAR|SLPAffiliationScore|100*1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Shining Light Of Pelor ~ Membership	DESC:Aid the less fortunate with own funds: +1/500 gp expended	SOURCEPAGE:p.23
+
+Converts a new member	KEY:Shining Light Of Pelor ~ Convert member	CATEGORY:Church	TYPE:Shining Light Of Pelor	BONUS:VAR|SLPAffiliationScore|100*1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Shining Light Of Pelor ~ Membership	DESC:Converts a new member: +1	SOURCEPAGE:p.23
+
+Associates with undead	KEY:Shining Light Of Pelor ~ Associate undead	CATEGORY:Church	TYPE:Shining Light Of Pelor	BONUS:VAR|SLPAffiliationScore|100*-4	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Shining Light Of Pelor ~ Membership	DESC:Associates with undead: -4	SOURCEPAGE:p.23
+
+Associates with evil outsiders	KEY:Shining Light Of Pelor ~ Associate evil outsiders	CATEGORY:Church	TYPE:Shining Light Of Pelor	BONUS:VAR|SLPAffiliationScore|100*-2	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Shining Light Of Pelor ~ Membership	DESC:Associates with evil outsiders: -2	SOURCEPAGE:p.23
+
+Associates with illithids	KEY:Shining Light Of Pelor ~ Associate illithids	CATEGORY:Church	TYPE:Shining Light Of Pelor	BONUS:VAR|SLPAffiliationScore|100*-6	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Shining Light Of Pelor ~ Membership	DESC:Associates with illithids: -6	SOURCEPAGE:p.23
+
+Acts against alignment	KEY:Shining Light Of Pelor ~ Against alignment	CATEGORY:Church	TYPE:Shining Light Of Pelor	BONUS:VAR|SLPAffiliationScore|100*-10	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Shining Light Of Pelor ~ Membership	DESC:Acts against alignment: -10	SOURCEPAGE:p.23
+
+###Block: The Shining Light Of Pelor (SLP), Rank
+
+# Absolute cost 4, 10, 18, 25, 30
+# Incremental cost 4, 6, 8, 7, 5
+
+Shining Light Of Pelor Novitiate of the Sun	KEY:Shining Light Of Pelor ~ Novitiate of the Sun	CATEGORY:Church Rank	TYPE:Shining Light Of Pelor	COST:4	ABILITY:Special Ability|AUTOMATIC|Shining Light Of Pelor ~ Novitiate of the Sun Bonus	DESC:Gain a +2 bonus on Heal checks made to stabilize a dying creature.	SOURCEPAGE:p.23
+
+Shining Light Of Pelor Light of the Sun	KEY:Shining Light Of Pelor ~ Light of the Sun	CATEGORY:Church Rank	TYPE:Shining Light Of Pelor	COST:6	PREABILITY:1,CATEGORY=Church Rank,Shining Light Of Pelor ~ Novitiate of the Sun	ABILITY:Special Ability|AUTOMATIC|Shining Light Of Pelor ~ Light of the Sun Bonus	DESC:Gain a +2 bonus on turning checks.	SOURCEPAGE:p.23
+
+Shining Light Of Pelor Heat of the Sun	KEY:Shining Light Of Pelor ~ Heat of the Sun	CATEGORY:Church Rank	TYPE:Shining Light Of Pelor	COST:8	PREABILITY:1,CATEGORY=Church Rank,Shining Light Of Pelor ~ Light of the Sun	ABILITY:Special Ability|AUTOMATIC|Shining Light Of Pelor ~ Heat of the Sun Bonus	DESC:Gain a +1 bonus on saves against evil spells and effects.	SOURCEPAGE:p.23
+
+Shining Light Of Pelor Fury of the Sun	KEY:Shining Light Of Pelor ~ Fury of the Sun	CATEGORY:Church Rank	TYPE:Shining Light Of Pelor	COST:7	PREABILITY:1,CATEGORY=Church Rank,Shining Light Of Pelor ~ Heat of the Sun	ABILITY:Special Ability|AUTOMATIC|Shining Light Of Pelor ~ Fury of the Sun Bonus	DESC:Once per day, add your Strength modifier as a bonus on a single saving throw.	SOURCEPAGE:p.23
+
+Shining Light Of Pelor Shining Light	KEY:Shining Light Of Pelor ~ Shining Light	CATEGORY:Church Rank	TYPE:Shining Light Of Pelor	COST:5	PREABILITY:1,CATEGORY=Church Rank,Shining Light Of Pelor ~ Fury of the Sun	ABILITY:Special Ability|AUTOMATIC|Shining Light Of Pelor ~ Shining Light Bonus	DESC:Once per day, wreathe yourself in the divine energy of the sun, which acts as a fire shield spell (warm shield only, caster level equals your character level).	SOURCEPAGE:p.23
+
+###Block: The Shining Light Of Pelor (SLP), Bonus
+
+Shining Light Of Pelor Novitiate of the Sun Bonus	KEY:Shining Light Of Pelor ~ Novitiate of the Sun Bonus	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	OUTPUTNAME:Shining Light Of Pelor Novitiate of the Sun	DESC:Gain a +2 bonus on Heal checks made to stabilize a dying creature.	SOURCEPAGE:P.23	ASPECT:SkillBonus|+2 bonus to Heal checks made to stabilize a dying creature.
+
+Shining Light Of Pelor Light of the Sun Bonus	KEY:Shining Light Of Pelor ~ Light of the Sun Bonus	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	OUTPUTNAME:Shining Light Of Pelor Light of the Sun	DESC:Gain a +2 bonus on turning checks.	SOURCEPAGE:P.23	ASPECT:SkillBonus|+2 bonus on turning checks.
+
+Shining Light Of Pelor Heat of the Sun Bonus	KEY:Shining Light Of Pelor ~ Heat of the Sun Bonus	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	OUTPUTNAME:Shining Light Of Pelor Heat of the Sun	DESC:Gain a +1 bonus on saves against evil spells and effects.	SOURCEPAGE:P.23
+
+Shining Light Of Pelor Fury of the Sun Bonus	KEY:Shining Light Of Pelor ~ Fury of the Sun Bonus	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	OUTPUTNAME:Shining Light Of Pelor Fury of the Sun	DESC:Once per day, add your Strenght modifier as a bonus on a single saving throw.	SOURCEPAGE:P.23
+
+Shining Light Of Pelor Shining Light Bonus	KEY:Shining Light Of Pelor ~ Shining Light Bonus	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	OUTPUTNAME:Shining Light Of Pelor Shining Light	DESC:Once per day, wreathe yourself in the divine energy of the sun, which acts as a fire shield spell (warm shield only, caster level equals your character level).	SOURCEPAGE:P.23
+
+#======================================
+
+###Block: The Temple Of True Aim (TTA), One Time
+
+The Temple Of True Aim Membership	KEY:Temple Of True Aim ~ Membership	CATEGORY:Church	TYPE:Temple Of True Aim	PREDEITY:1,Corellon Larethian	DEFINE:TTAAffiliationScore|0	COST:0	BONUS:ABILITYPOOL|The Temple Of True Aim Rank|TTAAffiliationScore/100	ABILITY:Church|AUTOMATIC|Temple Of True Aim ~ Character Level	DESC:Membership	SOURCEPAGE:p.6
+
+Character Level	KEY:Temple Of True Aim ~ Character Level	CATEGORY:Church	TYPE:Temple Of True Aim	BONUS:VAR|TTAAffiliationScore|100*floor(ECL/2)	COST:0	PREABILITY:1,CATEGORY=Church,Temple Of True Aim ~ Membership	DESC:Character Level: +1/2 levels	SOURCEPAGE:p.24
+
+###Block: The Temple Of True Aim (TTA), Multiple Use
+
+###Block: The Temple Of True Aim (TTA), Rank
+
+###Block: The Temple Of True Aim (TTA), Bonus
+
+#======================================
+
+###Block: The Temple Of The Twinkling Eye (TTE), One Time
+
+The Temple Of The Twinkling Eye Membership	KEY:Temple Of The Twinkling Eye ~ Membership	CATEGORY:Church	TYPE:Temple Of The Twinkling Eye	PREDEITY:1,Garl Glittergold	DEFINE:TTEAffiliationScore|0	COST:0	BONUS:ABILITYPOOL|The Temple Of The Twinkling Eye Rank|TTEAffiliationScore/100	ABILITY:Church|AUTOMATIC|Temple Of The Twinkling Eye ~ Character Level	DESC:Membership	SOURCEPAGE:p.6
+
+Character Level	KEY:Temple Of The Twinkling Eye ~ Character Level	CATEGORY:Church	TYPE:Temple Of The Twinkling Eye	BONUS:VAR|TTEAffiliationScore|100*floor(ECL/2)	COST:0	PREABILITY:1,CATEGORY=Church,Temple Of The Twinkling Eye ~ Membership	DESC:Character Level: +1/2 levels	SOURCEPAGE:p.26
+
+###Block: The Temple Of The Twinkling Eye (TTE), Multiple Use
+
+###Block: The Temple Of The Twinkling Eye (TTE), Rank
+
+###Block: The Temple Of The Twinkling Eye (TTE), Bonus
+
+

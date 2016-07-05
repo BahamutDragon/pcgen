@@ -3,15 +3,16 @@ SOURCELONG:Book of Vile Darkness	SOURCESHORT:BV	SOURCEDATE:2002-10
 
 ###Block:Familiar
 # Class of the Master			Type		Ability										Copy Masters BAB		Copy Masters Checks	Use Masters skills?	Define Stat				Modify VAR														Vision
-FOLLOWER:CancerousCompanionLVL=2	TYPE:Cancer	ABILITY:Special Ability|AUTOMATIC|Animal Companion ~ Link		COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	USEMASTERSKILL:YES	DEFINESTAT:MINVALUE|INT|6																VISION:Blindsight (30')
-FOLLOWER:CancerousCompanionLVL=3	TYPE:Cancer																								DEFINESTAT:MINVALUE|INT|7
-FOLLOWER:CancerousCompanionLVL=4	TYPE:Cancer	ABILITY:Special Ability|AUTOMATIC|Animal Companion ~ Evasion													DEFINESTAT:MINVALUE|INT|8
-FOLLOWER:CancerousCompanionLVL=5	TYPE:Cancer	ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base														DEFINESTAT:MINVALUE|INT|9	BONUS:VAR|UncannyDodgeFlankingLevel|CancerousCompanionLVL	BONUS:VAR|UncannyDodgeLevel|1
-FOLLOWER:CancerousCompanionLVL=6	TYPE:Cancer																								DEFINESTAT:MINVALUE|INT|10
-FOLLOWER:CancerousCompanionLVL=7	TYPE:Cancer																								DEFINESTAT:MINVALUE|INT|11
-FOLLOWER:CancerousCompanionLVL=8	TYPE:Cancer																								DEFINESTAT:MINVALUE|INT|12	BONUS:VAR|UncannyDodgeLevel|1
-FOLLOWER:CancerousCompanionLVL=9	TYPE:Cancer																								DEFINESTAT:MINVALUE|INT|13
+FOLLOWER:CancerousCompanionLVL=2	TYPE:Cancer	ABILITY:Special Ability|AUTOMATIC|Animal Companion ~ Link		COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	USEMASTERSKILL:YES	DEFINESTAT:MINVALUE|INT|6				DEFINESTAT:MINVALUE|STR|mastervar("STRSCORE")	DEFINESTAT:MINVALUE|DEX|mastervar("DEXSCORE")	DEFINESTAT:MINVALUE|CON|mastervar("CONSCORE")		DEFINESTAT:MINVALUE|WIS|mastervar("WISSCORE")		DEFINESTAT:MINVALUE|CHA|mastervar("CHASCORE")											VISION:Blindsight (30')
+FOLLOWER:CancerousCompanionLVL=3	TYPE:Cancer																								DEFINESTAT:MINVALUE|INT|7				
+FOLLOWER:CancerousCompanionLVL=4	TYPE:Cancer	ABILITY:Special Ability|AUTOMATIC|Animal Companion ~ Evasion|Cancerous Companion ~ Spell Use													DEFINESTAT:MINVALUE|INT|8
+FOLLOWER:CancerousCompanionLVL=5	TYPE:Cancer															DEFINESTAT:MINVALUE|INT|9	
+FOLLOWER:CancerousCompanionLVL=6	TYPE:Cancer					ABILITY:Special Ability|AUTOMATIC|Cancerous Companion ~ Mental Defender																			DEFINESTAT:MINVALUE|INT|10
+FOLLOWER:CancerousCompanionLVL=7	TYPE:Cancer	BONUS:VAR|MasterSpellTimes|2																							DEFINESTAT:MINVALUE|INT|11
+FOLLOWER:CancerousCompanionLVL=8	TYPE:Cancer																								DEFINESTAT:MINVALUE|INT|12
+FOLLOWER:CancerousCompanionLVL=9	TYPE:Cancer	SAB:Can form a 1-ft. tendril of flesh capable of making touch attacks, including the cancer mage's contagion and poison spelllike abilities.																							DEFINESTAT:MINVALUE|INT|13
 FOLLOWER:CancerousCompanionLVL=10	TYPE:Cancer																								DEFINESTAT:MINVALUE|INT|14																VISION:Blindsight (60')
+MASTERBONUSRACE:Cancer				BONUS:VAR|UncannyDodgeLevel|1|PREVARGTEQ:CancerousCompanionLVL,8	BONUS:VAR|UncannyDodgeFlankingLevel|CancerousCompanionLVL|PREVARGTEQ:CancerousCompanionLVL,5	BONUS:VAR|UncannyDodgeLevel|1|PREVARGTEQ:CancerousCompanionLVL,5	TYPE:Cancer	ABILITY:Special Ability|AUTOMATIC|Rogue ~ Evasion|PREVARGTEQ:CancerousCompanionLVL,4		ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge ~ Base|PREVARGTEQ:CancerousCompanionLVL,5										
 #
 ###Block:Quasit Familiar
 # Class of the Master		Type				Ability														Copy Masters BAB		Copy Masters Checks	HP formula based on Master	Use Masters skills?	Define Stat				Combat bonus
