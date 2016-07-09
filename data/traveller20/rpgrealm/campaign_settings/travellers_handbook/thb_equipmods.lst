@@ -1,0 +1,78 @@
+# CVS $Revision: $ $Author: $ -- Fri Sep  5 11:40:25 2014 -- reformated by prettylst.pl v1.51 (build 24947)
+SOURCELONG:Traveller's Handbook	SOURCESHORT:THB	SOURCEWEB:http://www.rpgrealms.com
+
+# Original code by  PK Lucas AKA norris_the_monk
+# Additional code by Neil AKA Apaseall
+
+#
+# 5.8.0 rsd
+#Masterwork		KEY:MWORKW		TYPE:Ammunition.Weapon	COST:0	VISIBLE:QUALIFY	ITYPE:Masterwork					NAMEOPT:NORMAL		SOURCEPAGE:RSRD Equipment.rtf	PRETYPE:Weapon|Ammunition	!PRETYPE:Masterwork|Mithral|Adamantine|Darkwood																	BONUS:ITEMCOST|TYPE=Ammunition|6	BONUS:ITEMCOST|TYPE=Weapon|300																																																						BONUS:WEAPON|TOHIT|1|TYPE=Enhancement																			ASSIGNTOALL:YES
+#Masterwork		KEY:MWORKA		TYPE:Armor.Shield		COST:150	VISIBLE:QUALIFY	ITYPE:Masterwork					NAMEOPT:NORMAL		SOURCEPAGE:RSRD Equipment.rtf	PRETYPE:Armor|Shield		!PRETYPE:Masterwork|Mithral|Adamantine|Darkwood					BONUS:EQMARMOR|ACCHECK|1|TYPE=Enhancement																																																																																																ASSIGNTOALL:YES
+#Masterwork		KEY:MWORKI		TYPE:Instrument		COST:95	VISIBLE:QUALIFY	ITYPE:Masterwork					NAMEOPT:NORMAL		SOURCEPAGE:RSRD Equipment.rtf	PRETYPE:Instrument		!PRETYPE:Masterwork|Mithral|Adamantine|Darkwood																																																																																																											ASSIGNTOALL:YES
+#Masterwork		KEY:MWORKT		TYPE:Tools			COST:50	VISIBLE:QUALIFY	ITYPE:Masterwork					NAMEOPT:NORMAL		SOURCEPAGE:RSRD Equipment.rtf	PRETYPE:Tools			!PRETYPE:Masterwork|Mithral|Adamantine|Darkwood																	BONUS:ITEMCOST|TYPE=Thief|20																																																																																						ASSIGNTOALL:YES
+
+#Add Type							KEY:ADDTYPE		TYPE:ALL		COST:0												NAMEOPT:NONAME		SOURCEPAGE:p.																																											CHOOSE:Select desired TYPE(s)|TYPE=ALL
+
+#Autofire							KEY:AUTOFIRE		TYPE:Automatic				VISIBLE:QUALIFY				REPLACES:DBLTAP							SOURCEPAGE:Chap. 4, Equipment, Weapons																		BONUS:WEAPON|TOHIT|-4	BONUS:WEAPON|TOHIT|4|PREFEAT:1,Advanced Firearms Proficiency				SPROP:Adds 2 dice to damage.
+#Burst fire							KEY:BURSTFIRE		TYPE:Automatic				VISIBLE:QUALIFY												SOURCEPAGE:Chap. 4, Equipment, Weapons			PRETYPE:EQMOD=AUTOFIRE													BONUS:WEAPON|TOHIT|-4
+#Double Tap fire						KEY:DBLTAP		TYPE:Semiauto				VISIBLE:QUALIFY				REPLACES:AUTOFIRE						SOURCEPAGE:Chap. 4, Equipment, Weapons																		BONUS:WEAPON|TOHIT|-2												SPROP:Adds 1 die to damage.
+
+
+# Modifier Name			Unique Key			Naming Option					Type			Cost					Visible		Source Page								Required Type								Prohibited Type	Combat bonus					Bonus Equip Mods		Bonus Weapon Mods			Weapon prop. bonus			Special Property												Apply to both heads
+Telescopic Sights			KEY:SCOPESTD		NAMEOPT:TEXT=[NAME] TScope			TYPE:Weapon		COST:200				VISIBLE:QUALIFY	SOURCEPAGE:Chap. 4, Equipment, General Equipment	PRETYPE:1,Rifle|Handgun|Laser																BONUS:EQM|WEIGHTADD|.8	BONUS:EQMWEAPON|RANGEMULT|2																					ASSIGNTOALL:YES
+Electronic Sights			KEY:SCOPEELEOPT		NAMEOPT:TEXT=[NAME] EScope			TYPE:Weapon		COST:2000				VISIBLE:QUALIFY	SOURCEPAGE:Chap. 4, Equipment, General Equipment	PRETYPE:1,Rifle|Handgun|Laser																BONUS:EQM|WEIGHTADD|1.5												SPROP:Ignore penalties for poor lighting
+Electronic Telescopic Sights	KEY:SCOPEELESTD		NAMEOPT:TEXT=[NAME] ETScope			TYPE:Weapon		COST:3000				VISIBLE:QUALIFY	SOURCEPAGE:Chap. 4, Equipment, General Equipment	PRETYPE:1,Rifle|Handgun|Laser																BONUS:EQM|WEIGHTADD|1.8	BONUS:EQMWEAPON|RANGEMULT|2							SPROP:Ignore penalties for poor lighting
+Silencer				KEY:SIL										TYPE:Weapon		COST:200				VISIBLE:QUALIFY	SOURCEPAGE:p.101							PRETYPE:1,Rifle|Handgun																	BONUS:EQM|WEIGHTADD|.6												SPROP:+10 to Listen DC to hear weapon fire
+
+# Modifier Name			Unique Key			Naming Option					Type			Cost					Visible		Source Page								Required Type								Prohibited Type	Combat bonus					Bonus Equip Mods		Bonus Weapon Mods			Weapon prop. bonus			Special Property												Apply to both heads
+Laser Dot Pointer			KEY:LAS_DOT			NAMEOPT:TEXT=[NAME] Laser Dot			TYPE:Weapon		COST:250				VISIBLE:QUALIFY	SOURCEPAGE:Chap. 4, Equipment, General Equipment	PRETYPE:1,Rifle|Handgun|Laser|Shotgun																							BONUS:WEAPON|TOHIT-SHORTRANGE|2	SPROP: Laser Dot +2 To Hit Close Range only. Can be fitted to any firearm
+Heads�up Display		KEY:HUD			NAMEOPT:TEXT=[NAME] HUD				TYPE:Weapon		COST:500				VISIBLE:QUALIFY	SOURCEPAGE:Chap. 4, Equipment, General Equipment	PRETYPE:1,Rifle|Handgun|Laser|Machine Gun																		BONUS:EQMWEAPON|RANGEMULT|2	BONUS:WEAPON|TOHIT|3			SPROP: HUD +3 To Hit All Ranges. 1m Comms Range.
+Chameleon T12			KEY:CHAM_T12									TYPE:Armor		COST:1000				VISIBLE:QUALIFY	SOURCEPAGE:p.104							PRETYPE:1,Vacc Suit|Env Suit|Combat Armor							BONUS:COMBAT|AC|2|TYPE=Equipment.STACK																SPROP: Mimics color, temperature and shading
+Chameleon T14			KEY:CHAM_T14									TYPE:Armor		COST:5000				VISIBLE:QUALIFY	SOURCEPAGE:p.104							PRETYPE:1,Vacc Suit|Env Suit|Combat Armor							BONUS:COMBAT|AC|4|TYPE=Equipment.STACK																SPROP: Mimics color, temperature and shading
+Psionic Shielding			KEY:PSISHLD										TYPE:Armor		COST:4000				VISIBLE:QUALIFY	SOURCEPAGE:p.104							PRETYPE:1,Vacc Suit|Env Suit|Combat Armor																													SPROP: Immunity to PSI attacks
+
+# Modifier Name			Unique Key			Naming Option					Type			Cost					Visible		Source Page								Required Type								Prohibited Type	Combat bonus					Bonus Equip Mods		Bonus Weapon Mods			Weapon prop. bonus			Special Property												Apply to both heads
+Flechette				KEY:FLECHETTE_50		NAMEOPT:TEXT=[NAME] Flechette			TYPE:Ammunition	COST:((BASECOST/50)*2)-1	VISIBLE:QUALIFY	SOURCEPAGE:Chap. 4, Equipment, General Equipment	PRETYPE:1,QUANT_50	PRETYPE:1,Bullet				!PRETYPE:1,Snub																	BONUS:WEAPON|TOHIT|2			SPROP: +2 To Hit, Reduces damage dice to d4, Useless against armor
+Flechette				KEY:FLECHETTE_1000	NAMEOPT:TEXT=[NAME] Flechette			TYPE:Ammunition	COST:(BASECOST*(2-1))/1000	VISIBLE:QUALIFY	SOURCEPAGE:Chap. 4, Equipment, General Equipment	PRETYPE:1,QUANT_1000	PRETYPE:1,Bullet				!PRETYPE:1,Snub																	BONUS:WEAPON|TOHIT|2			SPROP: +2 To Hit, Reduces damage dice to d4, Useless against armor
+
+High Explosive			KEY:HE_50			NAMEOPT:TEXT=[NAME] High Explosive		TYPE:Ammunition	COST:(BASECOST*(10-1))/50	VISIBLE:QUALIFY	SOURCEPAGE:Chap. 4, Equipment, General Equipment	PRETYPE:1,QUANT_50	PRETYPE:1,Bullet				!PRETYPE:1,Snub																	BONUS:WEAPON|DAMAGE.Ranged|1		SPROP: +1 point of damage per dice
+High Explosive			KEY:HE_1000			NAMEOPT:TEXT=[NAME] High Explosive		TYPE:Ammunition	COST:(BASECOST*(10-1))/1000	VISIBLE:QUALIFY	SOURCEPAGE:Chap. 4, Equipment, General Equipment	PRETYPE:1,QUANT_1000	PRETYPE:1,Bullet				!PRETYPE:1,Snub																	BONUS:WEAPON|DAMAGE.Ranged|1		SPROP: +1 point of damage per dice
+
+Armor Piercing 1			KEY:AP_1_50			NAMEOPT:TEXT=[NAME] Armor Piercing 1	TYPE:Ammunition	COST:(BASECOST*(3+1-1))/50	VISIBLE:QUALIFY	SOURCEPAGE:Chap. 4, Equipment, General Equipment	PRETYPE:1,QUANT_50	PRETYPE:1,Bullet				!PRETYPE:1,Snub																							SPROP: +1 point of Armor Piercing TL2 min
+Armor Piercing 1			KEY:AP_1_1000		NAMEOPT:TEXT=[NAME] Armor Piercing 1	TYPE:Ammunition	COST:(BASECOST*(3+1-1))/1000	VISIBLE:QUALIFY	SOURCEPAGE:Chap. 4, Equipment, General Equipment	PRETYPE:1,QUANT_1000	PRETYPE:1,Bullet				!PRETYPE:1,Snub																							SPROP: +1 point of Armor Piercing TL2 min
+
+Armor Piercing 2			KEY:AP_2_50			NAMEOPT:TEXT=[NAME] Armor Piercing 2	TYPE:Ammunition	COST:(BASECOST*(3+2-1))/50	VISIBLE:QUALIFY	SOURCEPAGE:Chap. 4, Equipment, General Equipment	PRETYPE:1,QUANT_50	PRETYPE:1,Bullet				!PRETYPE:1,Snub																							SPROP: +2 point of Armor Piercing TL4 min
+Armor Piercing 2			KEY:AP_2_1000		NAMEOPT:TEXT=[NAME] Armor Piercing 2	TYPE:Ammunition	COST:(BASECOST*(3+2-1))/1000	VISIBLE:QUALIFY	SOURCEPAGE:Chap. 4, Equipment, General Equipment	PRETYPE:1,QUANT_1000	PRETYPE:1,Bullet				!PRETYPE:1,Snub																							SPROP: +2 point of Armor Piercing TL4 min
+
+Armor Piercing 3			KEY:AP_3_50			NAMEOPT:TEXT=[NAME] Armor Piercing 3	TYPE:Ammunition	COST:(BASECOST*(3+3-1))/50	VISIBLE:QUALIFY	SOURCEPAGE:Chap. 4, Equipment, General Equipment	PRETYPE:1,QUANT_50	PRETYPE:1,Bullet				!PRETYPE:1,Snub																							SPROP: +3 point of Armor Piercing TL6 min
+Armor Piercing 3			KEY:AP_3_1000		NAMEOPT:TEXT=[NAME] Armor Piercing 3	TYPE:Ammunition	COST:(BASECOST*(3+3-1))/1000	VISIBLE:QUALIFY	SOURCEPAGE:Chap. 4, Equipment, General Equipment	PRETYPE:1,QUANT_1000	PRETYPE:1,Bullet				!PRETYPE:1,Snub																							SPROP: +3 point of Armor Piercing TL6 min
+
+Armor Piercing 4			KEY:AP_4_50			NAMEOPT:TEXT=[NAME] Armor Piercing 4	TYPE:Ammunition	COST:(BASECOST*(3+4-1))/50	VISIBLE:QUALIFY	SOURCEPAGE:Chap. 4, Equipment, General Equipment	PRETYPE:1,QUANT_50	PRETYPE:1,Bullet				!PRETYPE:1,Snub																							SPROP: +4 point of Armor Piercing TL8 min
+Armor Piercing 4			KEY:AP_4_1000		NAMEOPT:TEXT=[NAME] Armor Piercing 4	TYPE:Ammunition	COST:(BASECOST*(3+4-1))/1000	VISIBLE:QUALIFY	SOURCEPAGE:Chap. 4, Equipment, General Equipment	PRETYPE:1,QUANT_1000	PRETYPE:1,Bullet				!PRETYPE:1,Snub																							SPROP: +4 point of Armor Piercing TL8 min
+
+Armor Piercing 5			KEY:AP_5_50			NAMEOPT:TEXT=[NAME] Armor Piercing 5	TYPE:Ammunition	COST:(BASECOST*(3+5-1))/50	VISIBLE:QUALIFY	SOURCEPAGE:Chap. 4, Equipment, General Equipment	PRETYPE:1,QUANT_50	PRETYPE:1,Bullet				!PRETYPE:1,Snub																							SPROP: +5 point of Armor Piercing TL10 min
+Armor Piercing 5			KEY:AP_5_1000		NAMEOPT:TEXT=[NAME] Armor Piercing 5	TYPE:Ammunition	COST:(BASECOST*(3+5-1))/1000	VISIBLE:QUALIFY	SOURCEPAGE:Chap. 4, Equipment, General Equipment	PRETYPE:1,QUANT_1000	PRETYPE:1,Bullet				!PRETYPE:1,Snub																							SPROP: +5 point of Armor Piercing TL10 min
+
+Armor Piercing 6			KEY:AP_6_50			NAMEOPT:TEXT=[NAME] Armor Piercing 6	TYPE:Ammunition	COST:(BASECOST*(3+6-1))/50	VISIBLE:QUALIFY	SOURCEPAGE:Chap. 4, Equipment, General Equipment	PRETYPE:1,QUANT_50	PRETYPE:1,Bullet				!PRETYPE:1,Snub																							SPROP: +6 point of Armor Piercing TL12 min
+Armor Piercing 6			KEY:AP_6_1000		NAMEOPT:TEXT=[NAME] Armor Piercing 6	TYPE:Ammunition	COST:(BASECOST*(3+6-1))/1000	VISIBLE:QUALIFY	SOURCEPAGE:Chap. 4, Equipment, General Equipment	PRETYPE:1,QUANT_1000	PRETYPE:1,Bullet				!PRETYPE:1,Snub																							SPROP: +6 point of Armor Piercing TL12 min
+
+Tranquilizer			KEY:TRANQ_50		NAMEOPT:TEXT=[NAME] Tranquilizer		TYPE:Ammunition	COST:(BASECOST*(2 1))/50	VISIBLE:QUALIFY	SOURCEPAGE:Chap. 4, Equipment, General Equipment	PRETYPE:1,QUANT_50	PRETYPE:1,Bullet				!PRETYPE:1,Snub																							SPROP: Target make Fort save DC 15 or fall unconscious check +1 DC per round hit by
+Tranquilizer			KEY:TRANQ_1000		NAMEOPT:TEXT=[NAME] Tranquilizer		TYPE:Ammunition	COST:(BASECOST*(2-1))/1000	VISIBLE:QUALIFY	SOURCEPAGE:Chap. 4, Equipment, General Equipment	PRETYPE:1,QUANT_1000	PRETYPE:1,Bullet				!PRETYPE:1,Snub																							SPROP: Target make Fort save DC 15 or fall unconscious check +1 DC per round hit by
+
+HEAP 1				KEY:HEAP_1_50		NAMEOPT:TEXT=[NAME] HEAP 1			TYPE:Ammunition	COST:(BASECOST*(20+1-1))/50	VISIBLE:QUALIFY	SOURCEPAGE:Chap. 4, Equipment, General Equipment	PRETYPE:1,QUANT_50	PRETYPE:1,Bullet	PRETYPE:1,Snub																										SPROP: Snub Ammunition +1 point of Armor Piercing TL2 min
+HEAP 1				KEY:HEAP_1_1000		NAMEOPT:TEXT=[NAME] HEAP 1			TYPE:Ammunition	COST:(BASECOST*(20+1-1))/1000	VISIBLE:QUALIFY	SOURCEPAGE:Chap. 4, Equipment, General Equipment	PRETYPE:1,QUANT_1000	PRETYPE:1,Bullet	PRETYPE:1,Snub																										SPROP: Snub Ammunition +1 point of Armor Piercing TL2 min
+
+HEAP 2				KEY:HEAP_2_50		NAMEOPT:TEXT=[NAME] HEAP 2			TYPE:Ammunition	COST:(BASECOST*(20+2-1))/50	VISIBLE:QUALIFY	SOURCEPAGE:Chap. 4, Equipment, General Equipment	PRETYPE:1,QUANT_50	PRETYPE:1,Bullet	PRETYPE:1,Snub																										SPROP: Snub Ammunition +2 point of Armor Piercing TL4 min
+HEAP 2				KEY:HEAP_2_1000		NAMEOPT:TEXT=[NAME] HEAP 2			TYPE:Ammunition	COST:(BASECOST*(20+2-1))/1000	VISIBLE:QUALIFY	SOURCEPAGE:Chap. 4, Equipment, General Equipment	PRETYPE:1,QUANT_1000	PRETYPE:1,Bullet	PRETYPE:1,Snub																										SPROP: Snub Ammunition +2 point of Armor Piercing TL4 min
+
+HEAP 3				KEY:HEAP_3_50		NAMEOPT:TEXT=[NAME] HEAP 3			TYPE:Ammunition	COST:(BASECOST*(20+3-1))/50	VISIBLE:QUALIFY	SOURCEPAGE:Chap. 4, Equipment, General Equipment	PRETYPE:1,QUANT_50	PRETYPE:1,Bullet	PRETYPE:1,Snub																										SPROP: Snub Ammunition +3 point of Armor Piercing TL6 min
+HEAP 3				KEY:HEAP_3_1000		NAMEOPT:TEXT=[NAME] HEAP 3			TYPE:Ammunition	COST:(BASECOST*(20+3-1))/1000	VISIBLE:QUALIFY	SOURCEPAGE:Chap. 4, Equipment, General Equipment	PRETYPE:1,QUANT_1000	PRETYPE:1,Bullet	PRETYPE:1,Snub																										SPROP: Snub Ammunition +3 point of Armor Piercing TL6 min
+
+HEAP 4				KEY:HEAP_4_50		NAMEOPT:TEXT=[NAME] HEAP 4			TYPE:Ammunition	COST:(BASECOST*(20+4-1))/50	VISIBLE:QUALIFY	SOURCEPAGE:Chap. 4, Equipment, General Equipment	PRETYPE:1,QUANT_50	PRETYPE:1,Bullet	PRETYPE:1,Snub																										SPROP: Snub Ammunition +4 point of Armor Piercing TL8 min
+HEAP 4				KEY:HEAP_4_1000		NAMEOPT:TEXT=[NAME] HEAP 4			TYPE:Ammunition	COST:(BASECOST*(20+4-1))/1000	VISIBLE:QUALIFY	SOURCEPAGE:Chap. 4, Equipment, General Equipment	PRETYPE:1,QUANT_1000	PRETYPE:1,Bullet	PRETYPE:1,Snub																										SPROP: Snub Ammunition +4 point of Armor Piercing TL8 min
+
+HEAP 5				KEY:HEAP_5_50		NAMEOPT:TEXT=[NAME] HEAP 5			TYPE:Ammunition	COST:(BASECOST*(20+5-1))/50	VISIBLE:QUALIFY	SOURCEPAGE:Chap. 4, Equipment, General Equipment	PRETYPE:1,QUANT_50	PRETYPE:1,Bullet	PRETYPE:1,Snub																										SPROP: Snub Ammunition +5 point of Armor Piercing TL10 min
+HEAP 5				KEY:HEAP_5_1000		NAMEOPT:TEXT=[NAME] HEAP 5			TYPE:Ammunition	COST:(BASECOST*(20+5-1))/1000	VISIBLE:QUALIFY	SOURCEPAGE:Chap. 4, Equipment, General Equipment	PRETYPE:1,QUANT_1000	PRETYPE:1,Bullet	PRETYPE:1,Snub																										SPROP: Snub Ammunition +5 point of Armor Piercing TL10 min
+
+HEAP 6				KEY:HEAP_6_50		NAMEOPT:TEXT=[NAME] HEAP 6			TYPE:Ammunition	COST:(BASECOST*(20+6-1))/50	VISIBLE:QUALIFY	SOURCEPAGE:Chap. 4, Equipment, General Equipment	PRETYPE:1,QUANT_50	PRETYPE:1,Bullet	PRETYPE:1,Snub																										SPROP: Snub Ammunition +6 point of Armor Piercing TL12 min
+HEAP 6				KEY:HEAP_6_1000		NAMEOPT:TEXT=[NAME] HEAP 6			TYPE:Ammunition	COST:(BASECOST*(20+6-1))/1000	VISIBLE:QUALIFY	SOURCEPAGE:Chap. 4, Equipment, General Equipment	PRETYPE:1,QUANT_1000	PRETYPE:1,Bullet	PRETYPE:1,Snub																										SPROP: Snub Ammunition +6 point of Armor Piercing TL12 min
