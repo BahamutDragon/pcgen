@@ -305,11 +305,12 @@ CLASS:Dervish	STARTSKILLPTS:4	CSKILL:Balance|TYPE=Craft|Escape Artist|Jump|Liste
 ###TODO CONTIGUOUS:Monk
 
 # Class Name		Hit Dice	Type			Abbreviation	Source Page		Combat bonus															Modify VAR														Bonus
-CLASS:Drunken Master	HD:8		TYPE:Prestige	FACT:Abb|Dru		SOURCEPAGE:p.27	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Drunken Master	HD:8		TYPE:Prestige	FACT:Abb|Dru		SOURCEPAGE:p.27	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	DEFINE:DrunkenMasterLVL|0	BONUS:VAR|DrunkenMasterLVL|CL
 # Class Name		Required Ability															Required Feat								Required Skill		Required Text
-CLASS:Drunken Master	PREABILITY:1,CATEGORY=Special Ability,Evasion	PREABILITY:1,CATEGORY=Special Ability,Flurry of Blows	PREABILITY:3,CATEGORY=FEAT,Dodge,Great Fortitude,Improved Unarmed Strike	PRESKILL:1,Tumble=8	PRETEXT:Must be chosen by existing drunken masters and survive a night of revelry among them without being incarcerated, poisoned or extraordinarily embarassed
+CLASS:Drunken Master	PREABILITY:1,CATEGORY=Special Ability,TYPE.Evasion	PREABILITY:1,CATEGORY=Special Ability,TYPE.Flurry of Blows	PREABILITY:3,CATEGORY=FEAT,Dodge,Great Fortitude,Improved Unarmed Strike	PRESKILL:1,Tumble=8	PRETEXT:Must be chosen by existing drunken masters and survive a night of revelry among them without being incarcerated, poisoned or extraordinarily embarassed
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Drunken Master	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Escape Artist|Hide|Jump|Listen|Move Silently|TYPE=Perform|TYPE=Profession|Swim|Tumble
+###Block:
 1	ABILITY:Drunken Master Class Feature|AUTOMATIC|Drunken Master ~ Weapon and Armor Proficiency
 1	ABILITY:Drunken Master Class Feature|AUTOMATIC|Drunken Master ~ Drink like a Demon|Drunken Master ~ Improvised Weapons
 2	ABILITY:Drunken Master Class Feature|AUTOMATIC|Drunken Master ~ Stagger
@@ -321,10 +322,6 @@ CLASS:Drunken Master	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Escap
 8	ABILITY:Drunken Master Class Feature|AUTOMATIC|Drunken Master ~ For Medicinal Purposes
 9	ABILITY:Drunken Master Class Feature|AUTOMATIC|Drunken Master ~ Corkscrew Rush|Drunken Master ~ Superior Improvised Weapons
 10	ABILITY:Drunken Master Class Feature|AUTOMATIC|Drunken Master ~ Breath of Flame
-###Block:
-4	BONUS:VAR|DrunkenMasterACBonusLVL|CL
-8	BONUS:VAR|MedicinalPurposePerDay|3
-10	BONUS:VAR|DrunkenMasterBreathFlameLVL|CL
 ###Block:
 11	PREPCLEVEL:MIN=20
 
