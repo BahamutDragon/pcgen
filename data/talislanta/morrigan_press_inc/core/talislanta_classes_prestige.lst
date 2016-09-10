@@ -1,0 +1,58 @@
+# CVS $Revision: $ $Author: $ -- Fri Apr  1 08:57:13 2005 -- reformated by prettylst.pl v1.34 (build 455)
+SOURCELONG:d20Talislanta	SOURCESHORT:d20Tal	SOURCEWEB:http://www.talislanta.com
+# Orginal Entry By: Loyal
+
+# Arimite Knifefighter
+
+# Class Name			Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Arimite Knifefighter	HD:8		TYPE:PC.Prestige	ABB:Knf		MAXLEVEL:10	SOURCEPAGE:122	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
+# Class Name			Required Feat				Required Race	Required Skill
+CLASS:Arimite Knifefighter	PREABILITY:1,CATEGORY=FEAT,Weapon Focus (Dagger)	PRERACE:1,Arimite	PRESKILL:5,Balance=4,Intimidate=4,Jump=4,Sleight of Hand=4,Tumble=4
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Arimite Knifefighter	STARTSKILLPTS:4	CSKILL:Climb|TYPE.Craft|Hide|Jump|Knowledge (Geography)|Listen|Move Silently|Spot|Swim
+1	SAB:Weapon Spcialization (Dagger)
+2	SAB:Precise Strike + %|PreciseStrike	BONUS:VAR|PreciseStrike|2	DEFINE:PreciseStrike|0
+3	SAB:Throat Slit (Ex)
+4	SAB:Greater Weapon Focus			BONUS:VAR|PreciseStrike|1
+5	SAB:Lightning Dodge
+6							BONUS:VAR|PreciseStrike|1
+7	SAB:Improved Throat Slit (Ex)
+8							BONUS:VAR|PreciseStrike|1
+9	SAB:Greater Weapon Specialization
+10							BONUS:VAR|PreciseStrike|1
+
+# Beastmaster
+# Gao Sea Rogue
+# Revenant
+
+# Rogue Magician
+
+# Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Rogue Magician	HD:6		TYPE:PC.Prestige	ABB:RgM		MAXLEVEL:10	SOURCEPAGE:128	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")/2|TYPE=Base.REPLACE
+# Class Name		Required Feat			Required Skill													Var. Min. Value
+CLASS:Rogue Magician	PREABILITY:1,CATEGORY=FEAT,TYPE=Magic Order	PRESKILL:2,Disable Device=6,Escape Artist=6	PRESKILL:2,Decipher Script=4,Knowledge (Arcana)=4	PREVARGTEQ:SneakAttackDice,2
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Rogue Magician	STARTSKILLPTS:4	CSKILL:Appraise|Balance|Bluff|Climb|Concentration|TYPE.Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Gather Information|Hide|Jump|TYPE.Knowledge|Listen|TYPE.Mode|Move Silently|Open Lock|TYPE.Profession|Sense Motive|Search|Sleight of Hand|Speak Language|Spellcraft|Spot|Swim|Tumble|Use Rope
+1	SAB:Ranged Ledgerdemain %/day (Su)|RangedLedgermain	BONUS:VAR|RangedLedgermain|(CL+3)/4	DEFINE:RangedLedgermain|0
+1	SAB:Magic Bonus +% (Ex)|MagicBonus				BONUS:VAR|MagicBonus|1						DEFINE:MagicBonus|0
+2										BONUS:VAR|SneakAttack|CL/2							AUTO:FEAT|Sneak Attack
+3	SAB:Impromptu Sneak Attack %/day (Su)|ImpromptuSneak	BONUS:VAR|ImpromptuSneak|(CL+1)/4	DEFINE:ImpromptuSneak|0
+3										BONUS:VAR|MagicBonus|1
+6										BONUS:VAR|MagicBonus|1
+9										BONUS:VAR|MagicBonus|1
+
+# Swordsmage
+
+# Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus												Combat bonus
+CLASS:Swordsmage	HD:8		TYPE:PC.Prestige	ABB:Smg		MAXLEVEL:10	SOURCEPAGE:129	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE
+# Class Name	Req. Att.	Required Feat				Required Race	Required Skill
+CLASS:Swordsmage	PREATT:3	PREABILITY:1,CATEGORY=FEAT,TYPE=Elemental,Wizardry	PRERACE:1,Cymrilian	PRESKILL:1,Spellcraft=4	PRESKILL:1,Wizardry Mode (Defend)=4,Pyromantic Mode (Defend)=4,Aeromantic Mode (Defend)=4,Aquamantic Mode (Defend)=4,Geomantic Mode (Defend)=4	PRESKILL:1,Wizardry Mode (Attack)=6,Pyromantic Mode (Attack)=6,Aeromantic Mode (Attack)=6,Aquamantic Mode (Attack)=6,Geomantic Mode (Attack)=6
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Swordsmage	STARTSKILLPTS:2	CSKILL:Balance|Climb|Concentration|Drive/Pilot|Jump|Knowledge (Arcana)|TYPE.Mode|Navigate|Ride|Spellcraft|Swim
+1																								AUTO:WEAPONPROF|TYPE.Martial	AUTO:FEAT|Armor Proficiency (Light)|Armor Proficiency (Medium)	AUTO:FEAT|Shield Proficiency	AUTO:FEAT|Simple Weapon Proficiency|Martial Weapon Proficiency
+1																		ADD:FEAT|Armored Spellcasting
+2	SAB:Magic Bonus +% (Ex)|MagicBonus	BONUS:VAR|MagicBonus|CL/2	DEFINE:MagicBonus|0
+3																		ADD:FEAT|Alertness,Artillerist,Combat Casting,Dodge,Leadership,Mobility,Operate Conveyance,Spring Attack,Exotic Weapon  Proficiency,Improved Disarm,Improved Trip,Whirlwind Attack
+5																		ADD:FEAT|Alertness,Artillerist,Combat Casting,Dodge,Leadership,Mobility,Operate Conveyance,Spring Attack,Exotic Weapon  Proficiency,Improved Disarm,Improved Trip,Whirlwind Attack
+7																		ADD:FEAT|Alertness,Artillerist,Combat Casting,Dodge,Leadership,Mobility,Operate Conveyance,Spring Attack,Exotic Weapon  Proficiency,Improved Disarm,Improved Trip,Whirlwind Attack
+9																		ADD:FEAT|Alertness,Artillerist,Combat Casting,Dodge,Leadership,Mobility,Operate Conveyance,Spring Attack,Exotic Weapon  Proficiency,Improved Disarm,Improved Trip,Whirlwind Attack
