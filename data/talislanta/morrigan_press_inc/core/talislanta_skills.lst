@@ -1,0 +1,49 @@
+# CVS $Revision: $ $Author: $ -- Fri Apr  1 08:57:13 2005 -- reformated by prettylst.pl v1.34 (build 455)
+SOURCELONG:d20Talislanta	SOURCESHORT:d20Tal	SOURCEWEB:http://www.talislanta.com
+# Orginal Entry By: Loyal
+
+# Talislantan
+# Skill Name			Key Stat	Untrained?		Type					Bonus to skill										Source Page				Choose			Bonus to skill rank								Modify VAR										Temporary effect description
+Craft (Alchemy)			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.MagicCraft	TEMPBONUS:PC|SKILL|Craft (Alchemy)|-4|!PREITEM:1,TYPE=AlchemyTools	SOURCEPAGE:131
+Craft (Artificer)			KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft														SOURCEPAGE:131
+Craft (Brewer/Vintner)		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Craft														SOURCEPAGE:131
+Craft (Mundane)			KEYSTAT:INT	USEUNTRAINED:YES	TYPE:Intelligence.Craft														SOURCEPAGE:131
+Craft (Mechanical)		KEYSTAT:INT	USEUNTRAINED:YES	TYPE:Intelligence.Craft														SOURCEPAGE:131
+Craft (Talismancy)		KEYSTAT:INT	USEUNTRAINED:YES	TYPE:Intelligence.MagicCraft													SOURCEPAGE:131
+Craft (Technomancy)		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.MagicCraft													SOURCEPAGE:131
+Craft (Thaumaturgy)		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.MagicCraft													SOURCEPAGE:131
+Drive/Pilot				KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence			TEMPBONUS:ANYPC|SKILL|Ride|-5|TYPE=Circumstance|!PREITEM:1,TYPE.Saddle	SOURCEPAGE:131																												TEMPDESC:If you are riding bareback, or attempt to ride a creature that is ill suited as a mount, you take a -5 penalty on Ride checks.
+Gamble				KEYSTAT:WIS				TYPE:Wisdom																SOURCEPAGE:131
+Knowledge (Agriculture)		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge													SOURCEPAGE:131
+Knowledge (Culture)		KEYSTAT:INT	USEUNTRAINED:YES	TYPE:Intelligence.Knowledge													SOURCEPAGE:131
+Knowledge (Geography)		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge													SOURCEPAGE:131
+Knowledge (Herbalism)		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge													SOURCEPAGE:131
+Knowledge (Spirits)		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge													SOURCEPAGE:131
+Knowledge (Tactics)		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge													SOURCEPAGE:131
+Knowledge (Trivarian)		KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge													SOURCEPAGE:131	PRERACE:1,Sindaran
+Mimicry				KEYSTAT:WIS				TYPE:Wisdom																SOURCEPAGE:131
+Navigate				KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom																SOURCEPAGE:131
+Profession (Guide)		KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession														SOURCEPAGE:131
+Profession (Merchant)		KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession														SOURCEPAGE:131
+Profession (Crystal Farmer)	KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession														SOURCEPAGE:131
+Profession (Mining)		KEYSTAT:WIS	USEUNTRAINED:NO	TYPE:Wisdom.Profession														SOURCEPAGE:131
+Research				KEYSTAT:INT	USEUNTRAINED:NO	TYPE:Intelligence.Knowledge													SOURCEPAGE:131
+
+###Block: Situation Skills
+Survival.MOD	SITUATION:Desert|Forest|Jungle|Mountains|Savannah|Swamp|Tundra|Underground
+
+###Block: Synergy Bonuses
+Drive/Pilot.MOD			BONUS:SKILL|Ride|2|TYPE=Synergy.STACK|PRESKILL:1,Handle Animal=5
+Profession (Merchant).MOD	BONUS:SKILL|Profession (Merchant)|2|TYPE=Synergy.STACK|PRESKILL:1,Bluff=5	
+Profession (Merchant).MOD	BONUS:SKILL|Profession (Merchant)|2|TYPE=Synergy.STACK|PRESKILL:1,Sense Motive=5
+
+###Block: Synergy Bonuses to Situations
+#Survival.MOD	BONUS:SITUATION|Survival=The Planes|2|TYPE=Synergy.STACK|PRESKILL:1,Knowledge (The Planes)=5			
+#Survival.MOD	BONUS:SITUATION|Survival=Underground|2|TYPE=Synergy.STACK|PRESKILL:1,Knowledge (Dungeoneering)=5		
+#Survival.MOD	BONUS:SITUATION|Survival=Natural environments|2|TYPE=Synergy.STACK|PRESKILL:1,Knowledge (Nature)=5		
+#Survival.MOD	BONUS:SITUATION|Survival=Lost/Natural hazards|2|TYPE=Synergy.STACK|PRESKILL:1,Knowledge (Geography)=5		
+#Survival.MOD	BONUS:SITUATION|Survival=The Planes|2|TYPE=Synergy.STACK|PRESKILL:1,Knowledge (The Planes)=5			
+#Survival.MOD	BONUS:SITUATION|Survival=Lost/Natural hazards|2|TYPE=Synergy.STACK|PRESKILL:1,Knowledge (Geography)=5		
+#Survival.MOD	BONUS:SITUATION|Survival=Natural environments|2|TYPE=Synergy.STACK|PRESKILL:1,Knowledge (Nature)=5		
+#Survival.MOD	BONUS:SITUATION|Survival=Underground|2|TYPE=Synergy.STACK|PRESKILL:1,Knowledge (Dungeoneering)=5		
+
