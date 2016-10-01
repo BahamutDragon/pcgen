@@ -78,7 +78,7 @@ CLASS:Contemplative	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|He
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus															Add domain number		Modify VAR													Bonus
 CLASS:Divine Oracle	HD:6		TYPE:PC.Prestige	FACT:Abb|Dorc		MAXLEVEL:10	SOURCEPAGE:p.35	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:DOMAIN|NUMBER|1	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required Skill				Required Text
-CLASS:Divine Oracle	PRESKILL:1,Knowledge (Religion)=8	PRETEXT:Must be able to cast two divination spells
+CLASS:Divine Oracle	PRESKILL:1,Knowledge (Religion)=8	PRETEXT:Must be able to cast two divination spells	PRESPELLTYPE:1,Divine=1
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Divine Oracle	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Heal|Intimidate|Knowledge (arcana)|Knowledge (Religion)|TYPE=Profession|Spellcraft
 1	DOMAIN:Oracle						ADD:SPELLCASTER|ANY	ABILITY:Divine Oracle Class Feature|AUTOMATIC|Divine Oracle ~ Scry Bonus
@@ -184,7 +184,7 @@ CLASS:Black Flame Zealot	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPI
 CLASS:Black Flame Zealot	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
 CLASS:Black Flame Zealot	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
 CLASS:Black Flame Zealot	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
-CLASS:Black Flame Zealot	PRETEXT:Alignment: Any nongood. Skills: Hide 8 ranks, Knowledge (religion) 8 ranks, Move Silently 8 ranks. Feats: Exotic Weapon Profi ciency (kukri), Iron Will. Spells: Able to cast 2ndlevel divine spells. Special: Sneak attack damage +1d6.
+CLASS:Black Flame Zealot	PRETEXT:Alignment: Any nongood. Skills: Hide 8 ranks, Knowledge (religion) 8 ranks, Move Silently 8 ranks. Feats: Exotic Weapon Proficiency (kukri), Iron Will. Spells: Able to cast 2ndlevel divine spells. Special: Sneak attack damage +1d6.	PRESPELLTYPE:1,Divine=2	!PREALIGN:LG,NG,CG	PRESKILL:3,Hide=8,Knowledge (Religion)=8,Move Silently=8	PREABILITY:2,CATEGORY=FEAT,Exotic Weapon Proficiency (kukri),Iron Will	PREVARGTEQ:SneakAttackDice,1
 CLASS:Black Flame Zealot	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Escape Artist|Hide|Jump|Knowledge (Religion)|Listen|Move Silently|Open Lock|TYPE=Profession|Search|Sleight of Hand|Spellcraft|Spot|Swim|Tumble|Use Rope
 2	ADD:SPELLCASTER|Divine
 4	ADD:SPELLCASTER|Divine
@@ -246,7 +246,7 @@ CLASS:Church Inquisitor	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC
 CLASS:Church Inquisitor	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
 CLASS:Church Inquisitor	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 CLASS:Church Inquisitor	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
-CLASS:Church Inquisitor	PRETEXT:Alignment: Lawful good or lawful neutral. Base Save Bonus: Will +3. Skills: Knowledge (arcana) 4 ranks, Knowledge (religion) 4 ranks, Spellcraft 4 ranks. Spells: Able to cast zone of truth as a divine spell. Special: Must be a member of a lawful good church or religious order, and must have already uncovered some corruption within that organization.
+CLASS:Church Inquisitor	PRETEXT:Alignment: Lawful good or lawful neutral. Base Save Bonus: Will +3. Skills: Knowledge (arcana) 4 ranks, Knowledge (religion) 4 ranks, Spellcraft 4 ranks. Spells: Able to cast zone of truth as a divine spell. Special: Must be a member of a lawful good church or religious order, and must have already uncovered some corruption within that organization.	PREALIGN:LG,LN	PRECHECKBASE:1,Will=3	PRESKILL:3,Knowledge (arcana)=4,Knowledge (religion)=4,Spellcraft=4
 CLASS:Church Inquisitor	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Decipher Script|Diplomacy|Gather Information|Intimidate|Knowledge (arcana)|Knowledge (Local)|Knowledge (The Planes)|Knowledge (Religion)|Search|Sense Motive|Spellcraft|Spot
 1:REPEATLEVEL:1	ADD:SPELLCASTER|Divine
 ###Block
@@ -272,7 +272,7 @@ CLASS:Consecrated Harrier	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TY
 CLASS:Consecrated Harrier	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
 CLASS:Consecrated Harrier	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 CLASS:Consecrated Harrier	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
-CLASS:Consecrated Harrier	PRETEXT:Alignment: Any lawful. Base Attack Bonus: +5. Skills: Disguise 5 ranks, Gather Information 5 ranks. Feat: Track. Special: The candidate must accept an assignment from her church to locate and destroy some specifi c, individual enemy of the church. A character who fails must wait a year and a day before applying again. If she succeeds, the church accepts her as a consecrated harrier and she may gain levels in the class.
+CLASS:Consecrated Harrier	PRETEXT:Alignment: Any lawful. Base Attack Bonus: +5. Skills: Disguise 5 ranks, Gather Information 5 ranks. Feat: Track. Special: The candidate must accept an assignment from her church to locate and destroy some specifi c, individual enemy of the church. A character who fails must wait a year and a day before applying again. If she succeeds, the church accepts her as a consecrated harrier and she may gain levels in the class.	PREALIGN:LN,LG,LE	PRETOTALAB:5	PRESKILL:2,Disguise=5,Gather Information=5	PREABILITY:1,CATEGORY=FEAT,Track
 CLASS:Consecrated Harrier	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Diplomacy|Disguise|Gather Information|Intimidate|Knowledge (Local)|TYPE=Profession|Ride|Search|Use Rope
 CLASS:Consecrated Harrier	FACT:SpellType|Divine	SPELLSTAT:WIS	MEMORIZE:NO
 CLASS:Consecrated Harrier	BONUS:CASTERLEVEL|Consecrated Harrier|Caster_Level_ConsecratedHarrier	DEFINE:Caster_Level_ConsecratedHarrier|0	BONUS:VAR|Caster_Level_ConsecratedHarrier|CL+Caster_Level_Bonus	DEFINE:CasterLevelBLConsecratedHarrier|0	BONUS:VAR|CasterLevelBLConsecratedHarrier|charbonusto("PCLEVEL","Consecrated Harrier")
@@ -330,7 +330,7 @@ CLASS:Divine Crusader	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")
 CLASS:Divine Crusader	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
 CLASS:Divine Crusader	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 CLASS:Divine Crusader	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
-CLASS:Divine Crusader	PRETEXT:Alignment: Must match chosen deity. Base Attack Bonus: +7. Skill: Knowledge (religion) 2 ranks. Feat: Weapon Focus (in chosen deity's favored weapon).
+CLASS:Divine Crusader	PRETEXT:Alignment: Must match chosen deity. Base Attack Bonus: +7. Skill: Knowledge (religion) 2 ranks. Feat: Weapon Focus (in chosen deity's favored weapon).	PRETOTALAB:7	PRESKILL:1,Knowledge (religion)=2	PREABILITY:1,CATEGORY=FEAT,Weapon Focus
 CLASS:Divine Crusader	STARTSKILLPTS:2	CSKILL:Climb|Concentration|TYPE=Craft|Diplomacy|Intimidate|Jump|Knowledge (Religion)|Ride|Swim
 CLASS:Divine Crusader	FACT:SpellType|Divine	SPELLSTAT:WIS	MEMORIZE:NO
 CLASS:Divine Crusader	BONUS:CASTERLEVEL|Divine Crusader|Caster_Level_DivineCrusader	DEFINE:Caster_Level_DivineCrusader|0	BONUS:VAR|Caster_Level_DivineCrusader|CL+Caster_Level_Bonus	DEFINE:CasterLevelBLDivineCrusader|0	BONUS:VAR|CasterLevelBLDivineCrusader|charbonusto("PCLEVEL","Divine Crusader")
@@ -362,7 +362,7 @@ CLASS:Divine Crusader	BONUS:VAR|Caster_Level_Highest__Divine|Caster_Level_Divine
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus															Add domain number		Modify VAR													Bonus
 CLASS:Divine Oracle	HD:6		TYPE:PC.Prestige	FACT:Abb|Dorc	DEFINE:DivineOracleLVL|0	BONUS:VAR|DivineOracleLVL|CL	MAXLEVEL:10	SOURCEPAGE:p.35	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:DOMAIN|NUMBER|1	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required Skill				Required Text
-CLASS:Divine Oracle	PRESKILL:1,Knowledge (Religion)=8	PRETEXT:Must be able to cast two divination spells
+CLASS:Divine Oracle	PRESKILL:1,Knowledge (Religion)=8		PRESPELLTYPE:1,Divine=1	PRETEXT:Must be able to cast two divination spells
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Divine Oracle	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Heal|Intimidate|Knowledge (arcana)|Knowledge (Religion)|TYPE=Profession|Spellcraft
 1:REPEATLEVEL:1	ADD:SPELLCASTER|ANY
@@ -384,7 +384,7 @@ CLASS:Entropomancer	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|P
 CLASS:Entropomancer	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
 CLASS:Entropomancer	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 CLASS:Entropomancer	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
-CLASS:Entropomancer	PRETEXT:Alignment: Any nongood. Skills: Concentration 5 ranks, Knowledge (arcana) 5 ranks. Feats: Great Fortitude, Magical Aptitude. Spells: Able to cast 4th-level divine spells.
+CLASS:Entropomancer	PRETEXT:Alignment: Any nongood. Skills: Concentration 5 ranks, Knowledge (arcana) 5 ranks. Feats: Great Fortitude, Magical Aptitude. Spells: Able to cast 4th-level divine spells.		PRESPELLTYPE:1,Divine=4		!PREALIGN:LG,NG,CG	PRESKILL:2,Concentration=5,Knowledge (arcana)=5		PREABILITY:2,CATEGORY=FEAT,Great Fortitude,Magical Aptitude
 CLASS:Entropomancer	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Heal|Intimidate|Knowledge (arcana)|Knowledge (Local)|Knowledge (Religion)|TYPE=Profession|Spellcraft
 2:REPEATLEVEL:2	ADD:SPELLCASTER|Divine
 ###Block
@@ -404,7 +404,7 @@ CLASS:Evangelist	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREV
 CLASS:Evangelist	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
 CLASS:Evangelist	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 CLASS:Evangelist	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
-CLASS:Evangelist	PRETEXT:Alignment: An evangelist has the same alignment restrictions as a cleric of a particular deity. Skills: Bluff 8 ranks, Gather Information 5 ranks, Knowledge (religion) 5 ranks, Perform (oratory) 6 ranks, Sense Motive 5 ranks. Feats: Negotiator or Persuasive.
+CLASS:Evangelist	PRETEXT:Alignment: An evangelist has the same alignment restrictions as a cleric of a particular deity. Skills: Bluff 8 ranks, Gather Information 5 ranks, Knowledge (religion) 5 ranks, Perform (oratory) 6 ranks, Sense Motive 5 ranks. Feats: Negotiator or Persuasive.	PRESKILL:5,Bluff=8,Gather Information=5,Knowledge (religion)=5,Perform (oratory)=6,Sense Motive=5	PREABILITY:1,CATEGORY=FEAT,Negotiator,Persuasive
 CLASS:Evangelist	STARTSKILLPTS:6	CSKILL:Bluff|TYPE=Craft|Diplomacy|Disguise|Escape Artist|Intimidate|TYPE=Knowledge|Listen|TYPE=Perform|TYPE=Profession|Sense Motive|Speak Language
 ###Block	
 1	ABILITY:Evangelist Class Feature|AUTOMATIC|Evangelist ~ Weapon and Armor Proficiency
@@ -424,7 +424,7 @@ CLASS:Geomancer	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVA
 CLASS:Geomancer	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
 CLASS:Geomancer	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 CLASS:Geomancer	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
-CLASS:Geomancer	PRETEXT:Skills: Knowledge (arcana) 6 ranks, Knowledge (nature) 6 ranks. Spells: Able to cast 2nd-level arcane spells and 2nd-level divine spells.
+CLASS:Geomancer	PRETEXT:Skills: Knowledge (arcana) 6 ranks, Knowledge (nature) 6 ranks. Spells: Able to cast 2nd-level arcane spells and 2nd-level divine spells.	PRESPELLTYPE:2,Divine=2,Arcane=2	PRESKILL:2,Knowledge (arcana)=6,Knowledge (nature)=6
 CLASS:Geomancer	STARTSKILLPTS:4	CSKILL:Climb|Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Knowledge (arcana)|Knowledge (Geography)|Knowledge (Nature)|Spellcraft|Survival|Swim
 1:REPEATLEVEL:1	ADD:SPELLCASTER|ANY
 ###Block
@@ -443,7 +443,7 @@ CLASS:Holy Liberator	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Ba
 CLASS:Holy Liberator	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
 CLASS:Holy Liberator	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 CLASS:Holy Liberator	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
-CLASS:Holy Liberator	PRETEXT:Alignment: Chaotic good. Base Attack Bonus: +5. Skills: Diplomacy 5 ranks, Sense Motive 5 ranks. Feat: Iron Will.
+CLASS:Holy Liberator	PRETEXT:Alignment: Chaotic good. Base Attack Bonus: +5. Skills: Diplomacy 5 ranks, Sense Motive 5 ranks. Feat: Iron Will.	PREALIGN:CG	PRETOTALAB:5	PRESKILL:2,Diplomacy=5,Sense Motive=5	PREABILITY:1,CATEGORY=FEAT,Iron Will
 CLASS:Holy Liberator	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Intimidate|Knowledge (Religion)|TYPE=Profession|Ride|Sense Motive
 CLASS:Holy Liberator	FACT:SpellType|Divine	SPELLSTAT:WIS	MEMORIZE:NO
 CLASS:Holy Liberator	BONUS:CASTERLEVEL|Holy Liberator|Caster_Level_HolyLiberator	DEFINE:Caster_Level_HolyLiberator|0	BONUS:VAR|Caster_Level_HolyLiberator|CL+Caster_Level_Bonus	DEFINE:CasterLevelBLHolyLiberator|0	BONUS:VAR|CasterLevelBLHolyLiberator|charbonusto("PCLEVEL","Holy Liberator")
@@ -481,7 +481,7 @@ CLASS:Hospitaler	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.R
 CLASS:Hospitaler	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
 CLASS:Hospitaler	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 CLASS:Hospitaler	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
-CLASS:Hospitaler	PRETEXT:Alignment: Any nonchaotic. Base Attack Bonus: +5. Skills: Handle Animal 5 ranks, Ride 5 ranks. Feats: Mounted Combat, Ride-By Attack. Spells: Able to cast 1st-level divine spells.
+CLASS:Hospitaler	PRETEXT:Alignment: Any nonchaotic. Base Attack Bonus: +5. Skills: Handle Animal 5 ranks, Ride 5 ranks. Feats: Mounted Combat, Ride-By Attack. Spells: Able to cast 1st-level divine spells.	PRESPELLTYPE:1,Divine=1	!PREALIGN:CG,CE,CN	PRETOTALAB:5	PRESKILL:2,Handle Animal=5,Ride=5	PREABILITY:2,CATEGORY=FEAT,Mounted Combat,Ride-By Attack
 CLASS:Hospitaler	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Knowledge (Religion)|TYPE=Profession|Ride
 2	ADD:SPELLCASTER|Divine
 3	ADD:SPELLCASTER|Divine
@@ -536,7 +536,7 @@ CLASS:Radiant Servant of Pelor	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=
 CLASS:Radiant Servant of Pelor	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
 CLASS:Radiant Servant of Pelor	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 CLASS:Radiant Servant of Pelor	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
-CLASS:Radiant Servant of Pelor	PRETEXT:Alignment: Neutral good. Base Save Bonus: Will +5. Skills: Heal 5 ranks, Knowledge (religion) 9 ranks. Feat: Extra Turning. Spells: Able to cast 1st-level divine spells and access to the Sun domain. Special: Must have Pelor as patron deity.
+CLASS:Radiant Servant of Pelor	PRETEXT:Alignment: Neutral good. Base Save Bonus: Will +5. Skills: Heal 5 ranks, Knowledge (religion) 9 ranks. Feat: Extra Turning. Spells: Able to cast 1st-level divine spells and access to the Sun domain. Special: Must have Pelor as patron deity.	PRESPELLTYPE:1,Divine=1	PREALIGN:NG	PRECHECKBASE:1,Will=5	PRESKILL:2,Heal=5,Knowledge (Religion)=9	PREABILITY:1,CATEGORY=FEAT,Extra Turning
 CLASS:Radiant Servant of Pelor	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Knowledge (arcana)|Knowledge (Religion)|TYPE=Profession|Sense Motive|Spellcraft
 1:REPEATLEVEL:1	ADD:SPELLCASTER|Divine
 ###Block
@@ -563,7 +563,7 @@ CLASS:Rainbow Servant	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PRE
 CLASS:Rainbow Servant	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
 CLASS:Rainbow Servant	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 CLASS:Rainbow Servant	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
-CLASS:Rainbow Servant	PRETEXT:Alignment: Any nonevil and nonchaotic. Skill: Knowledge (arcana) 4 ranks. Spells: Able to cast 3rd-level arcane spells. Special: Must fi nd the hidden jungle temples of the couatls.
+CLASS:Rainbow Servant	PRETEXT:Alignment: Any nonevil and nonchaotic. Skill: Knowledge (arcana) 4 ranks. Spells: Able to cast 3rd-level arcane spells. Special: Must find the hidden jungle temples of the couatls.	PRESPELLTYPE:1,Arcane=3	!PREALIGN:LE,NE,CE,CN,CG	PRESKILL:1,Knowledge (Arcana)=4
 CLASS:Rainbow Servant	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Knowledge (arcana)|Knowledge (The Planes)|TYPE=Profession|Sense Motive|Spellcraft
 2	ADD:SPELLCASTER|Arcane
 3	ADD:SPELLCASTER|Arcane
@@ -591,7 +591,7 @@ CLASS:Sacred Exorcist	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")
 CLASS:Sacred Exorcist	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
 CLASS:Sacred Exorcist	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 CLASS:Sacred Exorcist	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
-CLASS:Sacred Exorcist	PRETEXT:Alignment: Any good. Skills: Knowledge (the planes) 10 ranks, Knowledge (religion) 7 ranks. Spells: Able to cast dismissal or dispel evil. Special: Adopting this prestige class requires the sanction of a church or order that ordains sacred exorcists. Only characters judged by their church to be exemplary in faith and devotion, strong of will and upright in morality, are made sacred exorcists.
+CLASS:Sacred Exorcist	PRETEXT:Alignment: Any good. Skills: Knowledge (the planes) 10 ranks, Knowledge (religion) 7 ranks. Spells: Able to cast dismissal or dispel evil. Special: Adopting this prestige class requires the sanction of a church or order that ordains sacred exorcists. Only characters judged by their church to be exemplary in faith and devotion, strong of will and upright in morality, are made sacred exorcists.	PREALIGN:LG,NG,CG	PRESKILL:2,Knowledge (the planes)=10,Knowledge (religion)=7
 CLASS:Sacred Exorcist	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Heal|Intimidate|Knowledge (arcana)|Knowledge (The Planes)|Knowledge (Religion)|TYPE=Profession|Spellcraft
 1:REPEATLEVEL:1	ADD:SPELLCASTER|ANY
 ###Block
@@ -644,7 +644,7 @@ CLASS:Seeker of the Misty Isle	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=
 CLASS:Seeker of the Misty Isle	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
 CLASS:Seeker of the Misty Isle	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
 CLASS:Seeker of the Misty Isle	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
-CLASS:Seeker of the Misty Isle	PRETEXT:Race: Elf or half-elf. Skills: Knowledge (religion) 4 ranks, Survival 8 ranks. Spells: Able to cast 2nd-level divine spells. Special: Must be inducted into the order by another member.
+CLASS:Seeker of the Misty Isle	PRETEXT:Race: Elf or half-elf. Skills: Knowledge (religion) 4 ranks, Survival 8 ranks. Spells: Able to cast 2nd-level divine spells. Special: Must be inducted into the order by another member.	PRESPELLTYPE:1,Divine=2	PRERACE:1,RACESUBTYPE=Elf,Half-Elf	PRESKILL:2,Knowledge (Religion)=,Survival=8
 CLASS:Seeker of the Misty Isle	STARTSKILLPTS:6	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Diplomacy|Hide|Jump|Knowledge (Geography)|Knowledge (Religion)|Listen|Move Silently|Ride|Speak Language|Spellcraft|Spot|Survival
 1	ADD:SPELLCASTER|ANY
 2	ADD:SPELLCASTER|ANY
@@ -674,7 +674,7 @@ CLASS:Shining Blade of Heironeous	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONE
 CLASS:Shining Blade of Heironeous	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
 CLASS:Shining Blade of Heironeous	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 CLASS:Shining Blade of Heironeous	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
-CLASS:Shining Blade of Heironeous	PRETEXT:Alignment: Lawful good. Base Attack Bonus: +7. Base Save Bonus: Will +3. Skill: Knowledge (religion) 7 ranks. Spells: Able to cast 1st-level divine spells Special: Must have Heironeous as a patron deity.
+CLASS:Shining Blade of Heironeous	PRETEXT:Alignment: Lawful good. Base Attack Bonus: +7. Base Save Bonus: Will +3. Skill: Knowledge (religion) 7 ranks. Spells: Able to cast 1st-level divine spells Special: Must have Heironeous as a patron deity.	PRESPELLTYPE:1,Divine=1	PRETOTALAB:7	PRECHECKBASE:1,Will=3	PRESKILL:1,Knowledge (Religion)=7
 CLASS:Shining Blade of Heironeous	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Knowledge (Religion)|TYPE=Profession|Spellcraft
 2:REPEATLEVEL:2	ADD:SPELLCASTER|Divine
 ###Block
@@ -694,7 +694,7 @@ CLASS:Stormlord	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVA
 CLASS:Stormlord	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
 CLASS:Stormlord	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 CLASS:Stormlord	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
-CLASS:Stormlord	PRETEXT:Base Save Bonus: Fort +4. Feats: Endurance, Great Fortitude, Weapon Focus (any spear or javelin). Spells: Able to cast 3rdlevel divine spells. Patron: Talos. Special: The character must have been hit by a bolt of lightning, whether a natural bolt or one created by magic, and survived.
+CLASS:Stormlord	PRETEXT:Base Save Bonus: Fort +4. Feats: Endurance, Great Fortitude, Weapon Focus (any spear or javelin). Spells: Able to cast 3rd level divine spells. Patron: Talos. Special: The character must have been hit by a bolt of lightning, whether a natural bolt or one created by magic, and survived.	PRESPELLTYPE:1,Divine=3	PRECHECKBASE:1,Fortitude=4	PREABILITY:2,CATEGORY=FEAT,Endurance,Great Fortitude	PREABILITY:1,CATEGORY=FEAT,Weapon Focus(TYPE=Spear),Weapon Focus(TYPE=Javelin)
 CLASS:Stormlord	STARTSKILLPTS:2	CSKILL:Concentration|Disguise|Gather Information|Intimidate|Knowledge (Nature)|Knowledge (Religion)|Survival|Swim
 1:REPEATLEVEL:1	ADD:SPELLCASTER|Divine
 ###Block
@@ -719,7 +719,7 @@ CLASS:Temple Raider of Olidammara	BONUS:VAR|ClassBABModerate|classlevel("APPLIED
 CLASS:Temple Raider of Olidammara	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
 CLASS:Temple Raider of Olidammara	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
 CLASS:Temple Raider of Olidammara	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
-CLASS:Temple Raider of Olidammara	PRETEXT:Alignment: Any chaotic. Base Attack Bonus: +5. Skills: Disable Device 4 ranks, Knowledge (religion) 1 rank, Open Lock 4 ranks, Search 8 ranks. Special: The character must worship Olidammara and be invited to join the ranks of the temple raiders by at least three current members of that prestige class.
+CLASS:Temple Raider of Olidammara	PRETEXT:Alignment: Any chaotic. Base Attack Bonus: +5. Skills: Disable Device 4 ranks, Knowledge (religion) 1 rank, Open Lock 4 ranks, Search 8 ranks. Special: The character must worship Olidammara and be invited to join the ranks of the temple raiders by at least three current members of that prestige class.	PREALIGN:CG,CN,CE	PRETOTALAB:5	PRESKILL:4,Disable Device=4,Knowledge (religion)=1,Open Lock=4,Search=8
 CLASS:Temple Raider of Olidammara	STARTSKILLPTS:4	CSKILL:Appraise|Climb|TYPE=Craft|Decipher Script|Disable Device|Hide|Jump|Knowledge (Religion)|Listen|Move Silently|Open Lock|Search|Spot|Tumble|Use Magic Device|Use Rope
 CLASS:Temple Raider of Olidammara	FACT:SpellType|Divine	SPELLSTAT:WIS	MEMORIZE:NO
 CLASS:Temple Raider of Olidammara	BONUS:CASTERLEVEL|Temple Raider of Olidammara|Caster_Level_TempleRaiderOfOlidammara	DEFINE:Caster_Level_TempleRaiderOfOlidammara|0	BONUS:VAR|Caster_Level_TempleRaiderOfOlidammara|CL+Caster_Level_Bonus	DEFINE:CasterLevelBLTempleRaiderOfOlidammara|0	BONUS:VAR|CasterLevelBLTempleRaiderOfOlidammara|charbonusto("PCLEVEL","Temple Raider of Olidammara")
@@ -790,7 +790,7 @@ CLASS:Void Disciple	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVA
 CLASS:Void Disciple	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3
 CLASS:Void Disciple	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 CLASS:Void Disciple	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
-CLASS:Void Disciple	PRETEXT:Alignment: Any neutral. Skill: Spellcraft 10 ranks. Feats: Heighten Spell, Spell Penetration. Spells: Able to cast 3rd-level arcane or divine spells.
+CLASS:Void Disciple	PRETEXT:Alignment: Any neutral. Skill: Spellcraft 10 ranks. Feats: Heighten Spell, Spell Penetration. Spells: Able to cast 3rd-level arcane or divine spells.	PRESPELLTYPE:1,Divine=3,Arcane=3	PREALIGN:LN,TN,CN	PRESKILL:1,Spellcraft=10	PREABILITY:2,CATEGORY=FEAT,Heighten Spell,Spell Penetration
 CLASS:Void Disciple	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|TYPE=Knowledge|TYPE=Profession|Spellcraft
 2	ADD:SPELLCASTER|ANY
 4	ADD:SPELLCASTER|ANY
@@ -819,7 +819,7 @@ CLASS:Warpriest	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.RE
 CLASS:Warpriest	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2
 CLASS:Warpriest	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 CLASS:Warpriest	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
-CLASS:Warpriest	PRETEXT:Base Attack Bonus: +5. Skills: Diplomacy 8 ranks, Sense Motive 5 ranks. Feat: Combat Casting. Spells: Able to cast at least one divine spell from one of the following domains' spell lists: Destruction, Protection, Strength, or War. A character who can cast at least one spell from a domain counts as having access for this purpose. Special: Ability to turn or rebuke undead.
+CLASS:Warpriest	PRETEXT:Base Attack Bonus: +5. Skills: Diplomacy 8 ranks, Sense Motive 5 ranks. Feat: Combat Casting. Spells: Able to cast at least one divine spell from one of the following domains' spell lists: Destruction, Protection, Strength, or War. A character who can cast at least one spell from a domain counts as having access for this purpose. Special: Ability to turn or rebuke undead.	PRETOTALAB:5	PRESKILL:2,Diplomacy=8,Sense Motive=5	PREABILITY:1,CATEGORY=FEAT,Combat Casting	PREABILITY:1,CATEGORY=Special Ability,TYPE=Turn Undead,TYPE=Rebuke Undead
 CLASS:Warpriest	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Knowledge (History)|Ride|Sense Motive|Spellcraft|Swim
 2:REPEATLEVEL:2	ADD:SPELLCASTER|Divine
 ###Block
