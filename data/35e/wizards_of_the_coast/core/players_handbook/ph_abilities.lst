@@ -256,15 +256,26 @@ Favored Class ~ HIGHESTLEVELCLASS	CATEGORY:Internal	TYPE:Favored Class	TEMPLATE:
 ###	CLASS FEATURES	@ Class Feature	###
 #############################################
 Barbarian	CATEGORY:Class
-Bard		CATEGORY:Class
-Cleric	CATEGORY:Class
+Bard		CATEGORY:Class	ABILITY:Internal|AUTOMATIC|Arcane Caster ~ Spontaneous (Bard)
+Cleric	CATEGORY:Class	ABILITY:Internal|AUTOMATIC|Divine Caster ~ Non-Spontaneous (Cleric)
+Druid		CATEGORY:Class	ABILITY:Internal|AUTOMATIC|Divine Caster ~ Non-Spontaneous (Druid)
 Fighter	CATEGORY:Class
 Monk		CATEGORY:Class
-Paladin	CATEGORY:Class
-Ranger	CATEGORY:Class
+Paladin	CATEGORY:Class	ABILITY:Internal|AUTOMATIC|Divine Caster ~ Non-Spontaneous (Paladin)
+Ranger	CATEGORY:Class	ABILITY:Internal|AUTOMATIC|Divine Caster ~ Non-Spontaneous (Ranger)
 Rogue		CATEGORY:Class
-Sorcerer	CATEGORY:Class	DEFINE:SorcererLevelForDraconicFeat|0	BONUS:VAR|SorcererLevelForDraconicFeat|SorcererLVL|TYPE=Base
-Wizard	CATEGORY:Class
+Sorcerer	CATEGORY:Class	ABILITY:Internal|AUTOMATIC|Arcane Caster ~ Spontaneous (Sorcerer)			DEFINE:SorcererLevelForDraconicFeat|0	BONUS:VAR|SorcererLevelForDraconicFeat|SorcererLVL|TYPE=Base
+Wizard	CATEGORY:Class	ABILITY:Internal|AUTOMATIC|Arcane Caster ~ Non-Spontaneous (Wizard)
+
+
+###
+Arcane Caster ~ Spontaneous (Bard)			CATEGORY:Internal	TYPE:SpontaneousArcaneCaster.Caster.ArcaneCaster				BONUS:CASTERLEVEL|Bard|Caster_Level_Bard	DEFINE:Caster_Level_Bard|0	BONUS:VAR|Caster_Level_Bard|BardLVL	BONUS:VAR|Caster_Level_Bard|Caster_Level_Bonus|PREVARNEQ:Caster_Level_Bonus,0	DEFINE:CasterLevelBLBard|0	BONUS:VAR|CasterLevelBLBard|charbonusto("PCLEVEL","Bard")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Bard+CasterLevelBLBard|TYPE=Base
+Divine Caster ~ Non-Spontaneous (Cleric)		CATEGORY:Internal	TYPE:NonSpontaneousDivineCaster.Caster.DivineCaster	BONUS:CASTERLEVEL|Cleric|Caster_Level_Cleric	DEFINE:Caster_Level_Cleric|0	BONUS:VAR|Caster_Level_Cleric|ClericLVL	BONUS:VAR|Caster_Level_Cleric|Caster_Level_Bonus|PREVARNEQ:Caster_Level_Bonus,0	DEFINE:CasterLevelBLCleric|0	BONUS:VAR|CasterLevelBLCleric|charbonusto("PCLEVEL","Cleric")	BONUS:VAR|Caster_Level_Highest__Divine|Caster_Level_Cleric+CasterLevelBLCleric|TYPE=Base
+Divine Caster ~ Non-Spontaneous (Druid)		CATEGORY:Internal	TYPE:NonSpontaneousDivineCaster.Caster.DivineCaster	BONUS:CASTERLEVEL|Druid|Caster_Level_Druid	DEFINE:Caster_Level_Druid|0	BONUS:VAR|Caster_Level_Druid|DruidLVL	BONUS:VAR|Caster_Level_Druid|Caster_Level_Bonus|PREVARNEQ:Caster_Level_Bonus,0	DEFINE:CasterLevelBLDruid|0	BONUS:VAR|CasterLevelBLDruid|charbonusto("PCLEVEL","Druid")	BONUS:VAR|Caster_Level_Highest__Divine|Caster_Level_Druid+CasterLevelBLDruid|TYPE=Base
+Divine Caster ~ Non-Spontaneous (Paladin)		CATEGORY:Internal	TYPE:NonSpontaneousDivineCaster.Caster.DivineCaster	BONUS:CASTERLEVEL|Paladin|Caster_Level_Paladin	DEFINE:Caster_Level_Paladin|0	BONUS:VAR|Caster_Level_Paladin|(PaladinLVL/2)|PREVARGTEQ:PaladinLVL,4	BONUS:VAR|Caster_Level_Paladin|Caster_Level_Bonus|PREVARNEQ:Caster_Level_Bonus,0	DEFINE:CasterLevelBLPaladin|0	BONUS:VAR|CasterLevelBLPaladin|charbonusto("PCLEVEL","Paladin")	BONUS:VAR|Caster_Level_Highest__Divine|Caster_Level_Paladin+CasterLevelBLPaladin|TYPE=Base
+Divine Caster ~ Non-Spontaneous (Ranger)		CATEGORY:Internal	TYPE:NonSpontaneousDivineCaster.Caster.DivineCaster	BONUS:CASTERLEVEL|Ranger|Caster_Level_Ranger	DEFINE:Caster_Level_Ranger|0	BONUS:VAR|Caster_Level_Ranger|(RangerLVL/2)|PREVARGTEQ:RangerLVL,4|!PREABILITY:1,CATEGORY=ACF,TYPE.RangerSpellcasting	BONUS:VAR|Caster_Level_Ranger|Caster_Level_Bonus|PREVARGTEQ:RangerLVL,4|!PREABILITY:1,CATEGORY=ACF,TYPE.RangerSpellcasting|PREVARNEQ:Caster_Level_Bonus,0	DEFINE:CasterLevelBLRanger|0	BONUS:VAR|CasterLevelBLRanger|charbonusto("PCLEVEL","Ranger")	BONUS:VAR|Caster_Level_Highest__Divine|Caster_Level_Ranger+CasterLevelBLRanger|TYPE=Base
+Arcane Caster ~ Spontaneous (Sorcerer)		CATEGORY:Internal	TYPE:SpontaneousArcaneCaster.Caster.ArcaneCaster	BONUS:CASTERLEVEL|Sorcerer|Caster_Level_Sorcerer	DEFINE:Caster_Level_Sorcerer|0	BONUS:VAR|Caster_Level_Sorcerer|SorcererLVL	BONUS:VAR|Caster_Level_Sorcerer|Caster_Level_Bonus|PREVARNEQ:Caster_Level_Bonus,0	DEFINE:CasterLevelBLSorcerer|0	BONUS:VAR|CasterLevelBLSorcerer|charbonusto("PCLEVEL","Sorcerer")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Sorcerer+CasterLevelBLSorcerer|TYPE=Base
+Arcane Caster ~ Non-Spontaneous (Wizard)		CATEGORY:Internal	TYPE:NonSpontaneousArcaneCaster.Caster.ArcaneCaster	BONUS:CASTERLEVEL|Wizard|Caster_Level_Wizard	DEFINE:Caster_Level_Wizard|0	BONUS:VAR|Caster_Level_Wizard|WizardLVL	BONUS:VAR|Caster_Level_Wizard|Caster_Level_Bonus|PREVARNEQ:Caster_Level_Bonus,0	DEFINE:CasterLevelBLWizard|0	BONUS:VAR|CasterLevelBLWizard|charbonusto("PCLEVEL","Wizard")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Wizard+CasterLevelBLWizard|TYPE=Base
 
 
 # NOTES: TYPEs  Class Feature.xxxClass Feature is just a placeholder; ClassNameClass Feature will display in the UI; SpecialQuality is default for showing on the Sheet
