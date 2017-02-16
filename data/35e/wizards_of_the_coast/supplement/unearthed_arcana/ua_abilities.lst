@@ -8,6 +8,9 @@ Honor			KEY:Variant Rule - Use Honor			CATEGORY:Special Ability	TYPE:AltRules.Sp
 Taint			KEY:Variant Rule - Use Taint			CATEGORY:Special Ability	TYPE:AltRules.SpecialQuality	DEFINE:TaintScore|0													DESC:Taint Score %1|TaintScore																																																																																																																																																																																																																																																																														COST:0
 Spell Points	KEY:Variant Rule - Use Spell Points		CATEGORY:Special Ability	TYPE:AltRules.SpecialQuality																																										ABILITY:Special Ability|AUTOMATIC|Spell Points ~ Cleric|PRECLASS:1,Cleric=1	ABILITY:Special Ability|AUTOMATIC|Spell Points ~ Druid|PRECLASS:1,Druid=1	ABILITY:Special Ability|AUTOMATIC|Spell Points ~ Wizard|PRECLASS:1,Wizard=1	ABILITY:Special Ability|AUTOMATIC|Spell Points ~ Sorcerer|PRECLASS:1,Sorcerer=1	ABILITY:Special Ability|AUTOMATIC|Spell Points ~ Bard|PRECLASS:1,Bard=1	ABILITY:Special Ability|AUTOMATIC|Spell Points ~ Paladin|PRECLASS:1,Paladin=1	ABILITY:Special Ability|AUTOMATIC|Spell Points ~ Ranger|PRECLASS:1,Ranger=1																																																																																																																																																																COST:0
 Class Defense	KEY:Variant Rule - Use Class Defense	CATEGORY:Special Ability	TYPE:AltRules.SpecialQuality	DEFINE:ClassDefenseTier|0	DEFINE:ClassDefenseBonus|0																																ABILITY:Special Ability|AUTOMATIC|Class Defense Bonus A|PREVAREQ:ClassTier,1	ABILITY:Special Ability|AUTOMATIC|Class Defense Bonus B|PREVAREQ:ClassTier,2	ABILITY:Special Ability|AUTOMATIC|Class Defense Bonus C|PREVAREQ:ClassTier,3	ABILITY:Special Ability|AUTOMATIC|Class Defense Bonus D|PREVAREQ:ClassTier,4																																																						BONUS:VAR|ClassDefenseTier|1	BONUS:VAR|ClassDefenseTier|1|PREPROFWITHARMOR:1,TYPE.Light	BONUS:VAR|ClassDefenseTier|1|PREPROFWITHARMOR:1,TYPE.Medium	BONUS:VAR|ClassDefenseTier|1|PREPROFWITHARMOR:1,TYPE.Heavy																																																																																																															COST:0
+
+
+
 # NEED DATA WORK or CODE WORK: Natural Armor value cannot be obtained. Would require altering all Natural Armor Bonuses to a uniform standard and then grabbing the value.
 Armor Damage Reduction		KEY:Variant Rule - Use Armor Damage Reduction	CATEGORY:Special Ability	TYPE:AltRules.SpecialQuality	DEFINE:ArmorBaseACValue|0	DEFINE:ArmorBaseACValueBonus|0						DESC:Armor Value Reduction %1, DR granted %1|ArmorBaseACValueBonus	DESC:Natural Armor not implemented																																																																																																										BONUS:COMBAT|AC|-ArmorBaseACValueBonus	BONUS:VAR|ArmorBaseACValueBonus|ArmorBaseACValue/2	BONUS:VAR|ArmorBaseACValue|var("ARMOR.EQUIPPED.0.BASEAC")																																																																																																																										DR:ArmorBaseACValueBonus/-	COST:0
 Vitality				KEY:Variant Rule - Use Vitality			CATEGORY:Special Ability	TYPE:AltRules.SpecialQuality																	DESC:Activate the Preference Rule in PCGen																																																																																																																																																																																																																																																																												COST:0
@@ -31,6 +34,11 @@ Variant Rule - Use Armor Damage Reduction	COST:0	CATEGORY:Internal	TYPE:MiscOpti
 Variant Rule - Use Vitality			COST:0	CATEGORY:Internal	TYPE:MiscOptions		ABILITY:Special Ability|AUTOMATIC|Variant Rule - Use Vitality
 Variant Rule - Use Forbidden Lore		COST:0	CATEGORY:Internal	TYPE:MiscOptions		ABILITY:Special Ability|AUTOMATIC|Pool ~ Forbidden Lore|Variant Rule - Use Vitality
 Variant Rule - Use Bloodlines			COST:0	CATEGORY:Internal	TYPE:MiscOptions		ABILITY:Special Ability|AUTOMATIC|Variant Rule - Use Bloodlines							
+Variant Rule - Use ECL Level Buy Down	COST:0	CATEGORY:Internal	TYPE:MiscOptions		BONUS:ABILITYPOOL|ECL Buy Down|1
+
+
+
+
 
 # Display Pools
 Pool ~ Reputation		CATEGORY:Special Ability	TYPE:ReputationRules	VISIBLE:NO
@@ -470,4 +478,14 @@ CATEGORY=Internal|Weapon Group Exotic Double (Flails and Chains).MOD	AUTO:WEAPON
 CATEGORY=Internal|Weapon Group Exotic Double (Heavy Blades).MOD		AUTO:WEAPONPROF|Sword (Two-Bladed)
 CATEGORY=Internal|Weapon Group Exotic Double (Picks and Hammers).MOD	AUTO:WEAPONPROF|Hammer (Gnome Hooked)
 CATEGORY=Internal|Weapon Group Exotic Double (Spears and Lances).MOD	AUTO:WEAPONPROF|Urgrosh (Dwarven)|PREABILITY:1,CATEGORY=Internal,Weapon Group Exotic Double (Axes)
+
+Level Adjustment Buy down 1	VISIBLE:DISPLAY	CATEGORY:Special Ability	TYPE:ECL Buy Down	TEMPLATE:Level Adjustment Buy down 1
+Level Adjustment Buy down 2	VISIBLE:DISPLAY	CATEGORY:Special Ability	TYPE:ECL Buy Down	TEMPLATE:Level Adjustment Buy down 2
+Level Adjustment Buy down 3	VISIBLE:DISPLAY	CATEGORY:Special Ability	TYPE:ECL Buy Down	TEMPLATE:Level Adjustment Buy down 3
+Level Adjustment Buy down 4	VISIBLE:DISPLAY	CATEGORY:Special Ability	TYPE:ECL Buy Down	TEMPLATE:Level Adjustment Buy down 4
+Level Adjustment Buy down 5	VISIBLE:DISPLAY	CATEGORY:Special Ability	TYPE:ECL Buy Down	TEMPLATE:Level Adjustment Buy down 5
+Level Adjustment Buy down 6	VISIBLE:DISPLAY	CATEGORY:Special Ability	TYPE:ECL Buy Down	TEMPLATE:Level Adjustment Buy down 6
+Level Adjustment Buy down 7	VISIBLE:DISPLAY	CATEGORY:Special Ability	TYPE:ECL Buy Down	TEMPLATE:Level Adjustment Buy down 7
+Level Adjustment Buy down 8	VISIBLE:DISPLAY	CATEGORY:Special Ability	TYPE:ECL Buy Down	TEMPLATE:Level Adjustment Buy down 8
+
 
