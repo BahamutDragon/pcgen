@@ -23,7 +23,7 @@ CATEGORY=Internal|Default.MOD	DEFINE:WizardSpellDC|0		BONUS:VAR|WizardSpellDC|Sp
 
 
 # Default
-CATEGORY=Internal|Default.MOD																																																																						DEFINE:Use_AC_Output|0	DEFINE:POOL_Expertise|0																																																																																																																																																																															ABILITY:Internal|AUTOMATIC|AC Tracker																																																																																															BONUS:VAR|Use_AC_Output|1
+CATEGORY=Internal|Default.MOD			DEFINE:DisableDexForAC|0																																																																			DEFINE:Use_AC_Output|0	DEFINE:POOL_Expertise|0																																																																																																																																																																															ABILITY:Internal|AUTOMATIC|AC Tracker																																																																																															BONUS:VAR|Use_AC_Output|1
 
 AC Tracker																		CATEGORY:Internal																																																																																																																																																																																																																																											ABILITY:Armor Class Method|AUTOMATIC|AC Tracker ~ Default|!PREABILITY:1,CATEGORY=Special Ability,TYPE.AC_Tracker_SelectionMade
 
@@ -246,7 +246,13 @@ Tinker's Tools			KEY:Tool Proficiency ~ Tinker's Tools		SORTKEY:1_Race	CATEGORY:
 
 ###Block: Half-Elf
 # Ability Name			Unique Key						SORTKEY		Category of Ability		Type											Description																																										Stackable?	Multiple?	Choose					Ability									Bonus Ability Pool				Stat bonus				Modify VAR						Source Page
-Racial Traits ~ Half-Elf											CATEGORY:Internal																																																																			ABILITY:Half-Elf Trait|AUTOMATIC|TYPE=Base Half-Elf Trait
+Racial Traits ~ Half-Elf											CATEGORY:Internal																																																																			
+	DEFINE:HalfElfSkillVersatility|0	BONUS:VAR|HalfElfSkillVersatility|1|TYPE=Base|PREFACT:1,ABILITIES,HalfElfSkillVersatility=True
+	ABILITY:Half-Elf Trait|AUTOMATIC|Half-Elf ~ Ability Score Increase
+	ABILITY:Half-Elf Trait|AUTOMATIC|Half-Elf ~ Darkvision		
+	ABILITY:Half-Elf Trait|AUTOMATIC|Half-Elf ~ Skill Versatility|PREVAREQ:HalfElfSkillVersatility,0	
+	ABILITY:Half-Elf Trait|AUTOMATIC|Half-Elf ~ Languages		
+	ABILITY:Half-Elf Trait|AUTOMATIC|Half-Elf ~ Fey Ancestry		
 #
 Ability Score Increase		KEY:Half-Elf ~ Ability Score Increase	SORTKEY:1_Race	CATEGORY:Special Ability	TYPE:Race Trait.Half-Elf Trait.Base Half-Elf Trait.SpecialQuality	DESC:Your Charisma score increases by 2, and two other ability scores of your choice increase by 1.																																															BONUS:ABILITYPOOL|Half-Elf Stat Choice|2													SOURCEPAGE:p.39
 #BONUS:STAT|CHA|2|TYPE=Racial
