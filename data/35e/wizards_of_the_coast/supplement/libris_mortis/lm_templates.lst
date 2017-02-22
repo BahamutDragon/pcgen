@@ -80,3 +80,21 @@ Vampire Spawn Monster Class 6	VISIBLE:NO	BONUS:FEAT|POOL|1
 
 Wight Monster Class 1		VISIBLE:NO	BONUS:FEAT|POOL|1	NATURALATTACKS:Slam,Weapon.Melee.Bludgeoning,*1,1d4
 Wight Monster Class 5		VISIBLE:NO	BONUS:FEAT|POOL|1
+
+#
+# Modifications to undead through the Corpsecraft feat tree
+#
+Corpsecrafted				VISIBLE:YES	PRETEMPLATE:1,Undead						BONUS:STAT|STR|4	BONUS:HP|CURRENTMAX|(TL*2)											SOURCEPAGE:25	DESC:Purposefully created to have greater Strength and Hit Points.
+# SRD handles Turn Resistance as a template, Bahumat core rules handles it as an ability
+Corpsecrafted Bolstered Resistance	VISIBLE:YES	PRETEMPLATE:1,Corpsecrafted	SAB:Bolstered Resistance	ABILITY:Special Ability|AUTOMATIC|Turn Resistance	ADD:TEMPLATE|1|Turn Resistance	BONUS:VAR|TurnResistBonus|4			SOURCEPAGE:25	DESC:More resistant to turning.
+Corpsecrafted Deadly Chill		VISIBLE:YES	PRETEMPLATE:1,Corpsecrafted	SAB:Deadly Chill		ABILITY:Special Ability|AUTOMATIC|Corpsecrafted ~ Deadly Chill Natural Attacks								SOURCEPAGE:25	DESC:+1d6 cold damage on natural attacks.
+Corpsecrafted Destructive Retribution	VISIBLE:YES	PRETEMPLATE:1,Corpsecrafted	SAB:Destructive Retribution	ABILITY:Special Ability|AUTOMATIC|Corpsecrafted ~ Destructive Retribution								SOURCEPAGE:26	DESC:Destruction deals %1d6 negative energy damage within 10' spread (Reflex DC 15 half)|1+(TL/2)
+Corpsecrafted Hardened Flesh		VISIBLE:YES	PRETEMPLATE:1,Corpsecrafted	SAB:Hardened Flesh		BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK												SOURCEPAGE:26	DESC:Created with improved (+2) natural armor.
+Corpsecrafted Nimble Bones		VISIBLE:YES	PRETEMPLATE:1,Corpsecrafted	SAB:Nimble Bonues		BONUS:COMBAT|INITIATIVE|4	BONUS:POSTMOVEADD|TYPE.Walk|10	BONUS:POSTMOVEADD|TYPE.Climb|10	BONUS:POSTMOVEADD|TYPE.Burrow|10	SOURCEPAGE:29	DESC:Created to have a faster land speed (+10ft./round) and better (+4) initiative.
+
+# suggested challenge rating adjustments
+# no, the partial values are not accepted by the engine
+#
+# Corpsecrafted:1, Bolstered Resistance:0.25, Deadly Chill:0.25, Destructive Retribution:1, Hardened Flesh:0.25, Nimble Bones:0.25
+#
+Corpsecrafted.MOD			BONUS:MISC|CR|1		BONUS:MISC|CR|1|PRETEMPLATE:1,Corpsecrafted Destructive Retribution	BONUS:MISC|CR|1|PREMULT:4,[PRETEMPLATE:1,Corpsecrafted Bolstered Resistance],[PRETEMPLATE:1,Corpsecrafted Deadly Chill],[PRETEMPLATE:1,Corpsecrafted Hardened Flesh],[PRETEMPLATE:1,Corpsecrafted Nimble Bones]
