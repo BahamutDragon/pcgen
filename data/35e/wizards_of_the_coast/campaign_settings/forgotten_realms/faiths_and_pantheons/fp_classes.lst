@@ -1,0 +1,82 @@
+
+
+# Elemental Archon
+CLASS:Elemental Archon		HD:8	TYPE:PC.Prestige	FACT:ClassType|Prestige		FACT:Abb|EArchon	MAXLEVEL:10
+CLASS:Elemental Archon		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	
+CLASS:Elemental Archon		BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	
+#
+CLASS:Elemental Archon		PREALIGN:LN,CN,TN,NG,NE		
+CLASS:Elemental Archon		PREDEITY:1,Akadi,Grumbar,Istishi,Kossuth	PRELANG:1,Auran,Terran,Ignan,Aquan
+#
+# Knowledge (Nature) at 8 ranks? The description of the class states that Druids are rare in this prestige class, so making a Knowledge skill that is cross-class to Clerics make
+# sense how exactly? So 8 ranks for a Cleric in a cross class skill is 11th level, hrm... No. And Druids typically aren't deifically inspired so much as the "spirit of nature" 
+# inspired, requiring a specific deity seems more Clerical than Druidic. No Knowledge (The Planes) requirement to become a transcendent elemental?
+# WTF?
+#
+#CLASS:Elemental Archon		PRESKILL:1,Knowledge (Nature)=8
+CLASS:Elemental Archon		PRESKILL:1,Knowledge (Religion)=8,Knowledge (Nature)=8		
+#CLASS:Elemental Archon		PRESKILL:1,Knowledge (The Planes)=4
+CLASS:Elemental Archon		PRESPELL:1,Protection From Energy	PRESPELLTYPE:1,Divine=3
+#
+# Skill conversion as per published 3.0 to 3.5 guide: removed Animal Empathy, Intuit Direction folded into Survival, removed Scry, Wilderness Lore folded into Survival
+# Swim - really? Yeah, the Fire Archons are really going to bother with that as a class skill. Moving Swim to subclass.
+# No Bluff, Diplomacy, Intimidate, or Sense Motive - exactly what does an archon do? Not even Intimidate for the arrogant elementally superior bully?
+# WTF?
+# commented modification to add Knowledge (Religion) to the class skills
+#
+CLASS:Elemental Archon		STARTSKILLPTS:2		CSKILL:Concentration|Handle Animal|Heal|Knowledge (Nature)|Knowledge (The Planes)|Spellcraft|Survival
+#CLASS:Elemental Archon		CSKILL:Knowledge (Religion)
+#
+CLASS:Elemental Archon		DEFINE:ElementalArchonLVL|0
+CLASS:Elemental Archon		DEFINE:ElementalArchonResilience|0
+CLASS:Elemental Archon		DEFINE:ElementalArchonAir|0	DEFINE:ElementalArchonEarth|0 	DEFINE:ElementalArchonFire|0	DEFINE:ElementalArchonWater|0
+#CLASS:Elemental Archon
+#
+CLASS:Elemental Archon		ALLOWBASECLASS:NO
+#
+SUBCLASS:Air Elemental Archon		PREDEITY:1,Akadi	PRELANG:1,Auran
+SUBCLASSLEVEL:1														BONUS:VAR|ElementalArchonAir|1		BONUS:VAR|ElectricityResistanceBonus|ElementalArchonResilience
+SUBCLASSLEVEL:1		ABILITY:Elemental Archon Class Feature|AUTOMATIC|Elemental Archon ~ Air Mephit Underlings
+SUBCLASSLEVEL:2		ABILITY:Elemental Archon Class Feature|AUTOMATIC|Elemental Archon ~ Air Power of Arrogance
+SUBCLASSLEVEL:3		ABILITY:Elemental Archon Class Feature|AUTOMATIC|Elemental Archon ~ Air Resilience
+SUBCLASSLEVEL:4		ABILITY:Elemental Archon Class Feature|AUTOMATIC|Elemental Archon ~ Air Affinity
+SUBCLASSLEVEL:7		ABILITY:Elemental Archon Class Feature|AUTOMATIC|Elemental Archon ~ Air Elemental Expertise
+#
+SUBCLASS:Earth Elemental Archon		PREDEITY:1,Grumbar	PRELANG:1,Terran
+SUBCLASSLEVEL:1														BONUS:VAR|ElementalArchonEarth|1	BONUS:VAR|AcidResistanceBonus|ElementalArchonResilience
+SUBCLASSLEVEL:1		ABILITY:Elemental Archon Class Feature|AUTOMATIC|Elemental Archon ~ Earth Mephit Underlings
+SUBCLASSLEVEL:2		ABILITY:Elemental Archon Class Feature|AUTOMATIC|Elemental Archon ~ Earth Power of Arrogance
+SUBCLASSLEVEL:3		ABILITY:Elemental Archon Class Feature|AUTOMATIC|Elemental Archon ~ Earth Resilience
+SUBCLASSLEVEL:4		ABILITY:Elemental Archon Class Feature|AUTOMATIC|Elemental Archon ~ Earth Affinity
+SUBCLASSLEVEL:7		ABILITY:Elemental Archon Class Feature|AUTOMATIC|Elemental Archon ~ Earth Elemental Expertise
+#
+SUBCLASS:Fire Elemental Archon		PREDEITY:1,Kossuth	PRELANG:1,Ignan
+SUBCLASSLEVEL:1														BONUS:VAR|ElementalArchonFire|1		BONUS:VAR|FireResistanceBonus|ElementalArchonResilience
+SUBCLASSLEVEL:1		ABILITY:Elemental Archon Class Feature|AUTOMATIC|Elemental Archon ~ Fire Mephit Underlings
+SUBCLASSLEVEL:2		ABILITY:Elemental Archon Class Feature|AUTOMATIC|Elemental Archon ~ Fire Power of Arrogance
+SUBCLASSLEVEL:3		ABILITY:Elemental Archon Class Feature|AUTOMATIC|Elemental Archon ~ Fire Resilience
+SUBCLASSLEVEL:4		ABILITY:Elemental Archon Class Feature|AUTOMATIC|Elemental Archon ~ Fire Affinity
+SUBCLASSLEVEL:7		ABILITY:Elemental Archon Class Feature|AUTOMATIC|Elemental Archon ~ Fire Elemental Expertise
+#
+SUBCLASS:Water Elemental Archon		PREDEITY:1,Istishi	PRELANG:1,Aquan		ADD:CLASSSKILLS|1|Swim
+SUBCLASSLEVEL:1														BONUS:VAR|ElementalArchonWater|1	BONUS:VAR|ColdResistanceBonus|ElementalArchonResilience
+SUBCLASSLEVEL:1		ABILITY:Elemental Archon Class Feature|AUTOMATIC|Elemental Archon ~ Water Mephit Underlings
+SUBCLASSLEVEL:2		ABILITY:Elemental Archon Class Feature|AUTOMATIC|Elemental Archon ~ Water Power of Arrogance
+SUBCLASSLEVEL:3		ABILITY:Elemental Archon Class Feature|AUTOMATIC|Elemental Archon ~ Water Resilience
+SUBCLASSLEVEL:4		ABILITY:Elemental Archon Class Feature|AUTOMATIC|Elemental Archon ~ Water Affinity
+SUBCLASSLEVEL:7		ABILITY:Elemental Archon Class Feature|AUTOMATIC|Elemental Archon ~ Water Elemental Expertise
+#
+1															BONUS:VAR|ElementalArchonLVL|CL
+1															BONUS:VAR|ElementalArchonResilience|10|PRECLASS:1,Elemental Archon=3	BONUS:VAR|ElementalArchonResilience|10|PRECLASS:1,Elemental Archon=6	BONUS:VAR|ElementalArchonResilience|10|PRECLASS:1,Elemental Archon=9	
+10	ABILITY:Elemental Archon Class Feature|AUTOMATIC|Elemental Archon ~ Elemental Transcendence	
+10	TEMPLATE:Elemental Archon Transcendence
+#
+1	ADD:SPELLCASTER|ANY
+2	ADD:SPELLCASTER|ANY
+4	ADD:SPELLCASTER|ANY
+5	ADD:SPELLCASTER|ANY
+7	ADD:SPELLCASTER|ANY
+8	ADD:SPELLCASTER|ANY
+10	ADD:SPELLCASTER|ANY
+
+
