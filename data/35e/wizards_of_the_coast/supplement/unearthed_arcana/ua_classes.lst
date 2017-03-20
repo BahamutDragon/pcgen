@@ -187,7 +187,7 @@ CLASS:Bard.MOD	BONUS:ABILITYPOOL|Bard Variant|1
 # Cleric Variant
 
 # Class Name				Hit Dice	Type				Class Type		Abbreviation	Max Level	Source Page			Bonus Languages					Combat bonus															Add domain number		Modify VAR													Monster Role	Bonus
-CLASS:Cleric (Cloistered Cleric)	HD:6		TYPE:Base.PC.Spellcaster.Divine.Variant	SERVESAS:CLASS|Cleric	FACT:ClassType|PC	FACT:Abb|Clr		MAXLEVEL:20	SOURCEPAGE:p.50	LANGBONUS:Abyssal,Celestial,Infernal	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:DOMAIN|NUMBER|2	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	ROLE:Cleric		BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	SPELLLIST:2|Cleric|Cleric (Cloistered Cleric)
+CLASS:Cleric (Cloistered Cleric)	HD:6		TYPE:Base.PC.Spellcaster.Divine.Variant	SERVESAS:CLASS|Cleric	FACT:ClassType|PC	FACT:Abb|Clr		MAXLEVEL:20	SOURCEPAGE:p.50	LANGBONUS:Abyssal,Celestial,Infernal	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:DOMAIN|NUMBER|DomainCount	DEFINE:DomainCount|0	BONUS:VAR|DomainCount|2	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	ROLE:Cleric		BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	SPELLLIST:2|Cleric|Cleric (Cloistered Cleric)
 # Class Name				Skill Pts/Lvl	Class Skill
 CLASS:Cleric (Cloistered Cleric)	STARTSKILLPTS:6	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|TYPE=Knowledge|TYPE=Profession|Spellcraft|Decipher Script|Speak Language
 # Class Name				Spell Stat		Spell Type		Automatically Known Spell Levels											Caster level
@@ -200,7 +200,7 @@ CLASS:Cleric (Cloistered Cleric)	SPELLSTAT:WIS	FACT:SpellType|Divine	KNOWNSPELLS
 ###Block:Proficiencies
 1								ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfLight|TYPE=WeaponProfSimple
 1								ABILITY:Special Ability|AUTOMATIC|Cloistered Cleric ~ Lore
-1	DOMAIN:Knowledge	BONUS:DOMAIN|NUMBER|1
+1	DOMAIN:Knowledge	BONUS:VAR|DomainCount|1
 # This is Phase I of the Turn abilities improvement (for 5.6).  Futher enhancements are planned,
 #	both OS and data to include modifications for differences in Turning ability for Undead,
 #	Air, Fire, etc.
