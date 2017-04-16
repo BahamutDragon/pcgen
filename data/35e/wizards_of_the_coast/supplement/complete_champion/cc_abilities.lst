@@ -50,7 +50,7 @@ Embody Paragon			KEY:Mythic Exemplar ~ Embody Paragon			CATEGORY:Special Ability
 Spellcasting			KEY:Ordained Champion ~ Spellcasting			CATEGORY:Special Ability	TYPE:Class Feature.Ordained Champion Class Feature.SpecialQuality																																															DESC:At 2nd, 3rd, and 5th level, you gain new spells per day and an increase in caster level (and spells known, if applicable) as if you had also gained a level in a divine spellcasting class to which you belonged before adding the prestige class level. You do not, however, gain any other benefit a character of that class would have gained. If you had more than one divine spellcasting class before becoming an ordained champion, you must decide to which class to add each level for the purpose of determining spells per day, caster level, and spells known.																																																																																																																																																																																																																																																																																																																																																																																																							SOURCEPAGE:p.90
 Bonus Domain			KEY:Ordained Champion ~ Bonus Domain			CATEGORY:Special Ability	TYPE:Class Feature.Ordained Champion Class Feature.SpecialQuality																																															DESC:If you are a cleric, you gain the War domain as a third domain. If you already have the War domain, you can instead choose any other domain granted by your deity as your third domain. If you have no cleric levels, you can add the War domain spells to your class spell list, but you do not gain its domain ability or any extra spell slots for domain spells.																																																																																																																																																																																																																																																																																																																																																																																																																																								SOURCEPAGE:p.90	BONUS:VAR|DomainCount|1|PRECLASS:1,Cleric=1	BONUS:ABILITYPOOL|Ordained Champion War Domain|1|!PRECLASS:1,Cleric=1	ABILITY:Special Ability|AUTOMATIC|Grant Domain ~ War|PRECLASS:1,Cleric=1
 Combat Feats			KEY:Ordained Champion ~ Combat Feats			CATEGORY:Special Ability	TYPE:Class Feature.Ordained Champion Class Feature.SpecialQuality																																															DESC:You can permanently sacrifice one or two of your domain granted powers to acquire an equal number of feats from the list of fighter bonus feats, as long as you meet the prerequisites for them. You may not sacrifice your War domain ability for this purpose. You must choose whether or not to make this exchange when you first become an ordained champion, and you cannot later change your mind.																																																																																																																																																																																																																																																																																																																																																																																																																																		SOURCEPAGE:p.90	BONUS:ABILITYPOOL|Sacrifice Domain|1
-Continued Advancement		KEY:Ordained Champion ~ Continued Advancement		CATEGORY:Special Ability	TYPE:Class Feature.Ordained Champion Class Feature.SpecialQuality																																															DESC:Levels in ordained champion stack with levels of other appropriate classes for the purpose of turning or rebuking undead, and for all level-dependent domain granted powers.																																																																																																																																																																																																																																																																																																																																																																																																																																																																							SOURCEPAGE:p.90
+Continued Advancement		KEY:Ordained Champion ~ Continued Advancement		CATEGORY:Special Ability	TYPE:Class Feature.Ordained Champion Class Feature.SpecialQuality																																															DESC:Levels in ordained champion stack with levels of other appropriate classes for the purpose of turning or rebuking undead, and for all level-dependent domain granted powers.																																																																																																																																																																																																																																																																																																																																																																																																																																																																							SOURCEPAGE:p.90	BONUS:VAR|TurnLevelBase|OrdainedChampionLVL
 Modified Spontaneous Casting	KEY:Ordained Champion ~ Modified Spontaneous Casting	CATEGORY:Special Ability	TYPE:Extraordinary.Class Feature.Ordained Champion Class Feature.SpecialQuality																																												DESC:If you have cleric levels, you lose the ability to spontaneously cast cure or inflict spells. Instead, you can swap out previously prepared cleric spells for any spells of equal or lower level from the War domain. This alteration applies even to levels you gain as a cleric after becoming an ordained champion. If you are not a cleric, modified spontaneous casting does not apply to you, even if you can spontaneously cast some other kind of spell, such as summon nature's ally.																																																																																																																																																																																																																																																																																																																																																																																																																				SOURCEPAGE:p.90
 Diehard				KEY:Ordained Champion ~ Diehard				CATEGORY:Special Ability	TYPE:Class Feature.Ordained Champion Class Feature.SpecialQuality																																															DESC:At 2nd level, you gain Diehard as a bonus feat, even if you lack the prerequisites. If you already have Diehard, you can select any other feat for which you meet the prerequisites as your bonus feat.																																																																																																																																																																																																																																																																																																																																																																																																																																																																		SOURCEPAGE:p.90
 Smite					KEY:Ordained Champion ~ Smite					CATEGORY:Special Ability	TYPE:Supernatural.Class Feature.Ordained Champion Class Feature.SpecialQuality																																												DESC:At 2nd level, you can spend one daily use of your turn/rebuke undead ability as a swift action to turn your next melee attack into a smite. You gain a bonus equal to your Charisma modifier on attack rolls, and you deal extra damage equal to your total effective turning or rebuking level. Your smite attack is not limited by alignment or race; you can attempt to smite any foe. Except as noted here, this ability functions like the paladin's smite evil ability (PH 44).																																																																																																																																																																																																																																																																																																																																																																																																																					SOURCEPAGE:p.90
@@ -285,6 +285,10 @@ Feral Trance Active	CATEGORY:Internal		NATURALATTACKS:Bite,Melee.Weapon.Natural,
 # Ability Name	Category of Ability
 Blinding Light	CATEGORY:Ability Focus
 
+###Block
+Remove Domain for Devotion Feat I	BONUS:ABILITYPOOL|Domain Feat|1	COST:0	BONUS:DOMAIN|NUMBER|-1	CATEGORY:Internal	TYPE:MiscOptions.DomainRemoval	!PREABILITY:1,CATEGORY=Internal,TYPE.DomainRemoval,[Remove Domain for Devotion Feat I]	
+Remove Domain for Devotion Feat II	BONUS:ABILITYPOOL|Domain Feat|2	COST:0	BONUS:DOMAIN|NUMBER|-2	CATEGORY:Internal	TYPE:MiscOptions.DomainRemoval	!PREABILITY:1,CATEGORY=Internal,TYPE.DomainRemoval,[Remove Domain for Devotion Feat II]	
+Remove Domain for Devotion Feat III	BONUS:ABILITYPOOL|Domain Feat|3	COST:0	BONUS:DOMAIN|NUMBER|-3	CATEGORY:Internal	TYPE:MiscOptions.DomainRemoval	!PREABILITY:1,CATEGORY=Internal,TYPE.DomainRemoval,[Remove Domain for Devotion Feat III]	
 
 # Marc
 
@@ -376,15 +380,82 @@ Character Level	KEY:Eternal Library ~ Character Level	CATEGORY:Church	TYPE:Etern
 
 ###Block: Fharlanghn's Way (FW), One Time
 
-Fharlanghn's Way Membership	KEY:Fharlanghn's Way ~ Membership	CATEGORY:Church	TYPE:Fharlanghn's Way	PREDEITY:1,Fharlanghn	DEFINE:FWAffiliationScore|0	COST:0	BONUS:ABILITYPOOL|Fharlanghn's Way Rank|FWAffiliationScore/100	ABILITY:Church|AUTOMATIC|Fharlanghn's Way ~ Character Level	DESC:Membership	SOURCEPAGE:p.6
+Fharlanghn's Way Membership	KEY:Fharlanghn's Way ~ Membership	CATEGORY:Church	TYPE:Fharlanghn's Way	PREDEITY:1,Fharlanghn	DEFINE:FWAffiliationScore|0	COST:0	BONUS:ABILITYPOOL|Fharlanghn's Way Rank|FWAffiliationScore/100	ABILITY:Church|AUTOMATIC|Fharlanghn's Way ~ Character Level	ABILITY:Church|AUTOMATIC|Fharlanghn's Way ~ Knowledge geography 5|PRESKILL:1,Knowledge (Geography)=5	ABILITY:Church|AUTOMATIC|Fharlanghn's Way ~ Knowledge local 5|PRESKILL:1,Knowledge (Local)=5	ABILITY:Church|AUTOMATIC|Fharlanghn's Way ~ Knowledge planes 5|PRESKILL:1,Knowledge (The Planes)=5	DESC:Membership	SOURCEPAGE:p.6
 
 Character Level	KEY:Fharlanghn's Way ~ Character Level	CATEGORY:Church	TYPE:Fharlanghn's Way	BONUS:VAR|FWAffiliationScore|100*floor(ECL/2)	COST:0	PREABILITY:1,CATEGORY=Church,Fharlanghn's Way ~ Membership	DESC:Character Level: +1/2 levels	SOURCEPAGE:p.14
 
+Knowledge geography 5 or more ranks	KEY:Fharlanghn's Way ~ Knowledge geography 5	CATEGORY:Church	TYPE:Fharlanghn's Way	PRESKILL:1,Knowledge (Geography)=5	BONUS:VAR|FWAffiliationScore|100*1	COST:0	PREABILITY:1,CATEGORY=Church,Fharlanghn's Way ~ Membership	DESC:Knowledge (Geography) 5 or more ranks: +1	SOURCEPAGE:p.14
+
+Knowledge local 5 or more ranks	KEY:Fharlanghn's Way ~ Knowledge local 5	CATEGORY:Church	TYPE:Fharlanghn's Way	PRESKILL:1,Knowledge (Local)=5	BONUS:VAR|FWAffiliationScore|100*1	COST:0	PREABILITY:1,CATEGORY=Church,Fharlanghn's Way ~ Membership	DESC:Knowledge (Local) 5 or more ranks: +1	SOURCEPAGE:p.14
+
+Knowledge the planes 5 or more ranks	KEY:Fharlanghn's Way ~ Knowledge planes 5	CATEGORY:Church	TYPE:Fharlanghn's Way	PRESKILL:1,Knowledge (The Planes)=5	BONUS:VAR|FWAffiliationScore|100*1	COST:0	PREABILITY:1,CATEGORY=Church,Fharlanghn's Way ~ Membership	DESC:Knowledge (The Planes) 5 or more ranks: +1	SOURCEPAGE:p.14
+
+Entitled to reroll	KEY:Fharlanghn's Way ~ Entitled to reroll	CATEGORY:Church	TYPE:Fharlanghn's Way	BONUS:VAR|FWAffiliationScore|100*1	COST:0	PREABILITY:1,CATEGORY=Church,Fharlanghn's Way ~ Membership	DESC:Is entitled to a reroll at least once per day through a spell, feat, or item: +1	SOURCEPAGE:p.14
+
+Speed spell	KEY:Fharlanghn's Way ~ Speed spell	CATEGORY:Church	TYPE:Fharlanghn's Way	BONUS:VAR|FWAffiliationScore|100*1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Fharlanghn's Way ~ Membership	DESC:Can cast a spell that increases speed: +1/spell	SOURCEPAGE:p.14
+
+Saving throw spell	KEY:Fharlanghn's Way ~ Saving throw spell	CATEGORY:Church	TYPE:Fharlanghn's Way	BONUS:VAR|FWAffiliationScore|100*1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Fharlanghn's Way ~ Membership	DESC:Can cast a spell that increases at least one saving throw modifier: +1/spell	SOURCEPAGE:p.14
+
+Can cast teleport	KEY:Fharlanghn's Way ~ Teleport spell	CATEGORY:Church	TYPE:Fharlanghn's Way	BONUS:VAR|FWAffiliationScore|100*1	COST:0	PREABILITY:1,CATEGORY=Church,Fharlanghn's Way ~ Membership	DESC:Can cast teleport: +1	SOURCEPAGE:p.14
+
+Can cast plane shift	KEY:Fharlanghn's Way ~ Plane Shift spell	CATEGORY:Church	TYPE:Fharlanghn's Way	BONUS:VAR|FWAffiliationScore|100*3	COST:0	PREABILITY:1,CATEGORY=Church,Fharlanghn's Way ~ Membership	DESC:Can cast plane shift: +3	SOURCEPAGE:p.14
+
+Modes of mouvement	KEY:Fharlanghn's Way ~ Mouvement modes	CATEGORY:Church	TYPE:Fharlanghn's Way	BONUS:VAR|FWAffiliationScore|100*3	COST:0	PREABILITY:1,CATEGORY=Church,Fharlanghn's Way ~ Membership	DESC:Has more than one mode of mouvement (such as a climb speed, the ability to fly, or the like): +3	SOURCEPAGE:p.14
+
+One month stay	KEY:Fharlanghn's Way ~ Stay month	CATEGORY:Church	TYPE:Fharlanghn's Way	BONUS:VAR|FWAffiliationScore|100*-2	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Fharlanghn's Way ~ Membership	DESC:Spends more than one month in a single place: -2	SOURCEPAGE:p.14
+
+One year stay	KEY:Fharlanghn's Way ~ Stay year	CATEGORY:Church	TYPE:Fharlanghn's Way	BONUS:VAR|FWAffiliationScore|100*-4	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Fharlanghn's Way ~ Membership	DESC:Spends more than one year in a single place: -4	SOURCEPAGE:p.14
+
 ###Block: Fharlanghn's Way (FW), Multiple Use
+
+Survives EL 3-4 higher	KEY:Fharlanghn's Way ~ Survive EL 3-4	CATEGORY:Church	TYPE:Fharlanghn's Way	BONUS:VAR|FWAffiliationScore|100*1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Fharlanghn's Way ~ Membership	DESC:Survives an encounter with an EL 3-4 higher than own character level: +1	SOURCEPAGE:p.14
+
+Survives EL 5 higher	KEY:Fharlanghn's Way ~ Survive EL 5	CATEGORY:Church	TYPE:Fharlanghn's Way	BONUS:VAR|FWAffiliationScore|100*2	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Fharlanghn's Way ~ Membership	DESC:Survives an encounter with an EL 5 or more higher than own character level: +2	SOURCEPAGE:p.14
+
+Avoids a battle	KEY:Fharlanghn's Way ~ Avoids battle	CATEGORY:Church	TYPE:Fharlanghn's Way	BONUS:VAR|FWAffiliationScore|100*1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Fharlanghn's Way ~ Membership	DESC:Avoids a battle as a result of careful preparation: +1	SOURCEPAGE:p.14
+
+Wins a battle	KEY:Fharlanghn's Way ~ Wins battle	CATEGORY:Church	TYPE:Fharlanghn's Way	BONUS:VAR|FWAffiliationScore|100*4	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Fharlanghn's Way ~ Membership	DESC:Wins a battle as a result of careful preparation: +4	SOURCEPAGE:p.14
+
+Wins impossible battle	KEY:Fharlanghn's Way ~ Wins impossible battle	CATEGORY:Church	TYPE:Fharlanghn's Way	BONUS:VAR|FWAffiliationScore|100*8	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Fharlanghn's Way ~ Membership	DESC:Wins a battle against seemingly insurmountable odds as a result of careful preparation: +8	SOURCEPAGE:p.14
+
+Converts a new member	KEY:Fharlanghn's Way ~ Convert	CATEGORY:Church	TYPE:Fharlanghn's Way	BONUS:VAR|FWAffiliationScore|100*1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Fharlanghn's Way ~ Membership	DESC:Converts a new member: +1	SOURCEPAGE:p.14
+
+Find use for useless item	KEY:Fharlanghn's Way ~ Find use	CATEGORY:Church	TYPE:Fharlanghn's Way	BONUS:VAR|FWAffiliationScore|100*1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Fharlanghn's Way ~ Membership	DESC:Finds a use for an item thought to be useless: +1	SOURCEPAGE:p.14
+
+Destroys a slave ring	KEY:Fharlanghn's Way ~ Destroys slave ring	CATEGORY:Church	TYPE:Fharlanghn's Way	BONUS:VAR|FWAffiliationScore|100*4	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Fharlanghn's Way ~ Membership	DESC:Destroys a slave ring: +4	SOURCEPAGE:p.14
+
+Discover area	KEY:Fharlanghn's Way ~ Discover area	CATEGORY:Church	TYPE:Fharlanghn's Way	BONUS:VAR|FWAffiliationScore|100*8	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Fharlanghn's Way ~ Membership	DESC:Discover an area never traveled before: +8	SOURCEPAGE:p.14
+
+Discover area and record voyage	KEY:Fharlanghn's Way ~ Discover and record	CATEGORY:Church	TYPE:Fharlanghn's Way	BONUS:VAR|FWAffiliationScore|100*2	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Fharlanghn's Way ~ Membership	DESC:Discover an area never traveled before and records the voyage: +2	SOURCEPAGE:p.14
+
+One week stay	KEY:Fharlanghn's Way ~ Stay week	CATEGORY:Church	TYPE:Fharlanghn's Way	BONUS:VAR|FWAffiliationScore|100*3	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Fharlanghn's Way ~ Membership	DESC:Spends no more than 1 week in a single place for an entire year: +3	SOURCEPAGE:p.14
+
+Incarcerates or enslave	KEY:Fharlanghn's Way ~ Incarcerator	CATEGORY:Church	TYPE:Fharlanghn's Way	BONUS:VAR|FWAffiliationScore|100*-15	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Fharlanghn's Way ~ Membership	DESC:Incarcerates or enslaves another creature: -15	SOURCEPAGE:p.14
+
+Fails to defend church	KEY:Fharlanghn's Way ~ Fails church	CATEGORY:Church	TYPE:Fharlanghn's Way	BONUS:VAR|FWAffiliationScore|100*-6	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Fharlanghn's Way ~ Membership	DESC:Fails to defend a structure or item important to the church: -6	SOURCEPAGE:p.14
 
 ###Block: Fharlanghn's Way (FW), Rank
 
+# Absolute cost 4, 12, 21, 30
+# Incremental cost 4, 8, 9, 9
+
+Fharlanghn's Way Vagabond	KEY:Fharlanghn's Way ~ Vagabond	CATEGORY:Church Rank	TYPE:Fharlanghn's Way	COST:4	ABILITY:Special Ability|AUTOMATIC|Fharlanghn's Way ~ Vagabond Bonus	DESC:Gain a +2 bonus on sense motive checks.	SOURCEPAGE:p.15
+
+Fharlanghn's Way Wanderer	KEY:Fharlanghn's Way ~ Wanderer	CATEGORY:Church Rank	TYPE:Fharlanghn's Way	COST:8	PREABILITY:1,CATEGORY=Church Rank,Fharlanghn's Way ~ Vagabond	ABILITY:Special Ability|AUTOMATIC|Fharlanghn's Way ~ Wanderer Bonus	DESC:Gain a +2 bonus on checks made to resist a grapple, trip, or bull rush attempt.	SOURCEPAGE:p.15
+
+Fharlanghn's Way Explorer	KEY:Fharlanghn's Way ~ Explorer	CATEGORY:Church Rank	TYPE:Fharlanghn's Way	COST:9	PREABILITY:1,CATEGORY=Church Rank,Fharlanghn's Way ~ Wanderer	ABILITY:Special Ability|AUTOMATIC|Fharlanghn's Way ~ Explorer Bonus	DESC:Once per day, gain a bonus equals to +1 per three character levels on one saving throw.	SOURCEPAGE:p.15
+
+Fharlanghn's Way Traveler of Worlds	KEY:Fharlanghn's Way ~ Traveler	CATEGORY:Church Rank	TYPE:Fharlanghn's Way	COST:9	PREABILITY:1,CATEGORY=Church Rank,Fharlanghn's Way ~ Explorer	ABILITY:Special Ability|AUTOMATIC|Fharlanghn's Way ~ Traveler Bonus	DESC:Once per day, become etheral for 1 round per three character level as a spell-like ability (caster level equals your character level).	SOURCEPAGE:p.15
+
 ###Block: Fharlanghn's Way (FW), Bonus
+
+Fharlanghn's Way Vagabond Bonus	KEY:Fharlanghn's Way ~ Vagabond Bonus	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	OUTPUTNAME:Fharlanghn's Way Vagabond	DESC:Gain a +2 bonus on sense motive checks.	SOURCEPAGE:P.15	BONUS:SKILL|Sense motive|2
+
+Fharlanghn's Way Wanderer Bonus	KEY:Fharlanghn's Way ~ Wanderer Bonus	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	OUTPUTNAME:Fharlanghn's Way Wanderer	DESC:Gain a +2 bonus on checks made to resist a grapple, trip, or bull rush attempt.	SOURCEPAGE:P.15
+
+Fharlanghn's Way Explorer Bonus	KEY:Fharlanghn's Way ~ Explorer Bonus	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	OUTPUTNAME:Fharlanghn's Way Explorer	DESC:Once per day, gain a bonus equals to +1 per three character levels on one saving throw.	SOURCEPAGE:P.15
+
+Fharlanghn's Way Traveler of Worlds Bonus	KEY:Fharlanghn's Way ~ Traveler Bonus	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	OUTPUTNAME:Fharlanghn's Way Traveler of Worlds	DESC:Once per day, become etheral for 1 round per three character level as a spell-like ability (caster level equals your character level).	SOURCEPAGE:P.15
 
 #======================================
 
@@ -529,7 +600,7 @@ Ruby Temple Crystal Novice	KEY:Ruby Temple ~ Crystal Novice	CATEGORY:Church Rank
 
 Ruby Temple Topaz Apprentice	KEY:Ruby Temple ~ Topaz Apprentice	CATEGORY:Church Rank	TYPE:Ruby Temple	COST:11	PREABILITY:1,CATEGORY=Church Rank,Ruby Temple ~ Crystal Novice	ABILITY:Special Ability|AUTOMATIC|Ruby Temple ~ Topaz Apprentice Bonus	DESC:Gain a +1 bonus on saves against death spells and effects.	SOURCEPAGE:p.20
 
-Ruby Temple Emerald Master	KEY:Ruby Temple ~ Emerald Master	CATEGORY:Church Rank	TYPE:Ruby Temple	COST:8	PREABILITY:1,CATEGORY=Church Rank,Ruby Temple ~ Topaz Apprentice	ABILITY:Special Ability|AUTOMATIC|Ruby Temple ~ Emerald Master Bonus	DESC:Increase caster level by 1 for a single school of magic (your choice)	SOURCEPAGE:p.20	MULT:YES	CHOOSE:SCHOOLS	BONUS:CASTERLEVEL|SCHOOL.%CHOICE|1
+Ruby Temple Emerald Master	KEY:Ruby Temple ~ Emerald Master	CATEGORY:Church Rank	TYPE:Ruby Temple	COST:8	PREABILITY:1,CATEGORY=Church Rank,Ruby Temple ~ Topaz Apprentice	ABILITY:Special Ability|AUTOMATIC|Ruby Temple ~ Emerald Master Bonus	DESC:Increase caster level by 1 for a single school of magic (your choice)	SOURCEPAGE:p.20	MULT:YES	CHOOSE:SCHOOLS|ALL	BONUS:CASTERLEVEL|SCHOOL.%CHOICE|1
 
 Ruby Temple Ruby Master	KEY:Ruby Temple ~ Ruby Master	CATEGORY:Church Rank	TYPE:Ruby Temple	COST:7	PREABILITY:1,CATEGORY=Church Rank,Ruby Temple ~ Emerald Master	ABILITY:Special Ability|AUTOMATIC|Ruby Temple ~ Ruby Master Bonus	DESC:Once per day, counter a spell without a readied action, and without having the same spell ready to cast, provided you succceed on a Spellcraft check to identify the spell as normal.	SOURCEPAGE:p.20
 
@@ -561,15 +632,94 @@ Character Level	KEY:Scales of Balance ~ Character Level	CATEGORY:Church	TYPE:Sca
 
 ###Block: The Shining Light Of Pelor (SLP), One Time
 
-The Shining Light Of Pelor Membership	KEY:Shining Light Of Pelor ~ Membership	CATEGORY:Church	TYPE:Shining Light Of Pelor	PREDEITY:1,Pelor	DEFINE:SLPAffiliationScore|0	COST:0	BONUS:ABILITYPOOL|The Shining Light Of Pelor Rank|SLPAffiliationScore/100	ABILITY:Church|AUTOMATIC|Shining Light Of Pelor ~ Character Level	DESC:Membership	SOURCEPAGE:p.6
+The Shining Light Of Pelor Membership	KEY:Shining Light Of Pelor ~ Membership	CATEGORY:Church	TYPE:Shining Light Of Pelor	PREDEITY:1,Pelor	DEFINE:SLPAffiliationScore|0	COST:0	BONUS:ABILITYPOOL|The Shining Light Of Pelor Rank|SLPAffiliationScore/100	ABILITY:Church|AUTOMATIC|Shining Light Of Pelor ~ Character Level	ABILITY:Church|AUTOMATIC|Shining Light Of Pelor ~ Cleric or paladin|PREMULT:1,[PRECLASS:1,Cleric=1],[PRECLASS:1,Paladin=1]	ABILITY:Church|AUTOMATIC|Shining Light Of Pelor ~ Knowledge religion 5-9|PREMULT:2,[PRESKILL:1,Knowledge (Religion)=5],[!PRESKILL:1,Knowledge (Religion)=10]	ABILITY:Church|AUTOMATIC|Shining Light Of Pelor ~ Knowledge religion 10|PRESKILL:1,Knowledge (Religion)=10	ABILITY:Church|AUTOMATIC|Shining Light Of Pelor ~ Heal 5-9|PREMULT:2,[PRESKILL:1,Heal=5],[!PRESKILL:1,Heal=10]	ABILITY:Church|AUTOMATIC|Shining Light Of Pelor ~ Heal 10|PRESKILL:1,Heal=10	ABILITY:Church|AUTOMATIC|Shining Light Of Pelor ~ Will save 10|PRECHECK:1,Will=10	ABILITY:Church|AUTOMATIC|Shining Light Of Pelor ~ Strength 20|PRESTAT:1,STR=20	ABILITY:Church|AUTOMATIC|Shining Light Of Pelor ~ Can cast heal|PREMULT:2,[PRESPELLTYPE:1,Divine=6],[PRESPELL:1,Heal]	DESC:Membership	SOURCEPAGE:p.6
 
 Character Level	KEY:Shining Light Of Pelor ~ Character Level	CATEGORY:Church	TYPE:Shining Light Of Pelor	BONUS:VAR|SLPAffiliationScore|100*floor(ECL/2)	COST:0	PREABILITY:1,CATEGORY=Church,Shining Light Of Pelor ~ Membership	DESC:Character Level: +1/2 levels	SOURCEPAGE:p.22
 
+Cleric or paladin	KEY:Shining Light Of Pelor ~ Cleric or paladin	CATEGORY:Church	TYPE:Shining Light Of Pelor	PREMULT:1,[PRECLASS:1,Cleric=1],[PRECLASS:1,Paladin=1]	BONUS:VAR|SLPAffiliationScore|100*1	COST:0	PREABILITY:1,CATEGORY=Church,Shining Light Of Pelor ~ Membership	DESC:Cleric or paladin: +1	SOURCEPAGE:p.22
+
+Knowledge religion 5-9 ranks	KEY:Shining Light Of Pelor ~ Knowledge religion 5-9	CATEGORY:Church	TYPE:Shining Light Of Pelor	PREMULT:2,[PRESKILL:1,Knowledge (Religion)=5],[!PRESKILL:1,Knowledge (Religion)=10]	BONUS:VAR|SLPAffiliationScore|100*1	COST:0	PREABILITY:1,CATEGORY=Church,Shining Light Of Pelor ~ Membership	DESC:Knowledge (religion) 5-9 ranks: +1	SOURCEPAGE:p.22
+
+Knowledge religion 10 or more ranks	KEY:Shining Light Of Pelor ~ Knowledge religion 10	CATEGORY:Church	TYPE:Shining Light Of Pelor	PRESKILL:1,Knowledge (Religion)=10	BONUS:VAR|SLPAffiliationScore|100*2	COST:0	PREABILITY:1,CATEGORY=Church,Shining Light Of Pelor ~ Membership	DESC:Knowledge (religion) 10 or more ranks: +2	SOURCEPAGE:p.22
+
+Heal 5-9 ranks	KEY:Shining Light Of Pelor ~ Heal 5-9	CATEGORY:Church	TYPE:Shining Light Of Pelor	PREMULT:2,[PRESKILL:1,Heal=5],[!PRESKILL:1,Heal=10]	BONUS:VAR|SLPAffiliationScore|100*1	COST:0	PREABILITY:1,CATEGORY=Church,Shining Light Of Pelor ~ Membership	DESC:Heal 5-9 ranks: +1	SOURCEPAGE:p.22
+
+Heal 10 or more ranks	KEY:Shining Light Of Pelor ~ Heal 10	CATEGORY:Church	TYPE:Shining Light Of Pelor	PRESKILL:1,Heal=10	BONUS:VAR|SLPAffiliationScore|100*2	COST:0	PREABILITY:1,CATEGORY=Church,Shining Light Of Pelor ~ Membership	DESC:Heal 10 or more ranks: +2	SOURCEPAGE:p.22
+
+Will save bonus +10 or higher	KEY:Shining Light Of Pelor ~ Will save 10	CATEGORY:Church	TYPE:Shining Light Of Pelor	PRECHECK:1,Will=10	BONUS:VAR|SLPAffiliationScore|100*1	COST:0	PREABILITY:1,CATEGORY=Church,Shining Light Of Pelor ~ Membership	DESC:Will save bonus +10 or higher: +1	SOURCEPAGE:p.22
+
+Strength score of 20 or higher	KEY:Shining Light Of Pelor ~ Strength 20	CATEGORY:Church	TYPE:Shining Light Of Pelor	PRESTAT:1,STR=20	BONUS:VAR|SLPAffiliationScore|100*1	COST:0	PREABILITY:1,CATEGORY=Church,Shining Light Of Pelor ~ Membership	DESC:Strength bonus of 20 or higher: +1	SOURCEPAGE:p.22
+
+# FIXME: 'PRESPELL:1,Heal' alone does not work, cleric level < 11 pass the requirement.
+# WORKAROUND: added 'PRESPELLTYPE:1,Divine=6' for clerics.
+# ISSUE: Other classes that can also cast Heal are most likely broken.
+
+Can cast heal	KEY:Shining Light Of Pelor ~ Can cast heal	CATEGORY:Church	TYPE:Shining Light Of Pelor	PREMULT:2,[PRESPELLTYPE:1,Divine=6],[PRESPELL:1,Heal]	BONUS:VAR|SLPAffiliationScore|100*3	COST:0	PREABILITY:1,CATEGORY=Church,Shining Light Of Pelor ~ Membership	DESC:Can cast heal: +3	SOURCEPAGE:p.22
+
+Has been undead	KEY:Shining Light Of Pelor ~ Has been undead	CATEGORY:Church	TYPE:Shining Light Of Pelor	BONUS:VAR|SLPAffiliationScore|100*-6	COST:0	PREABILITY:1,CATEGORY=Church,Shining Light Of Pelor ~ Membership	DESC:Has been undead: -6	SOURCEPAGE:p.22
+
 ###Block: The Shining Light Of Pelor (SLP), Multiple Use
+
+Destroy undead CR8	KEY:Shining Light Of Pelor ~ Destroy undead CR8	CATEGORY:Church	TYPE:Shining Light Of Pelor	BONUS:VAR|SLPAffiliationScore|100*8/4	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Shining Light Of Pelor ~ Membership	DESC:Destroys a CR8 or higher undead creature: +1/4 creature's CR	SOURCEPAGE:p.23	SORTKEY:CR08
+Destroy undead CR9	KEY:Shining Light Of Pelor ~ Destroy undead CR9	CATEGORY:Church	TYPE:Shining Light Of Pelor	BONUS:VAR|SLPAffiliationScore|100*9/4	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Shining Light Of Pelor ~ Membership	DESC:Destroys a CR8 or higher undead creature: +1/4 creature's CR	SOURCEPAGE:p.23	SORTKEY:CR09
+Destroy undead CR10	KEY:Shining Light Of Pelor ~ Destroy undead CR10	CATEGORY:Church	TYPE:Shining Light Of Pelor	BONUS:VAR|SLPAffiliationScore|100*10/4	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Shining Light Of Pelor ~ Membership	DESC:Destroys a CR8 or higher undead creature: +1/4 creature's CR	SOURCEPAGE:p.23	SORTKEY:CR10
+Destroy undead CR11	KEY:Shining Light Of Pelor ~ Destroy undead CR11	CATEGORY:Church	TYPE:Shining Light Of Pelor	BONUS:VAR|SLPAffiliationScore|100*11/4	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Shining Light Of Pelor ~ Membership	DESC:Destroys a CR8 or higher undead creature: +1/4 creature's CR	SOURCEPAGE:p.23	SORTKEY:CR11
+Destroy undead CR12	KEY:Shining Light Of Pelor ~ Destroy undead CR12	CATEGORY:Church	TYPE:Shining Light Of Pelor	BONUS:VAR|SLPAffiliationScore|100*12/4	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Shining Light Of Pelor ~ Membership	DESC:Destroys a CR8 or higher undead creature: +1/4 creature's CR	SOURCEPAGE:p.23	SORTKEY:CR12
+Destroy undead CR13	KEY:Shining Light Of Pelor ~ Destroy undead CR13	CATEGORY:Church	TYPE:Shining Light Of Pelor	BONUS:VAR|SLPAffiliationScore|100*13/4	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Shining Light Of Pelor ~ Membership	DESC:Destroys a CR8 or higher undead creature: +1/4 creature's CR	SOURCEPAGE:p.23	SORTKEY:CR13
+Destroy undead CR14	KEY:Shining Light Of Pelor ~ Destroy undead CR14	CATEGORY:Church	TYPE:Shining Light Of Pelor	BONUS:VAR|SLPAffiliationScore|100*14/4	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Shining Light Of Pelor ~ Membership	DESC:Destroys a CR8 or higher undead creature: +1/4 creature's CR	SOURCEPAGE:p.23	SORTKEY:CR14
+Destroy undead CR15	KEY:Shining Light Of Pelor ~ Destroy undead CR15	CATEGORY:Church	TYPE:Shining Light Of Pelor	BONUS:VAR|SLPAffiliationScore|100*15/4	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Shining Light Of Pelor ~ Membership	DESC:Destroys a CR8 or higher undead creature: +1/4 creature's CR	SOURCEPAGE:p.23	SORTKEY:CR15
+Destroy undead CR16	KEY:Shining Light Of Pelor ~ Destroy undead CR16	CATEGORY:Church	TYPE:Shining Light Of Pelor	BONUS:VAR|SLPAffiliationScore|100*16/4	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Shining Light Of Pelor ~ Membership	DESC:Destroys a CR8 or higher undead creature: +1/4 creature's CR	SOURCEPAGE:p.23	SORTKEY:CR16
+Destroy undead CR17	KEY:Shining Light Of Pelor ~ Destroy undead CR17	CATEGORY:Church	TYPE:Shining Light Of Pelor	BONUS:VAR|SLPAffiliationScore|100*17/4	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Shining Light Of Pelor ~ Membership	DESC:Destroys a CR8 or higher undead creature: +1/4 creature's CR	SOURCEPAGE:p.23	SORTKEY:CR17
+Destroy undead CR18	KEY:Shining Light Of Pelor ~ Destroy undead CR18	CATEGORY:Church	TYPE:Shining Light Of Pelor	BONUS:VAR|SLPAffiliationScore|100*18/4	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Shining Light Of Pelor ~ Membership	DESC:Destroys a CR8 or higher undead creature: +1/4 creature's CR	SOURCEPAGE:p.23	SORTKEY:CR18
+Destroy undead CR19	KEY:Shining Light Of Pelor ~ Destroy undead CR19	CATEGORY:Church	TYPE:Shining Light Of Pelor	BONUS:VAR|SLPAffiliationScore|100*19/4	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Shining Light Of Pelor ~ Membership	DESC:Destroys a CR8 or higher undead creature: +1/4 creature's CR	SOURCEPAGE:p.23	SORTKEY:CR19
+Destroy undead CR20	KEY:Shining Light Of Pelor ~ Destroy undead CR20	CATEGORY:Church	TYPE:Shining Light Of Pelor	BONUS:VAR|SLPAffiliationScore|100*20/4	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Shining Light Of Pelor ~ Membership	DESC:Destroys a CR8 or higher undead creature: +1/4 creature's CR	SOURCEPAGE:p.23	SORTKEY:CR20
+
+Hunt undead	KEY:Shining Light Of Pelor ~ Hunt undead	CATEGORY:Church	TYPE:Shining Light Of Pelor	BONUS:VAR|SLPAffiliationScore|100*1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Shining Light Of Pelor ~ Membership	DESC:Undertakes a mission to hunt undead: +1	SOURCEPAGE:p.23
+
+Mission underground	KEY:Shining Light Of Pelor ~ Mission underground	CATEGORY:Church	TYPE:Shining Light Of Pelor	BONUS:VAR|SLPAffiliationScore|100*1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Shining Light Of Pelor ~ Membership	DESC:Undertakes a mission underground: +1	SOURCEPAGE:p.23
+
+Razes undead stronghold	KEY:Shining Light Of Pelor ~ Razes undead stronghold	CATEGORY:Church	TYPE:Shining Light Of Pelor	BONUS:VAR|SLPAffiliationScore|100*8	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Shining Light Of Pelor ~ Membership	DESC:Razes the stronghold of an undead creature: +8	SOURCEPAGE:p.23
+
+Raise dead	KEY:Shining Light Of Pelor ~ Raise dead	CATEGORY:Church	TYPE:Shining Light Of Pelor	BONUS:VAR|SLPAffiliationScore|100*2	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Shining Light Of Pelor ~ Membership	DESC:Brings a creature back to life with raise dead or similar magic: +2	SOURCEPAGE:p.23
+
+Aid the less fortunate with 500gp	KEY:Shining Light Of Pelor ~ Aid 500gp	CATEGORY:Church	TYPE:Shining Light Of Pelor	BONUS:VAR|SLPAffiliationScore|100*1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Shining Light Of Pelor ~ Membership	DESC:Aid the less fortunate with own funds: +1/500 gp expended	SOURCEPAGE:p.23
+
+Converts a new member	KEY:Shining Light Of Pelor ~ Convert member	CATEGORY:Church	TYPE:Shining Light Of Pelor	BONUS:VAR|SLPAffiliationScore|100*1	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Shining Light Of Pelor ~ Membership	DESC:Converts a new member: +1	SOURCEPAGE:p.23
+
+Associates with undead	KEY:Shining Light Of Pelor ~ Associate undead	CATEGORY:Church	TYPE:Shining Light Of Pelor	BONUS:VAR|SLPAffiliationScore|100*-4	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Shining Light Of Pelor ~ Membership	DESC:Associates with undead: -4	SOURCEPAGE:p.23
+
+Associates with evil outsiders	KEY:Shining Light Of Pelor ~ Associate evil outsiders	CATEGORY:Church	TYPE:Shining Light Of Pelor	BONUS:VAR|SLPAffiliationScore|100*-2	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Shining Light Of Pelor ~ Membership	DESC:Associates with evil outsiders: -2	SOURCEPAGE:p.23
+
+Associates with illithids	KEY:Shining Light Of Pelor ~ Associate illithids	CATEGORY:Church	TYPE:Shining Light Of Pelor	BONUS:VAR|SLPAffiliationScore|100*-6	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Shining Light Of Pelor ~ Membership	DESC:Associates with illithids: -6	SOURCEPAGE:p.23
+
+Acts against alignment	KEY:Shining Light Of Pelor ~ Against alignment	CATEGORY:Church	TYPE:Shining Light Of Pelor	BONUS:VAR|SLPAffiliationScore|100*-10	MULT:YES	STACK:YES	CHOOSE:NOCHOICE	COST:0	PREABILITY:1,CATEGORY=Church,Shining Light Of Pelor ~ Membership	DESC:Acts against alignment: -10	SOURCEPAGE:p.23
 
 ###Block: The Shining Light Of Pelor (SLP), Rank
 
+# Absolute cost 4, 10, 18, 25, 30
+# Incremental cost 4, 6, 8, 7, 5
+
+Shining Light Of Pelor Novitiate of the Sun	KEY:Shining Light Of Pelor ~ Novitiate of the Sun	CATEGORY:Church Rank	TYPE:Shining Light Of Pelor	COST:4	ABILITY:Special Ability|AUTOMATIC|Shining Light Of Pelor ~ Novitiate of the Sun Bonus	DESC:Gain a +2 bonus on Heal checks made to stabilize a dying creature.	SOURCEPAGE:p.23
+
+Shining Light Of Pelor Light of the Sun	KEY:Shining Light Of Pelor ~ Light of the Sun	CATEGORY:Church Rank	TYPE:Shining Light Of Pelor	COST:6	PREABILITY:1,CATEGORY=Church Rank,Shining Light Of Pelor ~ Novitiate of the Sun	ABILITY:Special Ability|AUTOMATIC|Shining Light Of Pelor ~ Light of the Sun Bonus	DESC:Gain a +2 bonus on turning checks.	SOURCEPAGE:p.23
+
+Shining Light Of Pelor Heat of the Sun	KEY:Shining Light Of Pelor ~ Heat of the Sun	CATEGORY:Church Rank	TYPE:Shining Light Of Pelor	COST:8	PREABILITY:1,CATEGORY=Church Rank,Shining Light Of Pelor ~ Light of the Sun	ABILITY:Special Ability|AUTOMATIC|Shining Light Of Pelor ~ Heat of the Sun Bonus	DESC:Gain a +1 bonus on saves against evil spells and effects.	SOURCEPAGE:p.23
+
+Shining Light Of Pelor Fury of the Sun	KEY:Shining Light Of Pelor ~ Fury of the Sun	CATEGORY:Church Rank	TYPE:Shining Light Of Pelor	COST:7	PREABILITY:1,CATEGORY=Church Rank,Shining Light Of Pelor ~ Heat of the Sun	ABILITY:Special Ability|AUTOMATIC|Shining Light Of Pelor ~ Fury of the Sun Bonus	DESC:Once per day, add your Strength modifier as a bonus on a single saving throw.	SOURCEPAGE:p.23
+
+Shining Light Of Pelor Shining Light	KEY:Shining Light Of Pelor ~ Shining Light	CATEGORY:Church Rank	TYPE:Shining Light Of Pelor	COST:5	PREABILITY:1,CATEGORY=Church Rank,Shining Light Of Pelor ~ Fury of the Sun	ABILITY:Special Ability|AUTOMATIC|Shining Light Of Pelor ~ Shining Light Bonus	DESC:Once per day, wreathe yourself in the divine energy of the sun, which acts as a fire shield spell (warm shield only, caster level equals your character level).	SOURCEPAGE:p.23
+
 ###Block: The Shining Light Of Pelor (SLP), Bonus
+
+Shining Light Of Pelor Novitiate of the Sun Bonus	KEY:Shining Light Of Pelor ~ Novitiate of the Sun Bonus	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	OUTPUTNAME:Shining Light Of Pelor Novitiate of the Sun	DESC:Gain a +2 bonus on Heal checks made to stabilize a dying creature.	SOURCEPAGE:P.23	ASPECT:SkillBonus|+2 bonus to Heal checks made to stabilize a dying creature.
+
+Shining Light Of Pelor Light of the Sun Bonus	KEY:Shining Light Of Pelor ~ Light of the Sun Bonus	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	OUTPUTNAME:Shining Light Of Pelor Light of the Sun	DESC:Gain a +2 bonus on turning checks.	SOURCEPAGE:P.23	ASPECT:SkillBonus|+2 bonus on turning checks.
+
+Shining Light Of Pelor Heat of the Sun Bonus	KEY:Shining Light Of Pelor ~ Heat of the Sun Bonus	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	OUTPUTNAME:Shining Light Of Pelor Heat of the Sun	DESC:Gain a +1 bonus on saves against evil spells and effects.	SOURCEPAGE:P.23
+
+Shining Light Of Pelor Fury of the Sun Bonus	KEY:Shining Light Of Pelor ~ Fury of the Sun Bonus	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	OUTPUTNAME:Shining Light Of Pelor Fury of the Sun	DESC:Once per day, add your Strenght modifier as a bonus on a single saving throw.	SOURCEPAGE:P.23
+
+Shining Light Of Pelor Shining Light Bonus	KEY:Shining Light Of Pelor ~ Shining Light Bonus	CATEGORY:Special Ability	TYPE:SpecialQuality	VISIBLE:YES	OUTPUTNAME:Shining Light Of Pelor Shining Light	DESC:Once per day, wreathe yourself in the divine energy of the sun, which acts as a fire shield spell (warm shield only, caster level equals your character level).	SOURCEPAGE:P.23
 
 #======================================
 

@@ -11,15 +11,6 @@ CLASS:Barbarian.MOD	BONUS:ABILITYPOOL|Totem Barbarian|1	BONUS:ABILITYPOOL|Barbar
 
 ###Block: Bard
 
-# Class Name
-#CLASS:Bard.COPY=Bardic Sage
-
-# Class Name
-#CLASS:Bard.COPY=Divine Bard
-
-# Class Name
-#CLASS:Bard.COPY=Savage Bard
-
 # Class Name	Prohibited Class
 CLASS:Bard.MOD	!PRECLASS:1,Bardic Sage=1,Divine Bard=1,Savage Bard=1
 
@@ -86,7 +77,6 @@ CLASS:Bardic Sage	SPELLSTAT:INT	BONUSSPELLSTAT:CHA	BONUS:CASTERLEVEL|Bardic Sage
 # 0-level bard spell of the divination school (such as detect magic, know direction, or read magic.
 # The bardic sage's number of spells per day does not change.
 #
-
 
 # Class Name		Abbreviation	Source Page
 CLASS:Divine Bard	FACT:Abb|DvnBrd		SOURCEPAGE:p.50		HD:6		SERVESAS:CLASS|Bard		TYPE:Base.PC	FACT:ClassType|PC		DEFINE:BardLVL|0	BONUS:VAR|BardLVL|CL	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
@@ -197,7 +187,7 @@ CLASS:Bard.MOD	BONUS:ABILITYPOOL|Bard Variant|1
 # Cleric Variant
 
 # Class Name				Hit Dice	Type				Class Type		Abbreviation	Max Level	Source Page			Bonus Languages					Combat bonus															Add domain number		Modify VAR													Monster Role	Bonus
-CLASS:Cleric (Cloistered Cleric)	HD:6		TYPE:Base.PC.Spellcaster.Divine.Variant	SERVESAS:CLASS|Cleric	FACT:ClassType|PC	FACT:Abb|Clr		MAXLEVEL:20	SOURCEPAGE:50	LANGBONUS:Abyssal,Celestial,Infernal	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:DOMAIN|NUMBER|2	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	ROLE:Cleric		BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	SPELLLIST:2|Cleric|Cleric (Cloistered Cleric)
+CLASS:Cleric (Cloistered Cleric)	HD:6		TYPE:Base.PC.Spellcaster.Divine.Variant	SERVESAS:CLASS|Cleric	FACT:ClassType|PC	FACT:Abb|Clr		MAXLEVEL:20	SOURCEPAGE:p.50	LANGBONUS:Abyssal,Celestial,Infernal	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:DOMAIN|NUMBER|DomainCount	DEFINE:DomainCount|0	BONUS:VAR|DomainCount|2	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	ROLE:Cleric		BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	SPELLLIST:2|Cleric|Cleric (Cloistered Cleric)
 # Class Name				Skill Pts/Lvl	Class Skill
 CLASS:Cleric (Cloistered Cleric)	STARTSKILLPTS:6	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|TYPE=Knowledge|TYPE=Profession|Spellcraft|Decipher Script|Speak Language
 # Class Name				Spell Stat		Spell Type		Automatically Known Spell Levels											Caster level
@@ -210,7 +200,7 @@ CLASS:Cleric (Cloistered Cleric)	SPELLSTAT:WIS	FACT:SpellType|Divine	KNOWNSPELLS
 ###Block:Proficiencies
 1								ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfLight|TYPE=WeaponProfSimple
 1								ABILITY:Special Ability|AUTOMATIC|Cloistered Cleric ~ Lore
-1	DOMAIN:Knowledge	BONUS:DOMAIN|NUMBER|1
+1	DOMAIN:Knowledge	BONUS:VAR|DomainCount|1
 # This is Phase I of the Turn abilities improvement (for 5.6).  Futher enhancements are planned,
 #	both OS and data to include modifications for differences in Turning ability for Undead,
 #	Air, Fire, etc.
@@ -254,13 +244,13 @@ CLASS:Cleric (Cloistered Cleric)	SPELLSTAT:WIS	FACT:SpellType|Divine	KNOWNSPELLS
 # Druid Variant
 
 # Class Name			Hit Dice	Type			Class Type		Abbreviation	Max Level	Ex Class		Source Page			Bonus Languages	Define		Auto Language	Combat bonus															Modify VAR																		Monster Role	Bonus
-CLASS:Druid (Druidic Avenger)	HD:8		TYPE:Base.PC	FACT:ClassType|PC	SERVESAS:CLASS|Druid	FACT:Abb|Drd		MAXLEVEL:20	EXCLASS:Ex Druid	SOURCEPAGE:ClassesI.rtf	LANGBONUS:Sylvan	DEFINE:DruidLVL|0	AUTO:LANG|Druidic	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|DruidLVL|CL	ROLE:Druid		BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Druid (Druidic Avenger)	HD:8		TYPE:Base.PC	FACT:ClassType|PC	SERVESAS:CLASS|Druid	FACT:Abb|Drd		MAXLEVEL:20	EXCLASS:Ex Druid	SOURCEPAGE:p.51	LANGBONUS:Sylvan	DEFINE:DruidLVL|0	AUTO:LANG|Druidic	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|DruidLVL|CL	ROLE:Druid		BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name			Required AL
 CLASS:Druid (Druidic Avenger)	PREALIGN:LN,NG,TN,NE,CN
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Druid (Druidic Avenger)	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Handle Animal|Heal|Knowledge (Nature)|Listen|TYPE=Profession|Ride|Spellcraft|Spot|Survival|Swim|Intimidate
 # Class Name			Spell Stat		Spell Type		Automatically Known Spell Levels											Caster level
-CLASS:Druid (Druidic Avenger)	SPELLSTAT:WIS	FACT:SpellType|Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Druid (Druidic Avenger)|Caster_Level_BL_Stripped_Druid	DEFINE:Caster_Level_BL_Stripped_Druid|0	BONUS:VAR|Caster_Level_BL_Stripped_Druid|Caster_Level_Druid-CasterLevelBLDruid	BONUS:VAR|Caster_Level_Druid|CL+Caster_Level_Bonus+CasterLevelBLDruid	DEFINE:CasterLevelBLDruid|0	BONUS:VAR|CasterLevelBL_x_Druid|charbonusto("PCLEVEL","Druid (Druidic Avenger)")	BONUS:VAR|Caster_Level_Highest__Divine|Caster_Level_Druid|TYPE=Base
+CLASS:Druid (Druidic Avenger)	SPELLSTAT:WIS	FACT:SpellType|Divine	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Druid (Druidic Avenger)|Caster_Level_BL_Stripped_Druid	DEFINE:Caster_Level_BL_Stripped_Druid|0	BONUS:VAR|Caster_Level_BL_Stripped_Druid|Caster_Level_Druid-CasterLevelBLDruid	BONUS:VAR|Caster_Level_Druid|CL+Caster_Level_Bonus+CasterLevelBLDruid	DEFINE:CasterLevelBLDruid|0	BONUS:VAR|CasterLevelBL_x_Druid|charbonusto("PCLEVEL","Druid (Druidic Avenger)")	BONUS:VAR|Caster_Level_Highest__Divine|Caster_Level_Druid|TYPE=Base	SPELLLIST:1|Druid
 ###Block:Proficiencies
 1	ABILITY:Special Ability|AUTOMATIC|Druid ~ Weapon and Armor Proficiency|!PREABILITY:1,CATEGORY=ACF,TYPE.DruidProficiencies
 ###Block: Wildshape Abilities Block
@@ -268,7 +258,7 @@ CLASS:Druid (Druidic Avenger)	SPELLSTAT:WIS	FACT:SpellType|Divine	KNOWNSPELLS:LE
 # To add effective Druid levels to this ability use	BONUS:VAR|DruidWildShape|CL
 #
 1	BONUS:VAR|DruidWildShape|CL
-1	BONUS:VAR|WildEmpathy|-4
+1	BONUS:VAR|WildEmpathyBonus|-4
 ###Block: Spell Alignment Restrictions
 1	PROHIBITSPELL:ALIGNMENT.Good|PREALIGN:LE,NE,CE	PROHIBITSPELL:ALIGNMENT.Good|PREDEITYALIGN:LE,NE,CE
 1	PROHIBITSPELL:ALIGNMENT.Evil|PREALIGN:LG,NG,CG	PROHIBITSPELL:ALIGNMENT.Evil|PREDEITYALIGN:LG,NG,CG
@@ -558,7 +548,7 @@ CLASS:Ranger (Urban Ranger)	SPELLSTAT:WIS	FACT:SpellType|Divine	KNOWNSPELLS:LEVE
 # Variant Rogue -
 
 # Class Name				Hit Dice	Type			Class Type		Abbreviation	Max Level	Source Page				Combat bonus															Modify VAR														Monster Role	Bonus
-CLASS:Rogue (Wilderness Rogue)	HD:6		TYPE:Base.PC	FACT:ClassType|PC	SERVESAS:CLASS|Rogue	FACT:Abb|Rog		MAXLEVEL:20	SOURCEPAGE:ClassesII.rtf	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	ROLE:Skill		BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Rogue (Wilderness Rogue)	HD:6		TYPE:Base.PC	FACT:ClassType|PC	SERVESAS:CLASS|Rogue	FACT:Abb|Rog		MAXLEVEL:20	SOURCEPAGE:p.56	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	ROLE:Skill		BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name				Skill Pts/Lvl	Class Skill
 CLASS:Rogue (Wilderness Rogue)	STARTSKILLPTS:8	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Disable Device|Disguise|Escape Artist|Hide|Intimidate|Jump|Knowledge (Local)|Listen|Move Silently|Open Lock|TYPE=Perform|TYPE=Profession|Search|Sense Motive|Sleight of Hand|Spot|Swim|Tumble|Use Magic Device|Use Rope|Handle Animal|Knowledge (Geography)|Knowledge (Nature)|Ride|Survival
 ###Block:Proficiencies
@@ -933,7 +923,7 @@ CLASS:Prestige Ranger	STARTSKILLPTS:6	CSKILL:Climb|Concentration|TYPE=Craft|Hand
 # Class Name		Hit Dice	Type					Abbreviation	Max Level	Source Page		Define			Combat bonus															Modify VAR																			Bonus
 CLASS:Drow Paragon	HD:6		TYPE:PC.Prestige.Paragon	FACT:Abb|Par		MAXLEVEL:3	SOURCEPAGE:p.32	DEFINE:DrowParagonLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|DrowParagonLVL|CL	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required Race
-CLASS:Drow Paragon	PRERACE:1,Elf (Drow)
+CLASS:Drow Paragon	PRERACE:1,Elf	PREMULT:2,[PRERACE:1,Elf%],[PREABILITY:1,CATEGORY=Internal,Elf ~ Drow]
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Drow Paragon	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Hide|Intimidate|Jump|TYPE=Knowledge|Listen|Move Silently|TYPE=Profession|Spellcraft|Spot|Survival|Swim
 ###Block: Class Features
@@ -943,6 +933,7 @@ CLASS:Drow Paragon	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Hide|Intimidate|Jump|
 ###Block:
 1	BONUS:PCLEVEL|Wizard|1|PREGENDER:M	BONUS:PCLEVEL|Cleric|1|PREGENDER:F
 3	BONUS:PCLEVEL|Wizard|1|PREGENDER:M	BONUS:PCLEVEL|Cleric|1|PREGENDER:F
+
 
 # Class Name		Hit Dice	Type					Abbreviation	Max Level	Source Page		Define				Combat bonus										Modify VAR				Bonus
 CLASS:Dwarf Paragon	HD:10		TYPE:PC.Prestige.Paragon	FACT:Abb|Par		MAXLEVEL:3	SOURCEPAGE:p.33	DEFINE:DwarfParagonLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|DwarfParagonLVL|CL	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
@@ -959,7 +950,7 @@ CLASS:Dwarf Paragon	STARTSKILLPTS:2	CSKILL:Appraise|Climb|TYPE=Craft|Intimidate|
 # Class Name	Hit Dice	Type					Abbreviation	Max Level	Source Page		Define			Combat bonus															Modify VAR																			Bonus
 CLASS:Elf Paragon	HD:8		TYPE:PC.Prestige.Paragon	FACT:Abb|Par		MAXLEVEL:3	SOURCEPAGE:p.35	DEFINE:ElfParagonLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ElfParagonLVL|CL	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Multiple Requirements
-CLASS:Elf Paragon	PREMULT:1,[PREMULT:2,[PRERACE:1,Elf%],[!PRERACE:1,Elf (Drow)]],[PREMULT:3,[PRERACE:1,Half-Elf],[PRECLASS:1,Half-Elf Paragon=1],[!PRECLASS:1,Human Paragon=1]]
+CLASS:Elf Paragon	PREMULT:1,[PREMULT:2,[PRERACE:1,Elf%],[!PREABILITY:1,CATEGORY=Internal,Elf ~ Drow]],[PREMULT:3,[PRERACE:1,Half-Elf],[PRECLASS:1,Half-Elf Paragon=1],[!PRECLASS:1,Human Paragon=1]]
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Elf Paragon	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Diplomacy|Hide|Jump|TYPE=Knowledge|Listen|Move Silently|TYPE=Profession|Spellcraft|Spot|Survival|Swim
 ###Block: Proficiencies
@@ -972,7 +963,7 @@ CLASS:Elf Paragon	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Diplomacy|Hide|Jump|TY
 
 
 # Class Name		Hit Dice	Type					Abbreviation	Max Level	Source Page		Define				Combat bonus															Modify VAR																			Bonus
-CLASS:Gnome Paragon	HD:6		TYPE:PC.Prestige.Paragon	FACT:Abb|Par		MAXLEVEL:3	SOURCEPAGE:p.xx	DEFINE:GnomeParagonLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|GnomeParagonLVL|CL	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Gnome Paragon	HD:6		TYPE:PC.Prestige.Paragon	FACT:Abb|Par		MAXLEVEL:3	SOURCEPAGE:p.36	DEFINE:GnomeParagonLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|GnomeParagonLVL|CL	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required Race
 CLASS:Gnome Paragon	PRERACE:1,Gnome%
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -1238,7 +1229,6 @@ CLASS:GC_Warrior	CSKILL:TYPE=Craft
 1	ADD:CLASSSKILLS|6|ANY
 ###Block:
 1	ABILITY:Special Ability|AUTOMATIC|GC_Warrior ~ Weapon and Armor Proficiency
-
 
 
 # Class Name		Hit Dice	Source Page		Combat bonus										Bonus

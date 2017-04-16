@@ -48,7 +48,7 @@ CLASS:Spellthief	HD:6		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.13	PROHIBITSPELL:SC
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Spellthief	STARTSKILLPTS:6	CSKILL:Appraise|Bluff|Concentration|TYPE=Craft|Decipher Script|Disable Device|Escape Artist|Gather Information|Hide|Jump|Knowledge (arcana)|Knowledge (Local)|Listen|Move Silently|Open Lock|Search|Speak Language|Spellcraft|Spot|Swim|Tumble|Use Magic Device
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level								Use Spell List
-CLASS:Spellthief	SPELLSTAT:CHA	FACT:SpellType|Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Spellthief|Caster_Level_BL_Stripped_Spellthief	DEFINE:Caster_Level_BL_Stripped_Spellthief|0	BONUS:VAR|Caster_Level_BL_Stripped_Spellthief|Caster_Level_Spellthief-CasterLevelBLSpellthief	BONUS:VAR|Caster_Level_Spellthief|CL+Caster_Level_Bonus+CasterLevelBLSpellthief	DEFINE:CasterLevelBLSpellthief|0	BONUS:VAR|CasterLevelBL_x_Spellthief|charbonusto("PCLEVEL","Spellthief")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Spellthief|TYPE=Base/2|PRECLASS:1,Spellthief=4	SPELLLIST:1|Wizard
+CLASS:Spellthief	SPELLSTAT:CHA	FACT:SpellType|Arcane	MEMORIZE:NO	BONUS:CASTERLEVEL|Spellthief|Caster_Level_BL_Stripped_Spellthief	DEFINE:Caster_Level_BL_Stripped_Spellthief|0	BONUS:VAR|Caster_Level_BL_Stripped_Spellthief|Caster_Level_Spellthief-CasterLevelBLSpellthief	BONUS:VAR|Caster_Level_Spellthief|CL+Caster_Level_Bonus+CasterLevelBLSpellthief	DEFINE:CasterLevelBLSpellthief|0	BONUS:VAR|CasterLevelBL_x_Spellthief|charbonusto("PCLEVEL","Spellthief")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Spellthief/2|TYPE=Base|PRECLASS:1,Spellthief=4	SPELLLIST:1|Wizard
 ###Block: Can only learn from the following Schools - abjuration, divination, enchantment, illusion, and transmutation.
 # List of Schools: Abjuration, Conjuration, Divination, Enchantment, Evocation, Illusion, Necromancy, Transmutation
 ###Block:
@@ -359,7 +359,7 @@ CLASS:Highland Stalker	STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE=Craft|Hide|Jump
 # Class Name	Hit Dice	Type			Source Page		Combat bonus															Modify VAR													Bonus
 CLASS:Maester	HD:4		TYPE:PC.Prestige	SOURCEPAGE:p.56	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	DEFINE:MaesterLVL|0	BONUS:VAR|MaesterLVL|CL
 # Class Name	Required Feat						Required Race				Required Skill							Req. Spell Type		Required Text
-CLASS:Maester	PREABILITY:2,CATEGORY=FEAT,TYPE=ItemCreation,TYPE=Item Creation	PRERACE:1,RACESUBTYPE=Gnome,Gnome	PRESKILL:1,TYPE.Craft=8	PRESKILL:1,Use Magic Device=4	PRESPELLTYPE:1,Arcane=5	PRETEXT:Race: Gnome. Skills: Craft (any) 8 ranks, Use Magic Device 4 ranks. Feats: Any two item creation feats. Spells: Arcane caster level 5th.
+CLASS:Maester	PREABILITY:2,CATEGORY=FEAT,TYPE=ItemCreation,TYPE=Item Creation	PRERACE:1,RACESUBTYPE=Gnome,Gnome	PRESKILL:1,TYPE.Craft=8	PRESKILL:1,Use Magic Device=4	PRECLASS:1,SPELLCASTER.Arcane=5	PRETEXT:Race: Gnome. Skills: Craft (any) 8 ranks, Use Magic Device 4 ranks. Feats: Any two item creation feats. Spells: Arcane caster level 5th.
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Maester	STARTSKILLPTS:4	CSKILL:Appraise|Concentration|TYPE=Craft|Disable Device|Knowledge (arcana)|Knowledge (Architecture and Engineering)|Spellcraft|Use Magic Device
 ###Block
@@ -370,7 +370,8 @@ CLASS:Maester	STARTSKILLPTS:4	CSKILL:Appraise|Concentration|TYPE=Craft|Disable D
 3	ABILITY:Maester Class Feature|AUTOMATIC|Maester ~ Identification
 ###Block
 11	PREPCLEVEL:MIN=20
-
+###Block
+2:REPEATLEVEL:1	ADD:SPELLCASTER|ANY
 
 # Class Name			Hit Dice	Type			Source Page		Define				Combat bonus															Modify VAR																				Bonus
 CLASS:Master of Many Forms	HD:8		TYPE:PC.Prestige	SOURCEPAGE:p.58	DEFINE:MasterofManyFormsLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|MasterofManyFormsLVL|CL	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
@@ -634,7 +635,7 @@ CLASS:Vigilante	SPELLSTAT:CHA	FACT:SpellType|Arcane	MEMORIZE:NO	BONUS:CASTERLEVE
 
 
 # Class Name	Hit Dice	Type			Source Page		Combat bonus															Modify VAR														Bonus
-CLASS:Virtuoso	HD:6		TYPE:PC.Prestige	SOURCEPAGE:p.89	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Virtuoso	HD:6		TYPE:PC.Prestige	SOURCEPAGE:p.89	DEFINE:VirtuosoLVL|0	BONUS:VAR|VirtuosoLVL|CL	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required Skill									Req. Spell Type		Required Text
 CLASS:Virtuoso	PRESKILL:2,Diplomacy=4,Intimidate=4	PRESKILL:1,TYPE.Perform=10	PRESPELLTYPE:1,Arcane=1	PRETEXT:Skills: Diplomacy 4 ranks, Intimidate 4 ranks, Perform (any) 10 ranks. Spells: Arcane caster level 1st
 # Class Name	Skill Pts/Lvl	Class Skill

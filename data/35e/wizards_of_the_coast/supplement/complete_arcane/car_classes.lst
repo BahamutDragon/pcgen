@@ -209,7 +209,7 @@ CLASS:Argent Savant	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|TYPE=Knowled
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Define			Combat bonus												Modify VAR													Bonus
 CLASS:Blood Magus	HD:6		TYPE:PC.Prestige	FACT:Abb|Blm		MAXLEVEL:10	SOURCEPAGE:p.26	DEFINE:BlmHomunculus|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Required AL					Required Feat				Required Skill			Required Casting Type		Req. Spell Type		Required Text
-CLASS:Blood Magus	PREALIGN:LN,LE,NG,TN,NE,CG,CN,CE	PREABILITY:2,CATEGORY=FEAT,Great Fortitude,Toughness	PRESKILL:1,Concentration=4	PRESPELLCAST:TYPE=Arcane	PRESPELLTYPE:1,Arcane=5	PRETEXT:The character must have been killed, then returned to life
+CLASS:Blood Magus	PREALIGN:LN,LE,NG,TN,NE,CG,CN,CE	PREABILITY:2,CATEGORY=FEAT,Great Fortitude,Toughness	PRESKILL:1,Concentration=4	PRESPELLCAST:TYPE=Arcane	PRECLASS:1,SPELLCASTER.Arcane=5	PRETEXT:The character must have been killed, then returned to life
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Blood Magus	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Heal|Spellcraft
 1														ADD:SPELLCASTER|Arcane
@@ -537,7 +537,7 @@ CLASS:Mindbender	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|Diplomacy|Intimidate
 # Class Name			Hit Dice	Type			Abbreviation	Max Level	Ex Class				Source Page		Combat bonus												Modify VAR														Bonus
 CLASS:Seeker of the Song	HD:6		TYPE:PC.Prestige	FACT:Abb|Ses		MAXLEVEL:10	EXCLASS:Ex Seeker of the Song	SOURCEPAGE:p.56	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name			Required Ability							Required Feat					Required Skill									Required Text
-CLASS:Seeker of the Song	PREABILITY:1,CATEGORY=Special Ability,Bardic Music	PREABILITY:1,CATEGORY=FEAT,Skill Focus (TYPE.Perform)	PRESKILL:1,Knowledge (Arcana)=13	PRESKILL:1,TYPE.Perform=13	PRETEXT:Must have been exposed to the primal music by hearing another Seeker of the Song use a Seeker Music Ability
+CLASS:Seeker of the Song	PREABILITY:1,CATEGORY=Special Ability,TYPE.Bardic Music	PREABILITY:1,CATEGORY=FEAT,Skill Focus (TYPE.Perform)	PRESKILL:1,Knowledge (Arcana)=13	PRESKILL:1,TYPE.Perform=13	PRETEXT:Must have been exposed to the primal music by hearing another Seeker of the Song use a Seeker Music Ability
 # Class Name			Skill Pts/Lvl	Class Skill
 CLASS:Seeker of the Song	STARTSKILLPTS:4	CSKILL:Climb|Concentration|TYPE=Craft|Diplomacy|Jump|Knowledge (arcana)|Listen|TYPE=Perform|TYPE=Profession|Ride|Sense Motive|Spot|Swim
 1	BONUS:VAR|SeekerMusicLvl|CL	BONUS:VAR|SeekerMusicTimes|CL	DEFINE:SeekerMusicLVL|0	DEFINE:SeekerMusicTimes|0
@@ -582,9 +582,7 @@ CLASS:Sublime Chord	PREABILITY:1,CATEGORY=Special Ability,TYPE.Bardic Music	PRES
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Sublime Chord	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Decipher Script|Diplomacy|TYPE=Knowledge|Listen|TYPE=Perform|TYPE=Profession|Search|Speak Language|Spellcraft|Spot
 # Class Name		Spell Stat		Spell Type		Memorize	Use Spell List
-CLASS:Sublime Chord	SPELLSTAT:CHA	FACT:SpellType|Arcane	MEMORIZE:NO	SPELLLIST:3|Bard|Sorcerer|Wizard	BONUS:CASTERLEVEL|Sublime Chord|Caster_Level_BL_Stripped_Sublime_Chord	DEFINE:Caster_Level_BL_Stripped_Sublime_Chord|0	BONUS:VAR|Caster_Level_BL_Stripped_Sublime_Chord|Caster_Level_Sublime_Chord-CasterLevelBLSublime_Chord	BONUS:VAR|Caster_Level_Sublime_Chord|CL+Caster_Level_Bonus+CasterLevelBLSublime_Chord	DEFINE:CasterLevelBLSublime_Chord|0	BONUS:VAR|CasterLevelBL_x_Sublime_Chord|charbonusto("PCLEVEL","Sublime Chord")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Sublime_Chord|TYPE=Base
-1	BONUS:VAR|BardicKnowledgeLvl|CL
-1	BONUS:VAR|SublimeMusicLvl|CL										DEFINE:SublimeMusicLvl|0
+CLASS:Sublime Chord	SPELLSTAT:CHA	FACT:SpellType|Arcane	MEMORIZE:NO	SPELLLIST:3|Bard|Sorcerer|Wizard	BONUS:CASTERLEVEL|Sublime Chord|Caster_Level_Sublime_Chord	DEFINE:Caster_Level_Sublime_Chord|0	DEFINE:Caster_Level_BL_Stripped_Sublime_Chord|0	BONUS:VAR|Caster_Level_BL_Stripped_Sublime_Chord|Caster_Level_Sublime_Chord-CasterLevelBLSublime_Chord	BONUS:VAR|Caster_Level_Sublime_Chord|Sublime_ChordLVL+Caster_Level_Bonus+CasterLevelBLSublime_Chord	DEFINE:CasterLevelBLSublime_Chord|0	BONUS:VAR|CasterLevelBL_x_Sublime_Chord|charbonusto("PCLEVEL","Sublime Chord")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Sublime_Chord|TYPE=Base
 ###Block:
 1	CAST:0,0,0,0,2,1			KNOWN:0,0,0,0,3,1
 2	CAST:0,0,0,0,2,2			KNOWN:0,0,0,0,4,2
@@ -601,9 +599,6 @@ CLASS:Sublime Chord	SPELLSTAT:CHA	FACT:SpellType|Arcane	MEMORIZE:NO	SPELLLIST:3|
 1	ABILITY:Sublime Chord Class Feature|AUTOMATIC|Sublime Chord ~ Spells per Day
 1	ABILITY:Sublime Chord Class Feature|AUTOMATIC|Sublime Chord ~ Bardic Knowledge
 1	ABILITY:Sublime Chord Class Feature|AUTOMATIC|Sublime Chord ~ Bardic Music
-1	ABILITY:Sublime Chord Class Feature|AUTOMATIC|Sublime Chord ~ Song of Arcane Power|PRESKILL:1,TYPE.Perform=12|PREVARGTEQ:SublimeMusicLvl,2
-1	ABILITY:Sublime Chord Class Feature|AUTOMATIC|Sublime Chord ~ Song of Timelessness|PRESKILL:1,TYPE.Perform=16|PREVARGTEQ:SublimeMusicLvl,6
-1	ABILITY:Sublime Chord Class Feature|AUTOMATIC|Sublime Chord ~ Song of Cosmic Fire|PRESKILL:1,TYPE.Perform=20|PREVARGTEQ:SublimeMusicLvl,10
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus												Modify VAR														Bonus
 CLASS:Suel Arcanamach	HD:8		TYPE:PC.Prestige	FACT:Abb|Sua		MAXLEVEL:10	SOURCEPAGE:p.63	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
