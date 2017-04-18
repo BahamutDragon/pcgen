@@ -34,13 +34,16 @@ ABILITY:cc_feats.lst
 ABILITY:cc_feats_cw.lst|PRECAMPAIGN:1,Complete Warrior
 SPELL:cc_spells.lst
 
-ABILITY:../complete_warrior/cw_feats.lst|!PRECAMPAIGN:1,INCLUDES=Complete Warrior
+#ABILITY:../complete_warrior/cw_feats.lst|!PRECAMPAIGN:1,INCLUDES=Complete Warrior
 #|(INCLUDE:CATEGORY=Feat,Extra Smiting)
-#
-ABILITY:../complete_divine/cd_feats.lst|!PRECAMPAIGN:1,INCLUDES=Complete Divine
-#|(INCLUDE:CATEGORY=Feat,Improved Smiting)
-#
+#Fix for Extra Smiting without loading all CW feats
+ABILITY:../complete_warrior/cw_feat_esmite.lst|!PRECAMPAIGN:1,INCLUDES=Complete Warrior
 
+#ABILITY:../complete_divine/cd_feats.lst|!PRECAMPAIGN:1,INCLUDES=Complete Divine
+#|(INCLUDE:CATEGORY=Feat,Improved Smiting)
+#Fix for Improved Smiting without loading all CD feats
+ABILITY:../complete_divine/cd_feats_ismite.lst|!PRECAMPAIGN:1,INCLUDES=Complete Divine
+#
 FORWARDREF:CLASSSPELLLIST|Shugenja
 FORWARDREF:ABILITY=FEAT|Extra Smiting,Improved Smiting
 
