@@ -33,3 +33,26 @@ Weapon Familiarity (Flindbar)				KEY:Flind ~ Weapon Familiarity		CATEGORY:Specia
 # Spellwarped Creature
 Spell Resistance	KEY:Spellwarped Creature ~ Spell Resistance	CATEGORY:Special Ability	TYPE:Spellwarped Creature.SpecialQuality.Extraordinary	SOURCEPAGE:p.	DESC:A spellwarped creature gains spell resistance equal to 11 + its Hit Dice. If the creature already has spell resistance, use the greater of the two values.	SR:11+TL
 Spell Absorption	KEY:Spellwarped Creature ~ Spell Absorption	CATEGORY:Special Ability	TYPE:Spellwarped Creature.SpecialQuality.Supernatural		SOURCEPAGE:p.	DESC:Whenever a spell fails to penetrate a spellwarped creature's spell resistance, the creature gains one of the following benefits, chosen at the time that the spell resolves.	DESC:&nl;Might: The spellwarped creature gains a +4 enhancement bonus to Strength for 1 minute.	DESC:&nl;Agility: The spellwarped creature gains a +4 enhancement bonus to Dexterity for 1 minute.	DESC:&nl;Endurance: The spellwarped creature gains a +4 enhancement bonus to Constitution for 1 minute.	DESC:&nl;Life: The spellwarped creature gains temporary hit points equal to 5 x the level of the failed spell.	DESC:&nl;Speed: The spellwarped creature's base speed increases by a number of feet equal to 5 x the level of the failed spell.	DESC:&nl;Resistance: The spellwarped creature gains resistance 10 to one energy type (acid, cold, electricity, fire, or sonic).
+
+# Warforged
+Race Traits ~ Warforged			CATEGORY:Internal	TYPE:Base	BONUS:SLOTS|WARFORGEDBODY|1	BONUS:SLOTS|Armor|-1	BONUS:SLOTS|Bodywear|-1	BONUS:SLOTS|Robe|-1	BONUS:SLOTS|BODY|-1	ABILITY:Internal|AUTOMATIC|Slam	AUTO:ARMORPROF|Warforged Body	ABILITY:Warforged Subrace|AUTOMATIC|Warforged ~ Base|!PREABILITY:1,CATEGORY=Internal,TYPE.AltRace	ABILITY:Internal|AUTOMATIC|Language ~ Auto (Warforged)|!PREABILITY:1,CATEGORY=Internal,TYPE.AutoLangReplace	ABILITY:Internal|AUTOMATIC|Language ~ Bonus (Warforged)|!PREABILITY:1,CATEGORY=Internal,TYPE.BonusLangReplace	ABILITY:Warforged Race Trait|AUTOMATIC|Warforged ~ Composite Plating|Warforged ~ Light Fortification
+
+#
+Warforged		KEY:Warforged ~ Base	TYPE:Warforged Subrace			CATEGORY:Internal																				FACT:RaceSize|Medium	MOVE:Walk,30	ABILITY:Internal|AUTOMATIC|Favored Class ~ Fighter|PREVAREQ:RemoveDefaultFavoredClass,0	ABILITY:Internal|AUTOMATIC|Base Size ~ Medium
+Warforged Charger	KEY:Warforged ~ Charger	TYPE:Warforged Subrace.AltRace	CATEGORY:Internal	FACT:DisableRaceAttributesDefault|true													FACT:RaceSize|Medium	MOVE:Walk,30	ABILITY:Internal|AUTOMATIC|Favored Class ~ Fighter|PREVAREQ:RemoveDefaultFavoredClass,0	BONUS:VAR|WarforgedFortificationLVL|1	KIT:1|Warforged Charger		COST:0	ABILITY:Internal|AUTOMATIC|Base Size ~ Medium
+Warforged Scout	KEY:Warforged ~ Scout	TYPE:Warforged Subrace.AltRace	CATEGORY:Internal	FACT:DisableRaceAttributesDefault|true	BONUS:STAT|DEX|2|TYPE=Racial	BONUS:STAT|STR,WIS,CHA|-2|TYPE=Racial	FACT:RaceSize|Small	MOVE:Walk,20	ABILITY:Internal|AUTOMATIC|Favored Class ~ Rogue|PREVAREQ:RemoveDefaultFavoredClass,0	COST:0	ABILITY:Internal|AUTOMATIC|Base Size ~ Small
+
+#
+Language ~ Auto (Warforged)	CATEGORY:Internal	AUTO:LANG|Common
+Language ~ Bonus (Warforged)	CATEGORY:Internal	DESC:None	FACT:DisableBonusLanguage|true
+
+# Warforged
+Composite Plating		KEY:Warforged ~ Composite Plating						CATEGORY:Special Ability	TYPE:Warforged Race Trait.SpecialQuality.Extraordinary	SOURCEPAGE:p.	DESC:The plating used to build a warforged provides a +2 armor bonus. This plating is not natural armor and does not stack with other effects that give an armor bonus (other than natural armor). This composite plating occupies the same space on the body as a suit of armor or a robe, and thus a warforged cannot wear armor or magic robes. A warforged can be enchanted just as armor can be. The creature must be present for the entire time it takes to enchant him. Composite plating also provides a warforged with a 5%% arcane spell failure chance, similar to the penalty for wearing light armor. Any class ability that allows a warforged to ignore the arcane spell failure chance for light armor lets him ignore this penalty as well.	ASPECT:NAME|Adamantine Plating|PREFACT:1,ABILITIES,WarforgedPlating=Adamantine	ASPECT:NAME|Mithril Plating|PREFACT:1,ABILITIES,WarforgedPlating=Mithril
+Light Fortification	KEY:Warforged ~ Light Fortification					CATEGORY:Special Ability	TYPE:Warforged Race Trait.SpecialQuality.Extraordinary	SOURCEPAGE:p.		DESC:When a critical hit or sneak attack is scored on a warforged, there is a %1%% chance that the critical hit or sneak attack is negated and damage is instead rolled normally.|WarforgedFortificationValue|!PREABILITY:1,CATEGORY=FEAT,IMPROVED FORTIFICATION			DEFINE:WarforgedFortificationValue|0	BONUS:VAR|WarforgedFortificationValue|if(WarforgedFortificationLVL==1,75,25)	DEFINE:WarforgedFortificationLVL|0	DESC:Immunity to sneak attacks and extra damage from critical hits.|PREABILITY:1,CATEGORY=FEAT,IMPROVED FORTIFICATION	ASPECT:NAME|Moderate Fortification|PREVAREQ:WarforgedFortificationLVL,1|!PREABILITY:1,CATEGORY=FEAT,IMPROVED FORTIFICATION	ASPECT:NAME|Improved Fortification|PREABILITY:1,CATEGORY=FEAT,IMPROVED FORTIFICATION
+
+
+
+
+
+
+
