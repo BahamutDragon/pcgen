@@ -72,6 +72,8 @@ CATEGORY=Internal|Default.MOD	DEFINE:SecondarySkillTumble|0
 
 CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Default Skill Grantor
 
+Default Skill Grantor	CATEGORY:Internal
+
 CATEGORY=Internal|Default Skill Grantor.MOD	ABILITY:Internal|AUTOMATIC|Default Primary Skill ~ Weapon Attack|!PREABILITY:1,CATEGORY=Selection,TYPE.SkillReplace_Weapon Attack
 CATEGORY=Internal|Default Skill Grantor.MOD	ABILITY:Internal|AUTOMATIC|Default Primary Skill ~ Unarmed Strike|!PREABILITY:1,CATEGORY=Selection,TYPE.SkillReplace_Unarmed Strike
 CATEGORY=Internal|Default Skill Grantor.MOD	ABILITY:Internal|AUTOMATIC|Default Primary Skill ~ Ranged Shot|!PREABILITY:1,CATEGORY=Selection,TYPE.SkillReplace_Ranged Shot
@@ -231,6 +233,17 @@ Favored Secondary Skill ~ Spot							CATEGORY:Selection		TYPE:Secondary Skill.Sk
 Favored Secondary Skill ~ Trapping							CATEGORY:Selection		TYPE:Secondary Skill.SkillReplace_Trapping						PREVARGTEQ:SecondarySkillTrapping,1							BONUS:SKILLRANK|Trapping|FavoredSecondarySkillRank						
 Favored Secondary Skill ~ Tumble							CATEGORY:Selection		TYPE:Secondary Skill.SkillReplace_Tumble							PREVARGTEQ:SecondarySkillTumble,1						BONUS:SKILLRANK|Tumble|FavoredSecondarySkillRank							
 
+# GRANT ACCESS TO SKILL
+Secondary Skill ~ Knowledge (Arcana)				KEY:Grant Access to SS ~ Knowledge (Arcana)					CATEGORY:Selection		TYPE:Secondary Skill Knowledge	BONUS:VAR|SecondarySkillKnowledgeArcana|1				
+Secondary Skill ~ Knowledge (Architecture and Engineering)	KEY:Grant Access to SS ~ Knowledge (Architecture and Engineering)		CATEGORY:Selection		TYPE:Secondary Skill Knowledge	BONUS:VAR|SecondarySkillKnowledgeArchitectureandEngineering|1
+Secondary Skill ~ Knowledge (History)				KEY:Grant Access to SS ~ Knowledge (History)					CATEGORY:Selection		TYPE:Secondary Skill Knowledge	BONUS:VAR|SecondarySkillKnowledgeHistory|1			
+Secondary Skill ~ Knowledge (Local)					KEY:Grant Access to SS ~ Knowledge (Local)					CATEGORY:Selection		TYPE:Secondary Skill Knowledge	BONUS:VAR|SecondarySkillKnowledgeLocal|1				
+Secondary Skill ~ Knowledge (Nature)				KEY:Grant Access to SS ~ Knowledge (Nature)					CATEGORY:Selection		TYPE:Secondary Skill Knowledge	BONUS:VAR|SecondarySkillKnowledgeNature|1				
+Secondary Skill ~ Knowledge (Nobility and Royalty)		KEY:Grant Access to SS ~ Knowledge (Nobility and Royalty)			CATEGORY:Selection		TYPE:Secondary Skill Knowledge	BONUS:VAR|SecondarySkillKnowledgeNobilityandRoyalty|1		
+
+
+
+
 
 
 
@@ -375,46 +388,46 @@ Skilled					KEY:Human Racial Trait ~ Skilled				CATEGORY:Racial Trait	TYPE:Racia
 Gluttonous					KEY:Human Racial Trait ~ Gluttonous				CATEGORY:Racial Trait	TYPE:Racial Trait.Human Racial Trait			DESC:Humans start with an extra devil fruit feat (when they obtain a fruit ability). This extra feat should not be counted toward of any of the devil fruit level restrictions.	BONUS:VAR|ExtraDevilFruitFeat|1|PREVAREQ:CyborgDisableRaceTraits,0
 
 # Merfolk Racial Traits
-Sea Dweller					KEY:Merfolk Racial Trait ~ Sea Dweller			CATEGORY:Racial Trait	TYPE:Racial Trait.Merfolk Racial Trait			DESC:+2 DEX, +2 INT, -2 CON								BONUS:VAR|WhateverStats|PREVAREQ:CyborgDisableRaceTraits,0
-Aquatic Combat				KEY:Merfolk Racial Trait ~ Aquatic Combat			CATEGORY:Racial Trait	TYPE:Racial Trait.Merfolk Racial Trait			DESC:(Male Only) +2 to STR and DEX while underwater						BONUS:VAR|WhateverStats|PREVAREQ:CyborgDisableRaceTraits,0
+Sea Dweller					KEY:Merfolk Racial Trait ~ Sea Dweller			CATEGORY:Racial Trait	TYPE:Racial Trait.Merfolk Racial Trait			DESC:+2 DEX, +2 INT, -2 CON								
+Aquatic Combat				KEY:Merfolk Racial Trait ~ Aquatic Combat			CATEGORY:Racial Trait	TYPE:Racial Trait.Merfolk Racial Trait			DESC:(Male Only) +2 to STR and DEX while underwater						
 High-Speed Swimmer			KEY:Merfolk Racial Trait ~ High-Speed Swimmer		CATEGORY:Racial Trait	TYPE:Racial Trait.Merfolk Racial Trait			DESC:(Female Only) +15ft/turn while swimming.
 Tail-Split					KEY:Merfolk Racial Trait ~ Tail-Split			CATEGORY:Racial Trait	TYPE:Racial Trait.Merfolk Racial Trait			DESC:(Female Only) +10ft/turn while on land once over the age of 30.
 Size						KEY:Merfolk Racial Trait ~ Size				CATEGORY:Racial Trait	TYPE:Racial Trait.Merfolk Racial Trait.PCRaceSize	DESC:Small to Large										BONUS:VAR|RaceSizeAllowed_Small,RaceSizeAllowed_Medium,RaceSizeAllowed_Large|1
 Tail Fin					KEY:Merfolk Racial Trait ~ Tail Fin				CATEGORY:Racial Trait	TYPE:Racial Trait.Merfolk Racial Trait			DESC:15ft/turn on Land, 35ft/turn in Water
-Fish Talk					KEY:Merfolk Racial Trait ~ Fish Talk			CATEGORY:Racial Trait	TYPE:Racial Trait.Merfolk Racial Trait			DESC:Ability to talk to all sea creatures, except Sea Kings.		BONUS:VAR|WhateverStats|PREVAREQ:CyborgDisableRaceTraits,0
-Gills						KEY:Merfolk Racial Trait ~ Gills				CATEGORY:Racial Trait	TYPE:Racial Trait.Merfolk Racial Trait			DESC:Able to breathe and talk underwater						BONUS:VAR|WhateverStats|PREVAREQ:CyborgDisableRaceTraits,0
+Fish Talk					KEY:Merfolk Racial Trait ~ Fish Talk			CATEGORY:Racial Trait	TYPE:Racial Trait.Merfolk Racial Trait			DESC:Ability to talk to all sea creatures, except Sea Kings.		
+Gills						KEY:Merfolk Racial Trait ~ Gills				CATEGORY:Racial Trait	TYPE:Racial Trait.Merfolk Racial Trait			DESC:Able to breathe and talk underwater						
 
 # Fishmen Racial Traits
-Ocean Warrior		KEY:Fishmen Racial Trait ~ Ocean Warrior			CATEGORY:Racial Trait	TYPE:Racial Trait.Fishmen Racial Trait		DESC:+2 STR, +2 CON, -2 INT										BONUS:VAR|WhateverStats|PREVAREQ:CyborgDisableRaceTraits,0
-Aquatic Force		KEY:Fishmen Racial Trait ~ Aquatic Force			CATEGORY:Racial Trait	TYPE:Racial Trait.Fishmen Racial Trait		DESC:+4 to STR while underwater									BONUS:VAR|WhateverStats|PREVAREQ:CyborgDisableRaceTraits,0
+Ocean Warrior		KEY:Fishmen Racial Trait ~ Ocean Warrior			CATEGORY:Racial Trait	TYPE:Racial Trait.Fishmen Racial Trait		DESC:+2 STR, +2 CON, -2 INT										
+Aquatic Force		KEY:Fishmen Racial Trait ~ Aquatic Force			CATEGORY:Racial Trait	TYPE:Racial Trait.Fishmen Racial Trait		DESC:+4 to STR while underwater									
 Size				KEY:Fishmen Racial Trait ~ Size				CATEGORY:Racial Trait	TYPE:Racial Trait.Fishmen Racial Trait		DESC:Medium to Large												BONUS:VAR|RaceSizeAllowed_Medium,RaceSizeAllowed_Large|1
 Swimmer's Build		KEY:Fishmen Racial Trait ~ Swimmer's Build		CATEGORY:Racial Trait	TYPE:Racial Trait.Fishmen Racial Trait		DESC:20ft/turn on Land, 30ft/turn in Water							
-Fish Talk			KEY:Fishmen Racial Trait ~ Fish Talk			CATEGORY:Racial Trait	TYPE:Racial Trait.Fishmen Racial Trait		DESC:Ability to talk to all sea creatures, except Sea Kings.				BONUS:VAR|WhateverStats|PREVAREQ:CyborgDisableRaceTraits,0
-Gills				KEY:Fishmen Racial Trait ~ Gills				CATEGORY:Racial Trait	TYPE:Racial Trait.Fishmen Racial Trait		DESC:Able to breathe and talk underwater								BONUS:VAR|WhateverStats|PREVAREQ:CyborgDisableRaceTraits,0
+Fish Talk			KEY:Fishmen Racial Trait ~ Fish Talk			CATEGORY:Racial Trait	TYPE:Racial Trait.Fishmen Racial Trait		DESC:Ability to talk to all sea creatures, except Sea Kings.				
+Gills				KEY:Fishmen Racial Trait ~ Gills				CATEGORY:Racial Trait	TYPE:Racial Trait.Fishmen Racial Trait		DESC:Able to breathe and talk underwater								
 
 # Giant Racial Traits
-Colossal Warrior		KEY:Giant Racial Trait ~ Colossal Warrior		CATEGORY:Racial Trait	TYPE:Racial Trait.Giant Racial Trait			DESC:+4 STR, +4 CON, -2 INT, -2 WIS, -2 DEX								BONUS:VAR|WhateverStats|PREVAREQ:CyborgDisableRaceTraits,0
+Colossal Warrior		KEY:Giant Racial Trait ~ Colossal Warrior		CATEGORY:Racial Trait	TYPE:Racial Trait.Giant Racial Trait			DESC:+4 STR, +4 CON, -2 INT, -2 WIS, -2 DEX								
 Size				KEY:Giant Racial Trait ~ Size				CATEGORY:Racial Trait	TYPE:Racial Trait.Giant Racial Trait.PCRaceSize	DESC:Huge to Colossal			BONUS:VAR|RaceSizeAllowed_Huge,RaceSizeAllowed_Gargantuan,RaceSizeAllowed_Colossal|1
 Huge Strides		KEY:Giant Racial Trait ~ Huge Strides		CATEGORY:Racial Trait	TYPE:Racial Trait.Giant Racial Trait			DESC:40ft/turn on Land, 30ft/turn in Water
-Jolly Laughter		KEY:Giant Racial Trait ~ Jolly Laughter		CATEGORY:Racial Trait	TYPE:Racial Trait.Giant Racial Trait			DESC:While in a good mood, particularly when laughing, the giant gains a +2 CHA bonus.	BONUS:VAR|WhateverStats|PREVAREQ:CyborgDisableRaceTraits,0
+Jolly Laughter		KEY:Giant Racial Trait ~ Jolly Laughter		CATEGORY:Racial Trait	TYPE:Racial Trait.Giant Racial Trait			DESC:While in a good mood, particularly when laughing, the giant gains a +2 CHA bonus.	
 
 # Sky Tribesmen Racial Traits
-Skypiean			KEY:Sky Tribesmen Racial Trait ~ Skypiean			CATEGORY:Racial Trait	TYPE:Racial Trait.Sky Tribesmen Racial Trait			DESC:+2 INT, +2 WIS, -2 STR, Shandian: +2 DEX, +2 WIS, -2 INT, Birkan: +2 STR, +2 INT, -2 CHA	BONUS:VAR|WhateverStats|PREVAREQ:CyborgDisableRaceTraits,0
+Skypiean			KEY:Sky Tribesmen Racial Trait ~ Skypiean			CATEGORY:Racial Trait	TYPE:Racial Trait.Sky Tribesmen Racial Trait			DESC:+2 INT, +2 WIS, -2 STR, Shandian: +2 DEX, +2 WIS, -2 INT, Birkan: +2 STR, +2 INT, -2 CHA	
 Size				KEY:Sky Tribesmen Racial Trait ~ Size			CATEGORY:Racial Trait	TYPE:Racial Trait.Sky Tribesmen Racial Trait.PCRaceSize	DESC:Small to Large		BONUS:VAR|RaceSizeAllowed_Small,RaceSizeAllowed_Medium,RaceSizeAllowed_Large|1
 Angelic Steps		KEY:Sky Tribesmen Racial Trait ~ Angelic Steps		CATEGORY:Racial Trait	TYPE:Racial Trait.Sky Tribesmen Racial Trait			DESC:30ft/turn on Land, 20ft/turn in Water	BONUS:VAR|Movement_Walk|30	BONUS:VAR|Movement_Swim|20
-Dial Mastery		KEY:Sky Tribesmen Racial Trait ~ Dial Mastery		CATEGORY:Racial Trait	TYPE:Racial Trait.Sky Tribesmen Racial Trait			DESC:Grants the feat Dial Mastery, which is only available to Sky Tribesmen				BONUS:VAR|WhateverStats|PREVAREQ:CyborgDisableRaceTraits,0
-Mantra			KEY:Sky Tribesmen Racial Trait ~ Mantra			CATEGORY:Racial Trait	TYPE:Racial Trait.Sky Tribesmen Racial Trait			DESC:Starts with the Kenbunshoku Haki Feat. The skill bonuses are only +5 instead of +10. The DC to maintain the effect is reduced to 17. The Sky Tribesman cannot purchase any additional ranks or achieve the feat's full potential until the normal prerequisites are met.	BONUS:VAR|WhateverStats|PREVAREQ:CyborgDisableRaceTraits,0
+Dial Mastery		KEY:Sky Tribesmen Racial Trait ~ Dial Mastery		CATEGORY:Racial Trait	TYPE:Racial Trait.Sky Tribesmen Racial Trait			DESC:Grants the feat Dial Mastery, which is only available to Sky Tribesmen				
+Mantra			KEY:Sky Tribesmen Racial Trait ~ Mantra			CATEGORY:Racial Trait	TYPE:Racial Trait.Sky Tribesmen Racial Trait			DESC:Starts with the Kenbunshoku Haki Feat. The skill bonuses are only +5 instead of +10. The DC to maintain the effect is reduced to 17. The Sky Tribesman cannot purchase any additional ranks or achieve the feat's full potential until the normal prerequisites are met.	
 
 # Kuja Racial Traits
-Amazon			KEY:Kuja Racial Trait ~ Amazon			CATEGORY:Racial Trait	TYPE:Racial Trait.Kuja Racial Trait		DESC:+2 CHA, +2 DEX, -2 WIS							BONUS:VAR|WhateverStats|PREVAREQ:CyborgDisableRaceTraits,0
+Amazon			KEY:Kuja Racial Trait ~ Amazon			CATEGORY:Racial Trait	TYPE:Racial Trait.Kuja Racial Trait		DESC:+2 CHA, +2 DEX, -2 WIS							
 Size				KEY:Kuja Racial Trait ~ Size				CATEGORY:Racial Trait	TYPE:Racial Trait.Kuja Racial Trait.PCRaceSize	DESC:Small to Large		BONUS:VAR|RaceSizeAllowed_Small,RaceSizeAllowed_Medium,RaceSizeAllowed_Large|1
 Runs Like a Girl		KEY:Kuja Racial Trait ~ Runs Like a Girl		CATEGORY:Racial Trait	TYPE:Racial Trait.Kuja Racial Trait		DESC:30ft/turn on Land, 20ft/turn in Water	BONUS:VAR|Movement_Walk|30	BONUS:VAR|Movement_Swim|20
-Kuja Snake			KEY:Kuja Racial Trait ~ Kuja Snake			CATEGORY:Racial Trait	TYPE:Racial Trait.Kuja Racial Trait		DESC:Start with a Kuja Snake (see Crew Members Section)		BONUS:VAR|WhateverStats|PREVAREQ:CyborgDisableRaceTraits,0
-Haki Arrows			KEY:Kuja Racial Trait ~ Haki Arrows			CATEGORY:Racial Trait	TYPE:Racial Trait.Kuja Racial Trait		DESC:Starts with the Busoshoku Haki Feat. Only the +3 damage effect of the stance can be applied. The DC to maintain the effect is reduced to 17. The Kuja cannot apply the defensive properties of the normal feat or purchase additional ranks until the normal prerequisites are met.	BONUS:VAR|WhateverStats|PREVAREQ:CyborgDisableRaceTraits,0
+Kuja Snake			KEY:Kuja Racial Trait ~ Kuja Snake			CATEGORY:Racial Trait	TYPE:Racial Trait.Kuja Racial Trait		DESC:Start with a Kuja Snake (see Crew Members Section)		
+Haki Arrows			KEY:Kuja Racial Trait ~ Haki Arrows			CATEGORY:Racial Trait	TYPE:Racial Trait.Kuja Racial Trait		DESC:Starts with the Busoshoku Haki Feat. Only the +3 damage effect of the stance can be applied. The DC to maintain the effect is reduced to 17. The Kuja cannot apply the defensive properties of the normal feat or purchase additional ranks until the normal prerequisites are met.	
 
 # Cyborg Racial Traits (The character's original racial traits no longer apply once they become a cyborg)
 Mechanical Warrior	KEY:Cyborg Racial Trait ~ Mechanical Warrior		CATEGORY:Racial Trait	TYPE:Racial Trait.Cyborg Racial Trait	DESC:+2 CON, +2 STR, -2 CHA
-Size				KEY:Cyborg Racial Trait ~ Size				CATEGORY:Racial Trait	TYPE:Racial Trait.Cyborg Racial Trait	DESC:Size range of original race	CHOOSE:ABILITY|Racial Trait|TYPE=PCRaceSize
+Size				KEY:Cyborg Racial Trait ~ Size				CATEGORY:Racial Trait	TYPE:Racial Trait.Cyborg Racial Trait	DESC:Size range of original race	BONUS:VAR|POOL_CyborgBaseRace|1	DEFINE:POOL_CyborgBaseRace|0
 Mechanical Legs		KEY:Cyborg Racial Trait ~ Mechanical Legs			CATEGORY:Racial Trait	TYPE:Racial Trait.Cyborg Racial Trait	DESC:Land/Water movement of original race
 Unnatural Body		KEY:Cyborg Racial Trait ~ Unnatural Body			CATEGORY:Racial Trait	TYPE:Racial Trait.Cyborg Racial Trait	DESC:The cyborg cannot heal naturally, they require medical attention whenever they are injured. Additionally, poison and disease type effects last twice as long on a cyborg since they have poor immune systems.
 Gas Guzzler			KEY:Cyborg Racial Trait ~ Gas Guzzler			CATEGORY:Racial Trait	TYPE:Racial Trait.Cyborg Racial Trait	DESC:Must consume ½ bottle of fuel per day to survive, starts with 3 bottles of fuel storage. A cyborg can use any type of typical fuel (gasoline/oil/etc) or they may use beverages (cola/tea/fruit juice). When using a fuel of their preference a cyborg will act normally. However, if a cyborg is filled with a different type of fuel their personality may shift dramatically. For example, a cyborg that uses tea as their main fuel type may become enraged if they are instead filled with hot sauce. Fresh water, sea water, and other non-calorie liquids cannot be used as an energy source. If a cyborg's current fuel supply drops to ½ bottle or lower, they enter a "Low On Fuel" status. See the status effects section for more information.
@@ -430,13 +443,13 @@ Longarm		KEY:Cyborg Base Race ~ Longarm		CATEGORY:Selection	TYPE:Cyborg Base Rac
 Longleg		KEY:Cyborg Base Race ~ Longleg		CATEGORY:Selection	TYPE:Cyborg Base Race		BONUS:VAR|RaceSizeAllowed_Large|1										BONUS:VAR|Movement_Walk|30	BONUS:VAR|Movement_Swim|20	DESC:30ft/turn on Land, 20ft/turn in Water
 
 # Longarm/Longleg Racial Traits
-Harder Better Faster Longer	KEY:Longarm Racial Trait ~ Harder Better Faster Longer			CATEGORY:Racial Trait	TYPE:Racial Trait.Longarm Racial Trait			DESC:+2 CON, +2 DEX, -2 CHA								BONUS:VAR|WhateverStats|PREVAREQ:CyborgDisableRaceTraits,0
+Harder Better Faster Longer	KEY:Longarm Racial Trait ~ Harder Better Faster Longer			CATEGORY:Racial Trait	TYPE:Racial Trait.Longarm Racial Trait			DESC:+2 CON, +2 DEX, -2 CHA								
 Size					KEY:Longarm Racial Trait ~ Size							CATEGORY:Racial Trait	TYPE:Racial Trait.Longarm Racial Trait.PCRaceSize	DESC:Longarms are medium sized. Longlegs are large sized.		BONUS:VAR|RaceSizeAllowed_Medium|1
 Long Limbed				KEY:Longarm Racial Trait ~ Long Limbed						CATEGORY:Racial Trait	TYPE:Racial Trait.Longarm Racial Trait			DESC:30ft/turn on Land, 20ft/turn in Water	BONUS:VAR|Movement_Walk|30	BONUS:VAR|Movement_Swim|20
 Double Elbows			KEY:Longarm Racial Trait ~ Double Elbows						CATEGORY:Racial Trait	TYPE:Racial Trait.Longarm Racial Trait			DESC:+5ft reach length which allows you to melee attack other characters which probably can't reach you and melee back without moving. This extra reach also applies to ranged weapons since you can hold the weapon further from your body while firing.
 
 # Longarm/Longleg Racial Traits
-Harder Better Faster Longer	KEY:Longleg Racial Trait ~ Harder Better Faster Longer			CATEGORY:Racial Trait	TYPE:Racial Trait.Longleg Racial Trait			DESC:+2 CON, +2 DEX, -2 CHA								BONUS:VAR|WhateverStats|PREVAREQ:CyborgDisableRaceTraits,0
+Harder Better Faster Longer	KEY:Longleg Racial Trait ~ Harder Better Faster Longer			CATEGORY:Racial Trait	TYPE:Racial Trait.Longleg Racial Trait			DESC:+2 CON, +2 DEX, -2 CHA								
 Size					KEY:Longleg Racial Trait ~ Size							CATEGORY:Racial Trait	TYPE:Racial Trait.Longleg Racial Trait.PCRaceSize	DESC:Longarms are medium sized. Longlegs are large sized.		BONUS:VAR|RaceSizeAllowed_Large|1
 Long Limbed				KEY:Longleg Racial Trait ~ Long Limbed						CATEGORY:Racial Trait	TYPE:Racial Trait.Longleg Racial Trait			DESC:30ft/turn on Land, 20ft/turn in Water	BONUS:VAR|Movement_Walk|30	BONUS:VAR|Movement_Swim|20
 Living Stilts			KEY:Longleg Racial Trait ~ Living Stilts						CATEGORY:Racial Trait	TYPE:Racial Trait.Longleg Racial Trait			DESC:+5ft land movement speed, small characters can only reach and attack your legs. You can stand in deeper water than other characters, which is especially useful if you have a devil fruit ability.
@@ -458,11 +471,11 @@ Feats			KEY:Brawler Class Feature ~ Feats			CATEGORY:Special Ability	TYPE:Class 
 Secondary skills	KEY:Brawler Class Feature ~ Secondary Skills	CATEGORY:Special Ability	TYPE:Class Feature.Brawler Class Feature		BONUS:VAR|SecondarySkillBalance,SecondarySkillTumble,SecondarySkillSpot,SecondarySkillClimb,SecondarySkillIntimidate,SecondarySkillJump,SecondarySkillListen,SecondarySkillPerform,SecondarySkillRide|1|TYPE=Boolean
 
 # Marksman Class Features
-Feats		KEY:Brawler Class Feature ~ Feats			CATEGORY:Special Ability	TYPE:Class Feature.Brawler Class Feature		ABILITY:FEAT|AUTOMATIC|Weapon Proficiency: Ranged|Lock On
+Feats			KEY:Brawler Class Feature ~ Feats			CATEGORY:Special Ability	TYPE:Class Feature.Brawler Class Feature		ABILITY:FEAT|AUTOMATIC|Weapon Proficiency(Ranged)|Lock On
 Secondary Skills	KEY:Brawler Class Feature ~ Secondary Skills	CATEGORY:Special Ability	TYPE:Class Feature.Brawler Class Feature		BONUS:VAR|SecondarySkillBalance,SecondarySkillConcentration,SecondarySkillJump,SecondarySkillClimb,SecondarySkillBluff,SecondarySkillHide,SecondarySkillListen,SecondarySkillSleightofHand,SecondarySkillSpot,SecondarySkillTrapping,SecondarySkillTumble|1|TYPE=Boolean
 
 # Rogue Class Features
-Feats			KEY:Brawler Class Feature ~ Feats			CATEGORY:Special Ability	TYPE:Class Feature.Brawler Class Feature		ABILITY:FEAT|AUTOMATIC|Weapon Proficiency: Light Melee Weapons|Armor Proficiency: Light|Sneak Attack
+Feats			KEY:Brawler Class Feature ~ Feats			CATEGORY:Special Ability	TYPE:Class Feature.Brawler Class Feature		ABILITY:FEAT|AUTOMATIC|Weapon Proficiency(Light Melee Weapons)|Armor Proficiency(Light)|Sneak Attack
 Secondary Skills	KEY:Brawler Class Feature ~ Secondary Skills	CATEGORY:Special Ability	TYPE:Class Feature.Brawler Class Feature		BONUS:VAR|SecondarySkillBalance,SecondarySkillBluff,SecondarySkillClimb,SecondarySkillEscapeArtist,SecondarySkillSpot,SecondarySkillListen,SecondarySkillPerform,SecondarySkillHide,SecondarySkillMoveSilently,SecondarySkillSleightofHand,SecondarySkillSearch,SecondarySkillTrapping,SecondarySkillTumble|1|TYPE=Boolean
 
 # Specialist Class Features
@@ -470,485 +483,606 @@ Feats			KEY:Brawler Class Feature ~ Feats			CATEGORY:Special Ability	TYPE:Class 
 Secondary Skills	KEY:Brawler Class Feature ~ Secondary Skills	CATEGORY:Special Ability	TYPE:Class Feature.Brawler Class Feature		BONUS:VAR|SecondarySkillClimb,SecondarySkillJump,SecondarySkillHide,SecondarySkillInvent,SecondarySkillResearch,SecondarySkillSpot,SecondarySkillTumble,SecondarySkillRide|1|TYPE=Boolean
 
 # Swordsman Class Features
-Feats			KEY:Brawler Class Feature ~ Feats			CATEGORY:Special Ability	TYPE:Class Feature.Brawler Class Feature		ABILITY:FEAT|AUTOMATIC|Weapon Proficiency: Swords|Armor Proficiency: Light|Blade Guard
+Feats			KEY:Brawler Class Feature ~ Feats			CATEGORY:Special Ability	TYPE:Class Feature.Brawler Class Feature		ABILITY:FEAT|AUTOMATIC|Weapon Proficiency(Swords)|Armor Proficiency(Light)|Blade Guard
 Secondary Skills	KEY:Brawler Class Feature ~ Secondary Skills	CATEGORY:Special Ability	TYPE:Class Feature.Brawler Class Feature		BONUS:VAR|SecondarySkillBalance,SecondarySkillConcentration,SecondarySkillIntimidate,SecondarySkillJump,SecondarySkillHide,SecondarySkillInvent,SecondarySkillSpot,SecondarySkillTrapping,SecondarySkillTumble|1|TYPE=Boolean
 
 # Warrior Class Features
-Feats		KEY:Brawler Class Feature ~ Feats			CATEGORY:Special Ability	TYPE:Class Feature.Brawler Class Feature		ABILITY:FEAT|AUTOMATIC|Weapon Proficiency: All Melee Weapons|Weapon Proficiency: Shield (Light and Medium)|Armor Proficiency (Light and Medium)
+Feats		KEY:Brawler Class Feature ~ Feats			CATEGORY:Special Ability	TYPE:Class Feature.Brawler Class Feature		ABILITY:FEAT|AUTOMATIC|Weapon Proficiency(All Melee Weapons)|Weapon Proficiency(Shield Medium)|Armor Proficiency(Medium)
 Secondary Skills	KEY:Brawler Class Feature ~ Secondary Skills	CATEGORY:Special Ability	TYPE:Class Feature.Brawler Class Feature		BONUS:VAR|SecondarySkillBalance,SecondarySkillBluff,SecondarySkillClimb,SecondarySkillIntimidate,SecondarySkillJump,SecondarySkillSearch,SecondarySkillSpot,SecondarySkillRide|1|TYPE=Boolean
 
 ###Block - Career List
-Bounty Hunter	CATEGORY:Special Ability	TYPE:Career
-Chef	CATEGORY:Special Ability	TYPE:Career
-Doctor	CATEGORY:Special Ability	TYPE:Career
+Bounty Hunter	CATEGORY:Special Ability	TYPE:Career	DESC:Always up for some easy cash, bounty hunters are easy to understand. Typically looking to make a profit, they are always on the hunt for big bounties and opportunities to get their name known across the world. Some bounty hunters have more noble motivations however, such as vigilante justice, but the majority of them are just strong fighters who aren't interested in angering the world government by becoming pirates. They often live as wanderers, going from bounty to bounty to feed themselves and pay for lodging. In times of need they are good hunters due to their natural talents at tracking and killing.
+	BONUS:VAR|SecondarySkillBalance,SecondarySkillClimb,SecondarySkillSenseMotive,SecondarySkillListen,SecondarySkillGatherInformation,SecondarySkillIntimidate,SecondarySkillHide,SecondarySkillJump,SecondarySkillSpot,SecondarySkillTrapping|1|TYPE=Boolean
+Chef			CATEGORY:Special Ability	TYPE:Career	DESC:Food is important to keep a crew healthy and happy, and no one creates better food than a trained chef. Without proper nutrition, a crew will become sick and weak. Without someone trained on how to stock food for long journeys and how to prepare food to get every ounce of benefit from it, an inexperienced crew could find themselves starving to death within weeks. Chefs on the sea aren't pushovers either, they are as fierce as any pirate and you'd be a fool to challenge them. More than just nutrition, master chefs can make meals that not only fill bellies, but strengthen the body. Cooking food capable of increasing the growth of crewmates, allowing them to train harder and strengthen their minds and bodies faster. **Important Note!** - Only one meal effect can be active at a time, per character. If they eat another meal the original meal's effect is nullified. Drink effects stack with meal effects but not with other drinks.
+	BONUS:VAR|SecondarySkillBalance,SecondarySkillIntimidate,SecondarySkillPerform,SecondarySkillCooking,SecondarySkillResearch,SecondarySkillSearch,SecondarySkillTumble|1|TYPE=Boolean
+Doctor		CATEGORY:Special Ability	TYPE:Career	DESC:A Doctor's worth should be obvious on a journey that involves high risks and dangerous battles. Doctors come in many shapes and sizes and have many different techniques, but in the end, they tend to the wounded and bring them back to health the best they can. A doctor's services can be an excellent way to earn some extra cash or to make new friends. A doctor's morality is high and they will insist on treating wounded people, even if it's inconvenient for the rest of their crew - excluding enemies of course. They are often against violence when possible and tend not to be strong combatants, however there are always exceptions. Doctor's can have other functions outside of just healing the injured. They can provide powerful drugs, hormones, and stimulants to enhance the crew's battle capabilities. Doctors are only limited by the tools and ingredients they have access to. A skilled doctor with a full medical bay of supplies and advanced technology can perform incredible treatments for the gravest wounds.
+	BONUS:VAR|SecondarySkillBalance,SecondarySkillBluff,SecondarySkillDiplomacy,SecondarySkillGatherInformation,SecondarySkillHeal,SecondarySkillSenseMotive,SecondarySkillResearch|1|TYPE=Boolean
 Marine	CATEGORY:Special Ability	TYPE:Career		DESC:The marines keep order in the world against the ever pressing threat of strong and villainous pirates. Marines must be good at receiving and giving orders. Their superior's orders are absolute and to go against them would be extremely foolish unless you wish to be demoted, or worse, imprisoned. Being a marine has many benefits to make up for their strict life style. They have access to almost every outpost in the world and never have to worry about being arrested, unless they go against orders. **Important Note!** - If you play a marine but are a part of the pirate crew, you'll need to work out how to role-play appropriately.
-	BONUS:VAR|SecondarySkillBluff,SecondarySkillClimb,SecondarySkillDiplomacy,SecondarySkillGather Information,SecondarySkillIntimidate,SecondarySkillJump,SecondarySkillKnowledge (History),SecondarySkillKnowledge (Nobility/Royalty),SecondarySkillSense Motive,SecondarySkillSailing,SecondarySkillSearch,SecondarySkilland Trapping.
-Navigator	CATEGORY:Special Ability	TYPE:Career
-Musician	CATEGORY:Special Ability	TYPE:Career
-Pirate	CATEGORY:Special Ability	TYPE:Career
-Scientist	CATEGORY:Special Ability	TYPE:Career
-Shipwright	CATEGORY:Special Ability	TYPE:Career
+	BONUS:VAR|SecondarySkillBluff,SecondarySkillClimb,SecondarySkillDiplomacy,SecondarySkillGatherInformation,SecondarySkillIntimidate,SecondarySkillJump,SecondarySkillKnowledgeHistory,SecondarySkillKnowledgeNobilityandRoyalty,SecondarySkillSenseMotive,SecondarySkillSailing,SecondarySkillSearch,SecondarySkillTrapping|1|TYPE=Boolean
+Navigator	CATEGORY:Special Ability	TYPE:Career	DESC:Navigators are rare to find, and good ones are even rarer. Navigators must be intelligent but also have good instincts and confidence in their decisions. No ship can sail successfully, especially on the Grand Line, without a skilled navigator making sure they are on course. When a navigator gets enough experience, they can even tell the future weather patterns of the day just by a quick glance at the sky. Complex currents, strange weather, maps, compasses, and other navigational charts are all essential to a navigator's success. Navigators definitely have the most responsibility while the ship is traveling, and must be confident in their skills and able to command the crew.
+	BONUS:VAR|SecondarySkillDiplomacy,SecondarySkillGatherInformation,SecondarySkillKnowledgeNature,SecondarySkillListen,SecondarySkillSenseMotive,SecondarySkillNavigation,SecondarySkillSailing,SecondarySkillSpot,SecondarySkillTrapping|1|TYPE=Boolean
+Musician	CATEGORY:Special Ability	TYPE:Career	DESC:No jolly crew can be complete without a skilled and energetic musician to keep spirits high and a general rhythm moving throughout the ship. Most can play a large number of different instruments including piano, violin, guitar, cello, flute, and more. They set off to sea for a variety of reasons including money, experience, adventure, or for popularity. The sounds a professional musician can produce aren't just nice to listen to, but can also enhance their allies and have devastating effects on enemies. **Important Note!** - Only two musician buffs can effect an ally at any given time. If a third buff is attempted, it will overwrite the older of the current two.
+	BONUS:VAR|SecondarySkillDiplomacy,SecondarySkillIntimidate,SecondarySkillKnowledgeLocal,SecondarySkillListen,SecondarySkillPerform,SecondarySkillMoveSilently,SecondarySkillSleightofHand|1|TYPE=Boolean
+Pirate	CATEGORY:Special Ability	TYPE:Career	DESC:Pirates are the current age's adventurers. The ultimate dream of any true pirate is to reach the Grand Line, travel all the way through it, and one day find One Piece which is located at the very end. However, some pirates are in it only for the reputation, riches, and power. Pirate crews are generally very close-knit groups of friends, many of which join the crew along the way through the Grand Line. Just pirates alone would never make it through such a journey so they must find all kinds of people to join them and make a fully diverse crew. The pirate's main job is to keep the crew on the correct path towards One Piece, both literally and mentally. Pirates are generally strong combatants and are good leaders. **Important Note!** - If you play a pirate but are a part of a marine crew, you'll need to work out how to role-play appropriately.
+	BONUS:VAR|SecondarySkillAppraise,SecondarySkillBalance,SecondarySkillBluff,SecondarySkillClimb,SecondarySkillDiplomacy,SecondarySkillGatherInformation,SecondarySkillIntimidate,SecondarySkillJump,SecondarySkillSenseMotive,SecondarySkillSailing,SecondarySkillSearch,SecondarySkillSpot,SecondarySkillTrapping|1|TYPE=Boolean
+Scientist	CATEGORY:Special Ability	TYPE:Career	DESC:Scientists are rare to find on a ship these days, but it's not unheard of. Scientists are all about experiments and creating new and interesting technologies. With vast amounts of intelligence, they observe and study the world around them. Scientists are great at enhancing weapon capabilities, adding new features to ships and creating usually new and exciting items. The reason scientists are rare to find at sea is that they need a lab in which to work. With delicate experiments, it would be impossible to perform them on rough seas. Sea water is also a constant problem due to the rust and damage it can cause to mechanical instruments. To have a scientist onboard means to customize the ship to suit their needs, however the trouble may well be worth it. Scientists may be able to solve otherwise impossible problems for the crew or the residents of foreign islands.
+	BONUS:ABILITYPOOL|Secondary Skill Knowledge|1	BONUS:VAR|SecondarySkillAppraise,SecondarySkillBluff,SecondarySkillGatherInformation,SecondarySkillInvent,SecondarySkillResearch,SecondarySkillTrapping|1|TYPE=Boolean
+Shipwright	CATEGORY:Special Ability	TYPE:Career	DESC:Shipwrights are in charge of making sure the ship stays in one piece. Without a shipwright, crews may be able to patch holes and glue things back together but the ship can never be truly repaired without a skilled shipwright there to supervise. A ship without a shipwright to take care of it will degrade over time and eventually fall apart. Other than repairing the ship, shipwrights can also add new features to the ship, build new ones, repair other ships and structures for profit, and provide detailed information about enemy ships and their possible weaknesses. Like characters, ships too have their own personalities and room to grow. Buying a new ship when your current one breaks down is an option, but the more familiar the ship is with the crew, the better it will perform. Shipwrights make this possible since they can keep the ship happy and maintained.	BONUS:VAR|SecondarySkillAppraise,SecondarySkillBalance,SecondarySkillClimb,SecondarySkillJump,SecondarySkillSleightofHand,SecondarySkillInvent,SecondarySkillEngineering,SecondarySkillSailing,SecondarySkillTumble|1|TYPE=Boolean
 
-CATEGORY=Special Ability|Bounty Hunter.MOD
-	DESC:Always up for some easy cash, bounty hunters are easy to understand. Typically looking to make a profit, they are always on the hunt for big bounties and opportunities to get their name known across the world. Some bounty hunters have more noble motivations however, such as vigilante justice, but the majority of them are just strong fighters who aren't interested in angering the world government by becoming pirates. They often live as wanderers, going from bounty to bounty to feed themselves and pay for lodging. In times of need they are good hunters due to their natural talents at tracking and killing.
-	BONUS:VAR|SecondarySkillBalance,SecondarySkillClimb,SecondarySkillSense Motive,SecondarySkillListen,SecondarySkillGather Information,SecondarySkillIntimidate,SecondarySkillHide,SecondarySkillJump,SecondarySkillSpot,SecondarySkillTrapping.
-ACHILLES SHOT [ DEBUFF ]
-	PRETEXT:Bounty Hunter
-	BENEFIT:As a full round action the bounty hunter strikes at the target's ankle, reducing their movement by half. The attack's damage is calculated normally however instead of rolling defense to avoid the strike, the target rolls their reflex save vs a DC of 15 + the bounty hunter's level. If the target succeeds, the attack fails.
-CAMOUFLAGE [ SKILL BONUS ]
-	PRETEXT:Bounty Hunter
-	BENEFIT:You gain a +3 Hide bonus when on land and outdoors.
-COLLECTOR [ MISC ]
-	PRETEXT:Fame, Intimidate 8 Ranks
-	BENEFIT:Due to your reputation as a skilled bounty hunter your contractor pays you an additional 25% on top of the normal bounty price of the targets you bring in.
-DEAD OR ALIVE [ SKILL BONUS ]
-	PRETEXT:Fame, Gather Information 11 Ranks
-	BENEFIT:The bounty hunter gains a +2 bonus to weapon attack, ranged shot, or unarmed strike when fighting target's with an active bounty. The player must choose which skill they want the bonus for when purchasing this feat.
-OVERLOADED TRAPS [ MISC ]
-	PRETEXT:Quick Traps, Trapping 15 Ranks
-	BENEFIT:The bounty hunter can now attempt to setup traps with double the normal payload. If they do, the setup DC of the trap is increased by +5.
-EXECUTIONER [ DAMAGE ]
-	PRETEXT:Dead or Alive, Gather Information 15 Ranks
-	BENEFIT:If the bounty hunter flanks an opponent who's currently paralyzed, all of their successful attacks are automatic criticals. If they kill the target using this technique, the target is decapitated. Any nakama of the decapitated target who sees this happen must roll a will save vs DC of 15 + bounty hunters level. If they fail, they become frightened for 3 rounds.
-FAME [ SKILL BONUS ]
-	PRETEXT:Bounty Hunter
-	BENEFIT:Your name and appearance become common knowledge. People will recognize you and perhaps try to get revenge. However, so much recognition gives you a +3 bonus to your intimidate rolls.
-HIDDEN TRAPS [ SKILL BONUS ]
-	PRETEXT:Quick Traps, Trapping 8 Ranks
-	BENEFIT:The bounty hunter camouflages their traps making them much harder to spot. The spot DC of anyone trying to find one of the bounty hunter's traps is increased by +3.
-HUNTING DOG [ MISC ]
-#	SOURCEPAGE:60
-	PRETEXT:Bounty Hunter
-	BENEFIT:You find and train a dog to become your faithful companion through your adventures. While the dog isn't very strong it has useful skills, intelligence, and makes the lonely role of a bounty hunter for bearable. See the Dog information in the secondary crewmates section.
-HUNTER'S PATIENCE [ BUFF ]
-	PRETEXT:Bounty Hunter, Character Level 5
-	BENEFIT:As a standard action, once per day, the bounty hunter can focus on his task and ignore distractions like pain or frustration. They gain a +3 bonus to any secondary skill DC check, This effect immediately wears off once the DC check is rolled.
-NET GUN [ DEBUFF ]
-	PRETEXT:Bounty Hunter, Ranged Shot 8 Ranks
-	BENEFIT:You may now shoot nets from your weapon as a standard action using your ranged shot skill. Nets can be purchased at shops and may be reused if the target doesn't break free. Nets do not deal any damage but can severely disable prey, effectively making them paralyzed. Unless unconscious, your target can roll a strength check vs the DC of the net material to escape once an hour. If the net is made of sea-stone and your target is a devil fruit user, they cannot break free on their own. If the target is attacked while in the net, the net has a 50% chance to break open. Special: Cloth Rope DC18, Leather DC22, Iron Wiring DC25, Steel Wiring DC29, Sea-Stone Wiring DC32.
-NON-LETHAL WEAPONS [ SKILL BONUS ]
-	PRETEXT:Bounty Hunter
-	BENEFIT:A bounty hunter can shift their weapons so they become non-lethal without any of the normal penalties. While in this non-lethal posture, the bounty hunter cannot kill their target. To shift in and out of this posture is a swift action. Normal: Character takes a -3 penalty to non-lethal attacks due to the concentration needed to prevent fatal harm.
-NATURAL FOOTWORK [ STAT BONUS ]
-	PRETEXT:The Great Outdoors, Character Level 10+
-	BENEFIT:The bounty hunter gains a +5 land and water movement bonus when outdoors.
-QUICK TRAPS [ SKILL BONUS ]
-	PRETEXT:Bounty Hunter, Trapping 4 Ranks
-	BENEFIT:Trapping actions now only take 30 seconds to complete. Normal: Trap actions take 1 full minute.
-SCAN [ MISC ]
-	PRETEXT:Gather Information 12 Ranks
-	BENEFIT:As a standard action the bounty hunter performs a quick inspection of their target looking for weak points or any critical information. You get a general idea of how healthy they are and some clues into what special abilities they might still be hiding. Roll a spot check for a chance to notice a possible weakness with a DC of 10 + your enemy's level; the other pieces of information don't require the spot check to succeed.
-THE GREAT OUTDOORS [ DAMAGE ]
-	PRETEXT:The Hunt, Character Level 5+
-	BENEFIT:The bounty hunter gains a +1 damage bonus to normal attacks when outdoors.
-THE HUNT [ SKILL BONUS ]
-	PRETEXT:Bounty Hunter
-	BENEFIT:Character gains a +2 spot and listen bonus when searching for a humanoid creatures.
-THOROUGH EXAMINATION [ MISC ]
-	PRETEXT:Scan, Gather Information 16 Ranks
-	BENEFIT:More detailed than a scan, a thorough examination takes a full round to execute. On the following turn you know for certain what your enemies weaknesses and strengths are. You are also aware of exactly how many HP they have left and all of their attack and defensive bonuses. Gathering this information doesn't require any skill rolls.
+###Block - Careers
 
-CATEGORY=Special Ability|Chef.MOD
-	DESC:Food is important to keep a crew healthy and happy, and no one creates better food than a trained chef. Without proper nutrition, a crew will become sick and weak. Without someone trained on how to stock food for long journeys and how to prepare food to get every ounce of benefit from it, an inexperienced crew could find themselves starving to death within weeks. Chefs on the sea aren't pushovers either, they are as fierce as any pirate and you'd be a fool to challenge them. More than just nutrition, master chefs can make meals that not only fill bellies, but strengthen the body. Cooking food capable of increasing the growth of crewmates, allowing them to train harder and strengthen their minds and bodies faster. **Important Note!** - Only one meal effect can be active at a time, per character. If they eat another meal the original meal's effect is nullified. Drink effects stack with meal effects but not with other drinks.
-	BONUS:VAR|SecondarySkillBalance,SecondarySkillIntimidate,SecondarySkillPerform,SecondarySkillCooking,SecondarySkillResearch,SecondarySkillSearch,SecondarySkillTumble
-99 NEWKAMA RECIPES [ CRAFTING ]
-	PRETEXT:Attack Cuisine, Brain Food, Cooking 16 Ranks
-	BENEFIT:You can now create meals which increase two different attributes at a +2 bonus at the same time. For example, a meal which increases STR and WIS by +2 would be a valid choice. The effects of the meal last for eight hours.
-ATTACK CUISINE [ CRAFTING ]
-	PRETEXT:Executive Chef
-	BENEFIT:A special cooking technique which makes the food emanate a powerful aura and flavor. Whoever eats this food temporarily gains +2 STR, +2 CON, or +2 DEX for eight hours. You must choose which attribute you wish the food to bolster before crafting it. See the cooking skill for more information.
-BARISTA [ SKILL BONUS ]
-	PRETEXT:Chef
-	BENEFIT:You now have training with not only food but also delicious and fancy drink choices. All of your meals taste better since you can serve the perfect complimenting drink to accompany it. You gain a +1 bonus to all cooking rolls.
-BRAIN FOOD [ CRAFTING ]
-	PRETEXT:Executive Chef, Cooking 14 Ranks
-	BENEFIT:A special cooking technique which makes the food emanate a mysterious aura and flavor. Whoever eats this food temporarily gains +2 INT, +2 WIS, or +2 CHA for eight hours. You must choose which attribute you wish the food to bolster before crafting it. See the cooking skill for more information.
-CAFFEINATED SHOTS [ CRAFTING ]
-	PRETEXT:Barista, Cooking 8 Ranks
-	BENEFIT:You now have access to caffeinated drinks which can have various effects on whoever drinks them. The effects include: +2 STR, +2 INT, cures fatigue, increase initiative by +2, or increase HP by +5. This effect lasts for one hour and when it wears off, the drinker becomes fatigued. If he was already fatigued he becomes exhausted. You must pick which effect you would like your energy shot to produce before crafting it. See the cooking skill for more information.
-DISTILLERY [ CRAFTING ]
-	PRETEXT:Barista, Cooking 8 Ranks
-	BENEFIT:You can now distill your own alcohols from various fruits, vegetables, and grains which you happen to have access to. These beverages grant a +1 bonus to any attribute except INT for eight hours.
-#	SOURCEPAGE:62
-COOK [ DAMAGE ]
-	PRETEXT:Chef
-	BENEFIT:When attacking a non-humanoid creature, the chef may attempt to "Cook" it. To attempt this, roll the primary attack skill of your choice. If successful, then roll your cooking skill. If your resulting cooking roll exceeds the creature's current HP you fatally wound it and begin cooking it on the spot. The amount of food produced varies on the size of the creature. If it is a poisonous creature, it is immune to this feat.
-EXECUTIVE CHEF [ SKILL BONUS ]
-	PRETEXT:Sous Chef, Cooking 12 Ranks
-	BENEFIT:You gain an additional +2 permanent cooking skill bonus.
-FAST FOOD [ CRAFTING ]
-	PRETEXT:Executive Chef, Cooking 15 Ranks
-	BENEFIT:Preparing food and drinks can now be done in a faction of the normal time. From 15 minutes to 5 minutes for food, and from 5 minutes to 1 minute for drinks. Additionally, meals and drinks of the same type may now be made simultaneously without any penalty applied.
-FOOD ARMOR [ BUFF ]
-	PRETEXT:Chef, Cooking 7 Ranks, Armor Proficiency (Medium)
-	BENEFIT:Given there is enough food around, you can quickly wrap it around yourself to create a temporary suit of armor. This armor can coat the outside of any actual armor you might already be wearing. The amount of food needed is about 50lb for a normal sized man. While you are wearing food armor you gain +2 DR which stacks with other feats. After two attacks successful attacks against you, your armor will fall apart.
-GARDENING [ CRAFTING ]
-	PRETEXT:Chef, 12 INT
-	BENEFIT:You create a garden on your ship (or home) which slowly but steadily increases your food supplies. Each play session, if you have access to the garden, you gain 10lb of normal food, 5lb of high quality food, and 1lb of coffee beans. Applying a bag of fertilizer to the garden doubles its output for the next play session.
-INEDIBLE EDIBLES [ CRAFTING ]
-	PRETEXT:Chef, Cooking 4 Ranks
-	BENEFIT:You have the ability to cut off edible sections of poisonous or otherwise inedible foodstuffs to be used in emergency situations. Take ¼ of the weight of the poisonous food and convert it to edible foodstuffs.
-MEALS ON WHEELS [ CRAFTING ]
-	PRETEXT:Sous Chef, Cooking 11 Ranks
-	BENEFIT:The chef may now prepare meals while in motion. As long as they have the supplies with them, they can prepare drinks and food without the usual kitchen space and tools. Preparing food and drinks still take the normal amount of time.
-SKILLED HANDS [ SKILLED HANDS ]
-	PRETEXT:Chef, Cooking 9 Ranks
-	BENEFIT:Having to work carefully and skillfully with your hands all day has its benefits. You gain a permanent +2 bonus to all sleight of hand rolls.
-SOUS CHEF [ SKILL BONUS ]
-	PRETEXT:Chef, Cooking 6 Ranks
-	BENEFIT:You gain a +2 permanent cooking skill bonus.
-VITAMINS [ STAT BONUS ]
-	PRETEXT:Character Level 5, Chef
-	BENEFIT:Because of the chef's perfect diet, they gain a passive +1 bonus to all non-physical resistances.
-WASTE NOTHING [ CRAFTING ]
-	PRETEXT:Chef, Cooking 10 Ranks
-	BENEFIT:You use every single part of the ingredients you cook with, wasting nothing edible. You only use 50% of the normal amount of supplies needed when you cook meals, effectively doubling your food supply.
+# Bounty Hunter
+Achilles Shot		TYPE:Debuff.Bounty Hunter		CATEGORY:FEAT	SOURCEPAGE:59	PRETEXT:Bounty Hunter	PREABILITY:1,CATEGORY=Special Ability,Bounty Hunter	BENEFIT:As a full round action the bounty hunter strikes at the target's ankle, reducing their movement by half. The attack's damage is calculated normally however instead of rolling defense to avoid the strike, the target rolls their reflex save vs a DC of 15 + the bounty hunter's level. If the target succeeds, the attack fails.
+Camouflage			TYPE:Skill Bonus.Bounty Hunter	CATEGORY:FEAT	SOURCEPAGE:59	PRETEXT:Bounty Hunter	PREABILITY:1,CATEGORY=Special Ability,Bounty Hunter	BENEFIT:You gain a +3 Hide bonus when on land and outdoors.
+Collector			TYPE:Misc.Bounty Hunter			CATEGORY:FEAT	SOURCEPAGE:59	PRETEXT:Fame, Intimidate 8 Ranks	PREABILITY:1,CATEGORY=Special Ability,Bounty Hunter	PRESKILL:1,Intimidate=8	PREABILITY:1,CATEGORY=FEAT,Fame	BENEFIT:Due to your reputation as a skilled bounty hunter your contractor pays you an additional 25%% on top of the normal bounty price of the targets you bring in.
+Dead Or Alive		TYPE:Skill Bonus.Bounty Hunter	CATEGORY:FEAT	SOURCEPAGE:59	PRETEXT:Fame, Gather Information 11 Ranks	PREABILITY:1,CATEGORY=FEAT,Fame	PRESKILL:1,Gather Information=11	PREABILITY:1,CATEGORY=Special Ability,Bounty Hunter	BENEFIT:The bounty hunter gains a +2 bonus to weapon attack, ranged shot, or unarmed strike when fighting target's with an active bounty. The player must choose which skill they want the bonus for when purchasing this feat.
+Overloaded Traps		TYPE:Misc.Bounty Hunter			CATEGORY:FEAT	SOURCEPAGE:59	PRETEXT:Quick Traps, Trapping 15 Ranks	PREABILITY:1,CATEGORY=Special Ability,Bounty Hunter	PRESKILL:1,Trapping=15	PREABILITY:1,CATEGORY=FEAT,Quick Traps	BENEFIT:The bounty hunter can now attempt to setup traps with double the normal payload. If they do, the setup DC of the trap is increased by +5.
+Executioner			TYPE:Damage.Bounty Hunter		CATEGORY:FEAT	SOURCEPAGE:59	PRETEXT:Dead or Alive, Gather Information 15 Ranks	PREABILITY:1,CATEGORY=FEAT,Dead or Alive	PRESKILL:1,Gather Information=15	PREABILITY:1,CATEGORY=Special Ability,Bounty Hunter	BENEFIT:If the bounty hunter flanks an opponent who's currently paralyzed, all of their successful attacks are automatic criticals. If they kill the target using this technique, the target is decapitated. Any nakama of the decapitated target who sees this happen must roll a will save vs DC of 15 + bounty hunters level. If they fail, they become frightened for 3 rounds.
+Fame				TYPE:Skill Bonus.Bounty Hunter	CATEGORY:FEAT	SOURCEPAGE:59	PRETEXT:Bounty Hunter	PREABILITY:1,CATEGORY=Special Ability,Bounty Hunter	BENEFIT:Your name and appearance become common knowledge. People will recognize you and perhaps try to get revenge. However, so much recognition gives you a +3 bonus to your intimidate rolls.
+Hidden Traps		TYPE:Skill Bonus.Bounty Hunter	CATEGORY:FEAT	SOURCEPAGE:59	PRETEXT:Quick Traps, Trapping 8 Ranks	PREABILITY:1,CATEGORY=FEAT,Quick Traps	PRESKILL:1,Trapping=8	PREABILITY:1,CATEGORY=Special Ability,Bounty Hunter	BENEFIT:The bounty hunter camouflages their traps making them much harder to spot. The spot DC of anyone trying to find one of the bounty hunter's traps is increased by +3.
+Hunting Dog			TYPE:Misc.Bounty Hunter			CATEGORY:FEAT	SOURCEPAGE:60	PRETEXT:Bounty Hunter	PREABILITY:1,CATEGORY=Special Ability,Bounty Hunter	BENEFIT:You find and train a dog to become your faithful companion through your adventures. While the dog isn't very strong it has useful skills, intelligence, and makes the lonely role of a bounty hunter for bearable. See the Dog information in the secondary crewmates section.
+Hunter's Patience		TYPE:Buff.Bounty Hunter			CATEGORY:FEAT	SOURCEPAGE:60	PRETEXT:Bounty Hunter, Character Level 5	PREPCLEVEL:MIN=5	PREABILITY:1,CATEGORY=Special Ability,Bounty Hunter	BENEFIT:As a standard action, once per day, the bounty hunter can focus on his task and ignore distractions like pain or frustration. They gain a +3 bonus to any secondary skill DC check, This effect immediately wears off once the DC check is rolled.
+Net Gun			TYPE:Debuff.Bounty Hunter		CATEGORY:FEAT	SOURCEPAGE:60	PRETEXT:Bounty Hunter, Ranged Shot 8 Ranks	PREMULT:1,[PREMULT:2,[PREABILITY:1,CATEGORY=Selection,Favored Primary Skill ~ Ranged Shot],[PREVARGTEQ:FavoredPrimarySkillRank,8]],[PREMULT:2,[PREABILITY:1,CATEGORY=Internal,Default Primary Skill ~ Ranged Shot],[PREVARGTEQ:NonFavoredPrimarySkillRank,8]]	PREABILITY:1,CATEGORY=Special Ability,Bounty Hunter	BENEFIT:You may now shoot nets from your weapon as a standard action using your ranged shot skill. Nets can be purchased at shops and may be reused if the target doesn't break free. Nets do not deal any damage but can severely disable prey, effectively making them paralyzed. Unless unconscious, your target can roll a strength check vs the DC of the net material to escape once an hour. If the net is made of sea-stone and your target is a devil fruit user, they cannot break free on their own. If the target is attacked while in the net, the net has a 50%% chance to break open. Special: Cloth Rope DC18, Leather DC22, Iron Wiring DC25, Steel Wiring DC29, Sea-Stone Wiring DC32.
+Non-Lethal Weapons	TYPE:Skill Bonus.Bounty Hunter	CATEGORY:FEAT	SOURCEPAGE:60	PRETEXT:Bounty Hunter	PREABILITY:1,CATEGORY=Special Ability,Bounty Hunter	BENEFIT:A bounty hunter can shift their weapons so they become non-lethal without any of the normal penalties. While in this non-lethal posture, the bounty hunter cannot kill their target. To shift in and out of this posture is a swift action. Normal: Character takes a -3 penalty to non-lethal attacks due to the concentration needed to prevent fatal harm.
+Natural Footwork		TYPE:Stat Bonus.Bounty Hunter		CATEGORY:FEAT	SOURCEPAGE:60	PRETEXT:The Great Outdoors, Character Level 10+	PREPCLEVEL:MIN=10	PREABILITY:1,CATEGORY=FEAT,The Great Outdoors	BENEFIT:The bounty hunter gains a +5 land and water movement bonus when outdoors.
+Quick Traps			TYPE:Skill Bonus.Bounty Hunter	CATEGORY:FEAT	SOURCEPAGE:60	PRETEXT:Bounty Hunter, Trapping 4 Ranks	PRESKILL:1,Trapping=4	PREABILITY:1,CATEGORY=Special Ability,Bounty Hunter	BENEFIT:Trapping actions now only take 30 seconds to complete. Normal: Trap actions take 1 full minute.
+Scan				TYPE:Misc.Bounty Hunter			CATEGORY:FEAT	SOURCEPAGE:60	PRETEXT:Gather Information 12 Ranks	PRESKILL:1,Gather Information=12	PREABILITY:1,CATEGORY=Special Ability,Bounty Hunter	BENEFIT:As a standard action the bounty hunter performs a quick inspection of their target looking for weak points or any critical information. You get a general idea of how healthy they are and some clues into what special abilities they might still be hiding. Roll a spot check for a chance to notice a possible weakness with a DC of 10 + your enemy's level; the other pieces of information don't require the spot check to succeed.
+The Great Outdoors	TYPE:Damage.Bounty Hunter		CATEGORY:FEAT	SOURCEPAGE:60	PRETEXT:The Hunt, Character Level 5+	PREPCLEVEL:MIN=5	PREABILITY:1,CATEGORY=FEAT,The Hunt	PREABILITY:1,CATEGORY=Special Ability,Bounty Hunter	BENEFIT:The bounty hunter gains a +1 damage bonus to normal attacks when outdoors.
+The Hunt			TYPE:Skill Bonus.Bounty Hunter	CATEGORY:FEAT	SOURCEPAGE:60	PRETEXT:Bounty Hunter	PREABILITY:1,CATEGORY=Special Ability,Bounty Hunter	BENEFIT:Character gains a +2 spot and listen bonus when searching for a humanoid creatures.
+Thorough Examination	TYPE:Misc.Bounty Hunter			CATEGORY:FEAT	SOURCEPAGE:60	PRETEXT:Scan, Gather Information 16 Ranks	PREABILITY:1,CATEGORY=FEAT,Scan	PRESKILL:1,Gather Information=16	PREABILITY:1,CATEGORY=Special Ability,Bounty Hunter	BENEFIT:More detailed than a scan, a thorough examination takes a full round to execute. On the following turn you know for certain what your enemies weaknesses and strengths are. You are also aware of exactly how many HP they have left and all of their attack and defensive bonuses. Gathering this information doesn't require any skill rolls.
 
-CATEGORY=Special Ability|Doctor.MOD	DESC:A Doctor's worth should be obvious on a journey that involves high risks and dangerous battles. Doctors come in many shapes and sizes and have many different techniques, but in the end, they tend to the wounded and bring them back to health the best they can. A doctor's services can be an excellent way to earn some extra cash or to make new friends. A doctor's morality is high and they will insist on treating wounded people, even if it's inconvenient for the rest of their crew - excluding enemies of course. They are often against violence when possible and tend not to be strong combatants, however there are always exceptions. Doctor's can have other functions outside of just healing the injured. They can provide powerful drugs, hormones, and stimulants to enhance the crew's battle capabilities. Doctors are only limited by the tools and ingredients they have access to. A skilled doctor with a full medical bay of supplies and advanced technology can perform incredible treatments for the gravest wounds.
-	BONUS:VAR|SecondarySkillBalance,SecondarySkillBluff,SecondarySkillDiplomacy,SecondarySkillGather Information,SecondarySkillHeal,SecondarySkillSense Motive,SecondarySkillResearch
-ADVANCED COMBAT MEDIC [ MISC ]
+# Chef
+99 Newkama Recipes	TYPE:Crafting.Chef	CATEGORY:FEAT	SOURCEPAGE:60	PRETEXT:Attack Cuisine, Brain Food, Cooking 16 Ranks	PREABILITY:2,CATEGORY=FEAT,Attack Cuisine,Brain Food	PRESKILL:1,Cooking=16	PREABILITY:1,CATEGORY=Special Ability,Chef	BENEFIT:You can now create meals which increase two different attributes at a +2 bonus at the same time. For example, a meal which increases STR and WIS by +2 would be a valid choice. The effects of the meal last for eight hours.
+Attack Cuisine		TYPE:Crafting.Chef	CATEGORY:FEAT	SOURCEPAGE:60	PRETEXT:Executive Chef	PREABILITY:1,CATEGORY=FEAT,Executive Chef	PREABILITY:1,CATEGORY=Special Ability,Chef	BENEFIT:A special cooking technique which makes the food emanate a powerful aura and flavor. Whoever eats this food temporarily gains +2 STR, +2 CON, or +2 DEX for eight hours. You must choose which attribute you wish the food to bolster before crafting it. See the cooking skill for more information.
+Barista			TYPE:Skill Bonus.Chef	CATEGORY:FEAT	SOURCEPAGE:60	PRETEXT:Chef	PREABILITY:1,CATEGORY=Special Ability,Chef	BENEFIT:You now have training with not only food but also delicious and fancy drink choices. All of your meals taste better since you can serve the perfect complimenting drink to accompany it. You gain a +1 bonus to all cooking rolls.
+Brain Food			TYPE:Crafting.Chef	CATEGORY:FEAT	SOURCEPAGE:60	PRETEXT:Executive Chef, Cooking 14 Ranks	PREABILITY:1,CATEGORY=FEAT,Executive Chef	PRESKILL:1,Cooking=14	PREABILITY:1,CATEGORY=Special Ability,Chef	BENEFIT:A special cooking technique which makes the food emanate a mysterious aura and flavor. Whoever eats this food temporarily gains +2 INT, +2 WIS, or +2 CHA for eight hours. You must choose which attribute you wish the food to bolster before crafting it. See the cooking skill for more information.
+Caffeinated Shots		TYPE:Crafting.Chef	CATEGORY:FEAT	SOURCEPAGE:60	PRETEXT:Barista, Cooking 8 Ranks	PREABILITY:1,CATEGORY=FEAT,Barista	PRESKILL:1,Cooking=8	PREABILITY:1,CATEGORY=Special Ability,Chef	BENEFIT:You now have access to caffeinated drinks which can have various effects on whoever drinks them. The effects include: +2 STR, +2 INT, cures fatigue, increase initiative by +2, or increase HP by +5. This effect lasts for one hour and when it wears off, the drinker becomes fatigued. If he was already fatigued he becomes exhausted. You must pick which effect you would like your energy shot to produce before crafting it. See the cooking skill for more information.
+Distillery			TYPE:Crafting.Chef	CATEGORY:FEAT	SOURCEPAGE:60	PRETEXT:Barista, Cooking 8 Ranks	PREABILITY:1,CATEGORY=FEAT,Barista	PRESKILL:1,Cooking=8	PREABILITY:1,CATEGORY=Special Ability,Chef	BENEFIT:You can now distill your own alcohols from various fruits, vegetables, and grains which you happen to have access to. These beverages grant a +1 bonus to any attribute except INT for eight hours.
+Cook				TYPE:Damage.Chef		CATEGORY:FEAT	SOURCEPAGE:62	PRETEXT:Chef	PREABILITY:1,CATEGORY=Special Ability,Chef	BENEFIT:When attacking a non-humanoid creature, the chef may attempt to "Cook" it. To attempt this, roll the primary attack skill of your choice. If successful, then roll your cooking skill. If your resulting cooking roll exceeds the creature's current HP you fatally wound it and begin cooking it on the spot. The amount of food produced varies on the size of the creature. If it is a poisonous creature, it is immune to this feat.
+Executive Chef		TYPE:Skill Bonus.Chef	CATEGORY:FEAT	SOURCEPAGE:62	PRETEXT:Sous Chef, Cooking 12 Ranks	PREABILITY:1,CATEGORY=FEAT,Sous Chef	PRESKILL:1,Cooking=12	PREABILITY:1,CATEGORY=Special Ability,Chef	BENEFIT:You gain an additional +2 permanent cooking skill bonus.	BONUS:SKILL|Cooking|2|Permanent
+Fast Food			TYPE:Crafting.Chef	CATEGORY:FEAT	SOURCEPAGE:62	PRETEXT:Executive Chef, Cooking 15 Ranks	PREABILITY:1,CATEGORY=FEAT,Executive Chef	PRESKILL:1,Cooking=15	PREABILITY:1,CATEGORY=Special Ability,Chef	BENEFIT:Preparing food and drinks can now be done in a faction of the normal time. From 15 minutes to 5 minutes for food, and from 5 minutes to 1 minute for drinks. Additionally, meals and drinks of the same type may now be made simultaneously without any penalty applied.
+Food Armor			TYPE:Buff.Chef		CATEGORY:FEAT	SOURCEPAGE:62	PRETEXT:Chef, Cooking 7 Ranks, Armor Proficiency (Medium)	PREABILITY:1,CATEGORY=FEAT,Armor Proficiency (Medium)	PRESKILL:1,Cooking=7	PREABILITY:1,CATEGORY=Special Ability,Chef	BENEFIT:Given there is enough food around, you can quickly wrap it around yourself to create a temporary suit of armor. This armor can coat the outside of any actual armor you might already be wearing. The amount of food needed is about 50lb for a normal sized man. While you are wearing food armor you gain +2 DR which stacks with other feats. After two attacks successful attacks against you, your armor will fall apart.
+Gardening			TYPE:Crafting.Chef	CATEGORY:FEAT	SOURCEPAGE:62	PRETEXT:Chef, 12 INT	PRESTAT:1,INT=12	PREABILITY:1,CATEGORY=Special Ability,Chef	BENEFIT:You create a garden on your ship (or home) which slowly but steadily increases your food supplies. Each play session, if you have access to the garden, you gain 10lb of normal food, 5lb of high quality food, and 1lb of coffee beans. Applying a bag of fertilizer to the garden doubles its output for the next play session.
+Inedible Edibles		TYPE:Crafting.Chef	CATEGORY:FEAT	SOURCEPAGE:62	PRETEXT:Chef, Cooking 4 Ranks	PRESKILL:1,Cooking=4	PREABILITY:1,CATEGORY=Special Ability,Chef	BENEFIT:You have the ability to cut off edible sections of poisonous or otherwise inedible foodstuffs to be used in emergency situations. Take ¼ of the weight of the poisonous food and convert it to edible foodstuffs.
+Meals On Wheels		TYPE:Crafting.Chef	CATEGORY:FEAT	SOURCEPAGE:62	PRETEXT:Sous Chef, Cooking 11 Ranks	PREABILITY:1,CATEGORY=FEAT,Sous Chef	PRESKILL:1,Cooking=11	PREABILITY:1,CATEGORY=Special Ability,Chef	BENEFIT:The chef may now prepare meals while in motion. As long as they have the supplies with them, they can prepare drinks and food without the usual kitchen space and tools. Preparing food and drinks still take the normal amount of time.
+Skilled Hands		TYPE:Skilled Hands.Chef	CATEGORY:FEAT	SOURCEPAGE:62	PRETEXT:Chef, Cooking 9 Ranks	PRESKILL:1,Cooking=9	PREABILITY:1,CATEGORY=Special Ability,Chef	BENEFIT:Having to work carefully and skillfully with your hands all day has its benefits. You gain a permanent +2 bonus to all sleight of hand rolls.	BONUS:SKILL|Sleight of Hand|2|TYPE=Permanent
+Sous Chef			TYPE:Skill Bonus.Chef	CATEGORY:FEAT	SOURCEPAGE:62	PRETEXT:Chef, Cooking 6 Ranks	PRESKILL:1,Cooking=6	PREABILITY:1,CATEGORY=Special Ability,Chef	BENEFIT:You gain a +2 permanent cooking skill bonus.	BONUS:SKILL|Cooking|2|TYPE=Sous Chef
+Vitamins			TYPE:Stat Bonus.Chef	CATEGORY:FEAT	SOURCEPAGE:62	PRETEXT:Character Level 5, Chef	PREPCLEVEL:MIN=5	PREABILITY:1,CATEGORY=Special Ability,Chef	BENEFIT:Because of the chef's perfect diet, they gain a passive +1 bonus to all non-physical resistances.
+Waste Nothing		TYPE:Crafting.Chef	CATEGORY:FEAT	SOURCEPAGE:62	PRETEXT:Chef, Cooking 10 Ranks	PRESKILL:1,Cooking=10	PREABILITY:1,CATEGORY=Special Ability,Chef	BENEFIT:You use every single part of the ingredients you cook with, wasting nothing edible. You only use 50%% of the normal amount of supplies needed when you cook meals, effectively doubling your food supply.
+
+
+
+# Doctor
+ADVANCED COMBAT MEDIC	TYPE:MISC.Doctor	CATEGORY:FEAT
+	SOURCEPAGE:62
 	PRETEXT:Heal 9 Ranks
+	PREABILITY:1,CATEGORY=Special Ability,Doctor
 	BENEFIT:The Combat Medic feat now heals for 2d8 but has a DC of 16.
-ANTIDOTES [ CRAFTING ]
+ANTIDOTES	TYPE:CRAFTING.Doctor	CATEGORY:FEAT
+	SOURCEPAGE:62
 	PRETEXT:Doctor, Heal 5 Ranks
+	PREABILITY:1,CATEGORY=Special Ability,Doctor
 	BENEFIT:The doctor now has access to the Antidote section of the Medicines page. The doctor can now extract samples from patients easily, such as bacteria or viral samples. These samples will be needed to create the antidotes.
-BEDSIDE MANNER [ SKILL BONUS ]
+BEDSIDE MANNER	TYPE:SKILL BONUS.Doctor	CATEGORY:FEAT
+	SOURCEPAGE:62
 	PRETEXT:Doctor, Heal 9 Ranks
+	PREABILITY:1,CATEGORY=Special Ability,Doctor
 	BENEFIT:The doctor has developed an excellent rapport with their patients, increasing their overall social skills. The doctor gains a permanent +1 bonus to diplomacy, gather information, and sense motive checks.
-COMBAT MEDIC [ MISC ]
+COMBAT MEDIC	TYPE:MISC.Doctor	CATEGORY:FEAT
+	SOURCEPAGE:62
 	PRETEXT:Doctor, Heal 6
+	PREABILITY:1,CATEGORY=Special Ability,Doctor
 	BENEFIT:As a full round action the doctor may attempt to heal their nakama using a first aid kit. Roll your heal skill vs a DC of 12 to determine success. If successful, the target's HP is healed for 1d8. Whether you succeed or fail, the first aid kit is used up.
-DAILY VITAMINS [ STAT BONUS ]
+DAILY VITAMINS	TYPE:STAT BONUS.Doctor	CATEGORY:FEAT
+	SOURCEPAGE:62
 	PRETEXT:Doctor
+	PREABILITY:1,CATEGORY=Special Ability,Doctor
 	BENEFIT:The doctor and his crew gain a +1 bonus to fortitude and willpower saves. If someone leaves the doctor's crew for more than a week, the effect is nullified.
-MEDICAL LICENSE [ SKILL BONUS ]
+MEDICAL LICENSE	TYPE:SKILL BONUS.Doctor	CATEGORY:FEAT
+	SOURCEPAGE:62
 	PRETEXT:Doctor, Heal 6 Ranks
+	PREABILITY:1,CATEGORY=Special Ability,Doctor
 	BENEFIT:Having worked as an amateur doctor for so long, the doctor now has the skills required to obtain a real medical license. This requires the doctor to visit a government testing center, pay 25,000 to take the test, and then roll a heal check of 15 or higher to succeed. Once the doctor obtains a license, they gain a permanent +3 bonus to all Heal skill checks.
-HERBAL MEDICINE [ CRAFTING ]
+HERBAL MEDICINE	TYPE:CRAFTING.Doctor	CATEGORY:FEAT
+	SOURCEPAGE:62
 	PRETEXT:Doctor, Heal 4 Ranks
+	PREABILITY:1,CATEGORY=Special Ability,Doctor
 	BENEFIT:A doctor with knowledge of herbal medicine can create potent medicines almost anywhere using local plant species. These medicines can be applied by anyone as balms or consumed in teas or soups. Treat this as a crafting feat and roll your heal skill to determine if you are successful. See the Herbal Medicine section of the Medicines page for more information.
-#	SOURCEPAGE:64
-POTION MASTER [ CRAFTING ]
+POTION MASTER	TYPE:CRAFTING.Doctor	CATEGORY:FEAT
+	SOURCEPAGE:64
 	PRETEXT:Splash Potions, Heal 12 Ranks
+	PREABILITY:1,CATEGORY=Special Ability,Doctor
 	BENEFIT:The doctor is now able to create potions which have up to two different effects. For example, combining the ingredients required to make a regeneration and restoration potion would yield a single potion which, when consumed, grants both effects simultaneously. Potions of the same type created in this way make them twice as powerful; however it does not increase their duration.
-MICROBIOLOGIST [ DAMAGE ]
+MICROBIOLOGIST	TYPE:DAMAGE.Doctor	CATEGORY:FEAT
+	SOURCEPAGE:64
 	PRETEXT:Doctor, Heal 6 Ranks
+	PREABILITY:1,CATEGORY=Special Ability,Doctor
 	BENEFIT:Microbiology is the study of bacteria and other small organisms. This allows the doctor to create cultures which you can then use to infect others via food, injection, or some other form of entry into the body. This disease cannot be transferred through airborne means. Any creature exposed to your disease loses 1d6 health every hour for 1d6 hours. A fortitude save vs a DC of 18 can be rolled to avoid the effect.
-MUSCLE THERAPY [ BUFF ]
+MUSCLE THERAPY	TYPE:BUFF.Doctor	CATEGORY:FEAT
+	SOURCEPAGE:64
 	PRETEXT:Doctor, Heal 11 Ranks
+	PREABILITY:1,CATEGORY=Special Ability,Doctor
 	BENEFIT:The doctor can massage their nakama's muscles, increasing their physical statistics for a short time. Depending on the muscle group, the therapy can have different effects. Therapy takes half an hour to take effect and then lasts for the rest of the day. Increase the target's STR or DEX by +2 while the therapy is in effect.
-SPLASH POTIONS [ MISC ]
+SPLASH POTIONS	TYPE:MISC.Doctor	CATEGORY:FEAT
+	SOURCEPAGE:64
 	PRETEXT:Antidotes, Herbal Medicine, Heal 7
+	PREABILITY:1,CATEGORY=Special Ability,Doctor
 	BENEFIT:The doctor is now able to throw a potion at his nakama, rather than having them waste time drinking it. To successfully execute this ability the doctor must use their ranged shot skill to accurately throw the potion, up to 30ft, at their nakama. If successful, the potion's over-time effects are considered instant. For example, if a potion heals 10 HP over 10 seconds, it would instead instantly heal the target for 10 HP. However, if the doctor misses their target, the potion is destroyed without any effects. Characters without this feat cannot throw the potions with any effect, they will just be wasted.
-RUMBLE BALL [ CRAFTING ]
+RUMBLE BALL	TYPE:CRAFTING.Doctor	CATEGORY:FEAT
+	SOURCEPAGE:64
 	PRETEXT:Herbal Medicine, Heal 8 Ranks
+	PREABILITY:1,CATEGORY=Special Ability,Doctor
 	BENEFIT:Rumble balls are small, crunchy, yellowish medicine balls which give zoan-type devil fruit user's better control over their transformations for up to 3 minutes (or 30 rounds). Once consumed, the zoan user gains access to the next four additional stances in their fruit feat list (with the last stance being the exception). Additionally, changing between these stances for the duration of the rumble ball's effects can be done as a swift action instead of a standard action. These transformations would naturally become available with time and training, but rumble balls allow the zoan-type a short cut. If two are taken within 6 hours, the user loses control over their transformations and they begin to transform randomly when attempting a stance change. If a third one is taken within the 6 hours, the zoan user immediately transforms into his final stance. The final stance is uncontrollable and will attack friend and foe alike for an hour. Treat this as a crafting feat and roll your heal skill vs a DC of 15 to determine success. Check the Medicines page for the recipe information.
-VIROLOGY [ DAMAGE ]
+VIROLOGY	TYPE:DAMAGE.Doctor	CATEGORY:FEAT
+	SOURCEPAGE:64
 	PRETEXT:Microbiologist, Heal 10 Ranks
-	BENEFIT:As a full round action the doctor may throw a vial of viral fluid within 30ft. Viruses are airborne infections which quickly damage their hosts. The virus can't live long outside of a body/vial and can only travel through the air 5ft before it becomes ineffective. Each victim takes 1d6 damage per round for 2d6 rounds and spreads the virus to anyone within 5ft of them. To avoid contagion, the infected target(s) may roll a fortitude save to vs a DC of 20. Anyone who has been infected and survived is now immune.
-Special: You may take this feat more than once. Each time either increases the airborne range of the virus by 5ft or increases the damage by +2 per round.
+	PREABILITY:1,CATEGORY=Special Ability,Doctor
+	BENEFIT:As a full round action the doctor may throw a vial of viral fluid within 30ft. Viruses are airborne infections which quickly damage their hosts. The virus can't live long outside of a body/vial and can only travel through the air %1 ft before it becomes ineffective. Each victim takes 1d6+%2 damage per round for 2d6 rounds and spreads the virus to anyone within %1 ft of them. To avoid contagion, the infected target(s) may roll a fortitude save to vs a DC of 20. Anyone who has been infected and survived is now immune. Special: You may take this feat more than once. Each time either increases the airborne range of the virus by 5 ft or increases the damage by +2 per round.|5+VIROLOGY_AirborneRange|VIROLOGY_Damage
+	CHOOSE:STRING|Airborne Range|Increase Damage
+	MULT:YES
+	STACK:YES
+	ABILITY:Internal|AUTOMATIC|Virology Tracker
+Virology Tracker	CATEGORY:Internal	DEFINE:VIROLOGY_AirborneRange|0	DEFINE:VIROLOGY_Damage|0	BONUS:VAR|VIROLOGY_AirborneRange|5*count("ABILITIES","CATEGORY=FEAT","NAME=Virology (Airborne Range)")	BONUS:VAR|VIROLOGY_Damage|2*count("ABILITIES","CATEGORY=FEAT","NAME=Virology (Increase Damage)")
 
-CATEGORY=Special Ability|Marine.MOD
 # Marine
-LAW AND ORDER [ SKILL BONUS ]
+LAW AND ORDER	TYPE:SKILL BONUS.Marine	CATEGORY:FEAT
+	SOURCEPAGE:64
 	PRETEXT:Petty Officer
+	PREABILITY:1,CATEGORY=Special Ability,Marine
 	BENEFIT:Marines are in charge of the world's judicial system. You gain a permanent +1 diplomacy and +1 intimidate skill bonus.
-MORAL JUSTICE [ SKILL BONUS ]
+MORAL JUSTICE	TYPE:SKILL BONUS.Marine	CATEGORY:FEAT
+	SOURCEPAGE:64
 	PRETEXT:Law and Order, Diplomacy 6 Ranks, Cannot have Absolute Justice, Cannot be Evil
+	PREABILITY:1,CATEGORY=Special Ability,Marine
 	BENEFIT:Moral Justice is a way of thought which may not strictly follow the marine guidelines. They are friendlier and make strong allies due to their strong sense of justice and integrity. Once per day the marine may gain a +3 bonus to a diplomacy roll.
-ABSOLUTE JUSTICE [ SKILL BONUS ]
+ABSOLUTE JUSTICE	TYPE:SKILL BONUS.Marine	CATEGORY:FEAT
+	SOURCEPAGE:64
 	PRETEXT:Law and Order, Intimidate 6 Ranks, Cannot have Moral Justice, Cannot be Good
+	PREABILITY:1,CATEGORY=Special Ability,Marine
 	BENEFIT:Absolute Justice is the act of following the marine laws and guidelines exactly as written. Even their own men fear being imprisoned by them for committing the simplest of crimes. Once per day the marine may gain a +3 bonus to an intimidate roll.
-SEAMAN [ STAT BONUS ]
+SEAMAN	TYPE:STAT BONUS.Marine	CATEGORY:FEAT
+	SOURCEPAGE:64
 	PRETEXT:Chore Boy, Diplomacy or Intimidate 5 Ranks
+	PREABILITY:1,CATEGORY=Special Ability,Marine
 	BENEFIT:After sailing for a number of months at sea, performing tasks day and night, you now have a +5 speed bonus to your movement while on a ship or swimming. Additionally, you can never be knocked off balance while on a ship at sea.
-CHORE BOY/GIRL [ SKILL BONUS ]
+CHORE BOY/GIRL	TYPE:SKILL BONUS.Marine	CATEGORY:FEAT
+	SOURCEPAGE:64
 	PRETEXT:Marine
+	PREABILITY:1,CATEGORY=Special Ability,Marine
 	BENEFIT:As a new recruit to the marine's you have no power or authority. Your main job is to clean floors and do other physical chores. You build character and physical prowess during this training. Your character gains a permanent +1 bonus to fortitude saves.
-PETTY OFFICER [ STAT BONUS ]
+PETTY OFFICER	TYPE:STAT BONUS.Marine	CATEGORY:FEAT
+	SOURCEPAGE:64
 	PRETEXT:Seaman, Diplomacy or Intimidate 6 Ranks
+	PREABILITY:1,CATEGORY=Special Ability,Marine
 	BENEFIT:You have worked your body to the limit to reach this rank. You gain a permanent +1 bonus to CON and fortitude saves.
-ENSIGN [ SKILL BONUS ]
+ENSIGN	TYPE:SKILL BONUS.Marine	CATEGORY:FEAT
+	SOURCEPAGE:64
 	PRETEXT:Petty Officer, Diplomacy or Intimidate 7 Ranks
 	BENEFIT:You are now a commissioned officer with a formal education. You gain a +2 bonus to sailing and either diplomacy or intimidate.
-LIEUTENANT [ MISC ]
+LIEUTENANT	TYPE:MISC.Marine	CATEGORY:FEAT
+	SOURCEPAGE:64
 	PRETEXT:Ensign, Diplomacy or Intimidate 10 Ranks
+	PREABILITY:1,CATEGORY=Special Ability,Marine
 	BENEFIT:As a Lieutenant you now have too much work to be done by yourself. You are assigned a Marine Officer to help you complete paperwork, order your subordinates, and fight by your side. See the NPC crew members section for more information.
-#	SOURCEPAGE:66
-COMMANDER [ STAT BONUS ]
+COMMANDER	TYPE:STAT BONUS.Marine	CATEGORY:FEAT
+	SOURCEPAGE:66
 	PRETEXT:Lieutenant, CHA 18, Diplomacy or Intimidate 12 Ranks
+	PREABILITY:1,CATEGORY=Special Ability,Marine
 	BENEFIT:As a commander you now have enough authority to run your own ship. Commanders are known for being strong fighters with a lot of experience in battle. As a result you gain a +2 bonus to your defense skill. When you are in command of a ship you gain an additional +1 STR bonus.
-VICE ADMIRAL [ SKILL BONUS ]
+VICE ADMIRAL	TYPE:SKILL BONUS.Marine	CATEGORY:FEAT
+	SOURCEPAGE:66
 	PRETEXT:Commander, Diplomacy or Intimidate 14 Ranks, Must have at least one Haki Feat
+	PREABILITY:1,CATEGORY=Special Ability,Marine
 	BENEFIT:Vice Admirals are extremely strong combatants with many years of experience. They often have unique fighting styles and devil fruit powers. As a vice admiral your Marine Officer automatically gains an additional level making them just one level below you. They also gain an extra feat for that level and when you fight with them, you both gain a +2 skill bonus to the attack skill of your choice.
-SPEAR CANNONS [ DEBUFF ]
+SPEAR CANNONS	TYPE:DEBUFF.Marine	CATEGORY:FEAT
+	SOURCEPAGE:66
 	PRETEXT:Master of the Seas, Sailing 10 Ranks
+	PREABILITY:1,CATEGORY=Special Ability,Marine
 	BENEFIT:You and your crew now have access to spear cannons. These unique cannons can fire huge and heavy metal spears at the target ship. They lodge themselves in the target slowing it down by 2 knots per spear. If removed, the spears also leave huge holes in the hull which must be quickly repaired. See the cannons section for more information.
-TOUGH AS NAILS [ MISC ]
+TOUGH AS NAILS	TYPE:MISC.Marine	CATEGORY:FEAT
+	SOURCEPAGE:66
 	PRETEXT:Ensign
+	PREABILITY:1,CATEGORY=Special Ability,Marine
 	BENEFIT:Once per play session the marine may outright resist any fortitude based effect which is targeting them.
-MASTER OF THE SEAS [ STAT BONUS ]
+MASTER OF THE SEAS	TYPE:STAT BONUS.Marine	CATEGORY:FEAT
+	SOURCEPAGE:66
 	PRETEXT:Marine, Sailing 8 Ranks
+	PREABILITY:1,CATEGORY=Special Ability,Marine
 	BENEFIT:With advanced marine training, you are now educated in the fine details of sailing. Any ship you sail on gets an automatic +1 speed bonus and +1 DR bonus.
-PIRATE HUNTER [ SKILL BONUS ]
+PIRATE HUNTER	TYPE:SKILL BONUS.Marine	CATEGORY:FEAT
+	SOURCEPAGE:66
 	PRETEXT:Petty Officer, Must have fought at least one pirate crew
+	PREABILITY:1,CATEGORY=Special Ability,Marine
 	BENEFIT:You have a special hatred for pirates and have learned how to hunt them down more effectively. You gain a +1 bonus to attack and defense rolls when fighting pirate crews.
-STANDARD WEAPONRY [ SKILL BONUS ]
+STANDARD WEAPONRY	TYPE:SKILL BONUS.Marine	CATEGORY:FEAT
+	SOURCEPAGE:66
 	PRETEXT:Ensign, Primary Attack Skill 8 Ranks
+	PREABILITY:1,CATEGORY=Special Ability,Marine
 	BENEFIT:After training with the same standard marine weapons for so long, the marine has developed an affinity for them. The marine is now proficient with the following weapons and gains a +1 attack bonus when using them: Longsword, Flintlock, Musket, Spear, and Dagger.
-HAKI TRAINING [ MISC ]
+HAKI TRAINING	TYPE:MISC.Marine	CATEGORY:FEAT
+	SOURCEPAGE:66
 	PRETEXT:Standard Weaponry
+	PREABILITY:1,CATEGORY=Special Ability,Marine
 	BENEFIT:While Haki feats normally have very high prerequisites, you may start learning one a bit earlier due to your government education and training. Pick either Kenbunshoku or Busoshoku Haki and lower the skill requirement of the one you chose by 5 Ranks. Haoshoku Haki cannot be affected by this feat.
-HAND CANNONS [ STANCE ]
+HAND CANNONS	TYPE:STANCE.Marine	CATEGORY:FEAT
+	SOURCEPAGE:66
 	PRETEXT:Marine, STR 18, Unarmed Strike or Ranged Shot 10 Ranks
+	PREABILITY:1,CATEGORY=Special Ability,Marine
 	BENEFIT:While in this stance the marine cannot move and must remain planted in one spot. The marine may use their unarmed strike or ranged shot skill to throw cannon balls at the same strength as an actual cannon. They can throw one standard cannon ball as a standard action at the same range and damage as a normal ball would fire from a standard cannon. Alternatively, the marine may fire a special cannon ball as a full round action. The balls must be in or brought within the marine's reach in order for him/her to throw them
 
-CATEGORY=Special Ability|Musician.MOD
-	DESC:No jolly crew can be complete without a skilled and energetic musician to keep spirits high and a general rhythm moving throughout the ship. Most can play a large number of different instruments including piano, violin, guitar, cello, flute, and more. They set off to sea for a variety of reasons including money, experience, adventure, or for popularity. The sounds a professional musician can produce aren't just nice to listen to, but can also enhance their allies and have devastating effects on enemies. **Important Note!** - Only two musician buffs can effect an ally at any given time. If a third buff is attempted, it will overwrite the older of the current two.
-	BONUS:VAR|SecondarySkillDiplomacy,SecondarySkillIntimidate,SecondarySkillKnowledge (Local),SecondarySkillListen,SecondarySkillPerform,SecondarySkillMove Silently,SecondarySkillSleight of Hand
-BATTLE ANTHEM [ BUFF ]
+# Musician
+BATTLE ANTHEM	TYPE:BUFF.Musician	CATEGORY:FEAT
+	SOURCEPAGE:66
 	PRETEXT:Relentless Tune, Perform 10 Ranks
+	PREABILITY:1,CATEGORY=Special Ability,Musician
 	BENEFIT:As a 1 minute action you perform a heart pounding battle anthem for your crew. This can be played with any instrument. To be successful, the musician must beat a perform DC check of 21. All allies within 50ft gain a +1 bonus to their critical threat range on attack rolls. For example, a character with a 19-20 critical threat now has an 18-20. This effect lasts for 15 minutes.
-CANTINA SONG [ DEBUFF ]
+CANTINA SONG	TYPE:DEBUFF.Musician	CATEGORY:FEAT
+	SOURCEPAGE:66
 	PRETEXT:Musician, Perform 6 Ranks
+	PREABILITY:1,CATEGORY=Special Ability,Musician
 	BENEFIT:As a standard action you whistle your favorite tavern song, intoxicating all those around you as if they've had a drink or two. Each round the musician must beat a perform DC check of 18 to continue singing. This effect lasts only as long as you continue to whistle each round. Those effected take a -2 penalty to willpower saves and social skill rolls. You can perform other actions while continuing to whistle but take a +2 penalty to the DC check.
-DANCING BLADE [ DEBUFF ]
+DANCING BLADE	TYPE:DEBUFF.Musician	CATEGORY:FEAT
+	SOURCEPAGE:66
 	PRETEXT:Cantina Song, Weapon Attack 8 Ranks
+	PREABILITY:1,CATEGORY=Special Ability,Musician
 	BENEFIT:As a full round action the musician dances around their target, slicing them from the side with a melee weapon, dealing damage and reducing the target's elemental resistances by 3 until the end of battle. To be successful, the musician must defeat their opponent's defense roll normally with a weapon attack roll to deal normal damage. Then the musician must defeat the same defense roll with a perform roll to apply the resistance debuff.
-DIRECTIONAL SOUND [ MISC ]
+DIRECTIONAL SOUND	TYPE:MISC.Musician	CATEGORY:FEAT
+	SOURCEPAGE:66
 	PRETEXT:Musician, Perform 7
+	PREABILITY:1,CATEGORY=Special Ability,Musician
 	BENEFIT:Choose an offensive musician feat you already have which has a 50ft radius attack. This feat changes that attack's effective range to a 100ft long cone.
-DON! [ DAMAGE ]
+DON!	TYPE:DAMAGE.Musician	CATEGORY:FEAT
+	SOURCEPAGE:66
 	PRETEXT:Musician, Perform 5 Ranks
+	PREABILITY:1,CATEGORY=Special Ability,Musician
 	BENEFIT:As a standard action and using a percussive instrument, the musician sends a strong wave of sound at their target within 50ft causing 1d6 damage per musician's character level divided by three, rounded down. This would make the maximum damage 6d6 at level 20. For this attack to be successful, the musician must roll their perform vs a DC of 15 + half the musician's level. The target can roll their reflex save vs the same perform roll, and if successful, only suffer half damage.
-ELEMENTAL CONCERTO [ BUFF ]
+ELEMENTAL CONCERTO	TYPE:BUFF.Musician	CATEGORY:FEAT
+	SOURCEPAGE:66
 	PRETEXT:Relentless Tune, Perform 6 Ranks
+	PREABILITY:1,CATEGORY=Special Ability,Musician
 	BENEFIT:This ability takes 1 minutes to complete and may be played with any stringed instrument. Anyone who hears this concerto immediately starts to feel comfortable and warm. They gain +3 to their elemental resistances for the next 15 minutes. To determine success, the musician must roll their perform against a DC of 18.
-#	SOURCEPAGE:68
-ENTRANCING TUNE [ DEBUFF ]
+ENTRANCING TUNE	TYPE:DEBUFF.Musician	CATEGORY:FEAT
+	SOURCEPAGE:68
 	PRETEXT:Perform 4 Ranks
+	PREABILITY:1,CATEGORY=Special Ability,Musician
 	BENEFIT:The musician performs this feat with a wind instrument as a standard action. To successfully complete the tune, the musician rolls their perform vs a DC check of 20. If successful at performing the tune, the target will become charmed for 1d4 rounds. The target may roll their will save vs a DC of 15 + the musician's level to try and negate this effect on the turn is it applied.
-HORRIFYING VERSE [ DEBUFF ]
+HORRIFYING VERSE	TYPE:DEBUFF.Musician	CATEGORY:FEAT
+	SOURCEPAGE:68
 	PRETEXT:Lullaby, Intimidate 8 Ranks
+	PREABILITY:1,CATEGORY=Special Ability,Musician
 	BENEFIT:As a standard action and using the power of a stringed instrument, the musician may intimidate all targets, including allies, within 50ft. To be successful, the musician must roll their perform vs a DC of 21. Each target must make a will save roll versus a DC of 15 + the musician's level to resist the effect. If the target fails the roll, they become frightened for the 1d4 rounds.
-LULLABY [ DEBUFF ]
+LULLABY	TYPE:DEBUFF.Musician	CATEGORY:FEAT
+	SOURCEPAGE:68
 	PRETEXT:Musician
 	BENEFIT:As a full round action and using any instrument other than percussion, the musician can cause all targets within 30ft, including allies, to fall asleep. To be successful, the musician must roll their perform vs a DC check of 15 + the level of the highest level character within range. All targets get a chance to negate the effect with a will save roll against a DC of 15 + the musician's level. If their roll fails, the target falls asleep for 1d4 rounds.
-PERCUSSION OF ROCK [ BUFF ]
+PERCUSSION OF ROCK	TYPE:BUFF.Musician	CATEGORY:FEAT
+	SOURCEPAGE:68
 	PRETEXT:Relentless Tune, Perform 8 Ranks
 	BENEFIT:This song can only be played with a percussive instrument and takes 1 minute to complete. The musician must roll a perform check vs a DC of 21 to be successful. After hearing this percussive tune, the musician and his/her allies will be inspired for the next 15 minutes to defend themselves better than usual. All allies gain a +2 bonus to defensive rolls for 10 minutes.
-FESTIVAL NIGHT [ DEBUFF ]
+FESTIVAL NIGHT	TYPE:DEBUFF.Musician	CATEGORY:FEAT
+	SOURCEPAGE:68
 	PRETEXT:Musician, Perform 10 Ranks
+	PREABILITY:1,CATEGORY=Special Ability,Musician
 	BENEFIT:Using any instrument, the musician becomes a one-man concert, causing all enemies within 50ft to begin partying. Enemies can attempt to resist the effect by rolling a willpower save vs a DC of 15 + the musician's level. If they fail, they become non-aggressive, start dancing, and have fun. They ignore commands by their superiors and unless attacked, they will continue to party until the musician stops playing. All targets within range must roll a new DC check each turn the musician continues.
-RELENTLESS TUNE [ BUFF ]
+RELENTLESS TUNE	TYPE:BUFF.Musician	CATEGORY:FEAT
+	SOURCEPAGE:68
 	PRETEXT:Perform 5 Ranks
+	PREABILITY:1,CATEGORY=Special Ability,Musician
 	BENEFIT:As a 1 minute action the musician may attempt to play this tune on any instrument. The musician must successfully roll their perform against a DC of 20. If successful, all allies within 50ft gain a +2 damage bonus to their unarmed, weapon, and ranged attacks for 15 minutes.
-SHAN [ DAMAGE ]
+SHAN	TYPE:DAMAGE.Musician	CATEGORY:FEAT
+	SOURCEPAGE:68
 	PRETEXT:Musician, Perform 6 Ranks
+	PREABILITY:1,CATEGORY=Special Ability,Musician
 	BENEFIT:As a standard action and using a stringed instrument, the musician sends a high energy sound wave at an enemy within 50ft, slashing them. The damage caused is equal to half the musician's normal weapon damage, but the attack is rolled using the musician's perform skill instead of their attack skill.
-THUNDEROUS OVERTURE [ DAMAGE ]
+THUNDEROUS OVERTURE	TYPE:DAMAGE.Musician	CATEGORY:FEAT
+	SOURCEPAGE:68
 	PRETEXT:DON!, Perform 8 Ranks
+	PREABILITY:1,CATEGORY=Special Ability,Musician
 	BENEFIT:As a full round action and using any instrument, the musician sends an instantaneous 30ft long cone-shaped burst of sound exploding in front of them. The musician must roll a perform check vs a DC of 22 to successfully perform this attack. If successful, it deals 5d6 points of sonic damage to all targets within range. It also deafens them for 2d6 rounds. All targets may attempt a fortitude save vs a DC of 18 + the musician's level to avoid the deafening and to only take half damage.
-VEXING VERSES [ DEBUFF ]
+VEXING VERSES	TYPE:DEBUFF.Musician	CATEGORY:FEAT
+	SOURCEPAGE:68
 	PRETEXT:Lullaby, Perform 11 Ranks
+	PREABILITY:1,CATEGORY=Special Ability,Musician
 	BENEFIT:As a full round action the musician may use their voice to vex their foes. The musician must roll their perform vs a DC check of 23 to be successful. All targets within 50ft lose 1d6 HP every round for the next 1d6 rounds. Each target may attempt a fortitude save vs a DC of 15 + the musician's level to resist the effect.
 
-CATEGORY=Special Ability|Navigator.MOD	DESC:Navigators are rare to find, and good ones are even rarer. Navigators must be intelligent but also have good instincts and confidence in their decisions. No ship can sail successfully, especially on the Grand Line, without a skilled navigator making sure they are on course. When a navigator gets enough experience, they can even tell the future weather patterns of the day just by a quick glance at the sky. Complex currents, strange weather, maps, compasses, and other navigational charts are all essential to a navigator's success. Navigators definitely have the most responsibility while the ship is traveling, and must be confident in their skills and able to command the crew.
-	BONUS:VAR|SecondarySkillDiplomacy,SecondarySkillGather Information,SecondarySkillKnowledge (Nature),SecondarySkillListen,SecondarySkillSense Motive,SecondarySkillNavigation,SecondarySkillSailing,SecondarySkillSpot,SecondarySkilland Trapping.
-
-
-
 # Navigator
-ASTRONAVIGATION [ SKILL BONUS ]
+ASTRONAVIGATION	TYPE:SKILL BONUS.Navigator	CATEGORY:FEAT
+	SOURCEPAGE:68
 	PRETEXT:Navigator, Navigation 6 Ranks
+	PREABILITY:1,CATEGORY=Special Ability,Navigator
 	BENEFIT:Having knowledge of how the sun rises and sets, and some knowledge of how astral bodies move around the sky help you to navigate the seas. You receive a +2 navigation bonus.
-SHIFTING WINDS [ MISC ]
+SHIFTING WINDS	TYPE:MISC.Navigator	CATEGORY:FEAT
+	SOURCEPAGE:68
 	PRETEXT:Wind Reader, Navigation 10 Ranks
+	PREABILITY:1,CATEGORY=Special Ability,Navigator
 	BENEFIT:The navigator can now predict when a rainstorm will enter or leave their area. The navigator rolls a d20 to determine how many minutes are left until the winds shift. Once shifted, a rainstorm will enter the area if it's not raining, or will leave if it is already raining.
-CARTOGRAPHY [ CRAFTING ]
+CARTOGRAPHY	TYPE:CRAFTING.Navigator	CATEGORY:FEAT
+	SOURCEPAGE:68
 	PRETEXT:Navigator, Navigation 8 Ranks
+	PREABILITY:1,CATEGORY=Special Ability,Navigator
 	BENEFIT:You now have enough experience with navigation to begin charting your own maps. These maps are somewhat crude but you mark the best course, landmarks, and various notes which can help the person using the map. Anyone using these maps gain a +3 navigation bonus if they follow the indicated course. Each map takes 16 hours to chart and covers a 10 by 10 mile area.
-CURRENT MASTER [ SKILL BONUS ]
+CURRENT MASTER	TYPE:SKILL BONUS.Navigator	CATEGORY:FEAT
+	SOURCEPAGE:68
 	PRETEXT:Ocean Currents, Navigation 12 Ranks
-	BENEFIT:With advanced knowledge of currents, you can now not only read them, but predict their paths and any changes that might take place when the tides change. Any ship carrying you is immune to any dangers posed by rogue ocean currents and you may reduce your ocean-based travel time by an additional 10%.
-DEAD RECKONING [ SKILL BONUS ]
+	PREABILITY:1,CATEGORY=Special Ability,Navigator
+	BENEFIT:With advanced knowledge of currents, you can now not only read them, but predict their paths and any changes that might take place when the tides change. Any ship carrying you is immune to any dangers posed by rogue ocean currents and you may reduce your ocean-based travel time by an additional 10%%.
+DEAD RECKONING	TYPE:SKILL BONUS.Navigator	CATEGORY:FEAT
+	SOURCEPAGE:68
 	PRETEXT:Pilotage, Navigation 8 Ranks
+	PREABILITY:1,CATEGORY=Special Ability,Navigator
 	BENEFIT:Dead reckoning is the process of calculating one's current position by using a previously determined position and advancing that position based upon estimated speed, time, and course. The result is a crude map with points marked and connected by a course line. You gain a +5 navigation bonus when navigating to any previous location which you have logged during the present course. Keeping a log is not automatic.
-LIGHTNING BOLT [ DAMAGE ]
+LIGHTNING BOLT	TYPE:DAMAGE.Navigator	CATEGORY:FEAT
+	SOURCEPAGE:68
 	PRETEXT:Weather Patterns
+	PREABILITY:1,CATEGORY=Special Ability,Navigator
 	BENEFIT:As a full round action you may attempt a ranged shot roll and redirect a lightning bolt towards your opponent up to 100ft away dealing 1d6 damage per character level divided by two, rounded down. For example, a level 9 Specialist would deal 4d6 lightning damage. Roll 1d4 after the ranged shot roll to determine how many rounds you must wait until this feat may be attempted again.
-#	SOURCEPAGE:70
-LOG POSE [ MISC ]
+LOG POSE	TYPE:MISC.Navigator	CATEGORY:FEAT
+	SOURCEPAGE:70
 	PRETEXT:Navigator
+	PREABILITY:1,CATEGORY=Special Ability,Navigator
 	BENEFIT:In the Grand Line, the only form of direction you can possibly follow is your log pose. You have a full understanding of how log poses work and as long as you hold it; your ship cannot fall off course. The exception of this is if you ship gets caught in a rogue current or otherwise taken out of your control. For more information on log poses, check the Log Pose page in the item section of this document. Normal: Without this feat, anyone using a log pose must constantly watch it to make sure the ship doesn't alter its course. In the Grand Line, you can never keep a straight heading for very long.
-MAP READING [ SKILL BONUS ]
+MAP READING	TYPE:SKILL BONUS.Navigator	CATEGORY:FEAT
+	SOURCEPAGE:70
 	PRETEXT:Navigator
+	PREABILITY:1,CATEGORY=Special Ability,Navigator
 	BENEFIT:You can now read and understand navigational maps. When following a map's guidance you gain an additional +2 navigation bonus on top of whatever bonus the map's directions may provide you. Your current position must be on the map somewhere, which you can determine by spotting a landmark on the map.
-OCEAN CURRENTS [ SKILL BONUS ]
+OCEAN CURRENTS	TYPE:SKILL BONUS.Navigator	CATEGORY:FEAT
+	SOURCEPAGE:70
 	PRETEXT:Navigator
-	BENEFIT:Having knowledge of ocean currents help you plot courses which take less time and avoid unnecessary danger. Reduce the estimated travel time of your courses by 10%. This effect is only applied for ocean-based travel.
-ORIENTEERING MAPS [ CRAFTING ]
+	PREABILITY:1,CATEGORY=Special Ability,Navigator
+	BENEFIT:Having knowledge of ocean currents help you plot courses which take less time and avoid unnecessary danger. Reduce the estimated travel time of your courses by 10%%. This effect is only applied for ocean-based travel.
+ORIENTEERING MAPS	TYPE:CRAFTING.Navigator	CATEGORY:FEAT
+	SOURCEPAGE:70
 	PRETEXT:Topographic Maps, Navigation 18 Ranks
+	PREABILITY:1,CATEGORY=Special Ability,Navigator
 	BENEFIT:Orienteering maps are extremely precise and detailed. They not only display exact scale, topography, and landmarks, but also display a color based difficulty on different routes and areas. This grants anyone reading your maps an additional +2 navigation bonus, bringing the total to +7.
-PILOTAGE [ SKILL BONUS ]
+PILOTAGE	TYPE:SKILL BONUS.Navigator	CATEGORY:FEAT
+	SOURCEPAGE:70
 	PRETEXT:Map Reading, Navigation 6 Ranks
+	PREABILITY:1,CATEGORY=Special Ability,Navigator
 	BENEFIT:Using fixed visual references on the ground or sea, you can guide yourself to a destination even without a map. You receive a +2 bonus to navigation when you are within spotting range of key landmarks such as rivers, mountains, lakes, beaches, buoys, cities, roads, or other identifying marking. This bonus is added on top of any map reading bonuses.
-SKY NAVIGATION [ SKILL BONUS ]
+SKY NAVIGATION	TYPE:SKILL BONUS.Navigator	CATEGORY:FEAT
+	SOURCEPAGE:70
 	PRETEXT:Wind Reader
+	PREABILITY:1,CATEGORY=Special Ability,Navigator
 	BENEFIT:You are now able to navigate just as well in the air as you are on the surface of water. You use air currents to navigate your ship to your desired location. Your ship must be airbourne or on a sky island to take advantage of this feat. Normal: Without this feat you would normally lose all of your navigation bonuses while in the air.
-TOPOGRAPHIC MAPS [ CRAFTING ]
+TOPOGRAPHIC MAPS	TYPE:CRAFTING.Navigator	CATEGORY:FEAT
+	SOURCEPAGE:70
 	PRETEXT:Cartography, Navigation 14 Ranks
+	PREABILITY:1,CATEGORY=Special Ability,Navigator
 	BENEFIT:You can now accurately draw the topography of the land on your maps, granting anyone reading them an additional +2 navigation bonus.
-UNDERWATER NAVIGATION [ SKILL BONUS ]
+UNDERWATER NAVIGATION	TYPE:SKILL BONUS.Navigator	CATEGORY:FEAT
+	SOURCEPAGE:70
 	PRETEXT:Current Master
+	PREABILITY:1,CATEGORY=Special Ability,Navigator
 	BENEFIT:You are now able to navigate just as well underwater as you are on the surface. You use systems of currents to navigate your ship to your desired location. Your ship must be a submarine or properly coated to survive the water pressure of course.
-WEATHER PATTERNS [ MISC ]
+WEATHER PATTERNS	TYPE:MISC.Navigator	CATEGORY:FEAT
+	SOURCEPAGE:70
 	PRETEXT:Navigator
+	PREABILITY:1,CATEGORY=Special Ability,Navigator
 	BENEFIT:You're able to tell when a storm is approaching by simply taking a glance at the sky. In the Grand Line, a calm day can turn into a violent, deadly hurricane within minutes. With this feat you and your crew cannot be caught by surprise by storms or other danger weather, giving you 5 rounds to prepare for the bad weather.
-WIND READER [ BUFF ]
+WIND READER	TYPE:BUFF.Navigator	CATEGORY:FEAT
+	SOURCEPAGE:70
 	PRETEXT:Weather Patterns, Navigation 7 Ranks
+	PREABILITY:1,CATEGORY=Special Ability,Navigator
 	BENEFIT:While you are awake and on board, any ship you are navigating for gains a +2 Top Speed bonus if it has sails.
 
-CATEGORY=Special Ability|Pirate.MOD	DESC:Pirates are the current age's adventurers. The ultimate dream of any true pirate is to reach the Grand Line, travel all the way through it, and one day find One Piece which is located at the very end. However, some pirates are in it only for the reputation, riches, and power. Pirate crews are generally very close-knit groups of friends, many of which join the crew along the way through the Grand Line. Just pirates alone would never make it through such a journey so they must find all kinds of people to join them and make a fully diverse crew. The pirate's main job is to keep the crew on the correct path towards One Piece, both literally and mentally. Pirates are generally strong combatants and are good leaders. **Important Note!** - If you play a pirate but are a part of a marine crew, you'll need to work out how to role-play appropriately.
-	BONUS:VAR|SecondarySkillAppraise,SecondarySkillBalance,SecondarySkillBluff,SecondarySkillClimb,SecondarySkillDiplomacy,SecondarySkillGather Information,SecondarySkillIntimidate,SecondarySkillJump,SecondarySkillSense Motive,SecondarySkillSailing,SecondarySkillSearch,SecondarySkillSpot,SecondarySkilland Trapping.
-PEACE MAIN PIRATE [ STAT BONUS ]
+# Pirate
+PEACE MAIN PIRATE	TYPE:STAT BONUS.Pirate	CATEGORY:FEAT
+	SOURCEPAGE:70
 	PRETEXT:Pirate, Good/Neutral, cannot be a Morganeer Pirate
+	PREABILITY:1,CATEGORY=Special Ability,Pirate
 	BENEFIT:The pirate gains a permanent +3 diplomacy bonus and suffers a -3 penalty to intimidate. Peace Main pirates must follow their instincts which normally lead them into both adventure and trouble. If they are told an area is forbidden, it's pretty much a guarantee that's where they'll go next.
-MORGANEER PIRATE [ STAT BONUS ]
+MORGANEER PIRATE	TYPE:STAT BONUS.Pirate	CATEGORY:FEAT
+	SOURCEPAGE:70
 	PRETEXT:Pirate, Intimidate 4 Ranks, Evil/Neutral, cannot be a Peace Main Pirate
+	PREABILITY:1,CATEGORY=Special Ability,Pirate
 	BENEFIT:The pirate gains a permanent +3 intimidate bonus but suffers a -3 penalty to diplomacy. Morganeer pirates cannot resist the chance of obtaining power and money. If the opportunity to take advantage of people presents itself, they'll find it almost impossible to resist.
-EXTRA BOOTY [ MISC ]
+EXTRA BOOTY	TYPE:MISC.Pirate	CATEGORY:FEAT
+	SOURCEPAGE:70
 	PRETEXT:Pirate, Search 6 Ranks
+	PREABILITY:1,CATEGORY=Special Ability,Pirate
 	MULT:YES
 	STACK:YES
 	CHOOSE:NOCHOICE
 	BENEFIT:When the pirate or the crew with him opens a chest or other significant item container, the pirate may roll a 1d4. If the result is a 4, the chest will contain an extra and powerful/useful item. Containers such as barrels, lunchboxes, refrigerators, cans, etc are not significant enough to trigger this effect. Bodies and broad room searches do not count either. Special: This feat may be taken once more, allowing the pirate to roll a 3 or 4 to trigger the effect.
-EXECUTIONER'S DELIGHT [ MISC ]
+EXECUTIONER'S DELIGHT	TYPE:MISC.Pirate	CATEGORY:FEAT
+	SOURCEPAGE:70
 	PRETEXT:Morganeer Pirate, Intimidate 8 Ranks
+	PREABILITY:1,CATEGORY=Special Ability,Pirate
 	BENEFIT:When you land the killing blow on an opponent you feel a surge of adrenaline and joy. You instantly regenerate 1d6 HP + an additional 1d6 HP every 5 character levels. This effect does not stack with any other feats which grant HP regeneration when attacking.
-WELL OILED MACHINE [ SKILL BONUS ]
+WELL OILED MACHINE	TYPE:SKILL BONUS.Pirate	CATEGORY:FEAT
+	SOURCEPAGE:70
 	PRETEXT:Peace Main Pirate, CHA 16
+	PREABILITY:1,CATEGORY=Special Ability,Pirate
 	BENEFIT:The pirate's crew works together flawlessly when attacking. When the crew is executing a "combined attack" they no longer suffer a -2 penalty to their attack rolls. See the Advanced Combat section for more information on combined attacks.
-YOHOHOHOHO [ MISC ]
+YOHOHOHOHO	TYPE:MISC.Pirate	CATEGORY:FEAT
+	SOURCEPAGE:70
 	PRETEXT:Pirate, Willpower Save 8 Ranks
+	PREABILITY:1,CATEGORY=Special Ability,Pirate
 	BENEFIT:Once per play session the pirate may outright resist any willpower based effect which is targeting them.
-#	SOURCEPAGE:72
-SWASHBUCKLER [ SKILL BONUS ]
+SWASHBUCKLER	TYPE:SKILL BONUS.Pirate	CATEGORY:FEAT
+	SOURCEPAGE:72
 	PRETEXT:Pirate, Defense 8 Ranks
+	PREABILITY:1,CATEGORY=Special Ability,Pirate
 	BENEFIT:The pirate acquires proficiency with light shields. The pirate gains a +2 defense bonus when wielding a light shield.
-VIKING [ SKILL BONUS ]
+VIKING	TYPE:SKILL BONUS.Pirate	CATEGORY:FEAT
+	SOURCEPAGE:72
 	PRETEXT:Pirate, Weapon Attack 10 Ranks
+	PREABILITY:1,CATEGORY=Special Ability,Pirate
 	BENEFIT:The pirate gains a +2 damage bonus when wielding hammers, axes, and medium shields. The damage bonus only applies to the aforementioned weapon types. Wielding a sword and medium shield would not give the sword a +2 damage bonus, but would give a shield bash a +2 damage bonus.
-UNSTOPPABLE LOYALTY [ STANCE ]
+UNSTOPPABLE LOYALTY	TYPE:STANCE.Pirate	CATEGORY:FEAT
+	SOURCEPAGE:72
 	PRETEXT:Peace Main Pirate, Pirate Alliance
+	PREABILITY:1,CATEGORY=Special Ability,Pirate
 	BENEFIT:As a standard action the pirate may switch into this stance. As long as a member of the pirate's crew is alive and in imminent danger, the pirate is virtually immortal. The pirate's HP cannot lower below 1 HP and any status effects are removed at the beginning of their turn. This stance can only be activated once per play session and can only be maintained for up to 10 rounds. The stance cannot be exited until all 10 rounds are up. When the stance finally runs out, the pirate will fall unconscious for a full day. The pirate cannot be cured of unconsciousness during this time. If the battle ends before the stance runs out, the pirate may exit the stance and avoid the unconscious effect.
-UNENDING SLAUGHTER [ STANCE ]
+UNENDING SLAUGHTER	TYPE:STANCE.Pirate	CATEGORY:FEAT
+	SOURCEPAGE:72
 	PRETEXT:Morganeer Pirate, Enslavement
+	PREABILITY:1,CATEGORY=Special Ability,Pirate
 	BENEFIT:As a standard action the pirate may switch into this stance. As long as an enemy remains standing the pirate is virtually immortal. The pirate's HP cannot lower below 1 HP and any status effects are removed at the beginning of their turn. The pirate may only perform offensive actions while in this stance. Only if an opponent is out of range can the pirate waste time on a movement action. This stance can only be activated once per play session and can only be maintained for up to 10 rounds. The stance cannot be exited until all 10 rounds are up. When the stance finally runs out, the pirate will fall unconscious for a full day. The pirate cannot be cured of unconsciousness during this time. If the battle ends before the stance runs out, the pirate may exit the stance and avoid the unconscious effect.
-HURRICANE [ DAMAGE ]
+HURRICANE	TYPE:DAMAGE.Pirate	CATEGORY:FEAT
+	SOURCEPAGE:72
 	PRETEXT:Pirate, Any Attack Skill 12+ Ranks
+	PREABILITY:1,CATEGORY=Special Ability,Pirate
 	BENEFIT:This feat may be activated once per day as a full round action. All attacks during the next 5 rounds are dealt in a broad cone reaching up to 25 ft away. For example, a punch could strike multiple targets in front of the pirate up to 25ft away. Long range attacks, such as with a rifle, lose much of their range but attack in a cone using this feat. This feat does not discriminate between friend and foe. Each target has the opportunity to roll their defense normally.
-ENSLAVEMENT [ MISC ]
+ENSLAVEMENT	TYPE:MISC.Pirate	CATEGORY:FEAT
+	SOURCEPAGE:72
 	PRETEXT:Executioner's Delight, Intimidate 12 Ranks
+	PREABILITY:1,CATEGORY=Special Ability,Pirate
 	BENEFIT:As a standard action the pirate may attempt to enslave a target during combat. The target may roll their willpower save vs a DC of 15 + the pirate's character level. If the target fails the check, they switch sides and begin fighting their former allies for 1d6 rounds. The pirate may only enslave a single target at a time.
-PIRATE ALLIANCE [ MISC ]
+PIRATE ALLIANCE	TYPE:MISC.Pirate	CATEGORY:FEAT
+	SOURCEPAGE:72
 	PRETEXT:Well Oiled Machine, Diplomacy 12 Ranks
+	PREABILITY:1,CATEGORY=Special Ability,Pirate
 	BENEFIT:Once per play session you may call upon an ally peace main pirate to come to your aid via Den Den Mushi. Three pirates will arrive 3 rounds after using this full round action and assist you however possible. The pirates will be equal level to the peace main pirate and have average attack and support capabilities. The pirates will leave after the current battle or event is over.
-SEA LEGS [ SKILL BONUS ]
+SEA LEGS	TYPE:SKILL BONUS.Pirate	CATEGORY:FEAT
+	SOURCEPAGE:72
 	PRETEXT:Pirate, Balance 4 Ranks
+	PREABILITY:1,CATEGORY=Special Ability,Pirate
 	BENEFIT:A pirate is never thrown off balance when aboard a ship. Even when fighting during a thunderstorm, they don't take any penalty to balance, jump, tumble, climb, or attack rolls.
 
-CATEGORY=Special Ability|Scientist.MOD	DESC:Scientists are rare to find on a ship these days, but it's not unheard of. Scientists are all about experiments and creating new and interesting technologies. With vast amounts of intelligence, they observe and study the world around them. Scientists are great at enhancing weapon capabilities, adding new features to ships and creating usually new and exciting items. The reason scientists are rare to find at sea is that they need a lab in which to work. With delicate experiments, it would be impossible to perform them on rough seas. Sea water is also a constant problem due to the rust and damage it can cause to mechanical instruments. To have a scientist onboard means to customize the ship to suit their needs, however the trouble may well be worth it. Scientists may be able to solve otherwise impossible problems for the crew or the residents of foreign islands.
-	BONUS:VAR|SecondarySkillAppraise,SecondarySkillBluff,SecondarySkillGatherInformation,SecondarySkillInvent,SecondarySkillResearch,SecondarySkillandTrapping.	
-	BONUS:ABILITYPOOL|Secondary Skill Knowledge|1
-CHEMICAL GRENADE [ DAMAGE ]
+# Scientist
+CHEMICAL GRENADE	TYPE:DAMAGE.Scientist	CATEGORY:FEAT
+	SOURCEPAGE:72
 	PRETEXT:Scientist
+	PREABILITY:1,CATEGORY=Special Ability,Scientist
 	BENEFIT:As a full-round action the scientist may lob a chemical grenade up to 50ft with an effect radius of 10ft. The grenade deals 1d6 corrosive damage plus an additional 1d6 per 4 character levels of the scientist, rounded down.
-CREATE POWERED SUIT [ CRAFTING ]
+CREATE POWERED SUIT	TYPE:CRAFTING.Scientist	CATEGORY:FEAT
+	SOURCEPAGE:72
 	PRETEXT:Scientist, Invent 8 Ranks
+	PREABILITY:1,CATEGORY=Special Ability,Scientist
 	BENEFIT:The scientist now has the skills to create their very own power suits which can only be operated by them. The suits can be made of any material as long as the scientist knows how to use it and has access to the machines necessary to process the materials. The suit may contain a variety of powers similar to cyborg implant abilities. Work with your DM to determine the amount of materials needed, time required, difficulty of the invent DC roll, and the final result of your crafting attempt. Note that the suits can improve the scientist's DC, but will eventually fall apart if they take too much damage.
-CYBORG REPAIRMAN [ MISC ]
+CYBORG REPAIRMAN	TYPE:MISC.Scientist	CATEGORY:FEAT
+	SOURCEPAGE:72
 	PRETEXT:Scientist, Invent 6 Ranks
+	PREABILITY:1,CATEGORY=Special Ability,Scientist
 	BENEFIT:As a full-round action, you may now heal cyborgs using your invent skill. Roll your invent skill vs a DC of 17. If successful, you heal the cyborg for 1d6 points of HP.
-CYBORG SURGERY [ MISC ]
+CYBORG SURGERY	TYPE:MISC.Scientist	CATEGORY:FEAT
+	SOURCEPAGE:72
 	PRETEXT:Cyborg Repairman, Invent 10 Ranks
+	PREABILITY:1,CATEGORY=Special Ability,Scientist
 	BENEFIT:You may now perform surgery on all races using cyborg implants to help sustain their life. This feat may only be used on a target that is dying (HP below 0), and who is not currently classified as a cyborg or dead. Each implant requires a successful invent skill roll vs a DC of 20. Each implant will instantly heal 10 points of HP. If a target has three or more implants, their race will change to a cyborg. If the invent roll fails, the target takes 5 damage.
-DEVIL FRUIT RESEARCH [ MISC ]
+DEVIL FRUIT RESEARCH	TYPE:MISC.Scientist	CATEGORY:FEAT
+	SOURCEPAGE:72
 	PRETEXT:Scientist, INT 16, must have seen a devil fruit before in-person.
+	PREABILITY:1,CATEGORY=Special Ability,Scientist
 	MULT:YES
 	STACK:YES
 	CHOOSE:NOCHOICE
-	BENEFIT:You now have enough knowledge to try and predict the outcome of eating any given devil fruit, even if it's not listed in any books. This process isn't guaranteed to work, but it's much better than just randomly eating the fruit and hoping for the best. You have a 50% chance to gain enough knowledge to tell roughly what the fruit's abilities are. However, you also have a 50% chance of being completely wrong. The DM should perform this roll secretly and provide the necessary details. This feat cannot be used to identify any devil fruits obtained during character creation. Special: You may take this feat two more times. Each time increases your success rate by an additional 20%.
+	BENEFIT:You now have enough knowledge to try and predict the outcome of eating any given devil fruit, even if it's not listed in any books. This process isn't guaranteed to work, but it's much better than just randomly eating the fruit and hoping for the best. You have a 50%% chance to gain enough knowledge to tell roughly what the fruit's abilities are. However, you also have a 50%% chance of being completely wrong. The DM should perform this roll secretly and provide the necessary details. This feat cannot be used to identify any devil fruits obtained during character creation. Special: You may take this feat two more times. Each time increases your success rate by an additional 20%%.
 #	SOURCEPAGE:74
-DISCERN DEVIL FRUIT [ MISC ]
+DISCERN DEVIL FRUIT	TYPE:MISC.Scientist	CATEGORY:FEAT
+	SOURCEPAGE:74
 	PRETEXT:Devil Fruit Research, Research 5 Ranks
-	BENEFIT:You can now easily identify if someone is using a devil fruit ability. While a normal person may see an ability as a trick, natural/cyborg ability, or supernatural phenomenon, you can spot a fruit's powers like its second nature. You gain a +5 to spot checks when trying to determine whether someone is using a fruit's ability. If successful, you also have a 25% chance of figuring out the nature of the devil fruit based on the ability you spotted. This special spot action may be used once per combat turn.
-GRAND LINE PHENOMENON [ MISC ]
+	PREABILITY:1,CATEGORY=Special Ability,Scientist
+	BENEFIT:You can now easily identify if someone is using a devil fruit ability. While a normal person may see an ability as a trick, natural/cyborg ability, or supernatural phenomenon, you can spot a fruit's powers like its second nature. You gain a +5 to spot checks when trying to determine whether someone is using a fruit's ability. If successful, you also have a 25%% chance of figuring out the nature of the devil fruit based on the ability you spotted. This special spot action may be used once per combat turn.
+GRAND LINE PHENOMENON	TYPE:MISC.Scientist	CATEGORY:FEAT
+	SOURCEPAGE:74
 	PRETEXT:Scientist, Research 8 Ranks
+	PREABILITY:1,CATEGORY=Special Ability,Scientist
 	BENEFIT:When faced with an unknown phenomenon, the scientist may roll their research skill vs a DC of 20. If successful, the scientist will immediately gain knowledge of the phemomenon and how to avoid/survive it. If the scientist fails the roll, they gain false knowledge and may, inadvertently, lead their crew into danger.
-IMPOSE PARADOX [ DEBUFF ]
+IMPOSE PARADOX	TYPE:DEBUFF.Scientist	CATEGORY:FEAT
+	SOURCEPAGE:74
 	PRETEXT:Scientist, INT 18
+	PREABILITY:1,CATEGORY=Special Ability,Scientist
 	BENEFIT:As a standard action, the scientist imposes a paradoxical situation upon anyone within 20ft. Creatures within range, including the scientist, must roll their INT (INT Mod + D20) vs a DC of 12. If unsuccessful, the creature becomes confused for 3 rounds.
-KAIROSEKI MASTERY [ CRAFTING ]
+KAIROSEKI MASTERY	TYPE:CRAFTING.Scientist	CATEGORY:FEAT
+	SOURCEPAGE:74
 	PRETEXT:Scientist, Invent 12 Ranks
+	PREABILITY:1,CATEGORY=Special Ability,Scientist
 	BENEFIT:You have mastered the crafting of sea-stone items and weaponry. As long as you have access to raw sea stone and some basic tools/machinery, you can craft almost anything out of the unique and malleable stone. Nets, jewelry, handcuffs, ship plating, armor, weapons, the possibilities are endless. You use roughly twice the weight of the end product in sea stone during the crafting process. Items created from sea-stone have the same base stats as similar steel-items, however they will weaken devil fruit users on contact with their skin.
-MECHANICAL EFFICIENCY [ CRAFTING ]
+MECHANICAL EFFICIENCY	TYPE:CRAFTING.Scientist	CATEGORY:FEAT
+	SOURCEPAGE:74
 	PRETEXT:Scientist, Invent 8 Ranks
-	BENEFIT:The scientist may now roll their invent skill to try and improve the efficiency of a ship's engine system. If successful, the engine will use roughly 50% less fuel than normal. Roll the invent skill vs a DC of 20 to see if the experiment is a success.
-MINION [ MISC ]
+	PREABILITY:1,CATEGORY=Special Ability,Scientist
+	BENEFIT:The scientist may now roll their invent skill to try and improve the efficiency of a ship's engine system. If successful, the engine will use roughly 50%% less fuel than normal. Roll the invent skill vs a DC of 20 to see if the experiment is a success.
+MINION	TYPE:MISC.Scientist	CATEGORY:FEAT
+	SOURCEPAGE:74
 	PRETEXT:Scientist, INT 16
+	PREABILITY:1,CATEGORY=Special Ability,Scientist
 	BENEFIT:Scientists are typically weak melee fighters and therefore create minions to fight for them instead. These minions are of the scientists own design but are often robot, cyborg, or zombie-like. Once this feat is purchased you can pay 1d6 multiplied by 10k in beli to create your minion. You may choose the class of your minion out of the following choices: Warrior, Rogue, Swordsman, or Brawler. You must provide them a weapon if you wish for them to use one. See the Minion section for more information. Each time you create a minion, the previous minion immediately decomposes. Special: Each time you create a minion roll d20. If you get a 20, the minion should be treated as if it has a devil fruit ability. The devil fruit should be assigned randomly via the DM.
-POWERED SUIT MASTERY [ MISC ]
+POWERED SUIT MASTERY	TYPE:MISC.Scientist	CATEGORY:FEAT
+	SOURCEPAGE:74
 	PRETEXT:Create Powered Suit, Invent 10 Ranks
+	PREABILITY:1,CATEGORY=Special Ability,Scientist
 	BENEFIT:The scientist's powered suit gains one additional cyborg implant, +1 DR, +1 defense, and +5 land movement speed.
-RESEARCH ASSISTANT [ SKILL BONUS ]
+RESEARCH ASSISTANT	TYPE:SKILL BONUS.Scientist	CATEGORY:FEAT
+	SOURCEPAGE:74
 	PRETEXT:Scientist, Research 7 Ranks
+	PREABILITY:1,CATEGORY=Special Ability,Scientist
 	BENEFIT:The scientist can now assist others with their research, regardless of the subject. Whoever they are assisting gains a +5 research bonus on their research skill rolls.
-WORKING ALONE [ SKILL BONUS ]
+WORKING ALONE	TYPE:SKILL BONUS.Scientist	CATEGORY:FEAT
+	SOURCEPAGE:74
 	PRETEXT:Scientist
+	PREABILITY:1,CATEGORY=Special Ability,Scientist
 	BENEFIT:When working alone in a room, the scientist gains a +2 skill bonus to their invent skill rolls. If anyone enters the room the scientist must wait at least an hour before this bonus can apply again.
 
 # Shipwright
-CATEGORY=Special Ability|Shipwright.MOD	DESC:Shipwrights are in charge of making sure the ship stays in one piece. Without a shipwright, crews may be able to patch holes and glue things back together but the ship can never be truly repaired without a skilled shipwright there to supervise. A ship without a shipwright to take care of it will degrade over time and eventually fall apart. Other than repairing the ship, shipwrights can also add new features to the ship, build new ones, repair other ships and structures for profit, and provide detailed information about enemy ships and their possible weaknesses. Like characters, ships too have their own personalities and room to grow. Buying a new ship when your current one breaks down is an option, but the more familiar the ship is with the crew, the better it will perform. Shipwrights make this possible since they can keep the ship happy and maintained.
-	BONUS:VAR|SecondarySkillAppraise,SecondarySkillBalance,SecondarySkillClimb,SecondarySkillJump,SecondarySkillSleightofHand,SecondarySkillInvent,SecondarySkillEngineering,SecondarySkillSailing,SecondarySkillTumble
-ARTILLERY TRAINING [ STAT BONUS ]
+ARTILLERY TRAINING	TYPE:STAT BONUS.Shipwright	CATEGORY:FEAT
+	SOURCEPAGE:74
 	PRETEXT:Naval Engineering
+	PREABILITY:1,CATEGORY=Special Ability,Shipwright
 	BENEFIT:Having knowledge of weapons and trajectory, you are now able to create powerful and accurate cannons for your ship. Add a +2 bonus to the attack and damage of your ship's cannons. See the Shipbuilding section for more details about cannons.
-BEAM! [CRAFTING ]
+BEAM!	TYPE:CRAFTING.Shipwright	CATEGORY:FEAT
+	SOURCEPAGE:74
 	PRETEXT:Artillery Training, Engineering 12 Ranks
+	PREABILITY:1,CATEGORY=Special Ability,Shipwright
 	BENEFIT:Beams are extremely powerful weapons which can be mounted on ships. Unlike cannons, beams fire instantly in a straight line causing massive physical and heat damage. One solid hit from a beam would destroy most ships. When you fire a beam it consumes a lot of fuel, but the sacrifice is well worth it. This is a crafting skill so make sure you have supplies and roll your engineering to determine the quality of beam you create.
-CHICKEN VOYAGE [ CRAFTING ]
+CHICKEN VOYAGE	TYPE:CRAFTING.Shipwright	CATEGORY:FEAT
+	SOURCEPAGE:74
 	PRETEXT:Paddlewheels
+	PREABILITY:1,CATEGORY=Special Ability,Shipwright
 	BENEFIT:Chicken Voyage is a high speed, high cost maneuver which can essentially work as a ship's dodge mechanism. When this mechanism is activated it will propel the ship backwards 100ft in a single turn, even if you current have forward momentum. This is an emergency action to avoid cannon fire or possibly beam attacks which would otherwise destroy your ship completely. See the Shipbuilding section for more details on the DC of the engineering roll.
-COATING [ CRAFTING ]
+COATING	TYPE:CRAFTING.Shipwright	CATEGORY:FEAT
+	SOURCEPAGE:74
 	PRETEXT:Shipwright, Engineering 16 Ranks
+	PREABILITY:1,CATEGORY=Special Ability,Shipwright
 	BENEFIT:There are two types of coating which have huge benefits in the One Piece world. First is sea-stone, which can be used to coat the underside of a ship to avoid sea kings. This allows a ship to pass through the calm belt without worry, which is normally a death trap. The second is a special gelatin coating which can be inflated with air, forming a bubble around the ship. This bubble is completely resistant to water pressure, allowing a ship to literally sail under the surface on sea currents instead of wind. This gelatin coating is the only way to for a normal ship to sail to Fishman Island which is miles under the surface. See the Shipbuilding section for more details on the DC of the engineering rolls.
-COUP DE BURST [ CRAFTING ]
+COUP DE BURST	TYPE:CRAFTING.Shipwright	CATEGORY:FEAT
+	SOURCEPAGE:74
 	PRETEXT:Paddlewheels, Beam!
+	PREABILITY:1,CATEGORY=Special Ability,Shipwright
 	BENEFIT:A coup de burst or "Burst Blow" is the action of shooting highly pressurized air out the back of the ship in order to propel it forward with amazing speed. To build this feature, you will need to add a nozzle to the back of the ship where your engine and direct the air through. This maneuver can also be used to launch the ship into the air, making it fly for a short time. You will need a strong ship to withstand the resulting fall though. See the Shipbuilding section for more details on the DC of the engineering roll.
-#	SOURCEPAGE:76
-LUXURY ROOMS [CRAFTING ]
+LUXURY ROOMS	TYPE:CRAFTING.Shipwright	CATEGORY:FEAT
+	SOURCEPAGE:76
 	PRETEXT:Naval Engineering, Engineering 10 Ranks
+	PREABILITY:1,CATEGORY=Special Ability,Shipwright
 	BENEFIT:You can now build custom rooms which provide secondary skill bonuses to those working inside them. These rooms include: library, workroom, bathhouse, crow's nest (enclosed), pool, bar, aquarium, game room, garden, dojo, sick bay, auditorium, jail, and dining room. See the Shipbuilding section for more information on the DC of each room.
-NAVAL ENGINEERING [CRAFTING ]
+NAVAL ENGINEERING	TYPE:CRAFTING.Shipwright	CATEGORY:FEAT
+	SOURCEPAGE:76
 	PRETEXT:Seamless Repairs, Engineering 8 Ranks
+	PREABILITY:1,CATEGORY=Special Ability,Shipwright
 	BENEFIT:You are now able to build ships from scratch. Depending on the engineering roll, the ship's quality can vary greatly. A natural 1 on an engineering roll should be treated as a complete failure and a natural 20 would be a perfect build with extra features. Standard ships move using sails and have only the basic types of rooms including: kitchen, sleeping quarters, crow's nest, and storage. See the Shipbuilding section for more details.
-OFFENSIVE DISMANTLING [ DAMAGE ]
+OFFENSIVE DISMANTLING	TYPE:DAMAGE.Shipwright	CATEGORY:FEAT
+	SOURCEPAGE:76
 	PRETEXT:Ship Breaking, Engineering 8 Ranks
+	PREABILITY:1,CATEGORY=Special Ability,Shipwright
 	BENEFIT:When aboard an enemy's vessel, you can begin dismantling it with great haste. Each part of the ship takes five minutes to completely strip apart, ten minutes for large ships. If you're not stopped, you can sink their ship before they even know what happened. This process can be loud though, so it's hard to do without being detected. Each creature aboard the ship can roll a listen check against a DC of 15 to detect you working. You may roll an engineering check after successfully dismantling a section of the ship to find out what supplies you have stolen.
-PADDLE WHEELS [CRAFTING ]
+PADDLE WHEELS	TYPE:CRAFTING.Shipwright	CATEGORY:FEAT
+	SOURCEPAGE:76
 	PRETEXT:Naval Engineering, Engineering 10 Ranks
+	PREABILITY:1,CATEGORY=Special Ability,Shipwright
 	BENEFIT:With new knowledge of engine systems, you can now build ships with powerful paddle wheels. These allow your ship to move when there is no wind, and greatly accelerate it when wind is present. You can also control the ship's speed very accurately when using paddle wheels alone. See the shipbuilding section for more about paddle wheels.
-ROPE ACTION [ DAMAGE]
+ROPE ACTION	TYPE:DAMAGE	CATEGORY:FEAT
+	SOURCEPAGE:76
 	PRETEXT:Shipwright, 14 DEX
+	PREABILITY:1,CATEGORY=Special Ability,Shipwright
 	BENEFIT:This feat allows you to use any rope you have available and create an attack using it. You can attack directly using the rope or attach your weapon to it first, slamming it into your enemy with increased range. The range in which you can successfully manipulate the rope is 20ft + 5ft multiplied by your STR modifier. So with a strength stat of 16, you could manipulate your rope up to 35ft away. The damage of the rope is 1d6 + STR mod. To successfully hit an enemy, you use the ranged shot skill, even if a melee weapon is attached.
-SEAMLESS REPAIRS [CRAFTING ]
+SEAMLESS REPAIRS	TYPE:CRAFTING.Shipwright	CATEGORY:FEAT
+	SOURCEPAGE:76
 	PRETEXT:Shipwright, Engineering 6 Ranks
+	PREABILITY:1,CATEGORY=Special Ability,Shipwright
 	BENEFIT:You can often repair damage so well that damaged areas often look brand new when you're through with them. This is probably the most important job for a shipwright while on a long journey. As a 10-minute action, roll engineering to determine success. Divide your resulting roll by 5 and that is the number of HP you repair the ship by.
-SHIP BREAKING [CRAFTING ]
+SHIP BREAKING	TYPE:CRAFTING.Shipwright	CATEGORY:FEAT
+	SOURCEPAGE:76
 	PRETEXT:Shipwright, Engineering 7 Ranks
+	PREABILITY:1,CATEGORY=Special Ability,Shipwright
 	BENEFIT:Ship breaking is the act of dismantling ships. Dismantling gives you access to parts and materials which you can use to build a new ships or other items. Depending on the engineering roll and the ship you are breaking down, the quality and amount of materials you can find vary.
-SOLDIER DOCK SYSTEM [CRAFTING ]
+SOLDIER DOCK SYSTEM	TYPE:CRAFTING.Shipwright	CATEGORY:FEAT
+	SOURCEPAGE:76
 	PRETEXT:Paddlewheels, Engineering 16 Ranks
+	PREABILITY:1,CATEGORY=Special Ability,Shipwright
 	BENEFIT:A solider dock system allows your ship to transform into various "channels" or modes. For example, a ship may appear to be sail powered but with the flip of a switch, it can transform to use paddlewheels which were previously hidden in the ship's hull. It may also open bays or hatches which allow smaller ships to exit the main ship. For example, a single person speed boat might exit through the back of the ship. Each channel you add needs to be numbered: Channel Zero, Channel One, etc. Multiple channels can be active at once, but only if they don't interfere with each other or otherwise overload the engine.
+
 
