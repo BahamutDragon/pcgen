@@ -136,7 +136,7 @@ CLASS:Deep Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Hi
 1																		BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Sorcerer")+var("CL=Sorcerer")))	DEFINE:DragonCL|0
 1	VISION:Blindsense (60')|Darkvision (120')|Keen Senses	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
 ###Block: Breath Weapon and standard immunities
-1	DEFINE:BreathWeaponCone|max((SIZE-1)*10,15)	DEFINE:BreathWeaponDice|(2*DragonAge)	DEFINE:BreathWeaponDamageDie|6	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Flesh-Corrosive Gas
+1	DEFINE:BreathWeaponCone|0	BONUS:VAR|BreathWeaponCone|max((SIZE-1)*10,15)	DEFINE:BreathWeaponDice|0	BONUS:VAR|BreathWeaponDice|(2*DragonAge)	DEFINE:BreathWeaponDamageDie|0	BONUS:VAR|BreathWeaponDamageDie|6	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Flesh-Corrosive Gas
 #1	#secondary breath
 1																						ABILITY:Special Ability|AUTOMATIC|Immunity to Sleep
 1																						ABILITY:Special Ability|AUTOMATIC|Immunity to Paralysis
@@ -173,25 +173,25 @@ CLASS:Song Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Bl
 1																		BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Sorcerer")+var("CL=Sorcerer")))	DEFINE:DragonCL|0
 1	VISION:Blindsense (60')|Darkvision (120')|Keen Senses	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
 ###Block: Breath Weapon and standard immunities
-1	DEFINE:BreathWeaponCone|max((SIZE-1)*10,15)	DEFINE:BreathWeaponDice|(2*DragonAge)	DEFINE:BreathWeaponDamageDie|6	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Electrically-Charged Gas
+1	DEFINE:BreathWeaponCone|0	BONUS:VAR|BreathWeaponCone|max((SIZE-1)*10,15)	DEFINE:BreathWeaponDice|0	BONUS:VAR|BreathWeaponDice|(2*DragonAge)	DEFINE:BreathWeaponDamageDie|0	BONUS:VAR|BreathWeaponDamageDie|6	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Electrically-Charged Gas
 #1	#secondary breath
 1																						ABILITY:Special Ability|AUTOMATIC|Immunity to Sleep
 1																						ABILITY:Special Ability|AUTOMATIC|Immunity to Paralysis
 ###Block: Frightful Presence
 1	BONUS:VAR|FrightfulPresRange|DragonAge*30|PREVARGTEQ:DragonAge,5	ABILITY:Special Ability|AUTOMATIC|Frightful Presence
-###Block: Normal Progression
-1									DEFINE:DragonAge|1						ABILITY:Special Ability|AUTOMATIC|Alternate Form|Immunity to Electricity|Immunity to Poison|Tongues|True Seeing	SPELLS:Innate|TIMES=1|TIMEUNIT=Hour|CASTERLEVEL=DragonCL|Darkness|Light
-8									DEFINE:DragonAge|2
-11									DEFINE:DragonAge|3																									SPELLS:Innate|TIMES=2|CASTERLEVEL=DragonCL|Feather Fall
-14									DEFINE:DragonAge|4	ADD:SPELLCASTER|Sorcerer																				SPELLS:Innate|TIMES=2|CASTERLEVEL=DragonCL|Blink
-17	SR:20	DR:5/Magic	BONUS:PCLEVEL|Sorcerer|1	DEFINE:DragonAge|5
-20	SR:23			BONUS:PCLEVEL|Sorcerer|1	DEFINE:DragonAge|6																									SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Teleport,15+CHA
-23	SR:25	DR:10/Magic	BONUS:PCLEVEL|Sorcerer|1	DEFINE:DragonAge|7
-26	SR:28			BONUS:PCLEVEL|Sorcerer|1	DEFINE:DragonAge|8																									SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Heal,16+CHA
-29	SR:29	DR:15/Magic	BONUS:PCLEVEL|Sorcerer|1	DEFINE:DragonAge|9
-32	SR:31			BONUS:PCLEVEL|Sorcerer|1	DEFINE:DragonAge|10																									SPELLS:Innate|TIMES=2|CASTERLEVEL=DragonCL|Polymorph Any Object,18+CHA
-35	SR:32	DR:20/Magic	BONUS:PCLEVEL|Sorcerer|1	DEFINE:DragonAge|11
-38	SR:34			BONUS:PCLEVEL|Sorcerer|1	DEFINE:DragonAge|12																									SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Plane Shift,17+CHA
+###Block: Normal Progression		
+1									DEFINE:DragonAge|0	BONUS:VAR|DragonAge|1						ABILITY:Special Ability|AUTOMATIC|Alternate Form|Immunity to Electricity|Immunity to Poison|Tongues|True Seeing	SPELLS:Innate|TIMES=1|TIMEUNIT=Hour|CASTERLEVEL=DragonCL|Darkness|Light
+8									BONUS:VAR|DragonAge|1
+11									BONUS:VAR|DragonAge|1																									SPELLS:Innate|TIMES=2|CASTERLEVEL=DragonCL|Feather Fall
+14									BONUS:VAR|DragonAge|1	ADD:SPELLCASTER|Sorcerer																				SPELLS:Innate|TIMES=2|CASTERLEVEL=DragonCL|Blink
+17	SR:20	DR:5/Magic	BONUS:PCLEVEL|Sorcerer|1	BONUS:VAR|DragonAge|1
+20	SR:23			BONUS:PCLEVEL|Sorcerer|1	BONUS:VAR|DragonAge|1																									SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Teleport,15+CHA
+23	SR:25	DR:10/Magic	BONUS:PCLEVEL|Sorcerer|1	BONUS:VAR|DragonAge|1
+26	SR:28			BONUS:PCLEVEL|Sorcerer|1	BONUS:VAR|DragonAge|1																									SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Heal,16+CHA
+29	SR:29	DR:15/Magic	BONUS:PCLEVEL|Sorcerer|1	BONUS:VAR|DragonAge|1
+32	SR:31			BONUS:PCLEVEL|Sorcerer|1	BONUS:VAR|DragonAge|1																								SPELLS:Innate|TIMES=2|CASTERLEVEL=DragonCL|Polymorph Any Object,18+CHA
+35	SR:32	DR:20/Magic	BONUS:PCLEVEL|Sorcerer|1	BONUS:VAR|DragonAge|1
+38	SR:34			BONUS:PCLEVEL|Sorcerer|1	BONUS:VAR|DragonAge|1																									SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Plane Shift,17+CHA
 16				BONUS:PCLEVEL|Sorcerer|1
 19				BONUS:PCLEVEL|Sorcerer|1
 22				BONUS:PCLEVEL|Sorcerer|1
