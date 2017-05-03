@@ -13,7 +13,7 @@ Vulnerability to Water Affecting Spells			CATEGORY:Special Ability	TYPE:SpecialQ
 #Immunity to Piercing Weapons	KEY:Immunity to Piercing Weapons ~ Aballin		CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary		
 Abishai Qualities		CATEGORY:Special Ability	TYPE:Internal	VISIBLE:NO		ABILITY:Special Ability|AUTOMATIC|Abishai ~ Summon Baatezu|Abishai ~ Regeneration|Abishai ~ See In Darkness|Abishai ~ Telepathy|Abishai ~ Vulnerability to Holy Water|Abishai ~ Immunity to Fire|Abishai ~ Immunity to Poison
 Summon Baatezu	KEY:Abishai ~ Summon Baatezu	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike		DESC:Summon 2d6 lemures with a 50%% success rate or an abishai of a random color with a 20%% success rate.
-Regeneration	KEY:Abishai ~ Regeneration	 CATEGORY:Special Ability	ABILITY:Special Ability|VIRTUAL|Regeneration		TYPE:SpecialQuality.Extraordinary	ASPECT:NAME|Regeneration %1|RegenerationRate	DEFINE:RegenerationRate|0	BONUS:VAR|RegenerationRate|HD	DESC:Holy water, Holy weapons and Blessed weapons do normal damage to abishai.
+Regeneration	KEY:Abishai ~ Regeneration	 CATEGORY:Special Ability	ABILITY:Special Ability|VIRTUAL|Regeneration (Holy)		TYPE:SpecialQuality.Extraordinary	ASPECT:NAME|Regeneration %1|RegenerationRate	DEFINE:RegenerationRate|0	BONUS:VAR|RegenerationRate|HD	DESC:Holy water, Holy weapons and Blessed weapons do normal damage to abishai.
 See In Darkness	KEY:Abishai ~ See In Darkness	 CATEGORY:Special Ability		TYPE:SpecialQuality.Supernatural.Regeneration	DESC:See perfectly in darkness of any kind, even a Deeper Darkness.
 Telepathy	KEY:Abishai ~ Telepathy	 CATEGORY:Special Ability	ABILITY:Special Ability|VIRTUAL|Telepathy	TYPE:Supernatural.SpecialQuality	DEFINE:TelepathyRange|0	BONUS:VAR|TelepathyRange|100	TYPE:SpecialQuality.Supernatural.Telepathy	DESC:Communicate with any creatyre within %1' that has language.|TelepathyRange
 Vulnerability to Holy Water	KEY:Abishai ~ Vulnerability to Holy Water	CATEGORY:Special Ability		TYPE:SpecialQuality.Extraordinary.Vulnerabilkity	DESC:take 2d4 damage from a flask, or 1 damage from a splash.
@@ -161,6 +161,21 @@ Bunching	KEY:Gibberling ~ Bunching	CATEGORY:Special Ability	TYPE:Extraordinary.S
 Sunbeam			KEY:Diamond Golem ~ Sunbeam				CATEGORY:Special Ability	TYPE:SpellLike.SpecialAttack	SPELLS:Innate|TIMES=1d3|TIMEUNIT=Day|CASTERLEVEL=15|Sunbeam,15+CHA
 Targeted Dispel	KEY:Diamond Golem ~ Targeted Dispel		CATEGORY:Special Ability	TYPE:Supernatural.SpecialAttack	DESC:Any creature struck in melee by a Diamond Golem is the subject of a Targeted Dispel Magic as if cast by a 16th level wizard.
 True Strike		KEY:Diamond Golem ~ True Strike			CATEGORY:Special Ability	TYPE:SpellLike.SpecialAttack	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=15|True Strike,11+CHA	
+Regeneration	CATEGORY:Special Ability	TYPE:Extraordinary.SpecialQuality		DESC:Recover %1 Nonlethal damage per round.  Dealt regular damage only by %2|RegenerationRate|%CHOICE	MULT:YES	SELECT:1	CHOOSE:USERINPUT|TITLE=RegnerationVulnerability
+Summoning	KEY:Bullywug ~ Summoning	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike		DESC:Bullywug clerics casting Summon Monster spells have a 50%% chance of summoning one more monster than the spell indicates, and a 25%% chance of their summoned monsters rampaging out of control, attacking randomly.
+Summon Air Elemental	KEY:Brown Dragon ~ Summon Air Elemental	CATEGORY:Special Ability	TYPE:SpellLike.SpecialQuality		VISIBLE:NO		ABILITY:Special Ability|AUTOMATIC|Brown Dragon ~ Summon Air Elemental ~ Huge|PREVARLT:SummonAirELementalType,1	ABILITY:Special Ability|AUTOMATIC|Brown Dragon ~ Summon Air Elemental ~ Greater|PREVARGTEQ:SummonAirELementalType,1		DEFINE:SummonAirELementalType|0
+Summon Air Elemental	KEY:Brown Dragon ~ Summon Air Elemental ~ Greater			CATEGORY:Special Ability	TYPE:SpellLike.SpecialQuality		DESC:1/day, Summon 1d3 Greater Elementals or 1d4+1 of smaller size.	
+Summon Air Elemental	KEY:Brown Dragon ~ Summon Air Elemental ~ Huge				CATEGORY:Special Ability	TYPE:SpellLike.SpecialQuality		DESC:1/day, Summon 1d3 Huge Elementals or 1d4+1 of smaller size.
+Sting	KEY:Sting ~ Abishai White	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	DESC:+1d6 Cold Damage
+Sting	KEY:Sting ~ Abishai Black	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	DESC:+2d4 Acid Damage on the first round and 1d4 on the next.
+Sting	KEY:Sting ~ Abishai Green	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	DESC:+1d4 temporary Strength Damage, secondary damage of 1 Temp Strength
+Sting	KEY:Sting ~ Abishai Blue	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	DESC:+2d6 Electricity Damage
+Sting	KEY:Sting ~ Abishai Red	CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary	DESC:+2d6 Fire Damage
+Spellray	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural		DESC:Use your eye rays to deliver touch spells for your master.  Your master casts the spell on you, on your next action, you must target something with the spell as a ranged touch attack.  If you do not, the spell is lost.
+Spell Imprinting	KEY:Darkenbeast ~ Spell Imprinting	CATEGORY:Special Ability	TYPE:SpellLike.SpecialAttack	DESC:When Darkenbeasts are created, the creator can cast a spell and imprint it on them.  They may choose to cast a spell imprinted on a Darkenbeast withing 30' as if casting normally.  This destroys the darkenbeast, and the spell has a 25%% chance of failure + 10%% for each Darkenbeast imprinted spell attempted that day.
+Skills	KEY:Spectral Panther Skill		CATEGORY:Special Ability	TYPE:SpecialQuality	DESC:+8 Racial bonus to hide in shadows.	BONUS:SKILL|Hide,Move Silently|4
+Spectral Form	KEY:Spectral Panther ~ Spectral Form	CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	DESC:3/day, for 10 min at a time, become Incorporeal (losing the Natural Armorm bonus of +5, but gaining a %1 deflection bonus)|CHA
+Spawn	KEY:Deepspawn ~ Spawn	CATEGORY:Special Ability	TYPE:SpecialQuality		DESC:Take 1d4 days to grow a spawn which is similar (class, abilities, etc) to a corporeal native living creature of the Material Plane.  I is sufficiently loyal that it cannot even be made to attack you by magical means.
 
 
 
