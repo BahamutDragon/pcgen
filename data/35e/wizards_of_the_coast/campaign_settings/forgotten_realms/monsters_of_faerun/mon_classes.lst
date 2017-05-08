@@ -133,10 +133,12 @@ CLASS:Deep Dragon	HD:12		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.	BONUS:COMBA
 CLASS:Deep Dragon	PRERACE:1,Dragon (Deep%	PRERACETYPE:Dragon
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
 CLASS:Deep Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Hide|Move Silently|Swim
+# variables definition
+CLASS:Deep Dragon	DEFINE:BreathWeaponCone|0	DEFINE:BreathWeaponDice|0	DEFINE:BreathWeaponDamageDie|0
 1																		BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Sorcerer")+var("CL=Sorcerer")))	DEFINE:DragonCL|0
 1	VISION:Blindsense (60')|Darkvision (120')|Keen Senses	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
 ###Block: Breath Weapon and standard immunities
-1	DEFINE:BreathWeaponCone|0	BONUS:VAR|BreathWeaponCone|max((SIZE-1)*10,15)	DEFINE:BreathWeaponDice|0	BONUS:VAR|BreathWeaponDice|(2*DragonAge)	DEFINE:BreathWeaponDamageDie|0	BONUS:VAR|BreathWeaponDamageDie|6	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Flesh-Corrosive Gas
+1	BONUS:VAR|BreathWeaponCone|max((SIZE-1)*10,15)	BONUS:VAR|BreathWeaponDice|(2*DragonAge)	BONUS:VAR|BreathWeaponDamageDie|6	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Flesh-Corrosive Gas
 #1	#secondary breath
 1																						ABILITY:Special Ability|AUTOMATIC|Immunity to Sleep
 1																						ABILITY:Special Ability|AUTOMATIC|Immunity to Paralysis
@@ -170,17 +172,29 @@ CLASS:Song Dragon	HD:12		TYPE:Monster	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.	BONUS:COMBA
 CLASS:Song Dragon	PRERACE:1,Dragon (Song%	PRERACETYPE:Dragon
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?	Class Skill
 CLASS:Song Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Bluff|Disguise|Jump
+# define variables
+CLASS:Song Dragon	DEFINE:BreathWeaponCone|0	DEFINE:BreathWeaponDice|0	DEFINE:BreathWeaponDamageDie|0		DEFINE:DragonAge|0
+#
 1																		BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Sorcerer")+var("CL=Sorcerer")))	DEFINE:DragonCL|0
 1	VISION:Blindsense (60')|Darkvision (120')|Keen Senses	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
 ###Block: Breath Weapon and standard immunities
+<<<<<<< HEAD
 1	DEFINE:BreathWeaponCone|0	BONUS:VAR|BreathWeaponCone|max((SIZE-1)*10,15)	DEFINE:BreathWeaponDice|0	BONUS:VAR|BreathWeaponDice|(2*DragonAge)	DEFINE:BreathWeaponDamageDie|0	BONUS:VAR|BreathWeaponDamageDie|6	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Electrically-Charged Gas
+=======
+1	BONUS:VAR|BreathWeaponCone|max((SIZE-1)*10,15)	BONUS:VAR|BreathWeaponDice|(2*DragonAge)	BONUS:VAR|BreathWeaponDamageDie|6	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Electrically-Charged Gas
+>>>>>>> bahamutdragon/master
 #1	#secondary breath
 1																						ABILITY:Special Ability|AUTOMATIC|Immunity to Sleep
 1																						ABILITY:Special Ability|AUTOMATIC|Immunity to Paralysis
 ###Block: Frightful Presence
 1	BONUS:VAR|FrightfulPresRange|DragonAge*30|PREVARGTEQ:DragonAge,5	ABILITY:Special Ability|AUTOMATIC|Frightful Presence
+<<<<<<< HEAD
 ###Block: Normal Progression		
 1									DEFINE:DragonAge|0	BONUS:VAR|DragonAge|1						ABILITY:Special Ability|AUTOMATIC|Song Dragon ~ Alternate Form|Immunity to Electricity|Immunity to Poison|Tongues|Song Dragon ~ True Seeing	SPELLS:Innate|TIMES=1|TIMEUNIT=Hour|CASTERLEVEL=DragonCL|Darkness|Light
+=======
+###Block: Normal Progression
+1									BONUS:VAR|DragonAge|1						ABILITY:Special Ability|AUTOMATIC|Alternate Form|Immunity to Electricity|Immunity to Poison|Tongues|True Seeing	SPELLS:Innate|TIMES=1|TIMEUNIT=Hour|CASTERLEVEL=DragonCL|Darkness|Light
+>>>>>>> bahamutdragon/master
 8									BONUS:VAR|DragonAge|1
 11									BONUS:VAR|DragonAge|1																									SPELLS:Innate|TIMES=2|CASTERLEVEL=DragonCL|Feather Fall
 14									BONUS:VAR|DragonAge|1	ADD:SPELLCASTER|Sorcerer																				SPELLS:Innate|TIMES=2|CASTERLEVEL=DragonCL|Blink
@@ -189,7 +203,11 @@ CLASS:Song Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot|Bl
 23	SR:25	DR:10/Magic	BONUS:PCLEVEL|Sorcerer|1	BONUS:VAR|DragonAge|1
 26	SR:28			BONUS:PCLEVEL|Sorcerer|1	BONUS:VAR|DragonAge|1																									SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Heal,16+CHA
 29	SR:29	DR:15/Magic	BONUS:PCLEVEL|Sorcerer|1	BONUS:VAR|DragonAge|1
+<<<<<<< HEAD
 32	SR:31			BONUS:PCLEVEL|Sorcerer|1	BONUS:VAR|DragonAge|1																								SPELLS:Innate|TIMES=2|CASTERLEVEL=DragonCL|Polymorph Any Object,18+CHA
+=======
+32	SR:31			BONUS:PCLEVEL|Sorcerer|1	BONUS:VAR|DragonAge|1																									SPELLS:Innate|TIMES=2|CASTERLEVEL=DragonCL|Polymorph Any Object,18+CHA
+>>>>>>> bahamutdragon/master
 35	SR:32	DR:20/Magic	BONUS:PCLEVEL|Sorcerer|1	BONUS:VAR|DragonAge|1
 38	SR:34			BONUS:PCLEVEL|Sorcerer|1	BONUS:VAR|DragonAge|1																									SPELLS:Innate|TIMES=1|CASTERLEVEL=DragonCL|Plane Shift,17+CHA
 16				BONUS:PCLEVEL|Sorcerer|1
