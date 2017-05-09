@@ -468,7 +468,7 @@ CLASS:Hunter of the Dead	SPELLSTAT:WIS	FACT:SpellType|Divine	KNOWNSPELLS:LEVEL=0
 11	PREPCLEVEL:MIN=20
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus										Bonus
-CLASS:Invisible Blade	HD:6		TYPE:Prestige	FACT:Abb|Inv		MAXLEVEL:5	SOURCEPAGE:p.44	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Invisible Blade	HD:6		TYPE:Prestige	FACT:Abb|Inv	DEFINE:InvisibleBladeLVL|0	BONUS:VAR|InvisibleBladeLVL|CL	MAXLEVEL:5	SOURCEPAGE:p.44	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required Feat													Required Skill							Required Text
 CLASS:Invisible Blade	PREABILITY:1,CATEGORY=FEAT,Weapon Focus (Dagger),Weapon Focus (Kukri)	PREABILITY:2,CATEGORY=FEAT,Weapon Finesse,Combat Expertise	PRESKILL:1,Sense Motive=6	PRESKILL:1,Bluff=8	PRETEXT:Must defeat a worthy opponent using only daggers o kukris
 # Class Name		Skill Pts/Lvl	Class Skill
@@ -479,7 +479,6 @@ CLASS:Invisible Blade	STARTSKILLPTS:4	CSKILL:Balance|Bluff|Climb|TYPE=Craft|Esca
 3	ABILITY:Invisible Blade Class Feature|AUTOMATIC|Invisible Blade ~ Uncanny Feint
 4	ABILITY:Invisible Blade Class Feature|AUTOMATIC|Invisible Blade ~ Feint Mastery
 ###Block:
-1	BONUS:VAR|InvisibleBladeDaggerSneakAttackLVL|CL	BONUS:VAR|InvisibleBladeUnfetteredDefenseLVL|CL
 3	BONUS:VAR|InvisibleBladeUncannyFeintLVL|CL
 
 ###TODO CONTIGUOUS:Paladin
