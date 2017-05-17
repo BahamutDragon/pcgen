@@ -84,69 +84,10 @@ CLASS:Cleric	SPELLSTAT:WIS	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|L
 1	ABILITY:Cleric Class Feature|AUTOMATIC|Cleric ~ Spontaneous Casting|!PREABILITY:1,CATEGORY=ACF,TYPE.ClericSpontaneousCasting|!PREABILITY:1,CATEGORY=Special Ability,Ex-Cleric
 1	ABILITY:Cleric Class Feature|AUTOMATIC|Cleric ~ Turn or Rebuke Undead|!PREABILITY:1,CATEGORY=ACF,TYPE.ClericTurnUndead|!PREABILITY:1,CATEGORY=Special Ability,Ex-Cleric
 1	BONUS:VAR|DomainCount|0-DomainCount|PREABILITY:1,CATEGORY=Special Ability,Ex-Cleric
-1	BONUS:ABILITYPOOL|Cleric Standing|1		ADD:ABILITY|Special Ability|NORMAL|Cleric ~ Normal Standing
+1	BONUS:ABILITYPOOL|Cleric Standing|1		
+1	BONUS:STAT|BASESPELLKNOWNSTAT;Class=Cleric|(0-((2*WIS)+10))-1|PREABILITY:1,CATEGORY=Special Ability,Ex-Cleric	BONUS:STAT|BASESPELLSTAT;Class=Cleric|(0-((2*WIS)+10))-1|PREABILITY:1,CATEGORY=Special Ability,Ex-Cleric	
 #Disable Level 0 spells for fallen clerics
-1	DEFINE:ClericCasterLevel|0	BONUS:VAR|ClericCasterLevel|CL+charbonusto("PCLEVEL","Cleric")	BONUS:PCLEVEL|Cleric|-CL		BONUS:PCLEVEL|Cleric|-charbonusto("PCLEVEL","Cleric")
-1	DEFINE:ClericL0Spells|0		BONUS:VAR|ClericL0Spells|3	BONUS:VAR|ClericL0Spells|1|PREVARGTEQ:ClericCasterLevel,2
-1	BONUS:VAR|ClericL0Spells|1|PREVARGTEQ:ClericCasterLevel,4			BONUS:VAR|ClericL0Spells|1|PREVARGTEQ:ClericCasterLevel,7	
-#	
-#Disable Level 1 spells for fallen clerics
-1	DEFINE:ClericL1Spells|0		BONUS:VAR|ClericL1Spells|1	BONUS:VAR|ClericL1Spells|1|PREVARGTEQ:ClericCasterLevel,2
-1	BONUS:VAR|ClericL1Spells|1|PREVARGTEQ:ClericCasterLevel,4			BONUS:VAR|ClericL1Spells|1|PREVARGTEQ:ClericCasterLevel,7	BONUS:VAR|ClericL1Spells|1|PREVARGTEQ:ClericCasterLevel,11	
-#Disable Level 2 spells for fallen clerics
-1	DEFINE:ClericL2Spells|0		BONUS:VAR|ClericL2Spells|1|PREVARGTEQ:ClericCasterLevel,3
-1	BONUS:VAR|ClericL2Spells|1|PREVARGTEQ:ClericCasterLevel,4			BONUS:VAR|ClericL2Spells|1|PREVARGTEQ:ClericCasterLevel,9
-1	BONUS:VAR|ClericL2Spells|1|PREVARGTEQ:ClericCasterLevel,13	BONUS:VAR|ClericL2Spells|1|PREVARGTEQ:ClericCasterLevel,6
-#Disable Level 3 spells for fallen clerics
-1	DEFINE:ClericL3Spells|0		BONUS:VAR|ClericL3Spells|1|PREVARGTEQ:ClericCasterLevel,5
-1	BONUS:VAR|ClericL3Spells|1|PREVARGTEQ:ClericCasterLevel,6			BONUS:VAR|ClericL3Spells|1|PREVARGTEQ:ClericCasterLevel,8
-1	BONUS:VAR|ClericL3Spells|1|PREVARGTEQ:ClericCasterLevel,11		BONUS:VAR|ClericL3Spells|1|PREVARGTEQ:ClericCasterLevel,15		
-#Disable Level 4 spells for fallen clerics
-1	DEFINE:ClericL4Spells|0		BONUS:VAR|ClericL4Spells|1|PREVARGTEQ:ClericCasterLevel,7
-1	BONUS:VAR|ClericL4Spells|1|PREVARGTEQ:ClericCasterLevel,8			BONUS:VAR|ClericL4Spells|1|PREVARGTEQ:ClericCasterLevel,10
-1	BONUS:VAR|ClericL4Spells|1|PREVARGTEQ:ClericCasterLevel,13		BONUS:VAR|ClericL4Spells|1|PREVARGTEQ:ClericCasterLevel,17		
-#Disable Level 5 spells for fallen clerics
-1	DEFINE:ClericL5Spells|0		BONUS:VAR|ClericL5Spells|1|PREVARGTEQ:ClericCasterLevel,9
-1	BONUS:VAR|ClericL5Spells|1|PREVARGTEQ:ClericCasterLevel,10			BONUS:VAR|ClericL5Spells|1|PREVARGTEQ:ClericCasterLevel,12
-1	BONUS:VAR|ClericL5Spells|1|PREVARGTEQ:ClericCasterLevel,15		BONUS:VAR|ClericL5Spells|1|PREVARGTEQ:ClericCasterLevel,19		
-#Disable Level 6 spells for fallen clerics
-1	DEFINE:ClericL6Spells|0		BONUS:VAR|ClericL6Spells|1|PREVARGTEQ:ClericCasterLevel,11
-1	BONUS:VAR|ClericL6Spells|1|PREVARGTEQ:ClericCasterLevel,12			BONUS:VAR|ClericL6Spells|1|PREVARGTEQ:ClericCasterLevel,14
-1	BONUS:VAR|ClericL6Spells|1|PREVARGTEQ:ClericCasterLevel,17		
-#Disable Level 7 spells for fallen clerics
-1	DEFINE:ClericL7Spells|0		BONUS:VAR|ClericL7Spells|1|PREVARGTEQ:ClericCasterLevel,13
-1	BONUS:VAR|ClericL7Spells|1|PREVARGTEQ:ClericCasterLevel,14			BONUS:VAR|ClericL7Spells|1|PREVARGTEQ:ClericCasterLevel,16
-1	BONUS:VAR|ClericL7Spells|1|PREVARGTEQ:ClericCasterLevel,19		
-#Disable Level 8 spells for fallen clerics
-1	DEFINE:ClericL8Spells|0		BONUS:VAR|ClericL8Spells|1|PREVARGTEQ:ClericCasterLevel,15
-1	BONUS:VAR|ClericL8Spells|1|PREVARGTEQ:ClericCasterLevel,16			BONUS:VAR|ClericL8Spells|1|PREVARGTEQ:ClericCasterLevel,18	
-1		BONUS:VAR|ClericL8Spells|1|PREVARGTEQ:ClericCasterLevel,20
-#Disable Level 9 spells for fallen clerics
-1	DEFINE:ClericL9Spells|0		BONUS:VAR|ClericL9Spells|1|PREVARGTEQ:ClericCasterLevel,17
-1	BONUS:VAR|ClericL9Spells|1|PREVARGTEQ:ClericCasterLevel,18			BONUS:VAR|ClericL9Spells|1|PREVARGTEQ:ClericCasterLevel,19	BONUS:VAR|ClericL9Spells|1|PREVARGTEQ:ClericCasterLevel,20
-#	ACCOUNT FOR BONUS Spells
-#Bonus Spells
-#	bonus = (ability – (spellLevel + 1) * 2) / 8	
-#1	BONUS:VAR|ClericL1Spells|((10+(WIS*2))-((1+1)*2))/8
-#1	BONUS:VAR|ClericL2Spells|((10+(WIS*2))-((1+2)*2))/8|PREVARGTEQ:ClericCasterLevel,3
-#1	BONUS:VAR|ClericL3Spells|((10+(WIS*2))-((1+3)*2))/8|PREVARGTEQ:ClericCasterLevel,5
-#1	BONUS:VAR|ClericL4Spells|((10+(WIS*2))-((1+4)*2))/8|PREVARGTEQ:ClericCasterLevel,7
-#1	BONUS:VAR|ClericL5Spells|((10+(WIS*2))-((1+5)*2))/8|PREVARGTEQ:ClericCasterLevel,9
-#1	BONUS:VAR|ClericL6Spells|((10+(WIS*2))-((1+6)*2))/8|PREVARGTEQ:ClericCasterLevel,11
-#1	BONUS:VAR|ClericL7Spells|((10+(WIS*2))-((1+7)*2))/8|PREVARGTEQ:ClericCasterLevel,13
-#1	BONUS:VAR|ClericL8Spells|((10+(WIS*2))-((1+8)*2))/8|PREVARGTEQ:ClericCasterLevel,15
-#1	BONUS:VAR|ClericL9Spells|((10+(WIS*2))-((1+9)*2))/8|PREVARGTEQ:ClericCasterLevel,17
-#actually remove spells
-1	BONUS:SPELLCAST|CLASS=Cleric;LEVEL=0|0-ClericL0Spells|PREABILITY:1,CATEGORY=Special Ability,Ex-Cleric
-1	BONUS:SPELLCAST|CLASS=Cleric;LEVEL=1|0-ClericL1Spells|PREABILITY:1,CATEGORY=Special Ability,Ex-Cleric
-1	BONUS:SPELLCAST|CLASS=Cleric;LEVEL=2|0-ClericL2Spells|PREABILITY:1,CATEGORY=Special Ability,Ex-Cleric
-1	BONUS:SPELLCAST|CLASS=Cleric;LEVEL=3|0-ClericL3Spells|PREABILITY:1,CATEGORY=Special Ability,Ex-Cleric
-1	BONUS:SPELLCAST|CLASS=Cleric;LEVEL=4|0-ClericL4Spells|PREABILITY:1,CATEGORY=Special Ability,Ex-Cleric
-1	BONUS:SPELLCAST|CLASS=Cleric;LEVEL=5|0-ClericL5Spells|PREABILITY:1,CATEGORY=Special Ability,Ex-Cleric
-1	BONUS:SPELLCAST|CLASS=Cleric;LEVEL=6|0-ClericL6Spells|PREABILITY:1,CATEGORY=Special Ability,Ex-Cleric
-1	BONUS:SPELLCAST|CLASS=Cleric;LEVEL=7|0-ClericL7Spells|PREABILITY:1,CATEGORY=Special Ability,Ex-Cleric
-1	BONUS:SPELLCAST|CLASS=Cleric;LEVEL=8|0-ClericL8Spells|PREABILITY:1,CATEGORY=Special Ability,Ex-Cleric
-1	BONUS:SPELLCAST|CLASS=Cleric;LEVEL=9|0-ClericL9Spells|PREABILITY:1,CATEGORY=Special Ability,Ex-Cleric
+1	BONUS:PCLEVEL|Cleric|-CL|PREABILITY:1,CATEGORY=Special Ability,Ex-Cleric		BONUS:PCLEVEL|Cleric|-charbonusto("PCLEVEL","Cleric")|PREABILITY:1,CATEGORY=Special Ability,Ex-Cleric
 ###Block:
 1	CAST:3,1
 2	CAST:4,2
