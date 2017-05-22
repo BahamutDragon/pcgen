@@ -12,7 +12,7 @@ CLASS:Beholder Mage (MoF)	STARTSKILLPTS:2	CSKILL:Craft (Alchemy)|Appraise|Concen
 # Class Name			Spell Stat		Spell Type		Spellbook		Caster level
 CLASS:Beholder Mage (MoF)	FACT:SpellType|Arcane
 CLASS:Beholder Mage (MoF)	SPELLSTAT:INT		SPELLBOOK:YES	BONUS:CASTERLEVEL|Beholder Mage (MoF)|Caster_Level_Beholder_Mage	DEFINE:Caster_Level_Beholder_Mage|0	BONUS:VAR|Caster_Level_Beholder_Mage|CL+Caster_Level_Bonus	DEFINE:CasterLevelBLBeholder_Mage|0	BONUS:VAR|CasterLevelBLBeholder_Mage|charbonusto("PCLEVEL","Beholder Mage (MoF)")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Beholder_Mage+CasterLevelBLBeholder_Mage|TYPE=Base
-1	CAST:6,3									ABILITY:Special Ability|AUTOMATIC|Sacrifice Eyestalk
+1	CAST:6,3									ABILITY:Special Ability|AUTOMATIC|Beholder Mage ~ Sacrifice Eyestalk		DEFINE:SacrificedStalks|0	BONUS:VAR|SacrificedStalks|min(10,CL+1)
 2	CAST:6,5,3
 3	CAST:6,6,5,3			BONUS:VAR|FamiliarLVL|CL	ABILITY:Special Ability|AUTOMATIC|Summon Familiar
 4	CAST:6,6,6,5,3
@@ -112,15 +112,15 @@ CLASS:Brown Dragon	STARTSKILLPTS:6	MODTOSKILLS:YES			CSKILL:Listen|Search|Spot
 17				BONUS:PCLEVEL|Sorcerer|1
 18	SR:20	DR:5/Magic	BONUS:PCLEVEL|Sorcerer|1
 20				BONUS:PCLEVEL|Sorcerer|1
-21	SR:23			BONUS:PCLEVEL|Sorcerer|1													ABILITY:Special Ability|AUTOMATIC|Sandstorm
+21	SR:23			BONUS:PCLEVEL|Sorcerer|1													ABILITY:Special Ability|AUTOMATIC|Brown Dragon ~ Sandstorm
 23				BONUS:PCLEVEL|Sorcerer|1
 24	SR:25	DR:10/Magic	BONUS:PCLEVEL|Sorcerer|1
 26				BONUS:PCLEVEL|Sorcerer|1
-27	SR:27			BONUS:PCLEVEL|Sorcerer|1	BONUS:VAR|SummonAirElementalPerDay|1						ABILITY:Special Ability|AUTOMATIC|Summon Huge Air Elemental (Sp)
+27	SR:27			BONUS:PCLEVEL|Sorcerer|1	BONUS:VAR|SummonAirElementalPerDay|1						ABILITY:Special Ability|AUTOMATIC|Brown Dragon ~ Summon Air Elemental ~ Huge
 29				BONUS:PCLEVEL|Sorcerer|1
 30	SR:28	DR:15/Magic	BONUS:PCLEVEL|Sorcerer|1
 32				BONUS:PCLEVEL|Sorcerer|1
-33	SR:30			BONUS:PCLEVEL|Sorcerer|1	BONUS:VAR|SummonAirElementalPerDay|1						ABILITY:Special Ability|AUTOMATIC|Summon Greater Air Elemental (Sp)
+33	SR:30			BONUS:PCLEVEL|Sorcerer|1	BONUS:VAR|SummonAirElementalPerDay|1				BONUS:VAR|SummonAirELementalType|1	
 35				BONUS:PCLEVEL|Sorcerer|1
 36	SR:32	DR:20/Magic	BONUS:PCLEVEL|Sorcerer|1
 38				BONUS:PCLEVEL|Sorcerer|1
@@ -138,16 +138,16 @@ CLASS:Deep Dragon	DEFINE:BreathWeaponCone|0	DEFINE:BreathWeaponDice|0	DEFINE:Bre
 1																		BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Sorcerer")+var("CL=Sorcerer")))	DEFINE:DragonCL|0
 1	VISION:Blindsense (60')|Darkvision (120')|Keen Senses	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
 ###Block: Breath Weapon and standard immunities
-1	BONUS:VAR|BreathWeaponCone|max((SIZE-1)*10,15)	BONUS:VAR|BreathWeaponDice|(2*DragonAge)	BONUS:VAR|BreathWeaponDamageDie|6	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Flesh-Corrosive Gas
+1	BONUS:VAR|BreathWeaponCone|max((SIZE-1)*10,15)	BONUS:VAR|BreathWeaponDice|(2*DragonAge)	BONUS:VAR|BreathWeaponDamageDie|6	ABILITY:Special Ability|AUTOMATIC|Deep Dragon ~ Breath Weapon ~ Cone of Flesh-Corrosive Gas
 #1	#secondary breath
 1																						ABILITY:Special Ability|AUTOMATIC|Immunity to Sleep
 1																						ABILITY:Special Ability|AUTOMATIC|Immunity to Paralysis
 ###Block: Frightful Presence
 1	BONUS:VAR|FrightfulPresRange|DragonAge*30|PREVARGTEQ:DragonAge,5	ABILITY:Special Ability|AUTOMATIC|Frightful Presence
 ###Block: Normal Progression
-1									BONUS:VAR|ColdResistanceBonus|10	BONUS:VAR|FireResistanceBonus|10	DEFINE:DragonAge|0	BONUS:VAR|DragonAge|1					ABILITY:Special Ability|AUTOMATIC|Immunity to Charm|Resistance To Cold|Resistance To Fire|True Seeing	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=DragonCL|Detect Magic
-9									BONUS:VAR|SnakeFormTimes|3									BONUS:VAR|DragonAge|1				ABILITY:Special Ability|AUTOMATIC|Alternate Form ~ Snake Form
-12									BONUS:VAR|HumanoidFormTimes|3									BONUS:VAR|DragonAge|1				ABILITY:Special Ability|AUTOMATIC|Alternate Form ~ Humanoid Form
+1									BONUS:VAR|ColdResistanceBonus|10	BONUS:VAR|FireResistanceBonus|10	DEFINE:DragonAge|0	BONUS:VAR|DragonAge|1					ABILITY:Special Ability|AUTOMATIC|Immunity to Charm|Resistance To Cold|Resistance To Fire|Deep Dragon ~ True Seeing	SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=DragonCL|Detect Magic
+9									BONUS:VAR|SnakeFormTimes|3									BONUS:VAR|DragonAge|1				ABILITY:Special Ability|AUTOMATIC|Deep Dragon ~ Alternate Form ~ Snake Form
+12									BONUS:VAR|HumanoidFormTimes|3									BONUS:VAR|DragonAge|1				ABILITY:Special Ability|AUTOMATIC|Deep Dragon ~ Alternate Form ~ Humanoid Form
 15									BONUS:VAR|SnakeFormTimes|1	BONUS:VAR|HumanoidFormTimes|1				BONUS:VAR|DragonAge|1	ADD:SPELLCASTER|Sorcerer
 18	SR:22	DR:5/Magic	BONUS:PCLEVEL|Sorcerer|1														BONUS:VAR|DragonAge|1
 21	SR:23			BONUS:PCLEVEL|Sorcerer|1														BONUS:VAR|DragonAge|1																					SPELLS:Innate|TIMES=ATWILL|CASTERLEVEL=DragonCL|Freedom of Movement
@@ -178,14 +178,14 @@ CLASS:Song Dragon	DEFINE:BreathWeaponCone|0	DEFINE:BreathWeaponDice|0	DEFINE:Bre
 1																		BONUS:VAR|DragonCL|max(DragonAge,(var("BL=Sorcerer")+var("CL=Sorcerer")))	DEFINE:DragonCL|0
 1	VISION:Blindsense (60')|Darkvision (120')|Keen Senses	BONUS:COMBAT|AC|CL-1|TYPE=NaturalArmor.REPLACE
 ###Block: Breath Weapon and standard immunities
-1	BONUS:VAR|BreathWeaponCone|max((SIZE-1)*10,15)	BONUS:VAR|BreathWeaponDice|(2*DragonAge)	BONUS:VAR|BreathWeaponDamageDie|6	ABILITY:Special Ability|AUTOMATIC|Breath Weapon ~ Cone of Electrically-Charged Gas
+1	BONUS:VAR|BreathWeaponCone|max((SIZE-1)*10,15)	BONUS:VAR|BreathWeaponDice|(2*DragonAge)	BONUS:VAR|BreathWeaponDamageDie|6	ABILITY:Special Ability|AUTOMATIC|Song Dragon ~Breath Weapon ~ Cone of Electrically-Charged Gas
 #1	#secondary breath
 1																						ABILITY:Special Ability|AUTOMATIC|Immunity to Sleep
 1																						ABILITY:Special Ability|AUTOMATIC|Immunity to Paralysis
 ###Block: Frightful Presence
 1	BONUS:VAR|FrightfulPresRange|DragonAge*30|PREVARGTEQ:DragonAge,5	ABILITY:Special Ability|AUTOMATIC|Frightful Presence
 ###Block: Normal Progression
-1									BONUS:VAR|DragonAge|1						ABILITY:Special Ability|AUTOMATIC|Alternate Form|Immunity to Electricity|Immunity to Poison|Tongues|True Seeing	SPELLS:Innate|TIMES=1|TIMEUNIT=Hour|CASTERLEVEL=DragonCL|Darkness|Light
+1									BONUS:VAR|DragonAge|1						ABILITY:Special Ability|AUTOMATIC|Song Dragon ~ Alternate Form|Immunity to Electricity|Immunity to Poison|Tongues|Song Dragon ~ True Seeing	SPELLS:Innate|TIMES=1|TIMEUNIT=Hour|CASTERLEVEL=DragonCL|Darkness|Light
 8									BONUS:VAR|DragonAge|1
 11									BONUS:VAR|DragonAge|1																									SPELLS:Innate|TIMES=2|CASTERLEVEL=DragonCL|Feather Fall
 14									BONUS:VAR|DragonAge|1	ADD:SPELLCASTER|Sorcerer																				SPELLS:Innate|TIMES=2|CASTERLEVEL=DragonCL|Blink
