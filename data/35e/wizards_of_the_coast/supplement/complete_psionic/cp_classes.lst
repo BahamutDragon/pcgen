@@ -1,40 +1,52 @@
 # CVS $Revision: $ $Author: $ -- Thu Aug  7 12:47:32 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 
 # Class Name	Hit Dice	Type				Source Page		Define			Combat bonus																															Modify VAR																		Bonus
-CLASS:Ardent	HD:6		TYPE:Base.PC.Psionic	SOURCEPAGE:p.5	DEFINE:ArdentLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:COMBAT|BASEAB|ClassBABModerate*3/4|TYPE=ClassBABModerate|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ArdentLVL|CL	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Ardent	HD:6		TYPE:Base.PC.Psionic	SOURCEPAGE:p.5	DEFINE:ArdentLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:COMBAT|BASEAB|ClassBABModerate*3/4|TYPE=ClassBABModerate|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|ArdentLVL|CL	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	TEMPLATE:PSIONIC
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Ardent	STARTSKILLPTS:2	CSKILL:Autohypnosis|Concentration|TYPE=Craft|Diplomacy|Heal|TYPE=Knowledge|TYPE=Profession|Psicraft
 # Class Name	Spell Stat		Caster level			Use Spell List
-CLASS:Ardent	SPELLSTAT:WIS	FACT:SpellType|Psionic	BONUS:CASTERLEVEL|Ardent|Caster_Level_BL_Stripped_Ardent	DEFINE:Caster_Level_BL_Stripped_Ardent|0	BONUS:VAR|Caster_Level_BL_Stripped_Ardent|Caster_Level_Ardent-CasterLevelBLArdent	BONUS:VAR|Caster_Level_Ardent|CL+Caster_Level_Bonus+CasterLevelBLArdent	DEFINE:CasterLevelBLArdent|0	BONUS:VAR|CasterLevelBL_x_Ardent|charbonusto("PCLEVEL","Ardent")	BONUS:VAR|Caster_Level_Highest__Psionic|Caster_Level_Ardent|TYPE=Base	SPELLLIST:3|Ardent|Ardent Mantle|Mantle
+CLASS:Ardent	SPELLSTAT:WIS	FACT:SpellType|Psionic	MEMORIZE:NO		DEFINE:Caster_Level_Ardent|0	BONUS:CASTERLEVEL|Ardent|Caster_Level_BL_Stripped_Ardent	BONUS:VAR|Caster_Level_Ardent|CL+Caster_Level_Bonus	BONUS:VAR|Caster_Level_Highest__Psionic|Caster_Level_Ardent|TYPE=Base	SPELLLIST:3|Ardent|Ardent Mantle|Mantle
 ###Block:
 1	ABILITY:Ardent Class Feature|AUTOMATIC|Ardent ~ Assume Psionic Mantle|Ardent ~ Power Points/Day|Ardent ~ Weapon and Armor Proficiency
-###Block:
-1	BONUS:VAR|ArdentPsionicMantleCount|2
-2	BONUS:VAR|ArdentPsionicMantleCount|1
-5	BONUS:VAR|ArdentPsionicMantleCount|1
-10	BONUS:VAR|ArdentPsionicMantleCount|1
-15	BONUS:VAR|ArdentPsionicMantleCount|1
-#
-1	BONUS:VAR|ArdentPowerPoints|2|TYPE=Base
-2	BONUS:VAR|ArdentPowerPoints|6|TYPE=Base
-3	BONUS:VAR|ArdentPowerPoints|11|TYPE=Base
-4	BONUS:VAR|ArdentPowerPoints|17|TYPE=Base
-5	BONUS:VAR|ArdentPowerPoints|25|TYPE=Base
-6	BONUS:VAR|ArdentPowerPoints|35|TYPE=Base
-7	BONUS:VAR|ArdentPowerPoints|46|TYPE=Base
-8	BONUS:VAR|ArdentPowerPoints|58|TYPE=Base
-9	BONUS:VAR|ArdentPowerPoints|72|TYPE=Base
-10	BONUS:VAR|ArdentPowerPoints|88|TYPE=Base
-11	BONUS:VAR|ArdentPowerPoints|106|TYPE=Base
-12	BONUS:VAR|ArdentPowerPoints|126|TYPE=Base
-13	BONUS:VAR|ArdentPowerPoints|147|TYPE=Base
-14	BONUS:VAR|ArdentPowerPoints|170|TYPE=Base
-15	BONUS:VAR|ArdentPowerPoints|195|TYPE=Base
-16	BONUS:VAR|ArdentPowerPoints|221|TYPE=Base
-17	BONUS:VAR|ArdentPowerPoints|250|TYPE=Base
-18	BONUS:VAR|ArdentPowerPoints|280|TYPE=Base
-19	BONUS:VAR|ArdentPowerPoints|311|TYPE=Base
-20	BONUS:VAR|ArdentPowerPoints|343|TYPE=Base
+###Block
+1	KNOWN:0,0,0,0,0,0,0,0,0,2
+2	KNOWN:0,0,0,0,0,0,0,0,0,3
+3	KNOWN:0,0,0,0,0,0,0,0,0,4
+4	KNOWN:0,0,0,0,0,0,0,0,0,5
+5	KNOWN:0,0,0,0,0,0,0,0,0,6
+6	KNOWN:0,0,0,0,0,0,0,0,0,7
+7	KNOWN:0,0,0,0,0,0,0,0,0,8
+8	KNOWN:0,0,0,0,0,0,0,0,0,9
+9	KNOWN:0,0,0,0,0,0,0,0,0,10
+10	KNOWN:0,0,0,0,0,0,0,0,0,11
+11	KNOWN:0,0,0,0,0,0,0,0,0,12
+12	KNOWN:0,0,0,0,0,0,0,0,0,13
+13	KNOWN:0,0,0,0,0,0,0,0,0,14
+14	KNOWN:0,0,0,0,0,0,0,0,0,15
+15	KNOWN:0,0,0,0,0,0,0,0,0,16
+16	KNOWN:0,0,0,0,0,0,0,0,0,17
+17	KNOWN:0,0,0,0,0,0,0,0,0,18
+18	KNOWN:0,0,0,0,0,0,0,0,0,19
+19	KNOWN:0,0,0,0,0,0,0,0,0,20
+20	KNOWN:0,0,0,0,0,0,0,0,0,21
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 # Class Name	Hit Dice	Type				Source Page		Define			Combat bonus																															Modify VAR																			Bonus

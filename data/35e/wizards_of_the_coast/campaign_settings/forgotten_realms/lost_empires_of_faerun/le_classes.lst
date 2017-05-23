@@ -1,0 +1,175 @@
+
+
+#CLASS:Cultist of the Shattered Peak
+CLASS:Cultist of the Shattered Peak		HD:6	TYPE:Prestige	FACT:ClassType|Prestige		FACT:Abb|CSP	MAXLEVEL:5
+CLASS:Cultist of the Shattered Peak		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0		BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1		BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3+2		BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	
+CLASS:Cultist of the Shattered Peak		PREATT:5
+CLASS:Cultist of the Shattered Peak		PRERACE:1,Human		PREMULT:1,[PREREGION:Anauroch],[PREREGION:Halruaa],[PREREGION:Nimbral],[PREREGION:The North],[PREREGION:The Ride],[PREREGION:Uthgardt],[PREREGION:Western Heartlands]
+CLASS:Cultist of the Shattered Peak		PRESKILL:1,Decipher Script=4	PRESKILL:1,Disable Device=4	PRESKILL:1,Knowledge (History)=4	PRELANG:1,Loross
+CLASS:Cultist of the Shattered Peak		PREABILITY:1,CATEGORY=Special Ability,Sneak Attack
+#
+# Cultists cannot be arcane casters... except that they become arcane casters
+# One could make the case that this would only apply to base classes but that still opens a whole set of problems.
+# Easy enough to say no Bards, Sorcerers, or Wizards
+# But what about Warmage and Wu Jen; base arcane caster classes.
+# And it doesn't say that in the text, it says: "You may not have any levels in an arcane spellcasting class."
+# So no Rogues with Assassin levels either.
+#
+# No arcane spellcasting class levels - except Cultist of the Shattered Peak...
+#
+#CLASS:Cultist of the Shattered Peak		!PRECLASS:1,SPELLCASTER.Arcane=1
+#
+CLASS:Cultist of the Shattered Peak		PRETEXT:You may not have any levels in an arcane spellcasting class.
+#
+CLASS:Cultist of the Shattered Peak		STARTSKILLPTS:6		CSKILL:Appraise|Bluff|Climb|TYPE=Craft|Decipher Script|Disable Device|Escape Artist|Gather Information|Hide|Intimidate|Jump|Knowledge (History)|Listen|Move Silently|Open Lock|TYPE=Profession|Sleight of Hand|Spot|Use Rope
+CLASS:Cultist of the Shattered Peak		FACT:SpellType|Arcane	SPELLSTAT:INT	BONUSSPELLSTAT:INT	SPELLBOOK:YES	MEMORIZE:YES	PROHIBITED:Conjuration,Divination,Evocation,Necromancy,Transformation
+#
+CLASS:Cultist of the Shattered Peak		DEFINE:CotSPLVL|0	BONUS:VAR|CotSPLVL|CL
+###Block
+1	ABILITY:Cultist of the Shattered Peak Class Feature|AUTOMATIC|CotSP ~ Weapons and Armor
+1	ABILITY:Cultist of the Shattered Peak Class Feature|AUTOMATIC|CotSP ~ Spells
+1	ABILITY:Cultist of the Shattered Peak Class Feature|AUTOMATIC|CotSP ~ Ominous Presence
+1	ABILITY:Cultist of the Shattered Peak Class Feature|AUTOMATIC|CotSP ~ Zeal
+2	ABILITY:Cultist of the Shattered Peak Class Feature|AUTOMATIC|CotSP ~ Sneak Attack
+3	ABILITY:Cultist of the Shattered Peak Class Feature|AUTOMATIC|CotSP ~ Smite Mage 
+5	ABILITY:Cultist of the Shattered Peak Class Feature|AUTOMATIC|CotSP ~ Death Attack
+#
+1	CAST:0
+2	CAST:1
+3	CAST:2,0
+4	CAST:3,1
+5	CAST:3,2,0
+
+
+# Glorious Servitor
+CLASS:Glorious Servitor	HD:8	TYPE:Prestige	FACT:ClassType|Prestige		FACT:Abb|GlorServ	MAXLEVEL:7
+CLASS:Glorious Servitor	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0		BONUS:SAVE|BASE.Fortitude,Base.Reflex|classlevel("APPLIEDAS=NONEPIC")/3		BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3			
+CLASS:Glorious Servitor	PREATT:7
+CLASS:Glorious Servitor	PREREGION:Mulhorand		PRERACE:1,Human,Planetouched (Aasimar),Planetouched (Tiefling)
+CLASS:Glorious Servitor	PRESKILL:1,Diplomacy=6	PRESKILL:1,Knowledge (Mulhorand)=6	PRESKILL:1,Knowledge (Religion)=6
+CLASS:Glorious Servitor	PREABILITY:2,CATEGORY=FEAT,Godsight,Improved Turning
+CLASS:Glorious Servitor	PRESPELLTYPE:1,Divine=2
+CLASS:Glorious Servitor	PREDEITY:1,PANTHEON.Mulhorandi
+CLASS:Glorious Servitor	PRETEXT:Must have approval from the patron deity's church
+#
+CLASS:Glorious Servitor	STARTSKILLPTS:2		CSKILL:Bluff|TYPE=Craft|Diplomacy|Handle Animal|Intimidate|Knowledge (History)|Knowledge (Local)|Knowledge (Religion)|Listen|TYPE=Profession|Sense Motive|Spot|Survival
+#
+CLASS:Glorious Servitor	DEFINE:GloriousServitorLVL|0	DEFINE:GSDivineShieldBonus|0	DEFINE:GSDivineStrengthBonus|0
+CLASS:Glorious Servitor	BONUS:VAR|GloriousServitorLVL|CL	BONUS:VAR|GSDivineShieldBonus|((GloriousServitorLVL/2)*2)	BONUS:VAR|GSDivineStrengthBonus|(GloriousServitorLVL/2)
+###Block
+1	ABILITY:Glorious Servitor Class Feature|AUTOMATIC|Glorious Servitor ~ Bestial Form
+1	ABILITY:Glorious Servitor Class Feature|AUTOMATIC|Glorious Servitor ~ Fearlessness
+1	ABILITY:Glorious Servitor Class Feature|AUTOMATIC|Glorious Servitor ~ Spell Resistance
+2	ABILITY:Glorious Servitor Class Feature|AUTOMATIC|Glorious Servitor ~ Divine Shield 
+2	ABILITY:Glorious Servitor Class Feature|AUTOMATIC|Glorious Servitor ~ Increased Strength
+3	ABILITY:Glorious Servitor Class Feature|AUTOMATIC|Glorious Servitor ~ Divine Voice 
+3	ABILITY:Glorious Servitor Class Feature|AUTOMATIC|Glorious Servitor ~ True Seeing
+5	ABILITY:Glorious Servitor Class Feature|AUTOMATIC|Glorious Servitor ~ Greater Command
+5	ABILITY:Glorious Servitor Class Feature|AUTOMATIC|Glorious Servitor ~ Immunity to Poison
+7	ABILITY:Glorious Servitor Class Feature|AUTOMATIC|Glorious Servitor ~ Divine Transformation
+7	ABILITY:Glorious Servitor Class Feature|AUTOMATIC|Glorious Servitor ~ Mass Cure Light Wounds|!PREDEITY:1,Set,Sebek
+7	ABILITY:Glorious Servitor Class Feature|AUTOMATIC|Glorious Servitor ~ Mass Inflict Light Wounds|PREDEITY:1,Set,Sebek
+7	TEMPLATE:Native
+
+
+#CLASS:Magelord
+CLASS:Magelord	HD:4	TYPE:Prestige	FACT:ClassType|Prestige		FACT:Abb|Magelord	MAXLEVEL:10
+CLASS:Magelord	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0		BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Magelord	!PREALIGN:LG,LN,LE
+CLASS:Magelord	PRESKILL:1,Intimidate=3		PRESKILL:1,Knowledge (History)=6	PRESKILL:1,Knowledge (Arcana)=6
+CLASS:Magelord	PREABILITY:3,CATEGORY=FEAT,Improved Initiative,Spell Mastery,Signature Spell, Weapon Focus (Spells (Ray))
+CLASS:Magelord	PREABILITY:1,CATEGORY=Special Ability,TYPE.Evasion
+CLASS:Magelord	PRESPELLTYPE:1,Arcane=5
+CLASS:Magelord	PRETEXT:Must be tutored by a Magelord or obtained rare tomes to study tradition. Either option costs no less than 10,000gp or a service of equivelent value.
+#CLASS:Magelord	PREITEM:1,Arcane Histories of the Athalantaran Magelords
+#
+CLASS:Magelord	STARTSKILLPTS:2		CSKILL:Bluff|Concentration|TYPE=Craft|Hide|Intimidate|TYPE=Knowledge|Move Silently|Sense Motive|Spellcraft|Spot|Tumble
+# variables
+CLASS:Magelord	DEFINE:MagelordSneakAttackBonus|0	DEFINE:MagelordMasteredSpellsBonus|0
+CLASS:Magelord	BONUS:VAR|MagelordSneakAttackBonus|(((CL=Magelord) / 5) + 1)	BONUS:VAR|MagelordMasteredSpellsBonus|min(8, (CL/2))
+###Block
+1	ABILITY:Magelord Class Feature|AUTOMATIC|Magelord ~ Sneak Attack
+1	BONUS:VAR|SneakAttackDice|1
+2	ABILITY:Magelord Class Feature|AUTOMATIC|Magelord ~ Bonus Mastered Spell
+3	ABILITY:Magelord Class Feature|AUTOMATIC|Magelord ~ Signature Supremacy
+5	BONUS:VAR|SneakAttackDice|1
+9	BONUS:VAR|SneakAttackDice|1
+10	ABILITY:Magelord Class Feature|AUTOMATIC|Magelord ~ Magelord Mastery
+#
+1	ADD:SPELLCASTER|ANY
+2	ADD:SPELLCASTER|ANY
+3	ADD:SPELLCASTER|ANY
+4	ADD:SPELLCASTER|ANY
+5	ADD:SPELLCASTER|ANY
+6	ADD:SPELLCASTER|ANY
+7	ADD:SPELLCASTER|ANY
+8	ADD:SPELLCASTER|ANY
+9	ADD:SPELLCASTER|ANY
+10	ADD:SPELLCASTER|ANY
+
+
+#CLASS:Olin Gisir
+CLASS:Olin Gisir	HD:4	TYPE:Prestige	FACT:ClassType|Prestige		FACT:Abb|OG	MAXLEVEL:10
+CLASS:Olin Gisir	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0		BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Olin Gisir	PRERACE:1,Elf,Half-Elf
+CLASS:Olin Gisir	PRESKILL:1,Concentration=8	PRESKILL:1,Knowledge (Arcana)=10	PRESKILL:1,Knowledge (History)=10
+CLASS:Olin Gisir	PREABILITY:1,CATEGORY=FEAT,Iron Will	PREABILITY:2,CATEGORY=FEAT,TYPE.Metamagic
+CLASS:Olin Gisir	PRESPELLTYPE:1,Arcane=3
+CLASS:Olin Gisir	PREVAREQ:ProhibitAbjuration,0
+#
+CLASS:Olin Gisir	STARTSKILLPTS:2		CSKILL:Concentration|TYPE=Craft|Decipher Script|Heal|TYPE=Knowledge|TYPE=Profession|Spellcraft
+#
+CLASS:Olin Gisir	DEFINE:OlinGisirLVL|0	DEFINE:OlinGisirKnowledgeBonus|0	DEFINE:OlinGisirSecretsLVL|0
+CLASS:Olin Gisir	BONUS:VAR|OlinGisirLVL|CL	BONUS:VAR|OlinGisirKnowledgeBonus|(OlinGisirLVL/3.25)+1		BONUS:VAR|OlinGisirSecretsLVL|(OlinGisirLVL + INT)
+###Block
+1	ABILITY:Olin Gisir Class Feature|AUTOMATIC|Olin Gisir ~ Ancient Knowledge
+1	ABILITY:Olin Gisir Class Feature|AUTOMATIC|Olin Gisir ~ Secret
+2	ABILITY:Olin Gisir Class Feature|AUTOMATIC|Olin Gisir ~ Signs
+5	ABILITY:Olin Gisir Class Feature|AUTOMATIC|Olin Gisir ~ Word of Dispel
+8	ABILITY:Olin Gisir Class Feature|AUTOMATIC|Olin Gisir ~ Word of Might
+#
+1	ADD:SPELLCASTER|ANY
+2	ADD:SPELLCASTER|ANY
+3	ADD:SPELLCASTER|ANY
+4	ADD:SPELLCASTER|ANY
+5	ADD:SPELLCASTER|ANY
+6	ADD:SPELLCASTER|ANY
+7	ADD:SPELLCASTER|ANY
+8	ADD:SPELLCASTER|ANY
+9	ADD:SPELLCASTER|ANY
+10	ADD:SPELLCASTER|ANY
+
+#CLASS:Sunmaster
+CLASS:Sunmaster		HD:8
+CLASS:Sunmaster		PREALIGN:LG,LN,LE
+CLASS:Sunmaster		PRESKILL:1,Knowledge (History)=8	PRESKILL:1,Knowledge (Geography)=4	PRESKILL:1,Knowledge (Religion)=4
+CLASS:Sunmaster		PRELANG:1,Loross
+CLASS:Sunmaster		PREDEITY:1,Amaunator	PREABILITY:1,CATEGORY=Feat,Servant of the Fallen
+CLASS:Sunmaster		PRESPELLTYPE:1,Divine=2		PREDOMAIN:2,Law,Sun
+CLASS:Sunmaster		PRETEXT:Must own a holy symbol of Amaunator, either personally recovered from a ruined temple of that deity or given to you by an existing Sunmaster.
+#CLASS:Sunmaster	PREITEM:1,Holy Symbol of Amaunator%
+
+CLASS:Sunmaster		STARTSKILLPTS:2		CSKILL:Concentration|TYPE=Craft|Decipher Script|Diplomacy|Gather Information|Knowledge (History)|Knowledge (Religion)|TYPE=Profession|Spellcraft
+#
+CLASS:Sunmaster		DEFINE:SunmasterLVL|0		DEFINE:SunmasterFireResistance|0	DEFINE:SunmasterGlaringEyesUsages|0		
+CLASS:Sunmaster		BONUS:VAR|SunmasterLVL|CL	BONUS:VAR|SunmasterFireResistance|( floor(SunmasterLVL/3) * 5)	BONUS:VAR|SunmasterGlaringEyesUsages|((SunmasterLVL + 1)/3)
+###Block
+1	ABILITY:Sunmaster Class Feature|AUTOMATIC|Sunmaster ~ Sun Spells 
+2	ABILITY:Sunmaster Class Feature|AUTOMATIC|Sunmaster ~ Glaring Eyes
+3	ABILITY:Sunmaster Class Feature|AUTOMATIC|Sunmaster ~ Resistance to Fire
+4	ABILITY:Sunmaster Class Feature|AUTOMATIC|Sunmaster ~ Law Spells
+7	ABILITY:Sunmaster Class Feature|AUTOMATIC|Sunmaster ~ Planning Domain
+7	DOMAIN:Planning
+10	ABILITY:Sunmaster Class Feature|AUTOMATIC|Sunmaster ~ Sunform
+#
+1	ADD:SPELLCASTER|ANY
+2	ADD:SPELLCASTER|ANY
+3	ADD:SPELLCASTER|ANY
+4	ADD:SPELLCASTER|ANY
+5	ADD:SPELLCASTER|ANY
+6	ADD:SPELLCASTER|ANY
+7	ADD:SPELLCASTER|ANY
+8	ADD:SPELLCASTER|ANY
+9	ADD:SPELLCASTER|ANY
+10	ADD:SPELLCASTER|ANY
+

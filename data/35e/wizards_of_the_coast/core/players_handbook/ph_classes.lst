@@ -79,10 +79,15 @@ CLASS:Cleric	FACT:SpellType|Divine
 CLASS:Cleric	SPELLSTAT:WIS	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9
 ###Block:
 1	ABILITY:Cleric Class Feature|AUTOMATIC|Cleric ~ Weapon and Armor Proficiency|!PREABILITY:1,CATEGORY=ACF,TYPE.ClericProficiences
-1	ABILITY:Cleric Class Feature|AUTOMATIC|Cleric ~ Aura|!PREABILITY:1,CATEGORY=ACF,TYPE.ClericAura
-1	ABILITY:Cleric Class Feature|AUTOMATIC|Cleric ~ Spells
-1	ABILITY:Cleric Class Feature|AUTOMATIC|Cleric ~ Spontaneous Casting|!PREABILITY:1,CATEGORY=ACF,TYPE.ClericSpontaneousCasting
-1	ABILITY:Cleric Class Feature|AUTOMATIC|Cleric ~ Turn or Rebuke Undead|!PREABILITY:1,CATEGORY=ACF,TYPE.ClericTurnUndead
+1	ABILITY:Cleric Class Feature|AUTOMATIC|Cleric ~ Aura|!PREABILITY:1,CATEGORY=ACF,TYPE.ClericAura|!PREABILITY:1,CATEGORY=Special Ability,Ex-Cleric
+1	ABILITY:Cleric Class Feature|AUTOMATIC|Cleric ~ Spells|!PREABILITY:1,CATEGORY=Special Ability,Ex-Cleric
+1	ABILITY:Cleric Class Feature|AUTOMATIC|Cleric ~ Spontaneous Casting|!PREABILITY:1,CATEGORY=ACF,TYPE.ClericSpontaneousCasting|!PREABILITY:1,CATEGORY=Special Ability,Ex-Cleric
+1	ABILITY:Cleric Class Feature|AUTOMATIC|Cleric ~ Turn or Rebuke Undead|!PREABILITY:1,CATEGORY=ACF,TYPE.ClericTurnUndead|!PREABILITY:1,CATEGORY=Special Ability,Ex-Cleric
+1	BONUS:VAR|DomainCount|0-DomainCount|PREABILITY:1,CATEGORY=Special Ability,Ex-Cleric
+1	BONUS:ABILITYPOOL|Cleric Standing|1		
+1	BONUS:STAT|BASESPELLKNOWNSTAT;Class=Cleric|(0-((2*WIS)+10))-1|PREABILITY:1,CATEGORY=Special Ability,Ex-Cleric	BONUS:STAT|BASESPELLSTAT;Class=Cleric|(0-((2*WIS)+10))-1|PREABILITY:1,CATEGORY=Special Ability,Ex-Cleric	
+#Disable Level 0 spells for fallen clerics
+1	BONUS:PCLEVEL|Cleric|-CL|PREABILITY:1,CATEGORY=Special Ability,Ex-Cleric		BONUS:PCLEVEL|Cleric|-charbonusto("PCLEVEL","Cleric")|PREABILITY:1,CATEGORY=Special Ability,Ex-Cleric
 ###Block:
 1	CAST:3,1
 2	CAST:4,2

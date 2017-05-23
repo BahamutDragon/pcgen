@@ -2,7 +2,7 @@
 
 
 
-###Block: Crystal Master	SOURCEWEB:http://www.wizards.com/default.asp?x=dnd/psm/20040625d
+###Block: Crystal Master	SOURCEWEB:http://www.wizards.com/default.asp?x=dnd%2Fpsm%2F20040625d
 
 # Class Name		Hit Dice	Type			Abbreviation	Source, Long Desc.		Source, Short Desc.	Combat bonus								Bonus
 CLASS:Crystal Master	HD:4		TYPE:PC.Prestige	FACT:Abb|CrM		SOURCELONG:The Mind's Eye	SOURCESHORT:TME		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
@@ -28,3 +28,57 @@ CLASS:Crystal Master	STARTSKILLPTS:4	CSKILL:Appraise|Concentration|Craft (Gemcut
 10	ABILITY:Crystal Master Class Feature|AUTOMATIC|Crystal Master ~ Psicrystal Synergy
 ###Block
 11	PREPCLEVEL:MIN=20
+
+
+###Block: Psychic Rogue	SOURCEWEB:https://www.wizards.com/default.asp?x=dnd%2Fpsm%2F20040723b
+
+CLASS:Psychic Rogue	MAXLEVEL:20
+CLASS:Psychic Rogue	HD:6	TYPE:Base.PC
+CLASS:Psychic Rogue	FACT:Abb|	FACT:ClassType|Rogue
+CLASS:Psychic Rogue	DEFINE:PsychicRogueLVL|0	BONUS:VAR|PsychicRogueLVL|CL
+CLASS:Psychic Rogue	SOURCEPAGE:p.web	
+CLASS:Psychic Rogue	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+CLASS:Psychic Rogue	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+CLASS:Psychic Rogue	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Psychic Rogue	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Psychic Rogue	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Psychic Rogue	BONUS:VAR|ClassSavePoor_Fortitude|classlevel()|PREVAREQ:UseFractionalSave,1
+CLASS:Psychic Rogue	BONUS:VAR|ClassSaveGood_Reflex|classlevel()|PREVAREQ:UseFractionalSave,1
+CLASS:Psychic Rogue	BONUS:VAR|ClassSavePoor_Will|classlevel()|PREVAREQ:UseFractionalSave,1
+CLASS:Psychic Rogue	STARTSKILLPTS:6	CSKILL:Appraise|Autohypnosis|Balance|Bluff|Climb|Concentration|TYPE=Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Intimidate|Jump|Knowledge (local)|Knowledge (psionics)|Listen|Move Silently|Open Lock|TYPE=Perform|TYPE=Profession|Search|Sense Motive|Sleight of Hand|Spot|Swim|Tumble|Use Psionic Device|Use Rope
+CLASS:Psychic Rogue	FACT:SpellType|Psionic
+CLASS:Psychic Rogue	SPELLSTAT:INT	MEMORIZE:NO	TEMPLATE:Psionic
+CLASS:Psychic Rogue	BONUS:CASTERLEVEL|Psychic Rogue|Caster_Level_PsychicRogue	DEFINE:Caster_Level_PsychicRogue|0	BONUS:VAR|Caster_Level_PsychicRogue|CL+Caster_Level_Bonus	BONUS:VAR|CasterLevelBL_PsychicRogue|charbonusto("PCLEVEL","Psychic Rogue")	
+CLASS:Psychic Rogue	BONUS:VAR|Caster_Level_Highest__Psionic|Caster_Level_PsychicRogue|TYPE=Base
+
+###Block - Class Features	
+1	ABILITY:Psychic Rogue Class Feature|AUTOMATIC|Psychic Rogue Class Feature ~ Weapon and Armor Proficiency	
+1	ABILITY:Psychic Rogue Class Feature|AUTOMATIC|Psychic Rogue Class Feature ~ Power Points/Day			
+1	ABILITY:Psychic Rogue Class Feature|AUTOMATIC|Psychic Rogue Class Feature ~ Powers Known				
+1	ABILITY:Psychic Rogue Class Feature|AUTOMATIC|Psychic Rogue Class Feature ~ Maximum Power Level Known		
+1	ABILITY:Psychic Rogue Class Feature|AUTOMATIC|Psychic Rogue Class Feature ~ Sneak Attack				
+1	ABILITY:Psychic Rogue Class Feature|AUTOMATIC|Psychic Rogue Class Feature ~ Trapfinding				
+2	ABILITY:Psychic Rogue Class Feature|AUTOMATIC|Psychic Rogue Class Feature ~ Evasion					
+5	ABILITY:Psychic Rogue Class Feature|AUTOMATIC|Psychic Rogue Class Feature ~ Danger Sense				
+11	ABILITY:Psychic Rogue Class Feature|AUTOMATIC|Psychic Rogue Class Feature ~ Special Abilities			
+###Block -  Progression	4th, 8th, 12th, 16th, and 20th
+1	KNOWN:0,1
+2	KNOWN:0,2
+3	KNOWN:0,3
+4	KNOWN:0,3
+5	KNOWN:0,3,1
+6	KNOWN:0,3,2
+7	KNOWN:0,3,3
+8	KNOWN:0,3,3
+9	KNOWN:0,3,3,1
+10	KNOWN:0,3,3,2
+11	KNOWN:0,3,3,3
+12	KNOWN:0,3,3,3
+13	KNOWN:0,3,3,3,1
+14	KNOWN:0,3,3,3,2
+15	KNOWN:0,3,3,3,3
+16	KNOWN:0,3,3,3,3
+17	KNOWN:0,3,3,3,3,1
+18	KNOWN:0,3,3,3,3,2
+19	KNOWN:0,3,3,3,3,3
+20	KNOWN:0,3,3,3,3,3
