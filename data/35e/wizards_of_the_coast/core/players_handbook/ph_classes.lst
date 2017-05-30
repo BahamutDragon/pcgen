@@ -77,6 +77,7 @@ CLASS:Cleric	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Know
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels											Caster level
 CLASS:Cleric	FACT:SpellType|Divine
 CLASS:Cleric	SPELLSTAT:WIS	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9
+CLASS:Cleric	EXCLASS:Ex-Cleric		!PRETEMPLATE:1,Ex-Cleric
 ###Block:
 1	ABILITY:Cleric Class Feature|AUTOMATIC|Cleric ~ Weapon and Armor Proficiency|!PREABILITY:1,CATEGORY=ACF,TYPE.ClericProficiences
 1	ABILITY:Cleric Class Feature|AUTOMATIC|Cleric ~ Aura|!PREABILITY:1,CATEGORY=ACF,TYPE.ClericAura|!PREABILITY:1,CATEGORY=Special Ability,Ex-Cleric
@@ -429,3 +430,19 @@ CLASS:Wizard.MOD	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ
 CLASS:Sorcerer.MOD	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
 1	ABILITY:Class|AUTOMATIC|Sorcerer
 
+
+
+
+
+
+
+# Class Name	Hit Dice	Type						Class Type		Abbreviation	Source Page		Bonus Languages					Group of Prohibited Spells																																																						Define			Combat bonus															Add domain number		Modify VAR			Template				Monster Role	Bonus
+CLASS:Ex-Cleric	HD:8		TYPE:Base.PC.Spellcaster.Divine	FACT:ClassType|PC|ExClass	FACT:Abb|XClr		SOURCEPAGE:p.30	LANGBONUS:Abyssal,Celestial,Infernal	PROHIBITSPELL:ALIGNMENT.Chaotic|PREMULT:1,[PREALIGN:LG,LN,LE],[PREDEITYALIGN:LG,LN,LE]	PROHIBITSPELL:ALIGNMENT.Evil|PREMULT:1,[PREALIGN:LG,NG,CG],[PREDEITYALIGN:LG,NG,CG]	PROHIBITSPELL:ALIGNMENT.Good|PREMULT:1,[PREALIGN:LE,NE,CE],[PREDEITYALIGN:LE,NE,CE]	PROHIBITSPELL:ALIGNMENT.Lawful|PREMULT:1,[PREALIGN:CG,CN,CE],[PREDEITYALIGN:CG,CN,CE]	DEFINE:ClericLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:DOMAIN|NUMBER|DomainCount	DEFINE:DomainCount|0	BONUS:VAR|DomainCount|2	BONUS:VAR|ClericLVL|CL	TEMPLATE:RighteousMightDR	ROLE:Cleric		BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Ex-Cleric	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (History)|Knowledge (Religion)|Knowledge (The Planes)|TYPE=Profession|Spellcraft
+CLASS:Ex-Cleric	PRETEMPLATE:Ex-Cleric
+# Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels											Caster level
+#CLASS:Ex-Cleric	FACT:SpellType|Divine
+#CLASS:Ex-Cleric	SPELLSTAT:WIS
+###Block:
+1	ABILITY:Cleric Class Feature|AUTOMATIC|Cleric ~ Weapon and Armor Proficiency|!PREABILITY:1,CATEGORY=ACF,TYPE.ClericProficiences
