@@ -256,47 +256,20 @@ CLASS:Effigy Master	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|TYPE=Knowled
 5	ABILITY:Effigy Master Class Feature|AUTOMATIC|Effigy Master ~ Effigy Link
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Base class as subclass?	Source Page		Combat bonus												Modify VAR													Bonus
-CLASS:Elemental Savant	HD:4		TYPE:PC.Prestige	FACT:Abb|Els		MAXLEVEL:10	ALLOWBASECLASS:NO		SOURCEPAGE:p.32	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
-# Class Name		Required Feat			Multiple Requirements																				Required Skill										Required Spell Descriptor						Required Text
-CLASS:Elemental Savant	PREABILITY:1,CATEGORY=FEAT,Energy Substitution	PREMULT:1,[PRESPELLDESCRIPTOR:3,Acid=1],[PRESPELLDESCRIPTOR:3,Cold=1],[PRESPELLDESCRIPTOR:3,Electricity=1],[PRESPELLDESCRIPTOR:3,Fire=1]	PRESKILL:1,Knowledge (Arcana)=8	PRESKILL:1,Knowledge (The Planes)=4	PRESPELLDESCRIPTOR:1,Acid=3,Cold=3,Electricity=3,Fire=3	PRETEXT:Must have made a pacific contract with an Elemental or Outsider that has an elemental subtype
+CLASS:Elemental Savant	HD:4		TYPE:PC.Prestige	FACT:Abb|Els	DEFINE:ElementalSavantLVL|0	BONUS:VAR|ElementalSavantLVL|CL	MAXLEVEL:10		SOURCEPAGE:p.32	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name		Required Feat						Multiple Requirements																				Required Skill										Required Spell Descriptor						Required Text
+CLASS:Elemental Savant	PREABILITY:1,CATEGORY=FEAT,Energy Substitution	PREMULT:1,[PRESPELLDESCRIPTOR:3,Acid=1],[PRESPELLDESCRIPTOR:3,Cold=1],[PRESPELLDESCRIPTOR:3,Electricity=1],[PRESPELLDESCRIPTOR:3,Fire=1]	PRESKILL:1,Knowledge (Arcana)=8	PRESKILL:1,Knowledge (The Planes)=4	PRESPELLDESCRIPTOR:1,Acid=3,Cold=3,Electricity=3,Fire=3	PRETEXT:Must have made a peaceful contact with an Elemental or Outsider that has an elemental subtype
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Elemental Savant	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Knowledge (arcana)|Knowledge (The Planes)|TYPE=Profession|Spellcraft
-SUBCLASS:Air Elemental Savant		COST:1	PROHIBITCOST:0	PREABILITY:1,CATEGORY=FEAT,Energy Substitution (Electricity)
-SUBCLASSLEVEL:1	BONUS:VAR|ElectricityResistanceBonus|5
-SUBCLASSLEVEL:4	BONUS:VAR|ElectricityResistanceBonus|5
-SUBCLASSLEVEL:5
-SUBCLASSLEVEL:7	BONUS:VAR|ElectricityResistanceBonus|10
-SUBCLASSLEVEL:10
-SUBCLASS:Earth Elemental Savant	COST:1	PROHIBITCOST:0	PREABILITY:1,CATEGORY=FEAT,Energy Substitution (Acid)
-SUBCLASSLEVEL:1	BONUS:VAR|AcidResistanceBonus|5
-SUBCLASSLEVEL:4	BONUS:VAR|AcidResistanceBonus|5
-SUBCLASSLEVEL:5
-SUBCLASSLEVEL:7	BONUS:VAR|AcidResistanceBonus|10
-SUBCLASSLEVEL:10
-SUBCLASS:Fire Elemental Savant	COST:1	PROHIBITCOST:0	PREABILITY:1,CATEGORY=FEAT,Energy Substitution (Fire)
-SUBCLASSLEVEL:1	BONUS:VAR|FireResistanceBonus|5
-SUBCLASSLEVEL:4	BONUS:VAR|FireResistanceBonus|5
-SUBCLASSLEVEL:5
-SUBCLASSLEVEL:7	BONUS:VAR|FireResistanceBonus|10
-SUBCLASSLEVEL:10
-SUBCLASS:Water Elemental Savant	COST:1	PROHIBITCOST:0	PREABILITY:1,CATEGORY=FEAT,Energy Substitution (Cold)
-SUBCLASSLEVEL:1	BONUS:VAR|ColdResistanceBonus|5
-SUBCLASSLEVEL:4	BONUS:VAR|ColdResistanceBonus|5
-SUBCLASSLEVEL:5
-SUBCLASSLEVEL:7	BONUS:VAR|ColdResistanceBonus|10
-SUBCLASSLEVEL:10
+CLASS:Elemental Savant	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Knowledge (Arcana)|Knowledge (The Planes)|TYPE=Profession|Spellcraft
 ###Block
-1														ADD:SPELLCASTER|ANY
-2														ADD:SPELLCASTER|ANY
-3					BONUS:VAR|ElementalSavantEnergyPenetrationLVL|CL	ADD:SPELLCASTER|ANY
-4														ADD:SPELLCASTER|ANY
-5					BONUS:VAR|ElementalSavantEnergyFocusLVL|CL
-6	VISION:Darkvision (60')										ADD:SPELLCASTER|ANY
-7														ADD:SPELLCASTER|ANY
-8														ADD:SPELLCASTER|ANY
-9														ADD:SPELLCASTER|ANY
-10																		TEMPLATE:Elemental Perfection
-###TODO CONTIGUOUS:Monk|TYPE.Arcane
+1	ADD:SPELLCASTER|ANY
+2	ADD:SPELLCASTER|ANY
+3	ADD:SPELLCASTER|ANY
+4	ADD:SPELLCASTER|ANY
+6	ADD:SPELLCASTER|ANY
+7	ADD:SPELLCASTER|ANY
+8	ADD:SPELLCASTER|ANY
+9	ADD:SPELLCASTER|ANY
 ###Block
 1	ABILITY:Elemental Savant Class Feature|AUTOMATIC|Elemental Savant ~ Weapon and Armor Proficiency
 1	ABILITY:Elemental Savant Class Feature|AUTOMATIC|Elemental Savant ~ Spells per Day/Spells Known
@@ -341,6 +314,7 @@ CLASS:Enlightened Fist	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=C
 7	ABILITY:Enlightened Fist Class Feature|AUTOMATIC|Enlightened Fist ~ Hold Ray
 9	ABILITY:Enlightened Fist Class Feature|AUTOMATIC|Enlightened Fist ~ Diamond Soul
 1	ABILITY:Enlightened Fist Class Feature|AUTOMATIC|Enlightened Fist ~ Multiclassing Note
+###TODO CONTIGUOUS:Monk|TYPE.Arcane
 
 # Class Name		Hit Dice	Type			Abbreviation	Max Level	Source Page		Combat bonus												Modify VAR													Bonus
 CLASS:Fate Spinner	HD:4		TYPE:PC.Prestige	FACT:Abb|Fas		MAXLEVEL:5	SOURCEPAGE:p.37	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
