@@ -1,35 +1,42 @@
 
-Internal	CATEGORY:Internal
-###Block - Defines
-CATEGORY=Internal|Internal.MOD	DEFINE:ClassSaveGood_Fortitude|0
-CATEGORY=Internal|Internal.MOD	DEFINE:ClassSaveModerate_Fortitude|0
-CATEGORY=Internal|Internal.MOD	DEFINE:ClassSavePoor_Fortitude|0
-CATEGORY=Internal|Internal.MOD	DEFINE:ClassSaveGood_Reflex|0
-CATEGORY=Internal|Internal.MOD	DEFINE:ClassSaveModerate_Reflex|0
-CATEGORY=Internal|Internal.MOD	DEFINE:ClassSavePoor_Reflex|0
-CATEGORY=Internal|Internal.MOD	DEFINE:ClassSaveGood_Will|0
-CATEGORY=Internal|Internal.MOD	DEFINE:ClassSaveModerate_Will|0
-CATEGORY=Internal|Internal.MOD	DEFINE:ClassSavePoor_Will|0
+SIZE ~ DEFAULT / Fine		CATEGORY:Internal	BONUS:VAR|BaseSize|1
+SIZE ~ DEFAULT / Diminutive	CATEGORY:Internal	BONUS:VAR|BaseSize|2
+SIZE ~ DEFAULT / Tiny		CATEGORY:Internal	BONUS:VAR|BaseSize|3
+SIZE ~ DEFAULT / Small		CATEGORY:Internal	BONUS:VAR|BaseSize|4
+SIZE ~ DEFAULT / Medium		CATEGORY:Internal	BONUS:VAR|BaseSize|5
+SIZE ~ DEFAULT / Large		CATEGORY:Internal	BONUS:VAR|BaseSize|6
+SIZE ~ DEFAULT / Huge		CATEGORY:Internal	BONUS:VAR|BaseSize|7
+SIZE ~ DEFAULT / Gargantuan	CATEGORY:Internal	BONUS:VAR|BaseSize|8
+SIZE ~ DEFAULT / Colossal	CATEGORY:Internal	BONUS:VAR|BaseSize|9
+
+
+SIZE ~ CURRENT / Fine		CATEGORY:Internal	BONUS:VAR|CurrentSize|1
+SIZE ~ CURRENT / Diminutive	CATEGORY:Internal	BONUS:VAR|CurrentSize|2
+SIZE ~ CURRENT / Tiny		CATEGORY:Internal	BONUS:VAR|CurrentSize|3
+SIZE ~ CURRENT / Small		CATEGORY:Internal	BONUS:VAR|CurrentSize|4
+SIZE ~ CURRENT / Medium		CATEGORY:Internal	BONUS:VAR|CurrentSize|5
+SIZE ~ CURRENT / Large		CATEGORY:Internal	BONUS:VAR|CurrentSize|6
+SIZE ~ CURRENT / Huge		CATEGORY:Internal	BONUS:VAR|CurrentSize|7
+SIZE ~ CURRENT / Gargantuan	CATEGORY:Internal	BONUS:VAR|CurrentSize|8
+SIZE ~ CURRENT / Colossal	CATEGORY:Internal	BONUS:VAR|CurrentSize|9
 
 
 
 
-###Block - Saving throw calculations
-CATEGORY=Internal|Internal.MOD	BONUS:SAVE|BASE.Fortitude|ClassSaveGood_Fortitude+2/2
-CATEGORY=Internal|Internal.MOD	BONUS:SAVE|BASE.Fortitude|(ClassSaveModerate_Fortitude>=1)+(ClassSaveModerate_Fortitude>=2)+(ClassSaveModerate_Fortitude>=5)+(ClassSaveModerate_Fortitude>=7)+(ClassSaveModerate_Fortitude>=10)+(ClassSaveModerate_Fortitude>=12)+(ClassSaveModerate_Fortitude>=15)+(ClassSaveModerate_Fortitude>=17)+(ClassSaveModerate_Fortitude>=20)
-CATEGORY=Internal|Internal.MOD	BONUS:SAVE|BASE.Fortitude|ClassSavePoor_Fortitude/3
-CATEGORY=Internal|Internal.MOD	BONUS:SAVE|BASE.Reflex|ClassSaveGood_Reflex+2/2
-CATEGORY=Internal|Internal.MOD	BONUS:SAVE|BASE.Reflex|(ClassSaveModerate_Reflex>=1)+(ClassSaveModerate_Reflex>=2)+(ClassSaveModerate_Reflex>=5)+(ClassSaveModerate_Reflex>=7)+(ClassSaveModerate_Reflex>=10)+(ClassSaveModerate_Reflex>=12)+(ClassSaveModerate_Reflex>=15)+(ClassSaveModerate_Reflex>=17)+(ClassSaveModerate_Reflex>=20)
-CATEGORY=Internal|Internal.MOD	BONUS:SAVE|BASE.Reflex|ClassSavePoor_Reflex/3
-CATEGORY=Internal|Internal.MOD	BONUS:SAVE|BASE.Will|ClassSaveGood_Will+2/2
-CATEGORY=Internal|Internal.MOD	BONUS:SAVE|BASE.Will|(ClassSaveModerate_Will>=1)+(ClassSaveModerate_Will>=2)+(ClassSaveModerate_Will>=5)+(ClassSaveModerate_Will>=7)+(ClassSaveModerate_Will>=10)+(ClassSaveModerate_Will>=12)+(ClassSaveModerate_Will>=15)+(ClassSaveModerate_Will>=17)+(ClassSaveModerate_Will>=20)
-CATEGORY=Internal|Internal.MOD	BONUS:SAVE|BASE.Will|ClassSavePoor_Will/3
+SIZE ~ CURRENT / Medium	CATEGORY:Internal	TEMPLATE:SIZE ~ M
 
 
 
-#
 
 
+
+
+
+
+RACETYPE DEFAULT ~ Humanoid	CATEGORY:Internal	TEMPLATE:Legs ~ 2|Hands ~ 2
+
+RACE SPEED DEFAULT ~ 10		CATEGORY:Internal	TEMPLATE:MOVE ~ WALK / 10
+RACE SPEED DEFAULT ~ 06		CATEGORY:Internal	TEMPLATE:MOVE ~ WALK / 06
 
 
 
@@ -44,23 +51,32 @@ CATEGORY=Internal|Internal.MOD	BONUS:SAVE|BASE.Will|ClassSavePoor_Will/3
 
 ###Block - Core Race Traits
 
-Race Traits ~ Human		CATEGORY:Internal	
-Race Traits ~ Bothan		CATEGORY:Internal	
-Race Traits ~ Cerean		CATEGORY:Internal	
-Race Traits ~ Duros		CATEGORY:Internal	
-Race Traits ~ Ewok		CATEGORY:Internal	
-Race Traits ~ Gamorrean		CATEGORY:Internal	
-Race Traits ~ Gungan		CATEGORY:Internal	
-Race Traits ~ Ithorian		CATEGORY:Internal	
-Race Traits ~ Kel Dor		CATEGORY:Internal	
-Race Traits ~ Mon Calamari	CATEGORY:Internal	
-Race Traits ~ Quarren		CATEGORY:Internal	
-Race Traits ~ Rodian		CATEGORY:Internal	
-Race Traits ~ Sullustan		CATEGORY:Internal	
-Race Traits ~ Trandoshan	CATEGORY:Internal	
-Race Traits ~ Twi'Lek		CATEGORY:Internal	
-Race Traits ~ Wookiee		CATEGORY:Internal	
-Race Traits ~ Zabrak		CATEGORY:Internal	
+Race Traits ~ Human		CATEGORY:Internal	ABILITY:Internal|AUTOMATIC|SIZE DEFAULT ~ Medium|RACETYPE DEFAULT ~ Humanoid
+Race Traits ~ Bothan		CATEGORY:Internal	ABILITY:Internal|AUTOMATIC|SIZE DEFAULT ~ Medium|RACETYPE DEFAULT ~ Humanoid
+Race Traits ~ Cerean		CATEGORY:Internal	ABILITY:Internal|AUTOMATIC|SIZE DEFAULT ~ Medium|RACETYPE DEFAULT ~ Humanoid
+Race Traits ~ Duros		CATEGORY:Internal	ABILITY:Internal|AUTOMATIC|SIZE DEFAULT ~ Medium|RACETYPE DEFAULT ~ Humanoid
+Race Traits ~ Ewok		CATEGORY:Internal	ABILITY:Internal|AUTOMATIC|SIZE DEFAULT ~ Small|RACETYPE DEFAULT ~ Humanoid
+Race Traits ~ Gamorrean		CATEGORY:Internal	ABILITY:Internal|AUTOMATIC|SIZE DEFAULT ~ Medium|RACETYPE DEFAULT ~ Humanoid
+Race Traits ~ Gungan		CATEGORY:Internal	ABILITY:Internal|AUTOMATIC|SIZE DEFAULT ~ Medium|RACETYPE DEFAULT ~ Humanoid
+Race Traits ~ Ithorian		CATEGORY:Internal	ABILITY:Internal|AUTOMATIC|SIZE DEFAULT ~ Medium|RACETYPE DEFAULT ~ Humanoid
+Race Traits ~ Kel Dor		CATEGORY:Internal	ABILITY:Internal|AUTOMATIC|SIZE DEFAULT ~ Medium|RACETYPE DEFAULT ~ Humanoid
+Race Traits ~ Mon Calamari	CATEGORY:Internal	ABILITY:Internal|AUTOMATIC|SIZE DEFAULT ~ Medium|RACETYPE DEFAULT ~ Humanoid
+Race Traits ~ Quarren		CATEGORY:Internal	ABILITY:Internal|AUTOMATIC|SIZE DEFAULT ~ Medium|RACETYPE DEFAULT ~ Humanoid
+Race Traits ~ Rodian		CATEGORY:Internal	ABILITY:Internal|AUTOMATIC|SIZE DEFAULT ~ Medium|RACETYPE DEFAULT ~ Humanoid
+Race Traits ~ Sullustan		CATEGORY:Internal	ABILITY:Internal|AUTOMATIC|SIZE DEFAULT ~ Medium|RACETYPE DEFAULT ~ Humanoid
+Race Traits ~ Trandoshan	CATEGORY:Internal	ABILITY:Internal|AUTOMATIC|SIZE DEFAULT ~ Medium|RACETYPE DEFAULT ~ Humanoid
+Race Traits ~ Twi'Lek		CATEGORY:Internal	ABILITY:Internal|AUTOMATIC|SIZE DEFAULT ~ Medium|RACETYPE DEFAULT ~ Humanoid
+Race Traits ~ Wookiee		CATEGORY:Internal	ABILITY:Internal|AUTOMATIC|SIZE DEFAULT ~ Medium|RACETYPE DEFAULT ~ Humanoid
+Race Traits ~ Zabrak		CATEGORY:Internal	ABILITY:Internal|AUTOMATIC|SIZE DEFAULT ~ Medium|RACETYPE DEFAULT ~ Humanoid
+
+
+
+
+
+
+
+
+
 
 # Proficiency Groups
 Primitive Weapons			CATEGORY:Proficiency
@@ -83,6 +99,8 @@ Blaster Pistols			CATEGORY:Proficiency
 
 # Fringer
 Fringer			KEY:Fringer							CATEGORY:Class	ABILITY:FEAT|AUTOMATIC|Weapon Group Proficiency (Primitive Weapons)|Weapon Group Proficiency (Simple Weapons)
+	BONUS:VAR|AC_CLASS|3+(FringerLVL>=2)+(FringerLVL>=5)+(FringerLVL>=7)+(FringerLVL>=10)+(FringerLVL>=12)+(FringerLVL>=15)+(FringerLVL>=17)+(FringerLVL>=20)
+	BONUS:VAR|Reputation|(FringerLVL>=5)+(FringerLVL>=9)+(FringerLVL>=13)+(FringerLVL>=17)
 
 
 Bonus Feats			KEY:Fringer Class Feature ~ Bonus Feats		CATEGORY:Class Feature	TYPE:Class Feature.Fringer Class Feature.Display	SOURCEPAGE:p.41	
@@ -94,7 +112,8 @@ Credits			KEY:Fringer Class Feature ~ Credits			CATEGORY:Class Feature	TYPE:Clas
 
 
 Noble				KEY:Noble							CATEGORY:Class	ABILITY:FEAT|AUTOMATIC|Weapon Group Proficiency (Blaster Pistols)|Weapon Group Proficiency (Simple Weapons)	
-
+	BONUS:VAR|AC_CLASS|2+(NobleLVL>=2)+(NobleLVL>=5)+(NobleLVL>=7)+(NobleLVL>=10)+(NobleLVL>=12)+(NobleLVL>=15)+(NobleLVL>=17)+(NobleLVL>=20)
+	BONUS:VAR|Reputation|1+floor(NobleLVL/4)
 Bonus Class Skill		KEY:Noble Class Feature ~ Bonus Class Skill	CATEGORY:Class Feature	TYPE:Class Feature.Noble Class Feature.Display	SOURCEPAGE:p.43	
 Favor				KEY:Noble Class Feature ~ Favor			CATEGORY:Class Feature	TYPE:Class Feature.Noble Class Feature.Display	SOURCEPAGE:p.43	
 Inspire Confidence	KEY:Noble Class Feature ~ Inspire Confidence	CATEGORY:Class Feature	TYPE:Class Feature.Noble Class Feature.Display	SOURCEPAGE:p.43
@@ -106,6 +125,8 @@ Credits			KEY:Noble Class Feature ~ Credits			CATEGORY:Class Feature	TYPE:Class 
 
 
 Scoundrel			KEY:Scoundrel						CATEGORY:Class	
+	BONUS:VAR|AC_CLASS|(ScoundrelLVL+3)/2
+	BONUS:VAR|Reputation|(ScoundrelLVL+1)/4
 
 Illicit Barter		KEY:Scoundrel Class Feature ~ Illicit Barter	CATEGORY:Class Feature	TYPE:Class Feature.Scoundrel Class Feature.Display	SOURCEPAGE:p.47
 Lucky				KEY:Scoundrel Class Feature ~ Lucky			CATEGORY:Class Feature	TYPE:Class Feature.Scoundrel Class Feature.Display	SOURCEPAGE:p.47
@@ -116,6 +137,8 @@ Credits			KEY:Scoundrel Class Feature ~ Credits		CATEGORY:Class Feature	TYPE:Cla
 
 
 Scout				KEY:Scout							CATEGORY:Class
+	BONUS:VAR|AC_CLASS|(ScoutLVL+3)/2
+	BONUS:VAR|Reputation|ScoutLVL/4
 
 Bonus Feats			KEY:Scout Class Feature ~ Bonus Feats		CATEGORY:Class Feature	TYPE:Class Feature.Scout Class Feature.Display	SOURCEPAGE:p.48
 Trailblazing		KEY:Scout Class Feature ~ Trailblazing		CATEGORY:Class Feature	TYPE:Class Feature.Scout Class Feature.Display	SOURCEPAGE:p.48
@@ -128,12 +151,16 @@ Credits			KEY:Scout Class Feature ~ Credits			CATEGORY:Class Feature	TYPE:Class 
 
 
 Soldier			KEY:Soldier	CATEGORY:Class
+	BONUS:VAR|AC_CLASS|(SoldierLVL+5)/2
+	BONUS:VAR|Reputation|(SoldierLVL+2)/4
 
 Bonus Feats			KEY:Soldier Class Feature ~ Bonus Feats		CATEGORY:Class Feature	TYPE:Class Feature.Scout Class Feature.Display	SOURCEPAGE:p.51
 Credits			KEY:Soldier Class Feature ~ Credits			CATEGORY:Class Feature	TYPE:Class Feature.Scout Class Feature.Display	SOURCEPAGE:p.51
 
 
 Tech Specialist		KEY:Tech Specialist	CATEGORY:Class
+	BONUS:VAR|AC_CLASS|2+(TechSpecialistLVL>=2)+(TechSpecialistLVL>=5)+(TechSpecialistLVL>=7)+(TechSpecialistLVL>=10)+(TechSpecialistLVL>=12)+(TechSpecialistLVL>=15)+(TechSpecialistLVL>=17)+(TechSpecialistLVL>=20)
+	BONUS:VAR|Reputation|(TechSpecialistLVL+1)/4
 
 Skill Emphasis		KEY:Tech Specialist Class Feature ~ Skill Emphasis	CATEGORY:Class Feature	TYPE:Class Feature.Tech Specialist Class Feature.Display	SOURCEPAGE:p.53
 Reasearch			KEY:Tech Specialist Class Feature ~ Reasearch		CATEGORY:Class Feature	TYPE:Class Feature.Tech Specialist Class Feature.Display	SOURCEPAGE:p.53
@@ -143,6 +170,9 @@ Expert			KEY:Tech Specialist Class Feature ~ Expert		CATEGORY:Class Feature	TYPE
 
 
 Force Adept	CATEGORY:Class
+	BONUS:VAR|AC_CLASS|3+(ForceAdeptLVL>=2)+(ForceAdeptLVL>=5)+(ForceAdeptLVL>=7)+(ForceAdeptLVL>=10)+(ForceAdeptLVL>=12)+(ForceAdeptLVL>=15)+(ForceAdeptLVL>=17)+(ForceAdeptLVL>=20)
+	BONUS:VAR|Reputation|(ForceAdeptLVL-1)/4
+
 
 Force Training		KEY:Tech Specialist Class Feature ~ Force Training			CATEGORY:Class Feature	TYPE:Class Feature.Force Adept Class Feature.Display	SOURCEPAGE:p.55
 Bonus Feats			KEY:Tech Specialist Class Feature ~ Bonus Feats				CATEGORY:Class Feature	TYPE:Class Feature.Force Adept Class Feature.Display	SOURCEPAGE:p.55
@@ -155,6 +185,8 @@ Credits			KEY:Tech Specialist Class Feature ~ Credits				CATEGORY:Class Feature	
 
 
 Jedi Consular	CATEGORY:Class
+	BONUS:VAR|AC_CLASS|3+(JediConsularLVL>=2)+(JediConsularLVL>=5)+(JediConsularLVL>=7)+(JediConsularLVL>=10)+(JediConsularLVL>=12)+(JediConsularLVL>=15)+(JediConsularLVL>=17)+(JediConsularLVL>=20)
+	BONUS:VAR|Reputation|1+(JediConsularLVL)/4
 
 Equipment						KEY:Jedi Consular Class Feature ~ Equipment					CATEGORY:Class Feature	TYPE:Class Feature.Jedi Consular Class Feature.Display	SOURCEPAGE:p.57
 Force Training					KEY:Jedi Consular Class Feature ~ Force Training				CATEGORY:Class Feature	TYPE:Class Feature.Jedi Consular Class Feature.Display	SOURCEPAGE:p.57
@@ -171,6 +203,8 @@ Credits						KEY:Jedi Consular Class Feature ~ Credits						CATEGORY:Class Featu
 
 
 Jedi Guardian	CATEGORY:Class
+	BONUS:VAR|AC_CLASS|(JediGuardianLVL+5)/2
+	BONUS:VAR|Reputation|1+((JediGuardianLVL-1)/4)
 
 Equipment						KEY:Jedi Guardian Class Feature ~ Equipment											CATEGORY:Class Feature	TYPE:Class Feature.Jedi Guardian Class Feature.Display	SOURCEPAGE:p.59
 Force Training					KEY:Jedi Guardian Class Feature ~ Force Training										CATEGORY:Class Feature	TYPE:Class Feature.Jedi Guardian Class Feature.Display	SOURCEPAGE:p.59

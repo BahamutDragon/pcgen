@@ -1,0 +1,47 @@
+
+
+
+
+Internal	CATEGORY:Internal
+###Block - Defines
+CATEGORY=Internal|Internal.MOD	DEFINE:ClassSaveGood_Fortitude|0
+CATEGORY=Internal|Internal.MOD	DEFINE:ClassSaveModerate_Fortitude|0
+CATEGORY=Internal|Internal.MOD	DEFINE:ClassSavePoor_Fortitude|0
+CATEGORY=Internal|Internal.MOD	DEFINE:ClassSaveGood_Reflex|0
+CATEGORY=Internal|Internal.MOD	DEFINE:ClassSaveModerate_Reflex|0
+CATEGORY=Internal|Internal.MOD	DEFINE:ClassSavePoor_Reflex|0
+CATEGORY=Internal|Internal.MOD	DEFINE:ClassSaveGood_Will|0
+CATEGORY=Internal|Internal.MOD	DEFINE:ClassSaveModerate_Will|0
+CATEGORY=Internal|Internal.MOD	DEFINE:ClassSavePoor_Will|0
+CATEGORY=Internal|Internal.MOD	DEFINE:DR_ARMOR|0
+CATEGORY=Internal|Internal.MOD	DEFINE:ARMOR_MOVE_PENALTY|0
+CATEGORY=Internal|Internal.MOD	DEFINE:Reputation|0
+CATEGORY=Internal|Internal.MOD	DEFINE:AC_CLASS|0
+
+
+
+
+###Block - Saving throw calculations
+CATEGORY=Internal|Internal.MOD	BONUS:SAVE|BASE.Fortitude|ClassSaveGood_Fortitude+2/2
+CATEGORY=Internal|Internal.MOD	BONUS:SAVE|BASE.Fortitude|(ClassSaveModerate_Fortitude>=1)+(ClassSaveModerate_Fortitude>=2)+(ClassSaveModerate_Fortitude>=5)+(ClassSaveModerate_Fortitude>=7)+(ClassSaveModerate_Fortitude>=10)+(ClassSaveModerate_Fortitude>=12)+(ClassSaveModerate_Fortitude>=15)+(ClassSaveModerate_Fortitude>=17)+(ClassSaveModerate_Fortitude>=20)
+CATEGORY=Internal|Internal.MOD	BONUS:SAVE|BASE.Fortitude|ClassSavePoor_Fortitude/3
+CATEGORY=Internal|Internal.MOD	BONUS:SAVE|BASE.Reflex|ClassSaveGood_Reflex+2/2
+CATEGORY=Internal|Internal.MOD	BONUS:SAVE|BASE.Reflex|(ClassSaveModerate_Reflex>=1)+(ClassSaveModerate_Reflex>=2)+(ClassSaveModerate_Reflex>=5)+(ClassSaveModerate_Reflex>=7)+(ClassSaveModerate_Reflex>=10)+(ClassSaveModerate_Reflex>=12)+(ClassSaveModerate_Reflex>=15)+(ClassSaveModerate_Reflex>=17)+(ClassSaveModerate_Reflex>=20)
+CATEGORY=Internal|Internal.MOD	BONUS:SAVE|BASE.Reflex|ClassSavePoor_Reflex/3
+CATEGORY=Internal|Internal.MOD	BONUS:SAVE|BASE.Will|ClassSaveGood_Will+2/2
+CATEGORY=Internal|Internal.MOD	BONUS:SAVE|BASE.Will|(ClassSaveModerate_Will>=1)+(ClassSaveModerate_Will>=2)+(ClassSaveModerate_Will>=5)+(ClassSaveModerate_Will>=7)+(ClassSaveModerate_Will>=10)+(ClassSaveModerate_Will>=12)+(ClassSaveModerate_Will>=15)+(ClassSaveModerate_Will>=17)+(ClassSaveModerate_Will>=20)
+CATEGORY=Internal|Internal.MOD	BONUS:SAVE|BASE.Will|ClassSavePoor_Will/3
+
+
+# Defense Calculations
+CATEGORY=Internal|Internal.MOD	BONUS:COMBAT|AC|AC_CLASS|TYPE=Class
+
+
+
+
+
+
+
+
+
+
