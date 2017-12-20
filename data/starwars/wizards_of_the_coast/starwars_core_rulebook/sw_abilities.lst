@@ -1,0 +1,219 @@
+
+SIZE ~ DEFAULT / Fine		CATEGORY:Internal	BONUS:VAR|BaseSize|1
+SIZE ~ DEFAULT / Diminutive	CATEGORY:Internal	BONUS:VAR|BaseSize|2
+SIZE ~ DEFAULT / Tiny		CATEGORY:Internal	BONUS:VAR|BaseSize|3
+SIZE ~ DEFAULT / Small		CATEGORY:Internal	BONUS:VAR|BaseSize|4
+SIZE ~ DEFAULT / Medium		CATEGORY:Internal	BONUS:VAR|BaseSize|5
+SIZE ~ DEFAULT / Large		CATEGORY:Internal	BONUS:VAR|BaseSize|6
+SIZE ~ DEFAULT / Huge		CATEGORY:Internal	BONUS:VAR|BaseSize|7
+SIZE ~ DEFAULT / Gargantuan	CATEGORY:Internal	BONUS:VAR|BaseSize|8
+SIZE ~ DEFAULT / Colossal	CATEGORY:Internal	BONUS:VAR|BaseSize|9
+
+
+SIZE ~ CURRENT / Fine		CATEGORY:Internal	BONUS:VAR|CurrentSize|1
+SIZE ~ CURRENT / Diminutive	CATEGORY:Internal	BONUS:VAR|CurrentSize|2
+SIZE ~ CURRENT / Tiny		CATEGORY:Internal	BONUS:VAR|CurrentSize|3
+SIZE ~ CURRENT / Small		CATEGORY:Internal	BONUS:VAR|CurrentSize|4
+SIZE ~ CURRENT / Medium		CATEGORY:Internal	BONUS:VAR|CurrentSize|5
+SIZE ~ CURRENT / Large		CATEGORY:Internal	BONUS:VAR|CurrentSize|6
+SIZE ~ CURRENT / Huge		CATEGORY:Internal	BONUS:VAR|CurrentSize|7
+SIZE ~ CURRENT / Gargantuan	CATEGORY:Internal	BONUS:VAR|CurrentSize|8
+SIZE ~ CURRENT / Colossal	CATEGORY:Internal	BONUS:VAR|CurrentSize|9
+
+
+
+
+SIZE ~ CURRENT / Medium	CATEGORY:Internal	TEMPLATE:SIZE ~ M
+
+
+
+
+
+
+
+
+
+RACETYPE DEFAULT ~ Humanoid	CATEGORY:Internal	TEMPLATE:Legs ~ 2|Hands ~ 2
+
+RACE SPEED DEFAULT ~ 10		CATEGORY:Internal	TEMPLATE:MOVE ~ WALK / 10
+RACE SPEED DEFAULT ~ 06		CATEGORY:Internal	TEMPLATE:MOVE ~ WALK / 06
+
+
+
+
+
+
+
+
+
+
+
+
+###Block - Core Race Traits
+
+Race Traits ~ Human		CATEGORY:Internal	ABILITY:Internal|AUTOMATIC|SIZE DEFAULT ~ Medium|RACETYPE DEFAULT ~ Humanoid
+Race Traits ~ Bothan		CATEGORY:Internal	ABILITY:Internal|AUTOMATIC|SIZE DEFAULT ~ Medium|RACETYPE DEFAULT ~ Humanoid
+Race Traits ~ Cerean		CATEGORY:Internal	ABILITY:Internal|AUTOMATIC|SIZE DEFAULT ~ Medium|RACETYPE DEFAULT ~ Humanoid
+Race Traits ~ Duros		CATEGORY:Internal	ABILITY:Internal|AUTOMATIC|SIZE DEFAULT ~ Medium|RACETYPE DEFAULT ~ Humanoid
+Race Traits ~ Ewok		CATEGORY:Internal	ABILITY:Internal|AUTOMATIC|SIZE DEFAULT ~ Small|RACETYPE DEFAULT ~ Humanoid
+Race Traits ~ Gamorrean		CATEGORY:Internal	ABILITY:Internal|AUTOMATIC|SIZE DEFAULT ~ Medium|RACETYPE DEFAULT ~ Humanoid
+Race Traits ~ Gungan		CATEGORY:Internal	ABILITY:Internal|AUTOMATIC|SIZE DEFAULT ~ Medium|RACETYPE DEFAULT ~ Humanoid
+Race Traits ~ Ithorian		CATEGORY:Internal	ABILITY:Internal|AUTOMATIC|SIZE DEFAULT ~ Medium|RACETYPE DEFAULT ~ Humanoid
+Race Traits ~ Kel Dor		CATEGORY:Internal	ABILITY:Internal|AUTOMATIC|SIZE DEFAULT ~ Medium|RACETYPE DEFAULT ~ Humanoid
+Race Traits ~ Mon Calamari	CATEGORY:Internal	ABILITY:Internal|AUTOMATIC|SIZE DEFAULT ~ Medium|RACETYPE DEFAULT ~ Humanoid
+Race Traits ~ Quarren		CATEGORY:Internal	ABILITY:Internal|AUTOMATIC|SIZE DEFAULT ~ Medium|RACETYPE DEFAULT ~ Humanoid
+Race Traits ~ Rodian		CATEGORY:Internal	ABILITY:Internal|AUTOMATIC|SIZE DEFAULT ~ Medium|RACETYPE DEFAULT ~ Humanoid
+Race Traits ~ Sullustan		CATEGORY:Internal	ABILITY:Internal|AUTOMATIC|SIZE DEFAULT ~ Medium|RACETYPE DEFAULT ~ Humanoid
+Race Traits ~ Trandoshan	CATEGORY:Internal	ABILITY:Internal|AUTOMATIC|SIZE DEFAULT ~ Medium|RACETYPE DEFAULT ~ Humanoid
+Race Traits ~ Twi'Lek		CATEGORY:Internal	ABILITY:Internal|AUTOMATIC|SIZE DEFAULT ~ Medium|RACETYPE DEFAULT ~ Humanoid
+Race Traits ~ Wookiee		CATEGORY:Internal	ABILITY:Internal|AUTOMATIC|SIZE DEFAULT ~ Medium|RACETYPE DEFAULT ~ Humanoid
+Race Traits ~ Zabrak		CATEGORY:Internal	ABILITY:Internal|AUTOMATIC|SIZE DEFAULT ~ Medium|RACETYPE DEFAULT ~ Humanoid
+
+
+
+
+
+
+
+
+
+
+# Proficiency Groups
+Primitive Weapons			CATEGORY:Proficiency
+Simple Weapons			CATEGORY:Proficiency
+Blaster Pistols			CATEGORY:Proficiency
+
+
+
+
+
+
+
+
+
+
+
+
+
+###Block - Class Features
+
+# Fringer
+Fringer			KEY:Fringer							CATEGORY:Class	ABILITY:FEAT|AUTOMATIC|Weapon Group Proficiency (Primitive Weapons)|Weapon Group Proficiency (Simple Weapons)
+	BONUS:VAR|AC_CLASS|3+(FringerLVL>=2)+(FringerLVL>=5)+(FringerLVL>=7)+(FringerLVL>=10)+(FringerLVL>=12)+(FringerLVL>=15)+(FringerLVL>=17)+(FringerLVL>=20)
+	BONUS:VAR|Reputation|(FringerLVL>=5)+(FringerLVL>=9)+(FringerLVL>=13)+(FringerLVL>=17)
+
+
+Bonus Feats			KEY:Fringer Class Feature ~ Bonus Feats		CATEGORY:Class Feature	TYPE:Class Feature.Fringer Class Feature.Display	SOURCEPAGE:p.41	
+Bonus Class Skills	KEY:Fringer Class Feature ~ Bonus Class Skills	CATEGORY:Class Feature	TYPE:Class Feature.Fringer Class Feature.Display	SOURCEPAGE:p.41
+Barter			KEY:Fringer Class Feature ~ Barter			CATEGORY:Class Feature	TYPE:Class Feature.Fringer Class Feature.Display	SOURCEPAGE:p.41
+Jury-Rig			KEY:Fringer Class Feature ~ Jury-Rig		CATEGORY:Class Feature	TYPE:Class Feature.Fringer Class Feature.Display	SOURCEPAGE:p.41	
+Surivival			KEY:Fringer Class Feature ~ Surivival		CATEGORY:Class Feature	TYPE:Class Feature.Fringer Class Feature.Display	SOURCEPAGE:p.41	
+Credits			KEY:Fringer Class Feature ~ Credits			CATEGORY:Class Feature	TYPE:Class Feature.Fringer Class Feature.Display	SOURCEPAGE:p.41
+
+
+Noble				KEY:Noble							CATEGORY:Class	ABILITY:FEAT|AUTOMATIC|Weapon Group Proficiency (Blaster Pistols)|Weapon Group Proficiency (Simple Weapons)	
+	BONUS:VAR|AC_CLASS|2+(NobleLVL>=2)+(NobleLVL>=5)+(NobleLVL>=7)+(NobleLVL>=10)+(NobleLVL>=12)+(NobleLVL>=15)+(NobleLVL>=17)+(NobleLVL>=20)
+	BONUS:VAR|Reputation|1+floor(NobleLVL/4)
+Bonus Class Skill		KEY:Noble Class Feature ~ Bonus Class Skill	CATEGORY:Class Feature	TYPE:Class Feature.Noble Class Feature.Display	SOURCEPAGE:p.43	
+Favor				KEY:Noble Class Feature ~ Favor			CATEGORY:Class Feature	TYPE:Class Feature.Noble Class Feature.Display	SOURCEPAGE:p.43	
+Inspire Confidence	KEY:Noble Class Feature ~ Inspire Confidence	CATEGORY:Class Feature	TYPE:Class Feature.Noble Class Feature.Display	SOURCEPAGE:p.43
+Resource Access		KEY:Noble Class Feature ~ Resource Access		CATEGORY:Class Feature	TYPE:Class Feature.Noble Class Feature.Display	SOURCEPAGE:p.44
+Coordinate			KEY:Noble Class Feature ~ Coordinate		CATEGORY:Class Feature	TYPE:Class Feature.Noble Class Feature.Display	SOURCEPAGE:p.44		
+Bonus Feats			KEY:Noble Class Feature ~ Bonus Feats		CATEGORY:Class Feature	TYPE:Class Feature.Noble Class Feature.Display	SOURCEPAGE:p.44	
+Inspire Greatness		KEY:Noble Class Feature ~ Inspire Greatness	CATEGORY:Class Feature	TYPE:Class Feature.Noble Class Feature.Display	SOURCEPAGE:p.44	
+Credits			KEY:Noble Class Feature ~ Credits			CATEGORY:Class Feature	TYPE:Class Feature.Noble Class Feature.Display	SOURCEPAGE:p.45
+
+
+Scoundrel			KEY:Scoundrel						CATEGORY:Class	
+	BONUS:VAR|AC_CLASS|(ScoundrelLVL+3)/2
+	BONUS:VAR|Reputation|(ScoundrelLVL+1)/4
+
+Illicit Barter		KEY:Scoundrel Class Feature ~ Illicit Barter	CATEGORY:Class Feature	TYPE:Class Feature.Scoundrel Class Feature.Display	SOURCEPAGE:p.47
+Lucky				KEY:Scoundrel Class Feature ~ Lucky			CATEGORY:Class Feature	TYPE:Class Feature.Scoundrel Class Feature.Display	SOURCEPAGE:p.47
+Precise Attack		KEY:Scoundrel Class Feature ~ Precise Attack	CATEGORY:Class Feature	TYPE:Class Feature.Scoundrel Class Feature.Display	SOURCEPAGE:p.47
+Skill Emphasis		KEY:Scoundrel Class Feature ~ Skill Emphasis	CATEGORY:Class Feature	TYPE:Class Feature.Scoundrel Class Feature.Display	SOURCEPAGE:p.47
+Bonus Feats			KEY:Scoundrel Class Feature ~ Bonus Feats		CATEGORY:Class Feature	TYPE:Class Feature.Scoundrel Class Feature.Display	SOURCEPAGE:p.47
+Credits			KEY:Scoundrel Class Feature ~ Credits		CATEGORY:Class Feature	TYPE:Class Feature.Scoundrel Class Feature.Display	SOURCEPAGE:p.47
+
+
+Scout				KEY:Scout							CATEGORY:Class
+	BONUS:VAR|AC_CLASS|(ScoutLVL+3)/2
+	BONUS:VAR|Reputation|ScoutLVL/4
+
+Bonus Feats			KEY:Scout Class Feature ~ Bonus Feats		CATEGORY:Class Feature	TYPE:Class Feature.Scout Class Feature.Display	SOURCEPAGE:p.48
+Trailblazing		KEY:Scout Class Feature ~ Trailblazing		CATEGORY:Class Feature	TYPE:Class Feature.Scout Class Feature.Display	SOURCEPAGE:p.48
+Heart				KEY:Scout Class Feature ~ Heart			CATEGORY:Class Feature	TYPE:Class Feature.Scout Class Feature.Display	SOURCEPAGE:p.48
+Uncanny Dodge		KEY:Scout Class Feature ~ Uncanny Dodge		CATEGORY:Class Feature	TYPE:Class Feature.Scout Class Feature.Display	SOURCEPAGE:p.49
+Skill Mastery		KEY:Scout Class Feature ~ Skill Mastery		CATEGORY:Class Feature	TYPE:Class Feature.Scout Class Feature.Display	SOURCEPAGE:p.49
+Evasion			KEY:Scout Class Feature ~ Evasion			CATEGORY:Class Feature	TYPE:Class Feature.Scout Class Feature.Display	SOURCEPAGE:p.49
+Extreme Effort		KEY:Scout Class Feature ~ Extreme Effort		CATEGORY:Class Feature	TYPE:Class Feature.Scout Class Feature.Display	SOURCEPAGE:p.49
+Credits			KEY:Scout Class Feature ~ Credits			CATEGORY:Class Feature	TYPE:Class Feature.Scout Class Feature.Display	SOURCEPAGE:p.49
+
+
+Soldier			KEY:Soldier	CATEGORY:Class
+	BONUS:VAR|AC_CLASS|(SoldierLVL+5)/2
+	BONUS:VAR|Reputation|(SoldierLVL+2)/4
+
+Bonus Feats			KEY:Soldier Class Feature ~ Bonus Feats		CATEGORY:Class Feature	TYPE:Class Feature.Scout Class Feature.Display	SOURCEPAGE:p.51
+Credits			KEY:Soldier Class Feature ~ Credits			CATEGORY:Class Feature	TYPE:Class Feature.Scout Class Feature.Display	SOURCEPAGE:p.51
+
+
+Tech Specialist		KEY:Tech Specialist	CATEGORY:Class
+	BONUS:VAR|AC_CLASS|2+(TechSpecialistLVL>=2)+(TechSpecialistLVL>=5)+(TechSpecialistLVL>=7)+(TechSpecialistLVL>=10)+(TechSpecialistLVL>=12)+(TechSpecialistLVL>=15)+(TechSpecialistLVL>=17)+(TechSpecialistLVL>=20)
+	BONUS:VAR|Reputation|(TechSpecialistLVL+1)/4
+
+Skill Emphasis		KEY:Tech Specialist Class Feature ~ Skill Emphasis	CATEGORY:Class Feature	TYPE:Class Feature.Tech Specialist Class Feature.Display	SOURCEPAGE:p.53
+Reasearch			KEY:Tech Specialist Class Feature ~ Reasearch		CATEGORY:Class Feature	TYPE:Class Feature.Tech Specialist Class Feature.Display	SOURCEPAGE:p.53
+Instant Mastery		KEY:Tech Specialist Class Feature ~ Instant Mastery	CATEGORY:Class Feature	TYPE:Class Feature.Tech Specialist Class Feature.Display	SOURCEPAGE:p.53
+Tech Specialty		KEY:Tech Specialist Class Feature ~ Tech Specialty	CATEGORY:Class Feature	TYPE:Class Feature.Tech Specialist Class Feature.Display	SOURCEPAGE:p.53
+Expert			KEY:Tech Specialist Class Feature ~ Expert		CATEGORY:Class Feature	TYPE:Class Feature.Tech Specialist Class Feature.Display	SOURCEPAGE:p.54
+
+
+Force Adept	CATEGORY:Class
+	BONUS:VAR|AC_CLASS|3+(ForceAdeptLVL>=2)+(ForceAdeptLVL>=5)+(ForceAdeptLVL>=7)+(ForceAdeptLVL>=10)+(ForceAdeptLVL>=12)+(ForceAdeptLVL>=15)+(ForceAdeptLVL>=17)+(ForceAdeptLVL>=20)
+	BONUS:VAR|Reputation|(ForceAdeptLVL-1)/4
+
+
+Force Training		KEY:Tech Specialist Class Feature ~ Force Training			CATEGORY:Class Feature	TYPE:Class Feature.Force Adept Class Feature.Display	SOURCEPAGE:p.55
+Bonus Feats			KEY:Tech Specialist Class Feature ~ Bonus Feats				CATEGORY:Class Feature	TYPE:Class Feature.Force Adept Class Feature.Display	SOURCEPAGE:p.55
+Force Weapon		KEY:Tech Specialist Class Feature ~ Force Weapon			CATEGORY:Class Feature	TYPE:Class Feature.Force Adept Class Feature.Display	SOURCEPAGE:p.55
+Skill Emphasis		KEY:Tech Specialist Class Feature ~ Skill Emphasis			CATEGORY:Class Feature	TYPE:Class Feature.Force Adept Class Feature.Display	SOURCEPAGE:p.56
+Comprehend Speech		KEY:Tech Specialist Class Feature ~ Comprehend Speech			CATEGORY:Class Feature	TYPE:Class Feature.Force Adept Class Feature.Display	SOURCEPAGE:p.56
+Force Talisman		KEY:Tech Specialist Class Feature ~ Force Talisman			CATEGORY:Class Feature	TYPE:Class Feature.Force Adept Class Feature.Display	SOURCEPAGE:p.56
+Force Secret		KEY:Tech Specialist Class Feature ~ Force Secret			CATEGORY:Class Feature	TYPE:Class Feature.Force Adept Class Feature.Display	SOURCEPAGE:p.56
+Credits			KEY:Tech Specialist Class Feature ~ Credits				CATEGORY:Class Feature	TYPE:Class Feature.Force Adept Class Feature.Display	SOURCEPAGE:p.56
+
+
+Jedi Consular	CATEGORY:Class
+	BONUS:VAR|AC_CLASS|3+(JediConsularLVL>=2)+(JediConsularLVL>=5)+(JediConsularLVL>=7)+(JediConsularLVL>=10)+(JediConsularLVL>=12)+(JediConsularLVL>=15)+(JediConsularLVL>=17)+(JediConsularLVL>=20)
+	BONUS:VAR|Reputation|1+(JediConsularLVL)/4
+
+Equipment						KEY:Jedi Consular Class Feature ~ Equipment					CATEGORY:Class Feature	TYPE:Class Feature.Jedi Consular Class Feature.Display	SOURCEPAGE:p.57
+Force Training					KEY:Jedi Consular Class Feature ~ Force Training				CATEGORY:Class Feature	TYPE:Class Feature.Jedi Consular Class Feature.Display	SOURCEPAGE:p.57
+Deflect (Defense)					KEY:Jedi Consular Class Feature ~ Deflect (Defense)				CATEGORY:Class Feature	TYPE:Class Feature.Jedi Consular Class Feature.Display	SOURCEPAGE:p.57
+Bonus Feats						KEY:Jedi Consular Class Feature ~ Bonus Feats					CATEGORY:Class Feature	TYPE:Class Feature.Jedi Consular Class Feature.Display	SOURCEPAGE:p.58
+Deflect (Attack)					KEY:Jedi Consular Class Feature ~ Deflect (Attack)				CATEGORY:Class Feature	TYPE:Class Feature.Jedi Consular Class Feature.Display	SOURCEPAGE:p.58
+Deflect (Extend Defense and Attack)		KEY:Jedi Consular Class Feature ~ Deflect (Extend Defense and Attack)	CATEGORY:Class Feature	TYPE:Class Feature.Jedi Consular Class Feature.Display	SOURCEPAGE:p.59
+Increase Lightsaber Damage			KEY:Jedi Consular Class Feature ~ Increase Lightsaber Damage		CATEGORY:Class Feature	TYPE:Class Feature.Jedi Consular Class Feature.Display	SOURCEPAGE:p.59
+Jedi Knight						KEY:Jedi Consular Class Feature ~ Jedi Knight					CATEGORY:Class Feature	TYPE:Class Feature.Jedi Consular Class Feature.Display	SOURCEPAGE:p.59
+Healing						KEY:Jedi Consular Class Feature ~ Healing						CATEGORY:Class Feature	TYPE:Class Feature.Jedi Consular Class Feature.Display	SOURCEPAGE:p.59
+Skill Emphasis					KEY:Jedi Consular Class Feature ~ Skill Emphasis				CATEGORY:Class Feature	TYPE:Class Feature.Jedi Consular Class Feature.Display	SOURCEPAGE:p.59
+Block							KEY:Jedi Consular Class Feature ~ Block						CATEGORY:Class Feature	TYPE:Class Feature.Jedi Consular Class Feature.Display	SOURCEPAGE:p.59
+Credits						KEY:Jedi Consular Class Feature ~ Credits						CATEGORY:Class Feature	TYPE:Class Feature.Jedi Consular Class Feature.Display	SOURCEPAGE:p.59
+
+
+Jedi Guardian	CATEGORY:Class
+	BONUS:VAR|AC_CLASS|(JediGuardianLVL+5)/2
+	BONUS:VAR|Reputation|1+((JediGuardianLVL-1)/4)
+
+Equipment						KEY:Jedi Guardian Class Feature ~ Equipment											CATEGORY:Class Feature	TYPE:Class Feature.Jedi Guardian Class Feature.Display	SOURCEPAGE:p.59
+Force Training					KEY:Jedi Guardian Class Feature ~ Force Training										CATEGORY:Class Feature	TYPE:Class Feature.Jedi Guardian Class Feature.Display	SOURCEPAGE:p.59
+Deflect (Defense)					KEY:Jedi Guardian Class Feature ~ Deflect (Defense)										CATEGORY:Class Feature	TYPE:Class Feature.Jedi Guardian Class Feature.Display	SOURCEPAGE:p.59
+Bonus Feats						KEY:Jedi Guardian Class Feature ~ Bonus Feats											CATEGORY:Class Feature	TYPE:Class Feature.Jedi Guardian Class Feature.Display	SOURCEPAGE:p.59
+Deflect (Attack)					KEY:Jedi Guardian Class Feature ~ Deflect (Attack)										CATEGORY:Class Feature	TYPE:Class Feature.Jedi Guardian Class Feature.Display	SOURCEPAGE:p.59
+Increase Lightsaber Damage			KEY:Jedi Guardian Class Feature ~ Increase Lightsaber Damage								CATEGORY:Class Feature	TYPE:Class Feature.Jedi Guardian Class Feature.Display	SOURCEPAGE:p.59
+Deflect (Extend Defense and Attack)		KEY:Jedi Guardian Class Feature ~ Deflect (Extend Defense and Attack)							CATEGORY:Class Feature	TYPE:Class Feature.Jedi Guardian Class Feature.Display	SOURCEPAGE:p.59
+Jedi Knight						KEY:Jedi Guardian Class Feature ~ Jedi Knight											CATEGORY:Class Feature	TYPE:Class Feature.Jedi Guardian Class Feature.Display	SOURCEPAGE:p.59
+Block							KEY:Jedi Guardian Class Feature ~ Block												CATEGORY:Class Feature	TYPE:Class Feature.Jedi Guardian Class Feature.Display	SOURCEPAGE:p.59
+Credits						KEY:Jedi Guardian Class Feature ~ Credits												CATEGORY:Class Feature	TYPE:Class Feature.Jedi Guardian Class Feature.Display	SOURCEPAGE:p.59
+
