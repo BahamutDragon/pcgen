@@ -2,7 +2,7 @@
 PCGEN
 =
 
-###### Updated: 2015-03-13
+###### Updated: 2018-04-22
 ==========================
 ##### PCGen Data Sets & Homebrew
 
@@ -15,7 +15,9 @@ This is for my growing collection of PCGen compatible books and game systems.
 To get the most from these sets, you will need the following:
 * PCGen, the program. Links below. 
 
-You have the option of a production release, such as 6.04.01 or grabbing the current development release and/or autobuilds such as 6.05.x
+You have the option of a production release, such as 6.06.01 or grabbing the current development release and/or autobuilds such as 6.05.x. 
+
+It is always recommended that you use the latest available release of PCGen when using these sets.
 
 Many of the latest features will require you to utilize the latest version (unstable if necessary) of pcgen. 
 I try to use the latest fixes and improvements found in the development line, if you grab the master branch be sure to use the latest developmental version of PCGen. 
