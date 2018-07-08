@@ -281,19 +281,15 @@ Arcane Caster ~ Non-Spontaneous (Wizard)		CATEGORY:Internal	TYPE:NonSpontaneousA
 # NOTES: TYPEs  Class Feature.xxxClass Feature is just a placeholder; ClassNameClass Feature will display in the UI; SpecialQuality is default for showing on the Sheet
 
 #Base Shared Abilities
-#Uncanny Dodge Tracker			CATEGORY:Internal		DEFINE:UncannyDodgeTracker|0		ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge|PREVARGTEQ:UncannyDodgeTracker,1	ABILITY:Special Ability|AUTOMATIC|Improved Uncanny Dodge|PREVARGTEQ:UncannyDodgeTracker,2		BONUS:VAR|UncannyDodgeTracker|count("ABILITIES","CATEGORY=Special Ability","TYPE=UncannyDodge")
-Uncanny Dodge ~ Base														CATEGORY:Special Ability	TYPE:Internal.Class Feature				VISIBLE:NO	DEFINE:UncannyDodgeFlankingLevel|0	DEFINE:UncannyDodgeLVL|0	DEFINE:UncannyDodgeTracker|0																															ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge|PREVARGTEQ:UncannyDodgeTracker,1	ABILITY:Special Ability|AUTOMATIC|Improved Uncanny Dodge|PREVARGTEQ:UncannyDodgeTracker,2																				BONUS:VAR|UncannyDodgeTracker|count("ABILITIES","CATEGORY=Special Ability","TYPE=Uncanny Dodge")
+# We only need to display Improved Uncanny Dodge if a class is granted Uncanny Dodge twice.
+Uncanny Dodge ~ Base														CATEGORY:Special Ability	TYPE:Internal.Class Feature				VISIBLE:NO	DEFINE:UncannyDodgeFlankingLevel|0	DEFINE:UncannyDodgeLVL|0	DEFINE:UncannyDodgeTracker|0																																ABILITY:Special Ability|AUTOMATIC|Improved Uncanny Dodge|PREVARGTEQ:UncannyDodgeTracker,2	BONUS:VAR|UncannyDodgeTracker|count("ABILITIES","CATEGORY=Special Ability","TYPE=Uncanny Dodge")
+#
+Improved Uncanny Dodge	CATEGORY:Special Ability	TYPE:Extraordinary.ImprovedUncannyDodge.Improved Uncanny Dodge.Class Feature.SpecialQuality	DESC:You can no longer be flanked; you can react to opponents on opposite sides of you as easily as you can react to a single attacker. This defense denies a rogue the ability to sneak attack you by flanking you, unless the attacker has at least four more rogue levels than you have uncanny dodge levels [Rogue Level exceeds %1].|3+UncannyDodgeFlankingLevel												BONUS:VAR|UncannyDodgeFlankingLevel|4|TYPE=OnceOnly	VISIBLE:EXPORT
+# ABILITY:Special Ability|AUTOMATIC|Uncanny Dodge|PREVARGTEQ:UncannyDodgeTracker,1
 Retain Dex to AC ~ Flat-footed												CATEGORY:Special Ability	TYPE:Internal.Class Feature				VISIBLE:NO																	DESC:You retain your Dexterity bonus to AC even when flat-footed
-#COMMENT: This is granted to a character that would get Uncanny Dodge a second time
-#Improved Uncanny Dodge			CATEGORY:Special Ability	TYPE:Class Feature.SpecialQuality.Extraordinary														DESC:Can't be flanked except by a level %1 rogue|UncannyDodgeFlankingLevel																																									BONUS:VAR|UncannyDodgeFlankingLevel|4|TYPE=OnceOnly	SOURCEPAGE:ClassesII
 
-
-###Block: Share Uncanny Dodge Tier
+###Block: Share Evansion Tier
 # Ability Name		Category of Ability		Type												Description																																																																																																									Ability										Modify VAR
-Uncanny Dodge		CATEGORY:Special Ability	TYPE:Class Feature.SpecialQuality.Extraordinary.Uncanny Dodge					DESC:Character retains their Dexterity bonus to AC (if any) even if caught flat-footed or struck by an invisible attacker. However, they still loses his Dexterity bonus to AC if immobilized.																																																																											ABILITY:Special Ability|AUTOMATIC|Retain Dex to AC ~ Flat-footed	VISIBLE:EXPORT
-Improved Uncanny Dodge	CATEGORY:Special Ability	TYPE:Extraordinary.ImprovedUncannyDodge.Class Feature.SpecialQuality.Improved Uncanny Dodge	DESC:You can no longer be flanked; you can react to opponents on opposite sides of you as easily as you can react to a single attacker. This defense denies a rogue the ability to sneak attack you by flanking you, unless the attacker has at least four more rogue levels than you have uncanny dodge levels [Rogue Level exceeds %1].|3+UncannyDodgeFlankingLevel												BONUS:VAR|UncannyDodgeFlankingLevel|4|TYPE=OnceOnly	VISIBLE:EXPORT
-#DESC:Character can no longer be flanked; you can react to opponents on opposite sides of you as easily as you can react to a single attacker. This defense denies a rogue the ability to sneak attack the character by flanking him, unless the attacker has at least four more rogue levels than the target has uncanny dodge levels [Rogue Level %1]. If a character already has uncanny dodge from a second class, the character automatically gains improved uncanny dodge instead, and the levels from the classes that grant uncanny dodge stack to determine the minimum level a rogue must be to flank the character.|UncannyDodgeFlankingLevel											
-
 Evasion			CATEGORY:Special Ability	TYPE:Class Feature.Evasion
 Improved Evasion		CATEGORY:Special Ability	TYPE:Class Feature.ImprovedEvasion.Evasion.Improved Evasion
 
