@@ -34,39 +34,42 @@ CLASS:Ex-Barbarian	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimid
 7	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Damage Reduction|!PREABILITY:1,CATEGORY=ACF,TYPE.BarbarianDamageReduction
 
 # Class Name	Hit Dice	Type						Class Type		Abbreviation	Max Level	Source Page		Define		Combat bonus															Monster Role	Bonus
-CLASS:Bard		HD:6		TYPE:Base.PC.Spellcaster.Arcane	FACT:ClassType|PC	FACT:Abb|Brd		MAXLEVEL:20	SOURCEPAGE:p.26	DEFINE:BardLVL|0	BONUS:VAR|BardLVL|CL	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	ROLE:Bard		BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Bard		HD:6		TYPE:Base.PC.Spellcaster.Arcane	FACT:ClassType|PC	FACT:Abb|Brd	ALLOWBASECLASS:NO	MAXLEVEL:20	SOURCEPAGE:p.26	DEFINE:BardLVL|0	BONUS:VAR|BardLVL|CL	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	ROLE:Bard		BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Restricted AL
 CLASS:Bard		!PREALIGN:LG,LN,LE
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Bard		STARTSKILLPTS:6	CSKILL:Appraise|Balance|Bluff|Climb|Concentration|TYPE=Craft|Decipher Script|Diplomacy|Disguise|Escape Artist|Gather Information|Hide|Jump|TYPE=Knowledge|Listen|Move Silently|TYPE=Perform|TYPE=Profession|Sense Motive|Sleight of Hand|Speak Language|Spellcraft|Swim|Tumble|Use Magic Device
+CLASS:Bard		STARTSKILLPTS:6	
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Bard		FACT:SpellType|Arcane
 CLASS:Bard		SPELLSTAT:CHA	MEMORIZE:NO
+
+
+SUBCLASS:Bard (Standard)	COST:0	SPELLLIST:1|Bard	CSKILL:Appraise|Balance|Bluff|Climb|Concentration|TYPE=Craft|Decipher Script|Diplomacy|Disguise|Escape Artist|Gather Information|Hide|Jump|TYPE=Knowledge|Listen|Move Silently|TYPE=Perform|TYPE=Profession|Sense Motive|Sleight of Hand|Speak Language|Spellcraft|Swim|Tumble|Use Magic Device
 ###Block:
-1	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Weapon and Armor Proficiency|!PREABILITY:1,CATEGORY=ACF,TYPE.BardProficiencies
-1	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Bardic Knowledge|!PREABILITY:1,CATEGORY=ACF,TYPE.BardBardicKnowledge
-1	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Bardic Music|!PREABILITY:1,CATEGORY=ACF,TYPE.BardBardicMusic
+SUBCLASSLEVEL:1	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Weapon and Armor Proficiency|!PREABILITY:1,CATEGORY=ACF,TYPE.BardProficiencies
+SUBCLASSLEVEL:1	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Bardic Knowledge|!PREABILITY:1,CATEGORY=ACF,TYPE.BardBardicKnowledge
+SUBCLASSLEVEL:1	ABILITY:Bard Class Feature|AUTOMATIC|Bard ~ Bardic Music|!PREABILITY:1,CATEGORY=ACF,TYPE.BardBardicMusic
 ###Block: Level progression
-1	CAST:2			KNOWN:4
-2	CAST:3,0			KNOWN:5,2
-3	CAST:3,1			KNOWN:6,3
-4	CAST:3,2,0			KNOWN:6,3,2
-5	CAST:3,3,1			KNOWN:6,4,3
-6	CAST:3,3,2			KNOWN:6,4,3
-7	CAST:3,3,2,0		KNOWN:6,4,4,2
-8	CAST:3,3,3,1		KNOWN:6,4,4,3
-9	CAST:3,3,3,2		KNOWN:6,4,4,3
-10	CAST:3,3,3,2,0		KNOWN:6,4,4,4,2
-11	CAST:3,3,3,3,1		KNOWN:6,4,4,4,3
-12	CAST:3,3,3,3,2		KNOWN:6,4,4,4,3
-13	CAST:3,3,3,3,2,0		KNOWN:6,4,4,4,4,2
-14	CAST:4,3,3,3,3,1		KNOWN:6,4,4,4,4,3
-15	CAST:4,4,3,3,3,2		KNOWN:6,4,4,4,4,3
-16	CAST:4,4,4,3,3,2,0	KNOWN:6,5,4,4,4,4,2
-17	CAST:4,4,4,4,3,3,1	KNOWN:6,5,5,4,4,4,3
-18	CAST:4,4,4,4,4,3,2	KNOWN:6,5,5,5,4,4,3
-19	CAST:4,4,4,4,4,4,3	KNOWN:6,5,5,5,5,4,4
-20	CAST:4,4,4,4,4,4,4	KNOWN:6,5,5,5,5,5,4
+SUBCLASSLEVEL:1	CAST:2			KNOWN:4
+SUBCLASSLEVEL:2	CAST:3,0			KNOWN:5,2
+SUBCLASSLEVEL:3	CAST:3,1			KNOWN:6,3
+SUBCLASSLEVEL:4	CAST:3,2,0			KNOWN:6,3,2
+SUBCLASSLEVEL:5	CAST:3,3,1			KNOWN:6,4,3
+SUBCLASSLEVEL:6	CAST:3,3,2			KNOWN:6,4,3
+SUBCLASSLEVEL:7	CAST:3,3,2,0		KNOWN:6,4,4,2
+SUBCLASSLEVEL:8	CAST:3,3,3,1		KNOWN:6,4,4,3
+SUBCLASSLEVEL:9	CAST:3,3,3,2		KNOWN:6,4,4,3
+SUBCLASSLEVEL:10	CAST:3,3,3,2,0		KNOWN:6,4,4,4,2
+SUBCLASSLEVEL:11	CAST:3,3,3,3,1		KNOWN:6,4,4,4,3
+SUBCLASSLEVEL:12	CAST:3,3,3,3,2		KNOWN:6,4,4,4,3
+SUBCLASSLEVEL:13	CAST:3,3,3,3,2,0		KNOWN:6,4,4,4,4,2
+SUBCLASSLEVEL:14	CAST:4,3,3,3,3,1		KNOWN:6,4,4,4,4,3
+SUBCLASSLEVEL:15	CAST:4,4,3,3,3,2		KNOWN:6,4,4,4,4,3
+SUBCLASSLEVEL:16	CAST:4,4,4,3,3,2,0	KNOWN:6,5,4,4,4,4,2
+SUBCLASSLEVEL:17	CAST:4,4,4,4,3,3,1	KNOWN:6,5,5,4,4,4,3
+SUBCLASSLEVEL:18	CAST:4,4,4,4,4,3,2	KNOWN:6,5,5,5,4,4,3
+SUBCLASSLEVEL:19	CAST:4,4,4,4,4,4,3	KNOWN:6,5,5,5,5,4,4
+SUBCLASSLEVEL:20	CAST:4,4,4,4,4,4,4	KNOWN:6,5,5,5,5,5,4
 
 # Ex Bard	SOURCEPAGE:p.30	Doesn't do anything except prevent leveling in the class.
 
