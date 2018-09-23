@@ -1,9 +1,10 @@
 # CVS $Revision: $ $Author: $ -- Thu Jul 10 13:59:32 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 
 # COMMENT: This looks incomplete. Tidied up the abilities, the header looks fine. Defines need to go to abilities that grant. ~BD
+# added BAB and moved defines to abilities
 
 # Class Name	Hit Dice	Type			Abbreviation	Source Page		Define									Bonus
-CLASS:Binder	HD:8		TYPE:Base.PC	FACT:Abb|Bdr		SOURCEPAGE:p.9	DEFINE:BinderMaxVestigeLVL|0	DEFINE:BinderEffectiveLVL|0	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Binder	HD:8		TYPE:Base.PC	FACT:Abb|Bdr		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	SOURCEPAGE:p.9	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Binder	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Decipher Script|Diplomacy|Gather Information|Intimidate|Knowledge (arcana)|Knowledge (History)|Knowledge (Religion)|Knowledge (The Planes)|TYPE=Profession|Sense Motive
 ###Block: Profs need to be swapped out for actual prof ability
@@ -19,41 +20,27 @@ CLASS:Binder	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Decipher Scri
 ###Block:
 4	BONUS:VAR|BinderFeatCount|CL+3/7
 1	BONUS:VAR|BinderEffectiveLVL|CL
-#1	SAB:Soul Binding (1 Vestige) Bind 1 vestige per 24 hours (draw a 5' ritual circle)
 1	BONUS:VAR|BinderSoulBindingLVL|1
 1	BONUS:VAR|BinderMaxVestigeLVL|1
 #
 2	BONUS:VAR|BinderPactAugmentationCount|1
 2	BONUS:VAR|BinderSuppressSign|1
 #
-# want the value to be 2, so we should add just 1 here..
-#3	BONUS:VAR|BinderMaxVestigeLVL|2
 3	BONUS:VAR|BinderMaxVestigeLVL|1
-#4 bonus feat
-#5	BONUS:VAR|BinderPactAugmentationCount|2
+4	ABILITY:Binder Class Feature|AUTOMATIC|Binder ~ Bonus Feats|!PREABILITY:1,CATEGORY=ACF,TYPE.BinderBonusFeats¶
 5	BONUS:VAR|BinderPactAugmentationCount|1
-#5	BONUS:VAR|BinderMaxVestigeLVL|3
 5	BONUS:VAR|BinderMaxVestigeLVL|1
-# 6 - soul guardian (immune to fear)
 6	BONUS:VAR|BinderSoulGuardianLVL|1
-#7	BONUS:VAR|BinderMaxVestigeLVL|3
 7	BONUS:VAR|BinderMaxVestigeLVL|1
-#8	BONUS:VAR|BinderSoulBindingLVL|2
 8	BONUS:VAR|BinderSoulBindingLVL|1
-# and it goes on.
-# 9 soul guardian slippery mind
 9	BONUS:VAR|BinderSoulGuardianLVL|1
 10	BONUS:VAR|BinderPactAugmentationCount|1
 10	BONUS:VAR|BinderMaxVestigeLVL|1
-12	BONUS:VAR|BinderMaxVestigeLVL|1
-# 13 soul guardian immune to energy drain and negative levels
 13	BONUS:VAR|BinderSoulGuardianLVL|1
 14	BONUS:VAR|BinderSoulBindingLVL|1
 15	BONUS:VAR|BinderMaxVestigeLVL|1
 16	BONUS:VAR|BinderPactAugmentationCount|1
 17	BONUS:VAR|BinderMaxVestigeLVL|1
-# 19 soul guardian mind blank
-19	BONUS:VAR|BinderSoulGuardianLVL|1
 20	BONUS:VAR|BinderSoulBindingLVL|1
 20	BONUS:VAR|BinderPactAugmentationCount|1
 
