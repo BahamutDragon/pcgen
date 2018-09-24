@@ -1,4 +1,6 @@
-
+SOURCELONG:Savage Species
+SOURCESHORT:ss
+##Converted by DG 02/02/14
 
 
 
@@ -29,9 +31,6 @@ CLASS:Master of Flies	STARTSKILLPTS:6	CSKILL:Balance|Climb|Control Shape|Disguis
 
 
 
-SOURCELONG:Savage Species
-SOURCESHORT:ss
-##Converted by DG 02/02/14
 
 #################################################################################################################
 ## Class Name			Hit Dice	Type				Abbreviation	Max Level	Source Page		Levels per Feat
@@ -120,63 +119,8 @@ CLASS:Djinni Monster Class	STARTSKILLPTS:8	CSKILL:Appraise|Concentration|TYPE=Cr
 # cant use SIZE in a class file
 #9	SIZE:L
 9	BONUS:SIZEMOD|NUMBER|1
-# prevent this size change affecting all the stats
 9	BONUS:VAR|BypassSizeMods|1|TYPE=Boolean
-# does that mean we need to *manually* modify the remaining setup for large ?
-# from F:\Data\GitHub\pcgen\system\gameModes\Bahamut35e\sizeAdjustments.lst
-#SIZENAME:M		ABB:M	SIZENUM:140	DISPLAYNAME:Medium	BONUS:ITEMCOST|TYPE=Ammunition,TYPE=Armor,TYPE=Shield,TYPE=Weapon|1
-#SIZENAME:M		BONUS:ITEMWEIGHT|TYPE=Ammunition,TYPE=Armor,TYPE=Shield,TYPE=Weapon|1	BONUS:ITEMWEIGHT|TYPE=Goods|1
-#SIZENAME:M		BONUS:ACVALUE|TYPE.Armor,TYPE.Shield|1
-#SIZENAME:M		BONUS:ITEMCAPACITY|TYPE=Goods|1	ISDEFAULTSIZE:Y
-#SIZENAME:M		BONUS:LOADMULT|TYPE=SIZE|0.5|PRELEGSGTEQ:4
-##
-#SIZENAME:L		ABB:L	SIZENUM:150	DISPLAYNAME:Large	BONUS:ITEMCOST|TYPE=Ammunition,TYPE=Armor,TYPE=Shield,TYPE=Weapon|2
-#SIZENAME:L		BONUS:ITEMWEIGHT|TYPE=Ammunition,TYPE=Armor,TYPE=Shield,TYPE=Weapon|2	BONUS:ITEMWEIGHT|TYPE=Goods|1
-#SIZENAME:L		BONUS:ACVALUE|TYPE.Armor,TYPE.Shield|1	BONUS:COMBAT|AC|-1|TYPE=Size	BONUS:COMBAT|TOHIT|-1|TYPE=SIZE	BONUS:COMBAT|TOHIT.GRAPPLE|5|TYPE=Size
-#SIZENAME:L		BONUS:ITEMCAPACITY|TYPE=Goods|1
-#SIZENAME:L		BONUS:SKILL|Hide|-4|TYPE=SIZE
-#SIZENAME:L		BONUS:LOADMULT|TYPE=SIZE|1|PRELEGSGTEQ:
-#################################
-# and size modifiers from players_handbook/ph_sizes.lst
-#Medium          ABB:M   DISPLAYNAME:Medium              BONUS:ITEMCOST|TYPE=Ammunition,TYPE=Armor,TYPE=Shield,TYPE=Weapon|1
-#M.MOD                   BONUS:ITEMWEIGHT|TYPE=Ammunition,TYPE=Armor,TYPE=Shield,TYPE=Weapon|1   BONUS:ITEMWEIGHT|TYPE=Goods|1
-#M.MOD                   BONUS:ACVALUE|TYPE.Armor,TYPE.Shield|1
-#M.MOD                   BONUS:ITEMCAPACITY|TYPE=Goods|1 ISDEFAULTSIZE:Y                                                                                                                                                       M.MOD                   BONUS:LOADMULT|TYPE=SIZE|0.5|PRELEGSGTEQ:4
-#M.MOD                   BONUS:STAT|STR|2|PREBASESIZELT:Tiny|PREVAREQ:BypassSizeMods,0           BONUS:STAT|STR|4|PREBASESIZELT:Small|PREVAREQ:BypassSizeMods,0  BONUS:STAT|STR|4|PREBASESIZELT:Medium|PREVAREQ:BypassSizeMods,0
-#M.MOD                   BONUS:STAT|DEX|-2|PREBASESIZEEQ:Fine|PREVAREQ:BypassSizeMods,0  BONUS:STAT|DEX|-2|PREBASESIZELT:Tiny|PREVAREQ:BypassSizeMods,0  BONUS:STAT|DEX|-2|PREBASESIZELT:Small|PREVAREQ:BypassSizeMods,0 BONUS:STAT|DEX|-2|PREBASESIZELT:Medium|PREVAREQ:BypassSizeMods,0
-#M.MOD                   BONUS:STAT|CON|2|PREBASESIZELT:Medium
-##
-#Large           ABB:L   DISPLAYNAME:Large               BONUS:ITEMCOST|TYPE=Ammunition,TYPE=Armor,TYPE=Shield,TYPE=Weapon|2
-#L.MOD                   BONUS:ITEMWEIGHT|TYPE=Ammunition,TYPE=Armor,TYPE=Shield,TYPE=Weapon|2   BONUS:ITEMWEIGHT|TYPE=Goods|1
-#L.MOD                   BONUS:ACVALUE|TYPE.Armor,TYPE.Shield|1  BONUS:COMBAT|AC|-1|TYPE=Size    BONUS:COMBAT|TOHIT|-1|TYPE=SIZE BONUS:COMBAT|TOHIT.GRAPPLE|5|TYPE=Size
-#L.MOD                   BONUS:ITEMCAPACITY|TYPE=Goods|1                                                                                                                                                                       L.MOD                   BONUS:SKILL|Hide|-4|TYPE=SIZE
-#L.MOD                   BONUS:LOADMULT|TYPE=SIZE|1|PRELEGSGTEQ:4                                                                                                                                                              L.MOD                   BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK|PREBASESIZELTEQ:Medium|PREVAREQ:BypassSizeMods,0
-#L.MOD                   BONUS:STAT|STR|2|PREBASESIZELT:Tiny|PREVAREQ:BypassSizeMods,0           BONUS:STAT|STR|4|PREBASESIZELT:Small|PREVAREQ:BypassSizeMods,0  BONUS:STAT|STR|4|PREBASESIZELT:Medium|PREVAREQ:BypassSizeMods,0 BONUS:STAT|STR|8|PREBASESIZELT:Large|PREVAREQ:BypassSizeMods,0
-#L.MOD                   BONUS:STAT|DEX|-2|PREBASESIZEEQ:Fine|PREVAREQ:BypassSizeMods,0  BONUS:STAT|DEX|-2|PREBASESIZELT:Tiny|PREVAREQ:BypassSizeMods,0  BONUS:STAT|DEX|-2|PREBASESIZELT:Small|PREVAREQ:BypassSizeMods,0 BONUS:STAT|DEX|-2|PREBASESIZELT:Medium|PREVAREQ:BypassSizeMods,0        BONUS:STAT|DEX|-2|PREBASESIZELT:Large|PREVAREQ:BypassSizeMods,0
-#L.MOD                   BONUS:STAT|CON|2|PREBASESIZELT:Medium|PREVAREQ:BypassSizeMods,0 BONUS:STAT|CON|4|PREBASESIZELT:Large|PREVAREQ:BypassSizeMods,0
 
-#################################
-# from universal_abilities/ur_abilities.lst
-#CATEGORY=Internal|Base Size ~ Medium.MOD                BONUS:STAT|STR|-4|PREVARGTEQ:SizeDecrease,1|PREVAREQ:BypassSizeMods,0   BONUS:STAT|DEX|2|PREVARGTEQ:SizeDecrease,1|PREVAREQ:BypassSizeMods,0    BONUS:STAT|CON|-2|PREVARGTEQ:SizeDecrease,1|PREVAREQ:BypassSizeMods,0
-#SIZE_L          CATEGORY:Internal               VISIBLE:NO      TEMPLATE:SIZE_L
-# perhaps just BONUS:VAR|SizeIncrease|1
-# or perhaps just BONUS:VAR|CurrentSize|1
-#################################
-# Increasing SIZE to large adds +16 to Strength (and an extra +2 accounted for above), Dex -4, con +8, so need to offset these here
-# TODO - we have the above Str +2 for the class, and here Str -16 to offset becoming large, should we just have one Str -14 ?
-#9	BONUS:STAT|STR|-16|TYPE=Size
-#9	BONUS:STAT|DEX|+4|TYPE=Size
-#9	BONUS:STAT|CON|-8|TYPE=Size
-# or are these proportional to stats? with straight 10's it only needs:
-#9	BONUS:STAT|STR|-16|TYPE=Size
-#9	BONUS:STAT|DEX|+2|TYPE=Size
-#9	BONUS:STAT|CON|-6|TYPE=Size
-#9	BONUS:STAT|STR|-16|TYPE=Temporary
-#9	BONUS:STAT|DEX|+4|TYPE=Temporary
-#9	BONUS:STAT|CON|-4|TYPE=Temporary
-#####################################
-
-#
 # no skill points or HD gained at lvl10
 10	DONOTADD:HITDIE|SKILLPOINTS
 10	BONUS:STAT|CON|2
