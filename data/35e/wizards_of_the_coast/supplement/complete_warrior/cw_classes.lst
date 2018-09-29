@@ -507,7 +507,9 @@ CLASS:Justicar	STARTSKILLPTS:4	CSKILL:Bluff|Climb|Disguise|Gather Information|He
 # Class Name	Hit Dice	Type			Abbreviation	Source Page		Combat bonus															Modify VAR														Bonus
 CLASS:Kensai	HD:10		TYPE:Prestige	FACT:Abb|Ken		SOURCEPAGE:p.49	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name	Required AL		Required Feat											Required Skill						Required Text											PRETOTALAB
-CLASS:Kensai	PREALIGN:LG,LN,LE	PREABILITY:1,CATEGORY=FEAT,Combat Expertise	PREABILITY:1,CHECKMULT,CATEGORY=FEAT,Weapon Focus (TYPE=ANY)	PRESKILL:3,Concentration=5,Diplomacy=5,Ride=5	PRETEXT:Must complete an oath of service to either an overlord or an ideal	PRETOTALAB:5
+# DG fix the Weapon Focus pre-req (TYPE=ANY) is no longer needed to be specified now it is ability based?
+#CLASS:Kensai	PREALIGN:LG,LN,LE	PREABILITY:1,CATEGORY=FEAT,Combat Expertise	PREABILITY:1,CHECKMULT,CATEGORY=FEAT,Weapon Focus (TYPE=ANY)	PRESKILL:3,Concentration=5,Diplomacy=5,Ride=5	PRETEXT:Must complete an oath of service to either an overlord or an ideal	PRETOTALAB:5
+CLASS:Kensai	PREALIGN:LG,LN,LE	PREABILITY:1,CATEGORY=FEAT,Combat Expertise	PREABILITY:1,CATEGORY=FEAT,Weapon Focus	PRESKILL:3,Concentration=5,Diplomacy=5,Ride=5	PRETEXT:Must complete an oath of service to either an overlord or an ideal	PRETOTALAB:5
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Kensai	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Diplomacy|Intimidate|Jump|Knowledge (Local)|Knowledge (nobility and royalty)|Ride|Sense Motive
 1	ABILITY:Kensai Class Feature|AUTOMATIC|Kensai ~ Weapon and Armor Proficiency
@@ -919,3 +921,4 @@ CLASS:Warshaper	STARTSKILLPTS:2	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Di
 5	ABILITY:Warshaper Class Feature|AUTOMATIC|Warshaper ~ Flashmorph/Multimorph
 ###Block
 5	BONUS:ABILITYPOOL|Warshaper Morph|1
+
