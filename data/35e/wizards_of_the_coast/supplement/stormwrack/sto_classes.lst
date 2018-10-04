@@ -1,0 +1,62 @@
+
+# Scarlet Corsair
+CLASS:Scarlet Corsair	HD:8		TYPE:Prestige		FACT:ClassType|Prestige		FACT:Abb|SCor			MAXLEVEL:10
+CLASS:Scarlet Corsair	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+#
+CLASS:Scarlet Corsair	!PREALIGN:LG,LN,LE
+CLASS:Scarlet Corsair	PRETOTALAB:5	PREABILITY:1,CATEGORY=Special Ability,Sneak Attack
+CLASS:Scarlet Corsair	PRESKILL:3,Bluff=8,Intimidate=8,Profession (Sailor)=4
+CLASS:Scarlet Corsair	PRETEXT:Must have established a reputation as a fearsome pirate.
+#
+CLASS:Scarlet Corsair	STARTSKILLPTS:4		CSKILL:Appraise|Balance|Bluff|Climb|TYPE=Craft|Decipher Script|Diplomacy|Gather Information|Intimidate|Jump|Knowledge (Geography)|Knowledge (Local)|TYPE=Perform|Profession (Sailor)|Survival|Swim|Tumble|Use Rope
+#
+CLASS:Scarlet Corsair	DEFINE:ScarletCorsairLVL|0			BONUS:VAR|ScarletCorsairLVL|CL
+CLASS:Scarlet Corsair	DEFINE:ScarletCorsairSailorsStep|0	BONUS:VAR|ScarletCorsairSailorsStep|floor(CL/4)
+#
+###Block
+1	ABILITY:FEAT|AUTOMATIC|Improved Feint
+2	BONUS:VAR|SneakAttackDice|1
+3	ABILITY:Scarlet Corsair Class Feature|AUTOMATIC|Scarlet Corsair ~ Corsair's Feint
+4	ABILITY:Scarlet Corsair Class Feature|AUTOMATIC|Scarlet Corsair ~ Sailor's Step
+5	ABILITY:Scarlet Corsair Class Feature|AUTOMATIC|Scarlet Corsair ~ Scourge of the Seas
+6	BONUS:VAR|SneakAttackDice|1
+#7
+#8
+9	ABILITY:Scarlet Corsair Class Feature|AUTOMATIC|Scarlet Corsair ~ Frightening Lunge
+10	BONUS:VAR|SneakAttackDice|1
+
+
+# Stormcaster
+CLASS:Stormcaster		HD:4		TYPE:Prestige		FACT:ClassType|Prestige		FACT:Abb|STRMCSTR		MAXLEVEL:10
+CLASS:Stormcaster		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	
+CLASS:Stormcaster		BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+#	
+CLASS:Stormcaster		!PREALIGN:LG,LN,LE
+CLASS:Stormcaster		PRESKILL:2,Knowledge (Arcana)=4,Knowledge (Nature)=4
+CLASS:Stormcaster		PRESPELL:1,Gust of Wind		PRESPELL:1,Lightning Bolt,Call Lightning
+#
+CLASS:Stormcaster		STARTSKILLPTS:2			CSKILL:Concentration|TYPE=Craft|Intimidate|Jump|Knowledge (Arcana)|Knowledge (Nature)|Listen|TYPE=Profession|Spellcraft|Survival
+#
+CLASS:Stormcaster		DEFINE:StormcasterLVL|0		BONUS:VAR|StormcasterLVL|CL
+CLASS:Stormcaster		BONUS:VAR|ElectricityResistanceBonus|10		BONUS:VAR|SonicResistanceBonus|10
+#
+###Block
+1	ABILITY:Stormcaster Class Feature|AUTOMATIC|Stormcaster ~ Storm Spell Power
+1	ABILITY:Stormcaster Class Feature|AUTOMATIC|Stormcaster ~ Thunderclap
+2																					ABILITY:Special Ability|AUTOMATIC|Resistance to Electricity	
+3	ABILITY:Stormcaster Class Feature|AUTOMATIC|Stormcaster ~ Shield of Winds
+4	ABILITY:Stormcaster Class Feature|AUTOMATIC|Stormcaster ~ Eye of the Storm
+5	ABILITY:Stormcaster Class Feature|AUTOMATIC|Stormcaster ~ Thunderbolt
+7																					ABILITY:Special Ability|AUTOMATIC|Resistance to Sonic	
+8	ABILITY:Stormcaster Class Feature|AUTOMATIC|Stormcaster ~ Call Storm
+19	ABILITY:Stormcaster Class Feature|AUTOMATIC|Stormcaster ~ Lord of the Storm
+#
+2	ADD:SPELLCASTER|Arcane,Divine
+3	ADD:SPELLCASTER|Arcane,Divine
+4	ADD:SPELLCASTER|Arcane,Divine
+5	ADD:SPELLCASTER|Arcane,Divine
+6	ADD:SPELLCASTER|Arcane,Divine
+7	ADD:SPELLCASTER|Arcane,Divine
+8	ADD:SPELLCASTER|Arcane,Divine
+9	ADD:SPELLCASTER|Arcane,Divine
+10	ADD:SPELLCASTER|Arcane,Divine
