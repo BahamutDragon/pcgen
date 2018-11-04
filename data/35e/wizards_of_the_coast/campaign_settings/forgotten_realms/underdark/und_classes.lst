@@ -39,79 +39,71 @@ CLASS:Arachnomancer	STARTSKILLPTS:4	CSKILL:Climb|Concentration|TYPE=Craft|Hide|K
 
 
 # Cavelord
-# CLASS:Cavelord	MAXLEVEL:20
-# CLASS:Cavelord	HD:10	TYPE:PC.Prestige
-# CLASS:Cavelord	FACT:Abb|	FACT:ClassType|
-# CLASS:Cavelord	DEFINE:CavelordLVL|0	BONUS:VAR|CavelordLVL|CL
-# CLASS:Cavelord	SOURCEPAGE:p.	
-# CLASS:Cavelord	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
-# CLASS:Cavelord	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
-# CLASS:Cavelord	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
-# CLASS:Cavelord	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
-# CLASS:Cavelord	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
-# CLASS:Cavelord	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
-# CLASS:Cavelord	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0
-# CLASS:Cavelord	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0
-# CLASS:Cavelord	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0
-# CLASS:Cavelord	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0
-# CLASS:Cavelord	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0
-# CLASS:Cavelord	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0
-# CLASS:Cavelord	BONUS:VAR|ClassSaveGood_Fortitude|classlevel()|PREVAREQ:UseFractionalSave,1
-# CLASS:Cavelord	BONUS:VAR|ClassSavePoor_Fortitude|classlevel()|PREVAREQ:UseFractionalSave,1
-# CLASS:Cavelord	BONUS:VAR|ClassSaveGood_Reflex|classlevel()|PREVAREQ:UseFractionalSave,1
-# CLASS:Cavelord	BONUS:VAR|ClassSavePoor_Reflex|classlevel()|PREVAREQ:UseFractionalSave,1
-# CLASS:Cavelord	BONUS:VAR|ClassSaveGood_Will|classlevel()|PREVAREQ:UseFractionalSave,1
-# CLASS:Cavelord	BONUS:VAR|ClassSavePoor_Will|classlevel()|PREVAREQ:UseFractionalSave,1
-# CLASS:Cavelord	PRETEXT:
-# CLASS:Cavelord	STARTSKILLPTS:	CSKILL:
-# CLASS:Cavelord	FACT:SpellType|
-# CLASS:Cavelord	SPELLSTAT:	MEMORIZE:
-# CLASS:Cavelord	BONUS:CASTERLEVEL|Cavelord|Caster_Level_BL_Stripped_Cavelord	DEFINE:Caster_Level_BL_Stripped_Cavelord|0	BONUS:VAR|Caster_Level_BL_Stripped_Cavelord|Caster_Level_Cavelord-CasterLevelBLCavelord	BONUS:VAR|Caster_Level_Cavelord|CL+Caster_Level_Bonus+CasterLevelBLCavelord	DEFINE:CasterLevelBLCavelord|0	BONUS:VAR|CasterLevelBL_Cavelord|charbonusto("PCLEVEL","Cavelord")	
-# CLASS:Cavelord	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Cavelord|TYPE=Base
-
-#	ADD:SPELLCASTER|
+CLASS:Cavelord	MAXLEVEL:20
+CLASS:Cavelord	HD:10	TYPE:PC.Prestige
+CLASS:Cavelord	FACT:Abb|Cl	FACT:ClassType|Prestige
+CLASS:Cavelord	DEFINE:CavelordLVL|0	BONUS:VAR|CavelordLVL|CL
+CLASS:Cavelord	SOURCEPAGE:p.30	
+CLASS:Cavelord	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+CLASS:Cavelord	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassSaveGood_Fortitude|classlevel()|PREVAREQ:UseFractionalSave,1
+CLASS:Cavelord	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassSaveGood_Reflex|classlevel()|PREVAREQ:UseFractionalSave,1
+CLASS:Cavelord	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0		BONUS:VAR|ClassSavePoor_Will|classlevel()|PREVAREQ:UseFractionalSave,1
+CLASS:Cavelord	PRETEXT:Skills: Knowledge (Underdark local) 8 ranks, Search 2 ranks, Spot 2 ranks, Survival 4 ranks. Feat: Track.	PRESKILL:4,Knowledge (Underdark local)=8,Search=2,Spot=2,Survival=4	PREABILITY:1,CATEGORY=FEAT,Track
+CLASS:Cavelord	STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE=Craft|Handle Animal|Hide|Jump|Knowledge (Underdark local)|Listen|Move Silently|TYPE=Profession|Search|Sense Motive|Spot|Swim|Survival
 ###Block
-#11	PREPCLEVEL:MIN=20
-###Block 	ABILITY:Cavelord Class Feature|AUTOMATIC|
-
+11	PREPCLEVEL:MIN=20
+###Block	
+1	ABILITY:Cavelord Class Feature|AUTOMATIC|Cavelord ~ Weapon and Armor Proficiency	
+1	ABILITY:Cavelord Class Feature|AUTOMATIC|Cavelord ~ Tunnelrunner				
+2	ABILITY:Cavelord Class Feature|AUTOMATIC|Cavelord ~ Cave Tracker				
+2	ABILITY:Cavelord Class Feature|AUTOMATIC|Cavelord ~ Lesser Cavesense			
+4	ABILITY:Cavelord Class Feature|AUTOMATIC|Cavelord ~ Tunnelswimmer				
+5	ABILITY:Cavelord Class Feature|AUTOMATIC|Cavelord ~ Strength of Stones			
+7	ABILITY:Cavelord Class Feature|AUTOMATIC|Cavelord ~ Greater Cavesense			
+8	ABILITY:Cavelord Class Feature|AUTOMATIC|Cavelord ~ Changestones				
+10	ABILITY:Cavelord Class Feature|AUTOMATIC|Cavelord ~ Bones of the Earth			
 
 
 # Deep Diviner
-# CLASS:Deep Diviner	MAXLEVEL:20
-# CLASS:Deep Diviner	HD:	TYPE:PC.Prestige
-# CLASS:Deep Diviner	FACT:Abb|	FACT:ClassType|
-# CLASS:Deep Diviner	DEFINE:yyyLVL|0	BONUS:VAR|yyyLVL|CL
-# CLASS:Deep Diviner	SOURCEPAGE:p.	
-# CLASS:Deep Diviner	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
-# CLASS:Deep Diviner	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
-# CLASS:Deep Diviner	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
-# CLASS:Deep Diviner	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
-# CLASS:Deep Diviner	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
-# CLASS:Deep Diviner	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
-# CLASS:Deep Diviner	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0
-# CLASS:Deep Diviner	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0
-# CLASS:Deep Diviner	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0
-# CLASS:Deep Diviner	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0
-# CLASS:Deep Diviner	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0
-# CLASS:Deep Diviner	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0
-# CLASS:Deep Diviner	BONUS:VAR|ClassSaveGood_Fortitude|classlevel()|PREVAREQ:UseFractionalSave,1
-# CLASS:Deep Diviner	BONUS:VAR|ClassSavePoor_Fortitude|classlevel()|PREVAREQ:UseFractionalSave,1
-# CLASS:Deep Diviner	BONUS:VAR|ClassSaveGood_Reflex|classlevel()|PREVAREQ:UseFractionalSave,1
-# CLASS:Deep Diviner	BONUS:VAR|ClassSavePoor_Reflex|classlevel()|PREVAREQ:UseFractionalSave,1
-# CLASS:Deep Diviner	BONUS:VAR|ClassSaveGood_Will|classlevel()|PREVAREQ:UseFractionalSave,1
-# CLASS:Deep Diviner	BONUS:VAR|ClassSavePoor_Will|classlevel()|PREVAREQ:UseFractionalSave,1
-# CLASS:Deep Diviner	PRETEXT:
-# CLASS:Deep Diviner	STARTSKILLPTS:	CSKILL:
-# CLASS:Deep Diviner	FACT:SpellType|
-# CLASS:Deep Diviner	SPELLSTAT:	MEMORIZE:
-# CLASS:Deep Diviner	BONUS:CASTERLEVEL|Deep Diviner|Caster_Level_BL_Stripped_yyy	DEFINE:Caster_Level_BL_Stripped_yyy|0	BONUS:VAR|Caster_Level_BL_Stripped_yyy|Caster_Level_yyy-CasterLevelBLyyy	BONUS:VAR|Caster_Level_yyy|CL+Caster_Level_Bonus+CasterLevelBLyyy	DEFINE:CasterLevelBLyyy|0	BONUS:VAR|CasterLevelBL_yyy|charbonusto("PCLEVEL","Deep Diviner")	
-# CLASS:Deep Diviner	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_yyy|TYPE=Base
-
-#	ADD:SPELLCASTER|
+CLASS:Deep Diviner	MAXLEVEL:20
+CLASS:Deep Diviner	HD:4	TYPE:PC.Prestige
+CLASS:Deep Diviner	FACT:Abb|DD	FACT:ClassType|Prestige
+CLASS:Deep Diviner	DEFINE:DeepDivinerLVL|0	BONUS:VAR|DeepDivinerLVL|CL
+CLASS:Deep Diviner	SOURCEPAGE:p.32	
+CLASS:Deep Diviner	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+CLASS:Deep Diviner	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+CLASS:Deep Diviner	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Deep Diviner	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Deep Diviner	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Deep Diviner	BONUS:VAR|ClassSavePoor_Fortitude|classlevel()|PREVAREQ:UseFractionalSave,1
+CLASS:Deep Diviner	BONUS:VAR|ClassSavePoor_Reflex|classlevel()|PREVAREQ:UseFractionalSave,1
+CLASS:Deep Diviner	BONUS:VAR|ClassSaveGood_Will|classlevel()|PREVAREQ:UseFractionalSave,1
+CLASS:Deep Diviner	PRETEXT:Skills: Knowledge (Underdark local) 8 ranks, Survival 2 ranks. Feat: Spell Focus (Divination). Spells: Ability to cast 2nd-level arcane spells.	PRESKILL:2,Knowledge (Underdark local)=8,Survival=2	PREABILITY:1,CATEGORY=FEAT,Spell Focus (Divination)	PRESPELLTYPE:1,Arcane=2
+CLASS:Deep Diviner	STARTSKILLPTS:2	CSKILL:Climb|Concentration|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Swim|Spellcraft|Survival
 ###Block
-#11	PREPCLEVEL:MIN=20
-###Block 	ABILITY:Deep Diviner Class Feature|AUTOMATIC|
-
+1	ADD:SPELLCASTER|ANY
+2	ADD:SPELLCASTER|ANY
+3	ADD:SPELLCASTER|ANY
+4	ADD:SPELLCASTER|ANY
+5	ADD:SPELLCASTER|ANY
+7	ADD:SPELLCASTER|ANY
+8	ADD:SPELLCASTER|ANY
+9	ADD:SPELLCASTER|ANY
+10	ADD:SPELLCASTER|ANY
+###Block
+11	PREPCLEVEL:MIN=20
+###Block	
+1	ABILITY:Deep Diviner Class Feature|AUTOMATIC|Deep Diviner ~ Weapon and Armor Proficiency	
+1	ABILITY:Deep Diviner Class Feature|AUTOMATIC|Deep Diviner ~ Spells per Day			
+1	ABILITY:Deep Diviner Class Feature|AUTOMATIC|Deep Diviner ~ Locate Node			
+1	ABILITY:Deep Diviner Class Feature|AUTOMATIC|Deep Diviner ~ Node Spellcasting		
+2	ABILITY:Deep Diviner Class Feature|AUTOMATIC|Deep Diviner ~ Speak To Stone			
+3	ABILITY:Deep Diviner Class Feature|AUTOMATIC|Deep Diviner ~ Node Store				
+5	ABILITY:Deep Diviner Class Feature|AUTOMATIC|Deep Diviner ~ Summon Earth Elemental		
+6	ABILITY:Deep Diviner Class Feature|AUTOMATIC|Deep Diviner ~ Node Charge			
+8	ABILITY:Deep Diviner Class Feature|AUTOMATIC|Deep Diviner ~ Metanode Spell			
+9	ABILITY:Deep Diviner Class Feature|AUTOMATIC|Deep Diviner ~ Wall of Stone			
+10	ABILITY:Deep Diviner Class Feature|AUTOMATIC|Deep Diviner ~ Mantle of Earth			
 
 # Drow Judicator
 # CLASS:Drow Judicator	MAXLEVEL:20
@@ -147,7 +139,16 @@ CLASS:Arachnomancer	STARTSKILLPTS:4	CSKILL:Climb|Concentration|TYPE=Craft|Hide|K
 #	ADD:SPELLCASTER|
 ###Block
 #11	PREPCLEVEL:MIN=20
-###Block 	ABILITY:Drow Judicator Class Feature|AUTOMATIC|
+###Block 
+#	ABILITY:Drow Judicator Class Feature|AUTOMATIC|Drow Adjudicator ~ Weapon and Armor Proficiency	
+#	ABILITY:Drow Judicator Class Feature|AUTOMATIC|Drow Adjudicator ~ Spells per Day			
+#	ABILITY:Drow Judicator Class Feature|AUTOMATIC|Drow Adjudicator ~ War Strike				
+#	ABILITY:Drow Judicator Class Feature|AUTOMATIC|Drow Adjudicator ~ Command Spiders			
+#	ABILITY:Drow Judicator Class Feature|AUTOMATIC|Drow Adjudicator ~ Selvetarm’s Blessing		
+#	ABILITY:Drow Judicator Class Feature|AUTOMATIC|Drow Adjudicator ~ Selvetarm’s Wrath			
+#	ABILITY:Drow Judicator Class Feature|AUTOMATIC|Drow Adjudicator ~ Spider Servant			
+#	ABILITY:Drow Judicator Class Feature|AUTOMATIC|Drow Adjudicator ~ Spider’s Grace			
+#	ABILITY:Drow Judicator Class Feature|AUTOMATIC|Drow Adjudicator ~ Judgment				
 
 
 # Illithid Body Tamer
@@ -184,7 +185,17 @@ CLASS:Arachnomancer	STARTSKILLPTS:4	CSKILL:Climb|Concentration|TYPE=Craft|Hide|K
 #	ADD:SPELLCASTER|
 ###Block
 #11	PREPCLEVEL:MIN=20
-###Block 	ABILITY:Illithid Body Tamer Class Feature|AUTOMATIC|
+###Block 
+#	ABILITY:Illithid Body Tamer Class Feature|AUTOMATIC|Illithid Body Tamer ~ Weapon and Armor Proficiency	
+#	ABILITY:Illithid Body Tamer Class Feature|AUTOMATIC|Illithid Body Tamer ~ Code of Mental Abstinence		
+#	ABILITY:Illithid Body Tamer Class Feature|AUTOMATIC|Illithid Body Tamer ~ Strength of Arms			
+#	ABILITY:Illithid Body Tamer Class Feature|AUTOMATIC|Illithid Body Tamer ~ Tentacle of Fate			
+#	ABILITY:Illithid Body Tamer Class Feature|AUTOMATIC|Illithid Body Tamer ~ Improved Trip				
+#	ABILITY:Illithid Body Tamer Class Feature|AUTOMATIC|Illithid Body Tamer ~ Improved Disarm				
+#	ABILITY:Illithid Body Tamer Class Feature|AUTOMATIC|Illithid Body Tamer ~ Reaching Tentacle			
+#	ABILITY:Illithid Body Tamer Class Feature|AUTOMATIC|Illithid Body Tamer ~ Whirlwind Tentacle			
+#	ABILITY:Illithid Body Tamer Class Feature|AUTOMATIC|Illithid Body Tamer ~ Tentacle of Destiny			
+#	ABILITY:Illithid Body Tamer Class Feature|AUTOMATIC|Illithid Body Tamer ~ Death Whirlwind				
 
 
 # Imaskari Vengeance Taker
@@ -221,7 +232,16 @@ CLASS:Arachnomancer	STARTSKILLPTS:4	CSKILL:Climb|Concentration|TYPE=Craft|Hide|K
 #	ADD:SPELLCASTER|
 ###Block
 #11	PREPCLEVEL:MIN=20
-###Block 	ABILITY:Imaskari Vengeance Taker Class Feature|AUTOMATIC|
+###Block 
+#	ABILITY:Imaskari Vengeance Taker Class Feature|AUTOMATIC|Imasari Vengeance Taker ~ Weapon and Armor Proficiency	
+#	ABILITY:Imaskari Vengeance Taker Class Feature|AUTOMATIC|Imasari Vengeance Taker ~ Spells per Day			
+#	ABILITY:Imaskari Vengeance Taker Class Feature|AUTOMATIC|Imasari Vengeance Taker ~ Target of Vengeance		
+#	ABILITY:Imaskari Vengeance Taker Class Feature|AUTOMATIC|Imasari Vengeance Taker ~ Poison Use				
+#	ABILITY:Imaskari Vengeance Taker Class Feature|AUTOMATIC|Imasari Vengeance Taker ~ Sneak Attack			
+#	ABILITY:Imaskari Vengeance Taker Class Feature|AUTOMATIC|Imasari Vengeance Taker ~ Far Sense				
+#	ABILITY:Imaskari Vengeance Taker Class Feature|AUTOMATIC|Imasari Vengeance Taker ~ Seeker				
+#	ABILITY:Imaskari Vengeance Taker Class Feature|AUTOMATIC|Imasari Vengeance Taker ~ Scry Target				
+#	ABILITY:Imaskari Vengeance Taker Class Feature|AUTOMATIC|Imasari Vengeance Taker ~ Death Attack			
 
 
 # Inquisitor of the Drowning Goddess
@@ -258,8 +278,13 @@ CLASS:Arachnomancer	STARTSKILLPTS:4	CSKILL:Climb|Concentration|TYPE=Craft|Hide|K
 #	ADD:SPELLCASTER|
 ###Block
 #11	PREPCLEVEL:MIN=20
-###Block 	ABILITY:Inquisitor of the Drowning Goddess Class Feature|AUTOMATIC|
-
+###Block 
+#	ABILITY:Inquisitor of the Drowning Goddess Class Feature|AUTOMATIC|Inquisitor of the Drowning Goddess ~ Weapon and Armor Proficiency	
+#	ABILITY:Inquisitor of the Drowning Goddess Class Feature|AUTOMATIC|Inquisitor of the Drowning Goddess ~ Fear Aura				
+#	ABILITY:Inquisitor of the Drowning Goddess Class Feature|AUTOMATIC|Inquisitor of the Drowning Goddess ~ Grappling Adhesive			
+#	ABILITY:Inquisitor of the Drowning Goddess Class Feature|AUTOMATIC|Inquisitor of the Drowning Goddess ~ Mien of Justice			
+#	ABILITY:Inquisitor of the Drowning Goddess Class Feature|AUTOMATIC|Inquisitor of the Drowning Goddess ~ Devoted Mind				
+#	ABILITY:Inquisitor of the Drowning Goddess Class Feature|AUTOMATIC|Inquisitor of the Drowning Goddess ~ Body-Coating Adhesive		
 
 
 # PRIME UNDERDARK GUIDE**
@@ -334,7 +359,14 @@ CLASS:Prime Underdark Guide	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_
 #	ADD:SPELLCASTER|
 ###Block
 #11	PREPCLEVEL:MIN=20
-###Block 	ABILITY:Sea Mother Whip Class Feature|AUTOMATIC|
+###Block 
+#	ABILITY:Sea Mother Whip Class Feature|AUTOMATIC|Sea Mother Whip ~ Weapon and Armor Proficiency	
+#	ABILITY:Sea Mother Whip Class Feature|AUTOMATIC|Sea Mother Whip ~ Spells per Day			
+#	ABILITY:Sea Mother Whip Class Feature|AUTOMATIC|Sea Mother Whip ~ Watery Death Prestige Domain	
+#	ABILITY:Sea Mother Whip Class Feature|AUTOMATIC|Sea Mother Whip ~ Punish the Infidels			
+#	ABILITY:Sea Mother Whip Class Feature|AUTOMATIC|Sea Mother Whip ~ Independent Lightning Bolt	
+#	ABILITY:Sea Mother Whip Class Feature|AUTOMATIC|Sea Mother Whip ~ Inspire the Faithful		
+#	ABILITY:Sea Mother Whip Class Feature|AUTOMATIC|Sea Mother Whip ~ Bolster Lightning Bolts		
 
 
 # Shadowcrafter
@@ -371,7 +403,16 @@ CLASS:Prime Underdark Guide	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_
 #	ADD:SPELLCASTER|
 ###Block
 #11	PREPCLEVEL:MIN=20
-###Block 	ABILITY:Shadowcrafter Class Feature|AUTOMATIC|
+###Block 
+#	ABILITY:Shadowcrafter Class Feature|AUTOMATIC|Shadowcrafter ~ Weapon and Armor Proficiency
+#	ABILITY:Shadowcrafter Class Feature|AUTOMATIC|Shadowcrafter ~ Spells per Day			
+#	ABILITY:Shadowcrafter Class Feature|AUTOMATIC|Shadowcrafter ~ Shadow Mien			
+#	ABILITY:Shadowcrafter Class Feature|AUTOMATIC|Shadowcrafter ~ Enhanced Shadow Conjurations
+#	ABILITY:Shadowcrafter Class Feature|AUTOMATIC|Shadowcrafter ~ Enhanced Shadow Evocations	
+#	ABILITY:Shadowcrafter Class Feature|AUTOMATIC|Shadowcrafter ~ Shadow Spell Penetration	
+#	ABILITY:Shadowcrafter Class Feature|AUTOMATIC|Shadowcrafter ~ Resistance to Illusions	
+#	ABILITY:Shadowcrafter Class Feature|AUTOMATIC|Shadowcrafter ~ No Delusions			
+#	ABILITY:Shadowcrafter Class Feature|AUTOMATIC|Shadowcrafter ~ Shadow Self			
 
 
 # Vermin Keeper
@@ -408,7 +449,16 @@ CLASS:Prime Underdark Guide	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_
 #	ADD:SPELLCASTER|
 ###Block
 #11	PREPCLEVEL:MIN=20
-###Block 	ABILITY:Vermin Keeper Class Feature|AUTOMATIC|
+###Block 
+#	ABILITY:Vermin Keeper Class Feature|AUTOMATIC|Vermin Keeper ~ Weapon and Armor Proficiency
+#	ABILITY:Vermin Keeper Class Feature|AUTOMATIC|Vermin Keeper ~ Spells per Day			
+#	ABILITY:Vermin Keeper Class Feature|AUTOMATIC|Vermin Keeper ~ Handle Vermin			
+#	ABILITY:Vermin Keeper Class Feature|AUTOMATIC|Vermin Keeper ~ Vermin Empathy			
+#	ABILITY:Vermin Keeper Class Feature|AUTOMATIC|Vermin Keeper ~ Vermin Form			
+#	ABILITY:Vermin Keeper Class Feature|AUTOMATIC|Vermin Keeper ~ Venom Immunity			
+#	ABILITY:Vermin Keeper Class Feature|AUTOMATIC|Vermin Keeper ~ Vermin Companion		
+#	ABILITY:Vermin Keeper Class Feature|AUTOMATIC|Vermin Keeper ~ Extra Wild Shape Feat		
+#	ABILITY:Vermin Keeper Class Feature|AUTOMATIC|Vermin Keeper ~ Swarm Form			
 
 
 # Yathchol Webrider
@@ -445,9 +495,10 @@ CLASS:Prime Underdark Guide	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_
 #	ADD:SPELLCASTER|
 ###Block
 #11	PREPCLEVEL:MIN=20
-###Block 	ABILITY:Yathchol Webrider Class Feature|AUTOMATIC|
-
-
-
-
-
+###Block 
+#	ABILITY:Yathchol Webrider Class Feature|AUTOMATIC|Yathchol Webrider ~ Weapon and Armor Proficiency	
+#	ABILITY:Yathchol Webrider Class Feature|AUTOMATIC|Yathchol Webrider ~ Web Hide				
+#	ABILITY:Yathchol Webrider Class Feature|AUTOMATIC|Yathchol Webrider ~ Web Ride				
+#	ABILITY:Yathchol Webrider Class Feature|AUTOMATIC|Yathchol Webrider ~ Spider Climbing			
+#	ABILITY:Yathchol Webrider Class Feature|AUTOMATIC|Yathchol Webrider ~ Summon Spider			
+#	ABILITY:Yathchol Webrider Class Feature|AUTOMATIC|Yathchol Webrider ~ Web Blast				
