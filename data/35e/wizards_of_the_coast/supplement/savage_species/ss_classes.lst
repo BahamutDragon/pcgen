@@ -1,4 +1,6 @@
-
+SOURCELONG:Savage Species
+SOURCESHORT:ss
+##Converted by DG 02/02/14
 
 
 
@@ -29,9 +31,6 @@ CLASS:Master of Flies	STARTSKILLPTS:6	CSKILL:Balance|Climb|Control Shape|Disguis
 
 
 
-SOURCELONG:Savage Species
-SOURCESHORT:ss
-##Converted by DG 02/02/14
 
 #################################################################################################################
 ## Class Name			Hit Dice	Type				Abbreviation	Max Level	Source Page		Levels per Feat
@@ -44,6 +43,8 @@ CLASS:Djinni Monster Class	STARTSKILLPTS:8	CSKILL:Appraise|Concentration|TYPE=Cr
 # TODO	BONUS:ABILITYPOOL|FEAT|-(TL/3) - suppress the extra feat every 3rd level
 1	ABILITY:Special Ability|AUTOMATIC|Telepathy
 1	BONUS:VAR|TelepathyRange|100
+# DG attempt
+#1	BONUS:VAR|GAMEMODE_SUPPRESS_BONUSSTATLEVEL|1
 1	BONUS:SAVE|BASE.Reflex,BASE.Fortitude,BASE.Will|2
 1	BONUS:COMBAT|BASEAB|1|TYPE=BASE.REPLACE
 #1	ADD:FEAT
@@ -82,10 +83,10 @@ CLASS:Djinni Monster Class	STARTSKILLPTS:8	CSKILL:Appraise|Concentration|TYPE=Cr
 # gain 8+int mod skill points
 5	BONUS:COMBAT|BASEAB|1|TYPE=BASE.REPLACE
 5	BONUS:STAT|STR|2
-2	BONUS:VAR|AcidResistanceBonus|5
+5	BONUS:VAR|AcidResistanceBonus|5
 #5	ADD:FEAT
 #5	BONUS:ABILITYPOOL|Class Feat|1
-1	BONUS:FEAT|POOL|1
+5	BONUS:FEAT|POOL|1
 5	ABILITY:Special Ability|AUTOMATIC|Plane Shift ~ Djinni MC
 #
 # no skill points or HD gained at lvl6
@@ -105,20 +106,21 @@ CLASS:Djinni Monster Class	STARTSKILLPTS:8	CSKILL:Appraise|Concentration|TYPE=Cr
 8	BONUS:STAT|WIS|2
 #8	BONUS:VAR|DjinniAcidResist|5
 8	BONUS:VAR|AcidResistanceBonus|5
-8	SAB:TODO Whirlwind 3/day
+#8	SAB:TODO Whirlwind 3/day
 #
 # gain 8+int mod skill points
 # when the Djinni becomes large size, it gets -4 to hide checks
 9	BONUS:COMBAT|BASEAB|1|TYPE=BASE.REPLACE
 9	BONUS:STAT|STR|2
+#9	BONUS:STAT|STR|-14|TYPE=Size
 9	SPELLS:Innate|TIMES=1|CASTERLEVEL=13+TL-CLASSLEVEL=Djinni Monster Class|Major Creation|Persistent Image|Wind Walk
-9	SAB:-4 hide check due to size
+#9	SAB:-4 hide check due to size
 9	BONUS:COMBAT|REACH|5
 # cant use SIZE in a class file
 #9	SIZE:L
 9	BONUS:SIZEMOD|NUMBER|1
+9	BONUS:VAR|BypassSizeMods|1|TYPE=Boolean
 
-#
 # no skill points or HD gained at lvl10
 10	DONOTADD:HITDIE|SKILLPOINTS
 10	BONUS:STAT|CON|2
@@ -805,6 +807,39 @@ CLASS:Vampire	WEAPONBONUS:Rapier|TYPE=Martial
 #3																	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE						BONUS:STAT|DEX,CON|2
 #4						SAB:Attune fiddle (Su)								BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE						BONUS:STAT|CHA|2					TEMPLATE:Grig 2
 #
+
+# Class Name			Hit Dice	Type				Abbreviation	Max Level	Source Page		Levels per Feat	Save checks bonus
+CLASS:Grig Monster Class	HD:3		TYPE:PC.Monster Class	ABB:GrgMC		MAXLEVEL:4	SOURCEPAGE:p.175	LEVELSPERFEAT:5	BONUS:SAVE|BASE.Fortitude|CL/3	BONUS:SAVE|BASE.Reflex,BASE.Will|CL/2+2
+# Class Name			Required Race
+CLASS:Grig Monster Class	PRERACE:1,Sprite Monster Class (Grig)
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Grig Monster Class	STARTSKILLPTS:6	CSKILL:TYPE.Craft|Escape Artist|Hide|Jump|Listen|Move Silently|TYPE.Perform|TYPE.Profession|Search|Spot
+1	DEFINE:GriggSpellsPerDay|0
+1	BONUS:VAR|GriggSpellsPerDay|1
+1	BONUS:SAVE|BASE.Will,BASE.Reflex|2
+1	BONUS:FEAT|POOL|1
+1	AUTO:WEAPONPROF|TYPE=Simple|Longbow|Sword (Short)
+1	SR:13+CL=Grig Monster Class
+# - copied from MM
+1	ABILITY:Special Ability|AUTOMATIC|Aerial Maneuverability
+1	ABILITY:Special Ability|AUTOMATIC|Grig ~ Skills
+1	ABILITY:Special Ability|AUTOMATIC|Grig ~ Spell-Like Abilities
+1	ABILITY:Special Ability|AUTOMATIC|SPRITE ~ Skills
+#
+2	BONUS:MOVEADD|TYPE.Fly|20
+2	BONUS:STAT|WIS|2
+2	AUTO:FEAT|Dodge
+#
+1	BONUS:VAR|GriggSpellsPerDay|2
+3	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+3	BONUS:STAT|DEX,CON|2
+#4	SAB:Attune fiddle (Su)	
+4	ABILITY:Special Ability|AUTOMATIC|Grig ~ Fiddle
+4	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.REPLACE
+4	BONUS:STAT|CHA|2
+
+
+
 ## Class Name			Hit Dice	Type				Abbreviation	Max Level	Source Page		Levels per Feat
 #CLASS:Hamatula Monster Class	HD:8		TYPE:PC.Monster Class	FACT:Abb|HamMC		MAXLEVEL:14	SOURCEPAGE:p.176	LEVELSPERFEAT:13
 ## Class Name			Required Race
