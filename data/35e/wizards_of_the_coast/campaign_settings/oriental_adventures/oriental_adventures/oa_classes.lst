@@ -31,12 +31,12 @@ CLASS:Monk.MOD	CSKILL:Knowledge (Religion)
 # COMMENT: Conflict with Samurai in Complete Warrior - Noting this version using a Different KEY and Name.
 
 # Class Name	Unique Key		Hit Dice	Type						Source Page		Combat bonus										Monster Role	Bonus
-CLASS:Samurai	HD:10		TYPE:Base.PC.OrientalAdventures	SOURCEPAGE:p.20	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	ROLE:Combat		BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Samurai (OA)	HD:10		TYPE:Base.PC.OrientalAdventures	SOURCEPAGE:p.20	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	ROLE:Combat		BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 
 # Class Name		Required AL
-CLASS:Samurai	PREALIGN:LG,LN,LE
+CLASS:Samurai (OA)	PREALIGN:LG,LN,LE
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Samurai	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Diplomacy|Iaijutsu Focus|Intimidate|Jump|TYPE=Perform|TYPE=Profession|Ride|Sense Motive|Swim
+CLASS:Samurai (OA)	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Diplomacy|Iaijutsu Focus|Intimidate|Jump|TYPE=Perform|TYPE=Profession|Ride|Sense Motive|Swim
 ###Block:
 2	BONUS:VAR|SamuraiBonusFeatCount|CL-1/3
 ###Block:
@@ -46,13 +46,13 @@ CLASS:Samurai	STARTSKILLPTS:4	CSKILL:Climb|TYPE=Craft|Diplomacy|Iaijutsu Focus|I
 # - Shaman
 
 # Class Name	Unique Key		Hit Dice	Type						Source Page		Combat bonus															Modify VAR														Bonus
-CLASS:Shaman		HD:6	DEFINE:ShamanLVL|0	BONUS:VAR|ShamanLVL|CL	TYPE:Base.PC.OrientalAdventures	SOURCEPAGE:p.22	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Shaman (OA)		HD:6	DEFINE:ShamanLVL|0	BONUS:VAR|ShamanLVL|CL	TYPE:Base.PC.OrientalAdventures	SOURCEPAGE:p.22	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Shaman	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (Religion)|Knowledge (Spirits)|TYPE=Profession|Spellcraft
+CLASS:Shaman (OA)	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Knowledge (Arcana)|Knowledge (Religion)|Knowledge (Spirits)|TYPE=Profession|Spellcraft
 # Class Name	Spell Stat		Spell Type		Memorize		Automatically Known Spell Levels											Caster level			Use Spell List
 CLASS:Shaman (OA)	FACT:SpellType|Divine
-CLASS:Shaman	SPELLSTAT:WIS	MEMORIZE:YES	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Shaman|Caster_Level_Shaman	DEFINE:Caster_Level_Shaman|0	BONUS:VAR|Caster_Level_Shaman|CL+Caster_Level_Bonus	DEFINE:CasterLevelBLShaman|0	BONUS:VAR|CasterLevelBLShaman|charbonusto("PCLEVEL","Shaman")	BONUS:VAR|Caster_Level_Highest__Divine|Caster_Level_Shaman+CasterLevelBLShaman|TYPE=Base	SPELLLIST:1|Shaman
+CLASS:Shaman (OA)	SPELLSTAT:WIS	MEMORIZE:YES	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Shaman|Caster_Level_Shaman	DEFINE:Caster_Level_Shaman|0	BONUS:VAR|Caster_Level_Shaman|CL+Caster_Level_Bonus	DEFINE:CasterLevelBLShaman|0	BONUS:VAR|CasterLevelBLShaman|charbonusto("PCLEVEL","Shaman")	BONUS:VAR|Caster_Level_Highest__Divine|Caster_Level_Shaman+CasterLevelBLShaman|TYPE=Base	SPELLLIST:1|Shaman
 #Scry	<- 3e skill only, no replacement
 ###Block:
 1	ABILITY:Shaman Class Feature|AUTOMATIC|Shaman ~ Alignment Spells|Shaman ~ Extra Turning|Shaman ~ Spells|Shaman ~ Spirits Domains and Domain Spells|Shaman ~ Spontaneous Casting|Shaman ~ Weapon and Armor Proficiency
@@ -93,12 +93,12 @@ CLASS:Shaman	SPELLSTAT:WIS	MEMORIZE:YES	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVE
 # - Shugenja
 
 # Class Name	Unique Key		Type						Base class as subclass?	Source Page		Combat bonus															Modify VAR													Bonus
-CLASS:Shugenja	TYPE:Base.PC.OrientalAdventures	ALLOWBASECLASS:NO		SOURCEPAGE:p.24	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Shugenja (OA)	TYPE:Base.PC.OrientalAdventures	ALLOWBASECLASS:NO		SOURCEPAGE:p.24	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Skill Pts/Lvl	Class Skill
-CLASS:Shugenja	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|TYPE=Knowledge|TYPE=Profession|Spellcraft
+CLASS:Shugenja (OA)	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|TYPE=Knowledge|TYPE=Profession|Spellcraft
 # Class Name		Spell Stat		Spell Type		Caster level			Use Spell List
 CLASS:Shugenja (OA)	FACT:SpellType|Divine
-CLASS:Shugenja	SPELLSTAT:CHA	SPELLLIST:1|Shugenja	BONUS:CASTERLEVEL|Shugenja|Caster_Level_Shugenja	DEFINE:Caster_Level_Shugenja|0	BONUS:VAR|Caster_Level_Shugenja|CL+Caster_Level_Bonus	DEFINE:CasterLevelBLShugenja|0	BONUS:VAR|CasterLevelBLShugenja|charbonusto("PCLEVEL","Shugenja")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Shugenja+CasterLevelBLShugenja|TYPE=Base	SPELLLIST:1|Shugenja
+CLASS:Shugenja (OA)	SPELLSTAT:CHA	SPELLLIST:1|Shugenja	BONUS:CASTERLEVEL|Shugenja|Caster_Level_Shugenja	DEFINE:Caster_Level_Shugenja|0	BONUS:VAR|Caster_Level_Shugenja|CL+Caster_Level_Bonus	DEFINE:CasterLevelBLShugenja|0	BONUS:VAR|CasterLevelBLShugenja|charbonusto("PCLEVEL","Shugenja")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Shugenja+CasterLevelBLShugenja|TYPE=Base	SPELLLIST:1|Shugenja
 #
 SUBCLASS:Air Shugenja	COST:0	CHOICE:DESCRIPTOR|Air Shugenja	PROHIBITSPELL:DESCRIPTOR.Earth Shugenja	PREABILITY:1,CATEGORY=Internal,Human CRANE,Human SCORPION
 SUBCLASS:Earth Shugenja	COST:0	CHOICE:DESCRIPTOR|Earth Shugenja	PROHIBITSPELL:DESCRIPTOR.Air Shugenja	PREABILITY:1,CATEGORY=Internal,Human CRAB,Human DRAGON,Human SCORPION
@@ -144,15 +144,15 @@ SUBCLASS:Water Shugenja	COST:0	CHOICE:DESCRIPTOR|Water Shugenja	PROHIBITSPELL:DE
 # - Sohei
 
 # Class Name	Unique Key		Hit Dice	Type						Ex Class			Source Page		Combat bonus															Modify VAR														Bonus
-CLASS:Sohei	HD:10		TYPE:Base.PC.OrientalAdventures	EXCLASS:Ex Sohei	SOURCEPAGE:p.27	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Sohei (OA)	HD:10		TYPE:Base.PC.OrientalAdventures	EXCLASS:Ex Sohei	SOURCEPAGE:p.27	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 
 # Class Name	Required AL
-CLASS:Sohei	PREALIGN:LG,LN,LE
+CLASS:Sohei (OA)	PREALIGN:LG,LN,LE
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Sohei	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Iaijutsu Focus|Knowledge (Religion)|TYPE=Profession
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels				Caster level			Use Spell List
 CLASS:Sohei (OA)	FACT:SpellType|Divine
-CLASS:Sohei	SPELLSTAT:WIS	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Sohei|Caster_Level_Sohei	DEFINE:Caster_Level_Sohei|0	BONUS:VAR|Caster_Level_Sohei|CL+Caster_Level_Bonus	DEFINE:CasterLevelBLSohei|0	BONUS:VAR|CasterLevelBLSohei|charbonusto("PCLEVEL","Sohei")	BONUS:VAR|Caster_Level_Highest__Divine|Caster_Level_Sohei+CasterLevelBLSohei|TYPE=Base	SPELLLIST:1|Sohei
+CLASS:Sohei (OA)	SPELLSTAT:WIS	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4	BONUS:CASTERLEVEL|Sohei|Caster_Level_Sohei	DEFINE:Caster_Level_Sohei|0	BONUS:VAR|Caster_Level_Sohei|CL+Caster_Level_Bonus	DEFINE:CasterLevelBLSohei|0	BONUS:VAR|CasterLevelBLSohei|charbonusto("PCLEVEL","Sohei")	BONUS:VAR|Caster_Level_Highest__Divine|Caster_Level_Sohei+CasterLevelBLSohei|TYPE=Base	SPELLLIST:1|Sohei
 ###Block:
 1	ABILITY:Sohei Class Feature|AUTOMATIC|Sohei ~ Ki Frenzy|Sohei ~ Weapon and Armor Proficiency|Sohei ~ Weapon Focus
 4	ABILITY:Sohei Class Feature|AUTOMATIC|Sohei ~ Spells
@@ -186,13 +186,13 @@ CLASS:Ex Sohei	HD:10
 # - Wu Jen
 
 # Class Name	Unique Key		Hit Dice	Type						Source Page		Combat bonus															Modify VAR													Bonus
-CLASS:Wu Jen		HD:4	TYPE:Base.PC.OrientalAdventures	SOURCEPAGE:p.31	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Wu Jen (OA)		HD:4	TYPE:Base.PC.OrientalAdventures	SOURCEPAGE:p.31	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Wu Jen	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Spellcraft
+CLASS:Wu Jen (OA)	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Spellcraft
 # Class Name	Spell Stat		Spell Type		Automatically Known Spell Levels	Spellbook		Caster level			Use Spell List
 CLASS:Wu Jen (OA)	FACT:SpellType|Arcane
-CLASS:Wu Jen	SPELLSTAT:INT	KNOWNSPELLS:LEVEL=0			SPELLBOOK:YES	SPELLLIST:1|Wu Jen	BONUS:CASTERLEVEL|Wu Jen|Caster_Level_Wu_Jen	DEFINE:Caster_Level_Wu_Jen|0	BONUS:VAR|Caster_Level_Wu_Jen|CL+Caster_Level_Bonus	DEFINE:CasterLevelBLWu_Jen|0	BONUS:VAR|CasterLevelBLWu_Jen|charbonusto("PCLEVEL","Wu_Jen")	BONUS:VAR|Caster_Level_Highest__Divine|Caster_Level_Wu_Jen+CasterLevelBLWu_Jen|TYPE=Base	SPELLLIST:1|Wu Jen
+CLASS:Wu Jen (OA)	SPELLSTAT:INT	KNOWNSPELLS:LEVEL=0			SPELLBOOK:YES	SPELLLIST:1|Wu Jen	BONUS:CASTERLEVEL|Wu Jen|Caster_Level_Wu_Jen	DEFINE:Caster_Level_Wu_Jen|0	BONUS:VAR|Caster_Level_Wu_Jen|CL+Caster_Level_Bonus	DEFINE:CasterLevelBLWu_Jen|0	BONUS:VAR|CasterLevelBLWu_Jen|charbonusto("PCLEVEL","Wu_Jen")	BONUS:VAR|Caster_Level_Highest__Divine|Caster_Level_Wu_Jen+CasterLevelBLWu_Jen|TYPE=Base	SPELLLIST:1|Wu Jen
 ###Block:
 1	ABILITY:Wu Jen Class Feature|AUTOMATIC|Wu Jen ~ Bonus Languages|Wu Jen ~ Spellbooks|Wu Jen ~ Spells|Wu Jen ~ Taboos|Wu Jen ~ Weapon and Armor Proficiency
 1	ABILITY:Wu Jen Class Feature|AUTOMATIC|Wu Jen ~ Elemental Mastery|Wu Jen ~ Sudden Action

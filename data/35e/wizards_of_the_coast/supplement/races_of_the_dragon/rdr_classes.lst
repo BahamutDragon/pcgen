@@ -132,7 +132,7 @@ SUBSTITUTIONLEVEL:9	CAST:6,4,4,3,2,1	BONUS:SPELLCAST|CLASS=Cleric;LEVEL=5|-1
 
 # Class Name
 CLASS:Sorcerer.MOD
-SUBSTITUTIONCLASS:Dragonblood Sorcerer	STARTSKILLPTS:2	PRERACE:1,RACESUBTYPE=Dragonblood	CSKILL:.CLEAR.TYPE=Craft|.CLEAR.TYPE=Profession	CSKILL:Use Magic Device	SOURCEPAGE:p.107	HD:4
+SUBSTITUTIONCLASS:Dragonblood Sorcerer	STARTSKILLPTS:2	PREMULT:1,[PRERACE:1,RACESUBTYPE=Dragonblood],[PRETEMPLATE:1,Half Dragon]	CSKILL:.CLEAR.TYPE=Craft|.CLEAR.TYPE=Profession	CSKILL:Use Magic Device	SOURCEPAGE:p.107	HD:4
 SUBSTITUTIONLEVEL:1	BONUS:VAR|ArcaneInsightBonus|2	ABILITY:Dragonblood Sorcerer Class Feature|AUTOMATIC|Dragonblood Sorcerer ~ Arcane Insight|Dragonblood Sorcerer ~ Draconic Heritage
 SUBSTITUTIONLEVEL:4	BONUS:VAR|ArcaneInsightBonus|2	ABILITY:Dragonblood Sorcerer Class Feature|AUTOMATIC|Dragonblood Sorcerer ~ Spell-Like Ability
 SUBSTITUTIONLEVEL:7	BONUS:VAR|ArcaneInsightBonus|2	ABILITY:Dragonblood Sorcerer Class Feature|AUTOMATIC|Dragonblood Sorcerer ~ Bonus Spells Known
@@ -164,9 +164,11 @@ SUBSTITUTIONLEVEL:5	CAST:0,0
 CLASS:Fighter.MOD
 SUBSTITUTIONCLASS:Kobold Fighter	PRERACE:1,Kobold	SOURCEPAGE:p.109
 # TODO: Remove Heavy Armor Prof
-SUBSTITUTIONLEVEL:1							ABILITY:Kobold Fighter Class Feature|AUTOMATIC|Kobold Fighter ~ Dodge|Kobold Fighter ~ Spear Focus
-SUBSTITUTIONLEVEL:2	BONUS:ABILITYPOOL|Fighter Feat|-1	ABILITY:Kobold Fighter Class Feature|AUTOMATIC|Kobold Fighter ~ Constitution Boost
-SUBSTITUTIONLEVEL:4	BONUS:ABILITYPOOL|Fighter Feat|-1	ABILITY:Kobold Fighter Class Feature|AUTOMATIC|Kobold Fighter ~ Strength Boost
+SUBSTITUTIONLEVEL:1		ABILITY:Internal|AUTOMATIC|Fighter Qualify|TYPE=ShieldProfTower|TYPE=WeaponProfMartial	ABILITY:Kobold Fighter Class Feature|AUTOMATIC|Kobold Fighter ~ Dodge|Kobold Fighter ~ Spear Focus
+#SUBSTITUTIONLEVEL:2	BONUS:ABILITYPOOL|Fighter Feat|-1	ABILITY:Kobold Fighter Class Feature|AUTOMATIC|Kobold Fighter ~ Constitution Boost
+#SUBSTITUTIONLEVEL:4	BONUS:ABILITYPOOL|Fighter Feat|-1	ABILITY:Kobold Fighter Class Feature|AUTOMATIC|Kobold Fighter ~ Strength Boost
+SUBSTITUTIONLEVEL:2		ABILITY:Kobold Fighter Class Feature|AUTOMATIC|Kobold Fighter ~ Constitution Boost
+SUBSTITUTIONLEVEL:4		ABILITY:Kobold Fighter Class Feature|AUTOMATIC|Kobold Fighter ~ Strength Boost
 
 # Kobold Ranger
 

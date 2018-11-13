@@ -2,13 +2,20 @@
 SOURCELONG:Book of Vile Darkness	SOURCESHORT:BV	SOURCEDATE:2002-10
 
 ###Block: AB
+# NOTE -------------------------------------------------
+# Special spell components, such as Demon, have PREx tags 
+# associated with them and are handled in .MOD statements 
+# after the spell declaration.
+# Likewise COST and XPCOST are handled in the .MOD as well
+# since they were originally left out when the entries
+# were made.
+# ------------------------------------------------------
 # Spell Name				Unique Key		Output Name						Type				Classes of caster								School			Sub-School			Descriptor					Components				Casting Time			Range			Target Area or Effect																		Duration							Save Info						Spell Resistance	Cost		Choose								Source Page		Description																									Temporary effect description								Temporary Bonus
 Aberrate															TYPE:Arcane			CLASSES:Sorcerer,Wizard=1						SCHOOL:Transmutation					DESCRIPTOR:Evil				COMPS:V, S, Fiend			CASTTIME:1 standard action	RANGE:Touch		TARGETAREA:one living creature																DURATION:10 minutes/level				SAVEINFO:Fortitude negates			SPELLRES:Yes												SOURCEPAGE:BoVD	DESC:Subject becomes an aberration.
 Abyssal Might														TYPE:Arcane.Divine	CLASSES:Blackguard=3|Cleric,Sorcerer,Wizard=4			SCHOOL:Conjuration	SUBSCHOOL:Summoning	DESCRIPTOR:Evil				COMPS:V, S, M, Demon		CASTTIME:1 standard action	RANGE:Personal	TARGETAREA:You																			DURATION:10 minutes/level				SAVEINFO:None					SPELLRES:No													SOURCEPAGE:BoVD	DESC:Caster gains +2 to STR, CON, DEX and SR,.
 Addiction															TYPE:Arcane.Divine	CLASSES:Assassin=1|Bard,Cleric,Sorcerer,Wizard=2		SCHOOL:Enchantment											COMPS:V, S, Drug			CASTTIME:1 standard action	RANGE:Touch		TARGETAREA:one living creature																DURATION:Instantaneous					SAVEINFO:Fortitude negates			SPELLRES:Yes												SOURCEPAGE:BoVD	DESC:Subject becomes addicted to a drug. Drug:the chosen drug for the addiction.
 Alert Bebilith														TYPE:Arcane			CLASSES:Sorcerer,Wizard=6						SCHOOL:Conjuration	SUBSCHOOL:Calling		DESCRIPTOR:Evil				COMPS:V, S, M			CASTTIME:1 standard action	RANGE:Close		TARGETAREA:One bebilith																		DURATION:Instantaneous					SAVEINFO:None					SPELLRES:No													SOURCEPAGE:BoVD	DESC:Summons bebilith to deal with a demon.
 Angry Ache															TYPE:Divine			CLASSES:Assassin,Cleric=1						SCHOOL:Necromancy												COMPS:V, S				CASTTIME:1 standard action	RANGE:Close		TARGETAREA:one living creature																DURATION:1 minute/level					SAVEINFO:Fortitude negates			SPELLRES:Yes												SOURCEPAGE:BoVD	DESC:Subject takes -2 penalty on attack rolls.
-Befoul															TYPE:Divine			CLASSES:Cleric=8								SCHOOL:Transmutation					DESCRIPTOR:Evil				COMPS:V, S, M			CASTTIME:1 minute			RANGE:Touch		TARGETAREA:Water in a volume of 100-ft/level by 100-ft/level by 10-ft/level									DURATION:Permanent (see text)				SAVEINFO:None (see text)			SPELLRES:No													SOURCEPAGE:BoVD	DESC:Large amount of water becomes poisonous.
 Bestow Greater Curse			KEY:Bestow Curse (Greater)						TYPE:Arcane.Divine	CLASSES:Bard=6|Cleric=7|Sorcerer,Wizard=8				SCHOOL:Necromancy												COMPS:V, S				CASTTIME:1 standard action	RANGE:Touch		TARGETAREA:Creature touched																	DURATION:Permanent					SAVEINFO:Will negates				SPELLRES:Yes												SOURCEPAGE:p.85	DESC:The caster places a curse on the creature touched, choosing one of the following three effects: * One ability score is reduced to 1, or two ability scores take -6 penalties (to a minimum score of 1). * -8 penalty on attack rolls, saving throws, ability checks, and skill checks. * Each turn, the subject has a 25%% chance to act normally; otherwise, he takes no action. A player may invent a new curse, but it should be no more powerful than those listed above, and the Dungeon Master (DM) has final say on the curse's effect. A greater curse cannot be dispelled, nor can it can be removed with a break enchantment, limited wish, or remove curse spell. A miracle or wish spell removes the greater curse, and any particular greater curse can be removed if the subject performs some deed that the caster designates. The deed must be something that the subject can accomplish within one year (assuming he undertakes it immediately). For example, the deed might be "Slay the dragon under Castle Bluecraft," or "Climb the tallest mountain in the world." The cursed victim can have help accomplishing the task, and in some cases another character can lift the curse (see the Curses section of Chapter 2 for guidelines).
 Bestow Wound														TYPE:Arcane			CLASSES:Sorcerer,Wizard=1						SCHOOL:Transmutation											COMPS:V, S, M			CASTTIME:1 standard action	RANGE:Touch		TARGETAREA:Living creature touched																DURATION:Instantaneous					SAVEINFO:Fortitude negates			SPELLRES:Yes	COST:10										SOURCEPAGE:BoVD	DESC:Caster transfers 1 hp/level of wounds on another.
 Black Bag															TYPE:Arcane			CLASSES:Assassin,Sorcerer,Wizard=1					SCHOOL:Conjuration	SUBSCHOOL:Creation	DESCRIPTOR:Evil				COMPS:V, S, M			CASTTIME:1 standard action	RANGE:Touch		TARGETAREA:A black leather bag																DURATION:24 hours						SAVEINFO:None					SPELLRES:No													SOURCEPAGE:BoVD	DESC:Create extradimensional bag of torture tools.
@@ -149,22 +156,53 @@ Touch of Juiblex														TYPE:Arcane.Divine	CLASSES:Corrupted=3							SCHOO
 
 
 ###Block: Special Components
-
-# PRERACE:1,RACESUBTYPE=Demon
-# PRERACE:1,RACESUBTYPE=Devil
-# PRETEMPLATE:1,Fiendish
-# PRERACE:1,RACETYPE=Undead
-
-Aberrate.MOD			PRETEMPLATE:1,Fiendish
+# Corrupt spells cause ability damage
+# Demon, must be an evil outsider from the Abyss
+# 		PRERACE:1,RACESUBTYPE=Demon
+# Devil, must be an evil outsider from the Nine Hells
+# 		PRERACE:1,RACESUBTYPE=Devil
+# Disease, caster must be infected with the disease specified at the time of casting
+# Drug, caster must be under the influence of the drug specified at the time of casting
+# Fiend, caster must an ousider from the Lower Planes
+#		(not the Fiendish template)
+# 		PRERACE:1,TYPE=Outsider	PRERACE:2,SUBTYPE=Extraplanar,SUBTYPE=Evil
+# Location, caster must be standing in a particular place to cast the spell
+# Soul, the caster must have someone's soul, see page 43
+# Undead, the caster must be undead
+# 		PRERACE:1,RACETYPE=Undead
+#
+Aberrate.MOD			PRERACE:1,TYPE=Outsider	PRERACE:2,SUBTYPE=Extraplanar,SUBTYPE=Evil
 Abyssal Might.MOD		PRERACE:1,RACESUBTYPE=Demon
+Addiction.MOD			PRETEXT:The caster must be under the influence of the chosen drug for the addiction
+Bestow Wound.MOD		COST:10
+Bodak Birth.MOD			PRETEXT:The caster must be under the influence of the drug Agony
 Boneblade.MOD			PRERACE:1,RACETYPE=Undead
 Boneblast.MOD			PRERACE:1,RACETYPE=Undead
-Fiendish Quickening.MOD		PRETEMPLATE:1,Fiendish
-Flesh Ripper.MOD		PRETEMPLATE:1,Fiendish	PRERACE:1,RACETYPE=Undead
+Call Dretch Horde.MOD	PRETEXT:The caster must use a soul as a component (see p43)
+Call Lemure Horde.MOD	PRETEXT:The caster must use a soul as a component (see p43)
+Call Nightmare.MOD		PRETEXT:The caster must use a soul as a component (see p43)
+Cloud of the Achaierai.MOD	PRETEXT:The caster must be infected with the disease Soul Rot
+Crushing Fist of Spite.MOD	PRETEXT:The caster must be infected with the disease Festering Anger
+Evil Weather.MOD		COST:10000	XPCOST:200
+Fiendish Quickening.MOD	PRERACE:1,TYPE=Outsider	PRERACE:2,SUBTYPE=Extraplanar,SUBTYPE=Evil
+Flesh Ripper.MOD		PRERACE:1,TYPE=Outsider	PRERACE:2,SUBTYPE=Extraplanar,SUBTYPE=Evil	PRERACE:1,RACETYPE=Undead
+Glimpse of Truth.MOD	PRETEXT:The caster must be under the influence of the drug Mordayn Vapor
 Grim Revenge.MOD		PRERACE:1,RACETYPE=Undead
 Gutwrench.MOD			PRERACE:1,RACETYPE=Undead
+Heartclutch.MOD			PRETEXT:The caster must be infected with the disease Soul Rot
 Hell's Power.MOD		PRERACE:1,RACESUBTYPE=Devil
-Resonating Resistance		PRETEMPLATE:1,Fiendish
+Identify Transgressor.MOD	PRETEXT:The caster must be under the influence of the drug Vodare	PRETEXT:The spell's area must be under the effect of a Desecrate of Unhallow spell
+Mirror Sending.MOD		COST:1000
+Pestilence.MOD			PRETEXT:The caster must be infected with some disease
+Resonating Resistance.MOD	PRERACE:1,TYPE=Outsider	PRERACE:2,SUBTYPE=Extraplanar,SUBTYPE=Evil
+Shriveling.MOD			PRETEXT:The caster must be infected with the disease Soul Rot
+Slow Consumption.MOD	PRETEXT:The spell's area must be under the effect of a Desecrate of Unhallow spell
+Soul's Shackles.MOD		PRETEXT:The spell's area must be under the effect of a Desecrate of Unhallow spell
+Soul's Treasure Lost.MOD	COST:500
+Steal Life.MOD			PRETEXT:The spell's area must be under the effect of a Desecrate of Unhallow spell
+Stop Heart.MOD			PRETEXT:The caster must be under the influence of the drug Baccaran
+Tongue of Baalzebul.MOD	PRETEXT:The caster must be under the influence of the drug Mushroom Powder
+Unheavened.MOD			PRETEXT:The caster must be under the influence of the drug Vodare
 
 
 ###Block: Class Mods

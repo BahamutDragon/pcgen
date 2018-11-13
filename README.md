@@ -1,8 +1,8 @@
 =
-PCGEN
+PCGEN HOMEBREW
 =
 
-###### Updated: 2018-04-22
+###### Updated: 2018-10-26
 ==========================
 ##### PCGen Data Sets & Homebrew
 
@@ -21,7 +21,6 @@ It is always recommended that you use the latest available release of PCGen when
 
 Many of the latest features will require you to utilize the latest version (unstable if necessary) of pcgen. 
 I try to use the latest fixes and improvements found in the development line, if you grab the master branch be sure to use the latest developmental version of PCGen. 
-* http://www.pcgen.org/autobuilds/download.html (Latest Updates, fixes and features)
 * http://pcgen.org (The main website)
 
 
@@ -99,4 +98,3 @@ BahamutDragon
 
 bahamutdragon2013@gmail.com
 
-http://games.groups.yahoo.com/group/bd_games/
