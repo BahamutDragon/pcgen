@@ -49,7 +49,34 @@ CLASS:Battlesmith	STARTSKILLPTS:2	CSKILL:Appraise|Concentration|TYPE=Craft|Intim
 # Blade Bravo		99
 # Cragtop Archer		101
 # Dawncaller		103
+
+
 # Deepwarden		105
+# Class Name	Hit Dice	Max Level	Source Page		Combat bonus										Bonus
+CLASS:Deepwarden	HD:12		MAXLEVEL:10	SOURCEPAGE:p.105	DEFINE:DeepwardenLVL|0		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name	Required Feat										Required Race				Required Skill									PRETOTALAB
+CLASS:Deepwarden	PREABILITY:1,CATEGORY=FEAT,Endurance	PRERACE:1,Dwarf%,RACESUBTYPE=Dwarf	PRESKILL:5,Climb=5,Heal=5,Jump=5,Knowledge (Dungeoneering)=5,Survival=5	PRETOTALAB:5
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Deepwarden	STARTSKILLPTS:6	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Decipher Script|Escape Artist|Handle Animal|Heal|Hide|Jump|Knowledge (Dungeoneering)|Knowledge (Geography)|Listen|Move Silently|Search|Speak Language|Spot|Survival|Swim|Use Rope
+1	ABILITY:Deepwarden Class Feature|AUTOMATIC|Deepwarden ~ Weapon and Armor Proficiency
+1	ABILITY:Deepwarden Class Feature|AUTOMATIC|Deepwarden ~ Track|Deepwarden ~ Trap sense
+#2	ABILITY:Deepwarden Class Feature|AUTOMATIC|Deepwarden ~ Stone warden
+#3	ABILITY:Deepwarden Class Feature|AUTOMATIC|Deepwarden ~ Animal messenger
+4	ABILITY:Deepwarden Class Feature|AUTOMATIC|Deepwarden ~ Uncanny dodge
+#5	ABILITY:Deepwarden Class Feature|AUTOMATIC|Deepwarden ~ Stubborn mind
+#6	ABILITY:Deepwarden Class Feature|AUTOMATIC|Deepwarden ~ Sending
+7	ABILITY:Deepwarden Class Feature|AUTOMATIC|Deepwarden ~ Swift tracker
+8	ABILITY:Deepwarden Class Feature|AUTOMATIC|Deepwarden ~ Improved uncanny dodge
+#9	ABILITY:Deepwarden Class Feature|AUTOMATIC|Deepwarden ~ Greater animal messenger
+###Block:
+1	BONUS:VAR|TrapSenseBonus|(DeepwardenLVL+1)/2
+#Stone warden
+#Animal messenger
+#Stubborn mind
+#Sending
+#Greater animal messenger
+
+
 # Divine Prankster	107
 # Earth Dreamer		110
 # Goliath Liberator	112
