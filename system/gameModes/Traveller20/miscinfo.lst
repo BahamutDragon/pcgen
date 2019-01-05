@@ -1,55 +1,12 @@
-#
-# Current Ver: $Revision: 1.47 $
-# Last Editor: $Author: fdiniz $
-# Last Edited: $Date: 2003/08/15 23:31:02 $
-#
 # message displayed when experience added allows character to advance a level
 #
 LEVELMSG:Congratulations, you can advance with that much experience!
 #
-#
-#ALIGNMENTNAME:Alignment
-HPNAME:Stamina
-HPABBREV:ST
-ALTHPNAME:LifeBlood
-ALTHPABBREV:LB
-# AC tags can be used to display AC info by using appropriate name and abbrev.
-# ACNAME: and ACABBREV: are required for proper usage.
-# SHOWCLASSDEFENSE: determines whether	BONUS:COMBAT|AC|x|TYPE=ClassDefense value is reflected
-ACNAME:Armor Class
-ACABBREV:AC
 
-#
-#misc. DnD specific items
-#
+ACNAME:Armor Class
+
 CURRENCYUNIT:Credit
 CURRENCYUNITABBREV:Cr
-# Depreciated Using unitSet.lst in System folder - Have a problem with it the Settings Are not Automatic 
-# You have to set the language Units to metric.
-#HEIGHTUNITABBREV:cm
-#MOVEUNIT:Meter
-#MOVEUNITABBREV:m
-#WEIGHTUNITABBREV:Kg
-
-# The following determine whether some Class-related variables are displayed
-# on the Classes tab.
-# SHOWCLASSDEFENSE: determines whether "BONUS:COMBAT|AC|x|TYPE=ClassDefense" value is displayed.
-# DISPLAYVARIABLExTEXT: determines the Label displayed for the variable
-# DISPLAYVARIABLExNAME: determines the variable displayed.  This must match the DEFINE:
-# variable in order to be displayed
-# up to 3 variables can be displayed in this manner
-
-SHOWCLASSDEFENSE:NO
-#DISPLAYVARIABLE1TEXT:
-#DISPLAYVARIABLE1NAME:
-#DISPLAYVARIABLE2TEXT:
-#DISPLAYVARIABLE2NAME:
-#DISPLAYVARIABLE3TEXT:
-#DISPLAYVARIABLE3NAME:
-
-#
-# Whether or not the game mode displays these tabs
-#
 #
 TAB:CLASS		NAME:in_class		CONTEXT:tabpages\tabclasses.html
 TAB:DESCRIPTION	NAME:in_descrip		CONTEXT:tabpages\tabdescription.html
@@ -70,43 +27,17 @@ TAB:TEMPMOD		NAME:in_InfoTempMod	CONTEXT:tabpages\tabtemporarybonuses.html
 # use & for mnemonic, && for & (MENUENTRY only)
 #
 MENUENTRY:Traveller
-MENUTOOLTIP:Use Traveller character creation settings
 DISPLAYORDER:1
 ALLOWEDMODES:Traveller20|T20
 
-#
-#SHORTRANGE sets the Short Range as referenced by TOHIT-SHORTRANGE and DAMAGE-SHORTRANGE
-# Integer value, defaults to zero if tag not present to allow GameModes without shortrange bonus/limitations
 SHORTRANGE:1
-
-#SPELLRANGExxx specifies the formula used to compute spell ranges
-#The formula is evaluated by the PlayerCharacter.getVariableValue() routine
 SPELLRANGE:CLOSE|((CASTERLEVEL/2)*5)+25
 SPELLRANGE:MEDIUM|(CASTERLEVEL*10)+100
 SPELLRANGE:LONG|(CASTERLEVEL*40)+400
-
-#SKILLMULTIPLIER by level (assumes 1 for all levels beyond those in | delimited list
-#e.g. SKILLMULTIPLIER:2|2|2 would give a x2 mult at levels 1 to 3, and x1 beyond that
 SKILLMULTIPLIER:4
 SPELLBASEDC:10+SPELLLEVEL+BASESPELLSTAT
-
-#BONUSFEATLEVELSTARTINTERVAL:level|interval
-#level = first level where you gain an additional feat (use more than one of these tags for additional feats)
-#interval = multiples of levels after the start level that you gain an additional feat (0 = only at start)
-#this is handled in the races.lst by the STARTFEATS tag
-#BONUSFEATLEVELSTARTINTERVAL:1|0
 BONUSFEATLEVELSTARTINTERVAL:3|3
-
-#BONUSSTATLEVELSTARTINTERVAL:level|interval
-#level = first level where you gain an additional stat (use more than one of these tags for additional stat)
-#interval = multiples of levels after the start level that you gain an additional stat (0 = only at start)
 BONUSSTATLEVELSTARTINTERVAL:4|4
-
-#DEITY:None		DOMAINS:ALL		FOLLOWERALIGN:012345678		DESC:None	SYMBOL:None		SOURCEPAGE:None
-
-# Calculations for AC. Same as those used on the output sheets with the 'BONUS.' stripped off
-#BONUS_ACTOUCH:COMBAT.AC.TOTAL.!Armor.!NaturalArmor
-#BONUS_ACFLAT:COMBAT.AC.TOTAL.!Ability.PRESTAT:1,DEX=10.!PRESA:1,Uncanny Dodge.MIN=0
 
 WEAPONTYPE:Bludgeoning|B
 WEAPONTYPE:Piercing|P
@@ -129,11 +60,6 @@ WEAPONCATEGORY:Lasers
 WEAPONCATEGORY:Marksman
 WEAPONCATEGORY:Ship's Weaponry
 WEAPONCATEGORY:Swordsman
-
-#WEAPONCATEGORY:Simple
-#WEAPONCATEGORY:Martial
-#WEAPONCATEGORY:Exotic
-#WEAPONCATEGORY:Natural
 
 # Ammo is made in batches of 50, so the "plus" cost per unit should be 2000*(PLUS*PLUS)/50
 PLUSCOST:AMMUNITION|BASEQTY*40*PLUS*PLUS

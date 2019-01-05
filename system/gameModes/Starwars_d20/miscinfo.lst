@@ -1,25 +1,7 @@
-#
-# Current Ver: $Revision: $
-# Last Editor: $Author:  $
-# Last Edited: $Date: $
-#
 # message displayed when experience added allows character to advance a level
 LEVELMSG:Congratulations, you can advance with that much experience!
 #
-#
-#ALIGNMENTNAME:Alignment
-HPNAME:Hit Points
-HPABBREV:HP
-#ALTHPNAME:
-#ALTHPABBREV:
-
-# AC tags can be used to display AC info by using appropriate name and abbrev.
-# ACNAME: and ACABBREV: are required for proper usage.
 ACNAME:AC
-ACABBREV:AC
-
-# Whether to allow AutoResizing of Equipment for nonmedium characters in this gamemode
-ALLOWAUTORESIZE:Y
 
 # Stacking bonuses
 BONUSSTACKS:Defense.Dodge.Circumstance.NotRanged.NotFlatFooted
@@ -32,26 +14,7 @@ CURRENCYUNITABBREV:cr
 
 DEFAULTUNITSET:Metric
 
-# The following determine whether some Class-related
-# variables are displayed on the Classes tab.
-# SHOWCLASSDEFENSE: determines whether BONUS:COMBAT|AC|x|TYPE=ClassDefense
-#  value is displayed.
-# DISPLAYVARIABLExTEXT: determines the Label displayed for the variable
-# DISPLAYVARIABLExNAME: determines the variable displayed.
-#  This must match the DEFINE: variable in order to be displayed
-# Up to 3 variables can be displayed in this manner
-
-SHOWCLASSDEFENSE:NO
-#DISPLAYVARIABLE1TEXT:
-#DISPLAYVARIABLE1NAME:
-#DISPLAYVARIABLE2TEXT:
-#DISPLAYVARIABLE2NAME:
-#DISPLAYVARIABLE3TEXT:
-#DISPLAYVARIABLE3NAME:
-
-#
 # Whether or not the game mode displays these tabs
-#
 TAB:CLASS		NAME:in_class		CONTEXT:tabpages\tabclasses.html
 TAB:DESCRIPTION	NAME:in_descrip		CONTEXT:tabpages\tabdescription.html
 TAB:DOMAINS		NAME:in_domains		CONTEXT:tabpages\tabdomains.html			VISIBLE:NO
@@ -71,62 +34,23 @@ TAB:TEMPMOD		NAME:in_InfoTempMod	CONTEXT:tabpages\tabtemporarybonuses.html
 # use & for mnemonic, && for & (MENUENTRY only)
 #
 MENUENTRY:Star Wars D20 Edition
-MENUTOOLTIP:Use the Star Wars d20 Revised Edition character creation settings
 DISPLAYORDER:1
 ALLOWEDMODES:Starwars_d20
-#
-# SHORTRANGE sets the Short Range as referenced by
-#  TOHIT-SHORTRANGE and DAMAGE-SHORTRANGE
-# Integer value, defaults to zero if tag not present to allow GameModes
-# without shortrange bonus/limitations
 SHORTRANGE:30
-#No default depends on weapon class
 
-
-#
-# RANGEPENALTY sets the modification of the to-hit value for
-# each range increment after the first.
-# Integer value, defaults to zero if tag not present to allow GameModes
-# without range increment bonus/limitations
 RANGEPENALTY:-2
-#-2, -5, -10
 
-
-# SQUARESIZE defines the size of a battlemap square in feet.
 SQUARESIZE:5
-
-
-
-
-#SKILLMULTIPLIER by level (assumes 1 for all levels beyond those in | delimited list)
-#e.g. SKILLMULTIPLIER:2|2|2 would give a x2 mult at levels 1 to 3, and x1 beyond that
 SKILLMULTIPLIER:4
 SKILLCOST_CROSSCLASS:2
 
-#BONUSFEATLEVELSTARTINTERVAL:level|interval
-#level = first level where you gain an additional feat
-# (use more than one of these tags for additional feats)
-#interval = multiples of levels after the start level that you gain an additional feat (0 = only at start)
-#this is handled in the races.lst by the STARTFEATS tag
-#BONUSFEATLEVELSTARTINTERVAL:1|0
 BONUSFEATLEVELSTARTINTERVAL:3|3
-#BONUSFEATLEVELSTARTINTERVAL:2|2
-
-#BONUSSTATLEVELSTARTINTERVAL:level|interval
-#level = first level where you gain an additional stat
-# (use more than one of these tags for additional stat)
-#interval = multiples of levels after the start level that you gain an additional stat (0 = only at start)
-#BONUSSTATLEVELSTARTINTERVAL:4|4|!PRECLASS:1,Beast=1
 BONUSSTATLEVELSTARTINTERVAL:4|4
 
 #Attack/Check Cycle attributes
 BABMAXATT:1
 BABATTCYC:20
 BABMINVAL:1
-#BABMAXLVL:20
-#CHECKSMAXLVL:20
-#
-#MAXNONEPICLEVEL:20
 
 CLASSTYPE:PC		CRFORMULA:CL		ISMONSTER:NO	XPPENALTY:NO
 CLASSTYPE:Nonheroic	CRFORMULA:CL		ISMONSTER:NO	XPPENALTY:NO
@@ -221,11 +145,6 @@ WIELDCATEGORY:OneHanded		PREVARGTEQ:EQUIP.SIZE.INT,PC.SIZE.INT+2	SWITCH:TooLarge
 WIELDCATEGORY:TwoHanded		PREVARLTEQ:EQUIP.SIZE.INT,PC.SIZE.INT-2	SWITCH:Light
 WIELDCATEGORY:TwoHanded		PREVAREQ:EQUIP.SIZE.INT,PC.SIZE.INT-1	SWITCH:OneHanded
 WIELDCATEGORY:TwoHanded		PREVARGTEQ:EQUIP.SIZE.INT,PC.SIZE.INT+1	SWITCH:TooLarge
-
-#
-# Wield Category Steps
-#  This is used when figuring bonuses that allow you to wield Larger or Smaller size weapons
-WCSTEPSFORMULA:EQUIP.SIZE.INT-PC.SIZE.INT
 
 WIELDCATEGORY:Light		UP:OneHanded|TwoHanded
 WIELDCATEGORY:OneHanded		UP:TwoHanded			DOWN:Light

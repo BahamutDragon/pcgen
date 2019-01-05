@@ -1,25 +1,8 @@
-#
-# Current Ver: $Revision: 1.21 $
-# Last Editor: $Author: soulcatcher $
-# Last Edited: $Date: 2006/02/21 01:57:15 $
-#
 # message displayed when experience added allows character to advance a level
 LEVELMSG:Congratulations, you can advance with that much experience!
 #
 #
-#ALIGNMENTNAME:Alignment
-HPNAME:Hit Points
-HPABBREV:HP
-#ALTHPNAME:
-#ALTHPABBREV:
-
-# AC tags can be used to display AC info by using appropriate name and abbrev.
-# ACNAME: and ACABBREV: are required for proper usage.
 ACNAME:Armor Class
-ACABBREV:AC
-
-# Whether to allow AutoResizing of Equipment for nonmedium characters in this gamemode
-ALLOWAUTORESIZE:Y
 
 # Stacking bonuses
 BONUSSTACKS:Defense.Dodge.Circumstance.NotRanged.NotFlatFooted
@@ -30,30 +13,8 @@ BONUSSTACKS:Defense.Dodge.Circumstance.NotRanged.NotFlatFooted
 CURRENCYUNIT:Dollar
 CURRENCYUNITABBREV:$
 
-#
-#define this game mode's default unit set
-#as specified in unitset.lst
-#
 DEFAULTUNITSET:Imperial
 
-# The following determine whether some Class-related
-# variables are displayed on the Classes tab.
-# SHOWCLASSDEFENSE: determines whether BONUS:COMBAT|AC|x|TYPE=ClassDefense
-#  value is displayed.
-# DISPLAYVARIABLExTEXT: determines the Label displayed for the variable
-# DISPLAYVARIABLExNAME: determines the variable displayed.
-#  This must match the DEFINE: variable in order to be displayed
-# Up to 3 variables can be displayed in this manner
-
-SHOWCLASSDEFENSE:NO
-#DISPLAYVARIABLE1TEXT:
-#DISPLAYVARIABLE1NAME:
-#DISPLAYVARIABLE2TEXT:
-#DISPLAYVARIABLE2NAME:
-#DISPLAYVARIABLE3TEXT:
-#DISPLAYVARIABLE3NAME:
-
-#
 # Whether or not the game mode displays these tabs
 #
 TAB:CLASS		NAME:in_class		CONTEXT:tabpages\tabclasses.html
@@ -75,80 +36,34 @@ TAB:TEMPMOD		NAME:in_InfoTempMod	CONTEXT:tabpages\tabtemporarybonuses.html
 # use & for mnemonic, && for & (MENUENTRY only)
 #
 MENUENTRY:Monte Cook World of Darkness
-MENUTOOLTIP:Use MC WoD character creation settings
 DISPLAYORDER:1
 ALLOWEDMODES:MC_WoD
 #
-# SHORTRANGE sets the Short Range as referenced by
-#  TOHIT-SHORTRANGE and DAMAGE-SHORTRANGE
-# Integer value, defaults to zero if tag not present to allow GameModes
-# without shortrange bonus/limitations
 SHORTRANGE:30
 #
-# RANGEPENALTY sets the modification of the to-hit value for
-# each range increment after the first.
-# Integer value, defaults to zero if tag not present to allow GameModes
-# without range increment bonus/limitations
 RANGEPENALTY:-2
 
-# SQUARESIZE defines the size of a battlemap square in feet.
 SQUARESIZE:5
 
-#SPELLRANGExxx specifies the formula used to compute spell ranges
-#The formula is evaluated by the PlayerCharacter.getVariableValue() routine
-#SPELLRANGE:CLOSE|25 + 5 ft./2 levels
-#SPELLRANGE:MEDIUM|100 + 10 ft./level
-#SPELLRANGE:LONG|400 + 40 ft./level
-
-#SPELLRANGE:CLOSE|(((CASTERLEVEL/2).TRUNC)*5)+25
-#SPELLRANGE:MEDIUM|(CASTERLEVEL*10)+100
-#SPELLRANGE:LONG|(CASTERLEVEL*40)+400
 
 
 
-#SKILLMULTIPLIER by level (assumes 1 for all levels beyond those in | delimited list)
-#e.g. SKILLMULTIPLIER:2|2|2 would give a x2 mult at levels 1 to 3, and x1 beyond that
-#SKILLMULTIPLIER:4
 SKILLCOST_CROSSCLASS:1
-#SPELLBASEDC:10+SPELLLEVEL+BASESPELLSTAT
 
-#BONUSFEATLEVELSTARTINTERVAL:level|interval
-#level = first level where you gain an additional feat
-# (use more than one of these tags for additional feats)
-#interval = multiples of levels after the start level that you gain an additional feat (0 = only at start)
-#this is handled in the races.lst by the STARTFEATS tag
 BONUSFEATLEVELSTARTINTERVAL:3|3
-#BONUSFEATLEVELSTARTINTERVAL:2|2
 
-#BONUSSTATLEVELSTARTINTERVAL:level|interval
-#level = first level where you gain an additional stat
-# (use more than one of these tags for additional stat)
-#interval = multiples of levels after the start level that you gain an additional stat (0 = only at start)
 BONUSSTATLEVELSTARTINTERVAL:1|0
 BONUSSTATLEVELSTARTINTERVAL:5|4
 
 
-#DEITY:None		DOMAINS:ALL		FOLLOWERALIGN:012345678		DESC:None	SYMBOL:None		SOURCEPAGE:None
 
-# Calculations for AC. Same as those used on the
-# output sheets with the 'BONUS.' stripped off
-#BONUS_ACTOUCH:COMBAT.AC.TOTAL.!Armor.!NaturalArmor
-#BONUS_ACFLAT:COMBAT.AC.TOTAL.!Ability.PRESTAT:1,DEX=10.!PRESA:1,Uncanny Dodge.MIN=0
-
-# Ammo is made in batches of 50, so the "plus" cost
-# per unit should be 2000*(PLUS*PLUS)/50
-PLUSCOST:AMMUNITION|BASEQTY*40*PLUS*PLUS
-PLUSCOST:ARMOR|1000*PLUS*PLUS
-PLUSCOST:SHIELD|1000*PLUS*PLUS
-PLUSCOST:WEAPON|(2000*PLUS*PLUS)+(2000*ALTPLUS*ALTPLUS)
 
 #Attack/Check Cycle attributes
 BABMAXATT:4
 BABATTCYC:5
 BABMINVAL:1
 # Epic stuff
-BABMAXLVL:20
-CHECKSMAXLVL:20
+MAXNONEPICLEVEL:19
 
 #Class Types
 CLASSTYPE:PC		CRFORMULA:CL		ISMONSTER:NO	XPPENALTY:YES
@@ -236,11 +151,6 @@ WIELDCATEGORY:TwoHanded		PREVAREQ:EQUIP.SIZE.INT,PC.SIZE.INT-2	SWITCH:Light
 WIELDCATEGORY:TwoHanded		PREVAREQ:EQUIP.SIZE.INT,PC.SIZE.INT-1	SWITCH:OneHanded
 WIELDCATEGORY:TwoHanded		PREVARGTEQ:EQUIP.SIZE.INT,PC.SIZE.INT+1	SWITCH:TooLarge
 
-#
-# Wield Category Steps
-#  This is used when figuring bonuses that allow you to wield Larger or Smaller size weapons
-WCSTEPSFORMULA:EQUIP.SIZE.INT-PC.SIZE.INT
-
 WIELDCATEGORY:TooSmall		UP:Light|OneHanded|TwoHanded					ZERO:Light
 WIELDCATEGORY:Light		UP:OneHanded|TwoHanded
 WIELDCATEGORY:OneHanded		UP:TwoHanded			DOWN:Light
@@ -274,19 +184,11 @@ WEAPONREACH:(RACEREACH+(max(0,REACH-5)))*REACHMULT
 # Ability Categories
 #
 
-###Block: Salient Divine Ability
-# Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Base Pool number		Category of Object			Type of Object				Plural description for UI		Display where?
-
 ###Block: FEATs and subgroups
 # Ability Category				Visible		Editable or Static?	Change Pool?	Fractional values?	Base Pool number		Category of Object			Type of Object				Plural description for UI		Display where?
 ABILITYCATEGORY:FEAT				VISIBLE:YES		EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:FEAT										PLURAL:Feats				DISPLAYLOCATION:Feats
 ABILITYCATEGORY:Special Ability		VISIBLE:NO		EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:Special Ability									
 ABILITYCATEGORY:Internal	VISIBLE:NO		EDITABLE:NO		EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal
-
-
-#ABILITYCATEGORY:Fighter Feat			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:FEAT				TYPE:Fighter				PLURAL:Fighter Feats			DISPLAYLOCATION:Feats
-#ABILITYCATEGORY:Wizard Feat			VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:YES	FRACTIONALPOOL:NO						CATEGORY:FEAT				TYPE:Wizard.ItemCreation.Metamagic	PLURAL:Wizard Feats			DISPLAYLOCATION:Feats
-#ABILITYCATEGORY:Metamagic Feat		VISIBLE:QUALIFY	EDITABLE:YES		EDITPOOL:NO		FRACTIONALPOOL:NO						CATEGORY:FEAT				TYPE:Metamagic				PLURAL:Metamagic Feats			DISPLAYLOCATION:Feats
 
 
 PREVIEWDIR:d20/fantasy
