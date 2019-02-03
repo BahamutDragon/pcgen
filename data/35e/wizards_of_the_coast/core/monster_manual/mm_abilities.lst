@@ -1289,11 +1289,13 @@ Spells					KEY:Lillend ~ Spells						CATEGORY:Special Ability	TYPE:SpecialAttack
 Spell-Like Abilities			KEY:Lillend ~ Spell-Like Abilities				CATEGORY:Special Ability	TYPE:SpecialAttack																		VISIBLE:YES																					DESC:3/day-darkness, hallucinatory terrain (DC 18), knock, light; 1/day-charm person (DC 15), speak with animals, speak with plants. Caster level 10th. The save DCs are Charisma-based. A lillend also has the bardic music ability as a 6th-level bard.
 Skills					KEY:Lillend ~ Skills						CATEGORY:Special Ability	TYPE:SpecialQuality																		VISIBLE:YES																					DESC:Lillends have a +4 racial bonus on Survival checks.
 
+Race Traits ~ Lizardfolk	CATEGORY:Internal	BONUS:ABILITYPOOL|Lizardfolk Subrace|1	AUTO:SHIELDPROF|SHIELDTYPE=Buckler|SHIELDTYPE=Heavy|SHIELDTYPE=Light	AUTO:WEAPONPROF|Club|Javelin|TYPE=Simple
 # Lizardfolk
-Lizardfolk					CATEGORY:Internal	TYPE:LizardfolkSubrace	
-Race Traits ~ Lizardfolk	CATEGORY:Internal	ABILITY:Special Ability|AUTOMATIC|Lizardfolk ~ Hold Breath|PREMULT:2,[!PREABILITY:1,CATEGORY=Special Ability,TYPE.DisableRacialTraits,TYPE.LizardfolkHoldBreath],[!PRERACE:1,RACESUBTYPE=Viletooth]|PREVAREQ:DisableRacialTraits,0	ABILITY:Special Ability|AUTOMATIC|Lizardfolk ~ Skills
+Lizardfolk				CATEGORY:Internal	TYPE:LizardfolkSubrace	BONUS:STAT|STR,CON|2|TYPE=Racial	BONUS:STAT|INT|-2|TYPE=Racial	ABILITY:Special Ability|AUTOMATIC|Lizardfolk ~ Hold Breath|PREMULT:2,[!PREABILITY:1,CATEGORY=Special Ability,TYPE.DisableRacialTraits,TYPE.LizardfolkHoldBreath]|PREVAREQ:DisableRacialTraits,0	ABILITY:Special Ability|AUTOMATIC|Lizardfolk ~ Skills	NATURALATTACKS:Claw,Weapon.Natural.Melee.Finesseable.Piercing.Slashing,*2,1d4|Bite,Weapon.Natural.Melee.Finesseable.Bludgeoning.Piercing.Slashing,*1,1d4
+
+# Base
 Hold Breath					KEY:Lizardfolk ~ Hold Breath					CATEGORY:Special Ability	TYPE:SpecialQuality																		VISIBLE:YES																					DESC:A lizardfolk can hold its breath for a number of rounds equal to four times its Constitution score before it risks drowning.
-Skills					KEY:Lizardfolk ~ Skills						CATEGORY:Special Ability	TYPE:SpecialQuality																		VISIBLE:YES																					DESC:Because of their tails, lizardfolk have a +4 racial bonus on Jump, Swim, and Balance checks. The skill modifiers given in the statistics block include a -2 armor check penalty (-4 on Swim checks) for carrying a heavy shield.
+Skills					KEY:Lizardfolk ~ Skills						CATEGORY:Special Ability	TYPE:SpecialQuality																		VISIBLE:YES																					DESC:Because of their tails, lizardfolk have a +4 racial bonus on Jump, Swim, and Balance checks. The skill modifiers given in the statistics block include a -2 armor check penalty (-4 on Swim checks) for carrying a heavy shield.	BONUS:SKILL|Balance,Jump,Swim|4|TYPE=Racial
 
 # Locathah
 Skills					KEY:Locathah ~ Skills						CATEGORY:Special Ability	TYPE:SpecialQuality																		VISIBLE:YES																					DESC:A locathah has a +8 racial bonus on any Swim check to perform some special action or avoid a hazard. It can always choose to take 10 on a Swim check, even if distracted or endangered. It can use the run action while swimming, provided it swims in a straight line.
