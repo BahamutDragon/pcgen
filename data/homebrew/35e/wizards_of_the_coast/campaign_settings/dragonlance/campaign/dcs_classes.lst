@@ -1,0 +1,306 @@
+# CVS $Revision: $ $Author: $ -- Sun Aug 17 15:41:15 2014 -- reformated by prettylst.pl v1.51 (build 24906)
+
+# Class Name	Hit Dice	Type				Source Page		Define			Combat bonus												Modify VAR																		Bonus
+CLASS:Mystic	HD:8		TYPE:Base.PC.Krynn	SOURCEPAGE:p.47	DEFINE:MysticLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|MysticLVL|CL	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name	Deities allowed
+CLASS:Mystic	DEITY:Mystic
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Mystic	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Knowledge (arcana)|Knowledge (Nature)|Knowledge (Religion)|TYPE=Profession|Spellcraft
+# Class Name	Spell Stat		Spell Type		Caster level
+CLASS:Mystic	FACT:SpellType|Divine
+CLASS:Mystic	SPELLSTAT:WIS	BONUS:CASTERLEVEL|Mystic|Caster_Level_Mystic	DEFINE:Caster_Level_Mystic|0	BONUS:VAR|Caster_Level_Mystic|CL+Caster_Level_Bonus	DEFINE:CasterLevelBLMystic|0	BONUS:VAR|CasterLevelBLMystic|charbonusto("PCLEVEL","Mystic")	BONUS:VAR|Caster_Level_Highest__Divine|Caster_Level_Mystic+CasterLevelBLMystic|TYPE=Base
+###Block
+1	BONUS:DOMAIN|NUMBER|1
+###Block
+1	ABILITY:Mystic Class Feature|AUTOMATIC|Mystic ~ Weapon and Armor Proficiency
+1	ABILITY:Mystic Class Feature|AUTOMATIC|Mystic ~ Domain
+###Block
+1	CAST:5,3
+2	CAST:6,4
+3	CAST:6,5
+4	CAST:6,6,3
+5	CAST:6,6,4
+6	CAST:6,6,5,3
+7	CAST:6,6,6,4
+8	CAST:6,6,6,5,3
+9	CAST:6,6,6,6,4
+10	CAST:6,6,6,6,5,3
+11	CAST:6,6,6,6,6,4
+12	CAST:6,6,6,6,6,5,3
+13	CAST:6,6,6,6,6,6,4
+14	CAST:6,6,6,6,6,6,5,3
+15	CAST:6,6,6,6,6,6,6,4
+16	CAST:6,6,6,6,6,6,6,5,3
+17	CAST:6,6,6,6,6,6,6,6,4
+18	CAST:6,6,6,6,6,6,6,6,5,3
+19	CAST:6,6,6,6,6,6,6,6,6,4
+20	CAST:6,6,6,6,6,6,6,6,6,6
+###Block
+1	KNOWN:4,2
+2	KNOWN:5,2
+3	KNOWN:5,3
+4	KNOWN:6,3,1
+5	KNOWN:6,4,2
+6	KNOWN:7,4,2,1
+7	KNOWN:7,5,3,2
+8	KNOWN:8,5,3,2,1
+9	KNOWN:8,5,4,3,2
+10	KNOWN:9,5,4,3,2,1
+11	KNOWN:9,5,5,4,3,2
+12	KNOWN:9,5,5,4,3,2,1
+13	KNOWN:9,5,5,4,4,3,2
+14	KNOWN:9,5,5,4,4,3,2,1
+15	KNOWN:9,5,5,4,4,4,3,2
+16	KNOWN:9,5,5,4,4,4,3,2,1
+17	KNOWN:9,5,5,4,4,4,3,3,2
+18	KNOWN:9,5,5,4,4,4,3,3,2,1
+19	KNOWN:9,5,5,4,4,4,3,3,3,2
+20	KNOWN:9,5,5,4,4,4,3,3,3,3
+
+
+# Class Name	Hit Dice	Type				Source Page		Define		Combat bonus												Modify VAR																		Bonus
+CLASS:Noble		HD:8		TYPE:Base.PC.Krynn	SOURCEPAGE:p.50	DEFINE:NobleLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|NobleLVL|CL	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Noble		STARTSKILLPTS:4	CSKILL:Appraise|Diplomacy|Gather Information|Intimidate|TYPE=Knowledge|Listen|TYPE=Perform|Ride|Sense Motive|Speak Language
+###Block
+1	ADD:CLASSSKILLS|CROSSCLASSSKILLS
+###Block
+1	ABILITY:Noble Class Feature|AUTOMATIC|Noble ~ Weapon and Armor Proficiency
+1	ABILITY:Noble Class Feature|AUTOMATIC|Noble ~ Bonus Class Skill
+1	ABILITY:Noble Class Feature|AUTOMATIC|Noble ~ Favor
+2	ABILITY:Noble Class Feature|AUTOMATIC|Noble ~ Inspire Confidence
+4	ABILITY:Noble Class Feature|AUTOMATIC|Noble ~ Coordinate
+11	ABILITY:Noble Class Feature|AUTOMATIC|Noble ~ Inspire Greatness
+
+###Block: PRESTIGE CLASSES
+
+# KNIGHTS OF KRYNN - Knights of Solamnia
+
+# Knight of the Crown
+
+# Class Name			Hit Dice	Type			Source Page		Define					Combat bonus							Modify VAR					Bonus
+CLASS:Knight of the Crown	HD:10		TYPE:Prestige.PC	SOURCEPAGE:p.56	DEFINE:Knight_of_the_CrownLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|Knight_of_the_CrownLVL|CL	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name			Required AL	Required Check Base		Required Feat														Required Skill							Required Text																		PRETOTALAB
+CLASS:Knight of the Crown	PREALIGN:LG	PRECHECKBASE:1,Fortitude=4	PREABILITY:4,CATEGORY=FEAT,Armor Proficiency (Heavy),Honor-bound,Martial Weapon Proficiency,Shield Proficiency	PRESKILL:3,Diplomacy=2,Knowledge (Religion)=2,Ride=2	PRETEXT:Lawful Good, Base Attack Bonus +3, Base Save Bonus Fort +4, Skills Diplomacy 2, Knowledge (Religion) 2, Ride 2	PRETOTALAB:3
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Knight of the Crown	STARTSKILLPTS:2	CSKILL:TYPE=Craft|Diplomacy|Intimidate|Knowledge (nobility and royalty)|Knowledge (Religion)|TYPE=Profession|Ride
+1	ABILITY:Knight of the Crown Class Feature|AUTOMATIC|Knight of the Crown ~ Weapon and Armor Proficiency
+1	ABILITY:Knight of the Crown Class Feature|AUTOMATIC|Knight of the Crown ~ Strength of Honor
+1	ABILITY:Knight of the Crown Class Feature|AUTOMATIC|Knight of the Crown ~ Knightly Courage
+2	ABILITY:Knight of the Crown Class Feature|AUTOMATIC|Knight of the Crown ~ Heroic Initiative
+3	ABILITY:Knight of the Crown Class Feature|AUTOMATIC|Knight of the Crown ~ Fight to the Death
+4	ABILITY:Knight of the Crown Class Feature|AUTOMATIC|Knight of the Crown ~ Honorable Will
+6	ABILITY:Knight of the Crown Class Feature|AUTOMATIC|Knight of the Crown ~ Might of Honor
+7	ABILITY:Knight of the Crown Class Feature|AUTOMATIC|Knight of the Crown ~ Armored Mobility
+9	ABILITY:Knight of the Crown Class Feature|AUTOMATIC|Knight of the Crown ~ Aura of Courage
+10	ABILITY:Knight of the Crown Class Feature|AUTOMATIC|Knight of the Crown ~ Crown of Knighthoow
+
+# Knight of the Sword
+
+# Class Name			Hit Dice	Type			Source Page		Define					Combat bonus												Modify VAR																				Bonus
+CLASS:Knight of the Sword	HD:8		TYPE:Prestige.PC	SOURCEPAGE:p.57	DEFINE:Knight_of_the_SwordLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|Knight_of_the_SwordLVL|CL	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name			Required Ability											Required AL	Required Check Base	Required Feat					Required Skill											Req. Spell Type		Required Text		PRETOTALAB
+CLASS:Knight of the Sword	PREABILITY:1,CATEGORY=Special Ability,Knight of the Crown ~ Knightly Courage	PREALIGN:LG	PRECHECKBASE:1,Will=4	PREABILITY:3,CATEGORY=FEAT,Diehard,Endurance,Honor-bound	PRESKILL:3,Knowledge (Nobility and Royalty)=2,Knowledge (Religion)=4,Ride=4	PRESPELLTYPE:1,Divine=1	PRETEXT:Knightly virtue	PRETOTALAB:6
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Knight of the Sword	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Intimidate|Knowledge (nobility and royalty)|Knowledge (Religion)|TYPE=Profession|Ride
+1:REPEATLEVEL:1	ADD:SPELLCASTER|ANY
+###Block
+1	ABILITY:Knight of the Sword Class Feature|AUTOMATIC|Knight of the Sword ~ Smite Evil
+1	ABILITY:Knight of the Sword Class Feature|AUTOMATIC|Knight of the Sword ~ Aura of Good
+2	ABILITY:Knight of the Sword Class Feature|AUTOMATIC|Knight of the Sword ~ Turn Undead
+3	ABILITY:Knight of the Sword Class Feature|AUTOMATIC|Knight of the Sword ~ Aura of Courage
+10	ABILITY:Knight of the Sword Class Feature|AUTOMATIC|Knight of the Sword ~ Sould of Knighthood
+
+# Knight of the Rose
+
+# Class Name			Hit Dice	Type					Source Page		Define					Combat bonus							Modify VAR					Bonus
+CLASS:Knight of the Rose	HD:10		TYPE:Base.Prestige.Monster.PC	SOURCEPAGE:p.59	DEFINE:Knight_of_the_RoseLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|Knight_of_the_RoseLVL|CL	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name			Required Ability																		Required AL	Required Check Base	Required Feat								Required Skill									Req. Spell Type		Required Text		PRETOTALAB
+CLASS:Knight of the Rose	PREABILITY:2,CATEGORY=Special Ability,Knight of the Crown ~ Knightly Courage,Knight of the Sword ~ Aura of Courage	PREALIGN:LG	PRECHECKBASE:1,Will=7	PREABILITY:4,CATEGORY=FEAT,Mounted Combat,Leadership,Endurance,Honor-bound	PRESKILL:3,Diplomacy=8,Knowledge (Nobility and Royalty)=8,Ride=8	PRESPELLTYPE:1,Divine=2	PRETEXT:Knightly virtue	PRETOTALAB:8
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Knight of the Rose	STARTSKILLPTS:2	CSKILL:TYPE=Craft|Diplomacy|Intimidate|Knowledge (nobility and royalty)|Knowledge (Religion)|TYPE=Profession|Ride
+1:REPEATLEVEL:1	ADD:SPELLCASTER|ANY
+###Block
+1	ABILITY:Knight of the Rose Class Feature|AUTOMATIC|Knight of the Rose ~ Rallying Cry
+1	ABILITY:Knight of the Rose Class Feature|AUTOMATIC|Knight of the Rose ~ Detect Evil
+1	ABILITY:Knight of the Rose Class Feature|AUTOMATIC|Knight of the Rose ~ Aura of Good
+2	ABILITY:Knight of the Rose Class Feature|AUTOMATIC|Knight of the Rose ~ Inspire Courage
+3	ABILITY:Knight of the Rose Class Feature|AUTOMATIC|Knight of the Rose ~ Leadership Bonus
+3	ABILITY:Knight of the Rose Class Feature|AUTOMATIC|Knight of the Rose ~ Divine Grace
+4	ABILITY:Knight of the Rose Class Feature|AUTOMATIC|Knight of the Rose ~ Inspire Greatness
+4	ABILITY:Knight of the Rose Class Feature|AUTOMATIC|Knight of the Rose ~ Turn Undead
+6	ABILITY:Knight of the Rose Class Feature|AUTOMATIC|Knight of the Rose ~ Wisdom of the Measure
+9	ABILITY:Knight of the Rose Class Feature|AUTOMATIC|Knight of the Rose ~ Final Stand
+10	ABILITY:Knight of the Rose Class Feature|AUTOMATIC|Knight of the Rose ~ Knighthood's Flower
+
+###Block: Knights of Neraka
+
+# Knight of the Lily
+
+# Class Name			Hit Dice	Type			Source Page		Define					Combat bonus							Modify VAR					Bonus
+CLASS:Knight of the Lily	HD:10		TYPE:Prestige.PC	SOURCEPAGE:p.63	DEFINE:Knight_of_the_LilyLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|Knight_of_the_LilyLVL|CL	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name			Required AL	Required Feat		Required Skill						Required Text						PRETOTALAB
+CLASS:Knight of the Lily	PREALIGN:LE	PREABILITY:1,CATEGORY=FEAT,Honor-bound	PRESKILL:2,Knowledge (Religion)=2,Intimidate=4	PRETEXT:Squire of the Lily, Test of Takhisis	PRETOTALAB:5
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Knight of the Lily	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Diplomacy|Intimidate|Jump|Knowledge (Religion)|TYPE=Profession|Ride
+###Block
+1	ABILITY:Knight of the Lily Class Feature|AUTOMATIC|Knight of the Lily ~ Weapon and Armor Proficiency
+1	ABILITY:Knight of the Lily Class Feature|AUTOMATIC|Knight of the Lily ~ Sneak Attack
+2	ABILITY:Knight of the Lily Class Feature|AUTOMATIC|Knight of the Lily ~ Demoralize
+3	ABILITY:Knight of the Lily Class Feature|AUTOMATIC|Knight of the Lily ~ Fight to the Death
+4	ABILITY:Knight of the Lily Class Feature|AUTOMATIC|Knight of the Lily ~ Unbreakable Will
+6	ABILITY:Knight of the Lily Class Feature|AUTOMATIC|Knight of the Lily ~ Armored Mobility
+10	ABILITY:Knight of the Lily Class Feature|AUTOMATIC|Knight of the Lily ~ One Thought
+
+# Knight of the Skull
+
+# Class Name			Hit Dice	Type			Source Page		Define					Combat bonus												Modify VAR																				Bonus
+CLASS:Knight of the Skull	HD:8		TYPE:Prestige.PC	SOURCEPAGE:p.65	DEFINE:Knight_of_the_SkullLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|Knight_of_the_SkullLVL|CL	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name			Required AL	Required Feat		Required Skill				Req. Spell Type		Required Text						PRETOTALAB
+CLASS:Knight of the Skull	PREALIGN:LE	PREABILITY:1,CATEGORY=FEAT,Alertness	PRESKILL:1,Knowledge (Religion)=4	PRESPELLTYPE:1,Divine=3	PRETEXT:Squire of the Lily, Test of Takhisis	PRETOTALAB:3
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Knight of the Skull	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Intimidate|Knowledge (Religion)|TYPE=Profession|Ride
+2:REPEATLEVEL:1	ADD:SPELLCASTER|ANY
+###Block
+1	ABILITY:Knight of the Skull Class Feature|AUTOMATIC|Knight of the Skull ~ Detect Good
+1	ABILITY:Knight of the Skull Class Feature|AUTOMATIC|Knight of the Skull ~ Smite Good
+1	ABILITY:Knight of the Skull Class Feature|AUTOMATIC|Knight of the Skull ~ Aura of Evil
+2	ABILITY:Knight of the Skull Class Feature|AUTOMATIC|Knight of the Skull ~ Dark Blessing
+3	ABILITY:Knight of the Skull Class Feature|AUTOMATIC|Knight of the Skull ~ Discern Lies
+3	ABILITY:Knight of the Skull Class Feature|AUTOMATIC|Knight of the Skull ~ Rebuke Undead
+10	ABILITY:Knight of the Skull Class Feature|AUTOMATIC|Knight of the Skull ~ Favor of Darkness
+
+# Knight of the Thorn
+
+# Class Name			Hit Dice	Type			Source Page		Define					Combat bonus												Modify VAR																				Bonus
+CLASS:Knight of the Thorn	HD:6		TYPE:Prestige.PC	SOURCEPAGE:p.66	DEFINE:Knight_of_the_ThornLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|Knight_of_the_ThornLVL|CL	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name			Required Ability							Required AL	Required Check Base			Required Feat									Required Skill										Req. Spell Type		Required Text						PRETOTALAB
+CLASS:Knight of the Thorn	PREABILITY:1,CATEGORY=Internal,TYPE.WeaponProfMartial	PREALIGN:LE	PRECHECKBASE:2,Fortitude=4,Will=3	PREABILITY:1,CATEGORY=FEAT,TYPE.Metamagic	PREABILITY:1,CATEGORY=FEAT,Armor Proficiency (Heavy)	PRESKILL:3,Knowledge (Arcana)=4,Knowledge (Religion)=4,Spellcraft=8	PRESPELLTYPE:1,Arcane=2	PRETEXT:Swuire of the Lily, Test of Takhisis	PRETOTALAB:3
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Knight of the Thorn	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Diplomacy|Intimidate|TYPE=Knowledge|TYPE=Profession|Ride|Spellcraft
+1:REPEATLEVEL:1	ADD:SPELLCASTER|ANY
+###Block
+1	ABILITY:Knight of the Thorn Class Feature|AUTOMATIC|Knight of the Thorn ~ Diviner
+1	ABILITY:Knight of the Thorn Class Feature|AUTOMATIC|Knight of the Thorn ~ Read Omens
+2	ABILITY:Knight of the Thorn Class Feature|AUTOMATIC|Knight of the Thorn ~ Armored Spellcasting
+3	ABILITY:Knight of the Thorn Class Feature|AUTOMATIC|Knight of the Thorn ~ Aura of Terror
+4	ABILITY:Knight of the Thorn Class Feature|AUTOMATIC|Knight of the Thorn ~ Weapon Touch
+6	ABILITY:Knight of the Thorn Class Feature|AUTOMATIC|Knight of the Thorn ~ Read Portents
+10	ABILITY:Knight of the Thorn Class Feature|AUTOMATIC|Knight of the Thorn ~ Cosmic Understanding
+
+
+# The Legion of Steel
+
+# Class Name		Hit Dice	Type					Max Level	Source Page		Define				Combat bonus							Modify VAR					Bonus
+CLASS:Steel Legionnaire	HD:8		TYPE:Base.Prestige.Monster.PC	MAXLEVEL:3	SOURCEPAGE:p.68	DEFINE:Steel_LegionnaireLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|Steel_LegionnaireLVL|CL	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name		Restricted AL		Required Check Base					Required Skill								PRETOTALAB
+CLASS:Steel Legionnaire	!PREALIGN:LE,NE,CE	PRECHECKBASE:3,Fortitude=2,Reflex=2,Will=2	PRESKILL:2,Bluff=3,Diplomacy=4	PRESKILL:1,TYPE.Base=9	PRETOTALAB:4
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Steel Legionnaire	STARTSKILLPTS:4	CSKILL:Bluff|Climb|TYPE=Craft|Diplomacy|Disguise|Gather Information|Hide|Jump|TYPE=Knowledge|TYPE=Profession|Sense Motive|Speak Language|Swim
+###Block
+1	ABILITY:Steel Legionnaire Class Feature|AUTOMATIC|Steel Legionnaire ~ Legion Knowledge
+1	ABILITY:Steel Legionnaire Class Feature|AUTOMATIC|Steel Legionnaire ~ Favored Enemy
+2	ABILITY:Steel Legionnaire Class Feature|AUTOMATIC|Steel Legionnaire ~ Reputation
+3	ABILITY:Steel Legionnaire Class Feature|AUTOMATIC|Steel Legionnaire ~ Apprentice
+
+# Class Name			Hit Dice	Max Level	Combat bonus								Bonus
+CLASS:Wizard of High Sorcery	HD:4		MAXLEVEL:10	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name			Required Check Base	Required Feat										Multiple Requirements																																																												Required Skill		Req. Spell Type		Required Text
+CLASS:Wizard of High Sorcery	PRECHECKBASE:1,Will=4	PREABILITY:2,CATEGORY=FEAT,TYPE.ItemCreation,TYPE.Metamagic	PREABILITY:1,CATEGORY=FEAT,Spell Focus	PREMULT:1,[PREMULT:2,[PREALIGN:LG,NG,CG],[PREABILITY:1,CATEGORY=Special Ability,Abjurer Learning Bonus,Diviner Learning Bonus]],[PREMULT:2,[PREALIGN:LN,TN,CN],[PREABILITY:1,CATEGORY=Special Ability,Illusionist Learning Bonus,Transmuter Learning Bonus]],[PREMULT:2,[PREALIGN:LE,NE,CE],[PREABILITY:1,CATEGORY=Special Ability,Enchanter Learning Bonus,Necromancer Learning Bonus]]	PRESKILL:1,Spellcraft=7	PRESPELLTYPE:1,Arcane=2	PRETEXT:Test of High Sorcery
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Wizard of High Sorcery	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher Script|Intimidate|TYPE=Knowledge|TYPE=Profession|Speak Language|Spellcraft
+###Block
+1:REPEATLEVEL:1	ADD:SPELLCASTER|Arcane
+###Block
+1	SAB:Arcane Focus	SAB:Item of Power	SAB:Moon Magic	SAB:Tower Resources
+2	SAB:Arcane research +%|ArcaneResearchBonus
+###Block
+2	BONUS:VAR|ArcaneResearchBonus|CL/2	DEFINE:ArcaneResearchBonus|0
+###Block
+3	BONUS:ABILITYPOOL|Wizard of High Sorcery Order Secret|(CL-1)/2
+1	BONUS:ABILITYPOOL|Wizard of High Sorcery Order|1
+
+# Dragon Rider
+
+# Class Name		Hit Dice	Type					Source Page		Define			Combat bonus								Modify VAR				Bonus
+CLASS:Dragon Rider	HD:8		TYPE:PC.Prestige.Dragonlance	SOURCEPAGE:p.78	DEFINE:DragonRiderLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|DragonRiderLVL|CL	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name		Required Feat							Required Skill				Required Text				PRETOTALAB
+CLASS:Dragon Rider	PREABILITY:3,CATEGORY=FEAT,Leadership,Mounted Combat,Resist Dragonfear	PRESKILL:2,Handle Animal=8,Ride=8	PRETEXT:Must have ridden a dragon.	PRETOTALAB:10
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Dragon Rider	STARTSKILLPTS:4	CSKILL:Balance|Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Jump|TYPE=Profession|Ride
+###Block
+1	ABILITY:Dragon Rider Class Feature|AUTOMATIC|Dragon Rider ~ Weapon and Armor Proficiency
+1	ABILITY:Dragon Rider Class Feature|AUTOMATIC|Dragon Rider ~ Dragon Cohort
+1	ABILITY:Dragon Rider Class Feature|AUTOMATIC|Dragon Rider ~ Mounted Attack
+2	ABILITY:Dragon Rider Class Feature|AUTOMATIC|Dragon Rider ~ Dragon Feat
+3	ABILITY:Dragon Rider Class Feature|AUTOMATIC|Dragon Rider ~ Empathic Communication
+6	ABILITY:Dragon Rider Class Feature|AUTOMATIC|Dragon Rider ~ Inspire Fear
+7	ABILITY:Dragon Rider Class Feature|AUTOMATIC|Dragon Rider ~ Directed Attacks
+8	ABILITY:Dragon Rider Class Feature|AUTOMATIC|Dragon Rider ~ Defensive Tactics
+10	ABILITY:Dragon Rider Class Feature|AUTOMATIC|Dragon Rider ~ Defensive Teamwork
+###Block
+11	PREPCLEVEL:MIN=20
+
+
+# Class Name	Hit Dice	Type			Source Page		Define			Combat bonus												Modify VAR																			Bonus
+CLASS:Inquisitor	HD:6		TYPE:Prestige.PC	SOURCEPAGE:p.80	DEFINE:InquisitorLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|InquisitorLVL|CL	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name	Restricted AL		Required Feat		Required Skill											PRETOTALAB
+CLASS:Inquisitor	!PREALIGN:CG,CN,CE	PREABILITY:1,CATEGORY=FEAT,Alertness	PRESKILL:2,Gather Information=8,Sense Motive=5	PRESKILL:1,TYPE.Knowledge=6	PRETOTALAB:3
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Inquisitor	STARTSKILLPTS:6	CSKILL:Appraise|Bluff|Concentration|TYPE=Craft|Decipher Script|Diplomacy|Disguise|Gather Information|Hide|Intimidate|TYPE=Knowledge|Listen|Move Silently|Open Lock|TYPE=Profession|Search|Speak Language|Spot
+###Block
+1	ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Extreme Focus
+1	ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Trap Sense
+2	ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Erudite Synergy
+3	ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Uncanny Dodge
+6	ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Improved Uncanny Dodge
+10	ABILITY:Inquisitor Class Feature|AUTOMATIC|Inquisitor ~ Intuitive Logic
+
+
+# Class Name			Hit Dice	Type			Source Page		Define					Combat bonus							Modify VAR					Bonus
+CLASS:Legendary Tactician	HD:8		TYPE:Prestige.PC	SOURCEPAGE:p.81	DEFINE:Legendary_TacticianLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|Legendary_TacticianLVL|CL	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+# Class Name			Required Feat		Required Skill		Required Text								PRETOTALAB
+CLASS:Legendary Tactician	PREABILITY:1,CATEGORY=FEAT,Leadership	PRESKILL:1,Diplomacy=4	PRETEXT:Must have been involved in three major skirmishes.	PRETOTALAB:5
+# Class Name			Skill Pts/Lvl	Class Skill
+CLASS:Legendary Tactician	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|TYPE=Craft|Diplomacy|Intimidate|Knowledge (History)|TYPE=Profession|Ride|Sense Motive
+###Block
+1	ABILITY:Legendary Tactician Class Feature|AUTOMATIC|Legendary Tactician ~ Leadership Bonus
+2	ABILITY:Legendary Tactician Class Feature|AUTOMATIC|Legendary Tactician ~ Inspire Courage
+3	ABILITY:Legendary Tactician Class Feature|AUTOMATIC|Legendary Tactician ~ Direct Troops
+4	ABILITY:Legendary Tactician Class Feature|AUTOMATIC|Legendary Tactician ~ Rally Troops
+5	ABILITY:Legendary Tactician Class Feature|AUTOMATIC|Legendary Tactician ~ Hard March
+6	ABILITY:Legendary Tactician Class Feature|AUTOMATIC|Legendary Tactician ~ Rout Enemies
+7	ABILITY:Legendary Tactician Class Feature|AUTOMATIC|Legendary Tactician ~ Battle Standard
+8	ABILITY:Legendary Tactician Class Feature|AUTOMATIC|Legendary Tactician ~ Strategic Retreat
+10	ABILITY:Legendary Tactician Class Feature|AUTOMATIC|Legendary Tactician ~ The Forlorn Hope
+
+
+# Class Name		Hit Dice	Type			Source Page		Define				Combat bonus												Modify VAR																			Bonus
+CLASS:Righteous Zealot	HD:6		TYPE:Prestige.PC	SOURCEPAGE:p.83	DEFINE:Righteous_ZealotLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|Righteous_ZealotLVL|CL	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name		Required Skill
+CLASS:Righteous Zealot	PRESKILL:4,Bluff=3,Concentration=8,Diplomacy=8,Sense Motive=4	PRESKILL:1,TYPE.Perform=3
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Righteous Zealot	STARTSKILLPTS:4	CSKILL:Bluff|Concentration|Diplomacy|Gather Information|Intimidate|Knowledge (Religion)|TYPE=Perform|TYPE=Profession|Sense Motive|Speak Language
+###Block
+1	ABILITY:Righteous Zealot Class Feature|AUTOMATIC|Righteous Zealot ~ Oration
+1	ABILITY:Righteous Zealot Class Feature|AUTOMATIC|Righteous Zealot ~ Righteous Indignation
+2	ABILITY:Righteous Zealot Class Feature|AUTOMATIC|Righteous Zealot ~ Resist Enchantment
+3	ABILITY:Righteous Zealot Class Feature|AUTOMATIC|Righteous Zealot ~ Gather Followers
+10	ABILITY:Righteous Zealot Class Feature|AUTOMATIC|Righteous Zealot ~ Martyr's Luck
+
+###Block
+##Added #Handler (Kender) as an Alt for Kender (Referenced of p.52 of Campign Setting Book)
+# Class Name	Hit Dice	Type				Class Type		Abbreviation	Source Page		Define		Combat bonus															Modify VAR			Monster Role	Bonus
+CLASS:Handler		HD:6		TYPE:PC.Base.NonCaster	FACT:ClassType|PC	FACT:Abb|Han		SOURCEPAGE:p.	DEFINE:HandlerLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|HandlerLVL|CL	ROLE:Skill		BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Handler	PRERACE:1,Kender	OUTPUTNAME:Handler
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Handler		STARTSKILLPTS:8	CSKILL:Appraise|Balance|Bluff|Climb|TYPE=Craft|Decipher Script|Diplomacy|Disable Device|Disguise|Escape Artist|Forgery|Gather Information|Hide|Intimidate|Jump|TYPE=KnowledgeLocal|Listen|Move Silently|Open Lock|TYPE=Perform|TYPE=Profession|Search|Sense Motive|Sleight of Hand|Spot|Swim|Tumble|Use Magic Device|Use Rope
+###Block:
+1	ABILITY:Handler Class Feature|AUTOMATIC|Handler ~ Weapon and Armor Proficiency|!PREABILITY:1,CATEGORY=ACF,TYPE.HandlerProficiencies
+1	ABILITY:Handler Class Feature|AUTOMATIC|Handler ~ Sneak Attack|!PREABILITY:1,CATEGORY=ACF,TYPE.HandlerSneakAttack
+1	ABILITY:Handler Class Feature|AUTOMATIC|Handler ~ Trapfinding|!PREABILITY:1,CATEGORY=ACF,TYPE.HandlerTrapfinding
+2	ABILITY:Handler Class Feature|AUTOMATIC|Handler ~ Evasion|!PREABILITY:1,CATEGORY=ACF,TYPE.HandlerEvasion
+3	ABILITY:Handler Class Feature|AUTOMATIC|Handler ~ Trap Sense|!PREABILITY:1,CATEGORY=ACF,TYPE.HandlerTrapSense
+4	ABILITY:Handler Class Feature|AUTOMATIC|Handler ~ Uncanny Dodge|!PREABILITY:1,CATEGORY=ACF,TYPE.HandlerUncannyDodge
+8	ABILITY:Handler Class Feature|AUTOMATIC|Handler ~ Improved Uncanny Dodge|!PREABILITY:1,CATEGORY=ACF,TYPE.HandlerImprovedUncannyDodge
+10	ABILITY:Handler Class Feature|AUTOMATIC|Handler ~ Special Abilities|!PREABILITY:1,CATEGORY=ACF,TYPE.HandlerSpecialAbilities
