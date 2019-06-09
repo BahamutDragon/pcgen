@@ -58,7 +58,7 @@ CLASS:Arcane Hierophant	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC
 CLASS:Arcane Hierophant	BONUS:VAR|ClassSavePoor_Fortitude|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0
 CLASS:Arcane Hierophant	BONUS:VAR|ClassSavePoor_Reflex|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0
 CLASS:Arcane Hierophant	BONUS:VAR|ClassSaveGood_Will|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0
-CLASS:Arcane Hierophant	PRETEXT:Alignment: Any nonlawful. Base Attack Bonus: +4. Skills: Knowledge (arcana) 8 ranks, Knowledge (nature) 8 ranks. Spells: Ability to cast 2nd-level arcane spells and 2nd-level divine spells. Special: Trackless step class feature.	!PREALIGN:LE,LG,LN	PRETOTALAB:4	PRESKILL:2,Knowledge (Arcana)=8,Knowledge (Nature)=8	PRESPELLTYPE:1,Arcane=2	PRESPELLTYPE:1,Divine=2	PREABILITY:1,CATEGORY:Special Ability,TYPE.Trackless Step
+CLASS:Arcane Hierophant	PRETEXT:Alignment: Any nonlawful. Base Attack Bonus: +4. Skills: Knowledge (arcana) 8 ranks, Knowledge (nature) 8 ranks. Spells: Ability to cast 2nd-level arcane spells and 2nd-level divine spells. Special: Trackless step class feature.	!PREALIGN:LE,LG,LN	PRETOTALAB:4	PRESKILL:2,Knowledge (Arcana)=8,Knowledge (Nature)=8	PRESPELLTYPE:1,Arcane=2	PRESPELLTYPE:1,Divine=2	PREABILITY:1,CATEGORY=Special Ability,TYPE.Trackless Step
 CLASS:Arcane Hierophant	STARTSKILLPTS:4
 CLASS:Arcane Hierophant	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Knowledge (arcana)|Knowledge (nature)|Listen|TYPE=Profession|Ride|Spellcraft|Spot|Survival|Swim
 ###Block
@@ -67,7 +67,7 @@ CLASS:Arcane Hierophant	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|
 11	PREPCLEVEL:MIN=20
 ###Block
 1	ABILITY:Arcane Hierophant Class Feature|AUTOMATIC|Arcane Hierophant ~ Weapon and Armor Proficiency	
-1	ABILITY:Arcane Hierophant Class Feature|AUTOMATIC|Arcane Hierophant ~ Spellcasting			
+1	ABILITY:Arcane Hierophant Class Feature|AUTOMATIC|Arcane Hierophant ~ Spellcasting|Arcane Hierophant ~ Ignore Arcane Spell Failure			
 1	ABILITY:Arcane Hierophant Class Feature|AUTOMATIC|Arcane Hierophant ~ Wild Shape				
 1	ABILITY:Arcane Hierophant Class Feature|AUTOMATIC|Arcane Hierophant ~ Companion Familiar		
 4	ABILITY:Arcane Hierophant Class Feature|AUTOMATIC|Arcane Hierophant ~ Channel Animal			
@@ -86,7 +86,7 @@ CLASS:Champion of Corellon Larethian	STARTSKILLPTS:2
 CLASS:Champion of Corellon Larethian	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Intimidate|TYPE=Knowledge|TYPE=Profession|Ride|Sense Motive|Spellcraft
 ###Block
 11	PREPCLEVEL:MIN=20
-###Block 	
+###Block	
 1	ABILITY:Champion of Corellon Larethian Class Feature|AUTOMATIC|Champion of Corellon Larethian ~ Weapon and Armor Proficiency	
 1	ABILITY:Champion of Corellon Larethian Class Feature|AUTOMATIC|Champion of Corellon Larethian ~ Corellon's Blessing			
 1	ABILITY:Champion of Corellon Larethian Class Feature|AUTOMATIC|Champion of Corellon Larethian ~ Bonus Feat				
@@ -116,7 +116,7 @@ CLASS:Luckstealer	CSKILL:Appraise|Bluff|Concentration|TYPE=Craft|Knowledge (loca
 9	ADD:SPELLCASTER|ANY
 ###Block
 11	PREPCLEVEL:MIN=20
-###Block 	
+###Block	
 1	ABILITY:Luckstealer Class Feature|AUTOMATIC|Luckstealer ~ Spellcasting		
 1	ABILITY:Luckstealer Class Feature|AUTOMATIC|Luckstealer ~ Curse of the Fatespurned
 1	ABILITY:Luckstealer Class Feature|AUTOMATIC|Luckstealer ~ Subtle Magic		
@@ -170,14 +170,16 @@ CLASS:Skypledged	CSKILL:Concentration|TYPE=Craft|Handle Animal|Heal|Intimidate|K
 1:REPEATLEVEL:1	ADD:SPELLCASTER|Divine
 ###Block
 11	PREPCLEVEL:MIN=20
-###Block 	ABILITY:Skypledged Class Feature|AUTOMATIC|
+###Block	ABILITY:Skypledged Class Feature|AUTOMATIC|
 1	ABILITY:Skypledged Class Feature|AUTOMATIC|Skypledged ~ Skypledge			
 1	ABILITY:Skypledged Class Feature|AUTOMATIC|Skypledged ~ Calling a Spell		
 1	ABILITY:Skypledged Class Feature|AUTOMATIC|Skypledged ~ Spell Availability		
 1	ABILITY:Skypledged Class Feature|AUTOMATIC|Skypledged ~ Spellpool Debt		
-1	ABILITY:Skypledged Class Feature|AUTOMATIC|Skypledged ~ Spellcasting			
+1	ABILITY:Skypledged Class Feature|AUTOMATIC|Skypledged ~ Spellcasting	
+1	ABILITY:Skypledged Class Feature|AUTOMATIC|Skypledged ~ Divine Spellpool
 2	ABILITY:Skypledged Class Feature|AUTOMATIC|Skypledged ~ Beckon Breeze		
-3	ABILITY:Skypledged Class Feature|AUTOMATIC|Skypledged ~ Instant Supplication	
+3	ABILITY:Skypledged Class Feature|AUTOMATIC|Skypledged ~ Instant Supplication
+5	ABILITY:Skypledged Class Feature|AUTOMATIC|Skypledged ~ Beckon Winds
 6	ABILITY:Skypledged Class Feature|AUTOMATIC|Skypledged ~ Servant Supplication	
 8	ABILITY:Skypledged Class Feature|AUTOMATIC|Skypledged ~ Beckon Gale			
 9	ABILITY:Skypledged Class Feature|AUTOMATIC|Skypledged ~ Assumptive Supplication	
@@ -202,7 +204,7 @@ CLASS:Stormtalon	STARTSKILLPTS:2
 CLASS:Stormtalon	CSKILL:Balance|Climb|TYPE=Craft|Intimidate|Jump|Spot|Tumble
 ###Block
 11	PREPCLEVEL:MIN=20
-###Block 	
+###Block	
 1	ABILITY:Stormtalon Class Feature|AUTOMATIC|Stormtalon ~ Foot Talons		
 2	ABILITY:Stormtalon Class Feature|AUTOMATIC|Stormtalon ~ Bonus Aerial Feat	
 3	ABILITY:Stormtalon Class Feature|AUTOMATIC|Stormtalon ~ Fast Flight		
@@ -222,7 +224,7 @@ CLASS:Whisperknife	STARTSKILLPTS:6
 CLASS:Whisperknife	CSKILL:Balance|Bluff|Climb|Disable Device|Handle Animal|Hide|Intimidate|Jump|Knowledge (local)|Listen|Move Silently|Open Lock|Search|Sense Motive|Sleight of Hand|Spot|Swim|Tumble
 ###Block
 11	PREPCLEVEL:MIN=20
-###Block 	
+###Block	
 1	ABILITY:Whisperknife Class Feature|AUTOMATIC|Whisperknife ~ Weapon and Armor Proficiency	
 1	ABILITY:Whisperknife Class Feature|AUTOMATIC|Whisperknife ~ Rapid Shot				
 1	ABILITY:Whisperknife Class Feature|AUTOMATIC|Whisperknife ~ Uncanny Dodge			
