@@ -1,7 +1,221 @@
 
+# Arachnomancer
+CLASS:Arachnomancer	HD:6	TYPE:PC.Prestige
+CLASS:Arachnomancer	FACT:Abb|Ara	FACT:ClassType|Prestige
+CLASS:Arachnomancer	DEFINE:ArachnomancerLVL|0	BONUS:VAR|ArachnomancerLVL|CL
+CLASS:Arachnomancer	SOURCEPAGE:p.18	
+CLASS:Arachnomancer	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+CLASS:Arachnomancer	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+CLASS:Arachnomancer	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Arachnomancer	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Arachnomancer	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Arachnomancer	BONUS:VAR|ClassSavePoor_Fortitude|classlevel()|PREVAREQ:UseFractionalSave,1
+CLASS:Arachnomancer	BONUS:VAR|ClassSaveGood_Reflex|classlevel()|PREVAREQ:UseFractionalSave,1
+CLASS:Arachnomancer	BONUS:VAR|ClassSavePoor_Will|classlevel()|PREVAREQ:UseFractionalSave,1
+CLASS:Arachnomancer	PRETEXT:Alignment: Any evil. Base Save Bonus: Fortitude +4. Skills: Climb 3 ranks, Knowledge (nature) 4 ranks. Spells: Able to cast spider climb, summon swarm, and web as arcane spells. Special: The candidate must undergo a scarification ritual.	PREALIGN:LE,NE,CE	PRESKILL:2,Climb=3,Knowledge (Nature)=4	PRESPELL:1,spider climb,summon swarm,web	PRESPELLCAST:TYPE=Arcane
+CLASS:Arachnomancer	STARTSKILLPTS:4	CSKILL:Climb|Concentration|TYPE=Craft|Hide|Knowledge (arcana)|Knowledge (nature)|Knowledge (Underdark local)|Jump|Move Silently|Spellcraft|Spot
+###Block
+1	ADD:SPELLCASTER|ANY
+3	ADD:SPELLCASTER|ANY
+4	ADD:SPELLCASTER|ANY
+6	ADD:SPELLCASTER|ANY
+7	ADD:SPELLCASTER|ANY
+9	ADD:SPELLCASTER|ANY
+10	ADD:SPELLCASTER|ANY
+###Block
+11	PREPCLEVEL:MIN=20
+###Block
+1	ABILITY:Arachnomancer Class Feature|AUTOMATIC|Arachnomancer ~ Weapon and Armor Proficiency
+1	ABILITY:Arachnomancer Class Feature|AUTOMATIC|Arachnomancer ~ Spells per Day			
+1	ABILITY:Arachnomancer Class Feature|AUTOMATIC|Arachnomancer ~ Poison Save Bonus		
+1	ABILITY:Arachnomancer Class Feature|AUTOMATIC|Arachnomancer ~ Speak with Spiders		
+1	ABILITY:Arachnomancer Class Feature|AUTOMATIC|Arachnomancer ~ Spider Magic			
+2	ABILITY:Arachnomancer Class Feature|AUTOMATIC|Arachnomancer ~ Spiderform			
+3	ABILITY:Arachnomancer Class Feature|AUTOMATIC|Arachnomancer ~ Poison Touch			
+4	ABILITY:Arachnomancer Class Feature|AUTOMATIC|Arachnomancer ~ Command Spiders			
+5	ABILITY:Arachnomancer Class Feature|AUTOMATIC|Arachnomancer ~ Webwalking			
+7	ABILITY:Arachnomancer Class Feature|AUTOMATIC|Arachnomancer ~ Wall of Webs			
+10	ABILITY:Arachnomancer Class Feature|AUTOMATIC|Arachnomancer ~ Spider Blast			
 
 
-CLASS:Prime Underdark Guide	MAXLEVEL:10
+# Cavelord
+CLASS:Cavelord	HD:10	TYPE:PC.Prestige
+CLASS:Cavelord	FACT:Abb|Cl	FACT:ClassType|Prestige
+CLASS:Cavelord	DEFINE:CavelordLVL|0	BONUS:VAR|CavelordLVL|CL
+CLASS:Cavelord	SOURCEPAGE:p.30	
+CLASS:Cavelord	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+CLASS:Cavelord	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassSaveGood_Fortitude|classlevel()|PREVAREQ:UseFractionalSave,1
+CLASS:Cavelord	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0	BONUS:VAR|ClassSaveGood_Reflex|classlevel()|PREVAREQ:UseFractionalSave,1
+CLASS:Cavelord	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0		BONUS:VAR|ClassSavePoor_Will|classlevel()|PREVAREQ:UseFractionalSave,1
+CLASS:Cavelord	PRETEXT:Skills: Knowledge (Underdark local) 8 ranks, Search 2 ranks, Spot 2 ranks, Survival 4 ranks. Feat: Track.	PRESKILL:4,Knowledge (Underdark local)=8,Search=2,Spot=2,Survival=4	PREABILITY:1,CATEGORY=FEAT,Track
+CLASS:Cavelord	STARTSKILLPTS:4	CSKILL:Balance|Climb|TYPE=Craft|Handle Animal|Hide|Jump|Knowledge (Underdark local)|Listen|Move Silently|TYPE=Profession|Search|Sense Motive|Spot|Swim|Survival
+###Block
+11	PREPCLEVEL:MIN=20
+###Block	
+1	ABILITY:Cavelord Class Feature|AUTOMATIC|Cavelord ~ Weapon and Armor Proficiency	
+1	ABILITY:Cavelord Class Feature|AUTOMATIC|Cavelord ~ Tunnelrunner				
+2	ABILITY:Cavelord Class Feature|AUTOMATIC|Cavelord ~ Cave Tracker				
+2	ABILITY:Cavelord Class Feature|AUTOMATIC|Cavelord ~ Lesser Cavesense			
+4	ABILITY:Cavelord Class Feature|AUTOMATIC|Cavelord ~ Tunnelswimmer				
+5	ABILITY:Cavelord Class Feature|AUTOMATIC|Cavelord ~ Strength of Stones			
+7	ABILITY:Cavelord Class Feature|AUTOMATIC|Cavelord ~ Greater Cavesense			
+8	ABILITY:Cavelord Class Feature|AUTOMATIC|Cavelord ~ Changestones				
+10	ABILITY:Cavelord Class Feature|AUTOMATIC|Cavelord ~ Bones of the Earth			
+
+
+# Deep Diviner
+CLASS:Deep Diviner	HD:4	TYPE:PC.Prestige
+CLASS:Deep Diviner	FACT:Abb|DD	FACT:ClassType|Prestige
+CLASS:Deep Diviner	DEFINE:DeepDivinerLVL|0	BONUS:VAR|DeepDivinerLVL|CL
+CLASS:Deep Diviner	SOURCEPAGE:p.32	
+CLASS:Deep Diviner	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+CLASS:Deep Diviner	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
+CLASS:Deep Diviner	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Deep Diviner	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Deep Diviner	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Deep Diviner	BONUS:VAR|ClassSavePoor_Fortitude|classlevel()|PREVAREQ:UseFractionalSave,1
+CLASS:Deep Diviner	BONUS:VAR|ClassSavePoor_Reflex|classlevel()|PREVAREQ:UseFractionalSave,1
+CLASS:Deep Diviner	BONUS:VAR|ClassSaveGood_Will|classlevel()|PREVAREQ:UseFractionalSave,1
+CLASS:Deep Diviner	PRETEXT:Skills: Knowledge (Underdark local) 8 ranks, Survival 2 ranks. Feat: Spell Focus (Divination). Spells: Ability to cast 2nd-level arcane spells.	PRESKILL:2,Knowledge (Underdark local)=8,Survival=2	PREABILITY:1,CATEGORY=FEAT,Spell Focus (Divination)	PRESPELLTYPE:1,Arcane=2
+CLASS:Deep Diviner	STARTSKILLPTS:2	CSKILL:Climb|Concentration|TYPE=Craft|TYPE=Knowledge|TYPE=Profession|Swim|Spellcraft|Survival
+###Block
+1	ADD:SPELLCASTER|ANY
+2	ADD:SPELLCASTER|ANY
+3	ADD:SPELLCASTER|ANY
+4	ADD:SPELLCASTER|ANY
+5	ADD:SPELLCASTER|ANY
+7	ADD:SPELLCASTER|ANY
+8	ADD:SPELLCASTER|ANY
+9	ADD:SPELLCASTER|ANY
+10	ADD:SPELLCASTER|ANY
+###Block
+11	PREPCLEVEL:MIN=20
+###Block	
+1	ABILITY:Deep Diviner Class Feature|AUTOMATIC|Deep Diviner ~ Weapon and Armor Proficiency	
+1	ABILITY:Deep Diviner Class Feature|AUTOMATIC|Deep Diviner ~ Spells per Day			
+1	ABILITY:Deep Diviner Class Feature|AUTOMATIC|Deep Diviner ~ Locate Node			
+1	ABILITY:Deep Diviner Class Feature|AUTOMATIC|Deep Diviner ~ Node Spellcasting		
+2	ABILITY:Deep Diviner Class Feature|AUTOMATIC|Deep Diviner ~ Speak To Stone			
+3	ABILITY:Deep Diviner Class Feature|AUTOMATIC|Deep Diviner ~ Node Store				
+5	ABILITY:Deep Diviner Class Feature|AUTOMATIC|Deep Diviner ~ Summon Earth Elemental		
+6	ABILITY:Deep Diviner Class Feature|AUTOMATIC|Deep Diviner ~ Node Charge			
+8	ABILITY:Deep Diviner Class Feature|AUTOMATIC|Deep Diviner ~ Metanode Spell			
+9	ABILITY:Deep Diviner Class Feature|AUTOMATIC|Deep Diviner ~ Wall of Stone			
+10	ABILITY:Deep Diviner Class Feature|AUTOMATIC|Deep Diviner ~ Mantle of Earth			
+
+
+# Drow Judicator
+CLASS:Drow Judicator	HD:8	TYPE:PC.Prestige
+CLASS:Drow Judicator	FACT:Abb|DJ	FACT:ClassType|Prestige
+CLASS:Drow Judicator	DEFINE:DrowJudicatorLVL|0	BONUS:VAR|DrowJudicatorLVL|CL
+CLASS:Drow Judicator	SOURCEPAGE:p.33	
+CLASS:Drow Judicator	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+CLASS:Drow Judicator	BONUS:VAR|ClassSaveGood_Fortitude|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Drow Judicator	BONUS:VAR|ClassSavePoor_Reflex|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Drow Judicator	BONUS:VAR|ClassSavePoor_Will|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Drow Judicator	PRETEXT:Race: Drow. Alignment: Any evil. Base Attack Bonus: +5. Skills: Intimidate 4 ranks, Knowledge (religion) 4 ranks. Feats: Combat Reflexes, Lolth's Meat (see Chapter 3). Spellcasting: Able to cast 1st-level arcane or divine spells. Special: The candidate must survive the rites of entry administered by clerics of Selvetarm or Lolth.	PRERACE:1,Elf	PREABILITY:1,CATEGORY=Internal,Elf ~ Drow	PREALIGN:LE,CE,NE	PRETOTALAB:5	PRESKILL:2,Intimidate=4,Knowledge (Religion)=4	PREABILITY:2,CATEGORY=FEAT,Combat Reflexes,Lolth's Meat	PRESPELLTYPE:1,Divine=1,Arcane=1
+CLASS:Drow Judicator	STARTSKILLPTS:2
+CLASS:Drow Judicator	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Intimidate|Knowledge (arcana)|Knowledge (religion)|TYPE=Profession|Ride|Spellcraft|Survival
+###Block
+3	ADD:SPELLCASTER|ANY
+6	ADD:SPELLCASTER|ANY
+9	ADD:SPELLCASTER|ANY
+###Block
+11	PREPCLEVEL:MIN=20
+###Block 
+1	ABILITY:Drow Judicator Class Feature|AUTOMATIC|Drow Judicator ~ Weapon and Armor Proficiency	
+1	ABILITY:Drow Judicator Class Feature|AUTOMATIC|Drow Judicator ~ Spells per Day			
+1	ABILITY:Drow Judicator Class Feature|AUTOMATIC|Drow Judicator ~ War Strike				
+2	ABILITY:Drow Judicator Class Feature|AUTOMATIC|Drow Judicator ~ Command Spiders			
+2	ABILITY:Drow Judicator Class Feature|AUTOMATIC|Drow Judicator ~ Selvetarm's Blessing		
+4	ABILITY:Drow Judicator Class Feature|AUTOMATIC|Drow Judicator ~ Selvetarm's Wrath			
+5	ABILITY:Drow Judicator Class Feature|AUTOMATIC|Drow Judicator ~ Spider Servant			
+8	ABILITY:Drow Judicator Class Feature|AUTOMATIC|Drow Judicator ~ Spider's Grace			
+10	ABILITY:Drow Judicator Class Feature|AUTOMATIC|Drow Judicator ~ Judgment				
+
+
+# Illithid Body Tamer
+CLASS:Illithid Body Tamer	HD:10	TYPE:PC.Prestige
+CLASS:Illithid Body Tamer	FACT:Abb|IBT	FACT:ClassType|Prestige
+CLASS:Illithid Body Tamer	DEFINE:IllithidBodyTamerLVL|0	BONUS:VAR|IllithidBodyTamerLVL|CL
+CLASS:Illithid Body Tamer	SOURCEPAGE:p.35	
+CLASS:Illithid Body Tamer	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+CLASS:Illithid Body Tamer	BONUS:VAR|ClassSaveGood_Fortitude|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Illithid Body Tamer	BONUS:VAR|ClassSaveGood_Reflex|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Illithid Body Tamer	BONUS:VAR|ClassSavePoor_Will|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Illithid Body Tamer	PRETEXT:Race: Illithid, illithidkin, or a creature with the half-illithid template. Base Attack Bonus: +6. Feats: Great Fortitude, Power Attack, Weapon Focus (tentacle).	PREMULT:1,[PRERACE:1,Illithid,illithidkin],[PRETEMPLATE:1,half-illithid]	PRETOTALAB:6	PREABILITY:3,CATEGORY=FEAT,Great Fortitude,Power Attack,Weapon Focus (tentacle)
+CLASS:Illithid Body Tamer	STARTSKILLPTS:2
+CLASS:Illithid Body Tamer	CSKILL:Climb|TYPE=Craft|Escape Artist|Handle Animal|Jump|Knowledge (history)|Listen|Ride|Spot|Tumble
+###Block
+11	PREPCLEVEL:MIN=20
+###Block 
+1	ABILITY:Illithid Body Tamer Class Feature|AUTOMATIC|Illithid Body Tamer ~ Weapon and Armor Proficiency	
+1	ABILITY:Illithid Body Tamer Class Feature|AUTOMATIC|Illithid Body Tamer ~ Code of Mental Abstinence		
+1	ABILITY:Illithid Body Tamer Class Feature|AUTOMATIC|Illithid Body Tamer ~ Strength of Arms			
+3	ABILITY:Illithid Body Tamer Class Feature|AUTOMATIC|Illithid Body Tamer ~ Tentacle of Fate			
+4	ABILITY:Illithid Body Tamer Class Feature|AUTOMATIC|Illithid Body Tamer ~ Improved Trip				
+5	ABILITY:Illithid Body Tamer Class Feature|AUTOMATIC|Illithid Body Tamer ~ Improved Disarm				
+6	ABILITY:Illithid Body Tamer Class Feature|AUTOMATIC|Illithid Body Tamer ~ Reaching Tentacle			
+7	ABILITY:Illithid Body Tamer Class Feature|AUTOMATIC|Illithid Body Tamer ~ Whirlwind Tentacle			
+8	ABILITY:Illithid Body Tamer Class Feature|AUTOMATIC|Illithid Body Tamer ~ Tentacle of Destiny			
+10	ABILITY:Illithid Body Tamer Class Feature|AUTOMATIC|Illithid Body Tamer ~ Death Whirlwind				
+
+
+# Imaskari Vengeance Taker
+CLASS:Imaskari Vengeance Taker	HD:6	TYPE:PC.Prestige
+CLASS:Imaskari Vengeance Taker	FACT:Abb|IVT	FACT:ClassType|Prestige
+CLASS:Imaskari Vengeance Taker	DEFINE:ImaskariVengeanceTakerLVL|0	BONUS:VAR|ImaskariVengeanceTakerLVL|CL
+CLASS:Imaskari Vengeance Taker	SOURCEPAGE:p.37	
+CLASS:Imaskari Vengeance Taker	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+CLASS:Imaskari Vengeance Taker	BONUS:VAR|ClassSavePoor_Fortitude|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Imaskari Vengeance Taker	BONUS:VAR|ClassSaveGood_Reflex|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Imaskari Vengeance Taker	BONUS:VAR|ClassSaveGood_Will|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Imaskari Vengeance Taker	PRETEXT:Alignment: Any lawful. Skills: Hide 4 ranks, Move Silently 5 ranks, Survival 2 ranks. Feats: Track. Spells: Able to cast 3rd-level arcane spells. Special: The candidate must have slain a creature or enemy purely for revenge. She must also swear to obey the Imaskari vengeance taker code (see sidebar on page 38).	PREALIGN:LG,LE,LN	PRESKILL:3,Hide=4,Move Silently=5,Survival=2	PREABILITY:1,CATEGORY=FEAT,Track	PRESPELLTYPE:1,Arcane=3
+CLASS:Imaskari Vengeance Taker	STARTSKILLPTS:4
+CLASS:Imaskari Vengeance Taker	CSKILL:Balance|Bluff|Climb|Concentration|TYPE=Craft|Escape Artist|Gather Information|Hide|Jump|Knowledge (arcana)|Listen|Move Silently|Open Lock|TYPE=Profession|Search|Sleight of Hand|Spellcraft|Spot|Survival|Swim|Tumble|Use Rope
+###Block
+2	ADD:SPELLCASTER|Arcane
+4	ADD:SPELLCASTER|Arcane
+6	ADD:SPELLCASTER|Arcane
+8	ADD:SPELLCASTER|Arcane
+10	ADD:SPELLCASTER|Arcane
+###Block
+11	PREPCLEVEL:MIN=20
+###Block 
+1	ABILITY:Imaskari Vengeance Taker Class Feature|AUTOMATIC|Imaskari Vengeance Taker ~ Weapon and Armor Proficiency	
+1	ABILITY:Imaskari Vengeance Taker Class Feature|AUTOMATIC|Imaskari Vengeance Taker ~ Spells per Day			
+1	ABILITY:Imaskari Vengeance Taker Class Feature|AUTOMATIC|Imaskari Vengeance Taker ~ Target of Vengeance		
+2	ABILITY:Imaskari Vengeance Taker Class Feature|AUTOMATIC|Imaskari Vengeance Taker ~ Poison Use				
+3	ABILITY:Imaskari Vengeance Taker Class Feature|AUTOMATIC|Imaskari Vengeance Taker ~ Sneak Attack			
+4	ABILITY:Imaskari Vengeance Taker Class Feature|AUTOMATIC|Imaskari Vengeance Taker ~ Far Sense				
+6	ABILITY:Imaskari Vengeance Taker Class Feature|AUTOMATIC|Imaskari Vengeance Taker ~ Seeker				
+8	ABILITY:Imaskari Vengeance Taker Class Feature|AUTOMATIC|Imaskari Vengeance Taker ~ Scry Target				
+10	ABILITY:Imaskari Vengeance Taker Class Feature|AUTOMATIC|Imaskari Vengeance Taker ~ Death Attack			
+
+
+# Inquisitor of the Drowning Goddess
+CLASS:Inquisitor of the Drowning Goddess	MAXLEVEL:5
+CLASS:Inquisitor of the Drowning Goddess	HD:8	TYPE:PC.Prestige
+CLASS:Inquisitor of the Drowning Goddess	FACT:Abb|IotDG	FACT:ClassType|Prestige
+CLASS:Inquisitor of the Drowning Goddess	DEFINE:InquisitoroftheDrowningGoddessLVL|0	BONUS:VAR|InquisitoroftheDrowningGoddessLVL|CL
+CLASS:Inquisitor of the Drowning Goddess	SOURCEPAGE:p.39	
+CLASS:Inquisitor of the Drowning Goddess	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+CLASS:Inquisitor of the Drowning Goddess	BONUS:VAR|ClassSaveGood_Fortitude|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Inquisitor of the Drowning Goddess	BONUS:VAR|ClassSaveGood_Reflex|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Inquisitor of the Drowning Goddess	BONUS:VAR|ClassSaveGood_Will|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Inquisitor of the Drowning Goddess	PRETEXT:Race: Kuo-toa. Alignment: Lawful evil or lawful neutral. Skills: Concentration 8 ranks, Knowledge (religion) 4 ranks. Feat: Improved unarmed strike. Patron: Blibdoolpoolp.	PRERACE:1,Kuo-toa	PREALIGN:LE,LN	PRESKILL:2,Concentration=8,Knowledge (religion)=4	PREABILITY:1,CATEGORY=FEAT,Improved unarmed strike	PREDEITY:1,Blibdoolpoolp
+CLASS:Inquisitor of the Drowning Goddess	STARTSKILLPTS:4
+CLASS:Inquisitor of the Drowning Goddess	CSKILL:Bluff|Concentration|TYPE=Craft|Diplomacy|Gather Information|Intimidate|Knowledge (arcana)|Knowledge (religion)|Sense Motive|Spellcraft|Spot
+###Block 
+1	ABILITY:Inquisitor of the Drowning Goddess Class Feature|AUTOMATIC|Inquisitor of the Drowning Goddess ~ Weapon and Armor Proficiency	
+1	ABILITY:Inquisitor of the Drowning Goddess Class Feature|AUTOMATIC|Inquisitor of the Drowning Goddess ~ Fear Aura				
+2	ABILITY:Inquisitor of the Drowning Goddess Class Feature|AUTOMATIC|Inquisitor of the Drowning Goddess ~ Grappling Adhesive			
+1	ABILITY:Inquisitor of the Drowning Goddess Class Feature|AUTOMATIC|Inquisitor of the Drowning Goddess ~ Mien of Justice			
+3	ABILITY:Inquisitor of the Drowning Goddess Class Feature|AUTOMATIC|Inquisitor of the Drowning Goddess ~ Devoted Mind				
+5	ABILITY:Inquisitor of the Drowning Goddess Class Feature|AUTOMATIC|Inquisitor of the Drowning Goddess ~ Body-Coating Adhesive		
+
+
+# PRIME UNDERDARK GUIDE
 CLASS:Prime Underdark Guide	HD:6	TYPE:Prestige	SOURCEPAGE:p.40	DEFINE:PrimeUnderdarkGuideLVL|0	BONUS:VAR|PrimeUnderdarkGuideLVL|CL
 CLASS:Prime Underdark Guide	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
 CLASS:Prime Underdark Guide	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1
@@ -36,3 +250,110 @@ CLASS:Prime Underdark Guide	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_
 2	ABILITY:Prime Underdark Guide Class Feature|AUTOMATIC|Prime Underdark Guide ~ Underdark Lore
 2	ABILITY:Prime Underdark Guide Class Feature|AUTOMATIC|Prime Underdark Guide ~ Underdark Traveler
 3	ABILITY:Prime Underdark Guide Class Feature|AUTOMATIC|Prime Underdark Guide ~ Danger Warning
+
+
+# Sea Mother Whip
+CLASS:Sea Mother Whip	HD:8	TYPE:PC.Prestige
+CLASS:Sea Mother Whip	FACT:Abb|SMW	FACT:ClassType|Prestige
+CLASS:Sea Mother Whip	DEFINE:SeaMotherWhipLVL|0	BONUS:VAR|SeaMotherWhipLVL|CL
+CLASS:Sea Mother Whip	SOURCEPAGE:p.42	
+CLASS:Sea Mother Whip	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+CLASS:Sea Mother Whip	BONUS:VAR|ClassSaveGood_Fortitude|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Sea Mother Whip	BONUS:VAR|ClassSavePoor_Reflex|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Sea Mother Whip	BONUS:VAR|ClassSaveGood_Will|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Sea Mother Whip	PRETEXT:Race: Kuo-toa. Alignment: Lawful evil, neutral evil, chaotic evil, or neutral. Skill: Knowledge (religion) 5 ranks. Spells: Able to cast 3rd-level divine spells. Patron: Blibdoolpoolp.	PRERACE:1,Kuo-toa	PREALIGN:LE,NE,CE,TN	PRESKILL:1,Knowledge (religion)=5	PRESPELLTYPE:1,Divine=3	PREDEITY:1,Blibdoolpoolp
+CLASS:Sea Mother Whip	STARTSKILLPTS:2
+CLASS:Sea Mother Whip	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Knowledge (arcana)|Knowledge (religion)|TYPE=Profession|Spellcraft
+###Block
+1	ADD:SPELLCASTER|Divine
+2	ADD:SPELLCASTER|Divine
+3	ADD:SPELLCASTER|Divine
+4	ADD:SPELLCASTER|Divine
+5	ADD:SPELLCASTER|Divine
+###Block 
+1	ABILITY:Sea Mother Whip Class Feature|AUTOMATIC|Sea Mother Whip ~ Weapon and Armor Proficiency	
+1	ABILITY:Sea Mother Whip Class Feature|AUTOMATIC|Sea Mother Whip ~ Spells per Day			
+1	ABILITY:Sea Mother Whip Class Feature|AUTOMATIC|Sea Mother Whip ~ Watery Death Prestige Domain	
+2	ABILITY:Sea Mother Whip Class Feature|AUTOMATIC|Sea Mother Whip ~ Punish the Infidels			
+3	ABILITY:Sea Mother Whip Class Feature|AUTOMATIC|Sea Mother Whip ~ Independent Lightning Bolt	
+4	ABILITY:Sea Mother Whip Class Feature|AUTOMATIC|Sea Mother Whip ~ Inspire the Faithful		
+5	ABILITY:Sea Mother Whip Class Feature|AUTOMATIC|Sea Mother Whip ~ Bolster Lightning Bolts		
+
+
+# Shadowcrafter
+CLASS:Shadowcrafter	HD:4	TYPE:PC.Prestige
+CLASS:Shadowcrafter	FACT:Abb|Sc	FACT:ClassType|Prestige
+CLASS:Shadowcrafter	DEFINE:ShadowcrafterLVL|0	BONUS:VAR|ShadowcrafterLVL|CL
+CLASS:Shadowcrafter	SOURCEPAGE:p.43	
+CLASS:Shadowcrafter	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+CLASS:Shadowcrafter	BONUS:VAR|ClassSavePoor_Fortitude|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Shadowcrafter	BONUS:VAR|ClassSavePoor_Reflex|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Shadowcrafter	BONUS:VAR|ClassSaveGood_Will|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Shadowcrafter	PRETEXT:Feats: Greater Spell Focus (Illusion), Spell Focus (Illusion). Skill: Disguise 4 ranks. Spells: Able to cast any 3rd-level or higher spell with the illusion (shadow) descriptor.	PREABILITY:1,CATEGORY=FEAT,Greater Spell Focus (Illusion),Spell Focus (Illusion)	PRESKILL:1,Disguise=4	PRESPELLTYPE:1,Arcane=3,Divine=4	PRESPELLDESCRIPTOR:1,Shadow=3	PRESPELLSCHOOL:1,Illusion=3
+CLASS:Shadowcrafter	STARTSKILLPTS:2
+CLASS:Shadowcrafter	CSKILL:Concentration|TYPE=Craft|Disguise|TYPE=Knowledge|TYPE=Profession|Spellcraft|Spot
+###Block
+1:REPEATLEVEL:1	ADD:SPELLCASTER|ANY
+###Block
+11	PREPCLEVEL:MIN=20
+###Block 
+1	ABILITY:Shadowcrafter Class Feature|AUTOMATIC|Shadowcrafter ~ Weapon and Armor Proficiency
+1	ABILITY:Shadowcrafter Class Feature|AUTOMATIC|Shadowcrafter ~ Spells per Day			
+1	ABILITY:Shadowcrafter Class Feature|AUTOMATIC|Shadowcrafter ~ Shadow Mien			
+2	ABILITY:Shadowcrafter Class Feature|AUTOMATIC|Shadowcrafter ~ Enhanced Shadow Conjurations
+3	ABILITY:Shadowcrafter Class Feature|AUTOMATIC|Shadowcrafter ~ Enhanced Shadow Evocations	
+4	ABILITY:Shadowcrafter Class Feature|AUTOMATIC|Shadowcrafter ~ Shadow Spell Penetration	
+5	ABILITY:Shadowcrafter Class Feature|AUTOMATIC|Shadowcrafter ~ Resistance to Illusions	
+9	ABILITY:Shadowcrafter Class Feature|AUTOMATIC|Shadowcrafter ~ No Delusions			
+10	ABILITY:Shadowcrafter Class Feature|AUTOMATIC|Shadowcrafter ~ Shadow Self			
+
+
+# Vermin Keeper
+CLASS:Vermin Keeper	HD:8	TYPE:PC.Prestige
+CLASS:Vermin Keeper	FACT:Abb|VK	FACT:ClassType|Prestige
+CLASS:Vermin Keeper	DEFINE:VerminKeeperLVL|0	BONUS:VAR|VerminKeeperLVL|CL
+CLASS:Vermin Keeper	SOURCEPAGE:p.44	
+CLASS:Vermin Keeper	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+CLASS:Vermin Keeper	BONUS:VAR|ClassSaveGood_Fortitude|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Vermin Keeper	BONUS:VAR|ClassSavePoor_Reflex|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Vermin Keeper	BONUS:VAR|ClassSaveGood_Will|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Vermin Keeper	PRETEXT:Skills: Handle Animal 8 ranks, Knowledge (nature) 8 ranks. Feat: Iron Will. Special: Wild shape ability.	PRESKILL:2,Handle Animal=8,Knowledge (nature)=8	PREABILITY:1,CATEGORY=FEAT,Iron Will	PREABILITY:1,CATEGORY=Special Ability,TYPE.Wild Shape
+CLASS:Vermin Keeper	STARTSKILLPTS:4
+CLASS:Vermin Keeper	CSKILL:Concentration|TYPE=Craft|Handle Animal|Heal|Knowledge (nature)|Knowledge (Underdark local)|TYPE=Profession|Spellcraft|Spot|Survival|Swim
+###Block
+1:REPEATLEVEL:1	ADD:SPELLCASTER|ANY
+###Block
+11	PREPCLEVEL:MIN=20
+###Block 
+1	ABILITY:Vermin Keeper Class Feature|AUTOMATIC|Vermin Keeper ~ Weapon and Armor Proficiency
+1	ABILITY:Vermin Keeper Class Feature|AUTOMATIC|Vermin Keeper ~ Spells per Day			
+1	ABILITY:Vermin Keeper Class Feature|AUTOMATIC|Vermin Keeper ~ Handle Vermin			
+1	ABILITY:Vermin Keeper Class Feature|AUTOMATIC|Vermin Keeper ~ Vermin Empathy			
+1	ABILITY:Vermin Keeper Class Feature|AUTOMATIC|Vermin Keeper ~ Vermin Form			
+3	ABILITY:Vermin Keeper Class Feature|AUTOMATIC|Vermin Keeper ~ Venom Immunity			
+3	ABILITY:Vermin Keeper Class Feature|AUTOMATIC|Vermin Keeper ~ Vermin Companion		
+6	ABILITY:Vermin Keeper Class Feature|AUTOMATIC|Vermin Keeper ~ Extra Wild Shape Feat		
+10	ABILITY:Vermin Keeper Class Feature|AUTOMATIC|Vermin Keeper ~ Swarm Form			
+
+
+# Yathchol Webrider
+CLASS:Yathchol Webrider	HD:8	TYPE:PC.Prestige
+CLASS:Yathchol Webrider	FACT:Abb|YW	FACT:ClassType|Prestige
+CLASS:Yathchol Webrider	DEFINE:YathcholWebriderLVL|0	BONUS:VAR|YathcholWebriderLVL|CL
+CLASS:Yathchol Webrider	SOURCEPAGE:p.46	
+CLASS:Yathchol Webrider	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+CLASS:Yathchol Webrider	BONUS:VAR|ClassSaveGood_Fortitude|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Yathchol Webrider	BONUS:VAR|ClassSavePoor_Reflex|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Yathchol Webrider	BONUS:VAR|ClassSavePoor_Will|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Yathchol Webrider	PRETEXT:Race: Chitine, or any race that can spin webs from its body. Characters who know or can prepare web as either a spell or a spell-like ability also qualify. Skills: Hide 8 ranks, Move Silently 4 ranks. Feats: Dodge, Mobility, Skill Focus (Craft [trapmaking]).	PRESKILL:1,Hide=8,Move Silently=4	PREABILITY:3,CATEGORY=FEAT,Dodge,Mobility,Skill Focus (Craft (trapmaking))
+CLASS:Yathchol Webrider	STARTSKILLPTS:6
+CLASS:Yathchol Webrider	CSKILL:Balance|Craft (trapmaking)|Escape Artist|Hide|Jump|Knowledge (arcana)|Listen|Move Silently|Search|Spellcraft|Spot|Tumble|Use Rope
+###Block
+11	PREPCLEVEL:MIN=20
+###Block 
+1	ABILITY:Yathchol Webrider Class Feature|AUTOMATIC|Yathchol Webrider ~ Weapon and Armor Proficiency	
+1	ABILITY:Yathchol Webrider Class Feature|AUTOMATIC|Yathchol Webrider ~ Web Hide				
+1	ABILITY:Yathchol Webrider Class Feature|AUTOMATIC|Yathchol Webrider ~ Web Ride				
+2	ABILITY:Yathchol Webrider Class Feature|AUTOMATIC|Yathchol Webrider ~ Spider Climbing			
+2	ABILITY:Yathchol Webrider Class Feature|AUTOMATIC|Yathchol Webrider ~ Summon Spider			
+3	ABILITY:Yathchol Webrider Class Feature|AUTOMATIC|Yathchol Webrider ~ Web Blast				

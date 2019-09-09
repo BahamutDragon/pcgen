@@ -48,6 +48,83 @@ SUBSTITUTIONLEVEL:1	ABILITY:Wizard Class Feature|AUTOMATIC|Wizard ~ Generalist W
 SUBSTITUTIONLEVEL:3	ABILITY:Wizard Class Feature|AUTOMATIC|Wizard ~ Natural Link
 SUBSTITUTIONLEVEL:5	ABILITY:Wizard Class Feature|AUTOMATIC|Wizard ~ Bonus Feat
 
+###Block: Prestige Classes
+
+CLASS:Arcane Hierophant	HD:6	TYPE:PC.Prestige
+CLASS:Arcane Hierophant	FACT:Abb|AH	FACT:ClassType|Prestige
+CLASS:Arcane Hierophant	DEFINE:ArcaneHierophantLVL|0	BONUS:VAR|ArcaneHierophantLVL|CL
+CLASS:Arcane Hierophant	SOURCEPAGE:p.108	
+CLASS:Arcane Hierophant	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+CLASS:Arcane Hierophant	BONUS:VAR|ClassSavePoor_Fortitude|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Arcane Hierophant	BONUS:VAR|ClassSavePoor_Reflex|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Arcane Hierophant	BONUS:VAR|ClassSaveGood_Will|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Arcane Hierophant	PRETEXT:Alignment: Any nonlawful. Base Attack Bonus: +4. Skills: Knowledge (arcana) 8 ranks, Knowledge (nature) 8 ranks. Spells: Ability to cast 2nd-level arcane spells and 2nd-level divine spells. Special: Trackless step class feature.	!PREALIGN:LE,LG,LN	PRETOTALAB:4	PRESKILL:2,Knowledge (Arcana)=8,Knowledge (Nature)=8	PRESPELLTYPE:1,Arcane=2	PRESPELLTYPE:1,Divine=2	PREABILITY:1,CATEGORY=Special Ability,TYPE.Trackless Step
+CLASS:Arcane Hierophant	STARTSKILLPTS:4
+CLASS:Arcane Hierophant	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Knowledge (arcana)|Knowledge (nature)|Listen|TYPE=Profession|Ride|Spellcraft|Spot|Survival|Swim
+###Block
+1:REPEATLEVEL:1	ADD:SPELLCASTER|Arcane	ADD:SPELLCASTER|Divine
+###Block
+11	PREPCLEVEL:MIN=20
+###Block
+1	ABILITY:Arcane Hierophant Class Feature|AUTOMATIC|Arcane Hierophant ~ Weapon and Armor Proficiency	
+1	ABILITY:Arcane Hierophant Class Feature|AUTOMATIC|Arcane Hierophant ~ Spellcasting|Arcane Hierophant ~ Ignore Arcane Spell Failure			
+1	ABILITY:Arcane Hierophant Class Feature|AUTOMATIC|Arcane Hierophant ~ Wild Shape				
+1	ABILITY:Arcane Hierophant Class Feature|AUTOMATIC|Arcane Hierophant ~ Companion Familiar		
+4	ABILITY:Arcane Hierophant Class Feature|AUTOMATIC|Arcane Hierophant ~ Channel Animal			
+6	ABILITY:Arcane Hierophant Class Feature|AUTOMATIC|Arcane Hierophant ~ Channel Plant			
+
+CLASS:Champion of Corellon Larethian	HD:10	TYPE:PC.Prestige
+CLASS:Champion of Corellon Larethian	FACT:Abb|CoCL	FACT:ClassType|Prestige
+CLASS:Champion of Corellon Larethian	DEFINE:Champion of Corellon LarethianLVL|0	BONUS:VAR|Champion of Corellon LarethianLVL|CL
+CLASS:Champion of Corellon Larethian	SOURCEPAGE:p.113	
+CLASS:Champion of Corellon Larethian	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+CLASS:Champion of Corellon Larethian	BONUS:VAR|ClassSaveGood_Fortitude|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Champion of Corellon Larethian	BONUS:VAR|ClassSavePoor_Reflex|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Champion of Corellon Larethian	BONUS:VAR|ClassSaveGood_Will|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Champion of Corellon Larethian	PRETEXT:Race: Elf or half-elf. Alignment: Any nonevil. Base Attack Bonus: +7. Skills: Diplomacy 4 ranks, Knowledge (religion) 2 ranks. Feats: Proficient with all martial weapons and heavy armor, Combat Expertise, Dodge, Mounted Combat. Special: Must worship Corellon Larethian. Special: In addition to the feats above, you must also take either Weapon Focus (longsword) or Exotic Weapon Proficiency (elven thinblade or elven courtblade).	PRERACE:1,RACESUBTYPE=Elf,RACESUBTYPE=Half-Elf,Elf,Half-Elf	!PREALIGN:CE,LE,NE	PRETOTALAB:7	PRESKILL:2,Diplomacy=4,Knowledge (Religion)=2	PREPROFWITHARMOR:1,TYPE.Heavy	PREWEAPONPROF:1,TYPE.Martial	PREABILITY:3,CATEGORY=Feat,Combat Expertise,Dodge,Mounted Combat	PREDEITY:1,Corellon Larethian	PREABILITY:1,CATEGORY=Feat,Weapon Focus (longsword),Exotic Weapon Proficiency (Thinblade (Elven)),Exotic Weapon Proficiency (Courtblade (Elven))
+CLASS:Champion of Corellon Larethian	STARTSKILLPTS:2
+CLASS:Champion of Corellon Larethian	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Intimidate|TYPE=Knowledge|TYPE=Profession|Ride|Sense Motive|Spellcraft
+###Block
+11	PREPCLEVEL:MIN=20
+###Block	
+1	ABILITY:Champion of Corellon Larethian Class Feature|AUTOMATIC|Champion of Corellon Larethian ~ Weapon and Armor Proficiency	
+1	ABILITY:Champion of Corellon Larethian Class Feature|AUTOMATIC|Champion of Corellon Larethian ~ Corellon's Blessing			
+1	ABILITY:Champion of Corellon Larethian Class Feature|AUTOMATIC|Champion of Corellon Larethian ~ Bonus Feat				
+2	ABILITY:Champion of Corellon Larethian Class Feature|AUTOMATIC|Champion of Corellon Larethian ~ Elegant Strike				
+3	ABILITY:Champion of Corellon Larethian Class Feature|AUTOMATIC|Champion of Corellon Larethian ~ Superior Defense			
+5	ABILITY:Champion of Corellon Larethian Class Feature|AUTOMATIC|Champion of Corellon Larethian ~ Unimpeded Movement			
+8	ABILITY:Champion of Corellon Larethian Class Feature|AUTOMATIC|Champion of Corellon Larethian ~ Corellon's Wrath			
+1	ABILITY:Champion of Corellon Larethian Class Feature|AUTOMATIC|Champion of Corellon Larethian ~ EX-CHAMPIONS OF CORELLON|PREALIGN:LE,CE,NE		
+
+CLASS:Luckstealer	HD:4	TYPE:PC.Prestige
+CLASS:Luckstealer	FACT:Abb|Ls	FACT:ClassType|Prestige
+CLASS:Luckstealer	DEFINE:LuckstealerLVL|0	BONUS:VAR|LuckstealerLVL|CL
+CLASS:Luckstealer	SOURCEPAGE:p.118	
+CLASS:Luckstealer	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+CLASS:Luckstealer	BONUS:VAR|ClassSavePoor_Fortitude|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Luckstealer	BONUS:VAR|ClassSavePoor_Reflex|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Luckstealer	BONUS:VAR|ClassSaveGood_Will|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Luckstealer	PRETEXT: Race: Halfling. Skills: Profession (gambler) 9 ranks. Feats: Dallah Thaun's Luck (see page 149). Spells: Ability to cast 3rd-level arcane or divine spells. Domain: Luck (divine spellcasters only).	PRERACE:1,Halfling,RACESUBTYPE=Halfling	PRESKILL:1,Profession (gambler)=9	PREABILITY:1,CATEGORY=FEAT,Dallah Thaun's Luck	PRESPELLTYPE:1,Arcane=3,Divine=3	PREMULT:1,[PREDOMAIN:1,Luck],[!PRECLASS:1,Cleric=1,TYPE.DomainCaster=1]
+CLASS:Luckstealer	STARTSKILLPTS:4
+CLASS:Luckstealer	CSKILL:Appraise|Bluff|Concentration|TYPE=Craft|Knowledge (local)|TYPE=Profession|Sense Motive|Sleight of Hand|Spellcraft
+2	ADD:SPELLCASTER|ANY
+3	ADD:SPELLCASTER|ANY
+4	ADD:SPELLCASTER|ANY
+5	ADD:SPELLCASTER|ANY
+6	ADD:SPELLCASTER|ANY
+8	ADD:SPELLCASTER|ANY
+9	ADD:SPELLCASTER|ANY
+###Block
+11	PREPCLEVEL:MIN=20
+###Block	
+1	ABILITY:Luckstealer Class Feature|AUTOMATIC|Luckstealer ~ Spellcasting		
+1	ABILITY:Luckstealer Class Feature|AUTOMATIC|Luckstealer ~ Curse of the Fatespurned
+1	ABILITY:Luckstealer Class Feature|AUTOMATIC|Luckstealer ~ Subtle Magic		
+4	ABILITY:Luckstealer Class Feature|AUTOMATIC|Luckstealer ~ Lucky Magic			
+4	ABILITY:Luckstealer Class Feature|AUTOMATIC|Luckstealer ~ Desperate Recall		
+7	ABILITY:Luckstealer Class Feature|AUTOMATIC|Luckstealer ~ Curse of the Black Cloud
+10	ABILITY:Luckstealer Class Feature|AUTOMATIC|Luckstealer ~ Fate's Proof		
+
 
 ###Block - Ruathar
 CLASS:Ruathar	MAXLEVEL:3
@@ -78,13 +155,116 @@ CLASS:Ruathar	STARTSKILLPTS:4	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle A
 3	ABILITY:Ruathar Class Feature|AUTOMATIC|Ruathar ~ Arvandor's Grace		
 
 
+CLASS:Skypledged	HD:6	TYPE:PC.Prestige
+CLASS:Skypledged	FACT:Abb|Sky	FACT:ClassType|Prestige
+CLASS:Skypledged	DEFINE:SkypledgedLVL|0	BONUS:VAR|SkypledgedLVL|CL
+CLASS:Skypledged	SOURCEPAGE:p.126	
+CLASS:Skypledged	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+CLASS:Skypledged	BONUS:VAR|ClassSavePoor_Fortitude|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Skypledged	BONUS:VAR|ClassSaveGood_Reflex|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Skypledged	BONUS:VAR|ClassSaveGood_Will|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Skypledged	PRETEXT:Race: Raptoran. Spells: Ability to cast summon monster IV or summon nature's ally IV. Special: Flight extraordinary ability.	PRERACE:1,Raptoran	PRESPELL:1,Summon Monster IV,Summon Nature's Ally IV	PREMOVE:1,Fly=1
+CLASS:Skypledged	STARTSKILLPTS:4
+CLASS:Skypledged	CSKILL:Concentration|TYPE=Craft|Handle Animal|Heal|Intimidate|Knowledge (nature)|Knowledge (the planes)|Listen|TYPE=Profession|Spellcraft|Spot|Survival
+###Block
+1:REPEATLEVEL:1	ADD:SPELLCASTER|Divine
+###Block
+11	PREPCLEVEL:MIN=20
+###Block	ABILITY:Skypledged Class Feature|AUTOMATIC|
+1	ABILITY:Skypledged Class Feature|AUTOMATIC|Skypledged ~ Skypledge			
+1	ABILITY:Skypledged Class Feature|AUTOMATIC|Skypledged ~ Calling a Spell		
+1	ABILITY:Skypledged Class Feature|AUTOMATIC|Skypledged ~ Spell Availability		
+1	ABILITY:Skypledged Class Feature|AUTOMATIC|Skypledged ~ Spellpool Debt		
+1	ABILITY:Skypledged Class Feature|AUTOMATIC|Skypledged ~ Spellcasting	
+1	ABILITY:Skypledged Class Feature|AUTOMATIC|Skypledged ~ Divine Spellpool
+2	ABILITY:Skypledged Class Feature|AUTOMATIC|Skypledged ~ Beckon Breeze		
+3	ABILITY:Skypledged Class Feature|AUTOMATIC|Skypledged ~ Instant Supplication
+5	ABILITY:Skypledged Class Feature|AUTOMATIC|Skypledged ~ Beckon Winds
+6	ABILITY:Skypledged Class Feature|AUTOMATIC|Skypledged ~ Servant Supplication	
+8	ABILITY:Skypledged Class Feature|AUTOMATIC|Skypledged ~ Beckon Gale			
+9	ABILITY:Skypledged Class Feature|AUTOMATIC|Skypledged ~ Assumptive Supplication	
+10	ABILITY:Skypledged Class Feature|AUTOMATIC|Skypledged ~ Cyclonic Doom		
 
 
+CLASS:Stormtalon	HD:10	TYPE:PC.Prestige
+CLASS:Stormtalon	FACT:Abb|Stal	FACT:ClassType|Prestige
+CLASS:Stormtalon	DEFINE:StormtalonLVL|0	BONUS:VAR|StormtalonLVL|CL
+CLASS:Stormtalon	SOURCEPAGE:p.131	
+CLASS:Stormtalon	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+CLASS:Stormtalon	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+CLASS:Stormtalon	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+CLASS:Stormtalon	BONUS:VAR|ClassSaveGood_Fortitude|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Stormtalon	BONUS:VAR|ClassSavePoor_Fortitude|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Stormtalon	BONUS:VAR|ClassSaveGood_Reflex|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Stormtalon	BONUS:VAR|ClassSavePoor_Reflex|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Stormtalon	BONUS:VAR|ClassSaveGood_Will|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Stormtalon	BONUS:VAR|ClassSavePoor_Will|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Stormtalon	PRETEXT:Race: Raptoran. Base Attack Bonus: +5. Special: Flight extraordinary ability.	PRERACE:1,Raptoran	PRETOTALAB:5	PREMOVE:1,Fly=1
+CLASS:Stormtalon	STARTSKILLPTS:2
+CLASS:Stormtalon	CSKILL:Balance|Climb|TYPE=Craft|Intimidate|Jump|Spot|Tumble
+###Block
+11	PREPCLEVEL:MIN=20
+###Block	
+1	ABILITY:Stormtalon Class Feature|AUTOMATIC|Stormtalon ~ Foot Talons		
+2	ABILITY:Stormtalon Class Feature|AUTOMATIC|Stormtalon ~ Bonus Aerial Feat	
+3	ABILITY:Stormtalon Class Feature|AUTOMATIC|Stormtalon ~ Fast Flight		
+7	ABILITY:Stormtalon Class Feature|AUTOMATIC|Stormtalon ~ Improved Foot Talons
 
 
+CLASS:Whisperknife	HD:8	TYPE:PC.Prestige
+CLASS:Whisperknife	FACT:Abb|Wkn	FACT:ClassType|Prestige
+CLASS:Whisperknife	DEFINE:WhisperknifeLVL|0	BONUS:VAR|WhisperknifeLVL|CL
+CLASS:Whisperknife	SOURCEPAGE:p.135	
+CLASS:Whisperknife	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+CLASS:Whisperknife	BONUS:VAR|ClassSavePoor_Fortitude|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Whisperknife	BONUS:VAR|ClassSaveGood_Reflex|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Whisperknife	BONUS:VAR|ClassSavePoor_Will|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Whisperknife	PRETEXT:Race: Halfling. Base Attack Bonus: +4. Skills: Balance 3 ranks, Climb 3 ranks, Hide 6 ranks, Jump 3 ranks, Move Silently 6 ranks, Tumble 3 ranks. Feats: Point-Blank Shot, Quick Draw, Two-Weapon Fighting, Weapon Finesse. Special: Sneak attack +1d6.	PRERACE:1,Halfling	PRETOTALAB:4	PRESKILL:6,Balance=3,Climb=3,Hide=6,Jump=3,Move Silently=6,Tumble=3	PREABILITY:4,CATEGORY=FEAT,Point-Blank Shot,Quick Draw,Two-Weapon Fighting,Weapon Finesse	PREVARGTEQ:SneakAttackDice,1	PREVARGTEQ:SneakAttackDieSize,6
+CLASS:Whisperknife	STARTSKILLPTS:6
+CLASS:Whisperknife	CSKILL:Balance|Bluff|Climb|Disable Device|Handle Animal|Hide|Intimidate|Jump|Knowledge (local)|Listen|Move Silently|Open Lock|Search|Sense Motive|Sleight of Hand|Spot|Swim|Tumble
+###Block
+11	PREPCLEVEL:MIN=20
+###Block	
+1	ABILITY:Whisperknife Class Feature|AUTOMATIC|Whisperknife ~ Weapon and Armor Proficiency	
+1	ABILITY:Whisperknife Class Feature|AUTOMATIC|Whisperknife ~ Rapid Shot				
+1	ABILITY:Whisperknife Class Feature|AUTOMATIC|Whisperknife ~ Uncanny Dodge			
+2	ABILITY:Whisperknife Class Feature|AUTOMATIC|Whisperknife ~ Sneak Attack			
+3	ABILITY:Whisperknife Class Feature|AUTOMATIC|Whisperknife ~ Defensive Throw			
+3	ABILITY:Whisperknife Class Feature|AUTOMATIC|Whisperknife ~ Improved Catch			
+4	ABILITY:Whisperknife Class Feature|AUTOMATIC|Whisperknife ~ Close Defense			
+6	ABILITY:Whisperknife Class Feature|AUTOMATIC|Whisperknife ~ Fast Movement			
+6	ABILITY:Whisperknife Class Feature|AUTOMATIC|Whisperknife ~ Poison Use				
+7	ABILITY:Whisperknife Class Feature|AUTOMATIC|Whisperknife ~ Vengeful Strike			
+8	ABILITY:Whisperknife Class Feature|AUTOMATIC|Whisperknife ~ Superior Catch			
+9	ABILITY:Whisperknife Class Feature|AUTOMATIC|Whisperknife ~ Improved Uncanny Dodge		
+9	ABILITY:Whisperknife Class Feature|AUTOMATIC|Whisperknife ~ Ranged Flank			
 
 
-
-
-
+CLASS:Wildrunner	HD:10	TYPE:PC.Prestige
+CLASS:Wildrunner	FACT:Abb|WlR	FACT:ClassType|Prestige
+CLASS:Wildrunner	DEFINE:WildrunnerLVL|0	BONUS:VAR|WildrunnerLVL|CL
+CLASS:Wildrunner	SOURCEPAGE:p.139	
+CLASS:Wildrunner	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+CLASS:Wildrunner	BONUS:VAR|ClassSaveGood_Fortitude|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Wildrunner	BONUS:VAR|ClassSaveGood_Reflex|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Wildrunner	BONUS:VAR|ClassSavePoor_Will|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Wildrunner	PRETEXT:Race: Elf or half-elf. Alignment: Any good or chaotic. Skills: Hide 5 ranks, Knowledge (nature) 5 ranks, Move Silently 5 ranks, Survival 8 ranks. Feats: Endurance.	PRERACE:1,RACESUBTYPE=Elf,RACESUBTYPE=Half-Elf,Elf,Half-Elf	PREALIGN:LG,NG,CG,CE,CN	PRESKILL:4,Hide=5,Knowledge (Nature)=5,Move Silently=5,Survival=5	PREABILITY:1,CATEGORY=FEAT,Endurance
+CLASS:Wildrunner	STARTSKILLPTS:4
+CLASS:Wildrunner	CSKILL:Balance|Climb|Handle Animal|Hide|Intimidate|Jump|Knowledge (nature)|Listen|Move Silently|Spot|Survival|Swim
+###Block
+11	PREPCLEVEL:MIN=20
+###Block
+1	ABILITY:Wildrunner Class Feature|AUTOMATIC|Wildrunner ~ Weapon and Armor Proficiency	
+1	ABILITY:Wildrunner Class Feature|AUTOMATIC|Wildrunner ~ Fast Movement			
+1	ABILITY:Wildrunner Class Feature|AUTOMATIC|Wildrunner ~ Trackless Step			
+2	ABILITY:Wildrunner Class Feature|AUTOMATIC|Wildrunner ~ Primal Scream			
+4	ABILITY:Wildrunner Class Feature|AUTOMATIC|Wildrunner ~ Enemies Shaken			
+6	ABILITY:Wildrunner Class Feature|AUTOMATIC|Wildrunner ~ Pounce					
+8	ABILITY:Wildrunner Class Feature|AUTOMATIC|Wildrunner ~ Enemies Cower			
+10	ABILITY:Wildrunner Class Feature|AUTOMATIC|Wildrunner ~ Fast Healing				
+2	ABILITY:Wildrunner Class Feature|AUTOMATIC|Wildrunner ~ Scent					
+3	ABILITY:Wildrunner Class Feature|AUTOMATIC|Wildrunner ~ Endure Elements			
+5	ABILITY:Wildrunner Class Feature|AUTOMATIC|Wildrunner ~ Hide in Plain Sight		
+7	ABILITY:Wildrunner Class Feature|AUTOMATIC|Wildrunner ~ Unfettered Stride			
+9	ABILITY:Wildrunner Class Feature|AUTOMATIC|Wildrunner ~ Feyheart				
 

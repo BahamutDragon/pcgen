@@ -5,6 +5,7 @@
 
 # Class Name	Hit Dice	Type			Abbreviation	Source Page		Define									Bonus
 CLASS:Binder	HD:8		TYPE:Base.PC	FACT:Abb|Bdr		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	SOURCEPAGE:p.9	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Binder	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Decipher Script|Diplomacy|Gather Information|Intimidate|Knowledge (arcana)|Knowledge (History)|Knowledge (Religion)|Knowledge (The Planes)|TYPE=Profession|Sense Motive
 ###Block: Profs need to be swapped out for actual prof ability
@@ -15,11 +16,11 @@ CLASS:Binder	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Decipher Scri
 1	ABILITY:Binder Class Feature|AUTOMATIC|Binder ~ Soul Binding
 2	ABILITY:Binder Class Feature|AUTOMATIC|Binder ~ Pact Augmentation
 2	ABILITY:Binder Class Feature|AUTOMATIC|Binder ~ Suppress Sign
-4	ABILITY:Binder Class Feature|AUTOMATIC|Binder ~ Bonus Feats
+4	ABILITY:Binder Class Feature|AUTOMATIC|Binder ~ Bonus Feats|!PREABILITY:1,CATEGORY=ACF,TYPE.BinderBonusFeats
 6	ABILITY:Binder Class Feature|AUTOMATIC|Binder ~ Soul Guardian
 ###Block:
-4	BONUS:VAR|BinderFeatCount|CL+3/7
 1	BONUS:VAR|BinderEffectiveLVL|CL
+
 1	BONUS:VAR|BinderSoulBindingLVL|1
 1	BONUS:VAR|BinderMaxVestigeLVL|1
 #
@@ -43,6 +44,7 @@ CLASS:Binder	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Decipher Scri
 17	BONUS:VAR|BinderMaxVestigeLVL|1
 20	BONUS:VAR|BinderSoulBindingLVL|1
 20	BONUS:VAR|BinderPactAugmentationCount|1
+
 
 # Class Name		Hit Dice	Type			Source Page		Define				Combat bonus												Modify VAR																		Bonus
 CLASS:Shadowcaster	HD:6		TYPE:Shadow Magic	SOURCEPAGE:p.111	DEFINE:ShadowcasterLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ShadowcasterLVL|CL	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3

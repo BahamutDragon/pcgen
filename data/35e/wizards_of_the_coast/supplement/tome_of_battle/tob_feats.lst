@@ -25,7 +25,7 @@ Song of the White Raven	CATEGORY:FEAT	TYPE:General				PREABILITY:1,CATEGORY=Spec
 Snap Kick			CATEGORY:FEAT	TYPE:General																																													PREABILITY:1,CATEGORY=FEAT,Improved Unarmed Strike									PRETEXT:Improved Unarmed Strike, base attack bonus +6.																								DESC:You have continued to hone your unarmed combat skills, and you deal more damage with your unarmed strikes.																								SOURCEPAGE:p.32	BENEFIT:When you make a melee attack with one or more melee weapons (including a standard attack, full attack, or even a strike maneuver), you can make an additional attack at your highest attack bonus. This attack is an unarmed attack that deals damage equal to your base unarmed attack damage + 1/2 your Str bonus. You take a -2 penalty on all attack rolls you make this round.																																																																																																																																																																																																																																																	PRETOTALAB:6
 Stone Power			CATEGORY:FEAT	TYPE:General				PREABILITY:1,CATEGORY=Special Ability,TYPE.Stone Dragon Maneuver																																													PRESTAT:1,STR=13	PRETEXT:Str 13, one Stone Dragon maneuver.																										DESC:The principles of the Stone Dragon discipline teach you how to gather and focus your raw, physical strength into an attack.																					SOURCEPAGE:p.32	BENEFIT:When you use an attack action or a full attack action, or you initiate a Stone Dragon strike in melee combat, you can take a penalty of as much as -5 on your attack rolls. This number cannot exceed your base attack bonus. You gain temporary hit points equal to twice the number that you subtract from your attack rolls (to a maximum of +10). These temporary hit points last until the beginning of your next turn. Special: Stone Power can be used in place of Power Attack to qualify for a feat, prestige class, or other special ability. You can take both this feat and Power Attack.
 Sudden Recovery		CATEGORY:FEAT	TYPE:General				PREABILITY:1,CATEGORY=Special Ability,TYPE.Martial Maneuver																																																	PRETEXT:One martial maneuver.																													DESC:You can instantly recover your focus, balance, and personal energy after using a martial maneuver.																									SOURCEPAGE:p.33	BENEFIT:Once per day as a swift action, you can instantly recover an expended maneuver. It is now ready again. If you are a crusader, the maneuver is also granted immediately.
-Superior Unarmed Strike	CATEGORY:FEAT	TYPE:General																																													PREABILITY:1,CATEGORY=FEAT,Improved Unarmed Strike									PRETEXT:Improved Unarmed Strike, base attack bonus +3.																								DESC:Your unarmed strikes have become increasingly deadly, enabling you to strike your foes in their most vulnerable areas.																						SOURCEPAGE:p.33	BENEFIT:You deal more damage with your unarmed strikes, as shown on the table below. Character Level Unarmed Damage 3rd 1d4 4th-7th 1d6 8th-11th 1d8 12th-15th 1d10 16th-20th 2d6 Special: If you are a monk, you instead deal unarmed damage as a monk four levels higher.																																																																																																																																																																																																																																																																				PRETOTALAB:3
+Superior Unarmed Strike	CATEGORY:FEAT	TYPE:General	ABILITY:Internal|AUTOMATIC|Unarmed Strike Damage Tracker|!PREVARGTEQ:MonkLVL,1	BONUS:VAR|MonkUnarmedDamageLVL|4|PREVARGTEQ:MonkLVL,1    PREABILITY:1,CATEGORY=FEAT,Improved Unarmed Strike				PRETEXT:Improved Unarmed Strike						PRETOTALAB:3																		DESC:Your unarmed strikes have become increasingly deadly, enabling you to strike your foes in their most vulnerable areas.																						SOURCEPAGE:p.33	BENEFIT:You deal more damage with your unarmed strikes, as shown on the table below. Character Level Unarmed Damage 3rd 1d4 4th-7th 1d6 8th-11th 1d8 12th-15th 1d10 16th-20th 2d6 Special: If you are a monk, you instead deal unarmed damage as a monk four levels higher.			
 Tiger Blooded		CATEGORY:FEAT	TYPE:General				PREABILITY:1,CATEGORY=Special Ability,TYPE.Rage	PREABILITY:1,CATEGORY=Special Ability,TYPE.Shift,TYPE.Wild Shape	PREABILITY:1,CATEGORY=Special Ability,TYPE.Tiger Claw Maneuver																													PRETEXT:Ability to rage, shift (such as the shifter ability from the EBERRON campaign setting or the bloodclaw master prestige class feature; see page 96), or wild shape; one Tiger Claw maneuver.	DESC:The Tiger Claw discipline teaches students to mimic the rampant, feral qualities of a wild animal. When you assume an animal form, or at least descend into a wild, bestial state, you strike with superior strength and accuracy.				SOURCEPAGE:p.33	BENEFIT:While you are in a rage, shifted, or wild shaped into an animal form, you can attempt to knock back 5 feet a creature of your size category or smaller that you hit with a Tiger Claw strike unless it succeeds on a Fortitude save (DC 10 + 1/2 your character level + your Str modifier). This movement does not provoke attacks of opportunity.
 Unnerving Calm		CATEGORY:FEAT	TYPE:General				PREABILITY:1,CATEGORY=Special Ability,TYPE.Diamond Mind Strike																																								PRESKILL:1,Concentration=1				PRETEXT:Concentration 1 rank, one Diamond Mind strike.																								DESC:You know that the secret to defeating your enemies lies within the still center of your own mind. When your enemies meet your eyes, they see only calm and certain death awaiting them.											SOURCEPAGE:p.33	BENEFIT:You can use your Concentration skill instead of your Intimidate skill when you engage in a duel of wills (see page 27). You gain a +4 bonus on skill checks made to resolve a duel of wills. If your enemy chooses to ignore your challenge, you gain a +2 morale bonus on attack rolls against that opponent for 1 round. Normal: Resolving a duel of wills requires an Intimidate check. You gain a +1 morale bonus on attack rolls against an opponent who ignores your challenge.
 Vital Recovery		CATEGORY:FEAT	TYPE:General				PREABILITY:2,CATEGORY=Special Ability,TYPE.Martial Maneuvers																																																PRETEXT:Two martial maneuvers.																												DESC:Preparing yourself to execute more of your maneuvers gives you the chance to catch a quick second wind and recover from damage you have sustained in the fight.															SOURCEPAGE:p.33	BENEFIT:When you recover one or more expended maneuvers, you heal 3 points of damage + 1 point per character level. You can gain this benefit only once per encounter.
@@ -46,3 +46,90 @@ Stormguard Warrior			CATEGORY:FEAT	TYPE:Tactical	PREABILITY:2,CATEGORY=Special A
 ###Block: Sidebar
 # Feat Name		Category		Type			Required Stat	Required Text				Source Page		Benefits																																																		PRETOTALAB
 Throw Anything	CATEGORY:FEAT	TYPE:General	PRESTAT:1,DEX=15	PRETEXT:proficiency with weapon	SOURCEPAGE:p.101	BENEFIT:You can throw a melee weapon you are proficient with as if it were a ranged weapon. The range increment of weapons used in conjunction with this feat is 10 feet. Normal: You can't throw a melee weapon without taking a -4 penalty unless it has a range increment (such as a hand axe or dagger).	PRETOTALAB:2
+
+
+###Block
+Unarmed Strike Damage Tracker	CATEGORY:Internal	DEFINE:UnarmedDamageProgression|0	DEFINE:UnarmedDamageLVL|0		ABILITY:Internal|AUTOMATIC|SuS Unarmed Damage LVL 1|PREVAREQ:UnarmedDamageProgression,0	ABILITY:Internal|AUTOMATIC|SuS Unarmed Damage LVL 3|PREVAREQ:UnarmedDamageProgression,1	ABILITY:Internal|AUTOMATIC|SuS Unarmed Damage LVL 4|PREVAREQ:UnarmedDamageProgression,2	ABILITY:Internal|AUTOMATIC|SuS Unarmed Damage LVL 4|PREVAREQ:UnarmedDamageProgression,3	ABILITY:Internal|AUTOMATIC|SuS Unarmed Damage LVL 12|PREVAREQ:UnarmedDamageProgression,4	ABILITY:Internal|AUTOMATIC|SuS Unarmed Damage LVL 16|PREVAREQ:UnarmedDamageProgression,5	BONUS:VAR|UnarmedDamageLVL|TL	BONUS:VAR|UnarmedDamageProgression|(min(5,UnarmedDamageLVL/4))
+# Superior Unarmed Strike	Feat	Unarmed Damage	Unarmed Multiplier
+#Unarmed Damage LVL 1	CATEGORY:Internal	UDAM:1d1,1d1,1d1,1d2,1d3,1d4,1d6,1d8,1d10	UMULT:2
+#Unarmed Damage LVL 3	CATEGORY:Internal	UDAM:1d1,1d1,1d2,1d3,1d4,1d6,1d8,1d10,2d6	UMULT:2
+#Unarmed Damage LVL 4	CATEGORY:Internal	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,1d10,2d6,2d8	UMULT:2
+#Unarmed Damage LVL 8	CATEGORY:Internal	UDAM:1d2,1d3,1d4,1d6,1d8,1d10,2d6,2d8,3d8	UMULT:2
+#Unarmed Damage LVL 12	CATEGORY:Internal	UDAM:1d3,1d4,1d6,1d8,1d10,2d6,2d8,3d8,4d8	UMULT:2
+#Unarmed Damage LVL 16	CATEGORY:Internal	UDAM:1d4,1d6,1d8,1d10,2d6,2d8,3d8,4d8,6d8	UMULT:2																																																																																																																																																																																									PRETOTALAB:3
+
+###Block:
+# Ability Name			Category of Ability	Ability
+SuS Unarmed Damage LVL 1	CATEGORY:Internal		ABILITY:Internal|AUTOMATIC|SuS Unarmed Damage LVL 1 (Fine)|PREBASESIZEEQ:F	ABILITY:Internal|AUTOMATIC|SuS Unarmed Damage LVL 1 (Diminutive)|PREBASESIZEEQ:D	ABILITY:Internal|AUTOMATIC|SuS Unarmed Damage LVL 1 (Tiny)|PREBASESIZEEQ:T	ABILITY:Internal|AUTOMATIC|SuS Unarmed Damage LVL 1 (Small)|PREBASESIZEEQ:S	ABILITY:Internal|AUTOMATIC|SuS Unarmed Damage LVL 1 (Medium)|PREBASESIZEEQ:M	ABILITY:Internal|AUTOMATIC|SuS Unarmed Damage LVL 1 (Large)|PREBASESIZEEQ:L	ABILITY:Internal|AUTOMATIC|SuS Unarmed Damage LVL 1 (Huge)|PREBASESIZEEQ:H	ABILITY:Internal|AUTOMATIC|SuS Unarmed Damage LVL 1 (Gargantuan)|PREBASESIZEEQ:G	ABILITY:Internal|AUTOMATIC|SuS Unarmed Damage LVL 1 (Colossal)|PREBASESIZEEQ:C
+SuS Unarmed Damage LVL 3	CATEGORY:Internal		ABILITY:Internal|AUTOMATIC|SuS Unarmed Damage LVL 3 (Fine)|PREBASESIZEEQ:F	ABILITY:Internal|AUTOMATIC|SuS Unarmed Damage LVL 3 (Diminutive)|PREBASESIZEEQ:D	ABILITY:Internal|AUTOMATIC|SuS Unarmed Damage LVL 3 (Tiny)|PREBASESIZEEQ:T	ABILITY:Internal|AUTOMATIC|SuS Unarmed Damage LVL 3 (Small)|PREBASESIZEEQ:S	ABILITY:Internal|AUTOMATIC|SuS Unarmed Damage LVL 3 (Medium)|PREBASESIZEEQ:M	ABILITY:Internal|AUTOMATIC|SuS Unarmed Damage LVL 3 (Large)|PREBASESIZEEQ:L	ABILITY:Internal|AUTOMATIC|SuS Unarmed Damage LVL 3 (Huge)|PREBASESIZEEQ:H	ABILITY:Internal|AUTOMATIC|SuS Unarmed Damage LVL 3 (Gargantuan)|PREBASESIZEEQ:G	ABILITY:Internal|AUTOMATIC|SuS Unarmed Damage LVL 3 (Colossal)|PREBASESIZEEQ:C
+SuS Unarmed Damage LVL 4	CATEGORY:Internal		ABILITY:Internal|AUTOMATIC|SuS Unarmed Damage LVL 4 (Fine)|PREBASESIZEEQ:F	ABILITY:Internal|AUTOMATIC|SuS Unarmed Damage LVL 4 (Diminutive)|PREBASESIZEEQ:D	ABILITY:Internal|AUTOMATIC|SuS Unarmed Damage LVL 4 (Tiny)|PREBASESIZEEQ:T	ABILITY:Internal|AUTOMATIC|SuS Unarmed Damage LVL 4 (Small)|PREBASESIZEEQ:S	ABILITY:Internal|AUTOMATIC|SuS Unarmed Damage LVL 4 (Medium)|PREBASESIZEEQ:M	ABILITY:Internal|AUTOMATIC|SuS Unarmed Damage LVL 4 (Large)|PREBASESIZEEQ:L	ABILITY:Internal|AUTOMATIC|SuS Unarmed Damage LVL 4 (Huge)|PREBASESIZEEQ:H	ABILITY:Internal|AUTOMATIC|SuS Unarmed Damage LVL 4 (Gargantuan)|PREBASESIZEEQ:G	ABILITY:Internal|AUTOMATIC|SuS Unarmed Damage LVL 4 (Colossal)|PREBASESIZEEQ:C
+SuS Unarmed Damage LVL 8	CATEGORY:Internal		ABILITY:Internal|AUTOMATIC|SuS Unarmed Damage LVL 8 (Fine)|PREBASESIZEEQ:F	ABILITY:Internal|AUTOMATIC|SuS Unarmed Damage LVL 8 (Diminutive)|PREBASESIZEEQ:D	ABILITY:Internal|AUTOMATIC|SuS Unarmed Damage LVL 8 (Tiny)|PREBASESIZEEQ:T	ABILITY:Internal|AUTOMATIC|SuS Unarmed Damage LVL 8 (Small)|PREBASESIZEEQ:S	ABILITY:Internal|AUTOMATIC|SuS Unarmed Damage LVL 8 (Medium)|PREBASESIZEEQ:M	ABILITY:Internal|AUTOMATIC|SuS Unarmed Damage LVL 8 (Large)|PREBASESIZEEQ:L	ABILITY:Internal|AUTOMATIC|SuS Unarmed Damage LVL 8 (Huge)|PREBASESIZEEQ:H	ABILITY:Internal|AUTOMATIC|SuS Unarmed Damage LVL 8 (Gargantuan)|PREBASESIZEEQ:G	ABILITY:Internal|AUTOMATIC|SuS Unarmed Damage LVL 8 (Colossal)|PREBASESIZEEQ:C
+SuS Unarmed Damage LVL 12	CATEGORY:Internal		ABILITY:Internal|AUTOMATIC|SuS Unarmed Damage LVL 16 (Fine)|PREBASESIZEEQ:F	ABILITY:Internal|AUTOMATIC|SuS Unarmed Damage LVL 16 (Diminutive)|PREBASESIZEEQ:D	ABILITY:Internal|AUTOMATIC|SuS Unarmed Damage LVL 16 (Tiny)|PREBASESIZEEQ:T	ABILITY:Internal|AUTOMATIC|SuS Unarmed Damage LVL 16 (Small)|PREBASESIZEEQ:S	ABILITY:Internal|AUTOMATIC|SuS Unarmed Damage LVL 16 (Medium)|PREBASESIZEEQ:M	ABILITY:Internal|AUTOMATIC|SuS Unarmed Damage LVL 16 (Large)|PREBASESIZEEQ:L	ABILITY:Internal|AUTOMATIC|SuS Unarmed Damage LVL 16 (Huge)|PREBASESIZEEQ:H	ABILITY:Internal|AUTOMATIC|SuS Unarmed Damage LVL 16 (Gargantuan)|PREBASESIZEEQ:G	ABILITY:Internal|AUTOMATIC|SuS Unarmed Damage LVL 16 (Colossal)|PREBASESIZEEQ:C
+SuS Unarmed Damage LVL 16	CATEGORY:Internal		ABILITY:Internal|AUTOMATIC|SuS Unarmed Damage LVL 16 (Fine)|PREBASESIZEEQ:F	ABILITY:Internal|AUTOMATIC|SuS Unarmed Damage LVL 16 (Diminutive)|PREBASESIZEEQ:D	ABILITY:Internal|AUTOMATIC|SuS Unarmed Damage LVL 16 (Tiny)|PREBASESIZEEQ:T	ABILITY:Internal|AUTOMATIC|SuS Unarmed Damage LVL 16 (Small)|PREBASESIZEEQ:S	ABILITY:Internal|AUTOMATIC|SuS Unarmed Damage LVL 16 (Medium)|PREBASESIZEEQ:M	ABILITY:Internal|AUTOMATIC|SuS Unarmed Damage LVL 16 (Large)|PREBASESIZEEQ:L	ABILITY:Internal|AUTOMATIC|SuS Unarmed Damage LVL 16 (Huge)|PREBASESIZEEQ:H	ABILITY:Internal|AUTOMATIC|SuS Unarmed Damage LVL 16 (Gargantuan)|PREBASESIZEEQ:G	ABILITY:Internal|AUTOMATIC|SuS Unarmed Damage LVL 16 (Colossal)|PREBASESIZEEQ:C
+
+###Block:
+# Ability Name					Category of Ability	Unarmed Damage	Unarmed Multiplier	
+SuS Unarmed Damage LVL 1 (Fine)		CATEGORY:Internal		UDAM:1d1		UMULT:2			
+SuS Unarmed Damage LVL 1 (Diminutive)	CATEGORY:Internal		UDAM:1d1		UMULT:2			
+SuS Unarmed Damage LVL 1 (Tiny)		CATEGORY:Internal		UDAM:1d1		UMULT:2			
+SuS Unarmed Damage LVL 1 (Small)		CATEGORY:Internal		UDAM:1d2		UMULT:2			
+SuS Unarmed Damage LVL 1 (Medium)		CATEGORY:Internal		UDAM:1d3		UMULT:2			
+SuS Unarmed Damage LVL 1 (Large)		CATEGORY:Internal		UDAM:1d4		UMULT:2			
+SuS Unarmed Damage LVL 1 (Huge)		CATEGORY:Internal		UDAM:1d6		UMULT:2			
+SuS Unarmed Damage LVL 1 (Gargantuan)	CATEGORY:Internal		UDAM:1d8		UMULT:2			
+SuS Unarmed Damage LVL 1 (Colossal)		CATEGORY:Internal		UDAM:1d10		UMULT:2			
+#
+#Unarmed Damage LVL 3	CATEGORY:Internal	UDAM:1d1,1d1,1d2,1d3,1d4,1d6,1d8,1d10,2d6	UMULT:2
+
+SuS Unarmed Damage LVL 3 (Fine)		CATEGORY:Internal		UDAM:1d1		UMULT:2			
+SuS Unarmed Damage LVL 3 (Diminutive)	CATEGORY:Internal		UDAM:1d1		UMULT:2			
+SuS Unarmed Damage LVL 3 (Tiny)		CATEGORY:Internal		UDAM:1d2		UMULT:2			
+SuS Unarmed Damage LVL 3 (Small)		CATEGORY:Internal		UDAM:1d3		UMULT:2			
+SuS Unarmed Damage LVL 3 (Medium)		CATEGORY:Internal		UDAM:1d4		UMULT:2			
+SuS Unarmed Damage LVL 3 (Large)		CATEGORY:Internal		UDAM:1d6		UMULT:2			
+SuS Unarmed Damage LVL 3 (Huge)		CATEGORY:Internal		UDAM:1d8		UMULT:2			
+SuS Unarmed Damage LVL 3 (Gargantuan)	CATEGORY:Internal		UDAM:1d10		UMULT:2			
+SuS Unarmed Damage LVL 3 (Colossal)		CATEGORY:Internal		UDAM:2d6		UMULT:2			
+#
+#Unarmed Damage LVL 3	CATEGORY:Internal	UDAM:1d1,1d2,1d3,1d4,1d6,1d8,1d10,2d6,2d8	UMULT:2
+SuS Unarmed Damage LVL 4 (Fine)		CATEGORY:Internal		UDAM:1d1		UMULT:2			
+SuS Unarmed Damage LVL 4 (Diminutive)	CATEGORY:Internal		UDAM:1d2		UMULT:2			
+SuS Unarmed Damage LVL 4 (Tiny)		CATEGORY:Internal		UDAM:1d3		UMULT:2			
+SuS Unarmed Damage LVL 4 (Small)		CATEGORY:Internal		UDAM:1d4		UMULT:2			
+SuS Unarmed Damage LVL 4 (Medium)		CATEGORY:Internal		UDAM:1d6		UMULT:2			
+SuS Unarmed Damage LVL 4 (Large)		CATEGORY:Internal		UDAM:1d8		UMULT:2			
+SuS Unarmed Damage LVL 4 (Huge)		CATEGORY:Internal		UDAM:1d10		UMULT:2			
+SuS Unarmed Damage LVL 4 (Gargantuan)	CATEGORY:Internal		UDAM:2d6		UMULT:2			
+SuS Unarmed Damage LVL 4 (Colossal)		CATEGORY:Internal		UDAM:2d8		UMULT:2			
+#
+SuS Unarmed Damage LVL 8 (Fine)		CATEGORY:Internal		UDAM:1d2		UMULT:2			
+SuS Unarmed Damage LVL 8 (Diminutive)	CATEGORY:Internal		UDAM:1d3		UMULT:2			
+SuS Unarmed Damage LVL 8 (Tiny)		CATEGORY:Internal		UDAM:1d4		UMULT:2			
+SuS Unarmed Damage LVL 8 (Small)		CATEGORY:Internal		UDAM:1d6		UMULT:2			
+SuS Unarmed Damage LVL 8 (Medium)		CATEGORY:Internal		UDAM:1d8		UMULT:2			
+SuS Unarmed Damage LVL 8 (Large)		CATEGORY:Internal		UDAM:1d10		UMULT:2			
+SuS Unarmed Damage LVL 8 (Huge)		CATEGORY:Internal		UDAM:2d6		UMULT:2			
+SuS Unarmed Damage LVL 8 (Gargantuan)	CATEGORY:Internal		UDAM:2d8		UMULT:2			
+SuS Unarmed Damage LVL 8 (Colossal)		CATEGORY:Internal		UDAM:3d8		UMULT:2			
+#
+SuS Unarmed Damage LVL 12 (Fine)		CATEGORY:Internal		UDAM:1d3		UMULT:2			
+SuS Unarmed Damage LVL 12 (Diminutive)	CATEGORY:Internal		UDAM:1d4		UMULT:2			
+SuS Unarmed Damage LVL 12 (Tiny)		CATEGORY:Internal		UDAM:1d6		UMULT:2			
+SuS Unarmed Damage LVL 12 (Small)		CATEGORY:Internal		UDAM:1d8		UMULT:2			
+SuS Unarmed Damage LVL 12 (Medium)		CATEGORY:Internal		UDAM:1d10		UMULT:2			
+SuS Unarmed Damage LVL 12 (Large)		CATEGORY:Internal		UDAM:2d6		UMULT:2			
+SuS Unarmed Damage LVL 12 (Huge)		CATEGORY:Internal		UDAM:2d8		UMULT:2			
+SuS Unarmed Damage LVL 12 (Gargantuan)	CATEGORY:Internal		UDAM:3d8		UMULT:2			
+SuS Unarmed Damage LVL 12 (Colossal)	CATEGORY:Internal		UDAM:4d8		UMULT:2			
+#
+SuS Unarmed Damage LVL 16 (Fine)		CATEGORY:Internal		UDAM:1d4		UMULT:2			
+SuS Unarmed Damage LVL 16 (Diminutive)	CATEGORY:Internal		UDAM:1d6		UMULT:2			
+SuS Unarmed Damage LVL 16 (Tiny)		CATEGORY:Internal		UDAM:1d8		UMULT:2			
+SuS Unarmed Damage LVL 16 (Small)		CATEGORY:Internal		UDAM:1d10		UMULT:2			
+SuS Unarmed Damage LVL 16 (Medium)		CATEGORY:Internal		UDAM:2d6		UMULT:2			
+SuS Unarmed Damage LVL 16 (Large)		CATEGORY:Internal		UDAM:2d8		UMULT:2			
+SuS Unarmed Damage LVL 16 (Huge)		CATEGORY:Internal		UDAM:3d8		UMULT:2			
+SuS Unarmed Damage LVL 16 (Gargantuan)	CATEGORY:Internal		UDAM:4d8		UMULT:2			
+SuS Unarmed Damage LVL 16 (Colossal)	CATEGORY:Internal		UDAM:6d8		UMULT:2			
+
+

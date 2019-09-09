@@ -15,7 +15,7 @@
 
 
 <!-- Blocks to put together PC Sheet -->
-	<xsl:import href="common_sheet/block_attack.xslt"/>
+	<xsl:import href="common_sheet/block_attack5e.xslt"/>
 	<xsl:import href="common_sheet/block_bio_condensed.xslt"/>
 	<xsl:import href="common_sheet/block_class_features.xslt"/>
 	<xsl:import href="common_sheet/block_equipment.xslt"/>
