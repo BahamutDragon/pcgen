@@ -4,7 +4,8 @@
 # added BAB and moved defines to abilities
 
 # Class Name	Hit Dice	Type			Abbreviation	Source Page		Define									Bonus
-CLASS:Binder	HD:8		TYPE:Base.PC	FACT:Abb|Bdr	DEFINE:BinderLVL|0	BONUS:VAR|BinderLVL|CL	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	SOURCEPAGE:p.9	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Binder	HD:8		TYPE:Base.PC	FACT:Abb|Bdr		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	SOURCEPAGE:p.9	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Binder	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Decipher Script|Diplomacy|Gather Information|Intimidate|Knowledge (arcana)|Knowledge (History)|Knowledge (Religion)|Knowledge (The Planes)|TYPE=Profession|Sense Motive
 ###Block: Profs need to be swapped out for actual prof ability
@@ -19,6 +20,31 @@ CLASS:Binder	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Decipher Scri
 6	ABILITY:Binder Class Feature|AUTOMATIC|Binder ~ Soul Guardian
 ###Block:
 1	BONUS:VAR|BinderEffectiveLVL|CL
+
+1	BONUS:VAR|BinderSoulBindingLVL|1
+1	BONUS:VAR|BinderMaxVestigeLVL|1
+#
+2	BONUS:VAR|BinderPactAugmentationCount|1
+2	BONUS:VAR|BinderSuppressSign|1
+#
+3	BONUS:VAR|BinderMaxVestigeLVL|1
+4	ABILITY:Binder Class Feature|AUTOMATIC|Binder ~ Bonus Feats|!PREABILITY:1,CATEGORY=ACF,TYPE.BinderBonusFeats¶
+5	BONUS:VAR|BinderPactAugmentationCount|1
+5	BONUS:VAR|BinderMaxVestigeLVL|1
+6	BONUS:VAR|BinderSoulGuardianLVL|1
+7	BONUS:VAR|BinderMaxVestigeLVL|1
+8	BONUS:VAR|BinderSoulBindingLVL|1
+9	BONUS:VAR|BinderSoulGuardianLVL|1
+10	BONUS:VAR|BinderPactAugmentationCount|1
+10	BONUS:VAR|BinderMaxVestigeLVL|1
+13	BONUS:VAR|BinderSoulGuardianLVL|1
+14	BONUS:VAR|BinderSoulBindingLVL|1
+15	BONUS:VAR|BinderMaxVestigeLVL|1
+16	BONUS:VAR|BinderPactAugmentationCount|1
+17	BONUS:VAR|BinderMaxVestigeLVL|1
+20	BONUS:VAR|BinderSoulBindingLVL|1
+20	BONUS:VAR|BinderPactAugmentationCount|1
+
 
 # Class Name		Hit Dice	Type			Source Page		Define				Combat bonus												Modify VAR																		Bonus
 CLASS:Shadowcaster	HD:6		TYPE:Shadow Magic	SOURCEPAGE:p.111	DEFINE:ShadowcasterLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ShadowcasterLVL|CL	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
