@@ -8,6 +8,8 @@ CLASS:Ardent	STARTSKILLPTS:2	CSKILL:Autohypnosis|Concentration|TYPE=Craft|Diplom
 CLASS:Ardent	SPELLSTAT:WIS	FACT:SpellType|Psionic	MEMORIZE:NO		DEFINE:Caster_Level_Ardent|0	BONUS:CASTERLEVEL|Ardent|Caster_Level_BL_Stripped_Ardent	BONUS:VAR|Caster_Level_Ardent|CL+Caster_Level_Bonus	BONUS:VAR|Caster_Level_Highest__Psionic|Caster_Level_Ardent|TYPE=Base	SPELLLIST:3|Ardent|Ardent Mantle|Mantle
 ###Block:
 1	ABILITY:Ardent Class Feature|AUTOMATIC|Ardent ~ Assume Psionic Mantle|Ardent ~ Power Points/Day|Ardent ~ Weapon and Armor Proficiency
+###Block: 
+1	TEMPLATE:Psionic
 ###Block
 1	KNOWN:0,0,0,0,0,0,0,0,0,2
 2	KNOWN:0,0,0,0,0,0,0,0,0,3
@@ -94,6 +96,8 @@ CLASS:Divine Mind	SPELLSTAT:WIS	FACT:SpellType|Psionic	MEMORIZE:NO	BONUS:CASTERL
 18	BONUS:VAR|BasePowerPoints|50|TYPE=Base
 19	BONUS:VAR|BasePowerPoints|55|TYPE=Base
 20	BONUS:VAR|BasePowerPoints|62|TYPE=Base
+###Block: 
+1	TEMPLATE:Psionic
 
 #
 1	BONUS:VAR|DivineMindPsychicAuraRange|((CL+1)/2)*5	DEFINE:DivineMindPsychicAuraRange|0
@@ -135,6 +139,8 @@ CLASS:Lurk		SPELLSTAT:INT	FACT:SpellType|Psionic	BONUS:CASTERLEVEL|Lurk|Caster_L
 6	ABILITY:Lurk Class Feature|AUTOMATIC|Lurk ~ Initiative Boost
 9	ABILITY:Lurk Class Feature|AUTOMATIC|Lurk ~ Evasion
 15	ABILITY:Lurk Class Feature|AUTOMATIC|Lurk ~ Slippery Mind
+###Block: 
+1	TEMPLATE:Psionic
 ###Block:
 2	BONUS:VAR|PsionicSneakAttackDice|(CL+3)/5	DEFINE:PsionicSneakAttackDice|0
 ###Block: Power Points
@@ -194,16 +200,16 @@ CLASS:Mantle	VISIBLE:NO
 
 
 # Class Name	Hit Dice	Type				Source Page		Combat bonus															Modify VAR													Bonus
-CLASS:Erudite	HD:4		TYPE:Base.Psionic.PC	SOURCEPAGE:p.154	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	DEFINE:EruditeLVL|0	BONUS:VAR|EruditeLVL|CL
+CLASS:Erudite	HD:4		TYPE:Base.Psionic.PC	SOURCEPAGE:p.154	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	DEFINE:EruditeLVL|0	BONUS:VAR|EruditeLVL|classlevel()	DEFINE:EruditeML|0
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Erudite	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher Script|Gather Information|TYPE=Knowledge|TYPE=Profession|Psicraft
 # Class Name	Spell Stat		Spell Type		Memorize		Caster level			Use Spell List
-CLASS:Erudite	SPELLSTAT:INT	FACT:SpellType|Psionic	MEMORIZE:YES	BONUS:CASTERLEVEL|Erudite|Caster_Level_BL_Stripped_Erudite	DEFINE:Caster_Level_BL_Stripped_Erudite|0	BONUS:VAR|Caster_Level_BL_Stripped_Erudite|Caster_Level_Erudite-CasterLevelBLErudite	BONUS:VAR|Caster_Level_Erudite|CL+Caster_Level_Bonus+CasterLevelBLErudite	DEFINE:CasterLevelBLErudite|0	BONUS:VAR|CasterLevelBL_x_Erudite|charbonusto("PCLEVEL","Erudite")	BONUS:VAR|Caster_Level_Highest__Psionic|Caster_Level_Erudite|TYPE=Base	SPELLLIST:9|Egoist|Kineticist|Nomad|Psion|Psychic Warrior|Seer|Shaper|Telepath|Wilder
+CLASS:Erudite	SPELLSTAT:INT	FACT:SpellType|Psionic	MEMORIZE:YES	BONUS:CASTERLEVEL|Erudite|EruditeML		BONUS:VAR|Caster_Level_Highest__Psionic|EruditeML|TYPE=Base	SPELLLIST:9|Egoist|Kineticist|Nomad|Psion|Psychic Warrior|Seer|Shaper|Telepath|Wilder
 ###Block:Special Abilities
 1	ABILITY:Erudite Class Feature|AUTOMATIC|Erudite ~ Bonus Feat|Erudite ~ Power Points/Day|Erudite ~ Powers Discovered (Repertoire)|Erudite ~ Psicrystal Affinity|Erudite ~ Unique Powers per Day|Erudite ~ Weapon and Armor Proficiency
 ###Block:Bonus Feats
 1	BONUS:VAR|EruditeBonusFeatCount|1|!PREABILITY:1,CATEGORY=ACF,TYPE.EruditeBonusFeatLvl1
-5	BONUS:VAR|EruditeBonusFeatCount|CL/5
+5	BONUS:VAR|EruditeBonusFeatCount|EruditeLVL/5
 ###Block:Unique Powers per Day
 1	CAST:0,2
 2	CAST:0,4
@@ -226,13 +232,15 @@ CLASS:Erudite	SPELLSTAT:INT	FACT:SpellType|Psionic	MEMORIZE:YES	BONUS:CASTERLEVE
 19	CAST:0,4,4,4,4,4,4,4,4,6
 20	CAST:0,4,4,4,4,4,4,4,4,8
 ###Block:Power Points
-1	BONUS:VAR|EruditeML|CL	BONUS:VAR|EruditeML|var("BL=Erudite")																										DEFINE:EruditeML|0	TEMPLATE:Psionic
+1	BONUS:VAR|EruditeML|EruditeLVL	BONUS:VAR|EruditeML|var("BL=Erudite")																										DEFINE:EruditeML|0	TEMPLATE:Psionic
 1	BONUS:VAR|BasePowerPoints|2	BONUS:VAR|BasePowerPoints|4|PREVARGTEQ:EruditeML,2	BONUS:VAR|BasePowerPoints|5|PREVARGTEQ:EruditeML,3	BONUS:VAR|BasePowerPoints|6|PREVARGTEQ:EruditeML,4
 1	BONUS:VAR|BasePowerPoints|8|PREVARGTEQ:EruditeML,5	BONUS:VAR|BasePowerPoints|10|PREVARGTEQ:EruditeML,6	BONUS:VAR|BasePowerPoints|11|PREVARGTEQ:EruditeML,7	BONUS:VAR|BasePowerPoints|12|PREVARGTEQ:EruditeML,8
 1	BONUS:VAR|BasePowerPoints|14|PREVARGTEQ:EruditeML,9	BONUS:VAR|BasePowerPoints|16|PREVARGTEQ:EruditeML,10	BONUS:VAR|BasePowerPoints|18|PREVARGTEQ:EruditeML,11	BONUS:VAR|BasePowerPoints|20|PREVARGTEQ:EruditeML,12
 1	BONUS:VAR|BasePowerPoints|21|PREVARGTEQ:EruditeML,13	BONUS:VAR|BasePowerPoints|23|PREVARGTEQ:EruditeML,14	BONUS:VAR|BasePowerPoints|25|PREVARGTEQ:EruditeML,15	BONUS:VAR|BasePowerPoints|26|PREVARGTEQ:EruditeML,16
 1	BONUS:VAR|BasePowerPoints|29|PREVARGTEQ:EruditeML,17	BONUS:VAR|BasePowerPoints|30|PREVARGTEQ:EruditeML,18	BONUS:VAR|BasePowerPoints|31|PREVARGTEQ:EruditeML,19	BONUS:VAR|BasePowerPoints|32|PREVARGTEQ:EruditeML,20
 1	BONUS:VAR|BonusPowerPoints|(INT*EruditeML)/2|TYPE=PsionBonusPP
+###Block: 
+1	TEMPLATE:Psionic
 
 
 ###Block: Prestige
