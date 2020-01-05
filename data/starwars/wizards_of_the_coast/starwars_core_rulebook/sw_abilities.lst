@@ -137,7 +137,7 @@ Evasion			KEY:Scout Class Feature ~ Evasion			CATEGORY:Class Feature	TYPE:Class 
 Extreme Effort		KEY:Scout Class Feature ~ Extreme Effort		CATEGORY:Class Feature	TYPE:Class Feature.Scout Class Feature.Display	SOURCEPAGE:p.49															DESC:The scout can push himself to make an extreme effort a number of times per day based on the character’s scout level (but only once in any encounter). The effort must relate to either a Strength check, a Strength-based skill check, or a melee attack. You can decide to use this class feature after making a die roll but before the GM reveals the result of the check or attack roll. The effort provides a circumstance bonus based on the character’s scout level. Making an extreme effort also hinders the scout with a penalty to Defense for 1 round. After making an extreme effort, the scout becomes fatigued until the end of the current encounter. [Circumstance Bonus +%1; Penalty to Defense -%2; Uses: %3/day]|ScoutExtremeEffort_Bonus|ScoutExtremeEffort_Penalty|ScoutExtremeEffort_Uses	DEFINE:ScoutExtremeEffort_Bonus|0	DEFINE:ScoutExtremeEffort_Penalty|0	DEFINE:ScoutExtremeEffort_Uses|0	BONUS:VAR|ScoutExtremeEffort_Bonus|3+(ScoutLVL>=8)+(ScoutLVL>=12)+(ScoutLVL>=16)+(ScoutLVL>=19)	BONUS:VAR|ScoutExtremeEffort_Penalty|2+(ScoutLVL>=8)+(ScoutLVL>=12)+(ScoutLVL>=16)+(ScoutLVL>=19)	BONUS:VAR|ScoutExtremeEffort_Uses|1+(ScoutLVL>=8)+(ScoutLVL>=12)+(ScoutLVL>=16)+(ScoutLVL>=19)
 Credits			KEY:Scout Class Feature ~ Credits			CATEGORY:Class Feature	TYPE:Class Feature.Scout Class Feature.Display	SOURCEPAGE:p.49															DESC:A 1st-level scout starts play with 1d6 x 500 credits.
 
-Skill Mastery										CATEGORY:Class Feature	TYPE:Class Feature.Display														CHOOSE:SKILL	MULT:YES	STACK:NO	DESC:%1|%LIST
+Skill Mastery										CATEGORY:Class Feature	TYPE:Class Feature.Display														CHOOSE:SKILL|ALL	MULT:YES	STACK:NO	DESC:%1|%LIST
 
 Soldier			KEY:Soldier	CATEGORY:Class	BONUS:VAR|AC_CLASS|(SoldierLVL+5)/2	BONUS:VAR|Reputation|(SoldierLVL+2)/4
 #
@@ -162,11 +162,50 @@ Force Adept	CATEGORY:Class	BONUS:VAR|AC_CLASS|3+(ForceAdeptLVL>=2)+(ForceAdeptLV
 Force Training		KEY:Force Adept Class Feature ~ Force Training			CATEGORY:Class Feature	TYPE:Class Feature.Force Adept Class Feature.Display	SOURCEPAGE:p.55	BONUS:ABILITYPOOL|Force Training|1+(ForceAdeptLVL>=3)+(ForceAdeptLVL>=4)					DESC:The Force Adept gains a bonus Force feat at 1st, 2nd, and 4th level. This bonus Force feat is selected from the following list. Alter, Control, Sense. Once one of these feats is selected, its associated Force skills become class skills foe the character.
 Bonus Feats			KEY:Force Adept Class Feature ~ Bonus Feats			CATEGORY:Class Feature	TYPE:Class Feature.Force Adept Class Feature.Display	SOURCEPAGE:p.55	BONUS:ABILITYPOOL|Force Adept Bonus Feat|1+(ForceAdeptLVL>=9)+(ForceAdeptLVL>=14)+(ForceAdeptLVL>=20)	DESC:At 3rd, 9th, 14th, and 20th level, the Force Adept gains a bonus feat. This feat must be selected from the following list, and the Force Adept must meet any prerequisites. Alertness, Animal Affinity, Endurance, Frightful Presence, Link, Mind Trick, Mimic, Stealthy, Track
 Force Weapon		KEY:Force Adept Class Feature ~ Force Weapon			CATEGORY:Class Feature	TYPE:Class Feature.Force Adept Class Feature.Display	SOURCEPAGE:p.55																		DESC:At 5th level, a Force Adept can imbue a non-powered melee weapon (such as a club, a knife, or a quarterstaff) with the Force. This must be a weapon that the Force Adept wields personally. It takes a full-round action to imbue the weapon with the Force, and costs 3 vitality points. The benefit the weapon gains lasts for a number of rounds equal to the character’s Force Adept level. At 5th level, the weapon’s damage increases by +1d8. (So, a Force-imbued quarterstaff deals 1d6 + 1d8 damage.) At 13th level, the weapon’s damage Increase by an additional +1d8 (for a total of +2d8). A Force-imbued weapon gains another benefit when used against a lightsaber. If the wielder of a lightsaber attempts to strike a Force-imbued weapon wielded by an opponent, the lightsaber does not ignore the damage reduction of the Force-imbued weapon.
-Skill Emphasis		KEY:Force Adept Class Feature ~ Skill Emphasis			CATEGORY:Class Feature	TYPE:Class Feature.Force Adept Class Feature.Display	SOURCEPAGE:p.56																		DESC:
-Comprehend Speech		KEY:Force Adept Class Feature ~ Comprehend Speech		CATEGORY:Class Feature	TYPE:Class Feature.Force Adept Class Feature.Display	SOURCEPAGE:p.56																		DESC:
-Force Talisman		KEY:Force Adept Class Feature ~ Force Talisman			CATEGORY:Class Feature	TYPE:Class Feature.Force Adept Class Feature.Display	SOURCEPAGE:p.56																		DESC:
-Force Secret		KEY:Force Adept Class Feature ~ Force Secret			CATEGORY:Class Feature	TYPE:Class Feature.Force Adept Class Feature.Display	SOURCEPAGE:p.56																		DESC:
-Credits			KEY:Force Adept Class Feature ~ Credits				CATEGORY:Class Feature	TYPE:Class Feature.Force Adept Class Feature.Display	SOURCEPAGE:p.56																		DESC:
+Skill Emphasis		KEY:Force Adept Class Feature ~ Skill Emphasis			CATEGORY:Class Feature	TYPE:Class Feature.Force Adept Class Feature.Display	SOURCEPAGE:p.56	BONUS:ABILITYPOOL|Skill Emphasis|ForceAdeptLVL/6									DESC:At 6th, 12th, and 18th level, the Force Adept gains a Skill Emphasis bonus feat. Each time the Force Adept gains this bonus feat, it must be applied to a different skill that the Force Adept already has ranks in, including Force skills.
+Comprehend Speech		KEY:Force Adept Class Feature ~ Comprehend Speech		CATEGORY:Class Feature	TYPE:Class Feature.Force Adept Class Feature.Display	SOURCEPAGE:p.56																		DESC:At 7th level, a Force Adept gains the Force ability to comprehend any spoken language. The Force Adept can’t speak any language through this ability, only understand them.
+Force Talisman		KEY:Force Adept Class Feature ~ Force Talisman			CATEGORY:Class Feature	TYPE:Class Feature.Force Adept Class Feature.Display	SOURCEPAGE:p.56																		DESC:At 8th level, a Force Adept gains the ability to imbue a small item of personal significance with the Force. It takes a full day to imbue the item, as well as the expenditure of 1 Force Point. Once imbued, the item becomes a Force talisman, providing the Force Adept with a +2 on saving throws made to defend against Force skills or Force feats. At 15th level, the same process can increase the power of the Force talisman; it then provides a +4 bonus. This bonus is only for the creator of the Force talisman.
+Force Secret		KEY:Force Adept Class Feature ~ Force Secret			CATEGORY:Class Feature	TYPE:Class Feature.Force Adept Class Feature.Display	SOURCEPAGE:p.56	BONUS:ABILITYPOOL|Force Secret|1+(ForceAdeptLVL>=16)									DESC:The Force Adept discovers a Force Secret at 11th and 16th level. Each time, the Force Adept may select the same or a different secret. &nl;Improved Affect Mind: Increase the DC to saves by +1. &nl;Improved Battle Influence: Increase the DC to saves by +1. &nl;Improved Battlemind: Increase the bonus on attack rolls provided by the skill by +1. &nl;Improved Control Mind: Increase the bonus proved by the skill by +1. &nl;Improved Drain Energy: Increase the DC to saves by +1. &nl;Improved Empathy: Increase the bonus proved by the skill by +1. &nl;Improved Force Defense: Increase the bonus on saving throws provided by the skill by +1. &nl;Improved Force Grip: Increase the damage dealt by the skill by +1. &nl;Improved Force Strike: Increase the damage dealt by the skill by +1. &nl;Improved Friendship: Increase the DC to saves by +1. &nl;Improved Heal Another: Increase the amount of healing by +1. &nl;Improved Heal Self: Increase amount of healing by +1. &nl;Improved Illusion: Increase the DC to saves by +1. &nl;Improved Inspire: Increase the bonus proved by the skill by +1. &nl;Improved Plant Surge: Increase the DC to saves by +1. &nl;Improved Sever Force: Increase the DC to saves by +1. &nl;Improved Force Skill: Add a +1 Force bonus to any one Force skill the character has ranks in.
+Credits			KEY:Force Adept Class Feature ~ Credits				CATEGORY:Class Feature	TYPE:Class Feature.Force Adept Class Feature.Display	SOURCEPAGE:p.56																		DESC:A 1st level Force Adept starts play with 1d4 x 500 credits.
+
+
+
+Improved Affect Mind		KEY:Force Secret ~ Improved Affect Mind				SOURCEPAGE:p.	CATEGORY:Class Feature	TYPE:Class Feature.Force Class Feature.SpecialQuality.Display.Force Secret					DESC:Increase the DC to saves by +1.
+Improved Battle Influence	KEY:Force Secret ~ Improved Battle Influence			SOURCEPAGE:p.	CATEGORY:Class Feature	TYPE:Class Feature.Force Class Feature.SpecialQuality.Display.Force Secret					DESC:Increase the DC to saves by +1.
+Improved Battlemind		KEY:Force Secret ~ Improved Battlemind				SOURCEPAGE:p.	CATEGORY:Class Feature	TYPE:Class Feature.Force Class Feature.SpecialQuality.Display.Force Secret					DESC:Increase the bonus on attack rolls provided by the skill by +1.
+Improved Control Mind		KEY:Force Secret ~ Improved Control Mind				SOURCEPAGE:p.	CATEGORY:Class Feature	TYPE:Class Feature.Force Class Feature.SpecialQuality.Display.Force Secret					DESC:Increase the bonus proved by the skill by +1.
+Improved Drain Energy		KEY:Force Secret ~ Improved Drain Energy				SOURCEPAGE:p.	CATEGORY:Class Feature	TYPE:Class Feature.Force Class Feature.SpecialQuality.Display.Force Secret					DESC:Increase the DC to saves by +1.
+Improved Empathy			KEY:Force Secret ~ Improved Empathy					SOURCEPAGE:p.	CATEGORY:Class Feature	TYPE:Class Feature.Force Class Feature.SpecialQuality.Display.Force Secret					DESC:Increase the bonus proved by the skill by +1.
+Improved Force Defense		KEY:Force Secret ~ Improved Force Defense				SOURCEPAGE:p.	CATEGORY:Class Feature	TYPE:Class Feature.Force Class Feature.SpecialQuality.Display.Force Secret					DESC:Increase the bonus on saving throws provided by the skill by +1.
+Improved Force Grip		KEY:Force Secret ~ Improved Force Grip				SOURCEPAGE:p.	CATEGORY:Class Feature	TYPE:Class Feature.Force Class Feature.SpecialQuality.Display.Force Secret					DESC:Increase the damage dealt by the skill by +1.
+Improved Force Strike		KEY:Force Secret ~ Improved Force Strike				SOURCEPAGE:p.	CATEGORY:Class Feature	TYPE:Class Feature.Force Class Feature.SpecialQuality.Display.Force Secret					DESC:Increase the damage dealt by the skill by +1.
+Improved Friendship		KEY:Force Secret ~ Improved Friendship				SOURCEPAGE:p.	CATEGORY:Class Feature	TYPE:Class Feature.Force Class Feature.SpecialQuality.Display.Force Secret					DESC:Increase the DC to saves by +1.
+Improved Heal Another		KEY:Force Secret ~ Improved Heal Another				SOURCEPAGE:p.	CATEGORY:Class Feature	TYPE:Class Feature.Force Class Feature.SpecialQuality.Display.Force Secret					DESC:Increase the amount of healing by +1.
+Improved Heal Self		KEY:Force Secret ~ Improved Heal Self				SOURCEPAGE:p.	CATEGORY:Class Feature	TYPE:Class Feature.Force Class Feature.SpecialQuality.Display.Force Secret					DESC:Increase amount of healing by +1.
+Improved Illusion			KEY:Force Secret ~ Improved Illusion				SOURCEPAGE:p.	CATEGORY:Class Feature	TYPE:Class Feature.Force Class Feature.SpecialQuality.Display.Force Secret					DESC:Increase the DC to saves by +1.
+Improved Inspire			KEY:Force Secret ~ Improved Inspire					SOURCEPAGE:p.	CATEGORY:Class Feature	TYPE:Class Feature.Force Class Feature.SpecialQuality.Display.Force Secret					DESC:Increase the bonus proved by the skill by +1.
+Improved Plant Surge		KEY:Force Secret ~ Improved Plant Surge				SOURCEPAGE:p.	CATEGORY:Class Feature	TYPE:Class Feature.Force Class Feature.SpecialQuality.Display.Force Secret					DESC:Increase the DC to saves by +1.
+Improved Sever Force		KEY:Force Secret ~ Improved Sever Force				SOURCEPAGE:p.	CATEGORY:Class Feature	TYPE:Class Feature.Force Class Feature.SpecialQuality.Display.Force Secret					DESC:Increase the DC to saves by +1.
+Improved Force Skill		KEY:Force Secret ~ Improved Force Skill				SOURCEPAGE:p.	CATEGORY:Class Feature	TYPE:Class Feature.Force Class Feature.SpecialQuality.Display.Force Secret					DESC:Add a +1 Force bonus to any one Force skill the character has ranks in.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 Jedi Consular	CATEGORY:Class	BONUS:VAR|AC_CLASS|3+(JediConsularLVL>=2)+(JediConsularLVL>=5)+(JediConsularLVL>=7)+(JediConsularLVL>=10)+(JediConsularLVL>=12)+(JediConsularLVL>=15)+(JediConsularLVL>=17)+(JediConsularLVL>=20)	BONUS:VAR|Reputation|1+(JediConsularLVL)/4
