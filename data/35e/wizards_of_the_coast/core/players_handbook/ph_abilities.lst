@@ -2120,6 +2120,99 @@ Add Language	SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:GM_Award.SpecialQuali
 +1 Level 9 Spell Cast	SORTKEY:Z_Award	CATEGORY:Special Ability	TYPE:SpecialQuality.GM Bonus Spell Cast	DESC:GM awarded PC with +1 level 9 spell per day.	STACK:YES	MULT:YES	CHOOSE:CLASS|SPELLCASTER	BONUS:SPELLCAST|CLASS=%LIST;LEVEL=9|1
 
 
+###Block -  Support
+Card Deck ~ Eurayle	SORTKEY:Z_Award	CATEGORY:Special Ability	COST:0	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	TYPE:GM_Award.SpecialQuality	BONUS:SAVE|ALL|-2		DESC:-2 all saving throws
+Card Deck ~ Gem		SORTKEY:Z_Award	CATEGORY:Special Ability	COST:0	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	TYPE:GM_Award.SpecialQuality	ABILITY:Internal|AUTOMATIC|Deck of Many Things ~ Gem		DESC:Gain DR (half ECL/-). Subsequent draws will result in +DR 1/-
+Card Deck ~ Knight	SORTKEY:Z_Award	CATEGORY:Special Ability	COST:0	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	TYPE:GM_Award.SpecialQuality	ABILITY:Internal|AUTOMATIC|Deck of Many Things ~ Knight	DESC:Gain +10 Move Speed.  Subsequent draws will result in +5 Move Speed
+Card Deck ~ Rogue		SORTKEY:Z_Award	CATEGORY:Special Ability	COST:0	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	TYPE:GM_Award.SpecialQuality	ABILITY:Internal|AUTOMATIC|Deck of Many Things ~ Rogue		DESC:Gain 120ft Darkvision.  Subsequent draws will result in +1 Reflex save, -1 Fort/Will Saves
+Card Deck ~ Skull		SORTKEY:Z_Award	CATEGORY:Special Ability	COST:0	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	TYPE:GM_Award.SpecialQuality	ABILITY:Internal|AUTOMATIC|Deck of Many Things ~ Skull		DESC:Immune to Poison and Disease, gain DR 5/Bludgeoning, Immunity to Cold.  Subsequent draws will result in +DR 2/Bludgeoning
+Card Deck ~ Sun		SORTKEY:Z_Award	CATEGORY:Special Ability	COST:0	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	TYPE:GM_Award.SpecialQuality		DESC:Immunity to Fire
+Card Deck ~ Throne	SORTKEY:Z_Award	CATEGORY:Special Ability	COST:0	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	TYPE:GM_Award.SpecialQuality		DESC:Immune to Fear
+
+
+Deck of Many Things ~ Gem	CATEGORY:Internal	TYPE:Tracker		DR:DoMT_DR/-	BONUS:DR|-|count("ABILITIES","KEY=Card Deck ~ Gem")-1	DEFINE:DoMT_DR|0	BONUS:VAR|DoMT_DR|floor(TL/2)
+Deck of Many Things ~ Knight	CATEGORY:Internal	TYPE:Tracker							BONUS:MOVEADD|TYPE.Walk|5+(5*count("ABILITIES","KEY=Card Deck ~ Knight"))		DESC:Gain +10 Move Speed.  Subsequent draws will result in +5 Move Speed
+Deck of Many Things ~ Rogue	CATEGORY:Internal	TYPE:Tracker	BONUS:VAR|DarkvisionRange|120|TYPE=Base	BONUS:SAVE|Reflex|count("ABILITIES","KEY=Card Deck ~ Rogue")-1	BONUS:SAVE|Fortitude,Will|-(count("ABILITIES","KEY=Card Deck ~ Rogue")-1)	DESC:Gain 120ft Darkvision.  Subsequent draws will result in +1 Reflex save, -1 Fort/Will Saves
+Deck of Many Things ~ Skull	CATEGORY:Internal	TYPE:Tracker		DR:3/bludgeoning	BONUS:DR|bludgeoning|count("ABILITIES","KEY=Card Deck ~ Skull")*2	DESC:Immune to Poison and Disease, gain DR 5/Bludgeoning, Immunity to Cold.  Subsequent draws will result in +DR 2/Bludgeoning
+
+
+
+#Balance 	Raise your lowest ability score by 2 and lower your highest by 2
+#Comet 	Gain cantrip of your choice - At Will 3/day
+#Donjon 	Gain map to forgotten tomb
+#Eurayle 	-2 to all saving throws
+#The Fates 	1/day reroll any roll or avoid any situation once (using will negate other effect)
+#Flames 	2xfire damage. Bonfire or larger - DC 15 Will Save or be shaken for 1d10 rounds
+#Fool 	Everyone in the party loses 1 level and you must draw again. Remove from deck once drawn
+#Gem 	Gain 1d4 Con and DR (half ECL)/-, lose same amount of Dex and Cha
+#Idiot 	Lose 1d4+1 Int or Wis. You may draw again
+#Jester 	Everyone in the party gains 1 level. You may draw again. Remove from deck once drawn
+#Key 	HP increases by 1d20+Con modifier+ECL
+#Knight 	Gain +10 move speed
+#Moon 	Increase one of your ability scores by 2. Can't be your highest
+#Rogue 	Gain 120ft Darkvision and Light Blindness as Drow (-1 attack rolls/Search/Spot)
+#Ruin 	Carrion curse: Contagion every 1d10 days, DC 18 Fort save. Wish can cure
+#Skull 	Lose 1d4+1 Con. Immune to poison and disease, gain DR 5/blugeoning, Immunity to cold/vuln to fire
+#Star 	You are granted 1d4 wishes
+#Sun 	Immunity to fire/vuln to cold. At will spell from Light list using d8
+#Talons 	Raven appears to ask riddle. Correct answer gains 1d4+1 Int or Wis. Incorrect answer loses same
+#Throne 	Immune to fear, +2 Con, +1 attack bonus with one melee weapon of your choice
+#Vizier 	Get to ask the DM 1 meta question any time
+#The Void 	Decrease one of your ability scores by 2. Can't be your lowest
+#
+#And here's the effects of cards once they're pulled more than once:
+#
+#Flames 	DC Will save +2, increases fear effect by 1 step
+#Gem 	Gain 1 Con and +DR 1/-, lose same amount of Dex and Cha
+#Key 	HP increases by 1d10+Con modifier+ECL
+#Knight 	Gain +5 move speed
+#Rogue 	+1 Reflex save, -1 Fort and Will saves
+#Ruin 	+1 disease and +2 to Fort save
+#Skull 	Lose 1 Con, gain +DR 2/blugeoning
+#
+#
+#
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ###Block - Companion Support to Master
 Master Granted / Companion ~ Bat			CATEGORY:Internal	TYPE:Familiar					BONUS:SKILL|Listen|3*FamiliarBonus		ABILITY:FEAT|VIRTUAL|Alertness						
