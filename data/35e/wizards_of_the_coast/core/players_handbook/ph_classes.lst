@@ -38,7 +38,7 @@ CLASS:Bard		HD:6		TYPE:Base.PC.Spellcaster.Arcane	FACT:ClassType|PC	FACT:Abb|Brd
 # Class Name	Restricted AL
 CLASS:Bard		!PREALIGN:LG,LN,LE
 # Class Name	Skill Pts/Lvl	Class Skill
-CLASS:Bard		STARTSKILLPTS:6	
+CLASS:Bard		STARTSKILLPTS:6
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
 CLASS:Bard		FACT:SpellType|Arcane
 CLASS:Bard		SPELLSTAT:CHA	MEMORIZE:NO
@@ -87,8 +87,8 @@ CLASS:Cleric	SPELLSTAT:WIS	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|L
 1	ABILITY:Cleric Class Feature|AUTOMATIC|Cleric ~ Spontaneous Casting|!PREABILITY:1,CATEGORY=ACF,TYPE.ClericSpontaneousCasting|!PREABILITY:1,CATEGORY=Special Ability,Ex-Cleric
 1	ABILITY:Cleric Class Feature|AUTOMATIC|Cleric ~ Turn or Rebuke Undead|!PREABILITY:1,CATEGORY=ACF,TYPE.ClericTurnUndead|!PREABILITY:1,CATEGORY=Special Ability,Ex-Cleric
 1	BONUS:VAR|DomainCount|0-DomainCount|PREABILITY:1,CATEGORY=Special Ability,Ex-Cleric
-1	BONUS:ABILITYPOOL|Cleric Standing|1		
-1	BONUS:STAT|BASESPELLKNOWNSTAT;Class=Cleric|(0-((2*WIS)+10))-1|PREABILITY:1,CATEGORY=Special Ability,Ex-Cleric	BONUS:STAT|BASESPELLSTAT;Class=Cleric|(0-((2*WIS)+10))-1|PREABILITY:1,CATEGORY=Special Ability,Ex-Cleric	
+1	BONUS:ABILITYPOOL|Cleric Standing|1
+1	BONUS:STAT|BASESPELLKNOWNSTAT;Class=Cleric|(0-((2*WIS)+10))-1|PREABILITY:1,CATEGORY=Special Ability,Ex-Cleric	BONUS:STAT|BASESPELLSTAT;Class=Cleric|(0-((2*WIS)+10))-1|PREABILITY:1,CATEGORY=Special Ability,Ex-Cleric
 #Disable Level 0 spells for fallen clerics
 1	BONUS:PCLEVEL|Cleric|-CL|PREABILITY:1,CATEGORY=Special Ability,Ex-Cleric		BONUS:PCLEVEL|Cleric|-charbonusto("PCLEVEL","Cleric")|PREABILITY:1,CATEGORY=Special Ability,Ex-Cleric
 ###Block:
@@ -357,21 +357,21 @@ CLASS:Wizard	SPELLSTAT:INT	MEMORIZE:YES	KNOWNSPELLS:LEVEL=0			SPELLBOOK:YES
 #	COST bonuses the Number of Choices, PROHIBITCOST designates how expensive the school is to prohibit, 0 is cannot prohibit, and CHOICE:SCHOOL removes the School from Selection
 #SUBCLASS:Wizard Subclass		CHOICE:SCHOOL|Universal	COST:0	BONUS:ABILITYPOOL|Wizard Subclass|1
 SUBCLASS:Abjurer		COST:0	PROHIBITCOST:0	CHOICE:SCHOOL|Abjuration
-SUBCLASSLEVEL:1	ABILITY:Special Ability|AUTOMATIC|Abjurer
+SUBCLASSLEVEL:1	ABILITY:Special Ability|AUTOMATIC|Abjurer		DEFINE:WizardAbjurerLVL|0	BONUS:VAR|WizardAbjurerLVL|CL
 SUBCLASS:Conjurer		COST:0	PROHIBITCOST:0	CHOICE:SCHOOL|Conjuration
-SUBCLASSLEVEL:1	ABILITY:Special Ability|AUTOMATIC|Conjurer
+SUBCLASSLEVEL:1	ABILITY:Special Ability|AUTOMATIC|Conjurer		DEFINE:WizardConjurerLVL|0	BONUS:VAR|WizardConjurerLVL|CL
 SUBCLASS:Diviner		COST:0	PROHIBITCOST:0	CHOICE:SCHOOL|Divination
-SUBCLASSLEVEL:1	ABILITY:Special Ability|AUTOMATIC|Diviner
+SUBCLASSLEVEL:1	ABILITY:Special Ability|AUTOMATIC|Diviner		DEFINE:WizardDivinerLVL|0	BONUS:VAR|WizardDivinerLVL|CL
 SUBCLASS:Enchanter	COST:0	PROHIBITCOST:0	CHOICE:SCHOOL|Enchantment
-SUBCLASSLEVEL:1	ABILITY:Special Ability|AUTOMATIC|Enchanter
+SUBCLASSLEVEL:1	ABILITY:Special Ability|AUTOMATIC|Enchanter		DEFINE:WizardEnchanterLVL|0	BONUS:VAR|WizardEnchanterLVL|CL
 SUBCLASS:Evoker		COST:0	PROHIBITCOST:0	CHOICE:SCHOOL|Evocation
-SUBCLASSLEVEL:1	ABILITY:Special Ability|AUTOMATIC|Evoker
+SUBCLASSLEVEL:1	ABILITY:Special Ability|AUTOMATIC|Evoker		DEFINE:WizardEvokerLVL|0	BONUS:VAR|WizardEvokerLVL|CL
 SUBCLASS:Illusionist	COST:0	PROHIBITCOST:0	CHOICE:SCHOOL|Illusion
-SUBCLASSLEVEL:1	ABILITY:Special Ability|AUTOMATIC|Illusionist
+SUBCLASSLEVEL:1	ABILITY:Special Ability|AUTOMATIC|Illusionist		DEFINE:WizardIllusionistLVL|0	BONUS:VAR|WizardIllusionistLVL|CL
 SUBCLASS:Necromancer	COST:0	PROHIBITCOST:0	CHOICE:SCHOOL|Necromancy
-SUBCLASSLEVEL:1	ABILITY:Special Ability|AUTOMATIC|Necromancer
+SUBCLASSLEVEL:1	ABILITY:Special Ability|AUTOMATIC|Necromancer		DEFINE:WizardNecromancerLVL|0	BONUS:VAR|WizardNecromancerLVL|CL
 SUBCLASS:Transmuter	COST:0	PROHIBITCOST:0	CHOICE:SCHOOL|Transmutation
-SUBCLASSLEVEL:1	ABILITY:Special Ability|AUTOMATIC|Transmuter
+SUBCLASSLEVEL:1	ABILITY:Special Ability|AUTOMATIC|Transmuter		DEFINE:WizardTransmuterLVL|0	BONUS:VAR|WizardTransmuterLVL|CL
 ###Block:
 1	ABILITY:Wizard Class Feature|AUTOMATIC|Wizard ~ Weapon and Armor Proficiency|!PREABILITY:1,CATEGORY=ACF,TYPE.WizardProficiencies
 1	ABILITY:Wizard Class Feature|AUTOMATIC|Wizard ~ Familiar|!PREABILITY:1,CATEGORY=ACF,TYPE.WizardSummonFamiliar
@@ -424,4 +424,3 @@ CLASS:Wizard.MOD	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ
 
 # Class Name		Modify VAR
 CLASS:Sorcerer.MOD	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	ABILITY:Class|AUTOMATIC|Sorcerer
-
