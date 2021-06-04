@@ -110,11 +110,14 @@ CLASS:Deepstone Sentinel	STARTSKILLPTS:2	CSKILL:Balance|Concentration|TYPE=Craft
 5	BONUS:ABILITYPOOL|Martial Maneuvers Known|1
 
 # Class Name		Hit Dice	Type			Source Page		Combat bonus										Bonus
-CLASS:Eternal Blade	HD:10		TYPE:Prestige.PC	SOURCEPAGE:p.109	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Eternal Blade	HD:10		TYPE:Prestige.PC	SOURCEPAGE:p.109	DEFINE:Eternal_BladeLVL|0	BONUS:VAR|Eternal_BladeLVL|CL	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name		Required Feat		Multiple Requirements																						Required Race	Required Text											PRETOTALAB
 CLASS:Eternal Blade	PREABILITY:1,CATEGORY=FEAT,Weapon Focus	PREMULT:1,[PREABILITY:2,CATEGORY=Special Ability,TYPE.Devoted Spirit Maneuver],[PREABILITY:2,CATEGORY=Special Ability,TYPE.Diamond Mind Maneuver]	PRERACE:1,Elf	PRETEXT:Martial Maneuvers: Any two Devoted Spirit or Diamond Mind maneuvers.	PRETOTALAB:10
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Eternal Blade	STARTSKILLPTS:2	CSKILL:Climb|Concentration|Diplomacy|Handle Animal|Intimidate|Jump|Martial Lore|Ride|Sense Motive|Tumble
+# Class Name	Spell Stat		Spell Stat Bonus		Spell Type		Memorize	Caster level
+CLASS:Eternal Blade	SPELLSTAT:WIS	BONUSSPELLSTAT:NONE	FACT:SpellType|Martial	MEMORIZE:NO	BONUS:CASTERLEVEL|Eternal Blade|InitiatorManueverLVL
+
 ###Block:
 1	ABILITY:Eternal Blade Class Feature|AUTOMATIC|Eternal Blade ~ Maneuvers|Eternal Blade ~ Stances Known
 1	ABILITY:Eternal Blade Class Feature|AUTOMATIC|Eternal Blade ~ Blade Guide|Eternal Blade ~ Eternal Training
@@ -126,6 +129,7 @@ CLASS:Eternal Blade	STARTSKILLPTS:2	CSKILL:Climb|Concentration|Diplomacy|Handle 
 10	ABILITY:Eternal Blade Class Feature|AUTOMATIC|Eternal Blade ~ Island in Time
 ###Block:
 1	BONUS:VAR|EternalTrainingTimes|(CL+1)/2
+1:REPEATLEVEL:1	KNOWN:0,0,0,0,0,0,0,0,0,0
 ###Block:
 11	PREPCLEVEL:MIN=20
 
