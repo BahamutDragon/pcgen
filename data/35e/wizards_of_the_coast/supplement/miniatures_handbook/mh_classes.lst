@@ -1,6 +1,143 @@
 
-# Placeholder
+
+
+
+CLASS:Favored Soul
+CLASS:Favored Soul	MAXLEVEL:20
+CLASS:Favored Soul	HD:8	TYPE:Base.PC
+CLASS:Favored Soul	FACT:Abb|Fs	FACT:ClassType|PC
+CLASS:Favored Soul	DEFINE:FavoredSoulLVL|0	BONUS:VAR|FavoredSoulLVL|CL
+CLASS:Favored Soul	SOURCEPAGE:p.5	
+CLASS:Favored Soul	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+CLASS:Favored Soul	BONUS:VAR|ClassSaveGood_Fortitude|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Favored Soul	BONUS:VAR|ClassSaveGood_Reflex|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Favored Soul	BONUS:VAR|ClassSaveGood_Will|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Favored Soul	STARTSKILLPTS:2
+CLASS:Favored Soul	CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Jump|Knowledge (arcana)|TYPE=Profession|Sense Motive|Spellcraft
+CLASS:Favored Soul	FACT:SpellType|Divine
+CLASS:Favored Soul	SPELLSTAT:CHA	MEMORIZE:NO
+CLASS:Favored Soul	BONUS:CASTERLEVEL|Favored Soul|FavoredSoulLVL
+CLASS:Favored Soul	DEFINE:Caster_Level_BL_Stripped_FavoredSoul|0	DEFINE:CasterLevelBLFavoredSoul|0
+CLASS:Favored Soul	BONUS:VAR|Caster_Level_BL_Stripped_FavoredSoul|Caster_Level_FavoredSoul-CasterLevelBLFavoredSoul
+CLASS:Favored Soul	BONUS:VAR|Caster_Level_FavoredSoul|CL+Caster_Level_Bonus+CasterLevelBLFavoredSoul
+CLASS:Favored Soul	BONUS:VAR|CasterLevelBL_FavoredSoul|charbonusto("PCLEVEL","Favored Soul")	
+CLASS:Favored Soul	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_FavoredSoul|TYPE=Base
+###Block
+1	CAST:5,3	
+2	CAST:6,4
+3	CAST:6,5
+4	CAST:6,6,3
+5	CAST:6,6,4
+6	CAST:6,6,5,3
+7	CAST:6,6,6,4
+8	CAST:6,6,6,5
+9	CAST:6,6,6,6
+10	CAST:6,6,6,6,3
+11	CAST:6,6,6,6,4
+12	CAST:6,6,6,6,5,3
+13	CAST:6,6,6,6,6,4
+14	CAST:6,6,6,6,6,5,3
+15	CAST:6,6,6,6,6,6,4
+16	CAST:6,6,6,6,6,6,5,3
+17	CAST:6,6,6,6,6,6,6,4
+18	CAST:6,6,6,6,6,6,5,5,3
+19	CAST:6,6,6,6,6,6,6,6,4
+20	CAST:6,6,6,6,6,6,6,6,6
+###Block				 
+1	KNOWN:4,3	
+2	KNOWN:5,3
+3	KNOWN:5,4
+4	KNOWN:6,4,3
+5	KNOWN:6,5,3
+6	KNOWN:7,5,4
+7	KNOWN:7,6,4,3
+8	KNOWN:8,6,5,3
+9	KNOWN:8,6,5,4
+10	KNOWN:9,6,6,4,3
+11	KNOWN:9,6,6,5,3
+12	KNOWN:9,6,6,5,4
+13	KNOWN:9,6,6,6,4,3
+14	KNOWN:9,6,6,6,5,3
+15	KNOWN:9,6,6,6,5,4
+16	KNOWN:9,6,6,6,6,4,3
+17	KNOWN:9,6,6,6,6,5,3
+18	KNOWN:9,6,6,6,6,5,4,3
+19	KNOWN:9,6,6,6,6,6,4,3
+20	KNOWN:9,6,6,6,6,6,5,4
+###Block 	
+1	ABILITY:Favored Soul Class Feature|AUTOMATIC|Favored Soul ~ Weapon and Armor Proficiency		
+1	ABILITY:Favored Soul Class Feature|AUTOMATIC|Favored Soul ~ Spells					
+3	ABILITY:Favored Soul Class Feature|AUTOMATIC|Favored Soul ~ Deity’s Weapon Focus			
+5	ABILITY:Favored Soul Class Feature|AUTOMATIC|Favored Soul ~ Energy Resistance			
+12	ABILITY:Favored Soul Class Feature|AUTOMATIC|Favored Soul ~ Deity’s Weapon Specialization	
+17	ABILITY:Favored Soul Class Feature|AUTOMATIC|Favored Soul ~ Wings					
+20	ABILITY:Favored Soul Class Feature|AUTOMATIC|Favored Soul ~ Damage Reduction				
+
+
 CLASS:Healer
+CLASS:Healer	MAXLEVEL:20
+CLASS:Healer	HD:8	TYPE:Base.PC
+CLASS:Healer	FACT:Abb|Hlr	FACT:ClassType|PC
+CLASS:Healer	DEFINE:HealerLVL|0	BONUS:VAR|HealerLVL|CL
+CLASS:Healer	SOURCEPAGE:p.8	
+CLASS:Healer	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+CLASS:Healer	BONUS:VAR|ClassSaveGood_Fortitude|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Healer	BONUS:VAR|ClassSavePoor_Reflex|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Healer	BONUS:VAR|ClassSaveGood_Will|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0
+CLASS:Healer	STARTSKILLPTS:2
+CLASS:Healer	CSKILL:Concentration|TYPE=Craft|Diplomacy|Handle Animal|Heal|Knowledge (nature)|Knowledge (religion)|TYPE=Profession|Sense Motive|Spellcraft|Survival
+CLASS:Healer	FACT:SpellType|Divine
+CLASS:Healer	SPELLSTAT:WIS	MEMORIZE:YES
+CLASS:Healer	BONUS:CASTERLEVEL|Healer|HealerLVL
+CLASS:Healer	DEFINE:Caster_Level_BL_Stripped_Healer|0	DEFINE:CasterLevelBLHealer|0
+CLASS:Healer	BONUS:VAR|Caster_Level_BL_Stripped_Healer|Caster_Level_Healer-CasterLevelBLHealer
+CLASS:Healer	BONUS:VAR|Caster_Level_Healer|CL+Caster_Level_Bonus+CasterLevelBLHealer
+CLASS:Healer	BONUS:VAR|CasterLevelBL_Healer|charbonusto("PCLEVEL","Healer")	
+CLASS:Healer	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Healer|TYPE=Base
+###Block
+1	CAST:4,3
+2	CAST:4,4
+3	CAST:5,4,3
+4	CAST:5,4,4
+5	CAST:5,5,4,3
+6	CAST:5,5,4,4
+7	CAST:6,5,5,4,3
+8	CAST:6,5,5,4,4
+9	CAST:6,6,5,5,4,3
+10	CAST:6,6,5,5,4,4
+11	CAST:6,6,6,5,5,4,3
+12	CAST:6,6,6,5,5,4,4
+13	CAST:6,6,6,6,5,5,4,3
+14	CAST:6,6,6,6,5,5,4,4
+15	CAST:6,6,6,6,6,5,5,4,3
+16	CAST:6,6,6,6,6,5,5,4,4
+17	CAST:6,6,6,6,6,6,5,5,4,3
+18	CAST:6,6,6,6,6,6,5,5,4,4
+19	CAST:6,6,6,6,6,6,6,5,5,4
+20	CAST:6,6,6,6,6,6,6,5,5,4
+###Block 	ABILITY:Healer Class Feature|AUTOMATIC|
+1	ABILITY:Healer Class Feature|AUTOMATIC|Healer ~ Weapon and Armor Proficiency	
+1	ABILITY:Healer Class Feature|AUTOMATIC|Healer ~ Spells				
+1	ABILITY:Healer Class Feature|AUTOMATIC|Healer ~ Healing Hands			
+2	ABILITY:Healer Class Feature|AUTOMATIC|Healer ~ Skill Focus (Heal)		
+3	ABILITY:Healer Class Feature|AUTOMATIC|Healer ~ Cleanse Paralysis		
+4	ABILITY:Healer Class Feature|AUTOMATIC|Healer ~ Cleanse Disease			
+5	ABILITY:Healer Class Feature|AUTOMATIC|Healer ~ Cleanse Fear			
+6	ABILITY:Healer Class Feature|AUTOMATIC|Healer ~ Cleanse Poison			
+7	ABILITY:Healer Class Feature|AUTOMATIC|Healer ~ Effortless Healing		
+8	ABILITY:Healer Class Feature|AUTOMATIC|Healer ~ Unicorn Companion		
+9	ABILITY:Healer Class Feature|AUTOMATIC|Healer ~ Cleanse Blindness		
+10	ABILITY:Healer Class Feature|AUTOMATIC|Healer ~ Cleanse Spirit			
+13	ABILITY:Healer Class Feature|AUTOMATIC|Healer ~ Cleanse Petrification		
+15	ABILITY:Healer Class Feature|AUTOMATIC|Healer ~ New Limb				
+20	ABILITY:Healer Class Feature|AUTOMATIC|Healer ~ New Life				
+
+
+
+
+
+
+
 
 CLASS:Marshal	MAXLEVEL:20
 CLASS:Marshal	HD:8	TYPE:Base.PC
@@ -23,3 +160,239 @@ CLASS:Marshal	STARTSKILLPTS:4	CSKILL:Bluff|Diplomacy|Handle Animal|Intimidate|TY
 2	ABILITY:Marshal Class Feature|AUTOMATIC|Marshal ~ Major Aura			
 1	ABILITY:Marshal Class Feature|AUTOMATIC|Marshal ~ Skill Focus (Diplomacy)	
 4	ABILITY:Marshal Class Feature|AUTOMATIC|Marshal ~ Grant Move Action		
+
+
+#CLASS:Warmage
+#CLASS:xxx	MAXLEVEL:20
+#CLASS:xxx	HD:	TYPE:Base.PC.Prestige.Monster
+#CLASS:xxx	FACT:Abb|	FACT:ClassType|
+#CLASS:xxx	DEFINE:yyyLVL|0	BONUS:VAR|yyyLVL|CL
+#CLASS:xxx	SOURCEPAGE:p.	
+#CLASS:xxx	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+#CLASS:xxx	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+#CLASS:xxx	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+#CLASS:xxx	BONUS:VAR|ClassSaveGood_Fortitude|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0
+#CLASS:xxx	BONUS:VAR|ClassSavePoor_Fortitude|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0
+#CLASS:xxx	BONUS:VAR|ClassSaveGood_Reflex|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0
+#CLASS:xxx	BONUS:VAR|ClassSavePoor_Reflex|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0
+#CLASS:xxx	BONUS:VAR|ClassSaveGood_Will|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0
+#CLASS:xxx	BONUS:VAR|ClassSavePoor_Will|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0
+#CLASS:xxx	PRETEXT:
+#CLASS:xxx	STARTSKILLPTS:
+#CLASS:xxx	CSKILL:
+#CLASS:xxx	FACT:SpellType|
+#CLASS:xxx	SPELLSTAT:	MEMORIZE:
+#CLASS:xxx	BONUS:CASTERLEVEL|xxx|Caster_Level_BL_Stripped_yyy
+#CLASS:xxx	DEFINE:Caster_Level_BL_Stripped_yyy|0	DEFINE:CasterLevelBLyyy|0
+#CLASS:xxx	BONUS:VAR|Caster_Level_BL_Stripped_yyy|Caster_Level_yyy-CasterLevelBLyyy
+#CLASS:xxx	BONUS:VAR|Caster_Level_yyy|CL+Caster_Level_Bonus+CasterLevelBLyyy
+#CLASS:xxx	BONUS:VAR|CasterLevelBL_yyy|charbonusto("PCLEVEL","xxx")	
+#CLASS:xxx	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_yyy|TYPE=Base
+#
+##	ADD:SPELLCASTER|
+####Block
+##11	PREPCLEVEL:MIN=20
+####Block 	ABILITY:xxx Class Feature|AUTOMATIC|
+#
+
+
+
+# Prestige Classes
+#CLASS:Bonded Summoner
+#CLASS:xxx	MAXLEVEL:20
+#CLASS:xxx	HD:	TYPE:Base.PC.Prestige.Monster
+#CLASS:xxx	FACT:Abb|	FACT:ClassType|
+#CLASS:xxx	DEFINE:yyyLVL|0	BONUS:VAR|yyyLVL|CL
+#CLASS:xxx	SOURCEPAGE:p.	
+#CLASS:xxx	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+#CLASS:xxx	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+#CLASS:xxx	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+#CLASS:xxx	BONUS:VAR|ClassSaveGood_Fortitude|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0
+#CLASS:xxx	BONUS:VAR|ClassSavePoor_Fortitude|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0
+#CLASS:xxx	BONUS:VAR|ClassSaveGood_Reflex|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0
+#CLASS:xxx	BONUS:VAR|ClassSavePoor_Reflex|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0
+#CLASS:xxx	BONUS:VAR|ClassSaveGood_Will|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0
+#CLASS:xxx	BONUS:VAR|ClassSavePoor_Will|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0
+#CLASS:xxx	PRETEXT:
+#CLASS:xxx	STARTSKILLPTS:
+#CLASS:xxx	CSKILL:
+#CLASS:xxx	FACT:SpellType|
+#CLASS:xxx	SPELLSTAT:	MEMORIZE:
+#CLASS:xxx	BONUS:CASTERLEVEL|xxx|Caster_Level_BL_Stripped_yyy
+#CLASS:xxx	DEFINE:Caster_Level_BL_Stripped_yyy|0	DEFINE:CasterLevelBLyyy|0
+#CLASS:xxx	BONUS:VAR|Caster_Level_BL_Stripped_yyy|Caster_Level_yyy-CasterLevelBLyyy
+#CLASS:xxx	BONUS:VAR|Caster_Level_yyy|CL+Caster_Level_Bonus+CasterLevelBLyyy
+#CLASS:xxx	BONUS:VAR|CasterLevelBL_yyy|charbonusto("PCLEVEL","xxx")	
+#CLASS:xxx	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_yyy|TYPE=Base
+#
+##	ADD:SPELLCASTER|
+####Block
+##11	PREPCLEVEL:MIN=20
+####Block 	ABILITY:xxx Class Feature|AUTOMATIC|
+#
+#
+#CLASS:Dragon Samurai
+#CLASS:xxx	MAXLEVEL:20
+#CLASS:xxx	HD:	TYPE:Base.PC.Prestige.Monster
+#CLASS:xxx	FACT:Abb|	FACT:ClassType|
+#CLASS:xxx	DEFINE:yyyLVL|0	BONUS:VAR|yyyLVL|CL
+#CLASS:xxx	SOURCEPAGE:p.	
+#CLASS:xxx	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+#CLASS:xxx	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+#CLASS:xxx	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+#CLASS:xxx	BONUS:VAR|ClassSaveGood_Fortitude|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0
+#CLASS:xxx	BONUS:VAR|ClassSavePoor_Fortitude|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0
+#CLASS:xxx	BONUS:VAR|ClassSaveGood_Reflex|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0
+#CLASS:xxx	BONUS:VAR|ClassSavePoor_Reflex|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0
+#CLASS:xxx	BONUS:VAR|ClassSaveGood_Will|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0
+#CLASS:xxx	BONUS:VAR|ClassSavePoor_Will|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0
+#CLASS:xxx	PRETEXT:
+#CLASS:xxx	STARTSKILLPTS:
+#CLASS:xxx	CSKILL:
+#CLASS:xxx	FACT:SpellType|
+#CLASS:xxx	SPELLSTAT:	MEMORIZE:
+#CLASS:xxx	BONUS:CASTERLEVEL|xxx|Caster_Level_BL_Stripped_yyy
+#CLASS:xxx	DEFINE:Caster_Level_BL_Stripped_yyy|0	DEFINE:CasterLevelBLyyy|0
+#CLASS:xxx	BONUS:VAR|Caster_Level_BL_Stripped_yyy|Caster_Level_yyy-CasterLevelBLyyy
+#CLASS:xxx	BONUS:VAR|Caster_Level_yyy|CL+Caster_Level_Bonus+CasterLevelBLyyy
+#CLASS:xxx	BONUS:VAR|CasterLevelBL_yyy|charbonusto("PCLEVEL","xxx")	
+#CLASS:xxx	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_yyy|TYPE=Base
+#
+##	ADD:SPELLCASTER|
+####Block
+##11	PREPCLEVEL:MIN=20
+####Block 	ABILITY:xxx Class Feature|AUTOMATIC|
+#
+#
+#CLASS:Havoc Mage
+#CLASS:xxx	MAXLEVEL:20
+#CLASS:xxx	HD:	TYPE:Base.PC.Prestige.Monster
+#CLASS:xxx	FACT:Abb|	FACT:ClassType|
+#CLASS:xxx	DEFINE:yyyLVL|0	BONUS:VAR|yyyLVL|CL
+#CLASS:xxx	SOURCEPAGE:p.	
+#CLASS:xxx	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+#CLASS:xxx	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+#CLASS:xxx	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+#CLASS:xxx	BONUS:VAR|ClassSaveGood_Fortitude|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0
+#CLASS:xxx	BONUS:VAR|ClassSavePoor_Fortitude|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0
+#CLASS:xxx	BONUS:VAR|ClassSaveGood_Reflex|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0
+#CLASS:xxx	BONUS:VAR|ClassSavePoor_Reflex|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0
+#CLASS:xxx	BONUS:VAR|ClassSaveGood_Will|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0
+#CLASS:xxx	BONUS:VAR|ClassSavePoor_Will|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0
+#CLASS:xxx	PRETEXT:
+#CLASS:xxx	STARTSKILLPTS:
+#CLASS:xxx	CSKILL:
+#CLASS:xxx	FACT:SpellType|
+#CLASS:xxx	SPELLSTAT:	MEMORIZE:
+#CLASS:xxx	BONUS:CASTERLEVEL|xxx|Caster_Level_BL_Stripped_yyy
+#CLASS:xxx	DEFINE:Caster_Level_BL_Stripped_yyy|0	DEFINE:CasterLevelBLyyy|0
+#CLASS:xxx	BONUS:VAR|Caster_Level_BL_Stripped_yyy|Caster_Level_yyy-CasterLevelBLyyy
+#CLASS:xxx	BONUS:VAR|Caster_Level_yyy|CL+Caster_Level_Bonus+CasterLevelBLyyy
+#CLASS:xxx	BONUS:VAR|CasterLevelBL_yyy|charbonusto("PCLEVEL","xxx")	
+#CLASS:xxx	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_yyy|TYPE=Base
+#
+##	ADD:SPELLCASTER|
+####Block
+##11	PREPCLEVEL:MIN=20
+####Block 	ABILITY:xxx Class Feature|AUTOMATIC|
+#
+#
+#CLASS:Skullclan Hunter
+#CLASS:xxx	MAXLEVEL:20
+#CLASS:xxx	HD:	TYPE:Base.PC.Prestige.Monster
+#CLASS:xxx	FACT:Abb|	FACT:ClassType|
+#CLASS:xxx	DEFINE:yyyLVL|0	BONUS:VAR|yyyLVL|CL
+#CLASS:xxx	SOURCEPAGE:p.	
+#CLASS:xxx	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+#CLASS:xxx	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+#CLASS:xxx	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+#CLASS:xxx	BONUS:VAR|ClassSaveGood_Fortitude|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0
+#CLASS:xxx	BONUS:VAR|ClassSavePoor_Fortitude|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0
+#CLASS:xxx	BONUS:VAR|ClassSaveGood_Reflex|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0
+#CLASS:xxx	BONUS:VAR|ClassSavePoor_Reflex|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0
+#CLASS:xxx	BONUS:VAR|ClassSaveGood_Will|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0
+#CLASS:xxx	BONUS:VAR|ClassSavePoor_Will|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0
+#CLASS:xxx	PRETEXT:
+#CLASS:xxx	STARTSKILLPTS:
+#CLASS:xxx	CSKILL:
+#CLASS:xxx	FACT:SpellType|
+#CLASS:xxx	SPELLSTAT:	MEMORIZE:
+#CLASS:xxx	BONUS:CASTERLEVEL|xxx|Caster_Level_BL_Stripped_yyy
+#CLASS:xxx	DEFINE:Caster_Level_BL_Stripped_yyy|0	DEFINE:CasterLevelBLyyy|0
+#CLASS:xxx	BONUS:VAR|Caster_Level_BL_Stripped_yyy|Caster_Level_yyy-CasterLevelBLyyy
+#CLASS:xxx	BONUS:VAR|Caster_Level_yyy|CL+Caster_Level_Bonus+CasterLevelBLyyy
+#CLASS:xxx	BONUS:VAR|CasterLevelBL_yyy|charbonusto("PCLEVEL","xxx")	
+#CLASS:xxx	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_yyy|TYPE=Base
+#
+##	ADD:SPELLCASTER|
+####Block
+##11	PREPCLEVEL:MIN=20
+####Block 	ABILITY:xxx Class Feature|AUTOMATIC|
+#
+#
+#CLASS:War Hulk
+#CLASS:xxx	MAXLEVEL:20
+#CLASS:xxx	HD:	TYPE:Base.PC.Prestige.Monster
+#CLASS:xxx	FACT:Abb|	FACT:ClassType|
+#CLASS:xxx	DEFINE:yyyLVL|0	BONUS:VAR|yyyLVL|CL
+#CLASS:xxx	SOURCEPAGE:p.	
+#CLASS:xxx	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+#CLASS:xxx	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+#CLASS:xxx	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+#CLASS:xxx	BONUS:VAR|ClassSaveGood_Fortitude|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0
+#CLASS:xxx	BONUS:VAR|ClassSavePoor_Fortitude|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0
+#CLASS:xxx	BONUS:VAR|ClassSaveGood_Reflex|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0
+#CLASS:xxx	BONUS:VAR|ClassSavePoor_Reflex|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0
+#CLASS:xxx	BONUS:VAR|ClassSaveGood_Will|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0
+#CLASS:xxx	BONUS:VAR|ClassSavePoor_Will|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0
+#CLASS:xxx	PRETEXT:
+#CLASS:xxx	STARTSKILLPTS:
+#CLASS:xxx	CSKILL:
+#CLASS:xxx	FACT:SpellType|
+#CLASS:xxx	SPELLSTAT:	MEMORIZE:
+#CLASS:xxx	BONUS:CASTERLEVEL|xxx|Caster_Level_BL_Stripped_yyy
+#CLASS:xxx	DEFINE:Caster_Level_BL_Stripped_yyy|0	DEFINE:CasterLevelBLyyy|0
+#CLASS:xxx	BONUS:VAR|Caster_Level_BL_Stripped_yyy|Caster_Level_yyy-CasterLevelBLyyy
+#CLASS:xxx	BONUS:VAR|Caster_Level_yyy|CL+Caster_Level_Bonus+CasterLevelBLyyy
+#CLASS:xxx	BONUS:VAR|CasterLevelBL_yyy|charbonusto("PCLEVEL","xxx")	
+#CLASS:xxx	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_yyy|TYPE=Base
+#
+##	ADD:SPELLCASTER|
+####Block
+##11	PREPCLEVEL:MIN=20
+####Block 	ABILITY:xxx Class Feature|AUTOMATIC|
+#
+#
+#CLASS:Warchief
+#CLASS:xxx	MAXLEVEL:20
+#CLASS:xxx	HD:	TYPE:Base.PC.Prestige.Monster
+#CLASS:xxx	FACT:Abb|	FACT:ClassType|
+#CLASS:xxx	DEFINE:yyyLVL|0	BONUS:VAR|yyyLVL|CL
+#CLASS:xxx	SOURCEPAGE:p.	
+#CLASS:xxx	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+#CLASS:xxx	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+#CLASS:xxx	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0
+#CLASS:xxx	BONUS:VAR|ClassSaveGood_Fortitude|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0
+#CLASS:xxx	BONUS:VAR|ClassSavePoor_Fortitude|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0
+#CLASS:xxx	BONUS:VAR|ClassSaveGood_Reflex|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0
+#CLASS:xxx	BONUS:VAR|ClassSavePoor_Reflex|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0
+#CLASS:xxx	BONUS:VAR|ClassSaveGood_Will|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2|PREVAREQ:UseAlternateSaveProgression,0
+#CLASS:xxx	BONUS:VAR|ClassSavePoor_Will|classlevel()|PREVAREQ:UseFractionalSave,1	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3|PREVAREQ:UseAlternateSaveProgression,0
+#CLASS:xxx	PRETEXT:
+#CLASS:xxx	STARTSKILLPTS:
+#CLASS:xxx	CSKILL:
+#CLASS:xxx	FACT:SpellType|
+#CLASS:xxx	SPELLSTAT:	MEMORIZE:
+#CLASS:xxx	BONUS:CASTERLEVEL|xxx|Caster_Level_BL_Stripped_yyy
+#CLASS:xxx	DEFINE:Caster_Level_BL_Stripped_yyy|0	DEFINE:CasterLevelBLyyy|0
+#CLASS:xxx	BONUS:VAR|Caster_Level_BL_Stripped_yyy|Caster_Level_yyy-CasterLevelBLyyy
+#CLASS:xxx	BONUS:VAR|Caster_Level_yyy|CL+Caster_Level_Bonus+CasterLevelBLyyy
+#CLASS:xxx	BONUS:VAR|CasterLevelBL_yyy|charbonusto("PCLEVEL","xxx")	
+#CLASS:xxx	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_yyy|TYPE=Base
+#
+##	ADD:SPELLCASTER|
+####Block
+##11	PREPCLEVEL:MIN=20
+####Block 	ABILITY:xxx Class Feature|AUTOMATIC|
+
+
