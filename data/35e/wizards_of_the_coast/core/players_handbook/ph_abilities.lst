@@ -4,6 +4,14 @@ SOURCELONG:Players Handbook	SOURCESHORT:PH
 # Ability Name			Unique Key		SORTKEY	Output Name			Category of Ability		Type							Visible	Define																																																																																									Bonus Ability Pool				Modify VAR				Cost
 CATEGORY=Internal|Default.MOD																								DEFINE:ExtraSkillPoint|0	DEFINE:ThisisThreeFive|0	DEFINE:RemoveLangCommon|0	DEFINE:RemoveLangDwarven|0	DEFINE:RemoveLangElven|0	DEFINE:RemoveLangGnome|0	DEFINE:RemoveLangHalfling|0	DEFINE:RemoveLangGiant|0	DEFINE:RemoveLangGnoll|0	DEFINE:RemoveLangGoblin|0	DEFINE:RemoveLangOrc|0	DEFINE:RemoveLangTerran|0	DEFINE:RemoveLangUndercommon|0	DEFINE:RemoveLangAbyssal|0	DEFINE:RemoveLangCelestial|0	DEFINE:RemoveLangDraconic|0	DEFINE:RemoveLangInfernal|0	DEFINE:RemoveLangSylvan|0	DEFINE:RemoveLangDruidic|0	BONUS:ABILITYPOOL|Region|1|TYPE=Base	BONUS:VAR|ThisisThreeFive|1	DEFINE:Pool_FighterFeat|0	DEFINE:Pool_WizardFeat|0	DEFINE:FamiliarBonus|0	BONUS:VAR|FamiliarBonus|1|TYPE=Base		BONUS:VAR|BastardSwordExoticUse|1|PREABILITY:1,CATEGORY=FEAT,Exotic Weapon Proficiency (Sword (Bastard))	BONUS:VAR|DwarvenWaraxeExoticUse|1|PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Exotic Weapon Proficiency (Waraxe (Dwarven))],[PREABILITY:1,CATEGORY=Special Ability,Dwarf ~ Weapon Familiarity]		DEFINE:BastardSwordExoticUse|0	DEFINE:DwarvenWaraxeExoticUse|0		DEFINE:RemoveDefaultFavoredClass|0	BONUS:ABILITYPOOL|First Level Feat|1|PREFACT:1,RACE,HasFirstLevelFeat=True|PRECLASS:1,ANY=1	BONUS:ABILITYPOOL|FEAT|-1|PREFACT:1,RACE,HasFirstLevelFeat=True|PRECLASS:1,ANY=1
 
+CATEGORY=Internal|Default.MOD		DEFINE:RaceSTR|0
+CATEGORY=Internal|Default.MOD		DEFINE:RaceDEX|0
+CATEGORY=Internal|Default.MOD		DEFINE:RaceCON|0
+CATEGORY=Internal|Default.MOD		DEFINE:RaceINT|0
+CATEGORY=Internal|Default.MOD		DEFINE:RaceWIS|0
+CATEGORY=Internal|Default.MOD		DEFINE:RaceCHA|0
+
+
 CATEGORY=Internal|Default.MOD	DEFINE:SynergySkillBonus|0	BONUS:VAR|SynergySkillBonus|2|TYPE=Base
 
 CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Skill Synergy ~ Bluff|PRESKILL:1,Bluff=5
@@ -122,6 +130,8 @@ Infernal		CATEGORY:Language		TYPE:Language	AUTO:LANG|Infernal
 Sylvan		CATEGORY:Language		TYPE:Language	AUTO:LANG|Sylvan
 Druidic		CATEGORY:Language		TYPE:Language	AUTO:LANG|Druidic
 
+Forest Animals	CATEGORY:Language		TYPE:Language	AUTO:LANG|Forest Animals
+
 ###Block:
 # Ability Name		Category of Ability	Ability																																																																											Ignore Encumberance
 Race Traits ~ Human	CATEGORY:Internal		ABILITY:Human Subrace|AUTOMATIC|Human ~ Base|!PREABILITY:1,CATEGORY=Internal,TYPE.AltSubraceChoice		ABILITY:Special Ability|AUTOMATIC|Human Racial Traits|PREABILITY:1,CATEGORY=Internal,TYPE.HumanSubrace
@@ -197,7 +207,13 @@ Attack Bonus		KEY:Gnome ~ Racial Attack Bonus	CATEGORY:Special Ability	TYPE:Gnom
 Dodge Bonus			KEY:Gnome ~ Racial Dodge Bonus	CATEGORY:Special Ability	TYPE:Gnome Race Trait.Race Trait																										DESC:+4 dodge bonus to Armor Class against monsters of the giant type (such as ogres, trolls, and hill giants): This bonus represents special training that gnomes undergo, during which they learn tricks that previous generations developed in their battles with giants. Any time a creature loses its Dexterity bonus (if any) to Armor Class, such as when it's caught flat-footed, it loses its dodge bonus, too. The Monster Manual has information on which creatures are of the giant type.																									SOURCEPAGE:p.17	ASPECT:CombatBonus|+4 dodge bonus to Armor Class against monsters of the giant type (such as ogres, trolls, and hill giants)
 Listen Bonus		KEY:Gnome ~ Racial Listen Skill	CATEGORY:Special Ability	TYPE:Gnome Race Trait.Race Trait																										DESC:+2 racial bonus on Listen checks: Gnomes have keen ears.																																																																												BONUS:SKILL|Listen|2|TYPE=Racial														SOURCEPAGE:p.17
 Craft (Alchemy) Bonus	KEY:Gnome ~ Racial Alchemy Skill	CATEGORY:Special Ability	TYPE:Gnome Race Trait.Race Trait																										DESC:+2 racial bonus on Craft (alchemy) checks: A gnome's sensitive nose allows him to monitor alchemical processes by smell.																																																																		BONUS:SKILL|Craft (Alchemy)|2|TYPE=Racial													SOURCEPAGE:p.17
-Spell-Like Abilities	KEY:Gnome ~ Spell-Like Abilities	CATEGORY:Special Ability	TYPE:Gnome Race Trait.Race Trait.SpecialQuality				SPELLS:Innate|TIMES=1|CASTERLEVEL=1|Speak with Animals,10+CHA	SPELLS:Innate|TIMES=1|CASTERLEVEL=1|Dancing Lights,10+CHA|Ghost Sound,10+CHA|Prestidigitation,10+CHA|PRESTAT:1,CHA=10	DESC:1/day-speak with animals (burrowing mammal only, duration 1 minute). A gnome with a Charisma score of at least 10 also has the following spell-like abilities: 1/day-dancing lights, ghost sound, prestidigitation. Caster level 1st; save DC 10 + gnome's Cha modifier + spell level. See the spell descriptions on pages 216, 235, and 264, respectively.																																															SOURCEPAGE:p.17
+Spell-Like Abilities	KEY:Gnome ~ Spell-Like Abilities	CATEGORY:Special Ability	TYPE:Gnome Race Trait.Race Trait.SpecialQuality							DESC:1/day-speak with animals (burrowing mammal only, duration 1 minute).|PREVAREQ:AllowGnomeSLA_SpeakWithAnimals,1	DESC: A gnome with a Charisma score of at least 10 also has the following spell-like abilities: 1/day-dancing lights, ghost sound, prestidigitation. Caster level 1st; save DC 10 + gnome's Cha modifier + spell level. See the spell descriptions on pages 216, 235, and 264, respectively.																																															SOURCEPAGE:p.17	DEFINE:AllowGnomeSLA_SpeakWithAnimals|0	DEFINE:AllowGnomeSLA_DancingLights|0	DEFINE:AllowGnomeSLA_GhostSound|0	DEFINE:AllowGnomeSLA_Prestidigitation|0	BONUS:VAR|AllowGnomeSLA_SpeakWithAnimals|1|TYPE=Boolean	BONUS:VAR|AllowGnomeSLA_DancingLights,AllowGnomeSLA_GhostSound,AllowGnomeSLA_Prestidigitation|1|TYPE=Boolean|PRESTAT:1,CHA=10	ABILITY:Internal|AUTOMATIC|Gnome ~ SLA ~ Speak with Animals|PREVAREQ:AllowGnomeSLA_SpeakWithAnimals,1	ABILITY:Internal|AUTOMATIC|Gnome ~ SLA ~ Dancing Lights|PREVAREQ:AllowGnomeSLA_DancingLights,1	ABILITY:Internal|AUTOMATIC|Gnome ~ SLA ~ Ghost Sound|PREVAREQ:AllowGnomeSLA_GhostSound,1	ABILITY:Internal|AUTOMATIC|Gnome ~ SLA ~ Prestidigitation|PREVAREQ:AllowGnomeSLA_Prestidigitation,1
+
+Gnome ~ SLA ~ Speak with Animals	CATEGORY:Internal	SPELLS:Innate|TIMES=1|CASTERLEVEL=1|Speak with Animals,10+CHA
+Gnome ~ SLA ~ Dancing Lights		CATEGORY:Internal	SPELLS:Innate|TIMES=1|CASTERLEVEL=1|Dancing Lights,10+CHA
+Gnome ~ SLA ~ Ghost Sound		CATEGORY:Internal	SPELLS:Innate|TIMES=1|CASTERLEVEL=1|Ghost Sound,10+CHA
+Gnome ~ SLA ~ Prestidigitation	CATEGORY:Internal	SPELLS:Innate|TIMES=1|CASTERLEVEL=1|Prestidigitation,10+CHA
+
 
 ###Block: Half-Elf
 # Ability Name		Unique Key				Category of Ability		Type						Visible		Description
