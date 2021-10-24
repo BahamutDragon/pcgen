@@ -1,4 +1,6 @@
-# CVS $Revision: $ $Author: $ -- Sun Mar  2 00:12:48 2014 -- reformated by prettylst.pl v1.51 (build 22988)
+### Elven High Mage updated to new standards
+
+
 
 # Class Name	Hit Dice	Type			Abbreviation	Max Level	Source Page		Save checks bonus											Combat bonus
 CLASS:Battlerager	HD:12		TYPE:PC.Prestige	FACT:Abb|Brg		MAXLEVEL:5	SOURCEPAGE:p.178		BONUS:SAVE|BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3		BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE
@@ -51,23 +53,23 @@ CLASS:Breachgnome	STARTSKILLPTS:2	CSKILL:Bluff|Climb|Concentration|TYPE=Craft|Ha
 5	SAB:Seal the Breach (Safeguard)	BONUS:VAR|UncannyDodge|1
 
 # Class Name		Hit Dice	Type			Abbreviation	Source Page
-CLASS:Elven High Mage	HD:4		TYPE:PC.Prestige.Epic	FACT:Abb|EHM		SOURCEPAGE:p.182	
-# Class Name		Required Feat											Required Race					Required Skill						Req. Spell Type
-CLASS:Elven High Mage	PREABILITY:2,CATEGORY=FEAT,Epic Skill Focus (Knowledge (Arcana)),Epic Skill Focus (Spellcraft)	PRERACE:1,Elf (Sun),Elf (Wood),Elf (Moon)	PRESKILL:2,Knowledge (Arcana)=25,Spellcraft=25	PRESPELLTYPE:1,Arcane=9
+CLASS:Elven High Mage	HD:4		TYPE:PC.Prestige.Epic	FACT:Abb|EHM		SOURCEPAGE:p.182	DEFINE:ElvenHighMageLVL|0	BONUS:VAR|ElvenHighMageLVL|CL
+# Class Name		Required Feat														Required Race			Required Skill						Req. Spell Type
+CLASS:Elven High Mage	PREABILITY:2,CATEGORY=FEAT,Epic Skill Focus (Knowledge (Arcana)),Epic Skill Focus (Spellcraft)	PRERACE:1,RACESUBTYPE=Elf	PRESKILL:2,Knowledge (Arcana)=25,Spellcraft=25	PRESPELLTYPE:1,Arcane=9	PRETEXT:To qualify to become an elven high mage, a character must fulfill all the following criteria. Race: Sun elf, moon elf, or wood elf. Skills: Knowledge (arcana) 25 ranks, Spellcraft 25 ranks. Feats: Epic Skill Focus [Knowledge (arcana)], Epic Skill Focus (Spellcraft). Spellcasting: Able to cast 9th-level arcane spells. Special: Must survive scrutiny and meet with the approval of all existing elven high mages.
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Elven High Mage	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Decipher Script|Diplomacy|TYPE=Knowledge|TYPE=Profession|Sense Motive|Speak Language|Spellcraft
-1											ADD:SPELLCASTER|Arcane	ADD:ABILITY|FEAT|VIRTUAL|Seed Affinity
-2	SAB:Mythal Invention (1)|!PRECLASS:1,Elven High Mage=4
-3											ADD:SPELLCASTER|Arcane	ADD:ABILITY|FEAT|VIRTUAL|Seed Affinity
-4	SAB:Mythal Invention (2)|!PRECLASS:1,Elven High Mage=7
-5											ADD:SPELLCASTER|Arcane	ADD:ABILITY|FEAT|VIRTUAL|Augmented Alchemy,Automatic Quicken Spell,Automatic Silent Spell,Combat Casting,Craft Epic Magic Arms and Armor,Craft Epic Rod,Craft Epic Staff,Craft Epic Wondrous Item,Efficient Item Creation,Enhance Spell,Epic Spellcasting,Epic Spell Focus,Epic Spell Penetration,Familiar Spell,Forge Epic Ring,Ignore Material Components,Improved Combat Casting,Improved Heighten Spell,Improved Metamagic,Improved Spell Capacity,Intensify Spell,Multispell,Permanent Emanation,Scribe Epic Scroll,Spell Focus,Spell Knowledge,Spell Mastery,Spell Opportunity,Spell Penetration,Spell Stowaway,Spontaneous Spell,Tenacious Magic
-6											ADD:ABILITY|FEAT|VIRTUAL|Seed Affinity
-7	SAB:Mythal Invention (3)|!PRECLASS:1,Elven High Mage=9	ADD:SPELLCASTER|Arcane
-8											ADD:ABILITY|FEAT|VIRTUAL|Seed Affinity
-9	SAB:Mythal Invention (4)						ADD:SPELLCASTER|Arcane
-10											ADD:ABILITY|FEAT|VIRTUAL|Augmented Alchemy,Automatic Quicken Spell,Automatic Silent Spell,Combat Casting,Craft Epic Magic Arms and Armor,Craft Epic Rod,Craft Epic Staff,Craft Epic Wondrous Item,Efficient Item Creation,Enhance Spell,Epic Spellcasting,Epic Spell Focus,Epic Spell Penetration,Familiar Spell,Forge Epic Ring,Ignore Material Components,Improved Combat Casting,Improved Heighten Spell,Improved Metamagic,Improved Spell Capacity,Intensify Spell,Multispell,Permanent Emanation,Scribe Epic Scroll,Spell Focus,Spell Knowledge,Spell Mastery,Spell Opportunity,Spell Penetration,Spell Stowaway,Spontaneous Spell,Tenacious Magic
+###Block: Spellcaster Block
+1	ADD:SPELLCASTER|Arcane
+3	ADD:SPELLCASTER|Arcane
+5	ADD:SPELLCASTER|Arcane
+7	ADD:SPELLCASTER|Arcane
+9	ADD:SPELLCASTER|Arcane
 ###Block
-11	PREPCLEVEL:MIN=20
+1	ABILITY:Elven High Mage Class Feature|AUTOMATIC|Elven High Mage ~ Weapon and Armor Proficiency	
+1	ABILITY:Elven High Mage Class Feature|AUTOMATIC|Elven High Mage ~ Spells Per Day/Spells Known	
+1	ABILITY:Elven High Mage Class Feature|AUTOMATIC|Elven High Mage ~ Seed Affinity				
+2	ABILITY:Elven High Mage Class Feature|AUTOMATIC|Elven High Mage ~ Mythal Invention			
+5	ABILITY:Elven High Mage Class Feature|AUTOMATIC|Elven High Mage ~ Bonus Feat				
 
 # Class Name			Hit Dice	Type			Abbreviation	Source Page		Define				Save checks bonus											Combat bonus					Modify VAR
 CLASS:Great Rift Skyguard	HD:10		TYPE:PC.Prestige	FACT:Abb|GRS		SOURCEPAGE:p.183	DEFINE:SkyguardMountLevel|0		BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2		BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3		BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|SkyguardMountLevel|CL
