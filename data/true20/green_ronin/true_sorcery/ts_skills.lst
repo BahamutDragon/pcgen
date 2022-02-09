@@ -1,15 +1,65 @@
 # CVS $Revision: $ $Author: $ -- Sun Dec  8 22:17:49 2013 -- reformated by prettylst.pl v1.50 (build 22352)
 
 # Skill Name			Untrained?		Classes	Type			Visible		Bonus to skill																				Bonus to skill rank
-Concentration (Int Based)						TYPE:Intelligence
+Concentration (Int Based)						TYPE:Intelligence.Concentration
 Detect Magic			USEUNTRAINED:NO			TYPE:Intelligence
 Ghost Sound				USEUNTRAINED:NO			TYPE:Charisma				BONUS:SKILL|Ghost Sound|2|PRESKILL:1,Bluff=5
 Prestidigitation			USEUNTRAINED:NO			TYPE:Charisma				BONUS:SKILL|Prestidigitation|2|PRESKILL:1,Sleight of Hand=5	BONUS:SKILL|Sleight of Hand|2|PRESKILL:1,Prestidigitation=5
 Resistance				USEUNTRAINED:NO			TYPE:Constitution
-Spellcraft (Charisma)		USEUNTRAINED:NO	CLASSES:ALL	TYPE:Charisma	VISIBLE:EXPORT
-Spellcraft (Wisdom)		USEUNTRAINED:NO	CLASSES:ALL	TYPE:Wisdom		VISIBLE:EXPORT
+Spellcraft (Charisma)		USEUNTRAINED:NO	CLASSES:ALL	TYPE:Charisma.Spellcraft	VISIBLE:EXPORT
+Spellcraft (Wisdom)		USEUNTRAINED:NO	CLASSES:ALL	TYPE:Wisdom.Spellcraft		VISIBLE:EXPORT
 
 
 Spellcraft.MOD														BONUS:SKILL|Detect Magic|2|PRESKILL:1,Spellcraft=5	BONUS:SKILL|Spellcraft (Charisma),Spellcraft (Wisdom)|SKILL.Spellcraft.MISC	BONUS:SKILLRANK|Spellcraft (Charisma),Spellcraft (Wisdom)|SKILLRANK=Spellcraft
 
 #BONUS:SKILL|Spellcraft ~ T20|2|PRESKILL:1,Knowledge (Arcana)=5
+
+
+
+
+Hold								USEUNTRAINED:NO	CLASSES:ALL	TYPE:AdeptPower		TEMPDESC:Paralyzes target																									SORTKEY:Z_Power
+
+
+
+# From PHB to support True Sorcery
+Craft (Alchemy)										KEYSTAT:INT	USEUNTRAINED:NO						TYPE:Intelligence.Craft.Standard.Base.Craft (Alchemy)													SOURCEPAGE:p.70
+Craft (Armorsmithing)									KEYSTAT:INT	USEUNTRAINED:NO						TYPE:Intelligence.Craft.Standard.Base.Craft (Armorsmithing)												SOURCEPAGE:p.70
+Craft (Basketweaving)									KEYSTAT:INT	USEUNTRAINED:NO						TYPE:Intelligence.Craft.Standard.Base.Craft (Basketweaving)												SOURCEPAGE:p.70
+Craft (Bookbinding)									KEYSTAT:INT	USEUNTRAINED:NO						TYPE:Intelligence.Craft.Standard.Base.Craft (Bookbinding)												SOURCEPAGE:p.70
+Craft (Bowmaking)										KEYSTAT:INT	USEUNTRAINED:NO						TYPE:Intelligence.Craft.Standard.Base.Craft (Bowmaking)												SOURCEPAGE:p.70
+Craft (Blacksmithing)									KEYSTAT:INT	USEUNTRAINED:NO						TYPE:Intelligence.Craft.Standard.Base.Craft (Blacksmithing)												SOURCEPAGE:p.70
+Craft (Calligraphy)									KEYSTAT:INT	USEUNTRAINED:NO						TYPE:Intelligence.Craft.Standard.Base.Craft (Calligraphy)												SOURCEPAGE:p.70
+Craft (Carpentry)										KEYSTAT:INT	USEUNTRAINED:NO						TYPE:Intelligence.Craft.Standard.Base.Craft (Carpentry)												SOURCEPAGE:p.70
+Craft (Cobbling)										KEYSTAT:INT	USEUNTRAINED:NO						TYPE:Intelligence.Craft.Standard.Base.Craft (Cobbling)												SOURCEPAGE:p.70
+Craft (Gemcutting)									KEYSTAT:INT	USEUNTRAINED:NO						TYPE:Intelligence.Craft.Standard.Base.Craft (Gemcutting)												SOURCEPAGE:p.70
+Craft (Leatherworking)									KEYSTAT:INT	USEUNTRAINED:NO						TYPE:Intelligence.Craft.Standard.Base.Craft (Leatherworking)											SOURCEPAGE:p.70
+Craft (Locksmithing)									KEYSTAT:INT	USEUNTRAINED:NO						TYPE:Intelligence.Craft.Standard.Base.Craft (Locksmithing)												SOURCEPAGE:p.70
+Craft (Metalworking)									KEYSTAT:INT	USEUNTRAINED:NO						TYPE:Intelligence.Craft.Standard.Base.Craft (Metalworking)												SOURCEPAGE:p.70
+Craft (Painting)										KEYSTAT:INT	USEUNTRAINED:NO						TYPE:Intelligence.Craft.Standard.Base.Craft (Painting)												SOURCEPAGE:p.70
+Craft (Pottery)										KEYSTAT:INT	USEUNTRAINED:NO						TYPE:Intelligence.Craft.Standard.Base.Craft (Pottery)													SOURCEPAGE:p.70
+Craft (Sculpting)										KEYSTAT:INT	USEUNTRAINED:NO						TYPE:Intelligence.Craft.Standard.Base.Craft (Sculpting)												SOURCEPAGE:p.70
+Craft (Shipmaking)									KEYSTAT:INT	USEUNTRAINED:NO						TYPE:Intelligence.Craft.Standard.Base.Craft (Shipmaking)												SOURCEPAGE:p.70
+Craft (Stonemasonry)				KEY:Craft (Stoneworking)	KEYSTAT:INT	USEUNTRAINED:NO						TYPE:Intelligence.Craft.Standard.Base.Craft (Stonemasonry).Craft (Stoneworking)												SOURCEPAGE:p.70										TEMPDESC:Craft skill checks are made with a -2 circumstance penalty If improvised tools are used				TEMPBONUS:PC|SKILL|Craft (Stoneworking)|-2|TYPE=Circumstance|!PREITEM:1,TYPE=StonemasonryTools
+Craft (Trapmaking)									KEYSTAT:INT	USEUNTRAINED:NO						TYPE:Intelligence.Craft.Standard.Base.Craft (Trapmaking)												SOURCEPAGE:p.70
+Craft (Weaponsmithing)									KEYSTAT:INT	USEUNTRAINED:NO						TYPE:Intelligence.Craft.Standard.Base.Craft (Weaponsmithing)											SOURCEPAGE:p.70
+Craft (Weaving)										KEYSTAT:INT	USEUNTRAINED:NO						TYPE:Intelligence.Craft.Standard.Base.Craft (Weaving)													SOURCEPAGE:p.70
+Craft (Untrained)										KEYSTAT:INT									TYPE:Intelligence.Craft.Standard.Base								VISIBLE:EXPORT					SOURCEPAGE:p.70
+Decipher Script										KEYSTAT:INT	USEUNTRAINED:NO						TYPE:Intelligence.Standard.Base.Decipher Script														SOURCEPAGE:p.71
+Heal												KEYSTAT:WIS									TYPE:Wisdom.Standard.Base.Heal																SOURCEPAGE:p.75
+Hide												KEYSTAT:DEX				ACHECK:YES				TYPE:Dexterity.Standard.Stealth.Base.Hide															SOURCEPAGE:p.76
+Knowledge (Arcana)									KEYSTAT:INT	USEUNTRAINED:NO						TYPE:Intelligence.Knowledge.Standard.Base.Knowledge (Arcana)											SOURCEPAGE:p.78
+Knowledge (Architecture and Engineering)						KEYSTAT:INT	USEUNTRAINED:NO						TYPE:Intelligence.Knowledge.Standard.Base.Knowledge (Architecture and Engineering)								SOURCEPAGE:p.78
+Knowledge (Dungeoneering)								KEYSTAT:INT	USEUNTRAINED:NO						TYPE:Intelligence.Knowledge.Standard.Base.Knowledge (Dungeoneering)										SOURCEPAGE:p.78
+Knowledge (Geography)									KEYSTAT:INT	USEUNTRAINED:NO						TYPE:Intelligence.Knowledge.Standard.Base.Knowledge (Geography)											SOURCEPAGE:p.78
+Knowledge (History)									KEYSTAT:INT	USEUNTRAINED:NO						TYPE:Intelligence.Knowledge.Standard.Base.Knowledge (History)											SOURCEPAGE:p.78
+Knowledge (Local)										KEYSTAT:INT	USEUNTRAINED:NO						TYPE:Intelligence.Knowledge.Standard.Base.KnowledgeLocal.Knowledge (Local)												SOURCEPAGE:p.78
+Knowledge (Nature)									KEYSTAT:INT	USEUNTRAINED:NO						TYPE:Intelligence.Knowledge.Standard.Base.Knowledge (Nature)											SOURCEPAGE:p.78
+Knowledge (Nobility and Royalty)							KEYSTAT:INT	USEUNTRAINED:NO						TYPE:Intelligence.Knowledge.Standard.Base.Knowledge (Nobility and Royalty)									SOURCEPAGE:p.78
+Knowledge (Religion)									KEYSTAT:INT	USEUNTRAINED:NO						TYPE:Intelligence.Knowledge.Standard.Base.Knowledge (Religion)											SOURCEPAGE:p.78
+Knowledge (The Planes)									KEYSTAT:INT	USEUNTRAINED:NO						TYPE:Intelligence.Knowledge.Standard.Base.Knowledge (The Planes)											SOURCEPAGE:p.78
+Knowledge (Untrained)									KEYSTAT:INT									TYPE:Intelligence.Knowledge.Standard.Base								VISIBLE:EXPORT					SOURCEPAGE:p.78
+Move Silently										KEYSTAT:DEX				ACHECK:YES				TYPE:Dexterity.Standard.Stealth.Base.Move Silently													SOURCEPAGE:p.79
+Open Lock											KEYSTAT:DEX	USEUNTRAINED:NO						TYPE:Dexterity.Standard.Base.Open Lock															SOURCEPAGE:p.79										TEMPDESC:Attempting an Open Lock check without a set of thieves' tools imposes a -2 circumstance penalty on the check	TEMPBONUS:PC|SKILL|Open Lock|-2|TYPE=Circumstance|!PREITEM:1,TYPE=ThiefTools
+Speak Language												USEUNTRAINED:NO						TYPE:None.Language.Base.Speak Language															SOURCEPAGE:p.82
+Spellcraft											KEYSTAT:INT	USEUNTRAINED:NO						TYPE:Intelligence.Standard.Base.Spellcraft														SOURCEPAGE:p.82
+Spot												KEYSTAT:WIS									TYPE:Wisdom.Standard.Perception.Base.Spot															SOURCEPAGE:p.83

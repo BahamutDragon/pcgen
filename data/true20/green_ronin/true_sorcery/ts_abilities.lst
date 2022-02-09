@@ -1,15 +1,62 @@
 # CVS $Revision: $ $Author: $ -- Thu Jul 10 13:59:32 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 SOURCELONG:True Sorcery	SOURCESHORT:TS	SOURCEWEB:www.greenronin.com	SOURCEDATE:2007-03
 
+
+###Block: Weapon Proficiencies
+# Ability Name				Category of Ability		Type					Visible	Serves As						Auto Weapon Prof
+All Automatic Proficiencies		CATEGORY:Special Ability	TYPE:Special.ClassAbility	VISIBLE:NO								AUTO:WEAPONPROF|Unarmed Strike|Spells (Ray)|Spells (Touch)
+All Martial Weapon Proficiencies	CATEGORY:Special Ability	TYPE:Special.ClassAbility	VISIBLE:NO	SERVESAS:ABILITY=Feat|Martial Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Martial
+
+###Block: Proficiency Master Groups - Cut Down on Cross Referencing
+# Ability Name		Category of Ability	Type										Serves As						Auto Weapon Prof
+Weapon Prof ~ Auto	CATEGORY:Internal		TYPE:WeaponProfAuto.WeaponProfSimple.WeaponProfMartial								AUTO:WEAPONPROF|Unarmed Strike|Spells (Ray)|Spells (Touch)
+Weapon Prof ~ Simple	CATEGORY:Internal		TYPE:WeaponProfSimple.WeaponProfMartial				SERVESAS:ABILITY=Feat|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Simple
+Weapon Prof ~ Martial	CATEGORY:Internal		TYPE:WeaponProfMartial							SERVESAS:ABILITY=Feat|Martial Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Martial
+###Block: Armor Types
+# Ability Name		Category of Ability	Type									Serves As						Auto Armor Prof
+Armor Prof ~ Light	CATEGORY:Internal		TYPE:ArmorProfLight.ArmorProfMedium.ArmorProfHeavy	SERVESAS:ABILITY=Feat|Armor Proficiency (Light)	AUTO:ARMORPROF|ARMORTYPE=Light
+Armor Prof ~ Medium	CATEGORY:Internal		TYPE:ArmorProfMedium.ArmorProfHeavy				SERVESAS:ABILITY=Feat|Armor Proficiency (Medium)	AUTO:ARMORPROF|ARMORTYPE=Medium
+Armor Prof ~ Heavy	CATEGORY:Internal		TYPE:ArmorProfHeavy						SERVESAS:ABILITY=Feat|Armor Proficiency (Heavy)	AUTO:ARMORPROF|ARMORTYPE=Heavy
+###Block: Shield Types
+# Ability Name		Category of Ability	Type						Serves As						Auto Shield Prof
+Shield Prof ~ Tower	CATEGORY:Internal		TYPE:ShieldProfTower			SERVESAS:ABILITY=Feat|Tower Shield Proficiency	AUTO:SHIELDPROF|SHIELDTYPE=Tower
+Shield Prof			CATEGORY:Internal		TYPE:ShieldProfTower.ShieldProf	SERVESAS:ABILITY=Feat|Shield Proficiency		AUTO:SHIELDPROF|SHIELDTYPE=Buckler|SHIELDTYPE=Heavy|SHIELDTYPE=Light
+
+
+
+
+
 ###HIDDEN:
 # Ability Name	Unique Key				Category of Ability		Type						Required Ability									Define				Description								Ability								Combat bonus				Bonus to skill					Modify VAR						Bonus
-Student of Magic						CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																										ABILITY:Special Ability|AUTOMATIC|SpellEnergyPoints							BONUS:SKILL|Spellcraft|2|TYPE=Insight
-First Magnitude						CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural																																									BONUS:SKILL|Spellcraft|4|TYPE=Insight	BONUS:VAR|SpellEnergyPoints|1
-Second Magnitude						CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural																																									BONUS:SKILL|Spellcraft|8|TYPE=Insight	BONUS:VAR|SpellEnergyPoints|2
-Third Magnitude						CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural																																									BONUS:SKILL|Spellcraft|16|TYPE=Insight	BONUS:VAR|SpellEnergyPoints|4
-Fourth Magnitude						CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural																																									BONUS:SKILL|Spellcraft|32|TYPE=Insight	BONUS:VAR|SpellEnergyPoints|8
+Student of Magic						CATEGORY:Internal	TYPE:Support																																								BONUS:SKILL|Spellcraft|2|TYPE=Insight
+First Magnitude						CATEGORY:Internal	TYPE:Support																																								BONUS:SKILL|Spellcraft|4|TYPE=Insight	BONUS:VAR|SpellEnergyPoints|1
+Second Magnitude						CATEGORY:Internal	TYPE:Support																																								BONUS:SKILL|Spellcraft|8|TYPE=Insight	BONUS:VAR|SpellEnergyPoints|2
+Third Magnitude						CATEGORY:Internal	TYPE:Support																																								BONUS:SKILL|Spellcraft|16|TYPE=Insight	BONUS:VAR|SpellEnergyPoints|4
+Fourth Magnitude						CATEGORY:Internal	TYPE:Support																																								BONUS:SKILL|Spellcraft|32|TYPE=Insight	BONUS:VAR|SpellEnergyPoints|8
 
 SpellEnergyPoints						CATEGORY:Special Ability	TYPE:SpecialQuality														DEFINE:SpellEnergyPoints|0	DESC:%1|SpellEnergyPoints																											BONUS:VAR|SpellEnergyPoints|floor(CON+1)
+
+###Block:
+The Spellcaster	CATEGORY:Internal		ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies	ABILITY:Internal|AUTOMATIC|TYPE=Weapon Prof ~ Simple
+
+#
+Bonus feat		KEY:The Spellcaster ~ Bonus feat				CATEGORY:Special Ability	SOURCEPAGE:p.7	TYPE:The Spellcaster Class Feature.Class Feature.SpecialQuality					DESC:At 1st, 5th, 10th, 15th, and 20th levels, a spellcaster gains a bonus feat. At each instance, she can choose any magic feat (see Feats in this chapter for details). The spellcaster must meet all prerequisites for the bonus feat, including caster level minimums. These bonus feats are in addition to the feats a character ordinarily gains from advancing levels and the bonus feat a human character gets at 1st level.	BONUS:ABILITYPOOL|Magic Feat|(CL/5)+1
+Student of Magic	KEY:The Spellcaster ~ Student of Magic			CATEGORY:Special Ability	SOURCEPAGE:p.7	TYPE:The Spellcaster Class Feature.Class Feature.SpecialQuality.Extraordinary		DESC:A spellcaster gains spell energy equal to her Constitution modifier +1 (minimum of 1 point of spell energy). See Chapter Two: System of Magic for details on spell energy and its uses. In addition, the spellcaster gains a +2 insight bonus on Spellcraft skill checks.	ABILITY:Internal|AUTOMATIC|Student of Magic	ABILITY:Special Ability|AUTOMATIC|SpellEnergyPoints
+Talent		KEY:The Spellcaster ~ Talent					CATEGORY:Special Ability	SOURCEPAGE:p.7	TYPE:The Spellcaster Class Feature.Class Feature.SpecialQuality					DESC:Starting at 1st level, and every two levels thereafter, the spellcaster gains an instance of Talent as a bonus feat.		BONUS:ABILITYPOOL|Talent Spell|(TheSpellcasterLVL+1)/2
+Skill Focus		KEY:The Spellcaster ~ Skill Focus				CATEGORY:Special Ability	SOURCEPAGE:p.7	TYPE:The Spellcaster Class Feature.Class Feature.SpecialQuality					DESC:At 3rd level, the spellcaster gains Skill Focus (Spellcraft) as a bonus feat.									ABILITY:FEAT|AUTOMATIC|Skill Focus(Spellcraft)
+First Magnitude	KEY:The Spellcaster ~ First Magnitude			CATEGORY:Special Ability	SOURCEPAGE:p.7	TYPE:The Spellcaster Class Feature.Class Feature.SpecialQuality.Supernatural		DESC:At 5th level, the spellcaster’s insight bonus to Spellcraft checks increases to +4. She gains 1 point of spell energy.		ABILITY:Internal|AUTOMATIC|First Magnitude	
+Second Magnitude	KEY:The Spellcaster ~ Second Magnitude			CATEGORY:Special Ability	SOURCEPAGE:p.7	TYPE:The Spellcaster Class Feature.Class Feature.SpecialQuality.Supernatural		DESC:At 10th level, the spellcaster’s insight bonus to Spellcraft checks increases to +8. She gains 2 points of spell energy.		ABILITY:Internal|AUTOMATIC|Second Magnitude	
+Third Magnitude	KEY:The Spellcaster ~ Third Magnitude			CATEGORY:Special Ability	SOURCEPAGE:p.7	TYPE:The Spellcaster Class Feature.Class Feature.SpecialQuality.Supernatural		DESC:At 15th level, the spellcaster’s insight bonus to Spellcraft checks increases to +16. She gains 4 points of spell energy.	ABILITY:Internal|AUTOMATIC|Third Magnitude	
+Fourth Magnitude	KEY:The Spellcaster ~ Fourth Magnitude			CATEGORY:Special Ability	SOURCEPAGE:p.7	TYPE:The Spellcaster Class Feature.Class Feature.SpecialQuality.Supernatural		DESC:At 20th level, the spellcaster’s insight bonus to Spellcraft checks increases to +32. She gains 8 points of spell energy.	ABILITY:Internal|AUTOMATIC|Fourth Magnitude	
+
+
+
+
+
+
+
+
+
 
 
 
@@ -48,8 +95,7 @@ Fear			KEY:Spell ~ Fear			CATEGORY:Special Ability	TYPE:TalentSpell				PREABILIT
 Fire Lore		KEY:Spell ~ Fire Lore		CATEGORY:Special Ability	TYPE:TalentSpell				PREABILITY:1,CATEGORY=Special Ability,First Magnitude																																BONUS:SKILL|Resistance|3
 Flight		KEY:Spell ~ Flight		CATEGORY:Special Ability	TYPE:TalentSpell				PREABILITY:1,CATEGORY=Special Ability,First Magnitude																																BONUS:SKILL|Climb|3
 Healing Lore	KEY:Spell ~ Healing Lore	CATEGORY:Special Ability	TYPE:TalentSpell				PREABILITY:1,CATEGORY=Special Ability,First Magnitude																																BONUS:SKILL|Heal|3
-Hold			KEY:Spell ~ Hold			CATEGORY:Special Ability	TYPE:TalentSpell				PREABILITY:1,CATEGORY=Special Ability,First Magnitude																																BONUS:SKILL|Command|3
-### Command? Did I miss a Skill or Talent?	CATEGORY:Special Ability	TYPE:TalentSpell				PREABILITY:1,CATEGORY=Special Ability,First Magnitude		KEY:Spell ~
+Hold			KEY:Spell ~ Hold			CATEGORY:Special Ability	TYPE:TalentSpell				PREABILITY:1,CATEGORY=Special Ability,First Magnitude																																BONUS:SKILL|Hold|3
 Pattern		KEY:Spell ~ Pattern		CATEGORY:Special Ability	TYPE:TalentSpell				PREABILITY:1,CATEGORY=Special Ability,First Magnitude																																BONUS:SKILL|Prestidigitation|3
 Plant Lore		KEY:Spell ~ Plant Lore		CATEGORY:Special Ability	TYPE:TalentSpell				PREABILITY:1,CATEGORY=Special Ability,First Magnitude																																BONUS:SKILL|Survival|3
 Resolve		KEY:Spell ~ Resolve		CATEGORY:Special Ability	TYPE:TalentSpell				PREABILITY:1,CATEGORY=Special Ability,First Magnitude																																														BONUS:SAVE|Will|1
