@@ -27,11 +27,14 @@ LOGO:../../../../../_artwork/logo_wotc.png
 
 
 ABILITY:rac_abilities.lst
-ABILITYCATEGORY:rac_abilitycategories.lst
-# CLASSes are all EPIC level, so need other epic rules first
-#CLASS:rac_classes.lst  # TODO - PRE INCLUDES Epic...
+ABILITY:rac_abilities_epic.lst|PRECAMPAIGN:1,Epic Level Handbook
+# These abilitycategories are epic and thus need other epic rules first
+#ABILITYCATEGORY:rac_abilitycategories.lst
+ABILITYCATEGORY:rac_abilitycategories_epic.lst|PRECAMPAIGN:1,Epic Level Handbook
 BIOSET:rac_biosettings.lst
+# CLASSES split to move epic to a different file and allow 'PRE', to avoid errors when not using epic sources
 CLASS:rac_classes.lst
+#CLASS:rac_classes_epic.lst|PRECAMPAIGN:1,Epic Level Handbook
 COMPANIONMOD:rac_companionmods.lst
 # Flight Arrow and Signal Arrow are in Arms and Equipment Guide
 EQUIPMENT:rac_equip.lst|(EXCLUDE:Arrow (Flight)|Arrow (Signal))|PRECAMPAIGN:1,Arms and Equipment Guide|!PRECAMPAIGN:1,Complete Adventurer
