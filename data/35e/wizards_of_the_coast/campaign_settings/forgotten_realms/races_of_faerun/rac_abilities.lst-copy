@@ -1,0 +1,85 @@
+# CVS $Revision: $ $Author: $ -- Sun Aug 17 15:41:15 2014 -- reformated by prettylst.pl v1.51 (build 24906)
+SOURCELONG:Races of Faerun	SOURCESHORT:Rac	SOURCEDATE:2004-03
+
+# sub race definitions
+#
+#Updated per Player's Guide to Faerun, Regions removed.
+#Regions Damara, The North, Vaasa,Great Glacier
+# note rulebook p10/11 lists different entries for region/lang !
+#prefered class - barbarian, fighter, ranger, druid - may choose a regional feat and gain bonus equip
+#regional feats: oral history, survivor, swarmfighting
+#Racial Feats: Hammer Fist, Oral History, Swarmfighting
+#ECL 2
+#Favclass ranger
+#auto lang dwarven, common, region, uluik
+#bonus lang by region, aquan, auran, common, damaran, draconic, giant
+#immunity to cold
+#size small - +1 ac, +1 attack, +4 hide, use small weapons, lift/carry 3/4 medium
+#bonus equipment: (A) light pick* or halfspear* or (B) riding dog & hide armor*
+
+# Ability Name		Unique Key					Category of Ability		Type									Multiple Requirements																Description																											Template			Auto Weapon Prof				Ability																																																																																																																																																																																																																																																													Stat bonus											Modify VAR					Cost		Source Page
+#Arctic			KEY:Dwarf ~ Arctic			CATEGORY:Internal		COST:0	TYPE:DwarfSubrace.AltSubraceChoice				PREMULT:1,[PREABILITY:1,CATEGORY=Internal,Dwarf ~ Artic],[!PREABILITY:1,CATEGORY=Internal,TYPE.AltSubraceChoice]	DESC:Arctic Dwarf, FRCS:Races of Faerun (ECL 2)																					TEMPLATE:Dwarf ~ Arctic							ABILITY:Dwarf Race Trait|AUTOMATIC|Dwarf ~ Darkvision|PREVAREQ:DisableRacialTraits,0|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfRacialVision	ABILITY:Dwarf Race Trait|AUTOMATIC|Dwarf ~ Weapon Familiarity|PREVAREQ:DisableRacialTraits,0|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfWeaponFamiliarity	ABILITY:Dwarf Race Trait|AUTOMATIC|Dwarf ~ Stonecunning|PREVAREQ:DisableRacialTraits,0|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfStonecunning	ABILITY:Dwarf Race Trait|AUTOMATIC|Dwarf ~ Stability|PREVAREQ:DisableRacialTraits,0|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfStability	ABILITY:Dwarf Race Trait|AUTOMATIC|Dwarf ~ Poison Save Bonus|PREVAREQ:DisableRacialTraits,0|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfPoisonSaveBonus	ABILITY:Dwarf Race Trait|AUTOMATIC|Dwarf ~ Spell Save Bonus|PREVAREQ:DisableRacialTraits,0|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfSpellSaveBonus	ABILITY:Dwarf Race Trait|AUTOMATIC|Dwarf ~ Attack Bonus|PREVAREQ:DisableRacialTraits,0|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfAttackBonus	ABILITY:Dwarf Race Trait|AUTOMATIC|Dwarf ~ Dodge Bonus|PREVAREQ:DisableRacialTraits,0|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfDodgeBonus	ABILITY:Dwarf Race Trait|AUTOMATIC|Dwarf ~ Appraise Bonus|PREVAREQ:DisableRacialTraits,0|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfAppraiseBonus	ABILITY:Dwarf Race Trait|AUTOMATIC|Dwarf ~ Craft Bonus|PREVAREQ:DisableRacialTraits,0|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfCraftBonus	ABILITY:Special Ability|AUTOMATIC|Immunity to Cold	BONUS:STAT|STR|4	BONUS:STAT|DEX|-2	BONUS:STAT|CON|+2	BONUS:STAT|CHA|-2							COST:0	SOURCEPAGE:P.9
+
+# Wild Dwarf
+#racial feats: disentangler, hammer fist, jungle stamina, swarmfighting
+#call themselves 'dur Authalar (the people)
+#speed 20
+#AutoLang  dwarven, common, home region
+#bonus lang chultan, draconic, goblin, tashalan, yuan-ti
+#wild dwarf region -  bonus langs draconic, goblin, ignan, shaaran, tashalan, yuan-ti
+#regional feats: disentangler, jungle stamina, survivorbonus equip: (A) hand axe* or halfspear*, or (B) ointment of barkskin and 3 doses of wild dwarf knockout venom
+#region, chult, wild dwarf
+## unique item - wild dwarf knockout poison
+#prefered class: barbarian, druid, fighter, ranger - may choose a regional feat and gain bonus equip
+# NOTE - DwarfPoisonSaveBonus of 1, as default is 2, we can BONUS a var, but not *set* it...#
+#Wild				KEY:Dwarf ~ Wild				CATEGORY:Internal		COST:0	TYPE:DwarfSubRace.AltSubraceChoice				PREMULT:1,[PREABILITY:1,CATEGORY=Internal,Dwarf ~ Wild],[!PREABILITY:1,CATEGORY=Internal,TYPE.AltSubraceChoice]	DESC:Wild Dwarf, FRCS:Races of Faerun																						TEMPLATE:Dwarf ~ Wild							ABILITY:Special Ability|AUTOMATIC|TYPE=WildDwarf Race Trait	ABILITY:Dwarf Race Trait|AUTOMATIC|Dwarf ~ Darkvision|PREVAREQ:DisableRacialTraits,0|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfRacialVision	ABILITY:Dwarf Race Trait|AUTOMATIC|Dwarf ~ Stability|PREVAREQ:DisableRacialTraits,0|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfStability	ABILITY:Dwarf Race Trait|AUTOMATIC|Dwarf ~ Poison Save Bonus|PREVAREQ:DisableRacialTraits,0|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfPoisonSaveBonus	ABILITY:Dwarf Race Trait|AUTOMATIC|Dwarf ~ Spell Save Bonus|PREVAREQ:DisableRacialTraits,0|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfSpellSaveBonus	ABILITY:Dwarf Race Trait|AUTOMATIC|Dwarf ~ Attack Bonus|PREVAREQ:DisableRacialTraits,0|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfAttackBonus	ABILITY:Dwarf Race Trait|AUTOMATIC|Dwarf ~ Dodge Bonus|PREVAREQ:DisableRacialTraits,0|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfDodgeBonus																																																																																																			BONUS:STAT|CON|2|TYPE=Racial|PREVAREQ:DisableRacialStats,0	BONUS:STAT|CHA|-2|TYPE=Racial|PREVAREQ:DisableRacialStats,0									COST:0	SOURCEPAGE:P.23
+
+#Weapon Proficiency	KEY:Wild Dwarf ~ Weapon Proficiency	CATEGORY:Special Ability	TYPE:Race Trait.WildDwarf Race Trait.SpecialQuality																				DESC:Wild Dwarves are automatically proficient with the handaxe and blowgun. These proficiencies replace those of standard dwarves.											AUTO:WEAPONPROF|Handaxe|Blowgun																																																																																																																																																																																																																																																																																			SOURCEPAGE:p.24
+#Poison Use			KEY:Wild Dwarf ~ Poison Use		CATEGORY:Special Ability	TYPE:Race Trait.WildDwarf Race Trait.SpecialQuality																				DESC:Wild Dwarves work with poisons from an early age, and they never risk accidentally poisoning themselves when applying poison to a weapon																																																																																																																																																																																																																																																																																																	SOURCEPAGE:p.24
+#Fire Resistance		KEY:Wild Dwarf ~ Fire Resistance	CATEGORY:Special Ability	TYPE:Race Trait.WildDwarf Race Trait.SpecialQuality																				DESC:Wild Dwarves are inured to the oppresive heat of Chult																													ABILITY:Special Ability|AUTOMATIC|Resistance to Fire																																																																																																																																																																																																																																																																		BONUS:VAR|FireResistanceBonus|5			SOURCEPAGE:p.24
+#Poison Resistance		KEY:Wild Dwarf ~ Poison Resistance	CATEGORY:Special Ability	TYPE:Race Trait.WildDwarf Race Trait.SpecialQuality																				DESC:Wild Dwarves get +3 racial bonus against poison, this replaces the standard dwarven bonus against poison. Wild Dwarves are immune to wild dwarf knockout poison																				ASPECT:Immunity|Wild Dwarf Knockout Poison																																																																																																																																																																																																																																																	BONUS:VAR|DwarfPoisonSaveBonus|1												SOURCEPAGE:p.24
+#Disease resistance	KEY:Wild Dwarf ~ Disease Resistance	CATEGORY:Special Ability	TYPE:Race Trait.WildDwarf Race Trait.SpecialQuality																				DESC:+4 racial bonus against disease. Wild Dwarves have developed a strong resistance to disease of all types																													ASPECT:SaveBonus|+4 against Disease																																																																																																																																																																																																																																																																				SOURCEPAGE:p.24
+#No Stone Cunning	KEY:Wild Dwarf ~ No Stone Cunning	SOURCEPAGE:p.24	CATEGORY:Special Ability	TYPE:Race Trait.WildDwarf Race Trait.DwarfStonecunning.DwarfAppraiseBonus.DwarfCraftBonus.SpecialQuality	DESC:Wild dwarves are not nearly as capable or familiar with stone or metal as their more civilised kin. They do not receive the dwarven stonecunning trait or the bonus on Appraise and Craft checks related to stone or metal.
+
+#
+# moon elf
+#regions: the dalelands, elf (moon), evermeet, the high forest, the north, silverymoon, the wester heartlands
+#racial feat: gift of tongues
+#racial prestive calss: bladesinger, spellsinger
+#other than that, are pretty standard PH Elves
+#Moon				KEY:Elf ~ Moon				CATEGORY:Internal		COST:0	TYPE:ElfSubRace.AltSubraceChoice				PREMULT:1,[PREABILITY:1,CATEGORY=Internal,Elf ~ Moon],[!PREABILITY:1,CATEGORY=Internal,TYPE.AltSubraceChoice]	DESC:Moon Elf, FRCS:Races of Faerun																							TEMPLATE:Elf ~ Moon							ABILITY:Elf Race Trait|AUTOMATIC|Elf ~ Racial Immunity|PREVAREQ:DisableRacialTraits,0|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfRacialImmunity	ABILITY:Elf Race Trait|AUTOMATIC|Elf ~ Low-Light Vision|PREVAREQ:DisableRacialTraits,0|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfLowLightVision	ABILITY:Elf Race Trait|AUTOMATIC|Elf ~ Weapon Proficiency|PREVAREQ:DisableRacialTraits,0|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfWeaponProficiency	ABILITY:Elf Race Trait|AUTOMATIC|Elf ~ Skill Bonus|PREVAREQ:DisableRacialTraits,0|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfSkillBonus																																																																																																																																																															BONUS:STAT|CON|-2|TYPE=Racial|PREVAREQ:DisableRacialStats,0	BONUS:STAT|DEX|2|TYPE=Racial|PREVAREQ:DisableRacialStats,0									COST:0	SOURCEPAGE:P.38
+
+#Mountain Orc	KEY:Orc ~ Mountain
+
+#Mountain orcs all possess the following racial traits:
+#- +4 Strength, -2 Intelligence, -2 Wisdom, -2 Charisma: Mountain orcs are fantastically strong, but they react to situations with violence and poor planning.
+#- Medium-size.
+#- Mountain orc land speed is 30 feet.
+#- Darkvision up to 60 feet.
+#- Proficient with the greataxe and javelin. Mountain orcs train with weapons from childhood.
+#- Light Sensitivity (Ex): Mountain orcs suffer a -1 penalty on attack rolls in bright sunlight or within the radius of a daylight spell.
+#- Orc Blood: For all special abilities and effects, a mountain orc is considered an orc. Mountain orcs, for example, can use or create orc weapons and magic items with racially specific orc powers.
+#- Automatic Languages: Common and Orc.
+#Bonus Languages: Draconic, Dwarven, Giant, Goblin.
+#- Favored Class: Barbarian.
+
+
+Mountain Orc Racial Traits	KEY:Mountain Orc Racial Traits	CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary	VISIBLE:EXPORT	DESC:Mountain can see in the dark up to 60 feet. Darkvision is black and white only, but it is otherwise like normal sight, and Orcs can function just fine with no light at all.|PREABILITY:1,CATEGORY=Special Ability,Mountain Orc ~ Darkvision	DESC:&nl;For all effects related to race, a mountain orc is considered an orc and are vulnerable to special effects that affect orcs, and they can use magic items that are only usable by orcs.|PREABILITY:1,CATEGORY=Special Ability,Mountain Orc ~ Orc Blood 
+
+
+################################################
+# Lesser drow as example, from pg
+#Lesser Drow			KEY:Elf ~ Lesser Drow	COST:0	PREMULT:1,[PREABILITY:1,CATEGORY=Internal,Elf ~ Lesser Drow],[!PREABILITY:1,CATEGORY=Internal,TYPE.AltSubraceChoice]			SOURCEPAGE:p.191	CATEGORY:Internal			TYPE:ElfSubrace.AltSubraceChoice	COST:0	TEMPLATE:Elf ~ Lesser Drow	BONUS:STAT|DEX|2	BONUS:STAT|CON|-2	ABILITY:Special Ability|AUTOMATIC|TYPE=Lesser Drow Race Trait
+#
+#Darkvision			KEY:Lesser Drow ~ Darkvision			SOURCEPAGE:p.191	CATEGORY:Special Ability	TYPE:Race Trait.Lesser Drow Race Trait.SpecialQuality	DESC:Lesser drow can see in the dark up to 60 feet. Darkvision is black and white only, but it is otherwise like normal sight, and lesser drow can function just fine with no light at all. This ability replaces the low-light vision noted for elves in the Player's Handbook.	BONUS:VAR|DarkvisionRange|60|TYPE=Base
+#Weapon Proficiency	KEY:Lesser Drow ~ Weapon Proficiency	SOURCEPAGE:p.191	CATEGORY:Special Ability	TYPE:Race Trait.Lesser Drow Race Trait.SpecialQuality	DESC:Lesser drow are automatically proficient with the hand crossbow, rapier, and short sword. These proficiencies replace those of standard elves.	AUTO:WEAPONPROF|Crossbow (Hand)|Rapier|Sword (Short)
+#Racial Resistance		KEY:Lesser Drow ~ Racial Resistance		SOURCEPAGE:p.191	CATEGORY:Special Ability	TYPE:Race Trait.Lesser Drow Race Trait.SpecialQuality	DESC:+2 racial bonus on Will saves against spells and spell-like effects.	ASPECT:SaveBonus|+2 racial bonus on Will saves against spells and spell-like effects.
+#Spell-Like Abilities	KEY:Lesser Drow ~ Spell-Like Abilities	SOURCEPAGE:p.191	CATEGORY:Special Ability	TYPE:Race Trait.Lesser Drow Race Trait.SpecialQuality	DESC:A lesser drow with a Charisma score of at least 10 has the following spell-like abilities: 1 /day-dancing lights, daze, touch of fatigue. Caster level equals the lesser drow's class levels.	ABILITY:Spell-Like Ability|AUTOMATIC|Dancing Lights|Daze|Touch of Fatigue|PRESTAT:CHA=10	BONUS:VAR|DancingLightsTimes|1|PRESTAT:CHA=10	BONUS:VAR|DancingLightsLVL|TL|PRESTAT:CHA=10	BONUS:VAR|DazeTimes|1	BONUS:VAR|DazeLVL|TL	BONUS:VAR|DazeDC|10+CHA|TYPE=Stat|PRESTAT:CHA=10	BONUS:VAR|TouchOfFatigueTimes|1|PRESTAT:CHA=10	BONUS:VAR|TouchOfFatigueLVL|TL|PRESTAT:CHA=10	BONUS:VAR|TouchOfFatigueDC|CHA|TYPE=Stat|PRESTAT:CHA=10
+#Light Blindness		KEY:Lesser Drow ~ Light Blindness		SOURCEPAGE:p.191	CATEGORY:Special Ability	TYPE:Race Trait.Lesser Drow Race Trait.SpecialQuality	DESC:Abrupt exposure to bright light (such as sunlight or a daylight spell) blinds lesser drow for 1 round. On subsequent rounds, they are dazzled as long as they remain in the affected area.
+
+
+
+
+###Block: Elven High Mage - moved to seperate lst file to enable seperation of Epic from non-Epic
+
+
