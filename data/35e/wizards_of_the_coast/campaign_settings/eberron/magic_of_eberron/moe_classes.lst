@@ -1,0 +1,45 @@
+
+# Class Name	Hit Dice	Type			Source Page		Define			Combat bonus															Modify VAR																			Bonus
+CLASS:Psionic Artificer	HD:6	SERVESAS:CLASS|Artificer	TYPE:Base.PC	SOURCEPAGE:p.29	DEFINE:ArtificerLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ArtificerLVL|CL	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Psionic Artificer	STARTSKILLPTS:4	CSKILL:Appraise|Concentration|TYPE=Craft|Disable Device|Knowledge (arcana)|KNOWLEDGE (ARCHITECTURE AND ENGINEERING)|Knowledge (The Planes)|Open Lock|TYPE=Profession|Search|Spellcraft|Use Magic Device
+# Class Name	Spell Stat		Spell Type			Caster level
+CLASS:Psionic Artificer	FACT:SpellType|Infusion
+CLASS:Psionic Artificer	SPELLSTAT:INT	BONUS:CASTERLEVEL|Artificer|Caster_Level_Artificer	DEFINE:Caster_Level_Artificer|0	BONUS:VAR|Caster_Level_Artificer|CL+Caster_Level_Bonus	DEFINE:CasterLevelBLArtificer|0	BONUS:VAR|CasterLevelBLArtificer|charbonusto("PCLEVEL","Artificer")
+CLASS:Psionic Artificer	BONUS:VAR|Caster_Level_Highest__Infusion|Caster_Level_Artificer+CasterLevelBLArtificer|TYPE=Base
+###Block:
+1	ABILITY:Artificer Class Feature|AUTOMATIC|Artificer ~ Weapon and Armor Proficiency
+1	ABILITY:Artificer Class Feature|AUTOMATIC|Artificer ~ Infusions
+1	ABILITY:Artificer Class Feature|AUTOMATIC|Artificer ~ Craft Reserve
+1	ABILITY:Artificer Class Feature|AUTOMATIC|Artificer ~ Artificer Knowledge
+1	ABILITY:Artificer Class Feature|AUTOMATIC|Artificer ~ Artisan Bonus
+1	ABILITY:Artificer Class Feature|AUTOMATIC|Artificer ~ Disable Trap
+1	ABILITY:Artificer Class Feature|AUTOMATIC|Artificer ~ Item Creation
+1	ABILITY:Artificer Class Feature|AUTOMATIC|Artificer ~ Bonus Feat
+4	ABILITY:Artificer Class Feature|AUTOMATIC|Artificer ~ Craft Homunculus
+5	ABILITY:Artificer Class Feature|AUTOMATIC|Artificer ~ Retain Essence
+7	ABILITY:Artificer Class Feature|AUTOMATIC|Artificer ~ Metamagic Spell Trigger
+11	ABILITY:Artificer Class Feature|AUTOMATIC|Artificer ~ Metamagic Spell Completion
+13	ABILITY:Artificer Class Feature|AUTOMATIC|Artificer ~ Skill Mastery
+###Block:
+1	CAST:0,2
+2	CAST:0,3
+3	CAST:0,3,1
+4	CAST:0,3,2
+5	CAST:0,3,3,1
+6	CAST:0,3,3,2
+7	CAST:0,3,3,2
+8	CAST:0,3,3,3,1
+9	CAST:0,3,3,3,2
+10	CAST:0,3,3,3,2
+11	CAST:0,3,3,3,2,1
+12	CAST:0,3,3,3,2,2
+13	CAST:0,3,3,3,3,2
+14	CAST:0,4,3,3,3,3,1
+15	CAST:0,4,4,3,3,3,2
+16	CAST:0,4,4,4,3,3,2
+17	CAST:0,4,4,4,4,3,3
+18	CAST:0,4,4,4,4,4,3
+19	CAST:0,4,4,4,4,4,4
+20	CAST:0,4,4,4,4,4,4
+
