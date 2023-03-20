@@ -57,7 +57,7 @@ CLASS:Hexblade	!PREALIGN:LG,NG,CG
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Hexblade	STARTSKILLPTS:2	CSKILL:Bluff|Concentration|TYPE=Craft|Diplomacy|Intimidate|Knowledge (arcana)|TYPE=Profession|Ride|Spellcraft
 # Class Name	Spell Stat		Spell Type		Memorize	Caster level
-CLASS:Hexblade	SPELLSTAT:CHA	FACT:SpellType|Arcane	MEMORIZE:NO	
+CLASS:Hexblade	SPELLSTAT:CHA	FACT:SpellType|Arcane	MEMORIZE:NO
 CLASS:Hexblade	BONUS:CASTERLEVEL|Hexblade|Caster_Level_Hexblade|PRECLASS:1,Hexblade=4	DEFINE:Caster_Level_BL_Stripped_Hexblade|0	BONUS:VAR|Caster_Level_BL_Stripped_Hexblade|Caster_Level_Hexblade-CasterLevelBLHexblade	BONUS:VAR|Caster_Level_Hexblade|(HexbladeLVL/2)+Caster_Level_Bonus	DEFINE:CasterLevelBLHexblade|0	BONUS:VAR|CasterLevelBL_x_Hexblade|charbonusto("PCLEVEL","Hexblade")	BONUS:VAR|Caster_Level_Highest__Arcane|Caster_Level_Hexblade|TYPE=Base|PRECLASS:1,Hexblade=4	DEFINE:Caster_Level_Hexblade|0
 1	ABILITY:Hexblade Class Feature|AUTOMATIC|Hexblade ~ Weapon and Armor Proficiency|!PREABILITY:1,CATEGORY=ACF,TYPE.HexbladeProficiencies
 1	ABILITY:Hexblade Class Feature|AUTOMATIC|Hexblade ~ Hexblade's Curse|!PREABILITY:1,CATEGORY=ACF,TYPE.HexbladeCurse
@@ -901,8 +901,8 @@ CLASS:War Chanter	STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=Craft|
 1	ABILITY:War Chanter Class Feature|AUTOMATIC|War Chanter ~ War Chanter Music
 8	ABILITY:War Chanter Class Feature|AUTOMATIC|War Chanter ~ Singing Shout
 ###Block:
-1	BONUS:VAR|WarChanterMusicLVL|CL
-8	BONUS:VAR|WarChanterSingingShoutLVL|CL
+1	DEFINE:WarChanterMusicLVL|0	BONUS:VAR|WarChanterMusicLVL|CL	BONUS:VAR|BardicMusicTimes|WarChanterMusicLVL
+8	DEFINE:WarChanterSingingShoutLVL|0	BONUS:VAR|WarChanterSingingShoutLVL|CL
 ###Block:
 11	PREPCLEVEL:MIN=20
 
