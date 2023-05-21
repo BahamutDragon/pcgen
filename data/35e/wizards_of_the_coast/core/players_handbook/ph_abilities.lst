@@ -429,6 +429,40 @@ CATEGORY=Special Ability|Bard ~ Bardic Music.MOD	ABILITY:Bard Class Feature|AUTO
 CATEGORY=Special Ability|Bard ~ Bardic Music.MOD	ABILITY:Bard Class Feature|AUTOMATIC|Bardic Music ~ Inspire Heroics|!PREABILITY:1,CATEGORY=ACF,TYPE.BardInspireHeroics|PRESKILL:1,TYPE.Perform=18|PREVARGTEQ:BardicMusicLvl,15
 CATEGORY=Special Ability|Bard ~ Bardic Music.MOD	ABILITY:Bard Class Feature|AUTOMATIC|Bardic Music ~ Mass Suggestion|!PREABILITY:1,CATEGORY=ACF,TYPE.BardMassSuggestion|PRESKILL:1,TYPE.Perform=21|PREVARGTEQ:BardicMusicLvl,18
 
+# Define Cast and Known Progression
+CATEGORY=Special Ability|Bard ~ Spells.MOD			DEFINE:BardSpellCast00|0
+CATEGORY=Special Ability|Bard ~ Spells.MOD			DEFINE:BardSpellCast01|0
+CATEGORY=Special Ability|Bard ~ Spells.MOD			DEFINE:BardSpellCast02|0
+CATEGORY=Special Ability|Bard ~ Spells.MOD			DEFINE:BardSpellCast03|0
+CATEGORY=Special Ability|Bard ~ Spells.MOD			DEFINE:BardSpellCast04|0
+CATEGORY=Special Ability|Bard ~ Spells.MOD			DEFINE:BardSpellCast05|0
+CATEGORY=Special Ability|Bard ~ Spells.MOD			DEFINE:BardSpellCast06|0		
+CATEGORY=Special Ability|Bard ~ Spells.MOD			DEFINE:BardSpellKnown00|0
+CATEGORY=Special Ability|Bard ~ Spells.MOD			DEFINE:BardSpellKnown01|0
+CATEGORY=Special Ability|Bard ~ Spells.MOD			DEFINE:BardSpellKnown02|0
+CATEGORY=Special Ability|Bard ~ Spells.MOD			DEFINE:BardSpellKnown03|0
+CATEGORY=Special Ability|Bard ~ Spells.MOD			DEFINE:BardSpellKnown04|0
+CATEGORY=Special Ability|Bard ~ Spells.MOD			DEFINE:BardSpellKnown05|0
+CATEGORY=Special Ability|Bard ~ Spells.MOD			DEFINE:BardSpellKnown06|0
+
+# BONUS:VAR for the Cast and Known Progression via Formula
+CATEGORY=Special Ability|Bard ~ Spells.MOD	BONUS:VAR|BardSpellCast00|2+(BardLVL>=2)+(BardLVL>=14)
+CATEGORY=Special Ability|Bard ~ Spells.MOD	BONUS:VAR|BardSpellCast01|if(BardLVL>=2,0,-1)+(BardLVL>=3)+(BardLVL>=4)+(BardLVL>=5)+(BardLVL>=15)
+CATEGORY=Special Ability|Bard ~ Spells.MOD	BONUS:VAR|BardSpellCast02|if(BardLVL>=4,0,-1)+(BardLVL>=5)+(BardLVL>=6)+(BardLVL>=8)+(BardLVL>=16)
+CATEGORY=Special Ability|Bard ~ Spells.MOD	BONUS:VAR|BardSpellCast03|if(BardLVL>=7,0,-1)+(BardLVL>=8)+(BardLVL>=9)+(BardLVL>=11)+(BardLVL>=17)
+CATEGORY=Special Ability|Bard ~ Spells.MOD	BONUS:VAR|BardSpellCast04|if(BardLVL>=10,0,-1)+(BardLVL>=11)+(BardLVL>=12)+(BardLVL>=14)+(BardLVL>=18)
+CATEGORY=Special Ability|Bard ~ Spells.MOD	BONUS:VAR|BardSpellCast05|if(BardLVL>=13,0,-1)+(BardLVL>=14)+(BardLVL>=15)+(BardLVL>=17)+(BardLVL>=19)
+CATEGORY=Special Ability|Bard ~ Spells.MOD	BONUS:VAR|BardSpellCast06|if(BardLVL>=16,0,-1)+(BardLVL>=17)+(BardLVL>=18)+(BardLVL>=19)+(BardLVL>=20)
+CATEGORY=Special Ability|Bard ~ Spells.MOD	BONUS:VAR|BardSpellKnown00|4+(BardLVL>=2)+(BardLVL>=3)
+CATEGORY=Special Ability|Bard ~ Spells.MOD	BONUS:VAR|BardSpellKnown01|if(BardLVL>=2,2,0)+(BardLVL>=3)+(BardLVL>=5)+(BardLVL>=16)
+CATEGORY=Special Ability|Bard ~ Spells.MOD	BONUS:VAR|BardSpellKnown02|if(BardLVL>=4,2,0)+(BardLVL>=5)+(BardLVL>=7)+(BardLVL>=17)
+CATEGORY=Special Ability|Bard ~ Spells.MOD	BONUS:VAR|BardSpellKnown03|if(BardLVL>=7,2,0)+(BardLVL>=8)+(BardLVL>=10)+(BardLVL>=18)
+CATEGORY=Special Ability|Bard ~ Spells.MOD	BONUS:VAR|BardSpellKnown04|if(BardLVL>=10,2,0)+(BardLVL>=11)+(BardLVL>=13)+(BardLVL>=19)
+CATEGORY=Special Ability|Bard ~ Spells.MOD	BONUS:VAR|BardSpellKnown05|if(BardLVL>=13,2,0)+(BardLVL>=14)+(BardLVL>=16)+(BardLVL>=20)
+CATEGORY=Special Ability|Bard ~ Spells.MOD	BONUS:VAR|BardSpellKnown06|if(BardLVL>=16,2,0)+(BardLVL>=17)+(BardLVL>=19)
+
+
+
 ###Block - Support
 CATEGORY=Internal|Default.MOD		ABILITY:Internal|AUTOMATIC|Aspect Display ~ Bardic Inspire Courage|PREVARGTEQ:TempBonus_ActivateBardicInspireCourage,1	DEFINE:TempBonus_ActivateBardicInspireCourage|0	DEFINE:BardicInspireCourageSaveBonus|0	DEFINE:TempBonus_BardicInspireCourageBonus|0
 
