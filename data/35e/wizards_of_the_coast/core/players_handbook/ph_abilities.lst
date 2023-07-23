@@ -24,6 +24,42 @@ CATEGORY=Internal|Default.MOD																																																			
 CATEGORY=Internal|Default.MOD																																																																																																																																																					ABILITY:Internal|AUTOMATIC|Skill Synergy ~ Survival|PRESKILL:1,Survival=5
 CATEGORY=Internal|Default.MOD																																																																																																																																																					ABILITY:Internal|AUTOMATIC|Skill Synergy ~ Tumble|PRESKILL:1,Tumble=5
 
+
+###Block: Vital Statistics, p. 109
+# COMMENT:
+# AgeSet Definitions are:
+#  AGESET:0|Undefined
+#  AGESET:1|Youth
+#  AGESET:2|Adult
+#  AGESET:3|Middle-Aged
+#  AGESET:4|Old
+#  AGESET:5|Venerable
+#
+# At middle age, -1 to Str, Dex, and Con; +1 to Int, Wis, and Cha.
+# At old age, -2 to Str, Dex, and Con; +1 to Int, Wis, and Cha.
+# At venerable age, -3 to Str, Dex, and Con; +1 to Int, Wis, and Cha.
+
+Age	CATEGORY:Internal		DEFINE:AbilityScoreAgePenalty|0	DEFINE:AbilityScoreAgeBonus|0
+
+###Block:
+CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Age
+
+# AbilityScoreAgePenalty - Applied to the physical ability scores
+CATEGORY=Internal|Age.MOD	BONUS:VAR|AbilityScoreAgePenalty|1|PREAGESET:1,Middle Age
+CATEGORY=Internal|Age.MOD	BONUS:VAR|AbilityScoreAgePenalty|2|PREAGESET:1,Old
+CATEGORY=Internal|Age.MOD	BONUS:VAR|AbilityScoreAgePenalty|3|PREAGESET:1,Venerable
+
+# AbilityScoreAgeBonus - Applied to the mental ability scores
+CATEGORY=Internal|Age.MOD	BONUS:VAR|AbilityScoreAgeBonus|1|PREAGESET:1,Middle Age
+CATEGORY=Internal|Age.MOD	BONUS:VAR|AbilityScoreAgeBonus|1|PREAGESET:1,Old
+CATEGORY=Internal|Age.MOD	BONUS:VAR|AbilityScoreAgeBonus|1|PREAGESET:1,Venerable
+
+# COMMENT: We assign the penalties and bonuses to the scores
+CATEGORY=Internal|Age.MOD	BONUS:STAT|STR,CON,DEX|-AbilityScoreAgePenalty|TYPE=Age|!PREFACT:1,DisableAbilityScoreAgePenalties=true
+CATEGORY=Internal|Age.MOD	BONUS:STAT|INT,WIS,CHA|AbilityScoreAgeBonus|TYPE=Age|!PREFACT:1,DisableAbilityScoreAgeBonuses=true
+
+
+###Block: Skill Synergy
 Skill Synergy ~ Bluff															CATEGORY:Internal																																																																																																																																																																																															BONUS:SKILL|Sleight of Hand,Diplomacy,Intimidate|SynergySkillBonus|TYPE=Synergy.STACK
 Skill Synergy ~ Handle Animal														CATEGORY:Internal																																																																																																																																																																																															BONUS:SKILL|Ride|SynergySkillBonus|TYPE=Synergy.STACK
 Skill Synergy ~ Jump															CATEGORY:Internal																																																																																																																																																																																															BONUS:SKILL|Tumble|SynergySkillBonus|TYPE=Synergy.STACK
