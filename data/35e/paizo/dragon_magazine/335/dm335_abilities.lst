@@ -1,0 +1,41 @@
+SOURCELONG:Dragon Magazine 335	SOURCESHORT:DM335
+
+###Block: Chaos Monk Selection
+Chaos Monk Class Selection		CATEGORY:Internal	TYPE:Default Monk Progression.AltMonkClass	BONUS:VAR|MonkAlignmentNotMet|1|TYPE=Boolean|!PREALIGN:CG,CN,CE
+
+###Block: Level Progression
+CATEGORY=Internal|Chaos Monk Class Selection.MOD	ABILITY:Internal|AUTOMATIC|Monk ~ Unarmed Damage|PREVARGTEQ:MonkLVL,1
+CATEGORY=Internal|Chaos Monk Class Selection.MOD	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Weapon and Armor Proficiency|!PREABILITY:1,CATEGORY=ACF,TYPE.MonkProficiencies|PREVARGTEQ:MonkLVL,1	
+CATEGORY=Internal|Chaos Monk Class Selection.MOD	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Unarmed Strike|!PREABILITY:1,CATEGORY=ACF,TYPE.MonkUnarmedStrike|PREVARGTEQ:MonkLVL,1	
+CATEGORY=Internal|Chaos Monk Class Selection.MOD	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Bonus Feat|!PREABILITY:1,CATEGORY=ACF,TYPE.MonkBonusFeats|PREVARGTEQ:MonkLVL,1	
+CATEGORY=Internal|Chaos Monk Class Selection.MOD	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Evasion|!PREABILITY:1,CATEGORY=ACF,TYPE.MonkEvasion|PREVARGTEQ:MonkLVL,1	
+CATEGORY=Internal|Chaos Monk Class Selection.MOD	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Still Mind|!PREABILITY:1,CATEGORY=ACF,TYPE.MonkStillMind|PREVARGTEQ:MonkLVL,3	
+CATEGORY=Internal|Chaos Monk Class Selection.MOD	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Ki Strike|!PREABILITY:1,CATEGORY=ACF,TYPE.MonkKiStrike|PREVARGTEQ:MonkLVL,4	
+CATEGORY=Internal|Chaos Monk Class Selection.MOD	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Slow Fall|!PREABILITY:1,CATEGORY=ACF,TYPE.MonkSlowFall|PREVARGTEQ:MonkLVL,4	
+CATEGORY=Internal|Chaos Monk Class Selection.MOD	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Improved Evasion|!PREABILITY:1,CATEGORY=ACF,TYPE.MonkImprovedEvasion|PREVARGTEQ:MonkLVL,9	
+CATEGORY=Internal|Chaos Monk Class Selection.MOD	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Diamond Soul|!PREABILITY:1,CATEGORY=ACF,TYPE.MonkDiamondSoul|PREVARGTEQ:MonkLVL,13	
+CATEGORY=Internal|Chaos Monk Class Selection.MOD	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Quivering Palm|!PREABILITY:1,CATEGORY=ACF,TYPE.MonkQuiveringPalm|PREVARGTEQ:MonkLVL,15	
+CATEGORY=Internal|Chaos Monk Class Selection.MOD	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Timeless Body|!PREABILITY:1,CATEGORY=ACF,TYPE.MonkTimelessBody|PREVARGTEQ:MonkLVL,17	
+CATEGORY=Internal|Chaos Monk Class Selection.MOD	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Empty Body|!PREABILITY:1,CATEGORY=ACF,TYPE.MonkEmptyBody|PREVARGTEQ:MonkLVL,19	
+CATEGORY=Internal|Chaos Monk Class Selection.MOD	ABILITY:Monk Class Feature|AUTOMATIC|Chaos Monk ~ Flailing Strike|PREVARGTEQ:MonkLVL,1	
+CATEGORY=Internal|Chaos Monk Class Selection.MOD	ABILITY:Monk Class Feature|AUTOMATIC|Chaos Monk ~ Erractic Advance|PREVARGTEQ:MonkLVL,5	
+CATEGORY=Internal|Chaos Monk Class Selection.MOD	ABILITY:Monk Class Feature|AUTOMATIC|Chaos Monk ~ Displacing Stance|PREVARGTEQ:MonkLVL,7	
+CATEGORY=Internal|Chaos Monk Class Selection.MOD	ABILITY:Monk Class Feature|AUTOMATIC|Chaos Monk ~ Freedom of Thought|PREVARGTEQ:MonkLVL,11	
+CATEGORY=Internal|Chaos Monk Class Selection.MOD	ABILITY:Monk Class Feature|AUTOMATIC|Chaos Monk ~ Anarchic Self|PREVARGTEQ:MonkLVL,20	
+
+
+###Block: Chaos Monk Class Features
+Flailing Strike		KEY:Chaos Monk ~ Flailing Strike	SOURCEPAGE:p.89	CATEGORY:Special Ability	TYPE:Class Feature.Monk Class Feature.Chaos Monk Class Feature Lvl 1.SpecialQuality.Extraordinary	ASPECT:NAME|Flailing Strike (1d4-1)|PREVAREQ:FlailingStrikeProgression,0	ASPECT:NAME|Flailing Strike (1d4)|PREVAREQ:FlailingStrikeProgression,1	ASPECT:NAME|Flailing Strike (1d6-1)|PREVAREQ:FlailingStrikeProgression,2	ASPECT:NAME|Flailing Strike (1d6)|PREVAREQ:FlailingStrikeProgression,3	DEFINE:FlailStrikeDiesize|0	DEFINE:FlailingStrikeProgression|0	DEFINE:FlailingStrikeAttackPenalty|0	BONUS:VAR|FlailStrikeDiesize|4+if(FlailingStrikeProgression>=2,2,0)	BONUS:VAR|FlailingStrikeProgression|(MonkLVL>=5)+(MonkLVL>=10)+(MonkLVL>=15)	BONUS:VAR|FlailingStrikeAttackPenalty|2-(MonkLVL>=5)-(MonkLVL>=9)	DESC:Chaos Monks practive martial arts with a reckless abandon that shifts drastically from humorously ineffective to frighteningly deadly. At the expense of accuracy, the chaos monk can make a roll	DESC: (1d%1|FlailStrikeDiesize	DESC:-1)|PREMULT:1,[PREVAREQ:FlailingStrikeProgression,0],[PREVAREQ:FlailingStrikeProgression,2]	DESC:) to determine how many attacks she can make (minimum 0). Regardless of the number of attacks made, she suffers an attack penalty on all of them. At 1st level she takes a -2 penalty, at 5th level it decreases to -1, and at 9th level it disappears. Using a flailing strike requires a full-round action and can only be made as part of an unarmed attack or with special monk weapons.	BENEFIT:Number of attacks 1d%1|FlailStrikeDiesize	BENEFIT:-1|PREMULT:1,[PREVAREQ:FlailingStrikeProgression,0],[PREVAREQ:FlailingStrikeProgression,2]	BENEFIT:, Attack penalty of -%1.|FlailingStrikeAttackPenalty|PREVARGTEQ:FlailingStrikeAttackPenalty,1		BENEFIT:, with no Attack penalty.
+Erractic Advance		KEY:Chaos Monk ~ Erractic Advance	SOURCEPAGE:p.89	CATEGORY:Special Ability	TYPE:Class Feature.Monk Class Feature.Chaos Monk Class Feature Lvl 5.SpecialAttack.Extraordinary	ASPECT:NAME|Erractic Advance (%1/day)|ErracticAdvanceTimes	DEFINE:ErracticAdvanceTimes|0	DEFINE:ErracticAdvanceDC|0	BONUS:VAR|ErracticAdvanceTimes|max(1,WIS)	BONUS:VAR|ErracticAdvanceDC|10+MonkLVL	DESC:At 5th level, a chaos monk can attempt to daze an oppoent with a wild and erratic rush. As part of a charge, a chaos monk can activate this ability, forcing her opponent to make a Will save (DC %1) or become dazed for 1 round. The chaos monk can use this ability a number of times per day equal to her Wisdom modifier (minimum 1/day).|ErracticAdvanceDC
+Displacing Stance		KEY:Chaos Monk ~ Displacing Stance	SOURCEPAGE:p.89	CATEGORY:Special Ability	TYPE:Class Feature.Monk Class Feature.Chaos Monk Class Feature Lvl 7.SpecialQuality.SpellLike		DEFINE:DisplacingStanceDuration|0	DEFINE:DisplacingStanceMissChance|0	BONUS:VAR|DisplacingStanceDuration|floor(MonkLVL/2)	BONUS:VAR|DisplacingStanceMissChance|if(MonkLVL>=12,50,20)	DESC:Beginning at 7th level, the chaos monk's movements become so wild and unpredictable that she can partially displace herself for a number of rounds per day equal to half her chaos monk class level (these rounds need not be consecutive0. This grants the chaos monk a 20%% chance that an attacker misses because of the displacing stance. At 12th level the miss chance increases to 50%%. This requires a standard action to enter.	DESC: [Rounds %1, Miss Chance %2%%]|DisplacingStanceDuration|DisplacingStanceMissChance
+Freedom of Thought	KEY:Chaos Monk ~ Freedom of Thought	SOURCEPAGE:p.89	CATEGORY:Special Ability	TYPE:Class Feature.Monk Class Feature.Chaos Monk Class Feature Lvl 11.SpecialQuality.Supernatural	DESC:The chaos monk's thought process become so anarchic at 11th level that once per day, should she fail a Will save against a mind-affecting effect, she may immediately reroll her save (with the same modifiers to the roll). She must take the result of the second roll, even if it is worse.
+Anarchic Self		KEY:Chaos Monk ~ Anarchic Self	SOURCEPAGE:p.89	CATEGORY:Special Ability	TYPE:Class Feature.Monk Class Feature.Chaos Monk Class Feature Lvl 20.SpecialQuality.Supernatural	DESC:Same as perfect self except the monk gains the chaotic subtype.	TEMPLATE:Chaotic
+
+
+
+
+
+
+
+
+
