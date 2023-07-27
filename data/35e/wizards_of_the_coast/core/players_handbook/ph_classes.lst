@@ -78,21 +78,6 @@ SUBCLASSLEVEL:20	CAST:4,4,4,4,4,4,4	KNOWN:6,5,5,5,5,5,4
 1:REPEATLEVEL:1	CAST:BardSpellCast00,BardSpellCast01,BardSpellCast02,BardSpellCast03,BardSpellCast04,BardSpellCast05,BardSpellCast06	KNOWN:BardSpellKnown00,BardSpellKnown01,BardSpellKnown02,BardSpellKnown03,BardSpellKnown04,BardSpellKnown05,BardSpellKnown06
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 # Ex Bard	SOURCEPAGE:p.30	Doesn't do anything except prevent leveling in the class.
 
 # Class Name	Hit Dice	Spell Type			Type						Class Type		Abbreviation	Source Page		Bonus Languages					Group of Prohibited Spells																																																						Define							Combat bonus																	Add domain number				Save bonus																					Modify VAR							Template				Monster Role
@@ -206,38 +191,16 @@ CLASS:Fighter	STARTSKILLPTS:2	CSKILL:Climb|TYPE=Craft|Handle Animal|Intimidate|J
 1	ABILITY:Special Ability|AUTOMATIC|Greater Weapon Specialization Qualify|!PREABILITY:1,CATEGORY=ACF,TYPE.FighterGreaterWeaponSpecialization
 
 
-# Class Name	Hit Dice	Type				Class Type		Abbreviation	Source Page		Define						Combat bonus																	Save bonus													Modify VAR								Apply Kit
-CLASS:Monk		HD:8		TYPE:Base.PC.NonCaster	FACT:ClassType|PC	FACT:Abb|Mnk	SOURCEPAGE:p.39	DEFINE:FlurryOfBlows|0	DEFINE:MonkLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|FlurryOfBlows|1	BONUS:VAR|MonkLVL|CL	KIT:1|Monk Flurry of Blows
+# Class Name	Hit Dice	Type				Class Type		Abbreviation	Source Page		Define		Combat bonus																	Save bonus													Modify VAR			Apply Kit
+CLASS:Monk		HD:8		TYPE:Base.PC.NonCaster	FACT:ClassType|PC	FACT:Abb|Mnk	SOURCEPAGE:p.39	DEFINE:MonkLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Reflex,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:VAR|MonkLVL|CL	KIT:1|Monk Flurry of Blows
 
 # Class Name	Required AL
-CLASS:Monk		PREALIGN:LG,LN,LE
+CLASS:Monk		PREVAREQ:MonkAlignmentNotMet,0	
 
 # Class Name	Skill Pts/Lvl	Class Skill
 CLASS:Monk		STARTSKILLPTS:4	CSKILL:Balance|Climb|Concentration|TYPE=Craft|Diplomacy|Escape Artist|Hide|Jump|Knowledge (Arcana)|Knowledge (Religion)|Listen|Move Silently|TYPE=Perform|TYPE=Profession|Sense Motive|Spot|Swim|Tumble
-###Block:
-1	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Weapon and Armor Proficiency|!PREABILITY:1,CATEGORY=ACF,TYPE.MonkProficiencies
-1	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ AC Bonus|!PREABILITY:1,CATEGORY=ACF,TYPE.MonkACBonus
-1	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Flurry of Blows|!PREABILITY:1,CATEGORY=ACF,TYPE.MonkFlurryOfBlows
-1	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Unarmed Strike|!PREABILITY:1,CATEGORY=ACF,TYPE.MonkUnarmedStrike
-1	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Bonus Feat|!PREABILITY:1,CATEGORY=ACF,TYPE.MonkBonusFeats
-1	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Evasion|!PREABILITY:1,CATEGORY=ACF,TYPE.MonkEvasion
-1	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Fast Movement|!PREABILITY:1,CATEGORY=ACF,TYPE.MonkFastMovement
-3	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Still Mind|!PREABILITY:1,CATEGORY=ACF,TYPE.MonkStillMind
-4	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Ki Strike|!PREABILITY:1,CATEGORY=ACF,TYPE.MonkKiStrike
-4	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Slow Fall|!PREABILITY:1,CATEGORY=ACF,TYPE.MonkSlowFall
-5	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Purity of Body|!PREABILITY:1,CATEGORY=ACF,TYPE.MonkPurityOfBody
-7	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Wholeness of Body|!PREABILITY:1,CATEGORY=ACF,TYPE.MonkWholenessOfBody
-9	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Improved Evasion|!PREABILITY:1,CATEGORY=ACF,TYPE.MonkImprovedEvasion
-11	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Diamond Body|!PREABILITY:1,CATEGORY=ACF,TYPE.MonkDiamondBody
-12	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Abundant Step|!PREABILITY:1,CATEGORY=ACF,TYPE.MonkAbundantStep
-13	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Diamond Soul|!PREABILITY:1,CATEGORY=ACF,TYPE.MonkDiamondSoul
-15	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Quivering Palm|!PREABILITY:1,CATEGORY=ACF,TYPE.MonkQuiveringPalm
-17	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Timeless Body|!PREABILITY:1,CATEGORY=ACF,TYPE.MonkTimelessBody
-17	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Tongue of the Sun and Moon|!PREABILITY:1,CATEGORY=ACF,TYPE.MonkTongueOfTheSunAndMoon
-19	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Empty Body|!PREABILITY:1,CATEGORY=ACF,TYPE.MonkEmptyBody
-20	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Perfect Self|!PREABILITY:1,CATEGORY=ACF,TYPE.MonkPerfectSelf
-###Block: Unarmed Block
-1	ABILITY:Internal|AUTOMATIC|Monk ~ Unarmed Damage
+###Block
+1	ABILITY:Class|AUTOMATIC|Monk
 
 
 # Class Name	Hit Dice	Spell Type			Type							Class Type		Abbreviation	Ex Class			Source Page		Ability														Define																		Combat bonus																Save bonus																						Modify VAR																																																Monster Role
