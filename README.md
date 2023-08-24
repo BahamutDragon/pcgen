@@ -2,7 +2,7 @@
 PCGEN HOMEBREW
 =
 
-###### Updated: 2019-06-04
+###### Updated: 2023-08-24
 ==========================
 ##### PCGen Data Sets & Homebrew
 
@@ -30,14 +30,14 @@ To get the optimal results and least amount of conflicts, you should use the cor
 Status of the books are here: https://github.com/BahamutDragon/pcgen/wiki/Book-Statuses
 
 
-I have a discussion group for homebrewers, please join to share ideas and of course make requests. I post about once a month on current projects or ideas. -- http://games.groups.yahoo.com/group/bd_games/
-
 
 ### DOWNLOADING THE CONTENT
 Two methods exist to get the content onto your system.
 
    1) The easier method is to use the GITHUB download option - please note that the download will change based upon branch currently selected, allowing a choice of versions. (Master is for the latest version whether alpha, beta, rc or production, Branches that are using the versioning system of pcgen is meant to work with the same version of pcgen, example 6.04.01 branch is designed to be compatible with PCGen version 6.04.01)
 Save the zip folder to a valid pcgen recognized data folder of your choice. Unzip the contents. Load PCGen. See 'LOADING THESE SETS' Below.
+* 6.08 - https://github.com/BahamutDragon/pcgen/archive/refs/heads/6.08.zip
+* 6.09 - https://github.com/BahamutDragon/pcgen/archive/refs/heads/master.zip
 
    2) The better method is to install GIT and a GIT Client, and clone the repository to a location outside of the PCGen installation directory. Then open PCGen, go to Tools>Preferences and in the Location tab under the PCGen drop-down, change the folder path of "PCGen Vendor Data Directory" or "PCGen Homebrew Data Directory" to the directory you cloned the repo into. This allows easy updates when they happen (via a git pull). It also saves bandwidth since you are only downloading changes, not the whole repository. I found this is the method to keep my data sync'd with the repo and allows for testable fixes and pushing those to the repo.  See 'LOADING THESE SETS' Below.
 
@@ -53,6 +53,13 @@ Save the zip folder to a valid pcgen recognized data folder of your choice. Unzi
 ### HOW TO USE THIS CONTENT:
 These Book data sets are not meant to be "Installed" using the Install feature in PCGen. Instead, you can place them as-is into a valid pcgen recognized 'data' folder of your choosing. I highly recommend using 'Vendor Data' (any version of pcgen) or Homebrew Data (new in 6.3) folders outside the main installation, this makes upgrading your pcgen version easier. 
 NOTICE: In order to use ALL of the data sources and the extra game systems, you must copy the 'system\gameMode' folder into your PCGen installation 'system\gamemode'.
+
+pcgen has a root directory with several folders.
+\data - this is where the data files (lst and pcc) need to be stored. There are the two additional data folders that you can customize vendordata and homebrewdata. 
+\outputsheets - these are where the export template files for the character sheets are stored
+\preview - these are for the in-app sheets are stored
+\system\gamemode - these are where the core game system files are stored
+
 
 IMPORTANT - PLEASE READ: Included in the repository are additional folders that are not DATA content. These _will_ need to be copied to the correct correlating pcgen installation folders to get the full benefit of additional options. These options include such things as: gamemodes (Game Systems not already included in your PCGen installation), outputsheets (Exported Character Sheet options for those other game systems), preview sheets (Same as outputsheets), etc. Leaving that in the data folder will not cause any issues for pcgen, but, if you do not copy the content into your installed pcgen folder, those additional options ''will not'' be available. Also note, if those items are updated, you will need to re-copy and paste them to the correct location to apply the new changes.
 NOTE: Content is only discovered and processed when the PCGen program starts up. In order to make use of new content, you will have restart PCGen if already started.
