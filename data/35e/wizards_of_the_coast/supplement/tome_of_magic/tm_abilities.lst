@@ -7,9 +7,10 @@ SOURCESHORT:TM
 Weapon and Armor Proficiency	KEY:Binder ~ Weapon and Armor Proficiency	CATEGORY:Special Ability	TYPE:Class Feature.Binder Class Feature.SpecialQuality												DESC:As a binder, you gain proficiency with all simple weapons and with light armor, but not with shields.																																																																														ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfLight|TYPE=WeaponProfSimple												SOURCEPAGE:p.10
 # Actually, there's no limit to the number of 'known' vestiges, so the ability pool needs to be larger..
 # set pool to zero and made the vestige abilities zero cost, thus avoids it appearing in the 'todo' summary section.
+# DG Jan 2023 - HOWEVER - if it is zero, it wont appear at all, and thus a *NEW* Binder cannot select vestiges. TODO - suppress 'ToDo summary' text - perhaps reduce pool when first vestige is selected?
 #BONUS:ABILITYPOOL|Vestige|BinderSoulBindingLVL
 
-Soul Binding			KEY:Binder ~ Soul Binding			CATEGORY:Special Ability	TYPE:Class Feature.Binder Class Feature.Supernatural.SpecialQuality.Soul Binding	VISIBLE:YES	DEFINE:BinderSoulBindingLVL|0			DEFINE:BinderEffectiveLVL|0	DEFINE:BinderMaxVestigeLVL|0	DESC:You have the power to bind vestiges&nl;You can bind %1 vestige (at a time) of up to level %2 for 24 hours (draw a 5' ritual circle and speak their name and title. D20 plus Con (%3) against Vestiges Bind DC)|BinderSoulBindingLVL|BinderMaxVestigeLVL|CON																																																																									BONUS:ABILITYPOOL|Vestige|0							SOURCEPAGE:p.10
+Soul Binding			KEY:Binder ~ Soul Binding			CATEGORY:Special Ability	TYPE:Class Feature.Binder Class Feature.Supernatural.SpecialQuality.Soul Binding	VISIBLE:YES	DEFINE:BinderSoulBindingLVL|0			DEFINE:BinderEffectiveLVL|0	DEFINE:BinderMaxVestigeLVL|0	DESC:You have the power to bind vestiges&nl;You can bind %1 vestige (at a time) of up to level %2 for 24 hours (draw a 5' ritual circle and speak their name and title. D20 plus Con (%3) against Vestiges Bind DC)|BinderSoulBindingLVL|BinderMaxVestigeLVL|CON																																																																									BONUS:ABILITYPOOL|Vestige|1							SOURCEPAGE:p.10
 Suppress Sign			KEY:Binder ~ Suppress Sign			CATEGORY:Special Ability	TYPE:Class Feature.Binder Class Feature.Extraordinary.SpecialQuality	VISIBLE:YES	DEFINE:BinderSuppressSign|0			DESC:You can suppress the sign of your bound vestige|PREVARGT:BinderSuppressSign,0																																																																																																									SOURCEPAGE:p.11
 Bonus Feats				KEY:Binder ~ Bonus Feats			CATEGORY:Special Ability	TYPE:Class Feature.Binder Class Feature.SpecialQuality					DEFINE:BinderFeatCount|0			DESC:At 4th level, and again at 11th and 18th level, you gain a bonus feat of your choice from the following list: Armor Proficiency (medium), Armor Proficiency (heavy), Diligent, Investigator, Martial Weapon Proficiency, Negotiator, Persuasive, Shield Proficiency, and the feats presented in this chapter. Feats not described in this book can be found in the Player's Handbook. These feats are in addition to those normally gained for attaining higher levels, but you must still meet any prerequisites for the bonus feats you choose.																		BONUS:ABILITYPOOL|Binder Feat|BinderFeatCount				SOURCEPAGE:p.11
 Pact Augmentation			KEY:Binder ~ Pact Augmentation		CATEGORY:Special Ability	TYPE:Class Feature.Binder Class Feature.Supernatural.SpecialQuality	VISIBLE:YES	DEFINE:BinderPactAugmentationCount|0	DESC:You can improve your pact with bound vestiges, every time you bind you may choose %1 of the following pact augmentations:|BinderPactAugmentationCount	DESC:&nl;+5 hit points	DESC:&nl;+2 insight bonus on initiative checks	DESC:&nl;+1 insight bonus to Armor Class	DESC:&nl;+1 insight bonus on attack rolls	DESC:&nl;+1 insight bonus on damage rolls	DESC:&nl;+1 insight bonus on saving throws	DESC:&nl;Damage reduction 1/-	DESC:&nl;Energy resistance 5 (choose one of: Acid,Cold,Electricity,Fire,Sonic)																						BONUS:ABILITYPOOL|Pact Augmentation|BinderPactAugmentationCount	SOURCEPAGE:p.11
@@ -68,6 +69,39 @@ Damage reduction 1/-				KEY:Pact Augmentation ~ DR 1/-				CATEGORY:Special Abili
 7th Marchosias	KEY:Vestige ~ Marchosias	OUTPUTNAME:Bind Vestige ~ Marchosias	CATEGORY:Special Ability	TYPE:Vestige.SpecialQuality	PREVARGTEQ:BinderMaxVestigeLVL,7	SPELLS:Bind Vestiges|TIMES=1|CASTERLEVEL=1|Bind Vestige ~ Marchosias	DESC:You can bind Marchosias					SOURCEPAGE:P.40	COST:0	ASPECT:Binding DC|30	ASPECT:Special Requirement|Yes
 8th Halphax		KEY:Vestige ~ Halphax		OUTPUTNAME:Bind Vestige ~ Halphax		CATEGORY:Special Ability	TYPE:Vestige.SpecialQuality	PREVARGTEQ:BinderMaxVestigeLVL,8	SPELLS:Bind Vestiges|TIMES=1|CASTERLEVEL=1|Bind Vestige ~ Halphax		DESC:You can bind Halphax					SOURCEPAGE:P.34	COST:0	ASPECT:Binding DC|32	ASPECT:Special Requirement|Yes
 8th Orthos		KEY:Vestige ~ Orthos		OUTPUTNAME:Bind Vestige ~ Orthos		CATEGORY:Special Ability	TYPE:Vestige.SpecialQuality	PREVARGTEQ:BinderMaxVestigeLVL,8	SPELLS:Bind Vestiges|TIMES=1|CASTERLEVEL=1|Bind Vestige ~ Orthos		DESC:You can bind Orthos					SOURCEPAGE:P.42	COST:0	ASPECT:Binding DC|35	ASPECT:Special Requirement|Yes
+# add the vestiges name to the Soul Binding Ability
+CATEGORY=Special Ability|Binder ~ Soul Binding.MOD	DESC:&nl;You can bind:
+CATEGORY=Special Ability|Binder ~ Soul Binding.MOD	DESC:&nl;Leraje; The Green Herald|PREABILITY:1,CATEGORY=Special Ability,Vestige ~ Leraje
+CATEGORY=Special Ability|Binder ~ Soul Binding.MOD	DESC:&nl;Naberious; The Grinning Hound.|PREABILITY:1,CATEGORY=Special Ability,Vestige ~ Naberious
+CATEGORY=Special Ability|Binder ~ Soul Binding.MOD	DESC:&nl;Ronove; The Iron Maiden|PREABILITY:1,CATEGORY=Special Ability,Vestige ~ Ronove
+CATEGORY=Special Ability|Binder ~ Soul Binding.MOD	DESC:&nl;Dahlver-Nar, The Tortured One|PREABILITY:1,CATEGORY=Special Ability,Vestige ~ Dahlver-Nar
+CATEGORY=Special Ability|Binder ~ Soul Binding.MOD	DESC:&nl;Haagenti; Mother of Minotaurs|PREABILITY:1,CATEGORY=Special Ability,Vestige ~ Haagenti
+CATEGORY=Special Ability|Binder ~ Soul Binding.MOD	DESC:&nl;Malphas; The TurnFeather|PREABILITY:1,CATEGORY=Special Ability,Vestige ~ Malphas
+CATEGORY=Special Ability|Binder ~ Soul Binding.MOD	DESC:&nl;Savnok; The Instigator|PREABILITY:1,CATEGORY=Special Ability,Vestige ~ Savnok
+CATEGORY=Special Ability|Binder ~ Soul Binding.MOD	DESC:&nl;Andromalius|PREABILITY:1,CATEGORY=Special Ability,Vestige ~ Andromalius
+CATEGORY=Special Ability|Binder ~ Soul Binding.MOD	DESC:&nl;Focalor|PREABILITY:1,CATEGORY=Special Ability,Vestige ~ Focalor
+CATEGORY=Special Ability|Binder ~ Soul Binding.MOD	DESC:&nl;Karsus, Hubris in the Blood|PREABILITY:1,CATEGORY=Special Ability,Vestige ~ Karsus
+CATEGORY=Special Ability|Binder ~ Soul Binding.MOD	DESC:&nl;Paimon, The Dancer|PREABILITY:1,CATEGORY=Special Ability,Vestige ~ Paimon
+CATEGORY=Special Ability|Binder ~ Soul Binding.MOD	DESC:&nl;Agares|PREABILITY:1,CATEGORY=Special Ability,Vestige ~ Agares
+CATEGORY=Special Ability|Binder ~ Soul Binding.MOD	DESC:&nl;Andras|PREABILITY:1,CATEGORY=Special Ability,Vestige ~ Andras
+CATEGORY=Special Ability|Binder ~ Soul Binding.MOD	DESC:&nl;Buer|PREABILITY:1,CATEGORY=Special Ability,Vestige ~ Buer
+CATEGORY=Special Ability|Binder ~ Soul Binding.MOD	DESC:&nl;Eurynome|PREABILITY:1,CATEGORY=Special Ability,Vestige ~ Eurynome
+CATEGORY=Special Ability|Binder ~ Soul Binding.MOD	DESC:&nl;Tenebrous|PREABILITY:1,CATEGORY=Special Ability,Vestige ~ Tenebrous
+CATEGORY=Special Ability|Binder ~ Soul Binding.MOD	DESC:&nl;Acererak|PREABILITY:1,CATEGORY=Special Ability,Vestige ~ Acererak
+CATEGORY=Special Ability|Binder ~ Soul Binding.MOD	DESC:&nl;Balam|PREABILITY:1,CATEGORY=Special Ability,Vestige ~ Balam
+CATEGORY=Special Ability|Binder ~ Soul Binding.MOD	DESC:&nl;Dantalion|PREABILITY:1,CATEGORY=Special Ability,Vestige ~ Dantalion
+CATEGORY=Special Ability|Binder ~ Soul Binding.MOD	DESC:&nl;Geryon|PREABILITY:1,CATEGORY=Special Ability,Vestige ~ Geryon
+CATEGORY=Special Ability|Binder ~ Soul Binding.MOD	DESC:&nl;Otiax|PREABILITY:1,CATEGORY=Special Ability,Vestige ~ Otiax
+CATEGORY=Special Ability|Binder ~ Soul Binding.MOD	DESC:&nl;Chupoclops|PREABILITY:1,CATEGORY=Special Ability,Vestige ~ Chupoclops
+CATEGORY=Special Ability|Binder ~ Soul Binding.MOD	DESC:&nl;Haures|PREABILITY:1,CATEGORY=Special Ability,Vestige ~ Haures
+CATEGORY=Special Ability|Binder ~ Soul Binding.MOD	DESC:&nl;Shax|PREABILITY:1,CATEGORY=Special Ability,Vestige ~ Shax
+CATEGORY=Special Ability|Binder ~ Soul Binding.MOD	DESC:&nl;Ipos|PREABILITY:1,CATEGORY=Special Ability,Vestige ~ Ipos
+CATEGORY=Special Ability|Binder ~ Soul Binding.MOD	DESC:&nl;Zagan|PREABILITY:1,CATEGORY=Special Ability,Vestige ~ Zagan
+CATEGORY=Special Ability|Binder ~ Soul Binding.MOD	DESC:&nl;Eligor|PREABILITY:1,CATEGORY=Special Ability,Vestige ~ Eligor
+CATEGORY=Special Ability|Binder ~ Soul Binding.MOD	DESC:&nl;Marchosias|PREABILITY:1,CATEGORY=Special Ability,Vestige ~ Marchosias
+CATEGORY=Special Ability|Binder ~ Soul Binding.MOD	DESC:&nl;Halphax|PREABILITY:1,CATEGORY=Special Ability,Vestige ~ Halphax
+CATEGORY=Special Ability|Binder ~ Soul Binding.MOD	DESC:&nl;Orthos|PREABILITY:1,CATEGORY=Special Ability,Vestige ~ Orthos
+
 
 ###Block: Shadowcaster
 # Ability Name												Unique Key									Category of Ability		Type																	Visible		Required Ability										Var. Min. Value				Define						Description																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																									Stackable?	Multiple?	Choose		Auto Weapon Prof			Bonus Ability Pool										Source Page		List of Known Class Spells by Level
