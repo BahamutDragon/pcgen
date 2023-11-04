@@ -1,15 +1,15 @@
-# CVS $Revision: $ $Author: $ -- Sun Aug 17 15:41:15 2014 -- reformated by prettylst.pl v1.51 (build 24906)
+# Fri Jun 16 18:38:57 2023 -- reformatted by PCGen TidyLst v1.04.00
 
 
 ###Block:Animal Companion
-# Class of the Master			Type				Hit Dice	Ability																								Auto Feat						Define							Combat bonus					Stat bonus					Modify VAR
-FOLLOWER:AnimalCompanionLVL=1		TYPE:Animal Companion			ABILITY:Special Ability|AUTOMATIC|Animal Companion ~ Bonus Tricks|Animal Companion ~ Link|Animal Companion ~ Share Spells|Animal Tricks and Training								DEFINE:BonusTricks|0	DEFINE:SecondAttack|0														BONUS:VAR|BonusTricks|1
-FOLLOWER:AnimalCompanionLVL=3		TYPE:Animal Companion	HD:2		ABILITY:Special Ability|AUTOMATIC|Animal Companion ~ Evasion																														BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:VAR|BonusTricks|1
-FOLLOWER:AnimalCompanionLVL=6		TYPE:Animal Companion	HD:2		ABILITY:Special Ability|AUTOMATIC|Animal Companion ~ Devotion																														BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:VAR|BonusTricks|1
-FOLLOWER:AnimalCompanionLVL=9		TYPE:Animal Companion	HD:2		ABILITY:Special Ability|AUTOMATIC|Animal Companion ~ Multiattack															ABILITY:FEAT|AUTOMATIC|Multiattack|PREHANDSGTEQ:3									BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:VAR|BonusTricks|1	BONUS:VAR|SecondAttack|1
-FOLLOWER:AnimalCompanionLVL=12	TYPE:Animal Companion	HD:2																																										BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:VAR|BonusTricks|1
-FOLLOWER:AnimalCompanionLVL=15	TYPE:Animal Companion	HD:2		ABILITY:Special Ability|AUTOMATIC|Animal Companion ~ Improved Evasion																													BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:VAR|BonusTricks|1
-FOLLOWER:AnimalCompanionLVL=18	TYPE:Animal Companion	HD:2																																										BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:VAR|BonusTricks|1
+# Class of the Master			Type				Hit Dice	Ability																								Define							Combat bonus					Stat bonus					Modify VAR
+FOLLOWER:AnimalCompanionLVL=1		TYPE:Animal Companion			ABILITY:Special Ability|AUTOMATIC|Animal Companion ~ Bonus Tricks|Animal Companion ~ Link|Animal Companion ~ Share Spells|Animal Tricks and Training	DEFINE:BonusTricks|0	DEFINE:SecondAttack|0														BONUS:VAR|BonusTricks|1
+FOLLOWER:AnimalCompanionLVL=3		TYPE:Animal Companion	HD:2		ABILITY:Special Ability|AUTOMATIC|Animal Companion ~ Evasion																							BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:AnimalCompanionLVL=6		TYPE:Animal Companion	HD:2		ABILITY:Special Ability|AUTOMATIC|Animal Companion ~ Devotion																							BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:AnimalCompanionLVL=9		TYPE:Animal Companion	HD:2		ABILITY:Special Ability|AUTOMATIC|Animal Companion ~ Multiattack	ABILITY:FEAT|AUTOMATIC|Multiattack|PREHANDSGTEQ:3														BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:VAR|BonusTricks|1	BONUS:VAR|SecondAttack|1
+FOLLOWER:AnimalCompanionLVL=12	TYPE:Animal Companion	HD:2																																			BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:AnimalCompanionLVL=15	TYPE:Animal Companion	HD:2		ABILITY:Special Ability|AUTOMATIC|Animal Companion ~ Improved Evasion																						BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:VAR|BonusTricks|1
+FOLLOWER:AnimalCompanionLVL=18	TYPE:Animal Companion	HD:2																																			BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK	BONUS:STAT|STR|1	BONUS:STAT|DEX|1	BONUS:VAR|BonusTricks|1
 
 ###Block:Specific Animal Companions
 # Class of the Master		Type				Required Race						Apply Kit
@@ -50,29 +50,6 @@ FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Tiger	
 FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Wolf				KIT:1|Wolf Companion
 FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	PRERACE:1,Companion ~ Wolverine			KIT:1|Wolverine Companion
 
-###Block:Animal Companion Size work-around
-#
-# These bonuses prevent the listed animals from increasing in size when they gain hit dice as a companion
-# This should eventually be done by hard-coding it but for now this work-around will let the 5.8 companions come out with the correct numbers - Eddy
-# Class of the Master		Type				Adjust PC Size
-FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Companion ~ Wolf,Companion ~ Dire Animal (Dire Rat)|PREVARGT:TL,3
-FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Companion ~ Dire Animal (Dire Badger)|PREVARGT:TL,3
-FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Companion ~ Dire Animal (Dire Weasel)|PREVARGT:TL,6
-FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Companion ~ Snake (Constrictor)|PREVARGT:TL,5
-FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Companion ~ Wolverine|PREVARGT:TL,3
-FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Companion ~ Dire Animal (Dire Boar)|PREVARGT:TL,16
-FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Companion ~ Dinosaur (Elasmosaurus)|PREVARGT:TL,20
-FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Companion ~ Rhinoceros,Companion ~ Octopus (Giant)|PREVARGT:TL,12
-FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Companion ~ Tiger|PREVARGT:TL,12
-FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Companion ~ Dire Animal (Dire Lion),Dinosaur (Megaraptor)|PREVARGT:TL,16
-FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Companion ~ Snake (Constrictor/Giant)|PREVARGT:TL,16
-FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Companion ~ Whale (Orca)|PREVARGT:TL,13
-FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Companion ~ Dire Animal (Dire Bear)|PREVARGT:TL,16
-FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Companion ~ Dire Animal (Dire Shark)|PREVARGT:TL,32
-FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Companion ~ Dire Animal (Dire Tiger),Companion ~ Dinosaur (Triceratops)|PREVARGT:TL,32
-FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Companion ~ Squid (Giant)|PREVARGT:TL,18
-FOLLOWER:AnimalCompanionLVL=3	TYPE:Animal Companion	BONUS:SIZEMOD|NUMBER|-1|PRERACE:1,Companion ~ Eagle|PREVARGT:TL,1
-
 ###Block: Special Mount
 # Class of the Master		Type				Hit Dice	Spell Res.					Ability																										Auto Armor Prof				Define Stat				Combat bonus					Add to base move																																					Stat bonus
 FOLLOWER:SpecialMountLVL=5	TYPE:Special Mount	HD:2								ABILITY:Special Ability|AUTOMATIC|Special Mount ~ Empathic Link|Special Mount ~ Improved Evasion|Special Mount ~ Share Saving Throws|Special Mount ~ Share Spells	AUTO:ARMORPROF|ARMORTYPE=Barding	DEFINESTAT:MINVALUE|INT|6	BONUS:COMBAT|AC|4|TYPE=NaturalArmor.STACK																																								BONUS:STAT|STR|1
@@ -81,21 +58,21 @@ FOLLOWER:SpecialMountLVL=11	TYPE:Special Mount	HD:2								ABILITY:Special Abili
 FOLLOWER:SpecialMountLVL=15	TYPE:Special Mount	HD:2		SR:5-MASTERVAR("SpecialMountLVL")	ABILITY:Special Ability|AUTOMATIC|Special Mount ~ Spell Resistance																						DEFINESTAT:MINVALUE|INT|9	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK																																								BONUS:STAT|STR|1
 
 ###Block: Special Mount Specific Kits per allowed Race
-# Class of the Master		Type				Required Race										Apply Kit
-FOLLOWER:SpecialMountLVL=5	TYPE:Special Mount	PRERACE:1,Companion ~ Dog (Riding)					KIT:1|Companion ~ Dog (Riding) Default
-FOLLOWER:SpecialMountLVL=5	TYPE:Special Mount	PRERACE:1,Companion ~ Horse (Warhorse Heavy)			KIT:1|Companion ~ Horse (Warhorse Heavy) Default
-FOLLOWER:SpecialMountLVL=5	TYPE:Special Mount	PRERACE:1,Companion ~ Pony (War)					KIT:1|Companion ~ Pony (War) Default
-FOLLOWER:SpecialMountLVL=5	TYPE:Special Mount	PRERACE:1,Companion ~ Shark (Large)					KIT:1|Companion ~ Shark (Large) Default
+# Class of the Master		Type				Required Race						Apply Kit
+FOLLOWER:SpecialMountLVL=5	TYPE:Special Mount	PRERACE:1,Companion ~ Dog (Riding)			KIT:1|Companion ~ Dog (Riding) Default
+FOLLOWER:SpecialMountLVL=5	TYPE:Special Mount	PRERACE:1,Companion ~ Horse (Warhorse Heavy)	KIT:1|Companion ~ Horse (Warhorse Heavy) Default
+FOLLOWER:SpecialMountLVL=5	TYPE:Special Mount	PRERACE:1,Companion ~ Pony (War)			KIT:1|Companion ~ Pony (War) Default
+FOLLOWER:SpecialMountLVL=5	TYPE:Special Mount	PRERACE:1,Companion ~ Shark (Large)			KIT:1|Companion ~ Shark (Large) Default
 
 ###Block:Familiar
-# Class of the Master	Type			Spell Res.	Ability																						Copy Masters BAB		Copy Masters Checks	HP formula based on Master	Use Masters skills?	Define Stat									Combat bonus										Modify VAR
-FOLLOWER:FamiliarLVL=1	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Familiar ~ Empathic Link	ABILITY:Internal|AUTOMATIC|Familiar ~ Change Race|PREHD:MIN=1|PRERACE:1,%|PREVAREQ:DisableFamiliarChangeRace,0	COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	COPYMASTERHP:max(1,MASTER/2)	USEMASTERSKILL:YES	DEFINE:DisableFamiliarChangeRace|0
-FOLLOWER:FamiliarLVL=1	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Familiar ~ Improved Evasion|Familiar ~ Share Spells																										DEFINESTAT:MINVALUE|INT|4+((1+MASTERVAR("FamiliarLVL"))/2)	BONUS:COMBAT|AC|(1+MASTERVAR("FamiliarLVL"))/2|TYPE=NaturalArmor.STACK	BONUS:VAR|MasterLvl|MASTERVAR("FamiliarLVL")
-FOLLOWER:FamiliarLVL=3	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Familiar ~ Deliver Touch Spells
-FOLLOWER:FamiliarLVL=5	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Familiar ~ Speak with Master
-FOLLOWER:FamiliarLVL=7	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Familiar ~ Speak with Animals of Its Kind|PREVAREQ:FamiliarSpeakwithAnimalsofItsKind,0
+# Class of the Master	Type			Spell Res.				Ability																												Copy Masters BAB		Copy Masters Checks	HP formula based on Master	Use Masters skills?	Define					Define Stat									Combat bonus										Modify VAR
+FOLLOWER:FamiliarLVL=1	TYPE:Familiar						ABILITY:Special Ability|AUTOMATIC|Familiar ~ Empathic Link	ABILITY:Internal|AUTOMATIC|Familiar ~ Change Race|PREHD:MIN=1|PRERACE:1,%|PREVAREQ:DisableFamiliarChangeRace,0	COPYMASTERBAB:MASTER	COPYMASTERCHECK:MASTER	COPYMASTERHP:max(1,MASTER/2)	USEMASTERSKILL:YES	DEFINE:DisableFamiliarChangeRace|0
+FOLLOWER:FamiliarLVL=1	TYPE:Familiar						ABILITY:Special Ability|AUTOMATIC|Familiar ~ Improved Evasion|Familiar ~ Share Spells																																						DEFINESTAT:MINVALUE|INT|4+((1+MASTERVAR("FamiliarLVL"))/2)	BONUS:COMBAT|AC|(1+MASTERVAR("FamiliarLVL"))/2|TYPE=NaturalArmor.STACK	BONUS:VAR|MasterLvl|MASTERVAR("FamiliarLVL")
+FOLLOWER:FamiliarLVL=3	TYPE:Familiar						ABILITY:Special Ability|AUTOMATIC|Familiar ~ Deliver Touch Spells
+FOLLOWER:FamiliarLVL=5	TYPE:Familiar						ABILITY:Special Ability|AUTOMATIC|Familiar ~ Speak with Master
+FOLLOWER:FamiliarLVL=7	TYPE:Familiar						ABILITY:Special Ability|AUTOMATIC|Familiar ~ Speak with Animals of Its Kind|PREVAREQ:FamiliarSpeakwithAnimalsofItsKind,0
 FOLLOWER:FamiliarLVL=11	TYPE:Familiar	SR:5+MASTERVAR("FamiliarLVL")
-FOLLOWER:FamiliarLVL=13	TYPE:Familiar			ABILITY:Special Ability|AUTOMATIC|Familiar ~ Scry on Familiar
+FOLLOWER:FamiliarLVL=13	TYPE:Familiar						ABILITY:Special Ability|AUTOMATIC|Familiar ~ Scry on Familiar
 
 ###Block: Specific Familiars
 # Class of the Master	Type			Ability										Required Race								Apply Kit
@@ -113,28 +90,28 @@ FOLLOWER:FamiliarLVL=1	TYPE:Familiar												PRERACE:1,Weasel,Companion ~ Wea
 
 
 ###Block:Familiar Bonuses to Master
-# Race of familiar					Type			Bonus to HP			Bonus to skill			Virtual Feat	Bonus
-MASTERBONUSRACE:Companion ~ Bat			TYPE:Familiar		ABILITY:Internal|AUTOMATIC|Master Granted / Companion ~ Bat
-MASTERBONUSRACE:Companion ~ Cat			TYPE:Familiar		ABILITY:Internal|AUTOMATIC|Master Granted / Companion ~ Cat
-MASTERBONUSRACE:Companion ~ Hawk			TYPE:Familiar		ABILITY:Internal|AUTOMATIC|Master Granted / Companion ~ Hawk
-MASTERBONUSRACE:Companion ~ Lizard			TYPE:Familiar		ABILITY:Internal|AUTOMATIC|Master Granted / Companion ~ Lizard
-MASTERBONUSRACE:Companion ~ Owl			TYPE:Familiar		ABILITY:Internal|AUTOMATIC|Master Granted / Companion ~ Owl
-MASTERBONUSRACE:Companion ~ Rat			TYPE:Familiar		ABILITY:Internal|AUTOMATIC|Master Granted / Companion ~ Rat
-MASTERBONUSRACE:Companion ~ Raven			TYPE:Familiar		ABILITY:Internal|AUTOMATIC|Master Granted / Companion ~ Raven
-MASTERBONUSRACE:Companion ~ Snake (Viper/Tiny)	TYPE:Familiar		ABILITY:Internal|AUTOMATIC|Master Granted / Companion ~ Snake (Viper/Tiny)
-MASTERBONUSRACE:Companion ~ Toad			TYPE:Familiar		ABILITY:Internal|AUTOMATIC|Master Granted / Companion ~ Toad
-MASTERBONUSRACE:Companion ~ Weasel			TYPE:Familiar		ABILITY:Internal|AUTOMATIC|Master Granted / Companion ~ Weasel
+# Race of familiar								Type			Ability
+MASTERBONUSRACE:Companion ~ Bat						TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Master Granted / Companion ~ Bat
+MASTERBONUSRACE:Companion ~ Cat						TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Master Granted / Companion ~ Cat
+MASTERBONUSRACE:Companion ~ Hawk						TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Master Granted / Companion ~ Hawk
+MASTERBONUSRACE:Companion ~ Lizard						TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Master Granted / Companion ~ Lizard
+MASTERBONUSRACE:Companion ~ Owl						TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Master Granted / Companion ~ Owl
+MASTERBONUSRACE:Companion ~ Rat						TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Master Granted / Companion ~ Rat
+MASTERBONUSRACE:Companion ~ Raven						TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Master Granted / Companion ~ Raven
+MASTERBONUSRACE:Companion ~ Snake (Viper/Tiny)				TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Master Granted / Companion ~ Snake (Viper/Tiny)
+MASTERBONUSRACE:Companion ~ Toad						TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Master Granted / Companion ~ Toad
+MASTERBONUSRACE:Companion ~ Weasel						TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Master Granted / Companion ~ Weasel
 #
-MASTERBONUSRACE:Companion ~ Celestial Animal / Bat			TYPE:Familiar		ABILITY:Internal|AUTOMATIC|Master Granted / Companion ~ Bat|PREVAREQ:GrantMasterCelestialFamiliarBenefit,1				
-MASTERBONUSRACE:Companion ~ Celestial Animal / Cat			TYPE:Familiar		ABILITY:Internal|AUTOMATIC|Master Granted / Companion ~ Cat|PREVAREQ:GrantMasterCelestialFamiliarBenefit,1				
-MASTERBONUSRACE:Companion ~ Celestial Animal / Hawk			TYPE:Familiar		ABILITY:Internal|AUTOMATIC|Master Granted / Companion ~ Hawk|PREVAREQ:GrantMasterCelestialFamiliarBenefit,1				
-MASTERBONUSRACE:Companion ~ Celestial Animal / Lizard			TYPE:Familiar		ABILITY:Internal|AUTOMATIC|Master Granted / Companion ~ Lizard|PREVAREQ:GrantMasterCelestialFamiliarBenefit,1			
-MASTERBONUSRACE:Companion ~ Celestial Animal / Owl			TYPE:Familiar		ABILITY:Internal|AUTOMATIC|Master Granted / Companion ~ Owl|PREVAREQ:GrantMasterCelestialFamiliarBenefit,1				
-MASTERBONUSRACE:Companion ~ Celestial Animal / Rat			TYPE:Familiar		ABILITY:Internal|AUTOMATIC|Master Granted / Companion ~ Rat|PREVAREQ:GrantMasterCelestialFamiliarBenefit,1				
-MASTERBONUSRACE:Companion ~ Celestial Animal / Raven			TYPE:Familiar		ABILITY:Internal|AUTOMATIC|Master Granted / Companion ~ Raven|PREVAREQ:GrantMasterCelestialFamiliarBenefit,1				
-MASTERBONUSRACE:Companion ~ Celestial Animal / Snake (Viper/Tiny)	TYPE:Familiar		ABILITY:Internal|AUTOMATIC|Master Granted / Companion ~ Snake (Viper/Tiny)|PREVAREQ:GrantMasterCelestialFamiliarBenefit,1	
-MASTERBONUSRACE:Companion ~ Celestial Animal / Toad			TYPE:Familiar		ABILITY:Internal|AUTOMATIC|Master Granted / Companion ~ Toad|PREVAREQ:GrantMasterCelestialFamiliarBenefit,1				
-MASTERBONUSRACE:Companion ~ Celestial Animal / Weasel			TYPE:Familiar		ABILITY:Internal|AUTOMATIC|Master Granted / Companion ~ Weasel|PREVAREQ:GrantMasterCelestialFamiliarBenefit,1			
+MASTERBONUSRACE:Companion ~ Celestial Animal / Bat			TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Master Granted / Companion ~ Bat|PREVAREQ:GrantMasterCelestialFamiliarBenefit,1
+MASTERBONUSRACE:Companion ~ Celestial Animal / Cat			TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Master Granted / Companion ~ Cat|PREVAREQ:GrantMasterCelestialFamiliarBenefit,1
+MASTERBONUSRACE:Companion ~ Celestial Animal / Hawk			TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Master Granted / Companion ~ Hawk|PREVAREQ:GrantMasterCelestialFamiliarBenefit,1
+MASTERBONUSRACE:Companion ~ Celestial Animal / Lizard			TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Master Granted / Companion ~ Lizard|PREVAREQ:GrantMasterCelestialFamiliarBenefit,1
+MASTERBONUSRACE:Companion ~ Celestial Animal / Owl			TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Master Granted / Companion ~ Owl|PREVAREQ:GrantMasterCelestialFamiliarBenefit,1
+MASTERBONUSRACE:Companion ~ Celestial Animal / Rat			TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Master Granted / Companion ~ Rat|PREVAREQ:GrantMasterCelestialFamiliarBenefit,1
+MASTERBONUSRACE:Companion ~ Celestial Animal / Raven			TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Master Granted / Companion ~ Raven|PREVAREQ:GrantMasterCelestialFamiliarBenefit,1
+MASTERBONUSRACE:Companion ~ Celestial Animal / Snake (Viper/Tiny)	TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Master Granted / Companion ~ Snake (Viper/Tiny)|PREVAREQ:GrantMasterCelestialFamiliarBenefit,1
+MASTERBONUSRACE:Companion ~ Celestial Animal / Toad			TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Master Granted / Companion ~ Toad|PREVAREQ:GrantMasterCelestialFamiliarBenefit,1
+MASTERBONUSRACE:Companion ~ Celestial Animal / Weasel			TYPE:Familiar	ABILITY:Internal|AUTOMATIC|Master Granted / Companion ~ Weasel|PREVAREQ:GrantMasterCelestialFamiliarBenefit,1
 
 ###Block: Standard Companions
 # Class of the Master		Type
@@ -142,13 +119,11 @@ FOLLOWER:NormalMount=1		TYPE:Mount
 FOLLOWER:NormalFollower=1	TYPE:Follower
 
 ###Block: Standard Companions
-# Class of the Master			Type
-FOLLOWER:LeadershipScoreCohort=2	TYPE:Cohort			DEFINE:LeadershipScoreCohort|0	BONUS:VAR|LeadershipScoreCohort|MASTERVAR("LeadershipScoreCohort")	ABILITY:Special Ability|AUTOMATIC|Cohort Level
-FOLLOWER:LeadershipFollowersLVL1=1		TYPE:Follower LV 1
-FOLLOWER:LeadershipFollowersLVL2=1		TYPE:Follower LV 2
-FOLLOWER:LeadershipFollowersLVL3=1		TYPE:Follower LV 3
-FOLLOWER:LeadershipFollowersLVL4=1		TYPE:Follower LV 4
-FOLLOWER:LeadershipFollowersLVL5=1		TYPE:Follower LV 5
-FOLLOWER:LeadershipFollowersLVL6=1		TYPE:Follower LV 6
-
-
+# Class of the Master			Type				Ability							Define					Modify VAR
+FOLLOWER:LeadershipScoreCohort=2	TYPE:Cohort			ABILITY:Special Ability|AUTOMATIC|Cohort Level	DEFINE:LeadershipScoreCohort|0	BONUS:VAR|LeadershipScoreCohort|MASTERVAR("LeadershipScoreCohort")
+FOLLOWER:LeadershipFollowersLVL1=1	TYPE:Follower LV 1
+FOLLOWER:LeadershipFollowersLVL2=1	TYPE:Follower LV 2
+FOLLOWER:LeadershipFollowersLVL3=1	TYPE:Follower LV 3
+FOLLOWER:LeadershipFollowersLVL4=1	TYPE:Follower LV 4
+FOLLOWER:LeadershipFollowersLVL5=1	TYPE:Follower LV 5
+FOLLOWER:LeadershipFollowersLVL6=1	TYPE:Follower LV 6

@@ -2,16 +2,24 @@
 
 
 # Class Name		Hit Dice	Type			Source Page		Combat bonus												Modify VAR														Bonus
-CLASS:Legacy Champion	HD:8		TYPE:PC.Prestige	SOURCEPAGE:p.19	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Legacy Champion	HD:8		TYPE:PC.Prestige	MAXLEVEL:2		SOURCEPAGE:p.19	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
 # Class Name		Required Feat		Required Non-Monster Lvl	Required Skill				Required Text
-CLASS:Legacy Champion	PREABILITY:1,CATEGORY=FEAT,Least Legacy	PREPCLEVEL:MIN=10			PRESKILL:1,Knowledge (History)=5	PRETEXT:Skill: Knowledge (history) 5 ranks. Feat: Least Legacy. Special: Must possess a legacy item, character level 10th.
+CLASS:Legacy Champion	PREABILITY:1,CATEGORY=FEAT,TYPE.Least Legacy	PREPCLEVEL:MIN=10			PRESKILL:1,Knowledge (History)=5	PREITEM:1,TYPE.Legacy		PRETEXT:Skill: Knowledge (history) 5 ranks. Feat: Least Legacy. Special: Must possess a legacy item, character level 10th.		DEFINE:LegacyChampionLVL|0
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Legacy Champion	STARTSKILLPTS:4	CSKILL:Concentration|Decipher Script|Gather Information|Knowledge (History)|Use Magic Device|TYPE=Standard
 # plus existing class skills from all your classes. - Using TYPE=Standard since there is no support for this
+
 1	ABILITY:Legacy Champion Class Feature|AUTOMATIC|Legacy Champion ~ Class Features
-1	ABILITY:Legacy Champion Class Feature|AUTOMATIC|Legacy Champion ~ Reduced Ritual Cost
 1	ABILITY:Legacy Champion Class Feature|AUTOMATIC|Legacy Champion ~ Bond of Lore
-2	ABILITY:Legacy Champion Class Feature|AUTOMATIC|Legacy Champion ~ Replace Legacy Ability
-3	ABILITY:Legacy Champion Class Feature|AUTOMATIC|Legacy Champion ~ Extra Legacy Ability Use
-4	ABILITY:Legacy Champion Class Feature|AUTOMATIC|Legacy Champion ~ Bonus Legacy Feat
+1	ABILITY:Legacy Champion Class Feature|AUTOMATIC|Legacy Champion ~ Bonus Legacy Feat|PREVARGTEQ:LegacyChampionLVL,4
+
 # Unable to implement the Class Features - Need to discuss with Andrew M. and see what solution he comes up with.
+
+# Proposed fix: Only implement class level 1 and 7 of Legacy champion and let players advance their original classes for the remaining levels.
+#               The actual class Level of the Legacy champion is tracked via an ability adjusting an internal variable that the player needs to update manually after each levelup.
+#               Class features are granted based on that LegacyChampionLVL variable.
+#               Any deviation from the class progression in BAB, Saves, HP and Skillpoints can be adjusted by the player with a provided set of abilities, similar to the Personal Cost of Legacy items or GM Awards.
+#               Support for ability Replacements need to be integrated in every legacy item. 
+#                 Before granting an ability, each item needs to check if that ability has been selected by one of the three replacement abilities. If it was, the ability is just not granted.
+#                 Replacement abilities are then selected via an ability pool.
+

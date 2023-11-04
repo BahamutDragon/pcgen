@@ -1,0 +1,97 @@
+
+# Class Name	Hit Dice	Type			Source Page		Define			Combat bonus															Modify VAR																			Bonus
+CLASS:Psionic Artificer	HD:6	SERVESAS:CLASS|Artificer	TYPE:Base.PC	SOURCEPAGE:p.29	DEFINE:ArtificerLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ArtificerLVL|CL	BONUS:VAR|ClassBABModerate|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name	Skill Pts/Lvl	Class Skill
+CLASS:Psionic Artificer	STARTSKILLPTS:4	CSKILL:Appraise|Concentration|TYPE=Craft|Disable Device|Knowledge (arcana)|KNOWLEDGE (ARCHITECTURE AND ENGINEERING)|Knowledge (The Planes)|Open Lock|TYPE=Profession|Search|Spellcraft|Use Magic Device
+# Class Name	Spell Stat		Spell Type			Caster level
+CLASS:Psionic Artificer	FACT:SpellType|Infusion
+CLASS:Psionic Artificer	SPELLSTAT:INT	BONUS:CASTERLEVEL|Artificer|Caster_Level_Artificer	DEFINE:Caster_Level_Artificer|0	BONUS:VAR|Caster_Level_Artificer|CL+Caster_Level_Bonus	DEFINE:CasterLevelBLArtificer|0	BONUS:VAR|CasterLevelBLArtificer|charbonusto("PCLEVEL","Artificer")
+CLASS:Psionic Artificer	BONUS:VAR|Caster_Level_Highest__Infusion|Caster_Level_Artificer+CasterLevelBLArtificer|TYPE=Base
+###Block:
+1	ABILITY:Artificer Class Feature|AUTOMATIC|Artificer ~ Weapon and Armor Proficiency
+1	ABILITY:Artificer Class Feature|AUTOMATIC|Artificer ~ Infusions
+1	ABILITY:Artificer Class Feature|AUTOMATIC|Artificer ~ Craft Reserve
+1	ABILITY:Artificer Class Feature|AUTOMATIC|Artificer ~ Artificer Knowledge
+1	ABILITY:Artificer Class Feature|AUTOMATIC|Artificer ~ Artisan Bonus
+1	ABILITY:Artificer Class Feature|AUTOMATIC|Artificer ~ Disable Trap
+1	ABILITY:Artificer Class Feature|AUTOMATIC|Artificer ~ Item Creation
+1	ABILITY:Artificer Class Feature|AUTOMATIC|Artificer ~ Bonus Feat
+4	ABILITY:Artificer Class Feature|AUTOMATIC|Artificer ~ Craft Homunculus
+5	ABILITY:Artificer Class Feature|AUTOMATIC|Artificer ~ Retain Essence
+7	ABILITY:Artificer Class Feature|AUTOMATIC|Artificer ~ Metamagic Spell Trigger
+11	ABILITY:Artificer Class Feature|AUTOMATIC|Artificer ~ Metamagic Spell Completion
+13	ABILITY:Artificer Class Feature|AUTOMATIC|Artificer ~ Skill Mastery
+###Block:
+1	CAST:0,2
+2	CAST:0,3
+3	CAST:0,3,1
+4	CAST:0,3,2
+5	CAST:0,3,3,1
+6	CAST:0,3,3,2
+7	CAST:0,3,3,2
+8	CAST:0,3,3,3,1
+9	CAST:0,3,3,3,2
+10	CAST:0,3,3,3,2
+11	CAST:0,3,3,3,2,1
+12	CAST:0,3,3,3,2,2
+13	CAST:0,3,3,3,3,2
+14	CAST:0,4,3,3,3,3,1
+15	CAST:0,4,4,3,3,3,2
+16	CAST:0,4,4,4,3,3,2
+17	CAST:0,4,4,4,4,3,3
+18	CAST:0,4,4,4,4,4,3
+19	CAST:0,4,4,4,4,4,4
+20	CAST:0,4,4,4,4,4,4
+
+#####################
+### @Prestige	###
+#####################
+
+###Block: Alchemist Savant
+
+# Class Name		Hit Dice	Type			Class Type			Abbreviation	Source Page		Define				Combat bonus										Modify VAR				Bonus
+CLASS:Alchemist Savant	HD:4		TYPE:PC.Prestige	FACT:ClassType|Prestige	FACT:Abb|Arc		SOURCEPAGE:p.53		DEFINE:AlchemistsavantLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|AlchemistsavantLVL|CL	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name		Required Feat															Required Race		Req. Spell Type		PRETOTALAB
+CLASS:Alchemist Savant	PRESKILL:1,Craft (Alchemy)=8	PREABILITY:1,CATEGORY=FEAT,Craft Potion	
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Alchemist Savant	STARTSKILLPTS:2	CSKILL:TYPE=Appraise|Concentration|Craft|Decipher Script|Heal|Knowledge (Arcana)|Profession|Spellcraft
+###Block:
+1	ABILITY:Alchemist Savant Class Feature|AUTOMATIC|Alchemist Savant ~ Efficient Alchemy
+1	ABILITY:Alchemist Savant Class Feature|AUTOMATIC|Alchemist Savant ~ Poison Use
+2	ABILITY:Alchemist Savant Class Feature|AUTOMATIC|Alchemist Savant ~ Brew Spellvial
+3	ABILITY:Alchemist Savant Class Feature|AUTOMATIC|Alchemist Savant ~ Efficient Alchemy 3rd
+4	ABILITY:Alchemist Savant Class Feature|AUTOMATIC|Alchemist Savant ~ Create Alchemical Mixture
+5	ABILITY:Alchemist Savant Class Feature|AUTOMATIC|Alchemist Savant ~ Brew Universal Potion
+5	ABILITY:Alchemist Savant Class Feature|AUTOMATIC|Alchemist Savant ~ Efficient Alchemy 5th
+
+1	ADD:SPELLCASTER|ANY
+2	ADD:SPELLCASTER|ANY
+3	ADD:SPELLCASTER|ANY
+4	ADD:SPELLCASTER|ANY
+5	ADD:SPELLCASTER|ANY
+
+###Block: Deadgrim
+
+# Class Name		Hit Dice	Type			Class Type			Abbreviation	Source Page		Define				Combat bonus										Modify VAR				Bonus
+CLASS:Deadgrim	HD:8		TYPE:PC.Prestige	FACT:ClassType|Prestige	FACT:Abb|Dgm		SOURCEPAGE:p.53		DEFINE:DeadgrimLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|DeadgrimLVL|CL	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Fortitude,BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/2+2
+# Class Name		Required Feat															Required Race		Req. Spell Type		PRETOTALAB
+CLASS:Deadgrim		PREALIGN:LG,CG,NG,LN,CN,NN	PREABILITY:1,CATEGORY=ABILITY,Turn Undead	PRESKILL:1,Knowledge (Religion)=4	PRETOTALAB:5	PRESPELLCAST:TYPE=Divine
+# Class Name		Skill Pts/Lvl	Class Skill
+CLASS:Deadgrim	STARTSKILLPTS:2	CSKILL:TYPE=Appraise|Concentration|Craft|Decipher Script|Heal|Knowledge (Arcana)|Profession|Spellcraft
+###Block:
+1	ABILITY:Deadgrim Class Feature|AUTOMATIC|Deadgrim ~ Deadened Flesh
+1	ABILITY:Deadgrim Class Feature|AUTOMATIC|Deadgrim ~ Extra Spells
+1	ABILITY:Deadgrim Class Feature|AUTOMATIC|Deadgrim ~ Improved Turning
+1	ABILITY:Deadgrim Class Feature|AUTOMATIC|Deadgrim ~ Voice of the Damned
+2	ABILITY:Deadgrim Class Feature|AUTOMATIC|Deadgrim ~ Deadened Flesh +2
+3	ABILITY:Deadgrim Class Feature|AUTOMATIC|Deadgrim ~ Favored Enemy 2nd 
+3	ABILITY:Deadgrim Class Feature|AUTOMATIC|Deadgrim ~ Deadgrim Soul 3rd
+4	ABILITY:Deadgrim Class Feature|AUTOMATIC|Deadgrim ~ Deadened Flesh +4
+5	ABILITY:Deadgrim Class Feature|AUTOMATIC|Deadgrim ~ Deadgrim Soul 5th
+5	ABILITY:Deadgrim Class Feature|AUTOMATIC|Deadgrim ~ Favored Enemy 5th
+5	ABILITY:Deadgrim Class Feature|AUTOMATIC|Deadgrim ~ Undead Slayer
+
+2	ADD:SPELLCASTER|Divine
+3	ADD:SPELLCASTER|Divine
+4	ADD:SPELLCASTER|Divine
+5	ADD:SPELLCASTER|Divine
