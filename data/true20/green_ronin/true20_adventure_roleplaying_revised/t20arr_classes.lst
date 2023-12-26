@@ -1,22 +1,44 @@
-# CVS $Revision: $ $Author: $ -- Thu Jul 10 14:45:53 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# Mon Dec 25 18:42:14 2023 -- reformatted by PCGen TidyLst v1.04.00
 
-# Class Name	Type			Define		Bonus to Ability Pool				Combat bonus								Modify VAR																	Bonus
-CLASS:Adept		TYPE:Base.PC.Role	DEFINE:AdeptLVL|0	BONUS:ABILITYPOOL|Adept Power Stat|1	BONUS:COMBAT|BASEAB|CL*1/2|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|AdeptLVL|CL	BONUS:VAR|ClassBABPoor|CL|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|Reputation|(CL+5)/4	BONUS:SAVE|BASE.Will|CL/2	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|CL/3
+# Class Name	Type			Define		Bonus Ability Pool				Combat bonus								Save bonus												Modify VAR
+CLASS:Adept		TYPE:Base.PC.Role	DEFINE:AdeptLVL|0	BONUS:ABILITYPOOL|Adept Power Stat|1	BONUS:COMBAT|BASEAB|CL*1/2|PREVAREQ:UseFractionalBAB,0	BONUS:SAVE|BASE.Will|CL/2	BONUS:SAVE|BASE.Reflex,BASE.Fortitude|CL/3	BONUS:VAR|AdeptLVL|CL	BONUS:VAR|ClassBABPoor|CL|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|Reputation|(CL+5)/4
+
 # Class Name	Skill Pts/Lvl
-CLASS:Adept		STARTSKILLPTS:4
-1							TEMPLATE:Core Ability	DONOTADD:SKILLPOINTS
-2	BONUS:ABILITYPOOL|Adept Feat|CL-1
+CLASS:Adept		STARTSKILLPTS:2
+1	DONOTADD:SKILLPOINTS							TEMPLATE:Core Ability
+2					BONUS:ABILITYPOOL|Adept Feat|CL-1
 
-# Class Name	Type			Define			Bonus to Ability Pool			Combat bonus								Modify VAR
+# Class Name	Type			Define			Bonus Ability Pool			Combat bonus								Modify VAR
 CLASS:Expert	TYPE:Base.PC.Role	DEFINE:ExpertLVL|0	BONUS:ABILITYPOOL|Expert Save|1	BONUS:COMBAT|BASEAB|CL*3/4|PREVAREQ:UseFractionalBAB,0	BONUS:VAR|ExpertLVL|CL	BONUS:VAR|ClassBABModerate|CL|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|Reputation|(CL+5)/4
-# Class Name	Skill Pts/Lvl
-CLASS:Expert	STARTSKILLPTS:8
-1							TEMPLATE:Core Ability	DONOTADD:SKILLPOINTS
-2	BONUS:ABILITYPOOL|Expert Feat|CL-1
 
-# Class Name	Type			Define			Combat bonus		Modify VAR								Bonus
-CLASS:Warrior	TYPE:Base.PC.Role	DEFINE:WarriorLVL|0	BONUS:COMBAT|BASEAB|CL	BONUS:VAR|WarriorLVL|CL	BONUS:VAR|Reputation|(CL+1)/4	BONUS:SAVE|BASE.Fortitude|CL/2	BONUS:SAVE|BASE.Reflex,BASE.Will|CL/3
 # Class Name	Skill Pts/Lvl
-CLASS:Warrior	STARTSKILLPTS:4
-1							TEMPLATE:Core Ability	DONOTADD:SKILLPOINTS
-2	BONUS:ABILITYPOOL|Warrior Feat|CL-1
+CLASS:Expert	STARTSKILLPTS:6
+1	DONOTADD:SKILLPOINTS							TEMPLATE:Core Ability
+2					BONUS:ABILITYPOOL|Expert Feat|CL-1
+
+# Class Name	Type			Define			Combat bonus		Save bonus												Modify VAR
+CLASS:Warrior	TYPE:Base.PC.Role	DEFINE:WarriorLVL|0	BONUS:COMBAT|BASEAB|CL	BONUS:SAVE|BASE.Fortitude|CL/2	BONUS:SAVE|BASE.Reflex,BASE.Will|CL/3	BONUS:VAR|WarriorLVL|CL	BONUS:VAR|Reputation|(CL+1)/4
+
+# Class Name	Skill Pts/Lvl
+CLASS:Warrior	STARTSKILLPTS:2
+1	DONOTADD:SKILLPOINTS							TEMPLATE:Core Ability
+2					BONUS:ABILITYPOOL|Warrior Feat|CL-1
+
+
+###Block: Creature Types
+CLASS:Aberration				PRERACETYPE:Aberration			
+CLASS:Animal				PRERACETYPE:Animal			
+CLASS:Construct				PRERACETYPE:Construct			
+CLASS:Dragon				PRERACETYPE:Dragon			
+CLASS:Elemental				PRERACETYPE:Elemental			
+CLASS:Fey					PRERACETYPE:Fey				
+CLASS:Humanoid				PRERACETYPE:Humanoid			
+CLASS:Monstrous Humanoid		PRERACETYPE:Monstrous Humanoid	
+CLASS:Ooze					PRERACETYPE:Ooze				
+CLASS:Outsider				PRERACETYPE:Outsider			
+CLASS:Plant					PRERACETYPE:Plant				
+CLASS:Supernatural Beast		PRERACETYPE:Supernatural Beast	
+CLASS:Undead				PRERACETYPE:Undead			
+CLASS:Vermin				PRERACETYPE:Vermin			
+
+
