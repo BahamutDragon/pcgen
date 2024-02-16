@@ -1598,26 +1598,6 @@ Alternate Form				KEY:Phasm ~ Alternate Form					CATEGORY:Special Ability	TYPE:S
 Tremorsense					KEY:Phasm ~ Tremorsense						CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																VISIBLE:YES																					DESC:A phasm can automatically sense the location of anything within 60 feet that is in contact with the ground, so long as it is touching the ground itself.
 Skills					KEY:Phasm ~ Skills						CATEGORY:Special Ability	TYPE:SpecialQuality																		VISIBLE:YES																					DESC:*When using shapechange, a phasm gains a +10 circumstance bonus on Disguise checks.
 
-# Planetouched Aasimar
-Race Traits ~ Planetouched (Aasimar)		CATEGORY:Internal	BONUS:ABILITYPOOL|Aasimar Subrace|1|PREVAREQ:AasimarRaceSelection,1	DEFINE:AasimarRaceSelection|0	ABILITY:Internal|AUTOMATIC|Aasimar Subrace ~ Standard|PREVAREQ:AasimarRaceSelection,0		ABILITY:Internal|AUTOMATIC|Assign Race Type ~ Outsider|Assign Race Subtype ~ Native|PREVAREQ:DefaultRaceType,0	DEFINE:DefaultRaceType|0
-
-Standard	KEY:Aasimar Subrace ~ Standard	DESC:Standard Monster Manual Version	CATEGORY:Internal	TYPE:AasimarSubrace.Default	TEMPLATE:Language ~ Bonus (Aasimar)	TEMPLATE:Favored Class ~ Paladin	TEMPLATE:Aasimar ~ LevelAdjustment	BONUS:STAT|WIS,CHA|2|TYPE=Racial	BONUS:VAR|AcidResistanceBonus,ColdResistanceBonus,ElectricityResistanceBonus|5	AUTO:LANG|Common|Celestial	ABILITY:Special Ability|AUTOMATIC|Planetouched Aasimar ~ Daylight|Planetouched Aasimar ~ Skills|Resistance to Acid|Resistance to Cold|Resistance to Electricity	SPELLS:Innate|TIMES=1|CASTERLEVEL=max(1,TL)|Daylight,13+CHA
-
-
-# Standard Aasimar
-Daylight					KEY:Planetouched Aasimar ~ Daylight				CATEGORY:Special Ability	TYPE:SpecialAttack.SpellLike																	VISIBLE:YES																					DESC:An Aasimar can use daylight once per day as a 1st-level caster or a caster of his class levels, whichever is higher.
-Skills					KEY:Planetouched Aasimar ~ Skills				CATEGORY:Special Ability	TYPE:SpecialQuality																		VISIBLE:YES																					DESC:An Aasimar has a +2 racial bonus on Spot and Listen checks.											BONUS:SKILL|Listen,Spot|2|TYPE=Racial
-
-# Planetouched Tiefling
-Race Traits ~ Planetouched (Tiefling)		CATEGORY:Internal	BONUS:ABILITYPOOL|Tiefling Subrace|1|PREVAREQ:TieflingRaceSelection,1	DEFINE:TieflingRaceSelection|0	ABILITY:Internal|AUTOMATIC|Tiefling Subrace ~ Standard|PREVAREQ:TieflingRaceSelection,0	ABILITY:Internal|AUTOMATIC|Assign Race Type ~ Outsider|Assign Race Subtype ~ Native|PREVAREQ:DefaultRaceType,0
-
-
-Standard	KEY:Tiefling Subrace ~ Standard	CATEGORY:Internal		DESC:Standard Monster Manual Version	TEMPLATE:Language ~ Bonus (Tiefling)	TEMPLATE:Favored Class ~ Rogue	TEMPLATE:Tiefling ~ LevelAdjustment		ABILITY:Special Ability|AUTOMATIC|Planetouched Tiefling ~ Darkness|Planetouched Tiefling ~ Skills|Resistance to Cold|Resistance to Electricity|Resistance to Fire	BONUS:STAT|DEX,INT|2|TYPE=Racial	BONUS:STAT|CHA|-2|TYPE=Racial	BONUS:VAR|DarkvisionRange|60|TYPE=Base	BONUS:VAR|ColdResistanceBonus,FireResistanceBonus,ElectricityResistanceBonus|5	AUTO:LANG|Common|Infernal	SPELLS:Innate|TIMES=1|CASTERLEVEL=max(1,TL)|Darkness,12+CHA
-
-# Standard Tiefling
-Darkness					KEY:Planetouched Tiefling ~ Darkness			CATEGORY:Special Ability	TYPE:SpecialAttack.SpellLike																	VISIBLE:YES																					DESC:A tiefling can use darkness once per day (caster level equal to class levels).
-Skills					KEY:Planetouched Tiefling ~ Skills				CATEGORY:Special Ability	TYPE:SpecialAttack																		VISIBLE:YES																					DESC:A tiefling has a +2 racial bonus on Bluff and Hide checks.	BONUS:SKILL|Bluff,Hide|2|TYPE=Racial
-
 # Pseudodragon
 Poison					KEY:Pseudodragon ~ Poison					CATEGORY:Special Ability	TYPE:SpecialAttack.Extraordinary																VISIBLE:YES																					DESC:Injury, Fortitude DC %1, initial damage sleep for 1 minute, secondary damage sleep for 1d3 hours. The save DC is Constitution-based and includes a +2 racial bonus.|DC_Poison	DEFINE:DC_Poison|0	BONUS:VAR|DC_Poison|2+DC_CON	BONUS:VAR|DC_Poison|2|PREABILITY:1,CATEGORY=FEAT,Ability Focus (Poison)	ABILITY:Ability Focus|AUTOMATIC|Poison
 Blindsense					KEY:Pseudodragon ~ Blindsense					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary																VISIBLE:YES																					DESC:A pseudodragon can locate creatures within 60 feet by nonvisual means (mostly hearing and scent, but also by noticing vibration and other environmental clues). Opponents the pseudodragon can't actually see still have total concealment against the pseudodragon.
@@ -2558,14 +2538,33 @@ Weakness			CATEGORY:Ability Focus	TYPE:Ability Focus
 Whirlwind			CATEGORY:Ability Focus	TYPE:Ability Focus
 
 
+
+
+
+
+
+
+
+
+
+
 ###Block:
 Race Size ~ Long		CATEGORY:Internal					DEFINE:RaceSizeIsLong|0	BONUS:VAR|RaceSizeIsLong|1
 
 ###Block:
-Race Traits ~ Goblin		CATEGORY:Internal	ABILITY:Goblin Subrace|AUTOMATIC|Goblin ~ Base|!PREABILITY:1,CATEGORY=Internal,TYPE.AltSubraceChoice
-Race Traits ~ Hobgoblin		CATEGORY:Internal	ABILITY:Hobgoblin Subrace|AUTOMATIC|Hobgoblin ~ Base|!PREABILITY:1,CATEGORY=Internal,TYPE.AltSubraceChoice
-Race Traits ~ Orc			CATEGORY:Internal	ABILITY:Orc Subrace|AUTOMATIC|Orc ~ Base|!PREABILITY:1,CATEGORY=Internal,TYPE.AltSubraceChoice
-Race Traits ~ Kobold		CATEGORY:Internal	ABILITY:Kobold Subrace|AUTOMATIC|Kobold ~ Base|!PREABILITY:1,CATEGORY=Internal,TYPE.AltSubraceChoice
+Goblin	CATEGORY:Race	BONUS:ABILITYPOOL|Race Base|1|TYPE=Base
+Hobgoblin	CATEGORY:Race	BONUS:ABILITYPOOL|Race Base|1|TYPE=Base
+Orc		CATEGORY:Race	BONUS:ABILITYPOOL|Race Base|1|TYPE=Base
+Kobold	CATEGORY:Race	BONUS:ABILITYPOOL|Race Base|1|TYPE=Base
+Aasimar	CATEGORY:Race	BONUS:ABILITYPOOL|Race Base|1|TYPE=Base
+Tiefling	CATEGORY:Race	BONUS:ABILITYPOOL|Race Base|1|TYPE=Base
+
+Race Traits ~ Goblin					CATEGORY:Internal	ABILITY:Goblin Subrace|AUTOMATIC|Goblin ~ Base|!PREABILITY:1,CATEGORY=Internal,TYPE.AltSubraceChoice
+Race Traits ~ Hobgoblin					CATEGORY:Internal	ABILITY:Hobgoblin Subrace|AUTOMATIC|Hobgoblin ~ Base|!PREABILITY:1,CATEGORY=Internal,TYPE.AltSubraceChoice
+Race Traits ~ Orc						CATEGORY:Internal	ABILITY:Orc Subrace|AUTOMATIC|Orc ~ Base|!PREABILITY:1,CATEGORY=Internal,TYPE.AltSubraceChoice
+Race Traits ~ Kobold					CATEGORY:Internal	ABILITY:Kobold Subrace|AUTOMATIC|Kobold ~ Base|!PREABILITY:1,CATEGORY=Internal,TYPE.AltSubraceChoice
+Race Traits ~ Planetouched (Aasimar)		CATEGORY:Internal	BONUS:ABILITYPOOL|Aasimar Subrace|1|PREVAREQ:AasimarRaceSelection,1	DEFINE:AasimarRaceSelection|0	ABILITY:Internal|AUTOMATIC|Aasimar Subrace ~ Standard|PREVAREQ:AasimarRaceSelection,0		ABILITY:Internal|AUTOMATIC|Assign Race Type ~ Outsider|Assign Race Subtype ~ Native|PREVAREQ:DefaultRaceType,0	DEFINE:DefaultRaceType|0
+Race Traits ~ Planetouched (Tiefling)		CATEGORY:Internal	BONUS:ABILITYPOOL|Tiefling Subrace|1|PREVAREQ:TieflingRaceSelection,1	DEFINE:TieflingRaceSelection|0	ABILITY:Internal|AUTOMATIC|Tiefling Subrace ~ Standard|PREVAREQ:TieflingRaceSelection,0	ABILITY:Internal|AUTOMATIC|Assign Race Type ~ Outsider|Assign Race Subtype ~ Native|PREVAREQ:DefaultRaceType,0
 
 Language ~ Auto (Goblin)	CATEGORY:Internal		TYPE:DefaultAutoLang	ABILITY:Language|AUTOMATIC|Common|PREVAREQ:RemoveLangCommon,0	ABILITY:Language|AUTOMATIC|Goblin|PREVAREQ:RemoveLangGoblin,0
 Language ~ Auto (Hobgoblin)	CATEGORY:Internal		TYPE:DefaultAutoLang	ABILITY:Language|AUTOMATIC|Common|PREVAREQ:RemoveLangCommon,0	ABILITY:Language|AUTOMATIC|Goblin|PREVAREQ:RemoveLangGoblin,0
@@ -2583,6 +2582,8 @@ Hobgoblin	KEY:Hobgoblin ~ Base	CATEGORY:Internal	TYPE:HobgoblinSubrace.Hobgoblin
 Orc		KEY:Orc ~ Base		CATEGORY:Internal	TYPE:OrcSubrace.OrcBase			BONUS:STAT|STR|4|TYPE=Racial	BONUS:STAT|INT,WIS,CHA|-2|TYPE=Racial	ABILITY:Orc Race Trait|AUTOMATIC|Orc ~ Light Sensitivity|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DisableRacialTraits,TYPE.OrcSkillBonus		ABILITY:Internal|AUTOMATIC|Language ~ Auto (Orc)|!PREABILITY:1,CATEGORY=Internal,TYPE.AutoLangReplace	ABILITY:Internal|AUTOMATIC|Language ~ Bonus (Orc)|!PREABILITY:1,CATEGORY=Internal,TYPE.BonusLangReplace
 Kobold	KEY:Kobold ~ Base		CATEGORY:Internal	TYPE:KoboldSubrace.KoboldBase		BONUS:STAT|STR|-4|TYPE=Racial	BONUS:STAT|DEX|2|TYPE=Racial	BONUS:STAT|CON|-2|TYPE=Racial	ABILITY:Kobold Race Trait|AUTOMATIC|Kobold ~ Light Sensitivity	ABILITY:Kobold Race Trait|AUTOMATIC|Kobold ~ Skills	ABILITY:Internal|AUTOMATIC|Language ~ Auto (Kobold)|!PREABILITY:1,CATEGORY=Internal,TYPE.AutoLangReplace	ABILITY:Internal|AUTOMATIC|Language ~ Bonus (Kobold)|!PREABILITY:1,CATEGORY=Internal,TYPE.BonusLangReplace
 
+Aasimar	KEY:Aasimar Subrace ~ Standard	DESC:Standard Monster Manual Version	CATEGORY:Internal	TYPE:AasimarSubrace.Default	TEMPLATE:Language ~ Bonus (Aasimar)	TEMPLATE:Favored Class ~ Paladin	TEMPLATE:Aasimar ~ LevelAdjustment	BONUS:STAT|WIS,CHA|2|TYPE=Racial	BONUS:VAR|AcidResistanceBonus,ColdResistanceBonus,ElectricityResistanceBonus|5	AUTO:LANG|Common|Celestial	ABILITY:Special Ability|AUTOMATIC|Planetouched Aasimar ~ Daylight|Planetouched Aasimar ~ Skills|Resistance to Acid|Resistance to Cold|Resistance to Electricity	SPELLS:Innate|TIMES=1|CASTERLEVEL=max(1,TL)|Daylight,13+CHA
+Tiefling	KEY:Tiefling Subrace ~ Standard	CATEGORY:Internal		DESC:Standard Monster Manual Version	TEMPLATE:Language ~ Bonus (Tiefling)	TEMPLATE:Favored Class ~ Rogue	TEMPLATE:Tiefling ~ LevelAdjustment		ABILITY:Special Ability|AUTOMATIC|Planetouched Tiefling ~ Darkness|Planetouched Tiefling ~ Skills|Resistance to Cold|Resistance to Electricity|Resistance to Fire	BONUS:STAT|DEX,INT|2|TYPE=Racial	BONUS:STAT|CHA|-2|TYPE=Racial	BONUS:VAR|DarkvisionRange|60|TYPE=Base	BONUS:VAR|ColdResistanceBonus,FireResistanceBonus,ElectricityResistanceBonus|5	AUTO:LANG|Common|Infernal	SPELLS:Innate|TIMES=1|CASTERLEVEL=max(1,TL)|Darkness,12+CHA
 
 # Goblin
 Skills					KEY:Goblin ~ Skills						CATEGORY:Special Ability	TYPE:SpecialQuality.Goblin Race Trait																		VISIBLE:YES																					DESC:Goblins have a +4 racial bonus on Move Silently and Ride checks. Goblin cavalry (mounted on worgs) usually select the Mounted Combat feat in place of the Alertness feat, which reduces their Spot and Listen check modifiers from +3 to +1.	BONUS:SKILL|Move Silently,Ride|4|TYPE=Racial
@@ -2593,6 +2594,34 @@ Light Sensitivity				KEY:Kobold ~ Light Sensitivity				CATEGORY:Special Ability	
 Skills					KEY:Kobold ~ Skills						CATEGORY:Special Ability	TYPE:SpecialQuality.Kobold Race Trait																		VISIBLE:YES																					DESC:Kobolds have a +2 racial bonus on Craft (trapmaking), Profession (miner), and Search checks.	BONUS:SKILL|Craft (Trapmaking),Profession (Miner),Search|2|TYPE=Racial
 # Orc
 Light Sensitivity				KEY:Orc ~ Light Sensitivity					CATEGORY:Special Ability	TYPE:SpecialQuality.Extraordinary.Weakness.Orc Race Trait														VISIBLE:YES																					DESC:Orcs are dazzled in bright sunlight or within the radius of a daylight spell.
+
+# Planetouched Aasimar
+
+
+
+# Standard Aasimar
+Daylight					KEY:Planetouched Aasimar ~ Daylight				CATEGORY:Special Ability	TYPE:SpecialAttack.SpellLike																	VISIBLE:YES																					DESC:An Aasimar can use daylight once per day as a 1st-level caster or a caster of his class levels, whichever is higher.
+Skills					KEY:Planetouched Aasimar ~ Skills				CATEGORY:Special Ability	TYPE:SpecialQuality																		VISIBLE:YES																					DESC:An Aasimar has a +2 racial bonus on Spot and Listen checks.											BONUS:SKILL|Listen,Spot|2|TYPE=Racial
+
+# Planetouched Tiefling
+
+
+
+# Standard Tiefling
+Darkness					KEY:Planetouched Tiefling ~ Darkness			CATEGORY:Special Ability	TYPE:SpecialAttack.SpellLike																	VISIBLE:YES																					DESC:A tiefling can use darkness once per day (caster level equal to class levels).
+Skills					KEY:Planetouched Tiefling ~ Skills				CATEGORY:Special Ability	TYPE:SpecialAttack																		VISIBLE:YES																					DESC:A tiefling has a +2 racial bonus on Bluff and Hide checks.	BONUS:SKILL|Bluff,Hide|2|TYPE=Racial
+
+
+
+
+
+
+
+
+
+
+
+
 
 Race Traits ~ Carrion Crawler									CATEGORY:Internal																																																																																																																																																																																																																																																																																																																														ABILITY:Special Ability|AUTOMATIC|Carrion Crawler ~ Paralysis|Carrion Crawler ~ Skills|Scent
 
