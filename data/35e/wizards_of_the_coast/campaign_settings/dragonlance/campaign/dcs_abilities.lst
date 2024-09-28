@@ -1,44 +1,129 @@
-# CVS $Revision: $ $Author: $ -- Sun Aug 17 15:41:15 2014 -- reformated by prettylst.pl v1.51 (build 24906)
 
+Kender	CATEGORY:Race	BONUS:ABILITYPOOL|Race Base|1|TYPE=Base
 
+###Block: Dragonlance Version Races
+Human / Dragonlance		CATEGORY:Internal	TYPE:Race Base.RaceRestriction_Dragonlance	PRERACE:1,Human		ABILITY:Internal|AUTOMATIC|Race Traits ~ DL Human	DESC:Default Dragonlance version of the race
+Dwarf / Dragonlance		CATEGORY:Internal	TYPE:Race Base.RaceRestriction_Dragonlance	PRERACE:1,Dwarf		ABILITY:Internal|AUTOMATIC|Race Traits ~ DL Dwarf	DESC:Default Dragonlance version of the race
+Elf / Dragonlance			CATEGORY:Internal	TYPE:Race Base.RaceRestriction_Dragonlance	PRERACE:1,Elf		ABILITY:Internal|AUTOMATIC|Race Traits ~ DL Elf		DESC:Default Dragonlance version of the race
+Gnome / Dragonlance		CATEGORY:Internal	TYPE:Race Base.RaceRestriction_Dragonlance	PRERACE:1,Gnome		ABILITY:Internal|AUTOMATIC|Race Traits ~ DL Gnome	DESC:Default Dragonlance version of the race
+Half-Elf / Dragonlance		CATEGORY:Internal	TYPE:Race Base.RaceRestriction_Dragonlance	PRERACE:1,Half-Elf	ABILITY:Internal|AUTOMATIC|Race Traits ~ DL Half-Elf	DESC:Default Dragonlance version of the race
+Kender / Dragonlance		CATEGORY:Internal	TYPE:Race Base.RaceRestriction_Dragonlance	PRERACE:1,Kender		ABILITY:Internal|AUTOMATIC|Race Traits ~ DL Kender	DESC:Default Dragonlance version of the race	
+
+###Block:
+Race Traits ~ DL Human		CATEGORY:Internal		ABILITY:Human Subrace|AUTOMATIC|Human ~ Base|!PREABILITY:1,CATEGORY=Internal,TYPE.AltSubraceChoice	ABILITY:Special Ability|AUTOMATIC|Human Racial Traits|PREABILITY:1,CATEGORY=Internal,TYPE.HumanSubrace
+Race Traits ~ DL Kender		CATEGORY:Internal		ABILITY:Kender Subrace|AUTOMATIC|Kender ~ Kender (Krynn)|!PREABILITY:1,CATEGORY=Internal,TYPE.AltSubraceChoice	
+Race Traits ~ DL Dwarf		CATEGORY:Internal		ABILITY:Dwarf Subrace|AUTOMATIC|Dwarf ~ Hill (Krynn)|!PREABILITY:1,CATEGORY=Internal,TYPE.AltSubraceChoice		ABILITY:Special Ability|AUTOMATIC|Dwarf Racial Traits|PREABILITY:1,CATEGORY=Internal,TYPE.DwarfSubrace	
+Race Traits ~ DL Elf		CATEGORY:Internal		ABILITY:Elf Subrace|AUTOMATIC|Elf ~ Qualinesti (Krynn)|!PREABILITY:1,CATEGORY=Internal,TYPE.AltSubraceChoice	ABILITY:Special Ability|AUTOMATIC|Elf Racial Traits|PREABILITY:1,CATEGORY=Internal,TYPE.ElfSubrace	ABILITY:Elf Race Trait|AUTOMATIC|Elf ~ Trance|Elf (DL) ~ Elvensight
+Race Traits ~ DL Gnome		CATEGORY:Internal		ABILITY:Gnome Subrace|AUTOMATIC|Gnome ~ Gnome (Krynn)|!PREABILITY:1,CATEGORY=Internal,TYPE.AltSubraceChoice	ABILITY:Special Ability|AUTOMATIC|Gnome Racial Traits|PREABILITY:1,CATEGORY=Internal,TYPE.GnomeSubrace
+Race Traits ~ DL Half-Elf	CATEGORY:Internal		ABILITY:Half-Elf Subrace|AUTOMATIC|Half-Elf|!PREABILITY:1,CATEGORY=Internal,TYPE.AltSubraceChoice	ABILITY:Special Ability|AUTOMATIC|Half-Elf Racial Traits|PREABILITY:1,CATEGORY=Internal,TYPE.HalfElfSubrace	ABILITY:Elf Race Trait|AUTOMATIC|Elf (DL) ~ Elvensight
 
 ###Block: Races
-# Ability Name								Unique Key						Category of Ability		Type							Auto Language		Ability																																																										Bonus Ability Pool			Bonus to skill							Bonus
-Mountain Dwarf (Krynn)							KEY:Dwarf ~ Mountain (Krynn)			CATEGORY:Internal			TYPE:DwarfSubrace.Krynn_Campaign
-Hill Dwarf (Krynn)							KEY:Dwarf ~ Hill (Krynn)			CATEGORY:Internal			TYPE:DwarfSubrace.Krynn_Campaign
-Gully Dwarf (Krynn)							KEY:Dwarf ~ Gully (Krynn)			CATEGORY:Internal			TYPE:DwarfSubrace.Krynn_Campaign
+# Ability Name			Unique Key						Category of Ability		Type							Auto Language		Ability																																																										Bonus Ability Pool			Bonus to skill							Bonus
+Hill Dwarf (Krynn)		KEY:Dwarf ~ Hill (Krynn)			CATEGORY:Internal			TYPE:DwarfSubrace.Krynn_Campaign		COST:0	PREABILITY:1,CATEGORY=Internal,TYPE.RaceRestriction_Dragonlance	TEMPLATE:Subrace ~ Hill		UNENCUMBEREDMOVE:HeavyLoad|HeavyArmor	ABILITY:Internal|AUTOMATIC|Favored Class ~ Fighter|PREVAREQ:RemoveDefaultFavoredClass,0	ABILITY:Dwarf Race Trait|AUTOMATIC|Dwarf ~ Darkvision|PREVAREQ:DisableRacialTraits,0|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfRacialVision	ABILITY:Dwarf Race Trait|AUTOMATIC|Dwarf ~ Weapon Familiarity|PREVAREQ:DisableRacialTraits,0|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfWeaponFamiliarity	ABILITY:Dwarf Race Trait|AUTOMATIC|Dwarf ~ Stonecunning|PREVAREQ:DisableRacialTraits,0|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfStonecunning	ABILITY:Dwarf Race Trait|AUTOMATIC|Dwarf ~ Stability|PREVAREQ:DisableRacialTraits,0|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfStability	ABILITY:Dwarf Race Trait|AUTOMATIC|Dwarf ~ Poison Save Bonus|PREVAREQ:DisableRacialTraits,0|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfPoisonSaveBonus	ABILITY:Dwarf Race Trait|AUTOMATIC|Dwarf ~ Spell Save Bonus|PREVAREQ:DisableRacialTraits,0|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfSpellSaveBonus	ABILITY:Dwarf Race Trait|AUTOMATIC|Dwarf ~ Attack Bonus|PREVAREQ:DisableRacialTraits,0|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfAttackBonus	ABILITY:Dwarf Race Trait|AUTOMATIC|Dwarf ~ Dodge Bonus|PREVAREQ:DisableRacialTraits,0|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfDodgeBonus	ABILITY:Dwarf Race Trait|AUTOMATIC|Dwarf ~ Appraise Bonus|PREVAREQ:DisableRacialTraits,0|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfAppraiseBonus	ABILITY:Dwarf Race Trait|AUTOMATIC|Dwarf ~ Craft Bonus|PREVAREQ:DisableRacialTraits,0|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfCraftBonus	ABILITY:Internal|AUTOMATIC|Language ~ Auto (Dwarf)|!PREABILITY:1,CATEGORY=Internal,TYPE.AutoLangReplace	ABILITY:Internal|AUTOMATIC|Language ~ Bonus (Dragonlance Hill Dwarf)|!PREABILITY:1,CATEGORY=Internal,TYPE.BonusLangReplace	BONUS:STAT|CON|2|TYPE=Racial|PREVAREQ:DisableRacialStats,0	BONUS:STAT|CHA|-2|TYPE=Racial|PREVAREQ:DisableRacialStats,0
+Mountain Dwarf (Krynn)		KEY:Dwarf ~ Mountain (Krynn)			CATEGORY:Internal			TYPE:DwarfSubrace.Krynn_Campaign		COST:0	PREABILITY:1,CATEGORY=Internal,TYPE.RaceRestriction_Dragonlance	TEMPLATE:Subrace ~ Mountain	UNENCUMBEREDMOVE:HeavyLoad|HeavyArmor	ABILITY:Internal|AUTOMATIC|Favored Class ~ Fighter|PREVAREQ:RemoveDefaultFavoredClass,0	ABILITY:Dwarf Race Trait|AUTOMATIC|Dwarf ~ Darkvision|PREVAREQ:DisableRacialTraits,0|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfRacialVision	ABILITY:Dwarf Race Trait|AUTOMATIC|Dwarf ~ Weapon Familiarity|PREVAREQ:DisableRacialTraits,0|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfWeaponFamiliarity	ABILITY:Dwarf Race Trait|AUTOMATIC|Dwarf ~ Stonecunning|PREVAREQ:DisableRacialTraits,0|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfStonecunning	ABILITY:Dwarf Race Trait|AUTOMATIC|Dwarf ~ Stability|PREVAREQ:DisableRacialTraits,0|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfStability	ABILITY:Dwarf Race Trait|AUTOMATIC|Dwarf ~ Poison Save Bonus|PREVAREQ:DisableRacialTraits,0|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfPoisonSaveBonus	ABILITY:Dwarf Race Trait|AUTOMATIC|Dwarf ~ Spell Save Bonus|PREVAREQ:DisableRacialTraits,0|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfSpellSaveBonus	ABILITY:Dwarf Race Trait|AUTOMATIC|Dwarf ~ Attack Bonus|PREVAREQ:DisableRacialTraits,0|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfAttackBonus	ABILITY:Dwarf Race Trait|AUTOMATIC|Dwarf ~ Dodge Bonus|PREVAREQ:DisableRacialTraits,0|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfDodgeBonus	ABILITY:Dwarf Race Trait|AUTOMATIC|Dwarf ~ Appraise Bonus|PREVAREQ:DisableRacialTraits,0|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfAppraiseBonus	ABILITY:Dwarf Race Trait|AUTOMATIC|Dwarf ~ Craft Bonus|PREVAREQ:DisableRacialTraits,0|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfCraftBonus	ABILITY:Internal|AUTOMATIC|Language ~ Auto (Dwarf)|!PREABILITY:1,CATEGORY=Internal,TYPE.AutoLangReplace	ABILITY:Internal|AUTOMATIC|Language ~ Bonus (Dragonlance Mountain Dwarf)|!PREABILITY:1,CATEGORY=Internal,TYPE.BonusLangReplace	BONUS:STAT|CON|2|TYPE=Racial|PREVAREQ:DisableRacialStats,0	BONUS:STAT|CHA|-2|TYPE=Racial|PREVAREQ:DisableRacialStats,0
+Dark Dwarf (Krynn)		KEY:Dwarf ~ Dark (Krynn)			CATEGORY:Internal			TYPE:DwarfSubrace.Krynn_Campaign		COST:0	PREABILITY:1,CATEGORY=Internal,TYPE.RaceRestriction_Dragonlance	TEMPLATE:Subrace ~ Dark		UNENCUMBEREDMOVE:HeavyLoad|HeavyArmor	ABILITY:Internal|AUTOMATIC|Favored Class ~ Rogue|PREVAREQ:RemoveDefaultFavoredClass,0		ABILITY:Dwarf Race Trait|AUTOMATIC|Dwarf ~ Weapon Familiarity|PREVAREQ:DisableRacialTraits,0|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfWeaponFamiliarity	ABILITY:Dwarf Race Trait|AUTOMATIC|Dwarf ~ Stonecunning|PREVAREQ:DisableRacialTraits,0|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfStonecunning	ABILITY:Dwarf Race Trait|AUTOMATIC|Dwarf ~ Stability|PREVAREQ:DisableRacialTraits,0|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfStability	ABILITY:Dwarf Race Trait|AUTOMATIC|Dwarf ~ Poison Save Bonus|PREVAREQ:DisableRacialTraits,0|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfPoisonSaveBonus	ABILITY:Dwarf Race Trait|AUTOMATIC|Dwarf ~ Spell Save Bonus|PREVAREQ:DisableRacialTraits,0|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfSpellSaveBonus	ABILITY:Dwarf Race Trait|AUTOMATIC|Dwarf ~ Attack Bonus|PREVAREQ:DisableRacialTraits,0|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfAttackBonus	ABILITY:Dwarf Race Trait|AUTOMATIC|Dwarf ~ Dodge Bonus|PREVAREQ:DisableRacialTraits,0|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfDodgeBonus	ABILITY:Dwarf Race Trait|AUTOMATIC|Dwarf ~ Appraise Bonus|PREVAREQ:DisableRacialTraits,0|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfAppraiseBonus	ABILITY:Dwarf Race Trait|AUTOMATIC|Dwarf ~ Craft Bonus|PREVAREQ:DisableRacialTraits,0|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfCraftBonus	ABILITY:Internal|AUTOMATIC|Language ~ Auto (Dwarf)|!PREABILITY:1,CATEGORY=Internal,TYPE.AutoLangReplace	ABILITY:Internal|AUTOMATIC|Language ~ Bonus (Dwarf)|!PREABILITY:1,CATEGORY=Internal,TYPE.BonusLangReplace	ABILITY:Dwarf Race Trait|AUTOMATIC|Dwarf (DL Dark) ~ Darkvision|PREVAREQ:DisableRacialTraits,0|!PREABILITY:1,CATEGORY=Special Ability,TYPE.DwarfRacialVision	ABILITY:Dwarf Race Trait|AUTOMATIC|Dwarf (DL Dark) ~ Racial Skill Bonuses|PREVAREQ:DisableRacialTraits,0	ABILITY:Dwarf Race Trait|AUTOMATIC|Dwarf (DL Dark) ~ Light Sensitivity|PREVAREQ:DisableRacialTraits,0	BONUS:STAT|CON|2|TYPE=Racial|PREVAREQ:DisableRacialStats,0	BONUS:STAT|CHA|-4|TYPE=Racial|PREVAREQ:DisableRacialStats,0
+Gully Dwarf (Krynn)		KEY:Dwarf ~ Gully (Krynn)			CATEGORY:Internal			TYPE:DwarfSubrace.Krynn_Campaign		COST:0	PREABILITY:1,CATEGORY=Internal,TYPE.RaceRestriction_Dragonlance	TEMPLATE:Subrace ~ Gully								ABILITY:Internal|AUTOMATIC|Favored Class ~ Rogue|PREVAREQ:RemoveDefaultFavoredClass,0		ABILITY:Dwarf Race Trait|AUTOMATIC|Dwarf (DL Gully) ~ Small	ABILITY:Dwarf Race Trait|AUTOMATIC|Dwarf (DL Gully) ~ Speed	ABILITY:Dwarf Race Trait|AUTOMATIC|Dwarf (DL Gully) ~ Survival Instinct	ABILITY:Dwarf Race Trait|AUTOMATIC|Dwarf (DL Gully) ~ Hardy	ABILITY:Dwarf Race Trait|AUTOMATIC|Dwarf (DL Gully) ~ Pitiable	ABILITY:Dwarf Race Trait|AUTOMATIC|Dwarf (DL Gully) ~ Cowardly	ABILITY:Internal|AUTOMATIC|Language ~ Auto (Gully Dwarf)|!PREABILITY:1,CATEGORY=Internal,TYPE.AutoLangReplace	BONUS:STAT|DEX|2|TYPE=Racial|PREVAREQ:DisableRacialStats,0	BONUS:STAT|CON|2|TYPE=Racial|PREVAREQ:DisableRacialStats,0	BONUS:STAT|INT|-4|TYPE=Racial|PREVAREQ:DisableRacialStats,0	BONUS:STAT|CHA|-4|TYPE=Racial|PREVAREQ:DisableRacialStats,0
 
-Kagonesti (Krynn)								KEY:Elf ~ Kagonesti (Krynn)			CATEGORY:Internal			TYPE:ElfSubrace.Krynn_Campaign
-Qualinesti (Krynn)							KEY:Elf ~ Qualinesti (Krynn)			CATEGORY:Internal			TYPE:ElfSubrace.Krynn_Campaign
-Silvanesti (Krynn)							KEY:Elf ~ Silvanesti (Krynn)			CATEGORY:Internal			TYPE:ElfSubrace.Krynn_Campaign
-Dargonesti (Krynn)							KEY:Elf ~ Dargonesti (Krynn)			CATEGORY:Internal			TYPE:ElfSubrace.Krynn_Campaign
-Dimeresti (Krynn)								KEY:Elf ~ Dimeresti (Krynn)			CATEGORY:Internal			TYPE:ElfSubrace.Krynn_Campaign
+# Elves
+Kagonesti (Krynn)			KEY:Elf ~ Kagonesti (Krynn)			CATEGORY:Internal			TYPE:ElfSubrace.Krynn_Campaign		COST:0	PREABILITY:1,CATEGORY=Internal,TYPE.RaceRestriction_Dragonlance	TEMPLATE:Subrace ~ Kagonesti								ABILITY:Internal|AUTOMATIC|Favored Class ~ Wizard|PREVAREQ:RemoveDefaultFavoredClass,0	ABILITY:Elf Race Trait|AUTOMATIC|Elf ~ Racial Immunity|PREVAREQ:DisableRacialTraits,0|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfRacialImmunity	ABILITY:Elf Race Trait|AUTOMATIC|Elf ~ Low-Light Vision|PREVAREQ:DisableRacialTraits,0|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfLowLightVision		ABILITY:Internal|AUTOMATIC|Language ~ Auto (Kagonesti Elf)|!PREABILITY:1,CATEGORY=Internal,TYPE.AutoLangReplace	ABILITY:Internal|AUTOMATIC|Language ~ Bonus (Kagonesti Elf)|!PREABILITY:1,CATEGORY=Internal,TYPE.BonusLangReplace	BONUS:STAT|DEX|2|TYPE=Racial|PREVAREQ:DisableRacialStats,0	BONUS:STAT|INT|-2|TYPE=Racial|PREVAREQ:DisableRacialStats,0	BONUS:STAT|CHA|-2|TYPE=Racial|PREVAREQ:DisableRacialStats,0		ABILITY:Elf Race Trait|AUTOMATIC|Elf (DL) Kagonesti ~ Weapon Proficiency|PREVAREQ:DisableRacialTraits,0	ABILITY:Elf Race Trait|AUTOMATIC|Elf (DL) Kagonesti ~ Skill Bonus	|PREVAREQ:DisableRacialTraits,0
+Qualinesti (Krynn)		KEY:Elf ~ Qualinesti (Krynn)			CATEGORY:Internal			TYPE:ElfSubrace.Krynn_Campaign		COST:0	PREABILITY:1,CATEGORY=Internal,TYPE.RaceRestriction_Dragonlance	TEMPLATE:Subrace ~ Qualinesti								ABILITY:Internal|AUTOMATIC|Favored Class ~ Wizard|PREVAREQ:RemoveDefaultFavoredClass,0	ABILITY:Elf Race Trait|AUTOMATIC|Elf ~ Racial Immunity|PREVAREQ:DisableRacialTraits,0|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfRacialImmunity	ABILITY:Elf Race Trait|AUTOMATIC|Elf ~ Low-Light Vision|PREVAREQ:DisableRacialTraits,0|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfLowLightVision	ABILITY:Elf Race Trait|AUTOMATIC|Elf ~ Weapon Proficiency|PREVAREQ:DisableRacialTraits,0|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfWeaponProficiency		ABILITY:Elf Race Trait|AUTOMATIC|Elf (DL) Qualinesti ~ Skill Bonus|PREVAREQ:DisableRacialTraits,0|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfSkillBonus	ABILITY:Internal|AUTOMATIC|Language ~ Auto (Qualinesti Elf)|!PREABILITY:1,CATEGORY=Internal,TYPE.AutoLangReplace	ABILITY:Internal|AUTOMATIC|Language ~ Bonus (Qualinesti Elf)|!PREABILITY:1,CATEGORY=Internal,TYPE.BonusLangReplace	BONUS:STAT|CON|-2|TYPE=Racial|PREVAREQ:DisableRacialStats,0	BONUS:STAT|DEX|2|TYPE=Racial|PREVAREQ:DisableRacialStats,0
+Silvanesti (Krynn)		KEY:Elf ~ Silvanesti (Krynn)			CATEGORY:Internal			TYPE:ElfSubrace.Krynn_Campaign		COST:0	PREABILITY:1,CATEGORY=Internal,TYPE.RaceRestriction_Dragonlance	TEMPLATE:Subrace ~ Silvanesti								ABILITY:Internal|AUTOMATIC|Favored Class ~ Wizard|PREVAREQ:RemoveDefaultFavoredClass,0	ABILITY:Elf Race Trait|AUTOMATIC|Elf ~ Racial Immunity|PREVAREQ:DisableRacialTraits,0|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfRacialImmunity	ABILITY:Elf Race Trait|AUTOMATIC|Elf ~ Low-Light Vision|PREVAREQ:DisableRacialTraits,0|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfLowLightVision	ABILITY:Elf Race Trait|AUTOMATIC|Elf ~ Weapon Proficiency|PREVAREQ:DisableRacialTraits,0|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfWeaponProficiency		ABILITY:Elf Race Trait|AUTOMATIC|Elf ~ Skill Bonus|PREVAREQ:DisableRacialTraits,0|!PREABILITY:1,CATEGORY=Special Ability,TYPE.ElfSkillBonus	ABILITY:Internal|AUTOMATIC|Language ~ Auto (Silvanesti Elf)|!PREABILITY:1,CATEGORY=Internal,TYPE.AutoLangReplace	ABILITY:Internal|AUTOMATIC|Language ~ Bonus (Silvanesti Elf)|!PREABILITY:1,CATEGORY=Internal,TYPE.BonusLangReplace	BONUS:STAT|DEX|2|TYPE=Racial|PREVAREQ:DisableRacialStats,0	BONUS:STAT|INT|2|TYPE=Racial|PREVAREQ:DisableRacialStats,0	BONUS:STAT|CON|-2|TYPE=Racial|PREVAREQ:DisableRacialStats,0	BONUS:STAT|CHA|-2|TYPE=Racial|PREVAREQ:DisableRacialStats,0
 
-Gnome (Krynn)								KEY:Gnome ~ Gnome (Krynn)			CATEGORY:Internal			TYPE:GnomeSubrace.Krynn_Campaign
-Mad Gnome (Krynn)								KEY:Gnome ~ Mad Gnome (Krynn)			CATEGORY:Internal			TYPE:GnomeSubrace.Krynn_Campaign
+Half-Elf				KEY:Half-Elf (Krynn)				CATEGORY:Internal			TYPE:HalfElfSubrace.HalfElfBase		COST:0	PREABILITY:1,CATEGORY=Internal,TYPE.RaceRestriction_Dragonlance	TEMPLATE:Half-Elf										ABILITY:Internal|AUTOMATIC|Favored Class ~ HIGHESTLEVELCLASS|PREVAREQ:RemoveDefaultFavoredClass,0		ABILITY:Half-Elf Race Trait|AUTOMATIC|Half-Elf ~ Elven Blood|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfElfBlood	ABILITY:Half-Elf Race Trait|AUTOMATIC|Half-Elf ~ Racial +1 Skill Bonus|PREVAREQ:DisableRacialTraits,0|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfElfPerception	ABILITY:Half-Elf Race Trait|AUTOMATIC|Half-Elf ~ Racial +2 Skill Bonus|PREVAREQ:DisableRacialTraits,0|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfElfPersuasion	ABILITY:Half-Elf Race Trait|AUTOMATIC|Half-Elf ~ Racial Immunity|PREVAREQ:DisableRacialTraits,0|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalfElfImmunity	ABILITY:Internal|AUTOMATIC|Language ~ Auto (Elf)|!PREABILITY:1,CATEGORY=Internal,TYPE.AutoLangReplace	ABILITY:Internal|AUTOMATIC|Language ~ Bonus (Half-Elf)|!PREABILITY:1,CATEGORY=Internal,TYPE.BonusLangReplace																																																																																																																																																											COST:0
 
-Race Traits ~ Kender														CATEGORY:Internal																																																												BONUS:ABILITYPOOL|Kender Subrace|1
+Dargonesti (Krynn)		KEY:Elf ~ Dargonesti (Krynn)			CATEGORY:Internal			TYPE:ElfSubrace.Krynn_Campaign		COST:0	PREABILITY:1,CATEGORY=Internal,TYPE.RaceRestriction_Dragonlance	TEMPLATE:Subrace ~ Dargonesti								ABILITY:Internal|AUTOMATIC|Favored Class ~ Fighter|PREVAREQ:RemoveDefaultFavoredClass,0		ABILITY:Elf Race Trait|AUTOMATIC|TYPE=DL_SeaElfRacialTrait	ABILITY:Elf Race Trait|AUTOMATIC|TYPE=Dargonesti Elf Race Trait	ABILITY:Internal|AUTOMATIC|Language ~ Auto (Dargonesti Elf)|!PREABILITY:1,CATEGORY=Internal,TYPE.AutoLangReplace	ABILITY:Internal|AUTOMATIC|Language ~ Bonus (Dargonesti Elf)|!PREABILITY:1,CATEGORY=Internal,TYPE.BonusLangReplace	BONUS:STAT|STR|2|TYPE=Racial|PREVAREQ:DisableRacialStats,0	BONUS:STAT|DEX|2|TYPE=Racial|PREVAREQ:DisableRacialStats,0	BONUS:STAT|CHA|-2|TYPE=Racial|PREVAREQ:DisableRacialStats,0
+Dimeresti (Krynn)			KEY:Elf ~ Dimeresti (Krynn)			CATEGORY:Internal			TYPE:ElfSubrace.Krynn_Campaign		COST:0	PREABILITY:1,CATEGORY=Internal,TYPE.RaceRestriction_Dragonlance	TEMPLATE:Subrace ~ Dimeresti								ABILITY:Internal|AUTOMATIC|Favored Class ~ Barbarian|PREVAREQ:RemoveDefaultFavoredClass,0		ABILITY:Elf Race Trait|AUTOMATIC|TYPE=DL_SeaElfRacialTrait	ABILITY:Elf Race Trait|AUTOMATIC|TYPE=Dimeresti Elf Race Trait	ABILITY:Internal|AUTOMATIC|Language ~ Auto (Dimeresti Elf)|!PREABILITY:1,CATEGORY=Internal,TYPE.AutoLangReplace	ABILITY:Internal|AUTOMATIC|Language ~ Bonus (Dimeresti Elf)|!PREABILITY:1,CATEGORY=Internal,TYPE.BonusLangReplace		BONUS:STAT|DEX|2|TYPE=Racial|PREVAREQ:DisableRacialStats,0	BONUS:STAT|INT|2|TYPE=Racial|PREVAREQ:DisableRacialStats,0	BONUS:STAT|WIS|-2|TYPE=Racial|PREVAREQ:DisableRacialStats,0	BONUS:STAT|CHA|-2|TYPE=Racial|PREVAREQ:DisableRacialStats,0
 
-Kender (Krynn)								KEY:Kender ~ Kender (Krynn)			CATEGORY:Internal			TYPE:KenderSubrace.Krynn_Campaign						ABILITY:Kender Race Trait|AUTOMATIC|Kender ~ Save Bonus	ABILITY:Kender Race Trait|AUTOMATIC|Kender ~ Spot Bonus	ABILITY:Kender Race Trait|AUTOMATIC|Kender ~ Thievery Bonus	ABILITY:Kender Race Trait|AUTOMATIC|Kender ~ Lack of Focus	ABILITY:Kender Race Trait|AUTOMATIC|Kender ~ Taunt	ABILITY:Kender Race Trait|AUTOMATIC|Kender ~ Fearlessness
-Afflicted Kender (Krynn)						KEY:Kender ~ Afflicted Kender (Krynn)	CATEGORY:Internal			TYPE:KenderSubrace.Krynn_Campaign						ABILITY:Kender Race Trait|AUTOMATIC|Afflicted Kender ~ Skill Bonus	ABILITY:Kender Race Trait|AUTOMATIC|Kender ~ Save Bonus	ABILITY:Kender Race Trait|AUTOMATIC|Kender ~ Spot Bonus	ABILITY:Kender Race Trait|AUTOMATIC|Kender ~ Thievery Bonus
+# Gnomes
+Gnome (Krynn)			KEY:Gnome ~ Gnome (Krynn)			CATEGORY:Internal			TYPE:GnomeSubrace.Krynn_Campaign		COST:0	PREABILITY:1,CATEGORY=Internal,TYPE.RaceRestriction_Dragonlance	TEMPLATE:Gnome										ABILITY:Internal|AUTOMATIC|Favored Class ~ HIGHESTLEVELCLASS|PREVAREQ:RemoveDefaultFavoredClass,0	ABILITY:Internal|AUTOMATIC|Language ~ Auto (Gnome)|!PREABILITY:1,CATEGORY=Internal,TYPE.AutoLangReplace	ABILITY:Internal|AUTOMATIC|Language ~ Bonus (Dragonlance Gnome)|!PREABILITY:1,CATEGORY=Internal,TYPE.BonusLangReplace		BONUS:STAT|DEX|2|TYPE=Racial|PREVAREQ:DisableRacialStats,0	BONUS:STAT|INT|2|TYPE=Racial|PREVAREQ:DisableRacialStats,0	BONUS:STAT|STR|-2|TYPE=Racial|PREVAREQ:DisableRacialStats,0	BONUS:STAT|WIS|-2|TYPE=Racial|PREVAREQ:DisableRacialStats,0	ABILITY:Gnome Race Trait|AUTOMATIC|TYPE=Gnome Race Trait|PREVAREQ:DisableRacialTraits,0
+Mad Gnome (Krynn)			KEY:Gnome ~ Mad Gnome (Krynn)			CATEGORY:Internal			TYPE:GnomeSubrace.Krynn_Campaign		COST:0	PREABILITY:1,CATEGORY=Internal,TYPE.RaceRestriction_Dragonlance	TEMPLATE:Subrace ~ Mad									ABILITY:Internal|AUTOMATIC|Favored Class ~ HIGHESTLEVELCLASS|PREVAREQ:RemoveDefaultFavoredClass,0	ABILITY:Internal|AUTOMATIC|Language ~ Auto (Gnome)|!PREABILITY:1,CATEGORY=Internal,TYPE.AutoLangReplace	ABILITY:Internal|AUTOMATIC|Language ~ Bonus (Dragonlance Gnome)|!PREABILITY:1,CATEGORY=Internal,TYPE.BonusLangReplace		BONUS:STAT|DEX|2|TYPE=Racial|PREVAREQ:DisableRacialStats,0	BONUS:STAT|STR|-2|TYPE=Racial|PREVAREQ:DisableRacialStats,0	ABILITY:Gnome Race Trait|AUTOMATIC|TYPE=Mad Gnome Race Trait|PREVAREQ:DisableRacialTraits,0
+
+# Kender
+Kender (Krynn)			KEY:Kender ~ Kender (Krynn)			CATEGORY:Internal			TYPE:KenderSubrace.Krynn_Campaign		COST:0	PREABILITY:1,CATEGORY=Internal,TYPE.RaceRestriction_Dragonlance													ABILITY:Internal|AUTOMATIC|Favored Class ~ Rogue|PREVAREQ:RemoveDefaultFavoredClass,0				ABILITY:Kender Race Trait|AUTOMATIC|Kender ~ Save Bonus	ABILITY:Kender Race Trait|AUTOMATIC|Kender ~ Spot Bonus	ABILITY:Kender Race Trait|AUTOMATIC|Kender ~ Thievery Bonus	ABILITY:Kender Race Trait|AUTOMATIC|Kender ~ Lack of Focus	ABILITY:Kender Race Trait|AUTOMATIC|Kender ~ Taunt	ABILITY:Kender Race Trait|AUTOMATIC|Kender ~ Fearlessness
+Afflicted Kender (Krynn)	KEY:Kender ~ Afflicted Kender (Krynn)	CATEGORY:Internal			TYPE:KenderSubrace.Krynn_Campaign		COST:0	PREABILITY:1,CATEGORY=Internal,TYPE.RaceRestriction_Dragonlance	TEMPLATE:Subrace ~ Afflicted								ABILITY:Internal|AUTOMATIC|Favored Class ~ Rogue|PREVAREQ:RemoveDefaultFavoredClass,0				ABILITY:Kender Race Trait|AUTOMATIC|Afflicted Kender ~ Skill Bonus	ABILITY:Kender Race Trait|AUTOMATIC|Kender ~ Save Bonus	ABILITY:Kender Race Trait|AUTOMATIC|Kender ~ Spot Bonus	ABILITY:Kender Race Trait|AUTOMATIC|Kender ~ Thievery Bonus
 
 
+#
+# Racial Traits
+#
+
+###Block: Dark Dwarf Traits
+Darkvision			KEY:Dwarf (DL Dark) ~ Darkvision			SOURCEPAGE:p.14	CATEGORY:Special Ability	TYPE:Race Trait.Dwarf Race Trait.Dark Dwarf Race Trait.SpecialQuality				VISIBLE:YES	BONUS:VAR|DarkvisionRange|120|TYPE=Base	DESC:Darkvision out to 120 feet.
+Racial Skill Bonuses	KEY:Dwarf (DL Dark) ~ Racial Skill Bonuses	SOURCEPAGE:p.14	CATEGORY:Special Ability	TYPE:Race Trait.Dwarf Race Trait.Dark Dwarf Race Trait.SpecialQuality				VISIBLE:YES	BONUS:SKILL|Hide,Listen,Move Silently|2|TYPE=Racial	DESC:+2 racial bonus on Hide, Listen, and Move Silently checks. Dark dwarves are skilled in skulking in the darkness, and make excellent spies.
+Light Sensitivity		KEY:Dwarf (DL Dark) ~ Light Sensitivity		SOURCEPAGE:p.14	CATEGORY:Special Ability	TYPE:Race Trait.Dwarf Race Trait.Dark Dwarf Race Trait.SpecialQuality				VISIBLE:YES	DESC:Dark dwarves take a -2 circumstance penalty on attack rolls, saves, and checks in bright sunlight or within the radius of a daylight spell.
+
+###Block: Gully Dwarf Traits
+Small				KEY:Dwarf (DL Gully) ~ Small			SOURCEPAGE:p.16	CATEGORY:Special Ability	TYPE:Race Trait.Dwarf Race Trait.Gully Dwarf Race Trait.SpecialQuality	BONUS:SIZEMOD|NUMBER|-1		DESC:As Small creatures, gully dwarves gain a +1 size bonus to Armor class, a +1 size bonu on attack rolls, and a +4 size bonus on Hide checks, but they must use smaller weapons than humans use, and their lifting and carrying limits are three-quarters of those of Medium creatures.
+Speed				KEY:Dwarf (DL Gully) ~ Speed			SOURCEPAGE:p.16	CATEGORY:Special Ability	TYPE:Race Trait.Dwarf Race Trait.Gully Dwarf Race Trait.SpecialQuality	BONUS:VAR|Base_Move|20|TYPE=Base	DESC:Gully dwarf base land speed is 20 feet.
+Survival Instinct		KEY:Dwarf (DL Gully) ~ Survival Instinct	SOURCEPAGE:p.16	CATEGORY:Special Ability	TYPE:Race Trait.Dwarf Race Trait.Gully Dwarf Race Trait.SpecialQuality	DESC:Gully dwarves are driven to survive. They recieve a +2 racial bonus on Hide, Move Silently, and Survival checks. Gully dwarves may use Survival checks even in cities to forage for food and basic necessities.
+Hardy				KEY:Dwarf (DL Gully) ~ Hardy			SOURCEPAGE:p.16	CATEGORY:Special Ability	TYPE:Race Trait.Dwarf Race Trait.Gully Dwarf Race Trait.SpecialQuality	DESC:Gully dwarves are resistant to the effects of disease and poison, receiving a +2 racial bonus on Fortitude saves to resist the effect of poison and disease.
+Pitiable			KEY:Dwarf (DL Gully) ~ Pitiable		SOURCEPAGE:p.16	CATEGORY:Special Ability	TYPE:Race Trait.Dwarf Race Trait.Gully Dwarf Race Trait.SpecialQuality	DESC:+4 racial bonus on Diplomacy checks used to convince an enemy not to harm them.
+Cowardly			KEY:Dwarf (DL Gully) ~ Cowardly		SOURCEPAGE:p.16	CATEGORY:Special Ability	TYPE:Race Trait.Dwarf Race Trait.Gully Dwarf Race Trait.SpecialQuality	DESC:=4 penalty on level checks to resist Intimidation checks made against them and on saving throws against fear.
+
+###Block: Elvensight
+Elvensight			KEY:Elf (DL) ~ Elvensight			SOURCEPAGE:p.18	CATEGORY:Special Ability	TYPE:Race Trait.Elf Race Trait.SpecialQuality	BONUS:VAR|HasLowlightVision|1	BONUS:VAR|DarkvisionRange|30|TYPE=Base	DESC:Krynn elves have low-light vision, and can see twice as far as a human in starlight, moonlight, and similar conditions or poor illumination. They retain the ability to distinguish color and detail under these circumstances. Elvensight also includes darkvision up to 30 feet. Darkvision is black and white only, but it is otherwise like normal sight.
 
 
+###Block: Kagonesti Traits
+Weapon Proficiency	KEY:Elf (DL) Kagonesti ~ Weapon Proficiency	SOURCEPAGE:p.18	CATEGORY:Special Ability	TYPE:Race Trait.Elf Race Trait.Kagonesti Elf Race Trait.SpecialQuality		ABILITY:FEAT|AUTOMATIC|Martial Weapon Proficiency (Short Sword)|Martial Weapon Proficiency Longspear)|Martial Weapon Proficiency (Shortbow)|Martial Weapon Proficiency (Longbow)
+Skill Bonus			KEY:Elf (DL) Kagonesti ~ Skill Bonus		SOURCEPAGE:p.18	CATEGORY:Special Ability	TYPE:Race Trait.Elf Race Trait.Kagonesti Elf Race Trait.SpecialQuality	BONUS:SKILL|Knowledge (Nature),Survival|1|TYPE=Racial
 
-# Standard Kender
-+1 Racial bonus on all saving throws					KEY:Kender ~ Save Bonus				CATEGORY:Special Ability	TYPE:SpecialQuality.Kender Race Trait																																																																															BONUS:SAVE|Fortitude,Reflex,Will|1|TYPE=Racial
+
+###Block: Qualinesti Traits (Default)
+Skill Bonus			KEY:Elf (DL) Qualinesti ~ Skill Bonus		SOURCEPAGE:p.19	CATEGORY:Special Ability	TYPE:Race Trait.Elf Race Trait.Qualinesti Elf Race Trait.SpecialQuality	BONUS:SKILL|Diplomacy,Sense Motive|1|TYPE=Racial
+
+
+###Block: Silvanesti Traits
+Skill Bonus			KEY:Elf (DL) Silvanesti ~ Skill Bonus		SOURCEPAGE:p.19	CATEGORY:Special Ability	TYPE:Race Trait.Elf Race Trait.Silvanesti Elf Race Trait.SpecialQuality	BONUS:SKILL|Diplomacy,Sense Motive|1|TYPE=Racial
+
+
+###Block: Sea Elf Racial Traits
+Sea Elf Racial Traits	ABILITY:Elf Race Trait|AUTOMATIC|TYPE=DL_SeaElfRacialTrait
+
+Medium			KEY:Elf (DL) Sea ~ Medium			CATEGORY:Special Ability	TYPE:DL_SeaElfRacialTrait.Race Trait.Elf Race Trait.Sea Elf Race Trait.SpecialQuality				DESC:Medium
+Movement			KEY:Elf (DL) Sea ~ Movement			CATEGORY:Special Ability	TYPE:DL_SeaElfRacialTrait.Race Trait.Elf Race Trait.Sea Elf Race Trait.SpecialQuality				DESC:Base land speed 30 feet. They also have a swim speed of 30 feet.
+Breathe Water		KEY:Elf (DL) Sea ~ Breathe Water		CATEGORY:Special Ability	TYPE:DL_SeaElfRacialTrait.Race Trait.Elf Race Trait.Sea Elf Race Trait.SpecialQuality.Extraordinary	DESC:Sea elves can breathe water as an extraordinary ability.
+Immunities			KEY:Elf (DL) Sea ~ Immunities			CATEGORY:Special Ability	TYPE:DL_SeaElfRacialTrait.Race Trait.Elf Race Trait.Sea Elf Race Trait.SpecialQuality			DESC:Immunity to magic sleep spells and effects, and a +2 racial saving throw bonus against Enchantment spells or effects.
+Weapon Proficiency	KEY:Elf (DL) Sea ~ Weapon Proficiency	CATEGORY:Special Ability	TYPE:DL_SeaElfRacialTrait.Race Trait.Elf Race Trait.Sea Elf Race Trait.SpecialQuality			ABILITY:FEAT|AUTOMATIC|Martial Weapon Proficiency (Trident)|Martial Weapon Proficiency (Longspear)|Exotic Weapon Proficiency (Net)
+Skill Bonus			KEY:Elf (DL) Sea ~ Skill Bonus		CATEGORY:Special Ability	TYPE:DL_SeaElfRacialTrait.Race Trait.Elf Race Trait.Sea Elf Race Trait.SpecialQuality			BONUS:SKILL|Listen,Search,Spot|2|TYPE=Racial
+Seasense			KEY:Elf (DL) Sea ~ Seasense			CATEGORY:Special Ability	TYPE:DL_SeaElfRacialTrait.Race Trait.Elf Race Trait.Sea Elf Race Trait.SpecialQuality			DESC:+2 racial bonus on checks to notice peculiarities about water.
+
+###Block: Dargonesti Traits
+Darkvision			KEY:Elf (DL) Dargonesti ~ Darkvision			CATEGORY:Special Ability	TYPE:Race Trait.Elf Race Trait.Dargonesti Elf Race Trait.SpecialQuality			BONUS:VAR|DarkvisionRange|60|TYPE=Base
+Spell-Like Abilities	KEY:Elf (DL) Dargonesti ~ Spell-Like Abilities		CATEGORY:Special Ability	TYPE:Race Trait.Elf Race Trait.Dargonesti Elf Race Trait.SpecialQuality				SPELLS:Innate|CASTERLEVEL=TL|TIMES=1|Blur|Dancing Lights|Darkness|Obscuring Mist
+Alternate Form		KEY:Elf (DL) Dargonesti ~ Alternate Form			CATEGORY:Special Ability	TYPE:Race Trait.Elf Race Trait.Dargonesti Elf Race Trait.SpecialQuality.Supernatural	DESC:3/day assume the form and phyuusical qualities of a porpoise.
+Surface Sensitivity	KEY:Elf (DL) Dargonesti ~ Surface Sensitivity		CATEGORY:Special Ability	TYPE:Race Trait.Elf Race Trait.Dargonesti Elf Race Trait.SpecialQuality.Extraordinary	DESC:-2 circumstance penalty on attack rolls, saves, and checks when they have spent more than 24 hours out of water.
+Level Adjustment		KEY:Elf (DL) Dargonesti ~ Level Adjustment		CATEGORY:Special Ability	TYPE:Race Trait.Elf Race Trait.Dargonesti Elf Race Trait.SpecialQuality			DESC:+1 Level adjustment.	TEMPLATE:Level Adjustment +1
+
+###Block: Dimeresti Traits
+Alternate Form		KEY:Elf (DL) Dimeresti ~ Alternate Form			CATEGORY:Special Ability	TYPE:Race Trait.Elf Race Trait.Dimeresti Elf Race Trait.SpecialQuality.Supernatural	DESC:3/day assume the form and physical qualities of a medium sea otter.
+Surface Sensitivity	KEY:Elf (DL) Dimeresti ~ Surface Sensitivity		CATEGORY:Special Ability	TYPE:Race Trait.Elf Race Trait.Dimeresti Elf Race Trait.SpecialQuality.Extraordinary	DESC:-1 circumstance penalty on attack rolls, saves, and checks when they have spent more than 24 hours out of water.
+Level Adjustment		KEY:Elf (DL) Dimeresti ~ Level Adjustment			CATEGORY:Special Ability	TYPE:Race Trait.Elf Race Trait.Dimeresti Elf Race Trait.SpecialQuality			DESC:+1 Level adjustment.	TEMPLATE:Level Adjustment +1
+
+###Block: Gnome Traits
+Small			KEY:Gnome (DL) ~ Small			CATEGORY:Special Ability	TYPE:Race Trait.Gnome Race Trait.Mad Gnome Race Trait.SpecialQuality			DESC:x
+Movement		KEY:Gnome (DL) ~ Movement		CATEGORY:Special Ability	TYPE:Race Trait.Gnome Race Trait.Mad Gnome Race Trait.SpecialQuality			DESC:x
+Skill Bonus		KEY:Gnome (DL) ~ Skill Bonus		CATEGORY:Special Ability	TYPE:Race Trait.Gnome Race Trait.SpecialQuality			DESC:x
+Guild Affiliation	KEY:Gnome (DL) ~ Guild Affiliation	CATEGORY:Special Ability	TYPE:Race Trait.Gnome Race Trait.Mad Gnome Race Trait.SpecialQuality			DESC:x
+Save Bonus		KEY:Gnome (DL) ~ Save Bonus		CATEGORY:Special Ability	TYPE:Race Trait.Gnome Race Trait.SpecialQuality			DESC:x
+
+###Block: Mad Gnome Traits
+Skill Bonus		KEY:Mad Gnome (DL) ~ Skill Bonus			CATEGORY:Special Ability	TYPE:Race Trait.Gnome Race Trait.Mad Gnome Race Trait.SpecialQuality			DESC:x
+
+
+###Block: Standard Kender
++1 Racial bonus on all saving throws				KEY:Kender ~ Save Bonus				CATEGORY:Special Ability	TYPE:SpecialQuality.Kender Race Trait																																																																															BONUS:SAVE|Fortitude,Reflex,Will|1|TYPE=Racial
 +2 Racial bonus to spot							KEY:Kender ~ Spot Bonus				CATEGORY:Special Ability	TYPE:SpecialQuality.Kender Race Trait																																																																						BONUS:SKILL|Spot|2|TYPE=Racial
 +2 Racial bonus to Open Locks and Sleight of Hand		KEY:Kender ~ Thievery Bonus			CATEGORY:Special Ability	TYPE:SpecialQuality.Kender Race Trait																																																																						BONUS:SKILL|Open Lock,Sleight of Hand|2|TYPE=Racial
 Lack of Focus								KEY:Kender ~ Lack of Focus			CATEGORY:Special Ability	TYPE:SpecialQuality.Kender Race Trait																																																																						BONUS:SKILL|Concentration|-4
 Taunt	ASPECT:SaveBonus|+4 Bonus to bluff				KEY:Kender ~ Taunt				CATEGORY:Special Ability	TYPE:SpecialQuality.Kender Race Trait																																																																		BONUS:SKILL|Bluff|4|TYPE=Racial
 Fearlessness								KEY:Kender ~ Fearlessness			CATEGORY:Special Ability	TYPE:SpecialQuality.Kender Race Trait
 
-# Afflicted Kender
+###Block: Afflicted Kender
 +2 Racial bonus on Climb, Hide, Jump and Move Silently	KEY:Afflicted Kender ~ Skill Bonus		CATEGORY:Special Ability	TYPE:SpecialQuality.Kender Race Trait	BONUS:SKILL|Climb,Hide,Jump,Move Silently|2|TYPE=Racial
 
 
-# Centaur
+###Block: Centaur
 Race Traits ~ Centaur (Krynn)													CATEGORY:Internal
 Race Traits ~ Draconian (Baaz)												CATEGORY:Internal
 Race Traits ~ Draconian (Kapak)												CATEGORY:Internal
@@ -49,8 +134,35 @@ Race Traits ~ Minotaur (Krynn)												CATEGORY:Internal
 Race Traits ~ Draconian (Aurak)												CATEGORY:Internal
 Race Traits ~ Draconian (Bozak)												CATEGORY:Internal
 
-
+###Block: 
 Kenderspeak																CATEGORY:Language										AUTO:LANG|Kenderspeak
+
+Language ~ Bonus (Dragonlance Hill Dwarf)			CATEGORY:Internal	TEMPLATE:Language ~ Bonus (Dragonlance Hill Dwarf)		
+Language ~ Bonus (Dragonlance Mountain Dwarf)		CATEGORY:Internal	TEMPLATE:Language ~ Bonus (Dragonlance Mountain Dwarf)	
+
+
+Language ~ Auto (Gully Dwarf)		CATEGORY:Internal	DESC:Gullytalk and Common	AUTO:LANG|Gullytalk|Common
+
+Language ~ Auto (Kagonesti Elf)	CATEGORY:Internal	DESC:Elven and Sylvan		AUTO:LANG|Elven|Sylvan
+Language ~ Bonus (Kagonesti Elf)	CATEGORY:Internal	DESC:Common, Ergot, Gnoll, Goblin, Ogre, and Solamnic	TEMPLATE:Language ~ Bonus (Kagonesti Elf)
+
+
+Language ~ Auto (Qualinesti Elf)	CATEGORY:Internal	DESC:Elven and Sylvan		AUTO:LANG|Elven|Common
+Language ~ Bonus (Qualinesti Elf)	CATEGORY:Internal	DESC:Abanasinian, Dwarven, Ergot, Goblin, Ogre, Sylvan	TEMPLATE:Language ~ Bonus (Qualinesti Elf)
+
+
+Language ~ Auto (Silvanesti Elf)	CATEGORY:Internal	DESC:Elven		AUTO:LANG|Elven
+Language ~ Bonus (Silvanesti Elf)	CATEGORY:Internal	DESC:Dwarven, Ergot, Kenderspeak, Kharolian, Khur, Goblin, Ogre, Sylvan	TEMPLATE:Language ~ Bonus (Silvanesti Elf)
+
+Language ~ Auto (Dargonesti Elf)	CATEGORY:Internal	AUTO:LANG|Elven|Dargonesti
+Language ~ Bonus (Dargonesti Elf)	CATEGORY:Internal	DESC:Common,Elven,Ergot	TEMPLATE:Language ~ Bonus (Dargonesti Elf)
+
+
+Language ~ Auto (Dimeresti Elf)	CATEGORY:Internal	AUTO:LANG|Elven|Dimeresti
+Language ~ Bonus (Dimeresti Elf)	CATEGORY:Internal	DESC:Aquan,Common,Ergot,Kothian	TEMPLATE:Language ~ Bonus (Dimeresti Elf)
+
+Language ~ Bonus (Dragonlance Gnome)	CATEGORY:Internal	DESC:Dwarven,Ergot,Ogre,Solamnic	TEMPLATE:Language ~ Bonus (Dragonlance Gnome)
+
 
 ###Block: Base Classes
 # Mystic
