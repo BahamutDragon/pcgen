@@ -4,7 +4,7 @@ SOURCELONG:Magic of Incarnum	SOURCESHORT:MoI	SOURCEDATE:2005-09
 # Date Entered: 2014-01
 
 # Class Name	Hit Dice	Type			Ex Class			Source Page		Define													Combat bonus															Modify VAR																												Bonus
-CLASS:Incarnate	HD:6		TYPE:Base.PC	EXCLASS:Ex Incarnate	SOURCEPAGE:p.20	DEFINE:IncarnateLVL|0	DEFINE:IncarnateMeldshaperLVL|0	DEFINE:IncarnumUser|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|IncarnateLVL|CL	BONUS:VAR|IncarnumUser|1	BONUS:VAR|MeldshaperLVL|CL	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
+CLASS:Incarnate	HD:6		TYPE:Base.PC	EXCLASS:Ex Incarnate	SOURCEPAGE:p.20	DEFINE:IncarnateLVL|0	DEFINE:IncarnateMeldshaperLVL|0	DEFINE:IncarnumUser|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|IncarnateLVL|CL	BONUS:VAR|IncarnateMeldshaperLVL|IncarnateLVL	BONUS:VAR|IncarnumUser|1	BONUS:VAR|MeldshaperLVL|CL	BONUS:SAVE|BASE.Fortitude,BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3
 # Class Name	Required AL
 CLASS:Incarnate	PREALIGN:NG,NE,LN,CN
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -24,12 +24,10 @@ CLASS:Incarnate	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Knowledge (arcan
 7	ABILITY:Incarnate Class Feature|AUTOMATIC|Incarnate ~ Share Incarnum Radiance
 20	ABILITY:Incarnate Class Feature|AUTOMATIC|Incarnate ~ Perfect Meldshaper|Incarnate ~ True Incarnation
 ###Block:
-1	BONUS:VAR|EssentiaPool|CL				DEFINE:EssentiaPool|0
-15	BONUS:VAR|EssentiaPool|(CL-14)
-1	BONUS:VAR|IncarnateSoulmeldsCount|2			DEFINE:IncarnateSoulmeldsCount|0
-2	BONUS:VAR|IncarnateSoulmeldsCount|1
-4	BONUS:VAR|IncarnateSoulmeldsCount|(CL-1)/3
-2	BONUS:VAR|IncarnateChakraBinds|(CL+2)/4		DEFINE:IncarnateChakraBinds|0
+1	BONUS:VAR|EssentiaPool|IncarnateMeldshaperLVL				DEFINE:EssentiaPool|0
+15	BONUS:VAR|EssentiaPool|(IncarnateMeldshaperLVL-14)
+1	BONUS:VAR|IncarnateSoulmeldsCount|0			DEFINE:IncarnateSoulmeldsCount|0
+2	BONUS:VAR|IncarnateChakraBinds|(IncarnateMeldshaperLVL+2)/4		DEFINE:IncarnateChakraBinds|0
 3	BONUS:VAR|IncarnumRadianceTimes|CL+2/5
 3	BONUS:VAR|ExpandedSoulmelds|1
 15	BONUS:VAR|ExpandedSoulmelds|1
@@ -200,6 +198,18 @@ CLASS:Soulcaster	STARTSKILLPTS:2	CSKILL:Concentration|TYPE=Craft|Knowledge (arca
 1	ABILITY:Soulcaster Class Feature|AUTOMATIC|Soulcaster ~ Arcane Investment
 3	ABILITY:Soulcaster Class Feature|AUTOMATIC|Soulcaster ~ Chakra Binds
 10	ABILITY:Soulcaster Class Feature|AUTOMATIC|Soulcaster ~ Magical Distillation
+1	BONUS:VAR|IncarnateMeldshaperLVL|CL		DEFINE:IncarnateMeldshaperLVL|0
+###Block:
+1	ADD:SPELLCASTER|Arcane
+2	ADD:SPELLCASTER|Arcane
+3	ADD:SPELLCASTER|Arcane
+4	ADD:SPELLCASTER|Arcane
+5	ADD:SPELLCASTER|Arcane
+6	ADD:SPELLCASTER|Arcane
+7	ADD:SPELLCASTER|Arcane
+8	ADD:SPELLCASTER|Arcane
+9	ADD:SPELLCASTER|Arcane
+10	ADD:SPELLCASTER|Arcane
 ###Block
 11	PREPCLEVEL:MIN=20
 
