@@ -1,0 +1,218 @@
+SOURCELONG:Elemental Evil Player's Companion	SOURCESHORT:EEPC
+
+###Block:
+Aarakocra		CATEGORY:Race	BONUS:ABILITYPOOL|Race Base|1|TYPE=Base
+Genasi		CATEGORY:Race	BONUS:ABILITYPOOL|Race Base|1|TYPE=Base
+Goliath		CATEGORY:Race	BONUS:ABILITYPOOL|Race Base|1|TYPE=Base
+
+###Block:
+Aarakocra Base ~ EEPC	CATEGORY:Internal	TYPE:Race Base	PRERACE:1,Aarakocra			ABILITY:Aarakocra Race Trait|AUTOMATIC|TYPE=EEPC Aarakocra Race Trait		BONUS:VAR|RaceBase_Walk|25|TYPE=Base
+Genasi Base ~ EEPC	CATEGORY:Internal	TYPE:Race Base	PRERACE:1,Genasi				ABILITY:Genasi Race Trait|AUTOMATIC|TYPE=EEPC Genasi Race Trait	BONUS:VAR|POOL_Genasi_Subrace|1	DEFINE:POOL_Genasi_Subrace|0		BONUS:VAR|RaceBase_Walk|30
+Goliath Base ~ EEPC	CATEGORY:Internal	TYPE:Race Base	PRERACE:1,Goliath				ABILITY:Goliath Race Trait|AUTOMATIC|TYPE=EEPC Goliath Race Trait	BONUS:VAR|RaceBase_Walk|30
+
+
+# Aarakocra
+Ability Score Increase	KEY:Aarakocra ~ Ability Score Increase	CATEGORY:Special Ability	SORTKEY:1_Race_1	TYPE:Race Trait.Aarakocra Race Trait.EEPC Aarakocra Race Trait.SpecialQuality	SOURCEPAGE:p.5	DESC:Your Dexterity score increases by 2, and your Wisdom score increases by 1.	BONUS:STAT|DEX|2|TYPE=Racial	BONUS:STAT|WIS|1|TYPE=Racial
+Flight			KEY:Aarakocra ~ Flight				CATEGORY:Special Ability	SORTKEY:1_Race_2	TYPE:Race Trait.Aarakocra Race Trait.EEPC Aarakocra Race Trait.SpecialQuality	SOURCEPAGE:p.5	DESC:You have a flying speed of 50 feet. To use this speed, you can't be wearing medium or heavy armor.	BONUS:VAR|Move_Fly|50	!PREEQUIP:1,TYPE.HeavyArmor,TYPE.MediumArmor
+Talons			KEY:Aarakocra ~ Talons				CATEGORY:Special Ability	SORTKEY:1_Race_3	TYPE:Race Trait.Aarakocra Race Trait.EEPC Aarakocra Race Trait.SpecialQuality	SOURCEPAGE:p.5	DESC:You are proficient with your unarmed strikes, which deal 1d4 slashing damage on a hit.	AUTO:WEAPONPROF|Talons	BONUS:WEAPONPROF=Talons|TOHIT|Proficiency_Bonus|TYPE=Class	AUTO:EQUIP|Talons
+Languages			KEY:Aarakocra ~ Languages			CATEGORY:Special Ability	SORTKEY:1_Race_4	TYPE:Race Trait.Aarakocra Race Trait.EEPC Aarakocra Race Trait.SpecialQuality	SOURCEPAGE:p.5	DESC:You can speak, read, and write Common, Aarakocra, and Auran.	ABILITY:Language Selection|AUTOMATIC|Aarakocra|Auran|Common
+
+
+Deep Gnome			KEY:Gnome Subrace ~ Deep		CATEGORY:Internal			TYPE:GnomeSubrace	TEMPLATE:Subrace ~ Deep		ABILITY:Gnome Race Trait|AUTOMATIC|TYPE=Deep Gnome Race Trait							BONUS:STAT|DEX|1|TYPE=Racial
+#
+Superior Darkvision	KEY:Deep Gnome ~ Superior Darkvision	CATEGORY:Special Ability	SORTKEY:1_Race	TYPE:Race Trait.Gnome Race Trait.Deep Gnome Race Trait.Default.SpecialQuality	DESC:Your darkvision has a radius of 120 feet.	BONUS:VAR|DarkvisionRange|120|TYPE=Base
+Gnome Cunning		KEY:Deep Gnome ~ Gnome Cunning		CATEGORY:Special Ability	SORTKEY:1_Race	TYPE:Race Trait.Gnome Race Trait.Deep Gnome Race Trait.Default.SpecialQuality	DESC:You have advantage on all Intelligence, Wisdom, and Charisma saving throws against magic.
+Stone Camouflage		KEY:Deep Gnome ~ Stone Camouflage		CATEGORY:Special Ability	SORTKEY:1_Race	TYPE:Race Trait.Gnome Race Trait.Deep Gnome Race Trait.Default.SpecialQuality	DESC:You have advantage on Dexterity (stealth) checks to hide in rocky terrain.
+Extra Language		KEY:Deep Gnome ~ Extra Language		CATEGORY:Special Ability	SORTKEY:1_Race	TYPE:Race Trait.Gnome Race Trait.Deep Gnome Race Trait.Default.SpecialQuality	DESC:You can speak, read, and write Common, Gnomish, and Undercommon. The svirfneblin dialect is more guttural than surface Gnomish, and most svirfneblin know only a little bit of Common, but those who deal with outsiders (and that includes you as an adventurer) pick up enough Common to get by in other lands.		ABILITY:Language Selection|AUTOMATIC|Undercommon
+
+
+# Genasi
+Ability Score Increase	KEY:Genasi ~ Ability Score Increase	CATEGORY:Special Ability	SORTKEY:1_Race_0	TYPE:Race Trait.Genasi Race Trait.EEPC Genasi Race Trait.SpecialQuality	SOURCEPAGE:p.5	DESC:Your Constitution score increases by 2.	BONUS:STAT|CON|2|TYPE=Racial
+Languages			KEY:Genasi ~ Languages			CATEGORY:Special Ability	SORTKEY:1_Race_0	TYPE:Race Trait.Genasi Race Trait.EEPC Genasi Race Trait.SpecialQuality	SOURCEPAGE:p.5	DESC:You can speak, read, and write Common and Primordial. Primordial is a guttural language, filled with harsh syllables and hard consonants.	ABILITY:Language Selection|AUTOMATIC|Common|Primordial
+
+# Subrace
+Air Genasi			KEY:Genasi Subrace ~ Air		CATEGORY:Internal			TYPE:GenasiSubrace	TEMPLATE:Subrace ~ Air			ABILITY:Genasi Race Trait|AUTOMATIC|TYPE=Air Genasi Race Trait	
+Earth Genasi		KEY:Genasi Subrace ~ Earth		CATEGORY:Internal			TYPE:GenasiSubrace	TEMPLATE:Subrace ~ Earth		ABILITY:Genasi Race Trait|AUTOMATIC|TYPE=Earth Genasi Race Trait	
+Fire Genasi			KEY:Genasi Subrace ~ Fire		CATEGORY:Internal			TYPE:GenasiSubrace	TEMPLATE:Subrace ~ Fire			ABILITY:Genasi Race Trait|AUTOMATIC|TYPE=Fire Genasi Race Trait	
+Water Genasi		KEY:Genasi Subrace ~ Water		CATEGORY:Internal			TYPE:GenasiSubrace	TEMPLATE:Subrace ~ Water		ABILITY:Genasi Race Trait|AUTOMATIC|TYPE=Water Genasi Race Trait	
+
+# Air Genasi Race Trait		
+Ability Score Increase	KEY:Air Genasi ~ Ability Score Increase	SOURCEPAGE:p.9	CATEGORY:Special Ability	SORTKEY:1_Race_1	TYPE:Race Trait.Genasi Race Trait.Air Genasi Race Trait.SpecialQuality	DESC:Your Dexterity score increases by 1.		BONUS:STAT|DEX|1|TYPE=Racial
+Unending Breath		KEY:Air Genasi ~ Unending Breath		SOURCEPAGE:p.9	CATEGORY:Special Ability	SORTKEY:1_Race_2	TYPE:Race Trait.Genasi Race Trait.Air Genasi Race Trait.SpecialQuality	DESC:You can hold your breath indefinitely while you're not incapacitated.
+Mingle with the Wind	KEY:Air Genasi ~ Mingle with the Wind	SOURCEPAGE:p.9	CATEGORY:Special Ability	SORTKEY:1_Race_3	TYPE:Race Trait.Genasi Race Trait.Air Genasi Race Trait.SpecialQuality	DESC:You can cast the levitate spell once with this Race Trait, requiring no material components, and you regain the ability to cast it this way when you finish a long rest. Constitution is your spellcasting ability for this spell. Spell save DC %1.|8+Proficiency_Bonus+CON	SPELLS:Genasi|TIMES=1|TIMEUNIT=Day|Levitate,8+CON+Proficiency_Bonus
+# Earth Genasi Race Trait	
+Ability Score Increase	KEY:Earth Genasi ~ Ability Score Increase	SOURCEPAGE:p.9	CATEGORY:Special Ability	SORTKEY:1_Race_1	TYPE:Race Trait.Genasi Race Trait.Earth Genasi Race Trait.SpecialQuality	DESC:Your Strength score increases by 1.		BONUS:STAT|STR|1|TYPE=Racial
+Earth Walk			KEY:Earth Genasi ~ Earth Walk			SOURCEPAGE:p.9	CATEGORY:Special Ability	SORTKEY:1_Race_1	TYPE:Race Trait.Genasi Race Trait.Earth Genasi Race Trait.SpecialQuality	DESC:You can move across difficult terrain made of earth or stone without expending extra movement.
+Merge with Stone		KEY:Earth Genasi ~ Merge with Stone		SOURCEPAGE:p.9	CATEGORY:Special Ability	SORTKEY:1_Race_1	TYPE:Race Trait.Genasi Race Trait.Earth Genasi Race Trait.SpecialQuality	DESC:You can cast the pass without trace spell once with this Race Trait, requiring no material components, and you regain the ability to cast it this way when you finish a long rest. Constitution is your spellcasting ability for this spell. Spell save DC %1.|8+Proficiency_Bonus+CON	SPELLS:Genasi|TIMES=1|TIMEUNIT=Day|Pass without Trace,8+CON+Proficiency_Bonus
+# Fire Genasi Race Trait		
+Ability Score Increase	KEY:Fire Genasi ~ Ability Score Increase	SOURCEPAGE:p.10	CATEGORY:Special Ability	SORTKEY:1_Race_1	TYPE:Race Trait.Genasi Race Trait.Fire Genasi Race Trait.SpecialQuality	DESC:Your Intelligence score increases by 1.		BONUS:STAT|INT|1|TYPE=Racial
+Darkvision			KEY:Fire Genasi ~ Darkvision			SOURCEPAGE:p.10	CATEGORY:Special Ability	SORTKEY:1_Race_1	TYPE:Race Trait.Genasi Race Trait.Fire Genasi Race Trait.SpecialQuality	DESC:You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. Your ties to the Elemental Plane of Fire make your darkvision unusual: everything you see in darkness is in a shade of red.	BONUS:VAR|DarkvisionRange|60|TYPE=Base
+Fire Resistance		KEY:Fire Genasi ~ Fire Resistance		SOURCEPAGE:p.10	CATEGORY:Special Ability	SORTKEY:1_Race_1	TYPE:Race Trait.Genasi Race Trait.Fire Genasi Race Trait.SpecialQuality	DESC:You have resistance to fire damage.
+Reach to the Blaze	KEY:Fire Genasi ~ Reach to the Blaze	SOURCEPAGE:p.10	CATEGORY:Special Ability	SORTKEY:1_Race_1	TYPE:Race Trait.Genasi Race Trait.Fire Genasi Race Trait.SpecialQuality	DESC:You know the produce flame cantrip. Once you reach 3rd level, you can cast the burning hands spell once with this Race Trait as a 1st-level spell, and you regain the ability to cast it this way when you finish a long rest. Constitution is your spellcasting ability for these spells. Spell save DC %1.|8+Proficiency_Bonus+CON	SPELLS:Genasi|TIMES=ATWILL|Produce Flame,8+CON+Proficiency_Bonus	SPELLS:Genasi|TIMES=1|TIMEUNIT=Day|Burning Hands,8+CON+Proficiency_Bonus|PRELEVEL:MIN=3
+# Water Genasi
+Ability Score Increase	KEY:Water Genasi ~ Ability Score Increase	SOURCEPAGE:p.10	CATEGORY:Special Ability	SORTKEY:1_Race_1	TYPE:Race Trait.Genasi Race Trait.Water Genasi Race Trait.SpecialQuality	DESC:Your Wisdom score increases by 1.		BONUS:STAT|WIS|1|TYPE=Racial
+Acid Resistance		KEY:Water Genasi ~ Acid Resistance		SOURCEPAGE:p.10	CATEGORY:Special Ability	SORTKEY:1_Race_2	TYPE:Race Trait.Genasi Race Trait.Water Genasi Race Trait.SpecialQuality	DESC:You have resistance to acid damage.
+Amphibious			KEY:Water Genasi ~ Amphibious			SOURCEPAGE:p.10	CATEGORY:Special Ability	SORTKEY:1_Race_3	TYPE:Race Trait.Genasi Race Trait.Water Genasi Race Trait.SpecialQuality	DESC:You can breathe air and water.
+Swim				KEY:Water Genasi ~ Swim				SOURCEPAGE:p.10	CATEGORY:Special Ability	SORTKEY:1_Race_4	TYPE:Race Trait.Genasi Race Trait.Water Genasi Race Trait.SpecialQuality	DESC:You have a swimming speed of 30 feet.	MOVE:Swim,30
+Call to the Wave		KEY:Water Genasi ~ Call to the Wave		SOURCEPAGE:p.10	CATEGORY:Special Ability	SORTKEY:1_Race_5	TYPE:Race Trait.Genasi Race Trait.Water Genasi Race Trait.SpecialQuality	DESC:You know the shape water cantrip (see chapter 2). When you reach 3rd level, you can cast the create or destroy water spell as a 2nd-level spell once with this Race Trait, and you regain the ability to cast it this way when you finish a long rest. Constitution is your spellcasting ability for these spells. Spell save DC %1.|8+Proficiency_Bonus+CON	SPELLS:Genasi|TIMES=ATWILL|Shape Water,8+CON+Proficiency_Bonus	SPELLS:Genasi|TIMES=1|TIMEUNIT=Day|Create or Destroy Water,8+CON+Proficiency_Bonus|PRELEVEL:MIN=3
+
+
+# Goliath
+Ability Score Increase	KEY:Goliath ~ Ability Score Increase	CATEGORY:Special Ability	SORTKEY:1_Race_1	TYPE:Race Trait.Goliath Race Trait.EEPC Goliath Race Trait.SpecialQuality	DESC:Your Strength score increases by 2, and your Constitution score increases by 1.	BONUS:STAT|STR|2|TYPE=Racial	BONUS:STAT|CON|1|TYPE=Racial
+Natural Athlete		KEY:Goliath ~ Natural Athlete			CATEGORY:Special Ability	SORTKEY:1_Race_2	TYPE:Race Trait.Goliath Race Trait.EEPC Goliath Race Trait.SpecialQuality	DESC:You have proficiency in the Athletics skill.							ABILITY:SKILL|AUTOMATIC|Athletics
+Stone's Endurance		KEY:Goliath ~ Stone's Endurance		CATEGORY:Special Ability	SORTKEY:1_Race_3	TYPE:Race Trait.Goliath Race Trait.EEPC Goliath Race Trait.SpecialQuality	DESC:When you take damage, you can use your reaction to reduce the damage by 1d12+%1. After you use this Race Trait, you can't use it again until you finish a short or long rest.|CON
+Powerful Build		KEY:Goliath ~ Powerful Build			CATEGORY:Special Ability	SORTKEY:1_Race_4	TYPE:Race Trait.Goliath Race Trait.EEPC Goliath Race Trait.SpecialQuality	DESC:You count as one size larger when determining your carrying capacity and the weight you can push, drag, or lift.	BONUS:VAR|LoadScoreMult|1	DEFINE:LoadScoreMult|0
+Mountain Born		KEY:Goliath ~ Mountain Born			CATEGORY:Special Ability	SORTKEY:1_Race_5	TYPE:Race Trait.Goliath Race Trait.EEPC Goliath Race Trait.SpecialQuality	DESC:You're acclimated to high altitude, including elevations above 20,000 feet. You're also naturally adapted to cold climates.
+Languages			KEY:Goliath ~ Languages				CATEGORY:Special Ability	SORTKEY:1_Race_6	TYPE:Race Trait.Goliath Race Trait.EEPC Goliath Race Trait.SpecialQuality	DESC:You can speak, read, and write Common and Giant.	ABILITY:Language Selection|AUTOMATIC|Common|Giant
+
+
+###Block: Feat
+Svirfneblin Magic	CATEGORY:FEAT	TYPE:Feat	PRETEXT:Prerequisite: Gnome (deep gnome)	PREABILITY:1,CATEGORY=Internal,Gnome Subrace ~ Deep	DESC:You have inherited the innate spellcasting ability of your ancestors. This ability allows you to cast nondetection on yourself at will, without needing a material component. You can also cast each of the following spells once with this ability: blindness/deafness, blur, and disguise self. You regain the ability to cast these spells when you finish a long rest. Intelligence is your spellcasting ability for these spells, and you cast them at their lowest possible levels. Spell save DC %1.|8+Proficiency_Bonus+INT	SPELLS:Svirfneblin Magic|TIMES=ATWILL|Nondetection,8+INT+Proficiency_Bonus	SPELLS:Svirfneblin Magic|TIMES=1|TIMEUNIT=Day|Blindness/Deafness,8+INT+Proficiency_Bonus	SPELLS:Svirfneblin Magic|TIMES=1|TIMEUNIT=Day|Blur,8+INT+Proficiency_Bonus	SPELLS:Svirfneblin Magic|TIMES=1|TIMEUNIT=Day|Disguise Self,8+INT+Proficiency_Bonus
+
+
+###Block: Language Support
+Aarakocra	CATEGORY:Language	AUTO:LANG|Aarakocra	TYPE:Language.Spoken.Aarakocra
+Auran		CATEGORY:Language	AUTO:LANG|Auran		TYPE:Language.Spoken.Auran
+
+
+###Block: Cantrip Support
+
+# Bard
+Thunderclap				KEY:Bard Cantrip ~ Thunderclap		TYPE:Bard Cantrip		CATEGORY:Internal	SPELLKNOWN:CLASS|Bard=0|Thunderclap	SPELLS:Bard Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Thunderclap,Spell_DC_Bard
+
+# Druid
+Create Bonfire	KEY:Druid Cantrip ~ Create Bonfire		TYPE:Druid Cantrip	CATEGORY:Internal	SPELLKNOWN:CLASS|Druid=0|Create Bonfire		SPELLS:Druid Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Create Bonfire,Spell_DC_Druid	
+Control Flames	KEY:Druid Cantrip ~ Control Flames		TYPE:Druid Cantrip	CATEGORY:Internal	SPELLKNOWN:CLASS|Druid=0|Control Flames		SPELLS:Druid Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Control Flames,Spell_DC_Druid	
+Frostbite		KEY:Druid Cantrip ~ Frostbite			TYPE:Druid Cantrip	CATEGORY:Internal	SPELLKNOWN:CLASS|Druid=0|Frostbite			SPELLS:Druid Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Frostbite,Spell_DC_Druid		
+Gust			KEY:Druid Cantrip ~ Gust			TYPE:Druid Cantrip	CATEGORY:Internal	SPELLKNOWN:CLASS|Druid=0|Gust				SPELLS:Druid Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Gust,Spell_DC_Druid			
+Magic Stone		KEY:Druid Cantrip ~ Magic Stone		TYPE:Druid Cantrip	CATEGORY:Internal	SPELLKNOWN:CLASS|Druid=0|Magic Stone		SPELLS:Druid Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Magic Stone,Spell_DC_Druid	
+Mold Earth		KEY:Druid Cantrip ~ Mold Earth		TYPE:Druid Cantrip	CATEGORY:Internal	SPELLKNOWN:CLASS|Druid=0|Mold Earth			SPELLS:Druid Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Mold Earth,Spell_DC_Druid		
+Shape Water		KEY:Druid Cantrip ~ Shape Water		TYPE:Druid Cantrip	CATEGORY:Internal	SPELLKNOWN:CLASS|Druid=0|Shape Water		SPELLS:Druid Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Shape Water,Spell_DC_Druid	
+Thunderclap		KEY:Druid Cantrip ~ Thunderclap		TYPE:Druid Cantrip	CATEGORY:Internal	SPELLKNOWN:CLASS|Druid=0|Thunderclap		SPELLS:Druid Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Thunderclap,Spell_DC_Druid	
+
+# Sorcerer
+Create Bonfire	KEY:Sorcerer Cantrip ~ Create Bonfire	TYPE:Sorcerer Cantrip	CATEGORY:Internal	SPELLKNOWN:CLASS|Sorcerer=0|Create Bonfire		SPELLS:Sorcerer Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Create Bonfire,Spell_DC_Sorcerer
+Control Flames	KEY:Sorcerer Cantrip ~ Control Flames	TYPE:Sorcerer Cantrip	CATEGORY:Internal	SPELLKNOWN:CLASS|Sorcerer=0|Control Flames		SPELLS:Sorcerer Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Control Flames,Spell_DC_Sorcerer
+Frostbite		KEY:Sorcerer Cantrip ~ Frostbite		TYPE:Sorcerer Cantrip	CATEGORY:Internal	SPELLKNOWN:CLASS|Sorcerer=0|Frostbite			SPELLS:Sorcerer Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Frostbite,Spell_DC_Sorcerer	
+Gust			KEY:Sorcerer Cantrip ~ Gust			TYPE:Sorcerer Cantrip	CATEGORY:Internal	SPELLKNOWN:CLASS|Sorcerer=0|Gust				SPELLS:Sorcerer Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Gust,Spell_DC_Sorcerer		
+Mold Earth		KEY:Sorcerer Cantrip ~ Mold Earth		TYPE:Sorcerer Cantrip	CATEGORY:Internal	SPELLKNOWN:CLASS|Sorcerer=0|Mold Earth			SPELLS:Sorcerer Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Mold Earth,Spell_DC_Sorcerer	
+Shape Water		KEY:Sorcerer Cantrip ~ Shape Water		TYPE:Sorcerer Cantrip	CATEGORY:Internal	SPELLKNOWN:CLASS|Sorcerer=0|Shape Water			SPELLS:Sorcerer Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Shape Water,Spell_DC_Sorcerer	
+Thunderclap		KEY:Sorcerer Cantrip ~ Thunderclap		TYPE:Sorcerer Cantrip	CATEGORY:Internal	SPELLKNOWN:CLASS|Sorcerer=0|Thunderclap			SPELLS:Sorcerer Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Thunderclap,Spell_DC_Sorcerer	
+
+# Warlock
+Create Bonfire	KEY:Warlock Cantrip ~ Create Bonfire	TYPE:Warlock Cantrip	CATEGORY:Internal	SPELLKNOWN:CLASS|Warlock=0|Create Bonfire		SPELLS:Warlock Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Create Bonfire,Spell_DC_Warlock	
+Frostbite		KEY:Warlock Cantrip ~ Frostbite		TYPE:Warlock Cantrip	CATEGORY:Internal	SPELLKNOWN:CLASS|Warlock=0|Frostbite		SPELLS:Warlock Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Frostbite,Spell_DC_Warlock	
+Magic Stone		KEY:Warlock Cantrip ~ Magic Stone		TYPE:Warlock Cantrip	CATEGORY:Internal	SPELLKNOWN:CLASS|Warlock=0|Magic Stone		SPELLS:Warlock Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Magic Stone,Spell_DC_Warlock	
+Thunderclap		KEY:Warlock Cantrip ~ Thunderclap		TYPE:Warlock Cantrip	CATEGORY:Internal	SPELLKNOWN:CLASS|Warlock=0|Thunderclap		SPELLS:Warlock Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Thunderclap,Spell_DC_Warlock	
+
+# Wizard
+Create Bonfire	KEY:Wizard Cantrip ~ Create Bonfire		TYPE:Wizard Cantrip	CATEGORY:Internal	SPELLKNOWN:CLASS|Wizard=0|Create Bonfire	SPELLS:Wizard Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Create Bonfire,Spell_DC_Wizard
+Control Flames	KEY:Wizard Cantrip ~ Control Flames		TYPE:Wizard Cantrip	CATEGORY:Internal	SPELLKNOWN:CLASS|Wizard=0|Control Flames	SPELLS:Wizard Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Control Flames,Spell_DC_Wizard
+Frostbite		KEY:Wizard Cantrip ~ Frostbite		TYPE:Wizard Cantrip	CATEGORY:Internal	SPELLKNOWN:CLASS|Wizard=0|Frostbite		SPELLS:Wizard Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Frostbite,Spell_DC_Wizard
+Gust			KEY:Wizard Cantrip ~ Gust			TYPE:Wizard Cantrip	CATEGORY:Internal	SPELLKNOWN:CLASS|Wizard=0|Gust		SPELLS:Wizard Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Gust,Spell_DC_Wizard
+Mold Earth		KEY:Wizard Cantrip ~ Mold Earth		TYPE:Wizard Cantrip	CATEGORY:Internal	SPELLKNOWN:CLASS|Wizard=0|Mold Earth	SPELLS:Wizard Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Mold Earth,Spell_DC_Wizard
+Shape Water		KEY:Wizard Cantrip ~ Shape Water		TYPE:Wizard Cantrip	CATEGORY:Internal	SPELLKNOWN:CLASS|Wizard=0|Shape Water	SPELLS:Wizard Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Shape Water,Spell_DC_Wizard
+Thunderclap		KEY:Wizard Cantrip ~ Thunderclap		TYPE:Wizard Cantrip	CATEGORY:Internal	SPELLKNOWN:CLASS|Wizard=0|Thunderclap	SPELLS:Wizard Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Thunderclap,Spell_DC_Wizard
+
+###Block - Warlock Pact of the Tome Cantrip
+Thunderclap		KEY:Warlock Pact of the Tome Cantrip ~ Thunderclap	CATEGORY:Internal	TYPE:WarlockPactoftheTomeCantrips	SPELLKNOWN:CLASS|Warlock=0|Thunderclap			SPELLS:Warlock Pact of the Tome Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Thunderclap,Spell_DC_Warlock	
+Create Bonfire	KEY:Warlock Pact of the Tome Cantrip ~ Create Bonfire	CATEGORY:Internal	TYPE:WarlockPactoftheTomeCantrips	SPELLKNOWN:CLASS|Warlock=0|Create Bonfire			SPELLS:Warlock Pact of the Tome Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Create Bonfire,Spell_DC_Warlock	
+Control Flames	KEY:Warlock Pact of the Tome Cantrip ~ Control Flames	CATEGORY:Internal	TYPE:WarlockPactoftheTomeCantrips	SPELLKNOWN:CLASS|Warlock=0|Control Flames			SPELLS:Warlock Pact of the Tome Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Control Flames,Spell_DC_Warlock	
+Frostbite		KEY:Warlock Pact of the Tome Cantrip ~ Frostbite	CATEGORY:Internal	TYPE:WarlockPactoftheTomeCantrips	SPELLKNOWN:CLASS|Warlock=0|Frostbite			SPELLS:Warlock Pact of the Tome Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Frostbite,Spell_DC_Warlock	
+Gust			KEY:Warlock Pact of the Tome Cantrip ~ Gust		CATEGORY:Internal	TYPE:WarlockPactoftheTomeCantrips	SPELLKNOWN:CLASS|Warlock=0|Gust				SPELLS:Warlock Pact of the Tome Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Gust,Spell_DC_Warlock		
+Magic Stone		KEY:Warlock Pact of the Tome Cantrip ~ Magic Stone	CATEGORY:Internal	TYPE:WarlockPactoftheTomeCantrips	SPELLKNOWN:CLASS|Warlock=0|Magic Stone			SPELLS:Warlock Pact of the Tome Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Magic Stone,Spell_DC_Warlock	
+Mold Earth		KEY:Warlock Pact of the Tome Cantrip ~ Mold Earth	CATEGORY:Internal	TYPE:WarlockPactoftheTomeCantrips	SPELLKNOWN:CLASS|Warlock=0|Mold Earth			SPELLS:Warlock Pact of the Tome Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Mold Earth,Spell_DC_Warlock	
+Shape Water		KEY:Warlock Pact of the Tome Cantrip ~ Shape Water	CATEGORY:Internal	TYPE:WarlockPactoftheTomeCantrips	SPELLKNOWN:CLASS|Warlock=0|Shape Water			SPELLS:Warlock Pact of the Tome Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Shape Water,Spell_DC_Warlock	
+
+#
+###Block - Bard Magical Secret
+Abi-Dalzim's Horrid Wilting	KEY:Bard Magical Secret ~ Abi-Dalzim's Horrid Wilting		CATEGORY:Internal	TYPE:Bard Magical Secret	SPELLKNOWN:CLASS|Bard=8|Abi-Dalzim's Horrid Wilting	PRECLASS:1,Bard=15
+Absorb Elements			KEY:Bard Magical Secret ~ Absorb Elements				CATEGORY:Internal	TYPE:Bard Magical Secret	SPELLKNOWN:CLASS|Bard=1|Absorb Elements	PRECLASS:1,Bard=1
+Aganazzar's Scorcher		KEY:Bard Magical Secret ~ Aganazzar's Scorcher			CATEGORY:Internal	TYPE:Bard Magical Secret	SPELLKNOWN:CLASS|Bard=2|Aganazzar's Scorcher	PRECLASS:1,Bard=3
+Beast Bond				KEY:Bard Magical Secret ~ Beast Bond				CATEGORY:Internal	TYPE:Bard Magical Secret	SPELLKNOWN:CLASS|Bard=1|Beast Bond	PRECLASS:1,Bard=1
+Bones Of The Earth		KEY:Bard Magical Secret ~ Bones Of The Earth			CATEGORY:Internal	TYPE:Bard Magical Secret	SPELLKNOWN:CLASS|Bard=6|Bones Of The Earth	PRECLASS:1,Bard=11
+Catapult				KEY:Bard Magical Secret ~ Catapult					CATEGORY:Internal	TYPE:Bard Magical Secret	SPELLKNOWN:CLASS|Bard=1|Catapult	PRECLASS:1,Bard=1
+Create Bonfire			KEY:Bard Magical Secret ~ Create Bonfire				CATEGORY:Internal	TYPE:Bard Magical Secret	SPELLKNOWN:CLASS|Bard=0|Create Bonfire	PRECLASS:1,Bard=1
+Control Flames			KEY:Bard Magical Secret ~ Control Flames				CATEGORY:Internal	TYPE:Bard Magical Secret	SPELLKNOWN:CLASS|Bard=0|Control Flames	PRECLASS:1,Bard=1
+Control Winds			KEY:Bard Magical Secret ~ Control Winds				CATEGORY:Internal	TYPE:Bard Magical Secret	SPELLKNOWN:CLASS|Bard=5|Control Winds	PRECLASS:1,Bard=9
+Dust Devil				KEY:Bard Magical Secret ~ Dust Devil				CATEGORY:Internal	TYPE:Bard Magical Secret	SPELLKNOWN:CLASS|Bard=2|Dust Devil	PRECLASS:1,Bard=3
+Earthbind				KEY:Bard Magical Secret ~ Earthbind					CATEGORY:Internal	TYPE:Bard Magical Secret	SPELLKNOWN:CLASS|Bard=2|Earthbind	PRECLASS:1,Bard=3
+Earth Tremor			KEY:Bard Magical Secret ~ Earth Tremor				CATEGORY:Internal	TYPE:Bard Magical Secret	SPELLKNOWN:CLASS|Bard=1|Earth Tremor	PRECLASS:1,Bard=1
+Elemental Bane			KEY:Bard Magical Secret ~ Elemental Bane				CATEGORY:Internal	TYPE:Bard Magical Secret	SPELLKNOWN:CLASS|Bard=4|Elemental Bane	PRECLASS:1,Bard=7
+Erupting Earth			KEY:Bard Magical Secret ~ Erupting Earth				CATEGORY:Internal	TYPE:Bard Magical Secret	SPELLKNOWN:CLASS|Bard=3|Erupting Earth	PRECLASS:1,Bard=5
+Flame Arrows			KEY:Bard Magical Secret ~ Flame Arrows				CATEGORY:Internal	TYPE:Bard Magical Secret	SPELLKNOWN:CLASS|Bard=3|Flame Arrows	PRECLASS:1,Bard=5
+Frostbite				KEY:Bard Magical Secret ~ Frostbite					CATEGORY:Internal	TYPE:Bard Magical Secret	SPELLKNOWN:CLASS|Bard=0|Frostbite	PRECLASS:1,Bard=1
+Gust					KEY:Bard Magical Secret ~ Gust					CATEGORY:Internal	TYPE:Bard Magical Secret	SPELLKNOWN:CLASS|Bard=0|Gust	PRECLASS:1,Bard=1
+Ice Knife				KEY:Bard Magical Secret ~ Ice Knife					CATEGORY:Internal	TYPE:Bard Magical Secret	SPELLKNOWN:CLASS|Bard=1|Ice Knife	PRECLASS:1,Bard=1
+Immolation				KEY:Bard Magical Secret ~ Immolation				CATEGORY:Internal	TYPE:Bard Magical Secret	SPELLKNOWN:CLASS|Bard=5|Immolation	PRECLASS:1,Bard=9
+Investiture Of Flame		KEY:Bard Magical Secret ~ Investiture Of Flame			CATEGORY:Internal	TYPE:Bard Magical Secret	SPELLKNOWN:CLASS|Bard=6|Investiture Of Flame	PRECLASS:1,Bard=11
+Investiture Of Ice		KEY:Bard Magical Secret ~ Investiture Of Ice			CATEGORY:Internal	TYPE:Bard Magical Secret	SPELLKNOWN:CLASS|Bard=6|Investiture Of Ice	PRECLASS:1,Bard=11
+Investiture Of Stone		KEY:Bard Magical Secret ~ Investiture Of Stone			CATEGORY:Internal	TYPE:Bard Magical Secret	SPELLKNOWN:CLASS|Bard=6|Investiture Of Stone	PRECLASS:1,Bard=11
+Investiture Of Wind		KEY:Bard Magical Secret ~ Investiture Of Wind			CATEGORY:Internal	TYPE:Bard Magical Secret	SPELLKNOWN:CLASS|Bard=6|Investiture Of Wind	PRECLASS:1,Bard=11
+Maelstrom				KEY:Bard Magical Secret ~ Maelstrom					CATEGORY:Internal	TYPE:Bard Magical Secret	SPELLKNOWN:CLASS|Bard=5|Maelstrom	PRECLASS:1,Bard=9
+Magic Stone				KEY:Bard Magical Secret ~ Magic Stone				CATEGORY:Internal	TYPE:Bard Magical Secret	SPELLKNOWN:CLASS|Bard=0|Magic Stone	PRECLASS:1,Bard=1
+Maximilian's Earthen Grasp	KEY:Bard Magical Secret ~ Maximilian's Earthen Grasp		CATEGORY:Internal	TYPE:Bard Magical Secret	SPELLKNOWN:CLASS|Bard=2|Maximilian's Earthen Grasp	PRECLASS:1,Bard=3
+Melf's Minute Meteors		KEY:Bard Magical Secret ~ Melf's Minute Meteors			CATEGORY:Internal	TYPE:Bard Magical Secret	SPELLKNOWN:CLASS|Bard=3|Melf's Minute Meteors	PRECLASS:1,Bard=5
+Mold Earth				KEY:Bard Magical Secret ~ Mold Earth				CATEGORY:Internal	TYPE:Bard Magical Secret	SPELLKNOWN:CLASS|Bard=0|Mold Earth	PRECLASS:1,Bard=1
+Primordial Ward			KEY:Bard Magical Secret ~ Primordial Ward				CATEGORY:Internal	TYPE:Bard Magical Secret	SPELLKNOWN:CLASS|Bard=6|Primordial Ward	PRECLASS:1,Bard=11
+Pyrotechnics			KEY:Bard Magical Secret ~ Pyrotechnics				CATEGORY:Internal	TYPE:Bard Magical Secret	SPELLKNOWN:CLASS|Bard=2|Pyrotechnics	PRECLASS:1,Bard=3
+Shape Water				KEY:Bard Magical Secret ~ Shape Water				CATEGORY:Internal	TYPE:Bard Magical Secret	SPELLKNOWN:CLASS|Bard=0|Shape Water	PRECLASS:1,Bard=1
+Skywrite				KEY:Bard Magical Secret ~ Skywrite					CATEGORY:Internal	TYPE:Bard Magical Secret	SPELLKNOWN:CLASS|Bard=2|Skywrite	PRECLASS:1,Bard=3
+Snilloc's Snowball Swarm	KEY:Bard Magical Secret ~ Snilloc's Snowball Swarm		CATEGORY:Internal	TYPE:Bard Magical Secret	SPELLKNOWN:CLASS|Bard=2|Snilloc's Snowball Swarm	PRECLASS:1,Bard=3
+Storm Sphere			KEY:Bard Magical Secret ~ Storm Sphere				CATEGORY:Internal	TYPE:Bard Magical Secret	SPELLKNOWN:CLASS|Bard=4|Storm Sphere	PRECLASS:1,Bard=7
+Thunderclap				KEY:Bard Magical Secret ~ Thunderclap				CATEGORY:Internal	TYPE:Bard Magical Secret	SPELLKNOWN:CLASS|Bard=0|Thunderclap	PRECLASS:1,Bard=1
+Tidal Wave				KEY:Bard Magical Secret ~ Tidal Wave				CATEGORY:Internal	TYPE:Bard Magical Secret	SPELLKNOWN:CLASS|Bard=3|Tidal Wave	PRECLASS:1,Bard=5
+Transmute Rock			KEY:Bard Magical Secret ~ Transmute Rock				CATEGORY:Internal	TYPE:Bard Magical Secret	SPELLKNOWN:CLASS|Bard=5|Transmute Rock	PRECLASS:1,Bard=9
+Vitriolic Sphere			KEY:Bard Magical Secret ~ Vitriolic Sphere			CATEGORY:Internal	TYPE:Bard Magical Secret	SPELLKNOWN:CLASS|Bard=4|Vitriolic Sphere	PRECLASS:1,Bard=7
+Wall Of Sand			KEY:Bard Magical Secret ~ Wall Of Sand				CATEGORY:Internal	TYPE:Bard Magical Secret	SPELLKNOWN:CLASS|Bard=3|Wall Of Sand	PRECLASS:1,Bard=5
+Wall Of Water			KEY:Bard Magical Secret ~ Wall Of Water				CATEGORY:Internal	TYPE:Bard Magical Secret	SPELLKNOWN:CLASS|Bard=3|Wall Of Water	PRECLASS:1,Bard=5
+Warding Wind			KEY:Bard Magical Secret ~ Warding Wind				CATEGORY:Internal	TYPE:Bard Magical Secret	SPELLKNOWN:CLASS|Bard=2|Warding Wind	PRECLASS:1,Bard=3
+Watery Sphere			KEY:Bard Magical Secret ~ Watery Sphere				CATEGORY:Internal	TYPE:Bard Magical Secret	SPELLKNOWN:CLASS|Bard=4|Watery Sphere	PRECLASS:1,Bard=7
+Whirlwind				KEY:Bard Magical Secret ~ Whirlwind					CATEGORY:Internal	TYPE:Bard Magical Secret	SPELLKNOWN:CLASS|Bard=7|Whirlwind	PRECLASS:1,Bard=13
+
+
+###Block - Eldritch Knight Unrestricted Spell
+Absorb Elements			KEY:Eldritch Knight Unrestricted Spell ~ Absorb Elements	CATEGORY:Internal	TYPE:EldritchKnightUnrestrictedSpell	SPELLKNOWN:CLASS|Fighter=1|Absorb Elements	PRECLASS:1,Fighter=3
+Catapult				KEY:Eldritch Knight Unrestricted Spell ~ Catapult	CATEGORY:Internal	TYPE:EldritchKnightUnrestrictedSpell	SPELLKNOWN:CLASS|Fighter=1|Catapult	PRECLASS:1,Fighter=3
+Ice Knife				KEY:Eldritch Knight Unrestricted Spell ~ Ice Knife	CATEGORY:Internal	TYPE:EldritchKnightUnrestrictedSpell	SPELLKNOWN:CLASS|Fighter=1|Ice Knife	PRECLASS:1,Fighter=3
+Earth Tremor			KEY:Eldritch Knight Unrestricted Spell ~ Earth Tremor	CATEGORY:Internal	TYPE:EldritchKnightUnrestrictedSpell	SPELLKNOWN:CLASS|Fighter=1|Earth Tremor	PRECLASS:1,Fighter=3
+Aganazzar's Scorcher		KEY:Eldritch Knight Unrestricted Spell ~ Aganazzar's Scorcher	CATEGORY:Internal	TYPE:EldritchKnightUnrestrictedSpell	SPELLKNOWN:CLASS|Fighter=2|Aganazzar's Scorcher	PRECLASS:1,Fighter=7
+Dust Devil				KEY:Eldritch Knight Unrestricted Spell ~ Dust Devil	CATEGORY:Internal	TYPE:EldritchKnightUnrestrictedSpell	SPELLKNOWN:CLASS|Fighter=2|Dust Devil	PRECLASS:1,Fighter=7
+Earthbind				KEY:Eldritch Knight Unrestricted Spell ~ Earthbind	CATEGORY:Internal	TYPE:EldritchKnightUnrestrictedSpell	SPELLKNOWN:CLASS|Fighter=2|Earthbind	PRECLASS:1,Fighter=7
+Maximilian's Earthen Grasp	KEY:Eldritch Knight Unrestricted Spell ~ Maximilian's Earthen Grasp	CATEGORY:Internal	TYPE:EldritchKnightUnrestrictedSpell	SPELLKNOWN:CLASS|Fighter=2|Maximilian's Earthen Grasp	PRECLASS:1,Fighter=7
+Pyrotechnics			KEY:Eldritch Knight Unrestricted Spell ~ Pyrotechnics	CATEGORY:Internal	TYPE:EldritchKnightUnrestrictedSpell	SPELLKNOWN:CLASS|Fighter=2|Pyrotechnics	PRECLASS:1,Fighter=7
+Skywrite				KEY:Eldritch Knight Unrestricted Spell ~ Skywrite	CATEGORY:Internal	TYPE:EldritchKnightUnrestrictedSpell	SPELLKNOWN:CLASS|Fighter=2|Skywrite	PRECLASS:1,Fighter=7
+Snilloc's Snowball Swarm	KEY:Eldritch Knight Unrestricted Spell ~ Snilloc's Snowball Swarm	CATEGORY:Internal	TYPE:EldritchKnightUnrestrictedSpell	SPELLKNOWN:CLASS|Fighter=2|Snilloc's Snowball Swarm	PRECLASS:1,Fighter=7
+Erupting Earth			KEY:Eldritch Knight Unrestricted Spell ~ Erupting Earth	CATEGORY:Internal	TYPE:EldritchKnightUnrestrictedSpell	SPELLKNOWN:CLASS|Fighter=3|Erupting Earth	PRECLASS:1,Fighter=13
+Flame Arrows			KEY:Eldritch Knight Unrestricted Spell ~ Flame Arrows	CATEGORY:Internal	TYPE:EldritchKnightUnrestrictedSpell	SPELLKNOWN:CLASS|Fighter=3|Flame Arrows	PRECLASS:1,Fighter=13
+Melf's Minute Meteors		KEY:Eldritch Knight Unrestricted Spell ~ Melf's Minute Meteors	CATEGORY:Internal	TYPE:EldritchKnightUnrestrictedSpell	SPELLKNOWN:CLASS|Fighter=3|Melf's Minute Meteors	PRECLASS:1,Fighter=13
+Tidal Wave				KEY:Eldritch Knight Unrestricted Spell ~ Tidal Wave	CATEGORY:Internal	TYPE:EldritchKnightUnrestrictedSpell	SPELLKNOWN:CLASS|Fighter=3|Tidal Wave	PRECLASS:1,Fighter=13
+Wall Of Sand			KEY:Eldritch Knight Unrestricted Spell ~ Wall Of Sand	CATEGORY:Internal	TYPE:EldritchKnightUnrestrictedSpell	SPELLKNOWN:CLASS|Fighter=3|Wall Of Sand	PRECLASS:1,Fighter=13
+Wall Of Water			KEY:Eldritch Knight Unrestricted Spell ~ Wall Of Water	CATEGORY:Internal	TYPE:EldritchKnightUnrestrictedSpell	SPELLKNOWN:CLASS|Fighter=3|Wall Of Water	PRECLASS:1,Fighter=13
+Elemental Bane			KEY:Eldritch Knight Unrestricted Spell ~ Elemental Bane	CATEGORY:Internal	TYPE:EldritchKnightUnrestrictedSpell	SPELLKNOWN:CLASS|Fighter=4|Elemental Bane	PRECLASS:1,Fighter=19
+Storm Sphere			KEY:Eldritch Knight Unrestricted Spell ~ Storm Sphere	CATEGORY:Internal	TYPE:EldritchKnightUnrestrictedSpell	SPELLKNOWN:CLASS|Fighter=4|Storm Sphere	PRECLASS:1,Fighter=19
+Vitriolic Sphere			KEY:Eldritch Knight Unrestricted Spell ~ Vitriolic Sphere	CATEGORY:Internal	TYPE:EldritchKnightUnrestrictedSpell	SPELLKNOWN:CLASS|Fighter=4|Vitriolic Sphere	PRECLASS:1,Fighter=19
+Watery Sphere			KEY:Eldritch Knight Unrestricted Spell ~ Watery Sphere	CATEGORY:Internal	TYPE:EldritchKnightUnrestrictedSpell	SPELLKNOWN:CLASS|Fighter=4|Watery Sphere	PRECLASS:1,Fighter=19
+
+###Block - Arcane Trickster Unrestricted Spell
+Absorb Elements			KEY:Arcane Trickster Unrestricted Spell ~ Absorb Elements	CATEGORY:Internal	TYPE:ArcaneTricksterUnrestrictedSpell	SPELLKNOWN:CLASS|Rogue=1|Absorb Elements	PRECLASS:1,Rogue=3
+Catapult				KEY:Arcane Trickster Unrestricted Spell ~ Catapult	CATEGORY:Internal	TYPE:ArcaneTricksterUnrestrictedSpell	SPELLKNOWN:CLASS|Rogue=1|Catapult	PRECLASS:1,Rogue=3
+Ice Knife				KEY:Arcane Trickster Unrestricted Spell ~ Ice Knife	CATEGORY:Internal	TYPE:ArcaneTricksterUnrestrictedSpell	SPELLKNOWN:CLASS|Rogue=1|Ice Knife	PRECLASS:1,Rogue=3
+Earth Tremor			KEY:Arcane Trickster Unrestricted Spell ~ Earth Tremor	CATEGORY:Internal	TYPE:ArcaneTricksterUnrestrictedSpell	SPELLKNOWN:CLASS|Rogue=1|Earth Tremor	PRECLASS:1,Rogue=3
+Aganazzar's Scorcher		KEY:Arcane Trickster Unrestricted Spell ~ Aganazzar's Scorcher	CATEGORY:Internal	TYPE:ArcaneTricksterUnrestrictedSpell	SPELLKNOWN:CLASS|Rogue=2|Aganazzar's Scorcher	PRECLASS:1,Rogue=7
+Dust Devil				KEY:Arcane Trickster Unrestricted Spell ~ Dust Devil	CATEGORY:Internal	TYPE:ArcaneTricksterUnrestrictedSpell	SPELLKNOWN:CLASS|Rogue=2|Dust Devil	PRECLASS:1,Rogue=7
+Earthbind				KEY:Arcane Trickster Unrestricted Spell ~ Earthbind	CATEGORY:Internal	TYPE:ArcaneTricksterUnrestrictedSpell	SPELLKNOWN:CLASS|Rogue=2|Earthbind	PRECLASS:1,Rogue=7
+Maximilian's Earthen Grasp	KEY:Arcane Trickster Unrestricted Spell ~ Maximilian's Earthen Grasp	CATEGORY:Internal	TYPE:ArcaneTricksterUnrestrictedSpell	SPELLKNOWN:CLASS|Rogue=2|Maximilian's Earthen Grasp	PRECLASS:1,Rogue=7
+Pyrotechnics			KEY:Arcane Trickster Unrestricted Spell ~ Pyrotechnics	CATEGORY:Internal	TYPE:ArcaneTricksterUnrestrictedSpell	SPELLKNOWN:CLASS|Rogue=2|Pyrotechnics	PRECLASS:1,Rogue=7
+Skywrite				KEY:Arcane Trickster Unrestricted Spell ~ Skywrite	CATEGORY:Internal	TYPE:ArcaneTricksterUnrestrictedSpell	SPELLKNOWN:CLASS|Rogue=2|Skywrite	PRECLASS:1,Rogue=7
+Snilloc's Snowball Swarm	KEY:Arcane Trickster Unrestricted Spell ~ Snilloc's Snowball Swarm	CATEGORY:Internal	TYPE:ArcaneTricksterUnrestrictedSpell	SPELLKNOWN:CLASS|Rogue=2|Snilloc's Snowball Swarm	PRECLASS:1,Rogue=7
+Erupting Earth			KEY:Arcane Trickster Unrestricted Spell ~ Erupting Earth	CATEGORY:Internal	TYPE:ArcaneTricksterUnrestrictedSpell	SPELLKNOWN:CLASS|Rogue=3|Erupting Earth	PRECLASS:1,Rogue=13
+Flame Arrows			KEY:Arcane Trickster Unrestricted Spell ~ Flame Arrows	CATEGORY:Internal	TYPE:ArcaneTricksterUnrestrictedSpell	SPELLKNOWN:CLASS|Rogue=3|Flame Arrows	PRECLASS:1,Rogue=13
+Melf's Minute Meteors		KEY:Arcane Trickster Unrestricted Spell ~ Melf's Minute Meteors	CATEGORY:Internal	TYPE:ArcaneTricksterUnrestrictedSpell	SPELLKNOWN:CLASS|Rogue=3|Melf's Minute Meteors	PRECLASS:1,Rogue=13
+Tidal Wave				KEY:Arcane Trickster Unrestricted Spell ~ Tidal Wave	CATEGORY:Internal	TYPE:ArcaneTricksterUnrestrictedSpell	SPELLKNOWN:CLASS|Rogue=3|Tidal Wave	PRECLASS:1,Rogue=13
+Wall Of Sand			KEY:Arcane Trickster Unrestricted Spell ~ Wall Of Sand	CATEGORY:Internal	TYPE:ArcaneTricksterUnrestrictedSpell	SPELLKNOWN:CLASS|Rogue=3|Wall Of Sand	PRECLASS:1,Rogue=13
+Wall Of Water			KEY:Arcane Trickster Unrestricted Spell ~ Wall Of Water	CATEGORY:Internal	TYPE:ArcaneTricksterUnrestrictedSpell	SPELLKNOWN:CLASS|Rogue=3|Wall Of Water	PRECLASS:1,Rogue=13
+Elemental Bane			KEY:Arcane Trickster Unrestricted Spell ~ Elemental Bane	CATEGORY:Internal	TYPE:ArcaneTricksterUnrestrictedSpell	SPELLKNOWN:CLASS|Rogue=4|Elemental Bane	PRECLASS:1,Rogue=19
+Storm Sphere			KEY:Arcane Trickster Unrestricted Spell ~ Storm Sphere	CATEGORY:Internal	TYPE:ArcaneTricksterUnrestrictedSpell	SPELLKNOWN:CLASS|Rogue=4|Storm Sphere	PRECLASS:1,Rogue=19
+Vitriolic Sphere			KEY:Arcane Trickster Unrestricted Spell ~ Vitriolic Sphere	CATEGORY:Internal	TYPE:ArcaneTricksterUnrestrictedSpell	SPELLKNOWN:CLASS|Rogue=4|Vitriolic Sphere	PRECLASS:1,Rogue=19
+Watery Sphere			KEY:Arcane Trickster Unrestricted Spell ~ Watery Sphere	CATEGORY:Internal	TYPE:ArcaneTricksterUnrestrictedSpell	SPELLKNOWN:CLASS|Rogue=4|Watery Sphere	PRECLASS:1,Rogue=19
