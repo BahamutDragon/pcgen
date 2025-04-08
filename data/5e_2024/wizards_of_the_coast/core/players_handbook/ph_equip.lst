@@ -1,0 +1,456 @@
+# CVS $Revision: $ $Author: $ -- Mon Feb 22 22:56:28 2016 -- reformated by PCGen PrettyLST v6.06.00
+
+# Equipment Name	Required Armor Proficiency		Required Shield Proficiency	Type							Cost		Weight	Maximum DEX Bonus	Ability																									Combat bonus			Add to base move							Modify VAR			Quality and value
+Coin (Platinum)												TYPE:Coin.Money					COST:10	WT:0.02
+Coin (Gold)													TYPE:Coin.Money					COST:1	WT:0.02
+Coin (Electrum)												TYPE:Coin.Money					COST:0.5	WT:0.02
+Coin (Silver)												TYPE:Coin.Money					COST:0.1	WT:0.02
+Coin (Copper)												TYPE:Coin.Money					COST:0.01	WT:0.02
+
+# Light Armor	Dex Mod -/+ no max
+# Equipment Name	Required Armor Proficiency		Required Shield Proficiency	Type							Cost		Weight	Maximum DEX Bonus	Ability																									Combat bonus			Add to base move							Modify VAR			Quality and value
+Padded		PROFICIENCY:ARMOR|Padded							TYPE:Armor.LightArmor.Padded			COST:5	WT:8					ABILITY:Internal|AUTOMATIC|Skill Disadvantage ~ Stealth	ABILITY:Internal|AUTOMATIC|Unproficient Armor|!PREPROFWITHARMOR:1,TYPE.LightArmor			BONUS:COMBAT|AC|1|TYPE=Armor										BONUS:VAR|AC_Armor|1	QUALITY:Stealth|Disadvantage
+Leather		PROFICIENCY:ARMOR|Leather							TYPE:Armor.LightArmor.Leather			COST:10	WT:10					ABILITY:Internal|AUTOMATIC|Unproficient Armor|!PREPROFWITHARMOR:1,TYPE.LightArmor													BONUS:COMBAT|AC|1|TYPE=Armor										BONUS:VAR|AC_Armor|1
+Studded Leather	PROFICIENCY:ARMOR|Studded Leather						TYPE:Armor.LightArmor.Studded Leather	COST:45	WT:13					ABILITY:Internal|AUTOMATIC|Unproficient Armor|!PREPROFWITHARMOR:1,TYPE.LightArmor													BONUS:COMBAT|AC|2|TYPE=Armor										BONUS:VAR|AC_Armor|2
+# Medium Armor	Dex Mod -/+ highest is +2
+Hide			PROFICIENCY:ARMOR|Hide								TYPE:Armor.MediumArmor.Hide			COST:10	WT:12		MAXDEX:2		ABILITY:Internal|AUTOMATIC|Unproficient Armor|!PREPROFWITHARMOR:1,TYPE.MediumArmor													BONUS:COMBAT|AC|2|TYPE=Armor										BONUS:VAR|AC_Armor|2
+Chain Shirt		PROFICIENCY:ARMOR|Chain Shirt							TYPE:Armor.MediumArmor.Chain Shirt		COST:50	WT:20		MAXDEX:2		ABILITY:Internal|AUTOMATIC|Unproficient Armor|!PREPROFWITHARMOR:1,TYPE.MediumArmor													BONUS:COMBAT|AC|3|TYPE=Armor										BONUS:VAR|AC_Armor|3
+Scale Mail		PROFICIENCY:ARMOR|Scale Mail							TYPE:Armor.MediumArmor.Scale Mail		COST:50	WT:45		MAXDEX:2		ABILITY:Internal|AUTOMATIC|Unproficient Armor|!PREPROFWITHARMOR:1,TYPE.MediumArmor	ABILITY:Internal|AUTOMATIC|Skill Disadvantage ~ Stealth (Medium Armor)	BONUS:COMBAT|AC|4|TYPE=Armor										BONUS:VAR|AC_Armor|4	QUALITY:Stealth|Disadvantage
+Breastplate		PROFICIENCY:ARMOR|Breastplate							TYPE:Armor.MediumArmor.Breastplate		COST:400	WT:20		MAXDEX:2		ABILITY:Internal|AUTOMATIC|Unproficient Armor|!PREPROFWITHARMOR:1,TYPE.MediumArmor													BONUS:COMBAT|AC|4|TYPE=Armor										BONUS:VAR|AC_Armor|4
+Half Plate		PROFICIENCY:ARMOR|Half Plate							TYPE:Armor.MediumArmor.Half Plate		COST:750	WT:40		MAXDEX:2		ABILITY:Internal|AUTOMATIC|Unproficient Armor|!PREPROFWITHARMOR:1,TYPE.MediumArmor	ABILITY:Internal|AUTOMATIC|Skill Disadvantage ~ Stealth (Medium Armor)	BONUS:COMBAT|AC|5|TYPE=Armor										BONUS:VAR|AC_Armor|5	QUALITY:Stealth|Disadvantage
+# Heavy Armor	No Dex Modifier at all
+Ring Mail		PROFICIENCY:ARMOR|Ring Mail							TYPE:Armor.HeavyArmor.Ring Mail		COST:30	WT:40		MAXDEX:0		ABILITY:Internal|AUTOMATIC|Unproficient Armor|!PREPROFWITHARMOR:1,TYPE.HeavyArmor	ABILITY:Internal|AUTOMATIC|Skill Disadvantage ~ Stealth			BONUS:COMBAT|AC|4|TYPE=Armor										BONUS:VAR|AC_Armor|4	QUALITY:Stealth|Disadvantage
+Chain Mail		PROFICIENCY:ARMOR|Chain Mail							TYPE:Armor.HeavyArmor.Chain Mail		COST:75	WT:55		MAXDEX:0		ABILITY:Internal|AUTOMATIC|Unproficient Armor|!PREPROFWITHARMOR:1,TYPE.HeavyArmor	ABILITY:Internal|AUTOMATIC|Skill Disadvantage ~ Stealth			BONUS:COMBAT|AC|6|TYPE=Armor	BONUS:MOVEADD|TYPE.Walk|-10|PREVARLT:STRSCORE,13	BONUS:VAR|AC_Armor|6	QUALITY:Stealth|Disadvantage
+Splint		PROFICIENCY:ARMOR|Splint							TYPE:Armor.HeavyArmor.Splint			COST:200	WT:60		MAXDEX:0		ABILITY:Internal|AUTOMATIC|Unproficient Armor|!PREPROFWITHARMOR:1,TYPE.HeavyArmor	ABILITY:Internal|AUTOMATIC|Skill Disadvantage ~ Stealth			BONUS:COMBAT|AC|7|TYPE=Armor	BONUS:MOVEADD|TYPE.Walk|-10|PREVARLT:STRSCORE,15	BONUS:VAR|AC_Armor|7	QUALITY:Stealth|Disadvantage
+Plate			PROFICIENCY:ARMOR|Plate								TYPE:Armor.HeavyArmor.Plate			COST:1500	WT:65		MAXDEX:0		ABILITY:Internal|AUTOMATIC|Unproficient Armor|!PREPROFWITHARMOR:1,TYPE.HeavyArmor	ABILITY:Internal|AUTOMATIC|Skill Disadvantage ~ Stealth			BONUS:COMBAT|AC|8|TYPE=Armor	BONUS:MOVEADD|TYPE.Walk|-10|PREVARLT:STRSCORE,15	BONUS:VAR|AC_Armor|8	QUALITY:Stealth|Disadvantage
+# Shield
+Shield								PROFICIENCY:SHIELD|Shield	TYPE:Shield						COST:10	WT:6					ABILITY:Internal|AUTOMATIC|Unproficient Armor|!PREPROFWITHSHIELD:1,Shield														BONUS:COMBAT|AC|2|TYPE=Shield										BONUS:VAR|AC_Shield|2
+
+# need a disable trigger for Dex on the OS.
+# Need the new parser - RangeLongMult will determine final long range value. Set base.xml file in game system folder. Alter range output by type - Increment3, Increment4
+###Block: Weapons
+# NOTES: Range is 2 Increments - Thrown Long Range is x3, Projectile Long Range is x4
+
+# Simple Melee Weapons
+# Equipment Name							Unique Key					Required Weapon Proficiency			Type																				Contains									Cost		Weight	Base Quantity	Crit Range	Crit Multiplier	Damage	Modifier			Wield Category	Range		Size						Quality and value										Special Property
+Club									KEY:Club					PROFICIENCY:WEAPON|Club				TYPE:Weapon.Resizable.Melee.Manufactured.Weapon_Melee.Bludgeoning.Light.Monk.Simple																	COST:0.1	WT:2					CRITRANGE:1	CRITMULT:x2	DAMAGE:1d4					WIELD:OneHanded			SIZE:M
+Dagger								KEY:Dagger					PROFICIENCY:WEAPON|Dagger			TYPE:Weapon.Resizable.Melee.Manufactured.Weapon_Finesse.Piercing.Finesse.Light.Thrown.Ranged.Increment3.Monk.Simple											COST:2	WT:1					CRITRANGE:1	CRITMULT:x2	DAMAGE:1d4					WIELD:OneHanded	RANGE:20	SIZE:M					QUALITY:RangeLongMult|3	QUALITY:ShortRange|20	QUALITY:LongRange|60
+Unarmed Strike (Monk)						KEY:Unarmed Strike (Monk)		PROFICIENCY:WEAPON|Unarmed Strike (monk)	TYPE:Weapon.Monk.Resizable.Melee.Bludgeoning.Unarmed.Weapon_Melee.Simple																		COST:0	WT:0					CRITRANGE:1	CRITMULT:x2	DAMAGE:1d4					WIELD:OneHanded			SIZE:M
+#MODIFY:RangeLongMult|SET|3
+
+Greatclub								KEY:Greatclub				PROFICIENCY:WEAPON|Greatclub			TYPE:Weapon.Resizable.Melee.Manufactured.Weapon_Melee.Bludgeoning.Two-Handed.Simple																	COST:.2	WT:10					CRITRANGE:1	CRITMULT:x2	DAMAGE:1d8					WIELD:TwoHanded			SIZE:M
+Handaxe								KEY:Handaxe					PROFICIENCY:WEAPON|Handaxe			TYPE:Weapon.Resizable.Melee.Manufactured.Weapon_Thrown.Slashing.Light.Thrown.Ranged.Axe.Monk.Simple														COST:5	WT:2					CRITRANGE:1	CRITMULT:x2	DAMAGE:1d6					WIELD:OneHanded	RANGE:20	SIZE:M					QUALITY:RangeLongMult|3	QUALITY:ShortRange|20	QUALITY:LongRange|60
+Javelin								KEY:Javelin					PROFICIENCY:WEAPON|Javelin			TYPE:Weapon.Resizable.Melee.Manufactured.Weapon_Thrown.Piercing.Thrown.Ranged.Increment3.Monk.Simple														COST:.5	WT:2					CRITRANGE:1	CRITMULT:x2	DAMAGE:1d6					WIELD:OneHanded	RANGE:30	SIZE:M					QUALITY:RangeLongMult|3	QUALITY:ShortRange|30	QUALITY:LongRange|90	SPROP:Range 30, Long 90
+#MODIFY:RangeLongMult|SET|3
+Light Hammer							KEY:Light Hammer				PROFICIENCY:WEAPON|Light Hammer		TYPE:Weapon.Resizable.Melee.Manufactured.Weapon_Thrown.Bludgeoning.Light.Thrown.Ranged.Increment3.Monk.Simple												COST:2	WT:2					CRITRANGE:1	CRITMULT:x2	DAMAGE:1d4					WIELD:OneHanded	RANGE:20	SIZE:M					QUALITY:RangeLongMult|3	QUALITY:ShortRange|20	QUALITY:LongRange|60
+#MODIFY:RangeLongMult|SET|3
+Mace									KEY:Mace					PROFICIENCY:WEAPON|Mace				TYPE:Weapon.Resizable.Melee.Manufactured.Weapon_Melee.Bludgeoning.Monk.Simple																		COST:5	WT:4					CRITRANGE:1	CRITMULT:x2	DAMAGE:1d6					WIELD:OneHanded			SIZE:M
+Quarterstaff							KEY:Quarterstaff				PROFICIENCY:WEAPON|Quarterstaff		TYPE:Weapon.Resizable.Melee.Manufactured.Weapon_Melee.Bludgeoning.Versatile.Monk.Simple																COST:.2	WT:4					CRITRANGE:1	CRITMULT:x2	DAMAGE:1d6	EQMOD:VERSATILE_D8	WIELD:OneHanded			SIZE:M
+Sickle								KEY:Sickle					PROFICIENCY:WEAPON|Sickle			TYPE:Weapon.Resizable.Melee.Manufactured.Weapon_Melee.Slashing.Light.Monk.Simple																	COST:1	WT:2					CRITRANGE:1	CRITMULT:x2	DAMAGE:1d4					WIELD:OneHanded			SIZE:M
+Spear									KEY:Spear					PROFICIENCY:WEAPON|Spear			TYPE:Weapon.Resizable.Melee.Manufactured.Weapon_Thrown.Piercing.Thrown.Ranged.Versatile.Increment3.Monk.Simple												COST:1	WT:3					CRITRANGE:1	CRITMULT:x2	DAMAGE:1d6	EQMOD:VERSATILE_D8	WIELD:OneHanded	RANGE:20	SIZE:M					QUALITY:RangeLongMult|3	QUALITY:ShortRange|20	QUALITY:LongRange|60
+#MODIFY:RangeLongMult|SET|3
+Unarmed Strike							KEY:Unarmed Strike			PROFICIENCY:WEAPON|Unarmed Strike		TYPE:Weapon.Resizable.Melee.Natural.Simple.Unarmed.Weapon_Melee.Bludgeoning																		COST:0	WT:0					CRITRANGE:1	CRITMULT:x2	DAMAGE:1					WIELD:OneHanded			SIZE:M
+# Simple Ranged Weapons
+Crossbow, Light							KEY:Crossbow (Light)			PROFICIENCY:WEAPON|Crossbow (Light)		TYPE:Weapon.Resizable.Ranged.Manufactured.Weapon_Ranged.Piercing.Increment4.Container.Simple					CONTAINS:UNLIM|Crossbow Bolt						COST:25	WT:5					CRITRANGE:1	CRITMULT:x2	DAMAGE:1d8								RANGE:80	SIZE:M					QUALITY:RangeLongMult|4	QUALITY:ShortRange|80	QUALITY:LongRange|320
+#MODIFY:RangeLongMult|SET|4
+Dart									KEY:Dart					PROFICIENCY:WEAPON|Dart				TYPE:Weapon.Resizable.Ranged.Manufactured.Weapon_Finesse.Piercing.Increment3.Simple																	COST:.05	WT:0.25				CRITRANGE:1	CRITMULT:x2	DAMAGE:1d4								RANGE:20	SIZE:M					QUALITY:RangeLongMult|3	QUALITY:ShortRange|20	QUALITY:LongRange|60
+#MODIFY:RangeLongMult|SET|3
+Shortbow								KEY:Shortbow				PROFICIENCY:WEAPON|Shortbow			TYPE:Weapon.Resizable.Ranged.Manufactured.Weapon_Ranged.Piercing.Increment4.Container.Simple					CONTAINS:UNLIM|Arrow							COST:25	WT:2					CRITRANGE:1	CRITMULT:x2	DAMAGE:1d6								RANGE:80	SIZE:M					QUALITY:RangeLongMult|4	QUALITY:ShortRange|80	QUALITY:LongRange|320
+#MODIFY:RangeLongMult|SET|4
+Sling									KEY:Sling					PROFICIENCY:WEAPON|Sling			TYPE:Weapon.Resizable.Ranged.Manufactured.Weapon_Ranged.Bludgeoning.Increment4.Container.Simple					CONTAINS:UNLIM|Sling Bullet						COST:.1	WT:0					CRITRANGE:1	CRITMULT:x2	DAMAGE:1d4								RANGE:30	SIZE:M					QUALITY:RangeLongMult|4	QUALITY:ShortRange|30	QUALITY:LongRange|120
+#MODIFY:RangeLongMult|SET|4
+
+# Martial Melee Weapons
+Battleaxe								KEY:Battleaxe				PROFICIENCY:WEAPON|Battleaxe			TYPE:Weapon.Resizable.Melee.Manufactured.Weapon_Melee.Slashing.Axe.Martial																		COST:10	WT:4					CRITRANGE:1	CRITMULT:x2	DAMAGE:1d8					WIELD:OneHanded			SIZE:M
+Flail									KEY:Flail					PROFICIENCY:WEAPON|Flail			TYPE:Weapon.Melee.Manufactured.Weapon_Melee.Bludgeoning.Martial																		COST:10	WT:2					CRITRANGE:1	CRITMULT:x2	DAMAGE:1d8					WIELD:OneHanded			SIZE:M	EQMOD:HEAVY
+Glaive								KEY:Glaive					PROFICIENCY:WEAPON|Glaive			TYPE:Weapon.Melee.Manufactured.Weapon_Melee.Slashing.Martial																			COST:20	WT:6					CRITRANGE:1	CRITMULT:x2	DAMAGE:1d10					WIELD:TwoHanded			SIZE:M	EQMOD:HEAVY
+Greataxe								KEY:Greataxe				PROFICIENCY:WEAPON|Greataxe			TYPE:Weapon.Melee.Manufactured.Weapon_Melee.Slashing.Axe.Martial																		COST:30	WT:7					CRITRANGE:1	CRITMULT:x2	DAMAGE:1d12					WIELD:TwoHanded			SIZE:M	EQMOD:HEAVY
+Greatsword								KEY:Greatsword				PROFICIENCY:WEAPON|Greatsword			TYPE:Weapon.Melee.Manufactured.Weapon_Melee.Slashing.Martial.Sword																		COST:50	WT:6					CRITRANGE:1	CRITMULT:x2	DAMAGE:2d6					WIELD:TwoHanded			SIZE:M	EQMOD:HEAVY
+Halberd								KEY:Halberd					PROFICIENCY:WEAPON|Halberd			TYPE:Weapon.Melee.Manufactured.Weapon_Melee.Slashing.Martial																			COST:20	WT:6					CRITRANGE:1	CRITMULT:x2	DAMAGE:1d10					WIELD:TwoHanded			SIZE:M	EQMOD:HEAVY
+Lance									KEY:Lance					PROFICIENCY:WEAPON|Lance			TYPE:Weapon.Resizable.Melee.Manufactured.Weapon_Melee.Piercing.Martial																			COST:10	WT:6					CRITRANGE:1	CRITMULT:x2	DAMAGE:1d12					WIELD:OneHanded			SIZE:M
+Longsword								KEY:Longsword				PROFICIENCY:WEAPON|Longsword			TYPE:Weapon.Resizable.Melee.Manufactured.Weapon_Melee.Slashing.Martial.Sword																		COST:15	WT:3					CRITRANGE:1	CRITMULT:x2	DAMAGE:1d8					WIELD:OneHanded			SIZE:M
+Maul									KEY:Maul					PROFICIENCY:WEAPON|Maul				TYPE:Weapon.Melee.Manufactured.Weapon_Melee.Bludgeoning.Martial																		COST:10	WT:10					CRITRANGE:1	CRITMULT:x2	DAMAGE:2d6					WIELD:TwoHanded			SIZE:M	EQMOD:HEAVY
+Morningstar								KEY:Morningstar				PROFICIENCY:WEAPON|Morningstar		TYPE:Weapon.Resizable.Melee.Manufactured.Weapon_Melee.Piercing.Martial																			COST:15	WT:4					CRITRANGE:1	CRITMULT:x2	DAMAGE:1d8					WIELD:OneHanded			SIZE:M
+Pike									KEY:Pike					PROFICIENCY:WEAPON|Pike				TYPE:Weapon.Melee.Manufactured.Weapon_Melee.Piercing.Martial																			COST:5	WT:18					CRITRANGE:1	CRITMULT:x2	DAMAGE:1d10					WIELD:TwoHanded			SIZE:M	EQMOD:HEAVY
+Rapier								KEY:Rapier					PROFICIENCY:WEAPON|Rapier			TYPE:Weapon.Resizable.Melee.Manufactured.Weapon_Finesse.Piercing.Martial.Sword																	COST:25	WT:2					CRITRANGE:1	CRITMULT:x2	DAMAGE:1d8					WIELD:OneHanded			SIZE:M
+Scimitar								KEY:Scimitar				PROFICIENCY:WEAPON|Scimitar			TYPE:Weapon.Resizable.Melee.Manufactured.Weapon_Finesse.Slashing.Martial.Sword																	COST:25	WT:3					CRITRANGE:1	CRITMULT:x2	DAMAGE:1d6					WIELD:OneHanded			SIZE:M
+Shortsword								KEY:Shortsword				PROFICIENCY:WEAPON|Shortsword			TYPE:Weapon.Resizable.Melee.Manufactured.Weapon_Finesse.Piercing.Martial.Sword																	COST:10	WT:2					CRITRANGE:1	CRITMULT:x2	DAMAGE:1d6					WIELD:OneHanded			SIZE:M
+Trident								KEY:Trident					PROFICIENCY:WEAPON|Trident			TYPE:Weapon.Resizable.Melee.Manufactured.Weapon_Melee.Piercing.Increment3.Martial																	COST:5	WT:4					CRITRANGE:1	CRITMULT:x2	DAMAGE:1d8					WIELD:OneHanded	RANGE:20	SIZE:M			QUALITY:RangeLongMult|3	QUALITY:ShortRange|20	QUALITY:LongRange|60
+#MODIFY:RangeLongMult|SET|3
+War Pick								KEY:War Pick				PROFICIENCY:WEAPON|War Pick			TYPE:Weapon.Resizable.Melee.Manufactured.Weapon_Melee.Piercing.Martial																			COST:5	WT:2					CRITRANGE:1	CRITMULT:x2	DAMAGE:1d8					WIELD:OneHanded			SIZE:M
+Warhammer								KEY:Warhammer				PROFICIENCY:WEAPON|Warhammer			TYPE:Weapon.Resizable.Melee.Manufactured.Weapon_Melee.Bludgeoning.Martial																		COST:15	WT:2					CRITRANGE:1	CRITMULT:x2	DAMAGE:1d8					WIELD:OneHanded			SIZE:M
+Whip									KEY:Whip					PROFICIENCY:WEAPON|Whip				TYPE:Weapon.Resizable.Melee.Manufactured.Weapon_Finesse.Slashing.Martial																		COST:2	WT:3					CRITRANGE:1	CRITMULT:x2	DAMAGE:1d4					WIELD:OneHanded			SIZE:M	EQMOD:REACH	REACH:10
+# Martial Ranged Weapons
+Blowgun								KEY:Blowgun					PROFICIENCY:WEAPON|Blowgun			TYPE:Weapon.Resizable.Ranged.Manufactured.Weapon_Ranged.Piercing.Increment4.Container.Martial					CONTAINS:UNLIM|Blowgun Needle						COST:10	WT:1					CRITRANGE:1	CRITMULT:x2	DAMAGE:1								RANGE:25	SIZE:M			QUALITY:RangeLongMult|4	QUALITY:ShortRange|25	QUALITY:LongRange|100
+#MODIFY:RangeLongMult|SET|4
+Crossbow, Hand							KEY:Crossbow (Hand)			PROFICIENCY:WEAPON|Crossbow (Hand)		TYPE:Weapon.Resizable.Ranged.Manufactured.Weapon_Ranged.Piercing.Increment4.Container.Martial					CONTAINS:UNLIM|Crossbow Bolt						COST:75	WT:3					CRITRANGE:1	CRITMULT:x2	DAMAGE:1d6								RANGE:30	SIZE:M			QUALITY:RangeLongMult|4	QUALITY:ShortRange|30	QUALITY:LongRange|120
+#MODIFY:RangeLongMult|SET|4
+Crossbow, Heavy							KEY:Crossbow (Heavy)			PROFICIENCY:WEAPON|Crossbow (Heavy)		TYPE:Weapon.Ranged.Manufactured.Weapon_Ranged.Piercing.Increment4.Container.Martial					CONTAINS:UNLIM|Crossbow Bolt						COST:50	WT:18					CRITRANGE:1	CRITMULT:x2	DAMAGE:1d10					WIELD:TwoHanded	RANGE:100	SIZE:M			QUALITY:RangeLongMult|4	QUALITY:ShortRange|100	QUALITY:LongRange|400	EQMOD:HEAVY
+#MODIFY:RangeLongMult|SET|4
+Longbow								KEY:Longbow					PROFICIENCY:WEAPON|Longbow			TYPE:Weapon.Ranged.Manufactured.Weapon_Ranged.Piercing.Increment4.Container						CONTAINS:UNLIM|Arrow.Martial						COST:50	WT:2					CRITRANGE:1	CRITMULT:x2	DAMAGE:1d8					WIELD:TwoHanded	RANGE:150	SIZE:M			QUALITY:RangeLongMult|4	QUALITY:ShortRange|150	QUALITY:LongRange|600	EQMOD:HEAVY
+
+
+
+#MODIFY:RangeLongMult|SET|4
+Net									KEY:Net					PROFICIENCY:WEAPON|Net				TYPE:Weapon.Resizable.Ranged.Manufactured.Weapon_Ranged.Increment3.Martial																		COST:1	WT:3					CRITRANGE:1										RANGE:5	SIZE:M			QUALITY:RangeLongMult|3	QUALITY:ShortRange|5	QUALITY:LongRange|15
+#MODIFY:RangeLongMult|SET|3
+
+
+
+Abacus								KEY:Abacus												TYPE:Gear																													COST:2	WT:2
+Acid (vial)								KEY:Acid (vial)											TYPE:Gear																													COST:25	WT:1
+Alchemist's fire (flask)					KEY:Alchemist's fire (flask)									TYPE:Gear																													COST:50	WT:1
+# Ammunition
+Arrows (20)								KEY:Arrows (20)											TYPE:Gear.Ammunition.Arrow																										COST:1	WT:1		BASEQTY:20
+Blowgun needles (50)						KEY:Blowgun needles (50)									TYPE:Gear.Ammunition.Blowgun Needle																									COST:1	WT:1		BASEQTY:50
+Crossbow bolts (20)						KEY:Crossbow bolts (20)										TYPE:Gear.Ammunition.Crossbow Bolt																									COST:1	WT:1.5	BASEQTY:20
+Sling bullets (20)						KEY:Sling bullets (20)										TYPE:Gear.Ammunition.Sling Bullet																									COST:0.04	WT:1.5	BASEQTY:20
+#
+Antitoxin (vial)							KEY:Antitoxin (vial)										TYPE:Gear																													COST:50	WT:0
+# Arcane focus
+Crystal								KEY:Arcane Focus (Crystal)									TYPE:Gear.Arcane Focus																											COST:10	WT:1
+Orb									KEY:Arcane Focus (Orb)										TYPE:Gear.Arcane Focus																											COST:20	WT:3
+Rod									KEY:Arcane Focus (Rod)										TYPE:Gear.Arcane Focus																											COST:10	WT:2
+Staff									KEY:Arcane Focus (Staff)									TYPE:Gear.Arcane Focus																											COST:5	WT:4
+Wand									KEY:Arcane Focus (Wand)										TYPE:Gear.Arcane Focus																											COST:10	WT:1
+#
+Backpack								KEY:Backpack											TYPE:Gear.Container																	CONTAINS:30									COST:2	WT:5
+Ball bearings (bag of 1,000)					KEY:Ball bearings (bag of 1000)								TYPE:Gear																													COST:1	WT:2
+Barrel								KEY:Barrel												TYPE:Gear																													COST:2	WT:70
+Basket								KEY:Basket												TYPE:Gear.Container																	CONTAINS:UNLIM|Any							COST:0.4	WT:2
+Bedroll								KEY:Bedroll												TYPE:Gear																													COST:1	WT:7
+Bell									KEY:Bell												TYPE:Gear																													COST:1	WT:0
+Blanket								KEY:Blanket												TYPE:Gear																													COST:0.5	WT:3
+Block and tackle							KEY:Block and tackle										TYPE:Gear																													COST:1	WT:5
+Book									KEY:Book												TYPE:Gear																													COST:25	WT:5
+Bottle, glass							KEY:Bottle (Glass)										TYPE:Gear																													COST:2	WT:2
+Bucket								KEY:Bucket												TYPE:Gear																													COST:0.05	WT:2
+Caltrops (bag of 20)						KEY:Caltrops (bag of 20)									TYPE:Gear																													COST:1	WT:2
+Candle								KEY:Candle												TYPE:Gear																													COST:0.01	WT:0
+Case, crossbow bolt						KEY:Case (Crossbow Bolt)									TYPE:Gear.Container																	CONTAINS:UNLIM|Total=1|Crossbow Bolt=1|Crossbow bolts (20)=1	COST:1	WT:1
+Case, map or scroll						KEY:Case (Map or Scroll)									TYPE:Gear.Container																	CONTAINS:UNLIM|Total=10|Paper=10|Documents=10|Scroll=10	COST:1	WT:1
+Chain (10 feet)							KEY:Chain (10 feet)										TYPE:Gear																													COST:5	WT:10
+Chalk (1 piece)							KEY:Chalk (1 piece)										TYPE:Gear																													COST:0.01	WT:0
+Chest									KEY:Chest												TYPE:Gear.Container																	CONTAINS:300								COST:5	WT:25
+Climber's kit							KEY:Climber's kit											TYPE:Gear																													COST:25	WT:12
+Clothes, Common							KEY:Clothes (Common)										TYPE:Gear.Clothing																											COST:0.5	WT:3
+Clothes, Costume							KEY:Clothes (Costume)										TYPE:Gear.Clothing																											COST:5	WT:4
+Clothes, Fine							KEY:Clothes (Fine)										TYPE:Gear.Clothing																											COST:15	WT:6
+Clothes, Traveler's						KEY:Clothes (Traveler's)									TYPE:Gear.Clothing																											COST:2	WT:4
+Component pouch							KEY:Component pouch										TYPE:Gear																													COST:25	WT:2
+Crowbar								KEY:Crowbar												TYPE:Gear																													COST:2	WT:5
+# Druidic Focus
+Sprig of mistletoe						KEY:Druidic Focus (Sprig of mistletoe)							TYPE:Gear.Druidic Focus																											COST:1	WT:0
+Totem									KEY:Druidic Focus (Totem)									TYPE:Gear.Druidic Focus																											COST:1	WT:0
+Wooden staff							KEY:Druidic Focus (Wooden staff)								TYPE:Gear.Druidic Focus																											COST:5	WT:4
+Yew wand								KEY:Druidic Focus (Yew wand)									TYPE:Gear.Druidic Focus																											COST:10	WT:1
+#
+Fishing tackle							KEY:Fishing tackle										TYPE:Gear																													COST:1	WT:4
+Flask									KEY:Flask												TYPE:Gear																													COST:0.02	WT:1
+Tankard								KEY:Tankard												TYPE:Gear																													COST:0.02	WT:1
+Grappling hook							KEY:Grappling hook										TYPE:Gear																													COST:2	WT:4
+Hammer								KEY:Hammer												TYPE:Gear																													COST:1	WT:3
+Hammer, sledge							KEY:Hammer (Sledge)										TYPE:Gear																													COST:2	WT:10
+Healer's kit																				TYPE:Gear																													COST:5	WT:3
+# Holy Symbol
+Holy Symbol (Amulet)						KEY:Holy Symbol (Amulet)									TYPE:Gear.Holy Symbol																											COST:5	WT:1
+Holy Symbol (Emblem)						KEY:Holy Symbol (Emblem)									TYPE:Gear.Holy Symbol																											COST:5	WT:0
+Holy Symbol (Reliquary)						KEY:Holy Symbol (Reliquary)									TYPE:Gear.Holy Symbol																											COST:5	WT:2
+Holy water (flask)						KEY:Holy water (flask)										TYPE:Gear																													COST:25	WT:1
+#
+Hourglass								KEY:Hourglass											TYPE:Gear																													COST:25	WT:1
+Hunting trap							KEY:Hunting trap											TYPE:Gear																													COST:5	WT:25
+Ink (1 ounce bottle)						KEY:Ink (1 ounce bottle)									TYPE:Gear																													COST:10	WT:0
+Ink pen								KEY:Ink pen												TYPE:Gear																													COST:0.02	WT:0
+Jug or pitcher							KEY:Jug or pitcher										TYPE:Gear																													COST:0.02	WT:4
+Ladder (10-foot)							KEY:Ladder (10-foot)										TYPE:Gear																													COST:0.1	WT:25
+Lamp									KEY:Lamp												TYPE:Gear																													COST:0.5	WT:1
+Lantern, bullseye							KEY:Lantern (Bullseye)										TYPE:Gear																													COST:10	WT:2
+Lantern, hooded							KEY:Lantern (Hooded)										TYPE:Gear																													COST:5	WT:2
+Lock									KEY:Lock												TYPE:Gear																													COST:10	WT:1
+Magnifying glass							KEY:Magnifying glass										TYPE:Gear																													COST:100	WT:0
+Manacles								KEY:Manacles											TYPE:Gear																													COST:2	WT:6
+Mess kit								KEY:Mess kit											TYPE:Gear																													COST:0.2	WT:1
+Mirror, steel							KEY:Mirror (Steel)										TYPE:Gear																													COST:5	WT:0.5
+Oil (flask)								KEY:Oil (flask)											TYPE:Gear																													COST:0.1	WT:1
+Paper (one sheet)							KEY:Paper (one sheet)										TYPE:Gear.Paper																												COST:0.2	WT:0
+Parchment (one sheet)						KEY:Parchment (one sheet)									TYPE:Gear.Paper																												COST:0.1	WT:0
+Perfume (vial)							KEY:Perfume (vial)										TYPE:Gear																													COST:5	WT:0
+Pick, miner's							KEY:Pick (Miner's)										TYPE:Gear																													COST:2	WT:10
+Piton									KEY:Piton												TYPE:Gear																													COST:0.05	WT:0.25
+Poison, basic (vial)						KEY:Poison (Basic/Vial)										TYPE:Gear																													COST:100	WT:0
+Pole (10-foot)							KEY:Pole (10-foot)										TYPE:Gear																													COST:0.05	WT:7
+Pot, iron								KEY:Pot (Iron)											TYPE:Gear																													COST:2	WT:10
+Potion of healing							KEY:Potion of healing										TYPE:Gear																													COST:50	WT:0.5
+Pouch									KEY:Pouch												TYPE:Gear.Container																	CONTAINS:6									COST:0.5	WT:1
+Quiver								KEY:Quiver												TYPE:Gear.Container																	CONTAINS:UNLIM|Any							COST:1	WT:1
+Ram, portable							KEY:Ram (Portable)										TYPE:Gear																													COST:4	WT:35
+Rations (1 day)							KEY:Rations (1 day)										TYPE:Gear																													COST:0.5	WT:2
+Robes									KEY:Robes												TYPE:Gear																													COST:1	WT:4
+Rope, hempen (50 feet)						KEY:Rope (Hempen/50)										TYPE:Gear																													COST:1	WT:10
+Rope, silk (50 feet)						KEY:Rope (Silk/50)										TYPE:Gear																													COST:10	WT:5
+Sack									KEY:Sack												TYPE:Gear.Container																	CONTAINS:30									COST:0.01	WT:0.5
+Scale, merchant's							KEY:Scale (Merchant's)										TYPE:Gear																													COST:5	WT:3
+Sealing wax								KEY:Sealing wax											TYPE:Gear																													COST:0.5	WT:0
+Shovel								KEY:Shovel												TYPE:Gear																													COST:2	WT:5
+Signal whistle							KEY:Signal whistle										TYPE:Gear																													COST:0.05	WT:0
+Signet ring								KEY:Signet ring											TYPE:Gear																													COST:5	WT:0
+Soap									KEY:Soap												TYPE:Gear																													COST:0.02
+Spellbook								KEY:Spellbook											TYPE:Gear.Spellbook					NUMPAGES:100	PAGEUSAGE:max(SPELLLEVEL,1)																													COST:50	WT:3
+Spikes, iron (10)							KEY:Spikes (Iron/10)										TYPE:Gear																													COST:1	WT:5		BASEQTY:10
+Spyglass								KEY:Spyglass											TYPE:Gear																													COST:1000	WT:1
+Tent, two-person							KEY:Tent (Two-person)										TYPE:Gear																													COST:2	WT:20
+Tinderbox								KEY:Tinderbox											TYPE:Gear																													COST:0.5	WT:1
+Torch									KEY:Torch												TYPE:Gear																													COST:0.01	WT:1
+Vial									KEY:Vial												TYPE:Gear																													COST:1	WT:0
+Waterskin								KEY:Waterskin											TYPE:Gear																													COST:0.2	WT:5
+Whetstone								KEY:Whetstone											TYPE:Gear																													COST:0.01	WT:1
+
+###
+# Artisan's Tools
+Alchemist's Supplies						KEY:Alchemist's Supplies									TYPE:Gear.Artisan's Tools																										COST:50	WT:8
+Brewer's Supplies							KEY:Brewer's Supplies										TYPE:Gear.Artisan's Tools																										COST:20	WT:9
+Calligrapher's Supplies						KEY:Calligrapher's Supplies									TYPE:Gear.Artisan's Tools																										COST:10	WT:5
+Carpenter's Tools							KEY:Carpenter's Tools										TYPE:Gear.Artisan's Tools																										COST:8	WT:6
+Cartographer's Tools						KEY:Cartographer's Tools									TYPE:Gear.Artisan's Tools																										COST:15	WT:6
+Cobbler's Tools							KEY:Cobbler's Tools										TYPE:Gear.Artisan's Tools																										COST:5	WT:5
+Cook's Utensils							KEY:Cook's Utensils										TYPE:Gear.Artisan's Tools																										COST:1	WT:8
+Glassblower's Tools						KEY:Glassblower's Tools										TYPE:Gear.Artisan's Tools																										COST:30	WT:5
+Jeweler's Tools							KEY:Jeweler's Tools										TYPE:Gear.Artisan's Tools																										COST:25	WT:2
+Leatherworker's Tools						KEY:Leatherworker's Tools									TYPE:Gear.Artisan's Tools																										COST:5	WT:5
+Mason's Tools							KEY:Mason's Tools											TYPE:Gear.Artisan's Tools																										COST:10	WT:8
+Painter's Supplies						KEY:Painter's Supplies										TYPE:Gear.Artisan's Tools																										COST:10	WT:5
+Potter's Tools							KEY:Potter's Tools										TYPE:Gear.Artisan's Tools																										COST:10	WT:3
+Smith's Tools							KEY:Smith's Tools											TYPE:Gear.Artisan's Tools																										COST:20	WT:8
+Tinker's Tools							KEY:Tinker's Tools										TYPE:Gear.Artisan's Tools																										COST:50	WT:10
+Weaver's Tools							KEY:Weaver's Tools										TYPE:Gear.Artisan's Tools																										COST:1	WT:5
+Woodcarver's Tools						KEY:Woodcarver's Tools										TYPE:Gear.Artisan's Tools																										COST:1	WT:5
+Disguise Kit							KEY:Disguise Kit											TYPE:Gear.Artisan's Tools																										COST:25	WT:3
+Forgery Kit								KEY:Forgery Kit											TYPE:Gear.Artisan's Tools																										COST:15	WT:5
+Herbalism Kit							KEY:Herbalism Kit											TYPE:Gear.Artisan's Tools																										COST:5	WT:3
+# Gaming Set
+Dice Set								KEY:Dice Set											TYPE:Gear.Gaming Set																											COST:0.1	WT:0
+Dragonchess Set							KEY:Dragonchess Set										TYPE:Gear.Gaming Set																											COST:1	WT:0.5
+Playing Card Set							KEY:Playing Card Set										TYPE:Gear.Gaming Set																											COST:5	WT:0
+Three-Dragon Ante Set						KEY:Three-Dragon Ante Set									TYPE:Gear.Gaming Set																											COST:1	WT:0
+# Musical Instrument
+Bagpipes								KEY:Bagpipes											TYPE:Gear.Musical Instrument																										COST:30	WT:6
+Drum									KEY:Drum												TYPE:Gear.Musical Instrument																										COST:6	WT:3
+Dulcimer								KEY:Dulcimer											TYPE:Gear.Musical Instrument																										COST:25	WT:10
+Flute									KEY:Flute												TYPE:Gear.Musical Instrument																										COST:2	WT:1
+Lute									KEY:Lute												TYPE:Gear.Musical Instrument																										COST:35	WT:2
+Lyre									KEY:Lyre												TYPE:Gear.Musical Instrument																										COST:30	WT:2
+Horn									KEY:Horn												TYPE:Gear.Musical Instrument																										COST:3	WT:2
+Pan flute								KEY:Pan flute											TYPE:Gear.Musical Instrument																										COST:12	WT:2
+Shawm									KEY:Shawm												TYPE:Gear.Musical Instrument																										COST:2	WT:1
+Viol									KEY:Viol												TYPE:Gear.Musical Instrument																										COST:30	WT:1
+#
+Navigator's Tools							KEY:Navigator's Tools										TYPE:Gear																													COST:25	WT:2
+Poisoner's Kit							KEY:Poisoner's Kit										TYPE:Gear																													COST:50	WT:2
+Thieves' Tools							KEY:Thieves' Tools										TYPE:Gear																													COST:25	WT:1																																				SPROP:+%|Proficiency_Bonus|PREABILITY:1,CATEGORY=Internal,Tool Proficiency ~ Thieves' Tools
+
+
+#Equipment Packs	The starting equipment you get from your class includes a collection of useful adventuring gear, put together in a pack. The contents of these packs are listed here. If you are buying your starting equipment, you can purchase a pack for the price shown, which might be cheaper than buying the items individually.
+Burglar's Pack		TEMPLATE:Burglar's Pack		KEY:Burglar's Pack										TYPE:Gear																													COST:16																																					SPROP:Includes a backpack, a bag of 1,000 ball bearings, 10 feet of string, a bell, 5 candles, a crowbar, a hammer, 10 pitons, a hooded lantern, 2 flasks of oil, 5 days rations, a tinderbox, and a waterskin. The pack also has 50 feet of hempen rope strapped to the side of it.
+Diplomat's Pack		TEMPLATE:Diplomat's Pack	KEY:Diplomat's Pack										TYPE:Gear																													COST:39																																					SPROP:Includes a chest, 2 cases for maps and scrolls, a set of fine clothes, a bottle of ink, an ink pen, a lamp, 2 flasks of oil, 5 sheets of paper, a vial of perfume, sealing wax, and soap.
+Dungeoneer's Pack		TEMPLATE:Dungeoneer's Pack	KEY:Dungeoneer's Pack										TYPE:Gear																													COST:12																																					SPROP:Includes a backpack, a crowbar, a hammer, 10 pitons, 10 torches, a tinderbox, 10 days of rations, and a waterskin. The pack also has 50 feet of hempen rope strapped to the side of it.
+Entertainer's Pack	TEMPLATE:Entertainer's Pack	KEY:Entertainer's Pack										TYPE:Gear																													COST:40																																					SPROP:Includes a backpack, a bedroll, 2 costumes, 5 candles, 5 days of rations, a waterskin, and a disguise kit.
+Explorer's Pack		TEMPLATE:Explorer's Pack	KEY:Explorer's Pack										TYPE:Gear																													COST:10																																					SPROP:Includes a backpack, a bedroll, a mess kit, a tinderbox, 10 torches, 10 days of rations, and a waterskin. The pack also has 50 feet of hempen rope strapped to the side of it.
+Priest's Pack		TEMPLATE:Priest's Pack		KEY:Priest's Pack											TYPE:Gear																													COST:19																																					SPROP:Includes a backpack, a blanket, 10 candles, a tinderbox, an alms box, 2 blocks of incense, a censer, vestments, 2 days of rations, and a waterskin.
+Scholar's Pack		TEMPLATE:Scholar's Pack		KEY:Scholar's Pack										TYPE:Gear																													COST:40																																					SPROP:Includes a backpack, a book of lore, a bottle of ink, an ink pen, 10 sheets of parchment, a little bag of sand, and a small knife.
+
+# Background Specific Equipment, no actual price given
+Dice Set.COPY=Set of weighted dice
+Playing Card Set.COPY=Deck of marked cards
+Signet ring.COPY=Signet ring of an imaginary duke
+
+Ink (1 ounce bottle).COPY=Stoppered bottles filled with colored liquid
+Stoppered bottles filled with colored liquid.MOD														TYPE:Gear.ConArtist.Extras																															BASEQTY:10
+Set of weighted dice.MOD																		TYPE:Gear.ConArtist.Extras
+Deck of marked cards.MOD																		TYPE:Gear.ConArtist.Extras
+Signet ring of an imaginary duke.MOD																TYPE:Gear.ConArtist.Extras
+
+Clothes (Common).COPY=Clothes (Common/Dark)
+Clothes (Common/Dark).MOD				TYPE:Extras																																																																																		SPROP:Includes hood
+Pouch.COPY=Belt Pouch
+Ink (1 ounce bottle).COPY=bottle of black ink
+Ink pen.COPY=Quill
+Quill.MOD						TYPE:Extras
+Dice Set.COPY=Bone Dice
+Blanket.COPY=Winter Blanket
+Belt Pouch.COPY=Purse
+
+
+
+
+Favor of Admirer (Love letter)	KEY:Favor of Admirer (Love letter)		TYPE:Extras
+Favor of Admirer (Lock of hair)	KEY:Favor of Admirer (Lock of hair)		TYPE:Extras
+Favor of Admirer (Tricket)		KEY:Favor of Admirer (Tricket)		TYPE:Extras
+Animal Trophy				KEY:Animal Trophy					TYPE:Extras
+Stick of Incense				KEY:Stick of Incense				TYPE:Extras
+Prayer Book					KEY:Prayer Book					TYPE:Extras
+Prayer Wheel				KEY:Prayer Wheel					TYPE:Extras
+Vestments					KEY:Vestments					TYPE:Extras
+letter from a dead colleague		KEY:letter from a dead colleague		TYPE:Extras																																																																																				SPROP:posing a question you have not yet been able to answer
+small knife					KEY:small knife					TYPE:Extras
+Lucky Charm					KEY:Lucky Charm					TYPE:Extras
+Enemy Trophy				KEY:Enemy Trophy					TYPE:Extras
+Insignia of Rank				KEY:Insignia of Rank				TYPE:Extras
+City Map					KEY:City Map					TYPE:Extras
+Pet Mouse					KEY:Pet Mouse					TYPE:Extras
+Token of Parents				KEY:Token of Parents				TYPE:Extras
+
+
+Scroll of Pedigree		KEY:Scroll of Pedigree		TYPE:Extras
+Guild Introduction Letter	KEY:Guild Introduction Letter	TYPE:Extras
+Notes					KEY:Notes				TYPE:Extras
+String (10')			KEY:String (10')			TYPE:Extras
+Block of Incense			KEY:Block of Incense		TYPE:Extras
+Alms Box				KEY:Alms Box			TYPE:Extras
+Censer				KEY:Censer				TYPE:Extras
+Staff					KEY:Staff				TYPE:Extras																											COST:5	WT:4
+little bag of sand		KEY:little bag of sand		TYPE:Extras
+book of lore			KEY:book of lore			TYPE:Extras	
+
+###Block: Add item identifiers for expansion
+# Equipment Name		Type
+Club.MOD			TYPE:Club
+Dagger.MOD			TYPE:Dagger
+Greatclub.MOD		TYPE:Greatclub.Club
+Handaxe.MOD			TYPE:Handaxe.Axe
+Javelin.MOD			TYPE:Javelin
+Light Hammer.MOD		TYPE:Light Hammer.Hammer
+Mace.MOD			TYPE:Mace
+Quarterstaff.MOD		TYPE:Quarterstaff
+Sickle.MOD			TYPE:Sickle
+Spear.MOD			TYPE:Spear
+Unarmed Strike.MOD	TYPE:Unarmed Strike
+Crossbow (Light).MOD	TYPE:Crossbow.Light Crossbow
+Dart.MOD			TYPE:Dart
+Shortbow.MOD		TYPE:Shortbow.Bow
+Sling.MOD			TYPE:Sling
+Battleaxe.MOD		TYPE:Battleaxe.Axe
+Flail.MOD			TYPE:Flail
+Glaive.MOD			TYPE:Glaive
+Greataxe.MOD		TYPE:Greataxe.Axe
+Greatsword.MOD		TYPE:Greatsword.Sword
+Halberd.MOD			TYPE:Halberd
+Lance.MOD			TYPE:Lance
+Longsword.MOD		TYPE:Longsword.Sword
+Maul.MOD			TYPE:Maul.Hammer
+Morningstar.MOD		TYPE:Morningstar
+Pike.MOD			TYPE:Pike
+Rapier.MOD			TYPE:Rapier.Sword
+Scimitar.MOD		TYPE:Scimitar.Sword
+Shortsword.MOD		TYPE:Shortsword.Sword
+Trident.MOD			TYPE:Trident
+War Pick.MOD		TYPE:War Pick
+Warhammer.MOD		TYPE:Warhammer.Hammer
+Whip.MOD			TYPE:Whip
+Blowgun.MOD			TYPE:Blowgun
+Crossbow (Hand).MOD	TYPE:Hand Crossbow.Crossbow
+Crossbow (Heavy).MOD	TYPE:Heavy Crossbow.Crossbow
+Longbow.MOD			TYPE:Longbow.Bow
+Net.MOD			TYPE:Net
+
+###Block - Trinket list
+01 Mummified goblin hand	TYPE:Trinket																			KEY:Trinket 01
+02 A piece of crystal that faintly glows in the moonlight	TYPE:Trinket														KEY:Trinket 02
+03 A gold coin minted in an unknown land	TYPE:Trinket																	KEY:Trinket 03
+04 A diary written in a language you don't know	TYPE:Trinket																KEY:Trinket 04
+05 A brass ring that never tarnishes	TYPE:Trinket																	KEY:Trinket 05
+06 An old chess piece made from glass	TYPE:Trinket																	KEY:Trinket 06
+07 A pair of knucklebone dice, each with a skull symbol on the side thal would normally show six pips	TYPE:Trinket							KEY:Trinket 07
+08 A small idol depicting a nightmarish creature that gives you unsettling dreams when you sleep near it	TYPE:Trinket						KEY:Trinket 08
+09 A rope necklace from which dangles four mummified elf fingers	TYPE:Trinket													KEY:Trinket 09
+10 The deed for a parcel of land in a realm unknown to you	TYPE:Trinket														KEY:Trinket 10
+11 A l-ounce block made from an unknown material	TYPE:Trinket															KEY:Trinket 11
+12 A small cloth doll skewered with needles	TYPE:Trinket																KEY:Trinket 12
+13 A tooth from an unknown beast	TYPE:Trinket																		KEY:Trinket 13
+14 An enormous scale, perhaps from a dragon	TYPE:Trinket																KEY:Trinket 14
+15 A bright green feather	TYPE:Trinket																			KEY:Trinket 15
+16 An old divination card bearing your likeness	TYPE:Trinket																KEY:Trinket 16
+17 A glass orb filled with moving smoke	TYPE:Trinket																	KEY:Trinket 17
+18 A 1-pound egg wilh a bright red shell	TYPE:Trinket																	KEY:Trinket 18
+19 A pipe that blows bubbles	TYPE:Trinket																			KEY:Trinket 19
+20 A glass jar containing a weird bit of flesh floating in pickling fiuid	TYPE:Trinket											KEY:Trinket 20
+21 A tiny gnome-crafted music box that plays a song you dimly remember from your childhood	TYPE:Trinket								KEY:Trinket 21
+22 A small wooden statuette of a smug halfiing	TYPE:Trinket																KEY:Trinket 22
+23 A brass orb etched with strange runes	TYPE:Trinket																	KEY:Trinket 23
+24 A multicolored stone disk	TYPE:Trinket																			KEY:Trinket 24
+25 A tiny silver icon of a raven	TYPE:Trinket																		KEY:Trinket 25
+26 A bag containing forty-seven humanoid teeth, one of which is rotten	TYPE:Trinket												KEY:Trinket 26
+27 A shard of obsidian that always feels warm to the touch	TYPE:Trinket														KEY:Trinket 27
+28 A dragon's bony talon hanging from a plain leather necklace	TYPE:Trinket													KEY:Trinket 28
+29 A pair of old socks	TYPE:Trinket																				KEY:Trinket 29
+30 A blank book whose pages refuse to hold ink, chalk,  graphite, or any other substance or marking	TYPE:Trinket							KEY:Trinket 30
+31 A silver badge in the shape of a five-pointed star	TYPE:Trinket															KEY:Trinket 31
+32 A knife that belonged to a relative	TYPE:Trinket																	KEY:Trinket 32
+33 A glass viaI filled with nail c1ippings	TYPE:Trinket																KEY:Trinket 33
+34 A rectangular metal device with two tiny metal cups on one end that throws sparks when wet	TYPE:Trinket								KEY:Trinket 34
+35 A white, sequined glove sized for a human	TYPE:Trinket																KEY:Trinket 35
+36 A vest with one hundred tiny pockets	TYPE:Trinket																	KEY:Trinket 36
+37 A small, weightless stone block	TYPE:Trinket																		KEY:Trinket 37
+38 A tiny sketch portrait of a goblin	TYPE:Trinket																	KEY:Trinket 38
+39 An empty glass vial that smells of perfume when openned	TYPE:Trinket														KEY:Trinket 39
+40 A gemstone that looks like a lump of coal when examined by anyone but you	TYPE:Trinket											KEY:Trinket 40
+41 A scrap of c10th from an old banner	TYPE:Trinket																	KEY:Trinket 41
+42 A rank insignia from a lost legionnaire	TYPE:Trinket																KEY:Trinket 42
+43 A tiny silver bell without a c1apper	TYPE:Trinket																	KEY:Trinket 43
+44 A mechanical canary inside a gnomish lamp	TYPE:Trinket																KEY:Trinket 44
+45 A tiny chest carved to look like it has numerous feet on the bottom	TYPE:Trinket												KEY:Trinket 45
+46 A dead sprite inside a clear glass bottle	TYPE:Trinket																KEY:Trinket 46
+47 A metal can that has no opening but sounds as if it  is filled with liquid, sand, spiders, or broken glass (your choice)	TYPE:Trinket			KEY:Trinket 47
+48 A glass orb filled with water, in which swims a c1ockwork goldfish	TYPE:Trinket												KEY:Trinket 48
+49 A silver spoon with an M engraved on the handle	TYPE:Trinket															KEY:Trinket 49
+50 A whistle made from gold-colored wood	TYPE:Trinket																	KEY:Trinket 50
+51 A dead scarab beelle lhe size of your hand	TYPE:Trinket																KEY:Trinket 51
+52 Two toy soldiers, one with a missing head	TYPE:Trinket																KEY:Trinket 52
+53 A small box filled with different-sized buttons	TYPE:Trinket															KEY:Trinket 53
+54 A candle that can't be lit	TYPE:Trinket																			KEY:Trinket 54
+55 A tiny cage with no door	TYPE:Trinket																			KEY:Trinket 55
+56 An old key	TYPE:Trinket																					KEY:Trinket 56
+57 An indecipherable treasure map	TYPE:Trinket																		KEY:Trinket 57
+58 A hilt from a broken sword	TYPE:Trinket																			KEY:Trinket 58
+59 A rabbit's foot	TYPE:Trinket																				KEY:Trinket 59
+60 A glass eye	TYPE:Trinket																					KEY:Trinket 60
+61 A cameo carved in the likeness of a hideous person	TYPE:Trinket															KEY:Trinket 61
+62 A silver skull the size of a coin	TYPE:Trinket																	KEY:Trinket 62
+63 An alabaster mask	TYPE:Trinket																				KEY:Trinket 63
+64 A pyramid of Sticky black incense that smells very bad	TYPE:Trinket														KEY:Trinket 64
+65 A nightcap that, when worn, gives you pleasant dreams	TYPE:Trinket														KEY:Trinket 65
+66 A single caltrop made from bone	TYPE:Trinket																		KEY:Trinket 66
+67 A gold monoele frame withoutthe lens	TYPE:Trinket																	KEY:Trinket 67
+68 A 1-inch cube, each side painted a different color	TYPE:Trinket															KEY:Trinket 68
+69 A crystal knob from a door	TYPE:Trinket																			KEY:Trinket 69
+70 A small packet filled with pink dust	TYPE:Trinket																	KEY:Trinket 70
+71 A fragment of a beautiful song, written as musical notes on two pieces of parchment	TYPE:Trinket									KEY:Trinket 71
+72 A silver teardrop earring made from a real tear drop	TYPE:Trinket														KEY:Trinket 72
+73 The shell of an egg painted with scenes of human misery in disturbing detail	TYPE:Trinket										KEY:Trinket 73
+74 A fan that, when unfolded, shows a sleeping cat and crossbones	TYPE:Trinket													KEY:Trinket 74
+75 A set of bone pipes	TYPE:Trinket																				KEY:Trinket 75
+76 A four leaf clover pressed inside a book discussing manners and etiquette	TYPE:Trinket											KEY:Trinket 76
+77 A sheet of parchment upon which is drawn a complex mechanical contraption	TYPE:Trinket											KEY:Trinket 77
+78 An ornate scabbard that fits no blade you found so far	TYPE:Trinket														KEY:Trinket 78
+79 An invitation to a party where a murder happened	TYPE:Trinket															KEY:Trinket 79
+80 A bronze pentacle with an etching of a rat's head in its center	TYPE:Trinket												KEY:Trinket 80
+81 A purple handkerchief embroidered with the name of a powerful archmage	TYPE:Trinket											KEY:Trinket 81
+82 Half of a floorplan for a temple, castle, or some other structure	TYPE:Trinket												KEY:Trinket 82
+83 A bit of folded cloth that, when unfolded, turns into a stylish cap	TYPE:Trinket												KEY:Trinket 83
+84 A receipt of deposit at a bank in a far-flung city	TYPE:Trinket															KEY:Trinket 84
+85 A diary with seven missing pages	TYPE:Trinket																		KEY:Trinket 85
+86 An empty silver snuffbox bearing an inscription on the surface that says "dreams"	TYPE:Trinket									KEY:Trinket 86
+87 An iron holy symbol devoted to an unknown god	TYPE:Trinket															KEY:Trinket 87
+88 A book that tells the story of a legendary hero's rise and fall, with the last chapter missing	TYPE:Trinket							KEY:Trinket 88
+89 A vial of dragon blood	TYPE:Trinket																			KEY:Trinket 89
+90 An ancient arrow of elven design	TYPE:Trinket																		KEY:Trinket 90
+91 A needle that never bends	TYPE:Trinket																			KEY:Trinket 91
+92 An ornate brooch of dwarven design	TYPE:Trinket																	KEY:Trinket 92
+93 An empty wine bottle bearing a pretty label that says, "The Wizard of Wines Winery, Red Dragon Crush, 331422-W"	TYPE:Trinket				KEY:Trinket 93
+94 A mosaic tile with a multicolored, glazed surface	TYPE:Trinket															KEY:Trinket 94
+95 A petrified mouse	TYPE:Trinket																				KEY:Trinket 95
+96 A black pirate flag adorned with a dragon's skull	TYPE:Trinket															KEY:Trinket 96
+97 A tiny mechanical crab or spider that moves about when it's not being observed	TYPE:Trinket										KEY:Trinket 97
+98 A glass jar containing lard with a label that reads, "Griffon Grease"	TYPE:Trinket											KEY:Trinket 98
+99 A wooden box with a ceramic bottom that holds a living worm with a head on each end of its body	TYPE:Trinket							KEY:Trinket 99
+100 A metal urn containing the ashes of a hero	TYPE:Trinket																KEY:Trinket 100

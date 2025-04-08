@@ -1,0 +1,526 @@
+# CVS $Revision: $ $Author: $ -- Sun Dec  8 22:17:49 2013 -- reformated by prettylst.pl v1.50 (build 22352)
+# COMMENT: Multiclasses don't appear to be allowed during the play test
+
+# Class Name	Hit Dice	Type			Max Level	Combat bonus
+CLASS:Barbarian	HD:12		TYPE:PC.BASE	MAXLEVEL:20	BONUS:COMBAT|BASEAB|(CL+3)/4
+# Class Name	Multiple Requirements
+CLASS:Barbarian	PREMULT:1,[!PRECLASS:1,TYPE.Base=1],[PRECLASS:1,Barbarian=1]
+# Class Name	Skill Pts/Lvl
+CLASS:Barbarian	STARTSKILLPTS:0
+###Block:
+1:REPEATLEVEL:1	DONOTADD:SKILLPOINTS
+###Block:
+1	BONUS:ABILITYPOOL|Barbarian Stat Increase|1
+###Block:
+1																	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
+1	AUTO:ARMORPROF|ARMORTYPE=LightArmor|ARMORTYPE=MediumArmor
+1											AUTO:SHIELDPROF|SHIELDTYPE=Shields
+###Block:
+1	BONUS:VAR|RageTimes|((CL+3)/4)+1			DEFINE:RageTimes|0
+1	BONUS:VAR|RageDamageBonus|2*(max((CL-1)/3),0)	DEFINE:RageDamageBonus|0
+###Block: Abilities
+1	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Combat Expertise|Barbarian ~ Iron Hide|Barbarian ~ Rage|Barbarian ~ Reckless Attack
+2	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Fast Movement
+4	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Feral Instinct
+5	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Relentless Rage
+7	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Feral Reflexes
+8	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Fearless Rage
+10	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Regenerative Rage
+11	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Channel Fury
+14	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Feral Senses
+15	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Incite Rage
+18	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Unchecked Fury
+19	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Primal Might
+20	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Endless Rage
+
+
+# Class Name	Hit Dice	Type			Max Level
+CLASS:Cleric	HD:8		TYPE:PC.BASE	MAXLEVEL:20
+# Class Name	Multiple Requirements
+CLASS:Cleric	PREMULT:1,[!PRECLASS:1,TYPE.Base=1],[PRECLASS:1,Cleric=1]
+# Class Name	Skill Pts/Lvl
+CLASS:Cleric	STARTSKILLPTS:0
+# Class Name	Spell Stat		Spell Type		Memorize	Automatically Known Spell Levels									Caster level			Bonus to DC
+CLASS:Cleric	SPELLSTAT:WIS	FACT:SpellType|Divine	MEMORIZE:NO	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Cleric|CL	BONUS:DC|CLASS.Cleric|ClericSpellcastingBonus
+###Block:
+1:REPEATLEVEL:1	DONOTADD:SKILLPOINTS
+###Block:
+1	BONUS:COMBAT|BASEAB|1
+5	BONUS:COMBAT|BASEAB|1
+15	BONUS:COMBAT|BASEAB|1
+###Block:
+1	BONUS:ABILITYPOOL|Cleric Stat Increase|1
+1								AUTO:WEAPONPROF|TYPE=Simple
+###Block:
+1	ABILITY:Cleric Class Feature|AUTOMATIC|Cleric ~ Attack Bonus|Cleric ~ Channel Divinity|Cleric ~ Deity|Cleric ~ Religious Knowledge|Cleric ~ Spellcasting
+9	ABILITY:Cleric Class Feature|AUTOMATIC|Cleric ~ Deadly Strike
+###Block:
+9	BONUS:VAR|DeadlyStrikeTimes|2	DEFINE:DeadlyStrikeTimes|0
+19	BONUS:VAR|DeadlyStrikeTimes|1
+###Block:
+1	BONUS:VAR|ClericSpellcastingBonus|1+((CL-2)/5)	DEFINE:ClericSpellcastingBonus|0
+###Block:
+1	CAST:0,2
+2	CAST:0,3
+3	CAST:0,3,1
+4	CAST:0,3,2
+5	CAST:0,3,2,1
+6	CAST:0,3,2,2
+7	CAST:0,3,2,2,1
+8	CAST:0,3,2,2,2
+9	CAST:0,3,2,2,2,1
+10	CAST:0,3,2,2,2,2
+11	CAST:0,3,2,2,2,2,1
+12	CAST:0,3,2,2,2,2,1
+13	CAST:0,3,2,2,2,2,1,1
+14	CAST:0,3,2,2,2,2,1,1
+15	CAST:0,3,2,2,2,2,1,1,1
+16	CAST:0,3,2,2,2,2,1,1,1
+17	CAST:0,3,2,2,2,2,1,1,1,1
+18	CAST:0,3,2,2,2,2,1,1,1,1
+19	CAST:0,3,2,2,2,2,1,1,1,1
+20	CAST:0,3,2,2,2,2,1,1,1,1
+
+
+# Class Name	Hit Dice	Type			Max Level
+CLASS:Druid		HD:8		TYPE:PC.BASE	MAXLEVEL:20
+# Class Name	Multiple Requirements
+CLASS:Druid		PREMULT:1,[!PRECLASS:1,TYPE.Base=1],[PRECLASS:1,Druid=1]
+# Class Name	Skill Pts/Lvl
+CLASS:Druid		STARTSKILLPTS:0
+# Class Name	Spell Stat		Spell Type		Memorize	Automatically Known Spell Levels									Caster level			Bonus to DC
+CLASS:Druid		SPELLSTAT:WIS	FACT:SpellType|Divine	MEMORIZE:NO	KNOWNSPELLS:LEVEL=0|LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=6|LEVEL=7|LEVEL=8|LEVEL=9	BONUS:CASTERLEVEL|Druid|CL	BONUS:DC|CLASS.Druid|DruidSpellcastingBonus
+###Block:
+1:REPEATLEVEL:1	DONOTADD:SKILLPOINTS
+###Block:
+6	BONUS:COMBAT|BASEAB|1
+12	BONUS:COMBAT|BASEAB|1
+###Block:
+1	AUTO:ARMORPROF|Dragon Leather|Hide Armor|Leather Armor|Padded Armor
+1													AUTO:SHIELDPROF|SHIELDTYPE=Shields
+1																			AUTO:WEAPONPROF|Club|Dagger|Dart|Greatclub|Javelin|Mace|Scimitar|Sling|Spear|Quarterstaff
+# Sickle - doesn't exist
+###Block:
+1	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ Circle Initiate|Druid ~ Druid Lore|Druid ~ Spellcasting|Druid ~ Wild Shape
+3	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ Woodland Stride
+6	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ Attack Bonus
+7	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ Nature's Endurance
+9	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ Nature's Ward
+10	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ Healing Trance
+11	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ Thousand Faces
+13	ABILITY:Druid Class Feature|AUTOMATIC|Druid ~ Evergreen
+###Block:
+1	BONUS:VAR|DruidWildshapeTier|1	DEFINE:DruidWildshapeTier|0
+2	BONUS:VAR|DruidWildshapeTier|1
+4	BONUS:VAR|DruidWildshapeTier|1
+6	BONUS:VAR|DruidWildshapeTier|1
+1	BONUS:VAR|DruidWildShapeTimes|1	DEFINE:DruidWildShapeTimes|0
+2	BONUS:VAR|DruidWildShapeTimes|1
+5	BONUS:VAR|DruidWildShapeTimes|1
+8	BONUS:VAR|DruidWildShapeTimes|1
+14	BONUS:VAR|DruidWildShapeTimes|1
+1	BONUS:VAR|DruidSpellCastingBonus|1	DEFINE:DruidSpellCastingBonus|0
+4	BONUS:VAR|DruidSpellCastingBonus|1
+9	BONUS:VAR|DruidSpellCastingBonus|1
+14	BONUS:VAR|DruidSpellCastingBonus|1
+19	BONUS:VAR|DruidSpellCastingBonus|1
+###Block:
+1	CAST:0,2
+2	CAST:0,3
+3	CAST:0,4,2
+4	CAST:0,4,3
+5	CAST:0,4,3,2
+6	CAST:0,4,3,3
+7	CAST:0,4,3,3,1
+8	CAST:0,4,3,3,2
+9	CAST:0,4,3,3,3,1
+10	CAST:0,4,3,3,3,2
+11	CAST:0,4,3,3,3,2,1
+12	CAST:0,4,3,3,3,2,1
+13	CAST:0,4,3,3,3,2,1,1
+14	CAST:0,4,3,3,3,2,1,1
+15	CAST:0,4,3,3,3,2,1,1,1
+16	CAST:0,4,3,3,3,2,1,1,1
+17	CAST:0,4,3,3,3,2,1,1,1,1
+18	CAST:0,4,3,3,3,2,1,1,1,1
+19	CAST:0,4,3,3,3,2,1,1,1,1
+20	CAST:0,4,3,3,3,2,1,1,1,1
+
+# Class Name	Hit Dice	Type			Max Level
+CLASS:Fighter	HD:10		TYPE:PC.BASE	MAXLEVEL:20
+# Class Name	Multiple Requirements
+CLASS:Fighter	PREMULT:1,[!PRECLASS:1,TYPE.Base=1],[PRECLASS:1,Fighter=1]
+# Class Name	Skill Pts/Lvl
+CLASS:Fighter	STARTSKILLPTS:0
+###Block:
+1:REPEATLEVEL:1	DONOTADD:SKILLPOINTS
+###Block:
+1	BONUS:ABILITYPOOL|Fighter Stat Increase|1
+###Block:
+1																					AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
+1	AUTO:ARMORPROF|ARMORTYPE=HeavyArmor|ARMORTYPE=LightArmor|ARMORTYPE=MediumArmor
+1															AUTO:SHIELDPROF|SHIELDTYPE=Shields
+###Block:
+1	BONUS:COMBAT|BASEAB|1+(max(CL+2)/5,0)
+###Block:
+1	BONUS:ABILITYPOOL|Martial Feat|1
+2	BONUS:ABILITYPOOL|Martial Feat|1
+8	BONUS:ABILITYPOOL|Martial Feat|1
+###Block:
+1	BONUS:VAR|FighterExpertiseDice|2		DEFINE:FighterExpertiseDice|0
+5	BONUS:VAR|FighterExpertiseDice|1
+9	BONUS:VAR|FighterExpertiseDice|1
+13	BONUS:VAR|FighterExpertiseDice|1
+17	BONUS:VAR|FighterExpertiseDice|1
+1	BONUS:VAR|FighterDeadlyStrikeTimes|2	DEFINE:FighterDeadlyStrikeTimes|0
+5	BONUS:VAR|FighterDeadlyStrikeTimes|1
+10	BONUS:VAR|FighterDeadlyStrikeTimes|1
+15	BONUS:VAR|FighterDeadlyStrikeTimes|1
+20	BONUS:VAR|FighterDeadlyStrikeTimes|1
+11	BONUS:VAR|FighterCombatSurgeTimes|1		DEFINE:FighterCombatSurgeTimes|0
+14	BONUS:VAR|FighterCombatSurgeTimes|1
+17	BONUS:VAR|FighterCombatSurgeTimes|1
+20	BONUS:VAR|FighterCombatSurgeTimes|1
+###Block:
+1	ABILITY:Fighter Class Feature|AUTOMATIC|Fighter ~ Death Dealer|Fighter ~ Expertise|Fighter ~ Martial Feat|Fighter ~ Superior Defense
+4	ABILITY:Fighter Class Feature|AUTOMATIC|Fighter ~ Unerring Attacker
+5	ABILITY:Fighter Class Feature|AUTOMATIC|Fighter ~ Deadly Strike|Fighter ~ Multiattack
+7	ABILITY:Fighter Class Feature|AUTOMATIC|Fighter ~ Unstoppable
+11	ABILITY:Fighter Class Feature|AUTOMATIC|Fighter ~ Combat Surge
+
+# Class Name	Hit Dice	Type
+CLASS:Monk		HD:8		TYPE:PC.BASE
+# Class Name	Multiple Requirements
+CLASS:Monk		PREMULT:1,[!PRECLASS:1,TYPE.Base=1],[PRECLASS:1,Monk=1]
+# Class Name	Skill Pts/Lvl
+CLASS:Monk		STARTSKILLPTS:0
+###Block:
+1:REPEATLEVEL:1	DONOTADD:SKILLPOINTS
+###Block:
+1	BONUS:ABILITYPOOL|Monk Stat Increase|1
+###Block:
+1	AUTO:WEAPONPROF|Club|Dagger|Handaxe|Crossbow (Light)|Pike|Quarterstaff|Sling|Spear
+###Block:
+1	BONUS:VAR|MonkKiTimes|1		DEFINE:MonkKiTimes|0
+3	BONUS:VAR|MonkKiTimes|1
+6	BONUS:VAR|MonkKiTimes|1
+9	BONUS:VAR|MonkKiTimes|1
+14	BONUS:VAR|MonkKiTimes|1
+18	BONUS:VAR|MonkKiTimes|1
+5	BONUS:VAR|MonkKiAbility|1	DEFINE:MonkKiAbility|0
+8	BONUS:VAR|MonkKiAbility|1
+5	BONUS:VAR|DeadlyStrikeTimes|2	DEFINE:DeadlyStrikeTimes|0
+10	BONUS:VAR|DeadlyStrikeTimes|1
+15	BONUS:VAR|DeadlyStrikeTimes|1
+20	BONUS:VAR|DeadlyStrikeTimes|1
+###Block:
+4	BONUS:ABILITYPOOL|Martial Feat|1
+7	BONUS:ABILITYPOOL|Martial Feat|1
+10	BONUS:ABILITYPOOL|Martial Feat|1
+###Block:
+1	BONUS:COMBAT|BASEAB|1
+4	BONUS:COMBAT|BASEAB|1
+9	BONUS:COMBAT|BASEAB|1
+14	BONUS:COMBAT|BASEAB|1
+19	BONUS:COMBAT|BASEAB|1
+###Block:
+1	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Martial Arts|Monk ~ Mindful Defense|Monk ~ Monastic Tradition
+2	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Undaunted Strike
+4	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Martial Feat
+5	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Deadly Strike|Monk ~ Ki Ability|Monk ~ Purity of Body
+7	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Clear Mind
+11	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Diamond Body
+12	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Abundant Step
+13	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Diamond Soul
+15	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Quivering Palm
+16	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Timeless Body
+17	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Tongue of Sun and Moon
+19	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Empty Body
+20	ABILITY:Monk Class Feature|AUTOMATIC|Monk ~ Perfect Self
+
+# Class Name	Hit Dice	Type			Max Level
+CLASS:Paladin	HD:10		TYPE:PC.BASE	MAXLEVEL:20
+# Class Name	Required AL		Multiple Requirements
+CLASS:Paladin	PREALIGN:LG,LN,LE	PREMULT:1,[!PRECLASS:1,TYPE.Base=1],[PRECLASS:1,Paladin=1]
+# Class Name	Skill Pts/Lvl
+CLASS:Paladin	STARTSKILLPTS:0
+# Class Name	Spell Stat		Spell Type		Caster level			Bonus to DC
+CLASS:Paladin	SPELLSTAT:WIS	FACT:SpellType|Divine	BONUS:CASTERLEVEL|Paladin|CL	BONUS:DC|CLASS.Paladin|PaladinSpellcastingBonus
+###Block:
+1:REPEATLEVEL:1	DONOTADD:SKILLPOINTS
+###Block:
+1	BONUS:ABILITYPOOL|Paladin Stat Increase|1
+###Block:
+1																					AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
+1	AUTO:ARMORPROF|ARMORTYPE=HeavyArmor|ARMORTYPE=LightArmor|ARMORTYPE=MediumArmor
+1															AUTO:SHIELDPROF|SHIELDTYPE=Shields
+###Block:
+1	BONUS:VAR|PaladinSpellCastingBonus|1	DEFINE:PaladinSpellCastingBonus|0
+5	BONUS:VAR|PaladinSpellCastingBonus|1
+15	BONUS:VAR|PaladinSpellCastingBonus|1
+5	BONUS:VAR|PaladinDeadlyStrikeTimes|2	DEFINE:PaladinDeadlyStrikeTimes|0
+10	BONUS:VAR|PaladinDeadlyStrikeTimes|1
+15	BONUS:VAR|PaladinDeadlyStrikeTimes|1
+20	BONUS:VAR|PaladinDeadlyStrikeTimes|1
+###Block:
+1	BONUS:COMBAT|BASEAB|1
+3	BONUS:COMBAT|BASEAB|1
+8	BONUS:COMBAT|BASEAB|1
+13	BONUS:COMBAT|BASEAB|1
+18	BONUS:COMBAT|BASEAB|1
+###Block:
+1	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Channel Divinity|Paladin ~ Divine Grace|Paladin ~ Divine Sense|Paladin ~ Oath|Paladin ~ Spellcasting
+2	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Aura of Protection
+4	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Aura of Courage
+5	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Deadly Strike
+7	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Divine Health
+8	ABILITY:Paladin Class Feature|AUTOMATIC|Paladin ~ Mount
+###Block:
+1	CAST:0,2
+2	CAST:0,2
+3	CAST:0,3
+4	CAST:0,3
+5	CAST:0,3,1
+6	CAST:0,3,1
+7	CAST:0,3,2
+8	CAST:0,3,2
+9	CAST:0,3,2,1
+10	CAST:0,3,2,1
+11	CAST:0,3,2,2
+12	CAST:0,3,2,2
+13	CAST:0,3,2,2,1
+14	CAST:0,3,2,2,1
+15	CAST:0,3,2,2,2
+16	CAST:0,3,2,2,2
+17	CAST:0,3,2,2,2,1
+18	CAST:0,3,2,2,2,1
+19	CAST:0,3,2,2,2,2
+20	CAST:0,3,2,2,2,2
+
+# Class Name	Hit Dice	Type			Max Level
+CLASS:Ranger	HD:10		TYPE:PC.BASE	MAXLEVEL:20
+# Class Name	Multiple Requirements
+CLASS:Ranger	PREMULT:1,[!PRECLASS:1,TYPE.Base=1],[PRECLASS:1,Ranger=1]
+# Class Name	Skill Pts/Lvl
+CLASS:Ranger	STARTSKILLPTS:0
+# Class Name	Spell Stat		Spell Type		Caster level			Bonus to DC
+CLASS:Ranger	SPELLSTAT:WIS	FACT:SpellType|Divine	BONUS:CASTERLEVEL|Ranger|CL	BONUS:DC|CLASS.Ranger|RangerSpellcastingBonus
+###Block:
+1:REPEATLEVEL:1	DONOTADD:SKILLPOINTS
+###Block:
+1	BONUS:ABILITYPOOL|Ranger Stat Increase|1
+###Block:
+1																	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial
+1	AUTO:ARMORPROF|ARMORTYPE=LightArmor|ARMORTYPE=MediumArmor
+1											AUTO:SHIELDPROF|SHIELDTYPE=Shields
+###Block:
+1	BONUS:VAR|RangerSpellCastingBonus|1		DEFINE:RangerSpellCastingBonus|0
+5	BONUS:VAR|RangerSpellCastingBonus|1
+15	BONUS:VAR|RangerSpellCastingBonus|1
+2	BONUS:VAR|FavoredEnemyBenefitCount|1	DEFINE:FavoredEnemyBenefitCount|0
+8	BONUS:VAR|FavoredEnemyBenefitCount|1
+5	BONUS:VAR|RangerDeadlyStrikeTimes|2		DEFINE:RangerDeadlyStrikeTimes|0
+10	BONUS:VAR|RangerDeadlyStrikeTimes|1
+15	BONUS:VAR|RangerDeadlyStrikeTimes|1
+20	BONUS:VAR|RangerDeadlyStrikeTimes|1
+###Block:
+1	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Favored Enemy|Ranger ~ Spellcasting|Ranger ~ Track
+4	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Wary
+5	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Camouflage|Ranger ~ Deadly Strike
+7	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Woodland Stride
+10	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Feral Senses
+###Block:
+1	CAST:0,2
+2	CAST:0,2
+3	CAST:0,3
+4	CAST:0,3
+5	CAST:0,4,2
+6	CAST:0,4,2
+7	CAST:0,4,3
+8	CAST:0,4,3
+9	CAST:0,4,3,2
+10	CAST:0,4,3,2
+11	CAST:0,4,3,3
+12	CAST:0,4,3,3
+13	CAST:0,4,3,3,1
+14	CAST:0,4,3,3,1
+15	CAST:0,4,3,3,2
+16	CAST:0,4,3,3,2
+17	CAST:0,4,3,3,3,1
+18	CAST:0,4,3,3,3,1
+19	CAST:0,4,3,3,3,2
+20	CAST:0,4,3,3,3,2
+
+# Class Name	Hit Dice	Type			Max Level
+CLASS:Rogue		HD:6		TYPE:PC.BASE	MAXLEVEL:20
+# Class Name	Multiple Requirements
+CLASS:Rogue		PREMULT:1,[!PRECLASS:1,TYPE.Base=1],[PRECLASS:1,Rogue=1]
+# Class Name	Skill Pts/Lvl
+CLASS:Rogue		STARTSKILLPTS:0
+###Block:
+1:REPEATLEVEL:1	DONOTADD:SKILLPOINTS
+###Block:
+1	BONUS:ABILITYPOOL|Rogue Stat Increase|1
+###Block:
+1											AUTO:WEAPONPROF|Crossbow (Hand)|Crossbow (Light)|Long Sword|Rapier|Short Sword|TYPE=Simple
+1	AUTO:ARMORPROF|ARMORTYPE=LightArmor|ARMORTYPE=MediumArmor
+###Block:
+1	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Attack Bonus|Rogue ~ Sneak Attack|Rogue Scheme
+2	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Distract
+4	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Uncanny Dodge
+8	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Evasion
+9	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Deadly Strike|Rogue ~ Multiattack
+10	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Blindsense|Rogue ~ Defensive Roll
+11	ABILITY:Rogue Class Feature|AUTOMATIC|Rogue ~ Ace in the Hole
+
+
+# Class Name	Hit Dice	Type			Max Level
+CLASS:Wizard	HD:6		TYPE:PC.BASE	MAXLEVEL:20
+# Class Name	Multiple Requirements
+CLASS:Wizard	PREMULT:1,[!PRECLASS:1,TYPE.Base=1],[PRECLASS:1,Wizard=1]
+# Class Name	Skill Pts/Lvl
+CLASS:Wizard	STARTSKILLPTS:0
+# Class Name	Spell Stat		Spell Type		Caster level			Bonus to DC
+CLASS:Wizard	SPELLSTAT:INT	FACT:SpellType|Arcane	BONUS:CASTERLEVEL|Wizard|CL	BONUS:DC|CLASS.Wizard|WizardSpellcastingBonus
+###Block:
+1:REPEATLEVEL:1	DONOTADD:SKILLPOINTS
+###Block:
+1	BONUS:ABILITYPOOL|Wizard Stat Increase|1
+###Block:
+1	AUTO:WEAPONPROF|Dagger|Dart|Sling|Quarterstaff|Crossbow (Light)
+###Block:
+1	ABILITY:Wizard Class Feature|AUTOMATIC|Wizard ~ Arcane Recovery|Wizard ~ Spellcasting|Wizard ~ Tradition of Wizardry|Wizard ~ Wizardly Knowledge
+###Block:
+1	BONUS:VAR|ArcaneRecoveryLVL|1
+3	BONUS:VAR|ArcaneRecoveryLVL|1
+5	BONUS:VAR|ArcaneRecoveryLVL|1
+1	BONUS:VAR|WizardSpellCastingBonus|1
+3	BONUS:VAR|WizardSpellCastingBonus|1
+9	BONUS:VAR|WizardSpellCastingBonus|1
+14	BONUS:VAR|WizardSpellCastingBonus|1
+19	BONUS:VAR|WizardSpellCastingBonus|1
+###Block:
+1	CAST:0,2
+2	CAST:0,3
+3	CAST:0,4,2
+4	CAST:0,4,3
+5	CAST:0,4,3,2
+6	CAST:0,4,3,3
+7	CAST:0,4,3,3,1
+8	CAST:0,4,3,3,2
+9	CAST:0,4,3,3,3,1
+10	CAST:0,4,3,3,3,2
+11	CAST:0,4,3,3,3,2,1
+12	CAST:0,4,3,3,3,2,1
+13	CAST:0,4,3,3,3,2,1,1
+14	CAST:0,4,3,3,3,2,1,1
+15	CAST:0,4,3,3,3,2,1,1,1
+16	CAST:0,4,3,3,3,2,1,1,1
+17	CAST:0,4,3,3,3,2,1,1,1,1
+18	CAST:0,4,3,3,3,2,1,1,1,1
+19	CAST:0,4,3,3,3,2,1,1,1,1
+20	CAST:0,4,3,3,3,2,1,1,1,1
+
+
+# Beasts, Dragons and Monstrosity, Aberrations, Humanoids all seem to base HD by Size.
+
+# Beast has had d4, d8, d10 and d12 listed HP!	Default to Size M, add/subtract from there
+
+# Class Name	Hit Dice	Type
+CLASS:Aberration	HD:8		TYPE:Monster
+# Class Name	Skill Pts/Lvl
+CLASS:Aberration	STARTSKILLPTS:0
+###Block:
+1:REPEATLEVEL:1										DONOTADD:SKILLPOINTS
+1			ABILITY:Internal|AUTOMATIC|Monster_Size_Based_Hitdice
+
+# Class Name	Hit Dice	Type
+CLASS:Beast		HD:8		TYPE:Monster
+# Class Name	Skill Pts/Lvl
+CLASS:Beast		STARTSKILLPTS:0
+###Block:
+1:REPEATLEVEL:1										DONOTADD:SKILLPOINTS
+1			ABILITY:Internal|AUTOMATIC|Monster_Size_Based_Hitdice
+
+# Class Name	Hit Dice	Type
+CLASS:Humanoid	HD:8		TYPE:Monster
+# Class Name	Skill Pts/Lvl
+CLASS:Humanoid	STARTSKILLPTS:0
+###Block:
+1:REPEATLEVEL:1										DONOTADD:SKILLPOINTS
+1			ABILITY:Internal|AUTOMATIC|Monster_Size_Based_Hitdice
+
+# Class Name	Hit Dice	Type
+CLASS:Dragon	HD:12		TYPE:Monster
+# Class Name	Skill Pts/Lvl
+CLASS:Dragon	STARTSKILLPTS:0
+###Block:
+1:REPEATLEVEL:1	DONOTADD:SKILLPOINTS
+# Dragon has Large and Huge Entries - all have d12's
+#1	ABILITY:Internal|AUTOMATIC|Monster_Size_Based_Hitdice
+
+# Class Name	Hit Dice	Type
+CLASS:Monstrosity	HD:8		TYPE:Monster
+# Class Name	Skill Pts/Lvl
+CLASS:Monstrosity	STARTSKILLPTS:0
+###Block:
+1:REPEATLEVEL:1										DONOTADD:SKILLPOINTS
+1			ABILITY:Internal|AUTOMATIC|Monster_Size_Based_Hitdice
+
+# Class Name	Hit Dice	Type
+CLASS:Ooze		HD:8		TYPE:Monster
+# Class Name	Skill Pts/Lvl
+CLASS:Ooze		STARTSKILLPTS:0
+###Block:
+1:REPEATLEVEL:1										DONOTADD:SKILLPOINTS
+1			ABILITY:Internal|AUTOMATIC|Monster_Size_Based_Hitdice
+
+# Class Name	Hit Dice	Type
+CLASS:Giant		HD:8		TYPE:Monster
+# Class Name	Skill Pts/Lvl
+CLASS:Giant		STARTSKILLPTS:0
+###Block:
+1:REPEATLEVEL:1										DONOTADD:SKILLPOINTS
+1			ABILITY:Internal|AUTOMATIC|Monster_Size_Based_Hitdice
+
+# Class Name	Hit Dice	Type
+CLASS:Plant		HD:8		TYPE:Monster
+# Class Name	Skill Pts/Lvl
+CLASS:Plant		STARTSKILLPTS:0
+###Block:
+1:REPEATLEVEL:1										DONOTADD:SKILLPOINTS
+1			ABILITY:Internal|AUTOMATIC|Monster_Size_Based_Hitdice
+
+# Note Hill Giant is listed as Huge, but is getting Large Reach and HP, I think it's a TYPO.
+
+###Block: Inconsistent HD application
+
+# Class Name	Hit Dice	Type
+CLASS:Undead	HD:8		TYPE:Monster
+# Class Name	Skill Pts/Lvl
+CLASS:Undead	STARTSKILLPTS:0
+###Block:
+1:REPEATLEVEL:1										DONOTADD:SKILLPOINTS
+1			ABILITY:Internal|AUTOMATIC|Monster_Size_Based_Hitdice
+
+# Class Name	Hit Dice	Type
+CLASS:Fiend		HD:8		TYPE:Monster
+# Class Name	Skill Pts/Lvl
+CLASS:Fiend		STARTSKILLPTS:0
+###Block:
+1:REPEATLEVEL:1										DONOTADD:SKILLPOINTS
+1			ABILITY:Internal|AUTOMATIC|Monster_Size_Based_Hitdice
+
+
+# Tiny d4
+# Small d6
+# Medium d8
+# Large d10
+# Huge d12
+
+# Fiends are inconsistent in HD application ranging from d4s on the same size to d10s
+# Large & Huge Fiend d10
+
+# Medium Fey d6
+
+# Undead inconsistent, seems based upon species
