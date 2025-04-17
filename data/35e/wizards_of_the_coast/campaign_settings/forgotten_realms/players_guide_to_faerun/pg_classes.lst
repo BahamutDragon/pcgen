@@ -284,7 +284,7 @@ CLASS:Ex-Hathran	SPELLLIST:1|Hathran
 # Incantatrix
 
 # Class Name	Hit Dice	Type			Class Type			Abbreviation	Base class as subclass?	Source Page		Combat bonus															Modify VAR													Bonus
-CLASS:Incantatrix	HD:4		TYPE:Prestige	FACT:ClassType|Prestige	FACT:Abb|Inc		ALLOWBASECLASS:NO		SOURCEPAGE:p.61	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2
+CLASS:Incantatrix	HD:4		TYPE:Prestige	FACT:ClassType|Prestige	FACT:Abb|Inc		ALLOWBASECLASS:NO		SOURCEPAGE:p.61	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*1/2|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:VAR|ClassBABPoor|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:SAVE|BASE.Fortitude|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Reflex|classlevel("APPLIEDAS=NONEPIC")/3	BONUS:SAVE|BASE.Will|classlevel("APPLIEDAS=NONEPIC")/2+2	DEFINE:IncantatrixLVL|0	BONUS:VAR|IncantatrixLVL|classlevel()
 # Class Name	Required Feat							Required Skill											Req. Spell Type		Required Text
 CLASS:Incantatrix	PREABILITY:1,CATEGORY=FEAT,Iron Will	PREABILITY:1,CATEGORY=FEAT,TYPE=Metamagic	PRESKILL:1,Concentration=4	PRESKILL:2,Knowledge (Arcana)=8,Spellcraft=8	PRESPELLTYPE:1,Arcane=3	PRETEXT:Cannot have Abjuration as a prohibited school.
 # Class Name	Skill Pts/Lvl	Class Skill
@@ -313,16 +313,16 @@ SUBCLASSLEVEL:1
 SUBCLASS:Incantatrix ~ Transmuter	COST:1	PROHIBITCOST:1	CHOICE:SCHOOL|Transmutation
 SUBCLASSLEVEL:1
 #ABILITY:Special Ability|AUTOMATIC|Focused Studies ~ Transmuter
-1	BONUS:ABILITYPOOL|Incantatrix Feat|(CL+2)/3															ADD:SPELLCASTER|Arcane
-2																							ADD:SPELLCASTER|Arcane
-3																							ADD:SPELLCASTER|Arcane
-4																							ADD:SPELLCASTER|Arcane
-5																							ADD:SPELLCASTER|Arcane
-6																							ADD:SPELLCASTER|Arcane
-7									BONUS:VAR|IncantatrixInstantMetamagicLVL|CL	DEFINE:InstantMetamagicPerDay|0	ADD:SPELLCASTER|Arcane
-8																							ADD:SPELLCASTER|Arcane
-9																							ADD:SPELLCASTER|Arcane
-10																							ADD:SPELLCASTER|Arcane
+1	ADD:SPELLCASTER|Arcane
+2	ADD:SPELLCASTER|Arcane
+3	ADD:SPELLCASTER|Arcane
+4	ADD:SPELLCASTER|Arcane
+5	ADD:SPELLCASTER|Arcane
+6	ADD:SPELLCASTER|Arcane
+7	ADD:SPELLCASTER|Arcane
+8	ADD:SPELLCASTER|Arcane
+9	ADD:SPELLCASTER|Arcane
+10	ADD:SPELLCASTER|Arcane
 ###Block
 1	ABILITY:Incantatrix Class Feature|AUTOMATIC|Incantatrix ~ Weapon and Armor Proficiency
 1	ABILITY:Incantatrix Class Feature|AUTOMATIC|Incantatrix ~ Spells per Day/Spells Known
