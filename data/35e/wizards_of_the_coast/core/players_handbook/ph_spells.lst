@@ -1774,12 +1774,12 @@ Barkskin.MOD																			TEMPBONUS:ANYPC|COMBAT|AC|min(max(%CHOICE/3+1,2),
 Bear's Endurance (Mass).MOD																	TEMPBONUS:ANYPC|STAT|CON|4|TYPE=Enhancement
 Bear's Endurance.MOD																		TEMPBONUS:ANYPC|STAT|CON|4|TYPE=Enhancement
 Bestow Curse (-4 penalty on attack rolls, saves, skill checks)	SORTKEY:Bestow Curse1		KEY:Bestow Curse Option1	TEMPBONUS:ANYPC|SAVE|ALL|-4|TYPE=Temporary	TEMPBONUS:ANYPC|COMBAT|TOHIT|-4|TYPE=Temporary	TEMPBONUS:ANYPC|SKILL|ALL|-4|TYPE=Temporary
-Bestow Curse (-6 to Charisma)							SORTKEY:Bestow Curse7		KEY:Bestow Curse Option2f	TEMPBONUS:ANYPC|STAT|STR|-6
-Bestow Curse (-6 to Constitution)						SORTKEY:Bestow Curse4		KEY:Bestow Curse Option2c	TEMPBONUS:ANYPC|STAT|STR|-6
-Bestow Curse (-6 to Dexterity)						SORTKEY:Bestow Curse3		KEY:Bestow Curse Option2b	TEMPBONUS:ANYPC|STAT|STR|-6
-Bestow Curse (-6 to Intelligence)						SORTKEY:Bestow Curse5		KEY:Bestow Curse Option2d	TEMPBONUS:ANYPC|STAT|STR|-6
+Bestow Curse (-6 to Charisma)							SORTKEY:Bestow Curse7		KEY:Bestow Curse Option2f	TEMPBONUS:ANYPC|STAT|CHA|-6
+Bestow Curse (-6 to Constitution)						SORTKEY:Bestow Curse4		KEY:Bestow Curse Option2c	TEMPBONUS:ANYPC|STAT|CON|-6
+Bestow Curse (-6 to Dexterity)						SORTKEY:Bestow Curse3		KEY:Bestow Curse Option2b	TEMPBONUS:ANYPC|STAT|DEX|-6
+Bestow Curse (-6 to Intelligence)						SORTKEY:Bestow Curse5		KEY:Bestow Curse Option2d	TEMPBONUS:ANYPC|STAT|INT|-6
 Bestow Curse (-6 to Strength)							SORTKEY:Bestow Curse2		KEY:Bestow Curse Option2a	TEMPBONUS:ANYPC|STAT|STR|-6
-Bestow Curse (-6 to Wisdom)							SORTKEY:Bestow Curse6		KEY:Bestow Curse Option2e	TEMPBONUS:ANYPC|STAT|STR|-6
+Bestow Curse (-6 to Wisdom)							SORTKEY:Bestow Curse6		KEY:Bestow Curse Option2e	TEMPBONUS:ANYPC|STAT|WIS|-6
 Bless.MOD																				TEMPBONUS:ANYPC|COMBAT|TOHIT|1|TYPE=Morale
 Bull's Strength (Mass).MOD																	TEMPBONUS:ANYPC|STAT|STR|4|TYPE=Enhancement
 Bull's Strength.MOD																		TEMPBONUS:ANYPC|STAT|STR|4|TYPE=Enhancement
@@ -1811,7 +1811,7 @@ Heroes' Feast.MOD																			TEMPBONUS:ANYPC|SAVE|Will|1|TYPE=Morale	TEMP
 Heroism (Greater).MOD																		TEMPBONUS:ANYPC|SAVE|ALL|4|TYPE=Morale	TEMPBONUS:ANYPC|COMBAT|TOHIT|4|TYPE=Morale	TEMPBONUS:ANYPC|HP|CURRENTMAX|%CHOICE|TYPE=Temporary	TEMPBONUS:ANYPC|SKILL|ALL|4|TYPE=Morale																																																																																								TEMPVALUE:MIN=1|MAX=20|TITLE=Choose caster level
 Heroism.MOD																				TEMPBONUS:ANYPC|SAVE|ALL|2|TYPE=Morale	TEMPBONUS:ANYPC|COMBAT|TOHIT|2|TYPE=Morale	TEMPBONUS:ANYPC|SKILL|ALL|2|TYPE=Morale
 Holy Aura.MOD																			TEMPBONUS:ANYPC|SAVE|ALL|4|TYPE=Resistance	TEMPBONUS:ANYPC|COMBAT|AC|4|TYPE=Deflection
-Holy Sword.MOD																			TEMPBONUS:EQ|Simple;Martial;Exotic|WEAPON|TOHIT,DAMAGE|5|TYPE=Enhancement
+Holy Sword.MOD																			TEMPBONUS:EQ|Weapon|WEAPON|TOHIT,DAMAGE|5|TYPE=Enhancement
 Iron Body.MOD																			TEMPBONUS:PC|MISC|SPELLFAILURE|50|TYPE=IronBody.REPLACE	TEMPBONUS:PC|MISC|ACCHECK|8|TYPE=IronBody.REPLACE	TEMPBONUS:PC|MOVEMULT|TYPE.Walk,TYPE.Fly,TYPE.Climb,TYPE.Burrow|.5	TEMPBONUS:PC|MOVEMULT|TYPE.Swim|0	TEMPBONUS:PC|STAT|STR|6|TYPE=Enhancement	TEMPBONUS:PC|STAT|DEX|-1*(min(6,DEXSCORE-1))|TYPE=Temporary
 Jump.MOD																				TEMPBONUS:ANYPC|SKILL|Jump|10*(MIN(floor((%CHOICE+3)/4),3))|TYPE=Enhancement																																																																																																										TEMPVALUE:MIN=1|MAX=20|TITLE=Choose spell caster level
 Longstrider.MOD																			TEMPBONUS:PC|POSTMOVEADD|TYPE.Walk|10|TYPE=Enhancement
@@ -1821,19 +1821,15 @@ Magic Fang (Greater).MOD																	TEMPBONUS:EQ|Weapon,Natural|WEAPON|TOHI
 Magic Fang.MOD																			TEMPBONUS:EQ|Weapon,Natural|WEAPON|TOHIT,DAMAGE|1|TYPE=Enhancement
 Magic Vestment (Armor)																		TEMPBONUS:EQ|Armor|COMBAT|AC|MIN(floor(%CHOICE/4),5)|TYPE=Armor|!PREEQUIP:1,TYPE=Armor.Plus1,TYPE=Armor.Plus2,TYPE=Armor.Plus3,TYPE=Armor.Plus4,TYPE=Armor.Plus5	TEMPBONUS:EQ|Armor|COMBAT|AC|max(0,MIN(floor(%CHOICE/4),5)-1)|TYPE=Armor|PREEQUIP:1,TYPE=Armor.Plus1	TEMPBONUS:EQ|Armor|COMBAT|AC|max(0,MIN(floor(%CHOICE/4),5)-2)|TYPE=Armor|PREEQUIP:1,TYPE=Armor.Plus2	TEMPBONUS:EQ|Armor|COMBAT|AC|max(0,MIN(floor(%CHOICE/4),5)-3)|TYPE=Armor|PREEQUIP:1,TYPE=Armor.Plus3	TEMPBONUS:EQ|Armor|COMBAT|AC|max(0,MIN(floor(%CHOICE/4),5)-4)|TYPE=Armor|PREEQUIP:1,TYPE=Armor.Plus4	TEMPBONUS:EQ|Armor|COMBAT|AC|max(0,MIN(floor(%CHOICE/4),5)-5)|TYPE=Armor|PREEQUIP:1,TYPE=Armor.Plus5
 Magic Vestment (Shield)																		TEMPBONUS:EQ|Shield|COMBAT|AC|MIN(floor(%CHOICE/4),5)|TYPE=Shield|!PREEQUIP:1,TYPE=Shield.Plus1,TYPE=Shield.Plus2,TYPE=Shield.Plus3,TYPE=Shield.Plus4,TYPE=Shield.Plus5	TEMPBONUS:EQ|Shield|COMBAT|AC|max(0,MIN(floor(%CHOICE/4),5)-1)|TYPE=Shield|PREEQUIP:1,TYPE=Shield.Plus1	TEMPBONUS:EQ|Shield|COMBAT|AC|max(0,MIN(floor(%CHOICE/4),5)-2)|TYPE=Shield|PREEQUIP:1,TYPE=Shield.Plus2	TEMPBONUS:EQ|Shield|COMBAT|AC|max(0,MIN(floor(%CHOICE/4),5)-3)|TYPE=Shield|PREEQUIP:1,TYPE=Shield.Plus3	TEMPBONUS:EQ|Shield|COMBAT|AC|max(0,MIN(floor(%CHOICE/4),5)-4)|TYPE=Shield|PREEQUIP:1,TYPE=Shield.Plus4	TEMPBONUS:EQ|Shield|COMBAT|AC|max(0,MIN(floor(%CHOICE/4),5)-5)|TYPE=Shield|PREEQUIP:1,TYPE=Shield.Plus5
-Magic Weapon (Greater).MOD																	TEMPBONUS:EQ|Simple;Martial;Exotic|WEAPON|TOHIT,DAMAGE|MIN(floor(%CHOICE/4),5)|TYPE=Enhancement																																																																																																							TEMPVALUE:MIN=1|MAX=20|TITLE=Choose spell caster level
-Magic Weapon.MOD																			TEMPBONUS:EQ|Simple;Martial;Exotic|WEAPON|TOHIT,DAMAGE|1|TYPE=Enhancement
-
-
-
-
+Magic Weapon (Greater).MOD																	TEMPBONUS:EQ|Weapon|WEAPON|TOHIT,DAMAGE|MIN(floor(%CHOICE/4),5)|TYPE=Enhancement																																																																																																							TEMPVALUE:MIN=1|MAX=20|TITLE=Choose spell caster level
+Magic Weapon.MOD																			TEMPBONUS:EQ|Weapon|WEAPON|TOHIT,DAMAGE|1|TYPE=Enhancement
 Mark of Justice (-4 penalty on attack rolls, saves, skill checks)	SORTKEY:Mark of Justice1	KEY:Mark of Justice Option1	TEMPBONUS:ANYPC|SAVE|ALL|-4|TYPE=Temporary	TEMPBONUS:ANYPC|COMBAT|TOHIT|-4|TYPE=Temporary	TEMPBONUS:ANYPC|SKILL|ALL|-4|TYPE=Temporary
-Mark of Justice (-6 to Charisma)						SORTKEY:Mark of Justice7	KEY:Mark of Justice Option2f	TEMPBONUS:ANYPC|STAT|STR|-6
-Mark of Justice (-6 to Constitution)					SORTKEY:Mark of Justice4	KEY:Mark of Justice Option2c	TEMPBONUS:ANYPC|STAT|STR|-6
-Mark of Justice (-6 to Dexterity)						SORTKEY:Mark of Justice3	KEY:Mark of Justice Option2b	TEMPBONUS:ANYPC|STAT|STR|-6
-Mark of Justice (-6 to Intelligence)					SORTKEY:Mark of Justice5	KEY:Mark of Justice Option2d	TEMPBONUS:ANYPC|STAT|STR|-6
+Mark of Justice (-6 to Charisma)						SORTKEY:Mark of Justice7	KEY:Mark of Justice Option2f	TEMPBONUS:ANYPC|STAT|CHA|-6
+Mark of Justice (-6 to Constitution)					SORTKEY:Mark of Justice4	KEY:Mark of Justice Option2c	TEMPBONUS:ANYPC|STAT|CON|-6
+Mark of Justice (-6 to Dexterity)						SORTKEY:Mark of Justice3	KEY:Mark of Justice Option2b	TEMPBONUS:ANYPC|STAT|DEX|-6
+Mark of Justice (-6 to Intelligence)					SORTKEY:Mark of Justice5	KEY:Mark of Justice Option2d	TEMPBONUS:ANYPC|STAT|INT|-6
 Mark of Justice (-6 to Strength)						SORTKEY:Mark of Justice2	KEY:Mark of Justice Option2a	TEMPBONUS:ANYPC|STAT|STR|-6
-Mark of Justice (-6 to Wisdom)						SORTKEY:Mark of Justice6	KEY:Mark of Justice Option2e	TEMPBONUS:ANYPC|STAT|STR|-6
+Mark of Justice (-6 to Wisdom)						SORTKEY:Mark of Justice6	KEY:Mark of Justice Option2e	TEMPBONUS:ANYPC|STAT|WIS|-6
 Mind Fog.MOD																			TEMPBONUS:ANYPC|SAVE|Will|-10|TYPE=Competence	TEMPBONUS:ANYPC|SKILL|STAT.WIS|-10|TYPE=Competence
 Owl's Wisdom.MOD																			TEMPBONUS:ANYPC|STAT|WIS|4|TYPE=Enhancement
 Polymorph Any Object.MOD																	TEMPBONUS:ANYPC|SKILL|Disguise|10|TYPE=Temporary
@@ -1845,7 +1841,6 @@ Ray of Enfeeblement.MOD																		TEMPBONUS:ANYPC|STAT|STR|-(%CHOICE)+MIN
 Reduce Animal.MOD																			TEMPBONUS:ANYPC|COMBAT|TOHIT,AC|1|TYPE=Size|PRERACE:1,RACETYPE=Animal	TEMPBONUS:ANYPC|SIZEMOD|NUMBER|-1|TYPE=Temporary|PRERACE:1,RACETYPE=Animal|PRESIZELT:F	TEMPBONUS:ANYPC|SIZEMOD|NUMBER|-1|TYPE=Temporary|PRERACE:1,RACETYPE=Animal	TEMPBONUS:ANYPC|STAT|STR|-1*(min(2,STRSCORE-1))|TYPE=Size|PRERACE:1,RACETYPE=Animal	TEMPBONUS:ANYPC|STAT|DEX|2|TYPE=Size|PRERACE:1,RACETYPE=Animal
 Reduce Person (Mass).MOD																	TEMPBONUS:ANYPC|COMBAT|DAMAGESIZE|-1|PRERACE:1,RACETYPE=Humanoid	TEMPBONUS:ANYPC|COMBAT|TOHIT,AC|1|TYPE=Size|PRERACE:1,RACETYPE=Humanoid	TEMPBONUS:ANYPC|SIZEMOD|NUMBER|-1|TYPE=Temporary|PRERACE:1,RACETYPE=Humanoid	TEMPBONUS:ANYPC|STAT|STR|-1*(min(2,STRSCORE-1))|TYPE=Size|PRERACE:1,RACETYPE=Humanoid	TEMPBONUS:ANYPC|STAT|DEX|2|TYPE=Size|PRERACE:1,RACETYPE=Humanoid	TEMPBONUS:ANYPC|VAR|SizeDecrease|-1
 Reduce Person.MOD																			TEMPBONUS:ANYPC|COMBAT|DAMAGESIZE|-1|PRERACE:1,RACETYPE=Humanoid	TEMPBONUS:ANYPC|COMBAT|TOHIT,AC|1|TYPE=Size|PRERACE:1,RACETYPE=Humanoid	TEMPBONUS:ANYPC|SIZEMOD|NUMBER|-1|TYPE=Temporary|PRERACE:1,RACETYPE=Humanoid	TEMPBONUS:ANYPC|STAT|STR|-1*(min(2,STRSCORE-1))|TYPE=Size|PRERACE:1,RACETYPE=Humanoid	TEMPBONUS:ANYPC|STAT|DEX|2|TYPE=Size|PRERACE:1,RACETYPE=Humanoid	TEMPBONUS:ANYPC|VAR|SizeDecrease|-1
-
 Resistance.MOD																			TEMPBONUS:ANYPC|SAVE|ALL|1|TYPE=Resistance
 Righteous Might.MOD																		TEMPBONUS:PC|VAR|BypassSizeMods|1	TEMPBONUS:PC|COMBAT|AC|2|TYPE=NaturalArmorEnhancement	TEMPBONUS:PC|SIZEMOD|NUMBER|1	TEMPBONUS:PC|STAT|STR|4|TYPE=Size	TEMPBONUS:PC|STAT|CON|2|TYPE=Size	TEMPBONUS:PC|VAR|RighteousMightDR|3	TEMPBONUS:PC|VAR|RighteousMightDR|3|PREVARGTEQ:var("CL=Cleric")+var("BL=Cleric"),12	TEMPBONUS:PC|VAR|RighteousMightDR|3|PREVARGTEQ:var("CL=Cleric")+var("BL=Cleric"),15	TEMPBONUS:PC|WEAPONPROF=TYPE.Simple|DAMAGESIZE|1|TYPE=Size	TEMPBONUS:PC|WEAPONPROF=TYPE.Martial|DAMAGESIZE|1|TYPE=Size	TEMPBONUS:PC|WEAPONPROF=TYPE.Exotic|DAMAGESIZE|1|TYPE=Size
 Seeming.MOD																				TEMPBONUS:ANYPC|SKILL|Disguise|10|TYPE=Temporary
