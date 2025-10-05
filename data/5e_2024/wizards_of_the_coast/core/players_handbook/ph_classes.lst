@@ -323,19 +323,20 @@ CLASS:Ranger	HD:10		TYPE:PC.Base	DEFINE:RangerLVL|0	BONUS:VAR|RangerLVL|CL	BONUS
 # Class Name	Multiple Requirements
 CLASS:Ranger	PREMULT:1,[!PRETEMPLATE:1,First Level],[PREABILITY:1,CATEGORY=Internal,Multiclass Allowed ~ Ranger],[PRECLASS:1,Ranger=1]
 # Class Name	Spell Stat		Memorize	Caster level
-CLASS:Ranger	SPELLSTAT:WIS	MEMORIZE:NO	BONUS:CASTERLEVEL|Ranger|CL
+CLASS:Ranger	SPELLSTAT:WIS	MEMORIZE:YES	KNOWNSPELLS:LEVEL=1|LEVEL=2|LEVEL=3|LEVEL=4|LEVEL=5	BONUS:CASTERLEVEL|Ranger|CL
 ###Block
 1:REPEATLEVEL:1	DONOTADD:SKILLPOINTS
 ###Block: Abilities
 1	ABILITY:Class|AUTOMATIC|Ranger
 ###Block
 1	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Favored Enemy|!PREFACT:1,ABILITIES,AltRanger=true|!PREFACT:1,ABILITIES,Ranger_FavoredEnemy=true
-1	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Natural Explorer|!PREFACT:1,ABILITIES,AltRanger=true|!PREFACT:1,ABILITIES,Ranger_NaturalExplorer=true
+1	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Weapon Mastery|!PREFACT:1,ABILITIES,AltRanger=true|!PREFACT:1,ABILITIES,Ranger_WeaponMastery=true
+1	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Spellcasting|!PREFACT:1,ABILITIES,AltRanger=true
+1	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Spell Slots|!PREFACT:1,ABILITIES,AltRanger=true
+2	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Deft Explorer|!PREFACT:1,ABILITIES,AltRanger=true
 2	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Fighting Style|!PREFACT:1,ABILITIES,AltRanger=true
-2	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Spellcasting|!PREFACT:1,ABILITIES,AltRanger=true
-2	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Spell Slots|!PREFACT:1,ABILITIES,AltRanger=true
-3	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Ranger Archetype|!PREFACT:1,ABILITIES,AltRanger=true
-3	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Primeval Awareness|!PREFACT:1,ABILITIES,AltRanger=true|!PREFACT:1,ABILITIES,Ranger_PrimevalAwareness=true
+3	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Ranger Subclass|!PREFACT:1,ABILITIES,AltRanger=true
+#3	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Primeval Awareness|!PREFACT:1,ABILITIES,AltRanger=true|!PREFACT:1,ABILITIES,Ranger_PrimevalAwareness=true
 4	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Ability Score Improvement
 5	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Extra Attack|!PREFACT:1,ABILITIES,AltRanger=true
 8	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Land's Stride|!PREFACT:1,ABILITIES,AltRanger=true|!PREFACT:1,ABILITIES,Ranger_LandsStride=true
@@ -344,6 +345,7 @@ CLASS:Ranger	SPELLSTAT:WIS	MEMORIZE:NO	BONUS:CASTERLEVEL|Ranger|CL
 18	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Feral Senses|!PREFACT:1,ABILITIES,AltRanger=true|!PREFACT:1,ABILITIES,Ranger_FeralSenses=true
 20	ABILITY:Ranger Class Feature|AUTOMATIC|Ranger ~ Foe Slayer|!PREFACT:1,ABILITIES,AltRanger=true|!PREFACT:1,ABILITIES,Ranger_FoeSlayer=true
 ###Block
+1	CAST:99,RangerCast1
 2	CAST:99,RangerCast1
 3	CAST:99,RangerCast1
 4	CAST:99,RangerCast1
@@ -363,27 +365,6 @@ CLASS:Ranger	SPELLSTAT:WIS	MEMORIZE:NO	BONUS:CASTERLEVEL|Ranger|CL
 18	CAST:99,RangerCast1,RangerCast2,RangerCast3,RangerCast4,RangerCast5
 19	CAST:99,RangerCast1,RangerCast2,RangerCast3,RangerCast4,RangerCast5
 20	CAST:99,RangerCast1,RangerCast2,RangerCast3,RangerCast4,RangerCast5
-###Block
-2	KNOWN:0,RangerKnown1
-3	KNOWN:0,RangerKnown1
-4	KNOWN:0,RangerKnown1
-5	KNOWN:0,RangerKnown1,RangerKnown2
-6	KNOWN:0,RangerKnown1,RangerKnown2
-7	KNOWN:0,RangerKnown1,RangerKnown2
-8	KNOWN:0,RangerKnown1,RangerKnown2
-9	KNOWN:0,RangerKnown1,RangerKnown2,RangerKnown3
-10	KNOWN:0,RangerKnown1,RangerKnown2,RangerKnown3
-11	KNOWN:0,RangerKnown1,RangerKnown2,RangerKnown3
-12	KNOWN:0,RangerKnown1,RangerKnown2,RangerKnown3
-13	KNOWN:0,RangerKnown1,RangerKnown2,RangerKnown3,RangerKnown4
-14	KNOWN:0,RangerKnown1,RangerKnown2,RangerKnown3,RangerKnown4
-15	KNOWN:0,RangerKnown1,RangerKnown2,RangerKnown3,RangerKnown4
-16	KNOWN:0,RangerKnown1,RangerKnown2,RangerKnown3,RangerKnown4
-17	KNOWN:0,RangerKnown1,RangerKnown2,RangerKnown3,RangerKnown4,RangerKnown5
-18	KNOWN:0,RangerKnown1,RangerKnown2,RangerKnown3,RangerKnown4,RangerKnown5
-19	KNOWN:0,RangerKnown1,RangerKnown2,RangerKnown3,RangerKnown4,RangerKnown5
-20	KNOWN:0,RangerKnown1,RangerKnown2,RangerKnown3,RangerKnown4,RangerKnown5
-
 
 # Class Name	Hit Dice	Type			Define		Modify VAR			FACT
 CLASS:Rogue		HD:8		TYPE:PC.Base	DEFINE:RogueLVL|0	BONUS:VAR|RogueLVL|CL	FACT:SpellType|Arcane
