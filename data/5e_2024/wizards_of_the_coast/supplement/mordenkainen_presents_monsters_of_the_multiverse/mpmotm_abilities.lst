@@ -1,0 +1,54 @@
+
+Racial Traits ~ Kobold	CATEGORY:Internal	BONUS:ABILITYPOOL|Kobold Selection|1|TYPE=BASE
+
+MPMotM Kobold		TYPE:KoboldSelection	CATEGORY:Internal	ABILITY:Kobold Race Trait|AUTOMATIC|TYPE=MPMotM Kobold Race Trait
+
+
+# Page 25
+
+
+###Block: Kobold
+Size				KEY:MPMotM Kobold ~ Size				SORTKEY:1_Race1	CATEGORY:Special Ability	TYPE:Race Trait.Kobold Race Trait.MPMotM Kobold Race Trait.SpecialQuality	DESC:You are Small.
+Creature Type		KEY:MPMotM Kobold ~ Creature Type			SORTKEY:1_Race2	CATEGORY:Special Ability	TYPE:Race Trait.Kobold Race Trait.MPMotM Kobold Race Trait.SpecialQuality	DESC:You are a Humanoid.
+Darkvision			KEY:MPMotM Kobold ~ Darkvision			SORTKEY:1_Race3	CATEGORY:Special Ability	TYPE:Race Trait.Kobold Race Trait.MPMotM Kobold Race Trait.SpecialQuality	DESC:You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray.																																																																																																																																																												BONUS:VAR|DarkvisionRange|60|TYPE=Base																					SOURCEPAGE:p.119
+Speed				KEY:MPMotM Kobold ~ Speed				SORTKEY:1_Race4	CATEGORY:Special Ability	TYPE:Race Trait.Kobold Race Trait.MPMotM Kobold Race Trait.SpecialQuality	DESC:Your walking speed is 30 feet.
+Draconic Cry		KEY:MPMotM Kobold ~ Draconic Cry			SORTKEY:1_Race5	CATEGORY:Special Ability	TYPE:Race Trait.Kobold Race Trait.MPMotM Kobold Race Trait.SpecialQuality	DESC: As a bonus action, you let out a cry at your enemies within 10 feet of you. Until the start of your next turn, you and your allies have advantage on attack rolls against any of those enemies who could hear you. You can use this trait a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.
+Kobold Legacy		KEY:MPMotM Kobold ~ Kobold Legacy			SORTKEY:1_Race6	CATEGORY:Special Ability	TYPE:Race Trait.Kobold Race Trait.MPMotM Kobold Race Trait.SpecialQuality	DESC:Kobolds' connection to dragons can manifest in unpredictable ways in an individual kobold. Choose one of the following legacy options for your kobold:	BONUS:ABILITYPOOL|Kobold Legacy Selection|1|TYPE=Base
+
+###Block: Kobold Legacy Selection
+Craftiness		KEY:Kobold Legacy Selection ~ Craftiness			SORTKEY:1_Race6a	CATEGORY:Special Ability	TYPE:Race Trait.Kobold Race Trait.Kobold Legacy Selection.SpecialQuality	DESC:You have proficiency in one of the following skills of your choice: Arcana, Investigation, Medicine, Sleight of Hand, or Survival.	BONUS:ABILITYPOOL|Kobold Legacy Selection ~ Craftiness|1
+Defiance		KEY:Kobold Legacy Selection ~ Defiance			SORTKEY:1_Race6b	CATEGORY:Special Ability	TYPE:Race Trait.Kobold Race Trait.Kobold Legacy Selection.SpecialQuality	DESC:You have advantage on saving throws to avoid or end the frightened condition on yourself.	ASPECT:SAVEINFO|You have advantage on saving throws to avoid or end the frightened condition on yourself.
+Draconic Sorcery	KEY:Kobold Legacy Selection ~ Draconic Sorcery		SORTKEY:1_Race6c	CATEGORY:Special Ability	TYPE:Race Trait.Kobold Race Trait.Kobold Legacy Selection.SpecialQuality	DESC:You know one cantrip of your choice from the sorcerer spell list. Intelligence, Wisdom, or Charisma is your spellcasting ability for that cantrip (choose when you select this race).	
+
+###Block:
+CATEGORY=Internal|Default.MOD	DEFINE:DraconicSorcererSpellDC|0	
+
+###Block:
+CATEGORY=Internal|Default.MOD	BONUS:VAR|DraconicSorcererSpellDC|SpellDC_INT|PREVAREQ:DSDC_Int,1
+CATEGORY=Internal|Default.MOD	BONUS:VAR|DraconicSorcererSpellDC|SpellDC_WIS|PREVAREQ:DSDC_Wis,1
+CATEGORY=Internal|Default.MOD	BONUS:VAR|DraconicSorcererSpellDC|SpellDC_CHA|PREVAREQ:DSDC_Cha,1
+
+# Kobold Legacy Selection ~ Draconic Sorcery Stat
+Draconic Sorcery uses Charisma	DEFINE:DSDC_Int|0	BONUS:VAR|DSDC_Int|1|TYPE=Boolean	TYPE:Kobold Legacy Selection ~ Draconic Sorcery Stat	CATEGORY:Internal	BONUS:ABILITYPOOL|Kobold Legacy Selection ~ Draconic Sorcery|1|TYPE=Base
+Draconic Sorcery uses Intelligence	DEFINE:DSDC_Wis|0	BONUS:VAR|DSDC_Wis|1|TYPE=Boolean	TYPE:Kobold Legacy Selection ~ Draconic Sorcery Stat	CATEGORY:Internal	BONUS:ABILITYPOOL|Kobold Legacy Selection ~ Draconic Sorcery|1|TYPE=Base
+Draconic Sorcery uses Wisdom		DEFINE:DSDC_Cha|0	BONUS:VAR|DSDC_Cha|1|TYPE=Boolean	TYPE:Kobold Legacy Selection ~ Draconic Sorcery Stat	CATEGORY:Internal	BONUS:ABILITYPOOL|Kobold Legacy Selection ~ Draconic Sorcery|1|TYPE=Base
+
+# Sorcerer Cantrips
+Acid Splash		KEY:Draconic Sorcery Cantrip ~ Acid Splash	CATEGORY:Internal	TYPE:Kobold Legacy Selection ~ Draconic Sorcery	SPELLS:Sorcerer Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Acid Splash,DraconicSorcererSpellDC			SPELLKNOWN:CLASS|Sorcerer=0|Acid Splash			DESC:You hurl a bubble of acid. Choose one creature within range, or choose two creatures within range that are within 5 feet of each other. A target must succeed on a Dexterity saving throw or take 1d6 acid damage. This spell's damage increases by 1d6 when you reach 5th level (2d6), 11th level (3d6), and 17th level (4d6).
+Blade Ward		KEY:Draconic Sorcery Cantrip ~ Blade Ward		CATEGORY:Internal	TYPE:Kobold Legacy Selection ~ Draconic Sorcery	SPELLS:Sorcerer Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Blade Ward,DraconicSorcererSpellDC			SPELLKNOWN:CLASS|Sorcerer=0|Blade Ward		
+Chill Touch		KEY:Draconic Sorcery Cantrip ~ Chill Touch	CATEGORY:Internal	TYPE:Kobold Legacy Selection ~ Draconic Sorcery	SPELLS:Sorcerer Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Chill Touch,DraconicSorcererSpellDC			SPELLKNOWN:CLASS|Sorcerer=0|Chill Touch		
+Dancing Lights	KEY:Draconic Sorcery Cantrip ~ Dancing Lights	CATEGORY:Internal	TYPE:Kobold Legacy Selection ~ Draconic Sorcery	SPELLS:Sorcerer Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Dancing Lights,DraconicSorcererSpellDC			SPELLKNOWN:CLASS|Sorcerer=0|Dancing Lights	
+Fire Bolt		KEY:Draconic Sorcery Cantrip ~ Fire Bolt		CATEGORY:Internal	TYPE:Kobold Legacy Selection ~ Draconic Sorcery	SPELLS:Sorcerer Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Fire Bolt,DraconicSorcererSpellDC			SPELLKNOWN:CLASS|Sorcerer=0|Fire Bolt		
+Friends		KEY:Draconic Sorcery Cantrip ~ Friends		CATEGORY:Internal	TYPE:Kobold Legacy Selection ~ Draconic Sorcery	SPELLS:Sorcerer Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Friends,DraconicSorcererSpellDC				SPELLKNOWN:CLASS|Sorcerer=0|Friends		
+Light			KEY:Draconic Sorcery Cantrip ~ Light		CATEGORY:Internal	TYPE:Kobold Legacy Selection ~ Draconic Sorcery	SPELLS:Sorcerer Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Light,DraconicSorcererSpellDC				SPELLKNOWN:CLASS|Sorcerer=0|Light			
+Mage Hand		KEY:Draconic Sorcery Cantrip ~ Mage Hand		CATEGORY:Internal	TYPE:Kobold Legacy Selection ~ Draconic Sorcery	SPELLS:Sorcerer Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Mage Hand,DraconicSorcererSpellDC			SPELLKNOWN:CLASS|Sorcerer=0|Mage Hand		
+Mending		KEY:Draconic Sorcery Cantrip ~ Mending		CATEGORY:Internal	TYPE:Kobold Legacy Selection ~ Draconic Sorcery	SPELLS:Sorcerer Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Mending,DraconicSorcererSpellDC				SPELLKNOWN:CLASS|Sorcerer=0|Mending		
+Message		KEY:Draconic Sorcery Cantrip ~ Message		CATEGORY:Internal	TYPE:Kobold Legacy Selection ~ Draconic Sorcery	SPELLS:Sorcerer Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Message,DraconicSorcererSpellDC				SPELLKNOWN:CLASS|Sorcerer=0|Message		
+Minor Illusion	KEY:Draconic Sorcery Cantrip ~ Minor Illusion	CATEGORY:Internal	TYPE:Kobold Legacy Selection ~ Draconic Sorcery	SPELLS:Sorcerer Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Minor Illusion,DraconicSorcererSpellDC			SPELLKNOWN:CLASS|Sorcerer=0|Minor Illusion	
+Poison Spray	KEY:Draconic Sorcery Cantrip ~ Poison Spray	CATEGORY:Internal	TYPE:Kobold Legacy Selection ~ Draconic Sorcery	SPELLS:Sorcerer Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Poison Spray,DraconicSorcererSpellDC			SPELLKNOWN:CLASS|Sorcerer=0|Poison Spray	
+Prestidigitation	KEY:Draconic Sorcery Cantrip ~ Prestidigitation	CATEGORY:Internal	TYPE:Kobold Legacy Selection ~ Draconic Sorcery	SPELLS:Sorcerer Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Prestidigitation,DraconicSorcererSpellDC		SPELLKNOWN:CLASS|Sorcerer=0|Prestidigitation	
+Ray of Frost	KEY:Draconic Sorcery Cantrip ~ Ray of Frost	CATEGORY:Internal	TYPE:Kobold Legacy Selection ~ Draconic Sorcery	SPELLS:Sorcerer Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Ray of Frost,DraconicSorcererSpellDC			SPELLKNOWN:CLASS|Sorcerer=0|Ray of Frost	
+Shocking Grasp	KEY:Draconic Sorcery Cantrip ~ Shocking Grasp	CATEGORY:Internal	TYPE:Kobold Legacy Selection ~ Draconic Sorcery	SPELLS:Sorcerer Cantrip|TIMES=ATWILL|CASTERLEVEL=1|Shocking Grasp,DraconicSorcererSpellDC			SPELLKNOWN:CLASS|Sorcerer=0|Shocking Grasp	
+True Strike		KEY:Draconic Sorcery Cantrip ~ True Strike	CATEGORY:Internal	TYPE:Kobold Legacy Selection ~ Draconic Sorcery	SPELLS:Sorcerer Cantrip|TIMES=ATWILL|CASTERLEVEL=1|True Strike,DraconicSorcererSpellDC			SPELLKNOWN:CLASS|Sorcerer=0|True Strike		
+
+
