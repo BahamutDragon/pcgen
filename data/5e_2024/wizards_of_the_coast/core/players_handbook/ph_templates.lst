@@ -39,10 +39,11 @@ Starting Equipment ~ Wizard		VISIBLE:NO	TYPE:Starting Equipment	PRETEMPLATE:1,Wi
 Class Equipment ~ Ranger (A)		KIT:1|Class Equipment ~ Ranger (A)		VISIBLE:NO	DESC:Includes studded leather armor, Scimitar, Shortsword, Longbow, 20 Arrows, Quiver, Druidic Focus (Sprig of mistletoe), Explorer's Pack, and 7 GP.
 Class Equipment ~ Ranger (B)		KIT:1|Class Equipment ~ Ranger (B)		VISIBLE:NO	DESC:Includes 150 GP.
 
-Background Equipment Packs
+# Background Equipment Packs
+Background Equipment ~ Acolyte (A)		KIT:1|Background Equipment ~ Acolyte (A)	KIT:1|Acolyte Background	KIT:1|Holy Symbol (Amulet)|Holy Symbol (Emblem)|Holy Symbol (Reliquary)		VISIBLE:NO	DESC:Includes Calligrapher's Supplies, Book (prayers), Holy Symbol, Parchment (10 sheets), Robe, and 8 GP.
+Background Equipment ~ Acolyte (B)		KIT:1|Background Equipment ~ Acolyte (B)		VISIBLE:NO	DESC:Includes 50 GP.
 Background Equipment ~ Guard (A)		KIT:1|Background Equipment ~ Guard (A)		VISIBLE:NO	DESC:Includes Spear, Light Crossbow, 20 Bolts, Gaming Set, Hooded Lantern, Manacles, Quiver, Traveler's Clothes, and 12 GP.
 Background Equipment ~ Guard (B)		KIT:1|Background Equipment ~ Guard (B)		VISIBLE:NO	DESC:Includes 50 GP.
-
 Background Equipment ~ Guide (A)		KIT:1|Background Equipment ~ Guide (A)		VISIBLE:NO	DESC:Includes Shortbow, 20 Arrows, Cartographer's Tools, Bedroll, Quiver, Tent, Traveler's Clothes, and 3 GP.
 Background Equipment ~ Guide (B)		KIT:1|Background Equipment ~ Guide (B)		VISIBLE:NO	DESC:Includes 50 GP.
 Background Equipment ~ Wayfarer (A)		KIT:1|Background Equipment ~ Wayfarer (A)	ADD:EQUIP|TYPE=Gear.Gaming Set	VISIBLE:NO	DESC:Includes 2 Daggers, Thieves' Tools, Gaming Set (any), Bedroll, 2 Pouches, Traveler's Clothes, and 16 GP.
@@ -329,6 +330,7 @@ Claws (2d6)		VISIBLE:NO	NATURALATTACKS:Claws,Melee.Weapon.Natural.OneTarget.Slas
 
 ###Block: Background Tool Proficiencies
 Artisan		KEY:Background Tools ~ Artisan			VISIBLE:NO	CHOOSE:ABILITY:Internal|TYPE=Tool Proficiency.Tool Proficiency Artisan's Tools|ANY	ADD:ABILITY|1|Internal|NORMAL|TYPE=Tool Proficiency.Tool Proficiency Artisan's Tools	TEMPLATE:Artisan's Tools Kit
+Acolyte		KEY:Background Tools ~ Acolyte			VISIBLE:NO			ABILITY:Internal|AUTOMATIC|Tool Proficiency ~ Calligrapher's Supplies
 #Guard
 Guard		KEY:Background Tools ~ Guard			VISIBLE:NO			ADD:ABILITY|1|Internal|NORMAL|TYPE=Tool Proficiency.Tool Proficiency Gaming Set	ADD:EQUIP|TYPE=Gear.Gaming Set
 #Guide
@@ -337,7 +339,8 @@ Wayfarer		KEY:Background Tools ~ Wayfarer			VISIBLE:NO			ABILITY:Internal|AUTOMA
 
 ###Block: Background Equipment Kits
 # Template Name	Visible	Apply Kit
-Acolyte		KEY:Background Equipment ~ Acolyte				VISIBLE:NO	KIT:1|Acolyte Background	KIT:1|Holy Symbol (Amulet)|Holy Symbol (Emblem)|Holy Symbol (Reliquary)
+#Acolyte		KEY:Background Equipment ~ Acolyte				VISIBLE:NO	KIT:1|Acolyte Background	KIT:1|Holy Symbol (Amulet)|Holy Symbol (Emblem)|Holy Symbol (Reliquary)
+Acolyte		KEY:Background Equipment ~ Acolyte			VISIBLE:NO	TEMPLATE:CHOOSE:Background Equipment ~ Acolyte (A)|Background Equipment ~ Acolyte (B)
 Artisan		KEY:Background Equipment ~ Artisan			VISIBLE:NO	KIT:1|Artisan Background (A)|Artisan Background (B)
 Charlatan		KEY:Background Equipment ~ Charlatan			VISIBLE:NO	KIT:1|Charlatan Background	KIT:1|Charlatan Con (Colored Liquid)|Charlatan Con (Marked Cards)|Charlatan Con (Signet Ring)|Charlatan Con (Weighted Dice)
 Criminal		KEY:Background Equipment ~ Criminal				VISIBLE:NO	KIT:1|Criminal Background
