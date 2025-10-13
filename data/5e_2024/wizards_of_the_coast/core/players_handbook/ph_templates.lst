@@ -40,6 +40,8 @@ Class Equipment ~ Ranger (A)		KIT:1|Class Equipment ~ Ranger (A)		VISIBLE:NO	DES
 Class Equipment ~ Ranger (B)		KIT:1|Class Equipment ~ Ranger (B)		VISIBLE:NO	DESC:Includes 150 GP.
 
 Background Equipment Packs
+Background Equipment ~ Guide (A)		KIT:1|Background Equipment ~ Guide (A)		VISIBLE:NO	DESC:Includes Shortbow, 20 Arrows, Cartographer's Tools, Bedroll, Quiver, Tent, Traveler's Clothes, and 3 GP.
+Background Equipment ~ Guide (B)		KIT:1|Background Equipment ~ Guide (B)		VISIBLE:NO	DESC:Includes 50 GP.
 Background Equipment ~ Wayfarer (A)		KIT:1|Background Equipment ~ Wayfarer (A)	ADD:EQUIP|TYPE=Gear.Gaming Set	VISIBLE:NO	DESC:Includes 2 Daggers, Thieves' Tools, Gaming Set (any), Bedroll, 2 Pouches, Traveler's Clothes, and 16 GP.
 Background Equipment ~ Wayfarer (B)		KIT:1|Background Equipment ~ Wayfarer (B)		VISIBLE:NO	DESC:Includes 50 GP.
 
@@ -327,8 +329,7 @@ Artisan		KEY:Background Tools ~ Artisan			VISIBLE:NO	CHOOSE:ABILITY:Internal|TYP
 #Guard
 Guard		KEY:Background Tools ~ Guard			VISIBLE:NO			ADD:ABILITY|1|Internal|NORMAL|TYPE=Tool Proficiency.Tool Proficiency Gaming Set	ADD:EQUIP|TYPE=Gear.Gaming Set
 #Guide
-#Guide		KEY:Background Tools ~ Guide			VISIBLE:NO			ADD:ABILITY|1|Internal|NORMAL|TYPE=Tool Proficiency ~ Cartographer's Tools	ADD:EQUIP|TYPE=Gear.Cartographer's Tools
-Guide		KEY:Background Tools ~ Guide			VISIBLE:NO			ADD:ABILITY|1|Internal|NORMAL|TYPE=Tool Proficiency.Tool Proficiency Artisan's Tools	ADD:EQUIP|Cartographer's Tools
+Guide		KEY:Background Tools ~ Guide			VISIBLE:NO			ABILITY:Internal|AUTOMATIC|Tool Proficiency ~ Cartographer's Tools
 Wayfarer		KEY:Background Tools ~ Wayfarer			VISIBLE:NO			ABILITY:Internal|AUTOMATIC|Tool Proficiency ~ Thieves' Tools
 
 ###Block: Background Equipment Kits
@@ -342,7 +343,7 @@ Folk Hero		KEY:Background Equipment ~ Folk Hero			VISIBLE:NO	KIT:1|Folk Hero Bac
 Guild Artisan	KEY:Background Equipment ~ Guild Artisan			VISIBLE:NO	KIT:1|Guild Artisan Background	KIT:1|Alchemist's Supplies|Brewer's Supplies|Calligrapher's Supplies|Carpenter's Tools|Cartographer's Tools|Cobbler's Tools|Cook's Utensils|Disguise Kit|Forgery Kit|Glassblower's Tools|Jeweler's Tools|Leatherworker's Tools|Mason's Tools|Painter's Supplies|Potter's Tools|Smith's Tools|Tinker's Tools|Weaver's Tools|Woodcarver's Tools
 
 Guard		KEY:Background Equipment ~ Guard			VISIBLE:NO	KIT:1|Guard Background (A)|Guard Background (B)
-Guide		KEY:Background Equipment ~ Guide			VISIBLE:NO	KIT:1|Guide Background (A)|Guide Background (B)
+Guide		KEY:Background Equipment ~ Guide			VISIBLE:NO	TEMPLATE:CHOOSE:Background Equipment ~ Guide (A)|Background Equipment ~ Guide (B)
 Wayfarer		KEY:Background Equipment ~ Wayfarer			VISIBLE:NO	TEMPLATE:CHOOSE:Background Equipment ~ Wayfarer (A)|Background Equipment ~ Wayfarer (B)
 
 Hermit		KEY:Background Equipment ~ Hermit				VISIBLE:NO	KIT:1|Hermit Background
