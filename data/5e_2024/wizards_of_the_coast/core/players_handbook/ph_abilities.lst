@@ -88,7 +88,7 @@ Gnome			CATEGORY:Race									ABILITY:Internal|AUTOMATIC|Racial Traits ~ Gnome
 Goliath			CATEGORY:Race	BONUS:ABILITYPOOL|Race Base|1|TYPE=Base		ABILITY:Internal|AUTOMATIC|Racial Traits ~ Goliath
 Halfling		CATEGORY:Race									ABILITY:Internal|AUTOMATIC|Racial Traits ~ Halfling
 Human			CATEGORY:Race	BONUS:ABILITYPOOL|Race Base|1|TYPE=Base		ABILITY:Internal|AUTOMATIC|Racial Traits ~ Human	
-Orc			CATEGORY:Race	BONUS:ABILITYPOOL|Race Base|1|TYPE=Base		ABILITY:Internal|AUTOMATIC|Racial Traits ~ Orc
+Orc			CATEGORY:Race			ABILITY:Internal|AUTOMATIC|Racial Traits ~ Orc
 Tiefling		CATEGORY:Race									ABILITY:Internal|AUTOMATIC|Racial Traits ~ Tiefling
 #Half-Elf		CATEGORY:Race									ABILITY:Internal|AUTOMATIC|Racial Traits ~ Half-Elf
 #Half-Orc		CATEGORY:Race									ABILITY:Internal|AUTOMATIC|Racial Traits ~ Half-Orc
@@ -120,6 +120,7 @@ Goliath Base ~ Default	CATEGORY:Internal	TYPE:Race Base	PRERACE:1,Goliath		BONUS
 
 Racial Traits ~ Half-Elf											CATEGORY:Internal																																																																				DEFINE:HalfElfSkillVersatility|0	BONUS:VAR|HalfElfSkillVersatility|1|TYPE=Base|PREFACT:1,ABILITIES,HalfElfSkillVersatility=True	ABILITY:Half-Elf Race Trait|AUTOMATIC|Half-Elf ~ Ability Score Increase	ABILITY:Half-Elf Race Trait|AUTOMATIC|Half-Elf ~ Darkvision			ABILITY:Half-Elf Race Trait|AUTOMATIC|Half-Elf ~ Skill Versatility|PREVAREQ:HalfElfSkillVersatility,0		ABILITY:Half-Elf Race Trait|AUTOMATIC|Half-Elf ~ Languages			ABILITY:Half-Elf Race Trait|AUTOMATIC|Half-Elf ~ Fey Ancestry
 Racial Traits ~ Half-Orc											CATEGORY:Internal																																																									ABILITY:Half-Orc Race Trait|AUTOMATIC|TYPE=Base Half-Orc Race Trait
+Racial Traits ~ Orc												CATEGORY:Internal																																																																																		ABILITY:Orc Race Trait|AUTOMATIC|TYPE=Base Orc Race Trait																	BONUS:ABILITYPOOL|Orc Subrace|0
 Racial Traits ~ Tiefling												CATEGORY:Internal																																																																																																														BONUS:ABILITYPOOL|Tiefling Subrace|1
 
 Standard Tiefling	CATEGORY:Internal	TYPE:Tiefling Subrace	DESC:Default PH Race.	
@@ -294,6 +295,12 @@ Menacing				KEY:Half-Orc ~ Menacing				SORTKEY:1_Race	CATEGORY:Special Ability	T
 Relentless Endurance		KEY:Half-Orc ~ Relentless Endurance		SORTKEY:1_Race	CATEGORY:Special Ability	TYPE:Race Trait.Half-Orc Race Trait.Base Half-Orc Race Trait.SpecialQuality	DESC:When you are reduced to 0 hit points but not killed outright, you can drop to 1 hit point instead. You can't use this feature again until you finish a long rest.																																	SOURCEPAGE:p.41
 Savage Attacks			KEY:Half-Orc ~ Savage Attacks			SORTKEY:1_Race	CATEGORY:Special Ability	TYPE:Race Trait.Half-Orc Race Trait.Base Half-Orc Race Trait.SpecialQuality	DESC:When you score a critical hit with a melee weapon attack, you can roll one of the weapon's damage dice one additional time and add it to the extra damage of the critical hit.																															SOURCEPAGE:p.41
 Languages				KEY:Half-Orc ~ Languages			SORTKEY:1_Race	CATEGORY:Special Ability	TYPE:Race Trait.Half-Orc Race Trait.Base Half-Orc Race Trait.SpecialQuality	DESC:You can speak, read, and write Common and Orc. Orc is a harsh, grating language with hard consonants. It has no script of its own but is written in the Dwarvish script.															ABILITY:Language Selection|AUTOMATIC|Common|Orc										SOURCEPAGE:p.41
+
+###Block: Orc
+# Ability Name			Unique Key							SORTKEY		Category of Ability		Type										Description																																																															Template				Ability																									Bonus Ability Pool				Stat bonus				Source Page
+Adrenaline Rush					KEY:Orc ~ Adrenaline Rush					SORTKEY:1_Race	CATEGORY:Special Ability	TYPE:Race Trait.Orc Race Trait.Base Orc Race Trait.SpecialQuality	DESC:You can take the Dash action as a Bonus Action. When you do so, you gain a number of Temporary Hit Points equal to your Proficiency Bonus (%1). You can use this trait a number of times equal to your Proficiency Bonus (%1), and you regain all expended uses when you finish a Short or Long Rest.|Proficiency_Bonus
+Darkvision					KEY:Orc ~ Darkvision					SORTKEY:1_Race	CATEGORY:Special Ability	TYPE:Race Trait.Orc Race Trait.Base Orc Race Trait.SpecialQuality	DESC:YYou have Darkvision with a range of 120 feet.			BONUS:VAR|DarkvisionRange|120|TYPE=Base
+Relentless Endurance		KEY:Orc ~ Relentless Endurance			SORTKEY:1_Race	CATEGORY:Special Ability	TYPE:Race Trait.Orc Race Trait.Base Orc Race Trait.SpecialQuality	DESC:When you are reduced to 0 Hit Points but not killed outright, you can drop to 1 Hit Point instead. Once you use this trait, you can’t do so again until you finish a Long Rest.
 
 ###Block: Tiefling
 # Ability Name			Unique Key						SORTKEY			Category of Ability		Type											Var. Must Be Lower	Innate Spells																																			Description																																																				Ability									Stat bonus		Modify VAR						Source Page
