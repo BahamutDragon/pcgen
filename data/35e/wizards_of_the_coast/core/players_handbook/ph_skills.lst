@@ -30,7 +30,6 @@ Craft (Stonemasonry)				KEY:Craft (Stoneworking)	KEYSTAT:INT	USEUNTRAINED:NO				
 Craft (Trapmaking)									KEYSTAT:INT	USEUNTRAINED:NO						TYPE:Intelligence.Craft.Standard.Base.Craft (Trapmaking)												SOURCEPAGE:p.70
 Craft (Weaponsmithing)									KEYSTAT:INT	USEUNTRAINED:NO						TYPE:Intelligence.Craft.Standard.Base.Craft (Weaponsmithing)											SOURCEPAGE:p.70
 Craft (Weaving)										KEYSTAT:INT	USEUNTRAINED:NO						TYPE:Intelligence.Craft.Standard.Base.Craft (Weaving)													SOURCEPAGE:p.70
-Craft (Untrained)										KEYSTAT:INT									TYPE:Intelligence.Craft.Standard.Base								VISIBLE:EXPORT					SOURCEPAGE:p.70
 Decipher Script										KEYSTAT:INT	USEUNTRAINED:NO						TYPE:Intelligence.Standard.Base.Decipher Script														SOURCEPAGE:p.71
 Diplomacy											KEYSTAT:CHA									TYPE:Charisma.Standard.Persuasion.Base.Diplomacy													SOURCEPAGE:p.71
 Disable Device										KEYSTAT:INT	USEUNTRAINED:NO						TYPE:Intelligence.Standard.Base.Disable Device														SOURCEPAGE:p.72
@@ -53,7 +52,6 @@ Knowledge (Nature)									KEYSTAT:INT	USEUNTRAINED:NO						TYPE:Intelligence.Kn
 Knowledge (Nobility and Royalty)							KEYSTAT:INT	USEUNTRAINED:NO						TYPE:Intelligence.Knowledge.Standard.Base.Knowledge (Nobility and Royalty)									SOURCEPAGE:p.78
 Knowledge (Religion)									KEYSTAT:INT	USEUNTRAINED:NO						TYPE:Intelligence.Knowledge.Standard.Base.Knowledge (Religion)											SOURCEPAGE:p.78
 Knowledge (The Planes)									KEYSTAT:INT	USEUNTRAINED:NO						TYPE:Intelligence.Knowledge.Standard.Base.Knowledge (The Planes)											SOURCEPAGE:p.78
-Knowledge (Untrained)									KEYSTAT:INT									TYPE:Intelligence.Knowledge.Standard.Base								VISIBLE:EXPORT					SOURCEPAGE:p.78
 Listen											KEYSTAT:WIS									TYPE:Wisdom.Standard.Perception.Base.Listen														SOURCEPAGE:p.78
 Move Silently										KEYSTAT:DEX				ACHECK:YES				TYPE:Dexterity.Standard.Stealth.Base.Move Silently													SOURCEPAGE:p.79
 Open Lock											KEYSTAT:DEX	USEUNTRAINED:NO						TYPE:Dexterity.Standard.Base.Open Lock															SOURCEPAGE:p.79										TEMPDESC:Attempting an Open Lock check without a set of thieves' tools imposes a -2 circumstance penalty on the check	TEMPBONUS:PC|SKILL|Open Lock|-2|TYPE=Circumstance|!PREITEM:1,TYPE=ThiefTools
@@ -191,3 +189,24 @@ Listen.MOD			SITUATION:Aberration|Animal|Construct|Dragon|Elemental|Fey|Giant|Hu
 Sense Motive.MOD		SITUATION:Aberration|Animal|Construct|Dragon|Elemental|Fey|Giant|Humanoid (Aquatic)|Humanoid (Dwarf)|Humanoid (Elf)|Humanoid (Goblinoid)|Humanoid (Gnoll)|Humanoid (Gnome)|Humanoid (Halfling)|Humanoid (Human|Humanoid (Orc)|Humanoid (Reptilian)|Magical Beast|Monstrous Humanoid|Ooze|Outsider (Air)|Outsider (Earth)|Outsider (Fire)|Outsider (Water)|Outsider (Lawful)|Outsider (Chaotic)|Outsider (Good)|Outsider (Evil)|Outsider (Native)|Plant|Undead|Vermin
 Spot.MOD			SITUATION:Aberration|Animal|Construct|Dragon|Elemental|Fey|Giant|Humanoid (Aquatic)|Humanoid (Dwarf)|Humanoid (Elf)|Humanoid (Goblinoid)|Humanoid (Gnoll)|Humanoid (Gnome)|Humanoid (Halfling)|Humanoid (Human|Humanoid (Orc)|Humanoid (Reptilian)|Magical Beast|Monstrous Humanoid|Ooze|Outsider (Air)|Outsider (Earth)|Outsider (Fire)|Outsider (Water)|Outsider (Lawful)|Outsider (Chaotic)|Outsider (Good)|Outsider (Evil)|Outsider (Native)|Plant|Undead|Vermin
 Survival.MOD		SITUATION:Aberration|Animal|Construct|Dragon|Elemental|Fey|Giant|Humanoid (Aquatic)|Humanoid (Dwarf)|Humanoid (Elf)|Humanoid (Goblinoid)|Humanoid (Gnoll)|Humanoid (Gnome)|Humanoid (Halfling)|Humanoid (Human|Humanoid (Orc)|Humanoid (Reptilian)|Magical Beast|Monstrous Humanoid|Ooze|Outsider (Air)|Outsider (Earth)|Outsider (Fire)|Outsider (Water)|Outsider (Lawful)|Outsider (Chaotic)|Outsider (Good)|Outsider (Evil)|Outsider (Native)|Plant|Undead|Vermin
+
+#
+# Untrained Skills
+#
+
+# Group
+Craft (Untrained)			KEYSTAT:INT		TYPE:Intelligence.Craft				VISIBLE:EXPORT
+Knowledge (Untrained)		KEYSTAT:INT		TYPE:Intelligence.Knowledge			VISIBLE:EXPORT
+Perform (Untrained)		KEYSTAT:CHA		TYPE:Charisma.Perform				VISIBLE:EXPORT
+Profession (Untrained)		KEYSTAT:WIS		TYPE:Wisdom.Perform				VISIBLE:EXPORT
+
+# Specific - These get disabled if the character gains a rank.
+Decipher Script			KEYSTAT:INT		TYPE:Intelligence.Decipher Script		VISIBLE:EXPORT				PREMULT:2,[PREVAREQ:UseUntrainedSkills,1],[!PRESKILL:1,Decipher Script=1]
+Disable Device (Untrained)	KEYSTAT:INT		TYPE:Intelligence.Disable Device		VISIBLE:EXPORT				PREMULT:2,[PREVAREQ:UseUntrainedSkills,1],[!PRESKILL:1,Disable Device=1]
+Handle Animal (Untrained)	KEYSTAT:CHA		TYPE:Charisma.Handle Animal			VISIBLE:EXPORT				PREMULT:2,[PREVAREQ:UseUntrainedSkills,1],[!PRESKILL:1,Handle Animal=1]
+Sleight of Hand (Untrained)	KEYSTAT:DEX		TYPE:Dexterity					VISIBLE:EXPORT	ACHECK:YES		PREMULT:2,[PREVAREQ:UseUntrainedSkills,1],[!PRESKILL:1,Sleight of Hand=1]
+Spellcraft (Untrained)		KEYSTAT:INT		TYPE:Intelligence					VISIBLE:EXPORT				PREMULT:2,[PREVAREQ:UseUntrainedSkills,1],[!PRESKILL:1,Spellcraft=1]
+Tumble (Untrained)		KEYSTAT:DEX		TYPE:Dexterity					VISIBLE:EXPORT	ACHECK:YES		PREMULT:2,[PREVAREQ:UseUntrainedSkills,1],[!PRESKILL:1,Tumble=1]
+Use Magic Device (Untrained)	KEYSTAT:CHA		TYPE:Charisma					VISIBLE:EXPORT				PREMULT:2,[PREVAREQ:UseUntrainedSkills,1],[!PRESKILL:1,Use Magic Device=1]
+
+
