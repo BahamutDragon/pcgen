@@ -1,8 +1,8 @@
-# CVS $Revision: $ $Author: $ -- Thu Aug  7 12:47:32 2014 -- reformated by prettylst.pl v1.51 (build 24365)
+# Sat Jan 31 17:10:20 2026 -- reformated by PCGen PrettyLST v6.08.00
 
 #266
 #Armor
-# Modifier Name	Unique Key				Naming Format	Naming Option	Type		Plus		Cost									Visible		Required Type	Prohibited Type	Stat bonus					Special Property						Virtual Feat		Choose					Nb of Charges
+# Modifier Name	Unique Key				Naming Format	Naming Option	Type		Plus		Cost									Visible		Type granted	Required Type	Prohibited Type	Stat bonus					Bonus Armor Mods																																																	Special Property						Ability					Choose					Nb of Charges	Define
 Burning		KEY:BURNING_ARMR									TYPE:Armor			COST:90000
 Stonemeld		KEY:STONEMELD_ARMR								TYPE:Armor			COST:80000
 Underwater Action	KEY:UNDERWATER_ACTION_ARMR							TYPE:Armor			COST:86000
@@ -10,15 +10,15 @@ Whirlwind		KEY:WHIRLWIND_ARMR								TYPE:Armor			COST:90000
 #Weapon
 Burning		KEY:BURNING_WEAP									TYPE:Weapon	PLUS:2
 Earthbound		KEY:EARTHBOUND_WEAP								TYPE:Weapon	PLUS:1
-Finesse		KEY:FINESSE_WEAP									TYPE:Weapon	PLUS:3													PRETYPE:1,Light				BONUS:STAT|DEX|2|TYPE=Enhancement									ABILITY:FEAT|VIRTUAL|Weapon Finesse
+Finesse		KEY:FINESSE_WEAP									TYPE:Weapon	PLUS:3																PRETYPE:1,Light				BONUS:STAT|DEX|2|TYPE=Enhancement																																																												ABILITY:FEAT|VIRTUAL|Weapon Finesse
 Keeper's Fang	KEY:KEEPERS_FANG_WEAP								TYPE:Weapon	PLUS:4
 Waterborn		KEY:WATERBORN_WEAP								TYPE:Weapon	PLUS:1
 
 
 #
-Eternal 0 lvl	KEY:ETERNAL_WAND_LV0		FORMATCAT:FRONT	NAMEOPT:SPELL	TYPE:Wand			COST:(15*(1/2)+%SPELLCOST+(5*%SPELLXPCOST))+460		VISIBLE:QUALIFY				!PRETYPE:1,Magic							SPROP:Charges are replenished once per day					CHOOSE:EQBUILDER.SPELL|ANY|0|0	CHARGES:2|2
-Eternal 1 lvl	KEY:ETERNAL_WAND_LV1		FORMATCAT:FRONT	NAMEOPT:SPELL	TYPE:Wand			COST:(15+%SPELLCOST+(5*%SPELLXPCOST))+820			VISIBLE:QUALIFY				!PRETYPE:1,Magic							SPROP:Charges are replenished once per day					CHOOSE:EQBUILDER.SPELL|ANY|1|1	CHARGES:2|2
-Eternal 2 lvl	KEY:ETERNAL_WAND_LV2		FORMATCAT:FRONT	NAMEOPT:SPELL	TYPE:Wand			COST:((15*2*3)+%SPELLCOST+(5*%SPELLXPCOST))+4420	VISIBLE:QUALIFY				!PRETYPE:1,Magic							SPROP:Charges are replenished once per day					CHOOSE:EQBUILDER.SPELL|ANY|2|2	CHARGES:2|2
-Eternal 3 lvl	KEY:ETERNAL_WAND_LV3		FORMATCAT:FRONT	NAMEOPT:SPELL	TYPE:Wand			COST:((15*3*5)+%SPELLCOST+(5*%SPELLXPCOST))+10900	VISIBLE:QUALIFY				!PRETYPE:1,Magic							SPROP:Charges are replenished once per day					CHOOSE:EQBUILDER.SPELL|ANY|3|3	CHARGES:2|2
+Eternal 0 lvl	KEY:ETERNAL_WAND_LV0		FORMATCAT:FRONT	NAMEOPT:SPELL	TYPE:Wand			COST:(15*(1/2)+%SPELLCOST+(5*%SPELLXPCOST))+460		VISIBLE:QUALIFY							!PRETYPE:1,Magic																																																										SPROP:Charges are replenished once per day							CHOOSE:EQBUILDER.SPELL|ANY|0|0	CHARGES:2|2
+Eternal 1 lvl	KEY:ETERNAL_WAND_LV1		FORMATCAT:FRONT	NAMEOPT:SPELL	TYPE:Wand			COST:(15+%SPELLCOST+(5*%SPELLXPCOST))+820			VISIBLE:QUALIFY							!PRETYPE:1,Magic																																																										SPROP:Charges are replenished once per day							CHOOSE:EQBUILDER.SPELL|ANY|1|1	CHARGES:2|2
+Eternal 2 lvl	KEY:ETERNAL_WAND_LV2		FORMATCAT:FRONT	NAMEOPT:SPELL	TYPE:Wand			COST:((15*2*3)+%SPELLCOST+(5*%SPELLXPCOST))+4420	VISIBLE:QUALIFY							!PRETYPE:1,Magic																																																										SPROP:Charges are replenished once per day							CHOOSE:EQBUILDER.SPELL|ANY|2|2	CHARGES:2|2
+Eternal 3 lvl	KEY:ETERNAL_WAND_LV3		FORMATCAT:FRONT	NAMEOPT:SPELL	TYPE:Wand			COST:((15*3*5)+%SPELLCOST+(5*%SPELLXPCOST))+10900	VISIBLE:QUALIFY							!PRETYPE:1,Magic																																																										SPROP:Charges are replenished once per day							CHOOSE:EQBUILDER.SPELL|ANY|3|3	CHARGES:2|2
 
-Warforged Body	TYPE:Armor	VISIBLE:NO		BONUS:EQMARMOR|SPELLFAILURE|max(0,WarforgedSpellfailure)	BONUS:EQMARMOR|MAXDEX|WarforgedMaxDex	BONUS:EQMARMOR|ACCHECK|min(0,WarforgedACCheck)	DEFINE:WarforgedSpellfailure|0	DEFINE:WarforgedMaxDex|0	DEFINE:WarforgedACCheck|0	ITYPE:Armor	BONUS:EQMARMOR|SPELLFAILURE|100|!PRERACE:1,Warforged	BONUS:EQMARMOR|MAXDEX|-8|!PRERACE:1,Warforged	BONUS:EQMARMOR|ACCHECK|-100|!PRERACE:1,Warforged
+Warforged Body												TYPE:Armor												VISIBLE:NO		ITYPE:Armor														BONUS:EQMARMOR|SPELLFAILURE|max(0,WarforgedSpellfailure)	BONUS:EQMARMOR|MAXDEX|WarforgedMaxDex	BONUS:EQMARMOR|ACCHECK|min(0,WarforgedACCheck)	BONUS:EQMARMOR|SPELLFAILURE|100|!PRERACE:1,Warforged	BONUS:EQMARMOR|MAXDEX|-8|!PRERACE:1,Warforged	BONUS:EQMARMOR|ACCHECK|-100|!PRERACE:1,Warforged																								DEFINE:WarforgedSpellfailure|0	DEFINE:WarforgedMaxDex|0	DEFINE:WarforgedACCheck|0
