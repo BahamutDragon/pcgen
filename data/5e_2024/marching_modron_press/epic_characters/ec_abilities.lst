@@ -1,0 +1,235 @@
+
+CATEGORY=Internal|Default.MOD	BONUS:VAR|StatCapSTR|24|TYPE=Base|PREPCLEVEL:MIN=21|PRECHARACTERTYPE:1,PC,NPC
+CATEGORY=Internal|Default.MOD	BONUS:VAR|StatCapDEX|24|TYPE=Base|PREPCLEVEL:MIN=21|PRECHARACTERTYPE:1,PC,NPC
+CATEGORY=Internal|Default.MOD	BONUS:VAR|StatCapCON|24|TYPE=Base|PREPCLEVEL:MIN=21|PRECHARACTERTYPE:1,PC,NPC
+CATEGORY=Internal|Default.MOD	BONUS:VAR|StatCapINT|24|TYPE=Base|PREPCLEVEL:MIN=21|PRECHARACTERTYPE:1,PC,NPC
+CATEGORY=Internal|Default.MOD	BONUS:VAR|StatCapWIS|24|TYPE=Base|PREPCLEVEL:MIN=21|PRECHARACTERTYPE:1,PC,NPC
+CATEGORY=Internal|Default.MOD	BONUS:VAR|StatCapCHA|24|TYPE=Base|PREPCLEVEL:MIN=21|PRECHARACTERTYPE:1,PC,NPC
+
+# Epic Barbarian
+Ability Score Improvement	KEY:Epic Barbarian ~ Ability Score Improvement		SOURCEPAGE:p.9	SORTKEY:Class Barbarian z	CATEGORY:Special Ability	TYPE:Barbarian Class Feature.SpecialQuality.Class Feature	DESC:When you reach 21st level, and again at 25th and 29th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. Contrary to earlier levels, you can now improve your ability scores up to 24 using this feature, except for Strength and Constitution, which you can improve to 28.	BONUS:VAR|StatCapSTR,StatCapSTR|28|TYPE=Base	BONUS:VAR|POOL_Character_Advancement_Selection|2*((BarbarianLVL>=21)+(BarbarianLVL>=25)+(BarbarianLVL>=29))
+Fast Movement			KEY:Epic Barbarian ~ Fast Movement				SOURCEPAGE:p.9	SORTKEY:Class Barbarian z	CATEGORY:Special Ability	TYPE:Barbarian Class Feature.SpecialQuality.Class Feature	DESC:Starting at 21st level, your speed increases by an additional 10 feet while you aren't wearing heavy armor, for a total of 20 feet. At 25th level your speed increases by another 10 feet while you aren't wearing heavy armor, for a total of 30 feet.	BONUS:MOVEADD|TYPE.Walk|BarbarianFastMovement|!PREEQUIP:1,TYPE=Armor.HeavyArmor	DEFINE:BarbarianFastMovement|0	BONUS:VAR|BarbarianFastMovement|10*((BarbarianLVL>=21)+(BarbarianLVL>=25))
+Blindsight				KEY:Epic Barbarian ~ Blindsight				SOURCEPAGE:p.9	SORTKEY:Class Barbarian z	CATEGORY:Special Ability	TYPE:Barbarian Class Feature.SpecialQuality.Class Feature	DESC:Your senses have become so honed that you surpass the sensory limitations of mere mortals, being able to accurately predict an opponent's movements even with your eyes closed. Beginning at 22nd level, you gain blindsight with a range of 5 ft., and an additional 5 ft. of blindsight while raging.
+Brutal Critical			KEY:Epic Barbarian ~ Brutal Critical			SOURCEPAGE:p.9	SORTKEY:Class Barbarian z	CATEGORY:Special Ability	TYPE:Barbarian Class Feature.SpecialQuality.Class Feature	DESC:Beginning at 23rd level, you can roll four additional weapon damage die when determining the extra damage for a critical hit with a melee attack. This increases to five additional dice at 29th level.
+Indomitable Vigor			KEY:Epic Barbarian ~ Indomitable Vigor			SOURCEPAGE:p.9	SORTKEY:Class Barbarian z	CATEGORY:Special Ability	TYPE:Barbarian Class Feature.SpecialQuality.Class Feature	DESC:Beginning at 24th level, if your total for a Constitution check is less than your Constitution score, you can use that score in place of the total.
+Unmatched Brutality		KEY:Epic Barbarian ~ Unmatched Brutality			SOURCEPAGE:p.9	SORTKEY:Class Barbarian z	CATEGORY:Special Ability	TYPE:Barbarian Class Feature.SpecialQuality.Class Feature	DESC:Years of hacking and slashing at your enemies, has taught you everything there is to know about creating and abusing openings in an enemy's defense, as well as opening or closing yourself to opportunistic strikes. Beginning at 26th level, when using Reckless Attack, you can choose whether hostile creatures have advantage against you or not, and attacks of opportunity against you are made at disadvantage unless you choose otherwise.
+Path Feature			KEY:Epic Barbarian ~ Path Feature				SOURCEPAGE:p.10	SORTKEY:Class Barbarian z	CATEGORY:Special Ability	TYPE:Barbarian Class Feature.SpecialQuality.Class Feature
+Death Save Advantage		KEY:Epic Barbarian ~ Death Save Advantage			SOURCEPAGE:p.10	SORTKEY:Class Barbarian z	CATEGORY:Special Ability	TYPE:Barbarian Class Feature.SpecialQuality.Class Feature	DESC:Your battle hardened physicality has made you very difficult to kill. Starting at 30th level any death saving throws you make are made with advantage.
+Primal Instinct			KEY:Epic Barbarian ~ Primal Instinct			SOURCEPAGE:p.10	SORTKEY:Class Barbarian z	CATEGORY:Special Ability	TYPE:Barbarian Class Feature.SpecialQuality.Class Feature	DESC:At 30th level, you choose a primal instinct and gain its features.	DESC: [Brutal] Your critical hits threaten to obliterate your foes. You can roll a total of seven additional weapon damage dice when determining the extra damage for a critical hit with a melee attack.|PREABILITY:1,CATEGORY=CF Choice,Epic Barbarian ~ Primal Instinct ~ Brutal	DESC: [Savage] Taking injuries while raging fuels the fire within you. While raging, whenever you are hit with a melee attack, you gain a number of Savagery Dice equal to the damage taken divided by 5. You can never have more than 3 Savagery Dice at any one time. Your stored Savagery Dice last until your rage ends, until you are healed, or after 1 minute. When you hit a creature with a melee weapon attack, you can expend any number of Savagery Dice you have stored and add the dice to the attack's damage roll. The damage of your Savagery Dice equals your weapon damage die.|PREABILITY:1,CATEGORY=CF Choice,Epic Barbarian ~ Primal Instinct ~ Savage	DESC: [Tribal] Your very presence makes your allies more resilient. While raging, your allies within 5 feet of you are resistant to bludgeoning, piercing, and slashing damage.|PREABILITY:1,CATEGORY=CF Choice,Epic Barbarian ~ Primal Instinct ~ Tribal	DESC: [Undaunted] You are near impossible to kill. If you drop to 0 hit points and don't die outright, you can make a DC 5 Constitution saving throw with advantage. If you succeed, you drop to 1 hit point instead, and your rage is automatically activated if it isn't already. Each time you use this feature after the first, the DC increases by 5. When you finish a short or long rest, the DC resets to 5. This feature replaces your Relentless Rage feature.|PREABILITY:1,CATEGORY=CF Choice,Epic Barbarian ~ Primal Instinct ~ Undaunted	DESC: [Wild] Your vitality is unmatched. Your hit point maximum increases by 30.|PREABILITY:1,CATEGORY=CF Choice,Epic Barbarian ~ Primal Instinct ~ Wild
+
+# CHOICE
+Brutal	KEY:Epic Barbarian ~ Primal Instinct ~ Brutal		CATEGORY:CF Choice	TYPE:Epic Barbarian ~ Primal Instinct	DESC: [Brutal] Your critical hits threaten to obliterate your foes. You can roll a total of seven additional weapon damage dice when determining the extra damage for a critical hit with a melee attack.
+Savage	KEY:Epic Barbarian ~ Primal Instinct ~ Savage		CATEGORY:CF Choice	TYPE:Epic Barbarian ~ Primal Instinct	DESC: [Savage] Taking injuries while raging fuels the fire within you. While raging, whenever you are hit with a melee attack, you gain a number of Savagery Dice equal to the damage taken divided by 5. You can never have more than 3 Savagery Dice at any one time. Your stored Savagery Dice last until your rage ends, until you are healed, or after 1 minute. When you hit a creature with a melee weapon attack, you can expend any number of Savagery Dice you have stored and add the dice to the attack's damage roll. The damage of your Savagery Dice equals your weapon damage die.
+Tribal	KEY:Epic Barbarian ~ Primal Instinct ~ Tribal		CATEGORY:CF Choice	TYPE:Epic Barbarian ~ Primal Instinct	DESC: [Tribal] Your very presence makes your allies more resilient. While raging, your allies within 5 feet of you are resistant to bludgeoning, piercing, and slashing damage.
+Undaunted	KEY:Epic Barbarian ~ Primal Instinct ~ Undaunted	CATEGORY:CF Choice	TYPE:Epic Barbarian ~ Primal Instinct	DESC: [Undaunted] You are near impossible to kill. If you drop to 0 hit points and don't die outright, you can make a DC 5 Constitution saving throw with advantage. If you succeed, you drop to 1 hit point instead, and your rage is automatically activated if it isn't already. Each time you use this feature after the first, the DC increases by 5. When you finish a short or long rest, the DC resets to 5. This feature replaces your Relentless Rage feature.
+Wild		KEY:Epic Barbarian ~ Primal Instinct ~ Wild		CATEGORY:CF Choice	TYPE:Epic Barbarian ~ Primal Instinct	DESC: [Wild] Your vitality is unmatched. Your hit point maximum increases by 30.
+
+CATEGORY=Special Ability|Epic Barbarian ~ Path Feature.MOD	ABILITY:Special Ability|AUTOMATIC|Epic Barbarian ~ Path of the Berserker|PREABILITY:1,CATEGORY=Special Ability,Primal Path ~ Path of the Berserker
+CATEGORY=Special Ability|Epic Barbarian ~ Path Feature.MOD	ABILITY:Special Ability|AUTOMATIC|Epic Barbarian ~ Path of the Totem Warrior|PREABILITY:1,CATEGORY=Special Ability,Primal Path ~ Path of the Totem Warrior
+
+
+# Paths
+Path of the Berserker		KEY:Epic Barbarian ~ Path of the Berserker	SOURCEPAGE:p.10	SORTKEY:Class Barbarian z	CATEGORY:Special Ability	TYPE:Barbarian Class Feature.SpecialQuality.Class Feature	INFO:ReqSource|Player's Handbook	ABILITY:Barbarian Class Feature|AUTOMATIC|Epic Barbarian ~ Path of the Berserker ~ Crazed Frenzy|PRECLASS:1,Barbarian=27
+Path of the Totem Warrior	KEY:Epic Barbarian ~ Path of the Totem Warrior	SOURCEPAGE:p.10	SORTKEY:Class Barbarian z	CATEGORY:Special Ability	TYPE:Barbarian Class Feature.SpecialQuality.Class Feature	INFO:ReqSource|Player's Handbook, Sword Coast Adventurer's Guide, Heroes of the Orient, & Totem of the Duck	ABILITY:Barbarian Class Feature|AUTOMATIC|Epic Barbarian ~ Path of the Totem Warrior ~ Totem Symbiosis|PRECLASS:1,Barbarian=27
+
+# Path of the Berserker
+Crazed Frenzy		KEY:Epic Barbarian ~ Path of the Berserker ~ Crazed Frenzy	SOURCEPAGE:p.10	SORTKEY:Class Barbarian z	CATEGORY:Special Ability	TYPE:Barbarian Class Feature.SpecialQuality.Class Feature	DESC:Beginning at 27th level, when you go into a frenzy while you raging, you can make two melee weapon attacks as a bonus action rather than one.
+
+# Path of the Totem Warrior
+Totem Symbiosis		KEY:Epic Barbarian ~ Path of the Totem Warrior ~ Totem Symbiosis	SOURCEPAGE:p.10	SORTKEY:Class Barbarian z	CATEGORY:Special Ability	TYPE:Barbarian Class Feature.SpecialQuality.Class Feature	DESC:Beginning at 27th level, you may choose one of the following totems.	BONUS:ABILITYPOOL|Epic Barbarian Totem Symbiosis|1	DESC: [Bear] raging you cannot be knocked prone or moved against your will by any means as long as you are conscious.|PREABILITY:1,CATEGORY=CF Choice,Epic Barbarian Totem Symbiosis ~ Bear	DESC: [Duck] While raging you add twice your Rage Damage to your melee attacks that hit a creature frightened of you.|PREABILITY:1,CATEGORY=CF Choice,Epic Barbarian Totem Symbiosis ~ Duck	DESC: [Eagle] You don't take damage from falling 30 feet or less, and when you fall longer distances you take only half as much damage from the fall.|PREABILITY:1,CATEGORY=CF Choice,Epic Barbarian Totem Symbiosis ~ Eagle	DESC: [Wolf] While you're raging, you can use a bonus action to attempt to grapple an opponent.|PREABILITY:1,CATEGORY=CF Choice,Epic Barbarian Totem Symbiosis ~ Wolf	DESC: [Elk] Your movement speed cannot be reduced by any means, and it only costs you 5 feet of movement to stand up from prone.|PREABILITY:1,CATEGORY=CF Choice,Epic Barbarian Totem Symbiosis ~ Elk	DESC: [Phoenix] If you fail a saving throw while raging, you can choose to succeed instead. Once you use this feature, you must finish a short or long rest before you can use it again.|PREABILITY:1,CATEGORY=CF Choice,Epic Barbarian Totem Symbiosis ~ Phoenix	DESC: [Tiger] You have advantage on Stealth checks and you can take the Hide action as a bonus action.|PREABILITY:1,CATEGORY=CF Choice,Epic Barbarian Totem Symbiosis ~ Tiger
+
+# Totem Symbiosis
+Bear		KEY:Epic Barbarian Totem Symbiosis ~ Bear			CATEGORY:CF Choice	TYPE:Epic Barbarian Totem Symbiosis		DESC:[Bear] raging you cannot be knocked prone or moved against your will by any means as long as you are conscious.
+Duck		KEY:Epic Barbarian Totem Symbiosis ~ Duck			CATEGORY:CF Choice	TYPE:Epic Barbarian Totem Symbiosis		DESC:[Duck] While raging you add twice your Rage Damage to your melee attacks that hit a creature frightened of you.
+Eagle		KEY:Epic Barbarian Totem Symbiosis ~ Eagle		CATEGORY:CF Choice	TYPE:Epic Barbarian Totem Symbiosis		DESC:[Eagle] You don't take damage from falling 30 feet or less, and when you fall longer distances you take only half as much damage from the fall.
+Wolf		KEY:Epic Barbarian Totem Symbiosis ~ Wolf			CATEGORY:CF Choice	TYPE:Epic Barbarian Totem Symbiosis		DESC:[Wolf] While you're raging, you can use a bonus action to attempt to grapple an opponent.
+Elk		KEY:Epic Barbarian Totem Symbiosis ~ Elk			CATEGORY:CF Choice	TYPE:Epic Barbarian Totem Symbiosis		DESC:[Elk] Your movement speed cannot be reduced by any means, and it only costs you 5 feet of movement to stand up from prone.
+Phoenix	KEY:Epic Barbarian Totem Symbiosis ~ Phoenix		CATEGORY:CF Choice	TYPE:Epic Barbarian Totem Symbiosis		DESC:[Phoenix] If you fail a saving throw while raging, you can choose to succeed instead. Once you use this feature, you must finish a short or long rest before you can use it again.
+Tiger		KEY:Epic Barbarian Totem Symbiosis ~ Tiger		CATEGORY:CF Choice	TYPE:Epic Barbarian Totem Symbiosis		DESC:[Tiger] You have advantage on Stealth checks and you can take the Hide action as a bonus action.
+
+###Block - Epic Bard
+CATEGORY=CLASS|Bard.MOD	BONUS:ABILITYPOOL|Bardic Legacy|1|PRECLASS:1,Bard=21
+
+###Block: Bard
+
+# Bardic Legacy - d6 Effect
+# You don't simply entertain; you have reached heights unimaginable by most other bards. Your very voice might have become imbued with bardic magic, or you might leave behind a legacy that will leave others breathless for generations to come. Work with your DM to determine how a bardic legacy might help give your character have an epic impact on the world and help drive the story forward.
+Bardic Legacy ~ 1	CATEGORY:Special Ability	SOURCEPAGE:p.11	TYPE:SpecialQuality.Bardic Legacy	DESC:You have made a magnum opus that is world renowned.
+Bardic Legacy ~ 2	CATEGORY:Special Ability	SOURCEPAGE:p.11	TYPE:SpecialQuality.Bardic Legacy	DESC:When playing an instrument, for a few seconds you can make it sound as if an entire orchestra is playing.
+Bardic Legacy ~ 3	CATEGORY:Special Ability	SOURCEPAGE:p.11	TYPE:SpecialQuality.Bardic Legacy	DESC:You have a loyal fan base in every city.
+Bardic Legacy ~ 4	CATEGORY:Special Ability	SOURCEPAGE:p.11	TYPE:SpecialQuality.Bardic Legacy	DESC:You always get glowing reviews after performing at a new venue.
+Bardic Legacy ~ 5	CATEGORY:Special Ability	SOURCEPAGE:p.11	TYPE:SpecialQuality.Bardic Legacy	DESC:Others find it difficult to take their eyes of you while you perform.
+Bardic Legacy ~ 6	CATEGORY:Special Ability	SOURCEPAGE:p.11	TYPE:SpecialQuality.Bardic Legacy	DESC:You have created a new genre of music that others attempt to imitate.
+
+
+# Bard Class Feature
+Ability Score Improvement		KEY:Epic Bard ~ Ability Score Improvement		SOURCEPAGE:p.11	CATEGORY:Special Ability	TYPE:Bard Class Feature.Class Feature	DESC:When you reach 21st level, and again at 25th and 29th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. Contrary to earlier levels, you can now improve your ability scores up to 24 using this feature.		BONUS:VAR|POOL_Character_Advancement_Selection|2*((BardLVL>=21)+(BardLVL>=25)+(BardLVL>=29))
+Song of Rest Improvement		KEY:Epic Bard ~ Song of Rest Improvement		SOURCEPAGE:p.11	CATEGORY:Special Ability	TYPE:Bard Class Feature.Class Feature	DESC:Beginning at 21st level, the extra hit points generated by Song of Rest increase to 2d12. Additionally, the time required for a short and long rest is halved for you and any allies within 60 feet of you that can see or hear you.
+Epic Spell Capacity			KEY:Epic Bard ~ Epic Spell Capacity			SOURCEPAGE:p.11	CATEGORY:Special Ability	TYPE:Bard Class Feature.Class Feature	DESC:Beginning at 22nd level, you gain an additional 6th and 7th level spell slot, at 26th level you gain another 8th and 9th level spell slot, and at 29th level you gain a 10th, 11th and 12th level spell slot.
+Countercharm Improvement		KEY:Epic Bard ~ Countercharm Improvement		SOURCEPAGE:p.11	CATEGORY:Special Ability	TYPE:Bard Class Feature.Class Feature	DESC:Beginning at 23rd level, you can use your Countercharm feature as a bonus action.
+Bardic Inspiration Improvement	KEY:Epic Bard ~ Bardic Inspiration Improvement	SOURCEPAGE:p.11	CATEGORY:Special Ability	TYPE:Bard Class Feature.Class Feature	DESC:Starting at 24th level, when a creature rolls one of your Bardic Inspiration dice, it can roll the die twice and take either result.
+Empathic Learning				KEY:Epic Bard ~ Empathic Learning			SOURCEPAGE:p.12	CATEGORY:Special Ability	TYPE:Bard Class Feature.Class Feature	DESC:Upon reaching 25th level, you can choose a 1st level feature from any class and adopt it as your own as if you had one level in the chosen class. The feature can't be a feature that is restricted to a particular archetype of the chosen class. You could, for example, choose the barbarian's Rage feature, the fighter's Second Wind feature, or the paladin's Divine Sense feature.
+Bard College feature			KEY:Epic Bard ~ Bard College feature		SOURCEPAGE:p.12	CATEGORY:Special Ability	TYPE:Bard Class Feature.Class Feature	DESC:Your chosen college grants you features at 27th level.
+Force of Personality			KEY:Epic Bard ~ Force of Personality		SOURCEPAGE:p.12	CATEGORY:Special Ability	TYPE:Bard Class Feature.Class Feature	DESC:Starting at 28th level, your Charisma score increases by 2, as does your maximum for that score.
+Legendary Wordsmith			KEY:Epic Bard ~ Legendary Wordsmith			SOURCEPAGE:p.12	CATEGORY:Special Ability	TYPE:Bard Class Feature.Class Feature	DESC:Starting at 28th level, when you would grant another creature a Bardic Inspiration die, you can choose to grant that creature two dice instead. The creature chooses whether to use the dice one at a time or simultaneously.
+Bardic Supremacy				KEY:Epic Bard ~ Bardic Supremacy			SOURCEPAGE:p.12	CATEGORY:Special Ability	TYPE:Bard Class Feature.Class Feature	DESC:At 30th level, your proficiency bonus increases by 1.
+
+
+#
+
+#	SOURCELONG:Player's Handbook
+CATEGORY=Special Ability|Bard College ~ College of Lore.MOD		ABILITY:Bard Class Feature|AUTOMATIC|College of Lore ~ Expert Casting|PRECLASS:1,Bard=27
+CATEGORY=Special Ability|Bard College ~ College of Valor.MOD	ABILITY:Bard Class Feature|AUTOMATIC|College of Valor ~ Inspire Legion|PRECLASS:1,Bard=27
+#
+
+Expert Casting	KEY:College of Lore ~ Expert Casting	CATEGORY:Special Ability	TYPE:Bard Class Feature.Class Feature	DESC:Beginning at 27th level, casting spells from a specific school comes easily to you. Choose a school of magic. Casting spells from your chosen school will only expend a fraction of your spellcasting efforts. When you cast a bard spell of 3rd level or higher from that school, you regain one expended spell slot. The slot you regain must be of at least two levels lower than the spell you cast and can't be higher than 5th level.
+Inspire Legion	KEY:College of Valor ~ Inspire Legion	CATEGORY:Special Ability	TYPE:Bard Class Feature.Class Feature	DESC:When you would grant another creature a Bardic Inspiration die, you can instead choose to grant up to five eligible creatures of your choice a Bardic Inspiration die. You only expend one use of Bardic Inspiration when doing so. You can't use this feature on a turn where you also use your Legendary Wordsmith feature. Once you use this feature, you can't use it again until you finish a long rest.
+
+
+# Blood Hunter - See Support
+
+# Epic Cleric (PH)
+
+
+# Epic Druid (PH)
+
+# Epic Fighter (PH)
+
+# Epic Kensai ()
+
+# Epic Monk (PH)
+
+# Epic Paladin (PH)
+###Block - Paladin
+CATEGORY=CLASS|Paladin.MOD	BONUS:ABILITYPOOL|Gift of Exaltation|1|PRECLASS:1,Paladin=21
+
+
+
+Gift of Exaltation	CATEGORY:Special Ability	SOURCEPAGE:p.28	TYPE:SpecialQuality	DESC:You have gained great renown throughout the lands as a divine warrior and a true paragon of your oath. For your many great deeds, you have been gifted a remarkable object, either by a regent, a holy order, directly from your deity, or perhaps the common folk have gathered all of their wealth in order to procure this object for you. This much is certain: carrying it with you, it will signal who you are and inspire awe in those around you.
+
+# Gift of Exaltation
+# d6 Gift
+Gift of Exaltation ~ 1	CATEGORY:Special Ability	SOURCEPAGE:p.28	TYPE:SpecialQuality.Gift of Exaltation	DESC:Book. Your crest or holy symbol is etched into the cover. Inside, each page is gilded paper, written on them are stories of your many adventures. Faint, melancholy music is heard when you open the book.
+Gift of Exaltation ~ 2	CATEGORY:Special Ability	SOURCEPAGE:p.28	TYPE:SpecialQuality.Gift of Exaltation	DESC:Sword Hilt. Beautifully crafted from adamantine, overlaid with white gold, and your crest or holy symbol engraved, this hilt can be have a blade fastened within. When you hold a sword made from the hilt and a blade, the blade hums with vibrations as if cutting the very air.
+Gift of Exaltation ~ 3	CATEGORY:Special Ability	SOURCEPAGE:p.28	TYPE:SpecialQuality.Gift of Exaltation	DESC:Gemstone. A fist-sized gem in the shape of your crest or holy symbol. Its type and color is whatever best reflects your oath, and it radiates with divine light. A blacksmith can fasten the gem into your armor, helmet, shield, or weapon.
+Gift of Exaltation ~ 4	CATEGORY:Special Ability	SOURCEPAGE:p.28	TYPE:SpecialQuality.Gift of Exaltation	DESC:Hammer. A ceremonial light hammer crafted from the finest silver. The grip is made to resemble you standing proudly in your armor.
+Gift of Exaltation ~ 5	CATEGORY:Special Ability	SOURCEPAGE:p.28	TYPE:SpecialQuality.Gift of Exaltation	DESC:Relic. An object of great historical or religious importance. It could be the crown of a legendary ruler, a bone from a dead saint, a weapon that was used to slay a creature of legend, or similar.
+Gift of Exaltation ~ 6	CATEGORY:Special Ability	SOURCEPAGE:p.28	TYPE:SpecialQuality.Gift of Exaltation	DESC:Sash. A white, gossamer sash. Along the edges are runes in golden or silver stitching telling of your exploits.
+
+
+
+# Epic Progression Class Features
+Ability Score Improvement	KEY:Epic Paladin ~ Ability Score Improvement	SOURCEPAGE:p.28			SORTKEY:Class Paladin 17a	CATEGORY:Special Ability	TYPE:Paladin Class Feature.SpecialQuality.Class Feature	DESC:When you reach 21st level, and again at 25th and 29th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. Contrary to earlier levels, you can now improve your ability scores up to 24 using this feature.	BONUS:VAR|POOL_Character_Advancement_Selection|2*(PaladinLVL>=21)+(PaladinLVL>=25)+(PaladinLVL>=29)
+Improved Lay on Hands		KEY:Epic Paladin ~ Improved Lay on Hands		SOURCEPAGE:p.28			SORTKEY:Class Paladin 18a	CATEGORY:Special Ability	TYPE:Paladin Class Feature.SpecialQuality.Class Feature	DESC:Starting at 21st level, your Lay on Hands can cure curses. Upon reaching 25th level, when you use your Lay on Hands ability to heal, you also grant the healed character temporary hit points equal to half the number of hit points restored.
+Extended Spell Capacity		KEY:Epic Paladin ~ Extended Spell Capacity	SOURCEPAGE:p.28			SORTKEY:Class Paladin 19a	CATEGORY:Special Ability	TYPE:Paladin Class Feature.SpecialQuality.Class Feature	DESC:Beginning at 22nd level, you gain an additional 5th level spell slot, and at 26th level you gain a 6th and 7th level spell slot.
+Improved Divine Health		KEY:Epic Paladin ~ Improved Divine Health		SOURCEPAGE:p.28			SORTKEY:Class Paladin 20a	CATEGORY:Special Ability	TYPE:Paladin Class Feature.SpecialQuality.Class Feature	DESC:By 22nd level, the divine magic within you makes you immune to curses.
+Superior Divine Smite		KEY:Epic Paladin ~ Superior Divine Smite		SOURCEPAGE:p.28			SORTKEY:Class Paladin 21a	CATEGORY:Special Ability	TYPE:Paladin Class Feature.SpecialQuality.Class Feature	DESC:Beginning at 23rd level, the damage from your Improved Divine Smite feature increases to 3d8 radiant damage.
+Righteous Demeanor		KEY:Epic Paladin ~ Righteous Demeanor		SOURCEPAGE:p.28			SORTKEY:Class Paladin 22a	CATEGORY:Special Ability	TYPE:Paladin Class Feature.SpecialQuality.Class Feature	DESC:Starting at 24th level, your divine spirit grants you advantage on Charisma checks. You can use this feature a number of times equal to your Charisma modifier. You regain all expended charges when you finish a long rest.
+Divine Soul				KEY:Epic Paladin ~ Divine Soul			SOURCEPAGE:p.28			SORTKEY:Class Paladin 23a	CATEGORY:Special Ability	TYPE:Paladin Class Feature.SpecialQuality.Class Feature	DESC:At 24th level, your Divine Sense is always active, you can't be surprised by fiends and undead, and you always know when you hear a lie. In addition, you can use your Channel Divinity feature twice between rests.
+Sacred Oath Feature		KEY:Epic Paladin ~ Sacred Oath Feature		SOURCEPAGE:p.29			SORTKEY:Class Paladin 23a	CATEGORY:Special Ability	TYPE:Paladin Class Feature.SpecialQuality.Class Feature	DESC:Upon reaching 27th level, you gain a feature depending on your Sacred Oath.
+Extra Attack			KEY:Epic Paladin ~ Extra Attack			SOURCEPAGE:p.29			SORTKEY:Class Paladin 25a	CATEGORY:Special Ability	TYPE:Paladin Class Feature.SpecialQuality.Class Feature	DESC:Beginning at 28th level, you can attack three times whenever you take the Attack action on your turn.
+Glory					KEY:Epic Paladin ~ Glory				SOURCEPAGE:p.29			SORTKEY:Class Paladin 26a	CATEGORY:Special Ability	TYPE:Paladin Class Feature.SpecialQuality.Class Feature	DESC:By 29th level, you learn two cleric spell of your choice. The spells must be of a level for which you have spell slots. You always have these spells prepared and they count as paladin spells for you.
+Death Save Advantage		KEY:Epic Paladin ~ Death Save Advantage		SOURCEPAGE:p.29			SORTKEY:Class Paladin 27a	CATEGORY:Special Ability	TYPE:Paladin Class Feature.SpecialQuality.Class Feature	DESC:Your battle hardened physicality has made you very difficult to kill. Starting at 30th level any death saving throws you make are made with advantage.
+Exemplar				KEY:Epic Paladin ~ Exemplar				SOURCEPAGE:p.29			SORTKEY:Class Paladin 28a	CATEGORY:Special Ability	TYPE:Paladin Class Feature.SpecialQuality.Class Feature	DESC:Starting at 30th level, your connection to the divine lets you assume the form of an Exemplar. As a bonus action, you transform into a form appropriate to your Sacred Oath. For example, you could consist of pure radiant light or an ancient angelic defender of nature. Once you transform, your size becomes Large, you magically heal up to your hit point maximum, you can't be restrained by any means, and your melee weapon attacks deal an additional 18 (4d8) magical weapon damage. Your Exemplar form lasts a number of rounds equal to your Charisma modifier. Once you use this feature, you must finish a long rest before you can do so again.
+
+# Sacred Oath Feature
+CATEGORY=Special Ability|Epic Paladin ~ Sacred Oath Feature.MOD	ABILITY:Paladin Class Feature|AUTOMATIC|Epic Paladin ~ Sacred Oath Feature ~ Improved Nature's Wrath|PREABILITY:1,CATEGORY=Special Ability,Sacred Oath ~ Oath of the Ancients
+CATEGORY=Special Ability|Epic Paladin ~ Sacred Oath Feature.MOD	ABILITY:Paladin Class Feature|AUTOMATIC|Epic Paladin ~ Sacred Oath Feature ~ Improved Sacred Weapon|PREABILITY:1,CATEGORY=Special Ability,Sacred Oath ~ Oath of Devotion
+CATEGORY=Special Ability|Epic Paladin ~ Sacred Oath Feature.MOD	ABILITY:Paladin Class Feature|AUTOMATIC|Epic Paladin ~ Sacred Oath Feature ~ Improved Vow of Enmity|PREABILITY:1,CATEGORY=Special Ability,Sacred Oath ~ Oath of Vengeance
+
+
+# Sacred Oath Feature
+# Oath of the Ancients / Player's Handbook
+Improved Nature's Wrath	KEY:Epic Paladin ~ Sacred Oath Feature ~ Improved Nature's Wrath	CATEGORY:Special Ability	TYPE:SpecialQuality.Paladin Class Feature	DESC:Beginning at 27th level, your Channel Divinity: Nature's Wrath can be cast as a bonus action and the target creature has disadvantage on saving throws against it.
+# Oath of Devotion / Player's Handbook
+Improved Sacred Weapon	KEY:Epic Paladin ~ Sacred Oath Feature ~ Improved Sacred Weapon	CATEGORY:Special Ability	TYPE:SpecialQuality.Paladin Class Feature	DESC:Beginning at 27th level, your Channel Divinity: Sacred Weapon also lets you add your Charisma modifier to damage rolls with the imbued weapon.
+# Oath of Vengeance / Player's Handbook
+Improved Vow of Enmity	KEY:Epic Paladin ~ Sacred Oath Feature ~ Improved Vow of Enmity	CATEGORY:Special Ability	TYPE:SpecialQuality.Paladin Class Feature	DESC:Beginning at 27th level, your Channel Divinity: Vow of Enmity can be moved to a new target using a bonus action up to 1 minute after the original target creature is reduced to 0 hit points.
+#
+
+# Epic Ranger (PH)
+
+# Epic Rogue (PH)
+
+# Epic Shogun () - See Support
+
+# Epic Sorcerer (PH)
+
+# Epic Warlock (PH)
+
+# Epic Wizard (PH)
+
+
+
+
+
+
+###Block ~ Epic Racial
+CATEGORY=Race|Aasimar.MOD	ABILITY:Special Ability|AUTOMATIC|Aasimar ~ Celestial Inheritance|PREPCLEVEL:MIN=25
+CATEGORY=Race|Dragonborn.MOD	ABILITY:Special Ability|AUTOMATIC|Dragonborn ~ Dragon's Breath|PREPCLEVEL:MIN=25
+CATEGORY=Race|Dwarf.MOD		ABILITY:Special Ability|AUTOMATIC|Dwarf ~ Gray ~ Improved Duergar Resilience|PREPCLEVEL:MIN=25|PREABILITY:1,CATEGORY=Internal,Dwarf Subrace ~ Gray
+CATEGORY=Race|Dwarf.MOD		ABILITY:Special Ability|AUTOMATIC|Dwarf ~ Hill ~ Improved Dwarven Toughness|PREPCLEVEL:MIN=25|PREABILITY:1,CATEGORY=Internal,Dwarf Subrace ~ Hill
+CATEGORY=Race|Dwarf.MOD		ABILITY:Special Ability|AUTOMATIC|Dwarf ~ Mountain ~ Dwarven Armor Mastery|PREPCLEVEL:MIN=25|PREABILITY:1,CATEGORY=Internal,Dwarf Subrace ~ Mountain
+
+Celestial Inheritance		KEY:Aasimar ~ Celestial Inheritance				CATEGORY:Special Ability	DESC:You can use your Radiant Soul, Radiant Consumption, or Necrotic Shroud trait twice between rests.
+Dragon's Breath			KEY:Dragonborn ~ Dragon's Breath				CATEGORY:Special Ability	DESC:Your Breath Weapon deals twice as much damage, and you can use it twice between rests.
+Improved Duergar Resilience	KEY:Dwarf ~ Gray ~ Improved Duergar Resilience		CATEGORY:Special Ability	DESC:You are immune to the charmed and paralyzed conditions.
+Improved Dwarven Toughness	KEY:Dwarf ~ Hill ~ Improved Dwarven Toughness		CATEGORY:Special Ability	DESC:Your hit point maximum increases by 25.
+Dwarven Armor Mastery		KEY:Dwarf ~ Mountain ~ Dwarven Armor Mastery		CATEGORY:Special Ability	DESC:You gain proficiency with heavy armor and your AC increases by 1 while wearing armor.
+
+#CATEGORY=Race|Dwarf.MOD		 ~ Korobokuru
+#CATEGORY=Race|Elf.MOD			 ~ Dark
+#CATEGORY=Race|Elf.MOD			 ~ High
+#CATEGORY=Race|Elf.MOD			 ~ Wood
+#CATEGORY=Race|Firbolg.MOD
+#CATEGORY=Race|Genasi.MOD		 ~ Air
+#CATEGORY=Race|Genasi.MOD		 ~ Earth
+#CATEGORY=Race|Genasi.MOD		 ~ Fire
+#CATEGORY=Race|Genasi.MOD		 ~ Water
+#CATEGORY=Race|Gnome.MOD		 ~ Deep
+#CATEGORY=Race|Gnome.MOD		 ~ Forrest
+#CATEGORY=Race|Gnome.MOD		 ~ Rock
+#CATEGORY=Race|Goliath.MOD
+#CATEGORY=Race|Half-Elf.MOD
+#CATEGORY=Race|Halfling.MOD		 ~ Ghostwise
+#CATEGORY=Race|Halfling.MOD		 ~ Lightfoot
+#CATEGORY=Race|Halfling.MOD		 ~ Stout
+#CATEGORY=Race|Half-Orc.MOD
+#CATEGORY=Race|Hakuma.MOD
+#CATEGORY=Race|Hengeyokai.MOD
+#CATEGORY=Race|Human.MOD
+#CATEGORY=Race|Kenku.MOD
+#CATEGORY=Race|Lizardfolk.MOD
+#CATEGORY=Race|Nezumi.MOD		 ~ Cotton
+#CATEGORY=Race|Nezumi.MOD		 ~ Dusky
+#CATEGORY=Race|Nezumi.MOD		 ~ Pale
+#CATEGORY=Race|Serafu.MOD
+#CATEGORY=Race|Spirit Folk.MOD	 ~ Bamboo
+#CATEGORY=Race|Spirit Folk.MOD	 ~ Mountain
+#CATEGORY=Race|Spirit Folk.MOD	 ~ River
+#CATEGORY=Race|Tabaxi.MOD
+#CATEGORY=Race|Triton.MOD
+#CATEGORY=Race|Tortle.MOD
+#CATEGORY=Race|Venara.MOD
+#
+#
+#Bugbear
+#Goblin
+#Hobgoblin
+#Hsing-sing
+#Kappa
+#Kobold
+#Orc
+#Taka-onna
+#Tengu
+#Tsuno Aberrand
+#Twilight Naga Exile
+#Wang-liang
+#Yuan-ti
+#
+
+
+
+
+
+
